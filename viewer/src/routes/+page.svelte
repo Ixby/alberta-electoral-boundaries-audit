@@ -15,125 +15,10 @@
   <link rel="apple-touch-icon" href="{base}/favicon.svg">
 </svelte:head>
 
-<svelte:window onkeydown={handleWindowKeydown} />
-
 <script lang="ts">
-  import { onMount, onDestroy, tick } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { base } from '$app/paths';
-  type MapEngineModule = Awaited<typeof import('$lib/mapEngine')>;
-  let _ME: MapEngineModule | null = null;
-  let _mePromise: Promise<void> | null = null;
-  let _pendingState: Pick<MapState, 'primary' | 'mapOn' | 'layers'> | null = null;
-
-  // Push the current language's engine strings into the framework-free
-  // map engine. Called at engine init and again on every language switch.
-  async function _syncEngineStrings(): Promise<void> {
-    const { setEngineStrings } = await import('$lib/mapEngine/strings');
-    setEngineStrings({
-      votesSuffix:       t(lang.current, 'chrome.map.votes_suffix'),
-      totalVotesSuffix:  t(lang.current, 'chrome.map.total_votes_suffix'),
-      popPrefix:         t(lang.current, 'chrome.map.pop_prefix'),
-      votingAreasSuffix: t(lang.current, 'chrome.map.voting_areas_suffix'),
-      otherMaps:         t(lang.current, 'chrome.map.other_maps'),
-      uniqueBoundary:    t(lang.current, 'chrome.map.unique_boundary'),
-      inPersonVotes:     t(lang.current, 'chrome.map.in_person_votes'),
-      loadErrorGeneric:  t(lang.current, 'chrome.map.load_error_generic'),
-      loadErrorMap:      t(lang.current, 'chrome.map.load_error_map'),
-      contextMinority:   t(lang.current, 'chrome.map.context_minority'),
-      contextMajority:   t(lang.current, 'chrome.map.context_majority'),
-      context2019:       t(lang.current, 'chrome.map.context_2019'),
-      tagMin:            t(lang.current, 'chrome.map.tag_min'),
-      tagMaj:            t(lang.current, 'chrome.map.tag_maj'),
-      tag2019:           t(lang.current, 'chrome.map.tag_2019'),
-    });
-  }
-
-  async function ensureMapLoaded(): Promise<void> {
-    if (_ME) return;
-    if (!_mePromise) {
-      _mePromise = (async () => {
-        await _syncEngineStrings();
-        _ME = await import('$lib/mapEngine');
-        _ME.init(base);
-        const obj = document.getElementById('zoom-obj') as HTMLObjectElement;
-        if (obj) obj.data = `${base}/images/cover_art_2019_hires.svg`;
-        _ME.onEvent(() => { _scheduleCodeRefresh(); });
-        if (_pendingState) {
-          _ME.applyState(_pendingState.primary, _pendingState.mapOn, _pendingState.layers);
-          _pendingState = null;
-        }
-      })();
-    }
-    return _mePromise;
-  }
-
-  // ── Renderer selection (deck.gl vs SVG fallback) ──────────────────────────
-  // useDeck is decided ONCE in onMount (browser only). During SSR/prerender it
-  // stays false, so the SVG markup (#zoom-obj + skeleton) is what gets emitted —
-  // the deck.gl path never runs at build time. ?nowebgl=1 forces the SVG path.
-  let useDeck      = $state(false);   // true → render DeckExplorer in the stage
-  let deckOverlayOpen = $state(false); // true → DeckExplorer is mounted + visible
-  // Gates the hero launch button. Stays false through SSR and the hydration gap
-  // so the first click can never land on an unbound handler (the "double-click to
-  // open" bug). Flipped true in onMount the instant the renderer choice is known —
-  // BEFORE any preference-loading awaits, so a slow/rejecting await can never leave
-  // the button stuck disabled.
-  let explorerReady = $state(false);
-  let deckInitialPoi = $state<string | null>(null); // FLAGS id to focus when the deck mounts (?poi deep link)
-  let _deckTrapCleanup: (() => void) | null = null;
-
-  // Open the existing #zoom-overlay shell for the deck path. mapEngine.init()
-  // (which wires close/Esc/focus-trap for the SVG path) is intentionally NOT
-  // called here, so we replicate the shell behaviour ourselves: show the
-  // dialog, lock body scroll, mount DeckExplorer via the {#if}, and install a
-  // focus trap whose Escape handler closes the deck path.
-  function openDeck(): void {
-    const overlay = document.getElementById('zoom-overlay');
-    if (!overlay) return;
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    deckOverlayOpen = true;
-    // Trap focus inside the overlay; Escape closes the deck path.
-    // (Imperative, not the use:focusTrap action — keeps it deck-only so it can
-    //  never collide with overlay.ts's own Tab trap on the SVG path.)
-    _deckTrapCleanup = createFocusTrap(overlay as HTMLElement, closeDeck);
-  }
-
-  function closeDeck(): void {
-    if (_deckTrapCleanup) { _deckTrapCleanup(); _deckTrapCleanup = null; }
-    const overlay = document.getElementById('zoom-overlay');
-    if (overlay) overlay.style.display = 'none';
-    document.body.style.overflow = '';
-    deckOverlayOpen = false; // unmounts DeckExplorer → its onMount cleanup runs deckgl.finalize()
-  }
-
-  async function handleZoomTrigger(e: Event): Promise<void> {
-    e.preventDefault();
-    // Guard: until the page has hydrated and the renderer choice is known, the
-    // button is presented as busy (aria-disabled) and clicks are ignored — so a
-    // click can never land on a not-yet-wired handler (the double-click bug).
-    if (!explorerReady) return;
-    if (useDeck) {
-      // WebGL path: deck.gl explorer in the shared shell. Do NOT load/open the
-      // SVG engine in this branch. A hero-button open is not a deep link, so
-      // clear any ?poi focus left from an earlier auto-open.
-      deckInitialPoi = null;
-      openDeck();
-      return;
-    }
-    // Fallback path (no WebGL or ?nowebgl=1): the production inline-SVG engine.
-    await ensureMapLoaded();
-    _ME?.openOverlay();
-  }
-
-  // Re-inject engine strings whenever the language changes after the
-  // engine has loaded (callouts and error messages re-render with the
-  // new language on next interaction; the context line updates on next
-  // map switch).
-  $effect(() => {
-    void lang.current;
-    if (_ME) void _syncEngineStrings();
-  });
+  import { goto } from '$app/navigation';
 
   // "About this translation" help sentence: split the %s link placeholder
   // and inject the live prose word count, mirroring the top disclaimer.
@@ -147,17 +32,13 @@
     if (idx < 0) return { pre: raw, label, post: '' };
     return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
   });
-  import { encodeState, decodeState, setOrigin, saveShare, type MapState } from '$lib/share';
-  import { getStoredTheme, storeTheme, getLastCode, storeLastCode } from '$lib/prefs';
+  import { getStoredTheme, storeTheme } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import Gloss from '$lib/components/Gloss.svelte';
-  import { focusTrap, createFocusTrap } from '$lib/a11y/focusTrap';
-  import DeckExplorer from '$lib/DeckExplorer.svelte';
-  import { hasWebGL } from '$lib/deckExplorer/webglSupport';
-  import { FLAGS } from '$lib/deckExplorer/pois';
+  import { focusTrap } from '$lib/a11y/focusTrap';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
 
   // Cleanups for the cookieless analytics instrumentation (engaged-time + scroll
@@ -183,110 +64,6 @@
     if (!navOpen) return;
     navOpen = false;
   }
-  let showSharePanel    = $state(false);
-  let shareCode         = $state('');
-  let loadInput         = $state('');
-  let copyState         = $state<'idle' | 'copied' | 'failed'>('idle');
-  let loadErrorKey      = $state<'' | 'unrecognised'>('');
-  const copyLabel       = $derived(
-    copyState === 'copied' ? t(lang.current, 'chrome.share.copied')
-    : copyState === 'failed' ? t(lang.current, 'chrome.share.copy_failed')
-    : t(lang.current, 'chrome.share.copy')
-  );
-  const loadError       = $derived(
-    loadErrorKey === 'unrecognised' ? t(lang.current, 'chrome.share.unrecognised') : ''
-  );
-
-  function _generateCode() {
-    const s = _ME ? _ME.getState() : null;
-    shareCode = s ? (encodeState(s) ?? '—') : '—';
-    if (shareCode !== '—' && s) { saveShare(shareCode, s); storeLastCode(shareCode); }
-  }
-
-  function toggleSharePanel() {
-    showSharePanel = !showSharePanel;
-    if (showSharePanel) {
-      _generateCode(); loadErrorKey = '';
-      tick().then(() => {
-        const panel = document.getElementById('share-panel');
-        const first = panel?.querySelector('button, input') as HTMLElement | null;
-        first?.focus();
-      });
-    }
-  }
-
-  function closeSharePanel() { showSharePanel = false; }
-
-  function handleWindowKeydown(e: KeyboardEvent) {
-    if (e.key === 'Escape' && showSharePanel) closeSharePanel();
-  }
-
-  async function copyCode() {
-    if (!shareCode || shareCode === '—') return;
-    try {
-      await navigator.clipboard.writeText(shareCode);
-      copyState = 'copied';
-    } catch {
-      copyState = 'failed';
-    }
-    setTimeout(() => { copyState = 'idle'; }, 2000);
-  }
-
-  function loadShare() {
-    const trimmed = loadInput.trim();
-    if (!trimmed) return;
-    const decoded = decodeState(trimmed);
-    if (!decoded) { loadErrorKey = 'unrecognised'; return; }
-    if (_ME) { _ME.applyState(decoded.primary, decoded.mapOn, decoded.layers); }
-    else { _pendingState = { primary: decoded.primary, mapOn: decoded.mapOn, layers: decoded.layers }; }
-    setOrigin(trimmed.toLowerCase().trim());
-    showSharePanel = false;
-    loadInput  = '';
-    loadErrorKey = '';
-  }
-
-  // Map Explorer development notice — dismissible per session. It returns
-  // next session deliberately: the tool is genuinely changing day to day,
-  // and a user who dismissed it last week deserves the reminder.
-  let devNoticeDismissed = $state(false);
-  if (typeof sessionStorage !== 'undefined') {
-    devNoticeDismissed = sessionStorage.getItem('map_dev_notice_dismissed') === '1';
-  }
-  function dismissDevNotice() {
-    devNoticeDismissed = true;
-    try { sessionStorage.setItem('map_dev_notice_dismissed', '1'); } catch {}
-  }
-  const devNoticeParts = $derived.by(() => {
-    const raw = t(lang.current, 'chrome.map.dev_notice');
-    const label = t(lang.current, 'chrome.map.dev_notice_email_label');
-    const idx = raw.indexOf('%s');
-    if (idx < 0) return { pre: raw, label, post: '' };
-    return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
-  });
-
-  // Loading-skeleton phrases, translated. $derived so a language switch
-  // mid-load updates the cycling phrase live.
-  const _skelPhrases = $derived([
-    t(lang.current, 'chrome.map.skel_1'), t(lang.current, 'chrome.map.skel_2'),
-    t(lang.current, 'chrome.map.skel_3'), t(lang.current, 'chrome.map.skel_4'),
-    t(lang.current, 'chrome.map.skel_5'), t(lang.current, 'chrome.map.skel_6'),
-  ]);
-  let skelPhrase = $state('');
-  let _skelIdx = 0;
-
-  let _codeRefreshTimer: ReturnType<typeof setTimeout> | null = null;
-
-  function _scheduleCodeRefresh() {
-    if (_codeRefreshTimer) clearTimeout(_codeRefreshTimer);
-    _codeRefreshTimer = setTimeout(() => {
-      _codeRefreshTimer = null;
-      const s = _ME ? _ME.getState() : null;
-      const code = s ? (encodeState(s) ?? null) : null;
-      if (!code || !s) return;
-      storeLastCode(code);
-      if (showSharePanel) { shareCode = code; saveShare(code, s); }
-    }, 200);
-  }
 
   onDestroy(() => {
     for (const fn of _analyticsCleanups) fn();
@@ -294,6 +71,16 @@
   });
 
   onMount(async () => {
+
+    // ── Back-compat: forward old ?poi=<id> deep links to the explorer route ───
+    // The map moved to /explorer. A bare /?poi=X link (shared before the move)
+    // is redirected there so the pin still focuses. Return early so the rest of
+    // the report-page setup is skipped for that navigation.
+    const poiParam = new URLSearchParams(location.search).get('poi');
+    if (poiParam) {
+      goto((base || '') + '/explorer?poi=' + encodeURIComponent(poiParam));
+      return;
+    }
 
     // ── Cookieless analytics ────────────────────────────────────────────────
     // Fire the pageview, set up engaged-time + scroll-depth reporting, and
@@ -322,60 +109,6 @@
         'references'             // apparatus
       ])
     );
-
-    // Pick the map renderer once, in the browser: deck.gl when WebGL is
-    // available and ?nowebgl=1 is absent; otherwise the inline-SVG engine.
-    // (Decided on mount so prerender always emits the SVG markup.)
-    useDeck = hasWebGL(new URLSearchParams(location.search).has('nowebgl'));
-
-    // ── Deep link: ?poi=<id> auto-opens the explorer focused on that pin ───────
-    // Only the deck path supports POI focus. When WebGL is available and the id
-    // matches a known FLAGS pin, open the overlay with that pin set as the deck's
-    // initialPoi. On the SVG fallback we leave the page as-is (no error) — the
-    // inline-SVG engine has no POI concept, so the deep link simply lands on the
-    // page without opening the overlay.
-    const poiParam = new URLSearchParams(location.search).get('poi');
-    if (poiParam && useDeck && FLAGS.some((f) => f.id === poiParam)) {
-      deckInitialPoi = poiParam;
-      openDeck();
-    }
-
-    // Renderer choice is now known and both open paths (deck / SVG fallback) are
-    // wired. Enable the launch button. Done here — before the preference awaits
-    // below — so a slow or rejecting await can never leave the button disabled.
-    explorerReady = true;
-
-    // Idle-prefetch the deck.gl chunk so the eventual overlay-open import resolves
-    // from cache. Browser-only, deck-path only, fire-and-forget; never blocks the
-    // critical path and swallows all errors. Specifiers are byte-identical to
-    // DeckExplorer's dynamic imports so Vite serves the same cached chunk.
-    // PROD-ONLY: in dev, importing deck.gl early makes Vite re-optimize deps and
-    // full-reload the page (bouncing the user to root). Prod has a pre-built chunk,
-    // so the warm is harmless there and pointless to attempt in dev.
-    if (useDeck && import.meta.env.PROD) {
-      const warmDeck = () => {
-        Promise.all([
-          import('@deck.gl/core'),
-          import('@deck.gl/layers'),
-          import('@deck.gl/extensions')
-        ]).catch(() => {});
-      };
-      if ('requestIdleCallback' in window) requestIdleCallback(warmDeck);
-      else setTimeout(warmDeck, 1200);
-    }
-
-    // ── Session resume ────────────────────────────────────────────────────────
-    const lastCode = await getLastCode();
-    if (lastCode) {
-      const lastState = decodeState(lastCode);
-      if (lastState) { _pendingState = { primary: lastState.primary, mapOn: lastState.mapOn, layers: lastState.layers }; setOrigin(lastCode); }
-    }
-
-    // ── Skeleton phrase cycling ───────────────────────────────────────────────
-    setInterval(() => {
-      _skelIdx = (_skelIdx + 1) % _skelPhrases.length;
-      skelPhrase = _skelPhrases[_skelIdx];
-    }, 2800);
 
     // ── Dark mode — respects OS preference; user override persisted in cookie ──
     const storedTheme = await getStoredTheme();
@@ -598,7 +331,7 @@
       <span class="badge">{t(lang.current, 'hero.badge')}</span>
       <p class="cover-note">{t(lang.current, 'hero.cover_note')}</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" class:is-loading={!explorerReady} title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')} aria-disabled={!explorerReady} aria-busy={!explorerReady} onclick={handleZoomTrigger}>
+    <a id="zoom-trigger" href="{base}/explorer" class="hero-map-btn" title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')}>
       <div class="hero-map-wrap">
         <picture>
           <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
@@ -607,7 +340,7 @@
         <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
         <div class="hero-map-hint">{t(lang.current, 'hero.map_hint')}</div>
       </div>
-    </button>
+    </a>
   </div>
 </header>
 
@@ -831,7 +564,7 @@
     </div>
 
     <p style="text-align:center; margin: 0.2rem 0 1.1rem;">
-      <button class="anomaly-trigger" data-anomaly="airdrie">{t(lang.current, 'body.cpd.airdrie_btn')}</button>
+      <a class="anomaly-trigger" href="{base}/explorer?poi=airdrie-split">{t(lang.current, 'body.cpd.airdrie_btn')}</a>
     </p>
 
     <p>{@html t(lang.current, 'body.cpd.anchoring_p')}</p>
@@ -1454,184 +1187,6 @@
   <img id="fig-lightbox-img" alt="">
 </div>
 
-<!-- Zoom overlay -->
-<div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
-  {#if !useDeck}
-    <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')} onclick={() => { if (useDeck) closeDeck(); }}>&times;</button>
-  {/if}
-  {#if !useDeck}
-  <div id="hud">
-  {#if !devNoticeDismissed}
-    <div id="map-dev-notice" role="note">
-      <span aria-hidden="true" class="mdn-icon"
-        onclick={(e) => { e.currentTarget.parentElement?.classList.toggle('mdn-expanded'); }}
-        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.parentElement?.classList.toggle('mdn-expanded'); } }}
-        role="button" tabindex="0">🚧</span>
-      <span class="mdn-msg">{devNoticeParts.pre}<a href="mailto:wconn161@mtroyal.ca">{devNoticeParts.label}</a>{devNoticeParts.post}</span>
-      <button class="mdn-dismiss" onclick={dismissDevNotice} aria-label={t(lang.current, 'chrome.map.dev_notice_dismiss')}>&times;</button>
-    </div>
-  {/if}
-  <div id="top-bar">
-    <div class="tb-group">
-      <button class="tb-btn" data-map="minority">{t(lang.current, 'chrome.map.minority')}</button>
-      <button class="tb-btn" data-map="majority">{t(lang.current, 'chrome.map.majority')}</button>
-      <button class="tb-btn tb-map-primary" data-map="2019">{t(lang.current, 'chrome.map.current')}</button>
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-group">
-      <button class="tb-btn" data-layer="eg" title={t(lang.current, 'chrome.map.wasted_title')}>{t(lang.current, 'chrome.map.wasted')}</button>
-      <button class="tb-btn" data-layer="ed-fill" title={t(lang.current, 'chrome.map.partisan_title')}>{t(lang.current, 'chrome.map.partisan')}</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-lines">{t(lang.current, 'chrome.map.borders')}</button>
-    </div>
-    <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie" title={t(lang.current, 'chrome.map.flagged_title')}>{t(lang.current, 'chrome.map.flagged')}</button>
-    <div class="tb-sep"></div>
-    <button class="tb-btn tb-help-btn" id="tb-help-btn" aria-label={t(lang.current, 'chrome.map.help_aria')} title={t(lang.current, 'chrome.map.help_title')}>?</button>
-    <div class="tb-sep"></div>
-    <button class="tb-btn tb-pin-btn" data-layer="lock" title={t(lang.current, 'chrome.map.pin_title')} aria-label={t(lang.current, 'chrome.map.pin_aria')}>
-      <svg class="pin-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
-        <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.9 5.9 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182a.5.5 0 0 1-.707-.707l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.9 5.9 0 0 1 1.013.16l3.134-3.133a3 3 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146"/>
-      </svg>
-    </button>
-    <div class="tb-sep"></div>
-    <div id="tb-search-wrap">
-      <input id="tb-search" type="search" aria-label={t(lang.current, 'chrome.map.search_aria')} placeholder={t(lang.current, 'chrome.map.search_placeholder')} autocomplete="off" spellcheck="false">
-      <ul id="tb-search-results"></ul>
-    </div>
-    <div class="tb-sep"></div>
-    <div id="ec-zoom-section">
-      <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="25" max="50000" step="5" value="100" aria-label={t(lang.current, 'chrome.map.zoom_aria')}>
-    </div>
-    <button id="ec-close" class="tb-btn tb-close-btn" aria-label={t(lang.current, 'chrome.map.clear_aria')} title={t(lang.current, 'chrome.map.clear_title')}>&times;</button>
-  </div>
-  <div id="tb-share-wrap">
-    <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title={t(lang.current, 'chrome.share.button_title')}>{t(lang.current, 'chrome.share.button')}</button>
-    {#if showSharePanel}
-    <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
-    <div id="share-panel" role="dialog" aria-label={t(lang.current, 'chrome.share.dialog_aria')} aria-modal="true" tabindex="-1"
-         onkeydown={(e: KeyboardEvent) => {
-           if (e.key !== 'Tab') return;
-           const focusable = Array.from(document.getElementById('share-panel')?.querySelectorAll('button, input') ?? []) as HTMLElement[];
-           if (!focusable.length) return;
-           const first = focusable[0], last = focusable[focusable.length - 1];
-           if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-           else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
-         }}>
-      <button class="share-close" onclick={closeSharePanel} aria-label={t(lang.current, 'chrome.share.close_aria')}>✕</button>
-      <div class="share-section">
-        <div class="share-label">{t(lang.current, 'chrome.share.share_label')}</div>
-        <div class="share-code-row">
-          <span class="share-code">{shareCode}</span>
-          <button class="share-action-btn" onclick={copyCode}>{copyLabel}</button>
-        </div>
-        <div class="share-hint">{t(lang.current, 'chrome.share.share_hint')}</div>
-      </div>
-      <div class="share-divider"></div>
-      <div class="share-section">
-        <div class="share-label">{t(lang.current, 'chrome.share.load_label')}</div>
-        <div class="share-load-row">
-          <input
-            class="share-load-input"
-            type="text"
-            placeholder={t(lang.current, 'chrome.share.load_placeholder')}
-            bind:value={loadInput}
-            onkeydown={(e) => { if (e.key === 'Enter') loadShare(); }}
-            spellcheck="false"
-            autocomplete="off"
-          />
-          <button class="share-action-btn" onclick={loadShare}>{t(lang.current, 'chrome.share.load_btn')}</button>
-        </div>
-        {#if loadError}<div class="share-error">{loadError}</div>{/if}
-      </div>
-    </div>
-    {/if}
-  </div>
-  <!-- ed-callout — only shown when an ED is selected -->
-  <div id="ed-callout" aria-live="polite">
-    <div id="ec-ed-section">
-      <div id="ec-name"></div>
-      <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
-      <div id="ec-split">
-        <div class="ec-party ec-ucp">
-          <span class="ec-pct" id="ec-ucp-pct"></span>
-          <span class="ec-party-name">UCP</span>
-          <span class="ec-votes" id="ec-ucp-votes"></span>
-        </div>
-        <div class="ec-party ec-ndp">
-          <span class="ec-pct" id="ec-ndp-pct"></span>
-          <span class="ec-party-name">NDP</span>
-          <span class="ec-votes" id="ec-ndp-votes"></span>
-        </div>
-      </div>
-      <div id="ec-meta">
-        <span id="ec-total-votes"></span>
-        <span class="ec-meta-sep">·</span>
-        <span id="ec-pop"></span>
-      </div>
-      <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
-      <div id="ec-context"></div>
-      <div id="ec-compare"></div>
-      <div id="ec-va-hint" style="display:none;">{t(lang.current, 'chrome.map.va_hint')}</div>
-    </div>
-  </div>
-  <div id="va-callout" aria-live="polite">
-    <div id="vc-name"></div>
-    <div id="vc-bar"><div id="vc-ucp-bar"></div><div id="vc-ndp-bar"></div></div>
-    <div id="vc-split">
-      <div class="vc-party vc-ucp">
-        <span class="vc-pct" id="vc-ucp-pct"></span>
-        <span class="vc-party-name">UCP</span>
-      </div>
-      <div class="vc-party vc-ndp">
-        <span class="vc-pct" id="vc-ndp-pct"></span>
-        <span class="vc-party-name">NDP</span>
-      </div>
-    </div>
-    <span id="vc-total"></span>
-    <button id="vc-close" aria-label={t(lang.current, 'chrome.map.va_close_aria')} title={t(lang.current, 'chrome.map.va_close_title')}>&times;</button>
-  </div>
-  <div id="map-load-error" style="display:none;"></div>
-  </div><!-- /#hud -->
-  {/if}
-  <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
-  <div id="zoom-stage">
-    {#if useDeck}
-      {#if deckOverlayOpen}
-        <DeckExplorer base={base} initialPoi={deckInitialPoi} onClose={closeDeck} />
-      {/if}
-    {:else}
-    <div id="zoom-skeleton" aria-hidden="true">
-      <!-- Alberta province outline — 31-pt RDP simplification, perimeter ≈ 1872 SVG units -->
-      <div class="skel-inner">
-        <svg class="skel-province-svg" viewBox="0 0 368 651" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <filter id="skel-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <path class="skel-province-bg"   d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
-          <path class="skel-province-glow" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
-          <path class="skel-province-shine" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
-        </svg>
-        <div class="skel-phrase">{skelPhrase || _skelPhrases[0]}</div>
-      </div>
-    </div>
-    <object id="zoom-obj" type="image/svg+xml" data=""
-      title={t(lang.current, 'chrome.map.object_title')}></object>
-    {/if}
-  </div>
-  <div id="ed-tooltip"></div>
-  <div id="map-attribution">
-    <span id="map-ea-credit">{t(lang.current, 'chrome.map.ea_credit')} <a href="https://www.elections.ab.ca/resources/maps/" target="_blank" rel="noopener">Elections Alberta</a></span>
-    <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title={t(lang.current, 'chrome.map.cc_title')}>
-      <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt={t(lang.current, 'chrome.map.cc_alt')} width="80" height="15">
-    </a>
-    <span id="map-cc-owner">2026 Will Conner</span>
-  </div>
-</div>
-
 <footer>
   <div class="container">
     {t(lang.current, 'chrome.footer.title')}<br>
@@ -1644,24 +1199,6 @@
     <a href="{base}/privacy-policy">{t(lang.current, 'chrome.participation.privacy_policy')}</a>
   </div>
 </footer>
-
-<!-- Map onboarding modal — shown once per session via sessionStorage; logic in mapEngine.ts -->
-<div id="map-intro-modal" role="dialog" aria-modal="true" aria-labelledby="map-intro-heading" style="display:none;">
-  <div id="map-intro-inner">
-    <h3 id="map-intro-heading">{t(lang.current, 'chrome.map_intro.heading')}</h3>
-    <ul>
-      <li><strong>{t(lang.current, 'chrome.map_intro.click_district')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_district_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.click_within')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_within_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.dblclick')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.dblclick_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.layers_primary')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.layers_primary_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.layers_data')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.layers_data_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.search')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.search_desc')}</li>
-      <li><strong>{t(lang.current, 'chrome.map_intro.escape')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.escape_desc')}</li>
-    </ul>
-    <p style="margin:0 0 0.9rem; font-size:0.9rem;">{@html t(lang.current, 'chrome.map_intro.s4_tip')}</p>
-    <button id="map-intro-close">{t(lang.current, 'chrome.map_intro.got_it')}</button>
-  </div>
-</div>
 
 <style>
   /* --- Editorial blocks: opener, stakes, boundary card, sections 1/5/6/7 --- */
@@ -2615,25 +2152,6 @@
       .findings-grid { grid-template-columns: 1fr; }
     }
 
-#zoom-overlay {
-    position: fixed; inset: 0; z-index: 9000;
-    background: rgba(0,0,0,0.92);
-    width: 100dvw; height: 100dvh;
-  }
-  #map-attribution {
-    position: absolute; bottom: 0.6rem; inset-inline-end: 0.8rem;
-    z-index: 9003; opacity: 0.55; transition: opacity 0.15s;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  #map-attribution:hover { opacity: 1; }
-  #map-ea-credit {
-    font-size: 0.6rem; color: rgba(255,255,255,0.8);
-    white-space: nowrap;
-  }
-  #map-ea-credit a { color: rgba(255,255,255,0.9); text-decoration: underline; }
-  #map-cc-badge { display: block; line-height: 0; }
-  #map-cc-badge img { display: block; }
-  #map-cc-owner { font-size: 0.6rem; color: rgba(255,255,255,0.7); white-space: nowrap; }
   /* Expandable detail panels — follow visual language */
   :global(details.audit-detail) {
     margin: 0.8rem 0 1rem;
@@ -2669,353 +2187,10 @@
     border-start-start-radius: 0; border-start-end-radius: 4px; border-end-end-radius: 4px; border-end-start-radius: 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
     font-size: 0.86rem; line-height: 1.5; color: var(--text);
   }
-  #zoom-stage {
-    position: absolute; inset: 0;
-    overflow: hidden;
-    cursor: grab;
-    touch-action: none;
-    will-change: transform;
-  }
-  #zoom-stage.dragging { cursor: grabbing; }
-  /* Loading skeleton — shimmering Alberta province outline */
-  #zoom-skeleton {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    pointer-events: none; z-index: 2;
-    background: #0d1a26;
-  }
-  #zoom-skeleton.hidden { display: none; }
-  .skel-inner {
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    height: 55%; max-width: 36%;
-  }
-  .skel-province-svg { height: 100%; width: auto; }
-  .skel-province-bg {
-    fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 3;
-    stroke-linejoin: round; stroke-linecap: round;
-  }
-  .skel-province-glow {
-    fill: none; stroke: #FFBE00; stroke-width: 12;
-    stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 12 362;
-    stroke-dashoffset: 1872;
-    opacity: 0.22;
-    filter: url(#skel-glow);
-    animation: skel-race 4.5s linear infinite;
-  }
-  .skel-province-shine {
-    fill: none; stroke: #FFBE00; stroke-width: 2.5;
-    stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 5 369;
-    stroke-dashoffset: 1872;
-    animation: skel-race 4.5s linear infinite;
-  }
-  @keyframes skel-race {
-    from { stroke-dashoffset: 1872; }
-    to   { stroke-dashoffset: 0; }
-  }
-  .skel-phrase {
-    position: absolute; top: 48%; left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255,255,255,0.78);
-    font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-    font-style: italic; font-size: 1.05rem;
-    text-align: center; pointer-events: none; white-space: normal; max-width: 88%;
-    text-shadow: 0 0 14px rgba(255,190,0,0.45), 0 0 30px rgba(255,190,0,0.2);
-  }
-  #zoom-obj {
-    position: absolute; display: block; border: 0;
-  }
-  #zoom-close {
-    position: fixed; top: 1rem; inset-inline-end: 1.4rem; z-index: 9001;
-    background: none; border: none;
-    color: #fff; font-size: 2.4rem; line-height: 1;
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; opacity: 0.7;
-    transition: opacity 0.15s;
-  }
-  #zoom-close:hover { opacity: 1; }
-  /* Mobile: smaller close button so it doesn't overlap the BORDERS chip */
-  @media (max-width: 600px) {
-    #zoom-close { top: 0.5rem; inset-inline-end: 0.6rem; font-size: 1.6rem; }
-  }
-  #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: end; }
-  #ed-tooltip {
-    display: none; position: fixed; z-index: 9002;
-    background: rgba(10,10,10,0.88);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 6px; padding: 0.45rem 0.7rem;
-    color: #fff; font-size: 0.76rem; line-height: 1.65;
-    pointer-events: none; backdrop-filter: blur(4px);
-    white-space: nowrap;
-  }
-  #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
-  /* ── HUD: stacks top-bar + info-bar as a column ─────────────────────────── */
-  #hud {
-    position: absolute;
-    top: 10px; inset-inline-start: 10px; inset-inline-end: 52px;
-    z-index: 9002;
-    display: flex; flex-direction: column; gap: 5px;
-    pointer-events: none;
-
-    /* Mobile: hug the edges and tighten gaps so the map gets more screen */
-    @media (max-width: 600px) {
-      top: 6px; inset-inline-start: 6px; inset-inline-end: 36px;  /* clears the smaller mobile close button */
-      gap: 3px;
-    }
-  }
-  #hud > * { pointer-events: auto; }
-  /* Map Explorer development notice — amber strip at the top of the HUD */
-  #map-dev-notice {
-    display: flex; align-items: flex-start; gap: 7px;
-    background: rgba(120, 84, 10, 0.92);
-    border: 1px solid rgba(255, 200, 60, 0.35);
-    border-radius: 8px;
-    padding: 5px 9px;
-    color: rgba(255, 240, 210, 0.95);
-    font-size: 0.72rem; line-height: 1.45;
-    backdrop-filter: blur(8px);
-  }
-  #map-dev-notice .mdn-icon { flex: 0 0 auto; font-size: 0.85em; }
-  #map-dev-notice .mdn-msg { flex: 1 1 auto; }
-  #map-dev-notice a { color: inherit; text-decoration: underline; font-weight: 600; }
-  #map-dev-notice .mdn-dismiss {
-    flex: 0 0 auto;
-    background: none; border: none; cursor: pointer;
-    color: rgba(255, 240, 210, 0.7); font-size: 1rem; line-height: 1;
-    padding: 0 2px;
-  }
-  #map-dev-notice .mdn-dismiss:hover { color: #fff; }
-
-  /* Mobile: collapse dev notice into a compact pill */
-  @media (max-width: 600px) {
-    #map-dev-notice {
-      gap: 5px;
-      padding: 4px 7px;
-      font-size: 0.66rem;
-      line-height: 1.3;
-      align-items: center;
-    }
-    /* Two-state mobile dev notice: tap the icon to expand the message */
-    #map-dev-notice:not(.mdn-expanded) .mdn-msg { display: none; }
-    #map-dev-notice:not(.mdn-expanded)::after {
-      content: 'BETA — tap for details';
-      flex: 1 1 auto;
-      color: rgba(255, 230, 180, 0.85);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.6rem;
-    }
-    #map-dev-notice.mdn-expanded::after { display: none; }
-    #map-dev-notice .mdn-icon { cursor: pointer; }
-  }
-  /* ── Unified top bar ─────────────────────────────────────────────────────── */
-  #top-bar {
-    display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
-    background: rgba(10,12,18,0.88);
-    border-radius: 10px; padding: 5px 8px;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-  .tb-group { display: flex; gap: 4px; align-items: center; }
-  .tb-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.12); margin: 0 2px; flex-shrink: 0; }
-  .tb-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.55);
-    font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-    padding: 6px 12px; border-radius: 6px; cursor: pointer;
-    transition: background 0.13s, color 0.13s, border-color 0.13s;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
-  .tb-btn:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); }
-  .tb-btn[data-map="minority"].tb-map-primary  { background: rgba(107,53,167,0.4); border-color: #6B35A7; color: #d4b0ff; }
-  .tb-btn[data-map="majority"].tb-map-primary  { background: rgba(26,122,110,0.4); border-color: #1A7A6E; color: #8eecd8; }
-  .tb-btn[data-map="2019"].tb-map-primary      { background: rgba(122,152,180,0.22); border-color: #7a98b4; color: #b8d0e8; }
-  .tb-btn[data-map="minority"].tb-map-overlay  { border-color: rgba(107,53,167,0.7); color: rgba(180,130,255,0.8); }
-  .tb-btn[data-map="majority"].tb-map-overlay  { border-color: rgba(26,122,110,0.7); color: rgba(100,210,185,0.8); }
-  .tb-btn[data-map="2019"].tb-map-overlay      { border-color: rgba(122,152,180,0.6); color: rgba(184,208,232,0.85); }
-  .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
-  .tb-pin-btn { padding: 4px 8px; }
-  .tb-pin-btn .pin-icon { display: block; }
-  .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(220,30,30,0.15); border-color: rgba(220,30,30,0.6); color: #f05050; }
-  /* Distinct color identity per layer/feature button */
-  .tb-btn[data-layer="eg"]                  { border-color: rgba(200,136,42,0.32); color: rgba(200,136,42,0.7); }
-  .tb-btn[data-layer="eg"].tb-layer-on      { background: rgba(200,136,42,0.14); border-color: #C8882A; color: #F0C070; }
-  .tb-btn[data-layer="ed-fill"]             { border-color: rgba(184,85,168,0.32); color: rgba(184,85,168,0.7); }
-  .tb-btn[data-layer="ed-fill"].tb-layer-on { background: rgba(184,85,168,0.14); border-color: #B855A8; color: #E898D8; }
-  .tb-btn[data-layer="ed-lines"]                { border-color: rgba(96,120,145,0.32); color: rgba(96,120,145,0.7); }
-  .tb-btn[data-layer="ed-lines"].tb-layer-on    { background: rgba(96,120,145,0.12); border-color: #607890; color: #98B8CC; }
-  .tb-btn[data-anomaly]                     { border-color: rgba(208,85,64,0.38); color: rgba(208,85,64,0.78); }
-  .tb-btn[data-anomaly].tb-layer-on         { background: rgba(208,85,64,0.15); border-color: #D05540; color: #F09080; }
-  .tb-btn[data-anomaly]:disabled,
-  .tb-btn[data-anomaly].tb-btn-disabled     { opacity: 0.32; cursor: not-allowed; border-color: rgba(128,128,128,0.25); color: rgba(128,128,128,0.45); }
-  @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
-
-  /* Mobile: tighten top bar so the map gets more real estate */
-  @media (max-width: 600px) {
-    #top-bar {
-      gap: 3px;
-      padding: 4px 5px;
-      border-radius: 8px;
-    }
-    .tb-group { gap: 3px; }
-    .tb-sep { display: none; }   /* drop separators on phone — chip outlines provide visual grouping */
-    .tb-btn {
-      padding: 5px 8px;
-      font-size: 0.58rem;
-      letter-spacing: 0.03em;
-    }
-    .tb-pin-btn { padding: 3px 6px; }
-    .tb-help-btn { padding: 5px 9px; }
-  }
-  @media (max-width: 380px) {
-    /* Very narrow phones — only show button data-label icons via abbreviated text */
-    .tb-btn { padding: 4px 6px; font-size: 0.54rem; }
-  }
-  /* District info bar — only rendered when an ED is selected */
-  #ed-callout {
-    background: rgba(10,12,18,0.92);
-    border: 2px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 5px 10px;
-    backdrop-filter: blur(10px);
-    color: #fff;
-    display: none; align-items: center; gap: 10px;
-    min-height: 38px;
-    align-self: flex-start;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  #ed-callout.ec-visible {
-    display: flex;
-    border-color: #F5A800;
-    box-shadow: 0 0 0 1px rgba(245,168,0,0.25), 0 0 12px rgba(245,168,0,0.15);
-  }
-  #ec-ed-section {
-    display: flex; align-items: center; gap: 8px;
-    flex: 1; min-width: 0; overflow: hidden;
-  }
-  #ec-close { display: none; }
-  #hud.ec-has-ed #ec-close { display: inline-flex; }
-  .tb-close-btn { font-size: 1.1rem; line-height: 1; padding: 4px 9px; }
-  #ec-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 180px; }
-  #ec-bar {
-    display: flex; height: 6px; border-radius: 3px;
-    overflow: hidden; flex-shrink: 0; width: 72px;
-  }
-  #ec-ucp-bar { background: #142e94; }
-  #ec-ndp-bar { background: #e86310; }
-  #ec-split { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .ec-party { display: flex; align-items: center; gap: 3px; }
-  .ec-pct { font-size: 0.8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .ec-ucp .ec-pct { color: #6b8fd4; }
-  .ec-ndp .ec-pct { color: #e8934a; }
-  .ec-party-name { font-size: 0.63rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; text-transform: uppercase; }
-  .ec-votes { font-size: 0.63rem; color: rgba(255,255,255,0.45); white-space: nowrap; }
-  #ec-meta { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-  #ec-pop { font-size: 0.7rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
-  #ec-total-votes { font-size: 0.7rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
-  .ec-meta-sep { font-size: 0.65rem; color: rgba(255,255,255,0.25); }
-  #ec-va-count { display: none; }
-  #ec-eg-row {
-    display: flex; align-items: center; gap: 4px; flex-shrink: 0;
-  }
-  .ec-eg-label { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.6rem; }
-  #ec-eg { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.72rem; }
-  #ec-eg.ec-eg-ucp { color: #82b4e0; }
-  #ec-eg.ec-eg-ndp { color: #f4a26a; }
-  #ec-context { display: none; }
-  #ec-compare { display: none !important; }
-
-  /* Mobile: keep the district info compact and never let it cut off mid-percentage */
-  @media (max-width: 600px) {
-    #ed-callout { padding: 4px 7px; gap: 6px; min-height: 34px; flex-wrap: wrap; row-gap: 3px; }
-    #ec-ed-section { gap: 6px; min-width: 0; }
-    #ec-name { font-size: 0.78rem; max-width: 110px; }
-    #ec-bar { width: 56px; height: 5px; }
-    #ec-split { gap: 4px; }
-    .ec-pct { font-size: 0.72rem; }
-    .ec-party-name { display: none; }   /* "UCP" / "NDP" labels redundant with bar colours */
-    .ec-votes { display: none; }        /* hide raw vote counts on phones */
-    #ec-meta { gap: 4px; flex-wrap: wrap; }
-    #ec-pop, #ec-total-votes { font-size: 0.64rem; }
-    .ec-meta-sep { display: none; }
-    .ec-eg-label { font-size: 0.55rem; }
-    #ec-eg { font-size: 0.68rem; }
-  }
-  @media (max-width: 380px) {
-    #ec-name { max-width: 92px; font-size: 0.74rem; }
-    #ec-bar { width: 44px; }
-    #ec-pop { display: none; }   /* the population fits poorly on the narrowest phones */
-  }
-  /* VA callout — secondary panel attached directly below #ed-callout in the HUD column */
-  #va-callout {
-    display: none;
-    background: rgba(10,12,18,0.92);
-    border: 1.5px solid rgba(255,255,255,0.07);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    margin-top: -5px; /* collapse the HUD gap to attach flush against ed-callout */
-    padding: 5px 14px 9px;
-    align-items: center; gap: 8px;
-    max-width: 100%;
-    font-size: 0.75rem; color: rgba(255,255,255,0.8);
-    transition: border-color 0.2s;
-  }
-  #va-callout.vc-visible {
-    display: flex;
-    border-color: rgba(255,255,255,0.18);
-  }
-  /* When VA callout is visible, remove bottom rounding from ED callout so they merge.
-     :has() for modern browsers; .ec-has-va class is a JS-set fallback for older ones. */
-  #hud:has(#va-callout.vc-visible) #ed-callout,
-  #ed-callout.ec-has-va {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  #vc-name { font-size: 0.72rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 160px; }
-  #vc-bar { display: flex; height: 4px; border-radius: 2px; overflow: hidden; flex-shrink: 0; width: 52px; }
-  #vc-ucp-bar { background: #142e94; }
-  #vc-ndp-bar { background: #e86310; }
-  #vc-split { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-  .vc-party { display: flex; align-items: center; gap: 3px; }
-  .vc-pct { font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .vc-ucp .vc-pct { color: #6b8fd4; }
-  .vc-ndp .vc-pct { color: #e8934a; }
-  .vc-party-name { font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; text-transform: uppercase; }
-  #vc-total { font-size: 0.65rem; color: rgba(255,255,255,0.45); white-space: nowrap; flex: 1; }
-  #vc-close {
-    background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer;
-    font-size: 1rem; line-height: 1; padding: 2px 4px; flex-shrink: 0;
-  }
-  #vc-close:hover { color: rgba(255,255,255,0.75); }
-  /* Zoom section — lives in top-bar */
-  #ec-zoom-section {
-    display: flex; align-items: center; gap: 7px;
-    flex-shrink: 0;
-  }
-  #zoom-slider {
-    width: 100px; cursor: pointer;
-    accent-color: rgba(255,255,255,0.55);
-  }
-  .ec-cmp-header { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.65rem; }
-  .ec-cmp-item { display: flex; align-items: center; gap: 0.25rem; }
-  .ec-cmp-label {
-    font-size: 0.63rem; font-weight: 700; letter-spacing: 0.05em;
-    text-transform: uppercase; color: rgba(255,255,255,0.38);
-    border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
-    padding: 0.05rem 0.35rem;
-  }
-  .ec-cmp-val { color: rgba(255,255,255,0.7); font-variant-numeric: tabular-nums; }
-  .ec-cmp-unique { color: rgba(255,180,60,0.75); font-style: italic; font-size: 0.68rem; }
-
   /* In-article anomaly trigger */
   .anomaly-trigger {
+    display: inline-block;
+    text-decoration: none;
     background: #fff3e0;
     border: 1px solid rgba(200,110,0,0.4);
     border-radius: 5px;
@@ -3088,10 +2263,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .skel-province-glow,
-    .skel-province-shine {
-      animation: none !important;
-    }
     :global(.anomaly-pulse-path),
     :global(.anomaly-glow-path),
     :global(.anomaly-fill-path) {
@@ -3099,97 +2270,6 @@
     }
   }
 
-  /* Cross-map comparison — coloured party values */
-  .ec-cmp-ucp { color: rgba(120,150,255,0.9); }
-  .ec-cmp-ndp { color: rgba(255,160,80,0.9); }
-  .ec-cmp-sep { color: rgba(255,255,255,0.25); font-size: 0.65rem; margin: 0 1px; }
-  .ec-cmp-second { color: rgba(255,255,255,0.38); font-size: 0.67rem; font-variant-numeric: tabular-nums; }
-
-  /* ED search in top bar */
-  #tb-search-wrap { position: relative; display: flex; align-items: center; }
-  #tb-search {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: rgba(255,255,255,0.85);
-    border-radius: 4px;
-    padding: 0.18rem 0.5rem;
-    font-size: 0.76rem;
-    width: 138px;
-    outline: none;
-    font-family: inherit;
-  }
-  #tb-search:focus { border-color: rgba(255,255,255,0.38); }
-  #tb-search::placeholder { color: rgba(255,255,255,0.32); }
-  #tb-search::-webkit-search-cancel-button { opacity: 0.4; cursor: pointer; }
-  #tb-search-results {
-    display: none;
-    position: absolute;
-    top: calc(100% + 5px);
-    inset-inline-start: 0;
-    min-width: 210px;
-    background: #1a1a2e;
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 5px;
-    list-style: none;
-    margin: 0; padding: 0.25rem 0;
-    z-index: 300;
-    max-height: 240px;
-    overflow-y: auto;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  }
-  #tb-search-results li {
-    padding: 0.32rem 0.75rem;
-    color: rgba(255,255,255,0.78);
-    font-size: 0.78rem;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  #tb-search-results li:hover,
-  #tb-search-results li.sr-active { background: rgba(255,255,255,0.18); color: #fff; }
-  .sr-map-tag {
-    display: inline-block; margin-inline-start: 0.4em;
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 3px; padding: 0.05rem 0.28rem;
-    color: rgba(255,255,255,0.55); vertical-align: middle;
-  }
-
-  /* Map onboarding modal */
-  #map-intro-modal {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.58);
-    z-index: 9500;
-    align-items: center;
-    justify-content: center;
-  }
-  #map-intro-inner {
-    background: #1a1a2e;
-    color: #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    max-width: 430px;
-    width: 90%;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    box-shadow: 0 4px 28px rgba(0,0,0,0.55);
-  }
-  #map-intro-inner h3 { margin: 0 0 0.8rem; font-size: 1.1rem; color: #fff; }
-  #map-intro-inner ul { margin: 0 0 0.8rem; padding-inline-start: 1.2rem; }
-  #map-intro-inner li { margin-bottom: 0.4rem; }
-  #map-intro-inner p { margin: 0 0 1rem; }
-  #map-intro-close {
-    background: #6B35A7;
-    border: none;
-    color: #fff;
-    padding: 0.5rem 1.4rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.92rem;
-    font-weight: 600;
-  }
-  #map-intro-close:hover { background: #7f46c0; }
   }
 
   /* Figure image lightbox */
@@ -3222,58 +2302,6 @@
     pointer-events: none;
   }
 
-  /* Screen-reader only */
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0;
-    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
-    white-space: nowrap; border: 0;
-  }
-
-  /* Tooltip must never capture pointer events */
-  #ed-tooltip { pointer-events: none; }
-
-  /* District name truncation */
-  #ec-name {
-    max-width: min(300px, calc(100vw - 140px));
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  /* VA hint in ED callout */
-  #ec-va-hint {
-    font-size: 0.65rem;
-    color: rgba(255,255,255,0.42);
-    margin-top: 3px;
-    font-style: italic;
-  }
-
-  /* Help button */
-  .tb-help-btn { font-size: 0.8rem !important; font-weight: 700; }
-
-  /* Map load error notice */
-  #map-load-error {
-    color: #fff;
-    font-size: 0.72rem;
-    padding: 5px 10px;
-    border-radius: 6px;
-    backdrop-filter: blur(6px);
-    align-self: flex-start;
-    pointer-events: none;
-    background: rgba(180,60,40,0.88);
-  }
-
-  /* Mobile toolbar: horizontal scroll instead of wrap */
-  @media (max-width: 600px) {
-    #top-bar {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    #top-bar::-webkit-scrollbar { display: none; }
-  }
-
   /* Persistent CC badge */
   #site-copyright {
     position: fixed; bottom: 0.45rem; inset-inline-end: 1rem;
@@ -3300,74 +2328,4 @@
   }
   #back-top:hover { opacity: 1; }
   @media (max-width: 600px) { #back-top { bottom: 1rem; inset-inline-end: 0.8rem; } }
-
-  /* ── Share panel ─────────────────────────────────────────────────────── */
-  :global(.share-backdrop) {
-    position: fixed; inset: 0; z-index: 7999;
-  }
-  :global(.share-close) {
-    position: absolute; top: 0.5rem; inset-inline-end: 0.55rem;
-    background: none; border: none; cursor: pointer;
-    color: rgba(255,255,255,0.45); font-size: 0.95rem; line-height: 1;
-    padding: 0.2rem 0.35rem; border-radius: 4px;
-    transition: color 0.15s;
-  }
-  :global(.share-close:hover) { color: rgba(255,255,255,0.85); }
-  :global(#tb-share-wrap) {
-    position: absolute; top: 5px; inset-inline-end: 0;
-    z-index: 200;
-  }
-  :global(#share-panel) {
-    position: absolute; top: calc(100% + 6px); inset-inline-end: 0;
-    background: rgba(10,12,18,0.95); border: 1px solid rgba(255,255,255,0.14);
-    backdrop-filter: blur(12px);
-    border-radius: 8px; padding: 0.85rem; width: 320px;
-    max-width: calc(100vw - 16px);
-    box-shadow: 0 6px 24px rgba(0,0,0,0.55);
-    z-index: 8000;
-  }
-  :global(.share-section) { display: flex; flex-direction: column; gap: 0.45rem; }
-  :global(.share-label) { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.55; }
-  :global(.share-code-row) { display: flex; align-items: center; gap: 0.5rem; }
-  :global(.share-code) {
-    flex: 1; font-family: monospace; font-size: 0.92rem; font-weight: 600;
-    letter-spacing: 0.02em; background: rgba(255,255,255,0.06);
-    padding: 0.4rem 0.6rem; border-radius: 5px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  :global(.share-action-btn) {
-    padding: 0.35rem 0.75rem; border-radius: 5px; border: none;
-    background: #6B35A7; color: #fff; font-size: 0.8rem; font-weight: 500;
-    cursor: pointer; white-space: nowrap; transition: opacity 0.15s;
-    flex-shrink: 0;
-  }
-  :global(.share-action-btn:hover) { opacity: 0.82; }
-  :global(.share-hint) {
-    font-size: 0.74rem; opacity: 0.5; line-height: 1.4;
-  }
-  :global(.share-divider) {
-    height: 1px; background: rgba(255,255,255,0.1); margin: 0.7rem 0;
-  }
-  :global(.share-load-row) { display: flex; gap: 0.5rem; }
-  :global(.share-load-input) {
-    flex: 1; padding: 0.38rem 0.55rem; border-radius: 5px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06); color: inherit;
-    font-family: monospace; font-size: 0.85rem;
-  }
-  :global(.share-load-input::placeholder) { opacity: 0.4; }
-  :global(.share-error) {
-    font-size: 0.76rem; color: #e57373; margin-top: 0.3rem;
-  }
-  @media (max-width: 600px) {
-    :global(.share-backdrop) { z-index: 9001; }
-    :global(#share-panel) {
-      position: fixed;
-      top: auto; bottom: 0; left: 0; right: 0;
-      width: 100%; border-radius: 14px 14px 0 0;
-      padding: 1.1rem 1rem 1.4rem;
-      box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
-      z-index: 9002;
-    }
-  }
 </style>
