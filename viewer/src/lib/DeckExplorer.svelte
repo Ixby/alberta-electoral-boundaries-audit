@@ -509,10 +509,17 @@
 				const u = P.ucp || 0;
 				const n = P.ndp || 0;
 				return (
-					`<div class="vs"><b>${(P.votes || 0).toLocaleString()}</b> in-person votes</div>` +
 					`<div class="bar"><span style="width:${u}%;background:#142e94"></span><span style="width:${n}%;background:#e86310"></span></div>` +
 					`<div class="barlbl"><span style="color:#142e94">UCP ${u}%</span><span style="color:#c2540e">NDP ${n}%</span></div>`
 				);
+			}
+			// Total VA votes shown under the ED name; poll # + "in-person votes" shown
+			// below a rule at the foot of the tip (clearer than burying the count).
+			function vaTotal(P: { votes?: number }): string {
+				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> total votes</div>`;
+			}
+			function pollFoot(id: number): string {
+				return `<hr class="tip-hr"><div class="va-poll">Poll #${id} · in-person votes</div>`;
 			}
 			function hideTip() {
 				if (tipEl) tipEl.style.display = 'none';
@@ -1205,15 +1212,18 @@
 						if (pale) {
 							const some = (P.ucp || 0) + (P.ndp || 0) > 0;
 							tipEl.innerHTML =
-								`<div class="n">${title}</div>${where}${distCmp}` +
-								(some ? voteBar(P) : ``) +
+								`<div class="n">${title}</div>${some ? vaTotal(P) : ``}${where}${distCmp}` +
+								(some ? voteBar(P) + pollFoot(o.id as number) : ``) +
 								`<div class="note">${
 									some
 										? "A sparsely populated area — with few votes cast here, the colour stays close to the map's neutral baseline."
 										: "No votes were recorded here, so this area shows the map's neutral baseline tone."
 								}</div>`;
 						} else {
-							tipEl.innerHTML = `<div class="n">${title}</div>${where}${distCmp}` + voteBar(P);
+							tipEl.innerHTML =
+								`<div class="n">${title}</div>${vaTotal(P)}${where}${distCmp}` +
+								voteBar(P) +
+								pollFoot(o.id as number);
 						}
 					} else {
 						tipEl.innerHTML =
@@ -2228,6 +2238,21 @@
 		font-family: Palatino, Georgia, serif;
 		font-size: 15px;
 		margin-bottom: 3px;
+	}
+	.tip :global(.va-total) {
+		font-size: 13px;
+		color: #3a3526;
+		margin-bottom: 4px;
+	}
+	.tip :global(.tip-hr) {
+		border: 0;
+		border-top: 1px solid #e6e0d2;
+		margin: 7px 0 5px;
+	}
+	.tip :global(.va-poll) {
+		font-size: 12px;
+		color: #6b6552;
+		white-space: nowrap;
 	}
 	.tip :global(.vs) {
 		white-space: nowrap;
