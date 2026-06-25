@@ -2,6 +2,11 @@
 	import { lang, setLang, SUPPORTED_LANGS, LANG_LABELS, type Lang } from '$lib/i18n/store.svelte';
 	import { t } from '$lib/i18n/dict';
 
+	// `only` restricts the offered languages (e.g. the map explorer offers just the
+	// locales whose interface is fully translated). Defaults to all supported langs.
+	let { only }: { only?: readonly Lang[] } = $props();
+	const options = $derived(only ?? SUPPORTED_LANGS);
+
 	let open = $state(false);
 	let menuEl: HTMLUListElement | null = $state(null);
 	let triggerEl: HTMLButtonElement | null = $state(null);
@@ -56,7 +61,7 @@
 	</button>
 	{#if open}
 		<ul bind:this={menuEl} class="lang-menu" role="menu">
-			{#each SUPPORTED_LANGS as code (code)}
+			{#each options as code (code)}
 				<li role="none">
 					<button
 						type="button"

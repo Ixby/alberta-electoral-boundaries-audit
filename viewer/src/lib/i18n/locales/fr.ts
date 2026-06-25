@@ -857,5 +857,122 @@ export default {
 			translation_label: 'Traductions :',
 			translation_credit: 'Anthropic Fable 5 (IA) — en attente de révision par un locuteur natif'
 		}
+	},
+	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
+	// separate component from the framework-free engine under body.map / body.share.
+	explorer: {
+		controls: {
+			// Desktop control panel header
+			panel_title: 'Commandes de la carte',
+			close_aria: 'Fermer la carte',
+			// Map-version buttons
+			map_version_hdr: 'Version de la carte',
+			map_version_hint: '· cliquez pour activer/désactiver',
+			map_toggle_title: 'Activer ou désactiver cette carte',
+			map_minority: 'Minorité',
+			map_majority: 'Majorité',
+			map_2019: '2019',
+			// Mobile segmented-button short labels
+			map_minority_short: 'Min',
+			map_majority_short: 'Maj',
+			map_2019_short: '’19',
+			// Search
+			search_placeholder: 'Rechercher une circonscription…',
+			search_aria: 'Rechercher des circonscriptions',
+			search_clear_aria: 'Effacer la recherche',
+			search_in: 'dans {ed}',
+			// Zoom / resolution readout
+			zoom_aria: 'Zoom',
+			res_prefix: '1 pixel ≈',
+			// Overlays / layer toggles
+			overlays_hdr: 'Superpositions d\'intérêt communautaire',
+			layer_highways: 'Autoroutes',
+			layer_water: 'Rivières et lacs',
+			layer_annotations: 'Annotations EBC ’26',
+			// Mobile icon-bar aria labels
+			mobile_map_version_aria: 'Version de la carte',
+			mobile_search_aria: 'Rechercher des circonscriptions',
+			mobile_layers_aria: 'Couches de la carte',
+			mobile_info_aria: 'À propos des limites tracées',
+			mobile_share_aria: 'Partager cette vue',
+			mobile_close_aria: 'Fermer la carte',
+			// "Reading the lines" note (desktop + mobile info popover)
+			lines_note_title: 'Lire les limites',
+			lines_note_lead: 'Chaque forme inhabituelle ou ligne de division est un',
+			lines_note_emphasis: 'choix délibéré du comité',
+			lines_note_tail:
+				'— et non une erreur de données. Les limites suivent le contour des secteurs de vote ; là où deux cartes concordent, elles se posent sur la même ligne, et là où elles divergent, les propositions sont réellement en désaccord.'
+		},
+		share: {
+			button: 'Partager cette vue',
+			heading: 'Partager cette vue',
+			copy: 'Copier le lien',
+			copied: 'Copié',
+			help: 'Ce lien reprend votre carte, vos superpositions et votre vue actuelles.',
+			open_heading: 'Ouvrir un lien partagé',
+			open_placeholder: 'Collez un lien de partage…',
+			open_btn: 'Ouvrir',
+			err_empty: 'Collez un lien de partage',
+			err_invalid: 'Lien de partage non valide'
+		},
+		tip: {
+			total_votes: 'votes au total',
+			poll: 'Bureau n° {id} · votes en personne',
+			ucp_pct: 'UCP {u} %',
+			ndp_pct: 'NPD {n} %',
+			unassigned: '(non attribué)',
+			where_in: 'à {community}',
+			where_near: 'près de {community}',
+			note_sparse:
+				'Une zone peu peuplée — avec peu de votes exprimés ici, la couleur reste proche de la teinte neutre de référence de la carte.',
+			note_no_votes:
+				'Aucun vote n\'a été enregistré ici ; cette zone affiche donc la teinte neutre de référence de la carte.',
+			no_one_title: 'Personne ne vote ici',
+			no_one_body:
+				'Aucune section de vote ne couvre cet endroit — personne n\'est recensé comme y résidant ou y votant, alors la zone conserve la teinte neutre de la carte.',
+			flag_link: 'Cliquez pour zoomer'
+		},
+		miller: {
+			title: 'Miller — un siège rural rétabli',
+			body: 'Cette zone figure sur la carte en raison du juge Dallas Miller, président de la commission. Dans un addenda au rapport final, il a écrit que si l’Assemblée législative refusait de supprimer deux circonscriptions rurales, elle devrait plutôt ajouter deux sièges — passant de 89 à 91 — et les rétablir. Il a désigné cet endroit, autour de Clearwater et de l’ouest du comté de Mountain View, à l’ouest de Red Deer, comme l’emplacement d’un de ces sièges ruraux. Le tracé est esquissé à partir des limites de comtés à titre indicatif, et non comme une limite officielle, jusqu’à ce que la prochaine commission redessine la carte.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — la ville découpée dans le parc',
+				body: 'Banff se trouve à l’intérieur d’un parc national fédéral, telle une petite enclave municipale. La minorité regroupe le noyau urbain avec Canmore — la ville suivante en descendant la Bow Valley — dans « Canmore-Kananaskis », et laisse le parc inhabité former la circonscription qui porte le nom de Banff. La limite épouse la ville parce que c’est le seul endroit peuplé à des kilomètres à la ronde. Cela ressemble à une erreur, mais c’est fidèle à la géographie réelle.'
+			},
+			'banff-park': {
+				title: 'Au nord de Banff — « Rocky Mountain House–Banff Park »',
+				body: '« Rocky Mountain House–Banff Park » est l’une des circonscriptions proposées par la minorité, composée en grande partie de parc national inhabité ; la ville de Banff se trouve dans une circonscription voisine au sud. La minorité a appliqué à cette circonscription la disposition de l’Electoral Boundaries Commission Act (Loi sur la Commission de délimitation des circonscriptions électorales) sur les populations réduites — un choix que le président de la commission a abordé dans le rapport final.'
+			},
+			'airdrie-split': {
+				title: 'Airdrie — divisée en quatre',
+				body: 'La croissance d’Airdrie et ses déplacements pendulaires vers Calgary (environ 76 % des navetteurs sortants) auraient pu ancrer un seul nouveau siège dans le secteur d’Airdrie — le genre de siège que les données appuient. La minorité divise plutôt la ville entre quatre circonscriptions ; le calcul démographique ne l’exige pas, et aucune soumission ne l’a proposé. Au test de signature de fragmentation de l’audit, cette division en quatre satisfait à tous les critères — les résidents d’Airdrie se retrouvent minoritaires dans les quatre circonscriptions, sans aucun siège que la ville contrôle — là où la division en deux de la majorité n’en montre aucun. Il s’agit d’une division de communauté, invisible aux tests d’équité partisane ; l’audit mesure l’effet structurel, et non l’intention. (§5.3.2 du rapport universitaire.)'
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: 'Les déplacements pendulaires de Cochrane vers Calgary auraient pu justifier son jumelage avec la ville — mais les données de migration domicile-travail de 2021 répartissent ce flux dans l’ensemble de la ville (environ un tiers des travailleurs ; la moitié travaillent à Cochrane même) et ne pointent pas vers Nolan Hill. L’étroit corridor de la minorité vers le quartier de Nolan Hill — la forme que le président a qualifiée de lasso — s’étend plus loin que ne le justifient les données, et aucune soumission ne l’a proposé. L’audit y voit un cas proche de la fragmentation : il dilue la voix de Cochrane, mais Cochrane (environ 34 000 habitants) est trop petite pour un siège à elle seule, de sorte qu’il s’arrête en deçà d’un signe formel de fragmentation. (§5.3.2 du rapport universitaire.)'
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — l’avancée vers Airdrie',
+				body: 'Une circonscription rurale regroupant les villes de l’autoroute 2 — Olds, Didsbury, Three Hills — est bien appuyée ; des résidents du secteur de Beiseker ont écrit en sa faveur. Elle aurait pu rester dans ces communautés. La version de la minorité s’avance plutôt vers le sud, jusqu’à la frange nord d’Airdrie, un prolongement que le calcul démographique n’exige pas. Cette avancée fait partie du mécanisme de la division d’Airdrie en quatre — chaque morceau d’Airdrie absorbé dans un siège rural plus vaste — ce que l’audit interprète comme un élément du schéma de fragmentation. (§5.3.2 du rapport universitaire.)'
+			},
+			chestermere: {
+				title: 'Chestermere — divisée entre deux circonscriptions',
+				body: 'Les nombreux déplacements pendulaires de Chestermere vers Calgary (86 % des navetteurs sortants) auraient pu justifier de la garder entière et proche de la ville — ce que souhaitaient aussi les résidents opposés à une fusion avec Calgary. La minorité découpe plutôt une portion sud pour l’intégrer à une circonscription précise de Calgary avec laquelle elle ne partage ni écoles ni transport en commun, et cette portion échoue au test démographique. L’audit interprète ce débordement vers une circonscription de Calgary comme un cas proche de la fragmentation — une division de communauté d’intérêts qui dilue la voix de Chestermere sans atteindre une signature formelle de fragmentation. (§5.3.2, §5.8.4 du rapport universitaire.)'
+			},
+			'red-deer': {
+				title: 'Red Deer — les circonscriptions hybrides',
+				body: 'Les liens régionaux de Red Deer avec Blackfalds, Sylvan Lake, Lacombe et Innisfail auraient pu regrouper ces villes ensemble — un conseiller municipal et des résidents ont proposé des hybrides semblables. La version de la minorité intègre plutôt des parties de la ville elle-même dans des circonscriptions à dominante rurale, diluant le vote urbain de Red Deer ; sa justification fondée sur des « écoles communes » ne tient pas non plus (divisions scolaires différentes). Intégrer une ville dans des circonscriptions à dominante rurale est le schéma que l’audit appelle hybridation — compatible avec la fragmentation, l’effet partisan se réalisant à l’intérieur des circonscriptions hybrides plutôt qu’entre elles. (§5.3.5 du rapport universitaire.)'
+			},
+			'st-albert': {
+				title: 'St. Albert — des configurations concurrentes',
+				body: 'La version de St. Albert proposée par l’une ou l’autre carte pourrait reposer sur un fondement raisonnable. L’audit n’a simplement trouvé aucune soumission appuyant l’option précise de la minorité — et comme les citoyens nomment rarement les limites exactes d’une commission, il considère les preuves ici comme minces, ni clairement pour ni clairement contre.'
+			},
+			'calgary-zone-a-packing': {
+				title: 'Nord et est de Calgary — une signature de concentration',
+				body: 'Le président de la commission n’a pas signalé ce cas — c’est le calcul de l’audit lui-même qui le fait. Dans le nord et l’est de Calgary (la « Zone A » de l’audit, au nord et à l’est de la rivière Bow), les circonscriptions de la carte de la minorité sont environ 11,5 % plus grandes que la moyenne provinciale, contre 2,8 % sur la carte de la majorité. La concentration consiste à regrouper les électeurs d’un camp dans des circonscriptions moins nombreuses et plus vastes, de sorte que chacun de leurs bulletins pèse un peu moins ; la Zone A est disputée et favorable au NPD, et 13 de ses 17 circonscriptions ont été remportées par le NPD en 2023. L’audit mesure l’effet structurel, et non l’intention. (§5.3.1 du rapport universitaire.)'
+			}
+		}
 	}
 } as const;

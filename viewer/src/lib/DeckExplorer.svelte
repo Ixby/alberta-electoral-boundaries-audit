@@ -15,6 +15,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser, version as APP_VERSION } from '$app/environment';
+	import { lang } from '$lib/i18n/store.svelte';
+	import { t } from '$lib/i18n/dict';
 	import {
 		loadBundle,
 		tileLevelForZoom,
@@ -242,7 +244,7 @@
 	// opens a popover; mobile reuses the icon-popover via mobilePanel === 'share'.
 	// `syncUrl` is assigned inside the IIFE (where shareBuild / storeLastCode run).
 	let showShare = $state(false);
-	let copyLabel = $state('Copy link');
+	let copyLabel = $state(t(lang.current, 'explorer.share.copy'));
 	let loadInput = $state('');
 	let loadError = $state('');
 	// Bridge: rewrite location with the live state and persist the query (assigned
@@ -254,7 +256,7 @@
 		// live view even mid-debounce (the paint()-tail sync is ~400ms behind).
 		syncUrl();
 		loadError = '';
-		copyLabel = 'Copy link';
+		copyLabel = t(lang.current, 'explorer.share.copy');
 		showShare = true;
 	}
 	function copyShare(): void {
@@ -262,15 +264,15 @@
 		navigator.clipboard
 			?.writeText(location.href)
 			.then(() => {
-				copyLabel = 'Copied';
-				setTimeout(() => (copyLabel = 'Copy link'), 1500);
+				copyLabel = t(lang.current, 'explorer.share.copied');
+				setTimeout(() => (copyLabel = t(lang.current, 'explorer.share.copy')), 1500);
 			})
 			.catch(() => {});
 	}
 	function loadShare(): void {
 		const raw = loadInput.trim();
 		if (!raw) {
-			loadError = 'Paste a share link';
+			loadError = t(lang.current, 'explorer.share.err_empty');
 			return;
 		}
 		let params: URLSearchParams | null = null;
@@ -281,7 +283,7 @@
 		}
 		const st = parseState(params);
 		if (!st) {
-			loadError = 'Not a valid share link';
+			loadError = t(lang.current, 'explorer.share.err_invalid');
 			return;
 		}
 		shareApply(st);
@@ -298,7 +300,7 @@
 		if (!wasOpen) {
 			syncUrl(); // make the URL current before "Copy link" is offered
 			loadError = '';
-			copyLabel = 'Copy link';
+			copyLabel = t(lang.current, 'explorer.share.copy');
 		}
 	}
 
@@ -522,18 +524,20 @@
 			function voteBar(P: { votes?: number; ucp?: number; ndp?: number }): string {
 				const u = P.ucp || 0;
 				const n = P.ndp || 0;
+				const ucpLbl = t(lang.current, 'explorer.tip.ucp_pct').replace('{u}', String(u));
+				const ndpLbl = t(lang.current, 'explorer.tip.ndp_pct').replace('{n}', String(n));
 				return (
 					`<div class="bar"><span style="width:${u}%;background:#142e94"></span><span style="width:${n}%;background:#e86310"></span></div>` +
-					`<div class="barlbl"><span style="color:#142e94">UCP ${u}%</span><span style="color:#c2540e">NDP ${n}%</span></div>`
+					`<div class="barlbl"><span style="color:#142e94">${ucpLbl}</span><span style="color:#c2540e">${ndpLbl}</span></div>`
 				);
 			}
 			// Total VA votes shown under the ED name; poll # + "in-person votes" shown
 			// below a rule at the foot of the tip (clearer than burying the count).
 			function vaTotal(P: { votes?: number }): string {
-				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> total votes</div>`;
+				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> ${t(lang.current, 'explorer.tip.total_votes')}</div>`;
 			}
 			function pollFoot(id: number): string {
-				return `<hr class="tip-hr"><div class="va-poll">Poll #${id} · in-person votes</div>`;
+				return `<hr class="tip-hr"><div class="va-poll">${t(lang.current, 'explorer.tip.poll').replace('{id}', String(id))}</div>`;
 			}
 			function hideTip() {
 				if (tipEl) tipEl.style.display = 'none';
@@ -706,12 +710,13 @@
 								// Redundant under the outer filters.pois gate, kept explicit so the
 								// pin's visibility reads alongside the flag annotations.
 								visible: filters.pois,
+								// The Miller pin's title/body are looked up via t() at the
+								// onHover render site (explorer.miller.*), so the data object
+								// only needs the centroid position.
 								data: [
 									{
 										x: sx / ring.length,
-										y: sy / ring.length,
-										title: 'Miller — a restored rural seat',
-										body: 'This area is on the map because of Justice Dallas Miller, the commission’s chair. In an addendum to the final report, he wrote that if the Legislature would not accept cutting two rural ridings, it should instead add two seats — going from 89 to 91 — and restore them. He pointed to this spot, around Clearwater and western Mountain View counties west of Red Deer, as where one of those rural seats should go. It’s sketched from county lines as a placeholder, not an official boundary, until the next commission redraws the map.'
+										y: sy / ring.length
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
@@ -1250,11 +1255,15 @@
 					}
 					tipEl.style.display = 'block';
 					if (info.layer && info.layer.id === 'flags') {
+						const fTitle = t(lang.current, 'explorer.flags.' + o.id + '.title');
+						const fBody = t(lang.current, 'explorer.flags.' + o.id + '.body');
 						tipEl.innerHTML =
-							`<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>` +
-							`<div class="flaglink">Click to zoom in</div>`;
+							`<div class="n">${fTitle}</div><div class="flagbody">${fBody}</div>` +
+							`<div class="flaglink">${t(lang.current, 'explorer.tip.flag_link')}</div>`;
 					} else if (info.layer && info.layer.id === 'lunty-point') {
-						tipEl.innerHTML = `<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>`;
+						tipEl.innerHTML =
+							`<div class="n">${t(lang.current, 'explorer.miller.title')}</div>` +
+							`<div class="flagbody">${t(lang.current, 'explorer.miller.body')}</div>`;
 					} else if (info.layer && info.layer.id === 'va') {
 						const P = (vaProps[o.id as number] || {}) as {
 							name?: string;
@@ -1266,7 +1275,9 @@
 							votes?: number;
 						};
 						const shown = activeMaps.length ? activeMaps : ['minority'];
-						const names = shown.map((mk) => edNameFor(mk, o.id as number) || '(unassigned)');
+						const names = shown.map(
+							(mk) => edNameFor(mk, o.id as number) || t(lang.current, 'explorer.tip.unassigned')
+						);
 						const agree = names.every((n) => n === names[0]);
 						const ed = names[0];
 						const distCmp = agree
@@ -1280,8 +1291,13 @@
 									.join('<br>') +
 								`</div>`;
 						const title = agree ? ed : P.name;
+						const whereCommunity = (
+							P.cin
+								? t(lang.current, 'explorer.tip.where_in')
+								: t(lang.current, 'explorer.tip.where_near')
+						).replace('{community}', P.community ?? '');
 						const where = P.community
-							? `${P.name == title ? '' : P.name + ' · '}${P.cin ? 'in' : 'near'} ${P.community}`
+							? `${P.name == title ? '' : P.name + ' · '}${whereCommunity}`
 							: P.name == title
 								? ''
 								: P.name;
@@ -1293,8 +1309,8 @@
 								(some ? voteBar(P) + pollFoot(o.id as number) : ``) +
 								`<div class="note">${
 									some
-										? "A sparsely populated area — with few votes cast here, the colour stays close to the map's neutral baseline."
-										: "No votes were recorded here, so this area shows the map's neutral baseline tone."
+										? t(lang.current, 'explorer.tip.note_sparse')
+										: t(lang.current, 'explorer.tip.note_no_votes')
 								}</div>`;
 						} else {
 							tipEl.innerHTML =
@@ -1304,7 +1320,7 @@
 						}
 					} else {
 						tipEl.innerHTML =
-							`<div class="n">No one votes here</div>No polling division covers this spot — nobody is recorded living or voting here, so it stays the map's neutral tone.`;
+							`<div class="n">${t(lang.current, 'explorer.tip.no_one_title')}</div>${t(lang.current, 'explorer.tip.no_one_body')}`;
 					}
 					// Content is set; now place the tip clamped to the viewport.
 					placeTip(info.x, info.y);
@@ -1421,7 +1437,9 @@
 				tipEl.style.display = 'block';
 				tipEl.style.left = sx + 14 + 'px';
 				tipEl.style.top = sy + 14 + 'px';
-				tipEl.innerHTML = `<div class="n">${poiFlag.title}</div><div class="flagbody">${poiFlag.body}</div>`;
+				tipEl.innerHTML =
+					`<div class="n">${t(lang.current, 'explorer.flags.' + poiFlag.id + '.title')}</div>` +
+					`<div class="flagbody">${t(lang.current, 'explorer.flags.' + poiFlag.id + '.body')}</div>`;
 			}
 			maybeLoadLevels(L0); // backfill coarse + one level lookahead
 			await loadVaLines();
@@ -1466,21 +1484,21 @@
 		<div class="msw-m">
 			<div class="msw-m-head">
 			<div class="msw-m-bar">
-				<div class="seg" role="group" aria-label="Map version">
+				<div class="seg" role="group" aria-label={t(lang.current, 'explorer.controls.mobile_map_version_aria')}>
 					{#each MAPS as mk (mk)}
 						<button
 							class="seg-btn"
 							class:on={activeMaps.includes(mk)}
 							style={btnStyle(mk)}
-							title="Toggle this map on/off"
+							title={t(lang.current, 'explorer.controls.map_toggle_title')}
 							onclick={() => mapToggler(mk)}
-						>{mk === '2019' ? "’19" : mk === 'minority' ? 'Min' : 'Maj'}</button>
+						>{mk === '2019' ? t(lang.current, 'explorer.controls.map_2019_short') : mk === 'minority' ? t(lang.current, 'explorer.controls.map_minority_short') : t(lang.current, 'explorer.controls.map_majority_short')}</button>
 					{/each}
 				</div>
 				<button
 					class="ic"
 					class:on={mobilePanel === 'search'}
-					aria-label="Search districts"
+					aria-label={t(lang.current, 'explorer.controls.mobile_search_aria')}
 					aria-pressed={mobilePanel === 'search'}
 					onclick={() => toggleMobilePanel('search')}
 				>
@@ -1489,7 +1507,7 @@
 				<button
 					class="ic"
 					class:on={mobilePanel === 'layers'}
-					aria-label="Map layers"
+					aria-label={t(lang.current, 'explorer.controls.mobile_layers_aria')}
 					aria-pressed={mobilePanel === 'layers'}
 					onclick={() => toggleMobilePanel('layers')}
 				>
@@ -1498,7 +1516,7 @@
 				<button
 					class="ic"
 					class:on={mobilePanel === 'info'}
-					aria-label="About the boundary lines"
+					aria-label={t(lang.current, 'explorer.controls.mobile_info_aria')}
 					aria-pressed={mobilePanel === 'info'}
 					onclick={() => toggleMobilePanel('info')}
 				>
@@ -1507,7 +1525,7 @@
 				<button
 					class="ic"
 					class:on={mobilePanel === 'share'}
-					aria-label="Share this view"
+					aria-label={t(lang.current, 'explorer.controls.mobile_share_aria')}
 					aria-pressed={mobilePanel === 'share'}
 					onclick={openMobileShare}
 				>
@@ -1515,7 +1533,7 @@
 				</button>
 				{#if onClose}
 					<span class="ic-div" aria-hidden="true"></span>
-					<button class="ic ic-close" aria-label="Close map" onclick={() => onClose?.()}>
+					<button class="ic ic-close" aria-label={t(lang.current, 'explorer.controls.mobile_close_aria')} onclick={() => onClose?.()}>
 						<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
 					</button>
 				{/if}
@@ -1529,7 +1547,7 @@
 					min={zoomMin}
 					max={zoomMax}
 					step="0.01"
-					aria-label="Zoom"
+					aria-label={t(lang.current, 'explorer.controls.zoom_aria')}
 					bind:value={zoomVal}
 					oninput={() => {
 						dragSetter(true);
@@ -1547,7 +1565,7 @@
 					<input
 						class="search-input"
 						type="text"
-						placeholder="Search a district…"
+						placeholder={t(lang.current, 'explorer.controls.search_placeholder')}
 						autocomplete="off"
 						bind:this={searchInputEl}
 						bind:value={searchQuery}
@@ -1562,7 +1580,7 @@
 						<button
 							class="search-clear"
 							type="button"
-							aria-label="Clear search"
+							aria-label={t(lang.current, 'explorer.controls.search_clear_aria')}
 							onmousedown={(e) => {
 								e.preventDefault();
 								clearSearch();
@@ -1583,7 +1601,7 @@
 									}}
 									onmouseenter={() => (searchActive = i)}
 								>
-									<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">in {r.ed}</span>{/if}
+									<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">{t(lang.current, 'explorer.controls.search_in').replace('{ed}', r.ed)}</span>{/if}
 								</li>
 							{/each}
 						</ul>
@@ -1596,44 +1614,42 @@
 							type="checkbox"
 							checked={filters.hwy}
 							onchange={(e) => filterSetter('hwy', e.currentTarget.checked)}
-						/> Highways
+						/> {t(lang.current, 'explorer.controls.layer_highways')}
 					</label>
 					<label>
 						<input
 							type="checkbox"
 							checked={filters.water}
 							onchange={(e) => filterSetter('water', e.currentTarget.checked)}
-						/> Rivers &amp; lakes
+						/> {t(lang.current, 'explorer.controls.layer_water')}
 					</label>
 					<label>
 						<input
 							type="checkbox"
 							checked={filters.pois}
 							onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
-						/> EBC '26 Annotations
+						/> {t(lang.current, 'explorer.controls.layer_annotations')}
 					</label>
 				</div>
 			{:else if mobilePanel === 'info'}
 				<div class="msw-m-pop note">
-					<b>Reading the lines</b><br />
-					Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a
-					data error. Lines follow the edges of polling areas; where two maps agree they sit on the
-					same line, where they split apart the proposals genuinely disagree.
+					<b>{t(lang.current, 'explorer.controls.lines_note_title')}</b><br />
+					{t(lang.current, 'explorer.controls.lines_note_lead')} <b>{t(lang.current, 'explorer.controls.lines_note_emphasis')}</b> {t(lang.current, 'explorer.controls.lines_note_tail')}
 				</div>
 			{:else if mobilePanel === 'share'}
 				<div class="msw-m-pop">
-					<div class="share-lbl">Share this view</div>
+					<div class="share-lbl">{t(lang.current, 'explorer.share.heading')}</div>
 					<div class="share-code-row">
 						<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
 					</div>
-					<div class="share-help">This link captures your current map, overlays, and view.</div>
+					<div class="share-help">{t(lang.current, 'explorer.share.help')}</div>
 					<div class="share-div"></div>
-					<div class="share-lbl">Open a shared link</div>
+					<div class="share-lbl">{t(lang.current, 'explorer.share.open_heading')}</div>
 					<div class="share-load-row">
 						<input
 							class="share-input"
 							type="text"
-							placeholder="Paste a share link…"
+							placeholder={t(lang.current, 'explorer.share.open_placeholder')}
 							autocomplete="off"
 							bind:value={loadInput}
 							onkeydown={(e) => {
@@ -1643,7 +1659,7 @@
 								}
 							}}
 						/>
-						<button type="button" class="share-load" onclick={loadShare}>Open</button>
+						<button type="button" class="share-load" onclick={loadShare}>{t(lang.current, 'explorer.share.open_btn')}</button>
 					</div>
 					{#if loadError}<div class="share-err">{loadError}</div>{/if}
 				</div>
@@ -1659,14 +1675,14 @@
 				aria-controls="mapsw-body"
 				onclick={() => (panelCollapsed = !panelCollapsed)}
 			>
-				<span class="mapsw-title">Map controls</span>
+				<span class="mapsw-title">{t(lang.current, 'explorer.controls.panel_title')}</span>
 				<span class="chev" aria-hidden="true">{panelCollapsed ? '▾' : '▴'}</span>
 			</button>
 			{#if onClose}
 				<button
 					type="button"
 					class="mapsw-close"
-					aria-label="Close map"
+					aria-label={t(lang.current, 'explorer.controls.close_aria')}
 					onclick={() => onClose?.()}>×</button>
 			{/if}
 		</div>
@@ -1676,7 +1692,7 @@
 			<input
 				class="search-input"
 				type="text"
-				placeholder="Search a district…"
+				placeholder={t(lang.current, 'explorer.controls.search_placeholder')}
 				autocomplete="off"
 				bind:this={searchInputEl}
 				bind:value={searchQuery}
@@ -1693,7 +1709,7 @@
 				<button
 					class="search-clear"
 					type="button"
-					aria-label="Clear search"
+					aria-label={t(lang.current, 'explorer.controls.search_clear_aria')}
 					onmousedown={(e) => {
 						e.preventDefault();
 						clearSearch();
@@ -1712,23 +1728,23 @@
 							}}
 							onmouseenter={() => (searchActive = i)}
 						>
-							<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">in {r.ed}</span>{/if}
+							<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">{t(lang.current, 'explorer.controls.search_in').replace('{ed}', r.ed)}</span>{/if}
 						</li>
 					{/each}
 				</ul>
 			{/if}
 		</div>
 
-		<div class="hdr">Map version <span>· click to toggle</span></div>
+		<div class="hdr">{t(lang.current, 'explorer.controls.map_version_hdr')} <span>{t(lang.current, 'explorer.controls.map_version_hint')}</span></div>
 		<div class="btns">
 			{#each MAPS as mk (mk)}
 				<button
 					data-m={mk}
 					style={btnStyle(mk)}
-					title="Toggle this map on/off"
+					title={t(lang.current, 'explorer.controls.map_toggle_title')}
 					onclick={() => mapToggler(mk)}
 				>
-					{mk === '2019' ? '2019' : mk === 'minority' ? 'Minority' : 'Majority'}
+					{mk === '2019' ? t(lang.current, 'explorer.controls.map_2019') : mk === 'minority' ? t(lang.current, 'explorer.controls.map_minority') : t(lang.current, 'explorer.controls.map_majority')}
 				</button>
 			{/each}
 		</div>
@@ -1746,30 +1762,30 @@
 			}}
 			onchange={() => dragSetter(false)}
 		/>
-		<div class="res">1 pixel ≈ <b>{resText}</b></div>
+		<div class="res">{t(lang.current, 'explorer.controls.res_prefix')} <b>{resText}</b></div>
 
 		<div class="filters">
-			<div class="fhdr">Community Interest Overlays</div>
+			<div class="fhdr">{t(lang.current, 'explorer.controls.overlays_hdr')}</div>
 			<label>
 				<input
 					type="checkbox"
 					checked={filters.hwy}
 					onchange={(e) => filterSetter('hwy', e.currentTarget.checked)}
-				/> Highways
+				/> {t(lang.current, 'explorer.controls.layer_highways')}
 			</label>
 			<label>
 				<input
 					type="checkbox"
 					checked={filters.water}
 					onchange={(e) => filterSetter('water', e.currentTarget.checked)}
-				/> Rivers &amp; lakes
+				/> {t(lang.current, 'explorer.controls.layer_water')}
 			</label>
 			<label>
 				<input
 					type="checkbox"
 					checked={filters.pois}
 					onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
-				/> EBC '26 Annotations
+				/> {t(lang.current, 'explorer.controls.layer_annotations')}
 			</label>
 		</div>
 
@@ -1779,23 +1795,23 @@
 				class="share-btn"
 				class:on={showShare}
 				aria-expanded={showShare}
-				onclick={() => (showShare ? (showShare = false) : openShare())}>Share this view</button>
+				onclick={() => (showShare ? (showShare = false) : openShare())}>{t(lang.current, 'explorer.share.button')}</button>
 
 		</div>
 		{#if showShare}
 			<div class="share-panel">
-				<div class="share-lbl">Share this view</div>
+				<div class="share-lbl">{t(lang.current, 'explorer.share.heading')}</div>
 				<div class="share-code-row">
 					<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
 				</div>
-				<div class="share-help">This link captures your current map, overlays, and view.</div>
+				<div class="share-help">{t(lang.current, 'explorer.share.help')}</div>
 				<div class="share-div"></div>
-				<div class="share-lbl">Open a shared link</div>
+				<div class="share-lbl">{t(lang.current, 'explorer.share.open_heading')}</div>
 				<div class="share-load-row">
 					<input
 						class="share-input"
 						type="text"
-						placeholder="Paste a share link…"
+						placeholder={t(lang.current, 'explorer.share.open_placeholder')}
 						autocomplete="off"
 						bind:value={loadInput}
 						onkeydown={(e) => {
@@ -1805,17 +1821,15 @@
 							}
 						}}
 					/>
-					<button type="button" class="share-load" onclick={loadShare}>Open</button>
+					<button type="button" class="share-load" onclick={loadShare}>{t(lang.current, 'explorer.share.open_btn')}</button>
 				</div>
 				{#if loadError}<div class="share-err">{loadError}</div>{/if}
 			</div>
 		{/if}
 
 		<div class="lines-note">
-			<b>Reading the lines</b><br />
-			Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a data error.
-			Lines follow the edges of polling areas; where two maps agree they sit on the same line, where
-			they split apart the proposals genuinely disagree.
+			<b>{t(lang.current, 'explorer.controls.lines_note_title')}</b><br />
+			{t(lang.current, 'explorer.controls.lines_note_lead')} <b>{t(lang.current, 'explorer.controls.lines_note_emphasis')}</b> {t(lang.current, 'explorer.controls.lines_note_tail')}
 		</div>
 		</div>
 	</div>
