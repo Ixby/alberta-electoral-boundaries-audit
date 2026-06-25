@@ -889,6 +889,8 @@ export default {
 			// Zoom / resolution readout
 			zoom_aria: 'Zoom',
 			res_prefix: '1 pixel ≈',
+			zoom_official: '(Officiel)',
+			zoom_computed: '(Calculé)',
 			// Overlays / layer toggles
 			overlays_hdr: 'Superpositions d\'intérêt communautaire',
 			layer_highways: 'Autoroutes',

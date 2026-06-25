@@ -1530,7 +1530,7 @@
   /* Single reading measure for all running Story prose. Figures, the map
      explorer, and tables stay full-width; only paragraphs are constrained
      to a comfortable line length. Change here, not per-block. */
-  --measure:         78ch;
+  --measure:         92ch;
   /* Desktop shell: the page sits in a centered 1200px card on a darker,
      blue-tinted surround (--shell-outer), lifted by a thin frame + shadow. */
   --shell-outer:     #d0d9e8;
@@ -1583,10 +1583,12 @@
       flex-direction: column;
       justify-content: center;
       box-sizing: border-box;
-      /* Fill the visible viewport below the sticky nav so all prose lands
-         below the fold; the reader scrolls past the title card to reach
-         Stakes and everything else. 100svh accounts for mobile UI chrome. */
-      min-height: calc(100svh - 2.75rem);
+      /* A tall title card, but deliberately SHORTER than the viewport so the
+         top of the report prose peeks above the fold — readers need to see
+         there's a document underneath, not a full-screen cover that reads as
+         the whole page. 72svh leaves a consistent strip of the next section
+         visible; svh accounts for mobile UI chrome. */
+      min-height: calc(72svh - 2.75rem);
     }
 
     .header-inner {
@@ -1690,7 +1692,9 @@
       border: 1px solid rgba(212,175,55,0.4);
     }
     .header-image {
-      max-height: min(600px, calc(100svh - 140px));
+      /* Larger chrome subtraction (was 140px) so on shorter screens the cover
+         art leaves room for the prose strip below the fold. */
+      max-height: min(600px, calc(100svh - 230px));
       width: auto;
       display: block;
       border-radius: 6px;
@@ -1942,7 +1946,7 @@
        direction — the container IS the measure now. */
     .container {
       width: 100%;
-      max-width: 860px;
+      max-width: 1000px;
       margin-inline: auto;
       padding: 0 clamp(1.2rem, 4vw, 3.5rem);
       box-sizing: border-box;

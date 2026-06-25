@@ -114,6 +114,10 @@
 	const ZOOM_ACCENT_COARSE = '#f5c518'; // yellow (overview)
 	const ZOOM_ACCENT_DETAIL = '#6fd3fb'; // blue (past 38 m)
 	let zoomAccent = $state(ZOOM_ACCENT_COARSE);
+	// Boundary-line provenance at the current zoom: false = official lines
+	// (yellow/overview), true = computed lines (blue/detail). Drives the
+	// "(Official)"/"(Computed)" tag beside the resolution readout.
+	let zoomDetail = $state(false);
 	// Visible viewport height (shrinks when the mobile keyboard opens). Used to cap
 	// the mobile search-results list so it never hides behind the keyboard.
 	let vvH = $state(0);
@@ -1026,7 +1030,8 @@
 				// Continuous metres/pixel (2^-zoom in EPSG:3401 metres) drives the slider
 				// accent: yellow until it passes 38 m, blue once zoomed in past that.
 				const mpp = 2 ** -(lastVS.zoom as number);
-				zoomAccent = mpp < 38 ? ZOOM_ACCENT_DETAIL : ZOOM_ACCENT_COARSE;
+				zoomDetail = mpp < 38;
+				zoomAccent = zoomDetail ? ZOOM_ACCENT_DETAIL : ZOOM_ACCENT_COARSE;
 			}
 			function update(vs: Record<string, number | number[]>) {
 				lastVS = vs;
@@ -1572,7 +1577,7 @@
 					}}
 					onchange={() => dragSetter(false)}
 				/>
-				<span class="res-m"><b>{resText}</b></span>
+				<span class="res-m"><b>{resText}</b> <span class="tier" style="color:{zoomAccent}">{t(lang.current, zoomDetail ? 'explorer.controls.zoom_computed' : 'explorer.controls.zoom_official')}</span></span>
 			</div>
 			</div>
 
@@ -1794,7 +1799,7 @@
 			}}
 			onchange={() => dragSetter(false)}
 		/>
-		<div class="res">{t(lang.current, 'explorer.controls.res_prefix')} <b>{resText}</b></div>
+		<div class="res">{t(lang.current, 'explorer.controls.res_prefix')} <b>{resText}</b> <span class="tier" style="color:{zoomAccent}">{t(lang.current, zoomDetail ? 'explorer.controls.zoom_computed' : 'explorer.controls.zoom_official')}</span></div>
 
 		<div class="filters">
 			<div class="fhdr">{t(lang.current, 'explorer.controls.overlays_hdr')}</div>
@@ -1862,16 +1867,18 @@
 		{#if langs && langs.length}
 			<div class="lang-row">
 				<div class="fhdr">{t(lang.current, 'explorer.controls.lang_hdr')}</div>
-				<div class="lang-btns" role="group" aria-label={t(lang.current, 'explorer.controls.lang_aria')}>
-					{#each langs as code (code)}
-						<button
-							type="button"
-							class="lang-opt"
-							class:on={code === lang.current}
-							aria-pressed={code === lang.current}
-							onclick={() => setLang(code as Lang)}
-						>{LANG_LABELS[code as Lang].native}</button>
-					{/each}
+				<div class="lang-select-wrap">
+					<select
+						class="lang-select"
+						aria-label={t(lang.current, 'explorer.controls.lang_aria')}
+						value={lang.current}
+						onchange={(e) => setLang(e.currentTarget.value as Lang)}
+					>
+						{#each langs as code (code)}
+							<option value={code}>{LANG_LABELS[code as Lang].native} — {LANG_LABELS[code as Lang].english}</option>
+						{/each}
+					</select>
+					<span class="lang-caret" aria-hidden="true">▾</span>
 				</div>
 			</div>
 		{/if}
@@ -2219,8 +2226,9 @@
 		accent-color: #6fd3fb;
 		cursor: pointer;
 	}
-	/* Language control — labelled row of inline native-name buttons, mirroring the
-	   filters/overlays section divider and the map-version button look. */
+	/* Language control — a single native <select> dropdown. With 19 locales an
+	   inline button grid was unusably crowded; a dropdown keeps the panel compact
+	   and the full list one click away. */
 	.mapsw .lang-row {
 		margin-top: 7px;
 		padding-top: 6px;
@@ -2234,31 +2242,52 @@
 		font-weight: 600;
 		color: #9fb4d4;
 	}
-	.mapsw .lang-btns {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 5px;
+	.mapsw .lang-select-wrap {
+		position: relative;
+		display: block;
 	}
-	.mapsw .lang-opt {
-		flex: 1 1 0;
+	.mapsw .lang-select {
+		appearance: none;
+		-webkit-appearance: none;
+		width: 100%;
 		box-sizing: border-box;
 		background: #11182a;
 		border: 1px solid #2a3550;
 		border-radius: 7px;
 		color: #cfe0f5;
-		font: 600 12px -apple-system, 'Segoe UI', sans-serif;
-		padding: 7px 8px;
+		font: 600 12.5px -apple-system, 'Segoe UI', sans-serif;
+		padding: 8px 26px 8px 10px;
 		cursor: pointer;
-		text-align: center;
 	}
-	.mapsw .lang-opt:hover {
+	.mapsw .lang-select:hover {
 		border-color: #6fd3fb;
 		color: #eaf2ff;
 	}
-	.mapsw .lang-opt.on {
-		border-color: #6fd3fb;
-		color: #0c0f1a;
-		background: #6fd3fb;
+	.mapsw .lang-select:focus-visible {
+		outline: 2px solid #6fd3fb;
+		outline-offset: 1px;
+	}
+	.mapsw .lang-select option {
+		/* Native option list — force the dark panel palette on platforms that
+		   honour it (most desktop browsers); a no-op where the OS overrides. */
+		background: #11182a;
+		color: #cfe0f5;
+	}
+	.mapsw .lang-caret {
+		position: absolute;
+		top: 50%;
+		inset-inline-end: 9px;
+		transform: translateY(-50%);
+		font-size: 11px;
+		color: #9fb4d4;
+		pointer-events: none;
+	}
+	/* Provenance tag beside the resolution readout — colour set inline to track
+	   the live zoom accent (yellow = official, blue = computed). */
+	.mapsw .res .tier,
+	.zoom-m .res-m .tier {
+		font-weight: 700;
+		white-space: nowrap;
 	}
 	/* ── Share panel (desktop popover + shared with the mobile .msw-m-pop) ──────── */
 	.share-row {

@@ -891,6 +891,10 @@ export default {
 			// Zoom / resolution readout
 			zoom_aria: 'Zoom',
 			res_prefix: '1 pixel ≈',
+			// Boundary-line provenance tag beside the resolution readout: yellow
+			// (overview) flags the official lines; blue (detail) the computed lines.
+			zoom_official: '(Official)',
+			zoom_computed: '(Computed)',
 			// Overlays / layer toggles
 			overlays_hdr: 'Community Interest Overlays',
 			layer_highways: 'Highways',
