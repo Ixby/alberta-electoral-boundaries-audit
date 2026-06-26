@@ -287,7 +287,7 @@
       <a href="#section-1" class:active={activeLandmark === 'findings'} aria-current={activeLandmark === 'findings' ? 'location' : undefined}>{t(lang.current, 'nav.findings')}</a>
       <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'} aria-current={activeLandmark === 'history' ? 'location' : undefined}>{t(lang.current, 'nav.history')}</a>
       <a href="#section-8" class:active={activeLandmark === 'reform'} aria-current={activeLandmark === 'reform' ? 'location' : undefined}>{t(lang.current, 'nav.reform')}</a>
-      <a href="#references" class:active={activeLandmark === 'notes'} aria-current={activeLandmark === 'notes' ? 'location' : undefined}>{t(lang.current, 'nav.notes')}</a>
+      <a href="#references" class:active={activeLandmark === 'notes'} aria-current={activeLandmark === 'notes' ? 'location' : undefined}>{t(lang.current, 'nav.references')}</a>
     </div>
     <div class="nav-tools">
       <LanguageSelector />

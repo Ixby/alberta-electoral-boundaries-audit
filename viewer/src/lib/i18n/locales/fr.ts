@@ -124,7 +124,6 @@ export default {
 		findings: 'Constats',
 		history: 'Histoire',
 		reform: 'Réforme',
-		notes: 'Notes',
 		// Drawer group headings
 		group_overview: 'Vue d\'ensemble',
 		group_audit: 'L\'audit',
@@ -142,13 +141,10 @@ export default {
 		gerrymanders: 'Découpages partisans nets',
 		history_full: 'Une histoire du découpage partisan',
 		canada: 'Le Canada est différent',
-		november: 'Novembre',
 		lunty: 'Lunty',
-		invisible: 'L\'invisible',
 		suggestions: 'Suggestions de réforme',
 		retractions: 'Rétractations',
 		references: 'Références',
-		resources: 'Ressources',
 		technical: 'Ressources techniques',
 		feedback: 'Envoyer un commentaire'
 	},
