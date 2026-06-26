@@ -17,28 +17,60 @@ interface EdIndexEntry {
 	zoom: number;
 }
 
-/** A combined-directory row: a district name plus which map versions contain it. */
+/** Per-VA properties (va_props.json) — parallel-indexed to valabels_*.json. */
+interface VaProp {
+	votes?: number;
+}
+
+/**
+ * A combined-directory row: a district name, which map versions contain it, and
+ * each version's IN-PERSON vote total (sum of the district's voting-area votes;
+ * advance/special ballots are not attributed per VA, so these are election-day
+ * totals only). `*Votes` is null when the district name isn't on that map.
+ */
 export interface DirectoryEntry {
 	name: string;
 	minority: boolean;
 	majority: boolean;
 	ed2019: boolean;
+	minorityVotes: number | null;
+	majorityVotes: number | null;
+	ed2019Votes: number | null;
 }
 
 export const prerender = true;
 
 export const load: PageLoad = async ({ fetch }) => {
-	async function names(file: string): Promise<Set<string>> {
-		const res = await fetch(`${base}/mapdata/${file}`);
-		const rows = (await res.json()) as EdIndexEntry[];
+	const json = async <T>(file: string): Promise<T> =>
+		(await fetch(`${base}/mapdata/${file}`)).json() as Promise<T>;
+
+	// Per-VA in-person vote counts, parallel-indexed to each map's VA→district
+	// label array. Summing votes by district label yields the in-person ED total.
+	const vaProps = await json<VaProp[]>('va_props.json');
+	async function mapTotals(file: string): Promise<Map<string, number>> {
+		const labels = await json<string[]>(file); // index = VA position → district name
+		const tot = new Map<string, number>();
+		for (let i = 0; i < labels.length; i++) {
+			const ed = labels[i];
+			if (ed) tot.set(ed, (tot.get(ed) ?? 0) + (vaProps[i]?.votes ?? 0));
+		}
+		return tot;
+	}
+	function indexNames(rows: EdIndexEntry[]): Set<string> {
 		return new Set(rows.map((r) => r.name));
 	}
 
-	const [minority, majority, ed2019] = await Promise.all([
-		names('ed_index_minority.json'),
-		names('ed_index_majority.json'),
-		names('ed_index_2019.json')
+	const [minRows, majRows, ed2019Rows, minTot, majTot, ed2019Tot] = await Promise.all([
+		json<EdIndexEntry[]>('ed_index_minority.json'),
+		json<EdIndexEntry[]>('ed_index_majority.json'),
+		json<EdIndexEntry[]>('ed_index_2019.json'),
+		mapTotals('valabels_minority.json'),
+		mapTotals('valabels_majority.json'),
+		mapTotals('valabels_2019.json')
 	]);
+	const minority = indexNames(minRows);
+	const majority = indexNames(majRows);
+	const ed2019 = indexNames(ed2019Rows);
 
 	// Distinct district names across all three maps. Names differ between
 	// versions (e.g. 2019 "Airdrie-Cochrane" vs the proposals' "Airdrie-East"),
@@ -51,7 +83,10 @@ export const load: PageLoad = async ({ fetch }) => {
 			name,
 			minority: minority.has(name),
 			majority: majority.has(name),
-			ed2019: ed2019.has(name)
+			ed2019: ed2019.has(name),
+			minorityVotes: minTot.get(name) ?? null,
+			majorityVotes: majTot.get(name) ?? null,
+			ed2019Votes: ed2019Tot.get(name) ?? null
 		}));
 
 	return { directory };

@@ -1011,6 +1011,8 @@ export default {
 			directory_heading: 'Répertoire des circonscriptions',
 			directory_lead:
 				'Ce tableau énumère, par ordre alphabétique, chaque nom de circonscription figurant sur l’une des trois cartes. Pour chaque nom, il indique s’il fait partie de la proposition minoritaire, de la proposition majoritaire et de la carte adoptée en 2019. Les noms de circonscription diffèrent d’une carte à l’autre ; certaines lignes ne figurent donc que sur une ou deux d’entre elles. Le tableau ne contient que les noms et leur appartenance aux cartes — pour les totaux de votes, les chiffres de population et les résultats des tests, consultez le rapport complet.',
+			directory_totals_note:
+				'Chaque chiffre est le total des votes en personne (jour du scrutin) de la circonscription sur cette carte — la somme de ses bureaux. Les votes par anticipation et spéciaux ne sont pas attribués par section de vote et ne sont donc pas inclus ici; pour les résultats complets, voir le rapport. Un tiret (—) signifie que le nom de la circonscription n’apparaît pas sur cette carte.',
 			col_district: 'Circonscription',
 			col_minority: 'Proposition minoritaire',
 			col_majority: 'Proposition majoritaire',

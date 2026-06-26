@@ -71,6 +71,7 @@
 			<div class="prose">
 				<h2 id="directory">{t(lang.current, 'explorer.text.directory_heading')}</h2>
 				<p>{t(lang.current, 'explorer.text.directory_lead')}</p>
+				<p class="note">{t(lang.current, 'explorer.text.directory_totals_note')}</p>
 			</div>
 			<div class="table-wrap">
 				<table>
@@ -87,20 +88,14 @@
 						{#each data.directory as row (row.name)}
 							<tr>
 								<th scope="row">{row.name}</th>
-								<td class:no={!row.minority}>
-									{row.minority
-										? t(lang.current, 'explorer.text.present_yes')
-										: t(lang.current, 'explorer.text.present_no')}
+								<td class:no={row.minorityVotes === null}>
+									{row.minorityVotes !== null ? row.minorityVotes.toLocaleString() : '—'}
 								</td>
-								<td class:no={!row.majority}>
-									{row.majority
-										? t(lang.current, 'explorer.text.present_yes')
-										: t(lang.current, 'explorer.text.present_no')}
+								<td class:no={row.majorityVotes === null}>
+									{row.majorityVotes !== null ? row.majorityVotes.toLocaleString() : '—'}
 								</td>
-								<td class:no={!row.ed2019}>
-									{row.ed2019
-										? t(lang.current, 'explorer.text.present_yes')
-										: t(lang.current, 'explorer.text.present_no')}
+								<td class:no={row.ed2019Votes === null}>
+									{row.ed2019Votes !== null ? row.ed2019Votes.toLocaleString() : '—'}
 								</td>
 							</tr>
 						{/each}

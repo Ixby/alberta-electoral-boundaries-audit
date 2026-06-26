@@ -1017,6 +1017,8 @@ export default {
 			directory_heading: 'District directory',
 			directory_lead:
 				'This table lists every district name that appears on any of the three maps, in alphabetical order. For each name it shows whether that name is part of the minority proposal, the majority proposal, and the 2019 enacted map. District names differ between the maps, so some rows appear on only one or two of them. The table holds names and map membership only — for vote totals, population figures, and test results, see the full report.',
+			directory_totals_note:
+				'Each figure is the district’s in-person (election-day) vote total on that map — the sum of its polls. Advance and special ballots are not attributed per voting area, so they are not included here; for full results see the report. A dash (—) means the district name does not appear on that map.',
 			col_district: 'District',
 			col_minority: 'Minority proposal',
 			col_majority: 'Majority proposal',
