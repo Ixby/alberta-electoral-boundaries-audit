@@ -862,7 +862,9 @@ export default {
 			text_label: 'Text:',
 			code_label: 'Code:',
 			translation_label: 'Translations:',
-			translation_credit: 'Anthropic Fable 5 (AI) — awaiting native-speaker review'
+			translation_credit: 'Anthropic Fable 5 (AI) — awaiting native-speaker review',
+			data_credit:
+				'Map data: secondary highways from the National Road Network, © Statistics Canada (Open Government Licence – Canada); other roads & water © OpenStreetMap contributors (ODbL); boundaries & results © Elections Alberta.'
 		}
 	},
 	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
