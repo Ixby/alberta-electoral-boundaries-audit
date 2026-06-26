@@ -1220,7 +1220,8 @@
     <span class="data-credit">{t(lang.current, 'chrome.footer.data_credit')}</span><br>
     <a href="https://ixby.github.io">ixby.github.io</a> &mdash;
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a><br>
-    <a href="{base}/privacy-policy">{t(lang.current, 'chrome.participation.privacy_policy')}</a>
+    <a href="{base}/privacy-policy">{t(lang.current, 'chrome.participation.privacy_policy')}</a> &mdash;
+    <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
   </div>
 </footer>
 

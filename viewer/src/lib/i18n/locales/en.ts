@@ -1030,5 +1030,39 @@ export default {
 			skip_to_main: 'Skip to main content',
 			back_to_map: 'Back to the interactive map'
 		}
+	},
+	// Public feedback form (/feedback route + footer links).
+	feedback: {
+		nav_link: 'Send feedback',
+		page_title: 'Send feedback',
+		meta_description:
+			'Share a correction, question, or suggestion about the Alberta Electoral Boundary Audit.',
+		heading: 'Send feedback',
+		intro:
+			'Spotted an error, have a question, or want to suggest an improvement? This goes straight to the author. You do not need to leave your name or email — but if you would like a reply, an email address helps.',
+		name_label: 'Name',
+		name_optional: 'optional',
+		name_placeholder: 'Your name',
+		email_label: 'Email',
+		email_optional: 'optional',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Only used to reply to you. Never shared, never added to any list.',
+		message_label: 'Message',
+		message_required: 'required',
+		message_placeholder: 'What would you like to tell us?',
+		submit: 'Send feedback',
+		submitting: 'Sending…',
+		success_title: 'Thank you',
+		success_body:
+			'Your feedback has been received. If you left an email address and it calls for a reply, you will hear back.',
+		send_another: 'Send another',
+		error_empty: 'Please enter a message before sending.',
+		error_rate: 'You have sent several messages recently. Please try again in a little while.',
+		error_generic: 'Something went wrong sending your feedback. Please try again, or email the author directly.',
+		privacy_note:
+			'Your message is stored securely in Canada and used only to improve this audit. See the {privacy} for details.',
+		privacy_link_text: 'privacy policy',
+		back_to_report: 'Back to the report',
+		back_to_map: 'Back to the map explorer'
 	}
 } as const;

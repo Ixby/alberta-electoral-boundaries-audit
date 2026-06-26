@@ -1024,5 +1024,39 @@ export default {
 			skip_to_main: 'Passer au contenu principal',
 			back_to_map: 'Retour à la carte interactive'
 		}
+	},
+	// Formulaire public de rétroaction (route /feedback + liens de pied de page).
+	feedback: {
+		nav_link: 'Envoyer un commentaire',
+		page_title: 'Envoyer un commentaire',
+		meta_description:
+			'Signalez une correction, posez une question ou proposez une amélioration au sujet de l’Audit des limites électorales de l’Alberta.',
+		heading: 'Envoyer un commentaire',
+		intro:
+			'Vous avez repéré une erreur, vous avez une question ou souhaitez proposer une amélioration? Votre message est transmis directement à l’auteur. Vous n’avez pas à laisser votre nom ni votre courriel — mais si vous souhaitez une réponse, une adresse courriel est utile.',
+		name_label: 'Nom',
+		name_optional: 'facultatif',
+		name_placeholder: 'Votre nom',
+		email_label: 'Courriel',
+		email_optional: 'facultatif',
+		email_placeholder: 'vous@exemple.com',
+		email_hint: 'Utilisé uniquement pour vous répondre. Jamais partagé, jamais ajouté à une liste.',
+		message_label: 'Message',
+		message_required: 'obligatoire',
+		message_placeholder: 'Que souhaitez-vous nous dire?',
+		submit: 'Envoyer',
+		submitting: 'Envoi…',
+		success_title: 'Merci',
+		success_body:
+			'Votre commentaire a été reçu. Si vous avez laissé une adresse courriel et qu’une réponse est justifiée, vous aurez de nos nouvelles.',
+		send_another: 'Envoyer un autre message',
+		error_empty: 'Veuillez saisir un message avant l’envoi.',
+		error_rate: 'Vous avez envoyé plusieurs messages récemment. Veuillez réessayer dans un moment.',
+		error_generic: 'Une erreur s’est produite lors de l’envoi de votre commentaire. Veuillez réessayer ou écrire directement à l’auteur.',
+		privacy_note:
+			'Votre message est conservé de façon sécurisée au Canada et sert uniquement à améliorer cet audit. Consultez la {privacy} pour en savoir plus.',
+		privacy_link_text: 'politique de confidentialité',
+		back_to_report: 'Retour au rapport',
+		back_to_map: 'Retour à l’explorateur de carte'
 	}
 } as const;

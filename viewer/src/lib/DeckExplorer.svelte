@@ -1935,6 +1935,9 @@
 			<b>{t(lang.current, 'explorer.controls.lines_note_title')}</b><br />
 			{t(lang.current, 'explorer.controls.lines_note_lead')} <b>{t(lang.current, 'explorer.controls.lines_note_emphasis')}</b> {t(lang.current, 'explorer.controls.lines_note_tail')}
 		</div>
+		<div class="panel-foot">
+			<a class="feedback-link" href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
+		</div>
 		</div>
 	</div>
 	{/if}
@@ -2248,6 +2251,23 @@
 	}
 	.mapsw .lines-note b {
 		color: #cfe0f5;
+	}
+	.mapsw .panel-foot {
+		margin-top: 7px;
+		padding-top: 7px;
+		border-top: 1px solid #2a3550;
+	}
+	.mapsw .feedback-link {
+		font-size: 11px;
+		color: #9fb4d4;
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+	}
+	.mapsw .feedback-link:hover,
+	.mapsw .feedback-link:focus-visible {
+		color: #cfe0f5;
+		border-bottom-color: #6a86b8;
+		outline: none;
 	}
 	.mapsw .filters {
 		margin-top: 7px;

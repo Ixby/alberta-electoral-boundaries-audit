@@ -63,7 +63,11 @@
           available in your browser right now. Try enabling hardware
           acceleration, or switch to a browser that supports it.
         </p>
-        <p><a href="{base}/">Back to the report</a></p>
+        <p>
+          <a href="{base}/">Back to the report</a>
+          <span aria-hidden="true">·</span>
+          <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
+        </p>
       </div>
     </div>
   {/if}
