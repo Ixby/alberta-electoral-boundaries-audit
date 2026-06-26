@@ -982,6 +982,41 @@ export default {
 				title: 'Norte y este de Calgary — una firma de empaquetamiento',
 				body: 'El presidente de la comisión no señaló esta — lo hacen las propias cuentas de la auditoría. A lo largo del norte y el este de Calgary (la “Zona A” de la auditoría, al norte y al este del río Bow), los distritos del mapa minoritario corren alrededor de 11.5% por encima del promedio provincial, frente a 2.8% en el mapa mayoritario. Empaquetar significa concentrar a los votantes de un lado en distritos más pocos y grandes, de modo que cada una de sus boletas pese un poco menos; la Zona A es competitiva para el NDP, y 13 de sus 17 distritos fueron ganados por el NDP en 2023. La auditoría mide el efecto estructural, no la intención. (Académico §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Versión en texto — mapa de la Auditoría de Límites Electorales de Alberta',
+			intro:
+				'Esta es la versión en texto del mapa interactivo de la auditoría. Contiene la misma información que el mapa visual, redactada de manera que pueda leerse con un lector de pantalla. Comienza con los límites que la auditoría señaló, y luego enumera cada distrito e indica cuál de los tres mapas lo incluye.',
+			link_map: 'Abrir el mapa interactivo',
+			link_report: 'Leer el informe completo',
+			link_to_text: 'Abrir la versión en texto accesible de este mapa',
+			toc_heading: 'En esta página',
+			toc_summary: 'Resumen breve',
+			toc_flagged: 'Límites señalados',
+			toc_directory: 'Directorio de distritos',
+			summary_heading: 'Resumen breve',
+			summary_p1:
+				'La auditoría compara tres mapas de los distritos electorales de Alberta: la propuesta minoritaria de la comisión, su propuesta mayoritaria y el mapa adoptado en 2019, que está en vigor hoy.',
+			summary_p2:
+				'En las pruebas estructurales preinscritas de la auditoría, que se basan únicamente en la geometría, el mapa mayoritario no cruza ninguno de los cinco umbrales y el mapa minoritario cruza cuatro de los cinco. Los resultados estadísticos aparte, que comparan cada mapa con un amplio conjunto de mapas neutrales trazados por ordenador, son preliminares y están a la espera de una revisión independiente por parte de expertos.',
+			summary_p3:
+				'Las secciones siguientes explican nueve límites concretos que la auditoría señaló, y luego enumeran cada distrito. Esta página describe únicamente la posición estadística y estructural. No llega a una conclusión jurídica sobre ningún mapa.',
+			flagged_heading: 'Límites señalados',
+			flagged_lead:
+				'La auditoría señaló nueve límites. Algunos parecen inusuales pero siguen fielmente la geografía real; otros corresponden a un patrón de empaquetamiento o fragmentación en las propias mediciones de la auditoría. Cada uno se explica a continuación, con una referencia de sección al informe académico donde corresponda.',
+			directory_heading: 'Directorio de distritos',
+			directory_lead:
+				'Esta tabla enumera, en orden alfabético, cada nombre de distrito que aparece en cualquiera de los tres mapas. Para cada nombre indica si ese nombre forma parte de la propuesta minoritaria, de la propuesta mayoritaria y del mapa adoptado en 2019. Los nombres de los distritos difieren entre los mapas, por lo que algunas filas aparecen en solo uno o dos de ellos. La tabla contiene únicamente nombres y pertenencia a los mapas — para los totales de votos, las cifras de población y los resultados de las pruebas, consulte el informe completo.',
+			col_district: 'Distrito',
+			col_minority: 'Propuesta minoritaria',
+			col_majority: 'Propuesta mayoritaria',
+			col_2019: 'Mapa oficial',
+			present_yes: 'Sí',
+			present_no: 'No',
+			methodology_note:
+				'Esta página es un equivalente estático, solo de texto, del mapa interactivo. Está construida a partir de los mismos datos de distrito y de las mismas anotaciones de límites. Los resultados estadísticos (conjunto neutral) mencionados aquí son preliminares y están a la espera de una revisión independiente por parte de expertos.',
+			skip_to_main: 'Saltar al contenido principal',
+			back_to_map: 'Volver al mapa interactivo'
 		}
 	}
 } as const;

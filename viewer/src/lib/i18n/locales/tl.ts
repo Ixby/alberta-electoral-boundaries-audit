@@ -980,6 +980,41 @@ export default {
 				title: 'Hilaga at silangan ng Calgary — isang lagda ng packing',
 				body: 'Hindi ito binandilaan ng punong komisyon — ang sariling matematika ng audit ang gumagawa. Sa kabuuan ng hilaga at silangan ng Calgary (ang "Zone A" ng audit, hilaga at silangan ng Bow River), ang mga distrito ng mapa ng minorya ay humigit-kumulang 11.5% na mas malaki kaysa sa karaniwan ng probinsya, laban sa 2.8% sa mapa ng mayorya. Ang packing ay nangangahulugan ng pagtitipon ng mga botante ng isang panig sa mas kaunti, mas malalaking distrito, upang ang bawat balota nila ay tumimbang nang kaunti pang mababa; ang Zone A ay NDP-competitive, at 13 sa 17 distrito nito ay napanalunan ng NDP noong 2023. Sinusukat ng audit ang istrukturang epekto, hindi ang intensyon. (Akademiko §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Bersyong teksto — mapa ng Pag-audit ng Hangganan ng Halalan sa Alberta',
+			intro:
+				'Ito ang bersyong teksto ng interaktibong mapa ng audit. Dala nito ang parehong impormasyon ng biswal na mapa, isinulat nang buo upang mabasa ito sa pamamagitan ng screen reader. Nagsisimula ito sa mga hangganang binandilaan ng audit, pagkatapos ay inililista ang bawat distrito at kung alin sa tatlong mapa ang kinabibilangan nito.',
+			link_map: 'Buksan ang interaktibong mapa',
+			link_report: 'Basahin ang buong ulat',
+			link_to_text: 'Buksan ang naa-access na bersyong teksto ng mapang ito',
+			toc_heading: 'Sa pahinang ito',
+			toc_summary: 'Maikling buod',
+			toc_flagged: 'Mga binandilaang hangganan',
+			toc_directory: 'Direktoryo ng mga distrito',
+			summary_heading: 'Maikling buod',
+			summary_p1:
+				'Inihahambing ng audit ang tatlong mapa ng mga elektoral na distrito ng Alberta: ang panukala ng minorya ng komisyon, ang panukala ng mayorya nito, at ang mapang nasaad noong 2019 na may bisa ngayon.',
+			summary_p2:
+				'Sa mga pre-registered na istrukturang pagsusulit ng audit, na gumagamit ng geometriya lamang, ang mapa ng mayorya ay hindi tumatawid sa alinman sa limang threshold at ang mapa ng minorya ay tumatawid sa apat sa lima. Ang hiwalay na mga resultang estadistiko, na inihahambing ang bawat mapa sa isang malaking hanay ng mga computer-drawn na neutral na mapa, ay paunang resulta at naghihintay ng independiyenteng pagsusuri ng eksperto.',
+			summary_p3:
+				'Ipinapaliwanag ng mga seksyon sa ibaba ang siyam na tiyak na hangganang binandilaan ng audit, pagkatapos ay inililista ang bawat distrito. Inilalarawan ng pahinang ito ang posisyong estadistiko at istruktural lamang. Hindi ito umaabot sa isang legal na konklusyon tungkol sa alinmang mapa.',
+			flagged_heading: 'Mga binandilaang hangganan',
+			flagged_lead:
+				'Binandilaan ng audit ang siyam na hangganan. May ilan na mukhang hindi pangkaraniwan ngunit tapat na sumusunod sa tunay na heograpiya; ang iba ay tumutugma sa isang packing o cracking na pattern sa sariling mga sukat ng audit. Ang bawat isa ay ipinapaliwanag sa ibaba, na may sanggunian sa seksyon ng akademikong ulat kung saan ito naaangkop.',
+			directory_heading: 'Direktoryo ng mga distrito',
+			directory_lead:
+				'Inililista ng talahanayang ito ang bawat pangalan ng distrito na lumilitaw sa alinman sa tatlong mapa, ayon sa pagkakasunod-sunod ng alpabeto. Para sa bawat pangalan ay ipinapakita nito kung ang pangalang iyon ay bahagi ng panukala ng minorya, ng panukala ng mayorya, at ng mapang nasaad noong 2019. Naiiba ang mga pangalan ng distrito sa pagitan ng mga mapa, kaya may ilang hilera na lumilitaw sa isa o dalawa lamang sa mga ito. Naglalaman lamang ang talahanayan ng mga pangalan at pagiging kasapi sa mapa — para sa kabuuang boto, mga bilang ng populasyon, at mga resulta ng pagsusulit, tingnan ang buong ulat.',
+			col_district: 'Distrito',
+			col_minority: 'Panukala ng minorya',
+			col_majority: 'Panukala ng mayorya',
+			col_2019: 'Opisyal na mapa',
+			present_yes: 'Oo',
+			present_no: 'Hindi',
+			methodology_note:
+				'Ang pahinang ito ay isang static, tekstong-lamang na katumbas ng interaktibong mapa. Binuo ito mula sa parehong datos ng distrito at parehong mga anotasyon ng hangganan. Ang mga natuklasang estadistiko (neutral-ensemble) na tinutukoy rito ay paunang resulta at naghihintay ng independiyenteng pagsusuri ng eksperto.',
+			skip_to_main: 'Lumaktaw sa pangunahing nilalaman',
+			back_to_map: 'Bumalik sa interaktibong mapa'
 		}
 	}
 } as const;

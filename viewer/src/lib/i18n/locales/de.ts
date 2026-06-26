@@ -966,6 +966,41 @@ export default {
 				title: 'Calgary Nord & Ost — eine Packing-Signatur',
 				body: 'Diese Konfiguration hat der Kommissionsvorsitzende nicht beanstandet — die eigene Mathematik des Audits tut es. Über Calgarys Norden und Osten (die „Zone A“ des Audits, nördlich und östlich des Bow River) verlaufen die Bezirke der Minderheitenkarte etwa 11,5 % größer als der provinzielle Durchschnitt, gegenüber 2,8 % auf der Mehrheitskarte. Packing bedeutet, die Wählerinnen und Wähler einer Seite in weniger, größere Bezirke zu konzentrieren, sodass jeder ihrer Stimmzettel ein wenig weniger wiegt; Zone A ist NDP-kompetitiv, und 13 ihrer 17 Bezirke wurden 2023 von der NDP gewonnen. Das Audit misst die strukturelle Wirkung, nicht die Absicht. (Akademisch §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Textversion — Karte des Audits der Wahlkreisgrenzen Albertas',
+			intro:
+				'Dies ist die Textversion der interaktiven Karte des Audits. Sie enthält dieselben Informationen wie die visuelle Karte, ausgeschrieben, damit sie mit einem Screenreader gelesen werden kann. Sie beginnt mit den vom Audit markierten Grenzen und führt dann jeden Wahlkreis auf sowie welche der drei Karten ihn umfasst.',
+			link_map: 'Die interaktive Karte öffnen',
+			link_report: 'Den vollständigen Bericht lesen',
+			link_to_text: 'Die barrierefreie Textversion dieser Karte öffnen',
+			toc_heading: 'Auf dieser Seite',
+			toc_summary: 'Kurzzusammenfassung',
+			toc_flagged: 'Markierte Grenzen',
+			toc_directory: 'Wahlkreisverzeichnis',
+			summary_heading: 'Kurzzusammenfassung',
+			summary_p1:
+				'Das Audit vergleicht drei Karten der Wahlkreise Albertas: den Minderheitenvorschlag der Kommission, ihren Mehrheitsvorschlag und die 2019 erlassene Karte, die heute in Kraft ist.',
+			summary_p2:
+				'Bei den präregistrierten strukturellen Tests des Audits, die allein auf der Geometrie beruhen, überschreitet die Mehrheitenkarte keine der fünf Schwellen und die Minderheitenkarte überschreitet vier der fünf. Die gesonderten statistischen Ergebnisse, die jede Karte mit einer großen Menge computergezeichneter neutraler Karten vergleichen, sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.',
+			summary_p3:
+				'Die folgenden Abschnitte erläutern neun bestimmte vom Audit markierte Grenzen und führen dann jeden Wahlkreis auf. Diese Seite beschreibt allein die statistische und strukturelle Position. Sie zieht keinen rechtlichen Schluss über irgendeine Karte.',
+			flagged_heading: 'Markierte Grenzen',
+			flagged_lead:
+				'Das Audit hat neun Grenzen markiert. Einige wirken ungewöhnlich, folgen aber getreu der realen Geographie; andere entsprechen einem Packing- oder Cracking-Muster in den eigenen Messungen des Audits. Jede wird unten erläutert, mit einem Abschnittsverweis auf den akademischen Bericht, wo zutreffend.',
+			directory_heading: 'Wahlkreisverzeichnis',
+			directory_lead:
+				'Diese Tabelle führt in alphabetischer Reihenfolge jeden Wahlkreisnamen auf, der auf einer der drei Karten erscheint. Für jeden Namen zeigt sie, ob dieser Name Teil des Minderheitenvorschlags, des Mehrheitsvorschlags und der 2019 erlassenen Karte ist. Die Wahlkreisnamen unterscheiden sich zwischen den Karten, sodass manche Zeilen nur auf einer oder zwei von ihnen erscheinen. Die Tabelle enthält nur Namen und Kartenzugehörigkeit — für Stimmensummen, Bevölkerungszahlen und Testergebnisse siehe den vollständigen Bericht.',
+			col_district: 'Wahlkreis',
+			col_minority: 'Minderheitenvorschlag',
+			col_majority: 'Mehrheitsvorschlag',
+			col_2019: 'Offizielle Karte',
+			present_yes: 'Ja',
+			present_no: 'Nein',
+			methodology_note:
+				'Diese Seite ist ein statisches, reines Textäquivalent der interaktiven Karte. Sie ist aus denselben Wahlkreisdaten und denselben Grenzannotationen aufgebaut. Die hier genannten statistischen Ergebnisse (neutrales Ensemble) sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.',
+			skip_to_main: 'Zum Hauptinhalt springen',
+			back_to_map: 'Zurück zur interaktiven Karte'
 		}
 	}
 } as const;

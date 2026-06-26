@@ -956,6 +956,41 @@ export default {
 				title: 'Bắc & đông Calgary — một chữ ký nhồi nhét',
 				body: 'Chủ tịch ủy ban không gắn cờ cái này — chính phép toán của cuộc kiểm toán làm vậy. Trên khắp bắc và đông Calgary (“Vùng A” của cuộc kiểm toán, bắc và đông sông Bow), các khu vực của bản đồ thiểu số lớn hơn khoảng 11,5% so với mức trung bình tỉnh, so với 2,8% trên bản đồ đa số. Nhồi nhét có nghĩa là tập trung cử tri của một bên vào ít hơn, các khu vực lớn hơn, để mỗi lá phiếu của họ có trọng lượng ít hơn một chút; Vùng A có tính cạnh tranh NDP, và 13 trong số 17 khu vực của nó do NDP thắng vào năm 2023. Cuộc kiểm toán đo lường hiệu ứng cấu trúc, không phải ý định. (Học thuật §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Phiên bản văn bản — bản đồ Kiểm toán Ranh giới Bầu cử Alberta',
+			intro:
+				'Đây là phiên bản văn bản của bản đồ tương tác của cuộc kiểm toán. Nó mang cùng thông tin như bản đồ trực quan, được viết ra để có thể đọc bằng trình đọc màn hình. Nó dẫn đầu với các ranh giới mà cuộc kiểm toán đã gắn cờ, rồi liệt kê mọi khu vực bầu cử và bản đồ nào trong ba bản đồ bao gồm nó.',
+			link_map: 'Mở bản đồ tương tác',
+			link_report: 'Đọc báo cáo đầy đủ',
+			link_to_text: 'Mở phiên bản văn bản dễ tiếp cận của bản đồ này',
+			toc_heading: 'Trên trang này',
+			toc_summary: 'Tóm tắt ngắn',
+			toc_flagged: 'Các ranh giới được gắn cờ',
+			toc_directory: 'Danh mục khu vực bầu cử',
+			summary_heading: 'Tóm tắt ngắn',
+			summary_p1:
+				'Cuộc kiểm toán so sánh ba bản đồ các khu vực bầu cử của Alberta: đề xuất thiểu số của ủy ban, đề xuất đa số của ủy ban, và bản đồ được ban hành năm 2019 đang có hiệu lực hôm nay.',
+			summary_p2:
+				'Trên các bài kiểm tra cấu trúc được đăng ký trước của cuộc kiểm toán, vốn chỉ dùng hình học, bản đồ đa số không vượt qua ngưỡng nào trong năm ngưỡng và bản đồ thiểu số vượt qua bốn trong năm. Các kết quả thống kê riêng biệt, vốn so sánh mỗi bản đồ với một tập lớn các bản đồ trung lập do máy tính vẽ, là sơ bộ và đang chờ đánh giá độc lập của chuyên gia.',
+			summary_p3:
+				'Các phần dưới đây giải thích chín ranh giới cụ thể mà cuộc kiểm toán đã gắn cờ, rồi liệt kê mọi khu vực bầu cử. Trang này chỉ mô tả vị trí thống kê và cấu trúc. Nó không đạt đến một kết luận pháp lý về bất kỳ bản đồ nào.',
+			flagged_heading: 'Các ranh giới được gắn cờ',
+			flagged_lead:
+				'Cuộc kiểm toán đã gắn cờ chín ranh giới. Một số trông bất thường nhưng tuân theo trung thực địa lý thực; số khác khớp với một mẫu nhồi nhét hoặc phá vỡ trong chính các phép đo của cuộc kiểm toán. Mỗi cái được giải thích dưới đây, với một tham chiếu phần đến báo cáo học thuật ở nơi áp dụng.',
+			directory_heading: 'Danh mục khu vực bầu cử',
+			directory_lead:
+				'Bảng này liệt kê mọi tên khu vực bầu cử xuất hiện trên bất kỳ bản đồ nào trong ba bản đồ, theo thứ tự bảng chữ cái. Với mỗi tên, nó cho thấy tên đó có thuộc đề xuất thiểu số, đề xuất đa số, và bản đồ được ban hành năm 2019 hay không. Tên các khu vực bầu cử khác nhau giữa các bản đồ, vì vậy một số hàng chỉ xuất hiện trên một hoặc hai trong số đó. Bảng chỉ giữ tên và thành viên bản đồ — về tổng số phiếu, số liệu dân số, và kết quả kiểm tra, xin xem báo cáo đầy đủ.',
+			col_district: 'Khu vực bầu cử',
+			col_minority: 'Đề xuất thiểu số',
+			col_majority: 'Đề xuất đa số',
+			col_2019: 'Bản đồ chính thức',
+			present_yes: 'Có',
+			present_no: 'Không',
+			methodology_note:
+				'Trang này là một bản tương đương tĩnh, chỉ văn bản, của bản đồ tương tác. Nó được xây dựng từ cùng dữ liệu khu vực bầu cử và cùng các chú thích ranh giới. Các phát hiện thống kê (tập trung lập) được tham chiếu ở đây là sơ bộ và đang chờ đánh giá độc lập của chuyên gia.',
+			skip_to_main: 'Bỏ qua đến nội dung chính',
+			back_to_map: 'Quay lại bản đồ tương tác'
 		}
 	}
 } as const;

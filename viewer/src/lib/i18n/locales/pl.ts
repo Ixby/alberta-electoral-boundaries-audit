@@ -973,6 +973,41 @@ export default {
 				title: 'Calgary północ i wschód — sygnatura upychania',
 				body: 'Przewodniczący komisji nie zaznaczył tego — robi to własna matematyka audytu. W całej północy i wschodzie Calgary (audytowa „Strefa A”, na północ i wschód od rzeki Bow) okręgi mapy mniejszościowej są o około 11,5% większe niż średnia prowincjonalna, wobec 2,8% na mapie większościowej. Upychanie oznacza koncentrowanie wyborców jednej strony w mniejszej liczbie większych okręgów, tak aby każda z ich kart ważyła nieco mniej; Strefa A jest konkurencyjna dla NDP, a 13 z jej 17 okręgów zostało wygranych przez NDP w 2023 roku. Audyt mierzy efekt strukturalny, a nie intencję. (Akademicki §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Wersja tekstowa — mapa audytu granic wyborczych Alberty',
+			intro:
+				'To jest tekstowa wersja interaktywnej mapy audytu. Zawiera te same informacje co mapa wizualna, zapisane tak, aby można je było odczytać czytnikiem ekranu. Zaczyna się od granic oznaczonych przez audyt, a następnie wymienia każdy okręg i wskazuje, która z trzech map go obejmuje.',
+			link_map: 'Otwórz interaktywną mapę',
+			link_report: 'Przeczytaj pełny raport',
+			link_to_text: 'Otwórz dostępną wersję tekstową tej mapy',
+			toc_heading: 'Na tej stronie',
+			toc_summary: 'Krótkie podsumowanie',
+			toc_flagged: 'Oznaczone granice',
+			toc_directory: 'Spis okręgów',
+			summary_heading: 'Krótkie podsumowanie',
+			summary_p1:
+				'Audyt porównuje trzy mapy okręgów wyborczych Alberty: propozycję mniejszości komisji, jej propozycję większości oraz mapę uchwaloną w 2019 roku, obowiązującą dzisiaj.',
+			summary_p2:
+				'W prerejestrowanych testach strukturalnych audytu, które opierają się wyłącznie na geometrii, mapa większości nie przekracza żadnego z pięciu progów, a mapa mniejszości przekracza cztery z pięciu. Odrębne wyniki statystyczne, które porównują każdą mapę z dużym zbiorem neutralnych map narysowanych przez komputer, są wstępne i czekają na niezależną recenzję ekspercką.',
+			summary_p3:
+				'Poniższe sekcje wyjaśniają dziewięć konkretnych granic oznaczonych przez audyt, a następnie wymieniają każdy okręg. Ta strona opisuje wyłącznie pozycję statystyczną i strukturalną. Nie wyciąga prawnego wniosku na temat żadnej mapy.',
+			flagged_heading: 'Oznaczone granice',
+			flagged_lead:
+				'Audyt oznaczył dziewięć granic. Niektóre wyglądają nietypowo, ale wiernie podążają za rzeczywistą geografią; inne odpowiadają wzorcowi upychania lub rozdrabniania w pomiarach samego audytu. Każda jest wyjaśniona poniżej, z odniesieniem do sekcji raportu akademickiego, tam gdzie ma to zastosowanie.',
+			directory_heading: 'Spis okręgów',
+			directory_lead:
+				'Ta tabela wymienia każdą nazwę okręgu, która pojawia się na którejkolwiek z trzech map, w kolejności alfabetycznej. Dla każdej nazwy pokazuje, czy jest ona częścią propozycji mniejszości, propozycji większości oraz mapy uchwalonej w 2019 roku. Nazwy okręgów różnią się między mapami, więc niektóre wiersze pojawiają się tylko na jednej lub dwóch z nich. Tabela zawiera wyłącznie nazwy i przynależność do map — po sumy głosów, dane o populacji i wyniki testów sięgnij do pełnego raportu.',
+			col_district: 'Okręg',
+			col_minority: 'Propozycja mniejszości',
+			col_majority: 'Propozycja większości',
+			col_2019: 'Mapa oficjalna',
+			present_yes: 'Tak',
+			present_no: 'Nie',
+			methodology_note:
+				'Ta strona jest statycznym, wyłącznie tekstowym odpowiednikiem interaktywnej mapy. Jest zbudowana z tych samych danych o okręgach i tych samych adnotacji granic. Wymienione tu wyniki statystyczne (neutralny zespół map) są wstępne i czekają na niezależną recenzję ekspercką.',
+			skip_to_main: 'Przejdź do treści głównej',
+			back_to_map: 'Powrót do interaktywnej mapy'
 		}
 	}
 } as const;

@@ -959,6 +959,41 @@ export default {
 				title: 'Waqooyi & bari Calgary — calaamad urursi',
 				body: 'Guddoomiyaha guddidu midkan ma uusan calaamadayn — xisaabta hubinta lafteeda ayaa sameysa. Waqooyi iyo bari Calgary (hubinta "Zone A," waqooyi iyo bari Webiga Bow), degmooyinka khariidadda inta yar waxay ka weyn yihiin celceliska gobolka qiyaastii 11.5%, marka loo eego 2.8% khariidadda inta badan. Urursi macnaheedu waa ku urursida codbixiyayaasha hal dhinac degmooyin yar oo ka weyn, sidaa darteed kaadi kastoodu wax yar bay miisaamaan; Zone A waa NDP-tartan, 13 ka mid ah 17 degmo waxaa ku guulaystay NDP 2023. Hubintu waxay cabbirtaa saamaynta qaab-dhismeed, ma aha niyada. (Acadeemig §5.3.1.)'
 			}
+		},
+		text: {
+			page_title: 'Nooca qoraal ah — khariidadda Hubinta Xudduudaha Doorashada Alberta',
+			intro:
+				'Tani waa nooca qoraal ah ee khariidadda firfircoon ee hubinta. Waxay sidaa isla macluumaadka khariidadda muuqaalka ah, oo loo qoray si loogu akhriyo qalab akhris-shaashad. Waxay ku bilaabataa xudduudaha hubintu calaamadaysay, ka dibna waxay liis-gareynaysaa degmo kasta iyo midkee khariidadood oo saddexda ah ay ku jirto.',
+			link_map: 'Fur khariidadda firfircoon',
+			link_report: 'Akhri warbixinta oo dhan',
+			link_to_text: 'Fur nooca qoraal ee la heli karo ee khariidaddan',
+			toc_heading: 'Boggan',
+			toc_summary: 'Soo-koobid gaaban',
+			toc_flagged: 'Xudduudaha la calaamadeeyay',
+			toc_directory: 'Tusaha degmooyinka',
+			summary_heading: 'Soo-koobid gaaban',
+			summary_p1:
+				'Hubintu waxay is barbar dhigtaa saddex khariidadood oo ah degmooyinka doorashada Alberta: soo jeedinta inta-yar ee guddida, soo jeedinta inta-badan, iyo khariidadda la dejiyay ee 2019 oo maanta shaqaynaysa.',
+			summary_p2:
+				'Tijaabooyinka qaab-dhismeedka ee hubintu hore u diiwaan-gelisay, oo isticmaala juquraafi keliya, khariidadda inta-badan midna kama gudbiso shantii xad, khariidadda inta-yarna afar shan ka mid ah ayey ka gudubtaa. Natiijooyinka tirakoobka ee kala-duwan, oo midkasta khariidadood ku barbar dhiga koox weyn oo khariidado dhexdhexaad ah oo kombuyuutar ku sawiray, waa kuwo bilow ah oo sugaya dib-u-eegis madax-bannaan oo khabiir ah.',
+			summary_p3:
+				'Qaybaha hoose waxay sharxayaan sagaal xudduud oo gaar ah oo hubintu calaamadaysay, ka dibna waxay liis-gareynayaan degmo kasta. Boggani wuxuu qeexayaa booska tirakoobka iyo qaab-dhismeedka keliya. Gabagabo sharci ah kama gaadho khariidad kasta.',
+			flagged_heading: 'Xudduudaha la calaamadeeyay',
+			flagged_lead:
+				'Hubintu waxay calaamadaysay sagaal xudduud. Qaar way u muuqdaan kuwo cajiib ah laakiin si daacad ah ayey u raacaan juquraafi dhab ah; qaar kalena waxay la mid yihiin qaab urursi ama jeexitaan oo ku jira cabbiraadaha hubinta lafteeda. Mid kasta hoose ayaa lagu sharxay, oo leh tixraac qayb oo loo gudbiyo warbixinta acadeemiga ah meesha ay khusayso.',
+			directory_heading: 'Tusaha degmooyinka',
+			directory_lead:
+				'Shaxdani waxay liis-gareynaysaa magac kasta oo degmo oo ka soo muuqda mid kasta oo saddexda khariidadood ah, oo ku kala horreeya alifbeeto. Magac kasta waxay muujinaysaa in magacaasi qayb ka yahay soo jeedinta inta-yar, soo jeedinta inta-badan, iyo khariidadda la dejiyay ee 2019. Magacyada degmooyinku way ku kala duwan yihiin khariidadaha, sidaa darteed saf qaar waxay ka soo muuqdaan hal ama laba oo kaliya. Shaxdu waxay haysataa magacyada iyo xubinnimada khariidadda keliya — wadarta codadka, tirooyinka dadnimada, iyo natiijooyinka tijaabada, fiiri warbixinta oo dhan.',
+			col_district: 'Degmo',
+			col_minority: 'Soo jeedinta inta-yar',
+			col_majority: 'Soo jeedinta inta-badan',
+			col_2019: 'Khariidadda rasmiga ah',
+			present_yes: 'Haa',
+			present_no: 'Maya',
+			methodology_note:
+				'Boggani waa u dhigma khariidadda firfircoon oo go’an oo qoraal-kaliya ah. Waxaa laga dhisay isla xogta degmooyinka iyo isla calaamadaynta xudduudaha. Natiijooyinka tirakoobka (ensemble-dhexdhexaad) ee halkan lagu tixraacay waa kuwo bilow ah oo sugaya dib-u-eegis madax-bannaan oo khabiir ah.',
+			skip_to_main: 'U bood nuxurka ugu weyn',
+			back_to_map: 'Ku noqo khariidadda firfircoon'
 		}
 	}
 } as const;

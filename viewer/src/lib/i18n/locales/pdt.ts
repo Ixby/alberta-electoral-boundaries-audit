@@ -961,6 +961,41 @@ export default {
 				title: 'Calgary Noade & Oost — en Stoppe-Signatuur',
 				body: "Dee Kommissjon ähre Vorsetza haft dise nich jeflemmt — dee Pruewunk ähre eejene Math deit. Äwa Calgary ähre Noade un Oost (dee Pruewunk ähre “Zone A,” noade un oost von dem Bow River) loope dee Minoritätskoat ähre Bezirke omtrent 11,5% grösser aus dee provinzielle Durchschnitt, jäjen 2,8% aum Mehrheitskoat. Stoppe bedüt, een Sied ähre Wähla in winnijcha, grössere Bezirke to konzentriire, soo daut jiedda von ähren Stemmzettle en bät winnijcha wejt; Zone A es NDP-konkurrenzfähich, un 13 von ähre 17 Bezirke woare NDP-jewonne im 2023. Dee Pruewunk mett dem strukturellen Effekt, nich Aobsiecht. (Akademijch §5.3.1.)"
 			}
+		},
+		text: {
+			page_title: 'Tekstversion — Alberta Wahlkrais-Grenz-Pruewunk-Koat',
+			intro:
+				'Dit es dee Tekstversion von dee Pruewunk ähre interaktive Koat. See drät dieselwe Informatsjoon aus dee visuelle Koat, utjeschrewe, soo daut see met enrem Schirmleesa jeläse woare kjann. See föarjt met dee Grenzen aun, dee dee Pruewunk jeflemmt haft, un denn list jiedden Wahlkrais un wäl von dee dree Koate daut enthält.',
+			link_map: 'Dee interaktive Koat öffne',
+			link_report: 'Dem vollen Bericht läse',
+			link_to_text: 'Dee toojänkliche Tekstversion von dise Koat öffne',
+			toc_heading: 'Aun dise Sied',
+			toc_summary: 'Korte Zusammenfassunk',
+			toc_flagged: 'Jeflemmte Grenzen',
+			toc_directory: 'Wahlkrais-Vazejchnis',
+			summary_heading: 'Korte Zusammenfassunk',
+			summary_p1:
+				'Dee Pruewunk vejlikt dree Koate von Alberta ähre Wahlkreise: dee Kommissjon ähr Minorität-Vüaschlag, ähr Mehrheit-Vüaschlag, un dee 2019 aunjenome Koat, dee vundoag in Kraft es.',
+			summary_p2:
+				'Aun dee Pruewunk ähre voorrjistrierte strukturelle Proowe, dee blooss Geometrie jebruke, äwajeit dee Mehrheitskoat kjeen von dee fief Schwälle, un dee Minoritätskoat äwajeit vea von dee fief. Dee sepaurote statistjche Resultote, dee jiedde Koat jäjen en groote Reej von computa-jeteidchte neutrale Koate vejlikje, senn vorläufijch un wachte op onaufjenkliche Expattenäwaprüfunk.',
+			summary_p3:
+				'Dee Aufsazze unjnich erkläre nieejen spezifische Grenzen, dee dee Pruewunk jeflemmt haft, un list denn jiedden Wahlkrais. Dise Sied beschriewt blooss dee statistjche un strukturelle Positsjoon. See kjemt aun kjeen jesetslijen Schluss äwa irjendeene Koat.',
+			flagged_heading: 'Jeflemmte Grenzen',
+			flagged_lead:
+				'Dee Pruewunk haft nieejen Grenzen jeflemmt. Eenje utsiehe onjewehnlich, oba folge trü wiakliche Jeografie; aundre passe aun en Stoppe- oda Opsprenjunksmusta in dee Pruewunk ähre eejene Mäatunge. Jiedde es unjnich erkläat, met enra Aufsazz-Referenz aum akademijchen Bericht, wua daut tooträpt.',
+			directory_heading: 'Wahlkrais-Vazejchnis',
+			directory_lead:
+				'Dise Toffl list jiedden Wahlkraisnome, dee aun irjendeene von dee dree Koate erschient, in alphabetischa Ordnunk. Fea jiedden Nome wiest see, aub dee Nome Deel von dem Minorität-Vüaschlag, dem Mehrheit-Vüaschlag, un dee 2019 aunjenome Koat es. Wahlkraisnome unjerschede sech tweschen dee Koate, also erschiene eenje Reeje blooss aun eene oda twee von daen. Dee Toffl hält blooss Nome un Koatmietjliedschoft — fea Stemmtotole, Beavälkarungszahle, un Proowresultote, seet dem vollen Bericht.',
+			col_district: 'Wahlkrais',
+			col_minority: 'Minorität-Vüaschlag',
+			col_majority: 'Mehrheit-Vüaschlag',
+			col_2019: 'Offizielle Koat',
+			present_yes: 'Joo',
+			present_no: 'Nä',
+			methodology_note:
+				'Dise Sied es en statischet, blooss-Tekst Äquivalent von dee interaktive Koat. See es ute dieselwe Wahlkraisdoten un dieselwe Grenzaunmäakunge jebout. Dee statistjche (neutral-ensemble) Aunfindunge, dee hia erwähnt woare, senn vorläufijch un wachte op onaufjenkliche Expattenäwaprüfunk.',
+			skip_to_main: 'Sprinjch tom Hauptinhault',
+			back_to_map: 'Trigj noh dee interaktive Koat'
 		}
 	}
 } as const;
