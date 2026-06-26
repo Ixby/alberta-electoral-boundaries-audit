@@ -47,6 +47,14 @@
   <a class="text-version-link" href="{base}/explorer/text">
     {t(lang.current, 'explorer.text.link_to_text')}
   </a>
+  {#if webgl && ready}
+    <!-- Return-to-report navigation. Desktop shows a labelled bar; mobile
+         collapses it to a single home icon to keep the map clear. -->
+    <a class="explorer-back" href="{base}/" title={t(lang.current, 'feedback.back_to_report')} aria-label={t(lang.current, 'feedback.back_to_report')}>
+      <svg class="explorer-back-ico" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg>
+      <span class="explorer-back-label">{t(lang.current, 'feedback.back_to_report')}</span>
+    </a>
+  {/if}
   {#if webgl}
     {#if ready}
       <!-- All supported locales are offered — every explorer.* key is translated
@@ -95,6 +103,43 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     white-space: nowrap;
+  }
+  /* Return-to-report control over the map: a labelled bar on desktop, a single
+     home icon on mobile. Sits top-left, clear of the right-side map controls. */
+  .explorer-back {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 9500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.85rem 0.5rem 0.7rem;
+    background: rgba(13, 26, 38, 0.92);
+    color: #e6edf3;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    text-decoration: none;
+    font: 600 0.85rem/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .explorer-back:hover {
+    background: rgba(20, 40, 58, 0.96);
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+  .explorer-back:focus-visible {
+    outline: 2px solid #8ab4ff;
+    outline-offset: 2px;
+  }
+  .explorer-back-ico { flex-shrink: 0; }
+  @media (max-width: 720px) {
+    .explorer-back {
+      padding: 0.55rem;
+      border-radius: 50%;
+    }
+    .explorer-back-label { display: none; }
   }
   .nowebgl {
     position: absolute;
