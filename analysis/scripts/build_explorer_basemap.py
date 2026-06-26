@@ -111,12 +111,18 @@ def build_water():
 
 
 def build_secondary():
-    """Extract OSM secondary highways -> secondary.json (origin-shifted 3401).
+    """Extract Alberta's secondary highways (500-986) -> secondary.json (origin-shifted 3401).
 
-    Same source as trunk.json (data/osm/alberta_osm_highways.json, Overpass export with inline
-    geometry). Output mirrors trunk.json: [{"path":[[x,y],...]}]. Simplified to keep the file
-    light, clipped to the province.
+    Source: the National Road Network (NRN) - Alberta, Statistics Canada (OGL-Canada).
+    The earlier OSM source had stale/incomplete secondary coverage; NRN carries all
+    300 secondary routes (500-986) with route numbers. Download (re-run when refreshing):
+      https://geo.statcan.gc.ca/nrn_rrn/ab/nrn_rrn_ab_SHAPE.zip  -> C:/tmp/nrn_ab/
+    Filter the ROADSEG layer by RTNUMBER1 in 500-986 (NOT ROADCLASS - secondaries are
+    classed "Arterial"). Output mirrors trunk.json: [{"path":[[x,y],...]}]. Clipped to
+    the province, simplified to keep the file light.
+    Attribution required: "Contains information licensed under the Open Government Licence - Canada."
     """
+    import re
     SIMP = 90.0   # metres — trunk is heavily simplified (~6 verts/path); match that weight
     t0 = time.time()
     meta = json.loads((REPO / "docs" / "data" / "map_meta.json").read_text())
@@ -125,18 +131,15 @@ def build_secondary():
     prov_raw = json.loads((OUT / "province.json").read_text())
     province = unary_union([Polygon(p[0]) for p in prov_raw if p and len(p[0]) >= 4]).buffer(300)
 
-    osm = json.loads((REPO / "data" / "osm" / "alberta_osm_highways.json").read_text())
-    lines = []
-    for e in osm["elements"]:
-        if e.get("type") != "way" or e.get("tags", {}).get("highway") != "secondary":
-            continue
-        g = e.get("geometry")
-        if not g or len(g) < 2:
-            continue
-        lines.append(LineString([(p["lon"], p["lat"]) for p in g]))
-    print(f"{len(lines)} secondary ways, {time.time()-t0:.0f}s")
+    nrn = gpd.read_file(TMP / "nrn_ab" / "NRN_AB_14_0_ROADSEG.shp", columns=["RTNUMBER1"])
+    def _num(s):
+        m = re.match(r"^(\d+)", str(s).strip())
+        return int(m.group(1)) if m else None
+    rn = nrn["RTNUMBER1"].map(_num)
+    nrn = nrn[(rn >= 500) & (rn <= 986)]
+    print(f"{len(nrn)} secondary segments (NRN), {time.time()-t0:.0f}s")
 
-    gs = gpd.GeoSeries(lines, crs=4326).to_crs(3401).translate(xoff=-ox, yoff=-oy).simplify(SIMP)
+    gs = nrn.geometry.to_crs(3401).translate(xoff=-ox, yoff=-oy).simplify(SIMP)
     gs = gs[gs.intersects(province)].intersection(province)
     gs = gs[~gs.is_empty]
 
