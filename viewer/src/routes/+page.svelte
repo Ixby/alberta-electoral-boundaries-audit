@@ -48,7 +48,28 @@
   // ── Share state ───────────────────────────────────────────────────────────
   let navOpen           = $state(false);
   let navScrolled       = $state(false);
-  let activeLandmark    = $state<string>('');
+  // Windowed scroll-spy: the index of the section currently under the nav line.
+  // The sticky bar shows only the previous / current / next section, sliding as
+  // the reader scrolls, instead of laying every landmark out at once.
+  let currentIdx        = $state(0);
+  const SECTIONS: { id: string; key: string }[] = [
+    { id: 'stakes-heading',           key: 'stakes' },
+    { id: 'what-is-redistricting',    key: 'why' },
+    { id: 'section-1',                key: 'map' },
+    { id: 'section-2',                key: 'split' },
+    { id: 'section-3',                key: 'litmus' },
+    { id: 'section-4',                key: 'crack_pack' },
+    { id: 'what-this-means',          key: 'for_you' },
+    { id: 'section-5',                key: 'impact' },
+    { id: 'section-6',                key: 'gerrymanders' },
+    { id: 'history-of-gerrymandering', key: 'history_full' },
+    { id: 'canada-is-different',      key: 'canada' },
+    { id: 'section-7',                key: 'lunty' },
+    { id: 'section-8',                key: 'suggestions' },
+    { id: 'retractions',              key: 'retractions' },
+    { id: 'references',               key: 'references' },
+    { id: 'resources',                key: 'technical' }
+  ];
   let darkMode          = $state(false);
 
   function toggleTheme() {
@@ -188,52 +209,25 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Map each landmark to the set of section anchors it represents (in order).
-    // The currently-visible section's landmark wins.
-    const landmarkOf: Record<string, string> = {
-      'stakes-heading': 'stakes',
-      'boundary-heading': 'stakes',
-      'what-is-redistricting': 'stakes',
-      'section-1': 'findings',
-      'section-2': 'findings',
-      'section-3': 'findings',
-      'section-4': 'findings',
-      'what-this-means': 'findings',
-      'section-5': 'findings',
-      'section-6': 'findings',
-      'history-of-gerrymandering': 'history',
-      'canada-is-different': 'history',
-      'section-7': 'history',
-      'section-8': 'reform',
-      'retractions': 'notes',
-      'references': 'notes',
-      'resources': 'notes'
+    // Windowed scroll-spy. Find the last section whose heading has scrolled above
+    // a line just under the nav; that is the section the reader is currently in.
+    // It stays current until the next section's heading crosses the line, so deep
+    // scrolling within a section keeps the bar steady. currentIdx drives the
+    // previous / current / next window rendered in the bar.
+    const updateActive = () => {
+      const triggerY = 80;
+      let idx = 0;
+      for (let i = 0; i < SECTIONS.length; i++) {
+        const el = document.getElementById(SECTIONS[i].id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= triggerY) idx = i;
+        else break;
+      }
+      currentIdx = idx;
     };
-    const observed = Object.keys(landmarkOf)
-      .map(id => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-    if (observed.length) {
-      // Observed anchors are headings (point elements). To avoid the active
-      // pill clearing whenever no heading is inside a trigger band, pick the
-      // last anchor whose top has scrolled above a line just under the nav.
-      // The pill stays on that landmark until a later anchor crosses the line,
-      // so deep scrolling inside a section keeps its parent highlighted.
-      const orderedIds = Object.keys(landmarkOf);
-      const updateActive = () => {
-        const triggerY = 80;
-        let lastPassed: string | null = null;
-        for (const id of orderedIds) {
-          const el = document.getElementById(id);
-          if (!el) continue;
-          if (el.getBoundingClientRect().top <= triggerY) lastPassed = id;
-          else break;
-        }
-        activeLandmark = lastPassed ? landmarkOf[lastPassed] : '';
-      };
-      window.addEventListener('scroll', updateActive, { passive: true });
-      window.addEventListener('resize', updateActive);
-      updateActive();
-    }
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    updateActive();
 
     // ── Vocab term expand/collapse ────────────────────────────────────────────
     document.querySelectorAll('.vocab-term').forEach(btn => {
@@ -282,12 +276,22 @@
 <nav aria-label="Page sections" class:scrolled={navScrolled}>
   <div class="nav-inner">
     <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-    <div class="nav-landmarks">
-      <a href="#stakes-heading" class:active={activeLandmark === 'stakes'} aria-current={activeLandmark === 'stakes' ? 'location' : undefined}>{t(lang.current, 'nav.stakes')}</a>
-      <a href="#section-1" class:active={activeLandmark === 'findings'} aria-current={activeLandmark === 'findings' ? 'location' : undefined}>{t(lang.current, 'nav.findings')}</a>
-      <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'} aria-current={activeLandmark === 'history' ? 'location' : undefined}>{t(lang.current, 'nav.history')}</a>
-      <a href="#section-8" class:active={activeLandmark === 'reform'} aria-current={activeLandmark === 'reform' ? 'location' : undefined}>{t(lang.current, 'nav.reform')}</a>
-      <a href="#references" class:active={activeLandmark === 'notes'} aria-current={activeLandmark === 'notes' ? 'location' : undefined}>{t(lang.current, 'nav.references')}</a>
+    <div class="nav-landmarks" aria-label={t(lang.current, 'nav.nav_aria')}>
+      {#if currentIdx > 0}
+        <a class="nav-step nav-prev" href={'#' + SECTIONS[currentIdx - 1].id} title={t(lang.current, 'nav.' + SECTIONS[currentIdx - 1].key)}>
+          <span class="nav-chev" aria-hidden="true">‹</span><span class="nav-step-lbl">{t(lang.current, 'nav.' + SECTIONS[currentIdx - 1].key)}</span>
+        </a>
+      {:else}
+        <span class="nav-step nav-edge" aria-hidden="true"></span>
+      {/if}
+      <span class="nav-step nav-current" aria-current="location">{t(lang.current, 'nav.' + SECTIONS[currentIdx].key)}</span>
+      {#if currentIdx < SECTIONS.length - 1}
+        <a class="nav-step nav-next" href={'#' + SECTIONS[currentIdx + 1].id} title={t(lang.current, 'nav.' + SECTIONS[currentIdx + 1].key)}>
+          <span class="nav-step-lbl">{t(lang.current, 'nav.' + SECTIONS[currentIdx + 1].key)}</span><span class="nav-chev" aria-hidden="true">›</span>
+        </a>
+      {:else}
+        <span class="nav-step nav-edge" aria-hidden="true"></span>
+      {/if}
     </div>
     <div class="nav-tools">
       <LanguageSelector />
@@ -1835,16 +1839,55 @@
       max-width: 1400px;
       margin: 0 auto;
     }
+    /* Windowed prev / current / next nav. A 3-column grid keeps the current
+       section centred while the previous and next slots flank it and slide as
+       the reader scrolls. */
     .nav-landmarks {
       flex: 1;
-      display: flex;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 0.1rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      gap: 0.3rem;
     }
-    .nav-landmarks::-webkit-scrollbar { display: none; }
+    .nav-step { min-width: 0; }
+    .nav-step-lbl {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .nav-prev  { justify-self: end;   color: rgba(255, 255, 255, 0.5); max-width: 16rem; }
+    .nav-next  { justify-self: start; color: rgba(255, 255, 255, 0.5); max-width: 16rem; }
+    .nav-prev .nav-step-lbl, .nav-next .nav-step-lbl { max-width: 13rem; }
+    .nav-chev { opacity: 0.65; font-size: 1.15em; line-height: 1; padding: 0 0.1rem; }
+    .nav-current {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: 0 0.7rem;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.005em;
+      text-align: center;
+      max-width: 24rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative;
+    }
+    .nav-current::after {
+      content: '';
+      position: absolute;
+      left: 0.7rem;
+      right: 0.7rem;
+      bottom: 0;
+      height: 2px;
+      background: var(--nav-accent);
+      border-radius: 1px;
+    }
+    .nav-edge { min-width: 0; }
     .nav-tools {
       display: flex;
       align-items: center;
@@ -1878,21 +1921,6 @@
       outline-offset: -3px;
       border-radius: 3px;
     }
-    nav .nav-landmarks a.active {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    nav .nav-landmarks a.active::after {
-      content: '';
-      position: absolute;
-      left: 0.7rem;
-      right: 0.7rem;
-      bottom: 0;
-      height: 2px;
-      background: var(--nav-accent);
-      border-radius: 1px;
-    }
-
     nav a.nav-home {
       color: rgba(255,255,255,0.55);
       padding: 0 0.65rem 0 0.3rem;
