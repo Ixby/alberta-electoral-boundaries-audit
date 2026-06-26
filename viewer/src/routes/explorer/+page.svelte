@@ -18,7 +18,8 @@
   import { hasWebGL } from '$lib/deckExplorer/webglSupport';
   import { FLAGS } from '$lib/deckExplorer/pois';
   import { pageview } from '$lib/analytics';
-  import { SUPPORTED_LANGS } from '$lib/i18n/store.svelte';
+  import { SUPPORTED_LANGS, lang } from '$lib/i18n/store.svelte';
+  import { t } from '$lib/i18n/dict';
 
   let ready = $state(false);
   let webgl = $state(true);
@@ -43,6 +44,9 @@
 </svelte:head>
 
 <div class="explorer-root">
+  <a class="text-version-link" href="{base}/explorer/text">
+    {t(lang.current, 'explorer.text.link_to_text')}
+  </a>
   {#if webgl}
     {#if ready}
       <!-- All supported locales are offered — every explorer.* key is translated
@@ -72,6 +76,34 @@
     inset: 0;
     z-index: 9000;
     background: #0d1a26;
+  }
+  /* Sits above the deck.gl canvas (z-index 9000) so it stays visible and
+     focusable. Discoverability link to the accessible text version. */
+  .text-version-link {
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9100;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.4rem 0.85rem;
+    background: rgba(13, 26, 38, 0.85);
+    color: #cfe4ff;
+    border: 1px solid rgba(138, 180, 255, 0.5);
+    border-radius: 999px;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 0.82rem;
+    text-decoration: underline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .text-version-link:focus,
+  .text-version-link:hover {
+    background: rgba(13, 26, 38, 0.95);
+    color: #ffffff;
+    outline: 2px solid #8ab4ff;
+    outline-offset: 2px;
   }
   .nowebgl {
     position: absolute;

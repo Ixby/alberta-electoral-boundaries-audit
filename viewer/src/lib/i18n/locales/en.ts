@@ -992,6 +992,41 @@ export default {
 				title: 'Calgary north & east — a packing signature',
 				body: "The commission chair didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
 			}
+		},
+		text: {
+			page_title: 'Text version — Alberta Electoral Boundary Audit map',
+			intro:
+				'This is the text version of the audit’s interactive map. It carries the same information as the visual map, written out so it can be read with a screen reader. It leads with the boundaries the audit flagged, then lists every district and which of the three maps includes it.',
+			link_map: 'Open the interactive map',
+			link_report: 'Read the full report',
+			link_to_text: 'Open the accessible text version of this map',
+			toc_heading: 'On this page',
+			toc_summary: 'Short summary',
+			toc_flagged: 'Flagged boundaries',
+			toc_directory: 'District directory',
+			summary_heading: 'Short summary',
+			summary_p1:
+				'The audit compares three maps of Alberta’s electoral districts: the commission’s minority proposal, its majority proposal, and the 2019 enacted map that is in force today.',
+			summary_p2:
+				'On the audit’s pre-registered structural tests, which use geometry alone, the majority map crosses none of the five thresholds and the minority map crosses four of the five. The separate statistical results, which compare each map against a large set of computer-drawn neutral maps, are preliminary and are pending independent expert review.',
+			summary_p3:
+				'The sections below explain nine specific boundaries the audit flagged, then list every district. This page describes the statistical and structural position only. It does not reach a legal conclusion about any map.',
+			flagged_heading: 'Flagged boundaries',
+			flagged_lead:
+				'The audit flagged nine boundaries. Some look unusual but faithfully follow real geography; others match a packing or cracking pattern in the audit’s own measurements. Each is explained below, with a section reference to the academic report where it applies.',
+			directory_heading: 'District directory',
+			directory_lead:
+				'This table lists every district name that appears on any of the three maps, in alphabetical order. For each name it shows whether that name is part of the minority proposal, the majority proposal, and the 2019 enacted map. District names differ between the maps, so some rows appear on only one or two of them. The table holds names and map membership only — for vote totals, population figures, and test results, see the full report.',
+			col_district: 'District',
+			col_minority: 'Minority proposal',
+			col_majority: 'Majority proposal',
+			col_2019: '2019 enacted',
+			present_yes: 'Yes',
+			present_no: 'No',
+			methodology_note:
+				'This page is a static, text-only equivalent of the interactive map. It is built from the same district data and the same boundary annotations. The statistical (neutral-ensemble) findings referenced here are preliminary and pending independent expert review.',
+			skip_to_main: 'Skip to main content',
+			back_to_map: 'Back to the interactive map'
 		}
 	}
 } as const;

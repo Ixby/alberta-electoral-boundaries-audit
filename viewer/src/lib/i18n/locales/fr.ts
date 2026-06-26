@@ -986,6 +986,41 @@ export default {
 				title: 'Nord et est de Calgary — une signature de concentration',
 				body: 'Le président de la commission n’a pas signalé ce cas — c’est le calcul de l’audit lui-même qui le fait. Dans le nord et l’est de Calgary (la « Zone A » de l’audit, au nord et à l’est de la rivière Bow), les circonscriptions de la carte de la minorité sont environ 11,5 % plus grandes que la moyenne provinciale, contre 2,8 % sur la carte de la majorité. La concentration consiste à regrouper les électeurs d’un camp dans des circonscriptions moins nombreuses et plus vastes, de sorte que chacun de leurs bulletins pèse un peu moins ; la Zone A est disputée et favorable au NPD, et 13 de ses 17 circonscriptions ont été remportées par le NPD en 2023. L’audit mesure l’effet structurel, et non l’intention. (§5.3.1 du rapport universitaire.)'
 			}
+		},
+		text: {
+			page_title: 'Version texte — carte de l’audit des limites électorales de l’Alberta',
+			intro:
+				'Ceci est la version texte de la carte interactive de l’audit. Elle contient la même information que la carte visuelle, rédigée de façon à pouvoir être lue avec un lecteur d’écran. Elle commence par les limites signalées par l’audit, puis énumère chaque circonscription et indique laquelle des trois cartes la comprend.',
+			link_map: 'Ouvrir la carte interactive',
+			link_report: 'Lire le rapport complet',
+			link_to_text: 'Ouvrir la version texte accessible de cette carte',
+			toc_heading: 'Sur cette page',
+			toc_summary: 'Résumé',
+			toc_flagged: 'Limites signalées',
+			toc_directory: 'Répertoire des circonscriptions',
+			summary_heading: 'Résumé',
+			summary_p1:
+				'L’audit compare trois cartes des circonscriptions électorales de l’Alberta : la proposition minoritaire de la commission, sa proposition majoritaire et la carte adoptée en 2019, en vigueur aujourd’hui.',
+			summary_p2:
+				'Aux tests structurels préenregistrés de l’audit, qui reposent uniquement sur la géométrie, la carte majoritaire ne franchit aucun des cinq seuils et la carte minoritaire en franchit quatre sur cinq. Les résultats statistiques distincts, qui comparent chaque carte à un grand ensemble de cartes neutres tracées par ordinateur, sont préliminaires et en attente d’un examen indépendant par des experts.',
+			summary_p3:
+				'Les sections ci-dessous expliquent neuf limites précises signalées par l’audit, puis énumèrent chaque circonscription. Cette page décrit uniquement la position statistique et structurelle. Elle ne tire aucune conclusion juridique au sujet d’une carte.',
+			flagged_heading: 'Limites signalées',
+			flagged_lead:
+				'L’audit a signalé neuf limites. Certaines paraissent inhabituelles mais suivent fidèlement la géographie réelle ; d’autres correspondent à un schéma de concentration ou de dispersion dans les mesures de l’audit lui-même. Chacune est expliquée ci-dessous, avec une référence de section au rapport universitaire le cas échéant.',
+			directory_heading: 'Répertoire des circonscriptions',
+			directory_lead:
+				'Ce tableau énumère, par ordre alphabétique, chaque nom de circonscription figurant sur l’une des trois cartes. Pour chaque nom, il indique s’il fait partie de la proposition minoritaire, de la proposition majoritaire et de la carte adoptée en 2019. Les noms de circonscription diffèrent d’une carte à l’autre ; certaines lignes ne figurent donc que sur une ou deux d’entre elles. Le tableau ne contient que les noms et leur appartenance aux cartes — pour les totaux de votes, les chiffres de population et les résultats des tests, consultez le rapport complet.',
+			col_district: 'Circonscription',
+			col_minority: 'Proposition minoritaire',
+			col_majority: 'Proposition majoritaire',
+			col_2019: 'Adoptée en 2019',
+			present_yes: 'Oui',
+			present_no: 'Non',
+			methodology_note:
+				'Cette page est un équivalent statique, en texte seul, de la carte interactive. Elle est construite à partir des mêmes données de circonscription et des mêmes annotations de limites. Les résultats statistiques (ensemble neutre) mentionnés ici sont préliminaires et en attente d’un examen indépendant par des experts.',
+			skip_to_main: 'Passer au contenu principal',
+			back_to_map: 'Retour à la carte interactive'
 		}
 	}
 } as const;
