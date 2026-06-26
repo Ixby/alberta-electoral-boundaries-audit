@@ -58,7 +58,7 @@ export default {
 		author_p1:
 			"Tama — at iyon mismo ang ginagawa ng mapa. Binuo ito mula sa sariling heometriya at mga bilang ng Elections Alberta, sa tanging resolusyong itinatago nila: ilang tao ang bumoto sa bawat voting area, at paano. Ang kulay ay umuusad sa isang spectrum sa pagitan ng dalawang partido, at ang lalim nito ay sumusunod sa populasyon — kaya nagliliwanag ang mga lungsod at nananatiling maputla ang bukas na kanayunan.",
 		author_p2:
-			"Purong puti ang lupa sa silangan ng Ponoka: walang polling station, walang naitalang nakatira o bumoboto roon. Blangko ito dahil nga sa hindi bumoboto ang lupa. Hindi layunin ang bigyang-kahulugan ang datos, kundi hayaan lamang itong magsalita sa antas na kung saan ito naitala — at iwan kayong bahagyang mas marunong kaysa sa pagdating ninyo.",
+			"Purong puti ang lupa sa kanluran ng Ponoka: walang polling station, walang naitalang nakatira o bumoboto roon. Blangko ito dahil nga sa hindi bumoboto ang lupa. Hindi layunin ang bigyang-kahulugan ang datos, kundi hayaan lamang itong magsalita sa antas na kung saan ito naitala — at iwan kayong bahagyang mas marunong kaysa sa pagdating ninyo.",
 		author_label: 'ang may-akda',
 		ethic:
 			'Iyon ang pangako sa likod ng buong pagsusuri: imapa ang sistema, at hayaang magsalita ang datos para sa sarili nito — hindi hihigit sa pinahihintulutan nito.'

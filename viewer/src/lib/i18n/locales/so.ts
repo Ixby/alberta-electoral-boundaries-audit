@@ -51,7 +51,7 @@ export default {
 		author_p1:
 			"Caddaalad — taasina waa waxa khariidaddu sameyso si sax ah. Waxaa laga dhisay joomatari iyo tirooyin ay Elections Alberta lahaan tahay, oo ah heerka kaliya ee ay hayaan: imisa qof ayaa ka codeeyay aag kasta oo codbixin, iyo sidee. Midabku wuxuu ku socdaa heer u dhexeeya labada xisbi, qoto-dheeradiisuna waxay raacaysaa tirada dadka — taasina waa sababta magaalooyinku u dhalaalaan, miyiga furanna u sii dhalaalo mid khafiif ah.",
 		author_p2:
-			"Dhulka bari ka xiga Ponoka waa caddaan saafi ah: ma jiro xarun codbixin, ma jiro qof la diiwaangeliyay inuu halkaas ku noolyahay ama ka codeeyay. Wuxuu u madhan yahay si sax ah sababta oo ah dhulku ma codeeyo. Ujeeddadu ma aha in la fasiro xogta, ee kaliya in loo daayo inay ku hadasho heerka lagu duubay — iyo in lagaaga tago mid wax yar ka caqli badan intii aad u timid.",
+			"Dhulka galbeed ka xiga Ponoka waa caddaan saafi ah: ma jiro xarun codbixin, ma jiro qof la diiwaangeliyay inuu halkaas ku noolyahay ama ka codeeyay. Wuxuu u madhan yahay si sax ah sababta oo ah dhulku ma codeeyo. Ujeeddadu ma aha in la fasiro xogta, ee kaliya in loo daayo inay ku hadasho heerka lagu duubay — iyo in lagaaga tago mid wax yar ka caqli badan intii aad u timid.",
 		author_label: 'qoraaga',
 		ethic:
 			'Taasi waa ballanqaadka ka dambeeya hubinta oo dhan: khariidee nidaamka, oo u daa xogta inay isu hadasho — wax ka badan inta ay ogolaato maaha.'

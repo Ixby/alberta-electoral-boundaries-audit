@@ -1262,7 +1262,7 @@
     margin: 1.6rem 0 0.6rem;
   }
   :global(.epigraph-inner) {
-    max-width: 62ch;
+    max-width: var(--measure, 92ch);
     margin-inline: auto;
     padding: clamp(1rem, 3.5vw, 1.8rem) 0;
   }

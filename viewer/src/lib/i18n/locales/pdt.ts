@@ -52,7 +52,7 @@ export default {
 		author_p1:
 			"Rajcht — un krakjt daut deit dee Koat. See es ute Elections Albertas eajne Jeometrie un Tälunge jebout, en dee eenstje Auflöösunk, dee see hoole: woo väl Mensche in jiedem Wahljebiet jestemmt habe, un woo. Dee Foaw läft op en Spektrum twesche dee twee Parteie, un äare Deepde foljcht dee Bevölkjarunk — doaromm jliehe dee Städ un daut oppne Launt bliewt bläkj.",
 		author_p2:
-			"Daut Launt oostlich von Ponoka es rein wit: kjeen Wahllokaul, kjeena, dee doa läwent oda stemmend erfoot es. Daut es krakjt doaromm leddich, wiel Launt nich stemmt. Daut Tsil es nich, dee Doten to deute, blooss see in dee Kjarnung räde to lote, in dee see erfoot wäare — un die en bät klieja trigjtolote, aus du jekome best.",
+			"Daut Launt westlich von Ponoka es rein wit: kjeen Wahllokaul, kjeena, dee doa läwent oda stemmend erfoot es. Daut es krakjt doaromm leddich, wiel Launt nich stemmt. Daut Tsil es nich, dee Doten to deute, blooss see in dee Kjarnung räde to lote, in dee see erfoot wäare — un die en bät klieja trigjtolote, aus du jekome best.",
 		author_label: "dee Schriewa",
 		ethic:
 			"Daut es dee Vapflichtunk hinje daut gaunse Audit: daut Sistem aufbilde, un dee Doten fa sikj selwst räde lote — nich mea, aus see toolote."

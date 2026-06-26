@@ -51,7 +51,7 @@ export default {
 		author_p1:
 			'Słusznie — i właśnie to robi ta mapa. Jest zbudowana z własnej geometrii i danych Elections Alberta, w jedynej rozdzielczości, jaką prowadzą: ile osób głosowało w każdym obszarze głosowania i jak. Kolor przebiega po spektrum między dwiema partiami, a jego głębia podąża za liczbą ludności — dlatego miasta jarzą się światłem, a otwarty teren pozostaje blady.',
 		author_p2:
-			'Ziemia na wschód od Ponoka jest czysto biała: żadnego lokalu wyborczego, nikt nie zarejestrował tam mieszkania ani głosowania. Jest pusta właśnie dlatego, że ziemia nie głosuje. Celem nie jest interpretowanie danych, lecz jedynie pozwolenie im przemówić w ziarnistości, w jakiej zostały zapisane — i zostawienie Państwa odrobinę mądrzejszymi, niż przyszli.',
+			'Ziemia na zachód od Ponoka jest czysto biała: żadnego lokalu wyborczego, nikt nie zarejestrował tam mieszkania ani głosowania. Jest pusta właśnie dlatego, że ziemia nie głosuje. Celem nie jest interpretowanie danych, lecz jedynie pozwolenie im przemówić w ziarnistości, w jakiej zostały zapisane — i zostawienie Państwa odrobinę mądrzejszymi, niż przyszli.',
 		author_label: 'autor',
 		ethic:
 			'Takie jest zobowiązanie stojące za całym audytem: zmapować system i pozwolić danym mówić samym za siebie — nie więcej, niż na to pozwalają.'

@@ -58,7 +58,7 @@ export default {
 		author_p1:
 			"Berechtigt — und genau das tut die Karte. Sie ist aus der Geometrie und den Zählungen von Elections Alberta selbst aufgebaut, in der einzigen Auflösung, die sie führen: wie viele Menschen in jedem Wahlgebiet abgestimmt haben und wie. Die Farbe verläuft auf einem Spektrum zwischen den beiden Parteien, und ihre Tiefe folgt der Bevölkerung — weshalb die Städte leuchten und das offene Land blass bleibt.",
 		author_p2:
-			"Das Land östlich von Ponoka ist reines Weiß: kein Wahllokal, niemand, der dort lebend oder wählend erfasst ist. Es ist genau deshalb leer, weil Land nicht wählt. Das Ziel ist nicht, die Daten zu deuten, sondern sie nur in der Körnung sprechen zu lassen, in der sie erfasst wurden — und Sie ein wenig klüger zurückzulassen, als Sie gekommen sind.",
+			"Das Land westlich von Ponoka ist reines Weiß: kein Wahllokal, niemand, der dort lebend oder wählend erfasst ist. Es ist genau deshalb leer, weil Land nicht wählt. Das Ziel ist nicht, die Daten zu deuten, sondern sie nur in der Körnung sprechen zu lassen, in der sie erfasst wurden — und Sie ein wenig klüger zurückzulassen, als Sie gekommen sind.",
 		author_label: 'der Autor',
 		ethic:
 			'Das ist die Verpflichtung hinter dem gesamten Audit: das System abbilden und die Daten für sich selbst sprechen lassen — nicht mehr, als sie zulassen.'

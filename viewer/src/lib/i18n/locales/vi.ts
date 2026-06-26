@@ -35,7 +35,7 @@ export default {
 		author_p1:
 			"Đúng vậy — và đó chính xác là điều tấm bản đồ thể hiện. Nó được dựng từ chính hình học và số liệu của Elections Alberta, ở độ phân giải duy nhất mà họ lưu giữ: bao nhiêu người đã bỏ phiếu trong mỗi khu vực bầu cử, và bỏ như thế nào. Màu sắc chạy theo một dải phổ giữa hai đảng, và độ đậm của nó đi theo dân số — đó là lý do các thành phố rực sáng còn vùng đồng quê trống trải vẫn nhạt nhòa.",
 		author_p2:
-			"Vùng đất phía đông Ponoka hoàn toàn trắng: không có điểm bỏ phiếu, không ai được ghi nhận sinh sống hay bỏ phiếu ở đó. Nó trống rỗng chính bởi vì đất đai không bỏ phiếu. Mục tiêu không phải là diễn giải dữ liệu, mà chỉ là để nó tự lên tiếng ở độ chi tiết mà nó đã được ghi lại — và để bạn ra về hiểu biết hơn một chút so với khi đến.",
+			"Vùng đất phía tây Ponoka hoàn toàn trắng: không có điểm bỏ phiếu, không ai được ghi nhận sinh sống hay bỏ phiếu ở đó. Nó trống rỗng chính bởi vì đất đai không bỏ phiếu. Mục tiêu không phải là diễn giải dữ liệu, mà chỉ là để nó tự lên tiếng ở độ chi tiết mà nó đã được ghi lại — và để bạn ra về hiểu biết hơn một chút so với khi đến.",
 		author_label: 'tác giả',
 		ethic:
 			'Đó là cam kết đằng sau toàn bộ cuộc thẩm định: lập bản đồ hệ thống, và để dữ liệu tự nói lên — không hơn những gì nó cho phép.'

@@ -54,7 +54,7 @@ export default {
 		author_p1:
 			"Juste — et c'est précisément ce que fait la carte. Elle est construite à partir de la géométrie et des décomptes officiels d'Elections Alberta, à la seule résolution qu'ils conservent : combien de personnes ont voté dans chaque zone de vote, et comment. La couleur suit un dégradé entre les deux grands partis, et son intensité dépend de la population — c'est pourquoi les villes rayonnent et la campagne ouverte reste pâle.",
 		author_p2:
-			"Le territoire à l'est de Ponoka est d'un blanc pur : aucun bureau de scrutin, personne d'enregistré comme y vivant ou y ayant voté. Il est vide précisément parce que le territoire ne vote pas. Le but n'est pas d'interpréter les données, mais de les laisser parler à la résolution où elles ont été consignées — et de vous laisser un peu plus avisé qu'à votre arrivée.",
+			"Le territoire à l'ouest de Ponoka est d'un blanc pur : aucun bureau de scrutin, personne d'enregistré comme y vivant ou y ayant voté. Il est vide précisément parce que le territoire ne vote pas. Le but n'est pas d'interpréter les données, mais de les laisser parler à la résolution où elles ont été consignées — et de vous laisser un peu plus avisé qu'à votre arrivée.",
 		author_label: "l'auteur",
 		ethic:
 			"C'est l'engagement qui sous-tend tout l'audit : cartographier le système et laisser les données parler d'elles-mêmes — pas plus qu'elles ne le permettent."

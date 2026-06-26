@@ -60,7 +60,7 @@ export default {
 		author_p1:
 			"Es justo — y eso es exactamente lo que hace el mapa. Está construido a partir de la propia geometría y los recuentos de Elections Alberta, en la única resolución que ellos conservan: cuántas personas votaron en cada área de votación, y cómo. El color recorre un espectro entre los dos partidos, y su intensidad sigue a la población — por eso las ciudades resplandecen y el campo abierto permanece pálido.",
 		author_p2:
-			'La tierra al este de Ponoka es de un blanco puro: no hay ninguna mesa electoral, nadie registrado viviendo ni votando allí. Está en blanco precisamente porque la tierra no vota. El objetivo no es interpretar los datos, sino solo dejar que hablen en el grano en que fueron registrados — y dejarle a usted un poco más sabio de lo que llegó.',
+			'La tierra al oeste de Ponoka es de un blanco puro: no hay ninguna mesa electoral, nadie registrado viviendo ni votando allí. Está en blanco precisamente porque la tierra no vota. El objetivo no es interpretar los datos, sino solo dejar que hablen en el grano en que fueron registrados — y dejarle a usted un poco más sabio de lo que llegó.',
 		author_label: 'el autor',
 		ethic:
 			'Ese es el compromiso detrás de toda la auditoría: cartografiar el sistema y dejar que los datos hablen por sí mismos — nada más de lo que permiten.'
