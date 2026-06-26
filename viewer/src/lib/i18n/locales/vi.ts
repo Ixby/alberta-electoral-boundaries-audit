@@ -27,6 +27,19 @@ export default {
 		link_label: 'liên hệ với chúng tôi',
 		word_count: 'Để có khái niệm về quy mô: phần văn bản tiếng Anh dài khoảng {count} từ. Bạn có thể đóng góp toàn bộ hoặc chỉ một phần — trong hầu hết các trường hợp, công việc là sửa các lỗi nhỏ mà máy đã mắc phải, chứ không phải dịch từ đầu.'
 	},
+	epigraph: {
+		heading: 'Về cách đọc tấm bản đồ này',
+		reader:
+			"Đất đai không bỏ phiếu. Tô màu bản đồ theo cách này chỉ làm cho vùng nông thôn Alberta trông lớn hơn thực tế. Hãy để phần đất trống vẫn trống.",
+		reader_label: 'một độc giả',
+		author_p1:
+			"Đúng vậy — và đó chính xác là điều tấm bản đồ thể hiện. Nó được dựng từ chính hình học và số liệu của Elections Alberta, ở độ phân giải duy nhất mà họ lưu giữ: bao nhiêu người đã bỏ phiếu trong mỗi khu vực bầu cử, và bỏ như thế nào. Màu sắc chạy theo một dải phổ giữa hai đảng, và độ đậm của nó đi theo dân số — đó là lý do các thành phố rực sáng còn vùng đồng quê trống trải vẫn nhạt nhòa.",
+		author_p2:
+			"Vùng đất phía đông Ponoka hoàn toàn trắng: không có điểm bỏ phiếu, không ai được ghi nhận sinh sống hay bỏ phiếu ở đó. Nó trống rỗng chính bởi vì đất đai không bỏ phiếu. Mục tiêu không phải là diễn giải dữ liệu, mà chỉ là để nó tự lên tiếng ở độ chi tiết mà nó đã được ghi lại — và để bạn ra về hiểu biết hơn một chút so với khi đến.",
+		author_label: 'tác giả',
+		ethic:
+			'Đó là cam kết đằng sau toàn bộ cuộc thẩm định: lập bản đồ hệ thống, và để dữ liệu tự nói lên — không hơn những gì nó cho phép.'
+	},
 	opener: {
 		heading: 'Trang này dành cho ai?',
 		body:
@@ -992,5 +1005,38 @@ export default {
 			skip_to_main: 'Bỏ qua đến nội dung chính',
 			back_to_map: 'Quay lại bản đồ tương tác'
 		}
+	},
+	feedback: {
+		nav_link: 'Gửi phản hồi',
+		page_title: 'Gửi phản hồi',
+		meta_description:
+			'Chia sẻ một chỉnh sửa, câu hỏi hoặc đề xuất về cuộc thẩm định Ranh giới Bầu cử Alberta.',
+		heading: 'Gửi phản hồi',
+		intro:
+			'Phát hiện một lỗi, có câu hỏi, hoặc muốn đề xuất một cải tiến? Nội dung này sẽ được gửi thẳng đến tác giả. Tên và email là tùy chọn — chỉ để lại email nếu bạn muốn nhận phản hồi.',
+		name_label: 'Tên',
+		name_optional: 'tùy chọn',
+		name_placeholder: 'Tên của bạn',
+		email_label: 'Email',
+		email_optional: 'tùy chọn',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Chỉ dùng để phản hồi lại bạn. Không bao giờ chia sẻ, không bao giờ thêm vào bất kỳ danh sách nào.',
+		message_label: 'Tin nhắn',
+		message_required: 'bắt buộc',
+		message_placeholder: 'Bạn muốn cho chúng tôi biết điều gì?',
+		submit: 'Gửi phản hồi',
+		submitting: 'Đang gửi…',
+		success_title: 'Cảm ơn bạn',
+		success_body:
+			'Phản hồi của bạn đã được tiếp nhận. Nếu bạn đã để lại địa chỉ email và tin nhắn của bạn cần được hồi đáp, bạn sẽ nhận được phản hồi.',
+		send_another: 'Gửi tin nhắn khác',
+		error_empty: 'Vui lòng nhập tin nhắn trước khi gửi.',
+		error_rate: 'Bạn đã gửi nhiều tin nhắn gần đây. Vui lòng thử lại sau một lát.',
+		error_generic: 'Đã xảy ra lỗi khi gửi phản hồi của bạn. Vui lòng thử lại sau giây lát.',
+		privacy_note:
+			'Tin nhắn của bạn được lưu trữ an toàn tại Canada và chỉ được sử dụng để cải thiện cuộc thẩm định này. Xem {privacy} để biết chi tiết.',
+		privacy_link_text: 'chính sách quyền riêng tư',
+		back_to_report: 'Quay lại báo cáo',
+		back_to_map: 'Quay lại trình khám phá bản đồ'
 	}
 } as const;

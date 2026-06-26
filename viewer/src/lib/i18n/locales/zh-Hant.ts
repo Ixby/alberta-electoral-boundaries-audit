@@ -48,6 +48,19 @@ export default {
 		link_label: '聯絡我們',
 		word_count: '提供一個規模參考:英文文稿約有 {count} 字。歡迎你貢獻全部,或只是其中一部分——在多數情況下,工作是修正機器所犯的小錯誤,而非從零翻譯。'
 	},
+	epigraph: {
+		heading: '如何解讀這張地圖',
+		reader:
+			'土地不會投票。用這種方式為地圖上色,只會讓亞伯達的鄉村看起來比實際更大。把空曠的土地留白吧。',
+		reader_label: '一位讀者',
+		author_p1:
+			'說得對——而這正是這張地圖所做的。它建立在 Elections Alberta 自己的幾何資料與計票之上,並以他們所保留的唯一精細度呈現:每個投票區有多少人投票,以及他們如何投票。色彩在兩黨之間呈光譜分布,其深淺則隨人口而變化——這就是為什麼城市熠熠生輝,而開闊的原野依然淺淡。',
+		author_p2:
+			'Ponoka 以東的土地是純白的:沒有投票站,也沒有任何人被記錄在那裡居住或投票。它之所以空白,正是因為土地不會投票。我們的目的並非去詮釋這些資料,而只是讓它以被記錄時的精細度自己說話——並讓你離開時比來時多懂一點。',
+		author_label: '作者',
+		ethic:
+			'這就是整個審計背後的承諾:描繪這套系統,並讓資料為自己說話——不多說它所容許的以外的話。'
+	},
 	opener: {
 		heading: '這是為誰準備的?',
 		body:
@@ -1014,5 +1027,38 @@ export default {
 				back_to_map: '返回互動地圖'
 			}
 		}
+	},
+	feedback: {
+		nav_link: '提供意見',
+		page_title: '提供意見',
+		meta_description:
+			'分享你對亞伯達選區邊界審計的更正、問題或建議。',
+		heading: '提供意見',
+		intro:
+			'發現了錯誤、有疑問,或想提出改進建議?這會直接傳達給作者。姓名與電子郵件皆為選填——只有在你希望得到回覆時才留下電子郵件。',
+		name_label: '姓名',
+		name_optional: '選填',
+		name_placeholder: '你的姓名',
+		email_label: '電子郵件',
+		email_optional: '選填',
+		email_placeholder: 'you@example.com',
+		email_hint: '僅用於回覆你。絕不分享,也絕不加入任何名單。',
+		message_label: '訊息',
+		message_required: '必填',
+		message_placeholder: '你想告訴我們什麼?',
+		submit: '提供意見',
+		submitting: '傳送中…',
+		success_title: '謝謝你',
+		success_body:
+			'我們已收到你的意見。如果你留下了電子郵件地址,且你的訊息需要回覆,你將會收到回音。',
+		send_another: '再傳送一則',
+		error_empty: '請在傳送前輸入訊息。',
+		error_rate: '你最近已傳送多則訊息。請稍後再試。',
+		error_generic: '傳送你的意見時發生錯誤。請稍候再試一次。',
+		privacy_note:
+			'你的訊息安全儲存於加拿大,僅用於改進本審計。詳情請見{privacy}。',
+		privacy_link_text: '隱私政策',
+		back_to_report: '返回報告',
+		back_to_map: '返回地圖瀏覽器'
 	}
 } as const;

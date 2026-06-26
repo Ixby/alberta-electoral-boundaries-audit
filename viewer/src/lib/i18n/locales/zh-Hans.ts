@@ -46,6 +46,19 @@ export default {
 		link_label: '联系我们',
 		word_count: '一个量级参考:英文正文约有 {count} 个词。你可以选择参与全部内容,也可以只参与其中一部分——在大多数情况下,这项工作是修正机器所犯的小错误,而非从头翻译。'
 	},
+	epigraph: {
+		heading: '关于如何看待这张地图',
+		reader:
+			'土地并不投票。这样给地图上色,只会让乡村艾伯塔显得比它实际更大。让空旷的土地保持空白吧。',
+		reader_label: '一位读者',
+		author_p1:
+			'说得有理——而这正是这张地图所做的。它依据艾伯塔选举委员会自己的几何数据与计票结果构建,采用他们所保留的唯一精度:每个投票区有多少人投票,以及如何投票。颜色在两党之间呈光谱过渡,其深浅随人口而变——这正是城市熠熠发光、而开阔地带保持暗淡的原因。',
+		author_p2:
+			'波诺卡以东的土地是纯白色:那里没有投票站,也没有记录到任何人在此居住或投票。它之所以空白,恰恰是因为土地并不投票。我们的目的不是去解读数据,而只是让它以被记录时的精度发声——并让你在离开时比来时多懂一点。',
+		author_label: '作者',
+		ethic:
+			'这正是整个审计背后的承诺:绘制这套系统,并让数据为自己发声——不超出它所允许的范围。'
+	},
 	opener: {
 		heading: '这是为谁准备的?',
 		body:
@@ -1000,5 +1013,38 @@ export default {
 			skip_to_main: '跳至主要内容',
 			back_to_map: '返回交互式地图'
 		}
+	},
+	feedback: {
+		nav_link: '提交反馈',
+		page_title: '提交反馈',
+		meta_description:
+			'就《艾伯塔选区边界审计》分享更正、提问或建议。',
+		heading: '提交反馈',
+		intro:
+			'发现了错误、有疑问,或想提出改进建议?这将直接发送给作者。姓名和邮箱均为可选——只有在你希望得到回复时才需留下邮箱。',
+		name_label: '姓名',
+		name_optional: '可选',
+		name_placeholder: '你的姓名',
+		email_label: '邮箱',
+		email_optional: '可选',
+		email_placeholder: 'you@example.com',
+		email_hint: '仅用于回复你。绝不分享,绝不加入任何名单。',
+		message_label: '留言',
+		message_required: '必填',
+		message_placeholder: '你想告诉我们什么?',
+		submit: '提交反馈',
+		submitting: '发送中…',
+		success_title: '谢谢你',
+		success_body:
+			'你的反馈已收到。如果你留下了邮箱地址,且你的留言需要回复,你将会收到回音。',
+		send_another: '再次提交',
+		error_empty: '请在发送前输入留言内容。',
+		error_rate: '你最近已发送了多条留言。请稍后再试。',
+		error_generic: '发送你的反馈时出了点问题。请稍候再试。',
+		privacy_note:
+			'你的留言安全存储于加拿大,仅用于改进本审计。详情请见{privacy}。',
+		privacy_link_text: '隐私政策',
+		back_to_report: '返回报告',
+		back_to_map: '返回地图浏览器'
 	}
 } as const;

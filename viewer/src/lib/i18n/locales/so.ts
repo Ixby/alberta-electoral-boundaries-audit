@@ -43,6 +43,19 @@ export default {
 		link_label: 'nala soo xidhiidh',
 		word_count: 'Si aad u qiyaasto cabbirka: qoraalka Ingiriisiga ah waa qiyaastii {count} eray. Waxaad ku soo biiri kartaa dhammaantii ama qayb kaliya — inta badan shaqadu waa saxitaanka khaladaad yaryar ee mashiinku sameeyay, ma aha turjumaad cusub oo aan waxba ka bilaaban.'
 	},
+	epigraph: {
+		heading: 'Sida loo akhriyo khariidaddan',
+		reader:
+			"Dhulku ma codeeyo. Midabaynta khariidadda sidan oo kale waxay kaliya ka dhigaysaa Alberta miyiga inay u muuqato mid ka weyn inta ay dhab ahaantii tahay. Dhulka madhan ka tag isagoo madhan.",
+		reader_label: 'akhriste',
+		author_p1:
+			"Caddaalad — taasina waa waxa khariidaddu sameyso si sax ah. Waxaa laga dhisay joomatari iyo tirooyin ay Elections Alberta lahaan tahay, oo ah heerka kaliya ee ay hayaan: imisa qof ayaa ka codeeyay aag kasta oo codbixin, iyo sidee. Midabku wuxuu ku socdaa heer u dhexeeya labada xisbi, qoto-dheeradiisuna waxay raacaysaa tirada dadka — taasina waa sababta magaalooyinku u dhalaalaan, miyiga furanna u sii dhalaalo mid khafiif ah.",
+		author_p2:
+			"Dhulka bari ka xiga Ponoka waa caddaan saafi ah: ma jiro xarun codbixin, ma jiro qof la diiwaangeliyay inuu halkaas ku noolyahay ama ka codeeyay. Wuxuu u madhan yahay si sax ah sababta oo ah dhulku ma codeeyo. Ujeeddadu ma aha in la fasiro xogta, ee kaliya in loo daayo inay ku hadasho heerka lagu duubay — iyo in lagaaga tago mid wax yar ka caqli badan intii aad u timid.",
+		author_label: 'qoraaga',
+		ethic:
+			'Taasi waa ballanqaadka ka dambeeya hubinta oo dhan: khariidee nidaamka, oo u daa xogta inay isu hadasho — wax ka badan inta ay ogolaato maaha.'
+	},
 	opener: {
 		heading: 'Yaa loogu talagalay?',
 		body:
@@ -995,5 +1008,38 @@ export default {
 			skip_to_main: 'U bood nuxurka ugu weyn',
 			back_to_map: 'Ku noqo khariidadda firfircoon'
 		}
+	},
+	feedback: {
+		nav_link: 'Dir jawaab-celin',
+		page_title: 'Dir jawaab-celin',
+		meta_description:
+			'La wadaag sax, su’aal, ama soo jeedin ku saabsan Hubinta Xudduudaha Doorashada Alberta.',
+		heading: 'Dir jawaab-celin',
+		intro:
+			"Ma aragtay khalad, su’aal ma qabtaa, ama ma rabtaa inaad soo jeediso hagaajin? Tani waxay si toos ah u gaadhaysaa qoraaga. Magaca iyo iimaylka waa ikhtiyaari — kaliya ka tag iimayl haddii aad jeclaan lahayd jawaab.",
+		name_label: 'Magaca',
+		name_optional: 'ikhtiyaari',
+		name_placeholder: 'Magacaaga',
+		email_label: 'Iimayl',
+		email_optional: 'ikhtiyaari',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Kaliya waxaa loo isticmaalaa in laguugu jawaabo. Marna lama wadaago, marnana lagama daro liis kasta.',
+		message_label: 'Fariin',
+		message_required: 'loo baahan yahay',
+		message_placeholder: 'Maxaad noo sheegi lahayd?',
+		submit: 'Dir jawaab-celin',
+		submitting: 'Waa la dirayaa…',
+		success_title: 'Mahadsanid',
+		success_body:
+			'Jawaab-celintaada waa la helay. Haddii aad ka tagtay cinwaan iimayl ah oo fariintaaduna u baahan tahay jawaab, waad maqli doontaa.',
+		send_another: 'Mid kale dir',
+		error_empty: 'Fadlan geli fariin ka hor inta aanad dirin.',
+		error_rate: 'Waxaad dhawaan dirtay fariimo dhowr ah. Fadlan isku day mar kale wax yar ka dib.',
+		error_generic: 'Wax baa qaldamay markii la dirayay jawaab-celintaada. Fadlan isku day mar kale daqiiqad gudaheed.',
+		privacy_note:
+			'Fariintaada si ammaan ah ayaa loogu kaydiyaa Canada waxaana loo isticmaalaa kaliya in lagu hagaajiyo hubintan. Eeg {privacy} faahfaahin.',
+		privacy_link_text: 'siyaasadda asturnaanta',
+		back_to_report: 'Ku noqo warbixinta',
+		back_to_map: 'Ku noqo baadhaha khariidadda'
 	}
 } as const;

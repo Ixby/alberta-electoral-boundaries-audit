@@ -52,6 +52,19 @@ export default {
 		// correct as the prose grows.
 		word_count: 'Para darle una idea de la escala: la prosa en inglés suma alrededor de {count} palabras. Puede contribuir con todo o solo con una parte — en la mayoría de los casos el trabajo consiste en corregir errores menores que cometió la máquina, no en traducir desde cero.'
 	},
+	epigraph: {
+		heading: 'Sobre cómo leer este mapa',
+		reader:
+			'La tierra no vota. Colorear el mapa de esta manera solo hace que la Alberta rural parezca más grande de lo que es. Deje el terreno vacío en blanco.',
+		reader_label: 'una lectora',
+		author_p1:
+			"Es justo — y eso es exactamente lo que hace el mapa. Está construido a partir de la propia geometría y los recuentos de Elections Alberta, en la única resolución que ellos conservan: cuántas personas votaron en cada área de votación, y cómo. El color recorre un espectro entre los dos partidos, y su intensidad sigue a la población — por eso las ciudades resplandecen y el campo abierto permanece pálido.",
+		author_p2:
+			'La tierra al este de Ponoka es de un blanco puro: no hay ninguna mesa electoral, nadie registrado viviendo ni votando allí. Está en blanco precisamente porque la tierra no vota. El objetivo no es interpretar los datos, sino solo dejar que hablen en el grano en que fueron registrados — y dejarle a usted un poco más sabio de lo que llegó.',
+		author_label: 'el autor',
+		ethic:
+			'Ese es el compromiso detrás de toda la auditoría: cartografiar el sistema y dejar que los datos hablen por sí mismos — nada más de lo que permiten.'
+	},
 	opener: {
 		heading: '¿Para quién es esto?',
 		body:
@@ -1018,5 +1031,34 @@ export default {
 			skip_to_main: 'Saltar al contenido principal',
 			back_to_map: 'Volver al mapa interactivo'
 		}
+	},
+	feedback: {
+		nav_link: 'Enviar comentarios',
+		page_title: 'Enviar comentarios',
+		meta_description: 'Comparta una corrección, una pregunta o una sugerencia sobre la Auditoría de Límites Electorales de Alberta.',
+		heading: 'Enviar comentarios',
+		intro: '¿Detectó un error, tiene una pregunta o quiere sugerir una mejora? Esto va directamente al autor. El nombre y el correo electrónico son opcionales — deje un correo electrónico solo si desea recibir una respuesta.',
+		name_label: 'Nombre',
+		name_optional: 'opcional',
+		name_placeholder: 'Su nombre',
+		email_label: 'Correo electrónico',
+		email_optional: 'opcional',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Solo se usa para responderle. Nunca se comparte ni se agrega a ninguna lista.',
+		message_label: 'Mensaje',
+		message_required: 'obligatorio',
+		message_placeholder: '¿Qué le gustaría decirnos?',
+		submit: 'Enviar comentarios',
+		submitting: 'Enviando…',
+		success_title: 'Gracias',
+		success_body: 'Hemos recibido sus comentarios. Si dejó una dirección de correo electrónico y su mensaje requiere una respuesta, recibirá noticias nuestras.',
+		send_another: 'Enviar otro',
+		error_empty: 'Por favor, escriba un mensaje antes de enviar.',
+		error_rate: 'Ha enviado varios mensajes recientemente. Por favor, inténtelo de nuevo dentro de un rato.',
+		error_generic: 'Algo salió mal al enviar sus comentarios. Por favor, inténtelo de nuevo en un momento.',
+		privacy_note: 'Su mensaje se almacena de forma segura en Canada y se usa únicamente para mejorar esta auditoría. Consulte la {privacy} para más detalles.',
+		privacy_link_text: 'política de privacidad',
+		back_to_report: 'Volver al informe',
+		back_to_map: 'Volver al explorador del mapa'
 	}
 } as const;

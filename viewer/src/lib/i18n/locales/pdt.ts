@@ -44,6 +44,19 @@ export default {
 		word_count:
 			"Toom Äwasiecht: dee Englische Proze läft omtrent {count} Weat. Jie send hattlich willjekome, aul von daut oda blooss en Deel dervon äwasatle — in de measchte Fäl es dee Oabeid, kjliene Fähla von dee Maschien to vabeetre, un nich von Grund auf äwasatle."
 	},
+	epigraph: {
+		heading: "Toom Läse von dise Koat",
+		reader:
+			"Launt stemmt nich. Dee Koat soo enzofoawe lat blooss daut ländliche Alberta jrata utsiene, aus daut es. Lot daut leddje Launt leddich.",
+		reader_label: "en Läsa",
+		author_p1:
+			"Rajcht — un krakjt daut deit dee Koat. See es ute Elections Albertas eajne Jeometrie un Tälunge jebout, en dee eenstje Auflöösunk, dee see hoole: woo väl Mensche in jiedem Wahljebiet jestemmt habe, un woo. Dee Foaw läft op en Spektrum twesche dee twee Parteie, un äare Deepde foljcht dee Bevölkjarunk — doaromm jliehe dee Städ un daut oppne Launt bliewt bläkj.",
+		author_p2:
+			"Daut Launt oostlich von Ponoka es rein wit: kjeen Wahllokaul, kjeena, dee doa läwent oda stemmend erfoot es. Daut es krakjt doaromm leddich, wiel Launt nich stemmt. Daut Tsil es nich, dee Doten to deute, blooss see in dee Kjarnung räde to lote, in dee see erfoot wäare — un die en bät klieja trigjtolote, aus du jekome best.",
+		author_label: "dee Schriewa",
+		ethic:
+			"Daut es dee Vapflichtunk hinje daut gaunse Audit: daut Sistem aufbilde, un dee Doten fa sikj selwst räde lote — nich mea, aus see toolote."
+	},
 	opener: {
 		heading: "Fea wäm es daut?",
 		body:
@@ -997,5 +1010,38 @@ export default {
 			skip_to_main: 'Sprinjch tom Hauptinhault',
 			back_to_map: 'Trigj noh dee interaktive Koat'
 		}
+	},
+	feedback: {
+		nav_link: "Feedback schekje",
+		page_title: "Feedback schekje",
+		meta_description:
+			"Deel en Korrektua, Froag oda Vüaschlag äwa daut Alberta Electoral Boundary Audit.",
+		heading: "Feedback schekje",
+		intro:
+			"En Fähla jefunge, ne Froag, oda welscht en Vabättarunk vüaschloage? Daut jeit krakjt nom Schriewa. Nome un E-Mail send freiwillich — lot bloß denn ne E-Mail, wann du ne Auntwuat habe welscht.",
+		name_label: "Nome",
+		name_optional: "freiwillich",
+		name_placeholder: "Dien Nome",
+		email_label: "E-Mail",
+		email_optional: "freiwillich",
+		email_placeholder: 'you@example.com',
+		email_hint: "Woat blooss benotet, om die to auntwuate. Niemols wiedajejäwe, niemols to ne Liest toojedohne.",
+		message_label: "Norecht",
+		message_required: "needich",
+		message_placeholder: "Waut welscht du ons vatale?",
+		submit: "Feedback schekje",
+		submitting: "Woat jeschekjt…",
+		success_title: "Velen Dank",
+		success_body:
+			"Dien Feedback es aunjekome. Wann du ne E-Mail-Adress jelote hast un dien Norecht ne Auntwuat braukt, woascht du von ons heare.",
+		send_another: "Noch eent schekje",
+		error_empty: "Bitte jeff ne Norecht enn, ea du schekjst.",
+		error_rate: "Du hast tolatst väl Norechte jeschekjt. Bitte vesäkj daut en bät spooda nochmol.",
+		error_generic: "Waut es schief jegohne bie daut Schekje von dien Feedback. Bitte vesäkj daut glikj nochmol.",
+		privacy_note:
+			"Dien Norecht woat secha en Canada jespeichat un blooss too dee Vabättarunk von dise Audit benotet. Eenzelheite finjst du in dee {privacy}.",
+		privacy_link_text: "Privatschuts-Politikj",
+		back_to_report: "Trigj nom Berecht",
+		back_to_map: "Trigj nom Koaten-Explorer"
 	}
 } as const;

@@ -50,6 +50,19 @@ export default {
 		link_label: 'kontaktieren Sie uns bitte',
 		word_count: 'Zur Einordnung: Der englische Text umfasst etwa {count} Wörter. Sie können gern zu allem beitragen oder nur zu einem Teil \u2014 in den meisten Fällen besteht die Arbeit darin, kleinere Fehler der Maschine zu korrigieren, nicht darin, von Grund auf zu übersetzen.'
 	},
+	epigraph: {
+		heading: 'Zum Lesen dieser Karte',
+		reader:
+			"Land wählt nicht. Die Karte auf diese Weise einzufärben, lässt das ländliche Alberta nur größer erscheinen, als es ist. Lassen Sie das leere Land leer.",
+		reader_label: 'eine Leserin',
+		author_p1:
+			"Berechtigt — und genau das tut die Karte. Sie ist aus der Geometrie und den Zählungen von Elections Alberta selbst aufgebaut, in der einzigen Auflösung, die sie führen: wie viele Menschen in jedem Wahlgebiet abgestimmt haben und wie. Die Farbe verläuft auf einem Spektrum zwischen den beiden Parteien, und ihre Tiefe folgt der Bevölkerung — weshalb die Städte leuchten und das offene Land blass bleibt.",
+		author_p2:
+			"Das Land östlich von Ponoka ist reines Weiß: kein Wahllokal, niemand, der dort lebend oder wählend erfasst ist. Es ist genau deshalb leer, weil Land nicht wählt. Das Ziel ist nicht, die Daten zu deuten, sondern sie nur in der Körnung sprechen zu lassen, in der sie erfasst wurden — und Sie ein wenig klüger zurückzulassen, als Sie gekommen sind.",
+		author_label: 'der Autor',
+		ethic:
+			'Das ist die Verpflichtung hinter dem gesamten Audit: das System abbilden und die Daten für sich selbst sprechen lassen — nicht mehr, als sie zulassen.'
+	},
 	opener: {
 		heading: 'Für wen ist das gedacht?',
 		body:
@@ -1002,5 +1015,34 @@ export default {
 			skip_to_main: 'Zum Hauptinhalt springen',
 			back_to_map: 'Zurück zur interaktiven Karte'
 		}
+	},
+	feedback: {
+		nav_link: 'Feedback senden',
+		page_title: 'Feedback senden',
+		meta_description: 'Teilen Sie eine Korrektur, Frage oder Anregung zum Alberta Electoral Boundary Audit mit.',
+		heading: 'Feedback senden',
+		intro: 'Einen Fehler entdeckt, eine Frage oder einen Verbesserungsvorschlag? Das geht direkt an den Autor. Name und E-Mail sind optional — geben Sie eine E-Mail nur an, wenn Sie eine Antwort wünschen.',
+		name_label: 'Name',
+		name_optional: 'optional',
+		name_placeholder: 'Ihr Name',
+		email_label: 'E-Mail',
+		email_optional: 'optional',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Wird nur verwendet, um Ihnen zu antworten. Niemals weitergegeben, niemals einer Liste hinzugefügt.',
+		message_label: 'Nachricht',
+		message_required: 'erforderlich',
+		message_placeholder: 'Was möchten Sie uns mitteilen?',
+		submit: 'Feedback senden',
+		submitting: 'Wird gesendet…',
+		success_title: 'Vielen Dank',
+		success_body: 'Ihr Feedback ist eingegangen. Wenn Sie eine E-Mail-Adresse hinterlassen haben und Ihre Nachricht eine Antwort erfordert, werden Sie von uns hören.',
+		send_another: 'Weiteres senden',
+		error_empty: 'Bitte geben Sie vor dem Senden eine Nachricht ein.',
+		error_rate: 'Sie haben in letzter Zeit mehrere Nachrichten gesendet. Bitte versuchen Sie es in Kürze erneut.',
+		error_generic: 'Beim Senden Ihres Feedbacks ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.',
+		privacy_note: 'Ihre Nachricht wird sicher in Canada gespeichert und nur zur Verbesserung dieses Audits verwendet. Einzelheiten finden Sie in der {privacy}.',
+		privacy_link_text: 'Datenschutzerklärung',
+		back_to_report: 'Zurück zum Bericht',
+		back_to_map: 'Zurück zum Karten-Explorer'
 	}
 } as const;

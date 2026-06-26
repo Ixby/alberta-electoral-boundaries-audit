@@ -43,6 +43,19 @@ export default {
 		link_label: 'kontakt',
 		word_count: 'Dla skali: angielski tekst liczy około {count} słów. Zapraszamy do przyczynienia się do całości lub tylko części — w większości przypadków praca polega na poprawianiu drobnych błędów popełnionych przez maszynę, a nie tłumaczeniu od zera.'
 	},
+	epigraph: {
+		heading: 'O czytaniu tej mapy',
+		reader:
+			'Ziemia nie głosuje. Kolorowanie mapy w ten sposób sprawia jedynie, że wiejska Alberta wygląda na większą, niż jest w rzeczywistości. Zostawcie pustą ziemię pustą.',
+		reader_label: 'czytelnik',
+		author_p1:
+			'Słusznie — i właśnie to robi ta mapa. Jest zbudowana z własnej geometrii i danych Elections Alberta, w jedynej rozdzielczości, jaką prowadzą: ile osób głosowało w każdym obszarze głosowania i jak. Kolor przebiega po spektrum między dwiema partiami, a jego głębia podąża za liczbą ludności — dlatego miasta jarzą się światłem, a otwarty teren pozostaje blady.',
+		author_p2:
+			'Ziemia na wschód od Ponoka jest czysto biała: żadnego lokalu wyborczego, nikt nie zarejestrował tam mieszkania ani głosowania. Jest pusta właśnie dlatego, że ziemia nie głosuje. Celem nie jest interpretowanie danych, lecz jedynie pozwolenie im przemówić w ziarnistości, w jakiej zostały zapisane — i zostawienie Państwa odrobinę mądrzejszymi, niż przyszli.',
+		author_label: 'autor',
+		ethic:
+			'Takie jest zobowiązanie stojące za całym audytem: zmapować system i pozwolić danym mówić samym za siebie — nie więcej, niż na to pozwalają.'
+	},
 	opener: {
 		heading: 'Dla kogo to jest?',
 		body:
@@ -1009,5 +1022,38 @@ export default {
 			skip_to_main: 'Przejdź do treści głównej',
 			back_to_map: 'Powrót do interaktywnej mapy'
 		}
+	},
+	feedback: {
+		nav_link: 'Wyślij opinię',
+		page_title: 'Wyślij opinię',
+		meta_description:
+			'Podziel się poprawką, pytaniem lub sugestią dotyczącą Audytu Granic Wyborczych Alberty.',
+		heading: 'Wyślij opinię',
+		intro:
+			'Zauważyli Państwo błąd, mają pytanie lub chcą zaproponować ulepszenie? Trafia to bezpośrednio do autora. Imię i adres e-mail są opcjonalne — proszę podać e-mail tylko wtedy, gdy chcieliby Państwo otrzymać odpowiedź.',
+		name_label: 'Imię',
+		name_optional: 'opcjonalne',
+		name_placeholder: 'Państwa imię',
+		email_label: 'E-mail',
+		email_optional: 'opcjonalne',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Używany wyłącznie do udzielenia Państwu odpowiedzi. Nigdy nie udostępniany, nigdy nie dodawany do żadnej listy.',
+		message_label: 'Wiadomość',
+		message_required: 'wymagane',
+		message_placeholder: 'Co chcieliby nam Państwo przekazać?',
+		submit: 'Wyślij opinię',
+		submitting: 'Wysyłanie…',
+		success_title: 'Dziękujemy',
+		success_body:
+			'Państwa opinia została odebrana. Jeśli podali Państwo adres e-mail, a wiadomość wymaga odpowiedzi, otrzymają ją Państwo.',
+		send_another: 'Wyślij kolejną',
+		error_empty: 'Proszę wpisać wiadomość przed wysłaniem.',
+		error_rate: 'Wysłali Państwo ostatnio kilka wiadomości. Proszę spróbować ponownie za jakiś czas.',
+		error_generic: 'Coś poszło nie tak podczas wysyłania opinii. Proszę spróbować ponownie za chwilę.',
+		privacy_note:
+			'Państwa wiadomość jest bezpiecznie przechowywana w Kanadzie i wykorzystywana wyłącznie do ulepszania tego audytu. Szczegóły znajdą Państwo w {privacy}.',
+		privacy_link_text: 'polityce prywatności',
+		back_to_report: 'Powrót do raportu',
+		back_to_map: 'Powrót do eksploratora mapy'
 	}
 } as const;

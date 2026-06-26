@@ -50,6 +50,19 @@ export default {
 		// correct as the prose grows.
 		word_count: 'Para sa sukat: ang prosa sa Ingles ay umaabot sa humigit-kumulang {count} salita. Malugod kayong maaaring mag-ambag sa lahat ng ito o sa isang bahagi lamang — sa karamihan ng kaso ang gawain ay pagwawasto ng mga maliliit na pagkakamaling ginawa ng makina, hindi pagsasalin mula sa wala.'
 	},
+	epigraph: {
+		heading: 'Sa pagbasa ng mapang ito',
+		reader:
+			"Hindi bumoboto ang lupa. Ang ganitong pagkulay sa mapa ay nagpapalitaw lamang na mas malaki ang rural na Alberta kaysa sa totoong laki nito. Hayaang walang laman ang walang-taong lupa.",
+		reader_label: 'isang mambabasa',
+		author_p1:
+			"Tama — at iyon mismo ang ginagawa ng mapa. Binuo ito mula sa sariling heometriya at mga bilang ng Elections Alberta, sa tanging resolusyong itinatago nila: ilang tao ang bumoto sa bawat voting area, at paano. Ang kulay ay umuusad sa isang spectrum sa pagitan ng dalawang partido, at ang lalim nito ay sumusunod sa populasyon — kaya nagliliwanag ang mga lungsod at nananatiling maputla ang bukas na kanayunan.",
+		author_p2:
+			"Purong puti ang lupa sa silangan ng Ponoka: walang polling station, walang naitalang nakatira o bumoboto roon. Blangko ito dahil nga sa hindi bumoboto ang lupa. Hindi layunin ang bigyang-kahulugan ang datos, kundi hayaan lamang itong magsalita sa antas na kung saan ito naitala — at iwan kayong bahagyang mas marunong kaysa sa pagdating ninyo.",
+		author_label: 'ang may-akda',
+		ethic:
+			'Iyon ang pangako sa likod ng buong pagsusuri: imapa ang sistema, at hayaang magsalita ang datos para sa sarili nito — hindi hihigit sa pinahihintulutan nito.'
+	},
 	opener: {
 		heading: 'Para kanino ito?',
 		body:
@@ -1016,5 +1029,38 @@ export default {
 			skip_to_main: 'Lumaktaw sa pangunahing nilalaman',
 			back_to_map: 'Bumalik sa interaktibong mapa'
 		}
+	},
+	feedback: {
+		nav_link: 'Magpadala ng puna',
+		page_title: 'Magpadala ng puna',
+		meta_description:
+			'Magbahagi ng pagwawasto, tanong, o mungkahi tungkol sa Alberta Electoral Boundary Audit.',
+		heading: 'Magpadala ng puna',
+		intro:
+			"May napansing mali, may tanong, o nais magmungkahi ng pagpapabuti? Diretso itong mapupunta sa may-akda. Opsyonal ang pangalan at email — mag-iwan lamang ng email kung nais ninyong masagot.",
+		name_label: 'Pangalan',
+		name_optional: 'opsyonal',
+		name_placeholder: 'Ang inyong pangalan',
+		email_label: 'Email',
+		email_optional: 'opsyonal',
+		email_placeholder: 'you@example.com',
+		email_hint: 'Ginagamit lamang upang masagot kayo. Hindi kailanman ibinabahagi, hindi kailanman idinaragdag sa anumang listahan.',
+		message_label: 'Mensahe',
+		message_required: 'kinakailangan',
+		message_placeholder: 'Ano ang nais ninyong sabihin sa amin?',
+		submit: 'Magpadala ng puna',
+		submitting: 'Ipinapadala…',
+		success_title: 'Maraming salamat',
+		success_body:
+			'Natanggap na ang inyong puna. Kung nag-iwan kayo ng email address at nangangailangan ng sagot ang inyong mensahe, masasagot kayo.',
+		send_another: 'Magpadala ng isa pa',
+		error_empty: 'Mangyaring maglagay ng mensahe bago magpadala.',
+		error_rate: 'Marami kayong naipadalang mensahe kamakailan. Mangyaring subukan muli makalipas ang ilang sandali.',
+		error_generic: 'May naganap na mali sa pagpapadala ng inyong puna. Mangyaring subukan muli sa ilang sandali.',
+		privacy_note:
+			'Ligtas na nakaimbak sa Canada ang inyong mensahe at ginagamit lamang upang pagbutihin ang pagsusuring ito. Tingnan ang {privacy} para sa mga detalye.',
+		privacy_link_text: 'patakaran sa privacy',
+		back_to_report: 'Bumalik sa ulat',
+		back_to_map: 'Bumalik sa map explorer'
 	}
 } as const;
