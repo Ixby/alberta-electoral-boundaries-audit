@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-  <title>MapExplorer (Beta) — Alberta Electoral Boundary Audit</title>
+  <title>MapExplorer — Beta</title>
 </svelte:head>
 
 <div class="explorer-root">

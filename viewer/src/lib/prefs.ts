@@ -5,7 +5,7 @@
 // Value:  AES-256-GCM ciphertext — base64(iv).base64(ciphertext)
 // Plaintext format: pipe-separated key=value pairs, e.g. t=dark|i=1|s=m=minority&cx=0.5&…
 // Keys:   t (theme: dark/light)       i (intro seen: 1)
-//         s (last share view: a serialized URL query string, e.g. m=minority&f=pois&cx=…)
+//         s (last share view: `<ts-ms>~<serialized URL query>`; expires 10 min after write)
 //         g (GPS region: lat,lng)     l (browser language: e.g. en-CA)
 //
 // Theme is also mirrored to localStorage['ab_pref_t'] so app.html can prevent
@@ -106,13 +106,24 @@ export async function markIntroSeen(): Promise<void> {
 }
 
 // ── Last share view (session resume) ─────────────────────────────────────────
-// Stored as a serialized URL query string (see share.ts serializeState).
+// Stored as `<timestamp-ms>~<serialized URL query>` (see share.ts serializeState).
+// The map explorer's resume view is deliberately short-lived: it expires 10
+// minutes after it was written, so reopening the explorer later starts fresh
+// rather than restoring a stale view. (The cookie itself still lives a week for
+// the app-wide prefs — theme, language, intro.)
+const LAST_VIEW_TTL_MS = 10 * 60 * 1000; // 10 minutes
 export async function getLastCode(): Promise<string | null> {
-	return (await _get('s')) || null;
+	const v = await _get('s');
+	if (!v) return null;
+	const sep = v.indexOf('~');
+	if (sep < 0) return null; // legacy/untimestamped value — treat as expired
+	const ts = Number(v.slice(0, sep));
+	if (!ts || Date.now() - ts > LAST_VIEW_TTL_MS) return null;
+	return v.slice(sep + 1) || null;
 }
 
 export async function storeLastCode(code: string): Promise<void> {
-	await _set('s', code);
+	await _set('s', `${Date.now()}~${code}`);
 }
 
 // ── GPS region (10 km grid, 0.1° resolution) ──────────────────────────────────
