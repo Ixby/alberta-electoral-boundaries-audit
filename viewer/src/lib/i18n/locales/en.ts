@@ -931,7 +931,10 @@ export default {
 		},
 		tip: {
 			total_votes: 'total votes',
-			poll: 'Poll #{id} · in-person votes',
+			// Per-VA counts are election-day (in-person) votes only — advance/special
+			// ballots are not attributed per voting area (per Elections Alberta).
+			inperson_votes: 'in-person votes',
+			poll: 'Poll #{id}',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
 			unassigned: '(unassigned)',

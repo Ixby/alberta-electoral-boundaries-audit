@@ -572,10 +572,11 @@
 					`<div class="barlbl"><span style="color:#142e94">${ucpLbl}</span><span style="color:#c2540e">${ndpLbl}</span></div>`
 				);
 			}
-			// Total VA votes shown under the ED name; poll # + "in-person votes" shown
-			// below a rule at the foot of the tip (clearer than burying the count).
+			// Per-VA in-person (election-day) vote count shown under the ED name — this
+			// is the only per-VA figure; advance/special ballots aren't attributed per
+			// voting area. The poll number is shown below a rule at the foot of the tip.
 			function vaTotal(P: { votes?: number }): string {
-				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> ${t(lang.current, 'explorer.tip.total_votes')}</div>`;
+				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> ${t(lang.current, 'explorer.tip.inperson_votes')}</div>`;
 			}
 			function pollFoot(id: number): string {
 				return `<hr class="tip-hr"><div class="va-poll">${t(lang.current, 'explorer.tip.poll').replace('{id}', String(id))}</div>`;

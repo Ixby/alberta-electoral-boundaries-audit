@@ -927,7 +927,8 @@ export default {
 		},
 		tip: {
 			total_votes: 'votes au total',
-			poll: 'Bureau n° {id} · votes en personne',
+			inperson_votes: 'votes en personne',
+			poll: 'Bureau n° {id}',
 			ucp_pct: 'UCP {u} %',
 			ndp_pct: 'NPD {n} %',
 			unassigned: '(non attribué)',
