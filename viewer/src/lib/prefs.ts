@@ -1,7 +1,7 @@
 // Alberta Electoral Boundary Audit — user preferences (single encrypted cookie)
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
-// Cookie: ab_audit_prefs (1 week, SameSite=Strict, Secure, path=/)
+// Cookie: ab_audit_prefs (1 year, SameSite=Strict, Secure, path=/)
 // Value:  AES-256-GCM ciphertext — base64(iv).base64(ciphertext)
 // Plaintext format: pipe-separated key=value pairs, e.g. t=dark|i=1|s=m=minority&cx=0.5&…
 // Keys:   t (theme: dark/light)       i (intro seen: 1)
@@ -69,7 +69,7 @@ async function _write(prefs: Record<string, string>): Promise<void> {
 	const plain = Object.entries(prefs).map(([k, v]) => `${k}=${v}`).join('|');
 	const enc   = await _encrypt(plain);
 	const exp   = new Date();
-	exp.setTime(exp.getTime() + 7 * 24 * 60 * 60 * 1000); // 1 week
+	exp.setTime(exp.getTime() + 365 * 24 * 60 * 60 * 1000); // 1 year
 	const secure = location.protocol === 'https:' ? '; Secure' : '';
 	document.cookie = `${COOKIE}=${encodeURIComponent(enc)}; expires=${exp.toUTCString()}; path=/; SameSite=Strict${secure}`;
 }
