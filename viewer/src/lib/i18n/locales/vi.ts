@@ -641,7 +641,7 @@ export default {
 			p1: 'Tôi là sinh viên tại Đại học Mount Royal. Tôi đã thực hiện nghiên cứu này một mình — nó không được giao như bài tập học và trường đại học không ủy quyền nó. Quan điểm của tôi là của riêng tôi và không đại diện cho trường đại học. Tôi không có mối liên hệ nào với Elections Alberta, ủy ban, hoặc bất kỳ đảng chính trị nào.',
 			p2: 'Tôi đã bỏ phiếu cho các đảng khác nhau trong các cuộc bầu cử khác nhau, trên toàn bộ phổ chính trị. Tôi nói cho bạn biết vì lịch sử chính trị của tôi có thể ảnh hưởng đến cách tôi nhìn vấn đề này. Sự bảo vệ chính chống lại điều đó là phương pháp: Tôi đã kiểm tra cả hai bản đồ theo cùng một cách, viết ra các dự đoán của tôi trước khi xem các kết quả, và đưa mọi thứ lên mạng để bất kỳ ai cũng có thể kiểm tra công việc của tôi. Tôi đã tự trả tiền cho nghiên cứu này. Nếu bạn tìm thấy điều gì đó tôi đã sai, tôi thực sự muốn biết.',
 			p3: 'Hồ sơ đăng ký trước (được viết trước khi kết quả được xem xét): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Câu hỏi hoặc sửa chữa: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Câu hỏi hoặc sửa chữa: '
 		},
 		translation_about: {
 			heading: 'Về bản dịch này',

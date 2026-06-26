@@ -654,7 +654,7 @@ export default {
 			p1: "I'm a student at Mount Royal University. I did this research on my own — it was not assigned as coursework and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta, the commission, or any political party.",
 			p2: "I have voted for different parties in different elections, across the political spectrum. I'm telling you because my political history could affect how I look at this issue. The main protection against it is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I genuinely want to know.",
 			p3: 'Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Questions or corrections: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Questions or corrections: '
 		},
 		translation_about: {
 			heading: 'About this translation',
@@ -1039,7 +1039,7 @@ export default {
 			'Share a correction, question, or suggestion about the Alberta Electoral Boundary Audit.',
 		heading: 'Send feedback',
 		intro:
-			'Spotted an error, have a question, or want to suggest an improvement? This goes straight to the author. The form is anonymous — no name, no email, no account. Just your message.',
+			'Spotted an error, have a question, or want to suggest an improvement? This goes straight to the author. Name and email are optional — leave an email only if you would like a reply.',
 		name_label: 'Name',
 		name_optional: 'optional',
 		name_placeholder: 'Your name',
@@ -1054,11 +1054,11 @@ export default {
 		submitting: 'Sending…',
 		success_title: 'Thank you',
 		success_body:
-			'Your feedback has been received. Thank you for helping improve this audit.',
+			'Your feedback has been received. If you left an email address and your message calls for a reply, you will hear back.',
 		send_another: 'Send another',
 		error_empty: 'Please enter a message before sending.',
 		error_rate: 'You have sent several messages recently. Please try again in a little while.',
-		error_generic: 'Something went wrong sending your feedback. Please try again, or email the author directly.',
+		error_generic: 'Something went wrong sending your feedback. Please try again in a moment.',
 		privacy_note:
 			'Your message is stored securely in Canada and used only to improve this audit. See the {privacy} for details.',
 		privacy_link_text: 'privacy policy',

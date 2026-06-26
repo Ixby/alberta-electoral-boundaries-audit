@@ -1171,7 +1171,7 @@
       {@html t(lang.current, 'body.about_me.p3')}
     </p>
     <p style="font-size:0.9rem; color:var(--text-muted);">
-      {@html t(lang.current, 'body.about_me.p4')}
+      {@html t(lang.current, 'body.about_me.p4')} <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
     </p>
   </section>
 
@@ -1189,7 +1189,7 @@
         {t(lang.current, 'body.translation_about.p2')}
       </p>
       <p style="font-size:0.9rem; color:var(--text-muted);">
-        {translationHelpParts.pre}<a href="mailto:wconn161@mtroyal.ca">{translationHelpParts.label}</a>{translationHelpParts.post}
+        {translationHelpParts.pre}<a href="{base}/feedback">{translationHelpParts.label}</a>{translationHelpParts.post}
       </p>
     </section>
   {/if}

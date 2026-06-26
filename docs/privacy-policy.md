@@ -165,12 +165,9 @@ You have the right not to be remembered.
 
 ## Contact
 
-Will Conner
-wconn161@mtroyal.ca
+Will Conner — independent research, not affiliated with or endorsed by any institution.
 
-Independent research — not affiliated with or endorsed by any institution.
-
-Questions and deletion requests answered within 10 business days.
+Questions, corrections, and deletion requests: please use the feedback form at <https://ixby.github.io/alberta-electoral-boundaries-audit/feedback>. Requests are answered within 10 business days.
 
 ---
 

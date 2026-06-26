@@ -641,7 +641,7 @@ export default {
 			p1: "Arday baad ahay Mount Royal University. Cilmibaadhistani waxaan u sameeyay nafteeyda — lama bixin sida hawl dugsi ah oo jaamacaddu sidoo kale uma abaalmarin. Aragtideyda waa kuweygii gaarka ah oo uma matalin jaamacadda. Ma lahan xiriir Elections Alberta, guddida, ama xisbi siyaasadeed oo kasta.",
 			p2: "Xisbiyado kala duwan ayaan ku coday doorashooyinkii kala duwan, xoogagga siyaasadeed oo dhan. Waxaan kuu sheegayaa maxaa yeelay taariikhdeyda siyaasadeed way saameyn kartaa sida aan uga arko arrintan. Difaaca ugu weyn waa habka: labada khariidadood waan ku tijaabiyay isla sida, waxaan qoray saadaalinteyda ka hor inta aanay natiijooyinka soo bixin, waxaan dhiga oo dhan khadka internetka si qof kasta uu u xaqiijin karo shaqoeyda. Waxaan bixiyay cilmibaadhistani nafteeyda. Haddaad wax khaldan oo aan samaystay hesho, runtii waan rabaa inaan garanno.",
 			p3: 'Diiwaangelintii hore (oo la qoray ka hor inta aanay natiijooyinku la baarmin): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Su\'aalo ama saxitaanno: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Su\'aalo ama saxitaanno: '
 		},
 		translation_about: {
 			heading: 'Ku saabsan turjumaaddaan',

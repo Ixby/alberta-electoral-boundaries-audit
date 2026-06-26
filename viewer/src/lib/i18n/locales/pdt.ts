@@ -645,7 +645,7 @@ export default {
 			p1: "Ekj sie en Student aun Mount Royal University. Ekj ha dise Forschunk aun mien eejne jedone — daut wea nich aus Schoolwoakj toopjedeelt un dee Universität haft daut nich in Auftrag jejiwe. Miene Aunsichte senn miene eejne un vadreete nich dee Universität. Ekj ha kjeen Verbindunk to Elections Alberta, dee Kommissjon, oda aunjend politijche Partei.",
 			p2: "Ekj ha fea verschiedene Parteie in verschiedene Wahle jestemmt, äwa daut politijche Spektrum. Ekj saj jüch daut, weil miene politijche Jeschicht beeinflusse kunn, woo ekj dise Sach aunkike. Dee Haup-Schutz doajäjen es dee Methode: ekj ha beide Koate dieselwe Wiess jeprooft, miene Voarrhsajunge opjeschriewe, bevoa ekj dee Resultote bekjikt ha, un aules online jestalt, soo daut jeda mien Oabeid prüfe kjann. Ekj ha dise Forschunk selfst betoolt. Wann jie waut fijnde, daut ekj falsch jekreaje ha, well ekj daut wiaklich weete.",
 			p3: 'Voarrijistriaarungs-Datensätze (jeschriewe, bevoa Resultote bekjikt woare): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Froage oda Korrektsjoone: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Froage oda Korrektsjoone: '
 		},
 		translation_about: {
 			heading: 'Äwa dise Äwasattsunk',

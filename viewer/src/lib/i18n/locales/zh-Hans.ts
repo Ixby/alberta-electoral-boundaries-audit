@@ -647,7 +647,7 @@ export default {
 			p1: '我是 Mount Royal University 的一名学生。我独自完成了这项研究——它不是课程作业,大学也没有委托。我的观点是我自己的,不代表学校。我与 Elections Alberta、委员会或任何政党都没有关联。',
 			p2: '我在不同选举中投过不同政党,跨越政治光谱。我告诉你这一点,是因为我的政治履历可能影响我如何看待这个问题。对此最主要的保护是方法:我用相同的方式测试两份地图,在查看结果之前写下我的预测,并将一切放在网上以便任何人检查我的工作。这项研究的费用是我自己支付的。如果你发现我有错的地方,我真的很想知道。',
 			p3: '预先注册记录(在结果被检查之前写下):<a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>、AsPredicted:#289,469、AsPredicted:#289,451。',
-			p4: '问题或更正:<a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: '问题或更正:'
 		},
 		translation_about: {
 			heading: '关于本次翻译',

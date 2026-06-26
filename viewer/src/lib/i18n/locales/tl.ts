@@ -651,7 +651,7 @@ export default {
 			p1: 'Ako ay estudyante sa Mount Royal University. Ginawa ko ang pananaliksik na ito nang mag-isa — hindi ito itinakda bilang coursework at hindi ito inutos ng unibersidad. Ang aking mga pananaw ay sarili ko at hindi kumakatawan sa unibersidad. Wala akong koneksyon sa Elections Alberta, sa komisyon, o sa anumang partido pampulitika.',
 			p2: 'Bumoto ako para sa iba\'t ibang partido sa iba\'t ibang halalan, sa buong spektrum pampulitika. Sinasabi ko ito sa iyo dahil ang aking kasaysayang pampulitika ay maaaring makaapekto kung paano ko tinitingnan ang isyung ito. Ang pangunahing proteksyon laban dito ay ang pamamaraan: sinubukan ko ang parehong mapa sa parehong paraan, isinulat ko ang aking mga hula bago tingnan ang mga resulta, at inilagay ko ang lahat online upang masuri ng sinuman ang aking trabaho. Binayaran ko ang pananaliksik na ito mismo. Kung may makita kang mali ko, talagang gusto kong malaman.',
 			p3: 'Mga rekord ng pre-registration (isinulat bago sinuri ang mga resulta): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Mga tanong o pagwawasto: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Mga tanong o pagwawasto: '
 		},
 		translation_about: {
 			heading: 'Tungkol sa pagsasaling ito',

@@ -221,4 +221,4 @@ The PO retains final editorial and methodological responsibility for everything 
 
 ## Contact
 
-Will Conner — `wconn161@mtroyal.ca` (project author). For methodology questions, open a GitHub issue at <https://github.com/Ixby/alberta-electoral-boundaries-audit/issues>.
+Will Conner (project author). For methodology questions, open a GitHub issue at <https://github.com/Ixby/alberta-electoral-boundaries-audit/issues>.

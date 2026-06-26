@@ -652,7 +652,7 @@ export default {
 			p1: "Je suis étudiant à l'Université Mount Royal. J'ai fait cette recherche par moi-même — elle n'a pas été assignée comme travail de cours et l'université ne l'a pas commandée. Mes opinions sont les miennes et ne représentent pas l'université. Je n'ai aucun lien avec Elections Alberta, la commission ou un quelconque parti politique.",
 			p2: "J'ai voté pour différents partis à différentes élections, à travers l'éventail politique. Je vous le dis parce que mon historique politique pourrait affecter la façon dont je regarde cette question. La principale protection contre cela, c'est la méthode : j'ai testé les deux cartes de la même manière, j'ai écrit mes prédictions avant de regarder les résultats et j'ai tout mis en ligne pour que quiconque puisse vérifier mon travail. J'ai payé cette recherche moi-même. Si vous trouvez quelque chose que j'ai mal compris, je veux vraiment le savoir.",
 			p3: 'Dossiers de pré-enregistrement (rédigés avant l\'examen des résultats) : <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Questions ou corrections : <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Questions ou corrections : '
 		},
 		translation_about: {
 			heading: 'À propos de cette traduction',
@@ -1033,7 +1033,7 @@ export default {
 			'Signalez une correction, posez une question ou proposez une amélioration au sujet de l’Audit des limites électorales de l’Alberta.',
 		heading: 'Envoyer un commentaire',
 		intro:
-			'Vous avez repéré une erreur, vous avez une question ou souhaitez proposer une amélioration? Votre message est transmis directement à l’auteur. Le formulaire est anonyme — aucun nom, aucun courriel, aucun compte. Seulement votre message.',
+			'Vous avez repéré une erreur, vous avez une question ou souhaitez proposer une amélioration? Votre message est transmis directement à l’auteur. Le nom et le courriel sont facultatifs — laissez un courriel seulement si vous souhaitez une réponse.',
 		name_label: 'Nom',
 		name_optional: 'facultatif',
 		name_placeholder: 'Votre nom',
@@ -1048,11 +1048,11 @@ export default {
 		submitting: 'Envoi…',
 		success_title: 'Merci',
 		success_body:
-			'Votre commentaire a été reçu. Merci de contribuer à l’amélioration de cet audit.',
+			'Votre commentaire a été reçu. Si vous avez laissé une adresse courriel et que votre message justifie une réponse, vous aurez de nos nouvelles.',
 		send_another: 'Envoyer un autre message',
 		error_empty: 'Veuillez saisir un message avant l’envoi.',
 		error_rate: 'Vous avez envoyé plusieurs messages récemment. Veuillez réessayer dans un moment.',
-		error_generic: 'Une erreur s’est produite lors de l’envoi de votre commentaire. Veuillez réessayer ou écrire directement à l’auteur.',
+		error_generic: 'Une erreur s’est produite lors de l’envoi de votre commentaire. Veuillez réessayer dans un moment.',
 		privacy_note:
 			'Votre message est conservé de façon sécurisée au Canada et sert uniquement à améliorer cet audit. Consultez la {privacy} pour en savoir plus.',
 		privacy_link_text: 'politique de confidentialité',

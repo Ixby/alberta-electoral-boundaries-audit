@@ -97,10 +97,8 @@
 
     <section>
       <h2>Contact</h2>
-      <p>Will Conner<br>
-      <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a></p>
-      <p>Independent research — not affiliated with or endorsed by any institution.</p>
-      <p>Questions and deletion requests answered within 10 business days.</p>
+      <p>Will Conner — independent research, not affiliated with or endorsed by any institution.</p>
+      <p>Questions, corrections, and deletion requests: please use the <a href="{base}/feedback">feedback form</a>. Requests are answered within 10 business days.</p>
     </section>
 
     <section>

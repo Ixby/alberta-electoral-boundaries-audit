@@ -658,7 +658,7 @@ export default {
 			p1: 'Ich bin Student an der Mount Royal University. Ich habe diese Forschung auf eigene Initiative betrieben — sie war nicht als Kursarbeit zugewiesen, und die Universität hat sie nicht in Auftrag gegeben. Meine Ansichten sind meine eigenen und repräsentieren nicht die Universität. Ich habe keine Verbindung zu Elections Alberta, der Kommission oder irgendeiner politischen Partei.',
 			p2: 'Ich habe bei verschiedenen Wahlen für verschiedene Parteien quer durch das politische Spektrum gestimmt. Ich erzähle Ihnen das, weil meine politische Vergangenheit beeinflussen könnte, wie ich dieses Thema betrachte. Der wichtigste Schutz dagegen ist die Methode: Ich habe beide Karten auf dieselbe Weise getestet, meine Vorhersagen niedergeschrieben, bevor ich die Ergebnisse einsah, und alles online gestellt, damit jeder meine Arbeit prüfen kann. Ich habe diese Forschung selbst bezahlt. Wenn Sie etwas finden, das ich falsch dargestellt habe, möchte ich es wirklich wissen.',
 			p3: 'Vorab-Registrierungsunterlagen (vor Einsicht der Ergebnisse verfasst): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
-			p4: 'Fragen oder Korrekturen: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+			p4: 'Fragen oder Korrekturen: '
 		},
 		retractions: {
 			heading: '9: Widerrufe und Korrekturen',
