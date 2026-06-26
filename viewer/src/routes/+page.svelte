@@ -364,6 +364,22 @@
   </div>
 </header>
 
+<section class="epigraph-block container" aria-labelledby="epigraph-heading">
+  <h2 id="epigraph-heading" class="visually-hidden">{t(lang.current, 'epigraph.heading')}</h2>
+  <div class="epigraph-inner">
+    <blockquote class="epigraph-quote reader">
+      <p>{t(lang.current, 'epigraph.reader')}</p>
+      <p class="epigraph-attrib">— {t(lang.current, 'epigraph.reader_label')}</p>
+    </blockquote>
+    <blockquote class="epigraph-quote author">
+      <p>{t(lang.current, 'epigraph.author_p1')}</p>
+      <p>{t(lang.current, 'epigraph.author_p2')}</p>
+      <p class="epigraph-attrib">— {t(lang.current, 'epigraph.author_label')}</p>
+    </blockquote>
+    <p class="epigraph-ethic">{t(lang.current, 'epigraph.ethic')}</p>
+  </div>
+</section>
+
 <section class="opener-block container" aria-labelledby="opener-heading">
   <h2 id="opener-heading">{t(lang.current, 'verdict.headline')}</h2>
   <p>{t(lang.current, 'verdict.p_what')}</p>
@@ -1240,6 +1256,54 @@
   }
   /* Verdict card — the page's most important element. Front-page treatment:
      an elevated card with a serif headline and the answer set as a pull-quote. */
+  /* Opening epigraph — a real exchange framing how to read the cover map, set
+     apart from the boxed report blocks with a quieter, more literary treatment. */
+  :global(.epigraph-block) {
+    margin: 1.6rem 0 0.6rem;
+  }
+  :global(.epigraph-inner) {
+    max-width: 62ch;
+    margin-inline: auto;
+    padding: clamp(1rem, 3.5vw, 1.8rem) 0;
+  }
+  :global(.epigraph-quote) {
+    margin: 0 0 1.3rem;
+    padding-inline-start: 1.15rem;
+    border-inline-start: 3px solid var(--border);
+    font-family: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+  }
+  :global(.epigraph-quote p) {
+    margin: 0 0 0.6rem;
+  }
+  :global(.epigraph-quote.reader) {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    font-style: italic;
+  }
+  :global(.epigraph-quote.author) {
+    color: var(--text);
+    border-inline-start-color: var(--link);
+    font-size: 1.07rem;
+  }
+  :global(.epigraph-attrib) {
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--text-subtle);
+    margin-top: 0.15rem;
+  }
+  :global(.epigraph-ethic) {
+    margin: 1.2rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+    font-size: 1.12rem;
+    line-height: 1.45;
+    color: var(--heading);
+    font-weight: 600;
+  }
   :global(.opener-block) {
     margin-top: 1.4rem;
     background: var(--table-bg, #fff);

@@ -48,6 +48,22 @@ export default {
 		// correct as the prose grows.
 		word_count: 'For scale: the English prose runs about {count} words. You are welcome to contribute to all of it or just a portion \u2014 in most cases the work is correcting minor errors the machine made, not translating from scratch.'
 	},
+	// Opening epigraph: a real exchange that frames how to read the cover map and
+	// states the project's ethic before any finding. The commenter is anonymized
+	// ("a reader"); the author's reply is a faithful paraphrase of the original.
+	epigraph: {
+		heading: 'On reading this map',
+		reader:
+			"Land doesn't vote. Colouring the map this way only makes rural Alberta look bigger than it is. Leave the empty land empty.",
+		reader_label: 'a reader',
+		author_p1:
+			"Fair \u2014 and that is exactly what the map does. It is built from Elections Alberta's own geometry and counts, at the only resolution they keep: how many people voted in each voting area, and how. The colour runs on a spectrum between the two parties, and its depth follows population \u2014 which is why the cities glow and the open country stays pale.",
+		author_p2:
+			"The land east of Ponoka is pure white: no polling station, no one recorded living or voting there. It is blank precisely because land doesn't vote. The aim is not to interpret the data, only to let it speak at the grain it was recorded in \u2014 and to leave you a little wiser than you came.",
+		author_label: 'the author',
+		ethic:
+			'That is the commitment behind the whole audit: map the system, and let the data speak for itself \u2014 no more than it allows.'
+	},
 	opener: {
 		heading: "Who's this for?",
 		body:
