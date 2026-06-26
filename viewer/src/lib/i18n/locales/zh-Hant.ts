@@ -873,11 +873,11 @@ export default {
 			map_toggle_title: '開啟/關閉此地圖',
 			map_minority: '少數派',
 			map_majority: '多數派',
-			map_2019: '2019',
+			map_2019: '官方',
 			// Mobile segmented-button short labels
 			map_minority_short: '少',
 			map_majority_short: '多',
-			map_2019_short: '’19',
+			map_2019_short: '官方',
 			// Search
 			search_placeholder: '搜尋選區…',
 			search_aria: '搜尋選區',

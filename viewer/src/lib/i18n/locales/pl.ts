@@ -868,11 +868,11 @@ export default {
 			map_toggle_title: 'Włącz/wyłącz tę mapę',
 			map_minority: 'Mniejszość',
 			map_majority: 'Większość',
-			map_2019: '2019',
+			map_2019: 'Oficjalna',
 			// Mobile segmented-button short labels
 			map_minority_short: 'Mn',
 			map_majority_short: 'Wk',
-			map_2019_short: '’19',
+			map_2019_short: 'Ofic.',
 			// Search
 			search_placeholder: 'Wyszukaj okręg…',
 			search_aria: 'Wyszukaj okręgi',

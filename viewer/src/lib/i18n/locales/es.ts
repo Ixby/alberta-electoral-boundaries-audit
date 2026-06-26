@@ -877,11 +877,11 @@ export default {
 			map_toggle_title: 'Activar/desactivar este mapa',
 			map_minority: 'Minoritario',
 			map_majority: 'Mayoritario',
-			map_2019: '2019',
+			map_2019: 'Oficial',
 			// Mobile segmented-button short labels
 			map_minority_short: 'Min',
 			map_majority_short: 'May',
-			map_2019_short: '’19',
+			map_2019_short: 'Ofic.',
 			// Search
 			search_placeholder: 'Buscar un distrito…',
 			search_aria: 'Buscar distritos',

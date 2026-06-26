@@ -873,11 +873,11 @@ export default {
 			map_toggle_title: 'یہ نقشہ آن/آف کریں',
 			map_minority: 'اقلیتی',
 			map_majority: 'اکثریتی',
-			map_2019: '2019',
+			map_2019: 'سرکاری',
 			// Mobile segmented-button short labels
 			map_minority_short: 'اقلیتی',
 			map_majority_short: 'اکثریتی',
-			map_2019_short: '’19',
+			map_2019_short: 'سرکاری',
 			// Search
 			search_placeholder: 'کوئی حلقہ تلاش کریں…',
 			search_aria: 'حلقے تلاش کریں',

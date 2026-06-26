@@ -875,11 +875,11 @@ export default {
 			map_toggle_title: 'I-toggle ang mapang ito on/off',
 			map_minority: 'Minorya',
 			map_majority: 'Mayorya',
-			map_2019: '2019',
+			map_2019: 'Opisyal',
 			// Mobile segmented-button short labels
 			map_minority_short: 'Min',
 			map_majority_short: 'Mau',
-			map_2019_short: '’19',
+			map_2019_short: 'Opis.',
 			// Search
 			search_placeholder: 'Maghanap ng distrito…',
 			search_aria: 'Maghanap ng mga distrito',
