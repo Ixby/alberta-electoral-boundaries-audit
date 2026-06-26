@@ -7,7 +7,7 @@
 -->
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { lang, setLang, SUPPORTED_LANGS, LANG_LABELS, type Lang } from '$lib/i18n/store.svelte';
+	import { lang } from '$lib/i18n/store.svelte';
 	import { t } from '$lib/i18n/dict';
 	import { submitFeedback } from '$lib/feedback';
 
@@ -22,15 +22,6 @@
 	let errorMsg = $state('');
 
 	let messageEl: HTMLTextAreaElement | undefined = $state();
-
-	// Friendly label for the language dropdown: drop the parenthetical, and use
-	// Traditional/Simplified for the two Chinese variants (matches the explorer).
-	function langLabel(code: Lang): string {
-		const { native, english } = LANG_LABELS[code];
-		if (code === 'zh-Hant') return `${native} — Traditional`;
-		if (code === 'zh-Hans') return `${native} — Simplified`;
-		return `${native} — ${english.replace(/\s*\([^)]*\)/, '')}`;
-	}
 
 	async function onSubmit(e: SubmitEvent) {
 		e.preventDefault();
@@ -93,22 +84,9 @@
 <header>
 	<div class="header-inner">
 		<a href="{base}/" class="back-link">← {t(lang.current, 'feedback.back_to_report')}</a>
-		<div class="header-top">
-			<div class="header-text">
-				<div class="site-label">Alberta Electoral Boundary Audit</div>
-				<h1>{t(lang.current, 'feedback.heading')}</h1>
-			</div>
-			<label class="lang-picker">
-				<span class="sr-only">Language</span>
-				<select
-					value={lang.current}
-					onchange={(e) => setLang(e.currentTarget.value as Lang)}
-				>
-					{#each SUPPORTED_LANGS as code (code)}
-						<option value={code}>{langLabel(code)}</option>
-					{/each}
-				</select>
-			</label>
+		<div class="header-text">
+			<div class="site-label">Alberta Electoral Boundary Audit</div>
+			<h1>{t(lang.current, 'feedback.heading')}</h1>
 		</div>
 	</div>
 </header>
@@ -238,19 +216,6 @@
 		background: #1e1f26;
 	}
 
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		clip-path: inset(50%);
-		white-space: nowrap;
-		border: 0;
-	}
-
 	header {
 		background: #1a2e45;
 		color: #fff;
@@ -263,14 +228,6 @@
 	.header-inner {
 		max-width: 680px;
 		margin: 0 auto;
-	}
-
-	.header-top {
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
-		gap: 1rem;
-		flex-wrap: wrap;
 	}
 
 	.back-link {
@@ -298,19 +255,6 @@
 		font-weight: 700;
 		letter-spacing: -0.01em;
 		line-height: 1.25;
-	}
-
-	.lang-picker select {
-		font-size: 0.85rem;
-		padding: 0.35rem 0.5rem;
-		border-radius: 6px;
-		border: 1px solid rgba(255, 255, 255, 0.25);
-		background: rgba(255, 255, 255, 0.08);
-		color: #fff;
-		max-width: 14rem;
-	}
-	.lang-picker select option {
-		color: #1a1a1a;
 	}
 
 	main {

@@ -338,6 +338,7 @@
     <a href="#retractions" onclick={closeNavDrawer}>{t(lang.current, 'nav.retractions')}</a>
     <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
     <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
+    <a href="{base}/feedback" onclick={closeNavDrawer}>{t(lang.current, 'nav.feedback')}</a>
   </div>
   {/if}
 </nav>

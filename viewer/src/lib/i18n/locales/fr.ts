@@ -149,7 +149,8 @@ export default {
 		retractions: 'Rétractations',
 		references: 'Références',
 		resources: 'Ressources',
-		technical: 'Ressources techniques'
+		technical: 'Ressources techniques',
+		feedback: 'Envoyer un commentaire'
 	},
 	hero: {
 		h1: "Audit des limites électorales de l'Alberta",

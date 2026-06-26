@@ -154,7 +154,8 @@ export default {
 		retractions: 'Retractions',
 		references: 'References',
 		resources: 'Resources',
-		technical: 'Technical resources'
+		technical: 'Technical resources',
+		feedback: 'Send feedback'
 	},
 	hero: {
 		h1: 'Alberta Electoral Boundary Audit',
