@@ -878,11 +878,11 @@ export default {
 			map_toggle_title: 'Activer ou désactiver cette carte',
 			map_minority: 'Minorité',
 			map_majority: 'Majorité',
-			map_2019: '2019',
+			map_2019: 'Officielle',
 			// Mobile segmented-button short labels
 			map_minority_short: 'Min',
 			map_majority_short: 'Maj',
-			map_2019_short: '’19',
+			map_2019_short: 'Offic.',
 			// Search
 			search_placeholder: 'Rechercher une circonscription…',
 			search_aria: 'Rechercher des circonscriptions',
@@ -1014,7 +1014,7 @@ export default {
 			col_district: 'Circonscription',
 			col_minority: 'Proposition minoritaire',
 			col_majority: 'Proposition majoritaire',
-			col_2019: 'Adoptée en 2019',
+			col_2019: 'Carte officielle',
 			present_yes: 'Oui',
 			present_no: 'Non',
 			methodology_note:

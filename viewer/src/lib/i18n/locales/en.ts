@@ -880,11 +880,11 @@ export default {
 			map_toggle_title: 'Toggle this map on/off',
 			map_minority: 'Minority',
 			map_majority: 'Majority',
-			map_2019: '2019',
+			map_2019: 'Official',
 			// Mobile segmented-button short labels
 			map_minority_short: 'Min',
 			map_majority_short: 'Maj',
-			map_2019_short: '’19',
+			map_2019_short: 'Offic',
 			// Search
 			search_placeholder: 'Search a district…',
 			search_aria: 'Search districts',
@@ -1020,7 +1020,7 @@ export default {
 			col_district: 'District',
 			col_minority: 'Minority proposal',
 			col_majority: 'Majority proposal',
-			col_2019: '2019 enacted',
+			col_2019: 'Official map',
 			present_yes: 'Yes',
 			present_no: 'No',
 			methodology_note:
