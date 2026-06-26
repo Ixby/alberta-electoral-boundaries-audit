@@ -610,8 +610,10 @@ def _prepare_map_data(map_key: str):
 
     # 3. Direct UCP-blue → NDP-orange interpolation. Tighter norm window
     #    (35–75%) pushes more EDs toward full saturation for a bolder look.
-    ndp_orange = (0.92, 0.40, 0.05)   # richer orange
-    ucp_blue   = (0.08, 0.28, 0.58)   # deeper blue
+    #    Endpoints are the parties' official brand colours:
+    #    NDP orange #F58220 (Pantone 1505 C) / UCP blue #1C4583 (2026 logo).
+    ndp_orange = (0.960784, 0.509804, 0.125490)   # #F58220
+    ucp_blue   = (0.109804, 0.270588, 0.513725)   # #1C4583
     cmap = mcolors.LinearSegmentedColormap.from_list(
         "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )

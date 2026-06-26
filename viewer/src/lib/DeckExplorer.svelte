@@ -569,8 +569,11 @@
 				const ucpLbl = t(lang.current, 'explorer.tip.ucp_pct').replace('{u}', String(u));
 				const ndpLbl = t(lang.current, 'explorer.tip.ndp_pct').replace('{n}', String(n));
 				return (
-					`<div class="bar"><span style="width:${u}%;background:#142e94"></span><span style="width:${n}%;background:#e86310"></span></div>` +
-					`<div class="barlbl"><span style="color:#142e94">${ucpLbl}</span><span style="color:#c2540e">${ndpLbl}</span></div>`
+					// Bars use the brand fills (#1C4583 / #F58220); the NDP label TEXT uses a
+					// darkened brand orange (#AB5B16) so small text clears WCAG AA (4.63:1)
+					// on the warm-paper tooltip — the bright brand orange is fill-only.
+					`<div class="bar"><span style="width:${u}%;background:#1C4583"></span><span style="width:${n}%;background:#F58220"></span></div>` +
+					`<div class="barlbl"><span style="color:#1C4583">${ucpLbl}</span><span style="color:#AB5B16">${ndpLbl}</span></div>`
 				);
 			}
 			// Foot of the tip: the real poll number (from the VA's own label, e.g.
