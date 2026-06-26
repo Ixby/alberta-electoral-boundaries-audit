@@ -1033,7 +1033,7 @@ export default {
 			'Signalez une correction, posez une question ou proposez une amélioration au sujet de l’Audit des limites électorales de l’Alberta.',
 		heading: 'Envoyer un commentaire',
 		intro:
-			'Vous avez repéré une erreur, vous avez une question ou souhaitez proposer une amélioration? Votre message est transmis directement à l’auteur. Vous n’avez pas à laisser votre nom ni votre courriel — mais si vous souhaitez une réponse, une adresse courriel est utile.',
+			'Vous avez repéré une erreur, vous avez une question ou souhaitez proposer une amélioration? Votre message est transmis directement à l’auteur. Le formulaire est anonyme — aucun nom, aucun courriel, aucun compte. Seulement votre message.',
 		name_label: 'Nom',
 		name_optional: 'facultatif',
 		name_placeholder: 'Votre nom',
@@ -1048,7 +1048,7 @@ export default {
 		submitting: 'Envoi…',
 		success_title: 'Merci',
 		success_body:
-			'Votre commentaire a été reçu. Si vous avez laissé une adresse courriel et qu’une réponse est justifiée, vous aurez de nos nouvelles.',
+			'Votre commentaire a été reçu. Merci de contribuer à l’amélioration de cet audit.',
 		send_another: 'Envoyer un autre message',
 		error_empty: 'Veuillez saisir un message avant l’envoi.',
 		error_rate: 'Vous avez envoyé plusieurs messages récemment. Veuillez réessayer dans un moment.',

@@ -1039,7 +1039,7 @@ export default {
 			'Share a correction, question, or suggestion about the Alberta Electoral Boundary Audit.',
 		heading: 'Send feedback',
 		intro:
-			'Spotted an error, have a question, or want to suggest an improvement? This goes straight to the author. You do not need to leave your name or email — but if you would like a reply, an email address helps.',
+			'Spotted an error, have a question, or want to suggest an improvement? This goes straight to the author. The form is anonymous — no name, no email, no account. Just your message.',
 		name_label: 'Name',
 		name_optional: 'optional',
 		name_placeholder: 'Your name',
@@ -1054,7 +1054,7 @@ export default {
 		submitting: 'Sending…',
 		success_title: 'Thank you',
 		success_body:
-			'Your feedback has been received. If you left an email address and it calls for a reply, you will hear back.',
+			'Your feedback has been received. Thank you for helping improve this audit.',
 		send_another: 'Send another',
 		error_empty: 'Please enter a message before sending.',
 		error_rate: 'You have sent several messages recently. Please try again in a little while.',

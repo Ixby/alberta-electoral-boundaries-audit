@@ -11,9 +11,8 @@
 	import { t } from '$lib/i18n/dict';
 	import { submitFeedback } from '$lib/feedback';
 
-	// Form state (Svelte 5 runes).
-	let name = $state('');
-	let email = $state('');
+	// Form state (Svelte 5 runes). No name/email is collected — the form is
+	// anonymous; the message is the only content field.
 	let message = $state('');
 	let website = $state(''); // honeypot — stays empty for real users
 	let status = $state<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -44,8 +43,6 @@
 
 		const result = await submitFeedback({
 			message: message.trim(),
-			name: name.trim(),
-			email: email.trim(),
 			website,
 			context: {
 				page: 'feedback',
@@ -57,8 +54,6 @@
 
 		if (result.ok) {
 			status = 'sent';
-			name = '';
-			email = '';
 			message = '';
 		} else {
 			status = 'error';
@@ -136,38 +131,6 @@
 						autocomplete="off"
 						bind:value={website}
 					/>
-				</div>
-
-				<div class="field">
-					<label for="fb-name">
-						{t(lang.current, 'feedback.name_label')}
-						<span class="opt">({t(lang.current, 'feedback.name_optional')})</span>
-					</label>
-					<input
-						id="fb-name"
-						type="text"
-						autocomplete="name"
-						maxlength="120"
-						placeholder={t(lang.current, 'feedback.name_placeholder')}
-						bind:value={name}
-					/>
-				</div>
-
-				<div class="field">
-					<label for="fb-email">
-						{t(lang.current, 'feedback.email_label')}
-						<span class="opt">({t(lang.current, 'feedback.email_optional')})</span>
-					</label>
-					<input
-						id="fb-email"
-						type="email"
-						autocomplete="email"
-						maxlength="200"
-						placeholder={t(lang.current, 'feedback.email_placeholder')}
-						aria-describedby="fb-email-hint"
-						bind:value={email}
-					/>
-					<p id="fb-email-hint" class="hint">{t(lang.current, 'feedback.email_hint')}</p>
 				</div>
 
 				<div class="field">
@@ -353,8 +316,6 @@
 		color: #e08a8a;
 	}
 
-	input[type='text'],
-	input[type='email'],
 	textarea {
 		width: 100%;
 		font: inherit;
@@ -363,30 +324,19 @@
 		border-radius: 7px;
 		background: #fff;
 		color: inherit;
+		resize: vertical;
+		min-height: 7em;
 	}
-	:global(:root[data-theme='dark']) input[type='text'],
-	:global(:root[data-theme='dark']) input[type='email'],
 	:global(:root[data-theme='dark']) textarea {
 		background: #262833;
 		border-color: #3a3d4d;
 	}
-	textarea {
-		resize: vertical;
-		min-height: 7em;
-	}
 
-	input:focus-visible,
 	textarea:focus-visible,
 	select:focus-visible,
 	.btn:focus-visible {
 		outline: 3px solid #1a5276;
 		outline-offset: 2px;
-	}
-
-	.hint {
-		font-size: 0.85rem;
-		opacity: 0.7;
-		margin-top: 0.35rem;
 	}
 
 	/* Honeypot: removed from layout and the accessibility tree, off the tab order. */
