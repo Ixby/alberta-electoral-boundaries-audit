@@ -572,14 +572,16 @@
 					`<div class="barlbl"><span style="color:#142e94">${ucpLbl}</span><span style="color:#c2540e">${ndpLbl}</span></div>`
 				);
 			}
-			// Per-VA in-person (election-day) vote count shown under the ED name — this
-			// is the only per-VA figure; advance/special ballots aren't attributed per
-			// voting area. The poll number is shown below a rule at the foot of the tip.
-			function vaTotal(P: { votes?: number }): string {
-				return `<div class="va-total"><b>${(P.votes || 0).toLocaleString()}</b> ${t(lang.current, 'explorer.tip.inperson_votes')}</div>`;
-			}
-			function pollFoot(id: number): string {
-				return `<hr class="tip-hr"><div class="va-poll">${t(lang.current, 'explorer.tip.poll').replace('{id}', String(id))}</div>`;
+			// Foot of the tip: the real poll number (from the VA's own label, e.g.
+			// "Poll 024") with that poll's in-person (election-day) vote count. A VA is a
+			// single poll/voting area — one electoral district contains many — so this
+			// figure is the POLL's, not the district's; advance/special ballots aren't
+			// attributed per voting area, so in-person is the only per-VA count.
+			function pollFoot(P: { name?: string; votes?: number }): string {
+				const num = (P.name && P.name.match(/\d+/)?.[0]) ?? '';
+				const pollLbl = t(lang.current, 'explorer.tip.poll').replace('{id}', num);
+				const votes = `${(P.votes || 0).toLocaleString()} ${t(lang.current, 'explorer.tip.inperson_votes')}`;
+				return `<hr class="tip-hr"><div class="va-poll">${pollLbl} · ${votes}</div>`;
 			}
 			function hideTip() {
 				if (tipEl) tipEl.style.display = 'none';
@@ -1346,17 +1348,15 @@
 								? t(lang.current, 'explorer.tip.where_in')
 								: t(lang.current, 'explorer.tip.where_near')
 						).replace('{community}', P.community ?? '');
-						const where = P.community
-							? `${P.name == title ? '' : P.name + ' · '}${whereCommunity}`
-							: P.name == title
-								? ''
-								: P.name;
+						// The poll itself is identified on the foot line (with its in-person
+						// count), so `where` carries only the community context.
+						const where = P.community ? whereCommunity : '';
 						const pale = P.fill && P.fill[0] + P.fill[1] + P.fill[2] >= 666;
 						if (pale) {
 							const some = (P.ucp || 0) + (P.ndp || 0) > 0;
 							tipEl.innerHTML =
-								`<div class="n">${title}</div>${some ? vaTotal(P) : ``}${where}${distCmp}` +
-								(some ? voteBar(P) + pollFoot(o.id as number) : ``) +
+								`<div class="n">${title}</div>${where}${distCmp}` +
+								(some ? voteBar(P) + pollFoot(P) : ``) +
 								`<div class="note">${
 									some
 										? t(lang.current, 'explorer.tip.note_sparse')
@@ -1364,9 +1364,9 @@
 								}</div>`;
 						} else {
 							tipEl.innerHTML =
-								`<div class="n">${title}</div>${vaTotal(P)}${where}${distCmp}` +
+								`<div class="n">${title}</div>${where}${distCmp}` +
 								voteBar(P) +
-								pollFoot(o.id as number);
+								pollFoot(P);
 						}
 					} else {
 						tipEl.innerHTML =
