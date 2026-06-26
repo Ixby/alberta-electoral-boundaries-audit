@@ -461,18 +461,19 @@
 				return feats;
 			}
 
-			// Memoize the assembled feature set by the visible-tile key set. paint() runs
-			// on every onViewStateChange (every pan/scroll frame); without this, featsForView
-			// rebuilds a fresh array each frame and deck.gl re-uploads ALL VA geometry — the
-			// source of drag/zoom jank. The key set changes only when the rendered level or
-			// the visible tiles change (effL is encoded in each key, and effL only holds
-			// steady once its bundle is fully loaded, so the cache is never stale). Within a
-			// pan the SAME array reference is returned and deck skips re-tessellation,
-			// transforming the existing layers on the GPU instead.
+			// Memoize the assembled feature set. paint() runs on every onViewStateChange
+			// (every pan/scroll frame); without this, featsForView rebuilds a fresh array
+			// each frame and deck.gl re-uploads ALL VA geometry — the source of drag/zoom
+			// jank. The cache key is the visible-tile set (effL is encoded in each key) PLUS
+			// the loaded-bundle count: featsForView's output also depends on which tiles are
+			// in `archive`, so a bundle finishing mid-view must invalidate the cache (else a
+			// settled camera keeps a stale, possibly empty, frame — a blank map during load).
+			// During a pan at steady load-state the key is stable, so the same array is
+			// returned and deck skips re-tessellation.
 			let featsKey = ' ';
 			let featsMemo: TileFeature[] = [];
 			function featsForViewMemo(keys: [number, number, number][]): TileFeature[] {
-				let key = '';
+				let key = loadedLevels.size + ';';
 				for (const k of keys) key += k[0] + '/' + k[1] + '/' + k[2] + ',';
 				if (key === featsKey) return featsMemo;
 				featsKey = key;

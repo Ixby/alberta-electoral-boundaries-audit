@@ -77,33 +77,20 @@
     z-index: 9000;
     background: #0d1a26;
   }
-  /* Sits above the deck.gl canvas (z-index 9000) so it stays visible and
-     focusable. Discoverability link to the accessible text version. */
+  /* Screen-reader-only: the link to the accessible text version is exposed to
+     assistive tech (kept in the a11y tree and tab order) but visually hidden, so
+     it doesn't sit over the map for sighted users. Standard visually-hidden clip. */
   .text-version-link {
     position: absolute;
-    top: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9100;
-    max-width: calc(100vw - 1.5rem);
-    padding: 0.4rem 0.85rem;
-    background: rgba(13, 26, 38, 0.85);
-    color: #cfe4ff;
-    border: 1px solid rgba(138, 180, 255, 0.5);
-    border-radius: 999px;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 0.82rem;
-    text-decoration: underline;
-    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
     overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .text-version-link:focus,
-  .text-version-link:hover {
-    background: rgba(13, 26, 38, 0.95);
-    color: #ffffff;
-    outline: 2px solid #8ab4ff;
-    outline-offset: 2px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .nowebgl {
     position: absolute;
