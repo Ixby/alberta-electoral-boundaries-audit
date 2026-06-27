@@ -232,9 +232,14 @@ else:
 
 # ── CHECK 8 — Vote totals consistency ────────────────────────────────────────
 # Sum from VA file
-ucp_col = next((c for c in va.columns if "ucp_full" in c.lower()), next((c for c in va.columns if "ucp" in c.lower()), None))
-ndp_col = next((c for c in va.columns if "ndp_full" in c.lower()), next((c for c in va.columns if "ndp" in c.lower()), None))
-other_col = next((c for c in va.columns if "other_full" in c.lower()), next((c for c in va.columns if "other" in c.lower()), None))
+# Check 8 verifies the VA votes that fed the scores. Both score files report
+# covered_votes on the ELECTION-DAY universe (932,164), which equals the sum of
+# the election-day VA columns (va_ucp/va_ndp/va_other). The *_full columns are a
+# different, all-ballot universe (1,598,982) the headline scores do not use, so
+# select the election-day columns to keep the comparison like-for-like.
+ucp_col = next((c for c in va.columns if c.lower() == "va_ucp"), next((c for c in va.columns if "ucp" in c.lower() and "full" not in c.lower()), None))
+ndp_col = next((c for c in va.columns if c.lower() == "va_ndp"), next((c for c in va.columns if "ndp" in c.lower() and "full" not in c.lower()), None))
+other_col = next((c for c in va.columns if c.lower() == "va_other"), next((c for c in va.columns if "other" in c.lower() and "full" not in c.lower()), None))
 
 if ucp_col and ndp_col and other_col:
     va_total = (
@@ -326,3 +331,11 @@ print("VA columns:", sorted(va.columns.tolist()))
 print("Majority columns:", sorted(maj.columns.tolist()))
 print("Minority columns:", sorted(minn.columns.tolist()))
 print("Ref 2019 columns:", sorted(ref.columns.tolist()))
+
+# Exit non-zero if any check FAILed, so master-QA (which gates on the return
+# code) surfaces failures instead of always reporting PASS.
+n_fail = sum(1 for _check, status, _detail in results if status == "FAIL")
+if n_fail:
+    print(f"\n[AUDIT] {n_fail} check(s) FAILED — exiting non-zero.")
+    sys.exit(1)
+print("\n[AUDIT] All checks passed (no FAIL).")
