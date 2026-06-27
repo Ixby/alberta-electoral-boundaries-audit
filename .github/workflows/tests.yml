@@ -15,12 +15,19 @@ on:
       - "tests/**"
       - "requirements.txt"
       - ".github/workflows/tests.yml"
+      # Committed outputs + their manifest must re-trigger the provenance gate;
+      # otherwise a commit that only regenerates outputs leaves the manifest
+      # stale without CI noticing (the original cause of the stale-manifest bug).
+      - "data/outputs/**"
+      - "data/provenance_manifest.json"
   pull_request:
     branches: [master]
     paths:
       - "analysis/scripts/**.py"
       - "tests/**"
       - "requirements.txt"
+      - "data/outputs/**"
+      - "data/provenance_manifest.json"
 
 jobs:
   pytest:
