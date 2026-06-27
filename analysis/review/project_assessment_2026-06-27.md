@@ -2,6 +2,24 @@
 
 Multi-agent assessment: 8 parallel dimension assessors → adversarial verification of every critical/high finding → lead-reviewer synthesis. 16 agents, ~1.17M tokens. All 7 critical/high findings were CONFIRMED (0 refuted).
 
+## RESOLUTION STATUS (2026-06-27) — all 7 HIGH findings fixed
+
+| # | Finding | Status | Commit |
+|---|---|---|---|
+| 1 | Provenance manifest stale / gate red | FIXED — re-blessed 4 outputs, gate exits 0 | c5ff30b |
+| 2 | run_audit no exit code + Check 8 mismatch | FIXED — sys.exit(1) on FAIL; Check 8 uses election-day cols | 2c209db |
+| 3 | Declination recompute test red | FIXED — Amendment-10 negation applied; 223 passed | 0e4d215 |
+| 4 | Public PDF wrong Airdrie ED | FIXED — report_public.md + PDF rebuilt | 8e61db9 |
+| 5 | 13 machine locales stale | FIXED — all 19 locales propagated | 7ae898d |
+| 6 | ru/zh-Hant explorer.text mis-nesting | FIXED — braces repaired + parity gate added | 1a0cde8 |
+| 7 | a11y unverified end-to-end | FIXED (automated) — axe/playwright gate + 6 contrast fixes; manual screen-reader pass still owed | 357401a |
+
+**Left for author review (not unilaterally changed):**
+- config.yaml `party_1/2_votes: va_*_full` vs `expected_total_votes: 932164` — a vote-universe inconsistency; changing it could shift the analysis (flagged in commit 2c209db).
+- Medium statistical/framing items (#5 in next actions) and hygiene items (#6) below — not yet started.
+- The manual NVDA/VoiceOver + keyboard pass (docs/ACCESSIBILITY.md) — requires a human.
+
+
 ## Overall verdict
 
 The audit is methodologically sound and publishable in substance: its headline rests on a symmetric, pre-committed neutral-ensemble outlier test with a genuinely exemplary self-correction culture (Fisher retired, SZAT demoted, collapsed findings retained as retractions), and the primary public surface (the live viewer's `en.ts`) is accurately grounded and verified against canonical outputs. The credibility risk is not the conclusion — it is the gap between the corrected live site and everything downstream of it. Hostile-reviewer-facing artifacts are currently in a worse state than the analysis: the downloadable public PDF carries a geometrically false claim, the repo's own integrity gates are red on master (provenance manifest stale, the sole recompute test failing), the master-QA harness reports PASS while a check FAILs because `run_audit.py` never exits non-zero, and factual corrections never propagated to 13 machine locales (two of which silently fall back to English for the entire accessibility shadow-site). **Biggest risk: a sophisticated critic running the repo's documented commands, or reading the linked PDF, finds a red CI gate and a false geographic claim — undermining the project's "let the data speak" credibility even though the core analysis holds.**
