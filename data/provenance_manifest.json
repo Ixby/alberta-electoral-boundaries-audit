@@ -1,18 +1,18 @@
 {
   "outputs/phase4c_canonical_results.json": {
-    "sha256": "6615844f9b984a4a1722b993fc60bc2e1d47268be9688b72321bf2bd2073e1a3",
+    "sha256": "48e9283f4bee5580cf2620cf8654262f1ad82371934c0cd4b7757c2e9bfb2920",
     "description": "Phase 4C canonical partisan bias results"
   },
   "outputs/simulated_ensemble_percentiles_canonical.csv": {
-    "sha256": "c8322582382dfee3d6a6ee0c79140cb93000d2e394a48d1f27da7fb0a100b7a5",
+    "sha256": "757e82cf616f27aeae0fff90cdb555e418094959b0639fd569103089130f1fb8",
     "description": "MCMC ensemble percentile table (canonical shapefiles)"
   },
   "outputs/simulation_real_map_scores_canonical.json": {
-    "sha256": "0a9eadfd65916c565ae062e3ec9899a18d195465cec95399044bb07a8dcf50ff",
+    "sha256": "7abe51e5819c67dd312abd36f240b1cc620564d6b9f42b7e939bec1d73e2c279",
     "description": "Real-map metric scores against canonical ensemble"
   },
   "outputs/simulation_convergence_diagnostics_canonical.json": {
-    "sha256": "8b0fa771e6361309017cba7b14192a3729ac82e4ea8189a5bc5d9c6e8fbb59e3",
+    "sha256": "39e7a19530ae81835ec9d1a216a7a60022c1af94c5ed262b30a780a0408cb9df",
     "description": "MCMC convergence diagnostics (Gelman-Rubin, ESS)"
   },
   "outputs/phase4c_per_ed_votes_majority.csv": {
