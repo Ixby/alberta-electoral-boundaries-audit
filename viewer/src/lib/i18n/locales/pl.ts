@@ -142,7 +142,8 @@ export default {
 		suggestions: 'Sugestie reform',
 		retractions: 'Wycofania',
 		references: 'Źródła',
-		technical: 'Zasoby techniczne'
+		technical: 'Zasoby techniczne',
+		feedback: 'Wyślij opinię'
 	},
 	hero: {
 		h1: 'Audyt Granic Okręgów Wyborczych Alberty',
@@ -353,6 +354,11 @@ export default {
 			p3: 'To bardzo różni się od Alberty, którą widzicie w wieczór wyborczy. Większość map wyborczych koloruje całe okręgi jednolicie na niebiesko lub pomarańczowo na podstawie tego, kto wygrał. Wiejskie okręgi są geograficznie duże, a UCP wygrywa w większości z nich, więc Alberta z wieczoru wyborczego wygląda jak ściana niebieskiego z małymi pomarańczowymi kieszeniami w Edmonton i Calgary. Mapa okładkowa używa tych samych głosów i tej samej geografii — ale pokazuje je ważone według tego, gdzie ludzie rzeczywiście mieszkają. Tym, co się pojawia, jest prowincja, gdzie większość populacji jest skoncentrowana w gęstym łuku miast, a te miasta głosują bardzo inaczej niż wiejska mapa, która zwykle je reprezentuje.',
 			p4: 'Linie graniczne narysowane na kolorze to 89 proponowanych okręgów wyborczych mniejszościowej komisji — mapa, którą ten audyt ostatecznie krytykuje. Praca audytu polega na pytaniu, co te linie robią z ludźmi pod nimi.',
 			p5: 'Ten obraz jest tym, co czyni stawkę oczywistą. Prowincja, która wygląda, jakby głosowała w jeden sposób na standardowej mapie, jest w rzeczywistości prowincją, gdzie większość ludzi mieszka w obszarach głosujących w drugi sposób. Gdy populacja staje się widoczna pod wyborem granic, te wybory przestają wyglądać losowo.'
+		},
+		preliminary: {
+			badge: 'WSTĘPNE',
+			heading: 'Ustalenia wstępne — w oczekiwaniu na niezależną recenzję ekspercką',
+			body: 'Testy statystyczne w tej sekcji są weryfikowane przez niezależnych ekspertów merytorycznych przed ostateczną publikacją. Pełne wyniki przedstawiono poniżej w celu poddania ich tej analizie.'
 		},
 		structural_results: {
 			heading: 'Wyniki audytu strukturalnego — przed jakąkolwiek statystyką:',
@@ -861,7 +867,9 @@ export default {
 			text_label: 'Tekst:',
 			code_label: 'Kod:',
 			translation_label: 'Tłumaczenia:',
-			translation_credit: 'Anthropic Fable 5 (AI) — oczekuje na recenzję rodzimego użytkownika języka'
+			translation_credit: 'Anthropic Fable 5 (AI) — oczekuje na recenzję rodzimego użytkownika języka',
+			data_credit:
+				'Dane mapy: drogi drugorzędne z National Road Network, © Statistics Canada (Open Government Licence – Canada); pozostałe drogi i wody © OpenStreetMap contributors (ODbL); granice i wyniki © Elections Alberta.'
 		}
 	},
 	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
@@ -890,6 +898,8 @@ export default {
 			// Zoom / resolution readout
 			zoom_aria: 'Powiększenie',
 			res_prefix: '1 piksel ≈',
+			zoom_official: '(Oficjalne)',
+			zoom_computed: '(Obliczone)',
 			// Overlays / layer toggles
 			overlays_hdr: 'Nakładki społeczności interesu',
 			layer_highways: 'Autostrady',
@@ -926,6 +936,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'głosów łącznie',
+			inperson_votes: 'głosy osobiste',
+			ed_total: 'Łącznie w okręgu: {n} głosów',
+			ed_total_eday: 'Łącznie w okręgu: {n} (w dniu wyborów)',
 			poll: 'Lokal #{id} · głosy osobiste',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -1007,6 +1020,8 @@ export default {
 			directory_heading: 'Spis okręgów',
 			directory_lead:
 				'Ta tabela wymienia każdą nazwę okręgu, która pojawia się na którejkolwiek z trzech map, w kolejności alfabetycznej. Dla każdej nazwy pokazuje, czy jest ona częścią propozycji mniejszości, propozycji większości oraz mapy uchwalonej w 2019 roku. Nazwy okręgów różnią się między mapami, więc niektóre wiersze pojawiają się tylko na jednej lub dwóch z nich. Tabela zawiera wyłącznie nazwy i przynależność do map — po sumy głosów, dane o populacji i wyniki testów sięgnij do pełnego raportu.',
+			directory_totals_note:
+				'Każda liczba to suma głosów osobistych (w dniu wyborów) danego okręgu na tej mapie — suma jego lokali wyborczych. Głosy z głosowania zaawansowanego i specjalnego nie są przypisane do poszczególnych obszarów głosowania, więc nie są tu uwzględnione; pełne wyniki znajdziesz w raporcie. Myślnik (—) oznacza, że nazwa okręgu nie pojawia się na tej mapie.',
 			col_district: 'Okręg',
 			col_minority: 'Propozycja mniejszości',
 			col_majority: 'Propozycja większości',

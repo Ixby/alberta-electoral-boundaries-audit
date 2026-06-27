@@ -139,7 +139,8 @@ export default {
 		suggestions: 'Soo jeedinno isbeddel',
 		retractions: 'Ka noqosho',
 		references: 'Tixraacyo',
-		technical: 'Khayraad farsamo'
+		technical: 'Khayraad farsamo',
+		feedback: 'Dir jawaab-celin'
 	},
 	hero: {
 		h1: 'Hubinta Xudduudaha Doorashada Alberta',
@@ -343,6 +344,11 @@ export default {
 	},
 	body: {
 		section_link_aria: 'Xiriiriye qaybta',
+		preliminary: {
+			badge: 'BILOW AH',
+			heading: 'Natiijooyin bilow ah — sugaya dib-u-eegis madax-bannaan oo khabiir ah',
+			body: 'Tijaabooyinka tirakoobka ee qaybtan waxaa dib u eegaya khubaro madax-bannaan oo arrintan ku takhasusay ka hor daabacaadda kama-dambaysta ah. Natiijooyinka oo dhammeystiran ayaa hoos lagu soo bandhigay si loo baadho.'
+		},
 		the_map: {
 			heading: '1: Khariidadda',
 			p1: 'Khariidadda jaldiga waa sawirka keligiis ugu fiican ee hubintan. Halkan waxa lagu akhriyo.',
@@ -858,7 +864,9 @@ export default {
 			text_label: 'Qoraal:',
 			code_label: 'Kood:',
 			translation_label: 'Turjumaadaha:',
-			translation_credit: 'Anthropic Fable 5 (AI) — sugeysa dib-u-eegis qof af-hoosiis ah'
+			translation_credit: 'Anthropic Fable 5 (AI) — sugeysa dib-u-eegis qof af-hoosiis ah',
+			data_credit:
+				'Xogta khariidadda: waddooyinka labaad ee laga keenay National Road Network, © Statistics Canada (Open Government Licence – Canada); waddooyinka kale & biyaha © OpenStreetMap contributors (ODbL); xudduudaha & natiijooyinka © Elections Alberta.'
 		}
 	},
 	explorer: {
@@ -880,6 +888,8 @@ export default {
 			search_in: 'gudaha {ed}',
 			zoom_aria: 'Zooming',
 			res_prefix: '1 pixel ≈',
+			zoom_official: '(Rasmi)',
+			zoom_computed: '(La xisaabiyay)',
 			overlays_hdr: 'Dul-saarrada Danta Bulshada',
 			layer_highways: 'Waddooyinka waaweyn',
 			layer_water: 'Webiyada & harooyinka',
@@ -912,6 +922,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'wadarta codadka',
+			inperson_votes: 'codad qof-ahaaneed',
+			ed_total: 'Wadarta degmada: {n} codad',
+			ed_total_eday: 'Wadarta degmada: {n} (maalinta doorashada)',
 			poll: 'Goob #{id} · codad qof-ahaaneed',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -993,6 +1006,8 @@ export default {
 			directory_heading: 'Tusaha degmooyinka',
 			directory_lead:
 				'Shaxdani waxay liis-gareynaysaa magac kasta oo degmo oo ka soo muuqda mid kasta oo saddexda khariidadood ah, oo ku kala horreeya alifbeeto. Magac kasta waxay muujinaysaa in magacaasi qayb ka yahay soo jeedinta inta-yar, soo jeedinta inta-badan, iyo khariidadda la dejiyay ee 2019. Magacyada degmooyinku way ku kala duwan yihiin khariidadaha, sidaa darteed saf qaar waxay ka soo muuqdaan hal ama laba oo kaliya. Shaxdu waxay haysataa magacyada iyo xubinnimada khariidadda keliya — wadarta codadka, tirooyinka dadnimada, iyo natiijooyinka tijaabada, fiiri warbixinta oo dhan.',
+			directory_totals_note:
+				'Tiro kasta waa wadarta codadka qof-ahaaneed (maalinta doorashada) ee degmadu ku lahayd khariidaddaas — isugeynta goobaheeda codbixinta. Codadka hore iyo kuwa gaarka ah looma qoondeeyo aag codbixin kasta, sidaa darteed halkan kuma jiraan; natiijooyinka oo dhammeystiran eeg warbixinta. Jeexitaan (—) wuxuu ka dhigan yahay in magaca degmadu uusan ka soo muuqan khariidaddaas.',
 			col_district: 'Degmo',
 			col_minority: 'Soo jeedinta inta-yar',
 			col_majority: 'Soo jeedinta inta-badan',

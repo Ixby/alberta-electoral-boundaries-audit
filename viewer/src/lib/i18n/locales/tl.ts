@@ -149,7 +149,8 @@ export default {
 		suggestions: 'Mga mungkahi sa reporma',
 		retractions: 'Mga Pagbawi',
 		references: 'Mga Sanggunian',
-		technical: 'Mga teknikal na mapagkukunan'
+		technical: 'Mga teknikal na mapagkukunan',
+		feedback: 'Magpadala ng feedback'
 	},
 	hero: {
 		h1: 'Pag-audit ng Hangganan ng Halalan sa Alberta',
@@ -360,6 +361,11 @@ export default {
 			p3: 'Ibang-iba ito sa Alberta na nakikita mo tuwing gabi ng halalan. Karamihan ng mga mapa ng halalan ay kinukulayan ang buong riding ng matingkad na asul o kahel batay sa kung sino ang nanalo. Ang mga rural na riding ay malalaki sa heograpiya at nananalo ang UCP sa karamihan ng mga ito, kaya ang Alberta tuwing gabi ng halalan ay mukhang isang pader ng asul na may maliliit na kahel na bulsa sa Edmonton at Calgary. Ginagamit ng cover map ang parehong mga boto at parehong heograpiya — ngunit ipinapakita ang mga ito na tinimbang ayon sa kung saan talaga nakatira ang mga tao. Ang lumilitaw ay isang probinsya kung saan karamihan ng populasyon ay nakatuon sa isang siksik na arko ng mga lungsod, at ang mga lungsod na iyon ay bumoboto nang ibang-iba sa rural na mapa na karaniwang kumakatawan sa kanila.',
 			p4: 'Ang mga linya ng hangganan na iginuhit sa ibabaw ng kulay ay ang 89 iminungkahing elektoral na distrito ng komisyon ng minorya — ang mapa na sa huli ay pinupuna ng audit na ito. Ang trabaho ng audit ay itanong kung ano ang ginagawa ng mga linyang iyon sa mga taong nasa ilalim nila.',
 			p5: 'Ang larawang ito ang nagpapaliwanag ng taya. Ang isang probinsyang mukhang bumoboto sa isang panig sa isang karaniwang mapa ay talagang isang probinsya kung saan karamihan ng tao ay nakatira sa mga lugar na bumoboto sa kabilang panig. Kapag nakikita na ang populasyon sa ilalim ng mga pagpiling hangganan, ang mga pagpiling iyon ay tumitigil na mukhang random.'
+		},
+		preliminary: {
+			badge: 'PAUNA',
+			heading: 'Mga paunang natuklasan — naghihintay ng independiyenteng pagsusuri ng eksperto',
+			body: 'Ang mga estadistikong pagsusulit sa seksyong ito ay sinusuri ng mga independiyenteng eksperto sa paksa bago ang panghuling paglalathala. Ipinapakita sa ibaba ang buong mga resulta para sa pagsusuring iyon.'
 		},
 		structural_results: {
 			heading: 'Mga resulta ng istrukturang audit — bago ang anumang estadistika:',
@@ -868,7 +874,9 @@ export default {
 			text_label: 'Teksto:',
 			code_label: 'Code:',
 			translation_label: 'Mga Pagsasalin:',
-			translation_credit: 'Anthropic Fable 5 (AI) — naghihintay ng pagsusuri ng katutubong tagapagsalita'
+			translation_credit: 'Anthropic Fable 5 (AI) — naghihintay ng pagsusuri ng katutubong tagapagsalita',
+			data_credit:
+				'Datos ng mapa: mga pangalawang highway mula sa National Road Network, © Statistics Canada (Open Government Licence – Canada); iba pang mga kalsada at tubig © OpenStreetMap contributors (ODbL); mga hangganan at resulta © Elections Alberta.'
 		}
 	},
 	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
@@ -897,6 +905,8 @@ export default {
 			// Zoom / resolution readout
 			zoom_aria: 'Zoom',
 			res_prefix: '1 pixel ≈',
+			zoom_official: '(Opisyal)',
+			zoom_computed: '(Kinakalkula)',
 			// Overlays / layer toggles
 			overlays_hdr: 'Mga Overlay ng Interes ng Komunidad',
 			layer_highways: 'Mga Highway',
@@ -933,6 +943,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'kabuuang boto',
+			inperson_votes: 'mga in-person na boto',
+			ed_total: 'Kabuuan ng distrito: {n} boto',
+			ed_total_eday: 'Kabuuan ng distrito: {n} (araw ng halalan)',
 			poll: 'Poll #{id} · in-person na boto',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -1014,6 +1027,8 @@ export default {
 			directory_heading: 'Direktoryo ng mga distrito',
 			directory_lead:
 				'Inililista ng talahanayang ito ang bawat pangalan ng distrito na lumilitaw sa alinman sa tatlong mapa, ayon sa pagkakasunod-sunod ng alpabeto. Para sa bawat pangalan ay ipinapakita nito kung ang pangalang iyon ay bahagi ng panukala ng minorya, ng panukala ng mayorya, at ng mapang nasaad noong 2019. Naiiba ang mga pangalan ng distrito sa pagitan ng mga mapa, kaya may ilang hilera na lumilitaw sa isa o dalawa lamang sa mga ito. Naglalaman lamang ang talahanayan ng mga pangalan at pagiging kasapi sa mapa — para sa kabuuang boto, mga bilang ng populasyon, at mga resulta ng pagsusulit, tingnan ang buong ulat.',
+			directory_totals_note:
+				'Ang bawat bilang ay ang kabuuang in-person (araw ng halalan) na boto ng distrito sa mapang iyon — ang kabuuan ng mga poll nito. Ang mga advance at espesyal na balota ay hindi itinatalaga sa bawat voting area, kaya hindi ito kasama rito; para sa buong mga resulta, tingnan ang ulat. Ang gitling (—) ay nangangahulugang hindi lumilitaw ang pangalan ng distrito sa mapang iyon.',
 			col_district: 'Distrito',
 			col_minority: 'Panukala ng minorya',
 			col_majority: 'Panukala ng mayorya',

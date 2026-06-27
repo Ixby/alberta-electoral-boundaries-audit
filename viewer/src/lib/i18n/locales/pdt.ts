@@ -143,7 +143,8 @@ export default {
 		suggestions: 'Reform-Vüaschlaj',
 		retractions: 'Ricknohme',
 		references: 'Quälle',
-		technical: 'Technische Hülfsmiddel'
+		technical: 'Technische Hülfsmiddel',
+		feedback: 'Feedback schekje'
 	},
 	hero: {
 		h1: 'Alberta Wahlkrais-Grenz-Pruewunk',
@@ -354,6 +355,11 @@ export default {
 			p3: 'Daut es sehr verscheden von Alberta, woo jie em Wahlowend seene. De measchte Wahlkoate faerwe janze Wahlkreise fest blau oda oransch, jebaust aum wäa jewonne haft. Ländliche Wahlkreise senn jeografisch groot un dee UCP jiennt de measchte, also seet Wohl-Owent-Alberta woo en Waultj von Blau met kjliene oranje Flicke in Edmonton un Calgary aues. Dee Deckblattkoat jebrukt dieselwe Stemme un dieselwe Jeografie — oba wiese see jewichtijcht, wua Mensche wiaklich laewt. Waut erschient es en Provinz, wua de measchte von dee Beavälkarunk in enrem dichten Bogen von Städte konzentriirt es, un dee Städte stemme sehr unjerschedlich von dee ländliche Koat, dee normalerwies see vadreett.',
 			p4: "Dee Grenzlinie, aunjeteiknet äwa dee Fauf, senn dee Minoritäts-Kommissjon ähre 89 voajeschlaune Wahlkreise — dee Koat, dee dise Pruewunk schliesslich kritisiirt. Dee Pruewunk ähre Oabeid es to froage, waut dee Linie den Mensche daunnja done.",
 			p5: 'Ditt Bilt es, waut daut Wetzeije kloar moojcht. En Provinz, dee auf enra Standardkoat ausseet, woo see een Wajch stimmt, es wiaklich en Provinz, wua de measchte von dee Mensche in Jebeedscha laewt, dee den aunjedren Wajch stemme. Wann dee Beavälkarunk unjda dee Grenzwähle onsichtboa es, woare dee Wähle oph, woo zufällijch austosiehe.'
+		},
+		preliminary: {
+			badge: 'VORLÄUFIJCH',
+			heading: 'Vorläufije Aunfindunge — wachtend op onaufjenkliche Expattenäwaprüfunk',
+			body: 'Dee statistjche Proowe in disem Aufsats woare jrod von onaufjenklichen Sachexpatte äwarprüft, veurrh dee finale Publikatsjoon. Dee volle Resultote senn unjnich wiest fea dise genaue Pröfunk.'
 		},
 		structural_results: {
 			heading: 'Strukturelle Pruewunksresultote — veurrh noch aunjend Statistijk:',
@@ -860,7 +866,9 @@ export default {
 			text_label: 'Text:',
 			code_label: 'Code:',
 			translation_label: 'Äwasattsunge:',
-			translation_credit: 'Anthropic Fable 5 (KI) — wachtend aun Mudaschproakja-Äwarprüfunk'
+			translation_credit: 'Anthropic Fable 5 (KI) — wachtend aun Mudaschproakja-Äwarprüfunk',
+			data_credit:
+				'Koatdoten: sekundäre Highways vom National Road Network, © Statistics Canada (Open Government Licence – Canada); aundre Strote & Wota © OpenStreetMap-Bidräaja (ODbL); Grenzen & Resultote © Elections Alberta.'
 		}
 	},
 	explorer: {
@@ -882,6 +890,8 @@ export default {
 			search_in: 'in {ed}',
 			zoom_aria: 'Zoom',
 			res_prefix: '1 Pixel ≈',
+			zoom_official: '(Offizjal)',
+			zoom_computed: '(Beräakjent)',
 			overlays_hdr: 'Jemeinschaftsintresse-Äwaschichte',
 			layer_highways: 'Highways',
 			layer_water: 'Riewa & Seea',
@@ -914,6 +924,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'Stemme jesamt',
+			inperson_votes: 'Stemme persöönlich',
+			ed_total: 'Wahlkrais jesamt: {n} Stemme',
+			ed_total_eday: 'Wahlkrais jesamt: {n} (Wahldach)',
 			poll: 'Wahl #{id} · Stemme persöönlich',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -995,6 +1008,8 @@ export default {
 			directory_heading: 'Wahlkrais-Vazejchnis',
 			directory_lead:
 				'Dise Toffl list jiedden Wahlkraisnome, dee aun irjendeene von dee dree Koate erschient, in alphabetischa Ordnunk. Fea jiedden Nome wiest see, aub dee Nome Deel von dem Minorität-Vüaschlag, dem Mehrheit-Vüaschlag, un dee 2019 aunjenome Koat es. Wahlkraisnome unjerschede sech tweschen dee Koate, also erschiene eenje Reeje blooss aun eene oda twee von daen. Dee Toffl hält blooss Nome un Koatmietjliedschoft — fea Stemmtotole, Beavälkarungszahle, un Proowresultote, seet dem vollen Bericht.',
+			directory_totals_note:
+				'Jiedde Zoal es dem Wahlkrais sien persöönlich (Wahldach) Stemmtotaal aun dee Koat — dee Summ von siene Wahle. Vüarutstemme un spezjelle Stemmzettle woare nich pro Stemmjebeet toojedeelt, also senn se hia nich rinjenome; fea volle Resultote seet dem Bericht. En Strijch (—) bedüt, daut dee Wahlkraisnome nich aun dee Koat erschient.',
 			col_district: 'Wahlkrais',
 			col_minority: 'Minorität-Vüaschlag',
 			col_majority: 'Mehrheit-Vüaschlag',

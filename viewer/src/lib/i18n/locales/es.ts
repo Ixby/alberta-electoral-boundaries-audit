@@ -151,7 +151,8 @@ export default {
 		suggestions: 'Sugerencias de reforma',
 		retractions: 'Retractaciones',
 		references: 'Referencias',
-		technical: 'Recursos técnicos'
+		technical: 'Recursos técnicos',
+		feedback: 'Enviar comentarios'
 	},
 	hero: {
 		h1: 'Auditoría de los Límites Electorales de Alberta',
@@ -362,6 +363,11 @@ export default {
 			p3: 'Esto es muy distinto de la Alberta que usted ve la noche de las elecciones. La mayoría de los mapas electorales colorean distritos enteros de azul o naranja sólido según quién ganó. Los distritos rurales son geográficamente grandes y el UCP gana la mayoría de ellos, así que la Alberta de la noche electoral parece un muro de azul con pequeños bolsillos naranjas en Edmonton y Calgary. El mapa de portada usa los mismos votos y la misma geografía — pero los muestra ponderados por dónde vive realmente la gente. Lo que aparece es una provincia donde la mayor parte de la población se concentra en un denso arco de ciudades, y esas ciudades votan de manera muy distinta al mapa rural que normalmente las representa.',
 			p4: 'Las líneas de límites dibujadas sobre el color son los 89 distritos electorales propuestos por la minoría de la comisión — el mapa que esta auditoría termina criticando. El trabajo de la auditoría es preguntar qué les hacen esas líneas a las personas que están debajo.',
 			p5: 'Esta imagen es lo que deja claro lo que está en juego. Una provincia que parece votar de una manera en un mapa estándar es en realidad una provincia donde la mayoría de la gente vive en zonas que votan de la otra. Una vez que la población es visible bajo las decisiones de límites, esas decisiones dejan de parecer aleatorias.'
+		},
+		preliminary: {
+			badge: 'PRELIMINAR',
+			heading: 'Hallazgos preliminares — a la espera de revisión independiente por expertos',
+			body: 'Las pruebas estadísticas de esta sección están siendo revisadas por expertos independientes en la materia antes de su publicación final. Los resultados completos se muestran a continuación para ese escrutinio.'
 		},
 		structural_results: {
 			heading: 'Resultados de la auditoría estructural — antes de cualquier estadística:',
@@ -870,7 +876,9 @@ export default {
 			text_label: 'Texto:',
 			code_label: 'Código:',
 			translation_label: 'Traducciones:',
-			translation_credit: 'Anthropic Fable 5 (IA) — a la espera de revisión por hablantes nativos'
+			translation_credit: 'Anthropic Fable 5 (IA) — a la espera de revisión por hablantes nativos',
+			data_credit:
+				'Datos del mapa: carreteras secundarias del National Road Network, © Statistics Canada (Open Government Licence – Canada); otras carreteras y aguas © OpenStreetMap contributors (ODbL); límites y resultados © Elections Alberta.'
 		}
 	},
 	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
@@ -899,6 +907,8 @@ export default {
 			// Zoom / resolution readout
 			zoom_aria: 'Zoom',
 			res_prefix: '1 píxel ≈',
+			zoom_official: '(Oficial)',
+			zoom_computed: '(Calculado)',
 			// Overlays / layer toggles
 			overlays_hdr: 'Capas de comunidades de interés',
 			layer_highways: 'Carreteras',
@@ -935,6 +945,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'votos totales',
+			inperson_votes: 'votos presenciales',
+			ed_total: 'Total del distrito: {n} votos',
+			ed_total_eday: 'Total del distrito: {n} (día de la elección)',
 			poll: 'Mesa #{id} · votos presenciales',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -1016,6 +1029,8 @@ export default {
 			directory_heading: 'Directorio de distritos',
 			directory_lead:
 				'Esta tabla enumera, en orden alfabético, cada nombre de distrito que aparece en cualquiera de los tres mapas. Para cada nombre indica si ese nombre forma parte de la propuesta minoritaria, de la propuesta mayoritaria y del mapa adoptado en 2019. Los nombres de los distritos difieren entre los mapas, por lo que algunas filas aparecen en solo uno o dos de ellos. La tabla contiene únicamente nombres y pertenencia a los mapas — para los totales de votos, las cifras de población y los resultados de las pruebas, consulte el informe completo.',
+			directory_totals_note:
+				'Cada cifra es el total de votos presenciales (del día de la elección) del distrito en ese mapa — la suma de sus mesas. Las boletas anticipadas y especiales no se atribuyen por área de votación, así que no se incluyen aquí; para los resultados completos consulte el informe. Un guion (—) significa que el nombre del distrito no aparece en ese mapa.',
 			col_district: 'Distrito',
 			col_minority: 'Propuesta minoritaria',
 			col_majority: 'Propuesta mayoritaria',

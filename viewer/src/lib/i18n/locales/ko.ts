@@ -116,6 +116,7 @@ export default {
 		route_story: '이야기',
 		route_law: '법',
 		route_methods: '방법',
+		feedback: '피드백 보내기',
 		// Compact landmarks shown on the sticky bar
 		stakes: '쟁점',
 		findings: '발견',
@@ -357,6 +358,11 @@ export default {
 		structural_results: {
 			heading: '구조적 감사 결과 — 어떠한 통계도 적용하기 전:',
 			body: '다수 지도는 사전 등록된 5개의 구조적 임계값 중 <strong>0개</strong>를 위반합니다. 소수 지도는 <strong>5개 중 4개</strong>를 위반합니다. 다섯 번째(앵커링)는 중립입니다 — 두 지도 모두 70-85%의 캐나다 표준 범위 안에 들어옵니다. 이것들은 기하학적 측정입니다 — 인구 분산, <button class="vocab-term" data-def="선거구의 경계가 기존 시군 한계를 가로지르기보다 얼마나 가까이 따르는지" aria-expanded="false">시군 앵커링</button>, 에어드리 분할 횟수, 캘거리 북서부 인구 초과, 그리고 위원회 위원장 밀러 판사가 직접 서면으로 지적한 일곱 가지 경계 구성(다수 보고서 §5.8.2와 부록 C) — 선거 데이터나 통계적 표본 추출이 필요하지 않습니다. 다음 섹션은 두 지도를 컴퓨터 생성 중립 지도 1,010,000개에 대해 시험하며 완전히 다른 도구를 통해 동일한 결론에 도달합니다. 기하학적, 사법적, 통계적이라는 세 가지 독립된 도구가 수렴합니다.'
+		},
+		preliminary: {
+			badge: '예비',
+			heading: '예비 발견 — 독립적 전문가 검토 대기 중',
+			body: '이 섹션의 통계적 시험은 최종 발표 전에 독립적인 주제 전문가들의 검토를 받고 있습니다. 그 검증을 위해 전체 결과를 아래에 제시합니다.'
 		},
 		clean: {
 			heading: "6: 공정해 보이는 지도가 그렇지 않을 때",
@@ -861,7 +867,9 @@ export default {
 			text_label: '본문:',
 			code_label: '코드:',
 			translation_label: '번역:',
-			translation_credit: 'Anthropic Fable 5 (AI) — 원어민 검토 대기 중'
+			translation_credit: 'Anthropic Fable 5 (AI) — 원어민 검토 대기 중',
+			data_credit:
+				'지도 데이터: 2차 고속도로는 National Road Network, © Statistics Canada (Open Government Licence – Canada); 기타 도로 및 수계 © OpenStreetMap contributors (ODbL); 경계 및 결과 © Elections Alberta.'
 		}
 	},
 	explorer: {
@@ -883,6 +891,8 @@ export default {
 			search_in: '{ed} 내',
 			zoom_aria: '확대/축소',
 			res_prefix: '1픽셀 ≈',
+			zoom_official: '(공식)',
+			zoom_computed: '(계산됨)',
 			overlays_hdr: '이익공동체 오버레이',
 			layer_highways: '고속도로',
 			layer_water: '강과 호수',
@@ -914,6 +924,9 @@ export default {
 		},
 		tip: {
 			total_votes: '총 표',
+			inperson_votes: '직접 투표',
+			ed_total: '선거구 합계: {n}표',
+			ed_total_eday: '선거구 합계: {n} (선거일)',
 			poll: '투표소 #{id} · 직접 투표',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -992,6 +1005,8 @@ export default {
 			directory_heading: '선거구 목록',
 			directory_lead:
 				'이 표는 세 지도 중 어느 것에든 나타나는 모든 선거구 이름을 알파벳순으로 나열합니다. 각 이름에 대해 그것이 소수 안, 다수 안, 그리고 2019년 제정 지도의 일부인지를 보여 줍니다. 선거구 이름은 지도마다 다르므로, 어떤 행은 그중 하나 또는 둘에만 나타납니다. 이 표는 이름과 지도 포함 여부만 담습니다 — 득표수, 인구 수치, 시험 결과는 전체 보고서를 참조하십시오.',
+			directory_totals_note:
+				'각 수치는 해당 지도에서 그 선거구의 직접(선거일) 투표 합계 — 즉 투표소 표의 합 — 입니다. 사전 투표와 특별 투표는 투표 구역별로 배정되지 않으므로 여기에 포함되지 않습니다. 전체 결과는 보고서를 참조하십시오. 대시(—)는 해당 지도에 그 선거구 이름이 나타나지 않음을 뜻합니다.',
 			col_district: '선거구',
 			col_minority: '소수 안',
 			col_majority: '다수 안',

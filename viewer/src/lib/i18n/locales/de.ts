@@ -149,7 +149,8 @@ export default {
 		suggestions: 'Reformvorschläge',
 		retractions: 'Widerrufe',
 		references: 'Quellen',
-		technical: 'Technische Ressourcen'
+		technical: 'Technische Ressourcen',
+		feedback: 'Feedback senden'
 	},
 	hero: {
 		h1: 'Audit der Wahlbezirksgrenzen Albertas',
@@ -360,6 +361,11 @@ export default {
 			p3: 'Das unterscheidet sich stark von dem Alberta, das Sie am Wahlabend sehen. Die meisten Wahlkarten färben ganze Ridings nach Wahlsieg solid blau oder orange. Ländliche Ridings sind geographisch groß, und die UCP gewinnt die meisten von ihnen, sodass das Wahlabend-Alberta wie eine Wand aus Blau mit kleinen orangen Inseln in Edmonton und Calgary aussieht. Die Titelkarte verwendet dieselben Stimmen und dieselbe Geographie — zeigt sie aber gewichtet danach, wo Menschen tatsächlich leben. Was erscheint, ist eine Provinz, in der der Großteil der Bevölkerung in einem dichten Bogen aus Städten konzentriert ist, und diese Städte wählen ganz anders als die ländliche Karte, die sie normalerweise abbildet.',
 			p4: 'Die Grenzlinien, die über die Farbe gelegt sind, sind die 89 vorgeschlagenen Wahlbezirke der Minderheitenkommission — die Karte, die dieses Audit am Ende kritisiert. Die Aufgabe des Audits besteht darin zu fragen, was diese Linien mit den Menschen darunter machen.',
 			p5: 'Dieses Bild macht die Tragweite deutlich. Eine Provinz, die auf einer Standardkarte aussieht, als wähle sie auf eine bestimmte Weise, ist tatsächlich eine Provinz, in der die meisten Menschen in Gebieten leben, die anders wählen. Sobald die Bevölkerung unter den Grenzentscheidungen sichtbar wird, sehen diese Entscheidungen nicht mehr zufällig aus.'
+		},
+		preliminary: {
+			badge: 'VORLÄUFIG',
+			heading: 'Vorläufige Ergebnisse — unabhängige Fachprüfung ausstehend',
+			body: 'Die statistischen Tests in diesem Abschnitt werden vor der endgültigen Veröffentlichung von unabhängigen Fachexperten geprüft. Die vollständigen Ergebnisse werden unten zu dieser Prüfung dargestellt.'
 		},
 		structural_results: {
 			heading: 'Ergebnisse des strukturellen Audits — vor jeder Statistik:',
@@ -865,7 +871,9 @@ export default {
 			text_label: 'Text:',
 			code_label: 'Code:',
 			translation_label: 'Übersetzungen:',
-			translation_credit: 'Anthropic Fable 5 (KI) — Prüfung durch Muttersprachler ausstehend'
+			translation_credit: 'Anthropic Fable 5 (KI) — Prüfung durch Muttersprachler ausstehend',
+			data_credit:
+				'Kartendaten: sekundäre Highways aus dem National Road Network, © Statistics Canada (Open Government Licence – Canada); andere Straßen & Gewässer © OpenStreetMap contributors (ODbL); Grenzen & Ergebnisse © Elections Alberta.'
 		}
 	},
 	explorer: {
@@ -887,6 +895,8 @@ export default {
 			search_in: 'in {ed}',
 			zoom_aria: 'Zoom',
 			res_prefix: '1 Pixel ≈',
+			zoom_official: '(Offiziell)',
+			zoom_computed: '(Berechnet)',
 			overlays_hdr: 'Overlays zu Interessengemeinschaften',
 			layer_highways: 'Highways',
 			layer_water: 'Flüsse & Seen',
@@ -919,6 +929,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'Stimmen insgesamt',
+			inperson_votes: 'Präsenzstimmen',
+			ed_total: 'Bezirk insgesamt: {n} Stimmen',
+			ed_total_eday: 'Bezirk insgesamt: {n} (Wahltag)',
 			poll: 'Wahllokal #{id} · Präsenzstimmen',
 			ucp_pct: 'UCP {u} %',
 			ndp_pct: 'NDP {n} %',
@@ -1000,6 +1013,8 @@ export default {
 			directory_heading: 'Wahlkreisverzeichnis',
 			directory_lead:
 				'Diese Tabelle führt in alphabetischer Reihenfolge jeden Wahlkreisnamen auf, der auf einer der drei Karten erscheint. Für jeden Namen zeigt sie, ob dieser Name Teil des Minderheitenvorschlags, des Mehrheitsvorschlags und der 2019 erlassenen Karte ist. Die Wahlkreisnamen unterscheiden sich zwischen den Karten, sodass manche Zeilen nur auf einer oder zwei von ihnen erscheinen. Die Tabelle enthält nur Namen und Kartenzugehörigkeit — für Stimmensummen, Bevölkerungszahlen und Testergebnisse siehe den vollständigen Bericht.',
+			directory_totals_note:
+				'Jede Zahl ist die Präsenzstimmensumme (Wahltag) des Wahlkreises auf dieser Karte — die Summe seiner Wahllokale. Brief- und Sonderstimmen werden nicht pro Voting Area zugeordnet und sind daher hier nicht enthalten; vollständige Ergebnisse siehe Bericht. Ein Gedankenstrich (—) bedeutet, dass der Wahlkreisname auf dieser Karte nicht vorkommt.',
 			col_district: 'Wahlkreis',
 			col_minority: 'Minderheitenvorschlag',
 			col_majority: 'Mehrheitsvorschlag',

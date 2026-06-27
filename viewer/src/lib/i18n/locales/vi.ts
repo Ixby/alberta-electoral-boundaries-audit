@@ -139,7 +139,8 @@ export default {
 		suggestions: 'Đề xuất cải cách',
 		retractions: 'Rút lại',
 		references: 'Tài liệu tham khảo',
-		technical: 'Tài nguyên kỹ thuật'
+		technical: 'Tài nguyên kỹ thuật',
+		feedback: 'Gửi phản hồi'
 	},
 	hero: {
 		h1: 'Kiểm toán Ranh giới Bầu cử Alberta',
@@ -350,6 +351,11 @@ export default {
 			p3: 'Điều này rất khác với Alberta mà bạn thấy vào đêm bầu cử. Hầu hết các bản đồ bầu cử tô toàn bộ khu vực bằng xanh hoặc cam đặc dựa trên người chiến thắng. Các khu vực nông thôn rộng lớn về mặt địa lý và UCP giành chiến thắng ở hầu hết chúng, vì vậy Alberta đêm bầu cử trông giống như một bức tường xanh với những túi cam nhỏ ở Edmonton và Calgary. Bản đồ trang bìa sử dụng cùng các phiếu bầu và cùng địa lý — nhưng hiển thị chúng được trọng số theo nơi mọi người thực sự sống. Những gì xuất hiện là một tỉnh nơi phần lớn dân số tập trung trong một vòng cung dày đặc các thành phố, và những thành phố đó bỏ phiếu rất khác so với bản đồ nông thôn thường đại diện cho chúng.',
 			p4: 'Các đường ranh giới được vẽ trên màu sắc là 89 khu vực bầu cử được đề xuất của ủy ban thiểu số — bản đồ mà cuộc kiểm toán này cuối cùng phê phán. Công việc của cuộc kiểm toán là đặt câu hỏi những đường này làm gì với những người ở bên dưới chúng.',
 			p5: 'Hình ảnh này là điều làm rõ những gì đang ở vào tình thế. Một tỉnh trông giống như bỏ phiếu theo một hướng trên bản đồ tiêu chuẩn thực sự là một tỉnh nơi hầu hết mọi người sống trong những khu vực bỏ phiếu theo hướng khác. Một khi dân số được nhìn thấy bên dưới các lựa chọn ranh giới, những lựa chọn đó không còn trông ngẫu nhiên nữa.'
+		},
+		preliminary: {
+			badge: 'SƠ BỘ',
+			heading: 'Các phát hiện sơ bộ — đang chờ đánh giá độc lập của chuyên gia',
+			body: 'Các bài kiểm tra thống kê trong phần này đang được các chuyên gia chuyên môn độc lập đánh giá trước khi công bố cuối cùng. Toàn bộ kết quả được hiển thị bên dưới để phục vụ việc xem xét đó.'
 		},
 		structural_results: {
 			heading: 'Kết quả kiểm toán cấu trúc — trước khi có bất kỳ thống kê nào:',
@@ -855,7 +861,9 @@ export default {
 			text_label: 'Văn bản:',
 			code_label: 'Mã:',
 			translation_label: 'Bản dịch:',
-			translation_credit: 'Anthropic Fable 5 (AI) — đang chờ đánh giá của người bản xứ'
+			translation_credit: 'Anthropic Fable 5 (AI) — đang chờ đánh giá của người bản xứ',
+			data_credit:
+				'Dữ liệu bản đồ: đường cao tốc thứ cấp từ National Road Network, © Statistics Canada (Open Government Licence – Canada); các đường khác & nước © OpenStreetMap contributors (ODbL); ranh giới & kết quả © Elections Alberta.'
 		}
 	},
 	explorer: {
@@ -876,6 +884,8 @@ export default {
 			search_clear_aria: 'Xóa tìm kiếm',
 			search_in: 'trong {ed}',
 			zoom_aria: 'Thu phóng',
+			zoom_official: '(Chính thức)',
+			zoom_computed: '(Tính toán)',
 			res_prefix: '1 pixel ≈',
 			overlays_hdr: 'Lớp phủ Lợi ích Cộng đồng',
 			layer_highways: 'Đường cao tốc',
@@ -909,6 +919,9 @@ export default {
 		},
 		tip: {
 			total_votes: 'tổng số phiếu',
+			inperson_votes: 'phiếu bầu trực tiếp',
+			ed_total: 'Tổng khu vực bầu cử: {n} phiếu',
+			ed_total_eday: 'Tổng khu vực bầu cử: {n} (ngày bầu cử)',
 			poll: 'Điểm bỏ phiếu #{id} · phiếu bầu trực tiếp',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -990,6 +1003,8 @@ export default {
 			directory_heading: 'Danh mục khu vực bầu cử',
 			directory_lead:
 				'Bảng này liệt kê mọi tên khu vực bầu cử xuất hiện trên bất kỳ bản đồ nào trong ba bản đồ, theo thứ tự bảng chữ cái. Với mỗi tên, nó cho thấy tên đó có thuộc đề xuất thiểu số, đề xuất đa số, và bản đồ được ban hành năm 2019 hay không. Tên các khu vực bầu cử khác nhau giữa các bản đồ, vì vậy một số hàng chỉ xuất hiện trên một hoặc hai trong số đó. Bảng chỉ giữ tên và thành viên bản đồ — về tổng số phiếu, số liệu dân số, và kết quả kiểm tra, xin xem báo cáo đầy đủ.',
+			directory_totals_note:
+				'Mỗi con số là tổng số phiếu bầu trực tiếp (ngày bầu cử) của khu vực bầu cử trên bản đồ đó — tổng cộng các điểm bỏ phiếu của nó. Phiếu bầu trước và phiếu bầu đặc biệt không được phân bổ cho từng khu vực bỏ phiếu, vì vậy chúng không được tính ở đây; để xem kết quả đầy đủ, hãy xem báo cáo. Dấu gạch ngang (—) có nghĩa là tên khu vực bầu cử không xuất hiện trên bản đồ đó.',
 			col_district: 'Khu vực bầu cử',
 			col_minority: 'Đề xuất thiểu số',
 			col_majority: 'Đề xuất đa số',

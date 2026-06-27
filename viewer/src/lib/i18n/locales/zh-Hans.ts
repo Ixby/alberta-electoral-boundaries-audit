@@ -145,7 +145,8 @@ export default {
 		suggestions: '改革建议',
 		retractions: '撤回',
 		references: '参考资料',
-		technical: '技术资料'
+		technical: '技术资料',
+		feedback: '发送反馈'
 	},
 	hero: {
 		h1: '阿尔伯塔选举边界审计',
@@ -356,6 +357,11 @@ export default {
 			p3: '这与你在选举之夜看到的阿尔伯塔非常不同。大多数选举地图根据谁获胜将整个选区涂成纯蓝或纯橙。乡村选区地理面积大,UCP 赢得大多数,所以选举之夜的阿尔伯塔看起来像一片蓝墙,在 Edmonton 和 Calgary 有几个橙色小口袋。封面地图使用相同的选票和相同的地理——但将它们按人们实际居住的位置加权显示。出现的是一个大部分人口集中在密集城市弧线中的省份,而这些城市的投票方式与通常代表它们的乡村地图非常不同。',
 			p4: '颜色之上绘制的边界线是少数派委员会提议的 89 个选区——这是本次审计最终批评的地图。审计的工作是询问这些线条对它们下方的人民做了什么。',
 			p5: '这张图使利害关系变得清晰。一个在标准地图上看起来以一种方式投票的省份,实际上是一个大多数人口居住在以另一种方式投票的区域的省份。一旦人口在边界选择下变得可见,这些选择就不再看起来是随机的。'
+		},
+		preliminary: {
+			badge: '初步',
+			heading: '初步发现——尚待独立专家审阅',
+			body: '本节中的统计检验正在由独立的领域专家审阅,之后才会最终发表。完整结果在下方列出,以供此项审查。'
 		},
 		structural_results: {
 			heading: '结构审计结果——在任何统计之前:',
@@ -862,7 +868,9 @@ export default {
 			text_label: '文本:',
 			code_label: '代码:',
 			translation_label: '翻译:',
-			translation_credit: 'Anthropic Fable 5(AI)——尚待母语者审阅'
+			translation_credit: 'Anthropic Fable 5(AI)——尚待母语者审阅',
+			data_credit:
+				'地图数据:次级公路来自 National Road Network,© Statistics Canada(Open Government Licence – Canada);其他道路与水域 © OpenStreetMap contributors(ODbL);边界与结果 © Elections Alberta。'
 		}
 	},
 	// deck.gl 地图浏览器(DeckExplorer.svelte + deckExplorer/pois.ts)。
@@ -885,6 +893,8 @@ export default {
 			search_in: '在 {ed} 内',
 			zoom_aria: '缩放',
 			res_prefix: '1 像素 ≈',
+			zoom_official: '(官方)',
+			zoom_computed: '(计算)',
 			overlays_hdr: '利益共同体叠加层',
 			layer_highways: '公路',
 			layer_water: '河流与湖泊',
@@ -917,6 +927,9 @@ export default {
 		},
 		tip: {
 			total_votes: '总票数',
+			inperson_votes: '现场投票',
+			ed_total: '选区总计：{n} 票',
+			ed_total_eday: '选区总计：{n}（选举日）',
 			poll: '投票站 #{id} · 现场投票',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
@@ -998,6 +1011,8 @@ export default {
 			directory_heading: '选区名录',
 			directory_lead:
 				'此表按字母顺序列出出现在三份地图中任何一份上的每一个选区名称。对每个名称,它显示该名称是否属于少数派提议、多数派提议以及 2019 年已颁布地图。各地图之间选区名称有所不同,因此有些行只出现在其中一份或两份地图上。本表只载有名称及地图归属——票数、人口数字和测试结果请见完整报告。',
+			directory_totals_note:
+				'每个数字是该选区在那份地图上的现场（选举日）投票总数——即其各投票站之和。预先投票和特殊选票不按投票区归属，因此此处不予计入；完整结果请见报告。破折号（—）表示该选区名称未出现在那份地图上。',
 			col_district: '选区',
 			col_minority: '少数派提议',
 			col_majority: '多数派提议',
