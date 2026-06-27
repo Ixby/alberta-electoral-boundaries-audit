@@ -82,7 +82,7 @@
         <li><strong>Current map view</strong> — so your last view is restored on your next visit</li>
         <li><strong>Browser language</strong> — so the site can show your preferred language</li>
       </ul>
-      <p>This cookie is encrypted in your browser before it is written — the server never sees its contents. It is only sent over HTTPS, is never shared with other sites, and you can remove it at any time by clearing your cookies. Your colour theme is also mirrored to your browser's local storage so the correct theme can be applied instantly on load, before anything flickers; that value too is purely functional and never sent anywhere.</p>
+      <p>This cookie holds only the preferences above — no personal or identifying information. Its contents are scrambled with a key that ships inside the page, so the stored value is not human-readable; because that key is public, treat this as tamper-resistance rather than true secrecy. It is sent only over HTTPS, is never shared with other sites, and you can remove it at any time by clearing your cookies. The site is served as static files, so nothing on the server side reads it. Your colour theme is also mirrored to your browser's local storage so the correct theme can be applied instantly on load, before anything flickers; that value too is purely functional and never sent anywhere.</p>
     </section>
 
     <section>

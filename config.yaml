@@ -50,9 +50,15 @@ substrate:
   
   # Column mappings for the substrate
   columns:
-    party_1_votes: "va_ucp_full"      # E.g., Conservative/UCP votes
-    party_2_votes: "va_ndp_full"      # E.g., NDP/Liberal votes
-    other_votes: "va_other_full"      # Third-party/independent votes
+    # The canonical MCMC pipeline and packing_cracking_analysis.py use the
+    # integer election-day vote columns (va_ucp/va_ndp/va_other), whose total is
+    # the published covered_votes basis (~932,164, = expected_total_votes below).
+    # The *_full columns are the larger fractional-allocation variants and are
+    # NOT used by any analysis script — these keys currently have no readers, so
+    # they are pointed at the authoritative integer columns to match reality.
+    party_1_votes: "va_ucp"      # UCP votes (election-day integer column)
+    party_2_votes: "va_ndp"      # NDP votes (election-day integer column)
+    other_votes: "va_other"      # Third-party/independent (election-day integer column)
     population: "pop_2021"       # Population column
     geographic_id: "VA_NUMBER"   # Unique identifier for the polygon
 
