@@ -371,6 +371,10 @@
 			let edBboxes: Bbox[] = [];
 			let vaLines: number[][][] = [];
 			const labels: Record<string, Record<number, string>> = {};
+			// Per-map, per-ED vote totals (ed_totals.json). 2026 proposal totals are
+			// election-day only (anywhere:false); 2019 totals include Vote Anywhere
+			// (anywhere:true), since only the enacted map can attribute those ballots.
+			let edTotals: Record<string, Record<string, { total: number; anywhere: boolean }>> = {};
 			let waterData: { path: number[][] }[] | null = null;
 			let highwaysData: { path: number[][]; major?: boolean }[] | null = null;
 			let secondaryData: { path: number[][] }[] | null = null;
@@ -422,6 +426,18 @@
 			}
 			const tileData = (k: string): TileFeature[] | null => archive[k] || null;
 			const edNameFor = (mk: string, id: number) => (labels[mk] && labels[mk][id]) || '';
+			// The district's total vote count, shown under the ED name in the tooltip.
+			// 2019 = full total (incl. Vote Anywhere); 2026 proposals = election-day only.
+			const edTotalBlock = (mk: string, ed: string): string => {
+				const r = edTotals[mk] && edTotals[mk][ed];
+				if (!r) return '';
+				const key = r.anywhere ? 'explorer.tip.ed_total' : 'explorer.tip.ed_total_eday';
+				return `<div class="ed-total">${t(lang.current, key).replace('{n}', r.total.toLocaleString())}</div>`;
+			};
+			const edTotalInline = (mk: string, ed: string): string => {
+				const r = edTotals[mk] && edTotals[mk][ed];
+				return r ? ` <span class="ed-total-n">${r.total.toLocaleString()}</span>` : '';
+			};
 
 			// ── Visible-tile + best-available-feature selection (inline in prototype) ──
 			const PAD = 2; // extra tile ring so edges stay covered during pan / mobile resize
@@ -1342,11 +1358,15 @@
 								shown
 									.map(
 										(mk, i) =>
-											`<span style="color:${rgbCss(mk)}">■</span> ${names[i]}`
+											`<span style="color:${rgbCss(mk)}">■</span> ${names[i]}${edTotalInline(mk, names[i])}`
 									)
 									.join('<br>') +
 								`</div>`;
 						const title = agree ? ed : P.name;
+						// District total under the ED name (only when the active maps agree on
+						// which ED this poll belongs to; otherwise each ED's total rides its
+						// line in distCmp above).
+						const edTotal = agree ? edTotalBlock(shown[0], ed) : '';
 						const whereCommunity = (
 							P.cin
 								? t(lang.current, 'explorer.tip.where_in')
@@ -1359,7 +1379,7 @@
 						if (pale) {
 							const some = (P.ucp || 0) + (P.ndp || 0) > 0;
 							tipEl.innerHTML =
-								`<div class="n">${title}</div>${where}${distCmp}` +
+								`<div class="n">${title}</div>${edTotal}${where}${distCmp}` +
 								(some ? voteBar(P) + pollFoot(P) : ``) +
 								`<div class="note">${
 									some
@@ -1368,7 +1388,7 @@
 								}</div>`;
 						} else {
 							tipEl.innerHTML =
-								`<div class="n">${title}</div>${where}${distCmp}` +
+								`<div class="n">${title}</div>${edTotal}${where}${distCmp}` +
 								voteBar(P) +
 								pollFoot(P);
 						}
@@ -1431,6 +1451,11 @@
 			}
 			async function loadLabels() {
 				for (const mk of M.maps) labels[mk] = await fetchJSON('valabels_' + mk + '.json');
+				try {
+					edTotals = await fetchJSON('ed_totals.json');
+				} catch {
+					edTotals = {}; // tooltip degrades gracefully without ED totals
+				}
 			}
 			async function loadVaLines() {
 				vaLines = await fetchJSON<number[][][]>('va_lines.json');
@@ -2498,6 +2523,17 @@
 		font-family: Palatino, Georgia, serif;
 		font-size: 15px;
 		margin-bottom: 3px;
+	}
+	/* District total under the ED name. */
+	.tip :global(.ed-total) {
+		font-size: 12.5px;
+		font-weight: 600;
+		color: #3a4a5e;
+		margin: -1px 0 4px;
+	}
+	.tip :global(.ed-total-n) {
+		font-weight: 600;
+		color: #1a2e45;
 	}
 	.tip :global(.va-total) {
 		font-size: 13px;

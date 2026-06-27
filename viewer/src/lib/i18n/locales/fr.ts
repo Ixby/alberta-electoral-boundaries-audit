@@ -941,6 +941,8 @@ export default {
 		tip: {
 			total_votes: 'votes au total',
 			inperson_votes: 'votes en personne',
+			ed_total: 'Total de la circonscription : {n} votes',
+			ed_total_eday: 'Total de la circonscription : {n} (jour du scrutin)',
 			poll: 'Bureau n° {id}',
 			ucp_pct: 'UCP {u} %',
 			ndp_pct: 'NPD {n} %',

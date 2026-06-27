@@ -949,6 +949,8 @@ export default {
 			// Per-VA counts are election-day (in-person) votes only — advance/special
 			// ballots are not attributed per voting area (per Elections Alberta).
 			inperson_votes: 'in-person votes',
+			ed_total: 'District total: {n} votes',
+			ed_total_eday: 'District total: {n} (election-day)',
 			poll: 'Poll #{id}',
 			ucp_pct: 'UCP {u}%',
 			ndp_pct: 'NDP {n}%',
