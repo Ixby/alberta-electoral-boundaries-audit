@@ -108,7 +108,7 @@ If your independent reimplementation produces the same `efficiency_gap`, `seats_
 > the same ensemble because the seed is deterministic from the drand beacon.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 250000
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 252500
 ```
 
 Expected wall time: ~6–8 h total (4 chains parallelised on a 4-core machine). The canonical artefacts are already committed:

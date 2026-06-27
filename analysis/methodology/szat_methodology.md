@@ -263,6 +263,8 @@ The residual vulnerability is that a filing made after results are known cannot 
 
 ### Challenge 3: "The Bernoulli(0.5) permutation null is arbitrary. A different null would give a different p-value."
 
+> **Superseded (2026-06): SZAT has been demoted to exploratory.** This challenge turned out to be partly right. The Bernoulli(0.5) result (p=0.0024) does **not** survive a block-permutation null that respects spatial autocorrelation (p≈0.19); see `report_academic.md` §5.2.10. The SZAT channel no longer carries confirmatory weight, and the Fisher combination that used it is retired. The response below addresses the *original* Bernoulli null and is retained for the record, not as a live defense of significance.
+
 **Response.**
 
 The Bernoulli(0.5) null asks a specific and interpretable question: *if the minority commissioners had made each swing-zone boundary choice with equal probability of favouring either map's configuration — no partisan preference — how extreme would the observed SZAT score be?*
