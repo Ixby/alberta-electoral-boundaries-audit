@@ -87,7 +87,7 @@
 
     <section>
       <h2>Data retention</h2>
-      <p>The analytics records are aggregate and anonymous by construction, with no identifier to retain. They are stored on infrastructure hosted in Canada (ca-central-1) and kept as research data. Saved share-code configurations are kept so shared links continue to resolve. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
+      <p>The analytics records are aggregate and anonymous by construction, with no identifier to retain. They are stored on infrastructure hosted in Canada (ca-central-1) and kept as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
     </section>
 
     <section>
