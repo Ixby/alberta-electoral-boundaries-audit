@@ -1455,10 +1455,9 @@
     margin-top: 1.4rem;
     font-size: 0.88rem;
     text-align: end;
-    opacity: 0.7;
   }
   .back-link a {
-    color: var(--text-muted);
+    color: #5d5d5b;
     text-decoration: none;
     border-bottom: 1px dotted var(--border);
     padding-bottom: 1px;
@@ -1856,8 +1855,8 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .nav-prev  { justify-self: end;   color: rgba(255, 255, 255, 0.5); max-width: 16rem; }
-    .nav-next  { justify-self: start; color: rgba(255, 255, 255, 0.5); max-width: 16rem; }
+    .nav-prev  { justify-self: end;   color: rgba(255, 255, 255, 0.62); max-width: 16rem; }
+    .nav-next  { justify-self: start; color: rgba(255, 255, 255, 0.62); max-width: 16rem; }
     .nav-prev .nav-step-lbl, .nav-next .nav-step-lbl { max-width: 13rem; }
     .nav-chev { opacity: 0.65; font-size: 1.15em; line-height: 1; padding: 0 0.1rem; }
     .nav-current {
@@ -2083,7 +2082,7 @@
       margin-bottom: 0.4rem;
       padding: 0.16rem 0.55rem;
       border-radius: 3px;
-      background: #b7791f;
+      background: #8c5a12;
       color: #fff;
       font-size: 0.68rem;
       font-weight: 700;
@@ -2233,6 +2232,8 @@
       padding: 0.55rem 0.8rem;
       text-align: start;
     }
+    /* Links inside the dark table header need a light color (AA on #1a2e45). */
+    th a { color: #bcd4ee; }
 
     td {
       padding: 0.5rem 0.8rem;

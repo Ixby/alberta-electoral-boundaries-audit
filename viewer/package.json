@@ -15,9 +15,12 @@
 		"copy-figures": "node scripts/copy-figures.mjs",
 		"sync-check": "node scripts/sync-check.mjs",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"test:a11y": "playwright test"
 	},
 	"devDependencies": {
+		"@axe-core/playwright": "^4.12.1",
+		"@playwright/test": "^1.61.1",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
