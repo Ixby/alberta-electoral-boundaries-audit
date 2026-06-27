@@ -128,7 +128,6 @@ export default {
 		findings: 'Ergebnisse',
 		history: 'Geschichte',
 		reform: 'Reform',
-		notes: 'Notizen',
 		// Drawer group headings
 		group_overview: 'Überblick',
 		group_audit: 'Das Audit',
@@ -146,13 +145,10 @@ export default {
 		gerrymanders: 'Saubere Gerrymander',
 		history_full: 'Eine Geschichte des Gerrymanderings',
 		canada: 'Kanada ist anders',
-		november: 'November',
 		lunty: 'Lunty',
-		invisible: 'Unsichtbar',
 		suggestions: 'Reformvorschläge',
 		retractions: 'Widerrufe',
 		references: 'Quellen',
-		resources: 'Ressourcen',
 		technical: 'Technische Ressourcen'
 	},
 	hero: {

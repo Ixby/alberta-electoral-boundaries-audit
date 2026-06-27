@@ -122,7 +122,6 @@ export default {
 		findings: 'ਖੋਜਾਂ',
 		history: 'ਇਤਿਹਾਸ',
 		reform: 'ਸੁਧਾਰ',
-		notes: 'ਨੋਟ',
 		group_overview: 'ਸੰਖੇਪ ਝਾਤ',
 		group_audit: 'ਆਡਿਟ',
 		group_context: 'ਸੰਦਰਭ',
@@ -138,13 +137,10 @@ export default {
 		gerrymanders: 'ਸਾਫ਼ ਗੈਰੀਮੈਂਡਰ',
 		history_full: 'ਗੈਰੀਮੈਂਡਰਿੰਗ ਦਾ ਇਤਿਹਾਸ',
 		canada: 'ਕੈਨੇਡਾ ਵੱਖਰਾ ਹੈ',
-		november: 'ਨਵੰਬਰ',
 		lunty: 'ਲੰਟੀ',
-		invisible: 'ਅਦ੍ਰਿਸ਼',
 		suggestions: 'ਸੁਧਾਰ ਸੁਝਾਅ',
 		retractions: 'ਵਾਪਸੀਆਂ',
 		references: 'ਹਵਾਲੇ',
-		resources: 'ਸਰੋਤ',
 		technical: 'ਤਕਨੀਕੀ ਸਰੋਤ'
 	},
 	hero: {

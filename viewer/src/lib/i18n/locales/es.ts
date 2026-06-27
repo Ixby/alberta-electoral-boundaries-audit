@@ -130,7 +130,6 @@ export default {
 		findings: 'Hallazgos',
 		history: 'Historia',
 		reform: 'Reforma',
-		notes: 'Notas',
 		// Drawer group headings
 		group_overview: 'Panorama',
 		group_audit: 'La auditoría',
@@ -148,13 +147,10 @@ export default {
 		gerrymanders: 'Gerrymanders limpios',
 		history_full: 'Una historia del gerrymandering',
 		canada: 'Canadá es diferente',
-		november: 'Noviembre',
 		lunty: 'Lunty',
-		invisible: 'Lo invisible',
 		suggestions: 'Sugerencias de reforma',
 		retractions: 'Retractaciones',
 		references: 'Referencias',
-		resources: 'Recursos',
 		technical: 'Recursos técnicos'
 	},
 	hero: {

@@ -124,7 +124,6 @@ export default {
 		findings: '发现',
 		history: '历史',
 		reform: '改革',
-		notes: '附注',
 		// Drawer group headings
 		group_overview: '总览',
 		group_audit: '审计',
@@ -142,13 +141,10 @@ export default {
 		gerrymanders: '"干净"的选区不公',
 		history_full: '选区不公划分的历史',
 		canada: '加拿大的不同之处',
-		november: '十一月',
 		lunty: 'Lunty',
-		invisible: '隐形',
 		suggestions: '改革建议',
 		retractions: '撤回',
 		references: '参考资料',
-		resources: '资源',
 		technical: '技术资料'
 	},
 	hero: {

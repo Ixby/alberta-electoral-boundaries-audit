@@ -120,7 +120,6 @@ export default {
 		findings: 'ᒥᐢᑲᒪᑫᐃᐧᓇ',
 		history: 'ᐋᓂᑭᒋ-ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ',
 		reform: 'ᒨᔥᒋ-ᐊᔮᓂᒋᐦᑖᐃᐧᐣ',
-		notes: 'ᐊᒋᒬᐤᐃᐧᓇ',
 		group_overview: 'ᒥᔮᓄᐦᐃᑫᐃᐧᐣ',
 		group_audit: 'ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ',
 		group_context: 'ᐱᔅᑭᔥᑲᓂ',
@@ -136,13 +135,10 @@ export default {
 		gerrymanders: 'ᑲᐧᔭᐢᐠ ᒨᔭ-ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᓇ',
 		history_full: 'ᒨᔭ-ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᐣ ᐋᓂᑭᒋ-ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ',
 		canada: 'ᑲᓇᑕ ᐱᔅᑭᔥᑲᓂ',
-		november: 'ᐱᔅᑭᓯᐃᐧᐱᓯᒻ',
 		lunty: 'Lunty',
-		invisible: 'ᓇᒪᐃᐧᔭ ᐅᐢᑭᓇᑫᐃᐧᐣ',
 		suggestions: 'ᐃᔑ-ᐊᔮᓂᒋᐦᑖᐃᐧᐣ ᐱᑯᔥᑖᐃᐧᓇ',
 		retractions: 'ᐅᐦᑎᓂᑫᐃᐧᓇ',
 		references: 'ᐅᐦᒋᔭᐢᑎᔭᓯᓀᐦᐃᑫᐃᐧᓇ',
-		resources: 'ᐋᐸᒋᐦᐃᑎᔫᐦᐃᑲᓇ',
 		technical: 'ᑲᔅᑭᐦᐅᐃᐧ-ᐋᐸᒋᐦᐃᑎᔫᐦᐃᑲᓇ'
 	},
 	hero: {

@@ -122,7 +122,6 @@ export default {
 		findings: 'Aunfindunge',
 		history: 'Jeschichte',
 		reform: 'Reform',
-		notes: 'Aunmäakunge',
 		// Drawer group headings
 		group_overview: 'Äwasiecht',
 		group_audit: 'Dee Pruewunk',
@@ -140,13 +139,10 @@ export default {
 		gerrymanders: 'Saubere Gerrymander (waunn Wahlkranskjes tweewäajich jezeidcht woare)',
 		history_full: 'En Jeschichte von Gerrymandering (waunn Wahlkranskjes tweewäajich jezeidcht woare)',
 		canada: "Kanada es anders",
-		november: 'November',
 		lunty: 'Lunty',
-		invisible: 'Onsichtboa',
 		suggestions: 'Reform-Vüaschlaj',
 		retractions: 'Ricknohme',
 		references: 'Quälle',
-		resources: 'Hülfsmiddel',
 		technical: 'Technische Hülfsmiddel'
 	},
 	hero: {

@@ -120,7 +120,6 @@ export default {
 		findings: 'Kết quả',
 		history: 'Lịch sử',
 		reform: 'Cải cách',
-		notes: 'Ghi chú',
 		group_overview: 'Tổng quan',
 		group_audit: 'Cuộc kiểm toán',
 		group_context: 'Bối cảnh',
@@ -136,13 +135,10 @@ export default {
 		gerrymanders: 'Sự phân chia thiên vị rõ ràng',
 		history_full: 'Lịch sử phân chia thiên vị',
 		canada: 'Canada khác biệt',
-		november: 'Tháng Mười Một',
 		lunty: 'Lunty',
-		invisible: 'Vô hình',
 		suggestions: 'Đề xuất cải cách',
 		retractions: 'Rút lại',
 		references: 'Tài liệu tham khảo',
-		resources: 'Tài nguyên',
 		technical: 'Tài nguyên kỹ thuật'
 	},
 	hero: {

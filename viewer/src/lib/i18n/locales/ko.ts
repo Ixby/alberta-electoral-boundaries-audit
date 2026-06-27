@@ -121,7 +121,6 @@ export default {
 		findings: '발견',
 		history: '역사',
 		reform: '개혁',
-		notes: '주석',
 		// Drawer group headings
 		group_overview: '개요',
 		group_audit: '감사',
@@ -139,13 +138,10 @@ export default {
 		gerrymanders: '명백한 게리맨더링',
 		history_full: '게리맨더링의 역사',
 		canada: '캐나다는 다르다',
-		november: '11월',
 		lunty: '런티',
-		invisible: '보이지 않는 것',
 		suggestions: '개혁 제안',
 		retractions: '철회',
 		references: '참고문헌',
-		resources: '자료',
 		technical: '기술 자료'
 	},
 	hero: {

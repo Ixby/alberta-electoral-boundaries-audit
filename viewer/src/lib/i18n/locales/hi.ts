@@ -120,7 +120,6 @@ export default {
 		findings: 'निष्कर्ष',
 		history: 'इतिहास',
 		reform: 'सुधार',
-		notes: 'टिप्पणियाँ',
 		group_overview: 'अवलोकन',
 		group_audit: 'ऑडिट',
 		group_context: 'संदर्भ',
@@ -136,13 +135,10 @@ export default {
 		gerrymanders: 'स्पष्ट गेरीमैंडर',
 		history_full: 'गेरीमैंडरिंग का इतिहास',
 		canada: 'कनाडा अलग है',
-		november: 'नवंबर',
 		lunty: 'लंटी',
-		invisible: 'अदृश्य',
 		suggestions: 'सुधार सुझाव',
 		retractions: 'प्रत्याहार',
 		references: 'संदर्भ',
-		resources: 'संसाधन',
 		technical: 'तकनीकी संसाधन'
 	},
 	hero: {

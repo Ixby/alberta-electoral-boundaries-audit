@@ -128,7 +128,6 @@ export default {
 		findings: 'Mga Natuklasan',
 		history: 'Kasaysayan',
 		reform: 'Reporma',
-		notes: 'Mga Tala',
 		// Drawer group headings
 		group_overview: 'Pangkalahatang-tanaw',
 		group_audit: 'Ang audit',
@@ -146,13 +145,10 @@ export default {
 		gerrymanders: 'Mga malinis na gerrymander',
 		history_full: 'Isang kasaysayan ng gerrymandering',
 		canada: 'Iba ang Canada',
-		november: 'Nobyembre',
 		lunty: 'Lunty',
-		invisible: 'Hindi Nakikita',
 		suggestions: 'Mga mungkahi sa reporma',
 		retractions: 'Mga Pagbawi',
 		references: 'Mga Sanggunian',
-		resources: 'Mga Mapagkukunan',
 		technical: 'Mga teknikal na mapagkukunan'
 	},
 	hero: {

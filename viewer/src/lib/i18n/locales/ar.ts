@@ -116,7 +116,6 @@ export default {
 		findings: "النتائج",
 		history: "التاريخ",
 		reform: "الإصلاح",
-		notes: "ملاحظات",
 		group_overview: "نظرة عامة",
 		group_audit: "التدقيق",
 		group_context: "السياق",
@@ -132,13 +131,10 @@ export default {
 		gerrymanders: "تلاعبات صريحة في الدوائر",
 		history_full: "تاريخ التلاعب في الدوائر",
 		canada: "كندا مختلفة",
-		november: "نوفمبر",
 		lunty: "لانتي",
-		invisible: "غير المرئي",
 		suggestions: "اقتراحات الإصلاح",
 		retractions: "السحوبات",
 		references: "المراجع",
-		resources: "الموارد",
 		technical: "موارد تقنية"
 	},
 	hero: {

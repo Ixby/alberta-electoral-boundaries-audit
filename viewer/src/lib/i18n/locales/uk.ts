@@ -128,7 +128,6 @@ export default {
 		findings: 'Висновки',
 		history: 'Історія',
 		reform: 'Реформа',
-		notes: 'Примітки',
 		group_overview: 'Огляд',
 		group_audit: 'Аудит',
 		group_context: 'Контекст',
@@ -144,13 +143,10 @@ export default {
 		gerrymanders: 'Чисті джеррімендери',
 		history_full: 'Історія джеррімендерингу',
 		canada: 'Канада — інакше',
-		november: 'Листопад',
 		lunty: 'Ланті',
-		invisible: 'Невидиме',
 		suggestions: 'Пропозиції реформи',
 		retractions: 'Спростування',
 		references: 'Посилання',
-		resources: 'Ресурси',
 		technical: 'Технічні ресурси'
 	},
 	hero: {

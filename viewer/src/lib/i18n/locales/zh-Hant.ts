@@ -126,7 +126,6 @@ export default {
 		findings: '發現',
 		history: '歷史',
 		reform: '改革',
-		notes: '註記',
 		// Drawer group headings
 		group_overview: '概覽',
 		group_audit: '本次審計',
@@ -144,13 +143,10 @@ export default {
 		gerrymanders: '乾淨的選區操控',
 		history_full: '選區操控簡史',
 		canada: '加拿大的不同之處',
-		november: '十一月',
 		lunty: 'Lunty',
-		invisible: '隱形',
 		suggestions: '改革建議',
 		retractions: '撤回',
 		references: '參考資料',
-		resources: '資源',
 		technical: '技術資源'
 	},
 	hero: {
@@ -991,6 +987,7 @@ export default {
 				title: 'Calgary 北部與東部——一個集中簽名',
 				body: '委員會主席並未標記這一個——是本次審計自己的計算標記的。在 Calgary 的北部與東部(本次審計的「Zone A」,Bow River 以北以東),少數派地圖的選區比省級平均約大 11.5%,而多數派地圖為 2.8%。集中意味著把某一方的選民集中到較少、較大的選區,使其每張選票的權重略微減少;Zone A 對 NDP 有競爭力,其 17 個選區中有 13 個在 2023 年由 NDP 勝出。本次審計衡量的是結構性效應,而非意圖。(學術 §5.3.1。)'
 			},
+		},
 			text: {
 				page_title: '文字版本——阿爾伯塔選區邊界審計地圖',
 				intro:
@@ -1026,7 +1023,6 @@ export default {
 				skip_to_main: '跳至主要內容',
 				back_to_map: '返回互動地圖'
 			}
-		}
 	},
 	feedback: {
 		nav_link: '提供意見',

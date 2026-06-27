@@ -120,7 +120,6 @@ export default {
 		findings: 'Natiijooyinka',
 		history: 'Taariikhda',
 		reform: 'Isbeddel',
-		notes: 'Qoraallo',
 		group_overview: 'Guud',
 		group_audit: 'Hubinta',
 		group_context: 'Macnaha',
@@ -136,13 +135,10 @@ export default {
 		gerrymanders: 'Qaybsiyaal siyaasadeed oo cad',
 		history_full: 'Taariikhda qaybsiga siyaasadeed',
 		canada: 'Kanada way kala duwan tahay',
-		november: 'Noofembar',
 		lunty: 'Lunty',
-		invisible: 'Aan la arki karin',
 		suggestions: 'Soo jeedinno isbeddel',
 		retractions: 'Ka noqosho',
 		references: 'Tixraacyo',
-		resources: 'Khayraad',
 		technical: 'Khayraad farsamo'
 	},
 	hero: {

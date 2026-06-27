@@ -126,7 +126,6 @@ export default {
 		findings: 'نتائج',
 		history: 'تاریخ',
 		reform: 'اصلاحات',
-		notes: 'نوٹس',
 		// Drawer group headings
 		group_overview: 'جائزہ',
 		group_audit: 'تحقیقی جائزہ',
@@ -144,13 +143,10 @@ export default {
 		gerrymanders: 'صاف ستھرے جیری مینڈر',
 		history_full: 'جیری مینڈرنگ کی تاریخ',
 		canada: 'کینیڈا مختلف ہے',
-		november: 'نومبر',
 		lunty: 'لنٹی',
-		invisible: 'غیر مرئی',
 		suggestions: 'اصلاحی تجاویز',
 		retractions: 'دستبرداریاں',
 		references: 'حوالہ جات',
-		resources: 'وسائل',
 		technical: 'تکنیکی وسائل'
 	},
 	hero: {
