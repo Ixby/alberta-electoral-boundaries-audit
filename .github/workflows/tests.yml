@@ -61,7 +61,13 @@ jobs:
           # gerrychain pulls a heavy stack; install only what the tests
           # need to keep CI fast. The full requirements.txt installs
           # cleanly but is ~5 minutes; minimal install is ~90s.
-          pip install pytest numpy pandas geopandas shapely pyproj networkx
+          # pyyaml + matplotlib added 2026-07-09: test_scoring.py imports
+          # mcmc_ensemble, whose module top pulls data_loader (-> yaml) and
+          # matplotlib; their absence broke every Tests run since 2026-06-26
+          # with ModuleNotFoundError at collection. Keep this list in sync
+          # with the module-level imports of analysis/scripts/mcmc_ensemble.py
+          # and analysis/utils/data_loader.py.
+          pip install pytest numpy pandas geopandas shapely pyproj networkx pyyaml matplotlib
           pip install gerrychain==0.3.2 networkx==3.6.1
 
       - name: Run pytest
