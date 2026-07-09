@@ -1,6 +1,6 @@
 # Joint Outlier Score — Alberta 2026 EBC Maps
 
-**Date:** 2026-05-07
+**Date:** 2026-07-08 (regenerated; first canonical run 2026-05-07)
 **Ensemble:** canonical 1,010,000 plans (official Elections Alberta shapefiles, 4 chains × 252,500, base_seed=1432864451)
 **Question:** How probable is it that a neutral redistricting process produces a map
 whose feature vector looks like the minority 2026 map?
@@ -40,59 +40,77 @@ Mahalanobis distance accounts for the correlation structure between these four m
 ## Channel 2 — SZAT bootstrap null
 
 SZAT score: +0.039211 (minority EG − majority EG, swing zones only)
-Bootstrap p: 0.0024 (24/10000 permutations exceeded observed, full-recompute)
+Bootstrap p: 0.0025 ((b+1)/(B+1); 24/10000 permutations exceeded observed, full-recompute)
 (AsPredicted #289,469; seed pre-committed at git hash d2aea42; full-recompute procedure)
+
+**Status (2026-06-13): retired as a confirmatory channel.** Under a contiguity-respecting
+block-permutation null the SZAT p-value is 0.1947 (variance inflation 5.79× vs the i.i.d.
+flip; `findings/szat_block_permutation.md`). The bootstrap p above is the i.i.d.-flip value,
+retained as exploratory context only. The joint headline rests on Channel 1 alone.
 
 ---
 
-## Channel 3 — Neighbour-Drain label-shuffle null
+## Channel 3 — Neighbour-Drain label-shuffle null (canonical substrate)
 
-Pre-registered: AsPredicted #289,451. Executed 2026-05-07 on official canonical shapefiles.
-
-> **⚠ SUBSTRATE-STALE (banner reapplied 2026-06-12 after Amendment-10 regeneration).** The drain_score values in this section were computed on a DPG-era / blended-vote substrate and are superseded by the canonical-substrate Phase B re-run at `findings/drain_label_shuffle_null_canonical.md` (majority = 0.00721 / z = −3.173; minority = 0.000591 / z = −2.750; 2019 enacted = 0.001530 / z = −3.520). Direction reverses on canonical: majority > minority. "Majority singularly anomalously low" does not survive — all three maps are anomalously low against their own canonical null, 2019 the most extreme. Numbers kept below for trail-of-work only.
+Pre-registered: OSF r3zm7 / AsPredicted #289,451. Canonical-substrate Phase B re-run 2026-06-11
+(`findings/drain_label_shuffle_null_canonical.json`, 10,000 permutations, seed 460508741).
 
 | Map | drain_score | Null mean | z-score | p (two-tailed) |
 | --- | --- | --- | --- | --- |
-| Majority 2026 | 0.000179 | 0.032085 | **-2.915** | **0.0000** |
-| Minority 2026 | 0.006176 | 0.016741 | −1.372 | 0.1342 |
+| Majority 2026 | 0.007213 | 0.049257 | **-3.173** | **0.0002** |
+| Minority 2026 | 0.000591 | 0.028057 | -2.750 | 0.0002 |
+| 2019 Enacted | 0.001530 | 0.052987 | -3.520 | 0.0000 |
 
-**Prediction A** (drain_score(majority) > drain_score(minority)): **NOT CONFIRMED** (0.000179 < 0.006176) *on stale substrate; CONFIRMED on canonical substrate per `drain_label_shuffle_null_canonical.md`*.
+**Prediction A** (drain_score(majority) > drain_score(minority)): **CONFIRMED** on the canonical substrate (0.007213 vs 0.000591).
 
-**Prediction B** (both within null p > 0.05): **NOT CONFIRMED for majority** (p < 0.0001, outside null). Minority: CONFIRMED (p = 0.1342, within null).
+**Interpretation.** All three maps — including the pre-commission 2019 enacted baseline — are
+anomalously *low* against their own label-shuffle nulls; the 2019 enacted map is the most
+anomalous (z = -3.52). No map is singularly anomalous on this metric.
+(The superseded DPG/blended-substrate run reported minority p = 0.1342 within null and majority
+z = −2.915; those values did not survive the canonical re-run and are retained only as
+stale_* provenance fields in the JSON.)
 
-**Interpretation.** The minority map's drain score (0.0062) is within the neutral-draw null — 13.4% of random label assignments produce equal or higher coupling. This channel does **not** contribute evidence against the minority map.
-
-The majority map's drain_score (0.0002) is significantly *below* the null mean (z = −2.915, p < 0.0001 one-sided) — anomalously clean, not the partisan direction.
-
-**Channel 3 contributes p = 0.1342 (minority within null) — not added to Fisher combination.**
+**Channel 3 is reported per pre-registration and is not part of the joint headline.**
 
 ---
 
-## Fisher Combined (Channels 1 + 2, minority only)
+## Joint statistic — Bonferroni upper bound (Fisher retired)
+
+**Operative headline: p ≤ 2.80e-06 (= 2 × Ch1), valid under arbitrary dependence
+between the two examined channels.** The Fisher combination below assumed Ch1/Ch2
+independence and was retired 2026-06-10 (the channels share the 2023 vote substrate;
+Fisher is anti-conservative under positive dependence — Brown 1975). It is preserved
+as historical record only.
 
 | Channel | p (unadjusted) | p (n_eff-adjusted) |
 | --- | --- | --- |
 | Partisan joint (Mahalanobis) | 1.40e-06 | 1.73e-06 |
-| SZAT bootstrap | 0.0024 | 0.0024 |
-| **Fisher combined** | **6.89e-08** | **8.43e-08** |
+| SZAT bootstrap (retired, i.i.d.-flip) | 0.0025 | 0.0025 |
+| **Fisher combined (historical)** | **7.16e-08** | **8.76e-08** |
 
-Unadjusted: Fisher T = 39.023, chi-sq df = 4.
-n_eff-adjusted: Fisher T = 38.599, using Hotelling T² p for Ch1 (n_eff = 1428, conservative lower bound). Both reject the null.
+Unadjusted: Fisher T = 38.941, chi-sq df = 4.
+n_eff-adjusted: Fisher T = 38.518, using Hotelling T² p for Ch1 (n_eff = 1428, conservative lower bound).
 
-**Reading:** p = 6.89e-08 is the probability that a neutral-draw process
-produces a map simultaneously this extreme on both the partisan feature vector and
-the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every 14,509,987 draws.
+**Reading:** the operative claim is the dependence-robust bound p ≤ 2.80e-06
+(≈ 1 in 357,143) — under the neutral null, a map with
+Channel 1's joint partisan profile arises at most about once in every
+357,143 draws, allowing for the two channels examined.
+The historical Fisher figure (7.16e-08) overstated joint significance by
+assuming channel independence.
 
 ---
 
-## Pending channels (not executable with current ensemble)
+## Supplementary structural channels (all resolved — none pending)
 
-| Channel | Reason pending | Marginal finding |
+| Channel | Status | Finding |
 | --- | --- | --- |
-| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a pending channel |
-| Population MAD ratio | Per-plan MAD not in ensemble outputs — requires MCMC rerun with population capture | Minority 1.48× majority |
-| Reock asymmetry | Per-plan Reock not in ensemble outputs — requires MCMC rerun | Minority 2.58× majority on % below 0.30 |
+| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a channel |
+| Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority 1.39× majority (3,938 vs 2,827); minority at p99.0 of the neutral ensemble |
+| Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio 0.5× (the DPG-era 2.58× value was retracted — see DOCUMENTED CORRECTIONS) |
+
+*(Corrected 2026-07-08: this table previously described MAD and Reock as "pending — not in
+ensemble outputs" and carried the retracted 2.58× Reock ratio and a stale 1.48× MAD ratio.
+The canonical ensemble outputs contain per-plan values for both metrics.)*
 
 ---
 
@@ -100,18 +118,15 @@ occurs roughly once in every 14,509,987 draws.
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance 5.72 from the ensemble center
-(p = 1.40e-06). Combined with the SZAT result (p = 0.0024) and Fisher's
-method, the joint neutral-null probability is p = 6.89e-08.
+(p = 1.40e-06). The operative joint statistic is the dependence-robust Bonferroni
+upper bound p ≤ 2.80e-06. SZAT (Ch2) is exploratory context only
+(block-permutation p = 0.1947); the retired Fisher combination is preserved above as
+historical record.
 
-**Channel 3 (Neighbour-Drain) executed 2026-05-07.** Minority within null
-(p = 0.1342); does not contribute to the Fisher combination. The pre-registered
-predictions (A and B) were not confirmed. The majority map shows anomalously
-low pack-crack coupling (p < 0.0001, z = −2.915), which is an inverted finding
-relative to the prediction — the majority is unusually clean on this metric.
-
-Three pending channels (anchoring, MAD, Reock) point in the same direction
-marginally. When those channels have proper null distributions, the combined
-p-value will only decrease or stay flat.
+**Channel 3 (Neighbour-Drain, canonical substrate 2026-06-11).** All three maps are
+anomalously low against their label-shuffle nulls (2019 enacted most anomalous,
+z = -3.52); Prediction A is directionally confirmed.
+The channel is reported per pre-registration and is not part of the joint headline.
 
 The majority map sits at Mahalanobis distance 2.80 from the ensemble
 center (p = 9.71e-02) — outlier on MM in the NDP-favourable direction.

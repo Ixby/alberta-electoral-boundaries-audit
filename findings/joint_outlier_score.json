@@ -2,9 +2,15 @@
   "methodology": "Joint outlier score (joint neutral-draw tail probability), canonical ensemble",
   "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
   "interpretation": "P(feature vector | neutral draw). NOT a posterior probability of gerrymandering \u2014 no prior is specified. Low values mean the neutral null is implausible as an explanation for the observed feature vector.",
-  "channels_active": 2,
-  "channels_executed_non_significant": 1,
-  "channels_pending": 3,
+  "channels_active": 1,
+  "channels_note": "Ch1 (Mahalanobis joint tail) is the sole confirmatory channel. Ch2 (SZAT) was retired to exploratory context 2026-06-13: its i.i.d.-flip p=0.0024 does not survive a contiguity-respecting block-permutation null (p=0.1947, variance inflation 5.79x; findings/szat_block_permutation.md). Ch3 (neighbour-drain) is reported per pre-registration and is not part of the joint headline.",
+  "channels_pending": 0,
+  "channels_pending_note": "Formerly-pending structural channels resolved: municipal anchoring RETRACTED on canonical geometry (both maps within Canadian norm); population MAD and proxy Reock captured in canonical ensemble outputs with percentiles computed below.",
+  "joint_headline": {
+    "method": "Bonferroni dependence-robust upper bound over the two examined channels",
+    "p_upper_bound": 2.8e-06,
+    "note": "Operative joint statistic since 2026-06-10: p <= 2 x min(Ch1, Ch2) = 2 x Ch1 (Ch1 is the binding term). Valid under arbitrary dependence between channels; replaces the retired Fisher combination (anti-conservative under positive dependence, Brown 1975 \u2014 the channels share the 2023 vote substrate)."
+  },
   "maps": {
     "minority": {
       "mahalanobis_distance": 5.7157,
@@ -139,23 +145,31 @@
   "szat": {
     "score": 0.039211,
     "bootstrap_n": 10000,
-    "bootstrap_p_value": 0.0024,
-    "bootstrap_p_label": "0.0024 (24/10000 permutations exceeded observed, full-recompute)",
+    "bootstrap_p_value": 0.0025,
+    "bootstrap_p_label": "0.0025 ((b+1)/(B+1); 24/10000 permutations exceeded observed, full-recompute)",
     "bootstrap_procedure": "full-recompute",
     "aspredicted": "289469"
   },
   "fisher_combined_minority": {
+    "_SUPERSEDED": "2026-06-10. Fisher assumed Ch1/Ch2 independence; the channels share the 2023 vote substrate and Fisher is anti-conservative under positive dependence (Brown 1975). Retained as historical record only \u2014 the operative joint statistic is joint_headline (Bonferroni upper bound).",
+    "as_published_2026_06_10": {
+      "p_channel_1": 1.4e-06,
+      "p_channel_2": 0.0024,
+      "fisher_T": 39.0226,
+      "combined_p": 6.87e-08,
+      "note": "Frozen as-published figures (reports cite T = 39.03, p = 6.87e-08). p_channel_2 = 0.0024 was the raw exceedance ratio (24/10,000); the recomputed fields below use the current (b+1)/(B+1) estimator (25/10,001 = 0.0025), which shifts the recomputed Fisher slightly. Same underlying permutation result either way."
+    },
     "channels": [
       "partisan_joint_mahalanobis",
       "szat_bootstrap"
     ],
     "p_channel_1": 1.4e-06,
     "p_channel_1_neff_adjusted": 1.73e-06,
-    "p_channel_2": 0.0024,
-    "fisher_T": 39.0226,
+    "p_channel_2": 0.0025,
+    "fisher_T": 38.941,
     "fisher_df": 4,
     "combined_p": 7e-08,
-    "combined_p_neff_adjusted": 8e-08,
+    "combined_p_neff_adjusted": 9e-08,
     "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1428, conservative lower bound). Both combined p-values reject the null at p < 1e-5."
   },
   "structural_pending": {
@@ -170,25 +184,30 @@
       "minority_mad": 3938.1,
       "majority_mad": 2826.9,
       "ratio_minority_majority": 1.393,
-      "p_value": "pending \u2014 per-plan MAD not in ensemble outputs",
-      "source": "simulation_real_map_scores_canonical.json"
+      "minority_ensemble_percentile": 99.02,
+      "majority_ensemble_percentile": 15.83,
+      "minority_upper_tail_p": 0.009789,
+      "status_note": "per-plan MAD captured in canonical ensemble outputs; percentiles computed directly (earlier 'pending' status was stale \u2014 corrected 2026-07-08)",
+      "source": "simulation_real_map_scores_canonical.json + simulated_ensemble_raw_samples_canonical.csv"
     },
     "reock_asymmetry": {
       "minority_pct_below_0_30": 1.1,
       "majority_pct_below_0_30": 2.2,
       "ratio": 0.5,
-      "p_value": "pending \u2014 per-plan Reock not in ensemble outputs",
+      "minority_median_reock_ensemble_percentile": 100.0,
+      "majority_median_reock_ensemble_percentile": 100.0,
+      "status_note": "per-plan proxy Reock captured in canonical ensemble outputs; both real maps sit above the neutral ensemble on median compactness \u2014 null finding, expected for commission maps (earlier 'pending' status was stale \u2014 corrected 2026-07-08)",
       "note": "proxy Reock (bounding-box diagonal), not true minimum-enclosing-circle Reock",
-      "source": "simulation_real_map_scores_canonical.json"
+      "source": "simulation_real_map_scores_canonical.json + simulated_ensemble_raw_samples_canonical.csv"
     },
     "neighbour_drain": {
-      "_SUPERSEDED": "2026-06-11. Replaced by canonical-substrate Phase B re-run at findings/drain_label_shuffle_null_canonical.md and findings/drain_label_shuffle_null_canonical.json. Banner reapplied 2026-06-12 after Amendment-10 regeneration overwrote the prior retraction.",
+      "_SUPERSEDED": "2026-06-11. DPG/blended-substrate values replaced by the canonical-substrate Phase B re-run (findings/drain_label_shuffle_null_canonical.json). Banner reapplied 2026-06-12 after Amendment-10 regeneration overwrote the prior retraction; script-generated since 2026-07-08 so regeneration can no longer drop it.",
       "canonical_majority_drain_score": 0.007213,
       "canonical_minority_drain_score": 0.000591,
-      "canonical_enacted_2019_drain_score": 0.001530,
+      "canonical_enacted_2019_drain_score": 0.00153,
       "canonical_majority_z": -3.173,
-      "canonical_minority_z": -2.750,
-      "canonical_enacted_2019_z": -3.520,
+      "canonical_minority_z": -2.75,
+      "canonical_enacted_2019_z": -3.52,
       "canonical_note": "All three maps anomalously low against canonical-substrate label-shuffle null (10,000 perms); 2019 enacted most anomalous (z=-3.52), majority second (-3.17), minority third (-2.75). Pre-registered Prediction A CONFIRMS on canonical substrate.",
       "stale_minority_drain_score": 0.00617633591527195,
       "stale_majority_drain_score": 0.00017876891306582677,
@@ -202,7 +221,8 @@
     "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
     "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
     "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
-    "Fisher combination assumes Channel 1 and Channel 2 are independent \u2014 approximately true.",
+    "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",
+    "Ch2 (SZAT) retired as a confirmatory channel 2026-06-13: block-permutation null returns p=0.1947 (findings/szat_block_permutation.md); the i.i.d.-flip p=0.0024 is exploratory context only.",
     "Mahalanobis assumes multivariate Gaussian ensemble distribution \u2014 informally verified.",
     "This score answers P(features | neutral), not P(gerrymandered | features)."
   ]

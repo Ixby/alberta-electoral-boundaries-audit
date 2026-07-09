@@ -493,6 +493,17 @@ def run() -> None:
     suffix = "_full_votes" if args.full_votes else ""
     if args.va_file:
         suffix += "_canonical_va"
+    # Guard (added 2026-07-08): exploratory configurations must not overwrite the
+    # definitive registered artifact. The T1.10b smoke test (commit cc1b290,
+    # 2026-06-13) ran block permutation with n_boot=100 and silently replaced the
+    # registered 10,000-permutation result in findings/szat_summary.json; the
+    # registered artifact was restored from cc1b290~1 on 2026-07-08. Any run that
+    # deviates from the registered configuration (i.i.d. null, N_BOOT permutations)
+    # now writes to *_exploratory outputs instead.
+    if args.use_block_permutation or (args.n_boot is not None and args.n_boot != N_BOOT):
+        suffix += "_exploratory"
+        print("NOTE: non-registered configuration — writing to *_exploratory output paths "
+              "so the registered artifact is preserved.")
     out_csv = REPORTS / f"szat_results{suffix}.csv"
     out_json = REPORTS / f"szat_summary{suffix}.json"
 
@@ -743,6 +754,8 @@ def run() -> None:
         "total_va_count": int(len(va)),
         "unresolved_count": unresolved,
         "bootstrap_p_value": round(p_value, 4),
+        "bootstrap_p_estimator": "(b+1)/(B+1) per T1.10; raw exceedance ratio = bootstrap_b_extreme / bootstrap_n",
+        "bootstrap_b_extreme": b_extreme,
         "bootstrap_n": n_boot,
         "bootstrap_null_type": null_label,
         "bootstrap_block_size": args.block_size if args.use_block_permutation else None,

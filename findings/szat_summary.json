@@ -6,14 +6,16 @@
   "swing_zone_count": 2110,
   "total_va_count": 4765,
   "unresolved_count": 0,
-  "bootstrap_p_value": 0.0198,
-  "bootstrap_n": 100,
-  "bootstrap_null_type": "block-permutation (T1.10b)",
-  "bootstrap_block_size": 5,
+  "bootstrap_p_value": 0.0025,
+  "bootstrap_p_estimator": "(b+1)/(B+1) per T1.10; raw exceedance ratio = bootstrap_b_extreme / bootstrap_n",
+  "bootstrap_b_extreme": 24,
+  "bootstrap_n": 10000,
+  "bootstrap_null_type": "i.i.d. per-VA flip (pre-registered)",
+  "bootstrap_block_size": null,
   "bootstrap_seed": 23687475,
   "bootstrap_ci_95": [
-    0.003828,
-    0.036355
+    0.009709,
+    0.036652
   ],
   "regional_breakdown": {
     "Calgary": -0.007865,

@@ -1,0 +1,40 @@
+{
+  "date": "2026-07-08",
+  "ensemble": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
+  "n_plans": 1010000,
+  "ensemble_max_d2": 27.737,
+  "maps": {
+    "minority": {
+      "d2": 32.6692,
+      "d": 5.7157,
+      "plans_at_or_beyond": 0,
+      "empirical_tail_fraction": 0.0,
+      "empirical_bound_b1_B1": 9.901e-07
+    },
+    "majority": {
+      "d2": 7.8525,
+      "d": 2.8022,
+      "plans_at_or_beyond": 99154,
+      "empirical_tail_fraction": 0.09817228,
+      "empirical_bound_b1_B1": 0.0981731701
+    },
+    "enacted": {
+      "d2": 12.7453,
+      "d": 3.5701,
+      "plans_at_or_beyond": 15769,
+      "empirical_tail_fraction": 0.01561287,
+      "empirical_bound_b1_B1": 0.0156138459
+    }
+  },
+  "gelman_rubin_full_run": {
+    "efficiency_gap": 1.00179,
+    "mean_median": 1.00135,
+    "declination": 1.00113,
+    "seats_at_50_50": 1.00388
+  },
+  "notes": [
+    "Empirical bounds are distribution-free: no Gaussian assumption. The minority's count of 0 gives p <= 1/(N+1) = 9.90e-07, tighter than the parametric 1.40e-06 headline \u2014 the reported parametric figure is conservative.",
+    "The majority's empirical tail fraction should be compared to its parametric joint_partisan_p (0.0971) as a check of the chi-squared(4) model in the region the ensemble can observe.",
+    "R-hat here is on the full 1,010,000-plan run; the \u00a7s58a6-B table (2026-05-10) was computed at the run's 250,000-plan state."
+  ]
+}

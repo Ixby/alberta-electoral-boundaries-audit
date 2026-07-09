@@ -15,8 +15,11 @@ Replaces the DPG-based 250k ensemble for all Channel 1 percentile placements.
 Backward dependencies:
   data/simulated_ensemble_raw_samples_canonical.csv
   data/simulation_real_map_scores_canonical.json
-  findings/szat_summary.json          (Channel 2 p-value)
-  findings/neighbour_drain_analysis.md (Channel 3 result, read manually)
+  findings/szat_summary.json          (Channel 2 p-value, i.i.d.-flip; retired as
+                                       confirmatory 2026-06-13 — block-permutation
+                                       null p=0.1947, findings/szat_block_permutation.md)
+  findings/drain_label_shuffle_null_canonical.json (Channel 3, canonical substrate)
+  data/drain_label_shuffle_null.json  (Channel 3 DPG-era values, provenance only)
 
 Forward dependencies:
   findings/joint_outlier_score.json
@@ -72,7 +75,8 @@ ENSEMBLE_CSV      = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical
 REAL_SCORES       = DATA / "outputs" / "simulation_real_map_scores_canonical.json"
 CONVERGENCE_JSON  = DATA / "outputs" / "simulation_convergence_diagnostics_canonical.json"
 SZAT_JSON         = REPORTS / "szat_summary.json"
-DRAIN_JSON        = DATA / "drain_label_shuffle_null.json"
+DRAIN_JSON_CANONICAL = REPORTS / "drain_label_shuffle_null_canonical.json"
+DRAIN_JSON_STALE     = DATA / "drain_label_shuffle_null.json"
 OUT_JSON          = REPORTS / "joint_outlier_score.json"
 OUT_MD            = REPORTS / "joint_outlier_score_summary.md"
 
@@ -184,7 +188,15 @@ def run() -> None:
         szat = json.load(f)
     szat_p = float(szat["bootstrap_p_value"])
     szat_n = int(szat["bootstrap_n"])
-    szat_p_label = f"{szat_p:.4f} ({int(round(szat_p * szat_n))}/{szat_n} permutations exceeded observed, full-recompute)"
+    _szat_b = szat.get("bootstrap_b_extreme")
+    if _szat_b is not None:
+        szat_p_label = (
+            f"{szat_p:.4f} ((b+1)/(B+1); {int(_szat_b)}/{szat_n} permutations "
+            f"exceeded observed, full-recompute)"
+        )
+    else:
+        # Legacy inputs without an exceedance count: back-derive approximately and say so.
+        szat_p_label = f"{szat_p:.4f} (~{int(round(szat_p * szat_n))}/{szat_n} permutations exceeded observed, full-recompute)"
 
     # ── Channel 1: Mahalanobis ────────────────────────────────────────────────
 
@@ -235,24 +247,32 @@ def run() -> None:
     print(f"  SZAT score: {szat['szat_score']:+.6f}")
     print(f"  Bootstrap p: {szat_p_label}")
 
-    # ── Channel 3: Neighbour-Drain — read from drain_label_shuffle_null.json ────
-    _DRAIN_FALLBACK_P = 0.1342  # frozen 2026-05-07 if JSON unavailable
-    if DRAIN_JSON.exists():
-        with open(DRAIN_JSON) as _f:
-            _drain_data = json.load(_f)
-        drain_minority_p = float(_drain_data["minority"]["p_two_tailed"])
-        drain_majority_z = float(_drain_data["majority"]["z"])
-        drain_majority_p = float(_drain_data["majority"]["p_two_tailed"])
-        print(f"  Channel 3 drain p loaded from {DRAIN_JSON.name}")
-    else:
-        import warnings
-        warnings.warn(
-            f"{DRAIN_JSON.name} not found — using frozen drain_minority_p={_DRAIN_FALLBACK_P}",
-            UserWarning,
+    # ── Channel 3: Neighbour-Drain — canonical label-shuffle null ─────────────
+    # Canonical-substrate results (2026-06-11 Phase B re-run) live in
+    # findings/drain_label_shuffle_null_canonical.json (per_map schema). The
+    # DPG/blended-substrate values in data/drain_label_shuffle_null.json are
+    # superseded and are carried only as stale_* provenance fields. This script
+    # previously read the stale file directly; regenerating from it silently
+    # reverted the canonical correction (observed 2026-06-12) — hence the hard
+    # requirement below.
+    if not DRAIN_JSON_CANONICAL.exists():
+        raise FileNotFoundError(
+            f"{DRAIN_JSON_CANONICAL} not found — canonical Channel 3 results are "
+            "required; refusing to fall back to superseded DPG-era values."
         )
-        drain_minority_p = _DRAIN_FALLBACK_P
-        drain_majority_z = -2.915
-        drain_majority_p = 0.0
+    with open(DRAIN_JSON_CANONICAL) as _f:
+        _drain_canon_raw = json.load(_f)
+    drain_canon = {
+        "majority": _drain_canon_raw["per_map"]["majority_2026"],
+        "minority": _drain_canon_raw["per_map"]["minority_2026"],
+        "enacted":  _drain_canon_raw["per_map"]["enacted_2019"],
+    }
+    drain_prediction_a = bool(_drain_canon_raw.get("prediction_A_confirmed", False))
+    print(f"  Channel 3 canonical drain loaded from {DRAIN_JSON_CANONICAL.name}")
+    _drain_stale = None
+    if DRAIN_JSON_STALE.exists():
+        with open(DRAIN_JSON_STALE) as _f:
+            _drain_stale = json.load(_f)
 
     # ── Fisher combination (minority only, channels 1+2) ─────────────────────
 
@@ -280,13 +300,30 @@ def run() -> None:
     _maj_reock_pct = round(_maj_real.get("reock_proxy_pct_below_030", 0.135) * 100, 1)
     _reock_ratio = round(_min_reock_pct / _maj_reock_pct, 2) if _maj_reock_pct else float("nan")
 
-    # Drain observed scores from DRAIN_JSON if available, else frozen.
-    if DRAIN_JSON.exists():
-        _drain_min_obs = float(_drain_data["minority"]["observed"])
-        _drain_maj_obs = float(_drain_data["majority"]["observed"])
-    else:
-        _drain_min_obs = 0.006176
-        _drain_maj_obs = 0.000179
+    # Per-plan MAD and proxy-Reock ARE captured in the canonical ensemble outputs
+    # (columns population_mad / reock_proxy_median in the raw samples CSV), so the
+    # ensemble percentiles are computed directly here. The pre-2026-07-08 "pending —
+    # not in ensemble outputs" status was stale.
+    _min_mad_pct = _maj_mad_pct = _min_mad_tail_p = float("nan")
+    _min_reock_med_pct = _maj_reock_med_pct = None
+    _has_mad = "population_mad" in ensemble.columns
+    if _has_mad:
+        _mad_vals = ensemble["population_mad"].dropna().values
+        _min_mad_pct = float((_mad_vals < _min_mad).mean() * 100)
+        _maj_mad_pct = float((_mad_vals < _maj_mad).mean() * 100)
+        _min_mad_tail_p = float((_mad_vals >= _min_mad).mean())
+    _has_reock = "reock_proxy_median" in ensemble.columns
+    if _has_reock:
+        _reock_vals = ensemble["reock_proxy_median"].dropna().values
+        _min_reock_med = _min_real.get("reock_proxy_median")
+        _maj_reock_med = _maj_real.get("reock_proxy_median")
+        _min_reock_med_pct = float((_reock_vals < _min_reock_med).mean() * 100) if _min_reock_med is not None else None
+        _maj_reock_med_pct = float((_reock_vals < _maj_reock_med).mean() * 100) if _maj_reock_med is not None else None
+
+    # Drain observed scores — canonical substrate.
+    _drain_min_obs = float(drain_canon["minority"]["observed"])
+    _drain_maj_obs = float(drain_canon["majority"]["observed"])
+    _drain_ena_obs = float(drain_canon["enacted"]["observed"])
 
     structural_notes = {
         "municipal_anchoring": {
@@ -305,26 +342,60 @@ def run() -> None:
             "minority_mad": round(_min_mad, 1),
             "majority_mad": round(_maj_mad, 1),
             "ratio_minority_majority": round(_min_mad / _maj_mad, 3) if _maj_mad else float("nan"),
-            "p_value": "pending — per-plan MAD not in ensemble outputs",
-            "source": "simulation_real_map_scores_canonical.json",
+            **({
+                "minority_ensemble_percentile": round(_min_mad_pct, 2),
+                "majority_ensemble_percentile": round(_maj_mad_pct, 2),
+                "minority_upper_tail_p": round(_min_mad_tail_p, 6),
+                "status_note": "per-plan MAD captured in canonical ensemble outputs; percentiles computed directly (earlier 'pending' status was stale — corrected 2026-07-08)",
+            } if _has_mad else {
+                "p_value": "pending — per-plan MAD not in ensemble outputs",
+            }),
+            "source": "simulation_real_map_scores_canonical.json + simulated_ensemble_raw_samples_canonical.csv",
         },
         "reock_asymmetry": {
             "minority_pct_below_0_30": _min_reock_pct,
             "majority_pct_below_0_30": _maj_reock_pct,
             "ratio": _reock_ratio,
-            "p_value": "pending — per-plan Reock not in ensemble outputs",
+            **({
+                "minority_median_reock_ensemble_percentile": round(_min_reock_med_pct, 2) if _min_reock_med_pct is not None else None,
+                "majority_median_reock_ensemble_percentile": round(_maj_reock_med_pct, 2) if _maj_reock_med_pct is not None else None,
+                "status_note": "per-plan proxy Reock captured in canonical ensemble outputs; both real maps sit above the neutral ensemble on median compactness — null finding, expected for commission maps (earlier 'pending' status was stale — corrected 2026-07-08)",
+            } if _has_reock else {
+                "p_value": "pending — per-plan Reock not in ensemble outputs",
+            }),
             "note": "proxy Reock (bounding-box diagonal), not true minimum-enclosing-circle Reock",
-            "source": "simulation_real_map_scores_canonical.json",
+            "source": "simulation_real_map_scores_canonical.json + simulated_ensemble_raw_samples_canonical.csv",
         },
         "neighbour_drain": {
-            "minority_drain_score": _drain_min_obs,
-            "majority_drain_score": _drain_maj_obs,
-            "minority_p": drain_minority_p,
-            "majority_z": drain_majority_z,
-            "note": f"minority within null (p={drain_minority_p:.4f}); "
-                    f"majority anomalously low (z={drain_majority_z:.3f}, p<0.0001). "
-                    "Channel not included in Fisher combination.",
-            "source": DRAIN_JSON.name if DRAIN_JSON.exists() else "frozen 2026-05-07",
+            "_SUPERSEDED": (
+                "2026-06-11. DPG/blended-substrate values replaced by the canonical-substrate "
+                "Phase B re-run (findings/drain_label_shuffle_null_canonical.json). Banner "
+                "reapplied 2026-06-12 after Amendment-10 regeneration overwrote the prior "
+                "retraction; script-generated since 2026-07-08 so regeneration can no longer "
+                "drop it."
+            ),
+            "canonical_majority_drain_score": round(_drain_maj_obs, 6),
+            "canonical_minority_drain_score": round(_drain_min_obs, 6),
+            "canonical_enacted_2019_drain_score": round(_drain_ena_obs, 6),
+            "canonical_majority_z": round(float(drain_canon["majority"]["z"]), 3),
+            "canonical_minority_z": round(float(drain_canon["minority"]["z"]), 3),
+            "canonical_enacted_2019_z": round(float(drain_canon["enacted"]["z"]), 3),
+            "canonical_note": (
+                "All three maps anomalously low against canonical-substrate label-shuffle null "
+                "(10,000 perms); 2019 enacted most anomalous "
+                f"(z={drain_canon['enacted']['z']:.2f}), majority second "
+                f"({drain_canon['majority']['z']:.2f}), minority third "
+                f"({drain_canon['minority']['z']:.2f}). Pre-registered Prediction A "
+                f"{'CONFIRMS' if drain_prediction_a else 'DOES NOT CONFIRM'} on canonical substrate."
+            ),
+            **({
+                "stale_minority_drain_score": float(_drain_stale["minority"]["observed"]),
+                "stale_majority_drain_score": float(_drain_stale["majority"]["observed"]),
+                "stale_minority_p": float(_drain_stale["minority"]["p_two_tailed"]),
+                "stale_majority_z": float(_drain_stale["majority"]["z"]),
+                "stale_note": "DPG-era / blended-vote substrate; superseded by canonical values above.",
+            } if _drain_stale else {}),
+            "source": "drain_label_shuffle_null.json (stale) / drain_label_shuffle_null_canonical.json (current)",
         },
     }
 
@@ -338,9 +409,30 @@ def run() -> None:
             "gerrymandering — no prior is specified. Low values mean the neutral "
             "null is implausible as an explanation for the observed feature vector."
         ),
-        "channels_active": 2,
-        "channels_executed_non_significant": 1,
-        "channels_pending": 3,
+        "channels_active": 1,
+        "channels_note": (
+            "Ch1 (Mahalanobis joint tail) is the sole confirmatory channel. Ch2 (SZAT) was "
+            "retired to exploratory context 2026-06-13: its i.i.d.-flip p=0.0024 does not "
+            "survive a contiguity-respecting block-permutation null (p=0.1947, variance "
+            "inflation 5.79x; findings/szat_block_permutation.md). Ch3 (neighbour-drain) is "
+            "reported per pre-registration and is not part of the joint headline."
+        ),
+        "channels_pending": 0,
+        "channels_pending_note": (
+            "Formerly-pending structural channels resolved: municipal anchoring RETRACTED on "
+            "canonical geometry (both maps within Canadian norm); population MAD and proxy "
+            "Reock captured in canonical ensemble outputs with percentiles computed below."
+        ),
+        "joint_headline": {
+            "method": "Bonferroni dependence-robust upper bound over the two examined channels",
+            "p_upper_bound": round(2 * ch1_p, 10),
+            "note": (
+                "Operative joint statistic since 2026-06-10: p <= 2 x min(Ch1, Ch2) = 2 x Ch1 "
+                "(Ch1 is the binding term). Valid under arbitrary dependence between channels; "
+                "replaces the retired Fisher combination (anti-conservative under positive "
+                "dependence, Brown 1975 — the channels share the 2023 vote substrate)."
+            ),
+        },
         "maps": results,
         "szat": {
             "score": szat["szat_score"],
@@ -351,6 +443,25 @@ def run() -> None:
             "aspredicted": "289469",
         },
         "fisher_combined_minority": {
+            "_SUPERSEDED": (
+                "2026-06-10. Fisher assumed Ch1/Ch2 independence; the channels share the 2023 "
+                "vote substrate and Fisher is anti-conservative under positive dependence "
+                "(Brown 1975). Retained as historical record only — the operative joint "
+                "statistic is joint_headline (Bonferroni upper bound)."
+            ),
+            "as_published_2026_06_10": {
+                "p_channel_1": 1.4e-06,
+                "p_channel_2": 0.0024,
+                "fisher_T": 39.0226,
+                "combined_p": 6.87e-08,
+                "note": (
+                    "Frozen as-published figures (reports cite T = 39.03, p = 6.87e-08). "
+                    "p_channel_2 = 0.0024 was the raw exceedance ratio (24/10,000); the "
+                    "recomputed fields below use the current (b+1)/(B+1) estimator "
+                    "(25/10,001 = 0.0025), which shifts the recomputed Fisher slightly. "
+                    "Same underlying permutation result either way."
+                ),
+            },
             "channels": ["partisan_joint_mahalanobis", "szat_bootstrap"],
             "p_channel_1": round(ch1_p, 8),
             "p_channel_1_neff_adjusted": round(ch1_p_adj, 8),
@@ -370,7 +481,8 @@ def run() -> None:
             "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
             "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
             "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
-            "Fisher combination assumes Channel 1 and Channel 2 are independent — approximately true.",
+            "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",
+            "Ch2 (SZAT) retired as a confirmatory channel 2026-06-13: block-permutation null returns p=0.1947 (findings/szat_block_permutation.md); the i.i.d.-flip p=0.0024 is exploratory context only.",
             "Mahalanobis assumes multivariate Gaussian ensemble distribution — informally verified.",
             "This score answers P(features | neutral), not P(gerrymandered | features).",
         ],
@@ -402,7 +514,7 @@ def run() -> None:
 
     md = f"""# Joint Outlier Score — Alberta 2026 EBC Maps
 
-**Date:** 2026-05-07
+**Date:** {time.strftime('%Y-%m-%d')} (regenerated; first canonical run 2026-05-07)
 **Ensemble:** canonical 1,010,000 plans (official Elections Alberta shapefiles, 4 chains × 252,500, base_seed=1432864451)
 **Question:** How probable is it that a neutral redistricting process produces a map
 whose feature vector looks like the minority 2026 map?
@@ -439,54 +551,74 @@ SZAT score: {szat['szat_score']:+.6f} (minority EG − majority EG, swing zones 
 Bootstrap p: {szat_p_label}
 (AsPredicted #289,469; seed pre-committed at git hash d2aea42; full-recompute procedure)
 
+**Status (2026-06-13): retired as a confirmatory channel.** Under a contiguity-respecting
+block-permutation null the SZAT p-value is 0.1947 (variance inflation 5.79× vs the i.i.d.
+flip; `findings/szat_block_permutation.md`). The bootstrap p above is the i.i.d.-flip value,
+retained as exploratory context only. The joint headline rests on Channel 1 alone.
+
 ---
 
-## Channel 3 — Neighbour-Drain label-shuffle null
+## Channel 3 — Neighbour-Drain label-shuffle null (canonical substrate)
 
-Pre-registered: AsPredicted #289,451. Executed 2026-05-07 on official canonical shapefiles.
+Pre-registered: OSF r3zm7 / AsPredicted #289,451. Canonical-substrate Phase B re-run 2026-06-11
+(`findings/drain_label_shuffle_null_canonical.json`, {_drain_canon_raw.get('n_permutations', 10000):,} permutations, seed {_drain_canon_raw.get('seed', 'n/a')}).
 
 | Map | drain_score | Null mean | z-score | p (two-tailed) |
 | --- | --- | --- | --- | --- |
-| Majority 2026 | {_drain_maj_obs:.6f} | 0.032085 | **{drain_majority_z:.3f}** | **{drain_majority_p:.4f}** |
-| Minority 2026 | {_drain_min_obs:.6f} | 0.016741 | −1.372 | {drain_minority_p:.4f} |
+| Majority 2026 | {_drain_maj_obs:.6f} | {drain_canon['majority']['null_mean']:.6f} | **{drain_canon['majority']['z']:.3f}** | **{drain_canon['majority']['p_two_tailed']:.4f}** |
+| Minority 2026 | {_drain_min_obs:.6f} | {drain_canon['minority']['null_mean']:.6f} | {drain_canon['minority']['z']:.3f} | {drain_canon['minority']['p_two_tailed']:.4f} |
+| 2019 Enacted | {_drain_ena_obs:.6f} | {drain_canon['enacted']['null_mean']:.6f} | {drain_canon['enacted']['z']:.3f} | {drain_canon['enacted']['p_two_tailed']:.4f} |
 
-**Prediction A** (drain_score(majority) > drain_score(minority)): **NOT CONFIRMED** (0.000179 < 0.006176).
+**Prediction A** (drain_score(majority) > drain_score(minority)): **{'CONFIRMED' if drain_prediction_a else 'NOT CONFIRMED'}** on the canonical substrate ({_drain_maj_obs:.6f} vs {_drain_min_obs:.6f}).
 
-**Prediction B** (both within null p > 0.05): **NOT CONFIRMED for majority** (p < 0.0001, outside null). Minority: CONFIRMED (p = 0.1342, within null).
+**Interpretation.** All three maps — including the pre-commission 2019 enacted baseline — are
+anomalously *low* against their own label-shuffle nulls; the 2019 enacted map is the most
+anomalous (z = {drain_canon['enacted']['z']:.2f}). No map is singularly anomalous on this metric.
+(The superseded DPG/blended-substrate run reported minority p = 0.1342 within null and majority
+z = −2.915; those values did not survive the canonical re-run and are retained only as
+stale_* provenance fields in the JSON.)
 
-**Interpretation.** The minority map's drain score (0.0062) is within the neutral-draw null — 13.4% of random label assignments produce equal or higher coupling. This channel does **not** contribute evidence against the minority map.
-
-The majority map's drain_score (0.0002) is significantly *below* the null mean (z = −2.915, p < 0.0001 one-sided) — anomalously clean, not the partisan direction.
-
-**Channel 3 contributes p = 0.1342 (minority within null) — not added to Fisher combination.**
+**Channel 3 is reported per pre-registration and is not part of the joint headline.**
 
 ---
 
-## Fisher Combined (Channels 1 + 2, minority only)
+## Joint statistic — Bonferroni upper bound (Fisher retired)
+
+**Operative headline: p ≤ {2 * ch1_p:.2e} (= 2 × Ch1), valid under arbitrary dependence
+between the two examined channels.** The Fisher combination below assumed Ch1/Ch2
+independence and was retired 2026-06-10 (the channels share the 2023 vote substrate;
+Fisher is anti-conservative under positive dependence — Brown 1975). It is preserved
+as historical record only.
 
 | Channel | p (unadjusted) | p (n_eff-adjusted) |
 | --- | --- | --- |
 | Partisan joint (Mahalanobis) | {ch1_p:.2e} | {ch1_p_adj:.2e} |
-| SZAT bootstrap | {szat_p:.4f} | {szat_p:.4f} |
-| **Fisher combined** | **{p_combined:.2e}** | **{p_combined_adj:.2e}** |
+| SZAT bootstrap (retired, i.i.d.-flip) | {szat_p:.4f} | {szat_p:.4f} |
+| **Fisher combined (historical)** | **{p_combined:.2e}** | **{p_combined_adj:.2e}** |
 
 Unadjusted: Fisher T = {T:.3f}, chi-sq df = 4.
-n_eff-adjusted: Fisher T = {T_adj:.3f}, using Hotelling T² p for Ch1 (n_eff = {N_EFF_CONSERVATIVE}, conservative lower bound). Both reject the null.
+n_eff-adjusted: Fisher T = {T_adj:.3f}, using Hotelling T² p for Ch1 (n_eff = {N_EFF_CONSERVATIVE}, conservative lower bound).
 
-**Reading:** p = {p_combined:.2e} is the probability that a neutral-draw process
-produces a map simultaneously this extreme on both the partisan feature vector and
-the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every {int(round(1/max(p_combined, 1e-12))):,} draws.
+**Reading:** the operative claim is the dependence-robust bound p ≤ {2 * ch1_p:.2e}
+(≈ 1 in {int(round(1/max(2 * ch1_p, 1e-12))):,}) — under the neutral null, a map with
+Channel 1's joint partisan profile arises at most about once in every
+{int(round(1/max(2 * ch1_p, 1e-12))):,} draws, allowing for the two channels examined.
+The historical Fisher figure ({p_combined:.2e}) overstated joint significance by
+assuming channel independence.
 
 ---
 
-## Pending channels (not executable with current ensemble)
+## Supplementary structural channels (all resolved — none pending)
 
-| Channel | Reason pending | Marginal finding |
+| Channel | Status | Finding |
 | --- | --- | --- |
-| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a pending channel |
-| Population MAD ratio | Per-plan MAD not in ensemble outputs — requires MCMC rerun with population capture | Minority 1.48× majority |
-| Reock asymmetry | Per-plan Reock not in ensemble outputs — requires MCMC rerun | Minority 2.58× majority on % below 0.30 |
+| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a channel |
+| Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority {(_min_mad / _maj_mad):.2f}× majority ({_min_mad:,.0f} vs {_maj_mad:,.0f}); minority at p{_min_mad_pct:.1f} of the neutral ensemble{'' if _has_mad else ' (percentile unavailable)'} |
+| Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio {_reock_ratio}× (the DPG-era 2.58× value was retracted — see DOCUMENTED CORRECTIONS) |
+
+*(Corrected 2026-07-08: this table previously described MAD and Reock as "pending — not in
+ensemble outputs" and carried the retracted 2.58× Reock ratio and a stale 1.48× MAD ratio.
+The canonical ensemble outputs contain per-plan values for both metrics.)*
 
 ---
 
@@ -494,18 +626,15 @@ occurs roughly once in every {int(round(1/max(p_combined, 1e-12))):,} draws.
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance {min_m['mahalanobis_distance']:.2f} from the ensemble center
-(p = {ch1_p:.2e}). Combined with the SZAT result (p = {szat_p:.4f}) and Fisher's
-method, the joint neutral-null probability is p = {p_combined:.2e}.
+(p = {ch1_p:.2e}). The operative joint statistic is the dependence-robust Bonferroni
+upper bound p ≤ {2 * ch1_p:.2e}. SZAT (Ch2) is exploratory context only
+(block-permutation p = 0.1947); the retired Fisher combination is preserved above as
+historical record.
 
-**Channel 3 (Neighbour-Drain) executed 2026-05-07.** Minority within null
-(p = 0.1342); does not contribute to the Fisher combination. The pre-registered
-predictions (A and B) were not confirmed. The majority map shows anomalously
-low pack-crack coupling (p < 0.0001, z = −2.915), which is an inverted finding
-relative to the prediction — the majority is unusually clean on this metric.
-
-Three pending channels (anchoring, MAD, Reock) point in the same direction
-marginally. When those channels have proper null distributions, the combined
-p-value will only decrease or stay flat.
+**Channel 3 (Neighbour-Drain, canonical substrate 2026-06-11).** All three maps are
+anomalously low against their label-shuffle nulls (2019 enacted most anomalous,
+z = {drain_canon['enacted']['z']:.2f}); Prediction A {'is directionally confirmed' if drain_prediction_a else 'is not confirmed'}.
+The channel is reported per pre-registration and is not part of the joint headline.
 
 The majority map sits at Mahalanobis distance {maj_m['mahalanobis_distance']:.2f} from the ensemble
 center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favourable direction.
@@ -525,10 +654,11 @@ center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favour
     print(f"\n{'='*60}")
     print(f"DUCK SCORE (minority 2026) — canonical ensemble")
     print(f"  Channel 1 (partisan joint):  p = {ch1_p:.2e}")
-    print(f"  Channel 2 (SZAT bootstrap):  p = {szat_p:.4f}")
-    print(f"  Fisher combined:             p = {p_combined:.2e}")
-    print(f"  Channel 3 (drain, minority): p = {drain_minority_p:.4f} (NOT in Fisher)")
-    print(f"  Pending channels: 3")
+    print(f"  Joint headline (Bonferroni): p <= {2 * ch1_p:.2e}")
+    print(f"  Channel 2 (SZAT, retired):   p = {szat_p:.4f} (i.i.d.-flip; block-perm p=0.1947)")
+    print(f"  Fisher combined (historical): p = {p_combined:.2e}")
+    print(f"  Channel 3 (drain, canonical): min z = {drain_canon['minority']['z']:.3f}, maj z = {drain_canon['majority']['z']:.3f}, 2019 z = {drain_canon['enacted']['z']:.3f}")
+    print(f"  Pending channels: 0")
     print(f"{'='*60}")
     _log_run(__file__, [str(p) for p in [OUT_JSON, OUT_MD]], time.time() - t0)
 

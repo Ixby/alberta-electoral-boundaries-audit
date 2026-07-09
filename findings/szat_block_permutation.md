@@ -27,7 +27,7 @@ This re-run replaces the i.i.d. flip with a **queen-contiguity block permutation
 
 | Null model | Null std | p-value | (b+1)/(B+1) |
 |---|---:|---:|---|
-| i.i.d. flip (replicates published) | 0.00807 | 0.0035 | 36/10,001 |
+| i.i.d. flip (replicates the published *procedure*; independent RNG stream — the registered-seed run gives 24/10,000 = 0.0024) | 0.00807 | 0.0035 | 36/10,001 |
 | **Block permutation (this work)** | **0.01942** | **0.1947** | 1946/10,001 |
 | Variance inflation factor | — | — | **5.79×** |
 
