@@ -152,7 +152,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.55);
     margin-bottom: 0.35rem;
   }
 
@@ -166,7 +166,7 @@
 
   .meta {
     font-size: 0.82rem;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.55);
   }
 
   main {
