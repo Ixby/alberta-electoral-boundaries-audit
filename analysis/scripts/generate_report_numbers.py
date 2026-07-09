@@ -180,15 +180,21 @@ def main() -> None:
             N[f"{key_prefix}_{metric}_ordinal"] = ordinal(pct_val)
             N[f"{key_prefix}_{metric}_pct_raw"] = round(pct_val, 4)
     else:
-        # Fallback hardcoded from canonical run (update if re-running ensemble)
+        # Fallback hardcoded from canonical run (update if re-running ensemble).
+        # Corrected 2026-07-08: the previous fallbacks carried the pre-canonical
+        # majority seats@50/50 "p83" (canonical CSV value: p77.81) and the
+        # pre-Amendment-10 swapped-sign declination "p1.21" (corrected Warrington
+        # convention: p98.79). Stale fallbacks reinjected dead values whenever the
+        # CSV was absent — keep these in lockstep with
+        # data/outputs/simulated_ensemble_percentiles_canonical.csv.
         print(f"WARNING: {pct_path} not found — using hardcoded fallbacks", file=sys.stderr)
         N["minority_seats_at_50_50_pct"] = "p99.99"
         N["minority_seats_at_50_50_ordinal"] = "99.99th"
-        N["majority_seats_at_50_50_pct"] = "p83"
-        N["majority_seats_at_50_50_ordinal"] = "83rd"
-        N["minority_efficiency_gap_pct"] = "p94"
+        N["majority_seats_at_50_50_pct"] = "p77.81"
+        N["majority_seats_at_50_50_ordinal"] = "77.8th"
+        N["minority_efficiency_gap_pct"] = "p94.39"
         N["minority_mean_median_pct"] = "p99.98"
-        N["minority_declination_pct"] = "p1.21"
+        N["minority_declination_pct"] = "p98.79"
 
     # ── Convergence diagnostics ─────────────────────────────────────────────
     conv_path = ROOT / "data" / "outputs" / "simulation_convergence_diagnostics_canonical.json"

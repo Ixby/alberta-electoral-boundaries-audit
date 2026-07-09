@@ -17,14 +17,16 @@
 
 ## 1. Headline matrix — discriminating tests run on both maps
 
+*(Corrected 2026-07-08: the majority Ch1 cell previously read p = 0.125 — the committed `joint_outlier_score.json` value is 0.097; EG p15 → p15.5 per the percentiles CSV; the Ch3 row previously carried the superseded DPG-era reading "within null / anomalously clean" — the canonical label-shuffle re-run finds all three maps anomalously low, with 2019 enacted the most anomalous at z = −3.52.)*
+
 | Test | Minority | Majority | Both scored | Source |
 |---|---|---|---|---|
-| Ch1 Mahalanobis joint outlier | p = 1.40×10⁻⁶ | p = 0.125 | Yes | `findings/joint_outlier_score.json`; report §5.4.9 |
-| Efficiency gap (ensemble percentile) | p94.4 | p15 | Yes | report §5.4.9 |
+| Ch1 Mahalanobis joint outlier | p = 1.40×10⁻⁶ | p = 0.097 | Yes | `findings/joint_outlier_score.json`; report §5.4.9 |
+| Efficiency gap (ensemble percentile) | p94.4 | p15.5 | Yes | report §5.4.9 |
 | Mean–median | p99.98 (UCP-tail) | p0.924 (NDP-tail) | Yes | report §5.4.9; `simulated_ensemble_percentiles_canonical.csv` |
 | Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p20.4 | Yes | report §5.4.9 |
 | Seats @ 50/50 | p99.99 | p77.8 | Yes | report §5.4.9 |
-| Drain / neighbour-drain (Ch3) | within null | anomalously clean | Yes | `findings/drain_label_shuffle_null_canonical.json` |
+| Drain / neighbour-drain (Ch3) | anomalously low (z = −2.75, p ≤ 0.0002) | anomalously low (z = −3.17, p ≤ 0.0002) | Yes | `findings/drain_label_shuffle_null_canonical.json` |
 | CSD / municipal anchoring | 72.0% | 80.0% | Yes | report §5.8.5 |
 | Regional swing (canonical) | scored | scored | Yes | `data/outputs/regional_swing_canonical*.json` |
 | Packing / cracking B1–B6 | scored | scored | Yes (all three maps) | `data/outputs/district_patterns/packing_cracking_events.json` |

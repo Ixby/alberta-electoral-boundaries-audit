@@ -5,7 +5,8 @@ Voice and readability checker for audit reports.
 
 Reports Flesch-Kincaid grade level against house-voice targets (advisory only —
 scores outside target range print WARN but do not fail CI):
-  public report   → grade 13–18 (post-secondary to advanced professional)
+  public report   → grade 10–12 (author's standing FK-grade-11 target;
+                    updated 2026-07-08 — supersedes the earlier 13–18 range)
   academic report → grade ≤ 13
 
 Usage:
@@ -36,8 +37,8 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 REPORTS = {
     "public": {
         "path": ROOT / "reports" / "public" / "report_public.md",
-        "min_grade": 13,
-        "max_grade": 18,
+        "min_grade": 10,
+        "max_grade": 12,
         "label": "Public report",
     },
     "academic": {

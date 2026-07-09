@@ -152,6 +152,14 @@ confirmation.
 The observed D = 7.19 is 4.61 null-SD above the null mean — well outside the null
 distribution. This result is not marginal.
 
+*(Update 2026-07-08: the values in §4.3–§4.4 are the round-1 execution record against the
+250k v0_9 ensemble. The T1.6 canonical rescore against the 1,010,000-plan ensemble
+(2026-06-12) gives inter-map D = 7.17, p = 9.999×10⁻⁵ (1/10,001), with individual
+positions minority D = 5.72 / majority D = 2.80 — same conclusion at slightly shifted
+values; see `reports/academic/report_academic.md` §5.4.9 and
+`findings/joint_outlier_score.json`. The round-1 numbers are preserved here as the
+as-executed record.)*
+
 ### 4.4 Contextual comparison
 
 | Test | Map | D | p |

@@ -110,10 +110,10 @@ The table below records which findings have been recomputed on official EA shape
 |---|---|---|---|
 | Efficiency gap (B1) | 5.2 | Phase 4C canonical | **[C]** majority +0.10%, minority +4.02% |
 | Mean-median (B2) | 5.2 | Phase 4C canonical | **[C]** majority −3.62 pp, minority +1.04 pp |
-| Declination (B3) | 5.2 | Phase 4C canonical | **[C]** majority +0.027, minority −0.077 |
+| Declination (B3) | 5.2 | Phase 4C canonical | **[C]** majority +0.027, minority −0.077 *(pre-Amendment-10 swapped-operand signs as logged at the time; corrected convention per Amendment 10, 2026-06-12: majority −0.027, minority +0.077 — see report §5.4.9)* |
 | Seats@50/50 (B4) | 5.2 | Phase 4C canonical | **[C]** majority 48 NDP, minority 43 NDP |
 | Population MAD (A1) | 5.1 | Commission per-ED tables | **[C]** independent of shapefile geometry |
-| NW Calgary zone asymmetry (A2) | 5.1 | Canonical EA shapefiles | **[C]** majority +2.8%, minority +11.5% |
+| NE/central Calgary zone asymmetry (A2) *(zone label corrected 2026-07-08; previously logged as "NW" — the classified zone is NE/central per `findings/population_equality.md` §A2)* | 5.1 | Canonical EA shapefiles | **[C]** majority +2.8%, minority +11.5% |
 | Airdrie split count | 5.3 | Canonical EA shapefiles | **[C]** majority 2 EDs, minority 4 EDs |
 | MCMC ensemble (B5) | 5.4.9 | Canonical EA shapefiles | **[C]** 1,010,000 plans, 4 chains × 252,500 steps |
 | SZAT (Ch2) | 5.2.10 | Canonical EA shapefiles | **[C]** p=0.0024 |

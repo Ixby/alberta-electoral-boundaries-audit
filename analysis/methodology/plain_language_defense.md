@@ -74,9 +74,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority proposal differs from the majority on four measurable non-partisan-bias dimensions: population dispersion (Median Absolute Deviation 48% wider), Calgary geographic-zone asymmetry (12.2% vs 0.4%), Airdrie community fragmentation (4-way vs 2-way split), and commission-chair-flagged geographic anomalies (3 confirmed vs 0).
+**Assertion:** The minority proposal differs from the majority on four measurable non-partisan-bias dimensions: population dispersion (Mean absolute deviation 48% wider; corrected 2026-07-08 — earlier text said "Median", but the 4,707/3,180 pair is the mean absolute deviation per `findings/population_equality.md` Table A1), Calgary geographic-zone asymmetry (12.2% vs 0.4%), Airdrie community fragmentation (4-way vs 2-way split), and commission-chair-flagged geographic anomalies (3 confirmed vs 0).
 **Why?** What do these four things mean and why do they matter?
-**Answer:** Population dispersion measures how unevenly people are distributed across districts: if some districts have far more residents than others, some citizens' votes count more than others'. A "Median Absolute Deviation" 48% wider means the minority map's districts vary more in size than the majority's do. The Calgary zone gap means districts inside Calgary's urban core are sized differently from those in Calgary's suburban ring — an imbalance that tilts which party's voters are packed more tightly. Splitting Airdrie four ways means the city's residents are divided among four different ridings and lose the collective political voice they would have in one or two. The chair-flagged anomalies are boundary shapes that the commission's own chair publicly criticized as geographically strange.
+**Answer:** Population dispersion measures how unevenly people are distributed across districts: if some districts have far more residents than others, some citizens' votes count more than others'. A mean absolute deviation 48% wider means the minority map's districts vary more in size than the majority's do. The Calgary zone gap means districts inside Calgary's urban core are sized differently from those in Calgary's suburban ring — an imbalance that tilts which party's voters are packed more tightly. Splitting Airdrie four ways means the city's residents are divided among four different ridings and lose the collective political voice they would have in one or two. The chair-flagged anomalies are boundary shapes that the commission's own chair publicly criticized as geographically strange.
 
 ---
 
@@ -214,9 +214,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority map's Median Absolute Deviation from provincial average is 4,707 versus the majority's 3,180 — a 48% wider dispersion.
-**Why?** What is "Median Absolute Deviation from provincial average" and why does wider dispersion matter?
-**Answer:** The provincial average is the number of residents that each electoral district would have if the population were split perfectly equally. The Median Absolute Deviation measures the typical gap between each individual district's population and that average — a higher number means districts are more unequal in size. At 4,707 versus 3,180, the minority map's districts vary from the provincial average by about 48% more than the majority's districts do. When districts are unequal in size, votes in smaller districts carry more weight than votes in larger districts.
+**Assertion:** The minority map's Mean absolute deviation from provincial average is 4,707 versus the majority's 3,180 — a 48% wider dispersion. *(Corrected 2026-07-08: earlier text said "Median Absolute Deviation"; the 4,707/3,180 pair is the mean absolute deviation per `findings/population_equality.md` Table A1.)*
+**Why?** What is "mean absolute deviation from provincial average" and why does wider dispersion matter?
+**Answer:** The provincial average is the number of residents that each electoral district would have if the population were split perfectly equally. The mean absolute deviation measures the typical gap between each individual district's population and that average — a higher number means districts are more unequal in size. At 4,707 versus 3,180, the minority map's districts vary from the provincial average by about 48% more than the majority's districts do. When districts are unequal in size, votes in smaller districts carry more weight than votes in larger districts.
 
 ---
 

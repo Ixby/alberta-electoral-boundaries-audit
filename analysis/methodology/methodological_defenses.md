@@ -109,7 +109,7 @@ The statistical confounds in Parts 1–3 are ensemble-specific and vote-data-spe
 * **Population spread (MAD).** Minority Population MAD = 4,707; majority = 3,180 — a 48% wider dispersion. Derived directly from the commission's own published per-ED population tables. No statistical model involved.
 * **Airdrie fragmentation.** Minority splits the City of Airdrie into 4 electoral divisions; majority uses 2. An immutable geometric count, applied symmetrically to both maps.
 * **Chair-flagged anomalies.** The commission's own chair flagged 3 minority boundaries as geometrically anomalous (Rocky Mountain House–Banff Park extension; Calgary-Nolan Hill–Cochrane lasso; Olds-Three Hills-Didsbury → N Airdrie community capture). Zero majority boundaries were flagged. This finding derives from the chair's own majority report and cannot be attacked without attacking the commission's internal process.
-* **NW Calgary population asymmetry.** The minority's NW Calgary geographic zone averages 11.5% above provincial population mean; the majority's same zone shows 2.8%. Measured from commission-published per-ED population targets, not from vote data.
+* **NE/central Calgary population asymmetry.** The minority's north/east/central Calgary geographic zone (Zone A; corrected 2026-07-08 — earlier text here said "NW", but the zone the audit classifies is NE/central per `findings/population_equality.md` §A2) averages 11.5% above provincial population mean; the majority's same zone shows 2.8%. Measured from commission-published per-ED population targets, not from vote data.
 
 ### The anchoring finding is retracted
 
@@ -117,7 +117,7 @@ The discovery that the minority map dropped Municipal Anchoring from the histori
 
 ### Summary
 
-The Parts 1–3 statistical confounds affect Lane 1 magnitude claims at the margins; they do not reach Lane 1's joint p-value (operative: Ch1 p = 1.40×10⁻⁶ / Bonferroni p ≤ 2.80×10⁻⁶; the earlier Fisher p = 6.87×10⁻⁸ was retired 2026-06-10) and they do not reach any Lane 2 finding. Four Lane 2 structural findings survive canonical recomputation: population MAD 48% wider, Airdrie 4-way split, 3 chair-flagged anomalies, and NW Calgary population asymmetry. All four pre-registered tests fire for the minority; none fire for the majority. This structural pattern is not affected by any confound in Parts 1–3.
+The Parts 1–3 statistical confounds affect Lane 1 magnitude claims at the margins; they do not reach Lane 1's joint p-value (operative: Ch1 p = 1.40×10⁻⁶ / Bonferroni p ≤ 2.80×10⁻⁶; the earlier Fisher p = 6.87×10⁻⁸ was retired 2026-06-10) and they do not reach any Lane 2 finding. Four Lane 2 structural findings survive canonical recomputation: population MAD 48% wider, Airdrie 4-way split, 3 chair-flagged anomalies, and NE/central Calgary population asymmetry. All four pre-registered tests fire for the minority; none fire for the majority. This structural pattern is not affected by any confound in Parts 1–3.
 
 ---
 

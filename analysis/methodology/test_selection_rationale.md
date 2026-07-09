@@ -25,7 +25,7 @@ Five families of tests, each answering a different question. The ladder below sh
 
 | Test | What it measures | Source | Script |
 |---|---|---|---|
-| A1 | Median Absolute Deviation (MAD) from provincial quota | commission per-ED populations | `electoral_forensics_population.py` |
+| A1 | Mean absolute deviation (MAD) from provincial quota (corrected 2026-07-08: previously mislabelled "Median" — see `findings/population_equality.md` Table A1) | commission per-ED populations | `electoral_forensics_population.py` |
 | A2 | Calgary geographic-zone asymmetry (urban-core vs suburban-ring) | two classification rules | same |
 | A2b | Urban-rural regional breakdown (Calgary / Edmonton / Rest) | commission per-ED populations | same |
 | A3 | s.15(2) special-rural eligibility audit | Act §15(2) criteria | same |

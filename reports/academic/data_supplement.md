@@ -125,6 +125,8 @@ python -m pytest tests/ -v
 
 All values below are drawn from committed output files at HEAD `7b7b2fe`. File paths given for verification.
 
+*(Note: the Ch3 block below was corrected 2026-07-08 against the canonical committed outputs `findings/drain_label_shuffle_null_canonical.json` and `findings/neighbour_drain_analysis.md`.)*
+
 ### Ch1 — Partisan Joint Outlier (Mahalanobis)
 
 Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, base_seed=1432864451. Covariance matrix estimated from the full 1M ensemble. Source: `findings/joint_outlier_score.json`.
@@ -156,6 +158,10 @@ Source: `findings/szat_summary.json`.
 
 **Pre-registration:** OSF 6pt83, AsPredicted #289469, submitted 2026-05-07.
 
+**Status (added 2026-07-08).** Under a contiguity-respecting block-permutation null, the SZAT p-value is 0.1947 (variance inflation 5.79× vs. the i.i.d.-flip null; `findings/szat_block_permutation.md`). Channel 2 is retired as a confirmatory channel; the p = 0.0024 above is the i.i.d.-flip value, retained as exploratory context. Per `report_academic.md` §4.3.3, OSF 6pt83 was filed ~3 h after the shapefile commit — the channel is classified "Exploratory-reproducible," not prospectively pre-registered.
+
+**Artifact provenance and estimator note (2026-07-08).** The committed `findings/szat_summary.json` was overwritten on 2026-06-13 by a T1.10b block-permutation *smoke test* (n = 100, p = 0.0198; commit `cc1b290` — the commit message says "smoke test") and sat in that state until today. It was restored from the pre-smoke-test commit and then verified by a full first-principles re-run (same drand seed 23,687,475, i.i.d. null, 10,000 permutations), which reproduced **exactly 24/10,000 exceedances**, the identical SZAT score (+0.039211) and the identical null CI. The registered figure 0.0024 is the raw exceedance ratio 24/10,000; the regenerated file reports the same run as p = 0.0025 under the (b+1)/(B+1) estimator adopted per T1.10 (`bootstrap_b_extreme: 24` is recorded in the file). Both conventions describe the same permutation result. `szat.py` now diverts any non-registered configuration to `*_exploratory` output paths so a smoke test can no longer overwrite the registered artifact.
+
 ### Fisher Combination (Ch1 × Ch2)
 
 **[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 6.87×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) and the dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000). The figure here is preserved as historical record.
@@ -170,14 +176,21 @@ Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ|
 
 ### Ch3 — Neighbour-Drain Label Shuffle
 
-Source: `findings/intermap_permutation_test_results.json`. **Not included in Fisher combination.**
+Source: `findings/drain_label_shuffle_null_canonical.json` (label-shuffle null, 10,000 permutations, seed 460508741) and `findings/neighbour_drain_analysis.md` (coupled chain-signal counts, canonical 2026-05-23 run). **Not included in Fisher combination.**
 
-| Map | p | Result |
-|---|---|---|
-| Minority | 0.134 | Within null |
-| Majority | (anomalously clean — z = −2.92) | Reported as anomaly |
+| Map | z | p (two-tailed) | Result |
+|---|---|---|---|
+| Minority (2026) | −2.750 | 0.0002 | Anomalously low vs. label-shuffle null |
+| Majority (2026) | −3.173 | 0.0002 | Anomalously low vs. label-shuffle null |
+| Enacted 2019 (baseline) | −3.520 | 0.0 | Anomalously low vs. label-shuffle null (most anomalous of the three) |
+
+All three maps score anomalously low against their own label-shuffle nulls, with the 2019 enacted baseline the most anomalous (z = −3.520). Prediction A is directionally confirmed (`prediction_A_confirmed: true` in the source JSON).
+
+Coupled chain-signal counts (adjacency test): minority 1, majority 2, 2019 enacted 5 (ratio 0.50×, minority/majority) — a pre-registered PASS at the 1.5× threshold. Source: `findings/neighbour_drain_analysis.md`.
 
 **Pre-registration:** OSF r3zm7, AsPredicted #289451, submitted 2026-05-06.
+
+*(Corrected 2026-07-08: this block previously cited `findings/intermap_permutation_test_results.json` as the source — the Ch1-COMP output, not a Ch3 source — and reported superseded DPG-era values (minority p = 0.134, "within null"; majority z = −2.92, "reported as anomaly"). The canonical label-shuffle results above are from `findings/drain_label_shuffle_null_canonical.json`, which explicitly supersedes the earlier DPG/blended-substrate null.)*
 
 ### Supporting Channels (§s58a6-C, all complete)
 
