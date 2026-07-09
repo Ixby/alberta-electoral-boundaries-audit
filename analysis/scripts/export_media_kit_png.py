@@ -111,20 +111,30 @@ def _export_canonical_seats() -> None:
     ax.axvline(p5_canon,  linestyle="--", color="#888", linewidth=1, zorder=3)
     ax.axvline(p95_canon, linestyle="--", color="#888", linewidth=1, zorder=3)
     ymax = ax.get_ylim()[1]
-    ax.text(p5_canon,  ymax * 0.92, "  5th",  color="#444", fontsize=8, ha="left")
-    ax.text(p95_canon, ymax * 0.92, "95th  ", color="#444", fontsize=8, ha="right")
+    ax.text(p95_canon + 0.0015, ymax * 0.78,
+            "$\\leftarrow$ the normal range:\n9 in 10 neutral maps land\nbetween the dashed lines",
+            color="#444", fontsize=8, ha="left", va="top")
 
+    # Plain-language labels (2026-07-08 readability pass): seat FRACTIONS and
+    # percentile codes replaced with percentages and words for press use.
     def pct_rank(x):
         return float(np.mean(vals < x) * 100)
 
+    PLAIN = {
+        "2019 enacted":  "2019 map (current): 46.0% — inside the normal range",
+        "Majority 2026": "Majority 2026: 46.1% — inside the normal range",
+        "Minority 2026": "Minority 2026: 51.7% — beyond 9,999 of every 10,000 neutral maps",
+    }
     for label, value in REAL_MAPS.items():
-        pr = pct_rank(value)
         ax.axvline(value, linestyle="-", linewidth=2.2, color=COLORS[label], zorder=4,
-                   label=f"{label}: {value:+.4f}  (p{pr:.1f})")
+                   label=PLAIN[label])
 
-    ax.set_xlabel("UCP seat share at 50/50 vote split (fraction of 89 seats)")
-    ax.set_ylabel(f"Count of neutral maps  (n={len(vals):,})")
-    ax.set_title("Seats at 50/50 vote split — canonical ensemble", fontsize=11, loc="left")
+    from matplotlib.ticker import FuncFormatter
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v*100:.0f}%"))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{int(v/1000)}k" if v else "0"))
+    ax.set_xlabel("Share of the 89 seats the UCP wins when the province-wide vote is exactly 50/50")
+    ax.set_ylabel("Number of neutral maps (of 1,010,000)")
+    ax.set_title("A 50/50 election: how many seats does each map hand the UCP?", fontsize=11, loc="left")
     ax.legend(fontsize=8)
     for sp in ["top", "right"]:
         ax.spines[sp].set_visible(False)

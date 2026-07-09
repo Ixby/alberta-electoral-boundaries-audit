@@ -104,9 +104,11 @@ def build_lane1_dotplot() -> Path:
     centers = (edges[:-1] + edges[1:]) / 2
     widths  = edges[1:]  - edges[:-1]
 
-    p90_val = float(np.percentile(eg_pct, 90))
+    # Shade only the region past the p95 outlier line, so the shading and the
+    # dashed line tell one story (pre-2026-07-08 the shading began at p90 while
+    # the line sat at p95 — two unexplained boundaries).
     bar_colors = [
-        to_rgba(THRESHOLD_RED, 0.28) if c >= p90_val else to_rgba(RULE_GREY, 0.55)
+        to_rgba(THRESHOLD_RED, 0.28) if c >= p95_val else to_rgba(RULE_GREY, 0.55)
         for c in centers
     ]
     ax.bar(centers, counts, width=widths, color=bar_colors, linewidth=0)
@@ -114,10 +116,10 @@ def build_lane1_dotplot() -> Path:
     # Blended transform: x in data coords, y in axes fraction (0=bottom, 1=top)
     bx = _mtrans.blended_transform_factory(ax.transData, ax.transAxes)
 
-    # p95 dashed reference line
+    # p95 dashed reference line — plain-language label (readability pass 2026-07-08:
+    # percentile codes like "p95" replaced with words on all public figures)
     ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
-    # p95 label sits lower so it doesn't collide with the nearby minority label
-    ax.text(p95_val + 0.12, 0.76, "p95\n4.1%",
+    ax.text(p95_val + 0.40, 0.66, "outlier line ~4.1%\n(gerrymander threshold —\nonly 1 in 20 neutral maps\nlands past this)",
             color=THRESHOLD_RED, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
@@ -126,30 +128,42 @@ def build_lane1_dotplot() -> Path:
     ax.axvline(majority_eg, color=MAJORITY_TEAL,   lw=2.0, zorder=5)
     ax.axvline(enacted_eg,  color=NEUTRAL_2019,    lw=1.3, linestyle="--", zorder=4)
 
-    # Labels staggered vertically to prevent collision between closely-spaced lines
-    ax.text(minority_eg - 0.15, 0.97, "Minority 2026\n+4.02%, p94",
-            color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
-            ha="right", va="top", transform=bx)
-    ax.text(majority_eg, 0.97, "Majority 2026\n+0.10%, p15",
+    # Label placement (readability pass): majority label over the empty NDP side,
+    # 2019 label centred on its own line, minority label in the empty region right
+    # of the purple line and ABOVE the outlier-line text (which starts at y=0.66).
+    ax.text(majority_eg - 0.18, 0.97, "Majority 2026: +0.1%\nwell inside the\nnormal range",
             color=MAJORITY_TEAL, fontsize=6.5, fontweight="bold",
-            ha="center", va="top", transform=bx)
-    ax.text(enacted_eg + 0.12, 0.86, "2019 enacted\n+2.41%, p69",
+            ha="right", va="top", transform=bx)
+    ax.text(enacted_eg, 0.97, "2019 map (current):\n+2.4%, inside the\nnormal range",
             color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
+            ha="center", va="top", transform=bx)
+    ax.text(minority_eg + 0.40, 0.97,
+            "Minority 2026: +4.0%\nmore UCP-tilted than\n94% of neutral maps",
+            color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
     # Directional labels at top corners
-    ax.text(0.02, 0.99, "← NDP-favoured",
+    # Mathtext arrows: the literal ←/→ glyphs are absent from Georgia (the font
+    # matplotlib resolves from the serif stack on Windows) and rendered as tofu
+    # boxes in the published SVG/PNG until 2026-07-08. Placed at the BOTTOM
+    # corners (2026-07-08 readability pass) so they sit beside the orange/blue
+    # direction strips on the x-axis they explain, and clear of the map labels.
+    ax.text(0.02, 0.05, r"$\leftarrow$ tilts NDP",
             color=NDP_ORANGE, fontsize=7, fontweight="bold",
-            ha="left", va="top", transform=ax.transAxes)
-    ax.text(0.98, 0.99, "UCP-favoured →",
+            ha="left", va="bottom", transform=ax.transAxes)
+    ax.text(0.98, 0.05, r"tilts UCP $\rightarrow$",
             color=UCP_BLUE, fontsize=7, fontweight="bold",
-            ha="right", va="top", transform=ax.transAxes)
+            ha="right", va="bottom", transform=ax.transAxes)
 
     ax.set_xlim(-7, 7)
-    ax.set_xlabel("Efficiency gap (positive = UCP-favoured)", fontsize=8, color="#444")
-    ax.set_ylabel("Neutral maps", fontsize=8, color="#444")
+    ax.set_xlabel("Partisan tilt of the map (efficiency gap)", fontsize=8, color="#444")
+    ax.set_ylabel("Number of neutral maps", fontsize=8, color="#444")
     ax.set_xticks([-6, -4, -2, 0, 2, 4, 6])
     ax.set_xticklabels(["-6%", "-4%", "-2%", "0%", "+2%", "+4%", "+6%"])
+    # Thousands-abbreviated y ticks: exact bin counts are irrelevant detail for
+    # a lay reader; "40k" carries the same shape information with less ink.
+    from matplotlib.ticker import FuncFormatter
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda t, _: f"{int(t/1000)}k" if t else "0"))
     ax.tick_params(axis="both", direction="out", length=3, pad=2)
 
     # Two-tone x-axis: orange for negative EG (NDP-favoured), blue for positive (UCP-favoured)
@@ -174,45 +188,88 @@ def build_lane2_bars() -> Path:
     """
     # (label, majority_value, minority_value, threshold_val_or_None,
     #  x_max, x_unit_label)
+    #
+    # Corrected 2026-07-08. The previous version of this figure carried:
+    #   (a) the RETRACTED municipal-anchoring panel (DPG-era 29.0/55.5 pp below
+    #       norm; canonical recomputation puts both maps within the 70-85%
+    #       Canadian norm — report §5.8.5) — panel removed;
+    #   (b) the Zone A-Zone B gap values (0.4/12.2) paired with the +5%
+    #       threshold that belongs to the vs-provincial-mean variant; the
+    #       vs-mean values are 2.8/11.5 (report §5.3.1 P1,
+    #       findings/population_equality.md §A2), and the zone is NE/central
+    #       Calgary, not "NW";
+    #   (c) a 5-of-5 structural score; with anchoring neutral the summary is
+    #       4 of 5 (public report Part IV table; pre-registered outlier
+    #       criterion >= 4 of 5);
+    #   (d) a "% widening relative to ensemble" unit label on the MAD panel —
+    #       the 48% is relative to the majority map (4,707 vs 3,180,
+    #       commission population tables).
+    #
+    # Readability redesign (2026-07-08, dataviz pass): the MAD panel previously
+    # plotted the DERIVED ratio (majority 0, minority 48 "% wider") — a zero-length
+    # majority bar misreads as "majority has zero population spread." It now plots
+    # the actual mean absolute deviations (3,180 vs 4,707 persons, commission
+    # population tables) with the 48%-wider note carried in the panel title.
+    # Panel titles rewritten in plain language; jargon moved to sublabels.
+    # Tuple: (label, majority_value, minority_value, threshold_or_None,
+    #         x_max, x_unit_label, value_format)
     tests = [
         (
-            "Municipal anchoring\ndeparture from norm",
-            29.0,
-            55.5,
+            "How unevenly people are spread across districts\n(typical distance from the ideal district size; minority is 48% wider)",
+            3180,
+            4707,
             None,
-            65,
-            "pp below the 70–85 pp norm",
+            5500,
+            "people away from the ideal size (smaller is better)",
+            "{:,.0f}",
         ),
         (
-            "Population spread\n(MAD widening)",
-            0,
-            48.0,
-            None,
-            55,
-            "% widening relative to ensemble",
-        ),
-        (
-            "NW Calgary district size\nexcess over average",
-            0.4,
-            12.2,
+            "How overcrowded the NE & central Calgary districts are\n(the audit's line is +5% above the provincial average)",
+            2.8,
+            11.5,
             5,
             16,
-            "% above provincial average",
+            "% above the provincial average district size",
+            "{:g}%",
         ),
-        ("Chair-flagged\nanomalies", 0, 3, 1, 5, "count"),
-        ("Airdrie city splits\n(above minimum of 2)", 0, 2, 0, 3, "additional splits"),
-        ("Structural-irregularity\nscore (of 5 tests)", 0, 5, 4, 5.5, "tests failing"),
+        (
+            "Boundaries the commission's own chair\nflagged as geographically anomalous",
+            0,
+            3,
+            1,
+            5,
+            "boundaries flagged",
+            "{:g}",
+        ),
+        (
+            "Extra pieces the City of Airdrie is cut into\n(every map must use at least 2)",
+            0,
+            2,
+            None,
+            3,
+            "extra pieces beyond the required 2",
+            "{:g}",
+        ),
+        (
+            "The scorecard: tests fired, out of 5\n(the 5th, municipal anchoring, was neutral for both maps)",
+            0,
+            4,
+            4,
+            5.5,
+            "tests fired (4 of 5 = structural outlier)",
+            "{:g}",
+        ),
     ]
 
     n = len(tests)
     fig, axes = plt.subplots(
-        n, 1, figsize=(6.4, 7.8), dpi=300, gridspec_kw={"hspace": 0.80}
+        n, 1, figsize=(6.4, 7.6), dpi=300, gridspec_kw={"hspace": 1.20}
     )
     fig.patch.set_facecolor("white")
 
     bar_h = 0.55
 
-    for ax, (label, maj, mino, threshold, xmax, unit) in zip(axes, tests):
+    for ax, (label, maj, mino, threshold, xmax, unit, vfmt) in zip(axes, tests):
         ax.set_facecolor("white")
         for spine in ("top", "right", "left"):
             ax.spines[spine].set_visible(False)
@@ -252,18 +309,17 @@ def build_lane2_bars() -> Path:
         ax.text(
             maj_x,
             1,
-            f"{maj:g}",
+            vfmt.format(maj),
             va="center",
             ha=maj_ha,
             fontsize=7.5,
             color=TEXT_DARK,
         )
-        label_mino = f"{mino:g}" if isinstance(mino, float) else str(mino)
         mino_x = max(mino, xmax * 0.04) if mino == 0 else mino + offset
         ax.text(
             mino_x,
             0,
-            label_mino,
+            vfmt.format(mino),
             va="center",
             ha="left",
             fontsize=7.5,
@@ -272,6 +328,11 @@ def build_lane2_bars() -> Path:
         )
 
         ax.set_xlim(0, xmax)
+        # Counts get integer ticks — a count axis showing "0.5" reads as nonsense
+        # to a lay audience (2026-07-08 readability pass).
+        if xmax <= 6:
+            from matplotlib.ticker import MaxNLocator
+            ax.xaxis.set_major_locator(MaxNLocator(integer=True))
         ax.set_ylim(-0.5, 1.7)
         ax.set_yticks([0, 1])
         ax.set_yticklabels(["Minority", "Majority"], fontsize=7.5, color=TEXT_DARK)
@@ -315,7 +376,7 @@ def build_lane2_bars() -> Path:
     )
 
     fig.suptitle(
-        "Structural-irregularity tests: majority vs minority",
+        "How the two maps score on the structural fairness tests",
         fontsize=10,
         fontweight="bold",
         x=0.04,
@@ -333,7 +394,9 @@ def build_lane2_bars() -> Path:
 def build_bias_structure_matrix() -> Path:
     """The Map Scorecard — the article's primary rhetorical visual.
     Two-axis plot:
-      x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles, 50k 2-chain ensemble)
+      x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles,
+          simulation_real_map_scores_canonical.json; threshold from the
+          1,010,000-plan canonical ensemble p95)
       y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
     Three points: 2019 enacted (grey), Majority 2026 (green), Minority
     2026 (red). Both threshold lines (Alberta ~4%, US 7%) plus the
@@ -344,14 +407,24 @@ def build_bias_structure_matrix() -> Path:
     fig.subplots_adjust(top=0.88, bottom=0.16, left=0.13, right=0.97)
 
     # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
+    # Corrected 2026-07-08: minority structural count 5 -> 4 (municipal anchoring
+    # retracted on canonical geometry — both maps within the 70-85% Canadian norm;
+    # report §5.8.5 — so 4 of the 5 pre-registered structural tests fire).
+    # Grounding note (2026-07-08): the 2019 enacted map's structural count of 0
+    # rests on the tests runnable against it — MAD 2,010 (tighter than both 2026
+    # maps; Appendix C), a 2-way Airdrie configuration, and zero chair flags. The
+    # Calgary Zone A-Zone B gap was NOT run on 2019 (2019-era per-ED population
+    # data absent from the working bundle; findings/population_equality.md §A1).
     points = [
         ("2019 enacted", 2.41, 0, NEUTRAL_2019),
         ("Majority 2026", 0.10, 0, MAJORITY_TEAL),
-        ("Minority 2026", 4.02, 5, MINORITY_PURPLE),
+        ("Minority 2026", 4.02, 4, MINORITY_PURPLE),
     ]
 
     threshold_eg_alberta = (
-        4.11  # canonical ensemble p95 (simulated_ensemble_percentiles_canonical.csv: 0.041086)
+        # Corrected 2026-07-08: previously 4.11 citing "0.041086" — the committed
+        # simulated_ensemble_percentiles_canonical.csv ensemble_p95 is 0.041004 -> 4.10%.
+        4.10
     )
     threshold_eg_us = 7.0
     threshold_struct = 4
@@ -384,13 +457,13 @@ def build_bias_structure_matrix() -> Path:
     # Threshold labels — top of chart, inside the box, consistent "line" verbiage
     ax.text(
         threshold_eg_alberta - 0.12, YMAX - 0.18,
-        "Alberta\nline ~4.1%",
+        "Alberta line ~4.1%\n(gerrymander threshold)",
         color=THRESHOLD_RED, fontsize=7.5, fontweight="bold",
         ha="right", va="top",
     )
     ax.text(
         threshold_eg_us - 0.12, YMAX - 0.18,
-        "US\nline 7%",
+        "US courts'\nreference: 7%",
         color="#888888", fontsize=7.5, fontweight="bold",
         ha="right", va="top",
     )
@@ -431,10 +504,12 @@ def build_bias_structure_matrix() -> Path:
         ax.scatter(x, y, s=240, c=color, edgecolors=TEXT_DARK, linewidths=1.4, zorder=4)
 
     # Dot labels — close to origin, inside the zone the dot sits in
-    # Minority 2026 at (4.02, 5.0) → TOP-LEFT SUS zone [x<4.11, y>4]; label left and below the dot
+    # Minority 2026 at (4.02, 4.0) — corrected 2026-07-08: annotation previously said
+    # "5 of 5" and anchored at y=5.0, contradicting the corrected point data (4 of 5,
+    # anchoring neutral).
     ax.annotate(
-        "Minority 2026\n+4.0% / 5 of 5",
-        xy=(4.02, 5.0), xytext=(2.2, 4.65),
+        "Minority 2026\n+4.0% / 4 of 5",
+        xy=(4.02, 4.0), xytext=(2.2, 4.65),
         fontsize=8.5, fontweight="bold", color=MINORITY_PURPLE,
         ha="right", va="top",
         arrowprops=dict(arrowstyle="-", color=MINORITY_PURPLE, lw=0.9,
@@ -466,11 +541,11 @@ def build_bias_structure_matrix() -> Path:
     ax.set_xlim(XMIN, XMAX)
     ax.set_ylim(YMIN, YMAX)
     ax.set_xlabel(
-        "Lane 1: Efficiency gap (signed %)\nfurther right = more UCP-favoured",
+        "Partisan tilt — the efficiency gap (Lane 1)\nfurther right = the map favours the UCP more",
         fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2,
     )
     ax.set_ylabel(
-        "Lane 2: Structural-irregularity count (of 5)\nhigher = more structural problems",
+        "Structural red flags, out of 5 tests (Lane 2)\nhigher = more red flags",
         fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2,
     )
     ax.set_xticks([-6, -4, -2, 0, 2, 4, 6])

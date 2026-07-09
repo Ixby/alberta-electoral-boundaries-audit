@@ -26,14 +26,18 @@ Forward:
 # ---------------------------------------------------------------------------
 MINORITY_PURPLE       = "#6B35A7"   # minority 2026 — medium dark purple
 MINORITY_PURPLE_LIGHT = "#EDE3F7"   # light fill for minority zones / callouts
-MAJORITY_TEAL         = "#1A7A6E"   # majority 2026 — dark teal (complementary)
+# MAJORITY_TEAL raised from #1A7A6E on 2026-07-08: the old value sat below the
+# chroma floor in the dataviz six-check validator (OKLCh C 0.086 < 0.1 — reads
+# gray-ish); #0F8A78 passes all checks and keeps CVD separation vs the purple
+# at deltaE 52 (deutan). Same teal family — "teal" references remain accurate.
+MAJORITY_TEAL         = "#0F8A78"   # majority 2026 — teal (complementary)
 MAJORITY_TEAL_LIGHT   = "#D0EEEA"   # light fill for majority zones / callouts
 
 # ---------------------------------------------------------------------------
 # Segment palettes — categorical shades within each map (city-split charts)
 # ---------------------------------------------------------------------------
 MINORITY_SEGMENT_COLORS = ("#6B35A7", "#8F55C9", "#4D2080", "#B48CD9")
-MAJORITY_SEGMENT_COLORS = ("#1A7A6E", "#2EA594", "#115249", "#5CBDB0")
+MAJORITY_SEGMENT_COLORS = ("#0F8A78", "#2EA594", "#115249", "#5CBDB0")
 
 # ---------------------------------------------------------------------------
 # Party reference colours — do not use for map identity

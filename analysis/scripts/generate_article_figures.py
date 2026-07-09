@@ -834,17 +834,25 @@ def draw_calgary(fig_path: Path) -> dict:
 def build_airdrie():
     title = "Airdrie: one city, four partitions"
     subtitle = (
-        "Population ~90,000. The majority draws two ridings both named Airdrie. "
-        "The minority cuts the city into four pieces \u2014 one per compass direction \u2014 "
-        "each attached to a different surrounding district."
+        "Population 85,805 (2024 municipal census). The majority draws two ridings "
+        "both named Airdrie. The minority cuts the city into four pieces \u2014 one per "
+        "compass direction \u2014 each attached to a different surrounding district."
     )
     maj_segments = [
         Segment("Airdrie-East", MAJORITY_SEGMENT_COLORS[0], proportion=1.0),
         Segment("Airdrie-West", MAJORITY_SEGMENT_COLORS[1], proportion=1.0),
     ]
-    # Four minority segments, one per quadrant of the city:
-    #   south -> Calgary-Airdrie, west -> Calgary-Foothills-Airdrie West,
-    #   north -> Calgary-Nolan Hill-Cochrane, east -> Airdrie East
+    # Four minority segments, one per quadrant of the city.
+    # Corrected 2026-07-08: the north segment previously read "Calgary-Nolan
+    # Hill-Cochrane" and the population "~90,000". Ground truth recomputed by
+    # intersecting the Airdrie CSD boundary (alberta_2021_csds.gpkg) with the
+    # canonical minority shapefile (ea_minority_2026_eds.gpkg): the four EDs
+    # covering Airdrie are Airdrie-East (35.5 km^2 of the city),
+    # Olds-Three Hills-Didsbury (23.2, the northern piece), Calgary-Airdrie
+    # (15.8, centre-south) and Calgary-Foothills-Airdrie West (11.2, west) \u2014
+    # matching report_public.md Part III. Nolan Hill-Cochrane is the separate
+    # lasso-corridor finding and does not touch Airdrie. Population per the
+    # 2024 municipal census figure cited throughout the reports.
     min_segments = [
         Segment(
             "Calgary-Airdrie",
@@ -856,7 +864,7 @@ def build_airdrie():
             "Airdrie East", MINORITY_SEGMENT_COLORS[0], sublabel="east", proportion=1.0
         ),
         Segment(
-            "Calgary-Nolan Hill-Cochrane",
+            "Olds-Three Hills-Didsbury",
             MINORITY_SEGMENT_COLORS[2],
             sublabel="north",
             proportion=1.0,
