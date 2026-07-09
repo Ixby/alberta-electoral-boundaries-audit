@@ -12,8 +12,23 @@ import argparse
 from pathlib import Path
 
 
+# Text extensions hashed in the repo's canonical LF form. .gitattributes
+# declares `* text=auto eol=lf`, so the bytes git stores are always LF — but
+# scripts regenerating these outputs on Windows write CRLF to the working
+# tree, and hashing raw working-tree bytes bakes the platform into the
+# manifest. That exact drift broke the CI provenance gate on 2026-07-09:
+# local (CRLF) hashes PASSed while the Linux checkout (LF) FAILed.
+# Normalizing CRLF -> LF before hashing makes the manifest describe the
+# content, not the checkout.
+_TEXT_EXTENSIONS = {".csv", ".json", ".md", ".txt", ".yaml", ".yml"}
+
+
 def compute_sha256(filepath):
+    filepath = Path(filepath)
     hash_sha256 = hashlib.sha256()
+    if filepath.suffix.lower() in _TEXT_EXTENSIONS:
+        hash_sha256.update(filepath.read_bytes().replace(b"\r\n", b"\n"))
+        return hash_sha256.hexdigest()
     with open(filepath, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha256.update(chunk)
