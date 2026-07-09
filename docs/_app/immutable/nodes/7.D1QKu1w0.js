@@ -1,4 +1,4 @@
-import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/BfWrs00R.js";import{l as f}from"../chunks/D-cmj0Ue.js";import"../chunks/CsaauQz1.js";var p=e(`<meta name="description" content="How Canadian law evaluates an electoral map: Charter s.3 effective representation, the Saskatchewan Reference, and Alberta's Electoral Boundaries Commission Act — and how this audit's evidence relates to those tests." class="svelte-1x9eybv"/>`),m=e(`<header class="svelte-1x9eybv"><div class="header-inner svelte-1x9eybv"><a class="back-link svelte-1x9eybv">← Back to audit</a> <div class="header-text svelte-1x9eybv"><div class="site-label svelte-1x9eybv">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1x9eybv">What the Law Asks of an Electoral Map</h1> <p class="meta svelte-1x9eybv">Plain-language companion · English only for now · Not legal advice</p></div></div></header> <main class="svelte-1x9eybv"><div class="content svelte-1x9eybv"><p class="standfirst svelte-1x9eybv">This audit measures maps. Courts judge them. The two jobs are related but not the same,
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/BfWrs00R.js";import{l as f}from"../chunks/BO-okmwm.js";import"../chunks/CsaauQz1.js";var p=e(`<meta name="description" content="How Canadian law evaluates an electoral map: Charter s.3 effective representation, the Saskatchewan Reference, and Alberta's Electoral Boundaries Commission Act — and how this audit's evidence relates to those tests." class="svelte-1x9eybv"/>`),m=e(`<header class="svelte-1x9eybv"><div class="header-inner svelte-1x9eybv"><a class="back-link svelte-1x9eybv">← Back to audit</a> <div class="header-text svelte-1x9eybv"><div class="site-label svelte-1x9eybv">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1x9eybv">What the Law Asks of an Electoral Map</h1> <p class="meta svelte-1x9eybv">Plain-language companion · English only for now · Not legal advice</p></div></div></header> <main class="svelte-1x9eybv"><div class="content svelte-1x9eybv"><p class="standfirst svelte-1x9eybv">This audit measures maps. Courts judge them. The two jobs are related but not the same,
       and this page explains the difference: what Canadian law actually asks of an electoral
       boundary, which questions belong to a court rather than to a statistician, and where the
       audit's evidence fits. The audit itself takes no position on any legal conclusion —
@@ -59,10 +59,17 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
         obliges the commission to use the allowance. Both 2026 maps invoke s.15(2) for three
         divisions each. The audit re-checked all six invocations under the corrected statutory
         thresholds and found every one eligible. The controversy the audit documents is not
-        eligibility but a drawing choice. The minority's Rocky Mountain House–Banff Park
+        eligibility but a drawing choice: the minority's Rocky Mountain House–Banff Park
         division picks up one qualifying criterion — the provincial-border one — only by
-        extending through uninhabited national-park land. The commission chair criticized that
-        choice in the official report, even though the division qualifies without it.</p> <p class="svelte-1x9eybv"><strong class="svelte-1x9eybv">What a commission report is — and is not.</strong> Under the EBCA, the
+        extending through uninhabited national-park land. On that choice, the commission's own
+        final report (March 23, 2026, p. 10) speaks for itself. The majority commissioners
+        write:</p> <blockquote class="svelte-1x9eybv">"They propose to retain an electoral division of 'Rocky Mountain House-Banff Park' by
+        artificially extending its boundary to the province's western border with British
+        Columbia (taking part of Banff National Park, where no one lives), which is a bad faith
+        effort to ensure it can be protected under s. 15(2) of the Act."</blockquote> <p class="svelte-1x9eybv">That characterization — including the phrase "bad faith" — is the commission chair's,
+        made in a public statutory document. It is not the audit's. The audit's own analysis
+        found the division qualifies under s.15(2) even without the extension; quoting the
+        chair records what the primary source says, not what any commissioner intended.</p> <p class="svelte-1x9eybv"><strong class="svelte-1x9eybv">What a commission report is — and is not.</strong> Under the EBCA, the
         commission's report has no legal effect by itself. Boundaries change only when the
         Legislative Assembly passes a separate Electoral Districts Act. Most provinces make a
         commission's map effective unless the legislature actively overrides it. Alberta's

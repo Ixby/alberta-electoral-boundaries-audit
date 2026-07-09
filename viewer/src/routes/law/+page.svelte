@@ -156,10 +156,23 @@
         obliges the commission to use the allowance. Both 2026 maps invoke s.15(2) for three
         divisions each. The audit re-checked all six invocations under the corrected statutory
         thresholds and found every one eligible. The controversy the audit documents is not
-        eligibility but a drawing choice. The minority's Rocky Mountain House–Banff Park
+        eligibility but a drawing choice: the minority's Rocky Mountain House–Banff Park
         division picks up one qualifying criterion — the provincial-border one — only by
-        extending through uninhabited national-park land. The commission chair criticized that
-        choice in the official report, even though the division qualifies without it.
+        extending through uninhabited national-park land. On that choice, the commission's own
+        final report (March 23, 2026, p. 10) speaks for itself. The majority commissioners
+        write:
+      </p>
+      <blockquote>
+        "They propose to retain an electoral division of 'Rocky Mountain House-Banff Park' by
+        artificially extending its boundary to the province's western border with British
+        Columbia (taking part of Banff National Park, where no one lives), which is a bad faith
+        effort to ensure it can be protected under s. 15(2) of the Act."
+      </blockquote>
+      <p>
+        That characterization — including the phrase "bad faith" — is the commission chair's,
+        made in a public statutory document. It is not the audit's. The audit's own analysis
+        found the division qualifies under s.15(2) even without the extension; quoting the
+        chair records what the primary source says, not what any commissioner intended.
       </p>
       <p>
         <strong>What a commission report is — and is not.</strong> Under the EBCA, the
@@ -285,6 +298,18 @@
 
   ul { margin: 0 0 0.9rem 1.4rem; }
   li { margin-bottom: 0.7rem; }
+
+  blockquote {
+    margin: 0 0 0.9rem;
+    padding: 0.8rem 1.1rem;
+    border-inline-start: 3px solid #7B2D3E;
+    background: rgba(26, 46, 69, 0.06);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+  }
+  :global(:root[data-theme="dark"]) blockquote {
+    background: rgba(255, 255, 255, 0.05);
+  }
 
   a { color: #1a5276; }
   :global(:root[data-theme="dark"]) a { color: #7fb3d5; }
