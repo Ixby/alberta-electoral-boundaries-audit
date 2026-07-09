@@ -103,7 +103,7 @@
 
     <section>
       <h2>Policy updates</h2>
-      <p>When this policy changes, the effective date at the top is updated and the change is committed to the <a href="https://github.com/ixby/alberta-electoral-boundaries-audit" target="_blank" rel="noopener noreferrer">public git repository</a>. The commit history is the changelog. Any change that expands what is collected is noted in the commit message.</p>
+      <p>When this policy changes, the effective date at the top is updated and the change is committed to the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" target="_blank" rel="noopener noreferrer">public git repository</a>. The commit history is the changelog. Any change that expands what is collected is noted in the commit message.</p>
     </section>
 
   </div>

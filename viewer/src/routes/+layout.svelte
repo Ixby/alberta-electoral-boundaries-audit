@@ -23,13 +23,14 @@
 		document.documentElement.dir = LANG_LABELS[lang.current].dir;
 	});
 
-	// Canonical origin for hreflang annotations. Set VITE_CANONICAL_URL at build
-	// time (e.g. "https://ixby.github.io/alberta-electoral-boundaries-audit") so
-	// search engines see absolute alternates.
-	const canonicalBase: string = import.meta.env.VITE_CANONICAL_URL ?? '';
-	// hreflang href base: prefer the absolute canonical origin; otherwise fall
-	// back to the app's base path so the strict prerender never sees a base-less
-	// absolute URL (a bare "/" fails "does not begin with base").
+	// Canonical origin for hreflang annotations. hreflang alternates MUST be
+	// absolute URLs (Google Search spec); the pre-2026-07-08 fallback to the
+	// relative base path shipped "./?lang=en" alternates to production, which
+	// Lighthouse flags as invalid hreflang. Default to the real deployment
+	// origin; VITE_CANONICAL_URL still overrides for forks/mirrors.
+	const canonicalBase: string =
+		import.meta.env.VITE_CANONICAL_URL ??
+		'https://ixby.github.io/alberta-electoral-boundaries-audit';
 	const altBase: string = canonicalBase || base;
 </script>
 

@@ -16,11 +16,28 @@ if (!existsSync(src)) {
 	process.exit(1);
 }
 
+// Explicit allowlist (2026-07-09): the old *.svg glob redeployed every figure in
+// data/maps/article/, including orphans from retired article drafts. The
+// link audit found figure_{calgary,lethbridge,reddeer}_v3.svg and
+// bias_structure_matrix.svg referenced by no page while still shipping stale
+// content to docs/images/. Only figures actually embedded by the viewer or
+// report_public.html get deployed; add a name here when a page starts using it.
+const DEPLOYED_FIGURES = new Set([
+	'lane1_dotplot.svg',
+	'lane2_bars.svg',
+	'stakes_quadrant.svg',
+	'figure_airdrie_v3.svg'
+]);
+
 let copied = 0;
 for (const f of readdirSync(src)) {
-	if (extname(f) === '.svg') {
+	if (extname(f) === '.svg' && DEPLOYED_FIGURES.has(f)) {
 		cpSync(resolve(src, f), resolve(dst, f));
 		copied++;
 	}
 }
-console.log(`Copied ${copied} SVG(s) from data/maps/article/ → docs/images/`);
+if (copied !== DEPLOYED_FIGURES.size) {
+	console.error(`Expected ${DEPLOYED_FIGURES.size} allowlisted figures, copied ${copied} — check data/maps/article/`);
+	process.exit(1);
+}
+console.log(`Copied ${copied} allowlisted SVG(s) from data/maps/article/ → docs/images/`);

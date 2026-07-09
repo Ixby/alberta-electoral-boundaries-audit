@@ -127,8 +127,10 @@ body {
 }
 
 .toc-block ul { padding-left: 1.2em; }
-.toc-block li { margin: 0.15rem 0; }
-.toc-block a { color: #1a5276; text-decoration: none; }
+.toc-block li { margin: 0; }
+/* inline-block + vertical padding lifts each TOC link to a >=24px tap target
+   (Lighthouse target-size, 2026-07-09) without changing the visual rhythm */
+.toc-block a { color: #1a5276; text-decoration: none; display: inline-block; padding: 4px 0; }
 .toc-block a:hover { text-decoration: underline; }
 
 /* ── Body content ────────────────────────────────────────── */
@@ -320,6 +322,8 @@ HTML_TEMPLATE = """\
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{subtitle}">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>{title}</title>
   <style>
 {css}
@@ -343,13 +347,13 @@ HTML_TEMPLATE = """\
 {toc}
   </details>
 
-  <div class="content">
+  <main class="content">
 {body}
-  </div>
+  </main>
 
   <div class="doc-footer">
     Alberta Electoral Boundary Audit &nbsp;&middot;&nbsp; May 2026 &nbsp;&middot;&nbsp;
-    Pre-registered at OSF &nbsp;&middot;&nbsp;
+    Registrations and data on OSF (see &sect;4.3.3 for pre-registration status by test) &nbsp;&middot;&nbsp;
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
 
@@ -369,7 +373,15 @@ def extract_title(md_text: str) -> str:
 
 
 def strip_image_directives(md_text: str) -> str:
-    """Re-anchor image paths: data/maps/... → images/... (docs/ layout)."""
+    """Re-anchor image paths: data/maps/... → images/... (docs/ layout).
+
+    data/maps/article/*.svg is copied FLAT into docs/images/ by
+    viewer/scripts/copy-figures.mjs, so the article/ segment must be stripped —
+    the pre-2026-07-09 version preserved it, emitting images/article/*.svg and
+    404ing all four figures on the deployed report_public.html (link-audit
+    finding). Other data/maps subtrees keep their layout.
+    """
+    md_text = re.sub(r'!\[([^\]]*)\]\(data/maps/article/([^)/]+)\)', r'![\1](images/\2)', md_text)
     return re.sub(r'!\[([^\]]*)\]\(data/maps/([^)]+)\)', r'![\1](images/\2)', md_text)
 
 

@@ -414,7 +414,7 @@
     <h3 id="stakes-scorecard-h">{t(lang.current, 'stakes.scorecard_h')}</h3>
     <p class="stakes-scorecard-intro">{t(lang.current, 'stakes.scorecard_intro')}</p>
     <figure class="stakes-scorecard-fig">
-      <img src="{base}/images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} width="474" height="351" loading="lazy">
+      <img src="{base}/images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} width="474" height="346" loading="lazy">
       <figcaption>{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
     </figure>
     <p class="stakes-scorecard-close">{t(lang.current, 'stakes.scorecard_close')}</p>
@@ -681,7 +681,7 @@
     <p>{t(lang.current, 'body.impact.intro')}</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="545" loading="lazy">
+      <img src="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="532" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.impact.fig_caption')}</figcaption>
     </figure>
 
@@ -980,7 +980,7 @@
     <p>{t(lang.current, 'body.clean.sub7_p2')}</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
+      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="346" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.stakes_fig_caption')}</figcaption>
     </figure>
 
@@ -1221,7 +1221,10 @@
 
 <div id="site-copyright" aria-label={t(lang.current, 'chrome.license_aria')}>
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title={t(lang.current, 'chrome.license_title')}>
-    <img src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" alt={t(lang.current, 'chrome.license_alt')} width="80" height="15">
+    <!-- Self-hosted official CC badge (2026-07-09): the licensebuttons.net PNG was
+         the page's only third-party request — a privacy leak, a resolution-dependent
+         raster, and a console error when the CDN is unreachable. SVG scales at any DPR. -->
+    <img src="images-local/cc-by-nc-sa.svg" alt={t(lang.current, 'chrome.license_alt')} width="63" height="22">
   </a>
 </div>
 
@@ -1457,7 +1460,9 @@
     text-align: end;
   }
   .back-link a {
-    color: #5d5d5b;
+    /* was hardcoded #5d5d5b (2.48:1 on the dark surface — WCAG AA failure);
+       the theme variable adapts per surface (2026-07-08) */
+    color: var(--text-subtle);
     text-decoration: none;
     border-bottom: 1px dotted var(--border);
     padding-bottom: 1px;
@@ -1614,7 +1619,7 @@
   --bg-alt:        #26272f;
   --text:          #dde2ed;
   --text-muted:    #9ea8c0;
-  --text-subtle:   #7a8296;
+  --text-subtle:   #8891a8; /* raised from #7a8296 2026-07-08: 4.26:1 on the dark surface failed WCAG AA (4.5:1); #8891a8 gives 5.21:1 */
   --lead:          #b8c2d8;
   --heading:       #9eb8d0;
   --heading-2:     #8aa6be;
@@ -2504,14 +2509,18 @@
     transition: opacity 0.15s;
   }
   #site-copyright:hover { opacity: 0.85; }
-  #site-copyright a { display: block; line-height: 0; }
+  /* padding+negative margin expands the tap target of the 80x15 CC badge to
+     ~92x27px (Lighthouse target-size fix, 2026-07-08) without moving it */
+  #site-copyright a { display: block; line-height: 0; padding: 6px; margin: -6px; }
   #site-copyright img { display: block; }
   :root[data-theme="dark"] #site-copyright { opacity: 0.3; }
   :root[data-theme="dark"] #site-copyright:hover { opacity: 0.7; }
 
   /* Back-to-top button */
   #back-top {
-    position: fixed; bottom: 1.6rem; inset-inline-end: 1.4rem;
+    /* bottom raised 1.6rem -> 3rem (2026-07-09): the button's tap area overlapped
+       the fixed CC-badge target below it — Lighthouse target-size failure */
+    position: fixed; bottom: 3rem; inset-inline-end: 1.4rem;
     width: 2.6rem; height: 2.6rem;
     background: #6B35A7; color: #fff;
     border-radius: 50%;
@@ -2522,5 +2531,5 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
   #back-top:hover { opacity: 1; }
-  @media (max-width: 600px) { #back-top { bottom: 1rem; inset-inline-end: 0.8rem; } }
+  @media (max-width: 600px) { #back-top { bottom: 2.75rem; inset-inline-end: 0.8rem; } }
 </style>

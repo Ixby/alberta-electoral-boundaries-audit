@@ -3,6 +3,21 @@
 	import { t } from '$lib/i18n/dict';
 	import { gloss, type GlossKey } from '$lib/i18n/glossary';
 
+	// Glossary hrefs are root-absolute ("/law#ebca"). Rendered verbatim at
+	// runtime they escape the project subpath on the GitHub Pages deployment
+	// (ixby.github.io/law — 404): the prerenderer only relativizes links it
+	// sees at build time, and these popovers mount on interaction. base='' at
+	// build, so $app/paths can't help; instead resolve against the live URL —
+	// "." + "/law#ebca" = "./law#ebca" relative to the current document, which
+	// lands inside whatever directory the app is deployed under. Popovers only
+	// render client-side ({#if open}), so location always exists here; the
+	// typeof guard keeps SSR type-checking happy. (2026-07-09 link-audit fix.)
+	function glossHref(href: string): string {
+		if (typeof location === 'undefined') return href;
+		const u = new URL('.' + href, location.href);
+		return u.pathname + u.hash;
+	}
+
 	let { key, children } = $props<{
 		key: GlossKey;
 		children: import('svelte').Snippet;
@@ -64,7 +79,7 @@
 				{entry.definition}
 			</div>
 			{#if entry.href}
-				<a class="more" href={entry.href} onclick={() => (open = false)}>
+				<a class="more" href={glossHref(entry.href)} onclick={() => (open = false)}>
 					{t(lang.current, 'glossary.more_link')}
 				</a>
 			{/if}
