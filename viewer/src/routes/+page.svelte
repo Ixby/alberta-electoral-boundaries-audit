@@ -67,6 +67,7 @@
     { id: 'section-7',                key: 'lunty' },
     { id: 'section-8',                key: 'suggestions' },
     { id: 'retractions',              key: 'retractions' },
+    { id: 'authors-view',             key: 'authors_view' },
     { id: 'references',               key: 'references' },
     { id: 'resources',                key: 'technical' }
   ];
@@ -127,6 +128,7 @@
         'section-7',             // the Lunty committee map
         'section-8',             // suggested reforms
         'retractions',           // documented corrections
+        'authors-view',          // severable signed opinion
         'references'             // apparatus
       ])
     );
@@ -340,6 +342,7 @@
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
     <a href="#retractions" onclick={closeNavDrawer}>{t(lang.current, 'nav.retractions')}</a>
+    <a href="#authors-view" onclick={closeNavDrawer}>{t(lang.current, 'nav.authors_view')}</a>
     <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
     <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
     <a href="{base}/feedback" onclick={closeNavDrawer}>{t(lang.current, 'nav.feedback')}</a>
@@ -1121,6 +1124,27 @@
       <p>{t(lang.current, 'body.retractions.corr_intro')}</p>
       <p>{@html t(lang.current, 'body.retractions.corr_municipal')}</p>
     </div>
+  </section>
+
+  <section id="authors-view">
+    <h2>{t(lang.current, 'body.authors_view.heading')} <a href="#authors-view" class="section-link" aria-label={t(lang.current, 'body.authors_view.heading_aria')}>#</a></h2>
+
+    <div style="border-left: 3px solid var(--text-muted); padding: 0.2rem 0 0.2rem 1rem; margin: 0 0 1.3rem;">
+      <p style="margin: 0; font-style: italic;">{t(lang.current, 'body.authors_view.preamble')}</p>
+    </div>
+
+    <p>{t(lang.current, 'body.authors_view.p1')}</p>
+    <p>{t(lang.current, 'body.authors_view.p2')}</p>
+    <p>{t(lang.current, 'body.authors_view.p3')}</p>
+    <p>{t(lang.current, 'body.authors_view.p4')}</p>
+    <p>{t(lang.current, 'body.authors_view.p5')}</p>
+    <p>{t(lang.current, 'body.authors_view.p6')}</p>
+    <p>{@html t(lang.current, 'body.authors_view.p7')}</p>
+    <p>{t(lang.current, 'body.authors_view.p8')}</p>
+    <p>{t(lang.current, 'body.authors_view.p9')}</p>
+    <p>{t(lang.current, 'body.authors_view.p10')}</p>
+    <p style="margin: 1rem 0 1.4rem;">{t(lang.current, 'body.authors_view.signed')}</p>
+    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">{@html t(lang.current, 'body.authors_view.sources')}</p>
   </section>
 
   <section id="references">
