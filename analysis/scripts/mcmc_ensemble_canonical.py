@@ -140,7 +140,27 @@ def _run_chain_chunked(args):
 
     chunks_done = n_done // chunk_size
     n_chunks = (n_steps_total + chunk_size - 1) // chunk_size
-    print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; resuming chunk {chunks_done}/{n_chunks}", flush=True)
+
+    # Fail-loud resume guard (2026-07-09). Resuming a partially-written chain
+    # here restarts current_state from the 2019 seed and rewinds the RNG to
+    # position zero — it does NOT restore the interrupted chain's partition.
+    # That silent restart is how chain 1 of the canonical run acquired 17,500
+    # byte-identical duplicated rows (rows 45,000-62,499 replay 25,000-42,499;
+    # see findings/ensemble_chain1_duplication_note.md — sensitivity check:
+    # no published number changes). Until per-chunk partition checkpointing is
+    # implemented (required before the November 2026 qsgy8 confirmatory run),
+    # refuse to append to a partial chain rather than corrupt it.
+    if chunks_done > 0:
+        raise RuntimeError(
+            f"[chain {chain_idx}] {n_done} rows already exist at {chain_csv_path} "
+            f"but per-chunk partition checkpointing is not implemented — resuming "
+            f"would silently restart the chain from the 2019 seed with a rewound "
+            f"RNG (the chain-1 duplication failure mode; see "
+            f"findings/ensemble_chain1_duplication_note.md). Delete the partial "
+            f"chain CSV to rerun this chain from scratch, or implement partition "
+            f"checkpointing before resuming."
+        )
+    print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; starting chunk {chunks_done}/{n_chunks}", flush=True)
 
     _va_path = Path(va_file_str) if va_file_str else None
     va, graph = build_va_graph(va_path=_va_path)

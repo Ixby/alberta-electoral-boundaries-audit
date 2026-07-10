@@ -119,6 +119,49 @@ def test_seat_results_zero_case_has_all_keys():
     assert math.isnan(m_empty["ucp_vote_share"]), "ucp_vote_share should be NaN for zero input"
 
 
+def test_mean_median_hand_oracle():
+    """Hand-computed mean-median oracle (added 2026-07-09 mutation audit:
+    mean-median previously had NO unit oracle — a sign flip survived Layer 1
+    and was caught only by the Layer-2 frozen baseline).
+
+    UCP shares [0.80, 0.55, 0.45] (100-vote districts).
+    median = 0.55, mean = 0.60 -> mean_median = 0.55 - 0.60 = -0.05
+    (median UCP share minus mean; negative = NDP-favoured tail here).
+    """
+    ucp = np.array([80.0, 55.0, 45.0])
+    ndp = np.array([20.0, 45.0, 55.0])
+    m = seat_results(ucp, ndp)
+    assert abs(m["mean_median"] - (-0.05)) < 1e-9
+
+
+def test_declination_hand_oracle_ucp_favoured():
+    """Hand-computed declination oracle under the Amendment-10 Warrington
+    convention (added 2026-07-09 mutation audit: reintroducing the exact
+    pre-Amendment-10 sign bug previously survived every unit test and was
+    caught only by the Layer-2 frozen baseline).
+
+    UCP shares [0.40, 0.56, 0.70]; n=3, UCP wins R=2, NDP wins D=1.
+      theta_R = atan2(mean(0.56,0.70) - 0.5, 2/(2*3)) = atan2(0.13, 1/3)
+      theta_D = atan2(0.5 - 0.40, 1/(2*3))            = atan2(0.10, 1/6)
+      delta   = (2/pi) * (theta_D - theta_R) = +0.10731081015827497
+    Positive = UCP-favoured (UCP's wins are narrower than NDP's).
+    """
+    ucp = np.array([40.0, 56.0, 70.0])
+    ndp = np.array([60.0, 44.0, 30.0])
+    m = seat_results(ucp, ndp)
+    assert abs(m["declination"] - 0.10731081015827497) < 1e-12
+
+
+def test_declination_hand_oracle_mirror_ndp_favoured():
+    """Mirror image of the case above (UCP shares [0.30, 0.44, 0.60]):
+    the same geometry reflected across 0.5 must give the exact negative,
+    -0.10731081015827497. Kills any asymmetric sign-convention drift."""
+    ucp = np.array([30.0, 44.0, 60.0])
+    ndp = np.array([70.0, 56.0, 40.0])
+    m = seat_results(ucp, ndp)
+    assert abs(m["declination"] - (-0.10731081015827497)) < 1e-12
+
+
 def test_efficiency_gap_proportional():
     """When seat share matches vote share exactly, efficiency gap
     should be near zero. UCP wins one of three with 51-49 and loses
@@ -447,8 +490,15 @@ def test_run_ensemble_state_persistence_across_chunks():
         g.nodes[n]["va_area"] = 1_000_000.0  # 1 km² — below 5,000 km² s.15(2) threshold
     graph = Graph.from_networkx(g)
 
-    # Two-district initial partition: top half "A", bottom half "B"
-    initial = {n: ("A" if n < 18 else "B") for n in g.nodes()}
+    # THREE-district initial partition (three horizontal stripes). This is
+    # load-bearing (2026-07-09 mutation audit): with only TWO districts,
+    # every ReCom proposal merges the entire map and re-splits it from the
+    # RNG stream alone — the chain is memoryless, threaded and restarted
+    # runs are byte-identical BY CONSTRUCTION, and no assertion can ever
+    # distinguish correct threading from the CRITICAL #1 bug. With three
+    # districts each step re-splits one adjacent pair and leaves the third
+    # district's boundary as carried state, so threading becomes observable.
+    initial = {n: ("A" if n < 12 else ("B" if n < 24 else "C")) for n in g.nodes()}
 
     def _hamming(part_assign, baseline):
         """Count nodes whose district label changed."""
@@ -505,3 +555,21 @@ def test_run_ensemble_state_persistence_across_chunks():
     assert (
         threaded_drift > 0
     ), "Threaded chain returned the seed assignment — chain did not advance."
+
+    # Deterministic no-op detector (added 2026-07-09 mutation audit).
+    # The two drift assertions above CANNOT catch the very regression this
+    # test targets: if run_ensemble silently discards threaded state, the
+    # "broken" and "threaded" loops replay identically (both phases reseed
+    # the RNG to 123), drift is equal, and `>=` passes — a mutation
+    # simulating exactly that survived the suite. But that identical replay
+    # is itself the signature: under a threading no-op the two final
+    # assignments are EXACTLY equal, while under correct threading the
+    # threaded chain takes 24 extra steps beyond the broken chain's replayed
+    # 8 and must land elsewhere. Deterministic given the fixed seeds.
+    broken_assign = dict(final_broken.assignment.items())
+    threaded_assign = dict(state.assignment.items())
+    assert threaded_assign != broken_assign, (
+        "Threaded final assignment is byte-identical to the restart-every-"
+        "chunk final — run_ensemble is discarding the passed chain state "
+        "(CRITICAL #1 regression)."
+    )
