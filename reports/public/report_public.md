@@ -336,6 +336,36 @@ Neither of these is a finding about the current commission's maps. They are obse
 
 ---
 
+## The Author's View {#authors-view}
+
+*Everything above this line is the audit. Pre-registered tests. Documented corrections. Evidence you can check without trusting me. Delete this section and not one number changes. What follows is not a finding. It is an opinion — signed, severable, and mine.*
+
+The audit cannot prove intent. I have kept that discipline on every page above. This page is where I set it down.
+
+Start with the two facts I cannot make innocent. Government-nominated commissioners drew a map that neutral map-drawing almost never produces — fewer than a hundred matches in a million draws. And when the commission split rather than endorse it, the government did not ask why. It took the pen.
+
+Each fact has an innocent reading. A commissioner can be eccentric in good faith. A legislature can lose patience with deadlock. But put the facts in sequence and the innocent readings strain. A government wanted a certain kind of map. The independent route did not deliver one. A route was found that would.
+
+Here is what alarms me. It is not that a law was broken. No law was broken — I checked, and that checking is most of what this audit is. The statute makes the commission's report advisory. It sets no notice period. It requires no draft, no hearings, no consultation. Every step of the takeover was legal. That is the alarm. The guardrail was never law. It was a habit — and habits only bind governments that choose to keep them.
+
+Look at what the habit used to buy. The commission held hearings in sixteen communities. It read 1,147 written submissions. It changed its mind in public, because the public gave it reasons to. The committee that replaced it is five MLAs: three government, two opposition, government chair. No rule required an independent voice at that table, and none sits there. There is an advisory panel — chaired, to its credit, by a retired judge. But advisers advise. The five votes belong to the MLAs, and the map they draw is the map they will run in. It will face no public hearing. No draft will be released for the public to contest. It arrives finished.
+
+And this government has been here before. Its first bill, as written, would have let cabinet rewrite laws without the legislature. That power was stripped — after the outcry, not before. Its own ethics commissioner found the Premier breached the conflicts law by pressing her attorney general about a criminal case, and called interference with the administration of justice "a threat to democracy." It passed a law letting cabinet repeal local bylaws and trigger the removal of elected councillors. And when a court paused one of its laws in December 2025, it invoked the notwithstanding clause; within a week the injunction was gone. Every one of those moves was lawful. Every one spent a norm to get past an independent check. Redrawing the electoral map through a committee the government controls is not a departure. It is the pattern, applied to elections.
+
+Political scientists have names for governments that keep the letter of the law while hollowing out the norms beneath it. The gentlest is *democratic backsliding*. The literature is blunt about how it works. Democracies rarely die of coups anymore. They die of this — one lawful, norm-breaking step at a time, each with a plausible reason, none of them illegal.
+
+Canada spent sixty years building one norm above the rest: politicians do not draw their own districts. Voters choose their representatives. Not the reverse. In April 2026, Alberta set that norm aside in an afternoon, by a vote of 44 to 36.
+
+I worry about what the map buys. On recent voting patterns, the minority map's geometry yields sixty seats of eighty-nine. That is not a mandate. It is insulation — from floor-crossings, from committees, from any opposition large enough to sustain scrutiny. I would worry about that insulation in any hands. I worry more in the hands of a government that has just shown me, in this very file, what it does with procedural control when a process threatens to answer back.
+
+I could be wrong. Unlike most opinions about this government, mine ships with the terms of its own destruction. The committee's map is due November 2. The tests were locked before it existed. Were hearings held. Are the advisers named, their terms of reference published. Does the map honour the recommendation used to justify the takeover. Where does it land against a million neutral maps. If it lands inside the neutral bands, my suspicion took real damage — and this site will say so within seventy-two hours, because I committed to that before I knew the answer. That is the difference between an opinion and an accusation. An opinion tells you what would change it.
+
+— Will Conner
+
+*Sources for this section.* The ethics finding and the quoted phrase are verbatim from the Ethics Commissioner's report, [Allegations Involving Premier Danielle Smith (May 17, 2023)](https://www.ethicscommissioner.ab.ca/media/3124/allegations-involving-premier-danielle-smith-may-17-2023.pdf): "In my opinion, Premier Smith contravened s.3 of the Conflicts of Interest Act in her interaction with the Minister of Justice and Attorney General." The Sovereignty Act's original cabinet powers and their removal: [CBC, December 2022](https://www.cbc.ca/news/canada/edmonton/alberta-sovereignty-act-1.6678407). Bill 20's cabinet powers over councillors and bylaws: [CBC, April 2024](https://www.cbc.ca/news/canada/edmonton/alberta-bill-gives-cabinet-power-to-remove-municipal-councillors-change-or-repeal-bylaws-1.7185346) and the [RMA analysis of the act as passed](https://rmalberta.com/wp-content/uploads/2025/10/Bill-20-Member-Resource-Branded.pdf). The notwithstanding-clause invocation and the injunction's end: [CBC, December 2025](https://www.cbc.ca/news/canada/edmonton/alberta-government-notwithstanding-clause-bills-9.6983786) and [Egale Canada's case timeline](https://egale.ca/awareness/egale-v-alberta-healthcare/). The committee's structure, the advisory panel, and its judicial chair: [CBC, April 2026](https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743) and [CBC, May 2026](https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-panel-legislative-committee-elections-9.7187435); the commission's sixteen-community hearings and 1,147 written submissions are from the same reporting. Motion 19's 44–36 vote and the committee's mandate: §5.9 of the [academic monograph](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md). "Democratic backsliding" follows Steven Levitsky and Daniel Ziblatt, *How Democracies Die* (Crown, 2018), and Nancy Bermeo, "On Democratic Backsliding," *Journal of Democracy* 27(1), 2016. The ensemble and seat figures are this audit's own, sourced throughout the report above.
+
+---
+
 ## References & Methodology
 
 While this report summarizes the audit for a general audience, the underlying methodology relies on established political science and legal literature on electoral boundary design. Key references include:

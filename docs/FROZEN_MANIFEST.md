@@ -87,6 +87,25 @@ cell is a manual-capture candidate for any future audit release.
 | Calgary Journal | https://www.calgaryjournal.ca/ (April 21, 2026 follow-up) | 2026-04-22 | unarchived | https://archive.ph/3M4Em | Source for advisory panel structure |
 | Rimbey Review | https://www.rimbeyreview.com/ (April 16, 2026 premier remarks) | 2026-04-22 | https://web.archive.org/web/20260202063716/https://rimbeyreview.com/ | https://archive.ph/20120913232740/http://www.rimbeyreview.com/ | Source for R5-framing statement |
 
+## Author's View sources (added 2026-07-10)
+
+Sources cited in the public report's "The Author's View" section (severable
+signed opinion; sources verify the conduct facts the opinion rests on).
+
+| Source | URL | Last verified | Wayback snapshot | archive.ph snapshot | Notes |
+|---|---|---|---|---|---|
+| Ethics Commissioner of Alberta, Trussler report on Premier Smith (May 17, 2023) | https://www.ethicscommissioner.ab.ca/media/3124/allegations-involving-premier-danielle-smith-may-17-2023.pdf | 2026-07-10 (full text extracted; finding and "threat to democracy" quote verified verbatim) | https://web.archive.org/web/20260430153749/https://www.ethicscommissioner.ab.ca/media/3124/allegations-involving-premier-danielle-smith-may-17-2023.pdf | unarchived | s.3 Conflicts of Interest Act contravention finding |
+| CBC Edmonton, Sovereignty Act cabinet powers stripped (Dec 2022) | https://www.cbc.ca/news/canada/edmonton/alberta-sovereignty-act-1.6678407 | 2026-07-10 | https://web.archive.org/web/20260710085753/https://www.cbc.ca/news/canada/edmonton/alberta-sovereignty-act-1.6678407 | unarchived | Snapshot captured 2026-07-10 via save request |
+| CBC Edmonton, Bill 20 cabinet powers over councillors/bylaws (Apr 2024) | https://www.cbc.ca/news/canada/edmonton/alberta-bill-gives-cabinet-power-to-remove-municipal-councillors-change-or-repeal-bylaws-1.7185346 | 2026-07-10 | https://web.archive.org/web/20260710085811/https://www.cbc.ca/news/canada/edmonton/alberta-government-wants-power-to-remove-municipal-councillors-repeal-bylaws-it-doesn-t-like-1.7185346 | unarchived | Snapshot captured 2026-07-10 (redirects to canonical slug, same story ID) |
+| RMA, Bill 20 member resource (act as passed) | https://rmalberta.com/wp-content/uploads/2025/10/Bill-20-Member-Resource-Branded.pdf | 2026-07-10 | https://web.archive.org/web/20251107203450/https://rmalberta.com/wp-content/uploads/2025/10/Bill-20-Member-Resource-Branded.pdf | unarchived | Confirms removal-vote/inspection mechanisms in final act |
+| CBC Edmonton, notwithstanding clause invoked (Dec 2025) | https://www.cbc.ca/news/canada/edmonton/alberta-government-notwithstanding-clause-bills-9.6983786 | 2026-07-10 | https://web.archive.org/web/20260706032535/https://www.cbc.ca/news/canada/edmonton/alberta-government-notwithstanding-clause-bills-9.6983786 | unarchived | Three laws shielded, Dec 11, 2025 |
+| Egale Canada, case timeline (injunction ended Dec 18, 2025) | https://egale.ca/awareness/egale-v-alberta-healthcare/ | 2026-07-10 | https://web.archive.org/web/20260427164207/https://egale.ca/awareness/egale-v-alberta-healthcare/ | unarchived | "Within a week" claim rests on Dec 11 → Dec 18 |
+| CBC Edmonton, Motion 19 / MLA committee (Apr 2026) | https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743 | 2026-07-10 | https://web.archive.org/web/20260422194949/https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743 | unarchived | No public hearings on new map; 16 communities, 1,147 submissions |
+| CBC Edmonton, advisory panel judicial chair (May 2026) | https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-panel-legislative-committee-elections-9.7187435 | 2026-07-10 | https://web.archive.org/web/20260516133704/https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-panel-legislative-committee-elections-9.7187435 | unarchived | O'Ferrall chair; "advisers advise" beat |
+
+Book/journal citations in the section (Levitsky & Ziblatt 2018; Bermeo 2016,
+*Journal of Democracy* 27(1)) are print sources — no URL to pin.
+
 ## Sources that required workarounds
 
 | URL | Issue | Workaround | Wayback snapshot | archive.ph snapshot |
