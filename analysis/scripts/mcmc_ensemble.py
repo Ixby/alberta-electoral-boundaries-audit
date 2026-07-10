@@ -426,6 +426,7 @@ def run_ensemble(
     verbose: bool = True,
     return_final_partition: bool = False,
     seed: int | None = None,
+    proposal_method=None,
 ):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
@@ -557,7 +558,15 @@ def run_ensemble(
     # allow_pair_reselection=True: when a district pair can't be balanced in
     # max_attempts, recom catches ReselectException and tries the next pair
     # instead of crashing.  Required for robust runs on complex geometries.
-    _recom_method = partial(_bpt_global, allow_pair_reselection=True)
+    # proposal_method (added 2026-07-10, Forest-ReCom Phase A wiring): callers
+    # may swap the bipartition method (e.g. the spanning-forest sampler in
+    # forest_recom_ensemble.py) while keeping every other harness detail
+    # identical, so output differences are attributable to the method alone.
+    # Default None preserves the canonical spanning-tree behaviour exactly.
+    if proposal_method is None:
+        _recom_method = partial(_bpt_global, allow_pair_reselection=True)
+    else:
+        _recom_method = partial(proposal_method, allow_pair_reselection=True)
     proposal = partial(
         recom,
         pop_col="pop_2021",

@@ -350,18 +350,129 @@ def main() -> int:
     print(f"  substrate: official Elections Alberta canonical shapefiles")
     print(f"  proposal:  spanning-forest variant of gerrychain.proposals.recom")
 
-    np.random.seed(seed)
+    # Harness wired 2026-07-10 (gate previously raised NotImplementedError;
+    # _forest_spanning_method itself was already implemented). Mirrors
+    # mcmc_ensemble_canonical.py's per-chain chunked loop with two deliberate
+    # differences only: (1) proposal_method=_forest_spanning_method is passed
+    # through run_ensemble's new parameter; (2) chain seeds use the prereg
+    # §6.4 chain salts f"{PREREG_SALT}_chain_{i}". Fail-loud on partial-chain
+    # resume, per the chain-1 duplication lesson
+    # (findings/ensemble_chain1_duplication_note.md).
+    from mcmc_ensemble import run_ensemble
+    import pandas as pd
     import random as _random
-    _random.seed(seed)
 
-    # The chain harness itself lives in mcmc_ensemble.run_ensemble. The
-    # swap is just the proposal-method argument. The gate stays closed
-    # until _forest_spanning_method is implemented and reviewed.
-    raise NotImplementedError(
-        "Forest-ReCom execution path is gated. Implement "
-        "_forest_spanning_method per the docstring, then remove this "
-        "raise to enable the run."
+    CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
+    chunk_size = 5_000
+    steps_per_chain = args.n_steps // args.n_chains
+
+    va, graph = build_va_graph(verbose=False)
+    initial = initial_assignment_2019(va)
+
+    chain_frames = []
+    for chain_idx in range(args.n_chains):
+        chain_salt = f"{PREREG_SALT}_chain_{chain_idx}"
+        chain_seed = get_canonical_seed(chain_salt)
+        chain_csv = CHECKPOINT_DIR / f"chain{chain_idx}_samples.csv"
+        n_done = len(pd.read_csv(chain_csv)) if chain_csv.exists() else 0
+        if n_done >= steps_per_chain:
+            print(f"  [chain {chain_idx}] complete ({n_done}) — skipping")
+            chain_frames.append(pd.read_csv(chain_csv).assign(chain=chain_idx))
+            continue
+        if n_done > 0:
+            raise RuntimeError(
+                f"[chain {chain_idx}] partial chain ({n_done} rows) at {chain_csv} — "
+                f"partition checkpointing is not implemented; resuming would replay "
+                f"from the seed (the chain-1 duplication failure mode). Delete the "
+                f"partial CSV to rerun this chain from scratch."
+            )
+        print(f"  [chain {chain_idx}] salt={chain_salt!r} seed={chain_seed}")
+        np.random.seed(chain_seed)
+        _random.seed(chain_seed)
+        _random_mod.seed(chain_seed)  # module RNG driving the forest sampler
+
+        state = initial
+        n_chunks = (steps_per_chain + chunk_size - 1) // chunk_size
+        t_chain = time.time()
+        for chunk_idx in range(n_chunks):
+            chunk_steps = min(chunk_size, steps_per_chain - chunk_idx * chunk_size)
+            rows, state = run_ensemble(
+                graph, state, chunk_steps,
+                pop_deviation=0.25, verbose=False,
+                return_final_partition=True, seed=chain_seed,
+                proposal_method=_forest_spanning_method,
+            )
+            for r in rows:
+                r["chain"] = chain_idx
+                r["chunk"] = chunk_idx
+            write_header = (not chain_csv.exists()) or chain_csv.stat().st_size == 0
+            pd.DataFrame(rows).to_csv(chain_csv, mode="a", header=write_header, index=False)
+            s = _forest_spanning_method.stats
+            print(
+                f"  [chain {chain_idx}] chunk {chunk_idx + 1}/{n_chunks} "
+                f"({time.time() - t_chain:,.0f}s elapsed; forest stats: "
+                f"{s['accepts']:,} accepts / {s['calls']:,} calls / "
+                f"{s['reselects']:,} reselects)",
+                flush=True,
+            )
+        chain_frames.append(pd.read_csv(chain_csv).assign(chain=chain_idx))
+
+    # ── Pool, drop burn-in, write outputs (prereg §6.4–§6.6) ─────────────────
+    pooled = pd.concat(chain_frames, ignore_index=True)
+    pooled.to_csv(SAMPLES_CSV, index=False)
+    print(f"  wrote {SAMPLES_CSV.name} ({len(pooled):,} rows incl. burn-in)")
+
+    burn = PHASE_A_BURN_IN_PER_CHAIN
+    kept = pd.concat(
+        [g.iloc[burn:] for _, g in pooled.groupby("chain")], ignore_index=True
     )
+    print(f"  burn-in dropped: {burn:,}/chain -> {len(kept):,} reporting rows")
+
+    metrics = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
+
+    conv = {}
+    for m in metrics:
+        conv[m] = autocorrelation_ess(kept[m].dropna().values)
+    with open(CONVERGENCE_JSON, "w", encoding="utf-8") as f:
+        json.dump(conv, f, indent=2, default=float)
+    print(f"  wrote {CONVERGENCE_JSON.name}")
+
+    # Real-map scores are ensemble-independent (same shapefiles, same
+    # seat_results); recomputed here through the identical scoring path so
+    # this artifact stands alone.
+    real = {}
+    for label, gpkg in (("majority_2026", MAJ_CANONICAL), ("minority_2026", MIN_CANONICAL)):
+        real[label] = score_exogenous_map(va, gpkg, id_col=CANONICAL_NAME_COL)
+    with open(SCORES_JSON, "w", encoding="utf-8") as f:
+        json.dump(real, f, indent=2, default=float)
+    print(f"  wrote {SCORES_JSON.name}")
+
+    rows_out = []
+    for label in ("majority_2026", "minority_2026"):
+        for m in metrics:
+            val = float(real[label][m])
+            pct = float((kept[m] < val).mean() * 100)
+            rows_out.append({
+                "metric": m, "map": label, "value": val, "percentile": pct,
+                "ensemble_p5": float(np.nanpercentile(kept[m], 5)),
+                "ensemble_p50": float(np.nanpercentile(kept[m], 50)),
+                "ensemble_p95": float(np.nanpercentile(kept[m], 95)),
+            })
+    pd.DataFrame(rows_out).to_csv(PERCENTILES_CSV, index=False)
+    print(f"  wrote {PERCENTILES_CSV.name}")
+
+    print()
+    print("Execution log for OSF append (prereg §8.4):")
+    print(f"  registration: {args.osf_registration_id}")
+    print(f"  base salt/seed: {PREREG_SALT!r} / {seed}")
+    for m in metrics:
+        print(f"  {m}: n_eff={conv[m]['n_eff']:.0f} tau={conv[m]['tau']:.0f}")
+    minority_pcts = {r['metric']: r['percentile'] for r in rows_out if r['map'] == 'minority_2026'}
+    print(f"  minority percentiles (Phase A forest null): "
+          + ", ".join(f"{m}=p{p:.2f}" for m, p in minority_pcts.items()))
+    print()
+    print("Next: write findings/forest_recom_robustness.md within 7 days (prereg §8.1)")
+    return 0
 
 
 if __name__ == "__main__":
