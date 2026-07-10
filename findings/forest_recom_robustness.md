@@ -95,3 +95,15 @@ spanning-tree compactness weighting** — swap the proposal's spanning
 structure and the percentiles barely move. It does not address constraint
 realism (the s.15(2)-pinned companion remains future work), sample-size
 resolution (Phase B), or anything about intent.
+
+## Post-registration code changes (Amendment 13)
+
+The execution harness was wired *after* OSF he53s was filed (the registered
+scaffold's sampler was complete but its `main()` was gated), one import-error
+crash was fixed between execution attempts (attempt 1 died before drawing any
+sample), and the prereg's "Aldous-Broder" naming was resolved to the
+implemented multi-root Wilson sampler (distribution-identical; the document's
+own citations are the LERW literature). Full detail, and why the chain of
+custody survives (no sample predates either the registration or the final
+harness), at `findings/pre_registration_amendment_log.md` Amendment 13 —
+flagged by the author on execution day.

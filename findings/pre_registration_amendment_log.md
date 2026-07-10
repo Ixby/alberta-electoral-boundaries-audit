@@ -458,3 +458,65 @@ The minority's declination now **agrees with EG, mean-median, and seats@50/50** 
 
 **Signed:** Claude (acting as session agent), reviewed by Will Conner  
 **Date:** 2026-06-12
+
+### Amendment 13 — Forest-ReCom Phase A post-registration code changes (2026-07-10)
+
+**What changed after OSF he53s was filed (and before it, that matters).** The
+registration (filed public 2026-07-10, pre-execution) cites the binding prereg
+document at commit `264afc5b` and the script scaffold at commit `0d0ab8ef`.
+Between filing and execution, the following code changes were made and were
+NOT recorded in the declaration at the time — they are recorded here now, per
+this log's discipline (flagged by the author the same day):
+
+1. **The execution harness was wired.** At the cited scaffold commit, the
+   spanning-forest sampler (`_forest_spanning_method`) was fully implemented
+   but `main()` deliberately raised `NotImplementedError` behind the OSF gate.
+   Post-filing, the per-chain chunked harness was written (chain salts per
+   prereg §6.4, burn-in per §6.4, fail-loud partial-chain guard), and
+   `mcmc_ensemble.run_ensemble` gained a `proposal_method` parameter (default
+   `None` preserves the canonical spanning-tree path byte-for-byte; suite
+   30/30 before and after).
+2. **A crash was fixed between execution attempts.** Attempt 1 (immediately
+   post-filing) crashed with `NameError: '_random' is not defined` at chain-0
+   seeding — before any proposal was drawn. One import line was added;
+   attempt 2 ran to completion.
+3. **The executed code was working-tree state**, committed as `63e5b692`
+   immediately after the run, not a pre-committed hash.
+4. **Algorithm naming.** Prereg §6.1 names "Aldous-Broder generalised to
+   forests" while citing Wilson (1996) and Marchal (2000) — the loop-erased
+   random-walk literature. The implementation is multi-root Wilson (LERW).
+   Both algorithms sample the identical distribution (uniform spanning
+   forests rooted at the chosen root set); the document's own citations point
+   at the implemented method. Resolved in the implementation's favour and
+   recorded here rather than silently.
+5. **ESS-target semantics.** Prereg §6.4 declared an ESS *target* (≥200 per
+   metric per chain) without failure semantics. The run missed it (pooled
+   n_eff 61–124). The result was reported with the shortfall disclosed in
+   `findings/forest_recom_robustness.md`, the OSF execution-log append, and
+   the deltas characterised as "indistinguishable from zero at this run
+   size." The interpretive choice (report-with-disclosure rather than
+   declare-invalid) is itself recorded here as a post-hoc decision.
+
+**Why the chain of custody survives.** No Forest-ReCom sample existed before
+the registration was filed (the script's gate verifiably refuses to run
+without a registration ID), and none existed before the harness was
+finalised — attempt 1 died before drawing a single proposal. There was
+therefore no opportunity for data-dependent tuning of the harness, the
+sampler, or the decision rule: the first Forest-ReCom samples ever drawn are
+the reported ones. What was compromised was not the epistemics but the
+*documentation contemporaneity* — the code changed after the declaration
+froze, and the record of that belongs in the declaration's amendment trail,
+not in a session transcript.
+
+**Why not a goalpost move.** The hypotheses, the ±5 pp decision rule, the run
+size, the chain design, the seeds, and the output paths were all executed
+exactly as registered. The changes were: making the registered design run at
+all (1–3), resolving a naming ambiguity internal to the document (4), and
+choosing disclosure semantics the document failed to specify (5).
+
+**Effect on the Phase A verdict.** None. All four metrics remain Robust under
+the pre-registered rule; the ESS caveat already accompanies the result in
+every venue.
+
+**Signed:** Claude (acting as session agent), flagged by Will Conner
+**Date:** 2026-07-10

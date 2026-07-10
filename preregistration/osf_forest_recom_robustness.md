@@ -157,3 +157,18 @@ The author has no funding, advisory, or political-staff relationship to any part
 ---
 
 *Document commit:* This file is committed to the public git repository at the time of OSF filing. The drand seed for `"forest_recom_robustness"` can be verified against the public beacon round 5,500,000 from any clone of the repository. The Forest-ReCom script (`analysis/scripts/forest_recom_ensemble.py`) is committed in the same commit as this document; if the document and the script ever drift, the document binds.
+
+---
+
+## Post-filing addendum (2026-07-10 — nothing above this line has been altered)
+
+- Filed as OSF registration **he53s** (public) on 2026-07-10; executed the
+  same day; results at `findings/forest_recom_robustness.md` (commit
+  `63e5b692`); execution log appended to the OSF record per §8.4.
+- Post-registration code changes (harness wiring, one crash fix between
+  execution attempts, Wilson-vs-Aldous-Broder naming resolution, ESS-target
+  disclosure semantics) are documented in
+  `findings/pre_registration_amendment_log.md` **Amendment 13**. No sample
+  existed before the registration or before the harness was finalised; the
+  hypotheses, decision rule, run size, seeds, and output paths executed
+  exactly as written above.
