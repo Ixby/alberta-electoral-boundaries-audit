@@ -392,19 +392,26 @@ def build_lane2_bars() -> Path:
 
 
 def build_bias_structure_matrix() -> Path:
-    """The Map Scorecard — the article's primary rhetorical visual.
+    """The Map Scorecard — evidence exhibit, not verdict machine.
     Two-axis plot:
       x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles,
-          simulation_real_map_scores_canonical.json; threshold from the
-          1,010,000-plan canonical ensemble p95)
-      y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
-    Three points: 2019 enacted (grey), Majority 2026 (green), Minority
-    2026 (red). Both threshold lines (Alberta ~4%, US 7%) plus the
-    structural-irregularity outlier line (4 of 5). The top-right
-    quadrant is the danger zone; the other two shaded quadrants are sus zones."""
+          simulation_real_map_scores_canonical.json; reference line from the
+          canonical ensemble p95)
+      y = Lane 2 structural red-flag count (of the audit's 5 pre-registered checks)
+    Three points: 2019 enacted (grey), Majority 2026 (teal), Minority 2026 (purple).
 
-    fig, ax = plt.subplots(figsize=(7.2, 5.4), dpi=300)
-    fig.subplots_adjust(top=0.88, bottom=0.16, left=0.13, right=0.97)
+    Honesty redesign (2026-07-09, author direction): the earlier version shaded
+    "WARNING"/"DANGER ZONE" quadrants and labelled the reference lines as if
+    crossing them yielded a verdict. Canadian law sets no numeric threshold —
+    the effective-representation test is holistic — and both reference lines
+    are the audit's own calibrations (the 4.1% line is the p95 of this audit's
+    neutral simulation; the 4-of-5 bar is this audit's pre-registered battery
+    with no external benchmark; the US 7% figure is an academic proposal never
+    adopted by any court). The chart now presents positions and calibrations,
+    and says on its face what the lines are and are not."""
+
+    fig, ax = plt.subplots(figsize=(7.2, 5.6), dpi=300)
+    fig.subplots_adjust(top=0.82, bottom=0.155, left=0.13, right=0.97)
 
     # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     # Corrected 2026-07-08: minority structural count 5 -> 4 (municipal anchoring
@@ -432,70 +439,33 @@ def build_bias_structure_matrix() -> Path:
     XMIN, XMAX = -7, 7
     YMIN, YMAX = -0.6, 5.7
 
-    # Quadrant shading — sus zones yellow, danger zone pink
-    ax.axhspan(
-        threshold_struct, YMAX,
-        xmin=0, xmax=(threshold_eg_alberta - XMIN) / (XMAX - XMIN),
-        facecolor="#FFF9C4", alpha=0.75, zorder=0,
-    )
-    ax.axvspan(
-        threshold_eg_alberta, XMAX,
-        ymin=0, ymax=(threshold_struct - YMIN) / (YMAX - YMIN),
-        facecolor="#FFF9C4", alpha=0.75, zorder=0,
-    )
-    ax.axvspan(
-        threshold_eg_alberta, XMAX,
-        ymin=(threshold_struct - YMIN) / (YMAX - YMIN), ymax=1.0,
-        facecolor="#f9d8de", alpha=0.75, zorder=0,
-    )
+    # No verdict shading. The earlier WARNING/DANGER ZONE quadrants implied
+    # that crossing a line settles the question; the law it would need to
+    # settle has no such line.
 
-    # Threshold lines — zorder=1 so they sit behind the dots (zorder 3-4)
-    ax.axvline(threshold_eg_alberta, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
-    ax.axvline(threshold_eg_us, color="#888888", lw=1.0, linestyle=":", zorder=1)
-    ax.axhline(threshold_struct, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
+    # Reference lines — audit calibrations, in neutral grey, labelled as such
+    ax.axvline(threshold_eg_alberta, color="#777777", lw=1.1, linestyle="--", zorder=1)
+    ax.axvline(threshold_eg_us, color="#aaaaaa", lw=0.9, linestyle=":", zorder=1)
+    ax.axhline(threshold_struct, color="#777777", lw=1.1, linestyle="--", zorder=1)
 
-    # Threshold labels — top of chart, inside the box, consistent "line" verbiage
     ax.text(
         threshold_eg_alberta - 0.12, YMAX - 0.18,
-        "Alberta line ~4.1%\n(gerrymander threshold)",
-        color=THRESHOLD_RED, fontsize=7.5, fontweight="bold",
+        "~4.1%: only 1 in 20 of the audit's\nneutral simulations tilts further\n(an audit calibration — not a legal line)",
+        color="#555555", fontsize=7, fontstyle="italic",
         ha="right", va="top",
     )
     ax.text(
-        threshold_eg_us - 0.12, YMAX - 0.18,
-        "US courts'\nreference: 7%",
-        color="#888888", fontsize=7.5, fontweight="bold",
+        threshold_eg_us - 0.12, YMAX - 1.05,
+        "7%: US academic proposal\n(no court has adopted it)",
+        color="#999999", fontsize=7, fontstyle="italic",
         ha="right", va="top",
     )
-    # Structural-outlier line: labeled to the left of the dashed horizontal, inside chart
+    # 4-of-5 line: the audit's own pre-registered bar — say so on its face
     ax.text(
         XMIN + 0.12, threshold_struct + 0.08,
-        "structural-outlier line (4 of 5 tests)",
-        color=THRESHOLD_RED, fontsize=7, fontstyle="italic",
+        "4 of the audit's 5 pre-registered checks\n(the audit's own pre-set bar — no external benchmark exists)",
+        color="#555555", fontsize=7, fontstyle="italic",
         ha="left", va="bottom",
-    )
-
-    # Zone watermarks — alpha matches DANGER ZONE convention
-    ax.text(
-        (threshold_eg_alberta + XMAX) / 2, (threshold_struct + YMAX) / 2,
-        "DANGER ZONE",
-        color="#9a3340", fontsize=10, fontweight="bold",
-        ha="center", va="center", alpha=0.30,
-    )
-    # Top-left warning zone: x in [XMIN, threshold_eg_alberta], y in [threshold_struct, YMAX]
-    # EA-style amber/yellow signals caution without the DANGER ZONE's red weight.
-    ax.text(
-        (XMIN + threshold_eg_alberta) / 2, (threshold_struct + YMAX) / 2,
-        "WARNING",
-        color="#F2A900", fontsize=10, fontweight="bold",
-        ha="center", va="center", alpha=0.45,
-    )
-    # Bottom-right warning zone: x in [threshold_eg_alberta, XMAX], y in [YMIN, threshold_struct]
-    ax.text(
-        (threshold_eg_alberta + XMAX) / 2, (YMIN + threshold_struct) / 2,
-        "WARNING",
-        color="#F2A900", fontsize=10, fontweight="bold",
-        ha="center", va="center", alpha=0.45,
     )
 
     # Plot dots — larger and slightly brighter, with white halo (zorder 3-4, above threshold lines)
@@ -566,9 +536,17 @@ def build_bias_structure_matrix() -> Path:
     ax.plot([0, XMAX], [0, 0], transform=_bx, color=UCP_BLUE,   lw=1.2, clip_on=False, zorder=10)
 
     ax.set_title(
-        "The Map Scorecard",
+        "Where the three maps sit on the audit's two lanes",
         fontsize=12.5, fontweight="bold",
-        loc="left", color=TEXT_DARK, pad=10,
+        loc="left", color=TEXT_DARK, pad=40,
+    )
+    # Subtitle: the epistemic status of every line on this chart, on the chart.
+    ax.text(
+        0.0, 1.03,
+        "Dashed lines are this audit's own calibrations. Canadian law sets no numeric threshold —\n"
+        "a court weighs evidence like this holistically under the effective-representation test.",
+        transform=ax.transAxes, fontsize=8, color="#555555",
+        ha="left", va="bottom",
     )
 
     out = OUT / "bias_structure_matrix.svg"
