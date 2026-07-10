@@ -477,6 +477,55 @@ only on author approval).
 
 ---
 
+## "Know more" appendices (author-directed, 2026-07-10)
+
+Every casing carries an inline **Know more →** link, and the report ends
+with an Appendices index collecting all fourteen. Each appendix page owns
+exactly one concept and walks a fixed pedagogical arc: **"this is
+confusing" → "now I understand."**
+
+The arc, per page:
+1. **Name the confusion.** Open with the honest reader reaction ("A
+   percentile of a simulation? What does that even mean?").
+2. **Build the concept once, concretely.** One toy example on Alberta-shaped
+   facts (a 3-district mini-map, a 10-map mini-ensemble) — never abstract
+   notation first.
+3. **Return to the casing.** Re-read the casing's actual number with the new
+   concept ("now re-read: 66 of 1,010,000 — you can see what that claims,
+   and what it doesn't").
+4. **Close with the limit.** One sentence on what the concept cannot tell
+   you — the appendix teaches the tool *and* its edge, mirroring beat 5.
+5. **Back to Casing N** link.
+
+Concept map (appendix letter = casing number):
+- A (Airdrie) — community of interest; what "cracking" means mechanically
+- B (chair flags) — shape analysis; what s.15(2) protection is for
+- C (Calgary zone) — packing, with a toy 3-district example of vote weight
+- D (population spread) — MAD; why the ±25% band exists; band vs budget
+- E (anchoring retraction) — data artifacts; provisional vs official geometry
+- F (ensemble tail) — what a neutral ensemble is (the "what-if machine");
+  reading a percentile
+- G (EG miss) — the efficiency gap in one worked example; why thresholds
+  are calibrations
+- H (joint bound) — P(evidence|innocence) vs P(innocence|evidence); the
+  prosecutor's fallacy in plain language
+- I (robustness) — what a sampler is; why swapping it matters; falsification
+- J (retired signals) — spatial autocorrelation ("neighbours vote alike");
+  why combining tests can double-count
+- K (rationales) — how to check a stated reason against public data
+- L (commission split) — how commissioners are appointed; what nomination
+  does and does not imply
+- M (Motion 19) — the EBCA process end-to-end; what "advisory" means;
+  parliamentary sovereignty
+- N (norms) — conventions vs law; how norm erosion works (backsliding)
+
+Implementation: `/explainers/<slug>` routes (prerendered, i18n keys,
+unnumbered — appendices are lettered, not numbered, so they never disturb
+the section chain). Inline link at the foot of each casing's litany block;
+Appendices index section before References. FK grade 11 holds; each page
+one concept, no cross-dependencies — a reader can land on any appendix cold
+from a shared link.
+
 ## Implementation notes
 
 - **Voice:** FK grade 11 holds. The litany headers do the structural work so
