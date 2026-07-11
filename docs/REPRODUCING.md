@@ -35,7 +35,7 @@ Click **Runtime → Run all** to execute every cell. The notebook does not re-ru
 | Rural-protection comparative analysis | <30 s | any laptop |
 | Magazine PDF rebuild | ~30 s | any laptop |
 
-Total time to reproduce every quantitative claim in `report_public.pdf` from a clean clone: **about 30 minutes**.
+Total time to reproduce every quantitative claim in `report_public.md` from a clean clone: **about 30 minutes**.
 
 ---
 
@@ -161,15 +161,17 @@ Wall time: <30 seconds. Headline numbers to verify:
 
 ---
 
-## Step 6 — Rebuild the magazine PDF
+## Step 6 — Rebuild the cover art and map-explorer exports
 
-Regenerates `report_public.pdf` from `report_public.md` + cover art.
+Regenerates the cover/hero art and the viewer's map-data exports.
 
 ```bash
 PYTHONIOENCODING=utf-8 python analysis/scripts/build_cover.py
 ```
 
-Wall time: ~30 seconds. The intermediate `article.pdf` and `article.html` are written to `.temp/` (gitignored). The final merged `report_public.pdf` is what most readers see.
+Wall time: ~30 seconds. (The compiled `report_public.pdf` and its build
+machinery were removed 2026-07-11; the public report is published as
+markdown only — `reports/public/report_public.md`.)
 
 ---
 

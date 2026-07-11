@@ -1,22 +1,23 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
-"""Build an editorial cover page for the Two Maps, One Province feature.
+"""Build the cover/hero art and the map-explorer data exports.
 
 Pipeline:
 1. Generate the hero image: Alberta outline (silhouette, dark) with overlaid
    boundary-line art showing where majority and minority 2026 proposals
    diverge. Orange for majority, blue for minority, grey dashed for the 2019
    baseline.
-2. Compose a standalone cover HTML using Playfair Display / Lora / Source
-   Sans 3 typography, warm ivory background, editorial hierarchy.
-3. Render cover HTML to cover.pdf via Chrome headless.
-4. Merge cover.pdf + report_public.pdf into a single final PDF.
+2. Build the majority / minority / 2019 map variants and export the
+   map-explorer GeoJSON + hover JSON consumed by the viewer
+   (tests/test_map_explorer_geojson.py exercises these exports).
 
 Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_cover.py
-Output: report_public.pdf at the repo root (cover + article merged).
-        maps/cover_art.svg as the hero image (also referenced in cover).
+Output: maps/cover_art.png + cover_art_hires.svg, and the viewer mapdata
+        exports. (The merged report_public.pdf this script once assembled
+        was removed 2026-07-11 along with build_pdf.py — the public report
+        is published as markdown only.)
 
-Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
+Dependencies: geopandas, shapely, matplotlib.
 
 Backward:
   # REVIEW: verify inputs before publication
@@ -42,7 +43,6 @@ from pathlib import Path
 
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import pypdf
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ALBERTA_EDS = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2019_eds"
@@ -68,13 +68,6 @@ VA_TO_2026_ASSIGNMENTS = (
 
 COVER_ART_PNG = data_loader._resolve_path("data") / "maps" / "cover_art.png"
 COVER_ART_HIRES_SVG = data_loader._resolve_path("data") / "maps" / "cover_art_hires.svg"
-OUT_PDF = (
-    REPO_ROOT / "report_public.pdf"
-)  # final = cover + article (the only PDF in the repo root)
-ARTICLE_PDF = (
-    REPO_ROOT / ".temp" / "article.pdf"
-)  # intermediate, written by build_pdf.py to .temp/
-
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
@@ -791,417 +784,15 @@ def build_map_variants() -> None:
 
 
 # ==========================================================
-# Cover HTML
-# ==========================================================
-
-COVER_HTML = """<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>The Quiet Part — cover</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap');
-
-@page {
-  size: Letter;
-  margin: 0;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 8.5in;
-  height: 11in;
-  background: #cccccc;        /* 20% grey full-bleed */
-  font-family: "Lora", Georgia, serif;
-  color: #1a1a1a;
-}
-
-.cover {
-  position: relative;
-  width: 8.5in;
-  height: 10.95in;        /* 0.05in shy of letter to defeat Chrome's blank-page heuristic */
-  background: #cccccc;
-  overflow: hidden;
-  padding: 0.4in 0.5in;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Vertical accent bar on the left — anchored at the BODY level so it
-   extends the full 11in page height (full bleed). The .cover element
-   is intentionally 0.05in shy of letter height to avoid Chrome's
-   blank-page heuristic; if the bar were anchored to .cover, it would
-   stop short of the bottom edge by that 0.05in. Anchoring to body
-   guarantees full edge-to-edge bleed. */
-body::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0;
-  width: 0.28in;
-  height: 11in;
-  background: linear-gradient(to bottom, #7a1f1f 0%, #7a1f1f 32%, #e87722 32%, #e87722 66%, #335c81 66%, #335c81 100%);
-  z-index: 1;
-}
-
-/* ----- Kicker ----- */
-.kicker {
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 9pt;
-  font-weight: 700;
-  letter-spacing: 4pt;
-  text-transform: uppercase;
-  color: #7a1f1f;
-  margin: 0 0 0.1in 0;
-  padding-top: 0.05in;
-}
-
-.kicker .issue {
-  color: #1a1a1a;
-  font-weight: 400;
-  letter-spacing: 3pt;
-}
-
-/* ----- Hero image ----- */
-.hero {
-  flex: 0 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Negative horizontal margin lets the hero bleed past the .cover's
-     0.8in side padding all the way to the page edges. */
-  margin: 0.05in -0.8in 0.1in -0.52in;   /* leave 0.28in for the left accent bar */
-  min-height: 0;
-}
-
-.hero img {
-  max-width: 100%;           /* fills the bleed area */
-  max-height: 8.25in;        /* 75% of 11in page height — map is the dominant visual */
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.hero-caption {
-  font-family: "Lora", Georgia, serif;
-  font-style: italic;
-  font-size: 6.5pt;
-  line-height: 1.3;
-  color: #8a8074;
-  text-align: right;
-  margin: 0.06in 0 0 0;
-  padding: 0.04in 0 0 0;
-  border-top: 0.4pt solid #d3cabd;
-  letter-spacing: 0.1pt;
-}
-
-.hero-caption::before {
-  content: "Cover map · ";
-  font-family: "Source Sans 3", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 6.5pt;
-  letter-spacing: 1.5pt;
-  text-transform: uppercase;
-  color: #7a1f1f;
-  margin-right: 0.3em;
-}
-
-/* ----- Title block ----- */
-.title-block {
-  margin: 0 0 0.08in 0;
-}
-
-.title {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 900;
-  font-size: 36pt;
-  letter-spacing: -0.8pt;
-  line-height: 1.0;
-  color: #0e0e0e;
-  margin: 0 0 0.08in 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
-.title .accent {
-  color: #7a1f1f;
-}
-
-.title .tick {
-  font-style: italic;
-  font-weight: 700;
-}
-
-.deck {
-  font-family: "Playfair Display", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 9.5pt;
-  line-height: 1.3;
-  color: #3a3a3a;
-  max-width: 6.5in;
-  margin: 0 0 0.08in 0;
-}
-
-/* ----- Footer: byline + locator ----- */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid #1a1a1a;
-  padding-top: 0.06in;
-  margin-top: 0.04in;
-}
-
-.byline {
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 9pt;
-  font-weight: 700;
-  letter-spacing: 2pt;
-  text-transform: uppercase;
-  color: #1a1a1a;
-}
-
-.byline .contact {
-  display: block;
-  font-weight: 400;
-  letter-spacing: 1pt;
-  text-transform: none;
-  color: #555;
-  font-size: 8.5pt;
-  margin-top: 0.04in;
-  font-family: "Lora", Georgia, serif;
-  font-style: italic;
-}
-
-.locator {
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 8pt;
-  font-weight: 600;
-  letter-spacing: 1.5pt;
-  text-transform: uppercase;
-  color: #555;
-  text-align: right;
-  line-height: 1.5;
-}
-
-.locator .url {
-  display: block;
-  color: #7a1f1f;
-  font-weight: 700;
-  letter-spacing: 0.5pt;
-  text-transform: none;
-  font-size: 9pt;
-  margin-top: 0.04in;
-  font-family: "Lora", Georgia, serif;
-  text-decoration: none;
-  /* Border-bottom (not text-decoration) survives both colour and
-     grayscale renders on e-ink readers; the colour itself collapses
-     to mid-gray on monochrome. */
-  border-bottom: 0.6pt solid #1a1a1a;
-  padding-bottom: 0.5pt;
-}
-.locator .url:hover { text-decoration: underline; }
-
-/* Subtle lines at top-right = issue identifier */
-.issue-marker {
-  position: absolute;
-  top: 0.45in;
-  right: 0.85in;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 7.5pt;
-  letter-spacing: 3pt;
-  color: #888;
-  text-transform: uppercase;
-  text-align: right;
-  font-weight: 600;
-}
-
-/* Legend strip below hero, referencing the cover-art colour language */
-.legend {
-  display: flex;
-  gap: 0.4in;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 7.5pt;
-  letter-spacing: 1.2pt;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #555;
-  margin: 0 0 0.06in 0;
-}
-
-.legend .swatch {
-  display: inline-block;
-  width: 0.22in;
-  height: 2pt;
-  margin-right: 0.09in;
-  vertical-align: middle;
-}
-
-.legend .swatch-ucp { background: #225d9e; }
-.legend .swatch-tied { background: #f4efe6; border: 0.5pt solid #888; }
-.legend .swatch-ndp { background: #ea7414; }
-</style>
-</head>
-<body>
-<div class="cover">
-
-  <div class="issue-marker">No. 01 · April 2026</div>
-
-  <div class="kicker">
-    An Electoral Boundaries Audit<br>
-    <span class="issue">Alberta · 2026</span>
-  </div>
-
-  <div class="hero">
-    <img src="{hero_src}" alt="Alberta with the 2026 minority commission map overlaid, each electoral district coloured by 2023 vote share.">
-  </div>
-
-  <div class="legend">
-    <span><span class="swatch swatch-ucp"></span>UCP-leaning</span>
-    <span><span class="swatch swatch-ndp"></span>NDP-leaning</span>
-  </div>
-
-  <div class="title-block">
-    <h1 class="title">The <span class="tick">Quiet</span> Part<span class="accent">.</span></h1>
-    <p class="deck">Alberta's electoral-boundary commission split three to two. The government threw out both maps and handed the drafting pencil to five MLAs instead. An audit of what was rejected, what the government is promising, and what to watch for in November.</p>
-  </div>
-
-  <div class="footer">
-    <div class="byline">
-      By Will Conner
-      <span class="contact">wconn161@mtroyal.ca</span>
-    </div>
-    <div class="locator">
-      Audit executive summary
-      <a class="url" href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
-    </div>
-  </div>
-
-  <p class="hero-caption">The 2026 minority commission proposal — the map this audit ends up critiquing. Each district is coloured by its 2023 UCP–NDP vote share.</p>
-
-</div>
-</body>
-</html>
-"""
-
-
-def build_cover_html(hero_path: Path) -> str:
-    # Embed the hero via file:// URL so Chrome finds it at render time.
-    # Use plain string replace to avoid str.format colliding with CSS braces.
-    hero_src = hero_path.resolve().as_uri()
-    return COVER_HTML.replace("{hero_src}", hero_src)
-
-
-# ==========================================================
-# Render cover HTML -> cover PDF (single page) via Chrome
-# ==========================================================
-
-
-def render_cover_pdf(cover_html_path: Path, out_pdf: Path) -> None:
-    browser = find_browser()
-    file_url = cover_html_path.resolve().as_uri()
-    cmd = [
-        browser,
-        "--headless=new",
-        "--disable-gpu",
-        "--no-sandbox",
-        "--no-pdf-header-footer",
-        f"--print-to-pdf={out_pdf.resolve()}",
-        "--print-to-pdf-no-header",
-        "--run-all-compositor-stages-before-draw",
-        "--virtual-time-budget=15000",
-        file_url,
-    ]
-    print(f"[build_cover] Rendering cover via {browser}")
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
-    if result.returncode != 0:
-        sys.stderr.write(result.stderr or result.stdout or "")
-        raise RuntimeError(f"Cover render failed ({result.returncode}).")
-    print(f"[build_cover] Wrote cover PDF {out_pdf.name}")
-
-
-# ==========================================================
-# Merge cover.pdf + article.pdf -> final PDF
-# ==========================================================
-
-
-def merge_pdfs(cover_pdf: Path, article_pdf: Path, out_pdf: Path) -> None:
-    writer = pypdf.PdfWriter()
-    # Take only the first page of the cover — Chrome's PDF renderer
-    # sometimes appends a blank trailing page when content fits exactly to
-    # the @page boundary.
-    cover_reader = pypdf.PdfReader(str(cover_pdf))
-    writer.add_page(cover_reader.pages[0])
-    writer.append(str(article_pdf))
-    with open(out_pdf, "wb") as f:
-        writer.write(f)
-    print(
-        f"[build_cover] Merged final PDF {out_pdf.relative_to(REPO_ROOT)} "
-        f"({out_pdf.stat().st_size/1024:.1f} KB, "
-        f"{len(cover_reader.pages)} cover page(s) -> first page only)"
-    )
-
-
-# ==========================================================
 # Orchestrator
 # ==========================================================
 
 
 def main() -> int:
-    # 1. Hero art (minority = default / cover page map)
-    hero_png = build_cover_art()
-    # 1b. Majority and 2019 variants for the interactive selector
+    # 1. Hero art (minority = default / cover map)
+    build_cover_art()
+    # 2. Majority and 2019 variants + map-explorer GeoJSON/hover exports
     build_map_variants()
-
-    # 2. Cover HTML
-    cover_html = build_cover_html(hero_png)
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", suffix=".html", delete=False
-    ) as tmp:
-        tmp.write(cover_html)
-        cover_html_path = Path(tmp.name)
-
-    # 3. Cover PDF
-    with tempfile.NamedTemporaryFile(
-        mode="wb", suffix="_cover.pdf", delete=False
-    ) as tmp:
-        cover_pdf_path = Path(tmp.name)
-    try:
-        render_cover_pdf(cover_html_path, cover_pdf_path)
-    finally:
-        try:
-            cover_html_path.unlink()
-        except OSError:
-            pass
-
-    # 4. Article PDF — regenerate via the existing pipeline (writes article.pdf)
-    print("[build_cover] Regenerating article body...")
-    build_pdf_py = REPO_ROOT / "analysis" / "scripts" / "build_pdf.py"
-    subprocess.run(
-        [sys.executable, str(build_pdf_py)],
-        check=True,
-        env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
-    )
-    if not ARTICLE_PDF.exists():
-        raise RuntimeError(
-            f"build_pdf.py did not produce {ARTICLE_PDF}. "
-            "Possible cause: article.pdf held open by another process."
-        )
-
-    # 5. Merge cover + article into final report_public.pdf
-    merge_pdfs(cover_pdf_path, ARTICLE_PDF, OUT_PDF)
-
-    # Cleanup the cover-only intermediate (keep article.pdf — it's the
-    # standalone artefact that build_pdf.py advertises as its output).
-    try:
-        cover_pdf_path.unlink()
-    except OSError:
-        pass
-
     return 0
 
 

@@ -1160,11 +1160,6 @@ L2_MANIFEST: List[Dict[str, Any]] = [
         "role": "Cover art assembly.",
     },
     {
-        "path": "analysis/scripts/build_pdf.py",
-        "name": "Build PDF",
-        "role": "PDF assembly from academic HTML.",
-    },
-    {
         "path": "analysis/scripts/check_voice_and_readability.py",
         "name": "Voice and readability checker",
         "role": "Editorial-pass automation.",
@@ -3264,7 +3259,6 @@ def build_nodes_and_edges() -> (
             "reads published report",
         ),
         ("build_cover", "L0:doc.frozen_manifest", "in", "reads cover art"),
-        ("build_pdf", "L0:doc.frozen_manifest", "in", "reads HTML/Markdown"),
         (
             "check_voice_and_readability",
             "L0:doc.frozen_manifest",

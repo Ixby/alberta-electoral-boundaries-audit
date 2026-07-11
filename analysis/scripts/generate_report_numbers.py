@@ -10,7 +10,7 @@ Run after any analysis script that updates the canonical output files:
 
 The output file is committed to git as a reproducibility artefact.
 Reports reference numbers via {{R|key}} tokens, which the build scripts
-substitute at PDF-generation time (see build_pdf.py / build_academic_pdf.py).
+substitute at PDF-generation time (see build_academic_pdf.py).
 
 Key sources read:
   data/outputs/simulation_real_map_scores_canonical.json  — raw map metrics
@@ -38,7 +38,6 @@ Forward:
   data/outputs/report_numbers.json          — single source of truth for {{R|key}} tokens
   reports/academic/report_academic.md       — consumes via {{R|key}} substitution
   reports/public/report_public.md           — consumes via {{R|key}} substitution
-  analysis/scripts/build_pdf.py             — substitutes tokens at PDF build
   analysis/scripts/build_academic_pdf.py    — substitutes tokens at PDF build
 """
 

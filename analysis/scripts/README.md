@@ -25,7 +25,6 @@ Python scripts that run every stage of the Alberta electoral boundary audit, fro
 
 | Script | What it produces |
 |---|---|
-| `build_pdf.py` | `article.pdf` via LaTeX |
 | `build_academic_html.py` | `dist/` HTML publication |
 
 ## Shape pipeline (Archived)

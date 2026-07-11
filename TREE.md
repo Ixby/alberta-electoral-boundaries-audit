@@ -209,7 +209,7 @@ analysis/
     ├── score_anchoring.py                  Municipal-boundary anchoring fractions (§5.8.5)
     ├── simulation_convergence_diagnostics.py   ESS, rho_lag1, Gelman-Rubin per chain
     ├── validate_fisher_independence.py     Ch1 × Ch2 independence test (ρ test)
-    ├── build_pdf.py / build_academic_pdf.py    Pandoc-based PDF generation
+    ├── build_academic_pdf.py                   Academic-report PDF generation
     ├── canonical_paths.py                  Map-path resolver — never hardcode shapefile paths
     ├── dependency_query.py                 DAG --invalidate query CLI
     ├── quote_verify_and_clean.py           Submission quote verification + deduplication
@@ -380,8 +380,7 @@ reports/
 │   ├── data_supplement.md      Peer-review navigation aid
 │   └── report_academic.pdf     Compiled PDF (rebuilt via build_academic_pdf.py)
 ├── public/
-│   ├── report_public.md        Grade-9 reading level summary for general audience
-│   └── report_public.pdf       Compiled PDF (rebuilt via build_pdf.py)
+│   └── report_public.md        Plain-language summary for general audience (markdown only)
 └── assets/                     Infographic PNGs (gitignored — in supplemental zip)
 ```
 

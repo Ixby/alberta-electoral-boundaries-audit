@@ -1183,7 +1183,7 @@
     <ul class="links-list">
       <li>
         <span class="tag">{t(lang.current, 'body.resources.tag_plain')}</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">{t(lang.current, 'body.resources.plain_label')}</a> &mdash; {t(lang.current, 'body.resources.plain_desc')}
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md">{t(lang.current, 'body.resources.plain_label')}</a> &mdash; {t(lang.current, 'body.resources.plain_desc')}
       </li>
       <li>
         <span class="tag">{t(lang.current, 'body.resources.tag_summary')}</span>

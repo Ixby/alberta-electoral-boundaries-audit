@@ -1,10 +1,10 @@
 {
   "meta": {
     "schema_version": "canonical-2026-06-10",
-    "date_built": "2026-06-10",
-    "commit": "e26eb4311a175d3b86ef8866c2d0423f2b094698",
-    "node_count": 273,
-    "edge_count": 409,
+    "date_built": "2026-07-11",
+    "commit": "e90743bea2e915ab76d69e87aab984a350d99704",
+    "node_count": 280,
+    "edge_count": 410,
     "acyclic": true,
     "orphan_nodes": [
       "L1:constructed.phase4c_maup_summary",
@@ -14,12 +14,14 @@
       "L2:338canada_scraper",
       "L2:advance_vote_sensitivity",
       "L2:annotate_ensemble_seats_chart",
-      "L2:article_figures",
       "L2:assignment_prep",
       "L2:build_html_reports",
       "L2:dependency_graph_render",
       "L2:dependency_query",
       "L2:derive_boundaries",
+      "L2:drain_metric_validation",
+      "L2:drain_phase_b_canonical",
+      "L2:extended_partisan_metrics_canonical",
       "L2:generate_report_numbers",
       "L2:inject_eg_into_hover_json",
       "L2:intermap_permutation_test",
@@ -27,11 +29,13 @@
       "L2:mcmc_ensemble_canonical",
       "L2:palette",
       "L2:phase4c_canonical_attribution",
+      "L2:phase4f_hardstop_canonical",
       "L2:replot_mcmc_figures",
       "L2:simulation_convergence_diagnostics",
       "L2:simulation_short_bursts",
       "L2:submission_sentiment_llm_full",
       "L2:szat",
+      "L2:szat_block_permutation",
       "L2:third_party_sensitivity",
       "L2:v0_1_assignment_va_attribution",
       "L2:v0_1_assignment_va_attribution_maup",
@@ -41,7 +45,8 @@
       "L2:v0_1_generate_overlay_figures",
       "L2:v0_1_generate_topological_boundaries",
       "L2:v0_1_refine_boundaries",
-      "L2:v0_1_simulation_multichain_ensemble"
+      "L2:v0_1_simulation_multichain_ensemble",
+      "L2:verify_joint_empirical_bound"
     ],
     "findings_without_l0_path": [
       "L3:finding.b2_maup_v1_topology_artefact",
@@ -72,8 +77,6 @@
       "Forward target unresolved in analysis/scripts/build_html_reports.py: '(consumed by GitHub Pages at https://ixby.github.io/alberta-electoral-boundaries-audit/)'",
       "Backward source unresolved in analysis/scripts/build_html_reports.py: 'reports/public/report_public.md            — public-report markdown source'",
       "Backward source unresolved in analysis/scripts/build_html_reports.py: 'reports/academic/report_academic.md        — academic-report markdown source'",
-      "Forward target unresolved in analysis/scripts/build_pdf.py: 'outputs/public_report/report_public.pdf'",
-      "Backward source unresolved in analysis/scripts/build_pdf.py: 'outputs/public_report/report_public.md'",
       "Forward target unresolved in analysis/scripts/check_voice_and_readability.py: '(leaf — CI advisory; stdout only, no artifact written)'",
       "Backward source unresolved in analysis/scripts/check_voice_and_readability.py: 'reports/academic/report_academic.md       — academic-voice target check'",
       "Backward source unresolved in analysis/scripts/check_voice_and_readability.py: 'reports/public/report_public.md           — public-voice target check'",
@@ -93,14 +96,33 @@
       "Backward source unresolved in analysis/scripts/dependency_graph_render.py: 'analysis/methodology/audit_dependency_graph.dot'",
       "Forward target unresolved in analysis/scripts/dependency_query.py: '(stdout analysis report)'",
       "Backward source unresolved in analysis/scripts/dependency_query.py: 'analysis/methodology/audit_dependency_graph.json'",
+      "Forward target unresolved in analysis/scripts/drain_metric_validation.py: 'findings/drain_metric_validation.md  — published result'",
+      "Forward target unresolved in analysis/scripts/drain_metric_validation.py: 'reports/academic/report_academic.md §5.3.5 — incorporates verdict'",
+      "Backward source unresolved in analysis/scripts/drain_metric_validation.py: 'analysis/scripts/neighbour_drain_adjacency.py — drain mechanics + adjacency'",
+      "Backward source unresolved in analysis/scripts/drain_metric_validation.py: 'analysis/scripts/drain_label_shuffle_null.py   — Phase B null'",
+      "Backward source unresolved in analysis/scripts/drain_metric_validation.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/drain_metric_validation.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/drain_phase_b_canonical.py: 'findings/drain_label_shuffle_null_canonical.md  — published result'",
+      "Forward target unresolved in analysis/scripts/drain_phase_b_canonical.py: 'findings/drain_label_shuffle_null_canonical.json — machine-readable'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'analysis/scripts/drain_label_shuffle_null.py — original (stale-substrate)'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'analysis/scripts/neighbour_drain_adjacency.py — drain helpers'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'analysis/scripts/packing_cracking_analysis.py — canonical vote attribution'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/drain_phase_b_canonical.py: 'data/shapefiles/canonical/va_2023_election_day_votes.gpkg'",
       "Forward target unresolved in analysis/scripts/electoral_forensics_population.py: 'findings/population_equality.md'",
       "Forward target unresolved in analysis/scripts/electoral_forensics_population.py: 'findings/population_consistency.csv'",
       "Backward source unresolved in analysis/scripts/electoral_forensics_population.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/electoral_forensics_population.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/export_media_kit_png.py: 'data/maps/media_kit/'",
       "Forward target unresolved in analysis/scripts/extended_partisan_metrics.py: 'findings/extended_partisan_metrics.md'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/va_polygons_with_2023_votes.gpkg'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/extended_partisan_metrics_canonical.py: 'findings/extended_partisan_metrics_canonical.md'",
+      "Forward target unresolved in analysis/scripts/extended_partisan_metrics_canonical.py: 'findings/extended_partisan_metrics_canonical.json'",
+      "Backward source unresolved in analysis/scripts/extended_partisan_metrics_canonical.py: 'analysis/scripts/extended_partisan_metrics.py — original (v0_7 substrate)'",
+      "Backward source unresolved in analysis/scripts/extended_partisan_metrics_canonical.py: 'analysis/scripts/packing_cracking_analysis.py — canonical vote attribution'",
       "Forward target unresolved in analysis/scripts/forest_recom_ensemble.py: 'findings/forest_recom_robustness.md'",
       "Forward target unresolved in analysis/scripts/forest_recom_ensemble.py: 'reports/academic/report_academic.md §5.2.7'",
       "Backward source unresolved in analysis/scripts/forest_recom_ensemble.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
@@ -110,7 +132,6 @@
       "Forward target unresolved in analysis/scripts/generate_report_numbers.py: 'data/outputs/report_numbers.json          — single source of truth for R|key tokens'",
       "Forward target unresolved in analysis/scripts/generate_report_numbers.py: 'reports/academic/report_academic.md       — consumes via R|key substitution'",
       "Forward target unresolved in analysis/scripts/generate_report_numbers.py: 'reports/public/report_public.md           — consumes via R|key substitution'",
-      "Forward target unresolved in analysis/scripts/generate_report_numbers.py: 'analysis/scripts/build_pdf.py             — substitutes tokens at PDF build'",
       "Forward target unresolved in analysis/scripts/generate_report_numbers.py: 'analysis/scripts/build_academic_pdf.py    — substitutes tokens at PDF build'",
       "Backward source unresolved in analysis/scripts/generate_report_numbers.py: 'data/outputs/simulation_real_map_scores_canonical.json'",
       "Backward source unresolved in analysis/scripts/generate_report_numbers.py: 'data/outputs/simulated_ensemble_percentiles_canonical.csv'",
@@ -166,6 +187,10 @@
       "Backward source unresolved in analysis/scripts/phase4c_canonical_attribution.py: 'data/shapefiles/canonical/va_2023_election_day_votes.gpkg'",
       "Backward source unresolved in analysis/scripts/phase4c_canonical_attribution.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/phase4c_canonical_attribution.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/phase4f_hardstop_canonical.py: 'findings/phase4f_hardstop_canonical.md'",
+      "Forward target unresolved in analysis/scripts/phase4f_hardstop_canonical.py: 'findings/phase4f_hardstop_canonical.json'",
+      "Backward source unresolved in analysis/scripts/phase4f_hardstop_canonical.py: 'findings/phase4f_summary.json — v0_5 superseded predecessor'",
+      "Backward source unresolved in analysis/scripts/phase4f_hardstop_canonical.py: 'findings/dpg_legacy_audit.md §\"phase4f_summary.json\"'",
       "Forward target unresolved in analysis/scripts/replot_mcmc_figures.py: 'data/maps/mcmc/ensemble_distribution_run_id_metric.svg — distribution figures'",
       "Forward target unresolved in analysis/scripts/replot_mcmc_figures.py: 'data/maps/mcmc/running_mean_run_id_metric.svg          — convergence figures'",
       "Forward target unresolved in analysis/scripts/replot_mcmc_figures.py: 'reports/academic/report_academic.md                        — embeds the SVGs'",
@@ -214,11 +239,22 @@
       "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg'",
+      "Forward target unresolved in analysis/scripts/szat_block_permutation.py: 'findings/szat_block_permutation.md'",
+      "Forward target unresolved in analysis/scripts/szat_block_permutation.py: 'findings/szat_block_permutation.json'",
+      "Backward source unresolved in analysis/scripts/szat_block_permutation.py: 'analysis/scripts/szat.py — original i.i.d.-flip implementation'",
+      "Forward target unresolved in analysis/scripts/t3_2_majority_rural_isolation.py: 'findings/t3_2_majority_rural_isolation.json'",
+      "Forward target unresolved in analysis/scripts/t3_2_majority_rural_isolation.py: 'findings/t3_2_majority_rural_isolation.md'",
+      "Backward source unresolved in analysis/scripts/t3_2_majority_rural_isolation.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/t3_2_majority_rural_isolation.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
       "Forward target unresolved in analysis/scripts/third_party_sensitivity.py: '(consumed by report/D1 analysis)'",
       "Forward target unresolved in analysis/scripts/va_attribution_population_weighted.py: 'data/outputs/pop_weighted_canonical_<map>.csv'",
       "Forward target unresolved in analysis/scripts/va_attribution_population_weighted.py: 'findings/maup_attribution_canonical.md'",
       "Backward source unresolved in analysis/scripts/va_attribution_population_weighted.py: 'data/shapefiles/canonical/va_2023_election_day_votes.gpkg'",
       "Backward source unresolved in analysis/scripts/va_attribution_population_weighted.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/verify_joint_empirical_bound.py: 'findings/joint_empirical_bound_verification.json'",
+      "Forward target unresolved in analysis/scripts/verify_joint_empirical_bound.py: 'reports/academic/report_academic.md §5.4.9 (empirical-bound note), §5.4 (R-hat addendum)'",
+      "Backward source unresolved in analysis/scripts/verify_joint_empirical_bound.py: 'data/outputs/simulated_ensemble_raw_samples_canonical.csv'",
+      "Backward source unresolved in analysis/scripts/verify_joint_empirical_bound.py: 'data/outputs/simulation_real_map_scores_canonical.json'",
       "Dropping edge with missing endpoint: L2:* -> L2:dependency_graph_build",
       "Dropping edge with missing endpoint: L2:drand_seed -> L2:forest_recom_ensemble",
       "Dropping edge with missing endpoint: L2:drand_seed -> L2:mcmc_ensemble_canonical",
@@ -238,11 +274,11 @@
     "counts_per_layer": {
       "L0": 32,
       "L1": 53,
-      "L2": 114,
+      "L2": 121,
       "L3": 74
     },
     "edge_counts_per_type": {
-      "required": 351,
+      "required": 352,
       "corroborating": 23,
       "validating": 35
     },
@@ -271,7 +307,7 @@
     "top5_outdegree_l3sources": [
       [
         "L0:doc.frozen_manifest",
-        37
+        36
       ],
       [
         "L0:data.2023_statement_of_vote",
@@ -1090,15 +1126,6 @@
       "has_header": true
     },
     {
-      "id": "L2:build_pdf",
-      "layer": "L2",
-      "name": "Build PDF",
-      "type": "measurement_script",
-      "path": "analysis/scripts/build_pdf.py",
-      "role": "PDF assembly from academic HTML.",
-      "has_header": true
-    },
-    {
       "id": "L2:check_voice_and_readability",
       "layer": "L2",
       "name": "Voice and readability checker",
@@ -1162,6 +1189,24 @@
       "has_header": true
     },
     {
+      "id": "L2:drain_metric_validation",
+      "layer": "L2",
+      "name": "drain_metric_validation",
+      "type": "measurement_script",
+      "path": "analysis/scripts/drain_metric_validation.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:drain_phase_b_canonical",
+      "layer": "L2",
+      "name": "drain_phase_b_canonical",
+      "type": "measurement_script",
+      "path": "analysis/scripts/drain_phase_b_canonical.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:electoral_forensics_population",
       "layer": "L2",
       "name": "Electoral forensics — population equality (A1/A2/A2b)",
@@ -1171,11 +1216,29 @@
       "has_header": true
     },
     {
+      "id": "L2:export_media_kit_png",
+      "layer": "L2",
+      "name": "export_media_kit_png",
+      "type": "measurement_script",
+      "path": "analysis/scripts/export_media_kit_png.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:extended_partisan_metrics",
       "layer": "L2",
       "name": "extended_partisan_metrics",
       "type": "measurement_script",
       "path": "analysis/scripts/extended_partisan_metrics.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:extended_partisan_metrics_canonical",
+      "layer": "L2",
+      "name": "extended_partisan_metrics_canonical",
+      "type": "measurement_script",
+      "path": "analysis/scripts/extended_partisan_metrics_canonical.py",
       "role": "",
       "has_header": true
     },
@@ -1306,6 +1369,15 @@
       "has_header": true
     },
     {
+      "id": "L2:phase4f_hardstop_canonical",
+      "layer": "L2",
+      "name": "phase4f_hardstop_canonical",
+      "type": "measurement_script",
+      "path": "analysis/scripts/phase4f_hardstop_canonical.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:replot_mcmc_figures",
       "layer": "L2",
       "name": "replot_mcmc_figures",
@@ -1419,6 +1491,24 @@
       "name": "szat",
       "type": "measurement_script",
       "path": "analysis/scripts/szat.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:szat_block_permutation",
+      "layer": "L2",
+      "name": "szat_block_permutation",
+      "type": "measurement_script",
+      "path": "analysis/scripts/szat_block_permutation.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:t3_2_majority_rural_isolation",
+      "layer": "L2",
+      "name": "t3_2_majority_rural_isolation",
+      "type": "measurement_script",
+      "path": "analysis/scripts/t3_2_majority_rural_isolation.py",
       "role": "",
       "has_header": true
     },
@@ -1977,6 +2067,15 @@
       "name": "va_attribution_population_weighted",
       "type": "measurement_script",
       "path": "analysis/scripts/va_attribution_population_weighted.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:verify_joint_empirical_bound",
+      "layer": "L2",
+      "name": "verify_joint_empirical_bound",
+      "type": "measurement_script",
+      "path": "analysis/scripts/verify_joint_empirical_bound.py",
       "role": "",
       "has_header": true
     },
@@ -2561,6 +2660,12 @@
       "sensitivity": "script Backward: header"
     },
     {
+      "source": "L2:article_figures",
+      "target": "L2:export_media_kit_png",
+      "type": "required",
+      "sensitivity": "script Backward: header"
+    },
+    {
       "source": "L1:constructed.mcmc_ensemble_100k",
       "target": "L2:extended_partisan_metrics",
       "type": "required",
@@ -2659,6 +2764,12 @@
     {
       "source": "L1:constructed.va_pop_from_das",
       "target": "L2:simulation_multichain_ensemble",
+      "type": "required",
+      "sensitivity": "script Backward: header"
+    },
+    {
+      "source": "L0:data.2019_ed_shapefile",
+      "target": "L2:t3_2_majority_rural_isolation",
       "type": "required",
       "sensitivity": "script Backward: header"
     },
@@ -3345,12 +3456,6 @@
       "target": "L2:build_cover",
       "type": "required",
       "sensitivity": "reads cover art"
-    },
-    {
-      "source": "L0:doc.frozen_manifest",
-      "target": "L2:build_pdf",
-      "type": "required",
-      "sensitivity": "reads HTML/Markdown"
     },
     {
       "source": "L0:doc.frozen_manifest",

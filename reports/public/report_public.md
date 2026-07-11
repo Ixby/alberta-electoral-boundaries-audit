@@ -12,7 +12,6 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 > - `analysis/methodology/threshold_provenance.md` — threshold context
 >
 > **Forward:**
-> - `reports/public/report_public.pdf` — print-ready PDF derivative
 > - `README.md` — links to this as the public-audience report
 > - `docs/FINDINGS_BRIEF.md` — even shorter brief derived from same findings
 > - (leaf otherwise — general-audience report, public-facing)

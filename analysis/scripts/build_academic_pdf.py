@@ -10,8 +10,8 @@ Pipeline:
    Source Sans 3 typography (Google Fonts).
 5. Write to a temp HTML file and print it via Chrome headless.
 
-Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_pdf.py
-Output: report_public.pdf at the repo root.
+Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_academic_pdf.py
+Output: reports/academic/report_academic.pdf.
 
 Dependencies: markdown (pip install markdown). Chrome or Edge at the
 standard Windows install paths. Network access on first run for the
@@ -39,7 +39,7 @@ SRC_MD = REPO_ROOT / "reports" / "academic" / "report_academic.md"
 import tempfile as _tempfile
 
 # Write the intermediate article PDF + HTML to .temp/ rather than the
-# repo root; only the merged report_public.pdf is the published artefact.
+# repo root; intermediates are not published artefacts.
 _TMP_DIR = REPO_ROOT / ".temp"
 _TMP_DIR.mkdir(exist_ok=True)
 OUT_PDF = REPO_ROOT / "reports" / "academic" / "report_academic.pdf"

@@ -117,7 +117,6 @@ digraph audit_dependency_graph {
     "L2:build_canonical_va_votes" [label="build_canonical_va_votes", fillcolor="#fce4a7"];
     "L2:build_cover" [label="Build cover page", fillcolor="#fce4a7"];
     "L2:build_html_reports" [label="build_html_reports", fillcolor="#fce4a7"];
-    "L2:build_pdf" [label="Build PDF", fillcolor="#fce4a7"];
     "L2:check_voice_and_readability" [label="Voice and readability checker", fillcolor="#fce4a7"];
     "L2:chen_rodden_decomposition" [label="chen_rodden_decomposition", fillcolor="#fce4a7"];
     "L2:core_retention" [label="core_retention", fillcolor="#fce4a7"];
@@ -125,8 +124,12 @@ digraph audit_dependency_graph {
     "L2:dependency_graph_build" [label="dependency_graph_build", fillcolor="#fce4a7"];
     "L2:dependency_graph_render" [label="dependency_graph_render", fillcolor="#fce4a7"];
     "L2:dependency_query" [label="dependency_query", fillcolor="#fce4a7"];
+    "L2:drain_metric_validation" [label="drain_metric_validation", fillcolor="#fce4a7"];
+    "L2:drain_phase_b_canonical" [label="drain_phase_b_canonical", fillcolor="#fce4a7"];
     "L2:electoral_forensics_population" [label="Electoral forensics — population equality\n(A1/A2/A2b)", fillcolor="#fce4a7"];
+    "L2:export_media_kit_png" [label="export_media_kit_png", fillcolor="#fce4a7"];
     "L2:extended_partisan_metrics" [label="extended_partisan_metrics", fillcolor="#fce4a7"];
+    "L2:extended_partisan_metrics_canonical" [label="extended_partisan_metrics_canonical", fillcolor="#fce4a7"];
     "L2:forest_recom_ensemble" [label="forest_recom_ensemble", fillcolor="#fce4a7"];
     "L2:generate_report_numbers" [label="generate_report_numbers", fillcolor="#fce4a7"];
     "L2:inject_eg_into_hover_json" [label="inject_eg_into_hover_json", fillcolor="#fce4a7"];
@@ -141,6 +144,7 @@ digraph audit_dependency_graph {
     "L2:palette" [label="palette", fillcolor="#fce4a7"];
     "L2:parse_2015_results" [label="Parse 2015 Statement of Vote", fillcolor="#fce4a7"];
     "L2:phase4c_canonical_attribution" [label="phase4c_canonical_attribution", fillcolor="#fce4a7"];
+    "L2:phase4f_hardstop_canonical" [label="phase4f_hardstop_canonical", fillcolor="#fce4a7"];
     "L2:replot_mcmc_figures" [label="replot_mcmc_figures", fillcolor="#fce4a7"];
     "L2:run_structural_battery" [label="run_structural_battery", fillcolor="#fce4a7"];
     "L2:rural_gap_dissection" [label="rural_gap_dissection", fillcolor="#fce4a7"];
@@ -154,6 +158,8 @@ digraph audit_dependency_graph {
     "L2:submission_search" [label="Submission archive keyword search", fillcolor="#fce4a7"];
     "L2:submission_sentiment_llm_full" [label="submission_sentiment_llm_full", fillcolor="#fce4a7"];
     "L2:szat" [label="szat", fillcolor="#fce4a7"];
+    "L2:szat_block_permutation" [label="szat_block_permutation", fillcolor="#fce4a7"];
+    "L2:t3_2_majority_rural_isolation" [label="t3_2_majority_rural_isolation", fillcolor="#fce4a7"];
     "L2:third_party_sensitivity" [label="third_party_sensitivity", fillcolor="#fce4a7"];
     "L2:v0_1_2015_cross_election" [label="2015 cross-election extension", fillcolor="#fce4a7"];
     "L2:v0_1_a1_legal_baseline_2021_census" [label="A1 legal-baseline against 2019 EDs + 2021\ncensus", fillcolor="#fce4a7"];
@@ -216,6 +222,7 @@ digraph audit_dependency_graph {
     "L2:v0_1_track_l_drift" [label="Track-L population-drift analysis", fillcolor="#fce4a7"];
     "L2:v0_1_url_archival" [label="URL archival (Wayback + archive.ph)", fillcolor="#fce4a7"];
     "L2:va_attribution_population_weighted" [label="va_attribution_population_weighted", fillcolor="#fce4a7"];
+    "L2:verify_joint_empirical_bound" [label="verify_joint_empirical_bound", fillcolor="#fce4a7"];
   }
   subgraph cluster_L3 {
     label="Layer 3 — Findings";
@@ -305,6 +312,7 @@ digraph audit_dependency_graph {
   "L0:data.2015_election_results" -> "L2:cross_election" [style=solid, color="#333333"];
   "L0:data.commission_rationales_text" -> "L2:cross_election" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:dependency_graph_build" [style=solid, color="#333333"];
+  "L2:article_figures" -> "L2:export_media_kit_png" [style=solid, color="#333333"];
   "L1:constructed.mcmc_ensemble_100k" -> "L2:extended_partisan_metrics" [style=solid, color="#333333"];
   "L2:mcmc_ensemble" -> "L2:forest_recom_ensemble" [style=solid, color="#333333"];
   "L1:constructed.va_substrate_elecday" -> "L2:mcmc_ensemble" [style=solid, color="#333333"];
@@ -322,6 +330,7 @@ digraph audit_dependency_graph {
   "L0:data.2019_election_results" -> "L2:seats_at_50_50_regional" [style=solid, color="#333333"];
   "L1:constructed.va_substrate_elecday" -> "L2:simulation_multichain_ensemble" [style=solid, color="#333333"];
   "L1:constructed.va_pop_from_das" -> "L2:simulation_multichain_ensemble" [style=solid, color="#333333"];
+  "L0:data.2019_ed_shapefile" -> "L2:t3_2_majority_rural_isolation" [style=solid, color="#333333"];
   "L0:data.2021_das_gpkg" -> "L2:va_attribution_population_weighted" [style=solid, color="#333333"];
   "L0:data.commission_published_populations" -> "L2:electoral_forensics_population" [style=solid, color="#333333"];
   "L0:data.2023_statement_of_vote" -> "L2:packing_cracking_analysis" [style=solid, color="#333333"];
@@ -436,7 +445,6 @@ digraph audit_dependency_graph {
   "L1:constructed.dpg_v0_3_swept" -> "L2:v0_1_municipal_anchoring" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:build_academic_html" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:build_cover" [style=solid, color="#333333"];
-  "L0:doc.frozen_manifest" -> "L2:build_pdf" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:check_voice_and_readability" [style=solid, color="#333333"];
   "L0:data.commission_published_populations" -> "L3:finding.a1_mad_majority_3180" [style=solid, color="#333333"];
   "L2:electoral_forensics_population" -> "L3:finding.a1_mad_majority_3180" [style=solid, color="#333333"];
