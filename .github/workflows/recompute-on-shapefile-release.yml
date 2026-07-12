@@ -78,6 +78,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Restore poller state (persists link-set memory across scheduled runs)
+        uses: actions/cache/restore@v4
+        with:
+          path: .temp/automation_state
+          key: automation-state-${{ github.run_id }}
+          restore-keys: |
+            automation-state-
+
       - name: Resolve shapefile inputs
         id: shapefiles
         env:
@@ -93,8 +101,8 @@ jobs:
                 echo "::notice::Polling found no new shapefiles. Exiting cleanly."
                 exit 0
               }
-            MAJORITY_PATH="$(ls .temp/inbound/*majority*.gpkg 2>/dev/null | head -1)"
-            MINORITY_PATH="$(ls .temp/inbound/*minority*.gpkg 2>/dev/null | head -1)"
+            MAJORITY_PATH="$(ls .temp/inbound/*majority*.gpkg 2>/dev/null | head -1 || true)"
+            MINORITY_PATH="$(ls .temp/inbound/*minority*.gpkg 2>/dev/null | head -1 || true)"
           else
             echo "Downloading majority shapefile: $MAJORITY_INPUT"
             curl -fsSL "$MAJORITY_INPUT" -o .temp/inbound/majority_input.gpkg
@@ -109,6 +117,13 @@ jobs:
           fi
           echo "majority_path=$MAJORITY_PATH" >> "$GITHUB_OUTPUT"
           echo "minority_path=$MINORITY_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Save poller state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .temp/automation_state
+          key: automation-state-${{ github.run_id }}
 
       - name: Run audit recompute wrapper
         env:

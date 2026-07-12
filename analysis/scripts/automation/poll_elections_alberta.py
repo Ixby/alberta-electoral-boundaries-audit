@@ -35,7 +35,6 @@ Forward:
 """
 
 import argparse
-import hashlib
 import json
 import re
 import sys
@@ -44,12 +43,12 @@ import urllib.parse
 from pathlib import Path
 
 WATCHED_PAGES = [
-    # Primary GIS data landing page
-    "https://www.elections.ab.ca/resource-centre/maps-data/",
-    # 2026 boundary commission redistricting page (if it exists)
+    # Primary EA maps/GIS landing page (URL current as of 2026-07-12; the two
+    # pre-restructure URLs resource-centre/maps-data and resources/maps-and-
+    # gis-data both 404 since EA's site reorganisation)
+    "https://www.elections.ab.ca/resources/maps/",
+    # 2026 boundary commission page
     "https://www.abebc.ca/",
-    # Direct GIS resources page
-    "https://www.elections.ab.ca/resources/maps-and-gis-data/",
 ]
 
 # File-extension patterns we care about
@@ -67,10 +66,6 @@ def fetch(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=60) as resp:
         return resp.read()
-
-
-def hash_bytes(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
 
 
 def load_state(state_path: Path) -> dict:
@@ -116,16 +111,24 @@ def main() -> int:
             print(f"WARN: could not fetch {page_url}: {e}", file=sys.stderr)
             continue
 
-        h = hash_bytes(html)
-        new_state[page_url] = h
-        if state.get(page_url) != h:
+        # Watch the discovered link set, not the raw page bytes: the EA maps
+        # page embeds per-request dynamic content, so byte hashes differ on
+        # every fetch even when nothing was published (2026-07-12 fix; this
+        # was the nightly false-CHANGED source).
+        links = sorted(set(discover_shapefile_links(html, page_url)))
+        new_state[page_url] = links
+        prev = state.get(page_url)
+        prev_links = set(prev) if isinstance(prev, list) else set()
+        if prev_links != set(links):
             any_changed = True
             print(f"CHANGED: {page_url}")
-            for link in discover_shapefile_links(html, page_url):
-                print(f"  found: {link}")
-                discovered_files.append(link)
+            for link in links:
+                marker = "new" if link not in prev_links else "known"
+                print(f"  found ({marker}): {link}")
+                if link not in prev_links:
+                    discovered_files.append(link)
         else:
-            print(f"unchanged: {page_url}")
+            print(f"unchanged: {page_url} ({len(links)} known links)")
 
     save_state(args.state_file, new_state)
 
