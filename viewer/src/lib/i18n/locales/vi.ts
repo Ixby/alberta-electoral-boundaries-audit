@@ -144,7 +144,6 @@ export default {
 	},
 	hero: {
 		h1: 'Kiểm toán Ranh giới Bầu cử Alberta',
-		draft: '(BẢN NHÁP CHƯA CÔNG BỐ — hoan nghênh người phản biện)',
 		subtitle:
 			'Ủy ban Alberta đã đưa ra hai bản đồ khu vực bầu cử vào năm 2026. Cuộc kiểm toán này đã so sánh chúng — sử dụng cùng các bài kiểm tra, áp dụng đồng đều cho cả hai — để đặt câu hỏi liệu chúng có đối xử với cử tri theo cùng một cách hay không.',
 		badge: 'Bản đồ chính thức của Elections Alberta — Công bố tháng 5 năm 2026',

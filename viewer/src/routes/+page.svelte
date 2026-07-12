@@ -360,7 +360,6 @@
   <div class="header-inner">
     <div class="header-text">
       <h1>{t(lang.current, 'hero.h1')}</h1>
-      <p class="draft-notice">{t(lang.current, 'hero.draft')}</p>
       <p class="subtitle">{t(lang.current, 'hero.subtitle')}</p>
       <span class="badge">{t(lang.current, 'hero.badge')}</span>
       <p class="cover-note">{t(lang.current, 'hero.cover_note')}</p>
@@ -1579,15 +1578,6 @@
     header .subtitle {
       font-size: 1rem;
       opacity: 0.78;
-    }
-
-    header .draft-notice {
-      margin: 0.5rem 0 0;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #ffd166;
     }
 
     header .badge {

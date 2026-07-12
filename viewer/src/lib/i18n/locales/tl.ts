@@ -154,7 +154,6 @@ export default {
 	},
 	hero: {
 		h1: 'Pag-audit ng Hangganan ng Halalan sa Alberta',
-		draft: '(HINDI PA NAILALATHALANG DRAFT — malugod ang mga tagasuri)',
 		subtitle:
 			'Ang komisyon ng Alberta ay nagprodyus ng dalawang mapa ng riding sa 2026. Inihambing ng audit na ito ang mga ito — gamit ang parehong mga pagsusulit, na inilapat nang pantay sa pareho — upang itanong kung pareho nilang itinuturing ang mga botante.',
 		badge: 'Mga opisyal na mapa ng Elections Alberta — Inilathala noong Mayo 2026',

@@ -156,7 +156,6 @@ export default {
 	},
 	hero: {
 		h1: 'Auditoría de los Límites Electorales de Alberta',
-		draft: '(BORRADOR NO PUBLICADO — se agradecen revisores)',
 		subtitle:
 			'La comisión de Alberta produjo dos mapas de distritos en 2026. Esta auditoría los comparó — con las mismas pruebas, aplicadas por igual a ambos — para preguntar si tratan a los votantes de la misma manera.',
 		badge: 'Mapas oficiales de Elections Alberta — publicados en mayo de 2026',

@@ -148,7 +148,6 @@ export default {
 	},
 	hero: {
 		h1: 'Alberta Wahlkrais-Grenz-Pruewunk',
-		draft: '(ONPUBLIZIIRTA ENTWURF — Äwaprüfa willjekome)',
 		subtitle:
 			"Albertas Kommissjon haft twee Wahlkraiskoate im 2026 voadjebrocht. Dise Pruewunk haft see vejlike — unjda dieselwe Proowe, jlikjmässijch aun beide aunjawaunt — om to froage aub see Wähla aup dieselwe Wiss behandle.",
 		badge: 'Offizielle Elections Alberta Koate — Publiziert Mei 2026',

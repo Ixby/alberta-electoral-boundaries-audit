@@ -147,7 +147,6 @@ export default {
 	},
 	hero: {
 		h1: 'Audyt Granic Okręgów Wyborczych Alberty',
-		draft: '(NIEOPUBLIKOWANY SZKIC — recenzenci mile widziani)',
 		subtitle:
 			'Komisja Alberty wyprodukowała dwie mapy okręgów w 2026 roku. Ten audyt porównał je — używając tych samych testów stosowanych jednakowo do obu — aby zapytać, czy traktują wyborców w ten sam sposób.',
 		badge: 'Oficjalne mapy Elections Alberta — opublikowane w maju 2026 roku',

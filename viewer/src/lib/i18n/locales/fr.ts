@@ -150,7 +150,6 @@ export default {
 	},
 	hero: {
 		h1: "Audit des limites électorales de l'Alberta",
-		draft: '(ÉBAUCHE NON PUBLIÉE — réviseurs bienvenus)',
 		subtitle:
 			"La commission albertaine a produit deux cartes de circonscriptions en 2026. Cet audit les a comparées — en appliquant les mêmes tests, également aux deux — pour déterminer si elles traitent les électeurs de la même manière.",
 		badge: "Cartes officielles d'Elections Alberta — publiées en mai 2026",

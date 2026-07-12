@@ -144,7 +144,6 @@ export default {
 	},
 	hero: {
 		h1: 'Hubinta Xudduudaha Doorashada Alberta',
-		draft: '(QABYO-QORAAL AAN LA DAABACIN — dib-u-eegayaal waa lagu soo dhoweynayaa)',
 		subtitle:
 			'Guddida Alberta waxay soo saartay laba khariidadood oo degmooyin ah sannadkii 2026. Hubintani way isbarbar-dhigtay — iyada oo isticmaaleysa isla imtixaano, oo si siman loogu dabaqay labadaba — si ay u waydiiso in ay codbixiyayaasha si isku mid ah ula dhaqmaan.',
 		badge: 'Khariidadaha rasmiga ah ee Elections Alberta — La daabacay May 2026',

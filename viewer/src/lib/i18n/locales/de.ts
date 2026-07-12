@@ -154,7 +154,6 @@ export default {
 	},
 	hero: {
 		h1: 'Audit der Wahlbezirksgrenzen Albertas',
-		draft: '(UNVERÖFFENTLICHTER ENTWURF — Gutachterinnen und Gutachter willkommen)',
 		subtitle:
 			'Albertas Kommission hat 2026 zwei Wahlbezirkskarten vorgelegt. Dieses Audit hat sie verglichen — mit denselben Tests, gleichermaßen auf beide angewandt — um zu fragen, ob sie die Wählerinnen und Wähler gleich behandeln.',
 		badge: 'Offizielle Karten von Elections Alberta — veröffentlicht im Mai 2026',
