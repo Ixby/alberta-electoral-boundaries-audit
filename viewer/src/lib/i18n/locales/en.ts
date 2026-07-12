@@ -148,6 +148,12 @@ export default {
 		canada: "Canada's different",
 		lunty: 'Lunty',
 		suggestions: 'Reform suggestions',
+		smoking_gun: 'The smoking gun',
+		act1: 'Act I: The map',
+		act2: 'Act II: The simulation',
+		act3: 'Act III: The conduct',
+		revisited: 'The scorecard, revisited',
+		explainers: 'Explainers A\u2013N',
 		retractions: 'Retractions',
 		authors_view: "The author's view",
 		references: 'References',
@@ -636,6 +642,239 @@ export default {
 				"Quebec's model emerged partly from lessons about what happens when redistricting is not insulated from partisan control. The contrast with Alberta's current process — where a majority-controlled committee has replaced the commission's work before the legislature has voted on either commission report — illustrates the structural difference between redistricting systems that assume partisan pressure and design against it, versus systems where that pressure has a clearer path to the outcome.",
 			closing:
 				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change."
+		},
+		casings: {
+			frame_h: 'The Smoking Gun',
+			frame_p1:
+				'You came here looking for a smoking gun. This report does not have one. It cannot have one — and the reason it cannot is the most important thing the audit found.',
+			frame_p2:
+				'This audit measured both commission maps, and the process around them, every way it knew how: five pre-registered structural tests, four partisan-fairness metrics scored against 1,010,000 computer-simulated neutral maps, independent checks of the commissioners\u2019 published reasoning, and a review of the process against sixty years of Canadian practice. What it found is not a gun. It is casings: fourteen pieces of evidence, each one real, each one measured, each of which would count for something in a courtroom somewhere — and none of which, alone or together, can legally prove the conclusion they invite. A casing on the ground proves a gun existed and was fired. It cannot prove whose hand was on it. That gap between evidence and proof is not a loophole the audit failed to close. In Canada, it is the system as written — and that, too, is a finding.',
+			frame_p3: 'So this report is built like an evidence log. Each casing gets the same five questions, in the same order, every time:',
+			beat_found: 'What we found',
+			beat_found_d: 'the evidence, with its number.',
+			beat_show: 'What it could show',
+			beat_show_d: 'the conclusion you will be tempted to draw, stated at full strength.',
+			beat_experts: 'What the experts say',
+			beat_experts_d: 'how this kind of evidence is treated in places that do fight about it in court.',
+			beat_canada: 'What Canadian practice expects',
+			beat_canada_d: 'the norm.',
+			beat_gun: 'Why it isn\u2019t a smoking gun',
+			beat_gun_d: 'the specific reason, under Canadian law, this evidence proves less than it seems to.',
+			frame_p4:
+				'Each of the five legal reasons is different. By the fourteenth casing you will have learned, one piece at a time, how Canadian boundary law actually works — and why every casing in this log ends the same way.',
+			frame_p5:
+				'Two casings in the log point the wrong way for the audit\u2019s own story, and both are reported in full — one test the audit had to retract when better data arrived, and one lane where the minority map outperformed the majority. A report that never loses an argument with itself isn\u2019t checking. Failed and null tests are part of the record.',
+			refrain: 'A casing, not a gun.',
+			refrain_not_even: 'Not even a casing. We logged it anyway.',
+			know_more: 'Know more',
+			act1_h: 'Act I: What the Map Does',
+			act1_intro:
+				'Act I walks the lines themselves. No election results, no simulation — geometry anyone can check against a paper map. The two drafts were drawn in the same room, by five commissioners working from the same statutory rules, the same provincial geography, the same archive of 1,140 public submissions, and the same demographic data. They agree on most of Alberta. Where they diverge, they diverge on choices someone in the room had to make.',
+			act1_table_h: 'Act I in one picture',
+			act1_table_close:
+				'On Act I\u2019s tests, the majority crosses zero discriminating structural thresholds. The minority crosses every discriminating one — four of four, with the retracted fifth shown rather than hidden. These measurements are geometric; they do not depend on any statistical sampler or any vote attribution. The audit pre-registered all five on April 24, 2026, before the final simulation results were compiled.',
+			c1_title: 'Casing 1 — A city of 85,805 with zero seats',
+			c1_found:
+				'The minority map splits the City of Airdrie into four pieces. Airdrie is the largest Alberta city without its own MLA: at 85,805 people (2024 municipal census) it is bigger than Red Deer, and it has one council, one tax bill, one school division — every civic system treats it as a unit. The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four — north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, and centre-south to Calgary-Airdrie — each one stapled to a different rural or Calgary-edge district, and Airdrie\u2019s residents a minority in all four. The split meets every criterion of the audit\u2019s pre-registered cracking test (academic report \u00a75.3.2); the majority\u2019s two-way split meets none.',
+			c1_show:
+				'The textbook definition of cracking — splitting a community thinly enough that it decides nothing. An Airdrie resident with a question for her MLA has to know which quarter of the city she lives in before she can call the right office. The PTA at her child\u2019s school cannot send a single delegation to one MLA on a school-funding question; they have to coordinate four delegations to four offices, each MLA primarily accountable to a different rural or suburban constituency. If you wanted to dilute a fast-growing, politically contested city, this is what it would look like.',
+			c1_experts:
+				'Community splitting is one of the primary red flags in the redistricting literature, because it is one of the two mechanical moves — with packing, its mirror — by which lines convert votes into fewer seats. A four-way split is invisible to every partisan-fairness statistic except the one that asks: can a voter find their MLA?',
+			c1_canada:
+				'Canadian commissions treat municipal integrity as a core community-of-interest anchor. Splitting a city of this size in two is routine. Splitting it four ways, leaving its residents a minority everywhere, is not — and the same commission\u2019s majority draft proves a two-way split was available on the same geography.',
+			c1_gun:
+				'The <em>Electoral Boundaries Commission Act</em> permits splitting municipalities. Community of interest is one non-binding factor among several the Act lists, and the <em>Saskatchewan Reference</em> directs courts to defer to how boundary bodies weigh those factors. The audit\u2019s review found no Canadian decision striking down a map for splitting a city. Both maps are legal. The four-way split is a choice — and under Canadian law, choices inside the statute\u2019s wide lanes belong to the drawer. <em>(Legal lesson 1: the statute\u2019s factors are discretionary, and courts defer.)</em>',
+			c1_app: 'what \u201ccracking\u201d actually does to a vote',
+			c2_title: 'Casing 2 — The three boundaries the chair called out',
+			c2_found:
+				'The commission\u2019s own chair — appointed under the same Act, working from the same submissions — flagged three boundaries on the minority map as geographically anomalous: Rocky Mountain House–Banff Park\u2019s extension into uninhabited national-park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; and the Olds–Three Hills–Didsbury reach into north Airdrie. In the commission\u2019s official final report, the chair called the park extension \u201ca bad faith effort\u201d to claim a population protection written for remote communities where people actually live. The majority map received zero such flags from the same chair — though the chair signed the majority report, so his criticism running only against the minority is what you would expect, not an independent verdict between the two maps. What gives the flags weight is that the audit\u2019s own blind geometric tests, which carry no allegiance, independently confirmed anomalous geometry for three of the chair\u2019s four geometric flags (the fourth, Calgary-Foothills-Airdrie West, did not meet the audit\u2019s confirmation threshold; his published criticism covers seven boundary configurations in total).',
+			c2_show:
+				'An insider — the person legally responsible for the process — looked at these lines as they were being drawn and publicly alleged that a legal protection was being gamed. That is as close to direct evidence as this record gets.',
+			c2_experts:
+				'Bizarre-shape analysis is where gerrymandering detection started, and corridors and uninhabited extensions are its canonical signatures. In fairness, the Banff arrangement has a defensible geography underneath the odd name and the odd shape — the town of Banff sits inside a federal park it cannot grow into, and grouping the townsite with Canmore has sound community-of-interest logic. That two-sided story is credited in full in the audit\u2019s Banff analysis; it shows why the chair\u2019s objection stands anyway, aimed at the empty-park extension the townsite\u2019s placement does not touch.',
+			c2_banff_link: 'See Banff on the map',
+			c2_canada:
+				'Commissioners disagree in reports all the time. A chair accusing colleagues of bad faith in the official final report is, in the Canadian redistribution cycles this audit reviewed, unprecedented.',
+			c2_gun:
+				'The chair\u2019s words are opinion inside a report that has no legal force. \u201cBad faith\u201d in a commission report is an accusation, not an adjudicated finding — no tribunal ever weighed it, and under the Act both reports became advisory the moment they were filed. The legislature could, and did, set them both aside. <em>(Legal lesson 2: commission reports bind no one — the legislature holds the pen.)</em>',
+			c2_app: 'shape analysis and what s.15(2) protection is for',
+			c3_title: 'Casing 3 — One zone of Calgary, drawn a quarter too big',
+			c3_found:
+				'In Calgary\u2019s north-east and central districts — the audit\u2019s \u201cZone A\u201d — the minority map\u2019s divisions average 11.5% above the province-wide population, versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. Thirteen of the zone\u2019s seventeen districts went NDP in 2023. The pattern meets the audit\u2019s pre-registered packing-signature test (academic report \u00a75.3.1).',
+			c3_show:
+				'This is packing: concentrating one party\u2019s voters into fewer, larger districts so each of their ballots weighs less. Packing and cracking (Casing 1) are the two classic gerrymandering moves; both shrink a party\u2019s seat count below its vote share.',
+			c3_experts:
+				'Packing and cracking are the mechanism behind essentially every partisan-gerrymandering case ever litigated in the United States. Oversized districts precisely where one party\u2019s voters concentrate is the pattern the detection literature is built to find.',
+			c3_canada:
+				'Deviations inside the legal band are normal, but Canadian commissions justify them with community-of-interest reasons. The minority\u2019s published reasons for this zone are among those that fail independent check — see Casing 11.',
+			c3_gun:
+				'Every one of those districts sits inside the Act\u2019s \u00b125% population band, and Canadian law has no cause of action for partisan effect. Section 3 of the Charter protects effective representation of citizens; it does not promise parties a proportional translation of votes into seats, and no Canadian court has read it that way. <em>(Legal lesson 3: inside the band, size asymmetry is lawful discretion — partisan effect is not a recognized legal harm.)</em>',
+			c3_app: 'packing in a three-district toy example',
+			c4_title: 'Casing 4 — Worse at the one thing the law actually measures',
+			c4_found:
+				'The minority map\u2019s population spread is markedly wider than the majority\u2019s. Measured against the commission\u2019s own population tables, its Population Mean Absolute Deviation (MAD) is 4,707 — 48% wider than the majority map\u2019s 3,180. Measured instead on the audit\u2019s official-shapefile substrate, the minority\u2019s spread (3,938 vs the majority\u2019s 2,827) sits at the 99th percentile of the canonical neutral ensemble — only about 1 in 100 neutral maps produces a worse spread.',
+			c4_show:
+				'Vote equality is the one value the statute quantifies, and this map paid it away. Neutral processes do not pay that price for nothing; a map in the 99th percentile of spread is buying something with it. The common defence — \u201cthey had to draw weird boundaries to equalize population\u201d — runs exactly backwards here: the minority map is worse at population equality than the majority drawn beside it.',
+			c4_experts:
+				'Population equality is the first-order constraint in every redistricting formalism; spread this wide, on a map drawn simultaneously with a tighter one, is a cost signal — evidence that other objectives outranked the statute\u2019s central value.',
+			c4_canada:
+				'Canadian commissions treat the deviation band as a limit, not a budget, and the long-run trend since the <em>Saskatchewan Reference</em> era has been toward tighter equality, not looser.',
+			c4_gun:
+				'The \u00b125% band is the only number in the statute, and no district on either map crosses it. The law does not rank maps inside the band: a 99th-percentile spread and a median spread are legally identical. <em>(Legal lesson 4: the statute contains exactly one number, and this map complies with it.)</em>',
+			c4_app: 'what MAD measures and why the band exists',
+			c5_title: 'Casing 5 — The casing that dissolved when we picked it up',
+			c5_found:
+				'Early analysis showed the minority map anchoring to municipal boundaries only 15% of the time — 4.9\u00d7 below the Canadian norm of 70–85%. On official Elections Alberta shapefiles the figure died: the majority anchors at 80%, the minority at 72%, both inside the norm (Quebec: 78%, Ontario: 82%, BC: 71%). The 15% figure was an artefact of the audit\u2019s early provisional boundary reconstructions, traced from commission PDF images before official map files existed. The retraction is permanent and displayed in <a href="#retractions">the corrections section</a>. What survives is narrower: where the minority does depart from pre-existing civic lines, the departures concentrate at the exact chair-flagged urban-edge zones — Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie — where pairing urban and rural voters most directly affects which party wins the seat.',
+			c5_show: 'As originally computed, systematic abandonment of recognizable civic geography. It did not survive.',
+			c5_experts:
+				'This is what an artifact looks like: provisional tracings manufactured a signal that the real map files erased. The methodological lesson is why this audit re-ran everything on official shapefiles the day Elections Alberta released them.',
+			c5_canada:
+				'Nothing — no Canadian statute or practice guide requires any particular anchoring rate. The 70–85% norm is descriptive, not prescriptive.',
+			c5_gun:
+				'It isn\u2019t even evidence. It is the audit\u2019s own error, kept on display because a report that shows you its dead casings is the only kind whose live ones you should trust. <em>(Epistemic lesson: the null can win — and when it does, the report says so.)</em>',
+			c5_app: 'how a data artifact fooled us and how it was caught',
+			act2_h: 'Act II: What the Simulation Sees',
+			act2_intro_p1:
+				'Act I needed nothing but the lines. Act II asks a harder question: how unusual are these maps, compared to what a process with no agenda would draw? To answer it, the audit generated 1,010,000 computer-simulated, mathematically neutral Alberta maps (4 independent chains \u00d7 252,500 steps, base seed from the Cloudflare drand public randomness beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the same statutory rules and geographic boundaries the commission used. The simulation is a \u201cwhat-if machine\u201d: what would Alberta\u2019s maps look like if nobody was trying to do anything? Place a real map inside that distribution and its percentile tells you how far into the tail it sits. A note on seat counts: the 2026 commission maps each have 89 districts; the simulation runs on the 87-district 2019 substrate; the November committee will produce 91. All percentages are seat shares, comparable across denominators.',
+			act2_intro_p2:
+				'One fact about Alberta makes every number below readable. In this province, neutral is not 50/50. Across the 1,010,000 neutral maps, the median map gives the UCP only 44.8% of seats when the province-wide vote splits exactly evenly — because rural UCP voters win their ridings by wide 60-40 margins (wasting many \u201cextra\u201d votes) while urban NDP voters win theirs by tighter 51-49 margins (wasting fewer). Alberta\u2019s natural political geography, left alone, mildly favours the NDP\u2019s seat efficiency. Keep that baseline in mind: it is what the maps below are being measured against.',
+			c6_title: 'Casing 6 — Fewer than 100 maps in 1,010,000',
+			c6_found:
+				'Hold the electorate at a perfect 50/50 split and ask each map how many seats it awards the UCP. The neutral distribution: median 44.8%, 95th percentile 47.1%, 99th percentile 48.4%, maximum 51.72% — and 66 of the 1,010,000 plans exceed the minority map\u2019s 51.69%. The 2019 enacted map sits at 46.0% (78th percentile) and the 2026 majority at 46.1% (78th percentile); the minority sits at 51.7% — the 99.99th percentile. On the other partisan-fairness metrics the same map sits at p99.98 (mean-median) and p98.8 (declination), all pointing the same UCP-favoured direction. Based on actual recent voting patterns, the minority map\u2019s geometry awards the UCP 60 of 89 seats, against 55 on the majority map.',
+			c6_found2:
+				'To calibrate what \u201caiming\u201d can achieve, the audit also ran a targeted hill-climbing procedure (the standard tool for exploring biased-but-legal maps) in both directions, 40,000 steps each, same constraints, same geometry. The minority map\u2019s 51.7% sits closer to the deliberately-aimed UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map\u2019s 46.1% sits at the neutral median. And the asymmetry around 50/50 is starker than the number alone: a precision sweep finds the minority map keeps the UCP at or above the 45-seat majority threshold down to a UCP vote share of about 49.7% — the UCP could lose the popular vote by 0.3 points and still form government — while on the majority map the UCP would need to win the popular vote by about 4 points to reach the same threshold. Same geography, same rules; the gap between the two maps is structural, not noise.',
+			c6_show:
+				'Neutral processes essentially never produce this map. The majority map is the kind of map a neutral procedure routinely generates. The minority map is the kind of map you have to specifically aim to draw.',
+			c6_experts:
+				'Ensemble outlier analysis is the state of the art in redistricting statistics — the method US courts found persuasive in the state cases that struck maps down. Three of four pre-registered metrics in the extreme tail, all four directionally aligned, is a strong outlier profile. And the \u201cit\u2019s just Alberta\u2019s natural geography\u201d defence is already answered inside the method: the simulation runs on Alberta\u2019s natural geography. That geography\u2019s baseline advantage tops out where the 2019 map and the 2026 majority sit — the 78th percentile, with the 2019 map\u2019s highest placement on any partisan measure in the low 90s. The minority sits at p99.99 against Alberta\u2019s naturally skewed baseline.',
+			c6_canada:
+				'No Canadian commission has ever been required to test its map against a neutral ensemble. This is the audit importing a standard the process itself never had to meet — which is exactly why the result is informative and exactly why it is not binding on anyone.',
+			c6_gun:
+				'Two reasons, one legal and one statistical. Legal: as far as this audit\u2019s review found, no Canadian court has yet weighed ensemble evidence, and in the United States the Supreme Court held in <em>Rucho v. Common Cause</em> (2019) that even strong statistical evidence of partisan gerrymandering is not for federal courts to police. A percentile is a description, not a threshold crossed. Statistical: the ensemble respects population and contiguity but does not enforce every statutory criterion the commission worked under (s.15(2) hybrid protections, community of interest, municipal anchoring), so its percentiles measure extremity against that reference distribution — not against \u201ceverything a legally compliant commission might have drawn.\u201d A strong external check; not a perfect one. One further honest limit: a real electorate is not a frozen 50/50 — voters can swamp any map\u2019s structural lean with a big enough swing. The 50/50 test isolates the map\u2019s contribution to the outcome, not the outcome itself. <em>(Legal lesson 5: the best evidence type in the field has no legal home in Canada.)</em>',
+			c6_app: 'how the what-if machine works and how to read a percentile',
+			c7_title: 'Casing 7 — The test that missed',
+			c7_found:
+				'The fourth partisan-fairness metric, the efficiency gap — a single number measuring how lopsidedly a party\u2019s votes translate into seats — came in at +4.0% for the minority map: the 94th percentile. The audit\u2019s pre-registered outlier line is the 95th percentile (about +4.1% on Alberta\u2019s simulated distribution). It missed. Directionally UCP-favoured, but below the line, and reported that way in every table in this report. The majority map\u2019s efficiency gap is +0.1% (15th percentile).',
+			c7_show: 'Taken alone, almost nothing — which is exactly why it is in the log.',
+			c7_experts:
+				'The efficiency gap\u2019s proposed US threshold (about 7%) is an academic proposal no court has adopted. Near-misses are the natural behaviour of honest test batteries: a report whose every test fires should make a reader more suspicious of the auditor than of the map.',
+			c7_canada: 'Nothing — no Canadian body uses the efficiency gap at all.',
+			c7_gun:
+				'It isn\u2019t even claimed as one. This casing exists to show the pile was counted honestly. Pre-registration cuts both ways: the same locked line that gives the other metrics their force makes this one a miss, and it stays a miss. <em>(Epistemic lesson: the threshold was set before the answer was known — so the answer is allowed to be \u201cno.\u201d)</em>',
+			c7_refrain: 'A casing, not a gun — and this one the audit does not even fire.',
+			c7_app: 'the efficiency gap in one worked example',
+			c8_title: 'Casing 8 — One in 357,000, and what that number is not',
+			c8_found:
+				'The probability that a neutral drawing process produces the minority map\u2019s combined four-metric profile is bounded at about one in 357,000 (p \u2264 2.80\u00d710\u207b\u2076 — a Bonferroni-corrected, dependence-robust upper bound: a conservative \u00d72 multiple-comparison factor on the simulation channel alone). This report used to carry a stronger number — roughly one in fifteen million. That figure combined two channels (the four-metric joint score and the Swing-Zone Allocation Test) that were not statistically independent, and one of the channels later failed a corrected spatial null (Casing 10). The Fisher combination was retired as the headline on 2026-06-10; the correction is permanent and displayed.',
+			c8_show:
+				'The reader wants this number to be \u201cthe probability the map is innocent.\u201d It is the audit\u2019s strongest single number, and the temptation to read it that way is enormous.',
+			c8_experts:
+				'The number is well-defined and defensible as what it actually is: the probability of the map\u2019s measured profile arising under a neutral drawing process. In statistics, confusing P(evidence given innocence) with P(innocence given evidence) has a name — the prosecutor\u2019s fallacy — and it has sent innocent people to prison. This report refuses the swap. The rarity of the observation under the neutral null is not the posterior probability of wrongdoing; for that you would need things no one has, like the base rate of eccentric-but-sincere drafting.',
+			c8_canada:
+				'No Canadian legal standard consumes a number like this. There is no threshold it could cross, because the law never defined one.',
+			c8_gun:
+				'A one-in-357,000 map can still, in principle, be the product of unusual but honest judgment. The number measures how far outside neutral practice the map sits. It cannot see motive, and this report will not pretend it can. What the audit does claim is the weaker, well-supported statement: routine drafting variation is not a plausible explanation for this profile. What is the explanation is a question the audit puts in the reader\u2019s hands. <em>(Legal-epistemic lesson: no probability of a map is a probability of intent.)</em>',
+			c8_app: 'the prosecutor\u2019s fallacy in plain language',
+			c9_title: 'Casing 9 — We tried to shoot our own result down',
+			c9_found:
+				'Three attacks the audit mounted on its own headline, with mixed results — reported in full. First, the sampler swap: the tail position survives replacing the simulation\u2019s mathematical engine with a structurally different one (a spanning-forest sampler, pre-registered at OSF as registration he53s and executed 2026-07-10) — every metric\u2019s percentile moved by less than one point, a pre-registered ROBUST verdict on all four. Second, the software swap: an earlier cross-check against an independent implementation (the R redist package) produced unstable results on the old provisional geometry — a sampler-convergence failure, documented in full — and became moot on official shapefiles, where zero plans from either implementation reach the minority\u2019s value at comparable sample sizes. Third, the mechanism test, which the audit\u2019s claim failed: the audit tested whether the flagged geometry of Act I (the corridors, the park extension, the splits) is the specific mechanism producing the Act II seat advantage. The answer is no. The two lanes converge on the same map and the same direction, but the geometry-is-the-mechanism claim did not survive its falsification test, and the report says so.',
+			c9_show: 'The outlier is a property of the map, not of the audit\u2019s tooling.',
+			c9_experts:
+				'Robustness across samplers and implementations is what separates a finding from an artifact; publishing your own failed falsification is what separates an audit from advocacy.',
+			c9_canada: 'None of this is required by anyone. The audit imposed it on itself, in writing, before running it.',
+			c9_gun:
+				'Ruling out artifacts is not ruling in design. Surviving every attack the audit could mount establishes that the map is genuinely, robustly extreme — it says nothing about why. <em>(Epistemic lesson: robustness strengthens the description, never the accusation.)</em>',
+			c9_app: 'what a sampler is and why swapping it matters',
+			c10_title: 'Casing 10 — The signals that pointed the other way',
+			c10_found:
+				'Three entries in the log that do not help the audit\u2019s story, all reported. One the minority passed outright: the neighbour-drain test looks for the classic adjacency pattern where packed districts sit right beside thin-margin ones. The minority shows 1 coupled chain signal against the majority\u2019s 2 (and the 2019 enacted map\u2019s 5) — a genuine pre-registered PASS, the single test where the minority numerically outperforms the majority. The pass is real but narrow: the minority achieves its partisan effect through hybridization — splitting cities into districts that mix urban and rural voters inside single ridings — which an adjacency test cannot see, because the packing and cracking happen within districts rather than between them. Two the audit retired: the Swing-Zone Allocation Test looked significant (p = 0.0024) until the audit corrected its null for spatial clustering — neighbouring voting areas vote alike, violating the test\u2019s independence assumption — after which it returns p \u2248 0.19, not significant; it was retired to exploratory status on 2026-06-13. And the Fisher combination that once produced the one-in-fifteen-million headline assumed an independence its channels did not have; retired 2026-06-10 (Casing 8).',
+			c10_show:
+				'As originally computed, the retired tests suggested the specific boundary choices — not just the overall map — were partisan-loaded. After correction, they suggest nothing.',
+			c10_experts:
+				'Spatial autocorrelation is the classic way redistricting statistics fool their own makers, and correcting for it is the method working as intended. A drain-test pass alongside tail results elsewhere is not a contradiction; it is a fingerprint — it tells you which mechanism this map does not use.',
+			c10_canada: 'Not applicable — these are the audit\u2019s own instruments.',
+			c10_gun:
+				'Two of these were the audit\u2019s casings, not the map\u2019s, and the third points in the map\u2019s favour. They are in the log because an evidence log that only records convenient entries is not an evidence log. <em>(Epistemic lesson, stated twice in this report on purpose: the null can win.)</em>',
+			c10_refrain: 'Two retired, one pass for the other side. We logged them anyway.',
+			c10_app: 'why neighbours voting alike breaks naive statistics',
+			act3_h: 'Act III: What People Did',
+			act3_intro:
+				'Acts I and II measured paper. Act III reads conduct — what the people in and around the process wrote, claimed, and chose. Conduct evidence is where intent questions usually get answered in court. Watch what happens to it here.',
+			c11_title: 'Casing 11 — Five of six reasons don\u2019t survive checking',
+			c11_found:
+				'Five of six of the minority commissioners\u2019 published rationales for their contested redraws fail under independent check. (A seventh redraw the audit had previously listed turned out to rest on a federal-boundary claim that cannot be located in the minority report; it has been removed rather than left as a weak claim.) The point is not that the minority\u2019s reasoning is invented; in most of these cases the general claim is true, and a boundary honouring it could have been drawn. What the data does not reach is the particular line the minority actually drew. It defends Calgary-Nolan Hill–Cochrane on the idea that Cochrane residents \u201cmove fluidly\u201d into Calgary; Statistics Canada\u2019s 2021 journey-to-work data shows about a third of Cochrane\u2019s workers commute somewhere in Calgary while roughly half work within Cochrane — a real city-to-city tie, but one that says nothing about the Nolan Hill neighbourhood the corridor actually reaches. Airdrie\u2019s commute to Calgary (about 76 percent of its out-commuters) and its rapid growth are both real, and could have supported a new Airdrie-area seat — but neither requires splitting the city four ways. Chestermere sends 86 percent of its out-commuters to Calgary, yet shares no school division or transit system with the specific Calgary district the minority slices part of it into. And the minority\u2019s \u201cshared schools\u201d argument for pairing Red Deer with Sylvan Lake does not hold — Sylvan Lake is in Chinook\u2019s Edge School Division, the City of Red Deer in Red Deer Public.',
+			c11_note:
+				'Checked only against the minority because the minority is the map whose contested redraws are public; the majority did not publish a contested-redraw rationale list, so the check cannot be applied symmetrically and is reported as a single flag.',
+			c11_show:
+				'Reasons that do not survive checking look like rationalizations — reasons found after the line, not before. In each case a map honouring the real community-of-interest tie was available; the specific line drawn is not the one the evidence points to.',
+			c11_experts:
+				'Comparing stated justification against what the evidence supports is pretext analysis — exactly how US courts probe intent in the gerrymandering cases they do hear. Rationales that fail on public data are the standard tell.',
+			c11_canada:
+				'Commissions publish reasons precisely so the public can weigh them. Reasons that collapse against free, public Statistics Canada data defeat the purpose of publishing them.',
+			c11_gun:
+				'No Canadian law requires a commissioner\u2019s rationale to survive independent verification, and a failed rationale is legally consistent with sloppiness just as much as with pretext. Courts reviewing boundaries ask whether the outcome denies effective representation — not whether the reasoning in the file was good. <em>(Legal lesson 6: bad reasons for a lawful line are still a lawful line.)</em>',
+			c11_app: 'how to check a stated reason against public data',
+			c12_title: 'Casing 12 — The commission that couldn\u2019t sign one map',
+			c12_found:
+				'The commission split: two final reports, two incompatible 89-seat maps, filed the same day. The three-commissioner majority included the chair; the two-commissioner minority — the commissioners the government nominated — produced the map every previous casing describes. The audit\u2019s instruments cut both ways across that divide. The chair asserted in his Appendix C that the minority\u2019s seven contested configurations had no public support in the 1,140+ submissions; the audit keyword-searched the full archive (94% machine-parsed) and found the chair right on three of seven, wrong on three (Rocky Mountain House–Banff Park, Olds–Three Hills–Didsbury, and Chestermere each had documented public support or aligned submissions), and partially wrong on one. The chair\u2019s blanket claim is demonstrably overbroad. That finding cuts against the chair, not the minority — and it is in this log for exactly that reason.',
+			c12_show:
+				'A process designed to converge produced two answers, and the outlier map came from the government\u2019s nominees. The reader is invited to find that suggestive; many will.',
+			c12_experts:
+				'Who appointed whom is standard evidence in institutional-capture analysis — and it only carries weight when the instruments are applied symmetrically, which is why the audit\u2019s correction of the chair matters as much as its findings against the minority.',
+			c12_canada:
+				'Consensus reports are the norm; the machinery of the Act assumes one map arrives. A split commission, with the chair publicly accusing colleagues, is not a scenario the statute was written for.',
+			c12_gun:
+				'Nomination is not instruction. The audit found no evidence of coordination between the government and its nominees, and none is inferable from appointment alone. Commissioners of every provenance have gone their own way before. <em>(Epistemic lesson: provenance raises the question; it cannot answer it.)</em>',
+			c12_app: 'how commissioners are appointed and what nomination does and doesn\u2019t imply',
+			c13_title: 'Casing 13 — When the process might have answered, it was replaced',
+			c13_found:
+				'Three weeks after the split reports arrived, the Legislative Assembly passed Motion 19 (April 16, 2026, by a vote of 44 to 36), setting both reports aside and establishing a Special Select Committee of five MLAs — three UCP, two NDP, chaired by UCP MLA Brandon Lunty — to draft a 91-seat map by November 2, 2026. The committee is not required to hold public hearings, and per <a href="https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743" rel="noopener">CBC\u2019s reporting</a> it will not hold hearings on the map it produces; no draft will be released for public challenge before the map is final. The commission this committee replaced held hearings in sixteen communities, received 1,147 written submissions, and reversed its own interim proposal on the strength of 80-plus of them — the system visibly responding to public input. The committee is served by an advisory panel (government-appointed chair plus two nominees per party, <a href="https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-panel-legislative-committee-elections-9.7187435" rel="noopener">chaired by retired Court of Appeal justice Brian O\u2019Ferrall</a>); the panel advises, and the five MLA votes decide.',
+			c13_show:
+				'When the independent route failed to deliver a usable answer, the government took the pen — and the vehicle it chose removed every mechanism by which the public could contest what it writes before it becomes law.',
+			c13_experts:
+				'The design forfeits each transparency feature the redistricting literature treats as protective: published drafts, public hearings, arm\u2019s-length drafters. Civil-liberties observers (<a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">CCLA</a>) raised the politicization concern independently of this audit.',
+			c13_canada:
+				'This is the deepest norm in Canadian redistribution — politicians do not draw their own districts. The audit\u2019s November tests (next section) will measure the committee\u2019s process against exactly the features it is not required to provide.',
+			c13_gun:
+				'Every step is lawful. The Act makes the commission\u2019s reports advisory, sets no minimum notice or comment period, and imposes no hearing or draft-release requirement on what follows. Under parliamentary sovereignty the legislature may lawfully do precisely what it did. <em>(Legal lesson 7: the process that could have created accountability is optional — and opting out is legal.)</em>',
+			c13_app: 'the Act\u2019s process from commission to committee, end to end',
+			c14_title: 'Casing 14 — The sixty-year norm, set aside in an afternoon',
+			c14_found:
+				'Canada spent roughly sixty years building independent boundary commissions — the institutional answer, since the 1960s federal reform era, to the once-routine practice of governing parties drawing their own ridings. The process now promoting a government-controlled committee mid-cycle is without precedent among the Canadian redistribution cycles this audit reviewed — an assessment political scientist Duane Bratt (Mount Royal University) shared in correspondence with the author. None of the reviewed provinces lets a governing-party majority hand redistricting to a committee its own party controls partway through a cycle. Most provinces either require the legislature to debate the commissioners\u2019 map first, or give the commission\u2019s map automatic effect unless overridden. Alberta does neither.',
+			c14_show:
+				'The injury is not one map. It is the demonstration that the guardrail was a convention — and conventions only bind governments that consent to be bound. Nothing prevents the next government, of any party, from citing this cycle as precedent.',
+			c14_experts:
+				'The comparative literature treats independent commissions as the single most protective institutional feature against gerrymandering. Removing the institution matters more than any one boundary it might have drawn.',
+			c14_canada:
+				'Every province and the federal process use arm\u2019s-length commissions. That is the standard this cycle departed from — mid-cycle, by simple majority vote.',
+			c14_gun:
+				'Constitutional conventions are politically binding but not judicially enforceable — the Supreme Court said as much in the 1981 Patriation Reference, and courts have held the line since: a court may name a convention, and will still decline to enforce it. The norm\u2019s violation is real, documented, and judicially irrelevant. <em>(Legal lesson 8, the last one: norms are not law — and the gap between them is where this entire episode lives.)</em>',
+			c14_app: 'conventions versus law, and how norms erode',
+			rev_h: 'The Scorecard, Revisited',
+			rev_p1:
+				'Fourteen casings. No gun. Now go back to the picture from the top of this page — you can read it now.',
+			rev_p2:
+				'The horizontal axis is Act II\u2019s headline number (the efficiency gap — further right, more UCP-favoured). The vertical axis is Act I\u2019s count of discriminating structural tests failed. The 2019 map and the 2026 majority sit in the quiet corner: near-zero skew, zero structural flags. The minority sits alone: four of four structural flags, efficiency gap just under the audit\u2019s calibration line, and — off this chart\u2019s axes — the p99.99 tipping point, the p99.98 mean-median, the 60-of-89 seat outcome. The two lanes converge on the same map, the same direction, and the same communities — even though the specific geometry-is-the-mechanism claim failed its test (Casing 9), the direction of both lanes agrees.',
+			rev_litany_intro: 'Now run this instrument itself through the same five questions, one last time.',
+			rev_found:
+				'A scorecard: the best instrument the author could build to correlate fourteen casings into something that can be stated, checked, and falsified. Five pre-registered structural tests — the minority crosses every discriminating one, the majority none, the retracted fifth displayed. Four partisan-fairness metrics against 1,010,000 neutral maps — three in the extreme tail, one reported miss.',
+			rev_show:
+				'The closest thing to a gerrymandering signal that can exist under Alberta law and Canadian norms: a disciplined way of saying \u201cthis map is the kind of map that aiming produces,\u201d with every threshold set before any answer was known.',
+			rev_experts:
+				'Composite outlier batteries are how the field reads maps when intent is unobservable; pre-registration is what keeps them honest.',
+			rev_canada:
+				'Nothing — no Canadian institution scores maps this way. That is exactly why the audit had to build one.',
+			rev_gun:
+				'Its thresholds are the audit\u2019s own calibrations, not legal lines. Alberta is one province with one split commission — a sample size of one. And no accumulation of casings ever becomes a gun, because the gap between \u201cextreme\u201d and \u201cdeliberate\u201d is not statistical. It is the gap the law chose to leave open.',
+			rev_refrain: 'A casing, not a gun. But this casing fires again in November.',
+			playbook_h: 'What running the play again would look like',
+			playbook_p1:
+				'This report cannot prove a gerrymander — the word has no legal home here. What it can do is say, in advance and in public, exactly what the signature looks like, and then say whether the November map carries it. The audit\u2019s November tests were registered (OSF, registration qsgy8) before the committee\u2019s map existed. The registration\u2019s own name for the check is the Lunty test: it is the confirmatory counterpart to everything above. The signature has two halves. Process: were public hearings held; was a draft released; are the advisory panel\u2019s members and terms of reference published; does the map honour the recommendation the government cited when it took the pen. Outcome: where the map lands on every metric in this report, against the same million-map distribution, under the same pre-registered thresholds.',
+			playbook_p2:
+				'If the committee\u2019s map replicates the minority\u2019s signature — drawn by different people, under different constraints, on a different timeline — the structural finding above earns confirmatory status. If it lands inside the neutral bands, the finding stands as an isolated observation about one map that was never enacted, and this report will say exactly that. The scoring runs within 72 hours of the map\u2019s release, whichever way it points. That commitment was registered before anyone knew the answer. Pass or fail, the reader will not have to trust this audit\u2019s judgment — only its arithmetic, which is public, seeded from a public beacon, and reproducible by anyone.',
+			appendices_note:
+				'Every casing above links to a lettered explainer — one concept each, from \u201cthis is confusing\u201d to \u201cnow I understand\u201d — on the companion page:',
+			appendices_link: 'The fourteen explainers (Appendices A–N)'
 		},
 		authors_view: {
 			heading: "The Author's View",
