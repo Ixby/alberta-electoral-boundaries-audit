@@ -1,5 +1,5 @@
 > **Backward:**
-> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination implementation producing T = 39.02
+> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination implementation producing T = 39.87
 > - `analysis/scripts/mcmc_ensemble_canonical.py` — Ch1 Mahalanobis input (1M-plan ensemble)
 > - `analysis/scripts/szat.py` — Ch2 SZAT bootstrap input
 > - `analysis/methodology/fisher_independence_defense.md` — independence assumption (AV5)
@@ -9,15 +9,15 @@
 > - `findings/joint_outlier_score_summary.md` — narrative summary of the combined result
 > - `reports/academic/report_academic.md` §5.5 — incorporates Fisher T and combined p
 
-> **SUPERSEDED DOCUMENT — 2026-06-10.** This document defends the Fisher combination of Ch1 (Mahalanobis) and Ch2 (SZAT), which the audit **retired** on 2026-06-10. Fisher assumed channel independence the two channels do not have (shared 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19, T1.10b closed 2026-06-12). The operative joint headline is now Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) with a dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000). Canonical correction: `reports/academic/report_academic.md` §4.3.3 and §5.5. This document is preserved as a historical record of the Fisher-era defense; do not cite it as current methodology. Note also: any declination value shown below as "p1.21" / "NDP-tail" predates Amendment 10 (2026-06-12); the corrected value is p98.79 UCP-tail (report_academic.md §5.4.9). Likewise (noted 2026-07-08): the majority Ch1 value appears below as p = 0.125 — a pre-canonical intermediate that contradicts this document's own "values reflect the 1,010,000-plan ensemble" header; the committed canonical value is p = 0.097 (`findings/joint_outlier_score.json`).
+> **SUPERSEDED DOCUMENT — 2026-06-10.** This document defends the Fisher combination of Ch1 (Mahalanobis) and Ch2 (SZAT), which the audit **retired** on 2026-06-10. Fisher assumed channel independence the two channels do not have (shared 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19, T1.10b closed 2026-06-12). The operative joint headline is now Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) with a dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). Canonical correction: `reports/academic/report_academic.md` §4.3.3 and §5.5. This document is preserved as a historical record of the Fisher-era defense; do not cite it as current methodology. Note also: any declination value shown below as "p1.21" / "NDP-tail" predates Amendment 10 (2026-06-12); the corrected value is p98.79 UCP-tail (report_academic.md §5.4.9). Likewise (noted 2026-07-08): the majority Ch1 value appears below as p = 0.125 — a pre-canonical intermediate that contradicts this document's own "values reflect the 1,010,000-plan ensemble" header; the committed canonical value is p = 0.101 (`findings/joint_outlier_score.json`).
 
 # Fisher Combination Defense
 
 **Purpose:** Exhaustive anticipation of reviewer objections to the Fisher combination of
-Ch1 (Mahalanobis, p = 1.40×10⁻⁶) and Ch2 (SZAT bootstrap, p = 0.0024) →
-Fisher T = 39.02, combined p = 6.87×10⁻⁸.
+Ch1 (Mahalanobis, p = 8.80×10⁻⁷) and Ch2 (SZAT bootstrap, p = 0.0024) →
+Fisher T = 39.87, combined p = 4.61×10⁻⁸.
 
-*Values reflect the 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). The 100k pre-registration run gave Ch1 p = 1.60×10⁻⁷, Fisher p = 8.71×10⁻⁹; the 1M run's larger effective sample size (n_eff 1,429–1,677) produced a better-calibrated covariance estimate, shifting Ch1 to p = 1.40×10⁻⁶. See §7 AV6 for the n_eff correction detail.*
+*Values reflect the 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). The 100k pre-registration run gave Ch1 p = 1.60×10⁻⁷, Fisher p = 8.71×10⁻⁹; the 1M run's larger effective sample size (n_eff 1,413–1,522) produced a better-calibrated covariance estimate, shifting Ch1 to p = 8.80×10⁻⁷. See §7 AV6 for the n_eff correction detail.*
 
 **Companion document:** `fisher_independence_defense.md` — independence assumption (AV5 here).
 
@@ -33,9 +33,9 @@ process that respects Alberta's geography and administrative constraints.
 **Test statistic:** Fisher's combination method applied to two pre-registered p-values:
 
 ```
-T = −2 [ln(1.40×10⁻⁶) + ln(0.0024)] = 39.02
+T = −2 [ln(p₁) + ln(p₂)] = 39.87  (unrounded p₁, p₂; see findings/joint_outlier_score.json → fisher_combined_minority)
 T ~ χ²(df = 4) under H₀ with independent channels
-p = χ²_4.sf(39.02) = 6.87×10⁻⁸
+p = χ²_4.sf(39.87) = 4.61×10⁻⁸
 ```
 
 **Interpretation:** Under a neutral drawing process, a minority map this extreme on both
@@ -53,7 +53,7 @@ a statistical outlier relative to the null distribution of neutral plans.
 | **Null distribution** | 100,000 MCMC draws from the space of plans respecting Alberta geography | Bernoulli(0.5) shuffles of swing-zone VA assignments (2,110 VAs, 10,000 draws) |
 | **Pre-registration** | OSF qsgy8 | OSF r3zm7 |
 | **Seed provenance** | drand League of Entropy beacon round pre-dating shapefile release | drand League of Entropy beacon round pre-dating shapefile release |
-| **Result** | p = 1.40×10⁻⁶ (1M canonical) | p = 0.0024 |
+| **Result** | p = 8.80×10⁻⁷ (1M canonical) | p = 0.0024 |
 
 **Timeline establishing non-cherry-picking:**
 
@@ -155,10 +155,10 @@ the combined p-value under four methods, all computed from the same two input p-
 
 | Method | Minority combined p | Independence assumption | Notes |
 |---|---|---|---|
-| **Fisher (implemented)** | **6.87×10⁻⁸** | Required | T=39.02, df=4 |
-| Stouffer (z-score) | ~5×10⁻⁸ | Required | z = (4.68 + 2.83) / √2 ≈ 5.31 |
-| Cauchy combination | ~2.8×10⁻⁶ | Not required | Robust to heavy-tail dependence; dominated by Ch1 |
-| Bonferroni | ≤ 2.80×10⁻⁶ | Not required | Conservative; p_min × 2 = 2 × 1.40×10⁻⁶ |
+| **Fisher (implemented)** | **4.61×10⁻⁸** | Required | T=39.87, df=4 |
+| Stouffer (z-score) | ~3×10⁻⁸ | Required | z = (4.85 + 2.83) / √2 ≈ 5.42 |
+| Cauchy combination | ~1.76×10⁻⁶ | Not required | Robust to heavy-tail dependence; dominated by Ch1 |
+| Bonferroni | ≤ 1.76×10⁻⁶ | Not required | Conservative; p_min × 2 = 2 × 8.80×10⁻⁷ |
 
 **Interpretation:** All four methods produce a combined p well below 1×10⁻⁶. The finding
 is not an artefact of Fisher's method. Even Bonferroni — which requires no independence
@@ -243,10 +243,10 @@ Actual n_eff values from `simulation_convergence_diagnostics_canonical.json`:
 
 | Metric | τ (autocorr. time) | n_eff |
 |---|---|---|
-| efficiency_gap | 602.4 | 1,676.6 |
-| mean_median | 706.9 | **1,428.8** (minimum) |
-| declination | 600.6 | 1,681.7 |
-| seats_at_50_50 | 675.7 | 1,494.8 |
+| efficiency_gap | 612.5 | 1,648.4 |
+| mean_median | 714.2 | **1,413.3** (minimum) |
+| declination | 610.1 | 1,654.5 |
+| seats_at_50_50 | 682.8 | 1,479.2 |
 
 *Source: `data/simulation_convergence_diagnostics_canonical.json` (n = 1,010,000)*
 
@@ -254,24 +254,24 @@ Actual n_eff values from `simulation_convergence_diagnostics_canonical.json`:
 
 | Correction | n used | Ch1 p-value |
 |---|---|---|
-| Hotelling T² (used) | n_eff = 1,429 | 1.40×10⁻⁶ |
+| Hotelling T² (used) | n_eff = 1,413 | 8.80×10⁻⁷ |
 | No correction | raw n = 1,010,000 | [needs recomputation from canonical run] |
 | Chi-sq limit (n→∞) | ∞ | [needs recomputation from canonical run] |
 
-Using n_eff = 1,429 instead of raw n makes Ch1 less significant than the uncorrected
+Using n_eff = 1,413 instead of raw n makes Ch1 less significant than the uncorrected
 value would be. The correction is strictly conservative. Removing it would strengthen,
 not weaken, the result.
 
-**Why the 1M run gave a less extreme Ch1 p than the 100k run.** The 100k run had minimum n_eff = 379 and returned Ch1 p = 1.60×10⁻⁷. The 1M run has minimum n_eff = 1,429 and returns Ch1 p = 1.40×10⁻⁶ — a factor ~9 less extreme. This is counterintuitive but correct: with more samples, the Mahalanobis covariance matrix is estimated more precisely. The 100k covariance was noisy, and its imprecision inflated the apparent D² score. The 1M covariance is better calibrated to Alberta's actual partisan-metric correlation structure, so the minority map's joint deviation is correctly estimated as less extreme in the joint-metric space than the noisy 100k estimate suggested. This is a calibration effect — the individual percentiles (mean-median p99.98, seats@50/50 p99.99) are *stronger* in the 1M run; only the joint Mahalanobis estimate was inflated in the 100k run.
+**Why the 1M run gave a less extreme Ch1 p than the 100k run.** The 100k run had minimum n_eff = 379 and returned Ch1 p = 1.60×10⁻⁷. The 1M run has minimum n_eff = 1,413 and returns Ch1 p = 8.80×10⁻⁷ — a factor ~5.5 less extreme. This is counterintuitive but correct: with more samples, the Mahalanobis covariance matrix is estimated more precisely. The 100k covariance was noisy, and its imprecision inflated the apparent D² score. The 1M covariance is better calibrated to Alberta's actual partisan-metric correlation structure, so the minority map's joint deviation is correctly estimated as less extreme in the joint-metric space than the noisy 100k estimate suggested. This is a calibration effect — the individual percentiles (mean-median p99.98, seats@50/50 p99.99) are *stronger* in the 1M run; only the joint Mahalanobis estimate was inflated in the 100k run.
 
 ### AV7 — "Two maps tested; p should be Bonferroni-corrected"
 
-Two maps are evaluated: minority (combined p = 6.87×10⁻⁸) and majority (Ch1 p = 0.125).
+Two maps are evaluated: minority (combined p = 4.61×10⁻⁸) and majority (Ch1 p = 0.101).
 Bonferroni correction for m = 2 tests requires p < α/2 = 0.025 to claim significance
 at α = 0.05.
 
-The minority combined p (6.87×10⁻⁸) clears this threshold by more than five orders of
-magnitude. The minority Ch1 p alone (1.40×10⁻⁶) clears it by four orders of magnitude.
+The minority combined p (4.61×10⁻⁸) clears this threshold by more than five orders of
+magnitude. The minority Ch1 p alone (8.80×10⁻⁷) clears it by four orders of magnitude.
 Bonferroni correction is trivially satisfied.
 
 ---
@@ -326,4 +326,4 @@ pre-specification is required.
 
 ---
 
-*Computations updated 2026-05-12 to reflect 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). Previous version (100k run): Ch1 p = 1.60×10⁻⁷, T = 43.36, Fisher p = 8.71×10⁻⁹. The shift to less extreme Ch1 p reflects better covariance calibration — see §7 AV6 for explanation. Individual-metric percentile table (§6 AV5) updated to canonical values. All combination-method table values derived from canonical Ch1 p = 1.40×10⁻⁶ and pre-registered Ch2 p = 0.0024. All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*
+*Computations updated 2026-05-12 to reflect 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). Previous version (100k run): Ch1 p = 1.60×10⁻⁷, T = 43.36, Fisher p = 8.71×10⁻⁹. The shift to less extreme Ch1 p reflects better covariance calibration — see §7 AV6 for explanation. Individual-metric percentile table (§6 AV5) updated to canonical values. All combination-method table values derived from canonical Ch1 p = 8.80×10⁻⁷ (rerun 2026-07-12; see `findings/ensemble_chain1_duplication_note.md`) and pre-registered Ch2 p = 0.0024. All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*

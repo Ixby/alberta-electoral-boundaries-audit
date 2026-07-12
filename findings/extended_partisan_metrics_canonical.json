@@ -1,6 +1,6 @@
 {
   "test": "Extended partisan metrics \u2014 CANONICAL substrate",
-  "script_commit": "2c3b9ce0f276f10c0749d50b26e09ece2792236a",
+  "script_commit": "26f0671e1088b138366df77a61e6f59833654c40",
   "ensemble_size": 1010000,
   "per_map": {
     "majority_2026": {
@@ -12,7 +12,7 @@
       "lopsided_p": 0.00026736581974965513,
       "proportionality_deviation": 0.02369498746417688,
       "responsiveness": 1.1235955056179774,
-      "partisan_bias_percentile": 93.30712871287129
+      "partisan_bias_percentile": 93.73049504950495
     },
     "minority_2026": {
       "n_districts": 89,
@@ -20,10 +20,10 @@
       "ucp_wins": 60,
       "partisan_bias": 0.016853932584269704,
       "lopsided_t": 3.169027941098357,
-      "lopsided_p": 0.0021649554032131153,
+      "lopsided_p": 0.0021649554032131158,
       "proportionality_deviation": 0.027123646355566806,
       "responsiveness": 1.6853932584269649,
-      "partisan_bias_percentile": 99.99346534653465
+      "partisan_bias_percentile": 99.99316831683169
     },
     "enacted_2019": {
       "n_districts": 87,
@@ -34,7 +34,7 @@
       "lopsided_p": 0.002887475501944752,
       "proportionality_deviation": 0.025178928648492492,
       "responsiveness": 2.8735632183908066,
-      "partisan_bias_percentile": 99.21950495049505
+      "partisan_bias_percentile": 99.30544554455446
     }
   },
   "supersedes": "findings/extended_partisan_metrics.md (v0_7 substrate + 10k ReCom)"

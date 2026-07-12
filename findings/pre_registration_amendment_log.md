@@ -547,3 +547,41 @@ scoring machinery are untouched; this is publication mechanics only.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-07-11
+
+### Amendment 15 — Canonical ensemble scrapped and rerun after a second defect (2026-07-12)
+
+**What changed.** The canonical 1,010,000-plan ReCom ensemble was discarded and
+regenerated from scratch. Context: the chain-1 silent-resume duplication
+disclosed 2026-07-09 (DOCUMENTED CORRECTIONS C9, `findings/ensemble_chain1_duplication_note.md`)
+was retained on the reasoning that its measured sensitivity was negligible.
+While hardening the resume path against that defect, a second, independent
+defect was found in the same script (`mcmc_ensemble_canonical.py`): the
+multi-chain checkpoint writer indexed output files by loop position rather
+than by the `--first-chain-idx`-adjusted chain number, risking a silent
+clobber of one chain's samples by another's on a partial or resumed run. On
+finding a second uninvestigated failure mode in the same generation code, the
+judgment was to rerun clean rather than add a second sensitivity footnote.
+
+**What did not change.** The base seed derivation (drand-committed, unchanged),
+the ReCom parameters (population deviation ±25%, 4 chains × 252,500 steps),
+and the scoring methodology (Mahalanobis joint-tail, Bonferroni dependence-robust
+bound) are all identical to the run this replaces. This is a re-execution of
+the same pre-registered procedure, not a methodology, threshold, or metric
+change. **No test, threshold, metric, or verdict rule changes.**
+
+**Why this touches a registered procedure.** The canonical ensemble is the
+substrate for the audit's headline statistical finding (Ch1, OSF-anchored per
+the drand-committed seed; see §4.3.3 of the academic report). Rerunning it
+changes the reported p-values and D² figures even though the procedure itself
+is unchanged — this amendment exists to log that the numeric shift comes from
+discarding a defective execution, not from adjusting the test. The resulting
+figures are disclosed in DOCUMENTED CORRECTIONS **C10**
+(`reports/academic/report_academic.md`), which supersedes C9's retention
+disposition; full detail in `findings/ensemble_chain1_duplication_note.md`.
+This entry does not touch `preregistration/november_2026_scoring_spec.md` —
+the November confirmatory run (OSF qsgy8) is a separate, not-yet-executed
+procedure on the final enacted map, unaffected by this rerun of the current
+canonical maps' ensemble.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-07-12

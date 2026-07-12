@@ -1,40 +1,40 @@
 {
   "description": "2019 enacted Alberta electoral map scored against canonical 250k MCMC ensemble. Partisan metrics from simulation_real_map_scores_canonical.json. Mahalanobis D\u00b2 computed from ensemble empirical covariance.",
-  "ensemble_n": 250000,
+  "ensemble_n": 1010000,
   "metric_vector_2019": {
     "efficiency_gap": 0.024119940578423545,
     "mean_median": -0.007671760176883757,
-    "declination": -0.04509237880431511,
+    "declination": 0.04509237880431511,
     "seats_at_50_50": 0.45977011494252873
   },
   "per_metric": {
     "efficiency_gap": {
       "value": 0.02412,
-      "percentile": 69.0448,
-      "ensemble_p5": -0.008338,
-      "ensemble_p50": 0.016493,
-      "ensemble_p95": 0.041086,
+      "percentile": 69.4614,
+      "ensemble_p5": -0.009824,
+      "ensemble_p50": 0.016273,
+      "ensemble_p95": 0.040838,
       "source": "canonical_percentiles_csv"
     },
     "mean_median": {
       "value": -0.007672,
-      "percentile": 92.0524,
-      "ensemble_p5": -0.031158,
-      "ensemble_p50": -0.018939,
-      "ensemble_p95": -0.005847,
+      "percentile": 91.8121,
+      "ensemble_p5": -0.03109,
+      "ensemble_p50": -0.018956,
+      "ensemble_p95": -0.005593,
       "source": "canonical_percentiles_csv"
     },
     "declination": {
-      "value": -0.045092,
-      "percentile": 9.4228,
-      "ensemble_p5": -0.059419,
-      "ensemble_p50": -0.001861,
-      "ensemble_p95": 0.051837,
+      "value": 0.045092,
+      "percentile": 91.3255,
+      "ensemble_p5": -0.054997,
+      "ensemble_p50": 0.000254,
+      "ensemble_p95": 0.058874,
       "source": "canonical_percentiles_csv"
     },
     "seats_at_50_50": {
       "value": 0.45977,
-      "percentile": 78.6284,
+      "percentile": 78.5384,
       "ensemble_p5": 0.425287,
       "ensemble_p50": 0.448276,
       "ensemble_p95": 0.482759,
@@ -58,42 +58,42 @@
   },
   "mahalanobis": {
     "2019_enacted": {
-      "d2": 12.1169,
-      "p_empirical": 0.020364,
-      "p_chi2": 0.016503,
+      "d2": 13.1648,
+      "p_empirical": 0.012248,
+      "p_chi2": 0.010498,
       "mean_vector": [
-        0.016482542226143343,
-        -0.018724072791597133,
-        -0.0031599107231928,
-        0.45290611494252864
+        0.015994722725695,
+        -0.018675704218956053,
+        0.0014171515986446607,
+        0.4529485717537271
       ],
-      "n_ensemble": 250000,
+      "n_ensemble": 1010000,
       "k_metrics": 4
     },
     "majority_2026_canonical": {
-      "d2": 7.7811,
-      "p_empirical": 0.099932,
-      "p_chi2": 0.099936,
+      "d2": 7.7364,
+      "p_empirical": 0.1011,
+      "p_chi2": 0.101727,
       "mean_vector": [
-        0.016482542226143343,
-        -0.018724072791597133,
-        -0.0031599107231928,
-        0.45290611494252864
+        0.015994722725695,
+        -0.018675704218956053,
+        0.0014171515986446607,
+        0.4529485717537271
       ],
-      "n_ensemble": 250000,
+      "n_ensemble": 1010000,
       "k_metrics": 4
     },
     "minority_2026_canonical": {
-      "d2": 32.58,
+      "d2": 33.6385,
       "p_empirical": 0.0,
       "p_chi2": 1e-06,
       "mean_vector": [
-        0.016482542226143343,
-        -0.018724072791597133,
-        -0.0031599107231928,
-        0.45290611494252864
+        0.015994722725695,
+        -0.018675704218956053,
+        0.0014171515986446607,
+        0.4529485717537271
       ],
-      "n_ensemble": 250000,
+      "n_ensemble": 1010000,
       "k_metrics": 4
     },
     "metric_keys": [

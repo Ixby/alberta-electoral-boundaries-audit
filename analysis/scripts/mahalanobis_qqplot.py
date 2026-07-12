@@ -141,8 +141,13 @@ def main() -> None:
         direction = "heavier" if emp_val > theo_val else "lighter"
         print(f"  p={pct:.4f}: empirical={emp_val:.3f}  chi²(4)={theo_val:.3f}  ({direction} empirical tail)")
 
-    # Minority map observed D²
-    d2_obs = 5.7157 ** 2  # from findings/joint_outlier_score.json
+    # Minority map observed D² — read live from findings/joint_outlier_score.json
+    # (previously hardcoded as 5.7157 ** 2; that literal went stale after the
+    # 2026-07-12 canonical ensemble rerun, found during the post-rerun
+    # integration pass).
+    import json
+    joint_path = ROOT / "findings" / "joint_outlier_score.json"
+    d2_obs = json.loads(joint_path.read_text(encoding="utf-8"))["maps"]["minority"]["mahalanobis_distance"] ** 2
     emp_tail = float(np.mean(d2 >= d2_obs))
     theo_tail = float(stats.chi2.sf(d2_obs, df=4))
     print(f"\nMinority map observed D² = {d2_obs:.4f}")
@@ -153,10 +158,10 @@ def main() -> None:
         print(f"  Ratio empirical/parametric: {ratio:.2f}x")
         if ratio > 1:
             print(f"  => Empirical tail is HEAVIER => parametric p is anti-conservative")
-            print(f"     (1.40e-06 understates the true tail probability)")
+            print(f"     ({theo_tail:.2e} understates the true tail probability)")
         else:
             print(f"  => Empirical tail is LIGHTER => parametric p is conservative")
-            print(f"     (1.40e-06 overstates the true tail probability)")
+            print(f"     ({theo_tail:.2e} overstates the true tail probability)")
     else:
         print(f"  Empirical tail = 0 (no ensemble plans reach D²_obs = {d2_obs:.2f})")
         print(f"  => Cannot estimate ratio; parametric approximation is the only option")

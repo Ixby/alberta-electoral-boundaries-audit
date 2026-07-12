@@ -21,7 +21,7 @@
 
 | Test | Minority | Majority | Both scored | Source |
 |---|---|---|---|---|
-| Ch1 Mahalanobis joint outlier | p = 1.40×10⁻⁶ | p = 0.097 | Yes | `findings/joint_outlier_score.json`; report §5.4.9 |
+| Ch1 Mahalanobis joint outlier | p = 8.80×10⁻⁷ | p = 0.101 | Yes | `findings/joint_outlier_score.json`; report §5.4.9 |
 | Efficiency gap (ensemble percentile) | p94.4 | p15.5 | Yes | report §5.4.9 |
 | Mean–median | p99.98 (UCP-tail) | p0.924 (NDP-tail) | Yes | report §5.4.9; `simulated_ensemble_percentiles_canonical.csv` |
 | Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p20.4 | Yes | report §5.4.9 |

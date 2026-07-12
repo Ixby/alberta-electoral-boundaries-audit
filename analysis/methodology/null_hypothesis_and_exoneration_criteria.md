@@ -37,7 +37,7 @@ This document is the authoritative lookup for what each test in the audit batter
 | B2 — Efficiency gap (EG) | Minority-majority EG asymmetry = 0 (no wasted-vote differential between maps) | 90%+ of 2,000 Monte Carlo parameter draws in the same direction constitutes a directional finding; 7% absolute threshold explicitly discarded in favour of Alberta-specific calibration | Exploratory; not pre-registered | Direction-active: negative in 90.5% of draws; magnitude not precise at 89 seats |
 | B3 — Mean-median | Minority-majority MM gap = 0 | Directional consistency across cross-election inputs | Exploratory | Active: minority −1.20 pp vs majority −0.66 pp (minority more UCP-favourable) |
 | B4 — Seats@50/50 uniform swing | Minority seats@50/50 ≤ majority seats@50/50 | Minority > majority under 2023 vote input | Exploratory | Active: 46 vs 45 (blended attribution) |
-| B5 — MCMC ensemble (Mahalanobis, Ch1) | Minority feature vector drawn from neutral redistricting distribution (p ≥ 0.05) | p < 0.05 one-tailed constitutes an outlier finding | Exploratory; seeds committed to drand before shapefile receipt | **Active finding**: p = 1.40×10⁻⁶ (D² = 32.67 against 1M-plan ensemble) |
+| B5 — MCMC ensemble (Mahalanobis, Ch1) | Minority feature vector drawn from neutral redistricting distribution (p ≥ 0.05) | p < 0.05 one-tailed constitutes an outlier finding | Exploratory; seeds committed to drand before shapefile receipt | **Active finding**: p = 8.80×10⁻⁷ (D² = 33.64 against 1M-plan ensemble) |
 | B6 — Declination | No winning-district-margin angle asymmetry between minority and majority | Directional consistency with B2/B3/B4 | Exploratory | Minority at ensemble p1.21 (NDP-tail) under the pre-Amendment-10 sign; **corrected to p98.79 UCP-tail, agrees with B2/B3/B4 — see note below** |
 | B7 — Intermap permutation | Minority-majority partisan-metric distance ≤ distance between random neutral plan pairs | p < 0.05 | Pre-registered: OSF:yvc7g | See `findings/intermap_permutation_test_results.md` |
 
@@ -53,9 +53,9 @@ This document is the authoritative lookup for what each test in the audit batter
 
 | Test | Null hypothesis | Pass/fail threshold | Pre-registration | Status |
 |---|---|---|---|---|
-| Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.03, p = 6.87×10⁻⁸ (historical). See note below the table. |
+| Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.03, p = 4.61×10⁻⁸ (historical). See note below the table. |
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 6.87×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) and the dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 
 ### Ch3 — Neighbour drain (pre-registered)
 

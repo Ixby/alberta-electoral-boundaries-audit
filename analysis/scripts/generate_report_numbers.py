@@ -225,11 +225,19 @@ def main() -> None:
         N["szat_p_raw"] = 0.0024
 
     # Fisher combination (computed from Ch1 and Ch2 p-values)
+    # Ch1 (Mahalanobis joint-tail parametric p) is read from
+    # findings/joint_outlier_score.json, the canonical-ensemble scoring
+    # script's own output — NOT data/outputs/rhat_diagnostic_section_b.json,
+    # which is a stale OSF s58a6 Section B artefact (n_per_chain=62,500, a
+    # pre-canonical-scale run) that never carried a mahalanobis_p/joint_p key
+    # in the first place, so this branch always silently fell through to the
+    # hardcoded fallback below regardless of the live ensemble (found
+    # 2026-07-12 during the post-rerun integration pass).
     ch1_p_raw = None
-    rhat_path = ROOT / "data" / "outputs" / "rhat_diagnostic_section_b.json"
-    if rhat_path.exists():
-        rhat = load(rhat_path)
-        ch1_p_raw = rhat.get("mahalanobis_p") or rhat.get("joint_p")
+    joint_path = ROOT / "findings" / "joint_outlier_score.json"
+    if joint_path.exists():
+        joint = load(joint_path)
+        ch1_p_raw = joint.get("maps", {}).get("minority", {}).get("joint_partisan_p")
 
     if ch1_p_raw is not None:
         N["ch1_p"] = fmt_p(float(ch1_p_raw))
@@ -243,7 +251,6 @@ def main() -> None:
             fisher_p = stats.chi2.sf(T, df=4)
             N["fisher_p"] = fmt_p(fisher_p)
             N["fisher_p_raw"] = fisher_p
-            N["fisher_p_verbal"] = "one in fifteen million" if fisher_p < 1e-7 else "less than one in a million"
             # Fisher retired 2026-06-10 (channel dependence; SZAT fails block-permutation null).
             # Operative joint headline: Ch1 alone + Bonferroni upper bound (2 x Ch1, dependence-robust).
             N["fisher_p_status"] = "RETIRED 2026-06-10 - historical only; do not substitute into reports"
@@ -251,18 +258,23 @@ def main() -> None:
             bonf = min(2.0 * float(ch1), 1.0)
             N["bonferroni_bound_raw"] = bonf
             N["bonferroni_bound"] = fmt_p(bonf)
-            N["joint_headline_verbal"] = "about one in 357,000"
+            # Round to 3 significant figures for the verbal form, matching the
+            # house style of the original hardcoded figure ("357,000", not the
+            # exact "357,143").
+            n_verbal = 1 / bonf
+            sig_round = round(n_verbal, 2 - math.floor(math.log10(n_verbal)))
+            N["joint_headline_verbal"] = f"about one in {sig_round:,.0f}"
     else:
-        # Hardcoded fallbacks from canonical run
-        N["ch1_p"] = "1.40×10⁻⁶"
-        N["ch1_p_raw"] = 1.40e-6
-        N["fisher_p"] = "6.87×10⁻⁸"
-        N["fisher_p_raw"] = 6.87e-8
+        # Hardcoded fallbacks — last known canonical run. Update in lockstep
+        # with findings/joint_outlier_score.json if this branch fires.
+        print(f"WARNING: {joint_path} not found — using hardcoded fallbacks", file=sys.stderr)
+        N["ch1_p"] = "8.80×10⁻⁷"
+        N["ch1_p_raw"] = 8.80e-7
         N["fisher_p_status"] = "RETIRED 2026-06-10 - historical only; do not substitute into reports"
         N["fisher_p_verbal"] = "retired (historical figure)"
-        N["bonferroni_bound"] = "2.80×10⁻⁶"
-        N["bonferroni_bound_raw"] = 2.80e-6
-        N["joint_headline_verbal"] = "about one in 357,000"
+        N["bonferroni_bound"] = "1.76×10⁻⁶"
+        N["bonferroni_bound_raw"] = 1.76e-6
+        N["joint_headline_verbal"] = "about one in 568,182"
 
     # ── CSD / Municipal anchoring ───────────────────────────────────────────
     csd_path = ROOT / "data" / "outputs" / "csd_anchoring_results.json"

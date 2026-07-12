@@ -133,9 +133,9 @@ Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, b
 
 | Map | D | D² | Joint p |
 |---|---|---|---|
-| Minority (March 2026) | 5.716 | 32.67 | 1.40 × 10⁻⁶ |
-| Majority (March 2026) | 2.802 | 7.85 | 0.097 (within null) |
-| Enacted 2019 (baseline) | — | — | 0.013 |
+| Minority (March 2026) | 5.80 | 33.64 | 8.80 × 10⁻⁷ |
+| Majority (March 2026) | 2.78 | 7.74 | 0.101 (within null) |
+| Enacted 2019 (baseline) | 3.63 | 13.16 | 0.012 |
 
 The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`.
 
@@ -164,7 +164,7 @@ Source: `findings/szat_summary.json`.
 
 ### Fisher Combination (Ch1 × Ch2)
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 6.87×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) and the dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p ≈ 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 
 Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`.
 

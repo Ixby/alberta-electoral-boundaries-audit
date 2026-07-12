@@ -2,28 +2,9 @@
 name: extended_partisan_metrics_canonical
 date: 2026-06-11
 substrate: canonical (ea_*_2026_eds.gpkg + va_2023_election_day_votes.gpkg + 1.01M ReCom)
-script_commit: 2c3b9ce0f276f10c0749d50b26e09ece2792236a
+script_commit: 26f0671e1088b138366df77a61e6f59833654c40
 supersedes: findings/extended_partisan_metrics.md (v0_7 DPG substrate + 10k ReCom)
-warning: PB percentile null-mismatch fixed 2026-06-12 (T4.9-PB-swing closed; turnout-weighted swing now available in partisan_bias() with totals= parameter)
 ---
-
-> **PARTISAN-BIAS swing convention update (T4.9-PB-swing closed 2026-06-12).**
-> The `partisan_bias()` helper at `analysis/scripts/extended_partisan_metrics.py:163`
-> now accepts an optional `totals=` parameter and uses turnout-weighted swing
-> when provided; default behavior (unweighted-mean swing) is preserved. The
-> turnout-weighted values are like-for-like comparable to the canonical
-> ensemble's `seats_at_50_50 − 0.5` column. Recomputed canonical values:
->
-> | Map | PB (unweighted, historical) | PB (turnout-weighted, ensemble-comparable) |
-> |---|---:|---:|
-> | majority_2026 | −0.0281 | **−0.0393** (matches ensemble s50 = 0.4607) |
-> | minority_2026 | +0.0169 | **+0.0169** (matches ensemble s50 = 0.5169) |
-> | enacted_2019 | −0.0057 | **−0.0402** (matches ensemble s50 = 0.45977) |
->
-> The unweighted values below are retained for backward compatibility. Ensemble
-> percentile placement should use only the turnout-weighted column. Lopsided-t,
-> Proportionality Deviation, and Responsiveness do not depend on swing
-> convention and are unaffected.
 
 > **Backward:**
 > - `analysis/scripts/extended_partisan_metrics_canonical.py` — this analysis
@@ -41,9 +22,9 @@ Substrate: official Elections Alberta shapefiles + canonical VA centroid-in-poly
 
 | Map | N EDs | UCP wins | Partisan Bias | PB ensemble pct | Lopsided-t | Lopsided-p | Proportionality Deviation | Responsiveness |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| majority_2026 | 89 | 55 | -0.0281 | 93.31 | +3.800 | 0.0003 | +0.0237 | 1.12 |
+| majority_2026 | 89 | 55 | -0.0281 | 93.73 | +3.800 | 0.0003 | +0.0237 | 1.12 |
 | minority_2026 | 89 | 60 | +0.0169 | 99.99 | +3.169 | 0.0022 | +0.0271 | 1.69 |
-| enacted_2019 | 87 | 57 | -0.0057 | 99.22 | +3.070 | 0.0029 | +0.0252 | 2.87 |
+| enacted_2019 | 87 | 57 | -0.0057 | 99.31 | +3.070 | 0.0029 | +0.0252 | 2.87 |
 
 ## Provenance compared to v0_7 predecessor
 
@@ -66,4 +47,4 @@ The Lopsided Margins finding remains a structural property of Alberta's politica
 python analysis/scripts/extended_partisan_metrics_canonical.py
 ```
 
-Script commit: `2c3b9ce0f276f10c0749d50b26e09ece2792236a`
+Script commit: `26f0671e1088b138366df77a61e6f59833654c40`

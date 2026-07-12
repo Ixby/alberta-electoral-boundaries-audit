@@ -1,6 +1,6 @@
 # Joint Outlier Score — Alberta 2026 EBC Maps
 
-**Date:** 2026-07-08 (regenerated; first canonical run 2026-05-07)
+**Date:** 2026-07-12 (regenerated; first canonical run 2026-05-07)
 **Ensemble:** canonical 1,010,000 plans (official Elections Alberta shapefiles, 4 chains × 252,500, base_seed=1432864451)
 **Question:** How probable is it that a neutral redistricting process produces a map
 whose feature vector looks like the minority 2026 map?
@@ -16,24 +16,24 @@ channels simultaneously. This is *not* a posterior probability of gerrymandering
 Ensemble: 1,010,000 neutral-draw plans (canonical shapefiles). Metrics: EG, mean-median, declination, seats@50/50.
 Mahalanobis distance accounts for the correlation structure between these four metrics.
 
-**Directional note.** The neutral ensemble centre is moderately UCP-favourable (mean EG = +0.0164), reflecting Alberta's natural geographic sorting of voters (rural UCP dispersion; Chen & Rodden 2013). The minority map's extreme MM and s50 scores are driven by structural map choices, not natural geography.
+**Directional note.** The neutral ensemble centre is moderately UCP-favourable (mean EG = +0.0160), reflecting Alberta's natural geographic sorting of voters (rural UCP dispersion; Chen & Rodden 2013). The minority map's extreme MM and s50 scores are driven by structural map choices, not natural geography.
 
-| Map | Mahalanobis distance | p (chi-sq, df=4) | p (n_eff-adjusted, F(4,1424)) |
+| Map | Mahalanobis distance | p (chi-sq, df=4) | p (n_eff-adjusted, F(4,1409)) |
 | --- | --- | --- | --- |
-| Minority 2026 | 5.7157 | 1.40e-06 | 1.73e-06 |
-| Majority 2026 | 2.8022 | 9.71e-02 | 9.88e-02 |
-| 2019 Enacted  | 3.5701 | 1.26e-02 | 1.31e-02 |
+| Minority 2026 | 5.7999 | 8.80e-07 | 1.11e-06 |
+| Majority 2026 | 2.7814 | 1.02e-01 | 1.03e-01 |
+| 2019 Enacted  | 3.6283 | 1.05e-02 | 1.10e-02 |
 
-*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = 1428 — the conservative lower bound from convergence diagnostics. Both columns reject the null for the minority map.*
+*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = 1413 — the conservative lower bound from convergence diagnostics. Both columns reject the null for the minority map.*
 
 **Minority marginals:**
 
 | Metric | Observed | Ensemble mean | Marginal tail p |
 | --- | --- | --- | --- |
-| efficiency_gap | +0.0402 | +0.0164 | 0.0561 |
-| mean_median | +0.0104 | -0.0186 | 0.0002 |
-| declination | +0.0770 | +0.0025 | 0.0121 |
-| seats_at_50_50 | +0.5169 | +0.4533 | 0.0001 |
+| efficiency_gap | +0.0402 | +0.0160 | 0.0546 |
+| mean_median | +0.0104 | -0.0187 | 0.0003 |
+| declination | +0.0770 | +0.0014 | 0.0121 |
+| seats_at_50_50 | +0.5169 | +0.4529 | 0.0001 |
 
 ---
 
@@ -76,7 +76,7 @@ stale_* provenance fields in the JSON.)
 
 ## Joint statistic — Bonferroni upper bound (Fisher retired)
 
-**Operative headline: p ≤ 2.80e-06 (= 2 × Ch1), valid under arbitrary dependence
+**Operative headline: p ≤ 1.76e-06 (= 2 × Ch1), valid under arbitrary dependence
 between the two examined channels.** The Fisher combination below assumed Ch1/Ch2
 independence and was retired 2026-06-10 (the channels share the 2023 vote substrate;
 Fisher is anti-conservative under positive dependence — Brown 1975). It is preserved
@@ -84,18 +84,18 @@ as historical record only.
 
 | Channel | p (unadjusted) | p (n_eff-adjusted) |
 | --- | --- | --- |
-| Partisan joint (Mahalanobis) | 1.40e-06 | 1.73e-06 |
+| Partisan joint (Mahalanobis) | 8.80e-07 | 1.11e-06 |
 | SZAT bootstrap (retired, i.i.d.-flip) | 0.0025 | 0.0025 |
-| **Fisher combined (historical)** | **7.16e-08** | **8.76e-08** |
+| **Fisher combined (historical)** | **4.61e-08** | **5.74e-08** |
 
-Unadjusted: Fisher T = 38.941, chi-sq df = 4.
-n_eff-adjusted: Fisher T = 38.518, using Hotelling T² p for Ch1 (n_eff = 1428, conservative lower bound).
+Unadjusted: Fisher T = 39.870, chi-sq df = 4.
+n_eff-adjusted: Fisher T = 39.405, using Hotelling T² p for Ch1 (n_eff = 1413, conservative lower bound).
 
-**Reading:** the operative claim is the dependence-robust bound p ≤ 2.80e-06
-(≈ 1 in 357,143) — under the neutral null, a map with
+**Reading:** the operative claim is the dependence-robust bound p ≤ 1.76e-06
+(≈ 1 in 568,182) — under the neutral null, a map with
 Channel 1's joint partisan profile arises at most about once in every
-357,143 draws, allowing for the two channels examined.
-The historical Fisher figure (7.16e-08) overstated joint significance by
+568,182 draws, allowing for the two channels examined.
+The historical Fisher figure (4.61e-08) overstated joint significance by
 assuming channel independence.
 
 ---
@@ -105,7 +105,7 @@ assuming channel independence.
 | Channel | Status | Finding |
 | --- | --- | --- |
 | Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a channel |
-| Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority 1.39× majority (3,938 vs 2,827); minority at p99.0 of the neutral ensemble |
+| Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority 1.39× majority (3,938 vs 2,827); minority at p99.1 of the neutral ensemble |
 | Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio 0.5× (the DPG-era 2.58× value was retracted — see DOCUMENTED CORRECTIONS) |
 
 *(Corrected 2026-07-08: this table previously described MAD and Reock as "pending — not in
@@ -117,9 +117,9 @@ The canonical ensemble outputs contain per-plan values for both metrics.)*
 ## Interpretation note
 
 The duck test made precise: the minority map's four-dimensional partisan feature
-vector sits at Mahalanobis distance 5.72 from the ensemble center
-(p = 1.40e-06). The operative joint statistic is the dependence-robust Bonferroni
-upper bound p ≤ 2.80e-06. SZAT (Ch2) is exploratory context only
+vector sits at Mahalanobis distance 5.80 from the ensemble center
+(p = 8.80e-07). The operative joint statistic is the dependence-robust Bonferroni
+upper bound p ≤ 1.76e-06. SZAT (Ch2) is exploratory context only
 (block-permutation p = 0.1947); the retired Fisher combination is preserved above as
 historical record.
 
@@ -128,8 +128,8 @@ anomalously low against their label-shuffle nulls (2019 enacted most anomalous,
 z = -3.52); Prediction A is directionally confirmed.
 The channel is reported per pre-registration and is not part of the joint headline.
 
-The majority map sits at Mahalanobis distance 2.80 from the ensemble
-center (p = 9.71e-02) — outlier on MM in the NDP-favourable direction.
+The majority map sits at Mahalanobis distance 2.78 from the ensemble
+center (p = 1.02e-01) — outlier on MM in the NDP-favourable direction.
 
 ---
 

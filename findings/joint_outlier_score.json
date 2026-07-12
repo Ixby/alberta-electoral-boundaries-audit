@@ -8,136 +8,136 @@
   "channels_pending_note": "Formerly-pending structural channels resolved: municipal anchoring RETRACTED on canonical geometry (both maps within Canadian norm); population MAD and proxy Reock captured in canonical ensemble outputs with percentiles computed below.",
   "joint_headline": {
     "method": "Bonferroni dependence-robust upper bound over the two examined channels",
-    "p_upper_bound": 2.8e-06,
+    "p_upper_bound": 1.76e-06,
     "note": "Operative joint statistic since 2026-06-10: p <= 2 x min(Ch1, Ch2) = 2 x Ch1 (Ch1 is the binding term). Valid under arbitrary dependence between channels; replaces the retired Fisher combination (anti-conservative under positive dependence, Brown 1975 \u2014 the channels share the 2023 vote substrate)."
   },
   "maps": {
     "minority": {
-      "mahalanobis_distance": 5.7157,
-      "joint_partisan_p": 1.4e-06,
-      "joint_partisan_p_neff_adjusted": 1.73e-06,
+      "mahalanobis_distance": 5.7999,
+      "joint_partisan_p": 8.8e-07,
+      "joint_partisan_p_neff_adjusted": 1.11e-06,
       "neff_adjustment": {
-        "n_eff_used": 1428,
-        "f_stat": 8.1387,
+        "n_eff_used": 1413,
+        "f_stat": 8.3799,
         "df1": 4,
-        "df2": 1424,
+        "df2": 1409,
         "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
       },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.040194,
-          "ensemble_mean": 0.016364,
-          "ensemble_p5": -0.008902,
-          "ensemble_p95": 0.041004,
-          "marginal_tail_p": 0.056068
+          "ensemble_mean": 0.015995,
+          "ensemble_p5": -0.009824,
+          "ensemble_p95": 0.040838,
+          "marginal_tail_p": 0.054623
         },
         "mean_median": {
           "observed": 0.010402,
-          "ensemble_mean": -0.018607,
-          "ensemble_p5": -0.031099,
-          "ensemble_p95": -0.005421,
-          "marginal_tail_p": 0.000244
+          "ensemble_mean": -0.018676,
+          "ensemble_p5": -0.03109,
+          "ensemble_p95": -0.005593,
+          "marginal_tail_p": 0.000335
         },
         "declination": {
           "observed": 0.077003,
-          "ensemble_mean": 0.002456,
-          "ensemble_p5": -0.053178,
-          "ensemble_p95": 0.05925,
-          "marginal_tail_p": 0.012079
+          "ensemble_mean": 0.001417,
+          "ensemble_p5": -0.054997,
+          "ensemble_p95": 0.058874,
+          "marginal_tail_p": 0.012119
         },
         "seats_at_50_50": {
           "observed": 0.516854,
-          "ensemble_mean": 0.453268,
+          "ensemble_mean": 0.452949,
           "ensemble_p5": 0.425287,
           "ensemble_p95": 0.482759,
-          "marginal_tail_p": 6.5e-05
+          "marginal_tail_p": 6.8e-05
         }
       }
     },
     "majority": {
-      "mahalanobis_distance": 2.8022,
-      "joint_partisan_p": 0.09713382,
-      "joint_partisan_p_neff_adjusted": 0.09882823,
+      "mahalanobis_distance": 2.7814,
+      "joint_partisan_p": 0.1017266,
+      "joint_partisan_p_neff_adjusted": 0.10347496,
       "neff_adjustment": {
-        "n_eff_used": 1428,
-        "f_stat": 1.9563,
+        "n_eff_used": 1413,
+        "f_stat": 1.9273,
         "df1": 4,
-        "df2": 1424,
+        "df2": 1409,
         "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
       },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.000982,
-          "ensemble_mean": 0.016364,
-          "ensemble_p5": -0.008902,
-          "ensemble_p95": 0.041004,
-          "marginal_tail_p": 0.15469
+          "ensemble_mean": 0.015995,
+          "ensemble_p5": -0.009824,
+          "ensemble_p95": 0.040838,
+          "marginal_tail_p": 0.16517
         },
         "mean_median": {
           "observed": -0.036191,
-          "ensemble_mean": -0.018607,
-          "ensemble_p5": -0.031099,
-          "ensemble_p95": -0.005421,
-          "marginal_tail_p": 0.009244
+          "ensemble_mean": -0.018676,
+          "ensemble_p5": -0.03109,
+          "ensemble_p95": -0.005593,
+          "marginal_tail_p": 0.009912
         },
         "declination": {
           "observed": -0.026675,
-          "ensemble_mean": 0.002456,
-          "ensemble_p5": -0.053178,
-          "ensemble_p95": 0.05925,
-          "marginal_tail_p": 0.203779
+          "ensemble_mean": 0.001417,
+          "ensemble_p5": -0.054997,
+          "ensemble_p95": 0.058874,
+          "marginal_tail_p": 0.21849
         },
         "seats_at_50_50": {
           "observed": 0.460674,
-          "ensemble_mean": 0.453268,
+          "ensemble_mean": 0.452949,
           "ensemble_p5": 0.425287,
           "ensemble_p95": 0.482759,
-          "marginal_tail_p": 0.2219
+          "marginal_tail_p": 0.214616
         }
       }
     },
     "enacted": {
-      "mahalanobis_distance": 3.5701,
-      "joint_partisan_p": 0.01258967,
-      "joint_partisan_p_neff_adjusted": 0.01310024,
+      "mahalanobis_distance": 3.6283,
+      "joint_partisan_p": 0.01049797,
+      "joint_partisan_p_neff_adjusted": 0.01095386,
       "neff_adjustment": {
-        "n_eff_used": 1428,
-        "f_stat": 3.1752,
+        "n_eff_used": 1413,
+        "f_stat": 3.2796,
         "df1": 4,
-        "df2": 1424,
+        "df2": 1409,
         "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
       },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.02412,
-          "ensemble_mean": 0.016364,
-          "ensemble_p5": -0.008902,
-          "ensemble_p95": 0.041004,
-          "marginal_tail_p": 0.309577
+          "ensemble_mean": 0.015995,
+          "ensemble_p5": -0.009824,
+          "ensemble_p95": 0.040838,
+          "marginal_tail_p": 0.305386
         },
         "mean_median": {
           "observed": -0.007672,
-          "ensemble_mean": -0.018607,
-          "ensemble_p5": -0.031099,
-          "ensemble_p95": -0.005421,
-          "marginal_tail_p": 0.084606
+          "ensemble_mean": -0.018676,
+          "ensemble_p5": -0.03109,
+          "ensemble_p95": -0.005593,
+          "marginal_tail_p": 0.081879
         },
         "declination": {
           "observed": 0.045092,
-          "ensemble_mean": 0.002456,
-          "ensemble_p5": -0.053178,
-          "ensemble_p95": 0.05925,
-          "marginal_tail_p": 0.089542
+          "ensemble_mean": 0.001417,
+          "ensemble_p5": -0.054997,
+          "ensemble_p95": 0.058874,
+          "marginal_tail_p": 0.086745
         },
         "seats_at_50_50": {
           "observed": 0.45977,
-          "ensemble_mean": 0.453268,
+          "ensemble_mean": 0.452949,
           "ensemble_p5": 0.425287,
           "ensemble_p95": 0.482759,
-          "marginal_tail_p": 0.2219
+          "marginal_tail_p": 0.214616
         }
       }
     }
@@ -163,14 +163,14 @@
       "partisan_joint_mahalanobis",
       "szat_bootstrap"
     ],
-    "p_channel_1": 1.4e-06,
-    "p_channel_1_neff_adjusted": 1.73e-06,
+    "p_channel_1": 8.8e-07,
+    "p_channel_1_neff_adjusted": 1.11e-06,
     "p_channel_2": 0.0025,
-    "fisher_T": 38.941,
+    "fisher_T": 39.8696,
     "fisher_df": 4,
-    "combined_p": 7e-08,
-    "combined_p_neff_adjusted": 9e-08,
-    "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1428, conservative lower bound). Both combined p-values reject the null at p < 1e-5."
+    "combined_p": 5e-08,
+    "combined_p_neff_adjusted": 6e-08,
+    "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1413, conservative lower bound). Both combined p-values reject the null at p < 1e-5."
   },
   "structural_pending": {
     "municipal_anchoring": {
@@ -184,9 +184,9 @@
       "minority_mad": 3938.1,
       "majority_mad": 2826.9,
       "ratio_minority_majority": 1.393,
-      "minority_ensemble_percentile": 99.02,
-      "majority_ensemble_percentile": 15.83,
-      "minority_upper_tail_p": 0.009789,
+      "minority_ensemble_percentile": 99.13,
+      "majority_ensemble_percentile": 15.87,
+      "minority_upper_tail_p": 0.008654,
       "status_note": "per-plan MAD captured in canonical ensemble outputs; percentiles computed directly (earlier 'pending' status was stale \u2014 corrected 2026-07-08)",
       "source": "simulation_real_map_scores_canonical.json + simulated_ensemble_raw_samples_canonical.csv"
     },

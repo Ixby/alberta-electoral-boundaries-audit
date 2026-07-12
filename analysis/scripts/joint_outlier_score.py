@@ -426,4 +426,17 @@ center (p = {results['majority']['joint_partisan_p']:.2e}) — not an outlier.
 
 
 if __name__ == "__main__":
+    raise SystemExit(
+        "joint_outlier_score.py is RETRACTED (see module docstring: 250k-plan "
+        "pre-canonical ensemble, superseded by canonical shapefiles placing "
+        "both maps within norm). It writes to the SAME path as "
+        "joint_outlier_score_canonical.py (findings/joint_outlier_score.json) "
+        "and running it would silently clobber the current canonical output "
+        "with retracted numbers. Guard added 2026-07-12 after this was found "
+        "to be a live landmine during the post-rerun integration pass. Use "
+        "joint_outlier_score_canonical.py instead. If you specifically need "
+        "to reproduce the retracted 250k-era figures for historical "
+        "comparison, comment out this guard locally and redirect OUT_JSON / "
+        "OUT_MD to a non-colliding path first."
+    )
     run()

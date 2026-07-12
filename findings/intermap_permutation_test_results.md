@@ -24,11 +24,11 @@ position by no more than randomly drawn pairs of constraint-legal neutral maps.
 | | Value |
 |---|---|
 | Observed EG(minority) − EG(majority) | +3.92 pp |
-| Null SD (random pairs) | 2.16 pp |
-| Null 95th percentile | +3.57 pp |
-| z-score | 1.817 |
-| **p (one-tailed)** | **0.0340** |
-| p (two-tailed) | 0.0689 |
+| Null SD (random pairs) | 2.17 pp |
+| Null 95th percentile | +3.54 pp |
+| z-score | 1.806 |
+| **p (one-tailed)** | **0.0348** |
+| p (two-tailed) | 0.0686 |
 | Result | **p < 0.05 — SIGNIFICANT** |
 
 *EG sign convention: positive = more NDP votes wasted (UCP structural advantage).*
@@ -42,11 +42,11 @@ Covariance matrix Σ estimated from the 1,010,000-plan ensemble.
 
 | | Value |
 |---|---|
-| Observed Mahalanobis distance | 7.1683 |
-| Null mean distance (random pairs) | 2.6668 |
-| Null SD | 0.9885 |
-| Null 95th percentile | 4.4250 |
-| **p** | **0.0000** |
+| Observed Mahalanobis distance | 7.2017 |
+| Null mean distance (random pairs) | 2.6463 |
+| Null SD | 0.9768 |
+| Null 95th percentile | 4.3725 |
+| **p** | **0.0002** |
 | Result | **p < 0.05 — SIGNIFICANT** |
 
 **Per-metric breakdown:**
@@ -66,11 +66,11 @@ Covariance matrix Σ estimated from the 1,010,000-plan ensemble.
 
 | Test | Map | Mahalanobis D | p |
 |---|---|---|---|
-| Ch1 (vs ensemble) | Minority | 5.7157 | 1.40e-06 |
-| Ch1 (vs ensemble) | Majority | 2.8022 | 9.71e-02 |
-| Ch1-COMP (vs each other) | Minority vs Majority | 7.1683 | 0.0000 |
+| Ch1 (vs ensemble) | Minority | 5.7999 | 8.84e-07 |
+| Ch1 (vs ensemble) | Majority | 2.7814 | 1.02e-01 |
+| Ch1-COMP (vs each other) | Minority vs Majority | 7.2017 | 0.0002 |
 
-The Ch1 absolute-position result (minority p = 1.40e-06) remains the primary significance
+The Ch1 absolute-position result (minority p = 8.84e-07) remains the primary significance
 finding. Ch1-COMP tests the *comparison* — whether the two maps differ more than random neutral
 pairs, not whether either is an outlier in the ensemble.
 

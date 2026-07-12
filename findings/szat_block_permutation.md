@@ -37,12 +37,12 @@ The block-permutation null is **5.79× more variable** than the i.i.d. flip null
 
 **Channel 2 no longer contributes to the Bonferroni combination at any standard α.** Under the methodologically-correct null, the SZAT p-value is ≈ 0.2 — well above any significance threshold the audit cites.
 
-The audit's published Bonferroni headline is **p ≤ 2.80×10⁻⁶ = 2 × min(Ch1, Ch2) = 2 × 1.40×10⁻⁶**, derived under the i.i.d.-flip SZAT. Numerically this bound is *unchanged* by the SZAT correction because Channel 1 (Mahalanobis joint tail) was already the binding minimum. But the interpretation changes:
+The audit's published Bonferroni headline is **p ≤ 1.76×10⁻⁶ = 2 × min(Ch1, Ch2) = 2 × 8.80×10⁻⁷**, derived under the i.i.d.-flip SZAT. Numerically this bound is *unchanged* by the SZAT correction because Channel 1 (Mahalanobis joint tail) was already the binding minimum. But the interpretation changes:
 
 - **Old framing**: two distinct channels (ensemble joint outlier + swing-zone boundary efficiency) both flag the minority map; Bonferroni at m=2 over them gives the joint bound.
-- **Corrected framing (2026-06-12)**: Channel 1 (Mahalanobis p = 1.40×10⁻⁶ against the canonical 1.01M-plan ensemble) is the sole channel that crosses significance under a methodologically-rigorous null. Channel 2 (SZAT) does not survive the contiguity correction and is reported here for completeness but not used in the headline combination.
+- **Corrected framing (2026-06-12)**: Channel 1 (Mahalanobis p = 8.80×10⁻⁷ against the canonical 1.01M-plan ensemble, clean rerun 2026-07-12) is the sole channel that crosses significance under a methodologically-rigorous null. Channel 2 (SZAT) does not survive the contiguity correction and is reported here for completeness but not used in the headline combination.
 
-The Bonferroni-flavored "dependence-robust upper bound" remains valid for any family of channels the analyst chooses to include; under the corrected reading the family is effectively m = 1 and the bound is just Ch1's p = 1.40×10⁻⁶ ≈ 1 in 714,000 (more extreme than the 1-in-357,000 the 2 × Ch1 bound advertised).
+The Bonferroni-flavored "dependence-robust upper bound" remains valid for any family of channels the analyst chooses to include; under the corrected reading the family is effectively m = 1 and the bound is just Ch1's p = 8.80×10⁻⁷ ≈ 1 in 1,140,000 (more extreme than the 1-in-568,000 the 2 × Ch1 bound advertised).
 
 ## Why the i.i.d. flip was anti-conservative
 
@@ -67,7 +67,7 @@ Pre/post SHA-256 of `findings/szat_block_permutation.json` and the script commit
 
 ## Effect on the audit's verdict surface
 
-The four-corner verdict surface (§6.2) is **unaffected in headline direction** because the Mahalanobis joint-tail finding (Ch1, p = 1.40×10⁻⁶) is the load-bearing partisan-bias number and stands on its own. The "two-channel converging" framing in §5.5 prose is restated as "Ch1 carries the partisan-bias evidence; Ch2 (SZAT) is reported but does not survive a contiguity-respecting null." The structural lane is independent of both channels.
+The four-corner verdict surface (§6.2) is **unaffected in headline direction** because the Mahalanobis joint-tail finding (Ch1, p = 8.80×10⁻⁷, clean ensemble rerun 2026-07-12) is the load-bearing partisan-bias number and stands on its own. The "two-channel converging" framing in §5.5 prose is restated as "Ch1 carries the partisan-bias evidence; Ch2 (SZAT) is reported but does not survive a contiguity-respecting null." The structural lane is independent of both channels.
 
 ## Queued follow-on
 

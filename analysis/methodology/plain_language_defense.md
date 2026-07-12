@@ -86,9 +86,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Two independent statistical tests — the ensemble test (Mahalanobis Ch1) and the boundary-choice test (SZAT Ch2) — return the same answer. Their Fisher combination is p = 6.87×10⁻⁸.
-**Why?** What do "Ch1" and "Ch2" mean, what is a "Fisher combination," and what does p = 6.87×10⁻⁸ mean in plain terms?
-**Answer:** Ch1 (the ensemble test) asks: how unusual is this map compared to over one million randomly drawn neutral maps? Ch2 (the boundary-choice test) asks: in the specific places where the minority map differs from the majority map, are those differences random or do they consistently move in a direction that favors one party? The Fisher combination is a standard mathematical formula for merging two independent test results into one overall probability. The combined result of p = 6.87×10⁻⁸ was an earlier "Fisher combination" figure that has since been **retired** (2026-06-10): it assumed the two tests were independent, which they are not, and the boundary-choice test (Ch2) does not survive a stricter spatial check. The audit now reports the ensemble test (Ch1) on its own — about a one-in-714,000 result (p = 1.40×10⁻⁶) — with a conservative combined upper bound of about one in 357,000 (p ≤ 2.80×10⁻⁶). Both are still extremely unlikely accidents, but they no longer rely on the independence assumption. See the academic report §4.3.3 and §5.5.
+**Assertion:** Two independent statistical tests — the ensemble test (Mahalanobis Ch1) and the boundary-choice test (SZAT Ch2) — return the same answer. Their Fisher combination is p = 4.61×10⁻⁸.
+**Why?** What do "Ch1" and "Ch2" mean, what is a "Fisher combination," and what does p = 4.61×10⁻⁸ mean in plain terms?
+**Answer:** Ch1 (the ensemble test) asks: how unusual is this map compared to over one million randomly drawn neutral maps? Ch2 (the boundary-choice test) asks: in the specific places where the minority map differs from the majority map, are those differences random or do they consistently move in a direction that favors one party? The Fisher combination is a standard mathematical formula for merging two independent test results into one overall probability. The combined result of p = 4.61×10⁻⁸ was an earlier "Fisher combination" figure that has since been **retired** (2026-06-10): it assumed the two tests were independent, which they are not, and the boundary-choice test (Ch2) does not survive a stricter spatial check. The audit now reports the ensemble test (Ch1) on its own — about a one-in-1,140,000 result (p = 8.80×10⁻⁷) — with a conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶). Both are still extremely unlikely accidents, but they no longer rely on the independence assumption. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -108,9 +108,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The joint outlier profile reaches Mahalanobis p = 1.40×10⁻⁶ against the 1,010,000-plan canonical ensemble.
-**Why?** What is a "Mahalanobis" score and what does 1.40×10⁻⁶ mean?
-**Answer:** A Mahalanobis score is a way of measuring how far a single data point is from the center of a cloud of data points, while accounting for how correlated those dimensions are with each other. Here it measures how far the minority map's combination of four partisan fairness scores sits from the center of the cloud formed by over one million randomly drawn maps. A probability of 1.40×10⁻⁶ means that roughly 1.4 maps in every million drawn at random would be this extreme — in other words, the minority map is more extreme than approximately 999,998 out of every million neutral maps.
+**Assertion:** The joint outlier profile reaches Mahalanobis p = 8.80×10⁻⁷ against the 1,010,000-plan canonical ensemble.
+**Why?** What is a "Mahalanobis" score and what does 8.80×10⁻⁷ mean?
+**Answer:** A Mahalanobis score is a way of measuring how far a single data point is from the center of a cloud of data points, while accounting for how correlated those dimensions are with each other. Here it measures how far the minority map's combination of four partisan fairness scores sits from the center of the cloud formed by over one million randomly drawn maps. A probability of 8.80×10⁻⁷ means that roughly 0.88 maps in every million drawn at random would be this extreme — in other words, the minority map is more extreme than approximately 999,999 out of every million neutral maps.
 
 ---
 
@@ -391,9 +391,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Effective Sample Size (ESS) is 1,429–1,682 on canonical 1M partisan metrics — described as publication-grade.
-**Why?** What is an Effective Sample Size and why does "1,429–1,682" matter when you have 1,000,000 total samples?
-**Answer:** In a simulation where each new map is based on the previous one, consecutive maps are correlated — they are not fully independent observations. The Effective Sample Size adjusts the total sample count downward to reflect how much independent information is actually present. An ESS of 1,429–1,682 out of 1,000,000 total steps means the chain has about 1,400–1,700 truly independent observations. That is still more than enough for reliable percentile estimates; comparable published ensemble studies use similar or lower ESS values, which is why this is described as meeting publication standards.
+**Assertion:** Effective Sample Size (ESS) is 1,413–1,522 on canonical 1M partisan metrics — described as publication-grade.
+**Why?** What is an Effective Sample Size and why does "1,413–1,522" matter when you have 1,000,000 total samples?
+**Answer:** In a simulation where each new map is based on the previous one, consecutive maps are correlated — they are not fully independent observations. The Effective Sample Size adjusts the total sample count downward to reflect how much independent information is actually present. An ESS of 1,413–1,522 out of 1,000,000 total steps means the chain has about 1,400–1,700 truly independent observations. That is still more than enough for reliable percentile estimates; comparable published ensemble studies use similar or lower ESS values, which is why this is described as meeting publication standards.
 
 ---
 
@@ -707,9 +707,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Mahalanobis Ch1 p = 1.40×10⁻⁶.
+**Assertion:** Mahalanobis Ch1 p = 8.80×10⁻⁷.
 **Why?** What is the Mahalanobis test doing that a simple average of the four metrics cannot do?
-**Answer:** If you simply averaged the four percentile scores, you would treat each metric as independent. But the four metrics are correlated — maps that score high on efficiency gap often also score high on mean-median, because the same underlying feature drives both. The Mahalanobis distance accounts for those correlations, measuring how far a map is from the center of the joint distribution of all four metrics simultaneously. This prevents double-counting while still capturing the joint signal. A Mahalanobis p = 1.40×10⁻⁶ means the minority map's combination of all four metrics simultaneously is more extreme than 99.9999% of random neutral maps.
+**Answer:** If you simply averaged the four percentile scores, you would treat each metric as independent. But the four metrics are correlated — maps that score high on efficiency gap often also score high on mean-median, because the same underlying feature drives both. The Mahalanobis distance accounts for those correlations, measuring how far a map is from the center of the joint distribution of all four metrics simultaneously. This prevents double-counting while still capturing the joint signal. A Mahalanobis p = 8.80×10⁻⁷ means the minority map's combination of all four metrics simultaneously is more extreme than 99.9999% of random neutral maps.
 
 ### §5.4.1 — Constraint-bound expectation terminology
 
@@ -747,9 +747,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The 250k single-chain run had ESS ≈ 150 per metric. Raw percentile claims at the tails (p100, p1.6) must be read as bounded to approximately p95.35 / p2.5 at that precision, not as exact percentile values. The canonical 1M multichain run resolves this caveat with ESS 1,429–1,682.
+**Assertion:** The 250k single-chain run had ESS ≈ 150 per metric. Raw percentile claims at the tails (p100, p1.6) must be read as bounded to approximately p95.35 / p2.5 at that precision, not as exact percentile values. The canonical 1M multichain run resolves this caveat with ESS 1,413–1,522.
 **Why?** If the chain ran 250,000 steps, why is the effective sample size only 150?
-**Answer:** In this simulation, each new map is generated by modifying the previous one, so consecutive maps are correlated — they are not independent observations. The Effective Sample Size (ESS) measures how many independent observations the correlated chain is equivalent to. At ESS ≈ 150, a raw p100 claim is statistically indistinguishable from p95 or p97 at 95% credibility; the chain does not have enough precision to distinguish between the very extreme tail percentiles. The ESS caveat is resolved by the canonical 1M run (§5.4.9), which achieves ESS 1,429–1,682 through four parallel chains of 252,500 steps each. The tail-downgrade caveat is a disclosure obligation for the earlier DPG-era runs documented in §5.4.4–§5.4.8; it does not affect the canonical headline numbers.
+**Answer:** In this simulation, each new map is generated by modifying the previous one, so consecutive maps are correlated — they are not independent observations. The Effective Sample Size (ESS) measures how many independent observations the correlated chain is equivalent to. At ESS ≈ 150, a raw p100 claim is statistically indistinguishable from p95 or p97 at 95% credibility; the chain does not have enough precision to distinguish between the very extreme tail percentiles. The ESS caveat is resolved by the canonical 1M run (§5.4.9), which achieves ESS 1,413–1,522 through four parallel chains of 252,500 steps each. The tail-downgrade caveat is a disclosure obligation for the earlier DPG-era runs documented in §5.4.4–§5.4.8; it does not affect the canonical headline numbers.
 
 ---
 
@@ -829,7 +829,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,429–1,682. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 1.40×10⁻⁶.
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
 **Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
 **Answer:** The DPG-era runs used approximate boundary tracings the audit team constructed from commission PDF thumbnails before official shapefiles were available. Where those approximations differed from the actual boundary lines — particularly in rural areas near the fringe of cities — vote attribution to individual EDs changed when the official files arrived. The canonical run is the first analysis using the same shapefiles Elections Alberta actually uses; it is the only run whose results can be verified against the official record. The §4.1.4 sunset clause bound the audit to replace all DPG-era results with canonical results within two weeks of shapefile release; this run fulfills that commitment.
 
@@ -843,7 +843,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The majority map's mean-median is at p0.85 — an unexpected NDP-tail outlier. This is explained as rural-district preservation interacting with Alberta's vote geography, not partisan engineering.
 **Why?** If a result is unexpected, how can the audit be confident it is not a measurement artifact?
-**Answer:** The DPG runs did not show this outlier because DPG geometry lacked the spatial precision to capture the exact vote distribution in rural fringe districts. The official shapefiles resolve VA-to-ED assignments differently in those fringe areas, producing a more accurate distribution. The canonical majority map's NDP district-share distribution has a pronounced left tail from preserved rural districts voting 15–30% NDP. These districts produce an unusual mean-median reading because the formula is sensitive to clusters of low-NDP districts dragging the mean away from the median. The mechanism is documented and explainable; the result is consistent across several cross-checks and is not reversed by any sensitivity test in the canonical run. Critically, all other majority metrics (EG p15.5, declination p79.6, seats@50/50 p77.8, Mahalanobis p = 0.097) are within the neutral null — a single-metric outlier with all others inside null is the expected signature of a commission boundary convention, not partisan manipulation.
+**Answer:** The DPG runs did not show this outlier because DPG geometry lacked the spatial precision to capture the exact vote distribution in rural fringe districts. The official shapefiles resolve VA-to-ED assignments differently in those fringe areas, producing a more accurate distribution. The canonical majority map's NDP district-share distribution has a pronounced left tail from preserved rural districts voting 15–30% NDP. These districts produce an unusual mean-median reading because the formula is sensitive to clusters of low-NDP districts dragging the mean away from the median. The mechanism is documented and explainable; the result is consistent across several cross-checks and is not reversed by any sensitivity test in the canonical run. Critically, all other majority metrics (EG p15.5, declination p79.6, seats@50/50 p77.8, Mahalanobis p = 0.101) are within the neutral null — a single-metric outlier with all others inside null is the expected signature of a commission boundary convention, not partisan manipulation.
 
 ---
 
@@ -851,9 +851,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** D² progression: 2019 enacted D²=12.75 (p=0.013, mild joint outlier); majority 2026 D²=7.85 (p=0.097, within null); minority 2026 D²=32.67 (p=1.40×10⁻⁶). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
+**Assertion:** D² progression: 2019 enacted D²=13.16 (p=0.012, mild joint outlier); majority 2026 D²=7.74 (p=0.101, within null); minority 2026 D²=33.64 (p=8.80×10⁻⁷). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
 **Why?** What does the 2019 baseline D² tell us, and why is it relevant to compare all three maps?
-**Answer:** Including the 2019 enacted map as a third reference point reveals the direction of travel — not just whether a 2026 proposal is unusual, but whether it moved toward or away from what neutral random maps produce. The 2019 map was itself a mild joint-space outlier (D²=12.75, p=0.013), meaning it sat slightly outside the neutral ensemble but not dramatically. The majority 2026 map reduced that distance to D²=7.85, placing itself inside the neutral null — the majority's changes to 2019 boundaries moved in a normalizing direction. The minority 2026 map amplified the distance to D²=32.67, which is the headline joint-test p-value driving the canonical finding. This three-map comparison is exploratory (not pre-registered) but is consistent with and corroborated by the pre-registered Mahalanobis test.
+**Answer:** Including the 2019 enacted map as a third reference point reveals the direction of travel — not just whether a 2026 proposal is unusual, but whether it moved toward or away from what neutral random maps produce. The 2019 map was itself a mild joint-space outlier (D²=13.16, p=0.012), meaning it sat slightly outside the neutral ensemble but not dramatically. The majority 2026 map reduced that distance to D²=7.74, placing itself inside the neutral null — the majority's changes to 2019 boundaries moved in a normalizing direction. The minority 2026 map amplified the distance to D²=33.64, which is the headline joint-test p-value driving the canonical finding. This three-map comparison is exploratory (not pre-registered) but is consistent with and corroborated by the pre-registered Mahalanobis test.
 
 ---
 
@@ -1163,9 +1163,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The Fisher combined p = 6.87×10⁻⁸ was the earlier formal statement of convergence between Ch1 and Ch2 (retired 2026-06-10).
+**Assertion:** The Fisher combined p = 4.61×10⁻⁸ was the earlier formal statement of convergence between Ch1 and Ch2 (retired 2026-06-10).
 **Why?** Is it valid to combine two p-values using Fisher's method?
-**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions, but they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975) — and the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons the Fisher combination (p = 6.87×10⁻⁸, "once in 15 million") was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own — about one in 714,000 (p = 1.40×10⁻⁶) — with a conservative combined upper bound of about one in 357,000 (p ≤ 2.80×10⁻⁶) that does not rely on independence. See the academic report §4.3.3 and §5.5.
+**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions, but they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975) — and the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons the Fisher combination (p = 4.61×10⁻⁸, "once in 15 million") was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own — about one in 1,140,000 (p = 8.80×10⁻⁷) — with a conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶) that does not rely on independence. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -1309,15 +1309,15 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority's Mahalanobis p = 0.097 on the 1M canonical run — inside the null band.
-**Why?** A p-value of 0.097 is less than 0.10. Isn't that "significant"?
-**Answer:** No. Smaller p-values mean the result is more extreme, not less. A p-value of 0.097 means the majority's joint partisan-fairness score is more extreme than 9.7% of randomly drawn neutral maps — well within the normal range. By comparison, the minority's Mahalanobis p = 1.40×10⁻⁶ means it is more extreme than 99.9999% of random maps. The 0.097 value is close to the center of the distribution (where 50% of maps lie), not near the extremes.
+**Assertion:** The majority's Mahalanobis p = 0.101 on the 1M canonical run — inside the null band.
+**Why?** A p-value of 0.101 is less than 0.10. Isn't that "significant"?
+**Answer:** No. Smaller p-values mean the result is more extreme, not less. A p-value of 0.101 means the majority's joint partisan-fairness score is more extreme than 9.7% of randomly drawn neutral maps — well within the normal range. By comparison, the minority's Mahalanobis p = 8.80×10⁻⁷ means it is more extreme than 99.9999% of random maps. The 0.101 value is close to the center of the distribution (where 50% of maps lie), not near the extremes.
 
 ---
 
-**Assertion:** The majority retreats from the 2019 enacted baseline in joint-metric space (D² = 12.75 → 7.85), consistent with a normalizing commission process.
+**Assertion:** The majority retreats from the 2019 enacted baseline in joint-metric space (D² = 13.16 → 7.74), consistent with a normalizing commission process.
 **Why?** What does "retreating in joint-metric space" mean for a map?
-**Answer:** The Mahalanobis D² score measures how far a map is from the center of the neutral ensemble cloud. A higher D² means the map is further from neutral. The 2019 enacted baseline scores 12.75 on this measure (moderately unusual, as it was drawn with older data and tools). The majority 2026 proposal scores 7.85 — closer to neutral than the existing map it is replacing. This is what you would expect from a commission doing its job: producing a new map that is more consistent with current neutral norms than the aging map it replaces.
+**Answer:** The Mahalanobis D² score measures how far a map is from the center of the neutral ensemble cloud. A higher D² means the map is further from neutral. The 2019 enacted baseline scores 13.16 on this measure (moderately unusual, as it was drawn with older data and tools). The majority 2026 proposal scores 7.74 — closer to neutral than the existing map it is replacing. This is what you would expect from a commission doing its job: producing a new map that is more consistent with current neutral norms than the aging map it replaces.
 
 ---
 
@@ -1325,9 +1325,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority amplifies the 2019 enacted baseline's joint-space position (D² = 12.75 → 32.67).
+**Assertion:** The minority amplifies the 2019 enacted baseline's joint-space position (D² = 13.16 → 33.64).
 **Why?** What does it mean to "amplify" rather than "normalize"?
-**Answer:** Where the majority brought the Mahalanobis distance down from 12.75 to 7.85 (moving toward neutral), the minority moved it in the opposite direction — from 12.75 all the way to 32.67 (moving further from neutral). The minority map is more than two and a half times as extreme as the 2019 map it was supposed to replace and four times more extreme than the majority proposal. Rather than normalizing an aging boundary set, the minority concentrated its deviations further in one direction.
+**Answer:** Where the majority brought the Mahalanobis distance down from 13.16 to 7.74 (moving toward neutral), the minority moved it in the opposite direction — from 13.16 all the way to 33.64 (moving further from neutral). The minority map is more than two and a half times as extreme as the 2019 map it was supposed to replace and four times more extreme than the majority proposal. Rather than normalizing an aging boundary set, the minority concentrated its deviations further in one direction.
 
 ---
 
@@ -1521,7 +1521,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
 **Why?** Is a directional finding strong enough to support any policy response?
-**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests add quantitative weight to the structural signals (the ensemble test Ch1, p = 1.40×10⁻⁶ — about one in 714,000 — with a dependence-robust combined upper bound p ≤ 2.80×10⁻⁶, about one in 357,000; the earlier Fisher figure p = 6.87×10⁻⁸ was retired 2026-06-10). Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
+**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests add quantitative weight to the structural signals (the ensemble test Ch1, p = 8.80×10⁻⁷ — about one in 1,140,000 — with a dependence-robust combined upper bound p ≤ 1.76×10⁻⁶, about one in 568,000; the earlier Fisher figure p = 4.61×10⁻⁸ was retired 2026-06-10). Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
 
 ---
 
