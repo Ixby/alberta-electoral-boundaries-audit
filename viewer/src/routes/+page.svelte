@@ -485,6 +485,7 @@
       <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding1')}</li>
       <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding2')}</li>
       <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding3')}</li>
+      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding4')}</li>
     </ol>
     <p>{@html t(lang.current, 'body.commission_split.closing')}</p>
   </section>
