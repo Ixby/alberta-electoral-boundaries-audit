@@ -313,7 +313,7 @@ def main(
     print(f"[{time.strftime('%H:%M:%S')}] launching {n_chains} chains...", flush=True)
 
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
-    chain_paths = [checkpoint_dir / f"chain{i}_samples.csv" for i in range(n_chains)]
+    chain_paths = [checkpoint_dir / f"chain{i + first_chain_idx}_samples.csv" for i in range(n_chains)]
     va_file_str = str(va_file) if va_file is not None else ""
     work_items = [
         (i + first_chain_idx, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size, va_file_str)
