@@ -20,8 +20,8 @@ if (!existsSync(src)) {
 // data/maps/article/, including orphans from retired article drafts. The
 // link audit found figure_{calgary,lethbridge,reddeer}_v3.svg and
 // bias_structure_matrix.svg referenced by no page while still shipping stale
-// content to docs/images/. Only figures actually embedded by the viewer or
-// report_public.html get deployed; add a name here when a page starts using it.
+// content to docs/images/. Only figures actually embedded by the viewer
+// get deployed; add a name here when a page starts using it.
 const DEPLOYED_FIGURES = new Set([
 	'lane1_dotplot.svg',
 	'lane2_bars.svg',

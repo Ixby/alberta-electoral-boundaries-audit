@@ -7,7 +7,6 @@
 >
 > **Forward:**
 > - `README.md` — links to this as the "fastest entry point"
-> - `docs/FINDINGS_BRIEF.html` — print-ready HTML version
 > - (leaf otherwise — reviewer-facing one-page brief)
 
 # Alberta's Two Electoral Maps: A Summary of Findings

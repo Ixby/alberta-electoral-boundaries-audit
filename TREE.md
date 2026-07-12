@@ -41,8 +41,6 @@ docs/
 │                              reports and Colab notebook; written for readers new to the topic
 ├── FINDINGS_BRIEF.md          One-page plain-language brief (Markdown) — seat-gap and wasted-vote
 │                              framings; no p-values; CoI disclosure; concept-first explanations
-├── FINDINGS_BRIEF.html        Print-ready single-page brief (HTML) — same content as .md; open in
-│                              Chrome and File → Print → Save as PDF to generate the PDF deliverable
 ├── images/
 │   └── lane1_dotplot.svg      Copy of data/maps/article/lane1_dotplot.svg for GitHub Pages hosting
 ├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome

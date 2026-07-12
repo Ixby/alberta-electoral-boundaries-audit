@@ -520,3 +520,30 @@ every venue.
 
 **Signed:** Claude (acting as session agent), flagged by Will Conner
 **Date:** 2026-07-10
+
+### Amendment 14 — Publication-path consolidation: one HTML rendering (2026-07-11)
+
+**What changed.** The repo carried two parallel HTML renderings of the
+reports: the viewer site (SvelteKit → `docs/`) and standalone
+markdown-to-HTML pages produced by `analysis/scripts/build_html_reports.py`
+(`docs/report_public.html`, `docs/report_academic.html`), plus a hand-kept
+`docs/FINDINGS_BRIEF.html`. The standalone pages drifted from the canonical
+markdown (the deployed `report_public.html` still served the pre-casings
+structure; the T1.7 referee had previously caught the same file serving
+pre-Amendment-10 values). By author direction ("there only needs to be one
+html path"), the script and all three standalone HTML artifacts are removed.
+The public and academic reports are published as markdown (canonical, in
+`reports/`); the viewer site is the sole HTML rendering.
+
+**Why this touches a registered procedure.** The November scoring spec
+(`preregistration/november_2026_scoring_spec.md`, §7 step 5) lists
+`python analysis/scripts/build_html_reports.py` in the publication command
+sequence. That spec's SHA-256 is committed in
+`preregistration/seed_commitments.md`, so the file itself is not edited.
+This entry supersedes that one command: the November publication step is now
+`cd viewer && npm run build` plus the markdown commit. **No test, threshold,
+metric, verdict rule, or deadline changes.** The 72-hour commitment and all
+scoring machinery are untouched; this is publication mechanics only.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-07-11

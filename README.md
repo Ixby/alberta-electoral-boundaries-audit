@@ -57,7 +57,7 @@ These are three of four surviving structural dimensions where the audit finds th
 This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Select Special Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
 > **New here?** The fastest entry points:
-> - **[One-page brief](docs/FINDINGS_BRIEF.md)** — seat counts, wasted votes, plain English, no background needed. Print-ready PDF version: [`docs/FINDINGS_BRIEF.html`](docs/FINDINGS_BRIEF.html) (open in Chrome → File → Print → Save as PDF).
+> - **[One-page brief](docs/FINDINGS_BRIEF.md)** — seat counts, wasted votes, plain English, no background needed.
 > - **[Web summary](https://ixby.github.io/alberta-electoral-boundaries-audit/)** — same findings with the key chart, designed for sharing.
 > - **[Public report](reports/public/report_public.md)** — longer plain-language narrative with maps and figures.
 > - **[Technical monograph](reports/academic/report_academic.md)** — full methods, citations, and pre-registration IDs.
@@ -237,7 +237,7 @@ The audit is most usefully challenged by people with expertise in electoral geog
 
 ## Deeper reading
 
-- **[docs/FINDINGS_BRIEF.md](docs/FINDINGS_BRIEF.md)** — **Quickest entry.** One-page plain-language brief: riding boundaries explained from scratch, seat-gap and wasted-vote findings, what the audit does not claim, CoI disclosure. Print-ready HTML version at [`docs/FINDINGS_BRIEF.html`](docs/FINDINGS_BRIEF.html).
+- **[docs/FINDINGS_BRIEF.md](docs/FINDINGS_BRIEF.md)** — **Quickest entry.** One-page plain-language brief: riding boundaries explained from scratch, seat-gap and wasted-vote findings, what the audit does not claim, CoI disclosure.
 - **[Web summary](https://ixby.github.io/alberta-electoral-boundaries-audit/)** — GitHub Pages version of the brief with the key chart embedded; designed for sharing with people unfamiliar with the topic.
 - **[report_public.md](reports/public/report_public.md)** — Plain-language narrative for a general audience: the five findings, the gerrymander checklist, what the April 16 pivot means, and what you can do.
 - **[report_academic.md](reports/academic/report_academic.md)** — The full monograph (pre-publication, continuously updated): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
