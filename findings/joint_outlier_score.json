@@ -218,7 +218,7 @@
     }
   },
   "caveats": [
-    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
+    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1413-1522 per metric.",
     "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
     "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
     "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",

@@ -91,13 +91,16 @@ MAP_KEYS = {
 
 # Fallback n_eff used if convergence diagnostics JSON is absent or unreadable.
 # Per simulation_convergence_diagnostics_canonical.json the actual minimum across
-# the 4 partisan metrics is 1428 (mean_median; pooled 1,010k sample run).
-# This fallback is only used when the file is missing or unreadable.
-_N_EFF_FALLBACK = 1428  # conservative minimum across the 4 partisan metrics from the 1,010,000-plan canonical run
+# the 4 partisan metrics is 1413 (seats_at_50_50; pooled 1,010k sample run,
+# rerun 2026-07-12). This fallback is only used when the file is missing or
+# unreadable — update it whenever the canonical convergence diagnostics are
+# regenerated so a missing file degrades to a stale-but-plausible value
+# rather than an arbitrary one.
+_N_EFF_FALLBACK = 1413  # conservative minimum across the 4 partisan metrics from the 1,010,000-plan canonical run
 
 
 def _load_n_eff_conservative() -> int:
-    """Read minimum n_eff from convergence diagnostics; fall back to 224."""
+    """Read minimum n_eff from convergence diagnostics; fall back to _N_EFF_FALLBACK."""
     if not CONVERGENCE_JSON.exists():
         return _N_EFF_FALLBACK
     try:
@@ -292,12 +295,16 @@ def run() -> None:
     # MAD and Reock values read from canonical real map scores JSON.
     # Municipal anchoring is FROZEN 2026-05-07 (no canonical JSON source).
 
-    _min_real = real.get("minority_2026", {})
-    _maj_real = real.get("majority_2026", {})
-    _min_mad  = _min_real.get("population_mad", 4707)  # fallback = frozen
-    _maj_mad  = _maj_real.get("population_mad", 3180)
-    _min_reock_pct = round(_min_real.get("reock_proxy_pct_below_030", 0.348) * 100, 1)
-    _maj_reock_pct = round(_maj_real.get("reock_proxy_pct_below_030", 0.135) * 100, 1)
+    # No numeric fallbacks here (found 2026-07-12: the old ones — MAD 4707/3180,
+    # Reock 0.348/0.135 — were stale by 20-30% against the live canonical
+    # values and would have been silently substituted for a real result if
+    # REAL_SCORES ever dropped these keys, rather than failing loudly).
+    _min_real = real["minority_2026"]
+    _maj_real = real["majority_2026"]
+    _min_mad  = _min_real["population_mad"]
+    _maj_mad  = _maj_real["population_mad"]
+    _min_reock_pct = round(_min_real["reock_proxy_pct_below_030"] * 100, 1)
+    _maj_reock_pct = round(_maj_real["reock_proxy_pct_below_030"] * 100, 1)
     _reock_ratio = round(_min_reock_pct / _maj_reock_pct, 2) if _maj_reock_pct else float("nan")
 
     # Per-plan MAD and proxy-Reock ARE captured in the canonical ensemble outputs
@@ -401,6 +408,19 @@ def run() -> None:
 
     # ── JSON summary ──────────────────────────────────────────────────────────
 
+    # n_eff range for the caveats note below — read live rather than hardcoded
+    # (found 2026-07-12: this was a stale literal, "1,428-1,682", left over
+    # from a prior ensemble run).
+    if CONVERGENCE_JSON.exists():
+        with open(CONVERGENCE_JSON) as f:
+            _diag = json.load(f)
+        _partisan_n_effs = [
+            _diag[c]["n_eff"] for c in ("efficiency_gap", "mean_median", "declination", "seats_at_50_50")
+        ]
+        _neff_range_note = f"n_eff ~{min(_partisan_n_effs):.0f}-{max(_partisan_n_effs):.0f} per metric."
+    else:
+        _neff_range_note = f"n_eff ~{N_EFF_CONSERVATIVE} per metric (conservative fallback; convergence diagnostics unavailable)."
+
     summary = {
         "methodology": "Joint outlier score (joint neutral-draw tail probability), canonical ensemble",
         "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
@@ -478,7 +498,8 @@ def run() -> None:
         },
         "structural_pending": structural_notes,
         "caveats": [
-            "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
+            f"Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, "
+            f"base_seed=1432864451); {_neff_range_note}",
             "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
             "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
             "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",

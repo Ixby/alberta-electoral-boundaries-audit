@@ -91,12 +91,25 @@ def build_lane1_dotplot() -> Path:
     samples_path = ROOT / "data" / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
     eg_pct = _pd.read_csv(samples_path, usecols=["efficiency_gap"])["efficiency_gap"].values * 100
 
-    # Verified from simulation_real_map_scores_canonical.json and
-    # simulated_ensemble_percentiles_canonical.csv
-    minority_eg = 4.02   # p94.4 of neutral ensemble
-    majority_eg = 0.10   # p15.5
-    enacted_eg  = 2.41   # p69.0, 2019 enacted baseline
-    p95_val     = 4.10   # ensemble p95
+    # Read live from simulated_ensemble_percentiles_canonical.csv rather than
+    # hardcoding — this block previously hardcoded both the EG values and
+    # their percentiles as literals; the percentiles had already drifted
+    # (found 2026-07-12) from a prior ensemble run while the raw EG values
+    # happened to still be correct, which is exactly how this kind of bug
+    # goes unnoticed.
+    pct_path = ROOT / "data" / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
+    pct_df = _pd.read_csv(pct_path)
+    eg_pct_df = pct_df[pct_df["metric"] == "efficiency_gap"].set_index("map")
+    minority_row = eg_pct_df.loc["minority 2026 canonical"]
+    majority_row = eg_pct_df.loc["majority 2026 canonical"]
+    enacted_row = eg_pct_df.loc["2019 enacted"]
+    minority_eg = minority_row["value"] * 100
+    majority_eg = majority_row["value"] * 100
+    enacted_eg = enacted_row["value"] * 100
+    minority_pctile = minority_row["percentile"]
+    majority_pctile = majority_row["percentile"]
+    enacted_pctile = enacted_row["percentile"]
+    p95_val = minority_row["ensemble_p95"] * 100
 
     fig, ax = plt.subplots(figsize=(6.4, 3.4), dpi=300)
 
@@ -119,7 +132,7 @@ def build_lane1_dotplot() -> Path:
     # p95 dashed reference line — plain-language label (readability pass 2026-07-08:
     # percentile codes like "p95" replaced with words on all public figures)
     ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
-    ax.text(p95_val + 0.40, 0.66, "outlier line ~4.1%\n(gerrymander threshold —\nonly 1 in 20 neutral maps\nlands past this)",
+    ax.text(p95_val + 0.40, 0.66, f"outlier line ~{p95_val:.1f}%\n(gerrymander threshold —\nonly 1 in 20 neutral maps\nlands past this)",
             color=THRESHOLD_RED, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
@@ -131,14 +144,14 @@ def build_lane1_dotplot() -> Path:
     # Label placement (readability pass): majority label over the empty NDP side,
     # 2019 label centred on its own line, minority label in the empty region right
     # of the purple line and ABOVE the outlier-line text (which starts at y=0.66).
-    ax.text(majority_eg - 0.18, 0.97, "Majority 2026: +0.1%\nwell inside the\nnormal range",
+    ax.text(majority_eg - 0.18, 0.97, f"Majority 2026: {majority_eg:+.1f}%\nwell inside the\nnormal range",
             color=MAJORITY_TEAL, fontsize=6.5, fontweight="bold",
             ha="right", va="top", transform=bx)
-    ax.text(enacted_eg, 0.97, "2019 map (current):\n+2.4%, inside the\nnormal range",
+    ax.text(enacted_eg, 0.97, f"2019 map (current):\n{enacted_eg:+.1f}%, inside the\nnormal range",
             color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
             ha="center", va="top", transform=bx)
     ax.text(minority_eg + 0.40, 0.97,
-            "Minority 2026: +4.0%\nmore UCP-tilted than\n94% of neutral maps",
+            f"Minority 2026: {minority_eg:+.1f}%\nmore UCP-tilted than\n{minority_pctile:.0f}% of neutral maps",
             color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 

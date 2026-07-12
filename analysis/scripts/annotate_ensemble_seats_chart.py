@@ -92,16 +92,19 @@ def main() -> None:
     df = _load_samples_csv()
     vals = df["seats_at_50_50"].dropna().to_numpy()
     n_sample = len(vals)
-    # The canonical ensemble is 250,000 steps; the raw samples CSV may be
-    # a subset. Use the pre-computed percentiles for the callout so the
-    # annotation always reflects the full 250k run.
+    # Use the pre-computed percentiles for the callout, and the live sample
+    # count (n_sample, loaded above from the full canonical ensemble — either
+    # the raw-samples CSV or all four chain checkpoints) for the total —
+    # NOT a hardcoded constant. (Found 2026-07-12: this was previously
+    # hardcoded at 250_000, stale since the ensemble scaled to 1,010,000;
+    # the annotation had been silently wrong for months.)
     pct_df = pd.read_csv(PERCENTILES_CSV)
     row = pct_df[
         (pct_df["metric"] == "seats_at_50_50")
         & (pct_df["map"].str.contains("minority"))
     ].iloc[0]
     minority_pct_canonical = float(row["percentile"])
-    n_ensemble_canonical = 250_000
+    n_ensemble_canonical = n_sample
     n_above_canonical = int(
         round((1.0 - minority_pct_canonical / 100) * n_ensemble_canonical)
     )
