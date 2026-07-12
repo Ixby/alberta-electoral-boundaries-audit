@@ -75,7 +75,7 @@ This document is the authoritative lookup for what each test in the audit batter
 |---|---|---|---|---|
 | C1 Polsby-Popper | No per-ED compactness differences between minority and majority beyond geometry-forced variation | Per-ED PP < threshold for chair-flagged districts | Not pre-registered (structural) | H10: Calgary-Nolan Hill-Cochrane PP = 0.402 (moderate); Reock = 0.230 (flagged) |
 | C2 Reock | No elongation-compactness differences between minority and majority | Per-ED Reock < 0.30 conventional threshold | Not pre-registered | H10: Calgary-Nolan Hill-Cochrane Reock = 0.230 (flagged) |
-| Municipal anchoring | Minority anchoring ≥ 70% CSD edge alignment (Canadian comparator norm) | Both maps within 70–85% norm = pass; outside = finding | Pre-registered (s58a6) | **Retracted** on canonical geometry: minority 72.0%, majority 80.0%; both within norm |
+| Municipal anchoring | Minority anchoring ≥ 70% CSD edge alignment (Canadian comparator norm) | Both maps within 70–85% norm = pass; outside = finding | Pre-registered (s58a6) | **Retracted** on canonical geometry: minority 71.8%, majority 80.0%; both within norm |
 
 ---
 

@@ -121,7 +121,7 @@ The table below records which findings have been recomputed on official EA shape
 | Fisher combination | 5.5 | Both canonical | **[C]** p=6.87×10⁻⁸ (later retired 2026-06-10) |
 | Population MAD ensemble | 5.4.9 | Canonical EA shapefiles | **[C]** minority p99.0, majority p15.8 |
 | Reock compactness | 5.4.9 | Canonical EA shapefiles | **[C]** null — both maps p100 |
-| Municipal anchoring | 5.8.5 | Canonical EA shapefiles | **[C]** null — minority 72.0%, majority 80.0% |
+| Municipal anchoring | 5.8.5 | Canonical EA shapefiles | **[C]** null — minority 71.8%, majority 80.0% |
 | Polsby-Popper (C2) | 5.4 | DPG + canonical April 27 run | **[C]** values in `data/outputs/polsby_popper_per_district.csv` |
 | Chair-anomaly analysis (§C3) | 5.3 | Canonical + commission text | **[C]** 3 minority anomalies, 0 majority |
 | Sentiment analysis §5.9 | 5.9 | Commission submission text | Independent of shapefile geometry |

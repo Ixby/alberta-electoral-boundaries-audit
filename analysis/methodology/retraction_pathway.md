@@ -47,7 +47,7 @@ These findings were held during the DPG-era analysis, were stress-tested in the 
 |---|---|---|
 | H1 | 2M-step MCMC ensemble, minority seats@50/50 at p100 (no neutral plan reaches it) | The chain orchestration silently re-seeded from the 2019 baseline at every 20k-step chunk boundary; the "2M-step run" was structurally 100 independent 20k-step bursts. Bug fixed in commit `73544a3`. Canonical ensemble replaces this result. |
 | H2 | Minority seats@50/50 = 52.8% (published headline) | VA-dissolve coverage was 83/89 districts, not 89/89; 6 districts were effectively unscored. Corrected value is 48.3% (commit `7cf47a4`). |
-| H4 | Municipal anchoring: minority 14.5%, majority 71.0%, 4.9× asymmetry | Did not survive canonical recomputation against official Elections Alberta shapefiles. Canonical: minority 72.0%, majority 80.0%; both within the 70–85% Canadian comparator norm. Retracted per the §4.1.4 DPG sunset clause. Full reconciliation in §5.8.5. |
+| H4 | Municipal anchoring: minority 14.5%, majority 71.0%, 4.9× asymmetry | Did not survive canonical recomputation against official Elections Alberta shapefiles. Canonical: minority 71.8%, majority 80.0%; both within the 70–85% Canadian comparator norm. Retracted per the §4.1.4 DPG sunset clause. Full reconciliation in §5.8.5. |
 
 ---
 

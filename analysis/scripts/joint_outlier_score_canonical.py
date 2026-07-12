@@ -332,18 +332,28 @@ def run() -> None:
     _drain_maj_obs = float(drain_canon["majority"]["observed"])
     _drain_ena_obs = float(drain_canon["enacted"]["observed"])
 
+    # Read live from data/outputs/municipal_anchoring_canonical.json (produced
+    # by `score_anchoring.py --canonical`) rather than hardcoding — this block
+    # duplicated the same three literals independently hardcoded in
+    # generate_report_numbers.py, with no script actually producing them on
+    # demand (found 2026-07-12).
+    with open(DATA / "outputs" / "municipal_anchoring_canonical.json") as f:
+        _anchoring = json.load(f)
+    _anc_min = _anchoring["minority_2026"]["anchored_pct"]
+    _anc_maj = _anchoring["majority_2026"]["anchored_pct"]
+    _anc_ena = _anchoring["2019_enacted"]["anchored_pct"]
+
     structural_notes = {
         "municipal_anchoring": {
-            # Canonical values from score_anchoring.py run 2026-05-10 against official EA shapefiles.
             # DPG-era values were: minority 14.5%, majority 71.0%, ratio 4.9x.
             # Canonical recomputation: both maps within the 70-85% Canadian norm; DPG asymmetry was
             # an artefact of boundary placement (area fidelity != perimeter alignment).
-            "minority_pct": 72.0,
-            "majority_pct": 80.0,
-            "enacted_2019_pct": 75.2,
-            "departure_factor_vs_comparators": 1.11,
+            "minority_pct": _anc_min,
+            "majority_pct": _anc_maj,
+            "enacted_2019_pct": _anc_ena,
+            "departure_factor_vs_comparators": round(_anc_maj / _anc_min, 2),
             "p_value": "not applicable — both maps within Canadian norm (70–85 %); "
-            "canonical ratio 1.11× (DPG-era 4.9× was a geometry artefact; see §5.8.5 footnote)",
+            f"canonical ratio {round(_anc_maj / _anc_min, 2)}× (DPG-era 4.9× was a geometry artefact; see §5.8.5 footnote)",
         },
         "population_mad_ratio": {
             "minority_mad": round(_min_mad, 1),

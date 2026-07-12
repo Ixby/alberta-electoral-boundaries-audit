@@ -1,0 +1,20 @@
+{
+  "method": "score_anchoring.py score_anchoring() \u2014 perimeter snapped to StatsCan 2021 CSD edges within 500m, contiguous runs >= 1km",
+  "generated": "2026-07-12T17:28:02",
+  "comparator_norm": {
+    "low_pct": 70.0,
+    "high_pct": 85.0
+  },
+  "majority_2026": {
+    "anchored_pct": 80.0,
+    "source": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg"
+  },
+  "minority_2026": {
+    "anchored_pct": 71.8,
+    "source": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg"
+  },
+  "2019_enacted": {
+    "anchored_pct": 75.1,
+    "source": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\shapefiles\\reference\\alberta_2019_eds\\EDS_ENACTED_BILL33_15DEC2017.shp"
+  }
+}

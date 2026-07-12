@@ -104,7 +104,7 @@ assuming channel independence.
 
 | Channel | Status | Finding |
 | --- | --- | --- |
-| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a channel |
+| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 71.8%, both within 70–85% Canadian norm | No longer a channel |
 | Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority 1.39× majority (3,938 vs 2,827); minority at p99.1 of the neutral ensemble |
 | Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio 0.5× (the DPG-era 2.58× value was retracted — see DOCUMENTED CORRECTIONS) |
 

@@ -174,9 +174,9 @@
   },
   "structural_pending": {
     "municipal_anchoring": {
-      "minority_pct": 72.0,
+      "minority_pct": 71.8,
       "majority_pct": 80.0,
-      "enacted_2019_pct": 75.2,
+      "enacted_2019_pct": 75.1,
       "departure_factor_vs_comparators": 1.11,
       "p_value": "not applicable \u2014 both maps within Canadian norm (70\u201385 %); canonical ratio 1.11\u00d7 (DPG-era 4.9\u00d7 was a geometry artefact; see \u00a75.8.5 footnote)"
     },

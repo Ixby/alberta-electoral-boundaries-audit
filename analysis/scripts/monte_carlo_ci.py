@@ -38,14 +38,19 @@ Forward:
   # REVIEW: verify outputs before publication
 """
 
+import json
 import random
 import statistics
+import time
 from copy import deepcopy
+from pathlib import Path
 
 # CRIT-01: numpy.quantile provides linearly-interpolated percentiles
 # (instead of int()-floor indexing), matching the convention documented
 # in the report headers.
 import numpy as np
+
+OUT_JSON = Path(__file__).resolve().parent.parent.parent / "data" / "outputs" / "monte_carlo_ci_canonical.json"
 
 import sys, os
 
@@ -230,6 +235,28 @@ def main():
             print(
                 f"           Directional claim NOT defensible under full modeling uncertainty."
             )
+
+        # Persist — this had never been written to a file (found 2026-07-12);
+        # generate_report_numbers.py hardcoded these four values as literals
+        # instead of reading them from anywhere, with no script actually
+        # producing them on demand.
+        OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+        with open(OUT_JSON, "w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "generated": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "n_samples": len(asym),
+                    "seed": 42,
+                    "ci_lo_pp": round(ci_lo, 2),
+                    "ci_hi_pp": round(ci_hi, 2),
+                    "direction_negative_pct": round(neg / len(asym) * 100, 1),
+                    "direction_positive_pct": round(pos / len(asym) * 100, 1),
+                    "zero_cross_pct": round(zero_cross / len(asym) * 100, 1),
+                },
+                f,
+                indent=2,
+            )
+        print(f"  Written: {OUT_JSON}")
 
 
 def cross_check_2019_votes():

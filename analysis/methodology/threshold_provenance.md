@@ -52,7 +52,7 @@ Every numeric threshold used to make a pass/fail or flag/no-flag decision in thi
 
 | Threshold | Value | Source | Alberta application |
 |---|---|---|---|
-| Municipal (CSD) boundary anchoring Canadian norm | 70–85% | Established from comparator provinces (federal 2022 Alberta sub-commission, BC 2023, Saskatchewan 2022, Manitoba 2018, Alberta 2017). Computed in `analysis/methodology/canadian_base_rate_computed.md`. | Both 2026 maps within norm on canonical geometry: minority 72.0%, majority 80.0%. Municipal anchoring finding **retracted** per DPG sunset clause. |
+| Municipal (CSD) boundary anchoring Canadian norm | 70–85% | Established from comparator provinces (federal 2022 Alberta sub-commission, BC 2023, Saskatchewan 2022, Manitoba 2018, Alberta 2017). Computed in `analysis/methodology/canadian_base_rate_computed.md`. | Both 2026 maps within norm on canonical geometry: minority 71.8%, majority 80.0%. Municipal anchoring finding **retracted** per DPG sunset clause. |
 | DA-boundary anchoring (secondary) | No Canadian norm established | Insufficient comparator data; the DA anchoring result is presented as a map-comparison finding (majority +7.7 pp, minority +6.6 pp from 2019 baseline) rather than against an absolute threshold. | See `archive/dpg_era/da_anchoring_analysis.md`. |
 
 ---

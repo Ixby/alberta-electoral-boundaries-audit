@@ -113,7 +113,7 @@ The statistical confounds in Parts 1–3 are ensemble-specific and vote-data-spe
 
 ### The anchoring finding is retracted
 
-The discovery that the minority map dropped Municipal Anchoring from the historical norm of 75.2% down to 14.5% **[RETRACTED — DPG-era value; did not survive canonical recomputation]** was previously cited as the Lane 2 anchor. On official Elections Alberta shapefiles, both maps fall within the 70–85% Canadian comparator norm (majority 80.0%, minority 72.0%, 2019 enacted 75.2%). The "4.9× below norm" characterisation is retracted per the failed-findings policy; see academic report §5.8.5 and public report Documented Corrections. The four surviving Lane 2 findings above do not depend on anchoring.
+The discovery that the minority map dropped Municipal Anchoring from the historical norm of 75.2% down to 14.5% **[RETRACTED — DPG-era value; did not survive canonical recomputation]** was previously cited as the Lane 2 anchor. On official Elections Alberta shapefiles, both maps fall within the 70–85% Canadian comparator norm (majority 80.0%, minority 71.8%, 2019 enacted 75.1%). The "4.9× below norm" characterisation is retracted per the failed-findings policy; see academic report §5.8.5 and public report Documented Corrections. The four surviving Lane 2 findings above do not depend on anchoring.
 
 ### Summary
 

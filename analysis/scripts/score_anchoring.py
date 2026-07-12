@@ -258,17 +258,73 @@ def score_anchoring(shapefile_or_gdf) -> float:
     return 100.0 * total_anchored / total_perim
 
 
+CANONICAL_OUT = ROOT / "data" / "outputs" / "municipal_anchoring_canonical.json"
+
+
+def run_canonical() -> dict:
+    """Score all three canonical maps (majority, minority, 2019 enacted) and
+    persist the result. This is the single source of truth for the
+    municipal-anchoring percentages — added 2026-07-12 after the same three
+    numbers (80.0/72.0/75.2) turned up hardcoded independently in this
+    module's own docstring, joint_outlier_score_canonical.py, and
+    generate_report_numbers.py, with no script actually producing them on
+    demand.
+    """
+    import json
+    import time
+
+    sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+    import canonical_paths
+
+    if not CSD_GPKG.exists():
+        print(f"ERROR: CSD reference layer missing: {CSD_GPKG}", file=sys.stderr)
+        sys.exit(2)
+
+    result = {
+        "method": "score_anchoring.py score_anchoring() — perimeter snapped to "
+                   "StatsCan 2021 CSD edges within 500m, contiguous runs >= 1km",
+        "generated": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "comparator_norm": {"low_pct": 70.0, "high_pct": 85.0},
+    }
+    for label, path in (
+        ("majority_2026", canonical_paths.canonical_shapefile("majority")),
+        ("minority_2026", canonical_paths.canonical_shapefile("minority")),
+        ("2019_enacted", canonical_paths.reference_2019_shapefile()),
+    ):
+        pct = score_anchoring(path)
+        print(f"  {label}: {pct:.1f}%")
+        result[label] = {"anchored_pct": round(pct, 1), "source": str(path)}
+
+    CANONICAL_OUT.parent.mkdir(parents=True, exist_ok=True)
+    with open(CANONICAL_OUT, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2)
+    print(f"Written: {CANONICAL_OUT}")
+    return result
+
+
 def main():
     ap = argparse.ArgumentParser(
-        description="Compute municipal-anchoring % for a single map shapefile"
+        description="Compute municipal-anchoring % for a single map shapefile, "
+                     "or all three canonical maps with --canonical"
     )
     ap.add_argument(
         "--shapefile",
-        required=True,
         type=Path,
         help="Path to .shp or .gpkg containing electoral-division polygons",
     )
+    ap.add_argument(
+        "--canonical",
+        action="store_true",
+        help="Score majority/minority/2019-enacted and write "
+             "data/outputs/municipal_anchoring_canonical.json",
+    )
     args = ap.parse_args()
+    if args.canonical:
+        run_canonical()
+        return
+    if not args.shapefile:
+        print("ERROR: --shapefile is required unless --canonical is passed", file=sys.stderr)
+        sys.exit(2)
     if not args.shapefile.exists():
         print(f"ERROR: shapefile not found: {args.shapefile}", file=sys.stderr)
         sys.exit(2)

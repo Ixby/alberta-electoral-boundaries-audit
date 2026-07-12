@@ -286,12 +286,20 @@ def main() -> None:
             N["majority_anchoring_csd"] = fmt_pct(maj_anc, 1)
         if min_anc is not None:
             N["minority_anchoring_csd"] = fmt_pct(min_anc, 1)
-    # Municipal-boundary anchoring (the comparator-norm figure) comes from
-    # canonical shapefile analysis; hardcoded from score_anchoring.py output
-    N["majority_anchoring_municipal"] = "80.0%"
-    N["minority_anchoring_municipal"] = "72.0%"
-    N["anchoring_comparator_low"] = "70%"
-    N["anchoring_comparator_high"] = "85%"
+    # Municipal-boundary anchoring — read live from
+    # data/outputs/municipal_anchoring_canonical.json (produced by
+    # `score_anchoring.py --canonical`; added 2026-07-12, previously
+    # hardcoded here with no script actually producing the numbers).
+    anc_path = ROOT / "data" / "outputs" / "municipal_anchoring_canonical.json"
+    if anc_path.exists():
+        anc = load(anc_path)
+        N["majority_anchoring_municipal"] = fmt_pct(anc["majority_2026"]["anchored_pct"] / 100, 1)
+        N["minority_anchoring_municipal"] = fmt_pct(anc["minority_2026"]["anchored_pct"] / 100, 1)
+        N["enacted_2019_anchoring_municipal"] = fmt_pct(anc["2019_enacted"]["anchored_pct"] / 100, 1)
+        N["anchoring_comparator_low"] = f"{anc['comparator_norm']['low_pct']:.0f}%"
+        N["anchoring_comparator_high"] = f"{anc['comparator_norm']['high_pct']:.0f}%"
+    else:
+        print(f"WARNING: {anc_path} not found — run `score_anchoring.py --canonical` first", file=sys.stderr)
 
     # ── Community splits ────────────────────────────────────────────────────
     splits_path = ROOT / "data" / "outputs" / "municipal_splits.json"
@@ -355,12 +363,17 @@ def main() -> None:
     N["submission_image_only_pct"] = "6%"
 
     # ── Cross-election ──────────────────────────────────────────────────────
-    xel_path = ROOT / "data" / "outputs" / "cross_election_v8_full.json"
-    if xel_path.exists():
-        xel = load(xel_path)
-        N["cross_election_source"] = "cross_election_v8_full"
-    N["cross_election_2019_majority_eg"] = "+0.30%"
-    N["cross_election_2019_minority_eg"] = "+0.90%"
+    # Removed 2026-07-12: this block hardcoded N["cross_election_2019_majority_eg"]
+    # / N["cross_election_2019_minority_eg"] as literals ("+0.30%"/"+0.90%")
+    # regardless of what cross_election_v8_full.json actually contained (it
+    # loaded the file into `xel` but never read from it), and neither token
+    # has any consumer in either report or the viewer site. The report's
+    # live "canonical Option C" 2019 EG figures (see report_academic.md
+    # section 5.2.8) come from a different, multi-step pipeline
+    # (build_cross_election_va.py + a dedicated ensemble run, seed
+    # 3562959107) whose result isn't persisted to any file this script can
+    # read — deleting the dead tokens rather than wiring them to an
+    # unverifiable number.
 
     # ── Targeted hill-climb ─────────────────────────────────────────────────
     N["hill_climb_ucp_max"] = "52.9%"

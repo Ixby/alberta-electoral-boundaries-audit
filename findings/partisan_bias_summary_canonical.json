@@ -1,0 +1,78 @@
+{
+  "method": "Phase 4C exact VA-level spatial attribution (packing_cracking_analysis.py v0.3)",
+  "2019_enacted": {
+    "label": "2019 BOUNDARIES (CURRENT) under 2023 vote shares",
+    "n": 87,
+    "prov_ndp": 0.4556069727317055,
+    "ndp_seats": 38,
+    "ucp_seats": 49,
+    "eg": -0.026361656539514645,
+    "mm_gap": -0.02215491339662623,
+    "ndp_at_50": 46,
+    "ucp_at_50": 41,
+    "bin_counts": [
+      28,
+      7,
+      5,
+      4,
+      5,
+      8,
+      1,
+      5,
+      13,
+      11
+    ],
+    "declination": -0.034072600971881126
+  },
+  "majority_2026": {
+    "label": "MAJORITY 2026 PROPOSAL (Phase 4C, exact)",
+    "n": 89,
+    "prov_ndp": 0.4256285987516489,
+    "ndp_seats": 34,
+    "ucp_seats": 55,
+    "eg": 0.00040088777605826534,
+    "mm_gap": -0.03636129857340825,
+    "ndp_at_50": 48,
+    "ucp_at_50": 41,
+    "bin_counts": [
+      30,
+      10,
+      3,
+      3,
+      9,
+      5,
+      5,
+      5,
+      11,
+      8
+    ],
+    "declination": -0.01574760948379734
+  },
+  "minority_2026": {
+    "label": "MINORITY 2026 PROPOSAL (Phase 4C, exact)",
+    "n": 89,
+    "prov_ndp": 0.4256285987516489,
+    "ndp_seats": 29,
+    "ucp_seats": 60,
+    "eg": 0.03961734253956807,
+    "mm_gap": 0.010338587164210766,
+    "ndp_at_50": 43,
+    "ucp_at_50": 46,
+    "bin_counts": [
+      35,
+      11,
+      3,
+      4,
+      7,
+      0,
+      6,
+      4,
+      11,
+      8
+    ],
+    "declination": 0.04634133468297449
+  },
+  "delta_from_2019_eg_majority_pp": 2.68,
+  "delta_from_2019_eg_minority_pp": 6.6,
+  "minority_majority_asymmetry_pp": 3.92
+}

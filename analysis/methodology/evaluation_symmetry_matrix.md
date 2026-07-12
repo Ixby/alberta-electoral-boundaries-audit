@@ -27,7 +27,7 @@
 | Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p20.4 | Yes | report §5.4.9 |
 | Seats @ 50/50 | p99.99 | p77.8 | Yes | report §5.4.9 |
 | Drain / neighbour-drain (Ch3) | anomalously low (z = −2.75, p ≤ 0.0002) | anomalously low (z = −3.17, p ≤ 0.0002) | Yes | `findings/drain_label_shuffle_null_canonical.json` |
-| CSD / municipal anchoring | 72.0% | 80.0% | Yes | report §5.8.5 |
+| CSD / municipal anchoring | 71.8% | 80.0% | Yes | report §5.8.5 |
 | Regional swing (canonical) | scored | scored | Yes | `data/outputs/regional_swing_canonical*.json` |
 | Packing / cracking B1–B6 | scored | scored | Yes (all three maps) | `data/outputs/district_patterns/packing_cracking_events.json` |
 | MAUP / population-weighted attribution | scored | scored | Yes | `maup_population_weighted_ensemble.json` (both CSVs committed) |
