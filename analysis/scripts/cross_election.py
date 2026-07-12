@@ -112,7 +112,7 @@ ED_2019_SHP = (
 
 VOTES_2019_CSV = DATA / "reference" / "alberta_2019_results.csv"
 VOTES_2015_CSV = DATA / "reference" / "alberta_2015_results.csv"
-CROSSWALK_2015_TO_2019 = DATA / "reference" / "2015_to_2019_crosswalk.csv"
+CROSSWALK_2015_TO_2019 = DATA / "outputs" / "2015_to_2019_crosswalk.csv"  # produced by build_cross_election_va.py; path corrected 2026-07-12 (was pointing at a nonexistent data/reference/ copy)
 
 ENSEMBLE_SAMPLES = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
 
@@ -404,12 +404,16 @@ def main() -> int:
     print(" v0_9 CROSS-ELECTION (2015 / 2019 / 2023) — Lane 1 metrics")
     print("=" * 72)
 
-    # Load v0_9 polygons
+    # Load v0_9 polygons. The canonical gpkg columns are EDNum2025/EDName2025;
+    # attribute_va_2023_centroid / attribute_2019_ed_to_v0_9_by_area key on
+    # "name_2026" throughout, so normalize the column name at load time
+    # (found 2026-07-12: this script had never been updated for the canonical
+    # shapefile column names, so it silently could not run against them).
     print(f"\nLoading {V0_9_MIN.name} ...")
-    v9_min = gpd.read_file(V0_9_MIN)
+    v9_min = gpd.read_file(V0_9_MIN).rename(columns={"EDName2025": "name_2026"})
     print(f"  {len(v9_min)} EDs, CRS={v9_min.crs}")
     print(f"Loading {V0_9_MAJ.name} ...")
-    v9_maj = gpd.read_file(V0_9_MAJ)
+    v9_maj = gpd.read_file(V0_9_MAJ).rename(columns={"EDName2025": "name_2026"})
     print(f"  {len(v9_maj)} EDs, CRS={v9_maj.crs}")
 
     # Load 2019 enacted shapefile (used for 2015 + 2019 area attribution)
