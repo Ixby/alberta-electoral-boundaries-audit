@@ -28,12 +28,12 @@ on:
   workflow_dispatch:
     inputs:
       majority_url:
-        description: "URL or path of the official majority 2026 shapefile (.gpkg or .zip)"
-        required: true
+        description: "URL or path of the official majority 2026 shapefile (.gpkg or .zip); leave empty to run the polling backstop"
+        required: false
         type: string
       minority_url:
-        description: "URL or path of the official minority 2026 shapefile (.gpkg or .zip)"
-        required: true
+        description: "URL or path of the official minority 2026 shapefile (.gpkg or .zip); leave empty to run the polling backstop"
+        required: false
         type: string
       release_date:
         description: "Date Elections Alberta released the shapefile (ISO 8601, optional)"
