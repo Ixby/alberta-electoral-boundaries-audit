@@ -203,6 +203,7 @@ def main(
     run_id: str = "canonical",
     va_file: Path = None,
     first_chain_idx: int = 0,
+    max_workers: int = None,
 ):
     verify_canonical_files()
     from drand_seed import get_canonical_seed
@@ -323,7 +324,9 @@ def main(
     del graph
     del va
 
-    with ProcessPoolExecutor(max_workers=n_chains) as ex:
+    # max_workers < n_chains serialises chains to bound peak memory; chain
+    # seeds derive from chain index, so scheduling cannot affect results.
+    with ProcessPoolExecutor(max_workers=max_workers or n_chains) as ex:
         for completed in ex.map(_run_chain_chunked, work_items):
             print(f"  -> ready: {Path(completed).name}", flush=True)
 
@@ -419,6 +422,8 @@ if __name__ == "__main__":
                         help="Override VA polygons file (e.g. for cross-election threshold "
                              "analysis). Must have va_ndp/va_ucp columns. Default: canonical "
                              "2023-votes file.")
+    parser.add_argument("--max-workers", type=int, default=None,
+                        help="Concurrent chain workers (default: n_chains). Use 1 on memory-tight machines.")
     parser.add_argument("--first-chain-idx", type=int, default=0,
                         help="Offset added to chain index when deriving per-chain seeds. "
                              "Use 1 to skip chain 0 when chain 0's seed produces an "
@@ -430,6 +435,7 @@ if __name__ == "__main__":
         seed=args.seed,
         pop_deviation=args.pop_deviation,
         n_chains=args.n_chains,
+        max_workers=args.max_workers,
         chunk_size=args.chunk_size,
         run_id=args.run_id,
         va_file=Path(args.va_file) if args.va_file else None,
