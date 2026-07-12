@@ -1,1 +1,0 @@
-import{n as e}from"./Dy1_jQzK.js";function t(e){return typeof e==`string`?e.replace(/<[^>]+>/g,` `).replace(/&[a-z#0-9]+;/gi,` `).split(/\s+/).filter(Boolean).length:e&&typeof e==`object`?Object.values(e).reduce((e,n)=>e+t(n),0):0}var n=Math.round(t(e)/500)*500;export{n as t};
