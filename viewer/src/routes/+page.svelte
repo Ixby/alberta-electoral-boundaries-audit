@@ -37,7 +37,6 @@
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
-  import Gloss from '$lib/components/Gloss.svelte';
   import { focusTrap } from '$lib/a11y/focusTrap';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
 
@@ -53,22 +52,20 @@
   // the reader scrolls, instead of laying every landmark out at once.
   let currentIdx        = $state(0);
   const SECTIONS: { id: string; key: string }[] = [
-    { id: 'stakes-heading',           key: 'stakes' },
-    { id: 'what-is-redistricting',    key: 'why' },
-    { id: 'section-1',                key: 'map' },
-    { id: 'section-2',                key: 'split' },
     { id: 'the-smoking-gun',          key: 'smoking_gun' },
+    { id: 'the-picture',              key: 'picture' },
+    { id: 'the-map',                  key: 'map' },
     { id: 'act-1',                    key: 'act1' },
     { id: 'what-this-means',          key: 'for_you' },
+    { id: 'history-of-gerrymandering', key: 'history_full' },
+    { id: 'canada-is-different',      key: 'canada' },
     { id: 'act-2',                    key: 'act2' },
     { id: 'act-3',                    key: 'act3' },
     { id: 'the-scorecard',            key: 'revisited' },
-    { id: 'history-of-gerrymandering', key: 'history_full' },
-    { id: 'canada-is-different',      key: 'canada' },
     { id: 'section-7',                key: 'lunty' },
+    { id: 'authors-view',             key: 'authors_view' },
     { id: 'section-8',                key: 'suggestions' },
     { id: 'retractions',              key: 'retractions' },
-    { id: 'authors-view',             key: 'authors_view' },
     { id: 'references',               key: 'references' },
     { id: 'resources',                key: 'technical' }
   ];
@@ -115,25 +112,20 @@
     _analyticsCleanups.push(initEngagement(location.pathname));
     _analyticsCleanups.push(
       observeSections([
-        'stakes-heading',        // the stakes block (why this matters)
-        'what-is-redistricting', // why boundaries are redrawn
-        'section-1',             // the two committee maps
-        'section-2',             // the commission split
-        'the-smoking-gun',
-        'act-1',             // the litmus / structural scorecard
-             // packing / cracking / draining
+        'the-smoking-gun',       // the cold open / evidence-log frame
+        'the-picture',           // the whole case in one image
+        'the-map',               // how to read the cover map
+        'act-1',                 // what the map does (casings 1-5)
         'what-this-means',       // editorial: what this means for you
-        'section-5',             // partisan impact tests
-        'section-6',             // the neutral-ensemble litmus
         'history-of-gerrymandering',
         'canada-is-different',
-        'act-2',                 // the simulation
-        'act-3',                 // the conduct
+        'act-2',                 // what the simulation sees (casings 6-10)
+        'act-3',                 // what people did (casings 11-14)
         'the-scorecard',         // the synthesis
         'section-7',             // the Lunty committee map
+        'authors-view',          // severable signed opinion
         'section-8',             // suggested reforms
         'retractions',           // documented corrections
-        'authors-view',          // severable signed opinion
         'references'             // apparatus
       ])
     );
@@ -325,16 +317,14 @@
     <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
-    <a href="#stakes-heading" onclick={closeNavDrawer}>{t(lang.current, 'nav.stakes')}</a>
-    <a href="#what-is-redistricting" onclick={closeNavDrawer}>{t(lang.current, 'nav.why')}</a>
-    <a href="#section-1" onclick={closeNavDrawer}>{t(lang.current, 'nav.map')}</a>
+    <a href="#the-smoking-gun" onclick={closeNavDrawer}>{t(lang.current, 'nav.smoking_gun')}</a>
+    <a href="#the-picture" onclick={closeNavDrawer}>{t(lang.current, 'nav.picture')}</a>
+    <a href="#the-map" onclick={closeNavDrawer}>{t(lang.current, 'nav.map')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_audit')}</h4>
-    <a href="#section-2" onclick={closeNavDrawer}>{t(lang.current, 'nav.split')}</a>
-    <a href="#the-smoking-gun" onclick={closeNavDrawer}>{t(lang.current, 'nav.smoking_gun')}</a>
     <a href="#act-1" onclick={closeNavDrawer}>{t(lang.current, 'nav.act1')}</a>
-    <a href="#act-2" onclick={closeNavDrawer}>{t(lang.current, 'nav.act2')}</a>
     <a href="#what-this-means" onclick={closeNavDrawer}>{t(lang.current, 'nav.for_you')}</a>
+    <a href="#act-2" onclick={closeNavDrawer}>{t(lang.current, 'nav.act2')}</a>
     <a href="#act-3" onclick={closeNavDrawer}>{t(lang.current, 'nav.act3')}</a>
     <a href="#the-scorecard" onclick={closeNavDrawer}>{t(lang.current, 'nav.revisited')}</a>
 
@@ -344,11 +334,11 @@
     <a href="#section-7" onclick={closeNavDrawer}>{t(lang.current, 'nav.lunty')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_forward')}</h4>
+    <a href="#authors-view" onclick={closeNavDrawer}>{t(lang.current, 'nav.authors_view')}</a>
     <a href="#section-8" onclick={closeNavDrawer}>{t(lang.current, 'nav.suggestions')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
     <a href="#retractions" onclick={closeNavDrawer}>{t(lang.current, 'nav.retractions')}</a>
-    <a href="#authors-view" onclick={closeNavDrawer}>{t(lang.current, 'nav.authors_view')}</a>
     <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
     <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
     <a href="{base}/feedback" onclick={closeNavDrawer}>{t(lang.current, 'nav.feedback')}</a>
@@ -393,110 +383,12 @@
   </div>
 </section>
 
-<section class="opener-block container" aria-labelledby="opener-heading">
-  <h2 id="opener-heading">{t(lang.current, 'verdict.headline')}</h2>
-  <p>{t(lang.current, 'verdict.p_what')}</p>
-  <p>{t(lang.current, 'verdict.p_split')}</p>
-  <p>{t(lang.current, 'verdict.p_question')}</p>
-  <p class="verdict-answer">{t(lang.current, 'verdict.p_answer')}</p>
-  <p>{t(lang.current, 'verdict.p_howfar')}</p>
-  <p class="verdict-aside">{t(lang.current, 'verdict.aside_pre')}<Gloss key="gerrymander">gerrymandered</Gloss>{t(lang.current, 'verdict.aside_post')}<a href="{base}/law">{t(lang.current, 'verdict.law_link')}</a> and <a href="{base}/methods">{t(lang.current, 'verdict.methods_link')}</a>.</p>
-</section>
-
-<section class="stakes-block container" aria-labelledby="stakes-heading">
-  <h2 id="stakes-heading" class="visually-hidden">{t(lang.current, 'nav.stakes')}</h2>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q1.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q1.body')}</p>
-    <p class="stakes-footnote">{t(lang.current, 'stakes.q1.footnote')}</p>
-  </div>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q2.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q2.body')}</p>
-  </div>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q3.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q3.body')}</p>
-  </div>
-  <div class="stakes-scorecard" aria-labelledby="stakes-scorecard-h">
-    <h3 id="stakes-scorecard-h">{t(lang.current, 'stakes.scorecard_h')}</h3>
-    <p class="stakes-scorecard-intro">{t(lang.current, 'stakes.scorecard_intro')}</p>
-    <figure class="stakes-scorecard-fig">
-      <img src="{base}/images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} width="474" height="346" loading="lazy">
-      <figcaption>{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
-    </figure>
-    <p class="stakes-scorecard-close">{t(lang.current, 'stakes.scorecard_close')}</p>
-  </div>
-  <div class="stakes-ctas">
-    <a href="#canada-is-different" class="stakes-cta">{t(lang.current, 'stakes.cta_law')}</a>
-    <a href="#the-smoking-gun" class="stakes-cta">{t(lang.current, 'stakes.cta_methods')}</a>
-  </div>
-</section>
-
-<section class="boundary-block container" aria-labelledby="boundary-heading">
-  <h2 id="boundary-heading">{t(lang.current, 'verdict.box_heading')}</h2>
-  <ul class="boundary-list">
-    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_1')}</span></li>
-    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_2')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_1')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_2')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_3')}</span></li>
-  </ul>
-</section>
-
-<section class="editorial-block container" id="what-is-redistricting" aria-labelledby="s1-heading">
-  <h2 id="s1-heading">{t(lang.current, 'why_redrawn.heading')}</h2>
-  <p>{t(lang.current, 'why_redrawn.p1')}</p>
-  <p>{t(lang.current, 'why_redrawn.p2')}</p>
-  <p>{t(lang.current, 'why_redrawn.p3')}</p>
-  <p class="section-punch">{t(lang.current, 'why_redrawn.p4')}</p>
-</section>
-
 <main id="main" class="container" tabindex="-1">
-
-  <div style="padding: 1.5rem 0 0.5rem;">
-    <div class="callout callout-minority" style="border-inline-start-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
-      <p style="margin:0;"><strong>{t(lang.current, 'top_callouts.gerrymander_lead')}</strong> {@html t(lang.current, 'top_callouts.gerrymander_body')}</p>
-    </div>
-    <div class="callout callout-tldr" style="border-inline-start-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
-      <p style="margin:0 0 0.6rem;"><strong>{t(lang.current, 'top_callouts.tldr_label')}</strong></p>
-      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p1')}</p>
-      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p2')}</p>
-      <p style="margin:0;">{t(lang.current, 'top_callouts.tldr_p3')}</p>
-      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">{@html t(lang.current, 'top_callouts.tldr_footer').replace('%s', '<a href=\"#retractions\">' + t(lang.current, 'top_callouts.tldr_footer_link') + '</a>')}</p>
-    </div>
-  </div>
-
-  <section id="section-1">
-    <h2>{t(lang.current, 'two_maps.heading')} <a href="#section-1" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 1">#</a></h2>
-    <p>{t(lang.current, 'two_maps.p1')}</p>
-    <p>{t(lang.current, 'two_maps.p2')}</p>
-    <p>{t(lang.current, 'two_maps.p3')}</p>
-    <p>{t(lang.current, 'two_maps.p4')}</p>
-    <p>{t(lang.current, 'two_maps.p5')}</p>
-    <p>{t(lang.current, 'two_maps.p6')}</p>
-  </section>
-
-  <section id="section-2">
-    <h2>{t(lang.current, 'body.commission_split.heading')} <a href="#section-2" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 2">#</a></h2>
-    <p>{@html t(lang.current, 'body.commission_split.intro')}</p>
-    <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
-      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding1')}</li>
-      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding2')}</li>
-      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding3')}</li>
-      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.commission_split.finding4')}</li>
-    </ol>
-    <p>{@html t(lang.current, 'body.commission_split.closing')}</p>
-  </section>
-
-  <div class="callout callout-info" style="border-inline-start-color:#2B5BA1; margin:0.5rem 0 1rem;">
-    <p style="margin:0 0 0.4rem;"><strong>{t(lang.current, 'body.structural_results.heading')}</strong></p>
-    <p style="margin:0;">{@html t(lang.current, 'body.structural_results.body')}</p>
-  </div>
 
   <section id="the-smoking-gun">
     <h2>{t(lang.current, 'body.casings.frame_h')} <a href="#the-smoking-gun" class="section-link" aria-label={t(lang.current, 'nav.smoking_gun')}>#</a></h2>
     <p class="section-punch">{t(lang.current, 'body.casings.frame_p1')}</p>
+    <p>{@html t(lang.current, 'body.casings.frame_cast')}</p>
     <p>{t(lang.current, 'body.casings.frame_p2')}</p>
     <p>{t(lang.current, 'body.casings.frame_p3')}</p>
     <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
@@ -512,6 +404,41 @@
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
     </div>
+    <div class="boundary-block">
+      <h3>{t(lang.current, 'verdict.box_heading')}</h3>
+      <ul class="boundary-list">
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_1')}</span></li>
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_1')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_3')}</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="the-picture">
+    <h2>{t(lang.current, 'picture.heading')} <a href="#the-picture" class="section-link" aria-label={t(lang.current, 'nav.picture')}>#</a></h2>
+    <figure style="margin:1.2rem 0;text-align:center;">
+      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="346" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
+    </figure>
+    <p>{t(lang.current, 'picture.lead')}</p>
+    <div class="callout callout-tldr" style="border-inline-start-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
+      <p style="margin:0 0 0.6rem;"><strong>{t(lang.current, 'top_callouts.tldr_label')}</strong></p>
+      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p1')}</p>
+      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p2')}</p>
+      <p style="margin:0;">{t(lang.current, 'top_callouts.tldr_p3')}</p>
+      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">{@html t(lang.current, 'top_callouts.tldr_footer').replace('%s', '<a href=\"#retractions\">' + t(lang.current, 'top_callouts.tldr_footer_link') + '</a>')}</p>
+    </div>
+  </section>
+
+  <section id="the-map">
+    <h2>{t(lang.current, 'body.the_map.heading2')} <a href="#the-map" class="section-link" aria-label={t(lang.current, 'nav.map')}>#</a></h2>
+    <p>{t(lang.current, 'body.the_map.p1')}</p>
+    <p>{t(lang.current, 'body.the_map.p2')}</p>
+    <p>{t(lang.current, 'body.the_map.p3')}</p>
+    <p>{t(lang.current, 'body.the_map.p4')}</p>
+    <p>{t(lang.current, 'body.the_map.p5')}</p>
   </section>
 
   <section id="act-1">
@@ -616,7 +543,7 @@
       </table>
     </div>
     <p>{t(lang.current, 'body.casings.act1_table_close')}</p>
-    <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
   </section>
 
   <section class="editorial-block" id="what-this-means" aria-labelledby="s5-heading">
@@ -668,7 +595,7 @@
     <p>{@html t(lang.current, 'editorial_canada.p6')}</p>
     <p>{@html t(lang.current, 'editorial_canada.p7')}</p>
 
-    <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
   </section>
 
   <section id="act-2">
@@ -790,7 +717,7 @@
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c10_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c10_gun')}</p>
     <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c10_refrain')}</strong> — <a href="{base}/explainers#appendix-j">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c10_app')}</a></p>
-    <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
   </section>
 
   <section id="act-3">
@@ -897,6 +824,8 @@
 
     <p>{t(lang.current, 'body.november.anomalous_p2')}</p>
 
+    <p>{@html t(lang.current, 'body.commission_split.finding3')}</p>
+
     <h3>{t(lang.current, 'body.november.h_framework')}</h3>
 
     <p>{@html t(lang.current, 'body.november.framework_p1')}</p>
@@ -912,6 +841,27 @@
     <p>{t(lang.current, 'body.november.quebec_p2')}</p>
 
     <p>{t(lang.current, 'body.november.closing')}</p>
+  </section>
+
+  <section id="authors-view">
+    <h2>{t(lang.current, 'body.authors_view.heading')} <a href="#authors-view" class="section-link" aria-label={t(lang.current, 'body.authors_view.heading_aria')}>#</a></h2>
+
+    <div style="border-left: 3px solid var(--text-muted); padding: 0.2rem 0 0.2rem 1rem; margin: 0 0 1.3rem;">
+      <p style="margin: 0; font-style: italic;">{t(lang.current, 'body.authors_view.preamble')}</p>
+    </div>
+
+    <p>{t(lang.current, 'body.authors_view.p1')}</p>
+    <p>{t(lang.current, 'body.authors_view.p2')}</p>
+    <p>{t(lang.current, 'body.authors_view.p3')}</p>
+    <p>{t(lang.current, 'body.authors_view.p4')}</p>
+    <p>{t(lang.current, 'body.authors_view.p5')}</p>
+    <p>{t(lang.current, 'body.authors_view.p6')}</p>
+    <p>{@html t(lang.current, 'body.authors_view.p7')}</p>
+    <p>{t(lang.current, 'body.authors_view.p8')}</p>
+    <p>{t(lang.current, 'body.authors_view.p9')}</p>
+    <p>{t(lang.current, 'body.authors_view.p10')}</p>
+    <p style="margin: 1rem 0 1.4rem;">{t(lang.current, 'body.authors_view.signed')}</p>
+    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">{@html t(lang.current, 'body.authors_view.sources')}</p>
   </section>
 
   <section id="section-8">
@@ -987,27 +937,6 @@
       <p>{t(lang.current, 'body.retractions.corr_intro')}</p>
       <p>{@html t(lang.current, 'body.retractions.corr_municipal')}</p>
     </div>
-  </section>
-
-  <section id="authors-view">
-    <h2>{t(lang.current, 'body.authors_view.heading')} <a href="#authors-view" class="section-link" aria-label={t(lang.current, 'body.authors_view.heading_aria')}>#</a></h2>
-
-    <div style="border-left: 3px solid var(--text-muted); padding: 0.2rem 0 0.2rem 1rem; margin: 0 0 1.3rem;">
-      <p style="margin: 0; font-style: italic;">{t(lang.current, 'body.authors_view.preamble')}</p>
-    </div>
-
-    <p>{t(lang.current, 'body.authors_view.p1')}</p>
-    <p>{t(lang.current, 'body.authors_view.p2')}</p>
-    <p>{t(lang.current, 'body.authors_view.p3')}</p>
-    <p>{t(lang.current, 'body.authors_view.p4')}</p>
-    <p>{t(lang.current, 'body.authors_view.p5')}</p>
-    <p>{t(lang.current, 'body.authors_view.p6')}</p>
-    <p>{@html t(lang.current, 'body.authors_view.p7')}</p>
-    <p>{t(lang.current, 'body.authors_view.p8')}</p>
-    <p>{t(lang.current, 'body.authors_view.p9')}</p>
-    <p>{t(lang.current, 'body.authors_view.p10')}</p>
-    <p style="margin: 1rem 0 1.4rem;">{t(lang.current, 'body.authors_view.signed')}</p>
-    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">{@html t(lang.current, 'body.authors_view.sources')}</p>
   </section>
 
   <section id="references">
