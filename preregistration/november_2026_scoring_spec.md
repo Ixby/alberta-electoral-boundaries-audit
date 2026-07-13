@@ -91,7 +91,7 @@ If the substrate-iteration history of the May 2026 canonical run is any guide, t
 
 - The two-lane verdict on the *commission's* majority and minority proposals (§6.2) is not affected by the Lunty map's result. The Lunty map is a separate object.
 - The audit's headline framing on the *process* anomaly (the April 16 cabinet pivot) is not affected by this test. The procedural finding stands on its own.
-- The dependence-robust Bonferroni upper bound (p ≤ 2.80×10⁻⁶) for the May commission proposals is not affected.
+- The dependence-robust Bonferroni upper bound (p ≤ 1.76×10⁻⁶) for the May commission proposals is not affected.
 
 ## 6. drand pinning
 

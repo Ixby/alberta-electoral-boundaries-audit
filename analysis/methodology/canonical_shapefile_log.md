@@ -118,8 +118,8 @@ The table below records which findings have been recomputed on official EA shape
 | MCMC ensemble (B5) | 5.4.9 | Canonical EA shapefiles | **[C]** 1,010,000 plans, 4 chains × 252,500 steps |
 | SZAT (Ch2) | 5.2.10 | Canonical EA shapefiles | **[C]** p=0.0024 |
 | Mahalanobis D² (Ch1) | 5.4.9 | Canonical EA shapefiles | **[C]** p < 0.00001 |
-| Fisher combination | 5.5 | Both canonical | **[C]** p=6.87×10⁻⁸ (later retired 2026-06-10) |
-| Population MAD ensemble | 5.4.9 | Canonical EA shapefiles | **[C]** minority p99.0, majority p15.8 |
+| Fisher combination | 5.5 | Both canonical | **[C]** p=4.61×10⁻⁸ (later retired 2026-06-10) |
+| Population MAD ensemble | 5.4.9 | Canonical EA shapefiles | **[C]** minority p99.1, majority p15.8 |
 | Reock compactness | 5.4.9 | Canonical EA shapefiles | **[C]** null — both maps p100 |
 | Municipal anchoring | 5.8.5 | Canonical EA shapefiles | **[C]** null — minority 71.8%, majority 80.0% |
 | Polsby-Popper (C2) | 5.4 | DPG + canonical April 27 run | **[C]** values in `data/outputs/polsby_popper_per_district.csv` |

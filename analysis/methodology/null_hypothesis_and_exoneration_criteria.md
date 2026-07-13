@@ -53,7 +53,7 @@ This document is the authoritative lookup for what each test in the audit batter
 
 | Test | Null hypothesis | Pass/fail threshold | Pre-registration | Status |
 |---|---|---|---|---|
-| Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.03, p = 4.61×10⁻⁸ (historical). See note below the table. |
+| Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.87, p = 4.61×10⁻⁸ (historical). See note below the table. |
 
 **[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 

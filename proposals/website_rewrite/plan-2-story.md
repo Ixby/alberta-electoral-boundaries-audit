@@ -18,7 +18,7 @@
 - **No verdict on "gerrymander."** Describe the position; never declare a map "is" one. "Gerrymander" appears once, as a not-legal-in-Canada aside.
 - **Outcomes, not intent** — stated once, in the boundary box. Never "the commission intended…".
 - **Empower, don't advocate** — channels and questions, never positions or "support map X."
-- **Corrected figures only** (`design.md` §5): ~1 in 350,000 / p ≤ 2.80×10⁻⁶; four-of-four agree; SZAT not headline; anchoring retired. The `no_retired_figures` gate enforces this.
+- **Corrected figures only** (`design.md` §5): ~1 in 568,000 / p ≤ 1.76×10⁻⁶; four-of-four agree; SZAT not headline; anchoring retired. The `no_retired_figures` gate enforces this.
 - **Voice** (`design.md` §4): lead with the point; short declaratives; plain words; gloss specialist terms in the same breath; no triads, mirrored reversals, em-dash stacking, "it's worth noting."
 - **Audience floor:** standard Canadian high school — trust civics (riding, MLA, Charter, UCP/NDP); explain the specialist layer.
 
@@ -37,7 +37,7 @@
 		p_split: 'This time, the panel doing the redraw split. It produced two competing maps, and a committee will pick one later this year.',
 		p_question: 'We tested both maps for one question: is either one shaped to favour a party — even if no one set out to do that?',
 		p_answer: 'One of the two is. The other looks normal.',
-		p_howfar: 'How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 350,000 of them, in the UCP’s favour. The other sits in the normal range.',
+		p_howfar: 'How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 568,000 of them, in the UCP’s favour. The other sits in the normal range.',
 		aside: 'You might call a map shaped like that “gerrymandered.” That word has no legal meaning in Canada, so we don’t use it as a verdict. We show you what the map does; you judge. For the deeper layers — what the law actually requires, and exactly how we ran the test — see Law and Methods.',
 		box_heading: 'What we can and can’t say',
 		box_can_1: 'The minority map sits outside what 1.01 million neutral maps produce, in the UCP-favoured direction.',
@@ -47,7 +47,7 @@
 		box_cant_3: 'How a court would rule, or what the committee will choose.'
 	},
 ```
-(Reconcile the "four of four" count and the exact "1 in 350,000" wording against the report before commit — `design.md` §5 flags this; pin one public number.)
+(Reconcile the "four of four" count and the exact "1 in 568,000" wording against the report before commit — `design.md` §5 flags this; pin one public number.)
 
 - [ ] **Step 2: Render the hero in `+page.svelte`** above the cover map, using `{t(lang.current,'verdict.*')}`. The "UCP" gets `<Gloss key="gerrymander">` is NOT right — instead wrap the word **gerrymander** in the aside with `<Gloss key="gerrymander">gerrymandered</Gloss>` and link "Law"/"Methods" to `/law`/`/methods`. The boundary box renders box_can_*/box_cant_* as a two-state list.
 

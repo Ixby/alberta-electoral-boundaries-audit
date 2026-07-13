@@ -206,7 +206,7 @@ maps look like if nobody was trying" machine. Link to /methods.)*
   map how many seats it hands the UCP. Neutral median: 44.8%. Majority map:
   46.1% (78th percentile — normal). Minority map: 51.7% — the 99.99th
   percentile; 66 of 1,010,000 neutral maps reach it. On mean-median it sits
-  at p99.98, on declination p98.79. On actual recent voting patterns the
+  at p99.97, on declination p98.79. On actual recent voting patterns the
   minority geometry yields 60 of 89 seats.
 - **What it could show:** neutral processes essentially never produce this
   map. It is the kind of map you have to aim at.
@@ -244,11 +244,11 @@ maps look like if nobody was trying" machine. Link to /methods.)*
   their force makes this a miss, and it stays a miss.)*
 - **A casing, not a gun — and this one we don't even fire.**
 
-### Casing 8 — One in 357,000, and what that number is not
+### Casing 8 — One in 568,000, and what that number is not
 
 - **What we found:** the joint probability that a neutral process produces
-  the minority's combined four-metric profile is bounded at p ≤ 2.8×10⁻⁶ —
-  about one in 357,000, Bonferroni-corrected, dependence-robust. The report
+  the minority's combined four-metric profile is bounded at p ≤ 1.76×10⁻⁶ —
+  about one in 568,000, Bonferroni-corrected, dependence-robust. The report
   used to say one in fifteen million; that figure combined two channels that
   were not independent, and was retired. The correction is displayed.
 - **What it could show:** the reader wants this to be "the probability the
@@ -260,7 +260,7 @@ maps look like if nobody was trying" machine. Link to /methods.)*
   number like this; there is no threshold it could cross.
 - **Why it isn't a smoking gun:** P(evidence | innocence) is not
   P(innocence | evidence) — treating one as the other is the prosecutor's
-  fallacy, and this report refuses it. A one-in-357,000 map can still be the
+  fallacy, and this report refuses it. A one-in-568,000 map can still be the
   product of eccentric-but-sincere judgment; the number cannot see motive.
   *(Legal-epistemic lesson: no probability of a map is a probability of
   intent.)*

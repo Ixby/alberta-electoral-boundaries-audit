@@ -20,7 +20,7 @@ Rewrite **and** restructure the public viewer so a general Albertan reader can u
 **Floor: a standard Canadian high-school education.** Validated in the brainstorming session.
 
 - **Assume (do not explain):** how a legislature, election, political party, MLA, and riding work; that ridings get periodically redrawn; that the Charter of Rights exists; UCP and NDP as Alberta's two main parties.
-- **Explain (the specialist layer):** the word "gerrymander" (an American term, not standard Canadian curriculum — gloss on first use, flagged as having no legal meaning in Canada); the statistics (the 1.01M-map neutral ensemble, "1 in 357,000," what each partisan-bias measure means); the legal doctrine (s.3 Charter "effective representation" — plain words on `/`, depth on `/law`); the commission split and what "minority report / majority report" means.
+- **Explain (the specialist layer):** the word "gerrymander" (an American term, not standard Canadian curriculum — gloss on first use, flagged as having no legal meaning in Canada); the statistics (the 1.01M-map neutral ensemble, "1 in 568,000," what each partisan-bias measure means); the legal doctrine (s.3 Charter "effective representation" — plain words on `/`, depth on `/law`); the commission split and what "minority report / majority report" means.
 - **Reading level:** Flesch-Kincaid ~grade 11 on `/` (per the project's public-report standard, which overrides the academic FK 13–18). `/law` and `/methods` may run higher for their narrower audiences.
 
 ## 3. Editorial principles (non-negotiable)
@@ -30,7 +30,7 @@ These come from the audit's conflict-of-interest posture and are the source of i
 1. **No verdict on "gerrymander."** The word has no legal definition in Canada. The site describes the statistical and structural position and lets the reader draw their own legal conclusion. It never declares a map "is" a gerrymander.
 2. **Outcomes, not intent.** Every claim about a map favouring a party is stated as an outcome ("shaped to favour a party — even if no one set out to do that"), never as motive. Stated **once** canonically (the verdict card's "what we can / can't say" box) and not repeated four times as today.
 3. **Empower, don't advocate.** The site never tells the reader which map to support or what reform to back. "What you can do" provides channels and questions, not positions. Reform options are presented comparatively (what other jurisdictions do, with trade-offs), never as recommendations.
-4. **Symmetric and honest.** The majority map's own outlier (mean-median p0.924, NDP-tail) is reported, not buried. Both maps are scored by the same tests (see `analysis/methodology/evaluation_symmetry_matrix.md`).
+4. **Symmetric and honest.** The majority map's own outlier (mean-median p0.99, NDP-tail) is reported, not buried. Both maps are scored by the same tests (see `analysis/methodology/evaluation_symmetry_matrix.md`).
 
 ## 4. Voice rules (the "less academic, less Claude" register)
 
@@ -42,7 +42,7 @@ Concrete, enforceable rules for every string written:
 - Gloss every specialist term **in the same breath** the first time it appears — a short appositive or a `<Gloss>` popover, never a forward reference.
 - Banned constructions: templated triads ("not X, not Y, but Z"), mirrored reversals ("the question is not whether… but whether…"), em-dash appositive stacking (one em-dash per paragraph max), "in a sense / arguably / somewhat" hedges, rhetorical questions used as transitions.
 - One idea per paragraph. If a paragraph needs a label ("The structure." / "The statistics.") to hold together, split or rewrite it.
-- Numbers as hooks, in plain comparison: "more one-sided than all but about 1 in 357,000" beats "at the 99.9997th percentile."
+- Numbers as hooks, in plain comparison: "more one-sided than all but about 1 in 568,000" beats "at the 99.9997th percentile."
 - No emoji (house rule).
 
 A short worked example (the verdict opener), to anchor the register, is in §6.1.
@@ -53,12 +53,12 @@ All from this session's corrections. The rewrite is the first place the public c
 
 | Claim | Use this | NOT this (retired) |
 |---|---|---|
-| Joint headline | Ch1 alone p = 1.40×10⁻⁶ (~1 in 714,000); dependence-robust bound **p ≤ 2.80×10⁻⁶ (~1 in 357,000)** | Fisher 6.87×10⁻⁸ / "1 in ~15 million" |
-| Partisan metrics | **Four of four** agree in the UCP-favoured direction (EG p94.4 sub-threshold but aligned, mean-median p99.98, declination **p98.79 UCP-tail**, seats@50/50 p99.99) | "three agree, declination disagrees" / "p1.21 NDP-tail" |
+| Joint headline | Ch1 alone p = 8.80×10⁻⁷ (~1 in 1,140,000); dependence-robust bound **p ≤ 1.76×10⁻⁶ (~1 in 568,000)** | Fisher 4.61×10⁻⁸ (retired 2026-06-10) / "1 in ~15 million" (superseded pre-rerun Fisher figure) |
+| Partisan metrics | **Four of four** agree in the UCP-favoured direction (EG p94.4 sub-threshold but aligned, mean-median p99.97, declination **p98.79 UCP-tail**, seats@50/50 p99.99) | "three agree, declination disagrees" / "p1.21 NDP-tail" |
 | SZAT (boundary-choice test) | Exploratory context only; does not survive the spatial null (p≈0.19); **not in the headline** | "Channel 2, p = 0.0024, confirmatory" |
 | Structural tests (Lane 2) | Discriminating pre-registered tests fire on the minority, none on the majority. **Exact count to be pinned in the plan** — public report frames it "four of four (anchoring retired as the fifth)"; the structural battery scores minority 5/5, majority 0/5 on S1–S6. Reconcile to one public number before copy is written. | "five structural tests" without the anchoring-retraction note |
-| Municipal anchoring | Retired — did not survive canonical recomputation (minority 72%, majority 80%, both in-norm) | the old 4.9× anchoring gap as a live finding |
-| Majority map | Honestly reported: within neutral on 3 of 4; at p0.924 (NDP-tail) on mean-median | silence |
+| Municipal anchoring | Retired — did not survive canonical recomputation (minority 71.8%, majority 80.0%, both in-norm) | the old 4.9× anchoring gap as a live finding |
+| Majority map | Honestly reported: within neutral on 3 of 4; at p0.99 (NDP-tail) on mean-median | silence |
 | Supermajority / vote-share sweep | The `cross_vote_share` test is **unrun**. May describe the supermajority *stakes* qualitatively on `/`'s "your province" rung; must **not** present any vote-share-curve result as a finding. | any "crosses 58 seats at X%" number |
 
 ## 6. Information architecture — three routes (audience-tiered)
@@ -76,7 +76,7 @@ The casual reader's spine. Verdict-first, then orient, then personal stakes, the
 > This time, the panel doing the redraw split. It produced two competing maps, and a committee will pick one later this year.
 > We tested both maps for one question: **is either one shaped to favour a party — even if no one set out to do that?**
 > One of the two is. The other looks normal.
-> How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about **1 in 357,000** of them, in the UCP's favour. The other sits in the normal range.
+> How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about **1 in 568,000** of them, in the UCP's favour. The other sits in the normal range.
 
 Immediately below: the **"what we can / can't say" box** (the single canonical home of the outcomes-not-intent caveat and the no-verdict stance). "Gerrymander" is introduced here as a not-legal-in-Canada aside, with links to Law and Methods.
 

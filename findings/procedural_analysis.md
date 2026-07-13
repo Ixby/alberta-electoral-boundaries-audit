@@ -1,7 +1,7 @@
 > **Backward:**
 > - Alberta Electoral Boundaries Commission Act (statutory inputs)
 > - 2025 Electoral Boundaries Commission interim and final (majority + minority) reports
-> - 1,140+ public submissions to the commission (Appendix C claim verification)
+> - ~1,340 public submissions to the commission (Appendix C claim verification)
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` — incorporates the procedural verdicts
@@ -38,21 +38,21 @@ The April 16 action is not, by itself, a violation of the Act — section 15 of 
 
 ## D2 — Public input alignment
 
-**Baseline.** The commission received **1,140+ written submissions** during its public consultation phase in 2025. Submissions were published on the commission's website; public hearings were held in Calgary, Edmonton, Red Deer, Grande Prairie, Lethbridge, Medicine Hat, Fort McMurray, and Lloydminster.
+**Baseline.** The commission received **~1,340 written submissions** during its public consultation phase in 2025. Submissions were published on the commission's website; public hearings were held in Calgary, Edmonton, Red Deer, Grande Prairie, Lethbridge, Medicine Hat, Fort McMurray, and Lloydminster.
 
 **Majority report's claim.** The majority report (accepted by the chair and opposition-nominated members) states in Appendix C that the minority's hybrid configurations for **Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert had no public support in the consultation record.** This is a checkable claim — the submissions are public — but independent verification requires downloading and text-searching the commission's submission archive, which is outside the token budget of this Phase 3 desk pass. The claim is on record in a document signed by the chair (an appointed judicial officer) and is subject to professional-responsibility norms. Treat as prima facie credible pending independent verification.
 
-**Interpretation.** If accurate, it means the minority report introduces five hybrid configurations that were not proposed by, and are not supported by, any of the 1,140+ public submissions. The significance is that the standard defense of a disputed boundary is "the community asked for it"; that defense is unavailable for these five. The absence of public support does not by itself prove partisan intent, but it removes the most common non-partisan explanation for unusual boundary choices.
+**Interpretation.** If accurate, it means the minority report introduces five hybrid configurations that were not proposed by, and are not supported by, any of the ~1,340 public submissions. The significance is that the standard defense of a disputed boundary is "the community asked for it"; that defense is unavailable for these five. The absence of public support does not by itself prove partisan intent, but it removes the most common non-partisan explanation for unusual boundary choices.
 
 ## D3 — Procedural fairness (interim → final)
 
 **Interim report (October 2025).** The prompt describes the interim report as "unanimous" — all five commissioners signed the same recommendations. This is the commission's standard practice: the interim report is designed as a consultation document, and commissioners typically hold off partisan disagreement until after feedback.
 
-**Final report (March 23, 2026).** Five months after the interim report, the commission split 3–2 with a majority and minority report. The majority largely extends the interim framework with adjustments responsive to the 1,140+ submissions; the minority departs from the interim framework in several specific ways — most notably the Airdrie 4-way split, the Nolan Hill-Cochrane hybrid, and the Rocky Mountain House-Banff Park extension documented in Sections A and C.
+**Final report (March 23, 2026).** Five months after the interim report, the commission split 3–2 with a majority and minority report. The majority largely extends the interim framework with adjustments responsive to the ~1,340 submissions; the minority departs from the interim framework in several specific ways — most notably the Airdrie 4-way split, the Nolan Hill-Cochrane hybrid, and the Rocky Mountain House-Banff Park extension documented in Sections A and C.
 
 **The procedural-fairness question.** Did the minority report give the public fair notice of its departures before tabling? On a strict reading of the Act, the commission has no obligation to pre-publish minority positions — the public hearing process is between interim and final. But the departures from the interim framework that appear only in the minority (and not in the majority) were not tested in the public process. This means:
 
-- The majority's ridings have been seen by the public, debated, and adjusted based on 1,140+ submissions.
+- The majority's ridings have been seen by the public, debated, and adjusted based on ~1,340 submissions.
 - The minority's departures have not.
 
 When the government on April 16 rejected the majority and proposed to work from a new advisory process, it was effectively promoting the less-publicly-vetted configuration over the more-publicly-vetted one. This is the procedural-fairness concern distinct from partisan-bias concern.

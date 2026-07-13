@@ -19,6 +19,15 @@ n_steps: 100,000 (single chain; ESS caveat below)
 
 # Constraint-enforcing ReCom ensemble — first run
 
+> **Baseline-date note.** Every "Unconstrained 1.01M" column below is the canonical
+> ensemble as it stood on this run's date (2026-06-13) — the disclosed chain-1-duplicated
+> run (DOCUMENTED CORRECTIONS C9, `reports/academic/report_academic.md`). That ensemble
+> was scrapped and rerun clean on 2026-07-12 (C10); C9's own sensitivity analysis found
+> the duplication moved no percentile by more than 0.07 pp, so the seed-dependence finding,
+> the EG threshold-straddling result, and the commission-convention auxiliary below are
+> unaffected. Readers comparing these percentiles against current canonical figures cited
+> elsewhere in the report should note this table predates the clean rerun.
+
 ## What this run adds over the canonical 1.01M ensemble
 
 | Gap in canonical run | Adaptation here |

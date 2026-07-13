@@ -851,9 +851,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** D² progression: 2019 enacted D²=13.16 (p=0.012, mild joint outlier); majority 2026 D²=7.74 (p=0.101, within null); minority 2026 D²=33.64 (p=8.80×10⁻⁷). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
+**Assertion:** D² progression: 2019 enacted D²=13.16 (p=0.0105, mild joint outlier); majority 2026 D²=7.74 (p=0.102, within null); minority 2026 D²=33.64 (p=8.80×10⁻⁷). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
 **Why?** What does the 2019 baseline D² tell us, and why is it relevant to compare all three maps?
-**Answer:** Including the 2019 enacted map as a third reference point reveals the direction of travel — not just whether a 2026 proposal is unusual, but whether it moved toward or away from what neutral random maps produce. The 2019 map was itself a mild joint-space outlier (D²=13.16, p=0.012), meaning it sat slightly outside the neutral ensemble but not dramatically. The majority 2026 map reduced that distance to D²=7.74, placing itself inside the neutral null — the majority's changes to 2019 boundaries moved in a normalizing direction. The minority 2026 map amplified the distance to D²=33.64, which is the headline joint-test p-value driving the canonical finding. This three-map comparison is exploratory (not pre-registered) but is consistent with and corroborated by the pre-registered Mahalanobis test.
+**Answer:** Including the 2019 enacted map as a third reference point reveals the direction of travel — not just whether a 2026 proposal is unusual, but whether it moved toward or away from what neutral random maps produce. The 2019 map was itself a mild joint-space outlier (D²=13.16, p=0.0105), meaning it sat slightly outside the neutral ensemble but not dramatically. The majority 2026 map reduced that distance to D²=7.74, placing itself inside the neutral null — the majority's changes to 2019 boundaries moved in a normalizing direction. The minority 2026 map amplified the distance to D²=33.64, which is the headline joint-test p-value driving the canonical finding. This three-map comparison is exploratory (not pre-registered) but is consistent with and corroborated by the pre-registered Mahalanobis test.
 
 ---
 
@@ -1293,7 +1293,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Public-submission support: two contested configurations (Airdrie 4-way, Nolan Hill) have no documented submissions in the 1,140+ archive.
+**Assertion:** Public-submission support: two contested configurations (Airdrie 4-way, Nolan Hill) have no documented submissions in the ~1,340 archive.
 **Why?** What does it mean to check the submission archive and why does the absence of submissions matter?
 **Answer:** The commission received over 1,140 public submissions from citizens, communities, and organizations. These submissions are the documented evidence that the public wanted specific boundary choices. If a minority commissioner made a specific boundary decision — such as splitting Airdrie four ways or drawing the Nolan Hill corridor — and no submission in the archive requested that specific configuration, then the choice cannot be defended as responding to public input. Finding no submissions for two of the most unusual configurations is a gap in the rationale, not proof of bad intent.
 
@@ -1309,9 +1309,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority's Mahalanobis p = 0.101 on the 1M canonical run — inside the null band.
-**Why?** A p-value of 0.101 is less than 0.10. Isn't that "significant"?
-**Answer:** No. Smaller p-values mean the result is more extreme, not less. A p-value of 0.101 means the majority's joint partisan-fairness score is more extreme than 9.7% of randomly drawn neutral maps — well within the normal range. By comparison, the minority's Mahalanobis p = 8.80×10⁻⁷ means it is more extreme than 99.9999% of random maps. The 0.101 value is close to the center of the distribution (where 50% of maps lie), not near the extremes.
+**Assertion:** The majority's Mahalanobis p = 0.102 on the 1M canonical run — inside the null band.
+**Why?** A p-value of 0.102 is close to 0.10. Isn't that "significant"?
+**Answer:** No. Smaller p-values mean the result is more extreme, not less. A p-value of 0.102 means the majority's joint partisan-fairness score is more extreme than about 10% of randomly drawn neutral maps — well within the normal range. By comparison, the minority's Mahalanobis p = 8.80×10⁻⁷ means it is more extreme than 99.9999% of random maps. The 0.102 value is close to the center of the distribution (where 50% of maps lie), not near the extremes.
 
 ---
 
@@ -1483,7 +1483,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Submission-archive evidence that the five disputed minority configurations did have substantial public support would refute the "no public support" claim.
 **Why?** If such submissions exist, why weren't they found?
-**Answer:** The commission's 1,140+ submission archive is a large body of documents. The audit's search identified no submissions supporting the Airdrie four-way split or the Nolan Hill corridor configuration. However, the search may have been incomplete — if submissions used different place names, described the desired outcome without naming the specific boundary shape, or were filed under administrative categories that were not searched, they could exist without being found. The falsifiability condition acknowledges this limitation honestly: if such submissions are located and published, that would require revising the "no public support" finding.
+**Answer:** The commission's ~1,340 submission archive is a large body of documents. The audit's search identified no submissions supporting the Airdrie four-way split or the Nolan Hill corridor configuration. However, the search may have been incomplete — if submissions used different place names, described the desired outcome without naming the specific boundary shape, or were filed under administrative categories that were not searched, they could exist without being found. The falsifiability condition acknowledges this limitation honestly: if such submissions are located and published, that would require revising the "no public support" finding.
 
 ---
 

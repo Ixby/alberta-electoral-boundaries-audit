@@ -83,11 +83,18 @@ population balance averaged ~7).
 3. **Same-start chains.** All four chains start from the 2019-derived seed
    partition (the prereg pinned this design). Between-chain agreement is
    therefore weaker evidence of mixing than dispersed starts would give.
-4. The canonical comparison percentiles are those of the 1.01M ensemble as
-   regenerated clean on 2026-07-12 (`findings/ensemble_chain1_duplication_note.md`;
-   the prior ensemble contained a disclosed chain-1 duplication that was corrected
-   before this Phase A execution. Sensitivity analysis showed the duplication
-   affected no percentile by more than 0.07 pp, far below all deltas here).
+4. The canonical comparison percentiles above are those of the 1.01M ensemble
+   as it stood on 2026-07-10 (execution day) — the disclosed chain-1-duplicated
+   run (see DOCUMENTED CORRECTIONS C9 in `reports/academic/report_academic.md`).
+   That ensemble was subsequently scrapped and regenerated clean on 2026-07-12,
+   two days *after* this Phase A execution (`findings/ensemble_chain1_duplication_note.md`,
+   DOCUMENTED CORRECTIONS C10). C9's own sensitivity analysis found the
+   duplication moved no percentile by more than 0.07 pp, and the clean rerun's
+   shifts to these same metrics (e.g. minority mean-median p99.98 → p99.97) are
+   similarly negligible next to the 0.04–0.81 pp deltas measured here — so this
+   check's ROBUST verdict is unaffected. A reader comparing this table against
+   current canonical percentiles cited elsewhere in the report should note it
+   predates the clean rerun and reflects the pre-2026-07-12 baseline.
 
 ## What this does and does not show
 

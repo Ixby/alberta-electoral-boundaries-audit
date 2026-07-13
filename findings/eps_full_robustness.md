@@ -5,6 +5,15 @@ salt: mcmc_ensemble_250k (same base_seed=1432864451 as canonical)
 supersedes: nothing — this is a robustness check, not a headline replacement
 ---
 
+> **Baseline-date note.** Every "Canonical (±12.5%)" comparison column below is the
+> canonical ensemble as it stood on this check's completion date (2026-06-13) — the
+> disclosed chain-1-duplicated run (DOCUMENTED CORRECTIONS C9, `reports/academic/report_academic.md`).
+> That ensemble was scrapped and rerun clean on 2026-07-12 (C10); C9's own sensitivity
+> analysis found the duplication moved no percentile by more than 0.07 pp, so this
+> check's robustness conclusion (partisan headline invariant to the proposal-epsilon
+> choice) is unaffected. The percentiles cited here predate the clean rerun and will
+> differ slightly from current canonical figures cited elsewhere in the report.
+
 ## Headline (1.01M confirmation)
 
 The full 1,010,000-plan full-band (epsilon = ±25%) ensemble confirms the pilot.

@@ -189,7 +189,7 @@ The Vote Anywhere finding from §4 supports the "measured B2 below bracket" poss
 
 **Unsupportable claim in v0.1/v0.8 reports:** "without recent Canadian provincial precedent." We did not do a comprehensive survey. Tightened to "most government-controlled among the three most-cited comparator cases" in v0.2 reports. Leaving the stronger claim in earlier drafts would be a false-precision problem.
 
-**Load-bearing unverified claim:** the majority report's Appendix C assertion that the minority's five disputed configurations had no public support in the 1,140+ submissions. **If refuted by submission-archive text search, the §D finding weakens substantially.** Probability of refutation (i.e., that the majority report's own claim is wrong): low (~15%), because the claim is signed by a judicial officer and subject to professional-responsibility norms. But because it's not independently verified, the audit treats it as prima facie credible, not proven.
+**Load-bearing unverified claim:** the majority report's Appendix C assertion that the minority's five disputed configurations had no public support in the ~1,340 submissions. **If refuted by submission-archive text search, the §D finding weakens substantially.** Probability of refutation (i.e., that the majority report's own claim is wrong): low (~15%), because the claim is signed by a judicial officer and subject to professional-responsibility norms. But because it's not independently verified, the audit treats it as prima facie credible, not proven.
 
 ---
 
@@ -267,7 +267,7 @@ Probability: ~35% per table above. What would change:
 
 1. *§A3 Canmore-Banff majority flag.* Without majority non-Calgary imagery, we cannot determine whether the boundary is engineered the way RMH-Banff Park is. Current characterization asymmetric by necessity, not by evidence of absence. **Blocker for full §A3 symmetry. Remedy: release majority Alberta-wide imagery, or post-shapefile programmatic area-criterion verification.**
 
-2. *§D2 no-public-support claim.* The claim is in the majority report's Appendix C; we treat it as prima facie credible because it's signed by a judicial officer. If refuted by submission-archive text search, §D weakens. **Blocker for full confidence in §D2. Remedy: text-search the commission's 1,140+ public submission archive.**
+2. *§D2 no-public-support claim.* The claim is in the majority report's Appendix C; we treat it as prima facie credible because it's signed by a judicial officer. If refuted by submission-archive text search, §D weakens. **Blocker for full confidence in §D2. Remedy: text-search the commission's ~1,340 public submission archive.**
 
 ---
 

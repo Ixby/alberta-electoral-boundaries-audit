@@ -10,7 +10,11 @@
 
 # Attribution Sensitivity Robustness Check
 
-**Date:** 2026-05-12
+**Date:** 2026-05-12; rerun 2026-07-12 against the clean canonical ensemble
+(DOCUMENTED CORRECTIONS C10) with the Amendment-10 declination sign
+convention. The 2026-05-12 figures were both pre-rerun and pre-Amendment-10
+(declination reported NDP-tail-signed); this page reflects the 2026-07-12
+rerun throughout.
 **Script:** `analysis/scripts/attribution_sensitivity_check.py`
 **Output:** `data/outputs/attribution_sensitivity_check.json`
 
@@ -39,14 +43,14 @@ placements.
 
 | Map | Metric | Partial ptile | Full ptile | Shift (pp) | Material? |
 | --- | --- | ---: | ---: | ---: | --- |
-| minority | efficiency_gap | 94.39 | 99.77 | +5.38 | yes |
-| minority | mean_median | 99.98 | 99.78 | −0.19 | no |
-| minority | declination | 1.21 | 0.08 | −1.13 | no |
-| minority | seats_at_50_50 | 99.99 | 99.80 | −0.19 | no |
-| majority | efficiency_gap | 15.47 | 22.87 | +7.40 | yes |
-| majority | mean_median | 0.92 | 5.78 | +4.86 | yes |
-| majority | declination | 79.62 | 91.83 | +12.21 | yes |
-| majority | seats_at_50_50 | 77.81 | 93.31 | +15.50 | yes |
+| minority | efficiency_gap | 94.54 | 99.77 | +5.23 | yes |
+| minority | mean_median | 99.97 | 99.79 | −0.18 | no |
+| minority | declination | 98.79 | 99.91 | +1.12 | no |
+| minority | seats_at_50_50 | 99.99 | 99.81 | −0.19 | no |
+| majority | efficiency_gap | 16.52 | 24.19 | +7.67 | yes |
+| majority | mean_median | 0.99 | 5.74 | +4.75 | yes |
+| majority | declination | 21.85 | 9.22 | −12.63 | yes |
+| majority | seats_at_50_50 | 78.54 | 93.73 | +15.19 | yes |
 
 Material threshold: ≥ 3 pp shift.
 
@@ -63,10 +67,12 @@ The canonical outlier thresholds are p ≤ 5 (low-tail outlier) or p ≥ 95 (hig
 
 All four metrics remain strict outliers under both attribution variants:
 
-- EG: p94.39 → p99.77 (shifts to more extreme, not less)
-- Mean-median: p99.98 → p99.78 (stable; both deep UCP-tail)
-- Declination: p1.21 → p0.08 (stays deep NDP-tail outlier)
-- Seats@50/50: p99.99 → p99.80 (stable; both at or near ensemble ceiling)
+- EG: p94.54 → p99.77 (shifts to more extreme, not less; sub-threshold under
+  partial attribution, crosses p95 under full attribution)
+- Mean-median: p99.97 → p99.79 (stable; both deep UCP-tail)
+- Declination (Warrington, post-Amendment-10 sign): p98.79 → p99.91 (stays
+  deep UCP-tail outlier)
+- Seats@50/50: p99.99 → p99.81 (stable; both at or near ensemble ceiling)
 
 Minority-map headline findings are attribution-stable. Full attribution
 strengthens the EG finding and leaves the other three essentially unchanged.
@@ -75,14 +81,17 @@ strengthens the EG finding and leaves the other three essentially unchanged.
 
 The majority map's metrics shift more, but none become outliers under either variant:
 
-- EG: p15.47 → p22.87 (within null under both)
-- Mean-median: p0.92 → p5.78 — **the one status flip**: strict outlier (NDP-tail)
-  under partial attribution; within null under full attribution. Direction unchanged
-  (NDP-favourable). No headline finding for the minority map depends on this value.
-- Declination: p79.62 → p91.83 (within null under both)
-- Seats@50/50: p77.81 → p93.31 (within null under both)
+- EG: p16.52 → p24.19 (within null under both)
+- Mean-median: p0.99 → p5.74 — **the one status flip**: strict outlier (NDP-tail)
+  under partial attribution; within null under full attribution (barely — p5.74
+  sits just outside the p5 floor). Direction unchanged (NDP-favourable). No
+  headline finding for the minority map depends on this value.
+- Declination (post-Amendment-10 sign): p21.85 → p9.22 (within null under
+  both, on the low-tail/NDP side; moves toward but does not cross p5)
+- Seats@50/50: p78.54 → p93.73 (within null under both; moves toward but does
+  not cross p95)
 
-The majority map's mean-median reading at p0.92 (partial-attribution basis) should
+The majority map's mean-median reading at p0.99 (partial-attribution basis) should
 therefore be read as attribution-sensitive. The characterization "NDP-tail outlier" on
 this one metric does not hold under full attribution. The audit's primary conclusions
 about the minority map are unaffected.
@@ -105,5 +114,6 @@ future supplementary check.
 
 - Script: `analysis/scripts/attribution_sensitivity_check.py`
 - Output JSON: `data/outputs/attribution_sensitivity_check.json`
-- Report caveat: `outputs/academic_report/report_academic.md` (direction-of-travel
-  table footnote and corrections table, both updated 2026-05-12)
+- Report caveat: `reports/academic/report_academic.md` (direction-of-travel
+  table footnote and corrections table; rerun 2026-07-12 per DOCUMENTED
+  CORRECTIONS C10)
