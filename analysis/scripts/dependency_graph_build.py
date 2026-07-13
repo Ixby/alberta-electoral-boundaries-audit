@@ -36,7 +36,7 @@ Outputs:
 * ``analysis/methodology/audit_dependency_graph.dot`` — Graphviz DOT source.
 
 Run ``dot -Tsvg analysis/methodology/audit_dependency_graph.dot -o
-maps/audit_dependency_graph.svg`` to render.
+data/outputs/audit_dependency_graph.svg`` to render.
 
 Forward: analysis/methodology/audit_dependency_graph.json
 Forward: analysis/methodology/audit_dependency_graph.dot

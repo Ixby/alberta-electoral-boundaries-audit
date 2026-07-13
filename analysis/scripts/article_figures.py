@@ -5,10 +5,13 @@ article_figures.py
 
 Generate the inline figures the magazine article embeds:
 
-  1. lane1_dotplot.svg    — Lane 1 EG histogram: 250,000 neutral-ensemble
-     maps shown as bars, right tail (p90+) shaded in red. Vertical lines
-     for Minority 2026 (+4.02%, p94), Majority 2026 (+0.10%, p15), and
-     2019 enacted (+2.41%, p69). p95 reference line dashed.
+  1. lane1_dotplot.svg    — Lane 1 EG histogram: 1,010,000-plan canonical
+     neutral-ensemble maps shown as bars, right tail (p90+) shaded in red.
+     Vertical lines for Minority 2026 (+3.96-4.02%, p94.54), Majority 2026
+     (+0.04-0.10%, p16.52), and 2019 enacted (+2.41%, p69.5). p95 reference
+     line dashed. Values read live from the canonical ensemble CSVs (see
+     code below) — this docstring is descriptive only and is not the
+     source of truth; if it drifts from the canonical files, trust the code.
   2. lane2_bars.svg       — Lane 2 horizontal bar chart of structural
      irregularities, one row per test, magnitude relative to comparator
      norm; majority + minority side by side; norm band shaded.

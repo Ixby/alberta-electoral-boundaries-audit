@@ -283,6 +283,8 @@ not metric instability. On clean data, the metric gives a stable, interpretable 
 | `analysis/scripts/drain_label_shuffle_null.py` | NEW — Phase B + E |
 | `analysis/methodology/drain_v2_plan.md` | This document |
 | `findings/neighbour_drain_analysis.md` | Canonical official-geometry validation results (2026-05-23) |
-| `analysis/logs/neighbour_drain_summary.json` | Canonical results data |
+| `data/neighbour_drain_summary.json` | Canonical results data |
 
 > **Note on historical dpg_validation references (disclosure added 2026-07-12).** An earlier version of this document referenced `dpg_validation/scripts/t535_neighbour_drain_official.py` and `dpg_validation/outputs/t535_neighbour_drain_official.csv` as planned deliverables. Those files were never produced; the dpg_validation/ directory does not exist in the repo. The official-geometry validation was instead performed via `analysis/scripts/neighbour_drain_adjacency.py` and documented in `findings/neighbour_drain_analysis.md` (canonical run, 2026-05-23). The canonical results are the authoritative validation baseline and supersede any planned dpg_validation output.
+>
+> **Correction (2026-07-13):** The row above previously cited `analysis/logs/neighbour_drain_summary.json` as "Canonical results data." That file was never committed to git (an untracked local artifact) and its contents — coupled counts 3/3/4, ratio 1.33× — actually matched the report's own documented-as-superseded "v0_8 DPG sensitivity check" reading (report_academic.md §5.3.5), not the canonical official-shapefile run. It has been removed. The correct, git-tracked canonical output is `data/neighbour_drain_summary.json` (coupled counts 2019=5 / majority=2 / minority=1, ratio 0.50×), verified reproducible by rerunning `analysis/scripts/neighbour_drain_adjacency.py` 2026-07-13 — byte-identical to the committed file.

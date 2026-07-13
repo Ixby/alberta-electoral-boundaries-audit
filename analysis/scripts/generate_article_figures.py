@@ -27,13 +27,15 @@ Outputs
   - maps/article/figure_calgary_v3.svg
 
 Run
-  PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_article_figures.py
+  PYTHONIOENCODING=utf-8 python analysis/scripts/generate_article_figures.py
 
-Dependencies
-  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg,
+Dependencies (corrected 2026-07-13 — this docstring referenced the deprecated
+DPG-era `v0_10_topological_minority_2026_eds.gpkg`; the actual code (PATH_MIN_V7,
+below) already loads the canonical shapefile and always has)
+  Forward  : data/shapefiles/canonical/ea_minority_2026_eds.gpkg,
              data/shapefiles/reference/alberta_2021_csds.gpkg,
              data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
-  Backward : maps/article/figure_*_v3.svg,
+  Backward : data/maps/article/figure_*_v3.svg,
              findings/article_figures_v3.md,
              report_public.md (four figure references updated to _v3)
 

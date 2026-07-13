@@ -124,9 +124,9 @@ The minority/majority ratio of coupled signals is 0.50x — no material differen
 ## Phase-space heatmap commentary
 
 Density plots at:
-- `maps/neighbour_drain_phase_space_2019.svg`
-- `maps/neighbour_drain_phase_space_majority.svg`
-- `maps/neighbour_drain_phase_space_minority.svg`
+- `data/maps/neighbour_drain_phase_space_2019.svg`
+- `data/maps/neighbour_drain_phase_space_majority.svg`
+- `data/maps/neighbour_drain_phase_space_minority.svg`
 
 Axes: $s_X$ (horizontal, 0.00 to 0.40) vs $m_Y$ (vertical, 0.00 to 0.50).
 Each point is one directed adjacent pair. Coupled pairs are red; uncoupled are
@@ -145,10 +145,10 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 ## Paper-ready paragraph (for §5.3.5)
 
-Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. We operationalise spatial coupling — whether packed EDs sit adjacent to cracked ones, as would be expected under a partisan-drain design — via a neighbour-drain adjacency test. For each directed pair (X, Y) of adjacent EDs, we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the restriction that the losing party in X equals the losing party in Y. On the 2023 vote substrate: 2019 enacted map 5 coupled signals; majority 2026 map 2; minority 2026 map 1 (ratio 0.50x minority/majority, 0.20x minority/2019). The inter-map spread is within the sampling noise of the adjacency operator across thresholds (Table 5.3.5), and the phase-space density plots (maps/neighbour_drain_phase_space_*.svg) show no visible hot-spot asymmetry between the two 2026 maps. We conclude the structural asymmetry documented in §5.3.1 and §5.3.2 does not additionally concentrate at the adjacency scale; whole-map statistics are the appropriate scale for this dataset and the adjacency test does not provide independent amplification of the finding.
+Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. We operationalise spatial coupling — whether packed EDs sit adjacent to cracked ones, as would be expected under a partisan-drain design — via a neighbour-drain adjacency test. For each directed pair (X, Y) of adjacent EDs, we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the restriction that the losing party in X equals the losing party in Y. On the 2023 vote substrate: 2019 enacted map 5 coupled signals; majority 2026 map 2; minority 2026 map 1 (ratio 0.50x minority/majority, 0.20x minority/2019). The inter-map spread is within the sampling noise of the adjacency operator across thresholds (Table 5.3.5), and the phase-space density plots (data/maps/neighbour_drain_phase_space_*.svg) show no visible hot-spot asymmetry between the two 2026 maps. We conclude the structural asymmetry documented in §5.3.1 and §5.3.2 does not additionally concentrate at the adjacency scale; whole-map statistics are the appropriate scale for this dataset and the adjacency test does not provide independent amplification of the finding.
 
 ## Outputs
 
 - Per-pair log: `findings/neighbour_drain_log.csv`
 - Summary JSON: `data/neighbour_drain_summary.json`
-- Phase-space plots: `maps/neighbour_drain_phase_space_{2019,majority,minority}.svg`
+- Phase-space plots: `data/maps/neighbour_drain_phase_space_{2019,majority,minority}.svg`

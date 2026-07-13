@@ -9,13 +9,13 @@ draws each node as a coloured box with its label. The fallback is legible
 enough for PO review and does not depend on Graphviz being installed.
 
 Usage:
-    python analysis/scripts/v0_1_dependency_graph_render.py          # primary
-    python analysis/scripts/v0_1_dependency_graph_render.py --pure   # force pure-Python
+    python analysis/scripts/dependency_graph_render.py          # primary
+    python analysis/scripts/dependency_graph_render.py --pure   # force pure-Python
 
 Outputs:
-    maps/audit_dependency_graph.svg
+    data/outputs/audit_dependency_graph.svg
 
-Forward: maps/audit_dependency_graph.svg
+Forward: data/outputs/audit_dependency_graph.svg
 Backward:
   analysis/methodology/audit_dependency_graph.json
   analysis/methodology/audit_dependency_graph.dot

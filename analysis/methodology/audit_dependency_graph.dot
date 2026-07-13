@@ -116,7 +116,6 @@ digraph audit_dependency_graph {
     "L2:build_academic_pdf" [label="build_academic_pdf", fillcolor="#fce4a7"];
     "L2:build_canonical_va_votes" [label="build_canonical_va_votes", fillcolor="#fce4a7"];
     "L2:build_cover" [label="Build cover page", fillcolor="#fce4a7"];
-    "L2:build_html_reports" [label="build_html_reports", fillcolor="#fce4a7"];
     "L2:check_voice_and_readability" [label="Voice and readability checker", fillcolor="#fce4a7"];
     "L2:chen_rodden_decomposition" [label="chen_rodden_decomposition", fillcolor="#fce4a7"];
     "L2:core_retention" [label="core_retention", fillcolor="#fce4a7"];

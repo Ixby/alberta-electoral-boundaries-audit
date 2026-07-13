@@ -578,7 +578,7 @@ def main() -> None:
         import data_loader as _data_loader
         from data_loader import FINDINGS as out_reports_dir
     out_data_dir = _data_loader._resolve_path("data")
-    out_maps_dir = ROOT / "maps"
+    out_maps_dir = out_data_dir / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):
         d.mkdir(parents=True, exist_ok=True)
 

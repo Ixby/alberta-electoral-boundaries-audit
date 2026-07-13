@@ -18,7 +18,7 @@ CLI instead of a paragraph of prose.
 | --- | --- |
 | `analysis/methodology/audit_dependency_graph.json` | Machine-readable DAG (nodes, edges, metadata). |
 | `analysis/methodology/audit_dependency_graph.dot` | Graphviz DOT source, generated from the JSON. |
-| `maps/audit_dependency_graph.svg` | Rendered visualisation (via `dot -Tsvg` or the pure-Python fallback). |
+| `data/outputs/audit_dependency_graph.svg` | Rendered visualisation (via `dot -Tsvg` or the pure-Python fallback). |
 | `analysis/scripts/dependency_graph_build.py` | Builder — produces the JSON and the DOT from the repo state. |
 | `analysis/scripts/dependency_graph_render.py` | Renderer — emits the SVG (prefers Graphviz; falls back to pure-Python). |
 | `analysis/scripts/dependency_query.py` | Query CLI — answers invalidation questions. |
@@ -302,7 +302,7 @@ The following 148-word paragraph can be inserted directly into §4.6
 
 > *Defense in depth is operationalised in the audit's machine-readable
 > dependency graph (`analysis/methodology/audit_dependency_graph.json`,
-> 280 nodes / 410 edges across four layers: raw data, constructed data,
+> 279 nodes / 410 edges across four layers: raw data, constructed data,
 > measurement scripts, findings). The graph supports an invalidation
 > query — "if reviewer rejects node X, which §5 findings survive?" —
 > implemented as a CLI (`dependency_query.py`). Running the query
@@ -374,9 +374,9 @@ scoped as 1–2 weeks of follow-up work. Four of the five items in that
 scope are now present:
 
 - **Item 1 (JSON with nodes + edges + metadata)** → done
-  (`audit_dependency_graph.json`, 280 nodes / 410 edges).
+  (`audit_dependency_graph.json`, 279 nodes / 410 edges).
 - **Item 2 (Graphviz DOT render)** → done
-  (`audit_dependency_graph.dot` + `maps/audit_dependency_graph.svg`).
+  (`audit_dependency_graph.dot` + `data/outputs/audit_dependency_graph.svg`).
 - **Item 3 (query script)** → done (`dependency_query.py`).
 - **Item 4 (methods-paper appendix)** → paragraph in §7 of this readme.
 
