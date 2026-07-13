@@ -260,9 +260,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Direction consistency: 90.5% of samples show minority more UCP-favorable. Classical 95% significance is not defensible.
-**Why?** What is the difference between 90.5% direction consistency and 95% classical significance?
-**Answer:** Classical statistical significance in this context means that 95% of your uncertainty range would need to favor the same conclusion — that the minority map consistently advantages the UCP. At 90.5%, roughly 9 in 10 of the simulated parameter sets point the same direction, but about 1 in 10 do not. That is a strong directional signal but falls short of the conventional threshold. The audit reports it honestly as a "defensible directional claim" rather than overstating it as a definitive finding.
+**Assertion:** [RETIRED 2026-07-12, C11] Direction consistency: 90.5% of samples show minority more UCP-favorable. Classical 95% significance is not defensible.
+**Why?** This was a Monte Carlo check over a vote-attribution model (blend of urban/rural weights) that the audit itself replaced with an exact computation. What replaced it, and does the audit still avoid claiming 95% significance?
+**Answer:** The 90.5%-of-samples figure came from varying a *model's* free parameters (urban weight, rural baseline, per-hybrid jitter) — a check for whether the finding survived guesses about how to estimate vote attribution. That model, and the guesswork it required, was replaced in May 2026 by Phase 4C: an exact spatial computation of which voters fall in which district, with no parameters to guess. The applicable question changed from "does the finding survive parameter uncertainty?" to "does the finding survive attribution-*method* uncertainty?" — and it does: three different attribution methods (the audit's own, plus two independent checks) agree to within 0.1 percentage points. The audit still does not claim classical statistical significance, but not because of a confidence interval crossing zero — Phase 4C's number isn't a sampling estimate with a confidence interval at all, it's an exact count from the actual votes. The remaining honest caveat is that the finding depends on the 2023 electoral context and does not hold under 2019 vote data (see the cross-election question above).
 
 ---
 
@@ -571,9 +571,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** 90.5% of 2,000 Monte Carlo samples show the minority EG more UCP-favorable than the majority; the 95% interval [−3.04, +0.76] pp crosses zero.
-**Why?** If the confidence interval crosses zero, can the direction really be called confirmed?
-**Answer:** The 90.5% figure means the direction holds in nine out of ten reasonable parameter choices — not 100%, which is why the interval crosses zero. The report treats this as a "directional observation at approximately 90% of draws," not a classical significant finding. The interval crosses zero because parameter uncertainty (especially urban weight and rural baseline) is large enough to occasionally flip the sign. The honest summary is: the minority is more UCP-favorable under the most plausible parameters, but this direction is not invariant to every parameter choice. The structural signals in §5.1 and §5.8 — which use no vote data — are not subject to this contingency.
+**Assertion:** [RETIRED 2026-07-12, C11] 90.5% of 2,000 Monte Carlo samples show the minority EG more UCP-favorable than the majority; the 95% interval [−3.04, +0.76] pp crosses zero.
+**Why?** This was a check over a superseded model's parameters. What replaced it, and can the direction still be called confirmed?
+**Answer:** The 90.5%-of-samples / crosses-zero figures came from the retired blend model's parameter uncertainty (urban weight, rural baseline). Phase 4C replaced that model with an exact computation — +3.92 pp, not an estimate with a confidence interval — and the applicable robustness check is now attribution-method agreement: centroid, area-weighted, and population-weighted MAUP agree to within 0.1 pp. The honest summary is: the minority is more UCP-favorable under every attribution method tested, and the finding depends on electoral context, not on modeling-parameter uncertainty. The structural signals in §5.1 and §5.8 — which use no vote data — are not subject to either contingency.
 
 ---
 
@@ -901,7 +901,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The four surviving structural signals all survive the stress-tests documented in §1.2.
 **Why?** What are the stress-tests and what does "surviving" them mean?
-**Answer:** The stress-tests are the three families of sensitivity analysis described in §1.2: substituting different vote inputs (2015, 2019, 2023), varying the geographic classification rules, and changing ensemble parameters. A signal "survives" if the direction of the finding — minority more extreme than majority — holds up regardless of which reasonable variant is used. All four non-vote signals (population MAD, Calgary zone gap, Airdrie splits, chair-flagged anomalies) survive because they do not depend on vote data at all. The statistical signals survive on direction (90.5% consistency across Monte Carlo draws) but not on classical 95% magnitude significance.
+**Answer:** The stress-tests are the three families of sensitivity analysis described in §1.2: substituting different vote inputs (2015, 2019, 2023), varying the geographic classification rules, and changing ensemble parameters. A signal "survives" if the direction of the finding — minority more extreme than majority — holds up regardless of which reasonable variant is used. All four non-vote signals (population MAD, Calgary zone gap, Airdrie splits, chair-flagged anomalies) survive because they do not depend on vote data at all. The statistical signal survives on direction — stable across three attribution methods to within 0.1 pp (superseding the retired blend-model Monte Carlo check, C11) — but the magnitude is not a classical significance claim, since Phase 4C's figure is an exact computation rather than a sampling estimate.
 
 ---
 
@@ -1185,7 +1185,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The partisan-bias signal should be read as a directional observation, not a point estimate.
 **Why?** What is the difference between a directional observation and a point estimate?
-**Answer:** A point estimate would say: "the minority map gives the UCP exactly 1.41 percentage points more efficiency-gap advantage than the majority map." A directional observation says: "across most reasonable ways of modeling vote attribution, the minority map consistently favors the UCP more than the majority map does." The Monte Carlo interval [−3.04, +0.76] shows the point estimate is too uncertain to state precisely. What is stable is the direction: 90.5% of model variants agree the minority is more UCP-favorable. The audit reports the direction honestly without overstating the precision.
+**Answer:** A point estimate would say: "the minority map gives the UCP exactly 3.92 percentage points more efficiency-gap advantage than the majority map" — and, unlike the retired blend model's 1.41 pp estimate, Phase 4C's +3.92 pp *is* an exact computation from observed votes, not a modeled guess. What the audit still reports as a directional (not classical-significance) claim is the finding's dependence on which electorate is asked: it holds under 2023 votes and April 2026 polling but reverses under 2019 votes. The audit reports the direction and its electoral-context dependence honestly rather than overstating the finding as election-invariant.
 
 ---
 
@@ -1389,7 +1389,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Three modelling-uncertainty tests materially narrow the partisan-bias magnitude claim while leaving the structural findings intact.
 **Why?** If three tests narrow the magnitude claim, should the magnitude claim be dropped entirely?
-**Answer:** The tests show the magnitude is uncertain — the 95% confidence interval crosses zero — but they do not show the magnitude is zero. 90.5% directional consistency across 2,000 Monte Carlo draws is a strong signal even if it falls short of the 95% classical significance threshold. The appropriate response is to report the finding with accurate uncertainty bounds rather than either (a) asserting a precise magnitude or (b) dropping the finding entirely. The audit does (a) correctly by reporting both the central estimate and the uncertainty interval.
+**Answer:** Phase 4C's magnitude (+3.92 pp) is an exact computation, stable to within 0.1 pp across three independent attribution methods — a strong, reproducible signal, even though "classical 95% significance" doesn't directly apply to an exact count the way it would to a sampling estimate. The appropriate response is to report the finding with its actual dependence — on electoral context (2023 vs. 2019 votes), not on modeling-parameter guesswork — rather than either (a) asserting the finding is election-invariant or (b) dropping it entirely. The audit does (a) correctly by reporting both the exact figure and the electoral-context caveat.
 
 ---
 

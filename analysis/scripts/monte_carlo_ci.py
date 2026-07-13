@@ -7,8 +7,32 @@ Monte Carlo Sensitivity Interval over Modeling Choices
 ======================================================
 v0.3 — fortification of v0.2 pointwise sensitivity
 
+**RETIRED 2026-07-12 — DOCUMENTED CORRECTIONS C11, report_academic.md.**
+This script tests parameter uncertainty in the v0.2 blend model
+(urban_weight / rural_ndp_share / per-hybrid jitter), which was itself
+retired 2026-05-18 in favour of Phase 4C's exact VA-level spatial
+attribution (DOCUMENTED CORRECTIONS C5) — Phase 4C has no free
+parameters to vary, so this kind of check doesn't have a direct
+successor form. Its import of `estimate_2026` from
+`packing_cracking_analysis.py` broke when that function was removed at
+the same retirement and has been broken since; this was not noticed
+until the 2026-07-12 post-ensemble-rerun magic-number audit, because
+nothing had tried to rerun it in the interim and its hardcoded output
+values (never persisted to a file before this) had simply stayed in
+the report text. JSON persistence was added below despite the
+retirement, for provenance if the blend model is ever re-examined —
+but the script is not being fixed to run again: reconstructing a
+retired model's parameter uncertainty to caveat a claim that is no
+longer based on that model would not improve accuracy. The report's
+current attribution-method sensitivity check (centroid vs.
+population-weighted MAUP, agreeing to within 0.1 pp; see
+`findings/maup_attribution_canonical.md`) is the applicable robustness
+statement for Phase 4C's exact figures now.
+
 Answers the critic's question: "How do you know the 0.58 pp asymmetry
-is distinguishable from zero, given your modeling uncertainty?"
+is distinguishable from zero, given your modeling uncertainty?" (This
+question was about the blend model; see the retirement note above for
+why it's a Phase-4C-obsolete question phrased against a Phase-4C-obsolete number.)
 
 Samples:
   - urban_weight ~ Uniform(0.55, 0.85)
