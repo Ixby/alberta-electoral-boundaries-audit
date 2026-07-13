@@ -26,7 +26,7 @@ Secondary ensemble runs use the same drand beacon round (5500000) as the canonic
 
 | Run ID | Salt | Derived seed | Steps | Chains | Status | Purpose |
 |---|---|---|---|---|---|---|
-| `section_c` | `"mcmc_ensemble_section_c"` | 3562959107 | 100,000 | 4 | Completed 2026-05-12; outputs at `data/sim*_section_c.*`; report §5.4.9 line 1358 numbers verified against `data/simulated_ensemble_percentiles_section_c.csv` 2026-05-18 | Cross-election EG thresholds (Option C); population MAD and Reock stability check |
+| `section_c` | `"mcmc_ensemble_section_c"` | 3562959107[^section_c_repro] | 100,000 | 4 | Completed 2026-05-12; outputs at `data/sim*_section_c.*`; report §5.4.9 line 1358 numbers verified against `data/simulated_ensemble_percentiles_section_c.csv` 2026-05-18 | Cross-election EG thresholds (Option C); population MAD and Reock stability check |
 | `b5_variant` | `"b5-variant"` | 1155916443 | 50,000 | 1 | Completed 2026-05-18; 75k rows in checkpoint (25k from first partial attempt + 50k from confirmed run, same seed); central-tendency check passed 2026-05-18; analysis done manually from checkpoint — post-processing process was killed after it stalled waiting on Git LFS canonical raw samples | Secondary central-tendency stability check for canonical partisan metrics |
 
 ### Verification
@@ -42,6 +42,8 @@ python analysis/scripts/drand_seed.py --salt "b5-variant"
 ```
 
 Any reviewer can verify drand round 5500000 randomness at `https://drand.cloudflare.com/public/5500000`.
+
+[^section_c_repro]: **Reproducibility gap disclosed 2026-07-13.** Running `python analysis/scripts/drand_seed.py --salt "mcmc_ensemble_section_c"` today returns 1,244,748,541, not 3,562,959,107. A search across every plausible salt variant (`section_c`, `mcmc_section_c`, `alberta-audit-section-c`, `mcmc_ensemble_option_c`, `option_c`, `s58a6`, `threshold_2019`, `threshold_2015`, and others) against the canonical round-5500000 randomness found none that reproduce 3,562,959,107. The seed itself is not in doubt as *used* — it is hardcoded directly in `analysis/scripts/build_cross_election_va.py` (`--seed 3562959107`) and the Section C ensemble it produced is real, cross-referenced consistently across `reports/academic/report_academic.md` §5.2.8/§5.4.9/Appendix and `preregistration/seed_robustness_rerun.md`/`thresholds.md`. What does not hold up is the specific claim that it was *derived* via `get_canonical_seed("mcmc_ensemble_section_c")` — that call now produces a different value. This is flagged rather than silently corrected; it does not change any reported result, since the actually-used seed and its outputs are unaffected.
 
 ---
 

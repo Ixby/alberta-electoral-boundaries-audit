@@ -1,11 +1,3 @@
-> **Backward:**
-> - municipal-split detection script in `analysis/scripts/` (companion analysis)
-> - 2019, majority 2026, and minority 2026 ED shapefiles; municipality population/centroid inputs
->
-> **Forward:**
-> - `reports/academic/report_academic.md` — incorporates municipal-split counts
-> - `findings/README.md` — indexes this finding
-
 # Municipal Splits — Alberta 2026 Electoral Maps
 
 Significant municipalities: Cities, Towns, Specialized Municipalities with ≥300 VA votes (~3,000 residents).
@@ -15,24 +7,35 @@ Significant municipalities: Cities, Towns, Specialized Municipalities with ≥30
 | Map | Municipalities split (≥2 EDs) | Change vs 2019 |
 |-----|-------------------------------|----------------|
 | 2019 enacted  | 10 | baseline |
-| Majority 2026 | 8  | -2 |
-| Minority 2026 | 11  | +1 |
+| Majority 2026 | 10  | +0 |
+| Minority 2026 | 20  | +10 |
 
 ## New Splits — Majority 2026
 
 | Municipality | Type | 2019 EDs | Majority EDs | +splits |
 |---|---|---|---|---|
-| Cochrane | T | 1 | 2 | +1 |
-| Lac la Biche County | SM | 1 | 3 | +2 |
+| Calgary | CY | 26 | 27 | +1 |
+| Edmonton | CY | 20 | 21 | +1 |
 
 ## New Splits — Minority 2026
 
 | Municipality | Type | 2019 EDs | Minority EDs | +splits |
 |---|---|---|---|---|
-| Strathcona County | SM | 3 | 10 | +7 |
-| Airdrie | CY | 2 | 3 | +1 |
+| Calgary | CY | 26 | 27 | +1 |
+| Edmonton | CY | 20 | 22 | +2 |
+| Red Deer | CY | 2 | 4 | +2 |
+| Lethbridge | CY | 2 | 4 | +2 |
+| St. Albert | CY | 2 | 3 | +1 |
+| Airdrie | CY | 2 | 4 | +2 |
 | Okotoks | T | 1 | 2 | +1 |
-| Beaumont | CY | 1 | 2 | +1 |
+| Chestermere | CY | 1 | 2 | +1 |
+| Stony Plain | T | 1 | 2 | +1 |
+| Sylvan Lake | T | 1 | 2 | +1 |
+| Canmore | T | 1 | 2 | +1 |
+| Blackfalds | T | 1 | 2 | +1 |
 | Lac la Biche County | SM | 1 | 2 | +1 |
+| Coaldale | T | 1 | 2 | +1 |
+| Crowsnest Pass | SM | 1 | 2 | +1 |
+| Devon | T | 1 | 2 | +1 |
 
-_Generated 2026-04-24 22:28_
+_Generated 2026-07-12 22:01_

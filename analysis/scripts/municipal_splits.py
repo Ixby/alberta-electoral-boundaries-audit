@@ -84,11 +84,25 @@ def count_splits(
     csds: gpd.GeoDataFrame,
     eds: gpd.GeoDataFrame,
     label: str,
-    min_overlap_m2: float = 50000.0,
+    min_overlap_m2: float = 500000.0,
+    min_overlap_pct: float = 0.01,
 ) -> pd.DataFrame:
     """
     For each CSD, count how many EDs it intersects with non-trivially.
-    min_overlap_m2: minimum intersection area (m²) to count as a real split (default 5 ha).
+    min_overlap_m2: minimum intersection area (m^2) to count as a real split.
+    min_overlap_pct: minimum share of the CSD's own area an intersection must
+        cover to count as a real split. Both conditions must hold.
+
+    Calibration note (2026-07-13): the original 50,000 m^2 (5 ha) absolute-only
+    threshold was set against smoothed DPG-era geometry. Official Elections
+    Alberta boundaries are precise and jagged, and produce many boundary-touching
+    slivers well above 5 ha in large/complex municipalities (e.g. Strathcona
+    County had 5-6 "hits" under 16 ha each -- 0.001-0.013% of its area -- that
+    the 5 ha floor alone did not filter). Requiring >=1% of the CSD's own area
+    in addition to a 50 ha floor separates genuine splits (all observed
+    substantive splits check in at >=5% of CSD area) from geometric artifacts
+    in every municipality spot-checked (Strathcona, Lac la Biche County,
+    Mackenzie County, Drumheller, Airdrie).
     """
     csds_proj = csds.to_crs(eds.crs)
 
@@ -97,6 +111,7 @@ def count_splits(
         csd_geom = csd.geometry
         if csd_geom is None or csd_geom.is_empty:
             continue
+        csd_area = csd_geom.area
 
         ed_hits = []
         for _, ed in eds.iterrows():
@@ -110,7 +125,7 @@ def count_splits(
             if inter.is_empty:
                 continue
             area = inter.area
-            if area >= min_overlap_m2:
+            if area >= min_overlap_m2 and (csd_area <= 0 or area / csd_area >= min_overlap_pct):
                 ed_hits.append(ed["name_2026"])
 
         rows.append(
@@ -235,8 +250,8 @@ def main():
     print("[municipal splits] Loading data...")
     csds = gpd.read_file(CSD_PATH)
     va = gpd.read_file(VA_PATH)
-    maj = gpd.read_file(MAJ_V7)
-    mn = gpd.read_file(MIN_V7)
+    maj = gpd.read_file(MAJ_V7).rename(columns={"EDName2025": "name_2026"})
+    mn = gpd.read_file(MIN_V7).rename(columns={"EDName2025": "name_2026"})
 
     # Compute VA votes per CSD (population proxy)
     print("  Computing VA votes per CSD...")

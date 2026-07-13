@@ -1,0 +1,145 @@
+{
+  "summary": {
+    "2019_enacted": {
+      "n_splits": 10
+    },
+    "majority_2026": {
+      "n_splits": 10,
+      "delta_vs_2019": 0
+    },
+    "minority_2026": {
+      "n_splits": 20,
+      "delta_vs_2019": 10
+    }
+  },
+  "new_splits_majority": [
+    {
+      "csd_name": "Calgary",
+      "csd_type": "CY",
+      "va_votes": 265036,
+      "n_eds_2019": 26,
+      "n_eds_maj": 27
+    },
+    {
+      "csd_name": "Edmonton",
+      "csd_type": "CY",
+      "va_votes": 190798,
+      "n_eds_2019": 20,
+      "n_eds_maj": 21
+    }
+  ],
+  "new_splits_minority": [
+    {
+      "csd_name": "Calgary",
+      "csd_type": "CY",
+      "va_votes": 265036,
+      "n_eds_2019": 26,
+      "n_eds_min": 27
+    },
+    {
+      "csd_name": "Edmonton",
+      "csd_type": "CY",
+      "va_votes": 190798,
+      "n_eds_2019": 20,
+      "n_eds_min": 22
+    },
+    {
+      "csd_name": "Red Deer",
+      "csd_type": "CY",
+      "va_votes": 23670,
+      "n_eds_2019": 2,
+      "n_eds_min": 4
+    },
+    {
+      "csd_name": "Lethbridge",
+      "csd_type": "CY",
+      "va_votes": 21057,
+      "n_eds_2019": 2,
+      "n_eds_min": 4
+    },
+    {
+      "csd_name": "St. Albert",
+      "csd_type": "CY",
+      "va_votes": 17373,
+      "n_eds_2019": 2,
+      "n_eds_min": 3
+    },
+    {
+      "csd_name": "Airdrie",
+      "csd_type": "CY",
+      "va_votes": 15401,
+      "n_eds_2019": 2,
+      "n_eds_min": 4
+    },
+    {
+      "csd_name": "Okotoks",
+      "csd_type": "T",
+      "va_votes": 6498,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Chestermere",
+      "csd_type": "CY",
+      "va_votes": 3615,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Stony Plain",
+      "csd_type": "T",
+      "va_votes": 3341,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Sylvan Lake",
+      "csd_type": "T",
+      "va_votes": 2825,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Canmore",
+      "csd_type": "T",
+      "va_votes": 2345,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Blackfalds",
+      "csd_type": "T",
+      "va_votes": 1945,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Lac la Biche County",
+      "csd_type": "SM",
+      "va_votes": 1688,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Coaldale",
+      "csd_type": "T",
+      "va_votes": 1592,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Crowsnest Pass",
+      "csd_type": "SM",
+      "va_votes": 1454,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Devon",
+      "csd_type": "T",
+      "va_votes": 1397,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    }
+  ]
+}
