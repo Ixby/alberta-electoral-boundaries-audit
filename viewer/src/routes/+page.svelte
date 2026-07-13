@@ -379,7 +379,6 @@
       <p>{t(lang.current, 'epigraph.author_p2')}</p>
       <p class="epigraph-attrib">— {t(lang.current, 'epigraph.author_label')}</p>
     </blockquote>
-    <p class="epigraph-ethic">{t(lang.current, 'epigraph.ethic')}</p>
   </div>
 </section>
 
