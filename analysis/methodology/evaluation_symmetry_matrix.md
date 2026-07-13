@@ -23,8 +23,8 @@
 |---|---|---|---|---|
 | Ch1 Mahalanobis joint outlier | p = 8.80×10⁻⁷ | p = 0.101 | Yes | `findings/joint_outlier_score.json`; report §5.4.9 |
 | Efficiency gap (ensemble percentile) | p94.4 | p15.5 | Yes | report §5.4.9 |
-| Mean–median | p99.98 (UCP-tail) | p0.924 (NDP-tail) | Yes | report §5.4.9; `simulated_ensemble_percentiles_canonical.csv` |
-| Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p20.4 | Yes | report §5.4.9 |
+| Mean–median | p99.97 (UCP-tail) | p0.99 (NDP-tail) | Yes | report §5.4.9; `simulated_ensemble_percentiles_canonical.csv` |
+| Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p21.85 | Yes | report §5.4.9 |
 | Seats @ 50/50 | p99.99 | p77.8 | Yes | report §5.4.9 |
 | Drain / neighbour-drain (Ch3) | anomalously low (z = −2.75, p ≤ 0.0002) | anomalously low (z = −3.17, p ≤ 0.0002) | Yes | `findings/drain_label_shuffle_null_canonical.json` |
 | CSD / municipal anchoring | 71.8% | 80.0% | Yes | report §5.8.5 |
@@ -36,7 +36,7 @@
 | Extended partisan metrics | scored | scored | Yes | `extended_partisan_metrics_canonical.json` |
 | **Structural battery (S1–S6)** | **5/5 — `replicated`** | **0/5 — `not_replicated`** | **Yes (demonstrated 2026-06-14)** | §2 below |
 
-The strongest internal evidence that this matrix reflects genuine symmetry and not nominal even-handedness: the audit **reports the majority's own outlier honestly**. The majority sits at mean–median p0.924 — in the NDP-cracking tail, outside the p5 floor — and that is recorded in §5.4.9 as a pre-registered positive finding (Row 8), not suppressed.
+The strongest internal evidence that this matrix reflects genuine symmetry and not nominal even-handedness: the audit **reports the majority's own outlier honestly**. The majority sits at mean–median p0.99 — in the NDP-cracking tail, outside the p5 floor — and that is recorded in §5.4.9 as a pre-registered positive finding (Row 8), not suppressed.
 
 Of 80 tracked result JSONs, every map-scoring output carries both maps except the structural-battery files (one candidate per file, by design — see §2) and reference-baseline files (e.g. the 2019 enacted map).
 

@@ -503,11 +503,11 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.98, Seats at 50/50 at p99.99, Declination at p1.21 (NDP-tail).
-**Why?** What does "p99.98" mean and why is declination at p98.79 (UCP-tail, post-Amendment-10; was p1.21 NDP-tail under pre-Amendment-10 swapped operand) a problem when the others are at p99.98?
+**Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.97, Seats at 50/50 at p99.99, Declination at p1.21 (NDP-tail).
+**Why?** What does "p99.97" mean and why is declination at p98.79 (UCP-tail, post-Amendment-10; was p1.21 NDP-tail under pre-Amendment-10 swapped operand) a problem when the others are at p99.97?
 **[Corrected — Amendment 10, 2026-06-12.** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
 
-**Answer:** p99.98 means the minority map's mean-median score is higher than 99.98% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
+**Answer:** p99.97 means the minority map's mean-median score is higher than 99.98% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
 
 ---
 
@@ -631,7 +631,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The 7% EG threshold from Stephanopoulos and McGhee was calibrated to US Congressional delegations; it has never been adopted by any Canadian court. Option D, the Alberta-derived 95th-percentile threshold, is 4.10% (canonical 1M ensemble). Both 2026 maps fall below 4.10%.
 **Why?** If both maps are below the Alberta-derived threshold, doesn't that mean neither map is an EG outlier?
-**Answer:** Correct — on the efficiency gap metric alone, neither map triggers the outlier flag under the Alberta-calibrated 4.10% threshold. The minority's canonical EG is +4.02% (p94.4), just below the 4.10% / p95 line. The EG flag is accordingly withdrawn in the canonical analysis. This is consistent with the audit's overall finding: EG alone does not make the case; the case rests on three metrics that do trigger flags (mean-median p99.98, seats-at-50/50 p99.99, Mahalanobis D²) combined with the structural signals. The sub-threshold EG result is reported honestly as a null result on that specific metric, not discarded.
+**Answer:** Correct — on the efficiency gap metric alone, neither map triggers the outlier flag under the Alberta-calibrated 4.10% threshold. The minority's canonical EG is +4.02% (p94.4), just below the 4.10% / p95 line. The EG flag is accordingly withdrawn in the canonical analysis. This is consistent with the audit's overall finding: EG alone does not make the case; the case rests on three metrics that do trigger flags (mean-median p99.97, seats-at-50/50 p99.99, Mahalanobis D²) combined with the structural signals. The sub-threshold EG result is reported honestly as a null result on that specific metric, not discarded.
 
 ---
 
@@ -693,8 +693,8 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Minority Mean-Median p99.98 on canonical 1M ensemble.
-**Why?** What does "p99.98 on canonical 1M ensemble" mean in plain terms?
+**Assertion:** Minority Mean-Median p99.97 on canonical 1M ensemble.
+**Why?** What does "p99.97 on canonical 1M ensemble" mean in plain terms?
 **Answer:** The canonical ensemble of one million randomly drawn legal Alberta maps produces one million different mean-median scores. The minority map's actual mean-median score is higher than 99.98% of those million scores — meaning only about 200 maps out of every million random maps are as extreme as the minority map on this measure. Said differently: if you drew Alberta maps randomly, following all the legal rules, you would almost never produce a map as extreme as the minority proposal by accident.
 
 ---
@@ -829,7 +829,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.97, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
 **Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
 **Answer:** The DPG-era runs used approximate boundary tracings the audit team constructed from commission PDF thumbnails before official shapefiles were available. Where those approximations differed from the actual boundary lines — particularly in rural areas near the fringe of cities — vote attribution to individual EDs changed when the official files arrived. The canonical run is the first analysis using the same shapefiles Elections Alberta actually uses; it is the only run whose results can be verified against the official record. The §4.1.4 sunset clause bound the audit to replace all DPG-era results with canonical results within two weeks of shapefile release; this run fulfills that commitment.
 
@@ -841,9 +841,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map's mean-median is at p0.85 — an unexpected NDP-tail outlier. This is explained as rural-district preservation interacting with Alberta's vote geography, not partisan engineering.
+**Assertion:** The majority map's mean-median is at p0.99 — an unexpected NDP-tail outlier. This is explained as rural-district preservation interacting with Alberta's vote geography, not partisan engineering.
 **Why?** If a result is unexpected, how can the audit be confident it is not a measurement artifact?
-**Answer:** The DPG runs did not show this outlier because DPG geometry lacked the spatial precision to capture the exact vote distribution in rural fringe districts. The official shapefiles resolve VA-to-ED assignments differently in those fringe areas, producing a more accurate distribution. The canonical majority map's NDP district-share distribution has a pronounced left tail from preserved rural districts voting 15–30% NDP. These districts produce an unusual mean-median reading because the formula is sensitive to clusters of low-NDP districts dragging the mean away from the median. The mechanism is documented and explainable; the result is consistent across several cross-checks and is not reversed by any sensitivity test in the canonical run. Critically, all other majority metrics (EG p15.5, declination p79.6, seats@50/50 p77.8, Mahalanobis p = 0.101) are within the neutral null — a single-metric outlier with all others inside null is the expected signature of a commission boundary convention, not partisan manipulation.
+**Answer:** The DPG runs did not show this outlier because DPG geometry lacked the spatial precision to capture the exact vote distribution in rural fringe districts. The official shapefiles resolve VA-to-ED assignments differently in those fringe areas, producing a more accurate distribution. The canonical majority map's NDP district-share distribution has a pronounced left tail from preserved rural districts voting 15–30% NDP. These districts produce an unusual mean-median reading because the formula is sensitive to clusters of low-NDP districts dragging the mean away from the median. The mechanism is documented and explainable; the result is consistent across several cross-checks and is not reversed by any sensitivity test in the canonical run. Critically, all other majority metrics (EG p16.5, declination p21.85, seats@50/50 p78.5, Mahalanobis p = 0.102) are within the neutral null — a single-metric outlier with all others inside null is the expected signature of a commission boundary convention, not partisan manipulation.
 
 ---
 
@@ -857,7 +857,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Metric-by-metric trajectory: majority corrected the 2019 Declination anomaly (p9.4 → p80.6) and moved EG toward neutral; minority preserved and amplified Declination anomaly (p9.4 → p1.21), and dramatically extended MM (p92.1 → p99.98) and seats@50/50 (p77.8 → p99.99) in the UCP direction.
+**Assertion:** Metric-by-metric trajectory: majority moved the 2019 Declination reading toward neutral (p91.05 → p21.85, UCP-side to NDP-side) and moved EG toward neutral; minority preserved and amplified Declination in the UCP direction (p91.05 → p98.79), and dramatically extended MM (p91.5 → p99.97) and seats@50/50 (p77.8 → p99.99) in the UCP direction.
 **Why?** Does a trajectory comparison like this prove the minority was drawing off the 2019 map and adding partisan tilt?
 **Answer:** No — the trajectory comparison shows what each proposal did to the existing map's statistical properties, not why it did so. The fact that the minority map's metrics are more extreme than 2019 on three of four dimensions is consistent with partisan engineering, but it is also consistent with other explanations such as different community-of-interest judgments, different readings of the §15(2) constraint, or geographic factors the 2019 map did not reflect. The direction-of-travel table is reported as exploratory evidence — one more consistent signal pointing the same direction as the pre-registered tests — rather than as an independent finding that stands on its own. The canonical Mahalanobis test and SZAT results carry the primary evidentiary weight.
 

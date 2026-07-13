@@ -13,8 +13,8 @@ status: COMPLETE
 
 | Metric | Centroid value @ pctile | Pop-weighted value @ pctile | Δ pctile |
 |---|---|---|---|
-| efficiency_gap | +0.0402 @ p94.39 | +0.0395 @ p93.83 | -0.57 |
-| mean_median | +0.0104 @ p99.98 | +0.0096 @ p99.95 | -0.02 |
+| efficiency_gap | +0.0402 @ p94.54 | +0.0395 @ p93.99 | -0.55 |
+| mean_median | +0.0104 @ p99.97 | +0.0096 @ p99.94 | -0.03 |
 | declination | +0.0770 @ p98.79 | +0.0775 @ p98.81 | +0.02 |
 | seats_at_50_50 | +0.5169 @ p99.99 | +0.5169 @ p99.99 | +0.00 |
 
@@ -22,7 +22,7 @@ status: COMPLETE
 
 | Metric | Centroid value @ pctile | Pop-weighted value @ pctile | Δ pctile |
 |---|---|---|---|
-| efficiency_gap | +0.0010 @ p15.47 | +0.0004 @ p14.52 | -0.95 |
-| mean_median | -0.0362 @ p0.92 | -0.0360 @ p0.97 | +0.05 |
-| declination | -0.0267 @ p20.38 | -0.0268 @ p20.29 | -0.09 |
-| seats_at_50_50 | +0.4607 @ p77.81 | +0.4607 @ p77.81 | +0.00 |
+| efficiency_gap | +0.0010 @ p16.52 | +0.0004 @ p15.56 | -0.95 |
+| mean_median | -0.0362 @ p0.99 | -0.0360 @ p1.04 | +0.04 |
+| declination | -0.0267 @ p21.85 | -0.0268 @ p21.76 | -0.09 |
+| seats_at_50_50 | +0.4607 @ p78.54 | +0.4607 @ p78.54 | +0.00 |

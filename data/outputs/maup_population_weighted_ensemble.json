@@ -3,40 +3,40 @@
   "ensemble_n": 1010000,
   "ensemble_attribution_invariant": true,
   "note": "Ensemble assigns atomic VAs; a VA never straddles its assigned district, so the ensemble distribution is identical under centroid and population-weighted attribution. Only real-map values can shift.",
-  "max_abs_pctile_shift": 0.9506930693069329,
+  "max_abs_pctile_shift": 0.9535643564356455,
   "verdict": "SURVIVES",
   "results": {
     "majority_2026": {
       "metrics": {
         "efficiency_gap": {
           "centroid_value": 0.0009823668405000681,
-          "centroid_pctile": 15.4690099009901,
+          "centroid_pctile": 16.517029702970298,
           "popweighted_value": 0.0004356936501548491,
-          "popweighted_pctile": 14.518316831683167,
+          "popweighted_pctile": 15.563465346534652,
           "value_shift": -0.0005466731903452191,
-          "pctile_shift": -0.9506930693069329
+          "pctile_shift": -0.9535643564356455
         },
         "mean_median": {
           "centroid_value": -0.036190901059016234,
-          "centroid_pctile": 0.9243564356435644,
+          "centroid_pctile": 0.9911881188118812,
           "popweighted_value": -0.036049555642530096,
-          "popweighted_pctile": 0.9738613861386138,
+          "popweighted_pctile": 1.0356435643564357,
           "value_shift": 0.0001413454164861383,
-          "pctile_shift": 0.04950495049504944
+          "pctile_shift": 0.044455445544554495
         },
         "declination": {
           "centroid_value": -0.026675251362353544,
-          "centroid_pctile": 20.37792079207921,
+          "centroid_pctile": 21.849009900990097,
           "popweighted_value": -0.026776190684476023,
-          "popweighted_pctile": 20.289801980198018,
+          "popweighted_pctile": 21.763366336633663,
           "value_shift": -0.00010093932212247927,
-          "pctile_shift": -0.0881188118811913
+          "pctile_shift": -0.08564356435643461
         },
         "seats_at_50_50": {
           "centroid_value": 0.4606741573033708,
-          "centroid_pctile": 77.81,
+          "centroid_pctile": 78.53841584158417,
           "popweighted_value": 0.4606741573033708,
-          "popweighted_pctile": 77.81,
+          "popweighted_pctile": 78.53841584158417,
           "value_shift": 0.0,
           "pctile_shift": 0.0
         }
@@ -51,40 +51,40 @@
         "mean_va_weight_sum": 0.9989492875301834,
         "n_va_ed_slivers": 6146,
         "n_da_slivers": 30032,
-        "total_seconds": 19.57766032218933
+        "total_seconds": 16.371617078781128
       }
     },
     "minority_2026": {
       "metrics": {
         "efficiency_gap": {
           "centroid_value": 0.04019385991913548,
-          "centroid_pctile": 94.39316831683169,
+          "centroid_pctile": 94.53772277227723,
           "popweighted_value": 0.039459576938957054,
-          "popweighted_pctile": 93.82544554455446,
+          "popweighted_pctile": 93.99069306930693,
           "value_shift": -0.0007342829801784273,
-          "pctile_shift": -0.5677227722772358
+          "pctile_shift": -0.5470297029703062
         },
         "mean_median": {
           "centroid_value": 0.010401768621624785,
-          "centroid_pctile": 99.97564356435643,
+          "centroid_pctile": 99.96653465346535,
           "popweighted_value": 0.009611756479713462,
-          "popweighted_pctile": 99.95386138613861,
+          "popweighted_pctile": 99.9409900990099,
           "value_shift": -0.0007900121419113226,
-          "pctile_shift": -0.021782178217819137
+          "pctile_shift": -0.025544554455450452
         },
         "declination": {
           "centroid_value": 0.07700256493469557,
-          "centroid_pctile": 98.79207920792079,
+          "centroid_pctile": 98.78811881188119,
           "popweighted_value": 0.07753858820204561,
-          "popweighted_pctile": 98.81346534653466,
+          "popweighted_pctile": 98.81039603960396,
           "value_shift": 0.0005360232673500415,
-          "pctile_shift": 0.02138613861386318
+          "pctile_shift": 0.022277227722767634
         },
         "seats_at_50_50": {
           "centroid_value": 0.5168539325842697,
-          "centroid_pctile": 99.99346534653465,
+          "centroid_pctile": 99.99316831683169,
           "popweighted_value": 0.5168539325842697,
-          "popweighted_pctile": 99.99346534653465,
+          "popweighted_pctile": 99.99316831683169,
           "value_shift": 0.0,
           "pctile_shift": 0.0
         }
@@ -99,7 +99,7 @@
         "mean_va_weight_sum": 0.9989492875301834,
         "n_va_ed_slivers": 6378,
         "n_da_slivers": 30700,
-        "total_seconds": 17.30498695373535
+        "total_seconds": 16.048497915267944
       }
     }
   }
