@@ -105,10 +105,14 @@ from palette import (
     MINORITY_SEGMENT_COLORS,
 )
 
-COLOR_BG = "#faf6ee"  # ivory page
-COLOR_INK = "#141414"  # near-black
-COLOR_INK_SOFT = "#3a3a3a"  # body
-COLOR_GREY_MUTED = "#8a8a8a"  # credit line
+# Site-integration retint (2026-07-13): surfaces and inks now come from
+# palette.py's viewer tokens so the schematic sits on the same paper as the
+# page around it. Names kept; values re-pointed.
+from palette import PAPER_BG as _PAPER, INK_TEXT as _INK, INK_MUTED as _INK_MUTED, INK_SUBTLE as _INK_SUBTLE, save_fig as _save_fig
+COLOR_BG = _PAPER          # viewer --bg: warm paper
+COLOR_INK = _INK           # viewer --text
+COLOR_INK_SOFT = _INK_MUTED   # viewer --text-muted
+COLOR_GREY_MUTED = _INK_SUBTLE  # viewer --text-subtle
 
 # Rural-carve colour for segments whose primary population is outside the
 # city - visually distinct from both palette families.
@@ -122,12 +126,12 @@ COLOR_RURAL_EDGE = "#5a3a1c"
 from matplotlib import font_manager as _fm
 
 _INSTALLED = {f.name for f in _fm.fontManager.ttflist}
-FONT_TITLE = "Playfair Display" if "Playfair Display" in _INSTALLED else "Georgia"
-FONT_LABEL = (
-    "Source Sans 3"
-    if "Source Sans 3" in _INSTALLED
-    else ("Source Sans Pro" if "Source Sans Pro" in _INSTALLED else "Arial")
-)
+# Site faces (2026-07-13): titles in the site's serif accent (Palatino), labels
+# in Arial (metrically close to the site's Segoe UI). SVGs are saved as live
+# text and palette.harmonize_svg rewrites these to the full site font stacks.
+FONT_TITLE = "Palatino Linotype" if "Palatino Linotype" in _INSTALLED else "Georgia"
+FONT_LABEL = "Arial"
+plt.rcParams["svg.fonttype"] = "none"
 
 # Canvas geometry - magazine page width. Per spec ~2000x1350 px (7" at 300
 # dpi). We use 7.0 x 4.67 for a clean 3:2 aspect.
@@ -525,7 +529,7 @@ def draw_schematic(
         color=COLOR_GREY_MUTED,
     )
 
-    fig.savefig(fig_path, dpi=FIG_DPI, facecolor=COLOR_BG)
+    _save_fig(fig, fig_path, facecolor=COLOR_BG, tight=False)
     plt.close(fig)
 
 
@@ -824,7 +828,7 @@ def draw_calgary(fig_path: Path) -> dict:
             color=COLOR_GREY_MUTED,
         )
 
-    fig.savefig(fig_path, dpi=FIG_DPI, facecolor=COLOR_BG)
+    _save_fig(fig, fig_path, facecolor=COLOR_BG, tight=False)
     plt.close(fig)
     return {"proxy_notes": proxy_notes}
 

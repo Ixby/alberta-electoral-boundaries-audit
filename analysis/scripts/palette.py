@@ -53,3 +53,83 @@ RULE_GREY     = "#888888"
 TEXT_DARK     = "#1A1A1A"
 THRESHOLD_RED = "#7B2D3E"   # Alberta-calibrated p95 threshold line
 NORM_BAND     = "#D8D4E8"   # neutral ensemble norm band (muted lavender-grey)
+
+# ---------------------------------------------------------------------------
+# Site-integration tokens (added 2026-07-13) — published figures inherit the
+# viewer's design language instead of matplotlib's. Values mirror the CSS
+# tokens in viewer/src/routes/+page.svelte (:root, light theme); keep in sync.
+# ---------------------------------------------------------------------------
+PAPER_BG   = "#f9f7f2"  # viewer --bg (light): the warm paper the page sits on
+INK_TEXT   = "#1a1a1a"  # viewer --text
+INK_MUTED  = "#444444"  # viewer --text-muted
+INK_SUBTLE = "#666666"  # viewer --text-subtle
+
+# The site's font stacks, written into the SVGs so figure text is rendered by
+# the reader's browser in the same faces as the surrounding page. Figures are
+# laid out with a metrically-similar local face (Arial ~ Segoe UI) and saved
+# with svg.fonttype='none' so text stays live text rather than outlined paths.
+SITE_SANS_STACK  = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+SITE_SERIF_STACK = "'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif"
+
+# Local layout faces matplotlib may resolve and write into the SVG; the
+# harmonizer rewrites each to the corresponding site stack. Serif faces are
+# handled first so multi-word names never partially match a sans pass.
+_SERIF_LAYOUT_FACES = ("Palatino Linotype", "Playfair Display", "Source Serif 4",
+                       "Georgia", "Lora", "DejaVu Serif", "Times New Roman")
+_SANS_LAYOUT_FACES  = ("Source Sans 3", "Source Sans Pro", "DejaVu Sans",
+                       "Helvetica", "Arial")
+
+
+def harmonize_svg(path) -> None:
+    """Rewrite an SVG's font-family declarations to the site's stacks.
+
+    matplotlib (svg.fonttype='none') writes the resolved local font name into
+    each text element's style attribute (e.g. ``font: 700 9.5px 'Arial'``);
+    this swaps those names for the viewer's full CSS stacks so the browser
+    renders figure text in the page's own faces, with graceful fallback.
+    """
+    from pathlib import Path as _P
+    p = _P(path)
+    svg = p.read_text(encoding="utf-8")
+    # Two-phase substitution via sentinels: the site stacks themselves contain
+    # face names from the layout lists ('Times New Roman', Arial), so direct
+    # replacement would recursively re-expand text just inserted.
+    SERIF_TOK, SANS_TOK = "\x00SERIF\x00", "\x00SANS\x00"
+    for face in _SERIF_LAYOUT_FACES:
+        svg = svg.replace(f"'{face}'", SERIF_TOK)
+    for face in _SANS_LAYOUT_FACES:
+        svg = svg.replace(f"'{face}'", SANS_TOK)
+    # Collapse fallback lists (e.g. TOK, TOK, sans-serif) to one token, then
+    # drop the now-redundant trailing generic.
+    for tok, generic in ((SERIF_TOK, "serif"), (SANS_TOK, "sans-serif")):
+        while f"{tok}, {tok}" in svg:
+            svg = svg.replace(f"{tok}, {tok}", tok)
+        svg = svg.replace(f"{tok}, {generic}", tok)
+    svg = svg.replace(SERIF_TOK, SITE_SERIF_STACK).replace(SANS_TOK, SITE_SANS_STACK)
+    p.write_text(svg, encoding="utf-8")
+
+
+def save_fig(fig, out_path, facecolor: str = PAPER_BG, pad_inches: float = 0.10,
+             tight: bool = True):
+    """House savefig: paper background, live site-font text, optional tight bbox.
+
+    ``tight=False`` preserves a figure's full composed canvas (schematics laid
+    out on fixed geometry). Also writes a PNG preview alongside when the
+    AUDIT_FIG_PNG_PREVIEW env var names a directory — visual QA without
+    committing raster copies.
+    """
+    import os
+    from pathlib import Path as _P
+    out_path = _P(out_path)
+    kw = dict(dpi=300, facecolor=facecolor)
+    if tight:
+        kw.update(bbox_inches="tight", pad_inches=pad_inches)
+    fig.savefig(out_path, **kw)
+    if out_path.suffix.lower() == ".svg":
+        harmonize_svg(out_path)
+    preview_dir = os.environ.get("AUDIT_FIG_PNG_PREVIEW")
+    if preview_dir:
+        _P(preview_dir).mkdir(parents=True, exist_ok=True)
+        kw["dpi"] = 150
+        fig.savefig(_P(preview_dir) / (out_path.stem + ".png"), **kw)
+    return out_path

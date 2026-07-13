@@ -107,7 +107,7 @@ export default {
 		tldr_p2: 'This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by roughly 69 of those 1,010,000 neutral maps \u2014 a dependence-robust joint upper bound of roughly 1 in 568,000 under that reference distribution. The audit\u2019s efficiency-gap metric for the minority sits at the 94th percentile \u2014 <em>near, but below</em>, the audit\u2019s own 95th-percentile threshold.',
 		tldr_p3: 'The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.',
 		tldr_footer: 'Pre-registered falsification conditions and retraction commitments are in %s.',
-		tldr_footer_link: '\u00a710'
+		tldr_footer_link: 'Retractions and Corrections'
 	},
 	picture: {
 		heading: 'The picture, before the proof',
@@ -627,9 +627,9 @@ export default {
 			closing: '<strong>The process is its own finding, separate from the maps.</strong>'
 		},
 		november: {
-			heading: '7: The Lunty Committee',
+			heading: 'The Lunty Committee',
 			context_label: 'CONTEXT',
-			context_body: ' — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in §3–§6 above.',
+			context_body: ' — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in the fourteen casings above.',
 			intro: "Neither commission map is in force. On April 16, 2026 the Legislative Assembly passed Motion 19, setting both aside and referring redistricting to a Select Special Committee of five MLAs — three UCP, two NDP — chaired by Brandon Lunty (UCP, Leduc-Beaumont). The committee itself does not draw the map. It oversees a separate Independent Advisory Panel, constituted under Government Motion 37 (passed April 21, 2026), tasked with producing a 91-seat boundary proposal. Motion 37 contemplated five panel members — a sitting or retired judge as chair, two members nominated by the Premier, and two by the Leader of the Opposition — but Alberta's acting chief justice declined to nominate a judge to the chair, and the panel now operates with the four appointees the committee confirmed: the Hon. Monte Solberg and Darwin Durnie (Premier's nominees) and Dr. Gerard Kennedy and Brent Robinson (Opposition nominees). The committee must deliver its report to the Legislature by November 2, 2026. Unlike the original commission, neither the committee nor the panel is required to hold public hearings; the panel draws on submissions the original commission gathered. When the committee's map is released, this audit will apply the same methodology to evaluate it.",
 			h_anomalous: 'Why the Committee Is Anomalous',
 			anomalous_p1:
@@ -887,10 +887,10 @@ export default {
 			appendices_link: 'The fourteen explainers (Appendices A–N)'
 		},
 		authors_view: {
-			heading: "8: The Author's View",
+			heading: "The Author's View",
 			heading_aria: "Link to the author's view",
 			preamble:
-				'Everything above this line is the audit. Pre-registered tests. Documented corrections. Evidence you can check without trusting me. Delete this section and not one number changes. What follows is not a finding. It is an opinion — signed, severable, and mine.',
+				'Everything else on this page is the audit. Pre-registered tests. Documented corrections. Evidence you can check without trusting me. Delete this section and not one number changes. This section is not a finding. It is an opinion — signed, severable, and mine.',
 			p1: 'The audit cannot prove intent. I have kept that discipline on every page above. This page is where I set it down.',
 			p2: 'Start with the two facts I cannot make innocent. Government-nominated commissioners drew a map that neutral map-drawing almost never produces — fewer than a hundred matches in a million draws. And when the commission split rather than endorse it, the government did not ask why. It took the pen.',
 			p3: 'Each fact has an innocent reading. A commissioner can be eccentric in good faith. A legislature can lose patience with deadlock. But put the facts in sequence and the innocent readings strain. A government wanted a certain kind of map. The independent route did not deliver one. A route was found that would.',
@@ -906,7 +906,7 @@ export default {
 				'<em>Sources for this section.</em> The ethics finding and the quoted phrase are verbatim from the Ethics Commissioner’s report, <a href="https://www.ethicscommissioner.ab.ca/media/3124/allegations-involving-premier-danielle-smith-may-17-2023.pdf" rel="noopener">Allegations Involving Premier Danielle Smith (May 17, 2023)</a>: “In my opinion, Premier Smith contravened s.3 of the Conflicts of Interest Act in her interaction with the Minister of Justice and Attorney General.” The Sovereignty Act’s original cabinet powers and their removal: <a href="https://www.cbc.ca/news/canada/edmonton/alberta-sovereignty-act-1.6678407" rel="noopener">CBC, December 2022</a>. Bill 20’s cabinet powers over councillors and bylaws: <a href="https://www.cbc.ca/news/canada/edmonton/alberta-bill-gives-cabinet-power-to-remove-municipal-councillors-change-or-repeal-bylaws-1.7185346" rel="noopener">CBC, April 2024</a> and the <a href="https://rmalberta.com/wp-content/uploads/2025/10/Bill-20-Member-Resource-Branded.pdf" rel="noopener">RMA analysis of the act as passed</a>. The notwithstanding-clause invocation and the injunction’s end: <a href="https://www.cbc.ca/news/canada/edmonton/alberta-government-notwithstanding-clause-bills-9.6983786" rel="noopener">CBC, December 2025</a> and <a href="https://egale.ca/awareness/egale-v-alberta-healthcare/" rel="noopener">Egale Canada’s case timeline</a>. The committee’s structure, the advisory panel, and its judicial chair: <a href="https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743" rel="noopener">CBC, April 2026</a> and <a href="https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-panel-legislative-committee-elections-9.7187435" rel="noopener">CBC, May 2026</a>; the commission’s sixteen-community hearings and 1,147 written submissions are from the same reporting. Motion 19’s 44–36 vote and the committee’s mandate: §5.9 of the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">academic monograph</a>. “Democratic backsliding” follows Steven Levitsky and Daniel Ziblatt, <em>How Democracies Die</em> (Crown, 2018), and Nancy Bermeo, “On Democratic Backsliding,” <em>Journal of Democracy</em> 27(1), 2016. The ensemble and seat figures are this audit’s own, sourced throughout the report above.'
 		},
 		references: {
-			heading: '11: References and Methodology',
+			heading: 'References and Methodology',
 			heading_aria: 'Link to references',
 			intro:
 				'The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.',
@@ -915,7 +915,7 @@ export default {
 			h_statutes: 'Statutes'
 		},
 		resources: {
-			heading: '12: Technical Appendix',
+			heading: 'Technical Appendix',
 			heading_aria: 'Link to technical',
 			tag_plain: 'Plain Language',
 			plain_label: 'Full public report',
@@ -946,7 +946,7 @@ export default {
 			p3_link: 'get in touch'
 		},
 		retractions: {
-			heading: '10: Retractions and Corrections',
+			heading: 'Retractions and Corrections',
 			heading_aria: 'Link to retractions',
 			conditions_label: 'RETRACTION CONDITIONS',
 			conditions_intro:
@@ -978,8 +978,10 @@ export default {
 				"<strong>Municipal anchoring (retracted).</strong> Early analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction."
 		},
 		suggestions: {
-			heading: '9: Suggestions',
-			heading_aria: 'Link to section 9',
+			heading: 'Suggestions',
+			heading_aria: 'Link to suggestions',
+			resume:
+				'The opinion is over; the log resumes. Three pieces of housekeeping remain: what would make the next audit easier, the conditions under which this one retracts itself, and the paper trail.',
 			intro:
 				"This audit ran into two data problems that have nothing to do with the commission's work and everything to do with how Alberta's electoral system is designed. Both are fixable.",
 			advance_p1:

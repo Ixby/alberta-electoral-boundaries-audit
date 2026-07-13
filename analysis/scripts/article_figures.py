@@ -63,22 +63,34 @@ from palette import (
     MAJORITY_TEAL, MAJORITY_TEAL_LIGHT,
     NDP_ORANGE, UCP_BLUE,
     NEUTRAL_2019, RULE_GREY, TEXT_DARK, THRESHOLD_RED, NORM_BAND,
+    PAPER_BG, INK_TEXT, INK_MUTED, INK_SUBTLE, save_fig,
 )
 
-# matplotlib defaults — try to match the article's print typography
+# matplotlib defaults — match the SITE's typography and surfaces, not print.
+# Text is laid out in Arial (metrically close to the site's Segoe UI) and
+# saved as live text (svg.fonttype='none'); palette.save_fig() then rewrites
+# the family names to the viewer's full font stacks so the browser renders
+# figure text in the page's own faces. Backgrounds use the site's warm paper.
 plt.rcParams.update(
     {
-        "font.family": "serif",
-        "font.serif": ["Lora", "Source Serif 4", "Georgia", "DejaVu Serif"],
-        "font.size": 9,
-        "axes.titlesize": 10,
-        "axes.labelsize": 8,
-        "xtick.labelsize": 8,
-        "ytick.labelsize": 8,
+        "svg.fonttype": "none",
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Arial", "DejaVu Sans"],
+        "font.size": 9.5,
+        "axes.titlesize": 10.5,
+        "axes.labelsize": 8.5,
+        "xtick.labelsize": 8.5,
+        "ytick.labelsize": 8.5,
+        "text.color": INK_TEXT,
+        "axes.labelcolor": INK_MUTED,
+        "xtick.color": INK_SUBTLE,
+        "ytick.color": INK_SUBTLE,
         "axes.spines.top": False,
         "axes.spines.right": False,
         "axes.linewidth": 0.5,
-        "axes.edgecolor": "#444",
+        "axes.edgecolor": INK_MUTED,
+        "axes.facecolor": "none",
+        "figure.facecolor": PAPER_BG,
         "xtick.major.width": 0.5,
         "ytick.major.width": 0.5,
     }
@@ -164,10 +176,12 @@ def build_lane1_dotplot() -> Path:
     # boxes in the published SVG/PNG until 2026-07-08. Placed at the BOTTOM
     # corners (2026-07-08 readability pass) so they sit beside the orange/blue
     # direction strips on the x-axis they explain, and clear of the map labels.
-    ax.text(0.02, 0.05, r"$\leftarrow$ tilts NDP",
+    # Live-text SVGs let the browser supply the arrow glyphs (Segoe UI has
+    # them); the old mathtext workaround for Georgia's missing arrows is gone.
+    ax.text(0.02, 0.05, "← tilts NDP",
             color=NDP_ORANGE, fontsize=7, fontweight="bold",
             ha="left", va="bottom", transform=ax.transAxes)
-    ax.text(0.98, 0.05, r"tilts UCP $\rightarrow$",
+    ax.text(0.98, 0.05, "tilts UCP →",
             color=UCP_BLUE, fontsize=7, fontweight="bold",
             ha="right", va="bottom", transform=ax.transAxes)
 
@@ -190,7 +204,7 @@ def build_lane1_dotplot() -> Path:
 
     fig.tight_layout(pad=0.4)
     out = OUT / "lane1_dotplot.svg"
-    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.06, facecolor="white")
+    save_fig(fig, out, pad_inches=0.06)
     plt.close(fig)
     return out
 
@@ -281,12 +295,12 @@ def build_lane2_bars() -> Path:
     fig, axes = plt.subplots(
         n, 1, figsize=(6.4, 7.6), dpi=300, gridspec_kw={"hspace": 1.20}
     )
-    fig.patch.set_facecolor("white")
+    fig.patch.set_facecolor(PAPER_BG)
 
     bar_h = 0.55
 
     for ax, (label, maj, mino, threshold, xmax, unit, vfmt) in zip(axes, tests):
-        ax.set_facecolor("white")
+        ax.set_facecolor(PAPER_BG)
         for spine in ("top", "right", "left"):
             ax.spines[spine].set_visible(False)
         ax.spines["bottom"].set_color("#aaaaaa")
@@ -402,7 +416,7 @@ def build_lane2_bars() -> Path:
     )
 
     out = OUT / "lane2_bars.svg"
-    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.08, facecolor="white")
+    save_fig(fig, out, pad_inches=0.08)
     plt.close(fig)
     return out
 
@@ -566,15 +580,9 @@ def build_bias_structure_matrix() -> Path:
     )
 
     out = OUT / "bias_structure_matrix.svg"
-    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.10, facecolor="white")
+    save_fig(fig, out, pad_inches=0.10)
     # stakes_quadrant.svg is the article-facing name for this chart
-    fig.savefig(
-        OUT / "stakes_quadrant.svg",
-        dpi=300,
-        bbox_inches="tight",
-        pad_inches=0.10,
-        facecolor="white",
-    )
+    save_fig(fig, OUT / "stakes_quadrant.svg", pad_inches=0.10)
     plt.close(fig)
     return out
 

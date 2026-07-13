@@ -810,7 +810,7 @@
   </section>
 
   <section id="section-7">
-    <h2>{t(lang.current, 'body.november.heading')} <a href="#section-7" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 7">#</a></h2>
+    <h2>{t(lang.current, 'body.november.heading')} <a href="#section-7" class="section-link" aria-label={t(lang.current, 'body.november.heading')}>#</a></h2>
 
     <div class="callout callout-neutral" style="border-inline-start-color:#888; font-size:0.95rem;">
       <p style="margin:0;"><strong>{t(lang.current, 'body.november.context_label')}</strong>{t(lang.current, 'body.november.context_body')}</p>
@@ -866,6 +866,8 @@
 
   <section id="section-8">
     <h2>{t(lang.current, 'body.suggestions.heading')} <a href="#section-8" class="section-link" aria-label={t(lang.current, 'body.suggestions.heading_aria')}>#</a></h2>
+
+    <p style="font-style: italic; color: var(--text-muted);">{t(lang.current, 'body.suggestions.resume')}</p>
 
     <p>{t(lang.current, 'body.suggestions.intro')}</p>
 
@@ -2089,7 +2091,10 @@
     .chart-img {
       border: 1px solid var(--border-subtle);
       border-radius: 4px;
-      background: var(--table-bg);
+      /* Fixed to the figures' own baked-in paper (#f9f7f2 = light --bg) so the
+         plate and the figure surface are one continuous sheet in both themes;
+         dark mode dims the plate via the filter below. */
+      background: #f9f7f2;
       padding: 0.5rem;
     }
     :root[data-theme="dark"] .chart-img { filter: brightness(0.88) contrast(0.95); }
