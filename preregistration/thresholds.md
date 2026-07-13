@@ -330,7 +330,7 @@ Thresholds are ranked **strong** (statutory or literature-anchored, little resid
 
 ## Part F — Summary for paper integration
 
-The audit uses 38 numeric thresholds across statutory, literature, first-principles, and modelling categories. Six are directly statutory (EBCA §§ 14, 15(2) and their derivatives); six are drawn from redistricting and gerrymandering literature (Stephanopoulos & McGhee 2014, 2015; Chen 2017; McDonald & Best 2015; Warrington 2018; ASA 2016, 2019); six are modelling conventions documented with explicit sensitivity ranges (urban weight, Monte Carlo sampling); fourteen are first-principles derivations from statutory or reporting-precision anchors; five are audit-defined qualitative or gating criteria.
+The audit uses **40 numeric thresholds** across statutory, literature, first-principles, and modelling categories (42 items catalogued in Part A, with #22 classified as an observed value rather than a threshold, and #41 classified as computation-in-progress). Six are directly statutory (EBCA §§ 14, 15(2) and their derivatives); six are drawn from redistricting and gerrymandering literature (Stephanopoulos & McGhee 2014, 2015; Chen 2017; McDonald & Best 2015; Warrington 2018; ASA 2016, 2019); **seven** are modelling conventions documented with explicit sensitivity ranges (urban weight, Monte Carlo sampling, rural baseline, per-hybrid jitter); **sixteen** are first-principles derivations from statutory or reporting-precision anchors; five are audit-defined qualitative or gating criteria. Three additional classifications (LIT/FP, FP/STAT, FP/OBS composite) span multiple provenance categories and are already counted in the primary categories above.
 
 No ±20 % sensitivity check flips a finding direction on the three load-bearing thresholds (P1, P2, urban weight). Direction-of-asymmetry claims are robust; magnitude claims are explicitly qualified throughout the report.
 
@@ -386,4 +386,4 @@ Warrington, G. S. (2019). A comparison of partisan gerrymandering measures. *Ele
 
 ---
 
-*Compendium v0.1. Compiled April 22, 2026. 38 thresholds catalogued. Produced as Track T output; not yet integrated into the paper. Integration by parent session.*
+*Compendium v0.2. Compiled April 22, 2026; updated July 12, 2026. 42 thresholds catalogued (40 real thresholds; #22 observed value, #41 computation-in-progress). Produced as Track T output; integrated into the paper. Revised categorization counts per Part F after August 2026 additions of thresholds #39–#42 (Alberta-calibrated EG alternatives).*

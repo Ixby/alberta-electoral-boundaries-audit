@@ -8,6 +8,27 @@
 
 # Sign-convention resolution — v0_1
 
+> **Superseded (banner added 2026-07-13 — see report_academic.md DOCUMENTED
+> CORRECTIONS C13).** This v0_1 analysis is built on pre-Phase-4C, blend-model-era
+> EG values (§4 below: majority −0.85%, minority −1.36%, both negative). Under
+> those numbers, this file worked out a "1:1 proportional baseline" rationalization
+> for why the paper's then-current "negative = UCP advantage" language was
+> internally coherent despite disagreeing with straightforward Stephanopoulos-McGhee
+> sign convention. Phase 4C's exact VA-level attribution (2026-05-18) changed the
+> reported EG values for the 2026 maps to **positive** (majority +0.04%, minority
+> +3.96%), with positive tracking UCP advantage — which is actually the *simpler*,
+> canonical S-M reading this file's own §2–3 already derived (`code_eg > 0 → UCP
+> advantaged (S-M)`) before its later sections rationalized the opposite using
+> numbers that no longer apply. The report's live sign-convention glossary
+> (report_academic.md §4.3) now correctly states **positive = UCP advantage,
+> negative = NDP advantage**, matching every EG direction statement in the current
+> report. The §1–§10 analysis below is retained as historical record of the
+> reasoning at the time; do not use its "Resolved" verdict (§7, §10) or its
+> worked numerical example (§4) as current guidance. The 2026-07-12 "Current
+> status" note that used to follow §7 incorrectly proposed flipping the report's
+> *correct* current statement to match this file's *stale* verdict — that note
+> has been corrected below.
+
 **Scope.** Answer the Track Z question: under what sign convention is the
 paper's language "negative EG = UCP advantage" actually correct? The
 Stephanopoulos-McGhee (2015) canonical convention and the paper's written
@@ -166,6 +187,8 @@ paper should not invert its convention. **But it should not cite
 Stephanopoulos & McGhee as authority for the running convention.** The
 paper is using a proportionality-comparison usage that is not identical
 to S-M's canonical EG.
+
+**Current status (corrected 2026-07-13, supersedes the 2026-07-12 note formerly here):** The 2026-07-12 note that used to appear at this location had the diagnosis backwards. It claimed report_academic.md's §4.3 glossary ("negative value = UCP advantage") was correct and that the B2 paragraph ("positive EG = UCP advantage") was the contradicting typo needing correction to match the glossary. In fact the reverse was true: the glossary sentence was the outlier, contradicting not only the B2 paragraph but at least three further independent statements elsewhere in report_academic.md (§5.2.1's "positive = NDP wastes more = UCP-favoured," repeated at the B4/CWEF and Phase-4C-supersedes-table passages) — all of which agree with each other and with the current Phase 4C canonical data (minority EG +3.96%, described throughout as UCP-favoured). report_academic.md §4.3 has been corrected 2026-07-13 to read "positive value = UCP advantage... negative value = NDP advantage" (DOCUMENTED CORRECTIONS C13); the B2 paragraph was left as-is because it was already correct. The Amendment 10 declination sign correction (2026-06-12) is a separate, unrelated fix to declination specifically using the Warrington 2018 convention.
 
 **Required clarifications for the paper** (flagged for parent session;
 not edited here):

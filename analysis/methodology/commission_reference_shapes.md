@@ -7,13 +7,13 @@ forward_dependencies:
 backward_dependencies:
   - maps/verification/v0_3_*.png (the approximations the reader sees)
   - maps/minority_calgary.jpg, maps/hires/v0_1_minority_p360_map74.png (source thumbnails)
-  - analysis/methodology/shape_refinement_v3.md (the refinement pass whose approximations are reclassified)
+  - analysis/logs/shape_refinement_v3_log.json (the refinement pass whose approximations are reclassified)
 ---
 
 > **Backward:**
 > - `maps/verification/v0_3_*.png` — the approximate verification panels this file cross-checks
 > - `maps/minority_calgary.jpg`, `maps/hires/v0_1_minority_p360_map74.png` — source commission thumbnails
-> - `analysis/methodology/shape_refinement_v3.md` — refinement pass whose approximations are reclassified
+> - `analysis/logs/shape_refinement_v3_log.json` — refinement pass whose approximations are reclassified
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §6.7 — cites this file for the Tier B → Tier C reclassification

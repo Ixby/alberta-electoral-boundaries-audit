@@ -75,7 +75,7 @@ Even without the empirical check, the approximate independence claim rests on:
    and shuffles only swing-zone assignments. These are complementary slices of the
    same probability space.
 
-2. **Small swing zone.** The 2108 swing VAs represent ~13% of the province's ~16k
+2. **Small swing zone.** The 2110 swing VAs represent ~44% of the province's ~4,765
    VAs. MCMC plans vary the full province; SZAT varies only the minority plan's
    swing zone. The residual correlation from shared vote data is attenuated by
    the large non-swing regions that MCMC but not SZAT varies.

@@ -72,7 +72,7 @@
 **Sentiment:** −112 weighted-net (78 opp / 27 sup; opposition_sum=169, support_sum=57)
 
 **Rationale (R3, R4):** "Strong economic, community, and transportation ties with Calgary" (R3/R4).
-- **Validation verdict:** SUPPORTS (at the commuter-tie level) — Airdrie is in Calgary CMA; 2025 population 90,044 with 4.9% annual growth, projected 128,470 by 2033. CMA membership alone establishes commuter tie above threshold. **However**, whether this *requires* a 4-way split rather than two Airdrie-named districts is a policy choice, not a data-driven necessity. Population math (4-way split is forced) is CLOSED-FAIL (Test 3).
+- **Validation verdict:** SUPPORTS (at the commuter-tie level) — Airdrie is in Calgary CMA; 2025 population 90,044 with 4.9% annual growth, projected 132,026 by 2033. CMA membership alone establishes commuter tie above threshold. **However**, whether this *requires* a 4-way split rather than two Airdrie-named districts is a policy choice, not a data-driven necessity. Population math (4-way split is forced) is CLOSED-FAIL (Test 3).
 
 **Cross-reference analysis:**
 - Minority rationale is strong: Airdrie–Calgary commute tie is empirically real and measurable.

@@ -13,9 +13,9 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 # Data Supplement — Alberta Electoral Boundaries Audit (Phase 1)
 
 **Document type:** Peer-review navigation aid  
-**Companion report:** `outputs/academic_report/report_academic.md`  
+**Companion report:** `reports/academic/report_academic.md`  
 **Repository HEAD at time of submission:** `7b7b2fe`  
-**Date:** 2026-05-12
+**Date:** 2026-05-12 (repository layout and counts in [§D1](#d1-repository-layout) refreshed 2026-07-13 — the `outputs/academic_report/` and `outputs/public_report/` paths below were retired when reports moved to `reports/academic/` and `reports/public/`)
 
 ---
 
@@ -28,22 +28,24 @@ This supplement is not a second manuscript. It is a structured index for externa
 ```
 alberta_audit/
 ├── analysis/
-│   ├── scripts/          # 95 single-responsibility analysis scripts
-│   ├── reports/          # intermediate JSON outputs (joint_outlier_score, szat_summary, etc.)
-│   └── methodology/      # test protocols, pre-analysis plans
+│   ├── scripts/          # 127 single-responsibility analysis scripts (incl. automation/ subdir)
+│   ├── methodology/      # test protocols, pre-analysis plans, defense docs
+│   └── review/           # peer-review and red-team artifacts
 ├── data/
 │   ├── shapefiles/
 │   │   ├── canonical/    # authoritative Elections Alberta shapefiles (ground truth)
-│   │   ├── derived/      # VA polygons with 2023 vote attribution
+│   │   ├── derived/      # VA polygons with vote attribution (2015/2019/2023)
 │   │   └── reference/    # 2019 enacted baseline
-│   └── outputs/          # 99 CSV + 45 JSON script outputs (committed for reproducibility)
-├── outputs/
-│   ├── academic_report/  # report_academic.md, figures, this supplement
-│   └── public_report/    # report_public.md
+│   └── outputs/          # 102 CSV + 48 JSON script outputs (committed for reproducibility)
+├── reports/
+│   ├── academic/         # report_academic.md, this supplement
+│   └── public/           # report_public.md
+├── findings/             # per-topic result writeups referenced throughout the reports
+├── preregistration/      # OSF-filed pre-registration record
 ├── tests/                # pytest suite
 ├── config.yaml           # all path configuration (never hardcode shapefile paths)
 ├── requirements.txt      # pinned Python dependencies
-└── CLAUDE.md             # session-bootstrap and contributor conventions
+└── CLAUDE.md             # session-bootstrap and contributor conventions (gitignored)
 ```
 
 Three files are script outputs committed to git and **must not be hand-edited**:
@@ -95,8 +97,8 @@ python -m pytest tests/ -v
 | VA polygons with 2023 vote attribution | Voting areas with election-day NDP/UCP tallies attributed to 2026 boundaries | `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` |
 | 2023 Alberta general election results | Official tally (NDP 777,404 + UCP 928,900 province-wide) | source documented in `analysis/methodology/` |
 | Statistics Canada Census Subdivision boundaries | CSD polygons used for municipal anchoring edge-crossing test | `data/shapefiles/reference/` |
-| Written public submissions (1,252) | Full-corpus sentiment and cross-reference analysis | `data/submissions/` |
-| Hansard transcripts | Round 1 (188 turns, May 2025), Round 2 (209 turns, Jan 2026) | `data/hansard/` |
+| Written public submissions (1,252 of ~1,340 archived) | Full-corpus sentiment and cross-reference analysis | `.temp/submissions/text/` (gitignored raw text; see `findings/submission_search_findings.md` for the processed dataset) |
+| Hansard transcripts | Round 1 (188 turns, May 2025), Round 2 (209 turns, Jan 2026) | `.temp/hansard_r1.txt`, `.temp/hansard_r2.txt` (gitignored raw text) |
 
 **Vote substrate note.** The SZAT channel (Ch2) uses election-day two-party totals (~896,644 combined) from the VA polygon attribution layer, not province-wide election totals. The 1,706,304 two-party figure in Alberta's 2023 results is not the VA-level denominator. This distinction is documented in §5.2.10 DOCUMENTED CORRECTIONS of the academic report.
 
@@ -117,7 +119,7 @@ python -m pytest tests/ -v
 | `data/outputs/cross_reference_summary.json` | `cross_reference_submitters.py` | §5.9.4.7 |
 | `data/outputs/irr_validation_sample.csv` | `validation_sample.py` | §5.9 (IRR gate — pending) |
 
-**Ensemble checkpoints** are in `data/simulation_checkpoints_canonical/` and are excluded from the git repository (`.gitignore`). The canonical ensemble can be reproduced from scratch with `python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 252500`.
+**Ensemble checkpoints** are in `data/simulation_checkpoints_canonical/` and are excluded from the git repository (`.gitignore`). The canonical ensemble can be reproduced from scratch with `python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 1010000` (corrected 2026-07-13: `--n-steps` is the *total* across all 4 chains, not per-chain; the previously-documented `--n-steps 252500` silently produces a quarter-scale run — see CLAUDE.md's caution note on this exact command).
 
 ---
 
@@ -134,8 +136,8 @@ Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, b
 | Map | D | D² | Joint p |
 |---|---|---|---|
 | Minority (March 2026) | 5.80 | 33.64 | 8.80 × 10⁻⁷ |
-| Majority (March 2026) | 2.78 | 7.74 | 0.101 (within null) |
-| Enacted 2019 (baseline) | 3.63 | 13.16 | 0.012 |
+| Majority (March 2026) | 2.78 | 7.74 | 0.102 (within null) |
+| Enacted 2019 (baseline) | 3.63 | 13.16 | 0.0105 |
 
 The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`.
 
@@ -248,7 +250,7 @@ All four metrics satisfy the registered GR92 < 1.1 criterion. Efficiency gap and
 
 ## §D7 — Pre-Registration Record
 
-All registrations were submitted before examining the test data for that channel. Links are archived in `analysis/meta/FROZEN_MANIFEST.md`.
+All registrations were submitted before examining the test data for that channel. Links are archived in `docs/FROZEN_MANIFEST.md`.
 
 | OSF ID | AsPredicted ID | Submitted | Covers |
 |---|---|---|---|

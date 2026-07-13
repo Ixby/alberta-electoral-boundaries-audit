@@ -68,7 +68,7 @@ All four are committed. Each runs as a smoke test; the parts marked TODO are hon
 
 ## Translation status
 
-15 languages live in the dropdown (sorted by Alberta speaker counts): English, Tagalog (partial), Punjabi (partial), French, Spanish, Arabic, Cantonese, Mandarin, German, Hindi, Vietnamese, Korean, Urdu, Polish, Ukrainian. Plains Cree, Plautdietsch, and Somali are stubs in the live `locales/` directory; partial work for Cree and Somali is preserved at `_wip/`. Punjabi and Tagalog are functional but at ~114/115 lines vs en.ts's 800 — they fall back to English for unfinished keys.
+19 locales live in the locales/ directory (sorted by Alberta speaker counts): English, Tagalog (partial), Punjabi (partial), French, Spanish, Arabic, Cantonese, Mandarin, German, Hindi, Vietnamese, Korean, Urdu, Polish, Ukrainian, Russian, Plains Cree (stub), Plautdietsch (stub), and Somali (stub). Partial work for Cree and Somali is preserved at `_wip/`. Punjabi and Tagalog are functional but at ~114/115 lines vs en.ts's 800 — they fall back to English for unfinished keys.
 
 Numeric headline updates (1-in-14.5M → 1-in-568K; 4.61×10⁻⁸ → 1.76×10⁻⁶) were swept across all 12 non-stub locales by `/tmp/patch_locales*.py` (deleted after run). The surrounding narrative was not retranslated — locales L-1 in the local work ledger captures the per-string re-translation pass. Note: The document was drafted 2026-06-10; the current numbers reflect the 2026-07-12 ensemble rerun.
 

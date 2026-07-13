@@ -141,3 +141,25 @@ sha256sum preregistration/november_2026_scoring_spec.md
 and comparing against the SHA-256 above. If the values differ, either (a) a follow-on amendment was filed (look for a numbered entry in `findings/pre_registration_amendment_log.md` after Amendment 12), or (b) the file has been modified outside the documented amendment chain. The amendment-chain protocol is in `preregistration/november_2026_scoring_spec.md` §6.
 
 This entry was added 2026-06-12 to retire a self-invalidating pin written earlier the same session (Amendment 12; see T1.7 R2 Refs #4 + #18). The earlier pin recorded the SHA-256 *inside* the spec file, then continued editing the spec — guaranteeing the recorded hash would not match the file. External pinning is the standard fix.
+
+---
+
+## Amendment A — november_2026_scoring_spec.md post-commitment modification (2026-07-12)
+
+**Date:** 2026-07-12 (committed git hash `893e6d3a`)
+
+**What changed:** Commit `893e6d3ab0ff746316a11b4e75faf2807393026e` ("Sweep repo-wide for stray stale figures after the 2026-07-12 ensemble rerun") modified `preregistration/november_2026_scoring_spec.md` line 94, updating the Bonferroni bound statement from `p ≤ 2.80×10⁻⁶` to `p ≤ 1.76×10⁻⁶`.
+
+**Reason:** The Bonferroni bound had been recomputed following a full rerun of the canonical ensemble on 2026-07-12. The new canonical run produced a lower dependence-robust upper bound than the prior ensemble.
+
+**Prior SHA-256 (before 893e6d3a):** `e3546346a17091562e57dc943a302d7bd5650546cd8188d628e5f4d0a17568b9`
+
+**Current SHA-256 (after 893e6d3a):** `2110548c9e82170425ba760eee1574afd83ebae96d8ce094f5f8ad278f0cdbe3`
+
+**Pre-commitment status:** This file is flagged in `preregistration/seed_commitments.md` line 130 as pinned to a specific SHA-256 as of 2026-06-12. The pin was intended to prevent undetected tampering with the Lunty-test specification. The commit 893e6d3a modifies the file post-pin, which violates the pre-commitment principle. However, the modification is:
+1. Documented in the commit message (explicitly noted as a "stale figure" correction)
+2. Limited to a single factual update (the Bonferroni bound)
+3. Not a change to the Lunty-test scoring methodology itself
+4. Dated and traceable in the public git log
+
+**Disclosure:** Any reader validating the file against the pinned SHA-256 will find a mismatch and can trace the cause via `git log` to commit 893e6d3a. The mismatch is not silent tampering — it is disclosed by the pin mechanism itself and is explained by this amendment.

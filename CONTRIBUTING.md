@@ -38,7 +38,7 @@ If you want to add a new structural or partisan test:
 * Please include a **pre-registration artifact** in your PR description: state your null hypothesis, the pass/fail threshold, and your predicted direction *before* you run the test. This matches the discipline used throughout the audit.
 
 ## Coding Standards
-* The codebase is functional and script-based by design (~87 Python scripts in `analysis/scripts/`).
+* The codebase is functional and script-based by design (127 Python scripts in `analysis/scripts/`).
 * **Do not over-abstract.** Avoid creating deep inheritance hierarchies or global config files unless absolutely necessary. The current DAG (Directed Acyclic Graph) of scripts ensures that each analytical step is atomic and independently verifiable.
 * Python code should be compatible with Python 3.11+.
 

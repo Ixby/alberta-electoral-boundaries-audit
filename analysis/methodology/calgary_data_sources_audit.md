@@ -73,7 +73,7 @@ The gap is narrower than Track L framed. A 2026 federal census is scheduled; det
 - Verdict: **UNUSABLE** for post-2021.
 
 **Building Permits** — `c2es-76ed`
-- Live, permit-by-permit with address geocoding. 2024 total = 18,168 residential permits (5,341 single-detached, 1,842 semi-detached, 3,343 townhouses, 7,312 apartments). Plus 3,787 new secondary suites.
+- Live, permit-by-permit with address geocoding. 2024 total = 17,838 residential permits (5,341 single-detached, 1,842 semi-detached, 3,343 townhouses, 7,312 apartments). Plus 3,787 new secondary suites.
 - Verdict: **PARTIAL.** A permit is not a completed dwelling, and a dwelling is not an occupied household. Usable as a **growth-direction signal** by community if geocoded to community boundaries, but a permit-to-population conversion requires occupancy assumptions (1.5–2.6 persons per unit in Calgary, varying by unit type and community) that introduce modelling uncertainty.
 
 ### 2. City of Calgary Planning Services & Data Analytics

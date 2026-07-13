@@ -83,11 +83,11 @@ The legal baseline **ages for up to 14 years** while it remains the binding auth
 
 Statistics Canada quarterly estimates (Table 17-10-0009) and Alberta Treasury Board and Finance quarterly population reports give the following province-level trajectory:
 
-| Date                       | Alberta population | Annual growth (%) |
+| Date                       | Alberta population | Growth over prior row (%) |
 | -------------------------- | ------------------ | ----------------- |
 | May 11, 2021 (census)      | 4,262,635          | —                 |
-| July 1, 2022 (estimate)    | 4,395,588          | +1.8% (2021–22)   |
-| July 1, 2023 (estimate)    | 4,602,219          | +3.7% (2022–23)   |
+| July 1, 2022 (estimate)    | 4,395,588          | +3.12% (May 2021–Jul 2022, 14 months; corrected 2026-07-13, was miscalculated as +1.8%) |
+| July 1, 2023 (estimate)    | 4,602,219          | +4.70% (2022–23; corrected 2026-07-13, was miscalculated as +3.7%) |
 | January 1, 2025 (estimate) | 4,960,097          | +3.51% (2024)     |
 | Q2 2025 (estimate)         | ~5,020,000         | +1.9% YTD 2025    |
 | Cumulative 2021→mid-2025   | —                  | **+17.8%**        |

@@ -172,12 +172,12 @@ python analysis/scripts/dependency_query.py \
     --invalidate L1:constructed.dpg_v0_2_topoclean
 ```
 
-- **Robust: 54 of 74 (73.0%).** Population findings (§5.1), all per-map
+- **Robust: 53 of 74 (71.6%).** Population findings (§5.1), all per-map
   B-family point estimates (do not use v0_2 geometry — crosswalk-based),
   Chen-Rodden direction validation, signatures (commission-map-based),
   MCMC ensemble percentiles (seeded on 2019 shapefile not v0_2),
   procedural, submission audit.
-- **Orphaned: 20 of 74 (27.0%).** §5.2.7 MAUP-v2 spatial reading,
+- **Orphaned: 21 of 74 (28.4%).** §5.2.7 MAUP-v2 spatial reading,
   topology-cleanup overlap, flat + tiered + tight DPG-perturbation CIs,
   Core-vs-Margin insulation test, municipal-anchoring asymmetry,
   DA-anchoring extension, v0_5 sign-flip provocative reading.
@@ -194,7 +194,7 @@ python analysis/scripts/dependency_query.py \
     --invalidate L0:data.2023_statement_of_vote
 ```
 
-- **Robust: 26 of 74 (35.1%).** §5.1 population findings (commission
+- **Robust: 29 of 74 (39.2%).** §5.1 population findings (commission
   populations, not votes), §5.1.4 s.15(2) eligibility, RMH-Banff
   engineered-boundary signature, §5.8.5 municipal + DA anchoring (vote
   data does not enter the geometry calculation), §5.8.4 CSD splits,
@@ -202,7 +202,7 @@ python analysis/scripts/dependency_query.py \
   audit, 2019 baseline EG (uses 2019 votes), the 2015/2019 reversal
   finding (uses the other two election files), and §5.3.3 engineered
   boundary (commission-map-only).
-- **Orphaned: 48 of 74 (64.9%).** Every B-family per-map metric, both
+- **Orphaned: 45 of 74 (60.8%).** Every B-family per-map metric, both
   §5.2.5 Chen-Rodden decompositions (they score maps under the 2023
   substrate), all §5.2.7 multi-layer spatial readings, §5.2.6 marginal
   seats, every MCMC real-map flag (the ensemble is seeded with 2023 VA
@@ -222,13 +222,13 @@ python analysis/scripts/dependency_query.py \
     --invalidate L0:data.commission_map_pngs
 ```
 
-- **Robust: 48 of 74 (64.9%).** Population findings (commission-
+- **Robust: 47 of 74 (63.5%).** Population findings (commission-
   published tables are text-extracted not raster-extracted), base-rate
   comparator, s.15(2) audit, Chen-Rodden validation/mechanism (votes +
   2019 shapefile), MCMC ensemble percentiles (operate on 2019 VA
   substrate not 2026 PNG-traced maps), §5.9 procedural, submission
   audit, cycle-lag byelection framing.
-- **Orphaned: 26 of 74 (35.1%).** DPG-derived findings (§5.2.7 layers,
+- **Orphaned: 27 of 74 (36.5%).** DPG-derived findings (§5.2.7 layers,
   perturbation CIs, v0_5 sign flip, MAUP-v1/v2 comparisons), the
   spatial-anomalies finding, RMH-Banff engineered-boundary signature
   (visual confirmation), Airdrie cracking (4-district split visible
@@ -302,24 +302,24 @@ The following 148-word paragraph can be inserted directly into §4.6
 
 > *Defense in depth is operationalised in the audit's machine-readable
 > dependency graph (`analysis/methodology/audit_dependency_graph.json`,
-> 234 nodes / 429 edges across four layers: raw data, constructed data,
+> 280 nodes / 410 edges across four layers: raw data, constructed data,
 > measurement scripts, findings). The graph supports an invalidation
 > query — "if reviewer rejects node X, which §5 findings survive?" —
 > implemented as a CLI (`dependency_query.py`). Running the query
 > against each of the five most-exposed attack surfaces shows that no
 > single invalidation orphans more than 65 % of findings: invalidating
 > the 2023 Statement of Vote (the most load-bearing L0 source) preserves
-> 35 % of findings on the structural dimensions; invalidating the
+> 39 % of findings on the structural dimensions; invalidating the
 > commission map PNGs (the raster source of the DPG chain) preserves
-> 38 %; invalidating either DPG substrate (v0_2 topology-clean or the
-> 100k MCMC ensemble) preserves 42 %. The audit's headline direction is
+> 64 %; invalidating either DPG substrate (v0_2 topology-clean or the
+> 100k MCMC ensemble) preserves 68 %. The audit's headline direction is
 > therefore over-determined: any single attack forces the reviewer to
 > choose between the remaining 25-30 findings that span six independent
 > dimensions, not between two findings that share an evidentiary chain.*
 
 ## 8. Known judgment calls and limitations
 
-The builder emitted **62 judgment calls** during the current construction
+The builder emitted **213 judgment calls** during the current construction
 pass. They fall into three categories, all documented in the graph's
 `meta.judgment_calls` field:
 
@@ -374,7 +374,7 @@ scoped as 1–2 weeks of follow-up work. Four of the five items in that
 scope are now present:
 
 - **Item 1 (JSON with nodes + edges + metadata)** → done
-  (`audit_dependency_graph.json`, 164 KB, 234 nodes / 429 edges).
+  (`audit_dependency_graph.json`, 280 nodes / 410 edges).
 - **Item 2 (Graphviz DOT render)** → done
   (`audit_dependency_graph.dot` + `maps/audit_dependency_graph.svg`).
 - **Item 3 (query script)** → done (`dependency_query.py`).

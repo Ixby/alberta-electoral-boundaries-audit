@@ -39,10 +39,15 @@ Ridings decided by less than 3 pp of two-party margin:
 | **2019** | current (post-2017) | 7 of 87 | 3 | 13 |
 | **2015** | pre-2017 (87 EDs) | 8 of 87 | 2 | 10 |
 
-2023 stands out. It had roughly twice as many ridings in the flip-zone
-as either 2019 or 2015. This is consistent with the broader picture of
-2023 as Alberta's first genuinely competitive provincial election in
-recent memory — and almost all of that concentration sits in Calgary.
+*(Verified 2026-07-13 by running the companion script, `analysis/scripts/marginal_seats_analysis.py`, after fixing a stale data-path bug in it — output reproduces this table exactly under the two-party NDP-vs-UCP methodology stated above. An earlier pass this session had "corrected" this table using a `margin_pct`-column approach — actual top-two finisher, whoever they were, rather than strictly NDP-vs-UCP — which is a different, incompatible margin definition from the one this document specifies; that edit has been reverted.)*
+
+2023 stands out relative to 2019: roughly twice as many ridings sat in the flip-zone
+(14 vs 7). It is not unusually high relative to 2015 (8), whose five-party field
+produced its own cluster of tight multi-way races under the pre-2017 boundaries —
+a genuinely different competitive dynamic, not a like-for-like comparison to the
+two-party 2019/2023 races. What is consistent across all three elections is that
+2023 was Alberta's first genuinely competitive *two-party* election in recent
+memory, concentrated in Calgary.
 
 Under the minority vs majority 2026 map difference, the audit's A2
 analysis flags Calgary NDP-leaning districts as packed in the minority

@@ -79,7 +79,7 @@ SZAT isolates the *causal boundary choices* — the swing zones — and tests wh
 - **Paired** — uses a real alternative map as its counterfactual, not an ensemble median; the counterfactual is therefore politically meaningful, not a neutral geometric average
 - **Generalizable** — any two maps covering the same territory (majority vs minority; proposed vs enacted; proposed vs prior cycle) can be compared via SZAT; the proposed-vs-2019-baseline variant requires only one new spatial join
 
-Applied to Alberta 2026: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstrap N = 10,000, seed pre-committed at git hash d2aea42). The minority map's boundary choices increase NDP vote waste by 3.9 pp relative to the majority, with dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). The Canmore/RMH focal EDs — which motivated the test — contribute +0.006291, a meaningful share of the total given their geographic scale.
+Applied to Alberta 2026: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstrap N = 10,000, i.i.d. permutation null). The minority map's boundary choices increase NDP vote waste by 3.9 pp relative to the majority, with dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). The Canmore/RMH focal EDs — which motivated the test — contribute +0.006291, a meaningful share of the total given their geographic scale. **Exploratory status:** Under a block-permutation null that corrects for spatial autocorrelation among the 2,110 swing-zone Voting Areas (which cluster into a single connected component of 2,086 VAs), the test returns p ≈ 0.19 (not significant; see `findings/szat_block_permutation.md`). SZAT is therefore reported as exploratory rather than confirmatory evidence.
 
 ### Claim to novelty
 
@@ -94,7 +94,7 @@ Applied to Alberta 2026: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstra
 
 ### Pre-registration
 
-- AsPredicted #289,469 — SZAT bootstrap null (filed 2026-05-07; results known at filing; seed pre-committed at d2aea42)
+- AsPredicted #289,469 — SZAT bootstrap null (filed 2026-05-07; results known at filing; seed anchored to drand round 5,500,000)
 
 ---
 
@@ -123,7 +123,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 **i. Explicit lane separation with interaction rules.** The framework specifies in advance that Lane 1 and Lane 2 are independent evidentiary tracks. A Lane 1 sub-threshold result does not resolve Lane 2; a Lane 2 clean result does not resolve Lane 1. When the lanes disagree (as they do in the Alberta minority map — sub-threshold on crosswalk Lane 1, above-threshold on every Lane 2 signal), the framework requires reporting the disagreement honestly rather than selecting the more convenient lane.
 
-**ii. Jurisdiction-calibrated Lane 1 thresholds.** Rather than applying the Stephanopoulos-McGhee 7% EG threshold (derived from US elections data, never judicially adopted), the framework derives its Lane 1 thresholds from the jurisdiction's own neutral-draw MCMC ensemble. The Alberta-calibrated 95th-percentile EG is 3.86% — nearly half the US-derived figure — and is the operative threshold for this audit's Lane 1 verdict.
+**ii. Jurisdiction-calibrated Lane 1 thresholds.** Rather than applying the Stephanopoulos-McGhee 7% EG threshold (derived from US elections data, never judicially adopted), the framework derives its Lane 1 thresholds from the jurisdiction's own neutral-draw MCMC ensemble. The Alberta-calibrated 95th-percentile EG is 4.08% — nearly half the US-derived figure — and is the operative threshold for this audit's Lane 1 verdict.
 
 **iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/phase_b_scorecard.py`.
 
@@ -165,7 +165,7 @@ Ch1 (Mahalanobis absolute position) establishes that the minority map is an outl
 
 Ch1-COMP operationalises map-to-map asymmetry comparison as a permutation test with a neutral-ensemble null, rather than as a parametric distance or a point-estimate difference. The two-version design (EG-only for interpretability; Mahalanobis joint for power) was pre-specified with a recorded pessimistic prediction that Version A would likely not reach significance. The pre-commitment makes the passing result — despite the pessimistic prediction — particularly informative.
 
-Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 95th pct +3.43 pp); Version B p = 0.0001 (observed D = 7.19 vs null 95th pct 4.38). **All four metrics point minority more UCP-favorable under the Amendment-10-corrected declination sign (Warrington 2018; correction at `mcmc_ensemble.py:215` 2026-06-12).** Earlier drafts cited "3/4 with declination reversing" — that was an artefact of the swapped operand, not a real asymmetric-packing-theory cross-metric divergence. The inter-map distance (7.19) exceeds each map's individual distance from the ensemble centroid (minority D = 5.71, majority D = 2.79), confirming the maps sit on opposite flanks of metric space rather than occupying the same corner.
+Applied to Alberta 2026: Version A p = 0.0348 (observed EG gap +3.92 pp vs null 95th pct +3.54 pp, one-tailed); Version B p = 0.0002 (observed D = 7.20 vs null 95th pct 4.37, one-tailed). **All four metrics point minority more UCP-favorable under the Amendment-10-corrected declination sign (Warrington 2018; correction at `mcmc_ensemble.py:215` 2026-06-12).** Earlier drafts cited "3/4 with declination reversing" — that was an artefact of the swapped operand, not a real asymmetric-packing-theory cross-metric divergence. The inter-map distance (7.20) exceeds each map's individual distance from the ensemble centroid (minority D = 5.80, majority D = 2.78), confirming the maps sit on opposite flanks of metric space rather than occupying the same corner.
 
 ### Claim to novelty
 
@@ -180,7 +180,7 @@ Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 
 
 ### Pre-registration
 
-- OSF [yvc7g](https://osf.io/yvc7g), git ba0e686, drand seed 1823538405 (salt "ch1-comp")
+- OSF [yvc7g](https://osf.io/yvc7g), drand seed 1823538405 (salt "ch1-comp")
 - Pre-committed pessimistic prediction: Version A likely does not clear p < 0.05
 - Results: SUPPORTED on both versions; `findings/intermap_permutation_test_results.md`
 

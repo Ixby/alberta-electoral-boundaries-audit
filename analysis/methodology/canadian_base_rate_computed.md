@@ -503,7 +503,7 @@ paragraph. Word count ~285.
 > Alberta 2017 at 0.52 pp (Lesser Slave Lake restoration) and
 > Manitoba 2018 at 0.80 pp (rural-to-Winnipeg seat reallocation).
 > Alberta 2025-26's 0.51 pp point-estimate is ordinally equivalent
-> to Alberta 2017 and below Manitoba 2018; the high-end 1.52 pp from
+> to Alberta 2017 and below Manitoba 2018; the high-end 1.60 pp from
 > the weight-sensitivity range exceeds the observed Canadian maximum
 > in this sample. The defensible statement is therefore: **Alberta
 > 2025-26 is one of three Canadian redistribution cycles (of seven

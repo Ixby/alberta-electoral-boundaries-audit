@@ -145,8 +145,8 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 
 ### B5 MCMC ensemble
 
-- **Attack.** "Your 100k single-chain has n_eff ≈ 150. That's not enough for a p100 tail claim."
-- **Defense.** T1 remediation landed the explicit ESS tail-downgrade: p100 claims are bounded to p95.35 at the chain's effective precision. T3.1 multi-chain ReCom (50k × 3 seeds) delivered R-hat 1.013–1.017 (strict convergence) with combined ESS 288–350 (still under 1000 MGGG target; 150k × 3 run in flight at Issue #8).
+- **Attack.** "Your MCMC ensemble has insufficient effective sample size for tail claims."
+- **Defense.** The canonical 1,010,000-plan ensemble (4 chains × 252,500 steps, 2026-07-12) achieves n_eff of 1413–1522 across all four metrics (efficiency gap, mean-median, declination, seats@50/50) per `data/outputs/simulation_convergence_diagnostics_canonical.json`. This exceeds the MGGG 1000-sample target by 41–52 %. Gelman-Rubin R̂ < 1.017 across all metrics confirms strict convergence. Tail percentile claims are thereby warranted at publication grade.
 
 ### B6 Declination
 

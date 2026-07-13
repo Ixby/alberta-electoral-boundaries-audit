@@ -1,5 +1,7 @@
 # Multi-chain MCMC convergence summary
 
+> **Superseded (banner added 2026-07-13).** This is an early diagnostic run (3 chains × 150,000 steps, seeds [42, 101, 2024]) — not the canonical ensemble the current report cites. Its "NOT CONVERGED" verdict was correct for *this* run and is preserved below as historical record, but it does not describe the audit's present evidentiary basis: the canonical ensemble is now 1,010,000 plans (4 chains × 252,500 steps), rerun clean 2026-07-12, with its own convergence diagnostics at `data/outputs/simulation_convergence_diagnostics_canonical.json` (Gelman-Rubin R-hat 1.00011–1.00205, publication-grade ESS 1,413–1,522) — see `reports/academic/report_academic.md` §5.4.9. The "Implications for paper §5.4" section below refers to an old section-numbering scheme and should not be read as a live caveat on the current report.
+
 **Script:** `analysis/scripts/simulation_multichain_ensemble.py`
 
 **Seeds:** [42, 101, 2024]  

@@ -9,6 +9,8 @@
 > - `analysis/methodology/test_selection_rationale.md` §B5 — places this test in the audit battery
 > - `reports/academic/report_academic.md` §5.4 — consumes the ensemble percentile results
 
+> **Superseded (banner added 2026-07-12).** This is a preliminary 10,000-sample ensemble run (single seed 42, 2019-baseline substrate) dated 2026-04-23 — not the canonical 1,010,000-plan ensemble the current report cites. The numbers and rankings here do not describe the audit's present evidentiary basis. The canonical ensemble is now 1,010,000 plans (4 chains × 252,500 steps), rerun clean 2026-07-12, with its own convergence diagnostics at `data/outputs/simulation_convergence_diagnostics_canonical.json` (Gelman-Rubin R-hat 1.00011–1.00205, publication-grade ESS 1,413–1,522) — see `reports/academic/report_academic.md` §5.4 and CLAUDE.md for replication instructions. This v0.1 document is retained as historical record of the preliminary ensemble development but should not be read as a live caveat or baseline description for any current report finding.
+
 # v0.1 MCMC Ensemble Gerrymandering Test
 
 **Run date:** 2026-04-23

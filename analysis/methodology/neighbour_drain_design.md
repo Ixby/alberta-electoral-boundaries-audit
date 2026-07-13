@@ -282,5 +282,7 @@ not metric instability. On clean data, the metric gives a stable, interpretable 
 | `analysis/scripts/neighbour_drain_adjacency.py` | Current v1 implementation (modify for Phase A) |
 | `analysis/scripts/drain_label_shuffle_null.py` | NEW — Phase B + E |
 | `analysis/methodology/drain_v2_plan.md` | This document |
-| `dpg_validation/scripts/t535_neighbour_drain_official.py` | Official-geometry re-run (complete) |
-| `dpg_validation/outputs/t535_neighbour_drain_official.csv` | Official-geometry results (complete) |
+| `findings/neighbour_drain_analysis.md` | Canonical official-geometry validation results (2026-05-23) |
+| `analysis/logs/neighbour_drain_summary.json` | Canonical results data |
+
+> **Note on historical dpg_validation references (disclosure added 2026-07-12).** An earlier version of this document referenced `dpg_validation/scripts/t535_neighbour_drain_official.py` and `dpg_validation/outputs/t535_neighbour_drain_official.csv` as planned deliverables. Those files were never produced; the dpg_validation/ directory does not exist in the repo. The official-geometry validation was instead performed via `analysis/scripts/neighbour_drain_adjacency.py` and documented in `findings/neighbour_drain_analysis.md` (canonical run, 2026-05-23). The canonical results are the authoritative validation baseline and supersede any planned dpg_validation output.

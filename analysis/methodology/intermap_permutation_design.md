@@ -164,9 +164,9 @@ as-executed record.)*
 
 | Test | Map | D | p |
 | --- | --- | --- | --- |
-| Ch1 absolute position | Minority | 5.71 | 1.46×10⁻⁶ |
-| Ch1 absolute position | Majority | 2.79 | 0.100 |
-| Ch1-COMP inter-map | Minority vs Majority | **7.19** | **0.0001** |
+| Ch1 absolute position | Minority | 5.80 | 8.80×10⁻⁷ |
+| Ch1 absolute position | Majority | 2.78 | 0.100 |
+| Ch1-COMP inter-map | Minority vs Majority | **7.20** | **0.0002** |
 
 The inter-map distance (7.19) exceeds each map's individual distance from the
 ensemble centroid (5.71 and 2.79 respectively). This is geometrically interpretable:
@@ -207,10 +207,10 @@ neither as strongly.
 | --- | --- | --- |
 | Ch1 absolute (Mahalanobis) | Minority position vs neutral ensemble | Different question — absolute outlier status |
 | Ch2 SZAT | Swing-zone allocation vs shuffle null | Different question — causal mechanism in swing zones |
-| Fisher (Ch1+Ch2) | Joint significance of Ch1 and Ch2 | Different question — combined p for minority |
+| Fisher (retired) | Joint significance of Ch1 and Ch2 | *Retired 2026-06-10 — assumed channel independence not present* |
 | **Ch1-COMP** | **Minority vs majority, vs random neutral pairs** | **Confirmatory — is the asymmetry itself significant?** |
 
-Ch1-COMP is not a substitute for Ch1 or Fisher. Its role is confirmatory: once Ch1
+Ch1-COMP is not a substitute for Ch1. Its role is confirmatory: once Ch1
 establishes that the minority is an outlier, Ch1-COMP establishes that the two maps
 are not outliers in the same direction from the same cause. The minority-majority
 asymmetry is a real feature of the map pair, not an artefact of both maps being
@@ -286,8 +286,10 @@ non-cherry-picking.
 - Ch1-COMP does not establish intent. A significant inter-map distance means the
   two maps are different in partisan-metric space; it does not explain why.
 - Ch1-COMP is not the primary significance finding. The load-bearing test is Ch1
-  (minority absolute position, p = 1.60×10⁻⁷) and Fisher (Ch1+Ch2, p = 8.71×10⁻⁹).
-  Ch1-COMP is confirmatory.
+  (minority absolute position, p = 8.80×10⁻⁷). The Fisher combination of Ch1 and
+  Ch2 was retired 2026-06-10 — it assumed channel independence that the two
+  channels do not have (they share the 2023 vote substrate). Ch1 alone is the
+  operative headline. Ch1-COMP is confirmatory.
 - Version A marginal significance (p = 0.0303) should not be read in isolation
   from Version B (p = 0.0001). Both versions are reported because both were
   pre-specified; the joint picture is the finding.
@@ -295,6 +297,6 @@ non-cherry-picking.
 ---
 
 *Companion documents:*
-- `fisher_combination_defense.md` — Fisher combination methodology (Ch1+Ch2)
-- `fisher_independence_defense.md` — independence assumption defense
+- `fisher_combination_defense.md` — Fisher combination methodology (retired 2026-06-10; see Appendix G in report_academic.md)
+- `fisher_independence_defense.md` — independence assumption (basis for Fisher's retirement)
 - `findings/intermap_permutation_test_results.md` — full numerical output

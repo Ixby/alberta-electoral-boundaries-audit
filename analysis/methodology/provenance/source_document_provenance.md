@@ -1,7 +1,7 @@
 > **Backward:**
 > - Commission final report (PDF) — primary source for verbatim data-source disclosures
 > - Alberta Treasury Board OSI July 2024 estimate — cited basis verified
-> - `analysis/reports/plan_b_cross_check.md` — Track K headline finding
+> - ~~`analysis/reports/plan_b_cross_check.md`~~ — (file does not exist; see Phase 2.8 disclosure below)
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §4.1.3 (provenance framework) — incorporates Track O findings
@@ -435,10 +435,7 @@ among these. The gap is listed in Phase 3 as a **minor** inconsistency.
 The per-ED figures in both `data/majority_2026_populations.csv` and
 `data/minority_2026_populations.csv` are consistent with the
 4,888,723 basis (the majority to the person, the minority to within 50
-persons). Plan B (analysis/reports/plan_b_cross_check.md) independently
-ran the figures against the 2025 Alberta Regional Dashboard / TBF
-estimates and found every audit finding stable. This Phase 2 check adds
-one layer of specificity: the per-ED figures are correctly produced from
+persons). **⚠ Note:** The standalone document `analysis/reports/plan_b_cross_check.md` does not exist in the repository. The intended cross-check (verifying audit verdicts are stable across the 2021 census, 2024 OSI, and 2025 TBF population bases) was not produced as a standalone file. This Phase 2 check adds one layer of specificity: the per-ED figures are correctly produced from
 a July 2024 OSI DA-level file; the provincial total is consistent with
 both StatsCan and TBF releases; the commission's text characterization
 of that file as a "2021 decennial census [updated]" is the only

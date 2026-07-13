@@ -73,12 +73,13 @@ with 2023 Statement of Vote Election-Day NDP and UCP vote totals per VA.
 | Null geometries | 0 |
 | Missing `parent_ed_2019` | 0 |
 | Vote totals sum (NDP + UCP) | 896,644 — matches Phase 4C conservation check |
-| Election-Day fraction of full 2023 count | 52.5% (two-party total; advance/mail/special = 47.5%) |
+| Election-Day fraction of full 2023 count (post-C5) | 58.07% (two-party total; advance/mail/special = 41.93%) |
 
 ### Known limitations
 
 1. **Election-Day only.** Advance, mail-in, and special ballot votes are
-   excluded. NDP voters use advance/special at a 6pp higher rate than UCP,
+   excluded (Election-Day = 58.07% of post-C5 full-count substrate; advance/mail/special = 41.93%).
+   NDP voters use advance/special at a 6pp higher rate than UCP,
    so the Election-Day subset underestimates NDP's province-wide share (42.60%
    vs full-count 44.66% post-C5 Vote Anywhere exclusion).
 

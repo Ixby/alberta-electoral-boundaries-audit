@@ -196,7 +196,7 @@ analysis/
 │   ├── external_audit_gemini.md
 │   └── external_audit_meridian.md
 │
-└── scripts/            ~95 Python scripts — the executable analysis pipeline
+└── scripts/            127 Python scripts — the executable analysis pipeline
     ├── packing_cracking_analysis.py        B1–B6 partisan bias; symmetric, all three maps
     ├── electoral_forensics_population.py   A1/A2/A3 population equality tests
     ├── mcmc_ensemble_canonical.py          Canonical 1,010,000-plan ReCom neutral ensemble
@@ -245,12 +245,12 @@ data/
 │   ├── simulation_convergence_diagnostics_{section_c,threshold_2015,threshold_2019}.json
 │   ├── drain_label_shuffle_null.json                       Ch3 label-shuffle null result
 │   ├── neighbour_drain_summary.json                        Neighbour-drain aggregate stats
-│   ├── submission_search_dataset.csv                       614 public submissions with metadata
+│   ├── submission_search_dataset.csv                       611 public submissions with metadata
 │   ├── submission_sentiment_llm_results.csv                LLM sentiment (452 deduped submissions)
 │   ├── szat_bootstrap_eg_samples.npy                       SZAT bootstrap samples (numpy binary)
 │   └── va_pop_from_das.csv                                 VA-level 2021 population from DA crosswalk
 │
-├── logs/                       Run logs from long-running canonical-era scripts (4 files)
+├── logs/                       Run logs from long-running canonical-era scripts (8 files)
 │   ├── isr_run1.log
 │   ├── mcmc_100k_post_audit_rerun.log
 │   ├── python_compactness_run.log
@@ -294,7 +294,7 @@ data/
 │
 ├── outputs/                ~150 CSVs + JSONs — all script-generated metrics
 │   ├── district_patterns/          Geographic record of packing/cracking/draining patterns
-│   │   ├── *.geojson               36 GeoJSON files — boundaries of every identified pattern
+│   │   ├── *.geojson               58 GeoJSON files — boundaries of every identified pattern
 │   │   │                           district (2019 and 2026 versions; majority and minority maps)
 │   │   └── packing_cracking_events.json   Per-district vote stats, margins, safety class,
 │   │                                       voter impact for all 20 identified boundary events
@@ -386,7 +386,7 @@ reports/
 
 ## tests/
 
-32 pytest files. Run with `python -m pytest tests/`. All must pass before any report commit.
+230 pytest test cases across 31 test files. Run with `python -m pytest tests/`. All must pass before any report commit.
 
 ```
 tests/

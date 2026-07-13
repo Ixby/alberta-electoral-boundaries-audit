@@ -47,7 +47,7 @@ from collections import Counter
 from statistics import mean
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.normpath(os.path.join(HERE, "..", "..", "data"))
+DATA = os.path.normpath(os.path.join(HERE, "..", "..", "data", "reference"))
 
 F_2023 = os.path.join(DATA, "alberta_2023_results.csv")
 F_2019 = os.path.join(DATA, "alberta_2019_results.csv")

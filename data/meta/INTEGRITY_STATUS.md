@@ -78,7 +78,7 @@ threshold on 81 of 86 non-zero-pop majority EDs and 87 of 89 minority EDs.
 Worst offenders:
 
 **Majority:**
-- Edmonton-Gold Bar: +212% (149,439 DA-derived vs 54,981 commission)
+- Edmonton-Gold Bar: +171.8% (corrected 2026-07-13, was miscalculated as +212%; (149,439−54,981)/54,981 = 171.8%) (149,439 DA-derived vs 54,981 commission)
 - Edmonton-North West: +129%
 - Edmonton-Rutherford: +127%
 - Calgary-Buffalo: +108%
@@ -88,7 +88,7 @@ Worst offenders:
   Highlands-Norwood)
 
 **Minority:**
-- Edmonton-Beverly-Clareview: **+428%** (264,708 DA-derived vs 57,481
+- Edmonton-Beverly-Clareview: **+360.5%** (corrected 2026-07-13, was miscalculated as +428%; (264,708−57,481)/57,481 = 360.5%) (264,708 DA-derived vs 57,481
   commission — polygon absorbs adjacent DAs)
 - Stony Plain-Drayton Valley: +282%
 - Edmonton-Highlands-Norwood: +135%

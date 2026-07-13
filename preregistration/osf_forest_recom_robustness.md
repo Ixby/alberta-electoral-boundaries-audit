@@ -74,6 +74,8 @@ Identical to the canonical run:
 
 Derived from the public Cloudflare drand beacon round **5,500,000** (same round as the canonical run; randomness hex committed in `analysis/scripts/drand_seed.py`).
 
+**Clarification on round 5,500,000 reuse:** This round is a historical beacon output (October 2025); it was publicly available and unmodifiable before this pre-registration document was written. The audit's pre-registration discipline requires that the salt string (`"forest_recom_robustness"`) be fixed *before* any Forest-ReCom result is observed. Because the round is public and fixed, and the salt string is committed before the analysis runs, the round is legitimately reusable for this robustness check (which is being pre-registered before execution). For comparison, `preregistration/seed_commitments.md` Amendment A §1 explicitly rejects using round 5,500,000 for the Lunty-map future test, because that test requires a drand round *after* the Lunty committee's map publishes — a future, unknown beacon output that serves as a time-lock for the pre-registered scoring procedure. The two uses are in different contexts with different security requirements; round reuse is acceptable here but not there.
+
 Salt: `"forest_recom_robustness"`. This salt string is fixed in this document and in `analysis/scripts/forest_recom_ensemble.py` and is committed to git at the same time as this pre-registration. The salt could not have been chosen by inspecting Forest-ReCom results, because no Forest-ReCom result exists at the time of commit.
 
 A reviewer can compute the seed independently:

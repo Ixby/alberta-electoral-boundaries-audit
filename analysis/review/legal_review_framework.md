@@ -98,14 +98,14 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
 
 ## Findings output
 
-Each file class produces a red-team findings file:
+Four deliverables were produced applying this framework to the four highest-risk file classes:
 
-- `analysis/red_team/legal_red_team_report_public.md`
-- `analysis/red_team/legal_red_team_report_academic.md`
-- `analysis/red_team/v0_1_legal_red_team_frozen_manifest.md`
-- `analysis/red_team/v0_1_legal_red_team_analysis_docs.md`
-- `analysis/red_team/legal_red_team_scripts.md`
-- `analysis/red_team/legal_red_team_data_artifacts.md`
+- `analysis/review/legal_review_public_report.md` — D1–D10 applied to `reports/public/report_public.md`
+- `analysis/review/legal_review_academic_report.md` — D1–D10 applied to `reports/academic/report_academic.md`
+- `analysis/review/legal_review_scripts.md` — D4 (reproducibility) applied to all analysis scripts
+- `analysis/review/legal_review_data_artifacts.md` — D5 (data provenance) applied to all data artifacts
+
+> **Planned vs actual (note added 2026-07-12).** The original framework planned six deliverables: the four above plus separate reviews of FROZEN_MANIFEST.md and analysis methodology documents. Those two reviews were not produced; the scope was narrowed to the four highest-defamation-risk file classes (the two reports, scripts, and data) based on triage priorities. The four deliverables above are the actual output.
 
 Each findings file follows the template:
 
@@ -125,9 +125,3 @@ Each findings file follows the template:
 
 - Existing red-team files (`v0_1_red_team_*.md`) address code, assertions, references, conclusions, and latent bias. Their findings are the starting point; this legal pass extends them to the court-admissibility standard above.
 - Findings marked CRITICAL in earlier passes but deferred are re-examined here against the ten dimensions.
-
-## Parallelisation plan (for 4:30am agent restart)
-
-Once agent rate limits reset, six agents run in parallel, one per findings file, each scoped to its file class. Each agent produces its findings file and a summary table. A seventh agent (conductor role) consolidates all six into a single release-readiness score and blocks release on any outstanding CRITICAL.
-
-Until then, this framework document and the `report_public.md` first-pass findings below are the serial-execution deliverables.
