@@ -72,7 +72,7 @@ This was the image that made the stakes clear. A province that looks like it vot
 
 ## Act I: What the Map Does {.new-page}
 
-Act I walks the lines themselves. No election results, no simulation — geometry anyone can check against a paper map. The two drafts were drawn in the same room, by five commissioners working from the same statutory rules, the same provincial geography, the same archive of 1,140 public submissions, and the same demographic data. They agree on most of Alberta. Where they diverge, they diverge on choices someone in the room had to make.
+Act I walks the lines themselves. No election results, no simulation — geometry anyone can check against a paper map. The two drafts were drawn in the same room, by five commissioners working from the same statutory rules, the same provincial geography, the same archive of 1,147 public submissions, and the same demographic data. They agree on most of Alberta. Where they diverge, they diverge on choices someone in the room had to make.
 
 ### Casing 1 — A city of 85,805 with zero seats {#casing-1}
 
@@ -210,7 +210,7 @@ The minority map's 51.7% sits closer to the deliberately-aimed UCP ceiling (52.9
 
 ![How skewed each map looks on the partisan-fairness number. The majority sits at +0.1% — inside the normal range. The minority sits at +4.0%, just below the Alberta line at ~4.1%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
 
-**What we found.** The fourth partisan-fairness metric, the *efficiency gap* — a single number measuring how lopsidedly a party's votes translate into seats — came in at +4.0% for the minority map: the 94th percentile. The audit's pre-registered outlier line is the 95th percentile (about +4.1% on Alberta's simulated distribution). It missed. Directionally UCP-favoured, but below the line, and reported that way in every table in this report. The majority map's efficiency gap is +0.1% (15th percentile).
+**What we found.** The fourth partisan-fairness metric, the *efficiency gap* — a single number measuring how lopsidedly a party's votes translate into seats — came in at +4.0% for the minority map: the 94th percentile. The audit's pre-registered outlier line is the 95th percentile (about +4.1% on Alberta's simulated distribution). It missed. Directionally UCP-favoured, but below the line, and reported that way in every table in this report. The majority map's efficiency gap is +0.1% (16th percentile).
 
 **What it could show.** Taken alone, almost nothing — which is exactly why it is in the log.
 
