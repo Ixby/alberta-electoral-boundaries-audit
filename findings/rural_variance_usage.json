@@ -1,0 +1,38 @@
+{
+  "frozen_rule": {
+    "majority_2026": {
+      "n_rural": 28,
+      "mean_rural_dev_pct": -6.04,
+      "min_rural_dev_pct": -47.72,
+      "rural_below_minus10": 4,
+      "rural_below_minus25": 3,
+      "mean_abs_rural_dev_pct": 8.29
+    },
+    "minority_2026": {
+      "n_rural": 22,
+      "mean_rural_dev_pct": -12.22,
+      "min_rural_dev_pct": -45.37,
+      "rural_below_minus10": 11,
+      "rural_below_minus25": 3,
+      "mean_abs_rural_dev_pct": 12.41
+    }
+  },
+  "corrected_rule": {
+    "majority_2026": {
+      "n_rural": 24,
+      "mean_rural_dev_pct": -6.97,
+      "min_rural_dev_pct": -47.72,
+      "rural_below_minus10": 4,
+      "rural_below_minus25": 3,
+      "mean_abs_rural_dev_pct": 8.68
+    },
+    "minority_2026": {
+      "n_rural": 19,
+      "mean_rural_dev_pct": -13.71,
+      "min_rural_dev_pct": -45.37,
+      "rural_below_minus10": 11,
+      "rural_below_minus25": 3,
+      "mean_abs_rural_dev_pct": 13.86
+    }
+  }
+}

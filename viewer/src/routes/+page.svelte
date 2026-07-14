@@ -540,6 +540,12 @@
             <td class="flag">{@html t(lang.current, 'body.impact.table_r6_c')}</td>
             <td>{@html t(lang.current, 'body.impact.table_r6_d')}</td>
           </tr>
+          <tr style="opacity: 0.85;">
+            <td>{@html t(lang.current, 'body.impact.table_r7_a')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r7_b')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r7_c')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r7_d')}</td>
+          </tr>
         </tbody>
       </table>
     </div>
