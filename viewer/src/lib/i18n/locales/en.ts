@@ -115,9 +115,9 @@ export default {
 			'Three maps, two ways of measuring. One dot is not like the others. This picture is the audit\u2019s whole case in one image \u2014 and right now you have no way to judge whether it means anything. The lines on it are not laws. The corner is not a courtroom. By the end of this page you will know exactly what this picture can prove, and exactly what it cannot. The log comes back to it at the end.'
 	},
 	head: {
-		title: 'Laws, Norms, & Statistics — An Audit of the 2026 Alberta Electoral Boundaries Commission Report',
+		title: 'Laws, Norms, & Statistics — An Audit of the 2026 Alberta Electoral Boundaries Commission Reports',
 		meta_description:
-			"Laws, norms, and statistics: an audit of the 2026 Alberta Electoral Boundaries Commission report — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
+			"Laws, norms, and statistics: an audit of the 2026 Alberta Electoral Boundaries Commission reports — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
 	},
 	nav: {
 		skip_to_content: 'Skip to content',
@@ -167,7 +167,7 @@ export default {
 		feedback: 'Send feedback'
 	},
 	hero: {
-		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Report',
+		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Reports',
 		subtitle:
 			"Alberta's commission produced two competing riding maps in 2026. This audit ran the same tests on both, asking one question: do they treat voters the same way?",
 		badge: 'Official Elections Alberta maps — Published May 2026',
@@ -680,6 +680,10 @@ export default {
 				"One more thing belongs in the log before the first casing: the author's own prior. He has donated to the NDP and volunteered for the party, and has also donated to the Progressive Conservatives, a predecessor party of the UCP. Three findings that ran against his expectation are kept in this log anyway, and every number reproduces from public code, public data, and random seeds committed in public before the analysis ran.",
 			frame_lenses:
 				'This episode has three lenses, and each has its own companion page: <a href="__BASE__/law">what the law asks</a>, <a href="__BASE__/norms">what the norms ask</a>, and <a href="__BASE__/methods">how the maps were tested</a>. The log below draws on all three.',
+			frame_p1b:
+				'Or maybe you came for something simpler — you heard Alberta is fighting over its electoral map, and you want to know what the fight is about. The short version: where district lines fall decides whose votes add up to a seat and whose scatter. Alberta was redrawing its ridings. The independent commission doing it split into two camps with two competing maps. The government then set both aside and handed the pen to a committee its own party controls — a move without precedent in the sixty years of Canadian practice this audit reviewed. The fight is over what that committee will draw this November, and whether anyone could tell if it were drawn unfairly. This audit exists so that someone can tell.',
+			frame_routes:
+				'Two ways in, then. If you came to learn the fight, start with the picture just below, then the map on the cover; the interlude midway down brings it to your own street. If you came for the gun, the log starts at Casing 1 — fourteen casings, five questions each, every one ending the same way.',
 			refrain: 'A casing, not a gun.',
 			refrain_not_even: 'Not even a casing. We logged it anyway.',
 			know_more: 'Know more',

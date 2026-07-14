@@ -387,6 +387,7 @@
   <section id="the-smoking-gun">
     <h2>{t(lang.current, 'body.casings.frame_h')} <a href="#the-smoking-gun" class="section-link" aria-label={t(lang.current, 'nav.smoking_gun')}>#</a></h2>
     <p class="section-punch">{t(lang.current, 'body.casings.frame_p1')}</p>
+    <p>{t(lang.current, 'body.casings.frame_p1b')}</p>
     <p>{@html t(lang.current, 'body.casings.frame_cast')}</p>
     <p>{t(lang.current, 'body.casings.frame_p2')}</p>
     <p>{t(lang.current, 'body.casings.frame_p3')}</p>
@@ -401,6 +402,7 @@
     <p>{t(lang.current, 'body.casings.frame_p5')}</p>
     <p>{t(lang.current, 'body.casings.frame_coi')}</p>
     <p>{@html t(lang.current, 'body.casings.frame_lenses').replaceAll('__BASE__', base)}</p>
+    <p>{t(lang.current, 'body.casings.frame_routes')}</p>
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
