@@ -95,6 +95,13 @@
           checks for this (used across the field) pass with room to spare.
         </li>
         <li>
+          <strong>A note on seat counts.</strong> The 2026 commission maps have 89 districts each; the
+          simulation runs on the 87-district 2019 map (the last legally enacted one — the algorithm
+          needs a real map to start walking from); the November committee will produce 91. Every
+          percentage on this site is a seat <em>share</em>, so the numbers compare cleanly across all
+          three sizes.
+        </li>
+        <li>
           <strong>The machine is not a perfect referee.</strong> It follows the two hard rules,
           but not every soft rule real commissions honour — like keeping communities together.
           Real commission maps are actually tidier than most neutral maps. The audit says this

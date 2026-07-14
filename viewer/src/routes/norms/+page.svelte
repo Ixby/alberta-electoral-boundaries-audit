@@ -188,7 +188,7 @@
         boundary a "bad faith effort" in a public statutory document; the Canadian Civil
         Liberties Association publicly
         <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>;
-        the opposition voted against the motion.
+        the opposition voted against the motion. And the accusations run both ways: the minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” (p. 356) — a charge the audit has so far tested only in part, and carries with the same one-sided-provenance discount it applies to the chair's flags.
       </p>
       <p>
         The following is <em>not</em> a documented fact — it is a political judgment: that
@@ -252,6 +252,13 @@
           </tbody>
         </table>
       </div>
+      <p>
+        One more way to see this scorecard: it is the <em>third axis</em>. The audit's chart plots
+        every map on two dimensions — structure and statistics — and all three maps plotted so far
+        were drawn by commission processes that score nine of nine here, so the third axis has had
+        nothing to separate. The November map will be the first point in the audit's history with a
+        different process score behind it.
+      </p>
       <p>
         Read the table honestly, in both directions. The commission scores nine of nine
         <em>by construction</em> — the criteria describe the institution the norm built, and

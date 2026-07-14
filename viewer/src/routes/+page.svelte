@@ -388,7 +388,6 @@
     <h2>{t(lang.current, 'body.casings.frame_h')} <a href="#the-smoking-gun" class="section-link" aria-label={t(lang.current, 'nav.smoking_gun')}>#</a></h2>
     <p class="section-punch">{t(lang.current, 'body.casings.frame_p1')}</p>
     <p>{t(lang.current, 'body.casings.frame_p1b')}</p>
-    <p>{@html t(lang.current, 'body.casings.frame_cast')}</p>
     <p>{t(lang.current, 'body.casings.frame_p2')}</p>
     <p>{t(lang.current, 'body.casings.frame_p3')}</p>
     <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
@@ -401,8 +400,7 @@
     <p>{t(lang.current, 'body.casings.frame_p4')}</p>
     <p>{t(lang.current, 'body.casings.frame_p5')}</p>
     <p>{t(lang.current, 'body.casings.frame_coi')}</p>
-    <p>{@html t(lang.current, 'body.casings.frame_lenses').replaceAll('__BASE__', base)}</p>
-    <p>{t(lang.current, 'body.casings.frame_routes')}</p>
+    <p>{@html t(lang.current, 'body.casings.frame_routes').replaceAll('__BASE__', base)}</p>
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
@@ -607,12 +605,12 @@
     <p>{t(lang.current, 'body.casings.act2_intro_p1')}</p>
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.howmcmc_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.clean.howmcmc_mcmc')}</p>
+      <p>{@html t(lang.current, 'body.clean.howmcmc_mcmc').replaceAll('__BASE__', base)}</p>
       <p>{@html t(lang.current, 'body.clean.howmcmc_recom')}</p>
     </div>
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.prereg_label')}</strong></p>
-      <p>{t(lang.current, 'body.clean.prereg_body')}</p>
+      <p>{@html t(lang.current, 'body.clean.prereg_body').replaceAll('__BASE__', base)}</p>
     </div>
     <p>{t(lang.current, 'body.casings.act2_intro_p2')}</p>
     <h3 id="casing-6">{t(lang.current, 'body.casings.c6_title')}</h3>
@@ -646,6 +644,12 @@
       </table>
     </div>
     <p><strong>{t(lang.current, 'body.casings.beat_found')} (2).</strong> {@html t(lang.current, 'body.casings.c6_found2')}</p>
+    <p>{t(lang.current, 'body.clean.super_lead')}</p>
+    <div class="callout">
+      <p><strong>{t(lang.current, 'body.clean.super_label')}</strong></p>
+      <p>{t(lang.current, 'body.clean.super_body')}</p>
+    </div>
+    <p>{t(lang.current, 'body.clean.super_close')}</p>
     <div class="table-wrap">
       <table>
         <thead>
@@ -800,12 +804,6 @@
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {t(lang.current, 'body.casings.rev_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {t(lang.current, 'body.casings.rev_gun')}</p>
     <p class="casing-refrain" style="font-style: italic;"><strong>{t(lang.current, 'body.casings.rev_refrain')}</strong></p>
-    <p>{t(lang.current, 'body.clean.super_lead')}</p>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.super_label')}</strong></p>
-      <p>{t(lang.current, 'body.clean.super_body')}</p>
-    </div>
-    <p>{t(lang.current, 'body.clean.super_close')}</p>
     <h3>{t(lang.current, 'body.casings.playbook_h')}</h3>
     <p>{@html t(lang.current, 'body.casings.playbook_p1')}</p>
     <p>{@html t(lang.current, 'body.casings.playbook_p2')}</p>
@@ -821,11 +819,6 @@
 
     <p>{t(lang.current, 'body.november.intro')}</p>
 
-    <h3>{t(lang.current, 'body.november.h_anomalous')}</h3>
-
-    <p>{@html t(lang.current, 'body.november.anomalous_p1')}</p>
-
-    <p>{t(lang.current, 'body.november.anomalous_p2')}</p>
 
     <p>{@html t(lang.current, 'body.commission_split.finding3')}</p>
 
@@ -837,11 +830,6 @@
 
     <p>{@html t(lang.current, 'body.november.framework_p3')}</p>
 
-    <h3>{t(lang.current, 'body.november.h_quebec')}</h3>
-
-    <p>{@html t(lang.current, 'body.november.quebec_p1')}</p>
-
-    <p>{t(lang.current, 'body.november.quebec_p2')}</p>
 
     <p>{t(lang.current, 'body.november.closing')}</p>
 

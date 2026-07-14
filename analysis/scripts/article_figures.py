@@ -579,6 +579,16 @@ def build_bias_structure_matrix() -> Path:
         ha="left", va="bottom",
     )
 
+    # Third axis (process) — annotation, not an axis: it has no variance among
+    # the plotted maps (all commission-drawn) until the November committee map.
+    ax.text(
+        0.0, -0.16,
+        "A third axis \u2014 the process that drew each map \u2014 is not shown: all three points share the same\n"
+        "commission pedigree (nine of nine protective features). November's map arrives with a different one.",
+        transform=ax.transAxes, fontsize=7, color=INK_SUBTLE, style="italic",
+        ha="left", va="top",
+    )
+
     out = OUT / "bias_structure_matrix.svg"
     save_fig(fig, out, pad_inches=0.10)
     # stakes_quadrant.svg is the article-facing name for this chart
