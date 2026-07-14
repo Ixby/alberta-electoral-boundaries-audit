@@ -844,6 +844,8 @@
     <p>{t(lang.current, 'body.november.quebec_p2')}</p>
 
     <p>{t(lang.current, 'body.november.closing')}</p>
+
+    <p>{@html t(lang.current, 'body.november.process_scorecard').replaceAll('__BASE__', base)}</p>
   </section>
 
   <section id="authors-view">

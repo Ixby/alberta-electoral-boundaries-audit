@@ -221,17 +221,57 @@
     </section>
 
     <section id="measurable">
-      <h2>How the norms question becomes measurable</h2>
+      <h2>The process scorecard: making the norms question measurable</h2>
       <p>
-        Rhetoric about norms is cheap in both directions. The audit's answer is to make the
-        question testable. When the committee's map lands in November 2026, the same locked
-        tests that scored both commission maps will score it, unchanged. And the process
-        itself can be read against a checklist the norm used to guarantee: Were hearings
-        held? Was a draft published for challenge? Did the advisers' work bind anyone?
-        Does the map honour the recommendation used to justify the takeover? Where does it
-        land against a million neutral maps? At that point the norms debate stops being a
-        shouting match about tradition and becomes a scored comparison: did the committee
-        behave like the institution it replaced?
+        Rhetoric about norms is cheap in both directions. The audit's answer is a third
+        scorecard — alongside the structural tests and the statistics — that scores the
+        <em>process</em> on nine protective features the sixty-year practice guaranteed.
+        Each is a yes-or-no question answerable from public documents, and the same nine
+        score every process this audit examines.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Protective feature</th>
+              <th>Commission process</th>
+              <th>Committee process (as constituted)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Arm's-length drafting</td><td class="yes">Yes</td><td class="part">Partial — the panel drafts; five MLA votes (3–2 government) decide</td></tr>
+            <tr><td>Public hearings before adoption</td><td class="yes">Yes — sixteen communities</td><td class="no">No — none planned on the map produced</td></tr>
+            <tr><td>Draft published for challenge</td><td class="yes">Yes — interim proposal revised in public</td><td class="no">No — none announced</td></tr>
+            <tr><td>New public submissions accepted</td><td class="yes">Yes — 1,147 received</td><td class="no">No — reuses the commission's archive</td></tr>
+            <tr><td>Demonstrated responsiveness</td><td class="yes">Yes — reversed itself on 80+ submissions</td><td class="pend">Pending</td></tr>
+            <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — named by the Chief Justice</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
+            <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of five</td></tr>
+            <tr><td>Published reasons for contested choices</td><td class="yes">Yes — both reports</td><td class="pend">Pending</td></tr>
+            <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — without precedent among reviewed cycles</td></tr>
+            <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 2 Partial · 4 No · 2 Pending</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Read the table honestly, in both directions. The commission scores nine of nine
+        <em>by construction</em> — the criteria describe the institution the norm built, and
+        the commission was that institution. The informative part is prospective: four of the
+        committee's No cells are features it can still add between now and November —
+        hearings, a published draft, new submissions, and the responsiveness they make
+        possible. If it adds them, the audit's process-departure finding is materially
+        mitigated, and the audit has committed in writing to saying so.
+      </p>
+      <p class="draft-note">
+        Status matters here: this scorecard is a published <em>draft</em>
+        (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md" rel="noopener">criteria, sources, and predicted directions</a>),
+        written mid-episode by an author whose earlier findings you have just read — a bias
+        risk the draft discloses rather than hides. It carries no confirmatory weight unless
+        it is registered before the committee reports. Applied backward to the commission,
+        it is description, not prediction. When the committee's map lands, the same locked
+        map tests run unchanged — and this checklist scores the process that produced it.
+        At that point the norms debate stops being a shouting match about tradition and
+        becomes a scored comparison: did the committee behave like the institution it
+        replaced?
       </p>
     </section>
 
@@ -346,6 +386,42 @@
     color: #3a3a38;
   }
   :global(:root[data-theme="dark"]) blockquote { color: #b9c0d0; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 0.9rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.92rem;
+    background: #fff;
+  }
+  :global(:root[data-theme="dark"]) table { background: #26272f; }
+  th, td {
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    vertical-align: top;
+  }
+  :global(:root[data-theme="dark"]) th,
+  :global(:root[data-theme="dark"]) td { border-bottom-color: rgba(255,255,255,0.12); }
+  th { background: rgba(26, 46, 69, 0.07); font-weight: 700; }
+  :global(:root[data-theme="dark"]) th { background: rgba(255,255,255,0.06); }
+  td.yes  { color: #0F6A5C; font-weight: 600; }
+  td.no   { color: #7B2D3E; font-weight: 600; }
+  td.part, td.pend { color: #6b5900; font-weight: 600; }
+  :global(:root[data-theme="dark"]) td.yes  { color: #4fc3ae; }
+  :global(:root[data-theme="dark"]) td.no   { color: #e08a9b; }
+  :global(:root[data-theme="dark"]) td.part,
+  :global(:root[data-theme="dark"]) td.pend { color: #d4b84a; }
+  tr.count td { border-top: 2px solid rgba(0,0,0,0.25); font-weight: 700; }
+  :global(:root[data-theme="dark"]) tr.count td { border-top-color: rgba(255,255,255,0.3); }
+
+  .draft-note {
+    font-size: 0.92rem;
+    color: #55554f;
+    border-inline-start: 3px solid #7B2D3E;
+    padding: 0.2rem 0 0.2rem 1rem;
+  }
+  :global(:root[data-theme="dark"]) .draft-note { color: #9aa3b5; }
 
   a { color: #1a5276; }
   :global(:root[data-theme="dark"]) a { color: #7fb3d5; }

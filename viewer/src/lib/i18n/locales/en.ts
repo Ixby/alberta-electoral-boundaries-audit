@@ -651,7 +651,9 @@ export default {
 			quebec_p2:
 				"Quebec's model emerged partly from lessons about what happens when redistricting is not insulated from partisan control. The contrast with Alberta's current process — where a majority-controlled committee has replaced the commission's work before the legislature has voted on either commission report — illustrates the structural difference between redistricting systems that assume partisan pressure and design against it, versus systems where that pressure has a clearer path to the outcome.",
 			closing:
-				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change."
+				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change.",
+			process_scorecard:
+				'The map is only half of what gets scored in November. The process gets its own instrument: a nine-feature scorecard — hearings, published drafts, arm\'s-length drafting, and the rest of what the sixty-year norm guaranteed — published in draft on <a href="__BASE__/norms#measurable">the norms page</a>. Four of the committee\'s failing cells are features it can still add before it reports.'
 		},
 		casings: {
 			frame_h: 'The Smoking Gun',
