@@ -951,9 +951,8 @@
     </div>
 
     <div class="callout warning">
-      <p><strong>{t(lang.current, 'body.retractions.corr_label')}</strong></p>
-      <p>{t(lang.current, 'body.retractions.corr_intro')}</p>
-      <p>{@html t(lang.current, 'body.retractions.corr_municipal')}</p>
+      <p><strong>{t(lang.current, 'body.retractions.corr_light_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.retractions.corr_light_intro')}</p>
     </div>
   </section>
 
