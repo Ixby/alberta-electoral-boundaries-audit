@@ -115,9 +115,9 @@ export default {
 			'Three maps, two ways of measuring. One dot is not like the others. This picture is the audit\u2019s whole case in one image \u2014 and right now you have no way to judge whether it means anything. The lines on it are not laws. The corner is not a courtroom. By the end of this page you will know exactly what this picture can prove, and exactly what it cannot. The log comes back to it at the end.'
 	},
 	head: {
-		title: 'Alberta Electoral Boundary Audit',
+		title: 'Laws, Norms, & Statistics — An Audit of the 2026 Alberta Electoral Boundaries Commission Report',
 		meta_description:
-			"Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
+			"Laws, norms, and statistics: an audit of the 2026 Alberta Electoral Boundaries Commission report — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
 	},
 	nav: {
 		skip_to_content: 'Skip to content',
@@ -167,7 +167,7 @@ export default {
 		feedback: 'Send feedback'
 	},
 	hero: {
-		h1: 'Alberta Electoral Boundary Audit',
+		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Report',
 		subtitle:
 			"Alberta's commission produced two competing riding maps in 2026. This audit ran the same tests on both, asking one question: do they treat voters the same way?",
 		badge: 'Official Elections Alberta maps — Published May 2026',
