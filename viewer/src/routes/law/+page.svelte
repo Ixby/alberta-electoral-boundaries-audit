@@ -96,8 +96,8 @@
           the case law reviewed in the monograph, a statistical tilt must be paired with
           something more — population deviations not justified by geography or community of
           interest, or evidence the neutral factors were invoked to rationalize a partisan
-          outcome rather than to serve their statutory purpose. The audit's structural lane
-          (population spread, city splits, chair-flagged boundaries) exists precisely because
+          outcome rather than to serve their statutory purpose. The audit's structural tests
+          (population spread, city splits, chair-flagged boundaries) exist precisely because
           the law asks about that pairing.
         </li>
         <li>
@@ -205,8 +205,9 @@
         commissions, and readers — with the audit's evidence on the table.
       </p>
       <p class="cross-ref">
-        Companion page: <a href="{base}/methods">How the maps were tested</a> — the ensemble,
-        the four fairness metrics, and how to reproduce every number.
+        Companion pages: <a href="{base}/methods">How the maps were tested</a> — every test
+        and statistic in plain language — and <a href="{base}/norms">What the norms ask</a> —
+        the third lens, on custom and its cross-examination.
       </p>
       <p class="disclaimer">
         This page is a plain-language companion to the audit, written for orientation. It is

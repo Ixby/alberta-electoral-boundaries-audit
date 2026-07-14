@@ -331,6 +331,7 @@ python analysis/scripts/joint_outlier_score_canonical.py</code></pre>
       </p>
       <p class="cross-ref">
         Companion pages: <a href="{base}/law">What the law asks of an electoral map</a> ·
+        <a href="{base}/norms">What the norms ask</a> ·
         <a href="{base}/explainers">The fourteen explainers (Appendices A–N)</a>, one for each
         casing in the main report.
       </p>
