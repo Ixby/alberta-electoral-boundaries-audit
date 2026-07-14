@@ -466,21 +466,21 @@
     <p style="margin: 0.2rem 0 0.9rem;"><a href="{base}/explorer?poi=banff-town">{t(lang.current, 'body.casings.c2_banff_link')} ↗</a></p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c2_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c2_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-b">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c2_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c2_refrain')}</strong> — <a href="{base}/explainers#appendix-b">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c2_app')}</a></p>
     <h3 id="casing-3">{t(lang.current, 'body.casings.c3_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c3_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c3_show')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c3_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c3_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c3_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-c">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c3_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c3_refrain')}</strong> — <a href="{base}/explainers#appendix-c">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c3_app')}</a></p>
     <h3 id="casing-4">{t(lang.current, 'body.casings.c4_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c4_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c4_show')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c4_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c4_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c4_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-d">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c4_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c4_refrain')}</strong> — <a href="{base}/explainers#appendix-d">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c4_app')}</a></p>
     <h3 id="casing-5">{t(lang.current, 'body.casings.c5_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c5_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c5_show')}</p>
@@ -687,7 +687,7 @@
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c6_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c6_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c6_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-f">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c6_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c6_refrain')}</strong> — <a href="{base}/explainers#appendix-f">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c6_app')}</a></p>
     <h3 id="casing-7">{t(lang.current, 'body.casings.c7_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c7_found')}</p>
     <figure style="margin:1.2rem 0;text-align:center;">
@@ -705,7 +705,7 @@
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c8_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c8_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c8_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-h">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c8_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c8_refrain')}</strong> — <a href="{base}/explainers#appendix-h">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c8_app')}</a></p>
     <h3 id="casing-9">{t(lang.current, 'body.casings.c9_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c9_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c9_show')}</p>
@@ -737,7 +737,7 @@
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c11_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c11_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c11_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-k">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c11_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c11_refrain')}</strong> — <a href="{base}/explainers#appendix-k">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c11_app')}</a></p>
     <h3 id="casing-12">{t(lang.current, 'body.casings.c12_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c12_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c12_show')}</p>
@@ -774,7 +774,7 @@
     <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c13_experts')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c13_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c13_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-m">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c13_app')}</a></p>
+    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c13_refrain')}</strong> — <a href="{base}/explainers#appendix-m">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c13_app')}</a></p>
     <h3 id="casing-14">{t(lang.current, 'body.casings.c14_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c14_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c14_show')}</p>
