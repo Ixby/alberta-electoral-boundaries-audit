@@ -399,6 +399,7 @@
     </ol>
     <p>{t(lang.current, 'body.casings.frame_p4')}</p>
     <p>{t(lang.current, 'body.casings.frame_p5')}</p>
+    <p>{t(lang.current, 'body.casings.frame_coi')}</p>
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>

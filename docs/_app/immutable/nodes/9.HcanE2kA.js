@@ -1,45 +1,4 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
-		<link rel="apple-touch-icon" href="./favicon.svg">
-		<!-- Self-hosted expedition display face for the map-explorer watermark. -->
-		<link rel="preload" as="font" type="font/woff2" href="./fonts/cinzel-700.woff2" crossorigin>
-		<style>
-			@font-face {
-				font-family: 'Cinzel';
-				font-style: normal;
-				font-weight: 700;
-				font-display: swap;
-				src: url('./fonts/cinzel-700.woff2') format('woff2');
-			}
-		</style>
-		<script>
-			(function(){
-				var theme=localStorage.getItem('ab_pref_t');
-				if(theme==='dark'||(theme===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-					document.documentElement.setAttribute('data-theme','dark');
-				}
-			})();
-		</script>
-		<link href="./_app/immutable/entry/start.CIMUJ6eB.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/B4u2yJ3A.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/CJMLXKYo.js" rel="modulepreload">
-		<link href="./_app/immutable/entry/app.CRRwgRAB.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/CbUDssf9.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/D9FQP20W.js" rel="modulepreload">
-		<link href="./_app/immutable/nodes/0.XD-jy8YY.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/6OlJOmCm.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/Cu2ruMsv.js" rel="modulepreload">
-		<link href="./_app/immutable/nodes/9.HcanE2kA.js" rel="modulepreload">
-		<!--12qhfyh--><link rel="icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='107'%20height='128'%20viewBox='0%200%20107%20128'%3e%3ctitle%3esvelte-logo%3c/title%3e%3cpath%20d='M94.157%2022.819c-10.4-14.885-30.94-19.297-45.792-9.835L22.282%2029.608A29.92%2029.92%200%200%200%208.764%2049.65a31.5%2031.5%200%200%200%203.108%2020.231%2030%2030%200%200%200-4.477%2011.183%2031.9%2031.9%200%200%200%205.448%2024.116c10.402%2014.887%2030.942%2019.297%2045.791%209.835l26.083-16.624A29.92%2029.92%200%200%200%2098.235%2078.35a31.53%2031.53%200%200%200-3.105-20.232%2030%2030%200%200%200%204.474-11.182%2031.88%2031.88%200%200%200-5.447-24.116'%20style='fill:%23ff3e00'/%3e%3cpath%20d='M45.817%20106.582a20.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.503%2018%2018%200%200%201%20.624-2.435l.49-1.498%201.337.981a33.6%2033.6%200%200%200%2010.203%205.098l.97.294-.09.968a5.85%205.85%200%200%200%201.052%203.878%206.24%206.24%200%200%200%206.695%202.485%205.8%205.8%200%200%200%201.603-.704L69.27%2076.28a5.43%205.43%200%200%200%202.45-3.631%205.8%205.8%200%200%200-.987-4.371%206.24%206.24%200%200%200-6.698-2.487%205.7%205.7%200%200%200-1.6.704l-9.953%206.345a19%2019%200%200%201-5.296%202.326%2020.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.502%2017.99%2017.99%200%200%201%208.13-12.052l26.081-16.623a19%2019%200%200%201%205.3-2.329%2020.72%2020.72%200%200%201%2022.237%208.243%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-.624%202.435l-.49%201.498-1.337-.98a33.6%2033.6%200%200%200-10.203-5.1l-.97-.294.09-.968a5.86%205.86%200%200%200-1.052-3.878%206.24%206.24%200%200%200-6.696-2.485%205.8%205.8%200%200%200-1.602.704L37.73%2051.72a5.42%205.42%200%200%200-2.449%203.63%205.79%205.79%200%200%200%20.986%204.372%206.24%206.24%200%200%200%206.698%202.486%205.8%205.8%200%200%200%201.602-.704l9.952-6.342a19%2019%200%200%201%205.295-2.328%2020.72%2020.72%200%200%201%2022.237%208.242%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-8.13%2012.053l-26.081%2016.622a19%2019%200%200%201-5.3%202.328'%20style='fill:%23fff'/%3e%3c/svg%3e"/> <link rel="alternate" hreflang="en" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=en"/> <link rel="alternate" hreflang="fr-CA" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=fr"/> <link rel="alternate" hreflang="es" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=es"/> <link rel="alternate" hreflang="ar" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=ar"/> <link rel="alternate" hreflang="de" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=de"/> <link rel="alternate" hreflang="uk" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=uk"/> <link rel="alternate" hreflang="tl" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=tl"/> <link rel="alternate" hreflang="pa" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=pa"/> <link rel="alternate" hreflang="zh-Hans" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=zh-Hans"/> <link rel="alternate" hreflang="zh-Hant" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=zh-Hant"/> <link rel="alternate" hreflang="hi" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=hi"/> <link rel="alternate" hreflang="vi" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=vi"/> <link rel="alternate" hreflang="ko" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=ko"/> <link rel="alternate" hreflang="ur" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=ur"/> <link rel="alternate" hreflang="pl" href="https://ixby.github.io/alberta-electoral-boundaries-audit/?lang=pl"/> <link rel="alternate" hreflang="x-default" href="https://ixby.github.io/alberta-electoral-boundaries-audit/"/><!----><!--1r4fau9--><meta name="description" content="Every test and statistic in the audit, explained in plain language: the million-map what-if machine, the five structural tests, the four fairness measures, p-values, and the tests that died." class="svelte-1r4fau9"/><!----><title>How the Maps Were Tested · Alberta Electoral Boundary Audit</title>
-		<link href="./_app/immutable/assets/0.CLX-M8HJ.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/9.BwNPdNBp.css" rel="stylesheet">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[0--><!--[--><div class="app-shell svelte-12qhfyh"><!--[-1--><!--]--><!----> <!--[--><header class="svelte-1r4fau9"><div class="header-inner svelte-1r4fau9"><a href="./" class="back-link svelte-1r4fau9">← Back to audit</a> <div class="header-text svelte-1r4fau9"><div class="site-label svelte-1r4fau9">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1r4fau9">How the Maps Were Tested</h1> <p class="meta svelte-1r4fau9">Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository</p></div></div></header> <main class="svelte-1r4fau9"><div class="content svelte-1r4fau9"><p class="standfirst svelte-1r4fau9">The whole audit rests on one simple idea. If you want to know whether a map is unusual,
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/CJMLXKYo.js";import{l as f}from"../chunks/B4u2yJ3A.js";import"../chunks/D9FQP20W.js";var p=e(`<meta name="description" content="Every test and statistic in the audit, explained in plain language: the million-map what-if machine, the five structural tests, the four fairness measures, p-values, and the tests that died." class="svelte-1r4fau9"/>`),m=e(`<header class="svelte-1r4fau9"><div class="header-inner svelte-1r4fau9"><a class="back-link svelte-1r4fau9">← Back to audit</a> <div class="header-text svelte-1r4fau9"><div class="site-label svelte-1r4fau9">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1r4fau9">How the Maps Were Tested</h1> <p class="meta svelte-1r4fau9">Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository</p></div></div></header> <main class="svelte-1r4fau9"><div class="content svelte-1r4fau9"><p class="standfirst svelte-1r4fau9">The whole audit rests on one simple idea. If you want to know whether a map is unusual,
       draw a million maps that could not be biased — a computer draws them, and it never sees
       a single vote — then check where the real maps land among them. This page walks through
       that idea and every test built on it. No formulas. If you can read a weather forecast,
@@ -149,30 +108,5 @@ python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 1010000
 # score the real maps against the ensemble
 python analysis/scripts/joint_outlier_score_canonical.py</code></pre> <p class="svelte-1r4fau9">A hosted notebook version runs in the browser via <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener" class="svelte-1r4fau9">Google Colab</a>.
         The full methodology — including every retraction and correction along the way — is in
-        the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" class="svelte-1r4fau9">academic monograph</a>.</p> <p class="cross-ref svelte-1r4fau9">Companion pages: <a href="./law" class="svelte-1r4fau9">What the law asks of an electoral map</a> · <a href="./explainers" class="svelte-1r4fau9">The fourteen explainers (Appendices A–N)</a>, one for each
-        casing in the main report.</p></section></div></main><!--]--><!----></div><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
-			
-			<script>
-				{
-					__sveltekit_1fq6b4o = {
-						base: new URL(".", location).pathname.slice(0, -1)
-					};
-
-					const element = document.currentScript.parentElement;
-
-					Promise.all([
-						import("./_app/immutable/entry/start.CIMUJ6eB.js"),
-						import("./_app/immutable/entry/app.CRRwgRAB.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 9],
-							data: [null,null],
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
-	</body>
-</html>
+        the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" class="svelte-1r4fau9">academic monograph</a>.</p> <p class="cross-ref svelte-1r4fau9">Companion pages: <a class="svelte-1r4fau9">What the law asks of an electoral map</a> · <a class="svelte-1r4fau9">The fourteen explainers (Appendices A–N)</a>, one for each
+        casing in the main report.</p></section></div></main>`,1);function h(e){var h=m();s(`1r4fau9`,e=>{var t=p();r(()=>{n.title=`How the Maps Were Tested · Alberta Electoral Boundary Audit`}),d(e,t)});var g=o(h),_=a(g),v=a(_);l(2),u(_),u(g);var y=t(g,2),b=a(y),x=t(a(b),20),S=t(a(x),8),C=t(a(S)),w=t(C,2);l(),u(S),u(x),u(b),u(y),i(()=>{c(v,`href`,`${f??``}/`),c(C,`href`,`${f??``}/law`),c(w,`href`,`${f??``}/explainers`)}),d(e,h)}export{h as component};
