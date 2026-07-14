@@ -302,7 +302,7 @@ Acts I and II measured paper. Act III reads conduct — what the people in and a
 
 ### Both sides, tested — the accusations ledger
 
-Every accusation each side put in writing, run through the same instruments and reported where it landed. This ledger is not a scorecard: its rows are accusations checked, not thresholds crossed, and they are never tallied — the verdicts point in different directions at different targets, and the only counted instrument in this report is the pre-registered five above. All results are exploratory unless the linked finding says otherwise.
+Every accusation each side put in writing, run through the same tests, with each result reported as it fell. This ledger is not a scorecard. Nothing in it gets added up — some rows land on the minority, some on the majority, some on the chair. The only score in this report is the five locked tests above. None of these checks were set up ahead of time the way those five were, so they carry less weight, and every number and name behind them is public.
 
 | The accusation | Who made it | Where it landed |
 | --- | --- | --- |
