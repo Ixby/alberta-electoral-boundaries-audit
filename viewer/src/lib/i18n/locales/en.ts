@@ -850,7 +850,7 @@ export default {
 			c12_app: 'how commissioners are appointed and what nomination does and doesn\u2019t imply',
 			ledger_h: 'Both sides, tested — the accusations ledger',
 			ledger_intro:
-				'Every accusation each side put in writing, run through the same instruments and reported where it landed. All results are exploratory unless a finding file says otherwise; full numbers, names, and methods are in the findings directory of the repository.',
+				'Every accusation each side put in writing, run through the same instruments and reported where it landed. This ledger is not a scorecard: its rows are accusations checked, not thresholds crossed, and they are never tallied — the verdicts point in different directions at different targets, and the only counted instrument in this report is the pre-registered five above. All results are exploratory unless a finding file says otherwise; full numbers, names, and methods are in the findings directory of the repository.',
 			ledger_col_a: 'The accusation',
 			ledger_col_b: 'Who made it',
 			ledger_col_c: 'Where it landed',
