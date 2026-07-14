@@ -8,16 +8,20 @@
 > - `preregistration/README.md` — indexes this draft
 > - (OSF registration — pending; see status banner)
 
-# Lane 3 — Process Scorecard (DRAFT, not yet registered)
+# Lane 3 — Process Scorecard
 
-> **STATUS: DRAFT — NOT PRE-REGISTERED (created 2026-07-14).** This document
-> proposes a third audit lane and is published for transparency before
-> registration. It carries **no confirmatory weight** until the author files it
-> as an OSF registration, which must happen **before the Lunty committee's
-> report is released (due 2026-11-02)** for the November application to count
-> as prospective. Applied to the 2025–26 commission process, the scorecard is
-> **retrospective and descriptive only** — those facts were public before this
-> document existed, and no claim of prediction attaches to them.
+> **STATUS: REGISTERED — OSF [u47bq](https://osf.io/u47bq/), filed
+> 2026-07-14T08:09Z** (via `analysis/scripts/osf_register_lane3.py`; the
+> registration embeds this document verbatim as of git commit `694bbf36`
+> together with its SHA-256, so the OSF copy is the frozen record — the text
+> registered there carries the original "DRAFT — NOT PRE-REGISTERED" banner
+> this notice replaces, which is expected: this banner update is
+> post-registration bookkeeping and changes no criterion, prediction, or
+> condition). The criteria set is now **frozen** for the November application.
+> Filed well before the Lunty committee's report (due 2026-11-02), so the
+> prospective application below counts as prospective. Applied to the 2025–26
+> commission process, the scorecard remains **retrospective and descriptive
+> only** — those facts were public before this document existed.
 
 ## Purpose
 

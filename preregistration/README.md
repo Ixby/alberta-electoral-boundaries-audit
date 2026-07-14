@@ -16,6 +16,6 @@ Pre-registration documents for the 2026 Alberta Electoral Boundaries Audit.
 | `terms_of_reference.md` | Scope, mandate, and independence statement for the audit |
 | `thresholds.md` | Every numeric threshold traced to its statutory source, literature citation, or first-principles derivation |
 | `november_2026_scoring_spec.md` | Frozen November held-out test specification — substrate, metrics, verdict surface, and 72-hour public commitment |
-| `lane3_process_scorecard_draft.md` | **DRAFT — not yet registered.** Proposed third lane scoring process features (hearings, drafts, arm's-length drafting…); descriptive when applied retrospectively; must be OSF-registered before 2026-11-02 to count prospectively |
+| `lane3_process_scorecard_draft.md` | Third lane scoring process features (hearings, drafts, arm's-length drafting…) — **registered as OSF [u47bq](https://osf.io/u47bq/), 2026-07-14**, well before the committee's 2026-11-02 report; descriptive when applied retrospectively, prospective for November |
 
 All documents in this directory except those explicitly marked DRAFT were committed before the corresponding data was examined, in accordance with the audit's pre-registration protocol. Do not backdate or amend entries without a dated correction notice.

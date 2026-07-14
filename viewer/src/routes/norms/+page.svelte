@@ -262,11 +262,13 @@
         mitigated, and the audit has committed in writing to saying so.
       </p>
       <p class="draft-note">
-        Status matters here: this scorecard is a published <em>draft</em>
-        (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md" rel="noopener">criteria, sources, and predicted directions</a>),
-        written mid-episode by an author whose earlier findings you have just read — a bias
-        risk the draft discloses rather than hides. It carries no confirmatory weight unless
-        it is registered before the committee reports. Applied backward to the commission,
+        Status matters here: this scorecard's criteria, sources, and predicted directions
+        are <a href="https://osf.io/u47bq/" rel="noopener">registered on the OSF (u47bq, July 14, 2026)</a> —
+        frozen months before the committee reports, so nothing can be quietly reworded when
+        the answer arrives. It was written mid-episode by an author whose earlier findings
+        you have just read — a bias risk the
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md" rel="noopener">registered document</a>
+        discloses rather than hides. Applied backward to the commission,
         it is description, not prediction. When the committee's map lands, the same locked
         map tests run unchanged — and this checklist scores the process that produced it.
         At that point the norms debate stops being a shouting match about tradition and
