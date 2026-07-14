@@ -259,6 +259,8 @@ All registrations were submitted before examining the test data for that channel
 | qsgy8 | #289455 | 2026-05-06 | Phase 2: Lunty 91-seat scorecard (pending Nov 2026 map) |
 | 6pt83 | #289469 | 2026-05-07 | Ch2: SZAT bootstrap null test |
 | s58a6 | — | 2026-05-10 | §s58a6-A SZAT robustness (10 seeds); §s58a6-B R-hat diagnostics; §s58a6-C Section C channels (population MAD, Reock, anchoring) |
+| he53s | — | 2026-07-10 | Forest-ReCom Phase A sampler-robustness check (filed before execution; ROBUST on all four metrics) |
+| u47bq | — | 2026-07-14 | Lane 3 process scorecard — nine protective process features; prospective for the November committee process, retrospective/descriptive for the commission process |
 
 ### Timing Disclosure — Ch1 (Mahalanobis Joint Outlier)
 
