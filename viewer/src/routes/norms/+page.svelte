@@ -177,6 +177,13 @@
           disagreed on. Citing a recommendation against its author's stated purpose is a
           documented tension, not a resolved one.
         </li>
+        <li>
+          The other document read onto the floor — page 58 of the majority report —
+          laments the two-seat cap, but the remedy attached to it is for the Legislature to
+          give <em>future commissions</em> the power to set seat counts. The motion took
+          that latitude now, for a committee of MLAs, while declining the report’s
+          operative request: adopt the 89-seat map.
+        </li>
       </ul>
     </section>
 
