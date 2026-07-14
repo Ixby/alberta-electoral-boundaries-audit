@@ -132,7 +132,8 @@
         <li>
           <strong>The government cited the chair's own recommendation.</strong> Its stated
           justification for the 91-seat mandate was Recommendation 5 — written by the
-          commission chair himself.
+          commission chair himself — and it told the House exactly that: “We are adopting
+          the recommendations from the report.”
         </li>
       </ul>
     </section>
@@ -188,7 +189,7 @@
         boundary a "bad faith effort" in a public statutory document; the Canadian Civil
         Liberties Association publicly
         <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>;
-        the opposition voted against the motion. And the accusations run both ways: the minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” (p. 356) — a charge the audit tested the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses: the minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019's 31) and absorbs more of 2019's rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019 — the charge's core observation is real — but on the measure the accusation names, it lands on its author. Its companion charge — that the majority declined to use the Act's ±25% flexibility for rural Alberta — was tested the same day and holds: the majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair's flags applies here too, in both directions.
+        the opposition voted against the motion. And the accusations run both ways: the minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” — rural representation being, in the minority's own words, “not merely a question of numbers; it is a question of access, voice, and practical governability” (p. 356) — a charge the audit tested the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses: the minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019's 31) and absorbs more of 2019's rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019 — the charge's core observation is real — but on the measure the accusation names, it lands on its author. Its companion charge — that the majority declined to use the Act's ±25% flexibility for rural Alberta — was tested the same day and holds: the majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair's flags applies here too, in both directions.
       </p>
       <p>
         The following is <em>not</em> a documented fact — it is a political judgment: that
