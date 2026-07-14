@@ -540,12 +540,6 @@
             <td class="flag">{@html t(lang.current, 'body.impact.table_r6_c')}</td>
             <td>{@html t(lang.current, 'body.impact.table_r6_d')}</td>
           </tr>
-          <tr style="opacity: 0.85;">
-            <td>{@html t(lang.current, 'body.impact.table_r7_a')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r7_b')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r7_c')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r7_d')}</td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -751,6 +745,29 @@
     <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c12_canada')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c12_gun')}</p>
     <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-l">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c12_app')}</a></p>
+    <h4 style="margin: 1.4rem 0 0.5rem;">{t(lang.current, 'body.casings.ledger_h')}</h4>
+    <p>{t(lang.current, 'body.casings.ledger_intro')}</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>{t(lang.current, 'body.casings.ledger_col_a')}</th>
+            <th>{t(lang.current, 'body.casings.ledger_col_b')}</th>
+            <th>{t(lang.current, 'body.casings.ledger_col_c')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r1_a')}</td><td>{t(lang.current, 'body.casings.ledger_r1_b')}</td><td>{t(lang.current, 'body.casings.ledger_r1_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r2_a')}</td><td>{t(lang.current, 'body.casings.ledger_r2_b')}</td><td>{t(lang.current, 'body.casings.ledger_r2_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r3_a')}</td><td>{t(lang.current, 'body.casings.ledger_r3_b')}</td><td>{t(lang.current, 'body.casings.ledger_r3_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r4_a')}</td><td>{t(lang.current, 'body.casings.ledger_r4_b')}</td><td>{t(lang.current, 'body.casings.ledger_r4_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r5_a')}</td><td>{t(lang.current, 'body.casings.ledger_r5_b')}</td><td>{t(lang.current, 'body.casings.ledger_r5_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r6_a')}</td><td>{t(lang.current, 'body.casings.ledger_r6_b')}</td><td>{t(lang.current, 'body.casings.ledger_r6_c')}</td></tr>
+          <tr><td>{t(lang.current, 'body.casings.ledger_r7_a')}</td><td>{t(lang.current, 'body.casings.ledger_r7_b')}</td><td>{t(lang.current, 'body.casings.ledger_r7_c')}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{t(lang.current, 'body.casings.ledger_close')}</p>
     <h3 id="casing-13">{t(lang.current, 'body.casings.c13_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c13_found')}</p>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c13_show')}</p>

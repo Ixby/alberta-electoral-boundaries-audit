@@ -162,7 +162,6 @@ The same tests in tabular form, with the pre-registered summary in the bottom ro
 | Boundaries flagged by the commission's own chair | 0 | **3** | N/A |
 | Airdrie split (constraint minimum: 2) | 2 pieces | **4 pieces** | **UCP** (Cracks urban/suburban power) |
 | **Pre-registered summary** (≥ 4 of 5 = outlier) | **0 of 5 fired** | **4 of 5 fired** (anchoring test neutral — both maps within Canadian norm; remaining 4 tests all fire) | **UCP** |
-| *Rural-anchored divisions retained, of 2019's 31 (exploratory, 2026-07-14 — run at the minority's own accusation; not one of the pre-registered five, never counted in the summary)* | *28 (absorbs 3, adds 2 new)* | *23 (absorbs 7, adds none)* | *Count cuts against the accuser; the companion variance test supports them — see Casing 12* |
 
 On Act I's tests, the majority crosses zero discriminating structural thresholds. The minority crosses every discriminating one — four of four, with the retracted fifth shown rather than hidden. These measurements are geometric; they do not depend on any statistical sampler or any vote attribution. The audit pre-registered all five on April 24, 2026, before the final simulation results were compiled.
 
@@ -300,6 +299,22 @@ Acts I and II measured paper. Act III reads conduct — what the people in and a
 **Why it isn't a smoking gun.** Nomination is not instruction. The audit found no evidence of coordination between the government and its nominees, and none is inferable from appointment alone. Commissioners of every provenance have gone their own way before. *(Epistemic lesson: provenance raises the question; it cannot answer it.)*
 
 *A casing, not a gun.* — [Know more: Appendix L, how commissioners are appointed and what nomination does and doesn't imply](#appendix-l)
+
+### Both sides, tested — the accusations ledger
+
+Every accusation each side put in writing, run through the same instruments and reported where it landed. All results are exploratory unless the linked finding says otherwise.
+
+| The accusation | Who made it | Where it landed |
+| --- | --- | --- |
+| Three of the minority's boundaries are geometrically anomalous | The chair (majority report) | Largely confirmed — the audit's blind tests independently confirmed three of the chair's four geometric flags; the fourth fell below threshold |
+| The minority's seven contested configurations had "no public support" | The chair (Appendix C) | Overbroad — right on three of seven, wrong on three, partially wrong on one (`findings/submission_search_findings.md`) |
+| The park extension was "a bad faith effort" to claim s.15(2) protection | The chair (final report, p. 10) | Undercut — the division qualifies under s.15(2) even without the flagged extension |
+| The majority "delete[s] or mangle[s] rural electoral divisions" | The minority (p. 356) | Reversed — the minority keeps fewer rural-anchored divisions (23 vs 28, against 2019's 31) and absorbs more into city-named districts (`findings/rural_division_count.md`) |
+| The majority "decline[d] to use" the ±25% flexibility in rural Alberta | The minority (p. 356) | Supported — majority rural divisions average −6.0% deviation (4 below −10%); the minority's average −12.2% (11 below −10%) (`findings/rural_variance_usage.md`) |
+| "Substantial and consistent testimony" for hybrids was ignored | The minority (p. 356) | Overbroad — support was configuration-specific: documented for three of seven hybrid configurations, absent for three |
+| The majority's rural districts are engineered corridors of isolation | The audit's own counter-hypothesis (T3.2) | Not supported — the geographic explanation held; the majority cleared |
+
+Neither side's accusations survived intact, and neither side's map escaped a hit. On the floor of the legislature, no one criticized the majority report at all — the government wrapped its motion in the majority chair's own recommendation, and the opposition demanded the report's adoption (`findings/hansard_april16_motion19.md`); the written charges against the majority exist only in the minority's own pages, which is why the audit had to test them itself.
 
 ### Casing 13 — When the process might have answered, it was replaced {#casing-13}
 
