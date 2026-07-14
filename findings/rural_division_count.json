@@ -1,0 +1,283 @@
+{
+  "frozen_rule": {
+    "enacted_2019": {
+      "total_eds": 87,
+      "rural_count": 31,
+      "rural_share": 0.3563,
+      "rural_names": [
+        "Athabasca-Barrhead-Westlock",
+        "Banff-Kananaskis",
+        "Bonnyville-Cold Lake-St. Paul",
+        "Brooks-Medicine Hat",
+        "Camrose",
+        "Cardston-Siksika",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cypress-Medicine Hat",
+        "Drayton Valley-Devon",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "Grande Prairie",
+        "Highwood",
+        "Innisfail-Sylvan Lake",
+        "Lac Ste. Anne-Parkland",
+        "Lacombe-Ponoka",
+        "Leduc-Beaumont",
+        "Lesser Slave Lake",
+        "Livingstone-Macleod",
+        "Maskwacis-Wetaskiwin",
+        "Morinville-St. Albert",
+        "Olds-Didsbury-Three Hills",
+        "Peace River",
+        "Rimbey-Rocky Mountain House-Sundre",
+        "Sherwood Park",
+        "St. Albert",
+        "Strathcona-Sherwood Park",
+        "Taber-Warner",
+        "Vermilion-Lloydminster-Wainwright",
+        "West Yellowhead"
+      ]
+    },
+    "majority_2026": {
+      "total_eds": 89,
+      "rural_count": 28,
+      "rural_share": 0.3146,
+      "rural_names": [
+        "Barrhead-Westlock-Athabasca",
+        "Camrose",
+        "Canmore-Banff",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cochrane-Springbank",
+        "Cold Lake-Bonnyville-St. Paul",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "Grande Prairie",
+        "High River-Vulcan-Siksika",
+        "Lacombe-Clearwater",
+        "Leduc-Devon",
+        "Lesser Slave Lake",
+        "Livingstone-Macleod",
+        "Lloydminster-Wainwright",
+        "Mountain View-Kneehill",
+        "Okotoks-Diamond Valley",
+        "Peace River",
+        "Sherwood Park",
+        "Spruce Grove",
+        "St. Albert",
+        "Stony Plain-Drayton Valley",
+        "Strathcona-Sherwood Park",
+        "Sylvan Lake-Innisfail",
+        "Taber-Cardston",
+        "West Yellowhead",
+        "Wetaskiwin-Ponoka-Maskwacis"
+      ],
+      "rural_2019_absorbed_into_urban_successor": [
+        "Brooks-Medicine Hat",
+        "Cypress-Medicine Hat",
+        "Morinville-St. Albert"
+      ],
+      "amalgamations_rural_2019_sharing_one_rural_successor": {
+        "Taber-Cardston": [
+          "Cardston-Siksika",
+          "Taber-Warner"
+        ],
+        "Drumheller-Stettler": [
+          "Drumheller-Stettler",
+          "Lacombe-Ponoka"
+        ],
+        "Barrhead-Westlock-Athabasca": [
+          "Athabasca-Barrhead-Westlock",
+          "Lac Ste. Anne-Parkland"
+        ]
+      },
+      "new_rural_divisions_no_2019_rural_predecessor": [
+        "Cochrane-Springbank",
+        "High River-Vulcan-Siksika",
+        "Spruce Grove"
+      ]
+    },
+    "minority_2026": {
+      "total_eds": 89,
+      "rural_count": 23,
+      "rural_share": 0.2584,
+      "rural_names": [
+        "Barrhead-Westlock-Athabasca",
+        "Camrose",
+        "Canmore-Kananaskis",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cold Lake-Bonnyville-St. Paul",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "Grande Prairie",
+        "Highwood",
+        "Lac Ste Anne-Parkland",
+        "Leduc",
+        "Lesser Slave Lake",
+        "Lloydminster-Wainwright",
+        "Olds-Three Hills-Didsbury",
+        "Peace River",
+        "Rocky Mountain House-Banff Park",
+        "Sherwood Park",
+        "St Albert",
+        "St Albert-Sturgeon",
+        "Stony Plain-Drayton Valley",
+        "West Yellowhead",
+        "Wetaskiwin-Ponoka-Maskwacis"
+      ],
+      "rural_2019_absorbed_into_urban_successor": [
+        "Brooks-Medicine Hat",
+        "Cardston-Siksika",
+        "Cypress-Medicine Hat",
+        "Innisfail-Sylvan Lake",
+        "Lacombe-Ponoka",
+        "Strathcona-Sherwood Park",
+        "Taber-Warner"
+      ],
+      "amalgamations_rural_2019_sharing_one_rural_successor": {
+        "Rocky Mountain House-Banff Park": [
+          "Banff-Kananaskis",
+          "Rimbey-Rocky Mountain House-Sundre"
+        ]
+      },
+      "new_rural_divisions_no_2019_rural_predecessor": []
+    }
+  },
+  "corrected_rule_sensitivity": {
+    "enacted_2019": {
+      "total_eds": 87,
+      "rural_count": 28,
+      "rural_share": 0.3218,
+      "rural_names": [
+        "Athabasca-Barrhead-Westlock",
+        "Banff-Kananaskis",
+        "Bonnyville-Cold Lake-St. Paul",
+        "Brooks-Medicine Hat",
+        "Camrose",
+        "Cardston-Siksika",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cypress-Medicine Hat",
+        "Drayton Valley-Devon",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "Highwood",
+        "Innisfail-Sylvan Lake",
+        "Lac Ste. Anne-Parkland",
+        "Lacombe-Ponoka",
+        "Leduc-Beaumont",
+        "Lesser Slave Lake",
+        "Livingstone-Macleod",
+        "Maskwacis-Wetaskiwin",
+        "Morinville-St. Albert",
+        "Olds-Didsbury-Three Hills",
+        "Peace River",
+        "Rimbey-Rocky Mountain House-Sundre",
+        "Strathcona-Sherwood Park",
+        "Taber-Warner",
+        "Vermilion-Lloydminster-Wainwright",
+        "West Yellowhead"
+      ]
+    },
+    "majority_2026": {
+      "total_eds": 89,
+      "rural_count": 24,
+      "rural_share": 0.2697,
+      "rural_names": [
+        "Barrhead-Westlock-Athabasca",
+        "Camrose",
+        "Canmore-Banff",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cochrane-Springbank",
+        "Cold Lake-Bonnyville-St. Paul",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "High River-Vulcan-Siksika",
+        "Lacombe-Clearwater",
+        "Leduc-Devon",
+        "Lesser Slave Lake",
+        "Livingstone-Macleod",
+        "Lloydminster-Wainwright",
+        "Mountain View-Kneehill",
+        "Okotoks-Diamond Valley",
+        "Peace River",
+        "Stony Plain-Drayton Valley",
+        "Strathcona-Sherwood Park",
+        "Sylvan Lake-Innisfail",
+        "Taber-Cardston",
+        "West Yellowhead",
+        "Wetaskiwin-Ponoka-Maskwacis"
+      ],
+      "rural_2019_absorbed_into_urban_successor": [
+        "Brooks-Medicine Hat",
+        "Cypress-Medicine Hat",
+        "Morinville-St. Albert"
+      ],
+      "amalgamations_rural_2019_sharing_one_rural_successor": {
+        "Taber-Cardston": [
+          "Cardston-Siksika",
+          "Taber-Warner"
+        ],
+        "Drumheller-Stettler": [
+          "Drumheller-Stettler",
+          "Lacombe-Ponoka"
+        ],
+        "Barrhead-Westlock-Athabasca": [
+          "Athabasca-Barrhead-Westlock",
+          "Lac Ste. Anne-Parkland"
+        ]
+      },
+      "new_rural_divisions_no_2019_rural_predecessor": [
+        "Cochrane-Springbank",
+        "High River-Vulcan-Siksika"
+      ]
+    },
+    "minority_2026": {
+      "total_eds": 89,
+      "rural_count": 19,
+      "rural_share": 0.2135,
+      "rural_names": [
+        "Barrhead-Westlock-Athabasca",
+        "Camrose",
+        "Canmore-Kananaskis",
+        "Central Peace-Notley",
+        "Chestermere-Strathmore",
+        "Cold Lake-Bonnyville-St. Paul",
+        "Drumheller-Stettler",
+        "Fort Saskatchewan-Vegreville",
+        "Highwood",
+        "Lac Ste Anne-Parkland",
+        "Leduc",
+        "Lesser Slave Lake",
+        "Lloydminster-Wainwright",
+        "Olds-Three Hills-Didsbury",
+        "Peace River",
+        "Rocky Mountain House-Banff Park",
+        "Stony Plain-Drayton Valley",
+        "West Yellowhead",
+        "Wetaskiwin-Ponoka-Maskwacis"
+      ],
+      "rural_2019_absorbed_into_urban_successor": [
+        "Brooks-Medicine Hat",
+        "Cardston-Siksika",
+        "Cypress-Medicine Hat",
+        "Innisfail-Sylvan Lake",
+        "Lacombe-Ponoka",
+        "Morinville-St. Albert",
+        "Strathcona-Sherwood Park",
+        "Taber-Warner"
+      ],
+      "amalgamations_rural_2019_sharing_one_rural_successor": {
+        "Rocky Mountain House-Banff Park": [
+          "Banff-Kananaskis",
+          "Rimbey-Rocky Mountain House-Sundre"
+        ]
+      },
+      "new_rural_divisions_no_2019_rural_predecessor": []
+    }
+  },
+  "classifier": "frozen = T3.2 name-prefix rule; corrected = hyphen/space/bare-name robust variant (see header)",
+  "status": "exploratory \u2014 hypotheses frozen in script header before execution; corrected rule added post-inspection as a disclosed sensitivity"
+}
