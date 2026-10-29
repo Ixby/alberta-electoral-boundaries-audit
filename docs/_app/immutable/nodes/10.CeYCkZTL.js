@@ -1,4 +1,4 @@
-import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/BARuSQxM.js";import{l as f}from"../chunks/C8Ep9q6p.js";import"../chunks/I8rQr1kY.js";var p=e(`<meta name="description" content="The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what." class="svelte-guxod4"/>`),m=e(`<header class="svelte-guxod4"><div class="header-inner svelte-guxod4"><a class="back-link svelte-guxod4">← Back to audit</a> <div class="header-text svelte-guxod4"><div class="site-label svelte-guxod4">Alberta Electoral Boundary Audit</div> <h1 class="svelte-guxod4">What the Norms Ask of an Electoral Map</h1> <p class="meta svelte-guxod4">Plain-language companion · English only for now · Not a verdict on anyone</p></div></div></header> <main class="svelte-guxod4"><div class="content svelte-guxod4"><p class="standfirst svelte-guxod4">This episode has three lenses. The <a class="svelte-guxod4">law</a> asks what is legal.
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/BARuSQxM.js";import{l as f}from"../chunks/BBAAXS9e.js";import"../chunks/I8rQr1kY.js";var p=e(`<meta name="description" content="The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what." class="svelte-guxod4"/>`),m=e(`<header class="svelte-guxod4"><div class="header-inner svelte-guxod4"><a class="back-link svelte-guxod4">← Back to audit</a> <div class="header-text svelte-guxod4"><div class="site-label svelte-guxod4">Alberta Electoral Boundary Audit</div> <h1 class="svelte-guxod4">What the Norms Ask of an Electoral Map</h1> <p class="meta svelte-guxod4">Plain-language companion · English only for now · Not a verdict on anyone</p></div></div></header> <main class="svelte-guxod4"><div class="content svelte-guxod4"><p class="standfirst svelte-guxod4">This episode has three lenses. The <a class="svelte-guxod4">law</a> asks what is legal.
       The <a class="svelte-guxod4">statistics</a> ask what is unusual. The third lens asks
       what is customary — and custom is the contested ground. "The government broke a
       sixty-year norm" is not a neutral measurement; it is the heart of the opposition's
@@ -33,7 +33,7 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
           maps and a chair publicly accusing colleagues of bad faith. When the independent
           route deadlocks, someone has to decide — and the statute says who.</li> <li class="svelte-guxod4"><strong class="svelte-guxod4">The statute gives the legislature the pen by design.</strong> Under
           Alberta's Act, a commission report has no legal force. Boundaries change only when
-          the Assembly passes an Electoral Districts Act. The April 16 motion used a door
+          the Assembly passes an Electoral Divisions Act. The April 16 motion used a door
           the law built on purpose. Nothing was smuggled.</li> <li class="svelte-guxod4"><strong class="svelte-guxod4">Elected members answer to voters; commissioners answer to no one.</strong> The oldest argument for legislative control is accountability. An MLA who draws a
           self-serving map can be voted out. A commissioner cannot.</li> <li class="svelte-guxod4"><strong class="svelte-guxod4">The committee is not a purely partisan instrument.</strong> Two of its
           five members are opposition MLAs. The advisory panel that drafts the map includes
@@ -53,11 +53,11 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
           is weak protection against a map designed to shape those same elections.</li> <li class="svelte-guxod4">The panel advises; the five MLA votes decide. Bipartisan advice with a
           government-controlled decision is a different institution from an independent
           commission, and the difference is exactly the norm at issue.</li> <li class="svelte-guxod4">Recommendation 5's author wrote it to dissuade the legislature from adopting the
-          minority map, and his majority colleagues did not endorse it. It was also
-          geographically specific — new rural seats far from the contested urban-edge
-          communities — yet the committee's mandate covers exactly the lines the commission
-          disagreed on. Citing a recommendation against its author's stated purpose is a
-          documented tension, not a resolved one.</li> <li class="svelte-guxod4">The other document read onto the floor — page 58 of the majority report —
+          minority map, and his majority colleagues did not endorse it. It is also specific:
+          it leaves Airdrie, Calgary and everything south of them exactly as the majority
+          drew them, which are the very lines the commission split over, and nothing in the
+          committee's mandate holds it to that. Citing a recommendation against its
+          author's stated purpose is a documented tension, not a resolved one.</li> <li class="svelte-guxod4">The other document read onto the floor — page 58 of the majority report —
           laments the two-seat cap, but the remedy attached to it is for the Legislature to
           give <em class="svelte-guxod4">future commissions</em> the power to set seat counts. The motion took
           that latitude now, for a committee of MLAs, while declining the report’s

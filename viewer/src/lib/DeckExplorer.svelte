@@ -98,8 +98,10 @@
 	let activeMaps = $state<string[]>(['minority', 'majority']);
 	// 4th map version: a SCAFFOLD for the Nov 2026 Lunty (91-seat) committee. There
 	// is no Lunty map yet, so this isn't a tiled map — toggling it overlays the
-	// approximate restoration zone the chair named in Addendum Rec 5 (Clearwater +
-	// W. Mountain View County). It sits alongside the three real maps, not in them.
+	// four areas the chair's Addendum Rec 5 names (Airdrie and the south, and
+	// north Edmonton, left as the majority drew them; south Edmonton back to the
+	// interim map; Clearwater + W. Mountain View restored). It sits alongside the
+	// three real maps, not in them.
 	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
 		hwy: false,
 		water: false,
@@ -167,9 +169,18 @@
 	// are in scope (mirrors the setter pattern above).
 	let shareBuild: () => MapState | null = () => null;
 	let shareApply: (s: MapState) => void = () => {};
-	// Miller restoration-zone polygons (loaded lazily when the Miller layer toggle
-	// is first enabled); non-reactive.
-	let luntyBounds: { zones: { name: string; note?: string; rings: number[][][] }[] } | null = null;
+	// Recommendation 5 zone polygons (loaded lazily when the annotations layer
+	// is first enabled); non-reactive. Shape: viewer/static/mapdata/lunty_bounds.json.
+	let luntyBounds: {
+		zones: {
+			id: string;
+			cond: 'a' | 'b' | 'c' | 'd';
+			kind: 'locked' | 'revert' | 'restore';
+			eds: string[];
+			rings: number[][][];
+			pin: [number, number];
+		}[];
+	} | null = null;
 
 	// Non-reactive search index (built once ed_index loads in onMount).
 	let nameIndex: NameIndex | null = null;
@@ -547,8 +558,8 @@
 					schedulePaint();
 				});
 			}
-			// Miller restoration-zone geometry — loaded lazily when annotations (pois)
-			// turn on, so the zone outline is ready alongside the flag pins.
+			// Recommendation 5 zone geometry — loaded lazily when annotations (pois)
+			// turn on, so the zone outlines are ready alongside the flag pins.
 			let luntyLoaded = false;
 			function loadLuntyData() {
 				if (luntyLoaded) return;
@@ -738,70 +749,78 @@
 						padded
 					)
 				);
-				// Lunty scaffold: the chair's Rec-5 restoration zone (approximate),
-				// in dark grey — now part of the EBC '26 annotations, so it draws with
-				// the flag pins under filters.pois — plus a single explanatory point at
-				// the zone's centroid (hover to read what it is).
+				// Recommendation 5 zones: the four areas the chair's Addendum Rec 5
+				// names (a–c read off the majority map, d approximate from county
+				// lines; see analysis/scripts/build_lunty_bounds.py). Part of the
+				// EBC '26 annotations, so they draw with the flag pins under
+				// filters.pois. R5 changes only c and d, so only those are shaded;
+				// a and b are where R5 forbids change (Airdrie and everything south,
+				// north Edmonton) and draw as an unfilled dashed limit line, so they
+				// never read as places R5 reaches. One explanatory pin each.
 				if (filters.pois && luntyBounds) {
-					const TERRA = [224, 142, 96];
+					const R5_RGB: Record<string, [number, number, number]> = {
+						locked: [236, 236, 236], // a, b — no change: stays as the majority drew it
+						revert: [240, 120, 165], // c — back to the October 2025 interim map
+						restore: [224, 142, 96] // d — the restored rural division
+					};
 					for (const z of luntyBounds.zones) {
+						const rgb = R5_RGB[z.kind] ?? R5_RGB.restore;
+						const locked = z.kind === 'locked';
 						layers.push(
 							new PolygonLayer({
-								id: 'lunty-' + z.name,
+								id: 'lunty-' + z.id,
 								data: z.rings,
 								getPolygon: (r: number[][]) => r as any,
-								filled: false,
+								filled: !locked,
+								getFillColor: [...rgb, 40],
 								stroked: true,
-								getLineColor: [...TERRA, 255],
+								getLineColor: [...rgb, locked ? 220 : 255],
 								getLineWidth: 2,
 								lineWidthUnits: 'pixels',
 								lineWidthMinPixels: 2,
-								parameters: { depthTest: false },
-								coordinateSystem: CART
-							})
-						);
-						// Centroid of the largest ring → the explanatory point.
-						const ring = z.rings.reduce((a, b) => (b.length > a.length ? b : a), z.rings[0]);
-						let sx = 0;
-						let sy = 0;
-						for (const p of ring) {
-							sx += p[0];
-							sy += p[1];
-						}
-						layers.push(
-							new ScatterplotLayer({
-								id: 'lunty-point',
-								// Redundant under the outer filters.pois gate, kept explicit so the
-								// pin's visibility reads alongside the flag annotations.
-								visible: filters.pois,
-								// The Miller pin's title/body are looked up via t() at the
-								// onHover render site (explorer.miller.*), so the data object
-								// only needs the centroid position.
-								data: [
-									{
-										x: sx / ring.length,
-										y: sy / ring.length
-									}
-								],
-								getPosition: (d: any) => [d.x, d.y, 0],
-								getRadius: 7,
-								radiusUnits: 'pixels',
-								radiusMinPixels: 5,
-								filled: true,
-								stroked: true,
-								getFillColor: [210, 173, 108, 255], // match the other annotation pins
-								getLineColor: [88, 72, 40, 255],
-								getLineWidth: 1.4,
-								lineWidthUnits: 'pixels',
-								// Pickable on desktop (hover tip). On touch it is NON-pickable so it
-								// can't intercept the two-finger pinch-zoom gesture; the explanation
-								// is shown in the mobile info (ⓘ) popover instead.
-								pickable: true,
+								// Dash and gap are multiples of the 2 px line width.
+								...(locked
+									? {
+											extensions: [new PathStyleExtension({ dash: true })],
+											getDashArray: [4, 3],
+											dashJustified: true
+										}
+									: {}),
 								parameters: { depthTest: false },
 								coordinateSystem: CART
 							})
 						);
 					}
+					layers.push(
+						new ScatterplotLayer({
+							id: 'lunty-point',
+							// Redundant under the outer filters.pois gate, kept explicit so the
+							// pins' visibility reads alongside the flag annotations.
+							visible: filters.pois,
+							// Each pin's title/body are looked up via t() at the onHover render
+							// site (explorer.miller.*, keyed by the zone's R5 condition), so the
+							// data object only needs the position, condition and district count.
+							data: luntyBounds.zones.map((z) => ({
+								x: z.pin[0],
+								y: z.pin[1],
+								cond: z.cond,
+								n: z.eds.length
+							})),
+							getPosition: (d: any) => [d.x, d.y, 0],
+							getRadius: 7,
+							radiusUnits: 'pixels',
+							radiusMinPixels: 5,
+							filled: true,
+							stroked: true,
+							getFillColor: [210, 173, 108, 255], // match the other annotation pins
+							getLineColor: [88, 72, 40, 255],
+							getLineWidth: 1.4,
+							lineWidthUnits: 'pixels',
+							pickable: true,
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						})
+					);
 				}
 				// Selected-district glow (search result) — drawn under the pins, over the
 				// boundary overlays so the highlighted district reads clearly.
@@ -1140,7 +1159,7 @@
 				filters[which] = val;
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
-				// Annotations carry the Miller restoration zone — load its geometry when
+				// Annotations carry the Recommendation 5 zones — load their geometry when
 				// pois turns on so the zone outline is ready alongside the flag pins.
 				if (which === 'pois' && val) loadLuntyData();
 				// Analytics: only GENUINE user toggles count. `silent` skips logging for
@@ -1282,7 +1301,7 @@
 				}
 			}
 
-			// Annotations default on; the Miller zone geometry must be loaded even when
+			// Annotations default on; the R5 zone geometry must be loaded even when
 			// no restore ran (filterSetter is not called on the initial filter state).
 			if (filters.pois) loadLuntyData();
 
@@ -1308,7 +1327,7 @@
 				// deck.gl picking callbacks: typed loosely (deck's PickingInfo is runtime-imported).
 				onHover: (info: any) => {
 					const o = info.object as
-						| { id?: number; title?: string; body?: string }
+						| { id?: number; title?: string; body?: string; cond?: string; n?: number }
 						| undefined;
 					// Merged poll highlight: a VA split across tiles shares one id, so track
 					// the hovered VA id and light every piece of it (see buildVaLayer), not
@@ -1333,9 +1352,15 @@
 							`<div class="n">${fTitle}</div><div class="flagbody">${fBody}</div>` +
 							`<div class="flaglink">${t(lang.current, 'explorer.tip.flag_link')}</div>`;
 					} else if (info.layer && info.layer.id === 'lunty-point') {
+						// Condition d keeps the original explorer.miller.{title,body} keys;
+						// a–c live under explorer.miller.<cond>.
+						const k = o.cond === 'd' ? 'explorer.miller' : 'explorer.miller.' + o.cond;
 						tipEl.innerHTML =
-							`<div class="n">${t(lang.current, 'explorer.miller.title')}</div>` +
-							`<div class="flagbody">${t(lang.current, 'explorer.miller.body')}</div>`;
+							`<div class="n">${t(lang.current, k + '.title')}</div>` +
+							`<div class="flagbody">${t(lang.current, k + '.body').replace('{n}', String(o.n))}</div>` +
+							(o.cond === 'a' || o.cond === 'b'
+								? `<div class="flaglink">${t(lang.current, 'explorer.miller.locked_hint')}</div>`
+								: '');
 					} else if (info.layer && info.layer.id === 'va') {
 						const P = (vaProps[o.id as number] || {}) as {
 							name?: string;

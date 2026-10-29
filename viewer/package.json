@@ -13,6 +13,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"copy-figures": "node scripts/copy-figures.mjs",
+		"rasterize-figures": "node scripts/rasterize-figures.mjs",
 		"sync-check": "node scripts/sync-check.mjs",
 		"test": "vitest run",
 		"test:watch": "vitest",

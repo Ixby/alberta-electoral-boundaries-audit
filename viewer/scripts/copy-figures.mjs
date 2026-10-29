@@ -2,7 +2,8 @@
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 // https://ixby.github.io
 // Syncs generated article figures from data/maps/article/ into docs/images/.
-// Run after regenerating Python figure scripts; before npm run build.
+// Run after regenerating Python figure scripts, then `npm run rasterize-figures`
+// (the page serves WebP/JPEG renders of these SVGs), then npm run build.
 import { cpSync, existsSync, readdirSync } from 'fs';
 import { resolve, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
@@ -21,7 +22,8 @@ if (!existsSync(src)) {
 // link audit found figure_{calgary,lethbridge,reddeer}_v3.svg and
 // bias_structure_matrix.svg referenced by no page while still shipping stale
 // content to docs/images/. Only figures actually embedded by the viewer
-// get deployed; add a name here when a page starts using it.
+// get deployed; add a name here when a page starts using it (and to FIGURES
+// in rasterize-figures.mjs).
 const DEPLOYED_FIGURES = new Set([
 	'lane1_dotplot.svg',
 	'lane2_bars.svg',

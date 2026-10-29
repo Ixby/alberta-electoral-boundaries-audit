@@ -194,7 +194,7 @@
     lb.addEventListener('dblclick', () => { lbScale = 1; lbApply(); });
 
     document.querySelectorAll('figure img').forEach(img => {
-      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLImageElement).src, (img as HTMLImageElement).alt));
+      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLElement).dataset.full ?? (img as HTMLImageElement).currentSrc ?? (img as HTMLImageElement).src, (img as HTMLImageElement).alt));
     });
     lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
     (document.getElementById('fig-lightbox-close') as HTMLElement)?.addEventListener('click', closeLb);
@@ -420,7 +420,10 @@
   <section id="the-picture">
     <h2>{t(lang.current, 'picture.heading')} <a href="#the-picture" class="section-link" aria-label={t(lang.current, 'nav.picture')}>#</a></h2>
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="346" loading="lazy">
+      <picture>
+        <source type="image/webp" srcset="images/stakes_quadrant.webp">
+        <img src="images/stakes_quadrant.jpg" data-full="images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="377" loading="lazy" decoding="async">
+      </picture>
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
     </figure>
     <p>{t(lang.current, 'picture.lead')}</p>
@@ -448,7 +451,10 @@
     <h3 id="casing-1">{t(lang.current, 'body.casings.c1_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c1_found')}</p>
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/figure_airdrie_v3.svg" alt={t(lang.current, 'body.cpd.fig_alt')} class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy">
+      <picture>
+        <source type="image/webp" srcset="images/figure_airdrie_v3.webp">
+        <img src="images/figure_airdrie_v3.jpg" data-full="images/figure_airdrie_v3.svg" alt={t(lang.current, 'body.cpd.fig_alt')} class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy" decoding="async">
+      </picture>
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.cpd.fig_caption')}</figcaption>
     </figure>
     <p style="text-align:center; margin: 0.2rem 0 1.1rem;">
@@ -490,7 +496,10 @@
     <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain_not_even')}</strong> — <a href="{base}/explainers#appendix-e">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c5_app')}</a></p>
     <h3 id="act-1-picture">{t(lang.current, 'body.casings.act1_table_h')}</h3>
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="532" loading="lazy">
+      <picture>
+        <source type="image/webp" srcset="images/lane2_bars.webp">
+        <img src="images/lane2_bars.jpg" data-full="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="531" loading="lazy" decoding="async">
+      </picture>
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.impact.fig_caption')}</figcaption>
     </figure>
     <div class="table-wrap">
@@ -691,7 +700,10 @@
     <h3 id="casing-7">{t(lang.current, 'body.casings.c7_title')}</h3>
     <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c7_found')}</p>
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
+      <picture>
+        <source type="image/webp" srcset="images/lane1_dotplot.webp">
+        <img src="images/lane1_dotplot.jpg" data-full="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="251" loading="lazy" decoding="async">
+      </picture>
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
     </figure>
     <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c7_show')}</p>
@@ -788,7 +800,10 @@
     <h2>{t(lang.current, 'body.casings.rev_h')} <a href="#the-scorecard" class="section-link" aria-label={t(lang.current, 'nav.revisited')}>#</a></h2>
     <p>{t(lang.current, 'body.casings.rev_p1')}</p>
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="346" loading="lazy">
+      <picture>
+        <source type="image/webp" srcset="images/stakes_quadrant.webp">
+        <img src="images/stakes_quadrant.jpg" data-full="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="377" loading="lazy" decoding="async">
+      </picture>
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.stakes_fig_caption')}</figcaption>
     </figure>
     <p>{t(lang.current, 'body.casings.rev_p2')}</p>
@@ -844,6 +859,18 @@
 
 
     <p>{@html t(lang.current, 'body.commission_split.finding3')}</p>
+
+    <h3 id="recommendation-5">{t(lang.current, 'body.november.r5_h')}</h3>
+    <p>{t(lang.current, 'body.november.r5_p1')}</p>
+    <p>{@html t(lang.current, 'body.november.r5_p2')}</p>
+    <ul class="r5-conditions">
+      <li>{@html t(lang.current, 'body.november.r5_a')}</li>
+      <li>{@html t(lang.current, 'body.november.r5_b')}</li>
+      <li>{@html t(lang.current, 'body.november.r5_c')}</li>
+      <li>{@html t(lang.current, 'body.november.r5_d')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'body.november.r5_p3').replaceAll('__BASE__', base)}</p>
+    <p>{@html t(lang.current, 'body.november.r5_test')}</p>
 
     <h3>{t(lang.current, 'body.november.h_framework')}</h3>
 
@@ -2111,8 +2138,15 @@
          dark mode dims the plate via the filter below. */
       background: #f9f7f2;
       padding: 0.5rem;
+      /* Raster figures (WebP/JPEG) stretch rather than letterbox, so the
+         height must follow the width when max-width shrinks it on phones. */
+      height: auto;
     }
     :root[data-theme="dark"] .chart-img { filter: brightness(0.88) contrast(0.95); }
+
+    /* Recommendation 5 conditions (a)–(d) in the Lunty section */
+    .r5-conditions { margin: 0.4rem 0 1rem; padding-inline-start: 1.3rem; }
+    .r5-conditions li { margin-bottom: 0.55rem; }
 
     /* Links section */
     .links-list {
