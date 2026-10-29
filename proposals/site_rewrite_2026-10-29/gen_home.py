@@ -10,8 +10,8 @@ md = open(SRC).read()
 # Open-check markers never ship as written.
 PUBLIC = {
     " [verify: passage and assent not found]": " Its passage has not been confirmed.",
-    " [cite: reported by the author from committee video, week of October 22, 2026; transcript pending]":
-        " (per the committee's meeting video, week of October 22, 2026; transcript citation pending)",
+    " [cite: video of the committee's October 28, 2026 meeting, Rocky Mountain Room, 10:29 a.m. to 12:15 p.m., supplied by the author; transcript pending]":
+        " (per the video of the committee's October 28, 2026 meeting; transcript citation pending)",
 }
 for k, v in PUBLIC.items():
     assert k in md, k
