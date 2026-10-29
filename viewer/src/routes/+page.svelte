@@ -1188,7 +1188,16 @@
       white-space: nowrap;
       pointer-events: none;
       letter-spacing: 0.03em;
-      border: 1px solid rgba(212,175,55,0.4);
+      /* Soft yellow glow (the explorer's accent, #f5c518) so the launch pill
+         reads as the thing to press; a touch brighter on hover/focus. */
+      border: 1px solid rgba(245,197,24,0.65);
+      box-shadow: 0 0 8px 1px rgba(245,197,24,0.45), 0 0 20px 6px rgba(245,197,24,0.18);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .hero-map-btn:hover .hero-map-hint,
+    .hero-map-btn:focus-visible .hero-map-hint {
+      border-color: rgba(245,197,24,0.9);
+      box-shadow: 0 0 10px 2px rgba(245,197,24,0.6), 0 0 26px 8px rgba(245,197,24,0.26);
     }
     .header-image {
       /* Larger chrome subtraction (was 140px) so on shorter screens the cover

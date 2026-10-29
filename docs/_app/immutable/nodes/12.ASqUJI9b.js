@@ -1,4 +1,4 @@
-import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/ClYQ6L5T.js";import{l as f}from"../chunks/wJ-KCbja.js";import"../chunks/BMRk7WTg.js";var p=e(`<meta name="description" content="The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what." class="svelte-guxod4"/>`),m=e(`<header class="svelte-guxod4"><div class="header-inner svelte-guxod4"><a class="back-link svelte-guxod4">← Back to audit</a> <div class="header-text svelte-guxod4"><div class="site-label svelte-guxod4">Alberta Electoral Boundary Audit</div> <h1 class="svelte-guxod4">What the Norms Ask of an Electoral Map</h1> <p class="meta svelte-guxod4">Plain-language companion · English only for now · Not a verdict on anyone</p></div></div></header> <main class="svelte-guxod4"><div class="content svelte-guxod4"><p class="standfirst svelte-guxod4">This episode has three lenses. The <a class="svelte-guxod4">law</a> asks what is legal.
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/ClYQ6L5T.js";import{l as f}from"../chunks/CFcrzsj0.js";import"../chunks/BMRk7WTg.js";var p=e(`<meta name="description" content="The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what." class="svelte-guxod4"/>`),m=e(`<header class="svelte-guxod4"><div class="header-inner svelte-guxod4"><a class="back-link svelte-guxod4">← Back to audit</a> <div class="header-text svelte-guxod4"><div class="site-label svelte-guxod4">Alberta Electoral Boundary Audit</div> <h1 class="svelte-guxod4">What the Norms Ask of an Electoral Map</h1> <p class="meta svelte-guxod4">Plain-language companion · English only for now · Not a verdict on anyone</p></div></div></header> <main class="svelte-guxod4"><div class="content svelte-guxod4"><p class="standfirst svelte-guxod4">This episode has three lenses. The <a class="svelte-guxod4">law</a> asks what is legal.
       The <a class="svelte-guxod4">statistics</a> ask what is unusual. The third lens asks
       what is customary — and custom is the contested ground. "The government broke a
       sixty-year norm" is not a neutral measurement; it is the heart of the opposition's
@@ -23,11 +23,10 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
         the work to a committee of six MLAs, four from the governing party, chaired by a
         government member. The committee is not required to hold public hearings, and per
         CBC's reporting it will not hold hearings on the map it produces. No draft will be
-        released for public challenge before the map is final.</p> <p class="svelte-guxod4">This page once said the audit found no precedent among the Canadian redistribution
-        cycles it reviewed, an assessment it attributed to political scientist Duane Bratt
-        (Mount Royal University) in correspondence; we have asked him whether it stands.
-        Opposition Leader Naheed Nenshi said the same of Alberta history. As stated, both
-        claims are wrong. In 1992 Alberta set a deadlocked
+        released for public challenge before the map is final.</p> <p class="svelte-guxod4">This page once said the process had no precedent. In May, Duane Bratt, Professor of
+        Political Science at Mount Royal University, described it to the author as without
+        precedent in Canada, and Opposition Leader Naheed Nenshi said it had never been done
+        before in Alberta history. Both claims are wrong. In 1992 Alberta set a deadlocked
         commission's work aside and gave the map to a committee of MLAs; the Opposition
         refused to take part, and in 1994 the Court of Appeal upheld the map while faulting the
         committee for being unable to explain several of its boundaries. The Act was rewritten
