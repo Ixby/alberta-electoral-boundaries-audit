@@ -586,12 +586,11 @@ canonical maps' ensemble.
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-07-12
 
-### Amendment 16 — Scoring rule for test X1 (Recommendation 5) — **DRAFT, NOT IN FORCE** (2026-10-29)
+### Amendment 16 — Scoring rule for test X1 (Recommendation 5) (2026-10-29)
 
-> **Status: proposed, unsigned.** Drafted 2026-10-29 14:32 MDT, before the
-> committee's map is due (November 2, 2026). It takes effect only when Will
-> Conner signs below. If it is not signed before the map is published, X1 is
-> scored as currently written and this entry is withdrawn, not applied.
+> **Status: in force.** Drafted 2026-10-29 14:32 MDT and signed 2026-10-29 15:09 MDT, before
+> the committee's map is due (November 2, 2026) and before any committee map
+> has been published.
 
 **What changes.** Test X1 ("Chair Miller's four conditions", academic report
 §5.5; `findings/checklist_baseline_scoring.md` §X1) gets a written scoring rule.
@@ -640,5 +639,5 @@ considered it, which no public record could falsify.
 **Open dependency.** Condition (c) cannot be scored without the October 2025
 interim map, which is not in this repository.
 
-**Signed:** _(unsigned — awaiting Will Conner)_
-**Date:** _(on signing)_
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 15:09 MDT

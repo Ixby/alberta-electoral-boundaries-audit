@@ -981,7 +981,7 @@ export default {
 			frame_p5:
 				'Two casings in the log point the wrong way for the audit\u2019s own story, and both are reported in full — one test the audit had to retract when better data arrived, and one lane where the minority map outperformed the majority. A report that never loses an argument with itself isn\u2019t checking. Failed and null tests are part of the record.',
 			frame_coi:
-				"One more thing belongs in the log before the first casing: the author's own prior. He has donated to the NDP and volunteered for the party, and has also donated to the Progressive Conservatives, a predecessor party of the UCP. Three findings that ran against his expectation are kept in this log anyway, and every number reproduces from public code, public data, and random seeds committed in public before the analysis ran.",
+				"One more thing belongs in the log before the first casing: the author's own prior. He has voted for and donated to both conservative and progressive provincial parties in Alberta. Three findings that ran against his expectation are kept in this log anyway, and every number reproduces from public code, public data, and random seeds committed in public before the analysis ran.",
 			frame_lenses:
 				'This episode has three lenses, and each has its own companion page: <a href="__BASE__/law">what the law asks</a>, <a href="__BASE__/norms">what the norms ask</a>, and <a href="__BASE__/methods">how the maps were tested</a>. The log below draws on all three.',
 			frame_p1b:
@@ -1283,7 +1283,7 @@ export default {
 		},
 		about_me: {
 			heading: 'About me',
-			p1: "I'm a student at Mount Royal University. I did this research on my own: it was not assigned as coursework, and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta or the commission. I've voted for and donated to both conservative and progressive provincial parties in Alberta as an adult, and I have volunteered for the NDP.",
+			p1: "I'm a student at Mount Royal University. I did this research on my own: it was not assigned as coursework, and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta or the commission. I've voted for and donated to both conservative and progressive provincial parties in Alberta as an adult.",
 			p2: "My political history could affect how I look at this issue, and the main protection against that is the method. I tested both maps the same way, registered my tests in public, time-stamped records, labelled every finding pre-registered or exploratory, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I want to know.",
 			p3: 'Seed-commitment and pre-registration records: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451 — the random seeds were time-stamped to a public beacon before the official shapefiles were released; the neighbour-drain test (#289,451) was registered before measurement, the others filed alongside exploratory analysis.',
 			p4: 'Questions or corrections: '

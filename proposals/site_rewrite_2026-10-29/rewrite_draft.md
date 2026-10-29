@@ -431,7 +431,7 @@ Two problems make every audit of Alberta's maps harder than it needs to be. Abou
 
 ## About me
 
-I'm a student at Mount Royal University. I did this research on my own: it was not assigned as coursework, and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta or the commission. I've voted for and donated to both conservative and progressive provincial parties in Alberta as an adult, and I have volunteered for the NDP.
+I'm a student at Mount Royal University. I did this research on my own: it was not assigned as coursework, and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta or the commission. I've voted for and donated to both conservative and progressive provincial parties in Alberta as an adult.
 
 My political history could affect how I look at this issue, and the main protection against that is the method. I tested both maps the same way, registered my tests in public, time-stamped records, labelled every finding pre-registered or exploratory, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I want to know.
 <!-- key: body.about_me.p1–p2 | src: about_me.p1, about_me.p2, author's disclosure via coordinator 2026-10-29, frame_coi (NDP volunteering), body.clean.prereg_body. [confirm with Wuff: NDP volunteering] -->

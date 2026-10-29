@@ -80,7 +80,7 @@
         arithmetic but <strong>effective representation</strong>.
       </p>
       <p>
-        Writing for the majority, McLachlin J. explained (at para. 33) that "relative parity of
+        Writing for the majority, McLachlin J. explained that "relative parity of
         voting power" is the starting point. But it must be weighed against permissible
         deviations for geography, community history, community interests and minority
         representation. The Court deliberately set no bright-line tolerance. A deviation from

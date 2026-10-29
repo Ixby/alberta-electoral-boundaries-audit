@@ -155,12 +155,12 @@ These gates were added to the evidence base after the original checklist was wri
 
 | R5 condition | Majority 2026 | Minority 2026 | Notes |
 |---|---|---|---|
-| (a) No impact on any ED in Airdrie or south of it except Drumheller-Stettler | N/A — R5 is a conditional for the 91-seat fallback | N/A | R5 binds the November committee, not the commission's own maps |
+| (a) No change to any ED in Airdrie or with territory south of Airdrie's southern boundary, except Drumheller-Stettler | N/A — R5 is a conditional for the 91-seat fallback | N/A | R5 binds no one in law; it is the yardstick the government cited for the November committee |
 | (b) No impact north of North Saskatchewan River in Edmonton | N/A | N/A | Same |
 | (c) Revert south-of-NSR Edmonton districts to interim map | N/A | N/A | Same |
-| (d) Restore Clearwater / western Mountain View s.15(2) district | N/A | N/A | Same |
+| (d) *Consider* restoring a Clearwater / western Mountain View s.15(2) district (scored adopted / considered with a stated reason / not shown) | N/A | N/A | Same |
 
-**Score.** R5(a)–(d) are specifically triggered only when the 91-seat fallback is activated. Both 89-seat maps predate that trigger. Deferred to the November map. Source: `findings/chair_recommendation_5_analysis.md`.
+**Score.** Scoring rule: Amendment 16 (2026-10-29), `findings/pre_registration_amendment_log.md`. R5(a)–(d) are specifically triggered only when the 91-seat fallback is activated. Both 89-seat maps predate that trigger. Deferred to the November map. Source: `findings/chair_recommendation_5_analysis.md`.
 
 ### X2. Rationale-against-data checks
 
