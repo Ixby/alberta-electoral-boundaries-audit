@@ -84,19 +84,25 @@
     <section id="the-departure">
       <h2>The departure</h2>
       <p>
-        On April 16, 2026 — three weeks after the split commission filed two incompatible
-        maps — the Legislative Assembly voted 44 to 36 to set both aside and hand the
-        drawing to a committee of five MLAs, three from the governing party, chaired by a
+        In April 2026 — weeks after the split commission filed two incompatible maps — the
+        Legislative Assembly set both aside. Government Motion 37, passed April 21, handed
+        the work to a committee of six MLAs, four from the governing party, chaired by a
         government member. The committee is not required to hold public hearings, and per
         CBC's reporting it will not hold hearings on the map it produces. No draft will be
         released for public challenge before the map is final.
       </p>
       <p>
-        The audit reviewed Canadian redistribution cycles for a precedent and found none —
-        an assessment political scientist Duane Bratt (Mount Royal University) shared in
-        correspondence with the author. No reviewed province lets a governing majority hand
-        redistricting to a committee its own party controls partway through a cycle. That
-        much is documented fact. What it <em>means</em> is where the argument starts.
+        This page once said the audit found no precedent among the Canadian redistribution
+        cycles it reviewed, an assessment it attributed to political scientist Duane Bratt
+        (Mount Royal University) in correspondence; we have asked him whether it stands.
+        Opposition Leader Naheed Nenshi said the same of Alberta history. As stated, both
+        claims are wrong. In 1992 Alberta set a deadlocked
+        commission's work aside and gave the map to a committee of MLAs; the Opposition
+        refused to take part, and in 1994 the Court of Appeal upheld the map while faulting the
+        committee for being unable to explain several of its boundaries. The Act was rewritten
+        in 1995. What is new in 2026 is narrower: a commission majority signed a report, which
+        the Act treats as the commission's report, and it was set aside anyway. What it
+        <em>means</em> is where the argument starts.
       </p>
     </section>
 
@@ -116,7 +122,7 @@
         <li>
           <strong>The statute gives the legislature the pen by design.</strong> Under
           Alberta's Act, a commission report has no legal force. Boundaries change only when
-          the Assembly passes an Electoral Divisions Act. The April 16 motion used a door
+          the Assembly passes an Electoral Divisions Act. Government Motion 37 used a door
           the law built on purpose. Nothing was smuggled.
         </li>
         <li>
@@ -126,7 +132,7 @@
         </li>
         <li>
           <strong>The committee is not a purely partisan instrument.</strong> Two of its
-          five members are opposition MLAs. The advisory panel that drafts the map includes
+          six members are opposition MLAs. The advisory panel that drafts the proposal includes
           two opposition nominees and is chaired by a retired Court of Appeal justice.
         </li>
         <li>
@@ -191,7 +197,7 @@
       <h2>Whose accusation is it?</h2>
       <p>
         Here is the separation this page exists to make. The following are documented facts:
-        the departure happened; no precedent was found among reviewed cycles; the
+        the departure happened, for the first time since Alberta's own 1992 committee; the
         transparency features were forfeited; the commission chair called one minority
         boundary a "bad faith effort" in a public statutory document; the Canadian Civil
         Liberties Association publicly
@@ -218,13 +224,15 @@
       </p>
       <p>
         Quebec shows what the other choice looks like. Its boundary commission is permanent
-        and independent, and on the map itself the commission — not the legislature — has
-        the last word. When Quebec's government tried to freeze its commission by
+        and independent, and on the map itself the commission ordinarily has the last
+        word. When Quebec's government tried to freeze its commission by
         legislation, the courts <em>did</em> act, because a law was now in play: on
         April 22, 2026, the Supreme Court of Canada upheld, 7–2 and from the bench, the
         ruling that the freeze violated the Charter's democratic-representation guarantee.
-        Where the norm was written into law, it became enforceable. Alberta's norm never
-        was, and so it wasn't.
+        Its reasons followed on May 1 (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Where the
+        norm was written into law, it became enforceable. Alberta's norm never was, and so it
+        wasn't. The contrast cuts both ways, though: on June 12, 2026 Quebec's National
+        Assembly passed its own 127-seat map.
       </p>
     </section>
 
@@ -255,7 +263,7 @@
             <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — named by the Chief Justice</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
             <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of five</td></tr>
             <tr><td>Published reasons for contested choices</td><td class="yes">Yes — both reports</td><td class="pend">Pending</td></tr>
-            <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — without precedent among reviewed cycles</td></tr>
+            <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — last done in Alberta in 1992, and faulted by the Court of Appeal in 1994</td></tr>
             <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 2 Partial · 4 No · 2 Pending</td></tr>
           </tbody>
         </table>

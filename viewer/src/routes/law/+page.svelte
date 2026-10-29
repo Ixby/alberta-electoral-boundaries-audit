@@ -177,14 +177,17 @@
       <p>
         <strong>What a commission report is — and is not.</strong> Under the EBCA, the
         commission's report has no legal effect by itself. Boundaries change only when the
-        Legislative Assembly passes a separate Electoral Divisions Act. Most provinces make a
-        commission's map effective unless the legislature actively overrides it. Alberta's
+        Legislative Assembly passes a separate Electoral Divisions Act. Some jurisdictions make
+        a commission's map effective unless the legislature actively overrides it. Alberta's
         default is reversed — the governing party controls whether any commission map becomes
-        law. Section 12 of the Act also permits referring a commission's recommendations to a
-        legislative committee, with no statutory minimum notice or public-comment period. That
-        is the door the government used on April 16, 2026. It set both commission maps aside
-        and assigned the work to a committee whose majority comes from the governing party, due
-        to report by November 2, 2026. The audit documents that process choice as a finding
+        law. The Act's rules on hearings, deadlines and the ±25% band are addressed to the
+        commission; nothing in it governs what the Assembly does instead, and it sets no
+        minimum notice or public-comment period. Government Motion 37, passed April 21, 2026,
+        set both commission maps aside and handed the work to a committee of six MLAs, four from
+        the governing party, due to report by November 2, 2026. Alberta has done this once
+        before: in 1992 a committee of MLAs drew the map after a deadlocked commission, and in
+        1994 the Court of Appeal upheld that map while faulting the committee for being unable
+        to explain several of its boundaries. The audit documents that process choice as a finding
         about procedure — separate from, and additional to, anything the maps' geometry shows.
       </p>
       <p class="cross-ref">
