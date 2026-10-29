@@ -98,12 +98,15 @@ MAP_DATA_DIR = REPO_ROOT / "docs" / "data"
 COORD_DECIMALS = 3  # millimetre precision; 3401 units are metres
 
 # Per-map output paths and source configs for the interactive viewer.
+# The hi-res SVGs go to data/maps/ (not deployed): their only consumer was the
+# retired inline-SVG explorer (viewer/src/lib/mapEngine*), so shipping them in
+# docs/images/ cost ~112 MB of Pages deploy for nothing (removed 2026-10-29).
 MAP_VARIANTS = {
     "minority": {
         "candidates": APPROX_MIN_CANDIDATES,
         "shp": None,
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
-        "svg": _DOCS / "images" / "cover_art_minority_hires.svg",
+        "svg": data_loader._resolve_path("data") / "maps" / "cover_art_minority_hires.svg",
         "json": _DOCS / "data" / "ed_hover_minority.json",
         "va_json": _DOCS / "data" / "va_hover_minority.json",
     },
@@ -111,7 +114,7 @@ MAP_VARIANTS = {
         "candidates": APPROX_MAJ_CANDIDATES,
         "shp": None,
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
-        "svg": _DOCS / "images" / "cover_art_majority_hires.svg",
+        "svg": data_loader._resolve_path("data") / "maps" / "cover_art_majority_hires.svg",
         "json": _DOCS / "data" / "ed_hover_majority.json",
         "va_json": _DOCS / "data" / "va_hover_majority.json",
     },
@@ -119,7 +122,7 @@ MAP_VARIANTS = {
         "candidates": None,
         "shp": ALBERTA_EDS / "EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_candidates": ["EDName2017", "EDName2025", "ED_NAME", "NAME"],
-        "svg": _DOCS / "images" / "cover_art_2019_hires.svg",
+        "svg": data_loader._resolve_path("data") / "maps" / "cover_art_2019_hires.svg",
         "json": _DOCS / "data" / "ed_hover_2019.json",
         "va_json": _DOCS / "data" / "va_hover_2019.json",
     },

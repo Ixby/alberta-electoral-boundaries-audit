@@ -3,7 +3,8 @@
 //
 // hasWebGL() decides, at runtime in the browser, whether the deck.gl explorer
 // (which needs a WebGL/WebGL2 context) can run. When it returns false the caller
-// falls back to the production inline-SVG explorer (mapEngine). It also accepts a
+// shows a "needs WebGL" notice with a link to the accessible text version of the
+// map (/explorer/text); the old inline-SVG explorer is no longer used. It also accepts a
 // `forceOff` override so a caller can disable WebGL deliberately (e.g. the
 // ?nowebgl=1 query escape hatch) without re-probing.
 //
