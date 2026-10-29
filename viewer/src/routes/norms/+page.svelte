@@ -94,8 +94,7 @@
       <p>
         This page once said the process had no precedent. In May, Duane Bratt, Professor of
         Political Science at Mount Royal University, described it to the author as without
-        precedent in Canada, and Opposition Leader Naheed Nenshi said it had never been done
-        before in Alberta history. Both claims are wrong. In 1992 Alberta set a deadlocked
+        precedent in Canada. That claim is wrong. In 1992 Alberta set a deadlocked
         commission's work aside and gave the map to a committee of MLAs; the Opposition
         refused to take part, and in 1994 the Court of Appeal upheld the map while faulting the
         committee for being unable to explain several of its boundaries. The Act was rewritten
