@@ -38,6 +38,12 @@ export interface DirectoryEntry {
 	ed2019Votes: number | null;
 }
 
+/** One Recommendation 5 zone (lunty_bounds.json), minus its geometry. */
+export interface R5Zone {
+	cond: 'a' | 'b' | 'c' | 'd';
+	eds: string[];
+}
+
 export const prerender = true;
 
 export const load: PageLoad = async ({ fetch }) => {
@@ -60,13 +66,14 @@ export const load: PageLoad = async ({ fetch }) => {
 		return new Set(rows.map((r) => r.name));
 	}
 
-	const [minRows, majRows, ed2019Rows, minTot, majTot, ed2019Tot] = await Promise.all([
+	const [minRows, majRows, ed2019Rows, minTot, majTot, ed2019Tot, r5] = await Promise.all([
 		json<EdIndexEntry[]>('ed_index_minority.json'),
 		json<EdIndexEntry[]>('ed_index_majority.json'),
 		json<EdIndexEntry[]>('ed_index_2019.json'),
 		mapTotals('valabels_minority.json'),
 		mapTotals('valabels_majority.json'),
-		mapTotals('valabels_2019.json')
+		mapTotals('valabels_2019.json'),
+		json<{ zones: R5Zone[] }>('lunty_bounds.json')
 	]);
 	const minority = indexNames(minRows);
 	const majority = indexNames(majRows);
@@ -89,5 +96,8 @@ export const load: PageLoad = async ({ fetch }) => {
 			ed2019Votes: ed2019Tot.get(name) ?? null
 		}));
 
-	return { directory };
+	// The four Recommendation 5 areas the map draws, with their district lists.
+	const r5Zones: R5Zone[] = r5.zones.map((z) => ({ cond: z.cond, eds: z.eds }));
+
+	return { directory, r5Zones };
 };

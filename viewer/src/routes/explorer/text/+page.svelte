@@ -42,6 +42,7 @@
 		<ul>
 			<li><a href="#summary">{t(lang.current, 'explorer.text.toc_summary')}</a></li>
 			<li><a href="#flagged">{t(lang.current, 'explorer.text.toc_flagged')}</a></li>
+			<li><a href="#recommendation-5">{t(lang.current, 'explorer.text.toc_r5')}</a></li>
 			<li><a href="#directory">{t(lang.current, 'explorer.text.toc_directory')}</a></li>
 		</ul>
 	</nav>
@@ -67,7 +68,24 @@
 			{/each}
 		</section>
 
-		<section aria-labelledby="directory">
+		<section aria-labelledby="recommendation-5">
+			<div class="prose">
+				<h2 id="recommendation-5">{t(lang.current, 'explorer.text.r5_heading')}</h2>
+				<p>{t(lang.current, 'explorer.text.r5_lead')}</p>
+			</div>
+			{#each data.r5Zones as z (z.cond)}
+				{@const k = z.cond === 'd' ? 'explorer.miller' : 'explorer.miller.' + z.cond}
+				<article class="flag prose">
+					<h3 id={'r5-' + z.cond}>{t(lang.current, k + '.title')}</h3>
+					<p>{t(lang.current, k + '.body').replace('{n}', String(z.eds.length))}</p>
+					{#if z.eds.length}
+						<p>{t(lang.current, 'explorer.text.r5_districts')} {z.eds.join(', ')}.</p>
+					{/if}
+				</article>
+			{/each}
+		</section>
+
+				<section aria-labelledby="directory">
 			<div class="prose">
 				<h2 id="directory">{t(lang.current, 'explorer.text.directory_heading')}</h2>
 				<p>{t(lang.current, 'explorer.text.directory_lead')}</p>

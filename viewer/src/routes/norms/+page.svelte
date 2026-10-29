@@ -116,7 +116,7 @@
         <li>
           <strong>The statute gives the legislature the pen by design.</strong> Under
           Alberta's Act, a commission report has no legal force. Boundaries change only when
-          the Assembly passes an Electoral Districts Act. The April 16 motion used a door
+          the Assembly passes an Electoral Divisions Act. The April 16 motion used a door
           the law built on purpose. Nothing was smuggled.
         </li>
         <li>
@@ -171,11 +171,11 @@
         </li>
         <li>
           Recommendation 5's author wrote it to dissuade the legislature from adopting the
-          minority map, and his majority colleagues did not endorse it. It was also
-          geographically specific — new rural seats far from the contested urban-edge
-          communities — yet the committee's mandate covers exactly the lines the commission
-          disagreed on. Citing a recommendation against its author's stated purpose is a
-          documented tension, not a resolved one.
+          minority map, and his majority colleagues did not endorse it. It is also specific:
+          it leaves Airdrie, Calgary and everything south of them exactly as the majority
+          drew them, which are the very lines the commission split over, and nothing in the
+          committee's mandate holds it to that. Citing a recommendation against its
+          author's stated purpose is a documented tension, not a resolved one.
         </li>
         <li>
           The other document read onto the floor — page 58 of the majority report —

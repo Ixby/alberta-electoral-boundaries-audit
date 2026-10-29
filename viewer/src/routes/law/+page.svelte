@@ -177,7 +177,7 @@
       <p>
         <strong>What a commission report is — and is not.</strong> Under the EBCA, the
         commission's report has no legal effect by itself. Boundaries change only when the
-        Legislative Assembly passes a separate Electoral Districts Act. Most provinces make a
+        Legislative Assembly passes a separate Electoral Divisions Act. Most provinces make a
         commission's map effective unless the legislature actively overrides it. Alberta's
         default is reversed — the governing party controls whether any commission map becomes
         law. Section 12 of the Act also permits referring a commission's recommendations to a
