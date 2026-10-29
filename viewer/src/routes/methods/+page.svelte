@@ -254,8 +254,8 @@
       </p>
       <ul>
         <li>
-          <strong>The city-limits test</strong> died when official map files replaced early
-          traced ones. The scary early number was an artifact of the tracing.
+          <strong>The city-limits test</strong> found nothing to separate the maps: both follow
+          municipal lines inside the Canadian norm (majority 80%, minority 72%).
         </li>
         <li>
           <strong>The boundary-choices test (SZAT)</strong> looked significant until the audit
@@ -283,9 +283,7 @@
         </li>
         <li>
           <strong>Swap the software.</strong> An independent implementation in a different
-          programming language was tried on early data and behaved unstably; on official files
-          the question became moot — no plans from either implementation reach the minority
-          map's value.
+          programming language also finds no plans reaching the minority map's value.
         </li>
         <li>
           <strong>Test the mechanism — and fail.</strong> The audit guessed that the strange

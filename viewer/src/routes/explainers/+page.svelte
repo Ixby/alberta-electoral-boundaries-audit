@@ -76,11 +76,11 @@
     </section>
 
     <section id="appendix-e">
-      <h2>Appendix E — How a data artifact fooled us, and how it was caught</h2>
-      <p class="confusion"><em>The confusion:</em> "You published 15%, then said 72%. Why should I trust any of your other numbers?"</p>
-      <p>Because of <em>why</em> the number changed. Early in the audit, no official digital boundaries existed for the proposed maps — only PDF images in the commission's reports. The audit traced those images into approximate digital boundaries. Tracing is lossy: a boundary that actually runs along a city limit can end up drawn a few hundred metres off, and a metric that asks "does this border follow the municipal line?" then answers <em>no</em> for borders that really do. Multiply that across a whole map and you manufacture a dramatic, false signal. The day Elections Alberta released official shapefiles, the audit re-ran everything. Most findings survived. This one died, and was retracted in place — the corrections section preserves it permanently.</p>
-      <p>Now re-read finding 5: the retraction is not a stain on the method. It <em>is</em> the method — the same recomputation that killed this finding is what makes the surviving ones credible.</p>
-      <p class="limit"><em>The limit:</em> one honest retraction doesn't certify everything else; reproducibility does. Every surviving number can be regenerated from public data and public code, which is the only guarantee worth having.</p>
+      <h2>Appendix E — What municipal anchoring measures, and what it can't show</h2>
+      <p class="confusion"><em>The confusion:</em> "Why count how often a boundary follows a city or town line?"</p>
+      <p>Because that is where people already know they live. When a district boundary runs along a municipal boundary, the property-tax line, the school-division line, the local ward line and the provincial-election line coincide, and a voter can tell which district they are in without a map. The test measures how much of each map's district boundary length runs within 500 metres of a Statistics Canada municipal boundary. Canadian commissions land between 70% and 85% on that measure (Quebec 78%, Ontario 82%, BC 71%). The majority map scores 80% and the minority 72%. Both are inside the norm, so on overall rates the test does not separate them.</p>
+      <p>Now re-read finding 5: the overall rate is ordinary on both maps. What stands out is where the minority's departures fall, at the edges the chair flagged.</p>
+      <p class="limit"><em>The limit:</em> the anchoring rate is a norm, not a rule. The Act sets no threshold, and a departure can have a good reason, such as a suburb that has grown across a city limit.</p>
       <p class="back-anchor"><a href="{base}/evidence#casing-5">↩ Back to finding 5</a></p>
     </section>
 

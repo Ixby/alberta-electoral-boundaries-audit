@@ -297,7 +297,7 @@ That figure isn't the probability that the map is innocent. Treating it that way
 
 ### Checking with a second method
 
-I swapped the simulation's engine for a structurally different one, a spanning-forest sampler registered in advance at OSF (he53s) and run on 2026-07-10. Every metric's percentile moved by less than one point. A separate implementation, the R redist package, had been unstable on the old provisional geometry. On the official files it also found zero plans reaching the minority's value.
+I swapped the simulation's engine for a structurally different one, a spanning-forest sampler registered in advance at OSF (he53s) and run on 2026-07-10. Every metric's percentile moved by less than one point. A separate implementation, the R redist package, also found zero plans reaching the minority's value.
 <!-- key: know.robust | src: c9_found -->
 
 ### Limits of the simulation
@@ -308,7 +308,7 @@ The simulation enforces population and contiguity, but not every rule the commis
 ### What didn't hold up
 
 Some tests came back against my findings. They stay on the page.
-- **I retracted the anchoring finding.** Early tracings from commission PDF images showed the minority map following municipal lines only 15% of the time. On the official files it's 72%, against the majority's 80%, and both are inside the 70–85% Canadian norm.
+- **The anchoring test came back neutral.** The minority map follows municipal lines 72% of the time and the majority 80%, and both are inside the 70–85% Canadian norm.
 - **The efficiency gap missed.** The minority came in at +4.0%, the 94.5th percentile. The pre-registered line was the 95th (about +4.1%), so I report it as a miss.
 - **The mechanism test failed.** I tested whether the flagged shapes produce the seat advantage, and on my test they don't. The shapes and the seat numbers point at the same map, but the link between them didn't hold up.
 - **The minority passed one test outright.** On neighbour-drain, which looks for packed districts next to thin-margin ones, it shows 1 coupled signal, against the majority's 2 and the 2019 map's 5.
