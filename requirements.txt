@@ -17,7 +17,7 @@ shapely==2.1.2
 pyproj==3.7.2
 
 # Geocoding + fuzzy matching (Phase 4C landmark dictionary — stubs only)
-geopy==2.4.1
+geopy==2.5.0
 rapidfuzz==3.14.5
 
 # OSM network tools (Phase 4D fallback — stubbed)
@@ -43,7 +43,7 @@ textstat==0.7.13
 matplotlib==3.9.2
 
 # Markdown -> HTML pipeline (build_pdf.py)
-markdown==3.7
+markdown==3.10
 
 # Monte Carlo uncertainty analysis
 # (uses numpy + pandas only — no extra deps)

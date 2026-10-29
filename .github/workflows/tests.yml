@@ -67,7 +67,11 @@ jobs:
           # with ModuleNotFoundError at collection. Keep this list in sync
           # with the module-level imports of analysis/scripts/mcmc_ensemble.py
           # and analysis/utils/data_loader.py.
-          pip install pytest numpy pandas geopandas shapely pyproj networkx pyyaml matplotlib
+          # geopandas pinned to requirements.txt's version (2026-10-29): unpinned, CI
+          # pulled geopandas 1.2.0 (2026-09-28), which drops the `use_pygeos`
+          # option gerrychain 0.3.2 reads at import, so every run since failed at
+          # collection. 1.1.3 still has it (False) and the suite passes.
+          pip install pytest numpy pandas geopandas==1.1.3 shapely pyproj networkx pyyaml matplotlib
           pip install gerrychain==0.3.2 networkx==3.6.1
 
       - name: Run pytest
