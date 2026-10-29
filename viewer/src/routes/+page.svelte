@@ -38,7 +38,7 @@
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import { focusTrap } from '$lib/a11y/focusTrap';
-  import { attachPanZoom } from '$lib/panZoom';
+  import FigureLightbox from '$lib/components/FigureLightbox.svelte';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
 
   // Cleanups for the cookieless analytics instrumentation (engaged-time + scroll
@@ -53,22 +53,16 @@
   // the reader scrolls, instead of laying every landmark out at once.
   let currentIdx        = $state(0);
   const SECTIONS: { id: string; key: string }[] = [
-    { id: 'the-smoking-gun',          key: 'smoking_gun' },
-    { id: 'the-picture',              key: 'picture' },
-    { id: 'the-map',                  key: 'map' },
-    { id: 'act-1',                    key: 'act1' },
-    { id: 'what-this-means',          key: 'for_you' },
-    { id: 'history-of-gerrymandering', key: 'history_full' },
-    { id: 'canada-is-different',      key: 'canada' },
-    { id: 'act-2',                    key: 'act2' },
-    { id: 'act-3',                    key: 'act3' },
-    { id: 'the-scorecard',            key: 'revisited' },
-    { id: 'section-7',                key: 'lunty' },
-    { id: 'authors-view',             key: 'authors_view' },
-    { id: 'section-8',                key: 'suggestions' },
-    { id: 'retractions',              key: 'retractions' },
-    { id: 'references',               key: 'references' },
-    { id: 'resources',                key: 'technical' }
+    { id: 'what-happened',         key: 'happened' },
+    { id: 'what-the-map-does',     key: 'does' },
+    { id: 'what-the-law-requires', key: 'law' },
+    { id: 'how-it-got-here',       key: 'system' },
+    { id: 'how-we-know',           key: 'know' },
+    { id: 'november-test',         key: 'test' },
+    { id: 'change-our-mind',       key: 'mind' },
+    { id: 'authors-view',          key: 'authors_view' },
+    { id: 'references',            key: 'references' },
+    { id: 'resources',             key: 'technical' }
   ];
   let darkMode          = $state(false);
 
@@ -109,25 +103,43 @@
     // fire-and-forget (the SDK no-ops in SSR); no consent gate — see analytics.ts.
     // Section ids tracked: the report's stake/finding anchors. Kept best-effort —
     // ids that don't exist are simply skipped by observeSections.
+    // ── Old anchors (pre-2026-10-29 structure) → their new homes ─────────────
+    const oldHash = location.hash.slice(1);
+    const moved: Record<string, string> = {
+      'the-smoking-gun': '#what-happened', 'the-picture': '#what-happened', 'the-map': '#what-happened',
+      'act-1': '#what-the-map-does', 'what-this-means': '#what-the-map-does',
+      'act-2': '#how-we-know', 'the-scorecard': '#how-we-know', 'act-3': '#how-it-got-here',
+      'section-7': '#november-test', 'retractions': '#change-our-mind',
+      'history-of-gerrymandering': '/law', 'canada-is-different': '/law', 'section-8': '/fixes'
+    };
+    if (/^casing-\d+$/.test(oldHash) || /^act-\d-picture$/.test(oldHash) || oldHash === 'ledger') {
+      goto((base || '') + '/evidence#' + oldHash, { replaceState: true });
+      return;
+    }
+    if (moved[oldHash]) {
+      const to = moved[oldHash];
+      if (to.startsWith('#')) {
+        history.replaceState(null, '', to);
+        requestAnimationFrame(() => document.getElementById(to.slice(1))?.scrollIntoView());
+      } else {
+        goto((base || '') + to, { replaceState: true });
+        return;
+      }
+    }
+
     pageview();
     _analyticsCleanups.push(initEngagement(location.pathname));
     _analyticsCleanups.push(
       observeSections([
-        'the-smoking-gun',       // the cold open / evidence-log frame
-        'the-picture',           // the whole case in one image
-        'the-map',               // how to read the cover map
-        'act-1',                 // what the map does (casings 1-5)
-        'what-this-means',       // editorial: what this means for you
-        'history-of-gerrymandering',
-        'canada-is-different',
-        'act-2',                 // what the simulation sees (casings 6-10)
-        'act-3',                 // what people did (casings 11-14)
-        'the-scorecard',         // the synthesis
-        'section-7',             // the Lunty committee map
-        'authors-view',          // severable signed opinion
-        'section-8',             // suggested reforms
-        'retractions',           // documented corrections
-        'references'             // apparatus
+        'what-happened',          // the finding, the split, the can/can't box
+        'what-the-map-does',      // cracking, packing, the cost, what it buys
+        'what-the-law-requires',  // Charter, statute, gaps, the 1992 precedent
+        'how-it-got-here',        // the committee, Recommendation 5
+        'how-we-know',            // ensemble, results, where the audit lost
+        'november-test',          // this week's scoring
+        'change-our-mind',        // retraction conditions
+        'authors-view',           // severable signed opinion
+        'references'              // apparatus
       ])
     );
 
@@ -136,42 +148,6 @@
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     darkMode = storedTheme === 'dark' || (storedTheme === null && prefersDark);
     // app.html inline script already set the attribute to avoid FOUC; sync state var only
-
-    // ── Lightbox ───────────────────────────────────────────────────────────
-    const lb = document.getElementById('fig-lightbox') as HTMLElement;
-    const lbImg = document.getElementById('fig-lightbox-img') as HTMLImageElement;
-    let lbPrevFocus: Element | null = null;
-    // Pinch / drag / wheel / double-tap / keyboard pan-zoom (see $lib/panZoom).
-    const lbPz = attachPanZoom(lb, lbImg);
-
-    function openLb(src: string, altText = '') {
-      lbPz.reset();
-      lbImg.src = src;
-      lbImg.alt = altText;
-      lb.style.display = 'flex';
-      lbPrevFocus = document.activeElement;
-      lb.focus();
-    }
-    function closeLb() {
-      lb.style.display = 'none';
-      lbPz.reset();
-      if (lbPrevFocus instanceof HTMLElement) lbPrevFocus.focus();
-      lbPrevFocus = null;
-    }
-
-    document.querySelectorAll('figure img').forEach(img => {
-      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLElement).dataset.full ?? (img as HTMLImageElement).currentSrc ?? (img as HTMLImageElement).src, (img as HTMLImageElement).alt));
-    });
-    // A tap on the dark backdrop closes. A tap on the image does not (it may be
-    // the first half of a double-tap zoom), and neither does the end of a drag.
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb && !lbPz.wasDrag() && !lbPz.onTarget(e.clientX, e.clientY)) closeLb();
-    });
-    (document.getElementById('fig-lightbox-close') as HTMLElement)?.addEventListener('click', closeLb);
-    lb.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLb();
-      if (e.key === 'Tab') { e.preventDefault(); (document.getElementById('fig-lightbox-close') as HTMLElement)?.focus(); }
-    });
 
     // ── Nav: scroll shadow + active-landmark tracking ─────────────────────────
     const onScroll = () => { navScrolled = window.scrollY > 8; };
@@ -287,30 +263,25 @@
     <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
-    <a href="#the-smoking-gun" onclick={closeNavDrawer}>{t(lang.current, 'nav.smoking_gun')}</a>
-    <a href="#the-picture" onclick={closeNavDrawer}>{t(lang.current, 'nav.picture')}</a>
-    <a href="#the-map" onclick={closeNavDrawer}>{t(lang.current, 'nav.map')}</a>
+    <a href="#what-happened" onclick={closeNavDrawer}>{t(lang.current, 'nav.happened')}</a>
+    <a href="#what-the-map-does" onclick={closeNavDrawer}>{t(lang.current, 'nav.does')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_audit')}</h4>
-    <a href="#act-1" onclick={closeNavDrawer}>{t(lang.current, 'nav.act1')}</a>
-    <a href="#what-this-means" onclick={closeNavDrawer}>{t(lang.current, 'nav.for_you')}</a>
-    <a href="#act-2" onclick={closeNavDrawer}>{t(lang.current, 'nav.act2')}</a>
-    <a href="#act-3" onclick={closeNavDrawer}>{t(lang.current, 'nav.act3')}</a>
-    <a href="#the-scorecard" onclick={closeNavDrawer}>{t(lang.current, 'nav.revisited')}</a>
-
-    <h4 class="drawer-group">{t(lang.current, 'nav.group_context')}</h4>
-    <a href="#history-of-gerrymandering" onclick={closeNavDrawer}>{t(lang.current, 'nav.history_full')}</a>
-    <a href="#canada-is-different" onclick={closeNavDrawer}>{t(lang.current, 'nav.canada')}</a>
-    <a href="#section-7" onclick={closeNavDrawer}>{t(lang.current, 'nav.lunty')}</a>
+    <a href="#what-the-law-requires" onclick={closeNavDrawer}>{t(lang.current, 'nav.law')}</a>
+    <a href="#how-it-got-here" onclick={closeNavDrawer}>{t(lang.current, 'nav.system')}</a>
+    <a href="#how-we-know" onclick={closeNavDrawer}>{t(lang.current, 'nav.know')}</a>
+    <a href="#november-test" onclick={closeNavDrawer}>{t(lang.current, 'nav.test')}</a>
+    <a href="{base}/evidence" onclick={closeNavDrawer}>{t(lang.current, 'nav.evidence')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_forward')}</h4>
+    <a href="#change-our-mind" onclick={closeNavDrawer}>{t(lang.current, 'nav.mind')}</a>
     <a href="#authors-view" onclick={closeNavDrawer}>{t(lang.current, 'nav.authors_view')}</a>
-    <a href="#section-8" onclick={closeNavDrawer}>{t(lang.current, 'nav.suggestions')}</a>
+    <a href="{base}/fixes" onclick={closeNavDrawer}>{t(lang.current, 'nav.fixes')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
-    <a href="#retractions" onclick={closeNavDrawer}>{t(lang.current, 'nav.retractions')}</a>
     <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
     <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
+    <a href="{base}/explainers" onclick={closeNavDrawer}>{t(lang.current, 'nav.explainers')}</a>
     <a href="{base}/feedback" onclick={closeNavDrawer}>{t(lang.current, 'nav.feedback')}</a>
   </div>
   {/if}
@@ -319,8 +290,9 @@
 <header>
   <div class="header-inner">
     <div class="header-text">
-      <h1>{t(lang.current, 'hero.h1')}</h1>
-      <p class="subtitle">{t(lang.current, 'hero.subtitle')}</p>
+      <h1>{t(lang.current, 'home.hero.h1')}</h1>
+      <p class="subtitle">{t(lang.current, 'home.hero.subtitle')}</p>
+      <p class="subtitle hero-status">{t(lang.current, 'home.hero.status')}</p>
       <span class="badge">{t(lang.current, 'hero.badge')}</span>
       <p class="cover-note">{t(lang.current, 'hero.cover_note')}</p>
     </div>
@@ -337,621 +309,255 @@
   </div>
 </header>
 
-<section class="epigraph-block container" aria-labelledby="epigraph-heading">
-  <h2 id="epigraph-heading" class="visually-hidden">{t(lang.current, 'epigraph.heading')}</h2>
-  <div class="epigraph-inner">
-    <blockquote class="epigraph-quote reader">
-      <p>{t(lang.current, 'epigraph.reader')}</p>
-      <p class="epigraph-attrib">— {t(lang.current, 'epigraph.reader_label')}</p>
-    </blockquote>
-    <blockquote class="epigraph-quote author">
-      <p>{t(lang.current, 'epigraph.author_p1')}</p>
-      <p>{t(lang.current, 'epigraph.author_p2')}</p>
-      <p class="epigraph-attrib">— {t(lang.current, 'epigraph.author_label')}</p>
-    </blockquote>
-  </div>
-</section>
-
 <main id="main" class="container" tabindex="-1">
 
-  <section id="the-smoking-gun">
-    <h2>{t(lang.current, 'body.casings.frame_h')} <a href="#the-smoking-gun" class="section-link" aria-label={t(lang.current, 'nav.smoking_gun')}>#</a></h2>
-    <p class="section-punch">{t(lang.current, 'body.casings.frame_p1')}</p>
-    <p>{t(lang.current, 'body.casings.frame_p1b')}</p>
-    <p>{t(lang.current, 'body.casings.frame_p2')}</p>
-    <p>{t(lang.current, 'body.casings.frame_p3')}</p>
-    <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
-      <li><strong>{t(lang.current, 'body.casings.beat_found')}</strong> — {t(lang.current, 'body.casings.beat_found_d')}</li>
-      <li><strong>{t(lang.current, 'body.casings.beat_show')}</strong> — {t(lang.current, 'body.casings.beat_show_d')}</li>
-      <li><strong>{t(lang.current, 'body.casings.beat_experts')}</strong> — {t(lang.current, 'body.casings.beat_experts_d')}</li>
-      <li><strong>{t(lang.current, 'body.casings.beat_canada')}</strong> — {t(lang.current, 'body.casings.beat_canada_d')}</li>
-      <li><strong>{t(lang.current, 'body.casings.beat_gun')}</strong> — {t(lang.current, 'body.casings.beat_gun_d')}</li>
-    </ol>
-    <p>{t(lang.current, 'body.casings.frame_p4')}</p>
-    <p>{t(lang.current, 'body.casings.frame_p5')}</p>
-    <p>{t(lang.current, 'body.casings.frame_coi')}</p>
-    <p>{@html t(lang.current, 'body.casings.frame_routes').replaceAll('__BASE__', base)}</p>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
-    </div>
+  <div class="callout callout-tldr week-strip" style="border-inline-start-color: #1A7A6E; margin-top: 1.4rem;">
+    <p style="margin:0;">{@html t(lang.current, 'home.hero.week')}</p>
+  </div>
+
+  <section id="what-happened">
+    <h2>{t(lang.current, 'home.happened.h')} <a href="#what-happened" class="section-link" aria-label={t(lang.current, 'home.happened.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.happened.p1')}</p>
+    <p>{@html t(lang.current, 'home.happened.p2')}</p>
+    <p>{@html t(lang.current, 'home.happened.p3')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.happened.li1')}</li>
+      <li>{@html t(lang.current, 'home.happened.li2')}</li>
+      <li>{@html t(lang.current, 'home.happened.li3')}</li>
+      <li>{@html t(lang.current, 'home.happened.li4')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.happened.p4')}</p>
     <div class="boundary-block">
-      <h3>{t(lang.current, 'verdict.box_heading')}</h3>
+      <h3 id="what-we-can-say-and-what-we-can-t">{t(lang.current, 'home.happened.box_h')}</h3>
       <ul class="boundary-list">
-        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_1')}</span></li>
-        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_2')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_1')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_2')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_3')}</span></li>
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html t(lang.current, 'home.happened.can1')}</span></li>
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html t(lang.current, 'home.happened.can2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant1')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant3')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant4')}</span></li>
       </ul>
     </div>
+    <p>{@html t(lang.current, 'home.happened.p5')}</p>
+    <p>{@html t(lang.current, 'home.happened.p6').replaceAll('__BASE__', base)}</p>
   </section>
 
-  <section id="the-picture">
-    <h2>{t(lang.current, 'picture.heading')} <a href="#the-picture" class="section-link" aria-label={t(lang.current, 'nav.picture')}>#</a></h2>
+  <section id="what-the-map-does">
+    <h2>{t(lang.current, 'home.does.h')} <a href="#what-the-map-does" class="section-link" aria-label={t(lang.current, 'home.does.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.does.p1')}</p>
+    <h3 id="one-city-four-districts">{t(lang.current, 'home.does.h3_1')}</h3>
+    <p>{@html t(lang.current, 'home.does.p2')}</p>
+    <p>{@html t(lang.current, 'home.does.p3')}</p>
+    <p>{@html t(lang.current, 'home.does.p4')}</p>
+    <h3 id="bigger-districts-where-the-ndp-is-strongest">{t(lang.current, 'home.does.h3_2')}</h3>
+    <p>{@html t(lang.current, 'home.does.p5')}</p>
+    <h3 id="the-cost-equal-votes">{t(lang.current, 'home.does.h3_3')}</h3>
+    <p>{@html t(lang.current, 'home.does.p6')}</p>
+    <h3 id="rural-tails-on-urban-districts">{t(lang.current, 'home.does.h3_4')}</h3>
+    <p>{@html t(lang.current, 'home.does.p7')}</p>
+    <p>{@html t(lang.current, 'home.does.p8')}</p>
+    <h3 id="three-boundaries-the-chair-called-out">{t(lang.current, 'home.does.h3_5')}</h3>
+    <p>{@html t(lang.current, 'home.does.p9')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.does.li1')}</li>
+      <li>{@html t(lang.current, 'home.does.li2')}</li>
+      <li>{@html t(lang.current, 'home.does.li3')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.does.p10')}</p>
+    <p>{@html t(lang.current, 'home.does.p11')}</p>
+    <h3 id="what-it-buys">{t(lang.current, 'home.does.h3_6')}</h3>
+    <p>{@html t(lang.current, 'home.does.p12')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.does.li4')}</li>
+      <li>{@html t(lang.current, 'home.does.li5')}</li>
+      <li>{@html t(lang.current, 'home.does.li6')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.does.p13')}</p>
+    <p>{@html t(lang.current, 'home.does.p14')}</p>
+    <p>{@html t(lang.current, 'home.does.p15')}</p>
+  </section>
+
+  <section id="what-the-law-requires">
+    <h2>{t(lang.current, 'home.law.h')} <a href="#what-the-law-requires" class="section-link" aria-label={t(lang.current, 'home.law.h')}>#</a></h2>
+    <h3 id="the-constitution">{t(lang.current, 'home.law.h3_1')}</h3>
+    <p>{@html t(lang.current, 'home.law.p1')}</p>
+    <p>{@html t(lang.current, 'home.law.p2')}</p>
+    <p>{@html t(lang.current, 'home.law.p3')}</p>
+    <p>{@html t(lang.current, 'home.law.p4')}</p>
+    <h3 id="alberta-s-statute">{t(lang.current, 'home.law.h3_2')}</h3>
+    <p>{@html t(lang.current, 'home.law.p5')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.law.li1')}</li>
+      <li>{@html t(lang.current, 'home.law.li2')}</li>
+      <li>{@html t(lang.current, 'home.law.li3')}</li>
+      <li>{@html t(lang.current, 'home.law.li4')}</li>
+      <li>{@html t(lang.current, 'home.law.li5')}</li>
+      <li>{@html t(lang.current, 'home.law.li6')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.law.p6')}</p>
+    <h3 id="what-the-law-doesn-t-require">{t(lang.current, 'home.law.h3_3')}</h3>
+    <p>{@html t(lang.current, 'home.law.p7')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.law.li7')}</li>
+      <li>{@html t(lang.current, 'home.law.li8')}</li>
+      <li>{@html t(lang.current, 'home.law.li9')}</li>
+      <li>{@html t(lang.current, 'home.law.li10')}</li>
+      <li>{@html t(lang.current, 'home.law.li11')}</li>
+    </ul>
+    <h3 id="it-has-happened-here-before">{t(lang.current, 'home.law.h3_4')}</h3>
+    <p>{@html t(lang.current, 'home.law.p8')}</p>
+    <p>{@html t(lang.current, 'home.law.p9')}</p>
+    <h3 id="what-this-means-in-november">{t(lang.current, 'home.law.h3_5')}</h3>
+    <p>{@html t(lang.current, 'home.law.p10')}</p>
+  </section>
+
+  <section id="how-it-got-here">
+    <h2>{t(lang.current, 'home.system.h')} <a href="#how-it-got-here" class="section-link" aria-label={t(lang.current, 'home.system.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.system.p1')}</p>
+    <p>{@html t(lang.current, 'home.system.p2')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.system.li1')}</li>
+      <li>{@html t(lang.current, 'home.system.li2')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.system.p3')}</p>
+    <p>{@html t(lang.current, 'home.system.p4')}</p>
+    <p>{@html t(lang.current, 'home.system.p5')}</p>
+    <p>{@html t(lang.current, 'home.system.p6')}</p>
+    <p>{@html t(lang.current, 'home.system.p7')}</p>
+    <p>{@html t(lang.current, 'home.system.p8')}</p>
+    <h3 id="recommendation-5">{t(lang.current, 'home.system.h3_1')}</h3>
+    <p>{@html t(lang.current, 'home.system.p9')}</p>
+    <p>{@html t(lang.current, 'home.system.p10')}</p>
+    <ul class="r5-conditions">
+      <li>{@html t(lang.current, 'home.system.li3')}</li>
+      <li>{@html t(lang.current, 'home.system.li4')}</li>
+      <li>{@html t(lang.current, 'home.system.li5')}</li>
+      <li>{@html t(lang.current, 'home.system.li6')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.system.p11').replaceAll('__BASE__', base)}</p>
+  </section>
+
+  <section id="how-we-know">
+    <h2>{t(lang.current, 'home.know.h')} <a href="#how-we-know" class="section-link" aria-label={t(lang.current, 'home.know.h')}>#</a></h2>
+    <h3 id="the-what-if-machine">{t(lang.current, 'home.know.h3_1')}</h3>
+    <p>{@html t(lang.current, 'home.know.p1')}</p>
+    <p>{@html t(lang.current, 'home.know.p2').replaceAll('__BASE__', base)}</p>
+    <h3 id="in-alberta-neutral-is-not-50-50">{t(lang.current, 'home.know.h3_2')}</h3>
+    <p>{@html t(lang.current, 'home.know.p3')}</p>
+    <h3 id="the-results-side-by-side">{t(lang.current, 'home.know.h3_3')}</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">{@html t(lang.current, 'home.know.table1_h1')}</th><th scope="col">{@html t(lang.current, 'home.know.table1_h2')}</th><th scope="col">{@html t(lang.current, 'home.know.table1_h3')}</th></tr></thead>
+        <tbody>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r1c1')}</td><td>{@html t(lang.current, 'home.know.table1_r1c2')}</td><td>{@html t(lang.current, 'home.know.table1_r1c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r2c1')}</td><td>{@html t(lang.current, 'home.know.table1_r2c2')}</td><td>{@html t(lang.current, 'home.know.table1_r2c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r3c1')}</td><td>{@html t(lang.current, 'home.know.table1_r3c2')}</td><td>{@html t(lang.current, 'home.know.table1_r3c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r4c1')}</td><td>{@html t(lang.current, 'home.know.table1_r4c2')}</td><td>{@html t(lang.current, 'home.know.table1_r4c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r5c1')}</td><td>{@html t(lang.current, 'home.know.table1_r5c2')}</td><td>{@html t(lang.current, 'home.know.table1_r5c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r6c1')}</td><td>{@html t(lang.current, 'home.know.table1_r6c2')}</td><td>{@html t(lang.current, 'home.know.table1_r6c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r7c1')}</td><td>{@html t(lang.current, 'home.know.table1_r7c2')}</td><td>{@html t(lang.current, 'home.know.table1_r7c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r8c1')}</td><td>{@html t(lang.current, 'home.know.table1_r8c2')}</td><td>{@html t(lang.current, 'home.know.table1_r8c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r9c1')}</td><td>{@html t(lang.current, 'home.know.table1_r9c2')}</td><td>{@html t(lang.current, 'home.know.table1_r9c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r10c1')}</td><td>{@html t(lang.current, 'home.know.table1_r10c2')}</td><td>{@html t(lang.current, 'home.know.table1_r10c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r11c1')}</td><td>{@html t(lang.current, 'home.know.table1_r11c2')}</td><td>{@html t(lang.current, 'home.know.table1_r11c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table1_r12c1')}</td><td>{@html t(lang.current, 'home.know.table1_r12c2')}</td><td>{@html t(lang.current, 'home.know.table1_r12c3')}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{@html t(lang.current, 'home.know.p4')}</p>
     <figure style="margin:1.2rem 0;text-align:center;">
       <picture>
         <source type="image/webp" srcset="images/stakes_quadrant.webp">
         <img src="images/stakes_quadrant.jpg" data-full="images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="377" loading="lazy" decoding="async">
       </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'home.know.fig_caption')}</figcaption>
     </figure>
-    <p>{t(lang.current, 'picture.lead')}</p>
-    <div class="callout callout-tldr" style="border-inline-start-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
-      <p style="margin:0 0 0.6rem;"><strong>{t(lang.current, 'top_callouts.tldr_label')}</strong></p>
-      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p1')}</p>
-      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p2')}</p>
-      <p style="margin:0;">{t(lang.current, 'top_callouts.tldr_p3')}</p>
-      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">{@html t(lang.current, 'top_callouts.tldr_footer').replace('%s', '<a href=\"#retractions\">' + t(lang.current, 'top_callouts.tldr_footer_link') + '</a>')}</p>
-    </div>
-  </section>
-
-  <section id="the-map">
-    <h2>{t(lang.current, 'body.the_map.heading2')} <a href="#the-map" class="section-link" aria-label={t(lang.current, 'nav.map')}>#</a></h2>
-    <p>{t(lang.current, 'body.the_map.p1')}</p>
-    <p>{t(lang.current, 'body.the_map.p2')}</p>
-    <p>{t(lang.current, 'body.the_map.p3')}</p>
-    <p>{t(lang.current, 'body.the_map.p4')}</p>
-    <p>{t(lang.current, 'body.the_map.p5')}</p>
-  </section>
-
-  <section id="act-1">
-    <h2>{t(lang.current, 'body.casings.act1_h')} <a href="#act-1" class="section-link" aria-label={t(lang.current, 'nav.act1')}>#</a></h2>
-    <p>{t(lang.current, 'body.casings.act1_intro')}</p>
-    <h3 id="casing-1">{t(lang.current, 'body.casings.c1_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c1_found')}</p>
-    <figure style="margin:1.2rem 0;text-align:center;">
-      <picture>
-        <source type="image/webp" srcset="images/figure_airdrie_v3.webp">
-        <img src="images/figure_airdrie_v3.jpg" data-full="images/figure_airdrie_v3.svg" alt={t(lang.current, 'body.cpd.fig_alt')} class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy" decoding="async">
-      </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.cpd.fig_caption')}</figcaption>
-    </figure>
-    <p style="text-align:center; margin: 0.2rem 0 1.1rem;">
-      <a class="anomaly-trigger" href="{base}/explorer?poi=airdrie-split">{t(lang.current, 'body.cpd.airdrie_btn')}</a>
-    </p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c1_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c1_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c1_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c1_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-a">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c1_app')}</a></p>
-    <h3 id="casing-2">{t(lang.current, 'body.casings.c2_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c2_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c2_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c2_experts')}</p>
-    <p style="margin: 0.2rem 0 0.9rem;"><a href="{base}/explorer?poi=banff-town">{t(lang.current, 'body.casings.c2_banff_link')} ↗</a></p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c2_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c2_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c2_refrain')}</strong> — <a href="{base}/explainers#appendix-b">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c2_app')}</a></p>
-    <h3 id="casing-3">{t(lang.current, 'body.casings.c3_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c3_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c3_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c3_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c3_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c3_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c3_refrain')}</strong> — <a href="{base}/explainers#appendix-c">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c3_app')}</a></p>
-    <h3 id="casing-4">{t(lang.current, 'body.casings.c4_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c4_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c4_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c4_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c4_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c4_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c4_refrain')}</strong> — <a href="{base}/explainers#appendix-d">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c4_app')}</a></p>
-    <h3 id="casing-5">{t(lang.current, 'body.casings.c5_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c5_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c5_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c5_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c5_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c5_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain_not_even')}</strong> — <a href="{base}/explainers#appendix-e">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c5_app')}</a></p>
-    <h3 id="act-1-picture">{t(lang.current, 'body.casings.act1_table_h')}</h3>
-    <figure style="margin:1.2rem 0;text-align:center;">
-      <picture>
-        <source type="image/webp" srcset="images/lane2_bars.webp">
-        <img src="images/lane2_bars.jpg" data-full="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="531" loading="lazy" decoding="async">
-      </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.impact.fig_caption')}</figcaption>
-    </figure>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>{t(lang.current, 'body.impact.table_col_test')}</th>
-            <th>{t(lang.current, 'body.impact.table_col_majority')}</th>
-            <th>{t(lang.current, 'body.impact.table_col_minority')}</th>
-            <th>{t(lang.current, 'body.impact.table_col_direction')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{t(lang.current, 'body.impact.table_r1_a')}</td>
-            <td class="normal">{t(lang.current, 'body.impact.table_r1_b')}</td>
-            <td>{t(lang.current, 'body.impact.table_r1_c')}</td>
-            <td>{t(lang.current, 'body.impact.table_r1_d')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.impact.table_r2_a')}</td>
-            <td class="normal">{t(lang.current, 'body.impact.table_r2_b')}</td>
-            <td class="flag">{t(lang.current, 'body.impact.table_r2_c')}</td>
-            <td>{t(lang.current, 'body.impact.table_r2_d')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.impact.table_r3_a')}</td>
-            <td class="normal">{t(lang.current, 'body.impact.table_r3_b')}</td>
-            <td class="flag">{t(lang.current, 'body.impact.table_r3_c')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r3_d')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.impact.table_r4_a')}</td>
-            <td class="normal">{t(lang.current, 'body.impact.table_r4_b')}</td>
-            <td class="flag">{t(lang.current, 'body.impact.table_r4_c')}</td>
-            <td>{t(lang.current, 'body.impact.table_r4_d')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.impact.table_r5_a')}</td>
-            <td class="normal">{t(lang.current, 'body.impact.table_r5_b')}</td>
-            <td class="flag">{t(lang.current, 'body.impact.table_r5_c')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r5_d')}</td>
-          </tr>
-          <tr>
-            <td>{@html t(lang.current, 'body.impact.table_r6_a')}</td>
-            <td class="normal">{@html t(lang.current, 'body.impact.table_r6_b')}</td>
-            <td class="flag">{@html t(lang.current, 'body.impact.table_r6_c')}</td>
-            <td>{@html t(lang.current, 'body.impact.table_r6_d')}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p>{t(lang.current, 'body.casings.act1_table_close')}</p>
-    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
-  </section>
-
-  <section class="editorial-block" id="what-this-means" aria-labelledby="s5-heading">
-    <h2 id="s5-heading">{t(lang.current, 'editorial_reflect.heading')}</h2>
-    <p>{t(lang.current, 'editorial_reflect.intro_p1')}</p>
-    <ol class="ladder-questions">
-      <li><strong>{t(lang.current, 'editorial_reflect.intro_q1')}</strong></li>
-      <li><strong>{t(lang.current, 'editorial_reflect.intro_q2')}</strong></li>
-      <li><strong>{t(lang.current, 'editorial_reflect.intro_q3')}</strong></li>
-    </ol>
-    <p>{t(lang.current, 'editorial_reflect.intro_p2')}</p>
-
-    <h3 class="rung">{t(lang.current, 'editorial_reflect.you_h')}</h3>
-    <p>{t(lang.current, 'editorial_reflect.you_p')}</p>
-
-    <h3 class="rung">{t(lang.current, 'editorial_reflect.community_h')}</h3>
-    <p>{@html t(lang.current, 'editorial_reflect.community_p')}</p>
-
-    <h3 class="rung">{t(lang.current, 'editorial_reflect.municipality_h')}</h3>
-    <p>{@html t(lang.current, 'editorial_reflect.municipality_p')}</p>
-
-    <h3 class="rung">{t(lang.current, 'editorial_reflect.region_h')}</h3>
-    <p>{t(lang.current, 'editorial_reflect.region_p1')}</p>
-    <p>{@html t(lang.current, 'editorial_reflect.region_p2')}</p>
-    <p>{@html t(lang.current, 'editorial_reflect.region_p3')}</p>
-    <p>{t(lang.current, 'editorial_reflect.region_p4')}</p>
-
-    <h3 class="rung">{t(lang.current, 'editorial_reflect.province_h')}</h3>
-    <p>{@html t(lang.current, 'editorial_reflect.province_p')}</p>
-  </section>
-
-  <section class="editorial-block" id="history-of-gerrymandering" aria-labelledby="s6-heading">
-    <h2 id="s6-heading">{t(lang.current, 'editorial_history.heading')}</h2>
-    <p>{@html t(lang.current, 'editorial_history.p1')}</p>
-    <p>{t(lang.current, 'editorial_history.p2')}</p>
-    <p>{@html t(lang.current, 'editorial_history.p3')}</p>
-    <p>{@html t(lang.current, 'editorial_history.p4')}</p>
-    <p>{@html t(lang.current, 'editorial_history.p5')}</p>
-    <p>{t(lang.current, 'editorial_history.p6')}</p>
-  </section>
-
-  <section class="editorial-block" id="canada-is-different" aria-labelledby="s7-heading">
-    <h2 id="s7-heading">{t(lang.current, 'editorial_canada.heading')}</h2>
-    <p>{t(lang.current, 'editorial_canada.p1')}</p>
-    <p>{t(lang.current, 'editorial_canada.p2')}</p>
-    <p>{@html t(lang.current, 'editorial_canada.p3')}</p>
-    <p>{@html t(lang.current, 'editorial_canada.p4')}</p>
-    <p>{@html t(lang.current, 'editorial_canada.p5')}</p>
-    <p>{@html t(lang.current, 'editorial_canada.p6')}</p>
-    <p>{@html t(lang.current, 'editorial_canada.p7')}</p>
-
-    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
-  </section>
-
-  <section id="act-2">
-    <h2>{t(lang.current, 'body.casings.act2_h')} <a href="#act-2" class="section-link" aria-label={t(lang.current, 'nav.act2')}>#</a></h2>
-    {@render preliminaryBanner()}
-    <p>{t(lang.current, 'body.casings.act2_intro_p1')}</p>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.howmcmc_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.clean.howmcmc_mcmc').replaceAll('__BASE__', base)}</p>
-      <p>{@html t(lang.current, 'body.clean.howmcmc_recom')}</p>
-    </div>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.prereg_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.clean.prereg_body').replaceAll('__BASE__', base)}</p>
-    </div>
-    <p>{t(lang.current, 'body.casings.act2_intro_p2')}</p>
-    <h3 id="casing-6">{t(lang.current, 'body.casings.c6_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c6_found')}</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>{t(lang.current, 'body.clean.t3_col_a')}</th>
-            <th>{t(lang.current, 'body.clean.t3_col_b')}</th>
-            <th>{t(lang.current, 'body.clean.t3_col_c')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{t(lang.current, 'body.clean.t3_r1_a')}</td>
-            <td class="normal">{t(lang.current, 'body.clean.t3_r1_b')}</td>
-            <td class="normal">{t(lang.current, 'body.clean.t3_r1_c')}</td>
-          </tr>
-          <tr>
-            <td>{@html t(lang.current, 'body.clean.t3_r2_a')}</td>
-            <td class="normal">{@html t(lang.current, 'body.clean.t3_r2_b')}</td>
-            <td class="normal">{@html t(lang.current, 'body.clean.t3_r2_c')}</td>
-          </tr>
-          <tr>
-            <td>{@html t(lang.current, 'body.clean.t3_r3_a')}</td>
-            <td class="flag">{@html t(lang.current, 'body.clean.t3_r3_b')}</td>
-            <td class="flag">{@html t(lang.current, 'body.clean.t3_r3_c')}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')} (2).</strong> {@html t(lang.current, 'body.casings.c6_found2')}</p>
-    <p>{t(lang.current, 'body.clean.super_lead')}</p>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.super_label')}</strong></p>
-      <p>{t(lang.current, 'body.clean.super_body')}</p>
-    </div>
-    <p>{t(lang.current, 'body.clean.super_close')}</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>{t(lang.current, 'body.clean.t4_col_a')}</th>
-            <th>{t(lang.current, 'body.clean.t4_col_b')}</th>
-            <th>{t(lang.current, 'body.clean.t4_col_c')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{t(lang.current, 'body.clean.t4_r1_a')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r1_b')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r1_c')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.clean.t4_r2_a')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r2_b')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r2_c')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.clean.t4_r3_a')}</td>
-            <td class="flag">{@html t(lang.current, 'body.clean.t4_r3_b')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r3_c')}</td>
-          </tr>
-          <tr>
-            <td>{t(lang.current, 'body.clean.t4_r4_a')}</td>
-            <td>{@html t(lang.current, 'body.clean.t4_r4_b')}</td>
-            <td>{t(lang.current, 'body.clean.t4_r4_c')}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c6_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c6_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c6_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c6_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c6_refrain')}</strong> — <a href="{base}/explainers#appendix-f">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c6_app')}</a></p>
-    <h3 id="casing-7">{t(lang.current, 'body.casings.c7_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c7_found')}</p>
-    <figure style="margin:1.2rem 0;text-align:center;">
-      <picture>
-        <source type="image/webp" srcset="images/lane1_dotplot.webp">
-        <img src="images/lane1_dotplot.jpg" data-full="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="251" loading="lazy" decoding="async">
-      </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
-    </figure>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c7_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c7_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c7_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c7_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c7_refrain')}</strong> — <a href="{base}/explainers#appendix-g">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c7_app')}</a></p>
-    <h3 id="casing-8">{t(lang.current, 'body.casings.c8_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c8_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c8_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c8_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c8_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c8_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c8_refrain')}</strong> — <a href="{base}/explainers#appendix-h">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c8_app')}</a></p>
-    <h3 id="casing-9">{t(lang.current, 'body.casings.c9_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c9_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c9_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c9_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c9_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c9_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-i">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c9_app')}</a></p>
-    <h3 id="casing-10">{t(lang.current, 'body.casings.c10_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c10_found')}</p>
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.clean.szat_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.clean.szat_body')}</p>
-    </div>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c10_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c10_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c10_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c10_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c10_refrain')}</strong> — <a href="{base}/explainers#appendix-j">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c10_app')}</a></p>
-    <p class="back-link"><a href="#the-picture">{t(lang.current, 'chrome.back_to_picture')}</a></p>
-  </section>
-
-  <section id="act-3">
-    <h2>{t(lang.current, 'body.casings.act3_h')} <a href="#act-3" class="section-link" aria-label={t(lang.current, 'nav.act3')}>#</a></h2>
-    <p>{t(lang.current, 'body.casings.act3_intro')}</p>
-    <h3 id="casing-11">{t(lang.current, 'body.casings.c11_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c11_found')}</p>
-    <p style="font-size: 0.88rem; color: var(--text-muted);">{t(lang.current, 'body.casings.c11_note')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c11_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c11_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c11_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c11_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c11_refrain')}</strong> — <a href="{base}/explainers#appendix-k">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c11_app')}</a></p>
-    <h3 id="casing-12">{t(lang.current, 'body.casings.c12_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c12_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c12_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c12_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c12_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c12_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-l">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c12_app')}</a></p>
-    <h4 style="margin: 1.4rem 0 0.5rem;">{t(lang.current, 'body.casings.ledger_h')}</h4>
-    <p>{t(lang.current, 'body.casings.ledger_intro')}</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>{t(lang.current, 'body.casings.ledger_col_a')}</th>
-            <th>{t(lang.current, 'body.casings.ledger_col_b')}</th>
-            <th>{t(lang.current, 'body.casings.ledger_col_c')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r1_a')}</td><td>{t(lang.current, 'body.casings.ledger_r1_b')}</td><td>{t(lang.current, 'body.casings.ledger_r1_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r2_a')}</td><td>{t(lang.current, 'body.casings.ledger_r2_b')}</td><td>{t(lang.current, 'body.casings.ledger_r2_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r3_a')}</td><td>{t(lang.current, 'body.casings.ledger_r3_b')}</td><td>{t(lang.current, 'body.casings.ledger_r3_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r4_a')}</td><td>{t(lang.current, 'body.casings.ledger_r4_b')}</td><td>{t(lang.current, 'body.casings.ledger_r4_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r5_a')}</td><td>{t(lang.current, 'body.casings.ledger_r5_b')}</td><td>{t(lang.current, 'body.casings.ledger_r5_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r6_a')}</td><td>{t(lang.current, 'body.casings.ledger_r6_b')}</td><td>{t(lang.current, 'body.casings.ledger_r6_c')}</td></tr>
-          <tr><td>{t(lang.current, 'body.casings.ledger_r7_a')}</td><td>{t(lang.current, 'body.casings.ledger_r7_b')}</td><td>{t(lang.current, 'body.casings.ledger_r7_c')}</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>{t(lang.current, 'body.casings.ledger_close')}</p>
-    <h3 id="casing-13">{t(lang.current, 'body.casings.c13_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c13_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c13_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c13_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c13_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c13_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.c13_refrain')}</strong> — <a href="{base}/explainers#appendix-m">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c13_app')}</a></p>
-    <h3 id="casing-14">{t(lang.current, 'body.casings.c14_title')}</h3>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {@html t(lang.current, 'body.casings.c14_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {@html t(lang.current, 'body.casings.c14_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {@html t(lang.current, 'body.casings.c14_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {@html t(lang.current, 'body.casings.c14_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {@html t(lang.current, 'body.casings.c14_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic; margin: 0.9rem 0 0.4rem;"><strong>{t(lang.current, 'body.casings.refrain')}</strong> — <a href="{base}/explainers#appendix-n">{t(lang.current, 'body.casings.know_more')}: {t(lang.current, 'body.casings.c14_app')}</a></p>
-  </section>
-
-  <section id="the-scorecard">
-    <h2>{t(lang.current, 'body.casings.rev_h')} <a href="#the-scorecard" class="section-link" aria-label={t(lang.current, 'nav.revisited')}>#</a></h2>
-    <p>{t(lang.current, 'body.casings.rev_p1')}</p>
-    <figure style="margin:1.2rem 0;text-align:center;">
-      <picture>
-        <source type="image/webp" srcset="images/stakes_quadrant.webp">
-        <img src="images/stakes_quadrant.jpg" data-full="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="377" loading="lazy" decoding="async">
-      </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.stakes_fig_caption')}</figcaption>
-    </figure>
-    <p>{t(lang.current, 'body.casings.rev_p2')}</p>
-    <p>{t(lang.current, 'body.clean.stakes_table_intro')}</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>{t(lang.current, 'body.clean.t5_col_b')}</th>
-            <th>{t(lang.current, 'body.clean.t5_col_c')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{@html t(lang.current, 'body.clean.t5_r1_a')}</td>
-            <td class="normal">{@html t(lang.current, 'body.clean.t5_r1_b')}</td>
-            <td class="normal">{@html t(lang.current, 'body.clean.t5_r1_c')}</td>
-          </tr>
-          <tr>
-            <td>{@html t(lang.current, 'body.clean.t5_r2_a')}</td>
-            <td class="flag">{@html t(lang.current, 'body.clean.t5_r2_b')}</td>
-            <td class="flag">{@html t(lang.current, 'body.clean.t5_r2_c')}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <details class="audit-detail">
-      <summary>{t(lang.current, 'body.clean.details2_summary')}</summary>
-      <p style="margin:0.7rem 0 0;">{@html t(lang.current, 'body.clean.details2_p')}</p>
-    </details>
-    <p>{t(lang.current, 'body.casings.rev_litany_intro')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_found')}.</strong> {t(lang.current, 'body.casings.rev_found')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_show')}.</strong> {t(lang.current, 'body.casings.rev_show')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_experts')}.</strong> {t(lang.current, 'body.casings.rev_experts')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_canada')}.</strong> {t(lang.current, 'body.casings.rev_canada')}</p>
-    <p><strong>{t(lang.current, 'body.casings.beat_gun')}.</strong> {t(lang.current, 'body.casings.rev_gun')}</p>
-    <p class="casing-refrain" style="font-style: italic;"><strong>{t(lang.current, 'body.casings.rev_refrain')}</strong></p>
-    <h3>{t(lang.current, 'body.casings.playbook_h')}</h3>
-    <p>{@html t(lang.current, 'body.casings.playbook_p1')}</p>
-    <p>{@html t(lang.current, 'body.casings.playbook_p2')}</p>
-    <p>{t(lang.current, 'body.casings.appendices_note')} <a href="{base}/explainers">{t(lang.current, 'body.casings.appendices_link')}</a></p>
-  </section>
-
-  <section id="section-7">
-    <h2>{t(lang.current, 'body.november.heading')} <a href="#section-7" class="section-link" aria-label={t(lang.current, 'body.november.heading')}>#</a></h2>
-
-    <div class="callout callout-neutral" style="border-inline-start-color:#888; font-size:0.95rem;">
-      <p style="margin:0;"><strong>{t(lang.current, 'body.november.context_label')}</strong>{t(lang.current, 'body.november.context_body')}</p>
-    </div>
-
-    <p>{t(lang.current, 'body.november.intro')}</p>
-
-
-    <p>{@html t(lang.current, 'body.commission_split.finding3')}</p>
-
-    <h3 id="recommendation-5">{t(lang.current, 'body.november.r5_h')}</h3>
-    <p>{t(lang.current, 'body.november.r5_p1')}</p>
-    <p>{@html t(lang.current, 'body.november.r5_p2')}</p>
-    <ul class="r5-conditions">
-      <li>{@html t(lang.current, 'body.november.r5_a')}</li>
-      <li>{@html t(lang.current, 'body.november.r5_b')}</li>
-      <li>{@html t(lang.current, 'body.november.r5_c')}</li>
-      <li>{@html t(lang.current, 'body.november.r5_d')}</li>
+    <h3 id="what-1-in-568-000-means">{t(lang.current, 'home.know.h3_4')}</h3>
+    <p>{@html t(lang.current, 'home.know.p5')}</p>
+    <p>{@html t(lang.current, 'home.know.p6')}</p>
+    <h3 id="did-the-result-survive-attack">{t(lang.current, 'home.know.h3_5')}</h3>
+    <p>{@html t(lang.current, 'home.know.p7')}</p>
+    <h3 id="what-the-machine-can-t-see">{t(lang.current, 'home.know.h3_6')}</h3>
+    <p>{@html t(lang.current, 'home.know.p8')}</p>
+    <h3 id="where-the-audit-lost">{t(lang.current, 'home.know.h3_7')}</h3>
+    <p>{@html t(lang.current, 'home.know.p9')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.know.li1')}</li>
+      <li>{@html t(lang.current, 'home.know.li2')}</li>
+      <li>{@html t(lang.current, 'home.know.li3')}</li>
+      <li>{@html t(lang.current, 'home.know.li4')}</li>
+      <li>{@html t(lang.current, 'home.know.li5')}</li>
     </ul>
-    <p>{@html t(lang.current, 'body.november.r5_p3').replaceAll('__BASE__', base)}</p>
-    <p>{@html t(lang.current, 'body.november.r5_test')}</p>
+    <h3 id="both-sides-tested">{t(lang.current, 'home.know.h3_8')}</h3>
+    <p>{@html t(lang.current, 'home.know.p10')}</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">{@html t(lang.current, 'home.know.table2_h1')}</th><th scope="col">{@html t(lang.current, 'home.know.table2_h2')}</th><th scope="col">{@html t(lang.current, 'home.know.table2_h3')}</th></tr></thead>
+        <tbody>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r1c1')}</td><td>{@html t(lang.current, 'home.know.table2_r1c2')}</td><td>{@html t(lang.current, 'home.know.table2_r1c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r2c1')}</td><td>{@html t(lang.current, 'home.know.table2_r2c2')}</td><td>{@html t(lang.current, 'home.know.table2_r2c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r3c1')}</td><td>{@html t(lang.current, 'home.know.table2_r3c2')}</td><td>{@html t(lang.current, 'home.know.table2_r3c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r4c1')}</td><td>{@html t(lang.current, 'home.know.table2_r4c2')}</td><td>{@html t(lang.current, 'home.know.table2_r4c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r5c1')}</td><td>{@html t(lang.current, 'home.know.table2_r5c2')}</td><td>{@html t(lang.current, 'home.know.table2_r5c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r6c1')}</td><td>{@html t(lang.current, 'home.know.table2_r6c2')}</td><td>{@html t(lang.current, 'home.know.table2_r6c3')}</td></tr>
+          <tr><td>{@html t(lang.current, 'home.know.table2_r7c1')}</td><td>{@html t(lang.current, 'home.know.table2_r7c2')}</td><td>{@html t(lang.current, 'home.know.table2_r7c3')}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{@html t(lang.current, 'home.know.p11')}</p>
+    <h3 id="who-did-this">{t(lang.current, 'home.know.h3_9')}</h3>
+    <p>{@html t(lang.current, 'home.know.p12')}</p>
+    <h3 id="the-full-record">{t(lang.current, 'home.know.h3_10')}</h3>
+    <p>{@html t(lang.current, 'home.know.p13').replaceAll('__BASE__', base)}</p>
+  </section>
 
-    <h3>{t(lang.current, 'body.november.h_framework')}</h3>
+  <section id="november-test">
+    <h2>{t(lang.current, 'home.test.h')} <a href="#november-test" class="section-link" aria-label={t(lang.current, 'home.test.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.test.p1')}</p>
+    <p>{@html t(lang.current, 'home.test.p2').replaceAll('__BASE__', base)}</p>
+    <p>{@html t(lang.current, 'home.test.p3')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.test.li1')}</li>
+      <li>{@html t(lang.current, 'home.test.li2')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.test.p4')}</p>
+    <p>{@html t(lang.current, 'home.test.p5')}</p>
+    <p>{@html t(lang.current, 'home.test.p6')}</p>
+    <!-- "The results" slot: filled after the November scoring (see proposals/site_rewrite_2026-10-29). -->
+  </section>
 
-    <p>{@html t(lang.current, 'body.november.framework_p1')}</p>
-
-    <p>{t(lang.current, 'body.november.framework_p2')}</p>
-
-    <p>{@html t(lang.current, 'body.november.framework_p3')}</p>
-
-
-    <p>{t(lang.current, 'body.november.closing')}</p>
-
-    <p>{@html t(lang.current, 'body.november.process_scorecard').replaceAll('__BASE__', base)}</p>
+  <section id="change-our-mind">
+    <h2>{t(lang.current, 'home.mind.h')} <a href="#change-our-mind" class="section-link" aria-label={t(lang.current, 'home.mind.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.mind.p1')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.mind.li1')}</li>
+      <li>{@html t(lang.current, 'home.mind.li2')}</li>
+      <li>{@html t(lang.current, 'home.mind.li3')}</li>
+      <li>{@html t(lang.current, 'home.mind.li4')}</li>
+      <li>{@html t(lang.current, 'home.mind.li5').replaceAll('__BASE__', base)}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.mind.p2')}</p>
   </section>
 
   <section id="authors-view">
-    <h2>{t(lang.current, 'body.authors_view.heading')} <a href="#authors-view" class="section-link" aria-label={t(lang.current, 'body.authors_view.heading_aria')}>#</a></h2>
-
-    <div style="border-left: 3px solid var(--text-muted); padding: 0.2rem 0 0.2rem 1rem; margin: 0 0 1.3rem;">
-      <p style="margin: 0; font-style: italic;">{t(lang.current, 'body.authors_view.preamble')}</p>
-    </div>
-
-    <p>{t(lang.current, 'body.authors_view.p1')}</p>
-    <p>{t(lang.current, 'body.authors_view.p2')}</p>
-    <p>{t(lang.current, 'body.authors_view.p3')}</p>
-    <p>{t(lang.current, 'body.authors_view.p4')}</p>
-    <p>{t(lang.current, 'body.authors_view.p5')}</p>
-    <p>{t(lang.current, 'body.authors_view.p6')}</p>
-    <p>{@html t(lang.current, 'body.authors_view.p7')}</p>
-    <p>{t(lang.current, 'body.authors_view.p8')}</p>
-    <p>{t(lang.current, 'body.authors_view.p9')}</p>
-    <p>{t(lang.current, 'body.authors_view.p10')}</p>
-    <p style="margin: 1rem 0 1.4rem;">{t(lang.current, 'body.authors_view.signed')}</p>
+    <h2>{t(lang.current, 'home.authors.h')} <a href="#authors-view" class="section-link" aria-label={t(lang.current, 'home.authors.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.authors.p1')}</p>
+    <p>{@html t(lang.current, 'home.authors.p2')}</p>
+    <p>{@html t(lang.current, 'home.authors.p3')}</p>
+    <p>{@html t(lang.current, 'home.authors.p4')}</p>
+    <p>{@html t(lang.current, 'home.authors.p5')}</p>
+    <p>{@html t(lang.current, 'home.authors.p6')}</p>
+    <p>{@html t(lang.current, 'home.authors.p7')}</p>
+    <p>{@html t(lang.current, 'home.authors.p8')}</p>
+    <p style="margin: 1rem 0 1.4rem;">{t(lang.current, 'home.authors.signed')}</p>
     <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">{@html t(lang.current, 'body.authors_view.sources')}</p>
   </section>
 
-  <section id="section-8">
-    <h2>{t(lang.current, 'body.suggestions.heading')} <a href="#section-8" class="section-link" aria-label={t(lang.current, 'body.suggestions.heading_aria')}>#</a></h2>
-
-    <p style="font-style: italic; color: var(--text-muted);">{t(lang.current, 'body.suggestions.resume')}</p>
-
-    <p>{t(lang.current, 'body.suggestions.intro')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.advance_p1')}</p>
-
-    <p>{t(lang.current, 'body.suggestions.advance_p2')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.lesser_slave_p1')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.lesser_slave_p2')}</p>
-
-    <div class="callout">
-      <p><strong>{t(lang.current, 'body.suggestions.ebca_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.suggestions.ebca_body')}</p>
-    </div>
-
-    <p>{@html t(lang.current, 'body.suggestions.rationale_p1')}</p>
-    <p>{@html t(lang.current, 'body.suggestions.rationale_p2')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.banff_p')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.census_p1')}</p>
-
-    <p>{@html t(lang.current, 'body.suggestions.census_p2')}</p>
-
-    <p>{t(lang.current, 'body.suggestions.closing')}</p>
+  <section id="fixes-teaser">
+    <h2>{t(lang.current, 'home.fixes.h')} <a href="#fixes-teaser" class="section-link" aria-label={t(lang.current, 'home.fixes.h')}>#</a></h2>
+    <p>{@html t(lang.current, 'home.fixes.p1').replaceAll('__BASE__', base)}</p>
   </section>
 
-  <section id="retractions">
-    <h2>{t(lang.current, 'body.retractions.heading')} <a href="#retractions" class="section-link" aria-label={t(lang.current, 'body.retractions.heading_aria')}>#</a></h2>
-
-    <div class="callout warning">
-      <p><strong>{t(lang.current, 'body.retractions.conditions_label')}</strong></p>
-      <p>{t(lang.current, 'body.retractions.conditions_intro')}</p>
-
-      <div style="margin: 0.8rem 0 0; border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c1_title')}</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c1_what')}</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c1_cond')}</p>
-      </div>
-
-      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c2_title')}</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c2_what')}</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c2_cond')}</p>
-      </div>
-
-      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c3_title')}</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c3_what')}</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c3_cond')}</p>
-      </div>
-
-      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c4_title')}</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c4_what')}</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c4_cond')}</p>
-      </div>
-
-      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c5_title')}</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c5_what')}</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c5_cond')}</p>
-      </div>
-    </div>
-
-    <div class="callout warning">
-      <p><strong>{t(lang.current, 'body.retractions.corr_light_label')}</strong></p>
-      <p>{@html t(lang.current, 'body.retractions.corr_light_intro')}</p>
-    </div>
-  </section>
 
   <section id="references">
     <h2>{@html t(lang.current, 'body.references.heading')} <a href="#references" class="section-link" aria-label={t(lang.current, 'body.references.heading_aria')}>#</a></h2>
@@ -1058,11 +664,7 @@
   </a>
 </div>
 
-<!-- Figure lightbox -->
-<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label={t(lang.current, 'chrome.lightbox.fig_aria')} tabindex="-1">
-  <button id="fig-lightbox-close" aria-label={t(lang.current, 'chrome.lightbox.fig_close_aria')}>&times;</button>
-  <img id="fig-lightbox-img" alt="">
-</div>
+<FigureLightbox />
 
 <footer>
   <div class="container">
@@ -1586,7 +1188,16 @@
       white-space: nowrap;
       pointer-events: none;
       letter-spacing: 0.03em;
-      border: 1px solid rgba(212,175,55,0.4);
+      /* Soft yellow glow (the explorer's accent, #f5c518) so the launch pill
+         reads as the thing to press; a touch brighter on hover/focus. */
+      border: 1px solid rgba(245,197,24,0.65);
+      box-shadow: 0 0 8px 1px rgba(245,197,24,0.45), 0 0 20px 6px rgba(245,197,24,0.18);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .hero-map-btn:hover .hero-map-hint,
+    .hero-map-btn:focus-visible .hero-map-hint {
+      border-color: rgba(245,197,24,0.9);
+      box-shadow: 0 0 10px 2px rgba(245,197,24,0.6), 0 0 26px 8px rgba(245,197,24,0.26);
     }
     .header-image {
       /* Larger chrome subtraction (was 140px) so on shorter screens the cover
@@ -2301,38 +1912,6 @@
     }
   }
 
-  }
-
-  /* Figure image lightbox */
-  figure img { cursor: zoom-in; }
-  #fig-lightbox {
-    position: fixed; inset: 0; z-index: 8000;
-    background: rgba(0,0,0,0.90);
-    display: none; align-items: center; justify-content: center;
-    cursor: default;
-    touch-action: none;
-    overflow: hidden;
-  }
-  #fig-lightbox:focus { outline: none; }
-  #fig-lightbox-close {
-    position: absolute; top: 12px; inset-inline-end: 16px;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-    color: #fff; font-size: 1.4rem; line-height: 1;
-    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 1;
-  }
-  #fig-lightbox-close:hover { background: rgba(255,255,255,0.22); }
-  #fig-lightbox img {
-    max-width: 92vw; max-height: 92dvh;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 0 60px rgba(0,0,0,0.6);
-    /* panZoom maps screen points through this origin — keep it centred. */
-    transform-origin: center center;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
   }
 
   /* Persistent CC badge */

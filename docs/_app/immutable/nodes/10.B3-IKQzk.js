@@ -1,4 +1,4 @@
-import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/BARuSQxM.js";import{l as f}from"../chunks/BqWsTckh.js";import"../chunks/I8rQr1kY.js";var p=e(`<meta name="description" content="How Canadian law evaluates an electoral map: Charter s.3 effective representation, the Saskatchewan Reference, and Alberta's Electoral Boundaries Commission Act — and how this audit's evidence relates to those tests." class="svelte-1x9eybv"/>`),m=e(`<header class="svelte-1x9eybv"><div class="header-inner svelte-1x9eybv"><a class="back-link svelte-1x9eybv">← Back to audit</a> <div class="header-text svelte-1x9eybv"><div class="site-label svelte-1x9eybv">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1x9eybv">What the Law Asks of an Electoral Map</h1> <p class="meta svelte-1x9eybv">Plain-language companion · English only for now · Not legal advice</p></div></div></header> <main class="svelte-1x9eybv"><div class="content svelte-1x9eybv"><p class="standfirst svelte-1x9eybv">This audit measures maps. Courts judge them. The two jobs are related but not the same,
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/ClYQ6L5T.js";import{l as f}from"../chunks/Bc2ldHuF.js";import"../chunks/BMRk7WTg.js";var p=e(`<meta name="description" content="How Canadian law evaluates an electoral map: Charter s.3 effective representation, the Saskatchewan Reference, and Alberta's Electoral Boundaries Commission Act — and how this audit's evidence relates to those tests." class="svelte-1x9eybv"/>`),m=e(`<header class="svelte-1x9eybv"><div class="header-inner svelte-1x9eybv"><a class="back-link svelte-1x9eybv">← Back to audit</a> <div class="header-text svelte-1x9eybv"><div class="site-label svelte-1x9eybv">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1x9eybv">What the Law Asks of an Electoral Map</h1> <p class="meta svelte-1x9eybv">Plain-language companion · English only for now · Not legal advice</p></div></div></header> <main class="svelte-1x9eybv"><div class="content svelte-1x9eybv"><p class="standfirst svelte-1x9eybv">This audit measures maps. Courts judge them. The two jobs are related but not the same,
       and this page explains the difference: what Canadian law actually asks of an electoral
       boundary, which questions belong to a court rather than to a statistician, and where the
       audit's evidence fits. The audit itself takes no position on any legal conclusion —
@@ -22,7 +22,7 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
         to vote. In <em class="svelte-1x9eybv">Reference re Provincial Electoral Boundaries (Saskatchewan)</em>,
         [1991] 2 SCR 158 — the audit calls it the <em class="svelte-1x9eybv">Saskatchewan Reference</em> — the Supreme
         Court of Canada held that what s.3 protects in boundary-drawing is not one-person-one-vote
-        arithmetic but <strong class="svelte-1x9eybv">effective representation</strong>.</p> <p class="svelte-1x9eybv">Writing for the majority, McLachlin J. explained (at para. 33) that "relative parity of
+        arithmetic but <strong class="svelte-1x9eybv">effective representation</strong>.</p> <p class="svelte-1x9eybv">Writing for the majority, McLachlin J. explained that "relative parity of
         voting power" is the starting point. But it must be weighed against permissible
         deviations for geography, community history, community interests and minority
         representation. The Court deliberately set no bright-line tolerance. A deviation from
@@ -71,14 +71,17 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
         found the division qualifies under s.15(2) even without the extension; quoting the
         chair records what the primary source says, not what any commissioner intended.</p> <p class="svelte-1x9eybv"><strong class="svelte-1x9eybv">What a commission report is — and is not.</strong> Under the EBCA, the
         commission's report has no legal effect by itself. Boundaries change only when the
-        Legislative Assembly passes a separate Electoral Divisions Act. Most provinces make a
-        commission's map effective unless the legislature actively overrides it. Alberta's
+        Legislative Assembly passes a separate Electoral Divisions Act. Some jurisdictions make
+        a commission's map effective unless the legislature actively overrides it. Alberta's
         default is reversed — the governing party controls whether any commission map becomes
-        law. Section 12 of the Act also permits referring a commission's recommendations to a
-        legislative committee, with no statutory minimum notice or public-comment period. That
-        is the door the government used on April 16, 2026. It set both commission maps aside
-        and assigned the work to a committee whose majority comes from the governing party, due
-        to report by November 2, 2026. The audit documents that process choice as a finding
+        law. The Act's rules on hearings, deadlines and the ±25% band are addressed to the
+        commission; nothing in it governs what the Assembly does instead, and it sets no
+        minimum notice or public-comment period. Government Motion 37, passed April 21, 2026,
+        set both commission maps aside and handed the work to a committee of six MLAs, four from
+        the governing party, due to report by November 2, 2026. Alberta has done this once
+        before: in 1992 a committee of MLAs drew the map after a deadlocked commission, and in
+        1994 the Court of Appeal upheld that map while faulting the committee for being unable
+        to explain several of its boundaries. The audit documents that process choice as a finding
         about procedure — separate from, and additional to, anything the maps' geometry shows.</p> <p class="cross-ref svelte-1x9eybv">The full legal analysis — including the case-law review, the commission-deference
         literature, and the procedural comparison with other provinces — is in the academic
         monograph, §2 and §5.9, at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" class="svelte-1x9eybv">the audit repository</a>.</p></section> <section class="svelte-1x9eybv"><h2 class="svelte-1x9eybv">The audit's standing rule</h2> <p class="svelte-1x9eybv">Every version of this audit carries the same discipline: it may report what the tests

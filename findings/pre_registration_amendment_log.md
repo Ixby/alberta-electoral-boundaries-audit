@@ -585,3 +585,59 @@ canonical maps' ensemble.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-07-12
+
+### Amendment 16 — Scoring rule for test X1 (Recommendation 5) (2026-10-29)
+
+> **Status: in force.** Drafted 2026-10-29 14:32 MDT and signed 2026-10-29 15:09 MDT, before
+> the committee's map is due (November 2, 2026) and before any committee map
+> has been published.
+
+**What changes.** Test X1 ("Chair Miller's four conditions", academic report
+§5.5; `findings/checklist_baseline_scoring.md` §X1) gets a written scoring rule.
+It never had one: X1 does not appear in `preregistration/november_2026_scoring_spec.md`
+(v1.2), and its two descriptions overstate Recommendation 5.
+
+1. **Conditions (a), (b) and (c)** are scored met / not met against the majority
+   map: (a) no change to any division in Airdrie or with territory south of
+   Airdrie's southern boundary, except Drumheller-Stettler (41 majority
+   divisions); (b) no change to any Edmonton division north of the North
+   Saskatchewan River (11); (c) Edmonton divisions south of the river match the
+   commission's October 2025 interim map (10), with the stated Nisku option.
+   District sets: `viewer/static/mapdata/lunty_bounds.json`, built by
+   `analysis/scripts/build_lunty_bounds.py`.
+2. **Condition (d)** ("consider restoring" a Clearwater County and western
+   Mountain View County division with s. 15(2) status) is scored in three
+   states: **adopted** (the map contains a division mostly of those areas,
+   with s. 15(2) status or within ±25%); **considered with a stated reason**
+   (the committee or panel report names the option and gives a reason tied to
+   the Act's factors); **not shown** (silence, or boilerplate such as "all
+   recommendations were considered").
+3. **X1 is met** only if (a), (b) and (c) are met and (d) is adopted or
+   considered with a stated reason.
+4. **Reported beside it, not gating it:** the strict reading of (d) (restored
+   or not), and the "rest of the province as we propose … to the extent
+   possible" clause as a number — the share of the 27 majority divisions
+   outside (a)–(c) that come back unchanged.
+
+**Why this is not a goalpost move.** It is written before the map exists, and
+it narrows nothing the audit has scored: X1 has never been executed against any
+map. It replaces wording that misstated the source ("restore" for "consider
+restoring"; "no impact south of Airdrie", which drops Airdrie itself; "R5 binds
+the November committee", when R5 binds no one and Government Motion 37 lets the
+panel modify it) with the source's own words. The three-state rule for (d)
+follows how Canadian law tests a duty to consider — through the reasons given
+(*Baker v. Canada*, 1999, para. 75; *Canada v. Vavilov*, 2019 SCC 65, para. 128;
+both confirmed via secondary sources only) — and applies the same way whatever
+the map does.
+
+**Why leaving it unamended is not workable.** As written, X1 would either fail a
+committee that weighed the Clearwater option and declined it for stated
+reasons — scoring a recommendation the chair worded as "consider" as if it
+said "restore" — or, read loosely, pass any map whose authors say they
+considered it, which no public record could falsify.
+
+**Open dependency.** Condition (c) cannot be scored without the October 2025
+interim map, which is not in this repository.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 15:09 MDT
