@@ -38,6 +38,7 @@
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import { focusTrap } from '$lib/a11y/focusTrap';
+  import { attachPanZoom } from '$lib/panZoom';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
 
   // Cleanups for the cookieless analytics instrumentation (engaged-time + scroll
@@ -140,16 +141,11 @@
     const lb = document.getElementById('fig-lightbox') as HTMLElement;
     const lbImg = document.getElementById('fig-lightbox-img') as HTMLImageElement;
     let lbPrevFocus: Element | null = null;
-    let lbScale = 1;
-    let lbPtrs: Map<number, {x: number; y: number}> = new Map();
-    let lbPinchDist = 0;
-
-    function lbApply() {
-      lbImg.style.transform = `scale(${lbScale})`;
-    }
+    // Pinch / drag / wheel / double-tap / keyboard pan-zoom (see $lib/panZoom).
+    const lbPz = attachPanZoom(lb, lbImg);
 
     function openLb(src: string, altText = '') {
-      lbScale = 1; lbImg.style.transform = '';
+      lbPz.reset();
       lbImg.src = src;
       lbImg.alt = altText;
       lb.style.display = 'flex';
@@ -158,45 +154,19 @@
     }
     function closeLb() {
       lb.style.display = 'none';
+      lbPz.reset();
       if (lbPrevFocus instanceof HTMLElement) lbPrevFocus.focus();
       lbPrevFocus = null;
     }
 
-    lb.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      const f = (e as WheelEvent).deltaY < 0 ? 1.15 : (1 / 1.15);
-      lbScale = Math.max(0.5, Math.min(8, lbScale * f));
-      lbApply();
-    }, { passive: false });
-
-    lb.addEventListener('pointerdown', (e) => {
-      lbPtrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
-      if (lbPtrs.size === 2) {
-        const pts = Array.from(lbPtrs.values());
-        lbPinchDist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
-      }
-    });
-    lb.addEventListener('pointermove', (e) => {
-      if (!lbPtrs.has(e.pointerId)) return;
-      lbPtrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
-      if (lbPtrs.size === 2) {
-        const pts = Array.from(lbPtrs.values());
-        const d = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
-        if (lbPinchDist > 0) {
-          lbScale = Math.max(0.5, Math.min(8, lbScale * d / lbPinchDist));
-          lbApply();
-        }
-        lbPinchDist = d;
-      }
-    });
-    lb.addEventListener('pointerup', (e) => { lbPtrs.delete(e.pointerId); lbPinchDist = 0; });
-    lb.addEventListener('pointercancel', (e) => { lbPtrs.delete(e.pointerId); lbPinchDist = 0; });
-    lb.addEventListener('dblclick', () => { lbScale = 1; lbApply(); });
-
     document.querySelectorAll('figure img').forEach(img => {
       (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLElement).dataset.full ?? (img as HTMLImageElement).currentSrc ?? (img as HTMLImageElement).src, (img as HTMLImageElement).alt));
     });
-    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    // A tap on the dark backdrop closes. A tap on the image does not (it may be
+    // the first half of a double-tap zoom), and neither does the end of a drag.
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb && !lbPz.wasDrag() && !lbPz.onTarget(e.clientX, e.clientY)) closeLb();
+    });
     (document.getElementById('fig-lightbox-close') as HTMLElement)?.addEventListener('click', closeLb);
     lb.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLb();
@@ -2358,9 +2328,11 @@
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 0 60px rgba(0,0,0,0.6);
+    /* panZoom maps screen points through this origin — keep it centred. */
     transform-origin: center center;
-    cursor: default;
     pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   /* Persistent CC badge */
