@@ -22,14 +22,25 @@ SECTIONS = {  # ### heading -> (key prefix, element id)
     "What happened": ("happened", "what-happened"),
     "What the minority map does": ("does", "what-the-map-does"),
     "What the law requires, and what it doesn't": ("law", "what-the-law-requires"),
-    "How it got here: the pen moved": ("system", "how-it-got-here"),
+    "How the committee got the job": ("system", "how-it-got-here"),
     "How we know": ("know", "how-we-know"),
     "The November test": ("test", "november-test"),
-    "What would change our mind": ("mind", "change-our-mind"),
+    "What would change my mind": ("mind", "change-our-mind"),
     "The author's view": ("authors", "authors-view"),
     "Fixes for next time": ("fixes", "fixes-teaser"),
 }
-SUB_IDS = {"Recommendation 5: the yardstick the government chose": "recommendation-5"}
+# Headings renamed in the 2026-10-29 voice pass keep their original anchor ids,
+# so links shared before the rename still land.
+SUB_IDS = {
+    "Recommendation 5: what the government cited": "recommendation-5",
+    "What I can say, and what I can't": "what-we-can-say-and-what-we-can-t",
+    "Unequal district sizes": "the-cost-equal-votes",
+    "The seat advantage": "what-it-buys",
+    "How the neutral maps were drawn": "the-what-if-machine",
+    "Checking with a second method": "did-the-result-survive-attack",
+    "Limits of the simulation": "what-the-machine-can-t-see",
+    "What didn't hold up": "where-the-audit-lost",
+}
 
 
 def inline(s):
@@ -138,8 +149,8 @@ while n < len(rest):
             n += 1
             continue
         hid = SUB_IDS.get(b[2], slug(b[2]))
-        if b[2] == "What we can say, and what we can't":
-            # p "We can say:" + ul, p "We can't say:" + ul -> the existing ✓/✗ box
+        if b[2] == "What I can say, and what I can't":
+            # p "I can say:" + ul, p "I can't say:" + ul -> the existing ✓/✗ box
             (_, can_lbl), (_, can), (_, cant_lbl), (_, cant) = rest[n + 1:n + 5]
             hk = put(f"{prefix}.box_h", b[2])
             rows = []
