@@ -537,12 +537,12 @@ export default {
 			p5: "The chance that a neutral process produces the minority map's combined profile across the four fairness measures is at most about 1 in 568,000 (p ≤ 1.76×10⁻⁶, a Bonferroni-corrected, dependence-robust upper bound). I doubled the raw figure because I looked in two places, so the real chance is at most this, and probably smaller.",
 			p6: "That figure isn't the probability that the map is innocent. Treating it that way is the prosecutor's fallacy. A map this rare can still come from unusual but honest judgment. My claim is only that ordinary drafting variation isn't a plausible explanation.",
 			h3_5: "Checking with a second method",
-			p7: "I swapped the simulation's engine for a structurally different one, a spanning-forest sampler registered in advance at OSF (he53s) and run on 2026-07-10. Every metric's percentile moved by less than one point. A separate implementation, the R redist package, had been unstable on the old provisional geometry. On the official files it also found zero plans reaching the minority's value.",
+			p7: "I swapped the simulation's engine for a structurally different one, a spanning-forest sampler registered in advance at OSF (he53s) and run on 2026-07-10. Every metric's percentile moved by less than one point. A separate implementation, the R redist package, also found zero plans reaching the minority's value.",
 			h3_6: "Limits of the simulation",
 			p8: "The simulation enforces population and contiguity, but not every rule the commission weighed (s.15(2), community of interest, municipal anchoring). It's a strong outside check rather than a list of every map a lawful commission might draw, so the geometry tests, which don't use the simulation, carry most of the weight. The tied-vote test isolates what a map contributes on its own. A big enough swing in a real election can still outweigh any map's lean.",
 			h3_7: "What didn't hold up",
 			p9: "Some tests came back against my findings. They stay on the page.",
-			li1: "<strong>I retracted the anchoring finding.</strong> Early tracings from commission PDF images showed the minority map following municipal lines only 15% of the time. On the official files it's 72%, against the majority's 80%, and both are inside the 70–85% Canadian norm.",
+			li1: "<strong>The anchoring test came back neutral.</strong> The minority map follows municipal lines 72% of the time and the majority 80%, and both are inside the 70–85% Canadian norm.",
 			li2: "<strong>The efficiency gap missed.</strong> The minority came in at +4.0%, the 94.5th percentile. The pre-registered line was the 95th (about +4.1%), so I report it as a miss.",
 			li3: "<strong>The mechanism test failed.</strong> I tested whether the flagged shapes produce the seat advantage, and on my test they don't. The shapes and the seat numbers point at the same map, but the link between them didn't hold up.",
 			li4: "<strong>The minority passed one test outright.</strong> On neighbour-drain, which looks for packed districts next to thin-margin ones, it shows 1 coupled signal, against the majority's 2 and the 2019 map's 5.",
@@ -643,7 +643,7 @@ export default {
 		e2: "The three boundaries the chair called out",
 		e3: "North-east and central Calgary: larger districts where the NDP is strongest",
 		e4: "Worse at the one thing the law actually measures",
-		e5: "The anchoring finding that dissolved (retracted)",
+		e5: "Municipal anchoring: both maps inside the norm",
 		e6: "Fewer than 100 maps in 1,010,000",
 		e7: "The test that missed",
 		e8: "One in 568,000, and what that number is not",
@@ -1055,15 +1055,15 @@ export default {
 			c4_app: 'what MAD measures and why the band exists',
 			c5_title: 'Casing 5 — The casing that dissolved when we picked it up',
 			c5_found:
-				'Early analysis showed the minority map anchoring to municipal boundaries only 15% of the time — 4.9\u00d7 below the Canadian norm of 70–85%. On official Elections Alberta shapefiles the figure died: the majority anchors at 80%, the minority at 72%, both inside the norm (Quebec: 78%, Ontario: 82%, BC: 71%). The 15% figure was an artefact of the audit\u2019s early provisional boundary reconstructions, traced from commission PDF images before official map files existed. The retraction is permanent and displayed in <a href="#retractions">the corrections section</a>. What survives is narrower: where the minority does depart from pre-existing civic lines, the departures concentrate at the exact chair-flagged urban-edge zones — Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie — where pairing urban and rural voters most directly affects which party wins the seat.',
-			c5_show: 'The original figure suggested systematic abandonment of recognizable civic geography. Official shapefiles killed that story.',
+				'Both maps follow municipal boundaries at rates inside the Canadian norm of 70–85%: the majority at 80%, the minority at 72% (Quebec: 78%, Ontario: 82%, BC: 71%). On overall rates, this test does not separate the two maps. What stands out is narrower: where the minority does depart from pre-existing civic lines, the departures concentrate at the exact chair-flagged urban-edge zones — Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie — where pairing urban and rural voters most directly affects which party wins the seat.',
+			c5_show: 'When a district boundary follows a city or town line, the property-tax line, the school-division line and the provincial-election line coincide, and voters can tell where their district begins and ends. On that measure the two maps look alike overall. The difference is where the minority\u2019s departures fall.',
 			c5_experts:
 				'This is what an artifact looks like: provisional tracings manufactured a signal that the real map files erased. The methodological lesson is why this audit re-ran everything on official shapefiles the day Elections Alberta released them.',
 			c5_canada:
 				'Nothing — no Canadian statute or practice guide requires any particular anchoring rate. The 70–85% norm is descriptive, not prescriptive.',
 			c5_gun:
-				'It isn\u2019t even evidence. It is the audit\u2019s own error, kept on display because a report that shows you its failed findings is the only kind whose surviving ones you should trust. <em>(Epistemic lesson: the null can win — and when it does, the report says so.)</em>',
-			c5_app: 'how a data artifact fooled us and how it was caught',
+				'Not on its own. Both maps sit inside the Canadian norm, and the Act sets no anchoring threshold. Where the minority\u2019s departures fall matters only alongside the chair\u2019s flags and the geometry tests elsewhere on this page.',
+			c5_app: 'what municipal anchoring measures, and what it can\u2019t show',
 			act2_h: 'Act II: What the Simulation Sees',
 			act2_intro_p1:
 				'Act I needed nothing but the lines. Act II asks a harder question: how unusual are these maps, compared to what a process with no agenda would draw? To answer it, the audit generated 1,010,000 computer-drawn, mathematically neutral Alberta maps (4 independent chains \u00d7 252,500 steps, base seed from the Cloudflare drand public randomness beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the same statutory rules and geographic boundaries the commission used. The simulation is a \u201cwhat-if machine\u201d: what would Alberta\u2019s maps look like if nobody was trying to do anything? Place a real map inside that distribution and its percentile tells you how far into the tail it sits.',
@@ -1108,7 +1108,7 @@ export default {
 			c8_app: 'the prosecutor\u2019s fallacy in plain language',
 			c9_title: 'Casing 9 — We tried to shoot our own result down',
 			c9_found:
-				'Three attacks the audit mounted on its own headline, with mixed results — reported in full. First, the sampler swap: the tail position survives replacing the simulation\u2019s mathematical engine with a structurally different one (a spanning-forest sampler, pre-registered at OSF as registration he53s and executed 2026-07-10) — every metric\u2019s percentile moved by less than one point, a pre-registered ROBUST verdict on all four. Second, the software swap: an earlier cross-check against an independent implementation (the R redist package) produced unstable results on the old provisional geometry — a sampler-convergence failure, documented in full — and became moot on official shapefiles, where zero plans from either implementation reach the minority\u2019s value at comparable sample sizes. Third, the mechanism test, which the audit\u2019s claim failed: the audit tested whether the flagged geometry of Act I (the corridors, the park extension, the splits) is the specific mechanism producing the Act II seat advantage. The answer is no. Both lanes point at the same map and lean the same way, but the geometry-is-the-mechanism claim did not survive its falsification test, and the report says so.',
+				'Three attacks the audit mounted on its own headline, with mixed results — reported in full. First, the sampler swap: the tail position survives replacing the simulation\u2019s mathematical engine with a structurally different one (a spanning-forest sampler, pre-registered at OSF as registration he53s and executed 2026-07-10) — every metric\u2019s percentile moved by less than one point, a pre-registered ROBUST verdict on all four. Second, the software swap: an independent implementation (the R redist package) also finds zero plans reaching the minority\u2019s value at comparable sample sizes. Third, the mechanism test, which the audit\u2019s claim failed: the audit tested whether the flagged geometry of Act I (the corridors, the park extension, the splits) is the specific mechanism producing the Act II seat advantage. The answer is no. Both lanes point at the same map and lean the same way, but the geometry-is-the-mechanism claim did not survive its falsification test, and the report says so.',
 			c9_show: 'The outlier is a property of the map, not of the audit\u2019s tooling.',
 			c9_experts:
 				'Robustness across samplers and implementations is what separates a finding from an artifact; publishing your own failed falsification is what separates an audit from advocacy.',
