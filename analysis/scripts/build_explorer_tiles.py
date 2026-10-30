@@ -24,7 +24,6 @@ import pandas as pd
 import shapely
 from shapely.geometry import box
 from shapely.ops import unary_union
-import topojson as tp
 
 MINZ, MAXZ = 0, 10           # z10 tol ~4.8m = source floor (25% of VA segs <5m); past z10 lines/VAs drift
 TILE_PX = 256
@@ -318,6 +317,7 @@ def build_selection_outlines():
 
 
 def main():
+    import topojson as tp  # only the full tile build needs it
     t0 = time.time()
     shutil.rmtree(OUT / "va", ignore_errors=True)   # drop old loose tiles
     OUT.mkdir(parents=True, exist_ok=True)
