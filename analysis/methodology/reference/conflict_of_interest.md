@@ -22,9 +22,13 @@ Democratic Party of Alberta (Alberta NDP). The author has also donated to the
 Progressive Conservative Association of Alberta (a predecessor party of the
 UCP) in past election cycles.
 
-**Relationships.** The author has no employment, contractual, or advisory
-relationship with Elections Alberta, the Electoral Boundaries Commission, or
-any provincial political party. Neither the NDP nor the UCP has been contacted
+**Relationships.** The author has worked as a contract election officer for
+Elections Alberta for about 27 years, administering the vote on election day.
+The author has had no other employment with Elections Alberta, has no
+knowledge of its work beyond those tasks, and drew nothing in this audit from
+that work; every input is public. The author has no employment, contractual,
+or advisory relationship with the Electoral Boundaries Commission or any
+provincial political party. Neither the NDP nor the UCP has been contacted
 about this research at any stage, and neither party has had any involvement in
 or advance knowledge of it. No compensation was received from any party.
 

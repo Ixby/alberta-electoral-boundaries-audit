@@ -992,7 +992,7 @@ export default {
 			frame_p5:
 				'Two casings in the log point the wrong way for the audit\u2019s own story, and both are reported in full — one test the audit had to retract when better data arrived, and one lane where the minority map outperformed the majority. A report that never loses an argument with itself isn\u2019t checking. Failed and null tests are part of the record.',
 			frame_coi:
-				"One more thing belongs in the log before the first casing: the author's own prior. He has voted for and donated to both conservative and progressive provincial parties in Alberta. Three findings that ran against his expectation are kept in this log anyway, and every number reproduces from public code, public data, and random seeds committed in public before the analysis ran.",
+				"One more thing belongs in the log before the first casing: the author's own prior. He has voted for and donated to both conservative and progressive provincial parties in Alberta. For about 27 years he has also worked as a contract election officer for Elections Alberta, administering the vote on election day; nothing in this audit comes from that work. Three findings that ran against his expectation are kept in this log anyway, and every number reproduces from public code, public data, and random seeds committed in public before the analysis ran.",
 			frame_lenses:
 				'This episode has three lenses, and each has its own companion page: <a href="__BASE__/law">what the law asks</a>, <a href="__BASE__/norms">what the norms ask</a>, and <a href="__BASE__/methods">how the maps were tested</a>. The log below draws on all three.',
 			frame_p1b:

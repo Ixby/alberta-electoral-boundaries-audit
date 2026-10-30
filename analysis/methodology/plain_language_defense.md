@@ -146,6 +146,12 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
+**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, administering the vote on election day. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. Every input is public.
+**Why?** Doesn't working for Elections Alberta create a conflict?
+**Answer:** The audit tests maps drawn by the Electoral Boundaries Commission and the MLA committee. Elections Alberta runs elections; its Chief Electoral Officer advises and assists the commission, but does not draw the boundaries. The author's work was running polls on election day, not boundary or policy work, and none of the audit's data or reasoning comes from it. It is disclosed so readers can weigh it for themselves.
+
+---
+
 **Assertion:** Going into this project the author held the prior that the UCP government's handling of boundary redistribution warranted scrutiny.
 **Why?** Why admit a bias up front — doesn't that undermine the research?
 **Answer:** Every researcher comes to a project with existing beliefs. Admitting those beliefs openly is more credible than pretending to have none, because it lets readers assess whether the methodology was designed to confirm the prior or to test it fairly. The disclosure also sets up the three cases where findings ran against the researcher's prior expectations — showing the method produced results the researcher did not expect or want.
