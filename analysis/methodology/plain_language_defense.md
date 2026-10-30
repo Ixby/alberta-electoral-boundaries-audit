@@ -34,7 +34,9 @@ The threshold — 4.10% efficiency gap — was not chosen by the researcher. It 
 
 ### 5. "You used AI tools — the analysis isn't reliable."
 
-AI tools were used the way a researcher might use a spell-checker or a search engine — to help draft text, catch inconsistencies, and suggest approaches. No AI tool ran any analysis, accessed any data file, or produced any number that appears in the report. Every number was verified by the researcher against the original source files and script outputs. All code is publicly available Python; all input data comes from Elections Alberta and Statistics Canada. Anyone with a standard computer can re-run every script against the same publicly available data and reproduce every number independently.
+AI tools helped draft and check the text, review code, write scripts and suggest approaches. Most numbers in the report come from Python or R scripts run by the researcher on public data, and the researcher checked them against the script outputs. One group of numbers is different. In the public-input analysis (report §5.9.4.6 and §5.9.4.7), Claude models read each written submission and each relevant hearing comment, and labelled it as opposing, supporting or neutral on each of seven contested boundary choices. Every count of opposing and supporting comments in those two sections comes from those labels. A second Claude pass scored how strongly each comment was worded, and the intensity totals come from that pass. A Claude vision model was also used to inspect the commission's published map images (report §5.8.1).
+
+The labels have been checked in two ways. Their row counts were reconciled against the pipelines' output files, and the results were compared with a separate keyword search of the same submissions, which they agree with. No person has checked the labels themselves yet. A sample of 60 labelled items has been drawn for a human agreement check, but none of it has been scored, so the labels' accuracy has not been measured. Until it is, read those counts as machine labels. All code and all labels are public, and anyone can re-run every script against the same public data from Elections Alberta and Statistics Canada.
 
 ### 6. "You hid a finding that didn't work out."
 
@@ -68,9 +70,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every partisan-fairness metric. The minority map is not.
+**Assertion:** The majority map is within the neutral null on three of four partisan-fairness metrics and jointly (Mahalanobis p = 0.102). Its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP. The minority map is not within the null.
 **Why?** What is a "neutral statistical band" and how do you know the majority map is inside it while the minority is outside?
-**Answer:** To judge whether a map is unusual, the audit ran a computer simulation that randomly drew over one million legal Alberta maps — maps that follow all the same rules the commission was required to follow (equal population, connected districts, and so on). Those million random maps form a reference band: the range of outcomes you would expect from an unbiased process. The majority map's scores on every fairness measure fall comfortably inside that range. The minority map's scores on several measures fall outside it — meaning they are more extreme than all but a tiny fraction of the randomly drawn neutral maps.
+**Answer:** To judge whether a map is unusual, the audit ran a computer simulation that randomly drew over one million legal Alberta maps — maps that follow all the same rules the commission was required to follow (equal population, connected districts, and so on). Those million random maps form a reference band: the range of outcomes you would expect from an unbiased process. The majority map's scores fall inside that range on three of the four fairness measures, and on the combined test. On the fourth, mean-median, it leans further toward the NDP than about 99% of the random maps, which does not help the UCP. The minority map's scores on several measures fall outside it — meaning they are more extreme than all but a tiny fraction of the randomly drawn neutral maps.
 
 ---
 
@@ -138,7 +140,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The November 2026 committee-map trigger remains pending.
 **Why?** What is a "committee-map trigger"?
-**Answer:** After the commission's reports were set aside, the Alberta legislature created a Special Select Committee to draw a new 91-seat map by November 2026. The audit pre-registered a commitment to evaluate that map using the same methodology as soon as it is published. The "trigger" is simply that planned rerun, which cannot happen until the committee releases its map.
+**Answer:** After the commission's reports were set aside, the Alberta legislature created a Select Special Committee to draw a new 91-seat map by November 2026. The audit pre-registered a commitment to evaluate that map using the same methodology as soon as it is published. The "trigger" is simply that planned rerun, which cannot happen until the committee releases its map.
 
 ---
 
@@ -166,7 +168,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Three large language models were used as analytical and writing assistants (Claude Pro Max, Gemini Pro, Codex). All substantive claims were verified against primary sources by the author.
 **Why?** Does using AI tools make the analysis less reliable?
-**Answer:** AI tools were used the way a researcher might use a calculator or a grammar checker — to help draft text, identify inconsistencies, and suggest analytical approaches. The audit explicitly states that no AI tool executed code or independently accessed data. Every number was verified by the researcher against the original data files and script outputs. The AI's role was assistance, not decision-making.
+**Answer:** AI tools helped draft text, find inconsistencies, review code, write scripts and suggest analytical approaches. The report states that no AI tool ran code or reached data on its own; the researcher ran every script. One part of the analysis does rest on AI output. The public-input scripts (report §5.9.4.6) send each submission and hearing comment to a Claude model, which labels it, and the counts of opposing and supporting comments in §5.9.4.6 and §5.9.4.7 come from those labels. A Claude vision model was also used to inspect the commission's map images (§5.8.1). The label counts were reconciled against the output files and compared with a keyword search of the same submissions. No person has yet scored the 60-item check sample, so the labels' accuracy has not been measured. Every other number was checked by the researcher against the original data files and script outputs.
 
 ---
 
@@ -895,9 +897,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every partisan-fairness metric.
+**Assertion:** The majority map is within the neutral null on three of four partisan-fairness metrics and jointly (Mahalanobis p = 0.102). Its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP.
 **Why?** Does "within the neutral band" mean the majority map is perfectly neutral?
-**Answer:** Being within the neutral band means the majority map's scores fall in the range you would expect from the million randomly drawn neutral maps — its values are not unusually extreme. It does not mean the majority map is perfectly equal or that every boundary choice is beyond criticism. It means that when measured against the realistic distribution of what neutral independent map-drawing produces, the majority map's scores are unremarkable. The minority map's scores, by contrast, are in the extreme tail of that distribution.
+**Answer:** Being within the neutral band means the majority map's scores fall in the range you would expect from the million randomly drawn neutral maps on efficiency gap, declination and seats at 50/50, and on the combined test. Its mean-median is the exception, and it leans toward the NDP, not the UCP. It does not mean the majority map is perfectly equal or that every boundary choice is beyond criticism. It means that when measured against the realistic distribution of what neutral independent map-drawing produces, the majority map's scores are unremarkable. The minority map's scores, by contrast, are in the extreme tail of that distribution.
 
 ---
 
@@ -1003,14 +1005,14 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** On April 16, 2026, the Alberta Legislative Assembly passed Motion 19 setting aside both reports and establishing a Special Select Committee of five MLAs to draft a 91-seat map by November 2, 2026.
+**Assertion:** Government Motion 37 (introduced April 16, passed April 21, 2026) set both reports aside and created the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, with a 91-seat map due November 2, 2026.
 **Why?** Why is a legislature setting aside a commission's report unusual?
 **Answer:** The purpose of an independent boundary commission is to insulate the redistricting process from direct political control. Elected representatives are expected to have an interest in how boundaries are drawn because those boundaries determine whether they win or lose future elections. When a legislature sets aside an independent commission's work and replaces the drafting process with a committee of elected members, that transfers control of boundary-drawing directly to politicians. Whether this is legally permissible is a statutory question; whether it is consistent with the norms of independent redistricting is addressed in §5.9.
 
 ---
 
 **Assertion:** The procedural pivot replaces an independent commission's drafting process with a government-chaired committee mid-cycle.
-**Why?** Who chairs the Special Select Committee and why does that matter?
+**Why?** Who chairs the Select Special Committee and why does that matter?
 **Answer:** A government-chaired committee is chaired by a member of the governing party — in this case, the UCP. In the Canadian tradition of electoral boundary reform, independent commissions are chaired by judges or academics specifically to avoid this kind of partisan involvement. A committee that reports to the legislature, with a governing-party chair, faces structural incentives that a fully independent commission does not.
 
 ---
@@ -1375,7 +1377,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Substituting a UCP-MLA-chaired committee for the independent commission's drafting process is the most government-controlled response among the three most commonly cited Canadian comparator cases.
 **Why?** What are the comparator cases and why does this comparison matter?
-**Answer:** The three Canadian cases used as comparators are the federal 2012 redistribution challenge, Saskatchewan's 1989 court referral, and Alberta's current 2026 situation. In the federal 2012 case, Parliament challenged but did not replace the commission's recommendations. In the Saskatchewan 1989 case, the government sought court guidance before the commission finished its work. In Alberta 2026, the legislature set aside a completed commission report and transferred drawing authority to a committee of elected members from the governing party. Placing this action within the comparator range establishes that it represents a larger departure from independent-commission norms than the other cases cited.
+**Answer:** The three Canadian cases used as comparators are the federal 2012 redistribution challenge, Saskatchewan's 1989 court referral, and Alberta's current 2026 situation. In the federal 2012 case, Parliament challenged but did not replace the commission's recommendations. In the Saskatchewan 1989 case, the government sought court guidance before the commission finished its work. In Alberta 2026, the legislature set aside a completed commission report and transferred drawing authority to a government-majority committee of MLAs (four UCP, two NDP). Placing this action within the comparator range establishes that it represents a larger departure from independent-commission norms than the other cases cited.
 
 ---
 
@@ -1531,7 +1533,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every metric; the minority is not. This is the headline.
+**Assertion:** The majority map is within the neutral null on three of four metrics and jointly (Mahalanobis p = 0.102); its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP. The minority is not within the null. This is the headline.
 **Why?** What should a reader conclude from this if they are a policymaker, a court, or a journalist?
 **Answer:** A policymaker reviewing two competing redistricting proposals should understand that these are not equivalent options: one falls within the range that neutral independent processes produce, and one does not. A court evaluating a Charter challenge to the redistricting process would have access to quantified outlier statistics and pre-registered methodology to assess. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals — with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do; it provides the measurement.
 
