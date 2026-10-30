@@ -42,6 +42,7 @@ type: project
 | 2026-10-29 | Amendment 17 | November scoring | Size-matched neutral maps; X1 (a)/(b) rule; three added tests |
 | 2026-10-29 | Amendment 18 | Errata | Citations, labels and stale status lines in registered documents |
 | 2026-10-29 | Amendment 19 | Errata | A withdrawn timing claim in thresholds.md |
+| 2026-10-29 | Amendment 20 | Neutral-map sets | Statute-band, municipality-aware and s.15(2) sets; harness fixes; town-split framing |
 
 ---
 
@@ -781,3 +782,72 @@ says so. Found by the third check of the swarm audit's fixes.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 18:55 MDT
+
+---
+
+### Amendment 20 — Three further neutral-map sets, harness fixes, and the town-split framing (2026-10-29)
+
+> **Status: in force.** Signed 2026-10-29 20:14 MDT, before the committee's map is
+> due (November 2, 2026) and before any committee map has been published. The
+> author's ruling: the neutral maps should be "as strict as the statute, no more,
+> no less". The author confirmed in this session that the registered comparison
+> stays the headline and that all three sets below are registered.
+
+**Headline unchanged.** The scoring spec's 87-district canonical comparison stays
+the headline, and Amendment 17's size-matched half-band comparison is reported
+beside it as before. The three sets below are reported beside those, each
+labelled, and none replaces a registered comparison.
+
+**1. Statute-band set.** Same harness as Amendment 17's size-matched chains, but
+with the ReCom proposal balance set to the statute's band: epsilon =
+pop_deviation = 0.25 (EBCA s.15(1), ±25%). Chain indices 230–239 (91 districts)
+and 130–139 (89 districts). The June full-band run (`findings/eps_full_robustness.md`)
+moved partisan percentiles by under 0.05 pp but roughly doubled neutral
+population spread; population-based measures (MAD, the city-versus-rest gap,
+towns split) are therefore read against a wider neutral baseline in this set,
+and are labelled so.
+
+**2. Municipality-aware set ("a commission weighing s.14(b)").** Statute band, plus
+gerrychain 0.3.2's region-aware ReCom with a soft `region_surcharge` of 1.0 on
+the 2021 census subdivision (CSDUID). The weight is fixed here and will not be
+tuned after results are seen. No hard rule. Chain indices 240–249 and 140–149.
+A sensitivity reading, not a test.
+
+**3. s.15(2) set.** Statute band, plus the s.15(2) exception: up to four divisions
+may be as much as 50% below the average where at least three of the five
+criteria exist. The Commission's "opinion" is modelled as "the criteria are
+met". Criteria: (a) area over 20,000 km² (from VA areas; the surveyed-area limb
+is not available); (b) more than 150 km from the Legislature Building to the
+nearest boundary by the most direct highway route (approximated from
+`data/osm/alberta_osm_highways.gpkg`); (c) no town over 8,000 people (2021 CSD
+population); (d) an Indian reserve (CSD types IRI, S-É) or a Metis settlement:
+reserves only until the author approves a Metis settlement source, which makes
+(d) stricter than the statute; (e) part of the boundary coterminous with the
+provincial boundary. Chain indices 250–259 and 150–159. A specification fixing
+the split rule and each criterion's computation will be committed before the
+committee's map is published; if the set runs after the map, its results remain
+pre-registered.
+
+**4. Harness fixes (distribution-preserving).** In `close_seats_ensemble.py` (mode
+`nk` only): ReCom pairs whose merged population lies outside 2 × ideal × (1 ±
+epsilon) are rejected at once instead of after 100,000 failed spanning-tree
+attempts (such pairs have no balanced cut, so the transition distribution is
+unchanged; the sample path is not); each chunk is checkpointed (assignment and
+both RNG states) and resumes byte-identically; each chunk starts from a
+Partition rebuilt from the assignment. In `mcmc_ensemble.py`, the unreachable
+s.15(2) branch of the population constraint now matches the statute (below the
+average only, at most 50%, area over 20,000 km², at most four districts); output
+is unchanged. Chains 201 (91 districts) and 100 (89 districts) ran before these
+fixes; chains 220–225 and 120–121 and later run with them. Both sets are valid
+draws from the same distribution under different code versions, and are
+reported as such. The exact code lands in git before scoring, with its commit
+recorded in this log.
+
+**5. Town-split framing.** Amendment 17's town-split test compares a map with
+neutral maps that do not try to keep municipalities whole. A flag means "splits
+more towns than a population-only neutral map", not "more than the law asks of
+a commission". Set 2 gives the comparison against maps that do weigh
+municipalities.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 20:14 MDT
