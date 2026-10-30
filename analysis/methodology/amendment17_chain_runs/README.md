@@ -380,3 +380,10 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   registered table but not the cross-check. None of the flips is a real-map s.15(2) division (all have
   ≥ −25% deviation except majority Calgary-North East −39.7% and Calgary-South East −25.5%, which fail
   under both tables: 1 vs 2 criteria).
+- ~04:20 **HOLD on set D outcome statistics** (Audit, pending the owner): Audit found the registered (b) rule
+  (highway nodes within 1 km of the division) understates the statutory distance — exact crossing-point
+  distance minus registered: +1.1 km median, +3.2 km p90, +62 km max; 236 VAs cross 150 km upward, 1 down;
+  real-map flips only in 2019 (Bonnyville-Cold Lake-St. Paul 148.0→153.1, Fort McMurray-Lac La Biche
+  151.9→149.4). Owner to choose: Amendment 23 erratum + rerun set D on the exact rule, or keep set D as
+  registered and disclose. Until then no set D outcome statistics are examined or reported; validation only.
+  If rerun: idx 250 is retired (seed failure) — use 251–254 plus a fresh spare, and 150–151.
