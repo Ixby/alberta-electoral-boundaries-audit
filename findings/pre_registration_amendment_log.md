@@ -45,6 +45,7 @@ type: project
 | 2026-10-29 | Amendment 20 | Neutral-map sets | Statute-band, municipality-aware and s.15(2) sets; harness fixes; town-split framing |
 | 2026-10-29 | Amendment 21 | s.15(2) spec; Amendment 17 corrections | s.15(2) criteria fixed and checked against the commissions; effective-sample rule; labels; municipality weight W = 0.5 anchored to the 2019 map |
 | 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
+| 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
 
 ---
 
@@ -1095,3 +1096,52 @@ the district count.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-30 03:23 MDT
+
+---
+
+### Amendment 23 — Erratum: s.15(2)(b) measured to the boundary itself (2026-10-30)
+
+> **Status: in force.** Signed 2026-10-30 04:25 MDT, before the committee's map is
+> due (November 2, 2026), before any committee map has been published, and before
+> any outcome of the s.15(2) set has been examined. The author chose this fix in
+> session ("Erratum + rerun").
+
+**What was wrong.** Amendment 21, item 1(b), measured the highway distance from
+the Legislature Building to "the nearest node within 1 km of the district". A
+highway node within 1 km can sit on a road that runs beside the district without
+entering it, so the route could stop short of the boundary. Amendment 21 said
+(b) errs lenient; on this point it erred strict. The independent cross-check on
+the author's machine found it, in a diff of the two criteria tables (2019
+Bonnyville-Cold Lake-St. Paul).
+
+**The rule now.** The shortest route on the same OSM highway layer, from the node
+nearest the Legislature Building to the nearest point where a highway reaches
+the district's boundary, or to a highway node inside the district; met above
+150 km. Each VA records its nearest highway crossing or inside node, and a
+district takes the minimum over its VAs, which is the first point a shortest
+route reaches inside the district. A district no highway reaches meets (b), as
+before. Leaving out local roads still errs lenient.
+
+**Effect.** Per VA, the new distance is longer than the old by 1.1 km at the
+median and 3.2 km at the 90th percentile, and up to 62 km. In a few VAs it is
+shorter, by up to 3.3 km. 236 VAs move from 150 km or less to over 150 km, and
+one moves the other way. On the real maps, no 2026 district and no district a
+commission placed under s.15(2) changes; the Amendment 21 check stands,
+including Lesser Slave Lake at 134.0 km. Two 2019 districts change on (b):
+Bonnyville-Cold Lake-St. Paul goes from 148.0 to 153.1 km (now met), and Fort
+McMurray-Lac La Biche from 151.9 to 149.4 km (now not met). Neither was
+designated, and each still meets three criteria. Criteria (a), (c), (d) and (e)
+are unchanged.
+
+**The s.15(2) set.** The chains already run on the Amendment 21 table are
+superseded. Their output stays on file, labelled superseded. Only validation
+counts were taken from them (special districts per plan and constraint checks),
+and no outcome statistic from them will be reported. The set is rerun on the
+corrected table, with the same chain indices and seeds: 251–254 (91 districts)
+and 150–151 (89), seeded as in Amendment 17. Index 250 is retired because it
+does not seed. Table: `data/outputs/s15_2_va_criteria.csv`, SHA-256
+`48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc`, built by
+`analysis/scripts/s15_2_criteria.py` at this amendment's commit.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-30 04:25 MDT

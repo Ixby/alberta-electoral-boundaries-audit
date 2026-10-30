@@ -9,7 +9,7 @@
    "n": 1,
    "pop": 63575.89830025846,
    "area_km2": 755,
-   "road_km": 269.4,
+   "road_km": 270.4,
    "towns_over_8000": [
     "Airdrie",
     "Cochrane"
@@ -26,7 +26,7 @@
    "n": 1,
    "pop": 57068.38963249436,
    "area_km2": 715,
-   "road_km": 253.2,
+   "road_km": 254.0,
    "towns_over_8000": [
     "Airdrie"
    ],
@@ -42,7 +42,7 @@
    "n": 3,
    "pop": 45103.87027107291,
    "area_km2": 23730,
-   "road_km": 57.3,
+   "road_km": 57.6,
    "towns_over_8000": [],
    "reserves_held": [
     "ALEXANDER 134B"
@@ -58,7 +58,7 @@
    "n": 3,
    "pop": 44967.2323893021,
    "area_km2": 15963,
-   "road_km": 312.0,
+   "road_km": 312.8,
    "towns_over_8000": [
     "Banff",
     "Canmore"
@@ -72,14 +72,14 @@
   },
   "Bonnyville-Cold Lake-St. Paul": {
    "a": false,
-   "b": false,
+   "b": true,
    "c": false,
    "d": true,
    "e": true,
-   "n": 2,
+   "n": 3,
    "pop": 50108.54434291579,
    "area_km2": 15866,
-   "road_km": 148.0,
+   "road_km": 153.1,
    "towns_over_8000": [
     "Cold Lake"
    ],
@@ -107,7 +107,7 @@
    "n": 2,
    "pop": 51556.5374276933,
    "area_km2": 13739,
-   "road_km": 338.2,
+   "road_km": 339.2,
    "towns_over_8000": [
     "Brooks",
     "Medicine Hat"
@@ -124,7 +124,7 @@
    "n": 1,
    "pop": 50148.136405360194,
    "area_km2": 40,
-   "road_km": 296.2,
+   "road_km": 298.9,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -140,7 +140,7 @@
    "n": 1,
    "pop": 47107.9520433201,
    "area_km2": 28,
-   "road_km": 283.2,
+   "road_km": 284.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -156,7 +156,7 @@
    "n": 1,
    "pop": 54505.01966036205,
    "area_km2": 43,
-   "road_km": 279.0,
+   "road_km": 280.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -172,7 +172,7 @@
    "n": 1,
    "pop": 52549.4107631813,
    "area_km2": 35,
-   "road_km": 331.1,
+   "road_km": 332.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -188,7 +188,7 @@
    "n": 1,
    "pop": 55781.39308250054,
    "area_km2": 11,
-   "road_km": 292.7,
+   "road_km": 325.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -204,7 +204,7 @@
    "n": 1,
    "pop": 48397.11955372665,
    "area_km2": 16,
-   "road_km": 328.2,
+   "road_km": 329.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -220,7 +220,7 @@
    "n": 1,
    "pop": 50170.67227406994,
    "area_km2": 16,
-   "road_km": 327.2,
+   "road_km": 328.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -236,7 +236,7 @@
    "n": 1,
    "pop": 47053.89525470434,
    "area_km2": 25,
-   "road_km": 293.5,
+   "road_km": 294.8,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -252,7 +252,7 @@
    "n": 1,
    "pop": 47820.74741915404,
    "area_km2": 19,
-   "road_km": 327.0,
+   "road_km": 328.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -268,7 +268,7 @@
    "n": 1,
    "pop": 47931.201307601805,
    "area_km2": 19,
-   "road_km": 318.4,
+   "road_km": 320.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -284,7 +284,7 @@
    "n": 1,
    "pop": 48834.456118247195,
    "area_km2": 15,
-   "road_km": 324.6,
+   "road_km": 325.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -300,7 +300,7 @@
    "n": 1,
    "pop": 44483.8789473616,
    "area_km2": 28,
-   "road_km": 305.0,
+   "road_km": 305.9,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -316,7 +316,7 @@
    "n": 1,
    "pop": 59295.35610265123,
    "area_km2": 47,
-   "road_km": 316.7,
+   "road_km": 322.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -332,7 +332,7 @@
    "n": 1,
    "pop": 46786.12623016299,
    "area_km2": 29,
-   "road_km": 312.2,
+   "road_km": 313.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -348,7 +348,7 @@
    "n": 1,
    "pop": 52773.449597159386,
    "area_km2": 24,
-   "road_km": 309.7,
+   "road_km": 310.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -364,7 +364,7 @@
    "n": 1,
    "pop": 50204.974540866846,
    "area_km2": 37,
-   "road_km": 284.9,
+   "road_km": 286.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -380,7 +380,7 @@
    "n": 1,
    "pop": 42675.730115859296,
    "area_km2": 33,
-   "road_km": 310.5,
+   "road_km": 321.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -396,7 +396,7 @@
    "n": 1,
    "pop": 52516.77300223844,
    "area_km2": 18,
-   "road_km": 290.0,
+   "road_km": 291.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -412,7 +412,7 @@
    "n": 1,
    "pop": 47356.68095650777,
    "area_km2": 21,
-   "road_km": 314.2,
+   "road_km": 327.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -428,7 +428,7 @@
    "n": 1,
    "pop": 61516.2349376065,
    "area_km2": 67,
-   "road_km": 273.3,
+   "road_km": 276.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -444,7 +444,7 @@
    "n": 1,
    "pop": 47449.61922046886,
    "area_km2": 26,
-   "road_km": 332.2,
+   "road_km": 333.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -460,7 +460,7 @@
    "n": 1,
    "pop": 46166.7158517614,
    "area_km2": 110,
-   "road_km": 294.5,
+   "road_km": 295.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -476,7 +476,7 @@
    "n": 1,
    "pop": 55884.2643661361,
    "area_km2": 40,
-   "road_km": 318.7,
+   "road_km": 323.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -492,7 +492,7 @@
    "n": 1,
    "pop": 56996.153747102944,
    "area_km2": 53,
-   "road_km": 313.3,
+   "road_km": 314.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -508,7 +508,7 @@
    "n": 1,
    "pop": 46190.06409906044,
    "area_km2": 24,
-   "road_km": 330.7,
+   "road_km": 332.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -524,7 +524,7 @@
    "n": 1,
    "pop": 45572.1634193943,
    "area_km2": 24,
-   "road_km": 332.0,
+   "road_km": 333.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -556,7 +556,7 @@
    "n": 4,
    "pop": 44657.44149622956,
    "area_km2": 15789,
-   "road_km": 319.4,
+   "road_km": 320.3,
    "towns_over_8000": [],
    "reserves_held": [
     "BLOOD 148",
@@ -573,7 +573,7 @@
    "n": 5,
    "pop": 27060.109613116096,
    "area_km2": 47336,
-   "road_km": 219.9,
+   "road_km": 219.5,
    "towns_over_8000": [],
    "reserves_held": [
     "ALEXANDER 134A",
@@ -594,7 +594,7 @@
    "n": 1,
    "pop": 51084.03123027361,
    "area_km2": 1584,
-   "road_km": 306.3,
+   "road_km": 307.3,
    "towns_over_8000": [
     "Chestermere",
     "Strathmore"
@@ -611,7 +611,7 @@
    "n": 2,
    "pop": 49804.00953272776,
    "area_km2": 6106,
-   "road_km": 517.2,
+   "road_km": 518.4,
    "towns_over_8000": [
     "Medicine Hat"
    ],
@@ -627,7 +627,7 @@
    "n": 2,
    "pop": 46912.603385911185,
    "area_km2": 6163,
-   "road_km": 14.3,
+   "road_km": 15.5,
    "towns_over_8000": [],
    "reserves_held": [
     "ENOCH CREE NATION NO. 135"
@@ -643,7 +643,7 @@
    "n": 3,
    "pop": 40045.03698683906,
    "area_km2": 36547,
-   "road_km": 142.2,
+   "road_km": 148.7,
    "towns_over_8000": [],
    "reserves_held": [],
    "border_km": 179.7
@@ -657,7 +657,7 @@
    "n": 0,
    "pop": 46448.54440336476,
    "area_km2": 39,
-   "road_km": 6.7,
+   "road_km": 8.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -673,7 +673,7 @@
    "n": 0,
    "pop": 50758.423702228625,
    "area_km2": 21,
-   "road_km": 8.6,
+   "road_km": 9.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -705,7 +705,7 @@
    "n": 0,
    "pop": 48817.36537735501,
    "area_km2": 17,
-   "road_km": 5.0,
+   "road_km": 6.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -721,7 +721,7 @@
    "n": 0,
    "pop": 67910.24274648672,
    "area_km2": 64,
-   "road_km": 12.2,
+   "road_km": 13.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -737,7 +737,7 @@
    "n": 0,
    "pop": 42956.841654500124,
    "area_km2": 22,
-   "road_km": 1.5,
+   "road_km": 2.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -753,7 +753,7 @@
    "n": 0,
    "pop": 44532.84869932663,
    "area_km2": 54,
-   "road_km": 0.5,
+   "road_km": 1.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -769,7 +769,7 @@
    "n": 0,
    "pop": 40556.5347484232,
    "area_km2": 17,
-   "road_km": 0.4,
+   "road_km": 2.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -785,7 +785,7 @@
    "n": 0,
    "pop": 56173.506502561315,
    "area_km2": 115,
-   "road_km": 9.2,
+   "road_km": 10.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -801,7 +801,7 @@
    "n": 0,
    "pop": 42014.95229192948,
    "area_km2": 18,
-   "road_km": 7.6,
+   "road_km": 8.9,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -817,7 +817,7 @@
    "n": 0,
    "pop": 54388.455849605634,
    "area_km2": 19,
-   "road_km": 10.3,
+   "road_km": 11.3,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -833,7 +833,7 @@
    "n": 0,
    "pop": 47897.03352404526,
    "area_km2": 27,
-   "road_km": 6.0,
+   "road_km": 7.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -849,7 +849,7 @@
    "n": 0,
    "pop": 50384.611243045176,
    "area_km2": 30,
-   "road_km": 4.6,
+   "road_km": 5.5,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -865,7 +865,7 @@
    "n": 0,
    "pop": 43903.92509255203,
    "area_km2": 28,
-   "road_km": 0.1,
+   "road_km": 2.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -881,7 +881,7 @@
    "n": 0,
    "pop": 45515.06319392437,
    "area_km2": 21,
-   "road_km": 5.2,
+   "road_km": 6.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -897,7 +897,7 @@
    "n": 0,
    "pop": 69027.94939994124,
    "area_km2": 73,
-   "road_km": 9.8,
+   "road_km": 11.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -913,7 +913,7 @@
    "n": 0,
    "pop": 65511.070102517806,
    "area_km2": 92,
-   "road_km": 13.6,
+   "road_km": 14.9,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -929,7 +929,7 @@
    "n": 0,
    "pop": 44083.28877596245,
    "area_km2": 15,
-   "road_km": 0.0,
+   "road_km": 0.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -945,7 +945,7 @@
    "n": 0,
    "pop": 55731.52526089366,
    "area_km2": 77,
-   "road_km": 4.9,
+   "road_km": 6.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -961,7 +961,7 @@
    "n": 0,
    "pop": 45542.58158805463,
    "area_km2": 22,
-   "road_km": 5.6,
+   "road_km": 6.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -970,14 +970,14 @@
   },
   "Fort McMurray-Lac La Biche": {
    "a": true,
-   "b": true,
+   "b": false,
    "c": false,
    "d": true,
    "e": true,
-   "n": 4,
+   "n": 3,
    "pop": 40624.278548182956,
    "area_km2": 32329,
-   "road_km": 151.9,
+   "road_km": 149.4,
    "towns_over_8000": [
     "Wood Buffalo (urban service area)"
    ],
@@ -1008,7 +1008,7 @@
    "n": 4,
    "pop": 44916.8610016731,
    "area_km2": 86417,
-   "road_km": 431.1,
+   "road_km": 437.8,
    "towns_over_8000": [
     "Wood Buffalo (urban service area)"
    ],
@@ -1057,7 +1057,7 @@
    "n": 0,
    "pop": 53931.218908110626,
    "area_km2": 9124,
-   "road_km": 18.9,
+   "road_km": 19.9,
    "towns_over_8000": [
     "Fort Saskatchewan"
    ],
@@ -1073,7 +1073,7 @@
    "n": 1,
    "pop": 46591.73419945718,
    "area_km2": 111,
-   "road_km": 451.4,
+   "road_km": 453.1,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -1089,7 +1089,7 @@
    "n": 3,
    "pop": 50224.969074314955,
    "area_km2": 16015,
-   "road_km": 413.0,
+   "road_km": 414.2,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -1107,7 +1107,7 @@
    "n": 1,
    "pop": 50691.14528307202,
    "area_km2": 1345,
-   "road_km": 318.4,
+   "road_km": 319.6,
    "towns_over_8000": [
     "Okotoks"
    ],
@@ -1123,7 +1123,7 @@
    "n": 0,
    "pop": 49002.59735238126,
    "area_km2": 3610,
-   "road_km": 138.6,
+   "road_km": 139.2,
    "towns_over_8000": [
     "Sylvan Lake"
    ],
@@ -1139,7 +1139,7 @@
    "n": 2,
    "pop": 45863.413510402075,
    "area_km2": 5494,
-   "road_km": 14.3,
+   "road_km": 15.2,
    "towns_over_8000": [],
    "reserves_held": [
     "ALEXANDER 134",
@@ -1159,7 +1159,7 @@
    "n": 0,
    "pop": 46355.2460443261,
    "area_km2": 3671,
-   "road_km": 79.3,
+   "road_km": 80.2,
    "towns_over_8000": [
     "Blackfalds",
     "Lacombe"
@@ -1176,7 +1176,7 @@
    "n": 0,
    "pop": 56192.61629205755,
    "area_km2": 190,
-   "road_km": 15.6,
+   "road_km": 16.8,
    "towns_over_8000": [
     "Beaumont",
     "Leduc"
@@ -1193,7 +1193,7 @@
    "n": 4,
    "pop": 27079.4834214911,
    "area_km2": 69668,
-   "road_km": 180.4,
+   "road_km": 180.5,
    "towns_over_8000": [],
    "reserves_held": [
     "ASSINEAU RIVER 150F",
@@ -1251,7 +1251,7 @@
    "n": 1,
    "pop": 45150.89835102309,
    "area_km2": 50,
-   "road_km": 500.5,
+   "road_km": 501.2,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -1267,7 +1267,7 @@
    "n": 1,
    "pop": 53031.21720159175,
    "area_km2": 74,
-   "road_km": 493.2,
+   "road_km": 497.0,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -1283,7 +1283,7 @@
    "n": 3,
    "pop": 50265.62184339243,
    "area_km2": 14167,
-   "road_km": 343.5,
+   "road_km": 345.1,
    "towns_over_8000": [
     "High River"
    ],
@@ -1304,7 +1304,7 @@
    "n": 1,
    "pop": 44011.44741944283,
    "area_km2": 4225,
-   "road_km": 25.7,
+   "road_km": 29.0,
    "towns_over_8000": [
     "Wetaskiwin"
    ],
@@ -1327,7 +1327,7 @@
    "n": 0,
    "pop": 51910.851831093154,
    "area_km2": 1378,
-   "road_km": 12.7,
+   "road_km": 13.6,
    "towns_over_8000": [
     "Morinville",
     "St. Albert"
@@ -1344,7 +1344,7 @@
    "n": 1,
    "pop": 50492.0272546558,
    "area_km2": 10492,
-   "road_km": 198.2,
+   "road_km": 198.6,
    "towns_over_8000": [
     "Olds"
    ],
@@ -1397,7 +1397,7 @@
    "n": 0,
    "pop": 46816.203714452684,
    "area_km2": 72,
-   "road_km": 140.6,
+   "road_km": 144.9,
    "towns_over_8000": [
     "Red Deer"
    ],
@@ -1413,7 +1413,7 @@
    "n": 1,
    "pop": 53742.98413763144,
    "area_km2": 35,
-   "road_km": 150.0,
+   "road_km": 167.9,
    "towns_over_8000": [
     "Red Deer"
    ],
@@ -1429,7 +1429,7 @@
    "n": 3,
    "pop": 45322.582944375776,
    "area_km2": 24506,
-   "road_km": 102.6,
+   "road_km": 103.5,
    "towns_over_8000": [],
    "reserves_held": [
     "BIG HORN 144A",
@@ -1449,7 +1449,7 @@
    "n": 0,
    "pop": 47054.135193259615,
    "area_km2": 63,
-   "road_km": 6.3,
+   "road_km": 7.7,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -1465,7 +1465,7 @@
    "n": 0,
    "pop": 53784.88206073607,
    "area_km2": 69,
-   "road_km": 23.2,
+   "road_km": 24.2,
    "towns_over_8000": [
     "Spruce Grove",
     "Stony Plain"
@@ -1482,7 +1482,7 @@
    "n": 0,
    "pop": 49003.06060951203,
    "area_km2": 39,
-   "road_km": 11.6,
+   "road_km": 12.7,
    "towns_over_8000": [
     "St. Albert"
    ],
@@ -1498,7 +1498,7 @@
    "n": 0,
    "pop": 48188.64991524492,
    "area_km2": 643,
-   "road_km": 11.7,
+   "road_km": 16.4,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -1514,7 +1514,7 @@
    "n": 2,
    "pop": 44534.75875412092,
    "area_km2": 14982,
-   "road_km": 484.4,
+   "road_km": 485.2,
    "towns_over_8000": [
     "Coaldale",
     "Taber"
@@ -1531,7 +1531,7 @@
    "n": 3,
    "pop": 45367.65719726733,
    "area_km2": 10085,
-   "road_km": 159.0,
+   "road_km": 159.9,
    "towns_over_8000": [
     "Lloydminster (Part)"
    ],
@@ -1549,7 +1549,7 @@
    "n": 3,
    "pop": 49556.395706253505,
    "area_km2": 48353,
-   "road_km": 103.5,
+   "road_km": 104.5,
    "towns_over_8000": [
     "Edson",
     "Hinton",
@@ -1573,7 +1573,7 @@
    "n": 1,
    "pop": 50082.480048383746,
    "area_km2": 1915,
-   "road_km": 236.9,
+   "road_km": 237.4,
    "towns_over_8000": [
     "Airdrie"
    ],
@@ -1589,7 +1589,7 @@
    "n": 1,
    "pop": 38278.93180357655,
    "area_km2": 164,
-   "road_km": 265.8,
+   "road_km": 270.4,
    "towns_over_8000": [
     "Airdrie"
    ],
@@ -1623,7 +1623,7 @@
    "n": 1,
    "pop": 49753.735440623284,
    "area_km2": 23,
-   "road_km": 302.2,
+   "road_km": 303.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1639,7 +1639,7 @@
    "n": 1,
    "pop": 50443.55362004939,
    "area_km2": 29,
-   "road_km": 283.2,
+   "road_km": 284.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1655,7 +1655,7 @@
    "n": 1,
    "pop": 38535.14507581761,
    "area_km2": 42,
-   "road_km": 279.0,
+   "road_km": 280.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1671,7 +1671,7 @@
    "n": 1,
    "pop": 48108.270454314224,
    "area_km2": 32,
-   "road_km": 331.1,
+   "road_km": 332.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1687,7 +1687,7 @@
    "n": 1,
    "pop": 41110.830743196035,
    "area_km2": 4,
-   "road_km": 324.7,
+   "road_km": 325.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1703,7 +1703,7 @@
    "n": 1,
    "pop": 47310.69344702176,
    "area_km2": 41,
-   "road_km": 292.2,
+   "road_km": 293.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1719,7 +1719,7 @@
    "n": 1,
    "pop": 52856.46231042666,
    "area_km2": 16,
-   "road_km": 326.5,
+   "road_km": 327.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1735,7 +1735,7 @@
    "n": 1,
    "pop": 50170.67227406994,
    "area_km2": 16,
-   "road_km": 327.2,
+   "road_km": 328.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1751,7 +1751,7 @@
    "n": 1,
    "pop": 55140.101021413364,
    "area_km2": 112,
-   "road_km": 297.0,
+   "road_km": 298.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1767,7 +1767,7 @@
    "n": 1,
    "pop": 50264.95177683147,
    "area_km2": 20,
-   "road_km": 328.5,
+   "road_km": 329.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1783,7 +1783,7 @@
    "n": 1,
    "pop": 47595.00212149445,
    "area_km2": 18,
-   "road_km": 318.4,
+   "road_km": 320.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1799,7 +1799,7 @@
    "n": 1,
    "pop": 45586.265668888766,
    "area_km2": 29,
-   "road_km": 323.0,
+   "road_km": 324.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1815,7 +1815,7 @@
    "n": 1,
    "pop": 51623.27407399175,
    "area_km2": 33,
-   "road_km": 305.0,
+   "road_km": 305.9,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1831,7 +1831,7 @@
    "n": 2,
    "pop": 50440.70934087217,
    "area_km2": 334,
-   "road_km": 312.2,
+   "road_km": 313.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1849,7 +1849,7 @@
    "n": 1,
    "pop": 45050.011709987564,
    "area_km2": 20,
-   "road_km": 309.7,
+   "road_km": 310.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1865,7 +1865,7 @@
    "n": 1,
    "pop": 49409.02995630867,
    "area_km2": 37,
-   "road_km": 284.9,
+   "road_km": 286.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1881,7 +1881,7 @@
    "n": 1,
    "pop": 53030.824138216296,
    "area_km2": 34,
-   "road_km": 321.4,
+   "road_km": 322.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1897,7 +1897,7 @@
    "n": 1,
    "pop": 56334.12225763654,
    "area_km2": 30,
-   "road_km": 301.1,
+   "road_km": 306.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1913,7 +1913,7 @@
    "n": 1,
    "pop": 46573.46573653959,
    "area_km2": 16,
-   "road_km": 290.0,
+   "road_km": 291.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1929,7 +1929,7 @@
    "n": 1,
    "pop": 48177.72908730065,
    "area_km2": 20,
-   "road_km": 316.7,
+   "road_km": 322.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1945,7 +1945,7 @@
    "n": 1,
    "pop": 28880.663616651975,
    "area_km2": 25,
-   "road_km": 275.7,
+   "road_km": 276.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1961,7 +1961,7 @@
    "n": 1,
    "pop": 47449.61922046886,
    "area_km2": 26,
-   "road_km": 332.2,
+   "road_km": 333.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1977,7 +1977,7 @@
    "n": 1,
    "pop": 38425.92893742832,
    "area_km2": 48,
-   "road_km": 273.3,
+   "road_km": 277.6,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -1993,7 +1993,7 @@
    "n": 1,
    "pop": 38389.775217148956,
    "area_km2": 34,
-   "road_km": 318.7,
+   "road_km": 325.8,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -2009,7 +2009,7 @@
    "n": 1,
    "pop": 35677.379386882865,
    "area_km2": 44,
-   "road_km": 313.3,
+   "road_km": 314.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -2025,7 +2025,7 @@
    "n": 1,
    "pop": 44659.97650705946,
    "area_km2": 36,
-   "road_km": 322.3,
+   "road_km": 322.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -2041,7 +2041,7 @@
    "n": 1,
    "pop": 50631.20440792751,
    "area_km2": 27,
-   "road_km": 330.7,
+   "road_km": 332.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -2057,7 +2057,7 @@
    "n": 1,
    "pop": 47838.74706066998,
    "area_km2": 43,
-   "road_km": 332.0,
+   "road_km": 333.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -2073,7 +2073,7 @@
    "n": 0,
    "pop": 51645.17785970897,
    "area_km2": 9992,
-   "road_km": 25.7,
+   "road_km": 29.0,
    "towns_over_8000": [
     "Camrose"
    ],
@@ -2089,7 +2089,7 @@
    "n": 3,
    "pop": 31773.812072985096,
    "area_km2": 15404,
-   "road_km": 312.0,
+   "road_km": 312.8,
    "towns_over_8000": [
     "Banff",
     "Canmore"
@@ -2110,7 +2110,7 @@
    "n": 5,
    "pop": 27060.109613116096,
    "area_km2": 47336,
-   "road_km": 219.9,
+   "road_km": 219.5,
    "towns_over_8000": [],
    "reserves_held": [
     "ALEXANDER 134A",
@@ -2131,7 +2131,7 @@
    "n": 1,
    "pop": 41812.57857877399,
    "area_km2": 856,
-   "road_km": 311.9,
+   "road_km": 313.7,
    "towns_over_8000": [
     "Chestermere",
     "Strathmore"
@@ -2148,7 +2148,7 @@
    "n": 1,
    "pop": 49850.63431266311,
    "area_km2": 751,
-   "road_km": 310.4,
+   "road_km": 310.3,
    "towns_over_8000": [
     "Cochrane"
    ],
@@ -2164,7 +2164,7 @@
    "n": 3,
    "pop": 52702.426482675815,
    "area_km2": 16829,
-   "road_km": 154.1,
+   "road_km": 154.9,
    "towns_over_8000": [
     "Cold Lake"
    ],
@@ -2191,7 +2191,7 @@
    "n": 3,
    "pop": 51212.507563289626,
    "area_km2": 40338,
-   "road_km": 109.3,
+   "road_km": 109.8,
    "towns_over_8000": [],
    "reserves_held": [],
    "border_km": 179.7
@@ -2205,7 +2205,7 @@
    "n": 0,
    "pop": 40329.60081357289,
    "area_km2": 64,
-   "road_km": 14.7,
+   "road_km": 16.2,
    "towns_over_8000": [
     "Beaumont",
     "Edmonton"
@@ -2222,7 +2222,7 @@
    "n": 0,
    "pop": 53716.391185750304,
    "area_km2": 42,
-   "road_km": 6.7,
+   "road_km": 8.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2238,7 +2238,7 @@
    "n": 0,
    "pop": 50758.423702228625,
    "area_km2": 21,
-   "road_km": 8.6,
+   "road_km": 9.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2270,7 +2270,7 @@
    "n": 0,
    "pop": 52617.58207286318,
    "area_km2": 18,
-   "road_km": 5.0,
+   "road_km": 6.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2286,7 +2286,7 @@
    "n": 0,
    "pop": 54964.7756085791,
    "area_km2": 24,
-   "road_km": 9.0,
+   "road_km": 10.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2302,7 +2302,7 @@
    "n": 1,
    "pop": 43192.8365412328,
    "area_km2": 144,
-   "road_km": 12.5,
+   "road_km": 13.5,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2320,7 +2320,7 @@
    "n": 0,
    "pop": 53230.530221387104,
    "area_km2": 26,
-   "road_km": 1.6,
+   "road_km": 2.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2336,7 +2336,7 @@
    "n": 0,
    "pop": 51592.678189380684,
    "area_km2": 57,
-   "road_km": 0.5,
+   "road_km": 1.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2352,7 +2352,7 @@
    "n": 0,
    "pop": 44845.0442868894,
    "area_km2": 19,
-   "road_km": 0.4,
+   "road_km": 2.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2368,7 +2368,7 @@
    "n": 0,
    "pop": 45105.44302466761,
    "area_km2": 111,
-   "road_km": 9.2,
+   "road_km": 10.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2384,7 +2384,7 @@
    "n": 0,
    "pop": 56985.189134696106,
    "area_km2": 28,
-   "road_km": 6.0,
+   "road_km": 8.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2400,7 +2400,7 @@
    "n": 0,
    "pop": 40082.02852651982,
    "area_km2": 14,
-   "road_km": 13.1,
+   "road_km": 14.4,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2416,7 +2416,7 @@
    "n": 0,
    "pop": 54921.32414319209,
    "area_km2": 24,
-   "road_km": 6.0,
+   "road_km": 7.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2432,7 +2432,7 @@
    "n": 0,
    "pop": 54762.01824648548,
    "area_km2": 32,
-   "road_km": 4.6,
+   "road_km": 5.5,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2448,7 +2448,7 @@
    "n": 0,
    "pop": 52821.33653347036,
    "area_km2": 26,
-   "road_km": 5.2,
+   "road_km": 6.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2464,7 +2464,7 @@
    "n": 0,
    "pop": 37274.48146058168,
    "area_km2": 52,
-   "road_km": 11.7,
+   "road_km": 12.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2480,7 +2480,7 @@
    "n": 0,
    "pop": 50782.63590323079,
    "area_km2": 27,
-   "road_km": 0.0,
+   "road_km": 0.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2496,7 +2496,7 @@
    "n": 0,
    "pop": 51681.482099769964,
    "area_km2": 74,
-   "road_km": 5.3,
+   "road_km": 6.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2512,7 +2512,7 @@
    "n": 0,
    "pop": 55435.12450270122,
    "area_km2": 28,
-   "road_km": 6.0,
+   "road_km": 11.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2528,7 +2528,7 @@
    "n": 0,
    "pop": 36560.36741126828,
    "area_km2": 55,
-   "road_km": 14.5,
+   "road_km": 15.8,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -2576,7 +2576,7 @@
    "n": 4,
    "pop": 47339.28716009157,
    "area_km2": 86424,
-   "road_km": 431.1,
+   "road_km": 437.8,
    "towns_over_8000": [
     "Wood Buffalo (urban service area)"
    ],
@@ -2625,7 +2625,7 @@
    "n": 0,
    "pop": 50631.360817586035,
    "area_km2": 8208,
-   "road_km": 26.2,
+   "road_km": 27.2,
    "towns_over_8000": [
     "Fort Saskatchewan"
    ],
@@ -2641,7 +2641,7 @@
    "n": 1,
    "pop": 46591.73419945718,
    "area_km2": 111,
-   "road_km": 451.4,
+   "road_km": 453.1,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -2657,7 +2657,7 @@
    "n": 3,
    "pop": 50224.969074314955,
    "area_km2": 16015,
-   "road_km": 413.0,
+   "road_km": 414.2,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -2675,7 +2675,7 @@
    "n": 2,
    "pop": 54291.45704200161,
    "area_km2": 15050,
-   "road_km": 280.2,
+   "road_km": 281.0,
    "towns_over_8000": [
     "High River",
     "Strathmore"
@@ -2694,7 +2694,7 @@
    "n": 2,
    "pop": 50096.47192075352,
    "area_km2": 20638,
-   "road_km": 109.3,
+   "road_km": 109.9,
    "towns_over_8000": [
     "Blackfalds",
     "Lacombe"
@@ -2716,7 +2716,7 @@
    "n": 0,
    "pop": 56671.314447066834,
    "area_km2": 1880,
-   "road_km": 15.6,
+   "road_km": 16.8,
    "towns_over_8000": [
     "Leduc"
    ],
@@ -2732,7 +2732,7 @@
    "n": 3,
    "pop": 29500.668209638763,
    "area_km2": 76843,
-   "road_km": 133.9,
+   "road_km": 134.0,
    "towns_over_8000": [],
    "reserves_held": [
     "ASSINEAU RIVER 150F",
@@ -2790,7 +2790,7 @@
    "n": 1,
    "pop": 48179.776994993525,
    "area_km2": 51,
-   "road_km": 500.5,
+   "road_km": 501.2,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -2806,7 +2806,7 @@
    "n": 1,
    "pop": 50002.33855762132,
    "area_km2": 73,
-   "road_km": 493.2,
+   "road_km": 497.0,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -2822,7 +2822,7 @@
    "n": 3,
    "pop": 47135.8901919999,
    "area_km2": 12730,
-   "road_km": 398.7,
+   "road_km": 399.7,
    "towns_over_8000": [
     "Coaldale"
    ],
@@ -2860,7 +2860,7 @@
    "n": 2,
    "pop": 51556.5374276933,
    "area_km2": 13739,
-   "road_km": 338.2,
+   "road_km": 339.2,
    "towns_over_8000": [
     "Brooks",
     "Medicine Hat"
@@ -2877,7 +2877,7 @@
    "n": 2,
    "pop": 49804.00953272776,
    "area_km2": 6106,
-   "road_km": 517.2,
+   "road_km": 518.4,
    "towns_over_8000": [
     "Medicine Hat"
    ],
@@ -2893,7 +2893,7 @@
    "n": 1,
    "pop": 47881.095613572135,
    "area_km2": 7546,
-   "road_km": 187.3,
+   "road_km": 188.5,
    "towns_over_8000": [
     "Olds"
    ],
@@ -2909,7 +2909,7 @@
    "n": 1,
    "pop": 50751.10461988043,
    "area_km2": 1119,
-   "road_km": 318.4,
+   "road_km": 319.6,
    "towns_over_8000": [
     "Okotoks"
    ],
@@ -2962,7 +2962,7 @@
    "n": 0,
    "pop": 46816.203714452684,
    "area_km2": 72,
-   "road_km": 140.6,
+   "road_km": 144.9,
    "towns_over_8000": [
     "Red Deer"
    ],
@@ -2978,7 +2978,7 @@
    "n": 1,
    "pop": 53742.98413763144,
    "area_km2": 35,
-   "road_km": 150.0,
+   "road_km": 167.9,
    "towns_over_8000": [
     "Red Deer"
    ],
@@ -2994,7 +2994,7 @@
    "n": 0,
    "pop": 47054.135193259615,
    "area_km2": 63,
-   "road_km": 6.3,
+   "road_km": 7.7,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -3010,7 +3010,7 @@
    "n": 0,
    "pop": 51148.278246466594,
    "area_km2": 413,
-   "road_km": 14.3,
+   "road_km": 15.2,
    "towns_over_8000": [
     "Spruce Grove"
    ],
@@ -3026,7 +3026,7 @@
    "n": 0,
    "pop": 56503.80384908919,
    "area_km2": 44,
-   "road_km": 11.6,
+   "road_km": 12.7,
    "towns_over_8000": [
     "St. Albert"
    ],
@@ -3042,7 +3042,7 @@
    "n": 1,
    "pop": 51426.58965493519,
    "area_km2": 2313,
-   "road_km": 12.7,
+   "road_km": 13.6,
    "towns_over_8000": [
     "Morinville",
     "St. Albert"
@@ -3061,7 +3061,7 @@
    "n": 1,
    "pop": 51693.70480468746,
    "area_km2": 5281,
-   "road_km": 26.4,
+   "road_km": 27.3,
    "towns_over_8000": [
     "Stony Plain"
    ],
@@ -3080,7 +3080,7 @@
    "n": 0,
    "pop": 50134.69891351116,
    "area_km2": 794,
-   "road_km": 11.7,
+   "road_km": 16.4,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -3096,7 +3096,7 @@
    "n": 0,
    "pop": 50616.23120147533,
    "area_km2": 4206,
-   "road_km": 138.6,
+   "road_km": 139.2,
    "towns_over_8000": [
     "Sylvan Lake"
    ],
@@ -3112,7 +3112,7 @@
    "n": 4,
    "pop": 51979.49747744668,
    "area_km2": 21522,
-   "road_km": 450.5,
+   "road_km": 451.5,
    "towns_over_8000": [
     "Taber"
    ],
@@ -3130,7 +3130,7 @@
    "n": 3,
    "pop": 54207.07597982672,
    "area_km2": 49694,
-   "road_km": 103.4,
+   "road_km": 104.5,
    "towns_over_8000": [
     "Edson",
     "Hinton",
@@ -3152,7 +3152,7 @@
    "n": 1,
    "pop": 53181.61148085393,
    "area_km2": 6211,
-   "road_km": 50.4,
+   "road_km": 50.6,
    "towns_over_8000": [
     "Wetaskiwin"
    ],
@@ -3178,7 +3178,7 @@
    "n": 1,
    "pop": 44946.35647906651,
    "area_km2": 699,
-   "road_km": 262.6,
+   "road_km": 262.9,
    "towns_over_8000": [
     "Airdrie"
    ],
@@ -3194,7 +3194,7 @@
    "n": 2,
    "pop": 41454.526402912205,
    "area_km2": 16685,
-   "road_km": 57.3,
+   "road_km": 57.6,
    "towns_over_8000": [],
    "reserves_held": [
     "Buffalo Lake (Metis settlement)",
@@ -3213,7 +3213,7 @@
    "n": 1,
    "pop": 48408.792661727544,
    "area_km2": 23,
-   "road_km": 302.2,
+   "road_km": 303.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3229,7 +3229,7 @@
    "n": 1,
    "pop": 42156.84801955336,
    "area_km2": 105,
-   "road_km": 266.0,
+   "road_km": 267.1,
    "towns_over_8000": [
     "Airdrie"
    ],
@@ -3245,7 +3245,7 @@
    "n": 1,
    "pop": 55048.11459258345,
    "area_km2": 33,
-   "road_km": 280.7,
+   "road_km": 281.6,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3261,7 +3261,7 @@
    "n": 1,
    "pop": 51841.92894701212,
    "area_km2": 184,
-   "road_km": 331.1,
+   "road_km": 332.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3277,7 +3277,7 @@
    "n": 1,
    "pop": 45098.73578267617,
    "area_km2": 6,
-   "road_km": 324.0,
+   "road_km": 325.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3293,7 +3293,7 @@
    "n": 1,
    "pop": 59665.9008874669,
    "area_km2": 220,
-   "road_km": 306.4,
+   "road_km": 307.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3309,7 +3309,7 @@
    "n": 1,
    "pop": 51499.12745709064,
    "area_km2": 17,
-   "road_km": 327.2,
+   "road_km": 328.1,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3325,7 +3325,7 @@
    "n": 1,
    "pop": 36893.87685004681,
    "area_km2": 439,
-   "road_km": 318.7,
+   "road_km": 320.4,
    "towns_over_8000": [
     "Calgary",
     "Okotoks"
@@ -3342,7 +3342,7 @@
    "n": 1,
    "pop": 51684.68756266132,
    "area_km2": 23,
-   "road_km": 289.2,
+   "road_km": 290.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3358,7 +3358,7 @@
    "n": 1,
    "pop": 50552.19782524327,
    "area_km2": 20,
-   "road_km": 327.0,
+   "road_km": 328.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3374,7 +3374,7 @@
    "n": 1,
    "pop": 50087.322709067594,
    "area_km2": 35,
-   "road_km": 292.7,
+   "road_km": 298.9,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3390,7 +3390,7 @@
    "n": 1,
    "pop": 52387.124711392695,
    "area_km2": 14,
-   "road_km": 324.6,
+   "road_km": 325.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3406,7 +3406,7 @@
    "n": 1,
    "pop": 52599.298016210254,
    "area_km2": 31,
-   "road_km": 305.0,
+   "road_km": 305.9,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3422,7 +3422,7 @@
    "n": 1,
    "pop": 47152.1085412247,
    "area_km2": 22,
-   "road_km": 300.4,
+   "road_km": 301.3,
    "towns_over_8000": [
     "Airdrie",
     "Calgary"
@@ -3439,7 +3439,7 @@
    "n": 1,
    "pop": 49288.11259843964,
    "area_km2": 32,
-   "road_km": 312.2,
+   "road_km": 313.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3455,7 +3455,7 @@
    "n": 1,
    "pop": 45050.011709987564,
    "area_km2": 20,
-   "road_km": 309.7,
+   "road_km": 310.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3471,7 +3471,7 @@
    "n": 1,
    "pop": 54371.73537179825,
    "area_km2": 25,
-   "road_km": 284.9,
+   "road_km": 286.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3487,7 +3487,7 @@
    "n": 1,
    "pop": 47938.73261265328,
    "area_km2": 15,
-   "road_km": 310.5,
+   "road_km": 321.4,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3503,7 +3503,7 @@
    "n": 1,
    "pop": 48127.21936525602,
    "area_km2": 63,
-   "road_km": 275.7,
+   "road_km": 276.7,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3519,7 +3519,7 @@
    "n": 1,
    "pop": 54312.82066162919,
    "area_km2": 20,
-   "road_km": 290.0,
+   "road_km": 291.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3535,7 +3535,7 @@
    "n": 1,
    "pop": 46961.35272686959,
    "area_km2": 724,
-   "road_km": 311.7,
+   "road_km": 313.6,
    "towns_over_8000": [
     "Cochrane"
    ],
@@ -3551,7 +3551,7 @@
    "n": 1,
    "pop": 42850.18187212802,
    "area_km2": 12,
-   "road_km": 326.2,
+   "road_km": 327.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3567,7 +3567,7 @@
    "n": 1,
    "pop": 38842.33805805912,
    "area_km2": 19,
-   "road_km": 316.3,
+   "road_km": 317.0,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3583,7 +3583,7 @@
    "n": 1,
    "pop": 54411.32278570259,
    "area_km2": 75,
-   "road_km": 322.3,
+   "road_km": 322.5,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3599,7 +3599,7 @@
    "n": 1,
    "pop": 49950.44752896403,
    "area_km2": 351,
-   "road_km": 297.0,
+   "road_km": 298.2,
    "towns_over_8000": [
     "Calgary",
     "Chestermere"
@@ -3616,7 +3616,7 @@
    "n": 1,
    "pop": 44725.20259518645,
    "area_km2": 24,
-   "road_km": 311.4,
+   "road_km": 312.6,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3632,7 +3632,7 @@
    "n": 1,
    "pop": 36979.86089794932,
    "area_km2": 430,
-   "road_km": 313.3,
+   "road_km": 314.2,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3648,7 +3648,7 @@
    "n": 1,
    "pop": 56289.92817504031,
    "area_km2": 29,
-   "road_km": 331.2,
+   "road_km": 332.3,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3664,7 +3664,7 @@
    "n": 2,
    "pop": 48551.049652868205,
    "area_km2": 347,
-   "road_km": 317.2,
+   "road_km": 317.8,
    "towns_over_8000": [
     "Calgary"
    ],
@@ -3682,7 +3682,7 @@
    "n": 0,
    "pop": 45699.342088600606,
    "area_km2": 11106,
-   "road_km": 34.6,
+   "road_km": 50.4,
    "towns_over_8000": [
     "Camrose"
    ],
@@ -3698,7 +3698,7 @@
    "n": 3,
    "pop": 44587.79126599248,
    "area_km2": 9283,
-   "road_km": 343.5,
+   "road_km": 345.3,
    "towns_over_8000": [
     "Banff",
     "Canmore"
@@ -3717,7 +3717,7 @@
    "n": 5,
    "pop": 28227.69163122757,
    "area_km2": 47920,
-   "road_km": 219.9,
+   "road_km": 219.5,
    "towns_over_8000": [],
    "reserves_held": [
     "ALEXANDER 134A",
@@ -3738,7 +3738,7 @@
    "n": 1,
    "pop": 39667.88119362959,
    "area_km2": 763,
-   "road_km": 306.3,
+   "road_km": 307.3,
    "towns_over_8000": [
     "Chestermere",
     "Strathmore"
@@ -3755,7 +3755,7 @@
    "n": 3,
    "pop": 52702.426482675815,
    "area_km2": 16829,
-   "road_km": 154.1,
+   "road_km": 154.9,
    "towns_over_8000": [
     "Cold Lake"
    ],
@@ -3782,7 +3782,7 @@
    "n": 4,
    "pop": 49168.25880836518,
    "area_km2": 41085,
-   "road_km": 142.2,
+   "road_km": 148.7,
    "towns_over_8000": [],
    "reserves_held": [
     "SIKSIKA INDIAN RESERVE NO. 146"
@@ -3798,7 +3798,7 @@
    "n": 0,
    "pop": 40329.60081357289,
    "area_km2": 64,
-   "road_km": 14.7,
+   "road_km": 16.2,
    "towns_over_8000": [
     "Beaumont",
     "Edmonton"
@@ -3815,7 +3815,7 @@
    "n": 0,
    "pop": 53716.391185750304,
    "area_km2": 42,
-   "road_km": 6.7,
+   "road_km": 8.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3831,7 +3831,7 @@
    "n": 0,
    "pop": 50758.423702228625,
    "area_km2": 21,
-   "road_km": 8.6,
+   "road_km": 9.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3863,7 +3863,7 @@
    "n": 0,
    "pop": 52617.58207286318,
    "area_km2": 18,
-   "road_km": 5.0,
+   "road_km": 6.1,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3879,7 +3879,7 @@
    "n": 0,
    "pop": 54964.7756085791,
    "area_km2": 24,
-   "road_km": 9.0,
+   "road_km": 10.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3895,7 +3895,7 @@
    "n": 1,
    "pop": 43859.716761555435,
    "area_km2": 387,
-   "road_km": 14.5,
+   "road_km": 16.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3913,7 +3913,7 @@
    "n": 0,
    "pop": 56046.08806778421,
    "area_km2": 27,
-   "road_km": 1.6,
+   "road_km": 2.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3929,7 +3929,7 @@
    "n": 0,
    "pop": 51592.678189380684,
    "area_km2": 57,
-   "road_km": 0.5,
+   "road_km": 1.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3945,7 +3945,7 @@
    "n": 0,
    "pop": 44845.0442868894,
    "area_km2": 19,
-   "road_km": 0.4,
+   "road_km": 2.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3961,7 +3961,7 @@
    "n": 0,
    "pop": 45105.44302466761,
    "area_km2": 111,
-   "road_km": 9.2,
+   "road_km": 10.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3977,7 +3977,7 @@
    "n": 0,
    "pop": 56985.189134696106,
    "area_km2": 28,
-   "road_km": 6.0,
+   "road_km": 8.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -3993,7 +3993,7 @@
    "n": 0,
    "pop": 40082.02852651982,
    "area_km2": 14,
-   "road_km": 13.1,
+   "road_km": 14.4,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4009,7 +4009,7 @@
    "n": 0,
    "pop": 54921.32414319209,
    "area_km2": 24,
-   "road_km": 6.0,
+   "road_km": 7.0,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4025,7 +4025,7 @@
    "n": 0,
    "pop": 54762.01824648548,
    "area_km2": 32,
-   "road_km": 4.6,
+   "road_km": 5.5,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4041,7 +4041,7 @@
    "n": 0,
    "pop": 52821.33653347036,
    "area_km2": 26,
-   "road_km": 5.2,
+   "road_km": 6.2,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4057,7 +4057,7 @@
    "n": 0,
    "pop": 37274.48146058168,
    "area_km2": 52,
-   "road_km": 11.7,
+   "road_km": 12.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4073,7 +4073,7 @@
    "n": 0,
    "pop": 50201.04766623203,
    "area_km2": 264,
-   "road_km": 12.5,
+   "road_km": 14.8,
    "towns_over_8000": [
     "Spruce Grove"
    ],
@@ -4089,7 +4089,7 @@
    "n": 0,
    "pop": 50782.63590323079,
    "area_km2": 27,
-   "road_km": 0.0,
+   "road_km": 0.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4105,7 +4105,7 @@
    "n": 0,
    "pop": 53320.7603987751,
    "area_km2": 66,
-   "road_km": 5.3,
+   "road_km": 6.7,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4121,7 +4121,7 @@
    "n": 0,
    "pop": 55435.12450270122,
    "area_km2": 28,
-   "road_km": 6.0,
+   "road_km": 11.6,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4137,7 +4137,7 @@
    "n": 0,
    "pop": 36560.36741126828,
    "area_km2": 55,
-   "road_km": 14.5,
+   "road_km": 15.8,
    "towns_over_8000": [
     "Edmonton"
    ],
@@ -4153,7 +4153,7 @@
    "n": 4,
    "pop": 37534.97962145125,
    "area_km2": 30177,
-   "road_km": 170.0,
+   "road_km": 171.0,
    "towns_over_8000": [
     "Wood Buffalo (urban service area)"
    ],
@@ -4181,7 +4181,7 @@
    "n": 4,
    "pop": 44916.8610016731,
    "area_km2": 86417,
-   "road_km": 431.1,
+   "road_km": 437.8,
    "towns_over_8000": [
     "Wood Buffalo (urban service area)"
    ],
@@ -4230,7 +4230,7 @@
    "n": 0,
    "pop": 50631.360817586035,
    "area_km2": 8208,
-   "road_km": 26.2,
+   "road_km": 27.2,
    "towns_over_8000": [
     "Fort Saskatchewan"
    ],
@@ -4246,7 +4246,7 @@
    "n": 1,
    "pop": 46591.73419945718,
    "area_km2": 111,
-   "road_km": 451.4,
+   "road_km": 453.1,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -4262,7 +4262,7 @@
    "n": 3,
    "pop": 49057.387056203486,
    "area_km2": 15431,
-   "road_km": 413.0,
+   "road_km": 414.2,
    "towns_over_8000": [
     "Grande Prairie"
    ],
@@ -4280,7 +4280,7 @@
    "n": 1,
    "pop": 49043.54994821752,
    "area_km2": 884,
-   "road_km": 318.4,
+   "road_km": 319.6,
    "towns_over_8000": [
     "High River",
     "Okotoks"
@@ -4297,7 +4297,7 @@
    "n": 1,
    "pop": 46148.59919825737,
    "area_km2": 8021,
-   "road_km": 16.5,
+   "road_km": 17.5,
    "towns_over_8000": [
     "St. Albert",
     "Stony Plain"
@@ -4321,7 +4321,7 @@
    "n": 0,
    "pop": 52674.71989402323,
    "area_km2": 1276,
-   "road_km": 15.6,
+   "road_km": 16.8,
    "towns_over_8000": [
     "Leduc"
    ],
@@ -4337,7 +4337,7 @@
    "n": 3,
    "pop": 29500.668209638763,
    "area_km2": 76843,
-   "road_km": 133.9,
+   "road_km": 134.0,
    "towns_over_8000": [],
    "reserves_held": [
     "ASSINEAU RIVER 150F",
@@ -4395,7 +4395,7 @@
    "n": 3,
    "pop": 46915.765213392944,
    "area_km2": 8329,
-   "road_km": 478.4,
+   "road_km": 479.6,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -4414,7 +4414,7 @@
    "n": 3,
    "pop": 48725.57558451198,
    "area_km2": 8422,
-   "road_km": 401.0,
+   "road_km": 401.5,
    "towns_over_8000": [
     "Lethbridge"
    ],
@@ -4433,7 +4433,7 @@
    "n": 1,
    "pop": 52653.88709454615,
    "area_km2": 8931,
-   "road_km": 352.8,
+   "road_km": 354.0,
    "towns_over_8000": [
     "Coaldale",
     "Lethbridge"
@@ -4450,7 +4450,7 @@
    "n": 2,
    "pop": 54696.25092620821,
    "area_km2": 6645,
-   "road_km": 484.4,
+   "road_km": 485.2,
    "towns_over_8000": [
     "Coaldale",
     "Lethbridge",
@@ -4486,7 +4486,7 @@
    "n": 2,
    "pop": 51556.5374276933,
    "area_km2": 13739,
-   "road_km": 338.2,
+   "road_km": 339.2,
    "towns_over_8000": [
     "Brooks",
     "Medicine Hat"
@@ -4503,7 +4503,7 @@
    "n": 2,
    "pop": 56737.96125328409,
    "area_km2": 13622,
-   "road_km": 509.3,
+   "road_km": 510.3,
    "towns_over_8000": [
     "Medicine Hat"
    ],
@@ -4519,7 +4519,7 @@
    "n": 1,
    "pop": 47134.061740695106,
    "area_km2": 7355,
-   "road_km": 198.2,
+   "road_km": 198.6,
    "towns_over_8000": [
     "Olds"
    ],
@@ -4572,7 +4572,7 @@
    "n": 0,
    "pop": 42813.46246784707,
    "area_km2": 1918,
-   "road_km": 105.1,
+   "road_km": 106.2,
    "towns_over_8000": [
     "Blackfalds",
     "Red Deer"
@@ -4589,7 +4589,7 @@
    "n": 1,
    "pop": 54001.84413203273,
    "area_km2": 2265,
-   "road_km": 153.7,
+   "road_km": 154.5,
    "towns_over_8000": [
     "Red Deer"
    ],
@@ -4605,7 +4605,7 @@
    "n": 0,
    "pop": 50945.848870780086,
    "area_km2": 1631,
-   "road_km": 98.3,
+   "road_km": 98.9,
    "towns_over_8000": [
     "Blackfalds",
     "Lacombe",
@@ -4641,7 +4641,7 @@
    "n": 5,
    "pop": 32887.96052167694,
    "area_km2": 30578,
-   "road_km": 161.8,
+   "road_km": 162.6,
    "towns_over_8000": [],
    "reserves_held": [
     "BIG HORN 144A",
@@ -4662,7 +4662,7 @@
    "n": 0,
    "pop": 49700.542748510445,
    "area_km2": 130,
-   "road_km": 6.3,
+   "road_km": 7.7,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -4678,7 +4678,7 @@
    "n": 0,
    "pop": 50966.09142564184,
    "area_km2": 1196,
-   "road_km": 11.7,
+   "road_km": 16.4,
    "towns_over_8000": [
     "Strathcona County (urban service area)"
    ],
@@ -4694,7 +4694,7 @@
    "n": 0,
    "pop": 50862.59339240132,
    "area_km2": 33,
-   "road_km": 11.6,
+   "road_km": 12.7,
    "towns_over_8000": [
     "St. Albert"
    ],
@@ -4710,7 +4710,7 @@
    "n": 0,
    "pop": 50460.107419319815,
    "area_km2": 1846,
-   "road_km": 12.7,
+   "road_km": 13.6,
    "towns_over_8000": [
     "Morinville",
     "St. Albert"
@@ -4727,7 +4727,7 @@
    "n": 1,
    "pop": 42922.45194789019,
    "area_km2": 5651,
-   "road_km": 30.8,
+   "road_km": 31.7,
    "towns_over_8000": [
     "Stony Plain"
    ],
@@ -4745,7 +4745,7 @@
    "n": 3,
    "pop": 48292.7280691094,
    "area_km2": 47341,
-   "road_km": 121.7,
+   "road_km": 131.5,
    "towns_over_8000": [
     "Edson",
     "Hinton",
@@ -4767,7 +4767,7 @@
    "n": 1,
    "pop": 46904.95661448819,
    "area_km2": 5043,
-   "road_km": 50.4,
+   "road_km": 50.6,
    "towns_over_8000": [
     "Wetaskiwin"
    ],

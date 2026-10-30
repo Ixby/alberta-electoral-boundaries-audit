@@ -13,8 +13,9 @@ the scoring of real maps.
                  province-wide source here and is treated as not met.
   (b) distance   shortest route on the OSM highway layer (motorway, trunk,
                  primary, secondary) from the node nearest the Legislature
-                 Building to the nearest node within 1 km of the district
-                 > 150 km. A district no highway reaches meets (b).
+                 Building to the nearest point where a highway reaches the
+                 district's boundary (or a highway node inside it) > 150 km.
+                 A district no highway reaches meets (b). Amendment 23.
   (c) town       no "town" over 8,000 people (2021 census) holds >= 2% of its
                  population in the district. Towns: CSD types CY and T, and
                  each specialized municipality's urban service area (its DAs
@@ -37,6 +38,7 @@ from pathlib import Path
 import geopandas as gpd
 import numpy as np
 import pandas as pd
+import shapely
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import dijkstra
 from shapely.geometry import Point
@@ -64,7 +66,9 @@ TOWN_SHARE, RESERVE_SHARE, BORDER_KM = 0.02, 0.10, 1.0
 
 
 def road_km(vas):
-    """Per VA: highway distance (km) from the Legislature to the nearest node within 1 km."""
+    """Per VA: highway distance (km) from the Legislature to the nearest point where a highway
+    crosses into the VA, or to a highway node inside it. A district's distance is the minimum over
+    its VAs: the first point a shortest route reaches inside the district lies on its boundary."""
     h = gpd.read_file(OSM).to_crs(WORK)
     keys, edges = {}, []
     for geom in h.geometry:
@@ -75,17 +79,28 @@ def road_km(vas):
             edges += list(zip(ids[:-1], ids[1:], seg))
     n = len(keys)
     a, b, w = map(np.asarray, zip(*edges))
+    a, b = a.astype(int), b.astype(int)
     g = coo_matrix((w, (a, b)), shape=(n, n)).tocsr()
     xy = np.array(list(keys))
     src = gpd.GeoSeries([Point(LEGISLATURE)], crs=4326).to_crs(WORK).iloc[0]
     start = int(np.argmin(np.hypot(xy[:, 0] - src.x, xy[:, 1] - src.y)))
-    d = dijkstra(g, directed=False, indices=start) / 1000.0
-    nodes = gpd.GeoDataFrame({"d": d}, geometry=gpd.points_from_xy(xy[:, 0], xy[:, 1]), crs=WORK)
-    nodes = nodes[np.isfinite(nodes["d"])]
-    buf = gpd.GeoDataFrame(geometry=vas.geometry.buffer(1000), index=vas.index, crs=WORK)
-    j = gpd.sjoin(nodes, buf, predicate="within")
-    return j.groupby("index_right")["d"].min().reindex(vas.index).fillna(np.inf)
-
+    d = dijkstra(g, directed=False, indices=start)
+    geo = vas.geometry.values
+    best = np.full(len(vas), np.inf)
+    pi, vi = shapely.STRtree(geo).query(shapely.points(xy), predicate="within")
+    np.minimum.at(best, vi, d[pi])
+    segs = shapely.linestrings(np.stack([xy[a], xy[b]], axis=1))
+    bnd = shapely.boundary(geo)
+    si, bi = shapely.STRtree(bnd).query(segs, predicate="intersects")
+    for e, v, cut in zip(si, bi, shapely.intersection(segs[si], bnd[bi])):
+        u, t = a[e], b[e]
+        for p in shapely.get_parts(cut):
+            if shapely.get_type_id(p) != 0:  # points only; a segment lying along a boundary has its ends checked
+                continue
+            px, py = shapely.get_x(p), shapely.get_y(p)
+            dp = min(d[u] + np.hypot(px - xy[u, 0], py - xy[u, 1]), d[t] + np.hypot(px - xy[t, 0], py - xy[t, 1]))
+            best[v] = min(best[v], dp)
+    return pd.Series(best / 1000.0, index=vas.index)
 
 def towns(vas, pts):
     """Per VA: the town it belongs to (by representative point), and each town's 2021 population."""
@@ -198,7 +213,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
     tab, town_pop, res_area, va = va_table()
     print(f"{len(town_pop)} towns over 8,000: " + ", ".join(f"{t} {p:,.0f}" for t, p in sorted(town_pop.items(), key=lambda x: -x[1])))
-    print(f"{len(res_area)} reserves/settlements; VAs with no highway within 1 km: {int(np.isinf(tab['road_km']).sum())}")
+    print(f"{len(res_area)} reserves/settlements; VAs no highway reaches: {int(np.isinf(tab['road_km']).sum())}")
     if a.va_table:
         t = tab.copy()
         t["reserves"] = t["reserves"].apply(lambda r: json.dumps(r) if isinstance(r, dict) else "")
