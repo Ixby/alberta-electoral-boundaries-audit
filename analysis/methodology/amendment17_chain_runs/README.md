@@ -368,3 +368,15 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   the rows are identical to production, and scores the replayed maps with criteria(). chain251 and
   chain150, 5,000 steps each: rows identical to production; 1,000 maps each (every 5th) scored, 0 AC1
   violations, max 4 s.15(2) divisions per map.
+- ~04:00 **Criteria-table diff (cross-check vs registered), district level, three real maps.**
+  tools/diff_s152_tables.py → data/outputs/s152_table_diff.csv. Registered table scored with Audit's
+  criteria(); cross-check table with s152_criteria.py's predicates. 229 criterion differences in 215
+  districts: (c) towns 67/73/70 (2019/majority/minority), (d) reserves 8/5/5, (b) road 1 (2019
+  Bonnyville-Cold Lake-St. Paul: road_km inputs differ), (a) and (e) none.
+  ≥ 3-criteria eligibility differs in 21 districts, every one because the cross-check is looser:
+  (c) T-only lets city districts (Calgary, Lethbridge, Medicine Hat) pass "no town over 8,000" — the
+  case the owner's purposive ruling (Amendment 21) closed; (d) any-touch lets Tsuut'ina/Piikani-adjacent
+  urban districts pass where the registered ≥ 10%-of-area rule does not. No district is eligible under the
+  registered table but not the cross-check. None of the flips is a real-map s.15(2) division (all have
+  ≥ −25% deviation except majority Calgary-North East −39.7% and Calgary-South East −25.5%, which fail
+  under both tables: 1 vs 2 criteria).
