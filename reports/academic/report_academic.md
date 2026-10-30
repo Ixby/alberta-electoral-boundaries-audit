@@ -39,7 +39,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 > **Funding:** This research received no external funding. All costs were borne by the author.
 > **Competing interests:** The author declares no competing interests beyond the relationships disclosed below.
 > **Institutional affiliation:** The author is a student at Mount Royal University. This research was conducted independently and was not commissioned as coursework. The views expressed are the author's own and do not represent Mount Royal University.
-> **Relationships:** The author has worked as a contract election officer for Elections Alberta for about 27 years, administering the vote on election day. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work; every input is public. This research is the author's own, not Elections Alberta's, and does not speak for it. The author has no employment, contractual, or advisory relationship with the Electoral Boundaries Commission or any provincial political party. The author has voted for and donated to both conservative and progressive provincial parties in Alberta as an adult. Neither the NDP nor the UCP has been contacted about this research at any stage, and neither party has had any involvement in or advance knowledge of it. No compensation was received from any party. The only individuals with substantive knowledge of the audit's findings and methodology prior to publication are volunteer reviewers at Mount Royal University; this does not constitute institutional endorsement or involvement by MRU. Elections Alberta's GIS team was made aware of the research through the author's formal shapefile request and provided data access and technical assistance (2026-05-06 and 2026-05-07); Elections Alberta has not been shown the audit's findings or conclusions. The methodology was pre-registered and applied symmetrically to both maps before results were examined.
+> **Relationships:** The author has worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. The author is not under contract now and last worked at a recent election. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work; every input is public. This research is the author's own, not Elections Alberta's, and does not speak for it. The author has no employment, contractual, or advisory relationship with the Electoral Boundaries Commission or any provincial political party. The author has voted for and donated to both conservative and progressive provincial parties in Alberta as an adult. Neither the NDP nor the UCP has been contacted about this research at any stage, and neither party has had any involvement in or advance knowledge of it. No compensation was received from any party. The only individuals with substantive knowledge of the audit's findings and methodology prior to publication are volunteer reviewers at Mount Royal University; this does not constitute institutional endorsement or involvement by MRU. Elections Alberta's GIS team was made aware of the research through the author's formal shapefile request and provided data access and technical assistance (2026-05-06 and 2026-05-07); Elections Alberta has not been shown the audit's findings or conclusions. The methodology was pre-registered and applied symmetrically to both maps before results were examined.
 
 > **Pre-publication status.** This monograph has not been publicly released. Integration of canonical Elections Alberta shapefiles (received 2026-05-06) is ongoing; individual section results may shift as recomputation continues. The codebase is also undergoing cleanup and script-count reduction. Do not cite, quote, or distribute without confirming the current status of the specific finding.
 
@@ -139,16 +139,15 @@ The visualization corrects the geographic distortion produced by whole-riding co
 | `simulation_convergence_diagnostics.py` | Per-chain ESS, ρ\_lag1, Gelman-Rubin R̂ | §5.4.9 |
 | `joint_outlier_score_canonical.py` | Mahalanobis D² joint outlier score | §5.4.9 |
 | `szat.py` | Swing-Zone Allocation Test — boundary-choice EG decomposition | §5.2.10 |
-| `validate_fisher_independence.py` | Spearman correlation between Ch1 and Ch2 channels | §5.4.9 |
+| `validate_fisher_independence.py` | Spearman correlation between Ch1 and Ch2 channels (retired check) | §4.3.3 |
 | `intermap_permutation_test.py` | Directional inter-map partisan-gap permutation test | §5.2.11 |
 | `targeted_gerrymander_burst.py` | UCP-direction hill-climbing upper bound | §5.4.8 |
 | `targeted_gerrymander_burst_ndp.py` | NDP-direction symmetric hill-climbing lower bound | §5.4.8 |
 | `simulation_short_bursts.py` | Short-burst reachability from 2019 baseline | §5.4.8 |
 | `neighbour_drain_adjacency.py` | Packing-cracking adjacency signature (coupled-chain count) | §5.3 |
 | `drain_label_shuffle_null.py` | Label-shuffle permutation null for drain test | §5.3.5 |
-| `historical_eg_baseline.py` | Historical efficiency-gap baseline for Alberta elections | §5.2.9 |
+| `historical_eg_baseline.py` | Historical efficiency-gap baseline for Alberta elections | Supporting |
 | `chen_rodden_alberta.py` | Chen-Rodden geography vs drawing decomposition | §5.2.5 |
-| `ecological_inference.py` | Ecological inference bounds on demographic voting | §5.2.8 |
 | `marginal_seats_analysis.py` | Marginal-seat uniform-swing analysis | §5.2 |
 | `november_tripwires.py` | Pre-registered automated checks for November 91-seat map | §5.5 |
 | `phase_b_scorecard.py` | Lunty committee tripwire detection scorecard (Phase B confirmatory test) | §5.5 |
@@ -164,9 +163,9 @@ The visualization corrects the geographic distortion produced by whole-riding co
 | `polsby_popper.py` | Polsby-Popper compactness for all EDs | §5.8 |
 | `reock.py` | Reock compactness (smallest-enclosing-circle method) | §5.8 |
 | `a1_legal_baseline_2021_census.py` | 2021-census A1 baseline for 2019 enacted map | §5.1 |
-| `s15_ratio_test.py` | EBCA §15(2) population-deviation compliance | §4.1 |
+| `s15_ratio_test.py` | EBCA §15(2) population-deviation compliance | §5.1.4 |
 | `justification_tests.py` | Testable-rationale verification for contested EDs | §5.9 |
-| `score_hybridization.py` | Hybrid-ED (city-splitting) metric | §5.3.5 |
+| `score_hybridization.py` | Hybrid-ED (city-splitting) metric | Supporting |
 | `compactness_metrics.py` | Plan-level compactness summary | §5.8 |
 | `csd_community_splits.py` | CSD-level community-splits overlay | §5.8 |
 | `majority_symmetry_counter_test.py` | Test-selection symmetry counter-test | §5.6 |
@@ -181,7 +180,7 @@ The visualization corrects the geographic distortion produced by whole-riding co
 | `seats_at_50_50_regional.py` | Regional-swing robustness against uniform-swing assumption | H5 |
 | `cross_election.py` | Three-election (2015/2019/2023) direction check | H7 |
 | `third_party_sensitivity.py` | Third-party vote allocation sensitivity | H6 |
-| `attribution_sensitivity_check.py` | MAUP area-weighted attribution sensitivity | §5.4 |
+| `attribution_sensitivity_check.py` | Election-day vs apportioned-ballot substrate: values and ensemble percentiles | §5.4.1 |
 | `monte_carlo_ci.py` | **[RETIRED, C11]** Blend-model Monte Carlo confidence intervals — cannot run since the blend model's retirement broke its import | §1.2, §5.2.2 (historical) |
 | `szat_2019_baseline.py` | SZAT applied to 2019 enacted baseline | §5.2.10 |
 | `score_natural_anchoring.py` | Natural-feature (highway/river) anchoring secondary check | H4 |
@@ -570,7 +569,7 @@ The table below is the canonical lookup for pre-registration status of every qua
 | Ch1 — Mahalanobis joint outlier ([§5.4.9](#sec-5-4-9)) | Seeds committed to Cloudflare drand beacon Round 5500000 before shapefile release; see `analysis/scripts/drand_seed.py` and `docs/FROZEN_MANIFEST.md` | drand seeds predate official shapefile receipt (2026-05-06). Specific test name and combination method not named in OSF. **Exploratory.** |
 | Ch2 — SZAT boundary-choice bootstrap ([§5.2.10](#sec-5-2-10)) | AsPredicted [#289,469](https://aspredicted.org/9zr792.pdf) (filed 2026-05-07; made public 2026-05-07); OSF:6pt83 (filed ~3 h after shapefile commit — cannot be treated as pre-dating the data) | Numerical results were known to the analyst at filing. **Exploratory-reproducible.** |
 | Ch3 — Neighbour-drain adjacency ([§5.3.5](#sec-5-3-5)) | OSF:[r3zm7](https://osf.io/r3zm7/) / AsPredicted #289,451 (filed before shapefile release) | Pre-dates shapefile; the null hypothesis and surrogate-label test design were pre-committed. **Pre-registered confirmatory.** |
-| Bonferroni Ch1 + Ch2 ([§5.4.9](#sec-5-4-9)) — supersedes the earlier Fisher combination | Combination method not pre-registered. The earlier Fisher framing relied on a "ρ = −0.0014" (`analysis/methodology/fisher_independence_defense.md`) independence check that measures correlation across unpaired Monte Carlo streams, not the test-statistic dependence under the null map distribution; retired 2026-06-10 and confirmed retired 2026-06-12 per T1.7 R2 Ref #1. The Bonferroni dependence-robust upper bound (p ≤ 1.76×10⁻⁶, updated 2026-07-12 per C10) is the audit's joint headline. | **Exploratory.** |
+| Bonferroni Ch1 + Ch2 ([§5.4.9](#sec-5-4-9)) — supersedes the earlier Fisher combination | Combination method not pre-registered. The earlier Fisher framing relied on a "ρ = −0.0014" (`analysis/scripts/validate_fisher_independence.py`; `analysis/methodology/fisher_independence_defense.md`) independence check that measures correlation across unpaired Monte Carlo streams, not the test-statistic dependence under the null map distribution; retired 2026-06-10 and confirmed retired 2026-06-12 per T1.7 R2 Ref #1. The Bonferroni dependence-robust upper bound (p ≤ 1.76×10⁻⁶, updated 2026-07-12 per C10) is the audit's joint headline. | **Exploratory.** |
 | B7 — Intermap permutation test ([§5.2.11](#sec-5-2-11)) | OSF:[yvc7g](https://osf.io/yvc7g/) (filed 2026-05-10; drand seed 1823538405 derived from beacon round 5500000, which does predate shapefile receipt) | Post-dates shapefile receipt (2026-05-06) and the canonical ensemble run (see `analysis/methodology/intermap_permutation_design.md` §AV6). Methodology and direction were specified before the test executed. **Pre-registered relative to execution; not prospective relative to data.** (Corrected 2026-07-08: this row previously read "Pre-dates shapefile. Pre-registered." — contradicting the Abstract's 2026-06-12 disclosure and the design doc's own timeline.) |
 | Municipal anchoring ([§5.8.5](#sec-5-8-5)) | OSF:[s58a6](https://osf.io/s58a6/) (filed 2026-05-10) | Post-dates shapefile receipt (2026-05-06); documents drand-pinned seeds and channel directions rather than prospective test definitions (see Abstract disclosure). Finding subsequently retracted on canonical geometry (both maps within 70–85% Canadian norm). (Corrected 2026-07-08: this row previously read "Pre-dates shapefile" — the registration table in `reports/academic/data_supplement.md` records the 2026-05-10 filing date.) |
 | November 2026 Lunty-committee 91-seat scorecard ([§5.5](#sec-5-5) prospective) | OSF:[qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455 (filed 2026-05-07; made public 2026-05-07); locked to drand beacon Round 6062459 (2026-04-27) | Data (the committee map) does not exist yet at filing. **Prospective pre-registered confirmatory.** |
@@ -770,7 +769,7 @@ An earlier draft of this section used incorrect thresholds at (a), (b), and (c).
 | Lesser Slave Lake (minority) | −45.4% | 4 | Pass |
 | Rocky Mountain House-Banff Park (minority) | −30.3% | 4 or 5 (b borderline) | Pass |
 
-All six §15(2) invocations across both maps pass the 3-of-5 statutory threshold under the correct thresholds (Rocky Mountain House-Banff Park: 4 or 5 criteria depending on the criterion-(b) reading — see [§5.1.5](#sec-5-1-5)).
+All six §15(2) invocations across both maps pass the 3-of-5 statutory threshold under the correct thresholds (Rocky Mountain House-Banff Park: 4 or 5 criteria depending on the criterion-(b) reading — see [§5.1.5](#sec-5-1-5)). The per-ED classification for both maps is produced by `analysis/scripts/s15_ratio_test.py` (`findings/s15_deviation_compliance.csv`).
 
 - **Canmore-Banff (majority, 3/5).** (a) area likely fails; commission does not claim it. (b) passes (Canmore ~390 km from the Legislature). (c) fails — Canmore 15,990, Banff townsite 8,305 (StatCan 2021 Census). (d) passes — commission places Stoney Nakoda (Morley), Eden Valley 216, and other reserves inside the ED. (e) passes — BC border. Statutorily legitimate at the 3/5 minimum.
 - **Rocky Mountain House-Banff Park (minority, 5/5).** (a) passes — Clearwater County alone is 18,692 km²; the ED adds Mountain View W., Bighorn MD, Rocky View W., and Banff NP north of the Town of Banff. (b) passes — Rocky Mountain House is ~215 km from Edmonton by road. (c) passes — largest town is Rocky Mountain House at 6,765 (StatCan 2021); Banff townsite is not in this ED. (d) passes — commission names five reserves inside (Big Horn 144A, O'Chiese 203, Stoney 142/143/144, Stoney 142B, Sunchild 202). (e) passes — NP extension reaches BC.
@@ -1335,7 +1334,7 @@ A Markov Chain Monte Carlo (MCMC) ensemble was run to place each of the three re
 
 **Election-Day-only vote coverage (ES-13; apportioned-ballot sensitivity recomputed 2026-06-12 per T1.7 R1 Ref #2 D28).** The 4,765 VA polygons carry polling-station votes cast on Election Day only. Advance polls, mail-in ballots, and special ballots — approximately 47.2% of 2023 two-party (UCP+NDP) votes province-wide. The Election-Day share was approximately 52.8% in 2023 — are not geographically assigned at the VA level by Elections Alberta and are therefore absent from the MCMC substrate. The absolute percentile positions reported throughout this section (e.g., Minority 2026 EG at p94.54 in the 1.01M canonical ensemble) reflect the Election-Day vote geography.
 
-**Apportioned-ballot sensitivity (T1.16 closed 2026-06-12).** Using `va_polygons_with_full_2023_votes.gpkg`'s `va_ucp_full` / `va_ndp_full` columns (election-day plus apportioned advance/mobile/special ballots; 1.54M of 1.71M two-party votes; Vote Anywhere excluded; UCP 55.3%), the per-map partisan-bias values shift but **direction holds on all four metrics on both maps**:
+**Apportioned-ballot sensitivity (T1.16 closed 2026-06-12).** Using `va_polygons_with_full_2023_votes.gpkg`'s `va_ucp_full` / `va_ndp_full` columns (election-day plus apportioned advance/mobile/special ballots; 1.54M of 1.71M two-party votes; Vote Anywhere excluded; UCP 55.3%), the per-map partisan-bias values shift but **direction holds on all four metrics on both maps** (`analysis/scripts/attribution_sensitivity_check.py`; `data/outputs/attribution_sensitivity_check.json`):
 
 | Map | Metric | Election-day only | Apportioned-ballot substrate | Δ |
 |---|---|---:|---:|---:|

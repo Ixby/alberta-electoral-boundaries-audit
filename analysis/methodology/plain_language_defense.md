@@ -146,9 +146,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, administering the vote on election day. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. Every input is public.
+**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. The author is not under contract now and last worked at a recent election. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. Every input is public.
 **Why?** Doesn't working for Elections Alberta create a conflict?
-**Answer:** The audit tests maps drawn by the Electoral Boundaries Commission and the MLA committee. Elections Alberta runs elections; its Chief Electoral Officer advises and assists the commission, but does not draw the boundaries. The author's work was running polls on election day, not boundary or policy work, and none of the audit's data or reasoning comes from it. It is disclosed so readers can weigh it for themselves.
+**Answer:** The audit tests maps drawn by the Electoral Boundaries Commission and the MLA committee. Elections Alberta runs elections; its Chief Electoral Officer advises and assists the commission, but does not draw the boundaries. The author's work was running polls on election day, not boundary or policy work, and none of the audit's data or reasoning comes from it. The one data set Elections Alberta supplied directly, the official 2026 boundary shapefiles, came through a formal data request in May 2026 and is published with the audit. It is disclosed so readers can weigh it for themselves.
 
 ---
 

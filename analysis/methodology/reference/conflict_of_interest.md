@@ -21,7 +21,9 @@ by the author.
 conservative and progressive provincial parties in Alberta as an adult.
 
 **Relationships.** The author has worked as a contract election officer for
-Elections Alberta for about 27 years, administering the vote on election day.
+Elections Alberta for about 27 years, election by election, administering the
+vote on election day. The author is not under contract now and last worked at
+a recent election.
 The author has had no other employment with Elections Alberta, has no
 knowledge of its work beyond those tasks, and drew nothing in this audit from
 that work; every input is public. This research is the author's own, not
