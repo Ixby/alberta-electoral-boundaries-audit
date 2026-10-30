@@ -14,10 +14,10 @@ type: project
 
 # Pre-registration amendment log
 
-**Registration:** Pre-registered signature-detection checklist for the Alberta MLA Special Select Committee's electoral boundary map.  
+**Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27.
+**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29.
 
 ---
 
@@ -29,6 +29,18 @@ type: project
 | 2026-04-26 AM | Amendment 2 | Methodology evolution since 04-23 | MCMC enlargement 100k→2M (C1); short-bursts test (C2); rural analysis (C3); 89-of-89 attribution (C4); v0_7→v0_8 (C5); five test-result revisions (C6–C11) |
 | 2026-04-26 PM | Amendment 3 | Gemini code audit — 9 pipeline bugs, 3 critical | Bug-fix remediation record; interim claim revision; 2M ensemble rescinded in postscript |
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
+| 2026-06-12 | Amendments 5–7 | Numbering reconciliation | See entry |
+| 2026-06-10 | Amendment 8 | November scoring spec | S2 metric clarification |
+| 2026-06-11 | Amendment 9 | November structural-lane threshold rule | Midpoint anchoring |
+| 2026-06-12 | Amendment 10 | Declination sign convention | Correction |
+| 2026-06-12 | Amendment 11 | Spec §1 ↔ §3 | Alignment |
+| 2026-06-12 | Amendment 12 | Spec §6 pinning | Self-invalidating pin retired; phantom Amendment 11 entry retired |
+| 2026-07-10 | Amendment 13 | Forest-ReCom Phase A | Post-registration code changes |
+| 2026-07-11 | Amendment 14 | Publication path | One HTML rendering |
+| 2026-07-12 | Amendment 15 | Second ensemble defect | Canonical ensemble scrapped and rerun |
+| 2026-10-29 | Amendment 16 | Test X1 (Recommendation 5) | Written scoring rule |
+| 2026-10-29 | Amendment 17 | November scoring | Size-matched neutral maps; X1 (a)/(b) rule; three added tests |
+| 2026-10-29 | Amendment 18 | Errata | Citations, labels and stale status lines in registered documents |
 
 ---
 
@@ -716,3 +728,39 @@ has, without replacing the headline.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 18:20 MDT
+
+---
+
+### Amendment 18 — Errata in registered documents (2026-10-29)
+
+> **Status: in force.** Signed 2026-10-29 18:30 MDT. Corrects citations, labels
+> and stale status lines. No test, threshold, rule or registered value changes.
+
+Each item was found by the swarm audit (`analysis/review/swarm_audit_2026-10-29.md`)
+and checked against its primary source before editing.
+
+- `preregistration/thresholds.md`: the ±25% band is cited as EBCA § 15(1), not
+  § 14 (§ 14 is the factors clause; the Act's text is in
+  `preregistration/terms_of_reference.md`). Option C (#41) is shown as complete
+  (it finished 2026-05-12), so the count is 41 real thresholds, not 40. The
+  s.15(2) area note now says the official shapefiles arrived 2026-05-06 and the
+  area figures are still taken from the commission's text. The Option D row
+  and paragraph give the values after the July 12 rerun (minority p94.54,
+  majority p16.52, median +1.63%, n_eff 1,413–1,522). The row and the
+  paragraph now mark +4.10% as the registered threshold and give the rerun
+  ensemble's 95th percentile, +4.08%, beside it. The threshold does not move.
+- `preregistration/retraction_conditions.md`: the commission's rules are in the
+  Electoral Boundaries Commission Act, not the Electoral Divisions Act; an
+  uncited § 16 is dropped; Government Motion 37 replaces "Motion 19".
+- `preregistration/seed_commitments.md`: the canonical ensemble is 1,010,000
+  plans, not 100k.
+- `preregistration/README.md`: `seed_issue14.md` is the Issue #14 counter-map
+  seed (OSF submission pending), not the canonical ensemble's.
+- This log: the committee's name and the header's amendment list and table.
+
+**Left as registered:** `preregistration/november_2026_scoring_spec.md` calls the
+committee the "Special Select Committee". The file is pinned by SHA-256
+(`seed_commitments.md`, current pin `2110548c…`), so the inverted name stays.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 18:30 MDT
