@@ -22,14 +22,14 @@ ensemble tests.
 
 | Script | Salt string | drand seed committed | OSF registration | OSF form timing |
 | --- | --- | --- | --- | --- |
-| `mcmc_ensemble_canonical.py` (100k canonical ensemble) | `"mcmc_ensemble_250k"` | 2026-04-27 | [OSF qsgy8](https://osf.io/qsgy8) | Predates EA shapefiles |
+| `mcmc_ensemble_canonical.py` (1,010,000-plan canonical ensemble) | `"mcmc_ensemble_250k"` | 2026-04-27 | [OSF qsgy8](https://osf.io/qsgy8) | Predates EA shapefiles |
 | `szat.py` (SZAT bootstrap) | `"szat-bootstrap"` | 2026-04-27 | [OSF 6pt83](https://osf.io/6pt83) | ~3 hours after szat.py first ran (2026-05-06); seed predates shapefiles by 9 days |
 
 ---
 
 ## Why `mcmc_ensemble_canonical.py` uses the salt `"mcmc_ensemble_250k"`
 
-The canonical 100k ensemble inherits the salt from the earlier DPG-based 250k
+The canonical 1,010,000-plan ensemble inherits the salt from the earlier DPG-based 250k
 ensemble. This is intentional and documented in the code:
 
 ```python

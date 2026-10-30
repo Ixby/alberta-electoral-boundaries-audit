@@ -66,7 +66,7 @@ The 48-hour meta-commitment is **internal discipline**, not externally pre-regis
 
 ### 2.3 B5 MCMC ensemble — minority map as outlier (canonical 2026-07-12: mean-median p99.97 / declination p98.79)
 
-- **Retraction condition A (ReCom-Ghost attack).** The ReCom ensemble samples from a universe of compact-contiguous maps. A human commission operating under the Alberta Electoral Divisions Act uses path-dependent negotiation from the 2019 baseline, which explores a DIFFERENT universe. If a **local-perturbation MCMC chain** (seeded at the 2019 enacted partition, with step sizes restricted to what a human commissioner would realistically negotiate — single-boundary moves, population-target-preserving swaps, COI-preserving proposals) places the minority map's mean-median and declination INSIDE that chain's 5–95 band, the percentile flags are retracted under the local-perturbation reading. The two readings are then reported as a cross-ensemble disagreement akin to the §5.2.7 cross-method disagreement.
+- **Retraction condition A (ReCom-Ghost attack).** The ReCom ensemble samples from a universe of compact-contiguous maps. A human commission operating under the Alberta Electoral Boundaries Commission Act uses path-dependent negotiation from the 2019 baseline, which explores a DIFFERENT universe. If a **local-perturbation MCMC chain** (seeded at the 2019 enacted partition, with step sizes restricted to what a human commissioner would realistically negotiate — single-boundary moves, population-target-preserving swaps, COI-preserving proposals) places the minority map's mean-median and declination INSIDE that chain's 5–95 band, the percentile flags are retracted under the local-perturbation reading. The two readings are then reported as a cross-ensemble disagreement akin to the §5.2.7 cross-method disagreement.
 - **Retraction condition B (Constraint-Bound Expectation rename).** The "ensemble median" / "geometric baseline" language is replaced throughout the paper with **"constraint-bound expectation"** to defuse the Geographic-Neutrality-Myth critique. The percentile flags remain under their original computation, but the narrative no longer equates the ensemble median with "Neutral" or "Fair." Already committed in §5.2.5 (absolute Chen-Rodden). Extension to §5.4 is a commitment under this document.
 
 ### 2.4 Absolute-level Chen-Rodden decomposition — minority seats@50 drawing component +5.75 pp
@@ -122,7 +122,7 @@ The 48-hour meta-commitment is **internal discipline**, not externally pre-regis
 ### 4.3 §5.8.5 Municipal + DA anchoring (71/14.5 % v0_4; 79.6/16.5 % v0_5; ratio 4.9×→5.1×)
 
 - **Retraction condition A.** If the official 2026 shapefiles (official disclosure) show that the minority's boundaries actually follow CSD or DA edges that our DPG trace missed (i.e., our trace was wrong, not the minority's drawing), the recomputed anchoring percentages increase for the minority and the ratio collapses toward 1×.
-- **Retraction condition B (Trade-off Frontier — Statutory Silence counter-strike).** If a third-party or subsequent audit produces a "Symmetric-Airdrie" counter-map (equal COI preservation under Alberta Electoral Divisions Act §14 + §15 + §16, but with majority-symmetric anchoring), the minority's 14.5 % anchoring is no longer defensible as the only map that achieves the COI preservation it claims. The finding stands against the null alternative (no counter-map exists) and would be retracted against a successful alternative.
+- **Retraction condition B (Trade-off Frontier — Statutory Silence counter-strike).** If a third-party or subsequent audit produces a "Symmetric-Airdrie" counter-map (equal COI preservation under the Alberta Electoral Boundaries Commission Act §§ 14–15, but with majority-symmetric anchoring), the minority's 14.5 % anchoring is no longer defensible as the only map that achieves the COI preservation it claims. The finding stands against the null alternative (no counter-map exists) and would be retracted against a successful alternative.
 
 ## 5. Procedural findings (§5.9)
 
@@ -132,7 +132,7 @@ The 48-hour meta-commitment is **internal discipline**, not externally pre-regis
 
 ### 5.2 §5.9 April 16, 2026 procedural departure
 
-- **Retraction condition.** The procedural finding is factual (Motion 19 tabled, committee composition documented) and is not retractable at the evidentiary level. The *interpretation* (that it is a departure from Canadian independent-commission norms) is retractable if a Canadian comparator is produced showing a similar legislative override of an independent commission's draft process, pre-dating Alberta 2026. The Canadian base-rate analysis (`analysis/methodology/canadian_base_rate_computed.md` §7A) currently classifies Alberta 2026 as the most-government-controlled response in the three-case comparator set; a fourth case with similar override would reduce this to "one of several."
+- **Retraction condition.** The procedural finding is factual (Government Motion 37 introduced April 16 and passed April 21, 2026; committee composition documented) and is not retractable at the evidentiary level. The *interpretation* (that it is a departure from Canadian independent-commission norms) is retractable if a Canadian comparator is produced showing a similar legislative override of an independent commission's draft process, pre-dating Alberta 2026. The Canadian base-rate analysis (`analysis/methodology/canadian_base_rate_computed.md` §7A) currently classifies Alberta 2026 as the most-government-controlled response in the three-case comparator set; a fourth case with similar override would reduce this to "one of several."
 
 ## 6. DPG-dependent findings (all)
 
@@ -181,7 +181,7 @@ Four concrete items the audit takes on by publishing this retraction pathway:
 
 1. **Rename "ensemble median" / "neutral map" → "constraint-bound expectation"** in `report_academic.md` §5.4 and §5.2.5 in the next commit.
 2. **Execute the local-perturbation MCMC chain** as a new issue (Issue #13, to be filed). Seeded at 2019 enacted, restricted to single-boundary moves + population-target-preserving swaps + COI-preserving proposals. ~2-3 days implementation + ~90 min compute.
-3. **File the Trade-off Frontier as Issue #14**: a counter-map challenge — invite external contributors to produce a "Symmetric-Airdrie" alternative meeting Alberta Electoral Divisions Act §14-§16 obligations with lower §5.8.5 anchoring asymmetry. Document the specifications for such a counter-map so the challenge is concrete.
+3. **File the Trade-off Frontier as Issue #14**: a counter-map challenge — invite external contributors to produce a "Symmetric-Airdrie" alternative meeting Alberta Electoral Boundaries Commission Act §§ 14–15 obligations with lower §5.8.5 anchoring asymmetry. Document the specifications for such a counter-map so the challenge is concrete.
 4. **File the voter-elasticity model as Issue #15** — not executable today without historical-elasticity data; pre-registered as a future extension whose execution could retract the §5.2 partisan-bias direction claim.
 
 ---
