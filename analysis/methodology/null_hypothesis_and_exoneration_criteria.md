@@ -26,7 +26,7 @@ This document is the authoritative lookup for what each test in the audit batter
 
 | Test | Null hypothesis | Pass/fail threshold | Pre-registration | Status |
 |---|---|---|---|---|
-| A1 — Population MAD | Minority MAD ≤ majority MAD (no systematic population-dispersion asymmetry) | Minority MAD > majority MAD constitutes a directional finding; magnitude ≥ 10% gap considered non-trivial | Not pre-registered (structural, no OSF) | **Active finding**: minority 3,938 vs majority 2,827 (48% wider) |
+| A1 — Population MAD | Minority MAD ≤ majority MAD (no systematic population-dispersion asymmetry) | Minority MAD > majority MAD constitutes a directional finding; magnitude ≥ 10% gap considered non-trivial | Not pre-registered (structural, no OSF) | **Active finding**: minority 3,938 vs majority 2,827 (39% wider; 48% on the commission tables, 4,707 vs 3,180) |
 | A2 — Calgary zone asymmetry | Minority and majority Calgary zone asymmetries fall within 1 pp of each other | ≥ 10 pp difference constitutes a packing signal | Not pre-registered (structural) | **Active finding**: 12.2% minority vs 0.4% majority |
 | A3 — s.15(2) eligibility audit | Each commission-invoked s.15(2) exception satisfies all criteria in the Alberta EBCA | Any invoked exception that fails a statutory criterion constitutes a procedural finding | Not pre-registered (statutory, not statistical) | See `findings/population_equality.md` |
 
@@ -55,7 +55,7 @@ This document is the authoritative lookup for what each test in the audit batter
 |---|---|---|---|---|
 | Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.87, p = 4.61×10⁻⁸ (historical). See note below the table. |
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 
 ### Ch3 — Neighbour drain (pre-registered)
 

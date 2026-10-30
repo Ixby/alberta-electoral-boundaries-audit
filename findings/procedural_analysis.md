@@ -28,7 +28,7 @@ This is materially identical to how every other Canadian province with a provinc
 
 The Alberta model is actually slightly *more* pluralistic than neighbouring provinces (BC, Saskatchewan) because it adds explicit partisan-nominated members on both sides rather than relying on the judiciary + Lt-Gov chain alone. This is a strength of the original Act: disagreements are expected and institutionalized.
 
-**The April 16, 2026 departure.** On April 16, 2026, the provincial government formally rejected the majority report and established an MLA committee chaired by Brandon Lunty (UCP) to oversee a new advisory panel, with a report-back date of November 2, 2026. An MLA committee with a government-caucus majority and a government-chair is a categorically different body from the independent commission. Under the standard Canadian framework:
+**The April 16, 2026 departure.** On April 16, 2026, the provincial government introduced Government Motion 37; passed April 21, it set the majority report aside and established a six-MLA committee chaired by Brandon Lunty (UCP) to oversee a new advisory panel, with a report-back date of November 2, 2026. An MLA committee with a government-caucus majority and a government-chair is a categorically different body from the independent commission. Under the standard Canadian framework:
 
 - The commission's independence is what gives its output the legitimacy to bind the electoral map.
 - A government-majority committee reviewing or overwriting the commission's output introduces partisan discretion at precisely the point where neutrality is most needed.
@@ -38,7 +38,7 @@ The April 16 action is not, by itself, a violation of the Act — a commission r
 
 ## D2 — Public input alignment
 
-**Baseline.** The commission received **~1,340 written submissions** during its public consultation phase in 2025. Submissions were published on the commission's website; public hearings were held in Calgary, Edmonton, Red Deer, Grande Prairie, Lethbridge, Medicine Hat, Fort McMurray, and Lloydminster.
+**Baseline.** The commission received **~1,340 written submissions** during its public consultation phase in 2025. Submissions were published on the commission's website; the commission held 28 public hearings in 16 locations before the interim report, plus two virtual hearings, and further hearings after it (commission report p. 14).
 
 **Majority report's claim.** The majority report (accepted by the chair and opposition-nominated members) states in Appendix C that the minority's hybrid configurations for **Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert had no public support in the consultation record.** This is a checkable claim — the submissions are public — but independent verification requires downloading and text-searching the commission's submission archive, which is outside the token budget of this Phase 3 desk pass. The claim is on record in a document signed by the chair (an appointed judicial officer) and is subject to professional-responsibility norms. Treat as prima facie credible pending independent verification.
 
@@ -46,7 +46,7 @@ The April 16 action is not, by itself, a violation of the Act — a commission r
 
 ## D3 — Procedural fairness (interim → final)
 
-**Interim report (October 28, 2025).** Earlier drafts described the interim report as "unanimous"; that description came from a drafting prompt and is unverified. The interim report is a consultation document, published for public comment before the final report.
+**Interim report (October 28, 2025).** The interim report is a consultation document, published for public comment before the final report.
 
 **Final report (March 23, 2026).** Five months after the interim report, the commission split 3–2 with a majority and minority report. The majority largely extends the interim framework with adjustments responsive to the ~1,340 submissions; the minority departs from the interim framework in several specific ways — most notably the Airdrie 4-way split, the Nolan Hill-Cochrane hybrid, and the Rocky Mountain House-Banff Park extension documented in Sections A and C.
 
@@ -77,7 +77,7 @@ This last point is the material difference. BC 2008 did not substitute a new gov
 
 ## Symmetric Assessment
 
-On procedural grounds, the commission itself operated normally: five members, standard appointment, unanimous interim, divided final — exactly the process the Act contemplates. The three commissioners who signed the majority and the two who signed the minority both acted within their role.
+On procedural grounds, the commission itself operated normally: five members, standard appointment, an interim report published for comment, divided final — exactly the process the Act contemplates. The three commissioners who signed the majority and the two who signed the minority both acted within their role.
 
 The procedural-fairness concern is not about the commission's work. It is about the **government's April 16 response** to the commission's work:
 

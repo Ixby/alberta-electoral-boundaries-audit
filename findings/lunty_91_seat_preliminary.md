@@ -32,7 +32,7 @@
 |---|---|---|---|
 | F1 | Commission Chair Dallas Miller filed an addendum to the majority 89-seat report recommending 91 seats, conditional on the legislature not accepting the majority report. Rationale: Alberta population grew ~20% since the 2017 report; Miller's stated concern was that the majority report effectively lost two rural ridings. | Rimbey Review | 2026-04-16 |
 | F2 | The Alberta government motioned to set aside the commission's majority 89-seat report and strike a select MLA committee to consider 91-seat boundaries. Committee is to receive advice from an independent advisory panel and report by Nov 2, 2026. | CBC (Alberta committee) | 2026-04-15/16 |
-| F3 | Motion passed 44–36 in favour. UCP MLA Brandon Lunty chairs the committee. | CBC (boundaries committee motion); The Albertan | 2026-04-16 |
+| F3 | Government Motion 37 passed April 21, 2026 (vote count unverified). UCP MLA Brandon Lunty chairs the committee. | Assembly committee page; Calgary Journal | 2026-04-21 |
 | F4 | NDP response: Leader Naheed Nenshi called rejecting the commission's report "gerrymandering … a full-on assault on our democracy." MLA Rakhi Pancholi: "Changing electoral boundaries to give their own party an advantage is gerrymandering." | DiscoverAirdrie | 2026-04-17 |
 | F5 | Elections Alberta warned the timeline will be "very challenging" — boundary changes need to be in place ≥18 months before a general election; next Alberta general election is fall 2027. | CBC (Elections Alberta) | 2026-04-16 |
 | F6 | The *89-seat* majority report allocates: Calgary +2 (Calgary-Nose Creek, Calgary-Confluence, Calgary-McKenzie; Calgary-Peigan eliminated), Edmonton +1, rural seats consolidated (two rural ridings effectively absorbed). | Global News | 2026-03-26 |
@@ -210,8 +210,9 @@ the audit's §D (Procedural) section:
   April 21, 2026): Hon. Monte Solberg and Darwin Durnie (Premier's
   nominees) and Dr. Gerard Kennedy and Brent Robinson (Opposition
   nominees). The fifth seat — a sitting or retired judge to serve as
-  chair — went unfilled after Alberta's acting chief justice declined to
-  nominate one. Terms of reference not yet published.
+  chair — was initially unfilled after Alberta's acting chief justice
+  declined to circulate a call for a judicial chair; retired Court of
+  Appeal justice Brian O'Ferrall was named chair in early June 2026. Terms of reference not yet published.
 - If and when a 91-seat map is tabled, rerun:
   - LH index on the full 91-seat allocation,
   - the rural-mean gap script (`rural_gap_dissection.py`) against the

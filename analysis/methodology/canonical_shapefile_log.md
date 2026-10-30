@@ -46,7 +46,7 @@ The §4.1.4 sunset clause was triggered on receipt and resolved in two stages:
 
 The sunset-clause window itself was originally posted as 48 hours and relaxed to two weeks in Amendment 2 Change 11 (2026-04-26); see `findings/pre_registration_amendment_log.md` Change 11 for the disclosed reason (solo researcher without monitoring automation). The clause is **in-repo discipline, not externally pre-registered** — the four OSF dossiers contain `dpg2_experiment_plan.md` + `drain_v2_plan.md`; neither specifies a timeline.
 
-The November 2026 committee-map trigger remains open pending the Lunty Special Select Committee's report. Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release per Amendment 2 Bucket C.
+The November 2026 committee-map trigger remains open pending the report of the Select Special Committee on Electoral Boundaries (the Lunty committee). Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release per Amendment 2 Bucket C.
 
 ---
 

@@ -16,8 +16,8 @@ methodology, pre-registration chain, results, and anticipated reviewer objection
 **Pre-registration:** OSF [yvc7g](https://osf.io/yvc7g), git ba0e686, drand seed
 1823538405 (salt "ch1-comp").
 
-**Result:** SUPPORTED at classical threshold on both versions. V-A p = 0.0303;
-V-B p = 0.0001.
+**Result:** SUPPORTED at classical threshold on both versions. V-A p = 0.0348;
+V-B p = 0.0002.
 
 **Script:** `analysis/scripts/intermap_permutation_test.py`
 **Output:** `findings/intermap_permutation_test_results.json` + `.md`
@@ -152,11 +152,13 @@ confirmation.
 The observed D = 7.19 is 4.61 null-SD above the null mean — well outside the null
 distribution. This result is not marginal.
 
-*(Update 2026-07-08: the values in §4.3–§4.4 are the round-1 execution record against the
-250k v0_9 ensemble. The T1.6 canonical rescore against the 1,010,000-plan ensemble
-(2026-06-12) gives inter-map D = 7.17, p = 9.999×10⁻⁵ (1/10,001), with individual
-positions minority D = 5.72 / majority D = 2.80 — same conclusion at slightly shifted
-values; see `reports/academic/report_academic.md` §5.4.9 and
+*(Note: the values in §4.2–§4.3 and the §4.4 prose are the round-1 execution record against the
+250k v0_9 ensemble. The canonical rescore against the 1,010,000-plan ensemble
+gives Version A p = 0.0348 (null 95th percentile 3.54 pp, SD 2.17 pp) and inter-map
+D = 7.20, p = 0.0002 (null 95th percentile 4.37), with individual positions
+minority D = 5.80 / majority D = 2.78 — same conclusion at slightly shifted
+values; see `reports/academic/report_academic.md` §5.4.9,
+`findings/intermap_permutation_test_results.json` and
 `findings/joint_outlier_score.json`. The round-1 numbers are preserved here as the
 as-executed record.)*
 

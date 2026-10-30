@@ -637,7 +637,7 @@ with the following and adding subsections (6) and (7):
 > subsection (3) or (4), provided that
 >
 > (a) the Commission computes the provincial quota, the variance
-> band under section 14, and the eligibility thresholds under
+> band under section 15(1), and the eligibility thresholds under
 > section 15(2) using the information referred to in subsection (3)
 > or (4) as the primary basis; and
 >
@@ -667,18 +667,18 @@ with the following and adding subsections (6) and (7):
 > source on which it has in fact relied.
 >
 > **12 (7)** For greater certainty, the variance band in section
-> 14 and the eligibility thresholds in section 15(2) are not
+> 15(1) and the eligibility thresholds in section 15(2) are not
 > varied by the use of more recent information under subsection
 > (5).
 
 **Consequential amendments.**
 
-- **§14 (population-equality window).** Add "computed in accordance
+- **§15(1) (population-equality window).** Add "computed in accordance
   with section 12(5)(a)" after "average population of all the
   proposed electoral divisions" in the 25% deviation rule.
 - **§15(2) (exceptions).** Add "computed in accordance with
   section 12(5)(a)" to the eligibility threshold language.
-- **§13 (Commission's final report).** Add a requirement that the
+- **§8(1) (Commission's final report).** Add a requirement that the
   report include the disclosure statement under §12(6).
 
 **Fit with 2026 practice.** Under Option A, the 2025–26
@@ -729,9 +729,9 @@ status, which under Option A is the census.
 >
 > (a) the total population of Alberta;
 >
-> (b) the provincial quota under section 14;
+> (b) the provincial quota under section 15(1);
 >
-> (c) the variance band under section 14; and
+> (c) the variance band under section 15(1); and
 >
 > (d) the per-electoral-division populations used to assess each
 > proposed electoral division against the variance band and the
@@ -770,17 +770,17 @@ status, which under Option A is the census.
 > composite basis, so that a reader can compare the two.
 >
 > **(7)** Where the legal-window status of a proposed electoral
-> division under section 14 or section 15(2) would differ on the
+> division under section 15(1) or section 15(2) would differ on the
 > composite basis from the decennial census, the Commission's
 > final report shall identify the division and explain its choice
 > of basis.
 
 **Consequential amendments.**
 
-- **§13 (Commission's final report).** Expand to require
+- **§8(1) (Commission's final report).** Expand to require
   publication of the composite-basis data, the census data, and
   the reconciliation statement under §12(5) and §12(7).
-- **§14 (population-equality window).** Clarify that the ±25%
+- **§15(1) (population-equality window).** Clarify that the ±25%
   window is applied to the composite basis.
 - **§15(2) (exceptions).** Clarify that the eligibility
   thresholds are applied to the composite basis.

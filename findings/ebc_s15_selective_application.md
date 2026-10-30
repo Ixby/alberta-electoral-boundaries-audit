@@ -22,7 +22,7 @@
 
 Section 15(2) of the *Electoral Boundaries Commission Act*, RSA 2000, c E-3 reads:
 
-> "The Commission **may have** an electoral division whose population varies from the average population of all proposed electoral divisions by more than 25% and as much as 50% below the average, **if the Commission is of the opinion** that the electoral division should be established and at least 3 of the following criteria apply to the electoral division..."
+> "(2) Notwithstanding subsection (1), in the case of no more than 4 of the proposed electoral divisions, **if the Commission is of the opinion** that at least 3 of the following criteria exist in a proposed electoral division, the proposed electoral division **may have** a population that is as much as 50% below the average population of all the proposed electoral divisions: ..."
 
 The five criteria are:
 - **(a)** Area exceeds 20,000 km² OR total surveyed area exceeds 15,000 km²
@@ -120,7 +120,7 @@ This audit does not claim intent. The asymmetry in effect is observable from the
 
 ## 8. Lunty Committee Implications
 
-The April 16, 2026 Legislative Assembly motion (Motion 19) set aside both commission reports and established a Special Select Committee of MLAs (colloquially "the Lunty committee," after its chair Brandon Lunty, UCP MLA for Leduc-Beaumont) to draw a 91-seat map by November 2, 2026. The committee has three UCP and two NDP members; it is not required to hold public hearings.
+Government Motion 37 (introduced April 16, passed April 21, 2026) set aside both commission reports and established the Select Special Committee on Electoral Boundaries, a committee of six MLAs (colloquially "the Lunty committee," after its chair Brandon Lunty, UCP MLA for Leduc-Beaumont) to draw a 91-seat map by November 2, 2026. The committee has four UCP and two NDP members; it is not required to hold public hearings.
 
 The Lunty committee will face the same §15(2) decisions as the commission — including whether to protect Lesser Slave Lake and its 14 First Nations and Métis communities. There is no statutory mechanism requiring the committee to apply §15(2) consistently across similarly situated ridings. The committee's majority is UCP; Lesser Slave Lake is a near-parity (50/50 on election day in the northern cluster) riding whose elimination benefits UCP arithmetic under any merger scenario. These facts do not constitute a finding; they constitute a context that this audit has an obligation to note.
 
@@ -129,7 +129,7 @@ The Lunty committee will face the same §15(2) decisions as the commission — i
 ## 9. Recommended Report Language
 
 **Academic report (§5.1.5 — new section):**
-See §5.1.5 to be written. Core elements: provision text, discretionary nature, six invocations, the asymmetric COI effect, the commission chair's "bad faith" quote as primary source, the constitutional dimension (§14 COI mandate + s.35 Charter), and the Lunty committee context.
+See §5.1.5 to be written. Core elements: provision text, discretionary nature, six invocations, the asymmetric COI effect, the commission chair's "bad faith" quote as primary source, the constitutional dimension (§14 COI mandate + s.35 of the Constitution Act, 1982), and the Lunty committee context.
 
 **Public report (addition to "The Invisible Part"):**
 The commission did more than miss a data gap. When it came time to decide whether to protect Lesser Slave Lake — the riding that includes those invisible-vote communities — the commission reversed itself only after 80+ public submissions. And while Indigenous communities were fighting to be seen, the minority report was proposing to protect a different riding by drawing its boundary through a national park where no one lives. The commission's own chair called that "a bad faith effort." That phrase is in the final report. The audit quotes it, not to pile on, but because it is the clearest primary-source description of what happened.

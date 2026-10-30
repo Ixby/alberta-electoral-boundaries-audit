@@ -5,14 +5,13 @@
 > - Casing 12 / norms page — floor-stance context
 > - `reports/academic/report_academic.md` §5.6 equal-application disclosure
 
-> **Note (2026-10-29).** The motion number "Motion 19" and the 44–36 count used in this file could not be verified against the Legislative Assembly's record. The committee was created by Government Motion 37 (introduced April 16, passed April 21, 2026), per the Assembly's committee page. The April 16 Hansard quotations below are unaffected.
 
 # The April 16, 2026 floor debate — who criticized which report
 
 **Purpose.** The audit's record documented the commission-era criticisms (the
 chair's flags against the minority; the minority's p. 356 charges against the
 majority) but had no primary source for the legislature's own debate — the
-in-repo Hansard rounds predate the March 23 reports. The Motion 19 sitting
+in-repo Hansard rounds predate the March 23 reports. The April 16 sitting
 was retrieved and mined 2026-07-14.
 
 **Extraction caveat.** The Hansard PDF is two-column and the text layer
@@ -31,7 +30,7 @@ PDF (docs.assembly.ab.ca, legislature_31/session_2/20260416_1000_01_han.pdf).
   the Legislature allocated an additional two seats") and the chair's
   addendum recommendation. Government House Leader Schow: "We are adopting
   the recommendations from the report" and "we are not deleting rural
-  Alberta seats" (p. 12). The government's floor position wrapped Motion 19
+  Alberta seats" (p. 12). The government's floor position wrapped Government Motion 37
   in the majority chair's own words — consistent with the audit's separate
   finding that Recommendation 5 was written to dissuade adoption of the
   minority map and was geographically specific to two rural seats.
@@ -66,7 +65,7 @@ the report's own page, the remedy attached to that lament is prospective and
 commission-empowering: "One potential remedy for this challenge is for the
 Legislature to grant future commissions the power to set an appropriate
 number of electoral divisions" (p. 58; the executive summary restates it as
-flexibility for "future electoral boundaries commissions", p. 10). Motion 19
+flexibility for "future electoral boundaries commissions", p. 10). Government Motion 37
 applies the latitude now rather than next cycle, vests it in a committee of
 MLAs rather than a commission, and declines the report's operative request —
 that the Legislature "adopt the Commission's proposed set of 89 new electoral
