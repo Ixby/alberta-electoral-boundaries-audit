@@ -56,7 +56,7 @@ Chair's own framing of the problem (p. 66):
 
 This sentence is significant for the April 16 provenance framing. R5's opening is drafted in the voice of "the majority of the Commission," but Miller explicitly disavows that voice in the same document. The recommendation is Miller's personal addendum, not a collective majority proposal.
 
-**Corroboration from Commissioner Greg Clark (social-media, April 2026).** Commissioner Greg Clark, one of the two opposition-nominated majority commissioners (nominated by NDP Leader Naheed Nenshi), posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB; the substance is already established by Miller's own in-text admission above.
+**Corroboration from Commissioner Greg Clark (social-media, March 2026).** Commissioner Greg Clark, one of the two opposition-nominated majority commissioners (nominated by NDP Leader Naheed Nenshi), posted a thread on X / social media after the final report's release in March 2026 (thread c. March 23–24) clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB; the substance is already established by Miller's own in-text admission above.
 
 **Corroborating news report.** CBC News Edmonton, April 16, 2026 ("MLA committee to review Alberta electoral boundaries after report is set aside") quotes Miller's "My majority colleagues do not agree with me on this point" and summarises: *"Miller's 91-seat recommendation was conditional on the legislature not accepting the majority report. It was not supported by the other majority members of the commission."* URL: `https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743`.
 
@@ -66,13 +66,13 @@ This sentence is significant for the April 16 provenance framing. R5's opening i
 
 | R5 element | Government April 16 action | Match? |
 |---|---|---|
-| Vehicle: "all-party Select Special Committee or other equivalent Legislative Committee" | Special Select Committee of MLAs (5 members) created | **Formal match** |
-| Composition: "all-party" | 3 UCP + 2 NDP — both legislature parties represented | **Formal match; proportional to legislature** |
+| Vehicle: "all-party Select Special Committee or other equivalent Legislative Committee" | Select Special Committee on Electoral Boundaries (6 members) created by Government Motion 37 (passed April 21, 2026) | **Formal match** |
+| Composition: "all-party" | 4 UCP + 2 NDP — both legislature parties represented | **Formal match; proportional to legislature** |
 | Seat count: 89 → 91 | 91 seats in committee's mandate | **Match** |
 | Boundary constraint (a): no impact on Airdrie or south of it (except Drumheller-Stettler) | Committee mandate not publicly detailed on this constraint as of 2026-04-22 | **Pending committee output** |
 | Boundary constraint (b): no impact north of North Saskatchewan River in Edmonton | Not publicly constrained in mandate | **Pending** |
 | Boundary constraint (c): revert south-of-NSR Edmonton to interim-report map | Not publicly constrained | **Pending** |
-| Boundary constraint (d): restore a Clearwater/western-Mountain-View s.15(2) district | Not publicly constrained | **Pending** |
+| Boundary constraint (d): consider restoring a Clearwater/western-Mountain-View s.15(2) district | Not publicly constrained | **Pending** |
 | Rest-of-province framing: "The rest of the province as we propose must be maintained to the extent possible" | Committee mandate does not appear to preserve the majority's 89-seat map outside the two restored rural ridings | **Unclear; at risk of non-match** |
 | Public hearings | Committee mandate includes an advisory panel but no independent public hearings | **R5 is silent on this** |
 | Stated purpose: "dissuading the Legislature from accepting the minority report" | Minority commissioners' preferences (Airdrie 4-way, Nolan Hill-Cochrane, RMH-Banff Park, etc.) are not explicitly excluded from the committee's mandate | **Inverted** |

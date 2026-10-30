@@ -6,7 +6,7 @@ This file exists so a Claude session opened on a fresh machine (PC, web containe
 
 **Headline status.** The published verdict is supported by the data and stated honestly:
 - Structural-lane signature on the minority commission proposal (six independent geometric dimensions, all in the UCP direction).
-- Partisan-magnitude lane *near, but below*, the audit's pre-registered Alberta-calibrated 95th-percentile / 4.10 % EG threshold (canonical EG = +3.96 %, percentile p94.4 against the 1,010,000-plan ReCom ensemble).
+- Partisan-magnitude lane *near, but below*, the audit's pre-registered Alberta-calibrated 95th-percentile / 4.10 % EG threshold (canonical EG = +4.02 %, percentile p94.54 against the 1,010,000-plan ReCom ensemble).
 - Dependence-robust joint upper bound across the two analytical channels: **p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000)**, Bonferroni-corrected. The earlier Fisher figure of 4.61×10⁻⁸ is retired because Ch1 and Ch2 share the same vote-attribution substrate and overlap on the EG dimension — they are not independent. Note: this document (dated 2026-06-10) predates the 2026-07-12 ensemble rerun; see `findings/ensemble_chain1_duplication_note.md` for current numbers.
 - Procedural finding on the April 16 cabinet pivot: characterized as without precedent among the Canadian redistribution cycles this audit reviewed (per Duane Bratt correspondence). Stands without statistical inference.
 - Regional-swing recompute on canonical geometry **corroborates** Lane 1: canonical minority's regional-swing s50 = 0.4607 sits above the maximum of the 10,000-plan verification ensemble's regional-swing distribution. The v0_9 "Lane 1 was officially demoted" finding was an artefact of DPG-substrate underestimation.
@@ -57,7 +57,7 @@ All four are committed. Each runs as a smoke test; the parts marked TODO are hon
 | T1.4 Constraint-enforcing ensemble | ~6–8 h compute + script work | Write `mcmc_ensemble_canonical_constrained.py` with s.15(2) tier + anchoring penalties; run 250k–1M plans |
 | T1.5 Short-bursts canonical rerun | Compute window (~60–120 min) | `nohup python analysis/scripts/simulation_short_bursts.py > /tmp/bursts.log 2>&1 &` and wait |
 | T2.4 LLM sentiment IRR | Human labelling | Label 60-item sample, compute κ, re-publish chair-flag breakdown |
-| T6 Legal citations | Counsel review | Pal & Choudhry 2011, Cassista 2014 FC 398, Parks Act citation, Saskatchewan Reference pinpoints, Cannon year, KKR attribution — see T6.1 in the local work ledger |
+| T6 Legal citations | Counsel review | Pal & Choudhry 2011, Parks Act citation, Saskatchewan Reference pinpoints, Cannon year, KKR attribution — see T6.1 in the local work ledger |
 
 ## What you should NOT do
 

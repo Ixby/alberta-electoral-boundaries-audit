@@ -110,7 +110,7 @@ Cross-reference: `findings/ebc_s15_selective_application.md` for full differenti
 
 ## 6. Lunty Committee Implications
 
-The April 16, 2026 Legislative Assembly motion (Motion 19) set aside both commission reports and established a Special Select Committee (the "Lunty committee," chaired by Brandon Lunty, UCP MLA for Leduc-Beaumont; 3 UCP / 2 NDP; report due November 2, 2026). The committee will face the same §15(2) decisions as the commission — including whether to protect Lesser Slave Lake.
+Government Motion 37 (introduced April 16, passed April 21, 2026) set aside both commission reports and established a Select Special Committee of six MLAs (the "Lunty committee," chaired by Brandon Lunty, UCP MLA for Leduc-Beaumont; 4 UCP / 2 NDP; report due November 2, 2026). The committee will face the same §15(2) decisions as the commission — including whether to protect Lesser Slave Lake.
 
 The commission reversed from elimination to protection after 80+ public submissions. The Lunty committee is not required to hold public hearings. This is not a finding about the committee's likely decisions; it is context that the audit has an obligation to note in describing the riding's trajectory.
 

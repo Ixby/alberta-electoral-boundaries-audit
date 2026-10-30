@@ -97,7 +97,7 @@ Five families of tests, each answering a different question. The ladder below sh
 
 ### Why the A-family: the Canadian-charter tradition
 
-*Reference re Saskatchewan* (1991) establishes that effective representation under s.3 of the Charter requires more than pure population equality — it requires attention to "community of interest," "community of identity," and "geography" (the famous Lamer formulation). The A-family tests translate this principle into measurable quantities: A1 is the US-style dispersion measure; A2 operationalises Calgary-zone-equality (the most contested Canadian-specific claim); A3 is the statutory §15(2) exception test.
+*Reference re Saskatchewan* (1991) establishes that effective representation under s.3 of the Charter requires more than pure population equality — it requires attention to factors such as geography, community history, community interests and minority representation (McLachlin J. for the majority). The A-family tests translate this principle into measurable quantities: A1 is the US-style dispersion measure; A2 operationalises Calgary-zone-equality (the most contested Canadian-specific claim); A3 is the statutory §15(2) exception test.
 
 ### Why C4 + C5 (community-of-interest and boundary anchoring) specifically
 
@@ -206,7 +206,7 @@ Ordered by value / effort:
 
 6. **Sub-ED clustering analysis.** Are the minority's 21 Tier-C hybrids clustered in specific regions (Calgary metropolitan? Edmonton ring?), or distributed? Pattern suggests whether the hybridisation is systematic or ad-hoc.
 
-7. **Cross-commissioner attribution.** The commission had two dissenting commissioners (chair Miller and one other who signed the minority report). Can we identify which Tier-C hybrids came from which commissioner? If the minority's 4-way Airdrie split was authored by a single commissioner, that's a different story than if it emerged from consensus.
+7. **Cross-commissioner attribution.** The commission had two dissenting commissioners (John D. Evans KC and Dr. Julian Martin, the government nominees, who signed the minority report). Can we identify which Tier-C hybrids came from which commissioner? If the minority's 4-way Airdrie split was authored by a single commissioner, that's a different story than if it emerged from consensus.
 
 8. **Boundary-chain test** (see §6).
 

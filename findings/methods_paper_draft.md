@@ -52,7 +52,7 @@ This paper formalises the **Derived Provisional Geometry (DPG) framework** as a 
 - Partisan-bias metrics family (Stephanopoulos & McGhee 2014/2015; McDonald & Best 2015; Warrington 2018)
 - Natural-packing framework (Chen & Rodden 2013) + its Canadian applicability
 - Consistency-across-correlated-dimensions discipline (Katz, King & Rosenblatt 2020; Altman & McDonald 2011)
-- Canadian redistribution literature (Courtney 2001; Pal 2016; *Reference re Saskatchewan Electoral Boundaries* 1991)
+- Canadian redistribution literature (Courtney 2001; Pal 2015; *Reference re Saskatchewan Electoral Boundaries* 1991)
 - The **gap in existing work**: no formalisation of audit-grade inference without official shapefiles
 
 ### 3. The DPG framework (~3 pages)
@@ -272,7 +272,7 @@ Every DPG-dependent claim is published with a dated, public commitment. The curr
 **Two trigger types.** The sunset clause covers two kinds of triggering events that have different operational profiles:
 
 1. **Shapefile-release trigger** — the *learning-to-engineering* transition. When official shapefiles arrive after a DPG-era exploration period, the recompute involves not only running the canonical analyses but also pruning DPG infrastructure, refactoring scripts onto canonical inputs, and archiving superseded analyses. This is the transition the Alberta 2025-26 case study illustrates in §7. The two-week window is calibrated to this workload.
-2. **Confirmatory-application trigger** — the *engineering-the-exam* event. When a new map is released after the audit's methodology is production-ready (the canonical scripts are written, the substrates are canonical, the thresholds are pre-registered), the recompute is faster because there is no DPG infrastructure to dismantle — only locked-in scripts to run on the new input. For the Lunty Special Select Committee's November 2026 map, the *scorecard methodology* is externally pre-registered at OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, and the audit's internal commitment is to score the new map within **72 hours** of its publication (Amendment 2 Bucket C). The externally pre-registered object is the scorecard itself (thresholds, test battery, pass/fail criteria); the 72-hour operational standard is in-repo.
+2. **Confirmatory-application trigger** — the *engineering-the-exam* event. When a new map is released after the audit's methodology is production-ready (the canonical scripts are written, the substrates are canonical, the thresholds are pre-registered), the recompute is faster because there is no DPG infrastructure to dismantle — only locked-in scripts to run on the new input. For the Select Special Committee on Electoral Boundaries' (Lunty committee's) November 2026 map, the *scorecard methodology* is externally pre-registered at OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, and the audit's internal commitment is to score the new map within **72 hours** of its publication (Amendment 2 Bucket C). The externally pre-registered object is the scorecard itself (thresholds, test battery, pass/fail criteria); the 72-hour operational standard is in-repo.
 
 If the audit fails to honour either window — the two-week shapefile-release window or the 72-hour confirmatory-application window — the failure is itself publicly documented in the commit history and in this section. The discipline is forcing-function-grade, not real-time-grade.
 

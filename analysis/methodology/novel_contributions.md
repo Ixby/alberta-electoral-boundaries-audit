@@ -140,7 +140,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 - Katz, King & Rosenblatt (2020) — explicit multi-criteria consistency discipline
 - Altman & McDonald (2011) — no single metric is dispositive; consistent-signals approach
 - *Rucho v. Common Cause*, 588 U.S. 684 (2019) — negative prior art; defines the problem the two-lane architecture is designed to address in the Canadian context
-- *Reference re Saskatchewan Electoral Boundaries*, [1991] 2 SCR 158 — Canadian statutory framework the Lane 2 signals map onto
+- *Reference re Provincial Electoral Boundaries (Sask.)*, [1991] 2 SCR 158 — constitutional (Charter s.3) framework the Lane 2 signals map onto
 
 ### Two-lane pre-registration
 

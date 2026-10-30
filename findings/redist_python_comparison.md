@@ -43,7 +43,7 @@ A hostile statistician's strongest attack on the audit's percentile-placement cl
 | Districts | 87 (2019 enacted Bill 33 seed partition) | 87 (same) |
 | Random seed | 1432864451 (drand-beacon-derived) | `set.seed(852751799)` placed immediately before `redist_smc()` |
 | Resample / pop_temper (SMC) | n/a | `resample = FALSE`, `pop_temper = 0` (importance-weighted; defaults to avoid the 10k-attempt particle-collapse failure documented in archive) |
-| Convergence (ReCom) | GR92 R-hat 1.00179–1.01843; ESS 1,429–1,682 on partisan metrics | n/a |
+| Convergence (ReCom) | GR92 R-hat 1.00011–1.00205; ESS 1,413–1,522 on partisan metrics | n/a |
 | Convergence (SMC) | n/a | ESS 1,116 of 5,000 |
 
 Both samplers consume the same input adjacency graph (verified bit-identical: 4,765 nodes / 13,385 edges in both languages).
@@ -112,7 +112,7 @@ Two falsification tests were designed by the principal investigator in 2026-04-2
 
 ## Implication for the audit framing
 
-**Ensemble-size asymmetry, explicit.** The two canonical ensembles are not the same size. Python ReCom is 1,010,000 plans (4 chains × 252,500 steps; ESS 1,429–1,682 on partisan metrics; GR92 R-hat 1.002–1.018). R SMC is 5,000 plans (ESS 1,116, `resample = FALSE`). The p99.99 figure is carried by the ReCom ensemble's statistical weight — 5,000 plans cannot validate a percentile finer than ~p99.98 on their own. What the SMC ensemble adds is **a different operator family reaching the same qualitative conclusion**: 0 of 5,000 importance-weighted plans reach 0.5169 and the SMC maximum (0.4943) sits 2.26 pp below the minority value. Because that gap is so large relative to any plausible importance-weighting bias on the upper tail, the qualitative finding ("the canonical minority's `seats@50/50` is above the entire SMC ensemble") is robust to the `resample = FALSE` posture and to the library-default differences flagged in §"Limitations."
+**Ensemble-size asymmetry, explicit.** The two canonical ensembles are not the same size. Python ReCom is 1,010,000 plans (4 chains × 252,500 steps; ESS 1,413–1,522 on partisan metrics; GR92 R-hat 1.0001–1.0021). R SMC is 5,000 plans (ESS 1,116, `resample = FALSE`). The p99.99 figure is carried by the ReCom ensemble's statistical weight — 5,000 plans cannot validate a percentile finer than ~p99.98 on their own. What the SMC ensemble adds is **a different operator family reaching the same qualitative conclusion**: 0 of 5,000 importance-weighted plans reach 0.5169 and the SMC maximum (0.4943) sits 2.26 pp below the minority value. Because that gap is so large relative to any plausible importance-weighting bias on the upper tail, the qualitative finding ("the canonical minority's `seats@50/50` is above the entire SMC ensemble") is robust to the `resample = FALSE` posture and to the library-default differences flagged in §"Limitations."
 
 The dual-sampler framing reads:
 
