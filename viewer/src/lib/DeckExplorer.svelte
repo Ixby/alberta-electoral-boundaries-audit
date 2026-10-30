@@ -339,7 +339,7 @@
 				'@deck.gl/core'
 			);
 			const { PolygonLayer, PathLayer, ScatterplotLayer } = await import('@deck.gl/layers');
-			const { PathStyleExtension } = await import('@deck.gl/extensions');
+			const { PathStyleExtension, MaskExtension } = await import('@deck.gl/extensions');
 			if (disposed) return;
 
 			// First-paint timing markers (debug HUD). performance.now() is ms from
@@ -565,6 +565,28 @@
 			// Recommendation 5 zone geometry — loaded lazily when annotations (pois)
 			// turn on, so the zone outlines are ready alongside the flag pins.
 			let luntyLoaded = false;
+			// Selection outlines for the inner glow, loaded on the first search pick:
+			// ed_outlines.json {map: {district: rings}}, community_outlines_2019.json
+			// {"community|municipality": rings}.
+			let edOutlines: Record<string, Record<string, number[][][]>> | null = null;
+			let commOutlines: Record<string, number[][][]> | null = null;
+			let outlinesLoaded = false;
+			function loadOutlines() {
+				if (outlinesLoaded) return;
+				outlinesLoaded = true;
+				fetchJSON<Record<string, Record<string, number[][][]>>>('ed_outlines.json')
+					.then((d) => {
+						edOutlines = d;
+						schedulePaint();
+					})
+					.catch(() => {});
+				fetchJSON<Record<string, number[][][]>>('community_outlines_2019.json')
+					.then((d) => {
+						commOutlines = d;
+						schedulePaint();
+					})
+					.catch(() => {});
+			}
 			function loadLuntyData() {
 				if (luntyLoaded) return;
 				luntyLoaded = true;
@@ -844,9 +866,81 @@
 			// edge-of-province districts). The bbox half-side is recovered from the
 			// fit-zoom the index stored: zoom = 1 - log2(side / 256)  →  side = 256·2^(1−zoom).
 			/* eslint-disable @typescript-eslint/no-explicit-any */
+			// Inner edge glow in magenta — set apart from both party fills (UCP blue,
+			// NDP orange) where the old gold ring sank into the orange. The outline is
+			// stroked wide and masked by its own polygon, so only the inside half shows:
+			// the glow sits inside the selected area and fades toward its centre.
+			const SEL_RGB: [number, number, number] = [236, 0, 140];
+			function buildInnerGlow(rings: number[][][], sel: EdRec): any[] {
+				const paths = rings.map((r) => [...r, r[0]]);
+				const out: any[] = [
+					new PolygonLayer({
+						id: 'sel-mask',
+						data: rings,
+						getPolygon: (r: number[][]) => r as any,
+						operation: 'mask',
+						coordinateSystem: CART
+					})
+				];
+				for (const [w, a] of [
+					[22, 45],
+					[12, 90],
+					[5, 235]
+				]) {
+					out.push(
+						new PathLayer({
+							id: 'sel-glow-' + w,
+							data: paths,
+							getPath: (p: number[][]) => p as any,
+							getColor: [...SEL_RGB, a] as [number, number, number, number],
+							widthUnits: 'pixels',
+							getWidth: w,
+							jointRounded: true,
+							extensions: [new MaskExtension()],
+							maskId: 'sel-mask',
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						})
+					);
+				}
+				// A community keeps its centre point, so a small place is findable at the overview.
+				if (sel.ed && sel.ccx != null && sel.ccy != null) {
+					out.push(
+						new ScatterplotLayer({
+							id: 'comm-center',
+							data: [sel],
+							getPosition: () => [sel.ccx!, sel.ccy!, 0],
+							getRadius: 5,
+							radiusUnits: 'pixels',
+							radiusMinPixels: 4,
+							filled: true,
+							stroked: true,
+							getFillColor: [...SEL_RGB, 255],
+							getLineColor: [255, 255, 255, 235],
+							getLineWidth: 1.5,
+							lineWidthUnits: 'pixels',
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						})
+					);
+				}
+				return out;
+			}
+
 			function buildSelectedGlow(): any[] {
 				if (!selectedEd) return [];
 				const sel = selectedEd;
+
+				// Outline glow when the outline is loaded; until then (or if a place has
+				// no outline) the markers below stand in.
+				const primary = activeMaps.length ? activeMaps[0] : 'minority';
+				const rings = sel.ed
+					? sel.k
+						? commOutlines?.[sel.k]
+						: undefined
+					: (edOutlines?.[primary]?.[sel.name] ??
+						Object.values(edOutlines ?? {}).find((m) => m[sel.name])?.[sel.name]);
+				if (rings && rings.length) return buildInnerGlow(rings, sel);
 
 				// Community / municipality hit (sel.ed set, with its own centroid):
 				// a DISTINCT magenta marker — a center point plus a ring scaled to the
@@ -854,7 +948,7 @@
 				// the place within the district it sits in.
 				if (sel.ed && sel.ccx != null && sel.ccy != null) {
 					const cc: [number, number, number] = [sel.ccx, sel.ccy, 0];
-					const PINK = [255, 64, 150];
+					const PINK: [number, number, number] = [255, 64, 150];
 					return [
 						new ScatterplotLayer({
 							id: 'comm-ring',
@@ -898,7 +992,6 @@
 					x1 = sel.cx + half,
 					y0 = sel.cy - half,
 					y1 = sel.cy + half;
-				const primary = activeMaps.length ? activeMaps[0] : 'minority';
 				const bit = (MAPS as readonly string[]).indexOf(primary);
 				// The boundary glow is assembled by bbox proximity, which only reads as
 				// "this district" for compact (urban / suburban) shapes. For large rural
@@ -1176,6 +1269,7 @@
 			// the deck view's min/max so an off-range index value can't desync the UI.
 			edSelector = (rec: EdRec) => {
 				selectedEd = rec;
+				loadOutlines();
 				if (!lastVS) return;
 				const z = Math.max(
 					lastVS.minZoom as number,

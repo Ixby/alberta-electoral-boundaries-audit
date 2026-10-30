@@ -62,6 +62,34 @@ describe('decodeBundle', () => {
 		const out = decodeBundle(makeBundle());
 		expect(out['0/0/0'][0].coords).toBeInstanceOf(Float32Array);
 	});
+
+	// Rings are stored exterior-only, so a poll that surrounds another (a hole in
+	// the source polygon) is a solid ring. Drawn after the poll in its hole, it
+	// would hide it and take its hover. Larger rings must come first.
+	it('orders rings largest first so an enclosed poll draws on top', () => {
+		const small = [4, 4, 6, 4, 6, 6, 4, 6]; // id 1: 2x2 square inside
+		const big = [0, 0, 10, 0, 10, 10, 0, 10]; // id 2: 10x10 square around it
+		const headerBytes = new TextEncoder().encode('{"0/0/0":[0,80]}');
+		const hlen = headerBytes.length;
+		const bodyOff = 4 + hlen + ((((-(4 + hlen)) % 4) + 4) % 4);
+		const buf = new ArrayBuffer(bodyOff + 80);
+		const dv = new DataView(buf);
+		dv.setUint32(0, hlen, true);
+		new Uint8Array(buf, 4, hlen).set(headerBytes);
+		let off = bodyOff;
+		dv.setUint32(off, 2, true);
+		off += 4;
+		for (const [vid, pts] of [[1, small], [2, big]] as [number, number[]][]) {
+			dv.setUint16(off, vid, true);
+			dv.setUint16(off + 2, 4, true);
+			off += 4;
+			for (const v of pts) {
+				dv.setFloat32(off, v, true);
+				off += 4;
+			}
+		}
+		expect(decodeBundle(buf)['0/0/0'].map((f) => f.id)).toEqual([2, 1]);
+	});
 });
 
 // ── LOD level math (ported from paint() / maybeLoadLevels in index.html) ──

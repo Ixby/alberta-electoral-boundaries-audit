@@ -275,6 +275,48 @@ def build_ed_index():
         print(f"  ed_index_{mk}.json: {len(index)} EDs")
 
 
+def _outline_rings(geom, ox, oy, tol):
+    """Exterior rings of a simplified geometry, origin-shifted, rounded to the metre."""
+    return [[[round(px - ox), round(py - oy)] for px, py in ring]
+            for ring in rings_of(geom.simplify(tol, preserve_topology=True))]
+
+
+def build_selection_outlines():
+    """Outlines for the explorer's selected-area inner glow (search hits).
+
+    ed_outlines.json: {map: {district name: [rings]}} — each district dissolved from the
+    canonical ED polygons (_prepare_map_data), simplified 60 m like ed_rings.
+    community_outlines_2019.json: {"community|municipality": [rings]} — the VAs of each place
+    dissolved, keyed exactly as build-community-index.mjs keys places (va_props community +
+    va_muni municipality, by VA id), simplified 25 m. Run via `--outlines`.
+    """
+    meta = json.loads((REPO / "docs" / "data" / "map_meta.json").read_text())
+    ox, oy = meta["origin_x"], meta["origin_y"]
+    eds_out = {}
+    for mk in MAPS:
+        eds, name_col, _vr, _vem = build_cover._prepare_map_data(mk)
+        eds = eds.to_crs(3401)
+        eds_out[mk] = {str(nm): _outline_rings(unary_union(list(grp.geometry)), ox, oy, 60.0)
+                       for nm, grp in eds.groupby(name_col)
+                       if nm == nm and str(nm).strip()}
+    (OUT / "ed_outlines.json").write_text(json.dumps(eds_out, separators=(",", ":")), encoding="utf-8")
+    print(f"  ed_outlines.json: {(OUT / 'ed_outlines.json').stat().st_size / 1e6:.2f}MB")
+
+    _e, _n, va_render, _m = build_cover._prepare_map_data("minority")
+    va_props = json.loads((OUT / "va_props.json").read_text(encoding="utf-8"))
+    va_muni = json.loads((OUT / "va_muni.json").read_text(encoding="utf-8"))
+    geoms = list(va_render.geometry)
+    groups = {}
+    for p in va_props:
+        c = str(p.get("community", "")).strip()
+        if c:
+            groups.setdefault(c + "|" + str(va_muni[p["id"]]).strip(), []).append(geoms[p["id"]].buffer(0))
+    comm = {k: _outline_rings(unary_union(g), ox, oy, 25.0) for k, g in groups.items()}
+    (OUT / "community_outlines_2019.json").write_text(json.dumps(comm, separators=(",", ":")), encoding="utf-8")
+    print(f"  community_outlines_2019.json: {len(comm)} places, "
+          f"{(OUT / 'community_outlines_2019.json').stat().st_size / 1e6:.2f}MB")
+
+
 def main():
     t0 = time.time()
     shutil.rmtree(OUT / "va", ignore_errors=True)   # drop old loose tiles
@@ -506,6 +548,8 @@ if __name__ == "__main__":
     # `--ed-index` rebuilds ONLY the per-map ED search index (fast, no retile).
     if "--ed-index" in sys.argv:
         build_ed_index()
+    elif "--outlines" in sys.argv:
+        build_selection_outlines()
     else:
         main()
         build_ed_index()   # keep the search index in step with a full retile
