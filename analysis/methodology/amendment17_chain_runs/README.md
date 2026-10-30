@@ -403,3 +403,10 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   3,892 finite VAs: median +0.08 km, p10 +0.04, p90 +0.31; 41 VAs differ by > 2 km (5 shorter on my side,
   36 longer, max +38.5 km), listed in data/outputs/s152_road_km_crosscheck_gt2km.csv; 2 disagree on the
   150 km side. 237 of the A23 inf VAs are ≤ 150 km on my side (straight-line gap to an unreached VA).
+- ~04:50 Audit checked node 1331 (mine 119.5 vs A23 124.3 km): on the registered graph its nearest inside
+  vertex is 124.36 km and the crossing 124.35, so the crossing rule is right and the gap is graph
+  construction. Mine (s152_criteria.py) keys vertices by EPSG:3400 coordinates rounded to 1 m (registered:
+  1 cm, OSM shared vertices only), so road ends within ~1 m join and can create shortcuts; start = nearest
+  vertex to the Legislature + straight snap. **Residual cross-check differences, accepted (Audit: table and
+  Amendment 23 stand; no action on set D):** the 5 shorter-on-my-side VAs (graph snapping), the 237 VAs my
+  straight-line fallback reaches that are inf in A23, and 2 VAs on opposite sides of 150 km.
