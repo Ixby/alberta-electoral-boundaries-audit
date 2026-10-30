@@ -141,3 +141,16 @@ the proposal epsilon is passed explicitly as 0.5; the real bands live in the bal
 (§5 cont.) 2026-10-30 01:14 — registered-table acceptance PASSED (AC1 0/600, AC2 95.3% / max 4,
 constraint checks PASS, AC6 7.1 s median per 500). 01:15 production launched: k=91 idx 251–254,
 k=89 idx 150–151. Full numbers in amendment17_chain_runs/README.md.
+
+(§5 cont.) ~02:50 — production complete: k=91 idx 251–254, k=89 idx 150–151, 252,500 plans each,
+s.15(2) divisions max 4 per plan in every chain, ≥ 1 in 97.5–99.1% of plans. Hashes in the run log.
+
+## 6. Verify (partial)
+- AC1 on production: NOT yet run against the registered table (checker lacks the adapter) — open.
+- AC2: met on production (max 4; s.15(2) divisions present in ≥ 97.5% of plans).
+- AC3/AC4: met (regression hash unchanged; resume identity; three chains resumed mid-run).
+- AC5: Discover validation (5/6 exact; LSL (b) disclosed).
+- AC6: met (acceptance 7.1 s / 500; production ~9–11 s / 500 with six concurrent).
+- AC1 on production (update ~03:20): final state of all six chains PASS under Audit's criteria();
+  replay of chains 251 and 150 (5,000 steps each) matched production row-for-row and 2,000 replayed maps
+  scored 0 violations. Remaining plans are covered by the per-plan count column (max 4) only.

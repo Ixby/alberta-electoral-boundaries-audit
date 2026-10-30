@@ -340,3 +340,31 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
 - ~01:30 Claude Code stopped my finish-watch (a sleep loop) for low memory (3.5 GB free; six chains ≈ 2.8 GB).
   The chains themselves run outside its kill tree and are unaffected: all six at ~50,000/252,500,
   12 python processes alive. Watch not restarted (owner's word required).
+- 02:25 Memory pressure (1.4 GB free; Claude Code reaping watchers). Owner: "Reduce the amount of threads to
+  compensate." Paused set D chains 254 (212,500), 150 (209,500), 151 (210,000) — checkpoints present; three
+  chains (251–253) keep running. A detached launcher resumes 254/150/151 with `--resume` once 251–253 exit;
+  resume is exact (AC4), so the paused chains' output is identical to an unbroken run.
+- ~02:50 **Set D (s.15(2), registered table 01f70a86…8f47) complete.** Six chains × 252,500 rows, no
+  tracebacks; 254/150/151 were paused at ~210k and resumed from checkpoint (exact resume, AC4).
+  Every plan has the full k divisions. Per-plan s.15(2) divisions (from the s152_districts column):
+  max 4 in every chain (statutory cap holds); plans with ≥ 1: 97.5–99.1%; mean 2.8–3.0.
+
+  | file | raw CSV SHA-256 | .gz SHA-256 | .gz bytes |
+  |---|---|---|---|
+  | k91_s152/chain251 | 62d2494369e5e55454ade1226d34daab52f404805519fd42dc28d3218e15e0ac | 01068fb9a2fa8b7bcafed99d831578c6220e448080ff2e335754d4ccc9dc471f | 9,580,236 |
+  | k91_s152/chain252 | dabcf8951a63f0e04afce405cb9d5c2abfc9f8e0c954934f513bd5c4cd02721d | 9e4b74fa18053a9617cdbeb15031b2d78121eb6cc89f980a9cedf8450824de0c | 9,570,185 |
+  | k91_s152/chain253 | 60e892cb7ca338c84afc9f2a43a54473d5660ebffedc9c55175ce4b4ae682e77 | eff39452340a4448fad460cdf11f54e3a2100ca042b47025966ee51ae812d7d4 | 9,576,258 |
+  | k91_s152/chain254 | 596e38ee8579b64f73b9bf5a11c35290d4e157a082358a55014958cd2c52aca6 | 68739de486345ce150f8b06cfb1e6396aab12fe6a74f12d2f986b6aae838915c | 9,583,848 |
+  | k89_s152/chain150 | 932330c41b7287635aa9e47edb96b48597d11cebf37447f03acb993995084874 | 1af08104bd1748dfa568173893cb73e68cd7da61033ab03d041188e0380b1c3d | 9,609,865 |
+  | k89_s152/chain151 | 3e3d3d717c09f003504d509d46a5787acaaf7016c581808fe95b0ff26151a398 | 64c9ad0b6aa2b309b114649e6276804f7a73a42670a310de30677565b325d83a | 9,612,232 |
+
+  Open: tools/check_s152_run.py reads only the cross-check table's columns (big_town…), so it cannot
+  yet re-score these runs against the registered table; the per-plan AC1 check on the registered table
+  exists only for the 600-plan acceptance run. Needs an adapter (reuse test_s152.py's audit.criteria path).
+- ~03:20 Owner: "Do the check, build the adapter." tools/check_s152_run.py now scores the registered table
+  with Audit's own criteria(): final state of all six set D chains PASS (k divisions; low divisions
+  −36.7% to −49.0%, each meeting 3–5 criteria; ≤ 4 per plan across all 252,500 rows of every chain).
+  New tools/replay_score_s152.py: replays a chain's first steps through close_seats_ensemble.run, checks
+  the rows are identical to production, and scores the replayed maps with criteria(). chain251 and
+  chain150, 5,000 steps each: rows identical to production; 1,000 maps each (every 5th) scored, 0 AC1
+  violations, max 4 s.15(2) divisions per map.
