@@ -1101,7 +1101,7 @@ the district count.
 
 ### Amendment 23 — Erratum: s.15(2)(b) measured to the boundary itself (2026-10-30)
 
-> **Status: in force.** Signed 2026-10-30 04:25 MDT, before the committee's map is
+> **Status: in force.** Signed 2026-10-30 04:20 MDT, before the committee's map is
 > due (November 2, 2026), before any committee map has been published, and before
 > any outcome of the s.15(2) set has been examined. The author chose this fix in
 > session ("Erratum + rerun").
@@ -1144,4 +1144,4 @@ does not seed. Table: `data/outputs/s15_2_va_criteria.csv`, SHA-256
 `analysis/scripts/s15_2_criteria.py` at this amendment's commit.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
-**Date:** 2026-10-30 04:25 MDT
+**Date:** 2026-10-30 04:20 MDT
