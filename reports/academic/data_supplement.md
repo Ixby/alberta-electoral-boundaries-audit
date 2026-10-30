@@ -55,7 +55,7 @@ Three files are script outputs committed to git and **must not be hand-edited**:
 
 If any of these are absent, re-run the generating script (`mcmc_ensemble_canonical.py`) before reproducing headline results.
 
-**DPG sunset clause.** Files in `data/shapefiles/derived/` generated from Derived Provisional Geometries (traced from commission PDF thumbnails) are deprecated. Files labelled `v0_8` or `v0_9` in `data/outputs/` retain DPG-era provenance and are kept for audit trail transparency only. All active analysis uses canonical Elections Alberta shapefiles.
+**DPG sunset clause.** Files generated from Derived Provisional Geometries (traced from commission PDF thumbnails) are deprecated and archived under `archive/`. The `va_polygons_*` files in `data/shapefiles/derived/` are live inputs. Files labelled `v0_8` or `v0_9` in `data/outputs/` retain DPG-era provenance and are kept for audit trail transparency only. All active analysis uses canonical Elections Alberta shapefiles.
 
 ---
 
@@ -75,6 +75,7 @@ If any of these are absent, re-run the generating script (`mcmc_ensemble_canonic
 | numpy | 1.26.4 | numerical operations |
 | textstat | 0.7.13 | Flesch-Kincaid readability gate |
 | matplotlib | 3.9.2 | figures |
+| redist (R 4.6) | not pinned | SMC cross-validation only (`analysis/scripts/redist_crossvalidation.R`) |
 
 **Install and verify:**
 
@@ -84,7 +85,7 @@ python -c "import pandas, numpy, geopandas, shapely, pyproj; print('OK')"
 python -m pytest tests/ -v
 ```
 
-**Random seed protocol.** All random seeds are derived from Cloudflare drand beacon values: `seed = int(SHA-256("salt:randomness_hex"), 16) % (2**32)`. Beacon rounds and salts are documented per-script in OSF registrations and in the methodology directory.
+**Random seed protocol.** All random seeds are derived from Cloudflare drand beacon values, by one of two derivations. Round 5,500,000 (`analysis/scripts/drand_seed.py`): the first 4 bytes, big-endian, of `SHA-256(randomness_hex + salt)`, with no separator. Round 6,099,592 (s58a6): `int(SHA-256(f"{salt}:{randomness_hex}").hexdigest()[:8], 16)`. Beacon rounds and salts are documented per-script in OSF registrations and in the methodology directory.
 
 ---
 
@@ -94,13 +95,13 @@ python -m pytest tests/ -v
 |---|---|---|
 | Elections Alberta canonical shapefiles | Authoritative 2026 boundary geometries for both commission proposals | `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`, `ea_majority_2026_eds.gpkg` |
 | 2019 enacted boundaries | Pre-redistribution baseline for all comparisons | `data/shapefiles/reference/` |
-| VA polygons with 2023 vote attribution | Voting areas with election-day NDP/UCP tallies attributed to 2026 boundaries | `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` |
-| 2023 Alberta general election results | Official tally (NDP 777,404 + UCP 928,900 province-wide) | source documented in `analysis/methodology/` |
+| VA polygons with 2023 vote attribution | Voting areas with 2023 election-day NDP/UCP tallies and their 2019 parent ED; 2026 assignment by centroid join at run time | `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` |
+| 2023 Alberta general election results | Official tally (NDP 777,404 + UCP 928,900 province-wide) | `data/reference/alberta_2023_results.csv` |
 | Statistics Canada Census Subdivision boundaries | CSD polygons used for municipal anchoring edge-crossing test | `data/shapefiles/reference/` |
 | Written public submissions (1,252 of ~1,340 archived) | Full-corpus sentiment and cross-reference analysis | `.temp/submissions/text/` (gitignored raw text; see `findings/submission_search_findings.md` for the processed dataset) |
-| Hansard transcripts | Round 1 (188 turns, May 2025), Round 2 (209 turns, Jan 2026) | `.temp/hansard_r1.txt`, `.temp/hansard_r2.txt` (gitignored raw text) |
+| Hansard transcripts | Round 1 (188 configuration-relevant turns, May 2025), Round 2 (209 configuration-relevant turns, Jan 2026) | `.temp/hansard_r1.txt`, `.temp/hansard_r2.txt` (gitignored raw text) |
 
-**Vote substrate note.** The SZAT channel (Ch2) uses election-day two-party totals (~896,644 combined) from the VA polygon attribution layer, not province-wide election totals. The 1,706,304 two-party figure in Alberta's 2023 results is not the VA-level denominator. This distinction is documented in §5.2.10 DOCUMENTED CORRECTIONS of the academic report.
+**Vote substrate note.** The SZAT channel (Ch2) uses election-day two-party totals (~896,644 combined) from the VA polygon attribution layer, not province-wide election totals. The 1,706,304 two-party figure in Alberta's 2023 results is not the VA-level denominator. This distinction is documented in §5.2.10 (post-registration VA-file note) and in DOCUMENTED CORRECTIONS C1 (§7.3) of the academic report.
 
 ---
 
@@ -108,16 +109,16 @@ python -m pytest tests/ -v
 
 | Output file | Generating script | Report section |
 |---|---|---|
-| `findings/joint_outlier_score.json` | `joint_outlier_score_canonical.py` | §5.2 (Ch1 Mahalanobis) |
-| `findings/szat_summary.json` | `szat.py` | §5.3 (Ch2 SZAT) |
-| `data/outputs/rhat_diagnostic_section_b.json` | `simulation_convergence_diagnostics.py` | §5.4 (convergence) |
-| `data/outputs/szat_robustness_section_a.json` | `szat.py` (10-seed replay) | §5.2.10 (robustness) |
+| `findings/joint_outlier_score.json` | `joint_outlier_score_canonical.py` | §5.4.9 (Ch1 Mahalanobis) |
+| `findings/szat_summary.json` | `szat.py` | §5.2.10 (Ch2 SZAT) |
+| `data/outputs/rhat_diagnostic_section_b.json` | committed output (`1dd5e91b`); generating code not in repo | §5.4 (convergence) |
+| `data/outputs/szat_robustness_section_a.json` | committed output (`1dd5e91b`); generating code not in repo | §5.2.10 (robustness) |
 | `data/outputs/csd_anchoring_results.json` | `mcmc_anchoring_ensemble.py` | §5.4.9 (anchoring) |
 | `data/outputs/csd_anchoring_ensemble.csv` | `mcmc_anchoring_ensemble.py` | §5.4.9 |
-| `data/outputs/sentiment_intensity_scores.csv` | `submission_sentiment_llm_full.py` | §5.9.4.6 |
+| `data/outputs/sentiment_intensity_scores.csv` | `sentiment_intensity_score.py` | §5.9.4.6 |
 | `data/outputs/quotes_verified.csv` | `quote_verify_and_clean.py` | §5.9.4.7 |
 | `data/outputs/cross_reference_summary.json` | `cross_reference_submitters.py` | §5.9.4.7 |
-| `data/outputs/irr_validation_sample.csv` | `validation_sample.py` | §5.9 (IRR gate — pending) |
+| `data/outputs/irr_validation_sample.csv` | `validation_sample.py` | §5.9.4.7 (IRR gate — pending) |
 
 **Ensemble checkpoints** are in `data/simulation_checkpoints_canonical/` and are excluded from the git repository (`.gitignore`). The canonical ensemble can be reproduced from scratch with `python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 1010000` (corrected 2026-07-13: `--n-steps` is the *total* across all 4 chains, not per-chain; the previously-documented `--n-steps 252500` silently produces a quarter-scale run — see CLAUDE.md's caution note on this exact command).
 
@@ -125,7 +126,7 @@ python -m pytest tests/ -v
 
 ## §D5 — Headline Results
 
-All values below are drawn from committed output files at HEAD `7b7b2fe`. File paths given for verification.
+All values below are drawn from committed output files as of the 2026-07-12 clean rerun (DOCUMENTED CORRECTIONS C10) and later corrections. File paths given for verification.
 
 *(Note: the Ch3 block below was corrected 2026-07-08 against the canonical committed outputs `findings/drain_label_shuffle_null_canonical.json` and `findings/neighbour_drain_analysis.md`.)*
 
@@ -166,7 +167,7 @@ Source: `findings/szat_summary.json`.
 
 ### Fisher Combination (Ch1 × Ch2)
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p ≈ 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.4.9.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p ≈ 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 
 Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`.
 
@@ -199,11 +200,11 @@ Coupled chain-signal counts (adjacency test): minority 1, majority 2, 2019 enact
 | Channel | Minority result | Majority result | Status |
 |---|---|---|---|
 | Population MAD (canonical ensemble) | p ≈ 0.0098 (p99.0 — outlier) | p15.8 (within null) | DONE 2026-05-12 |
-| Reock median compactness | p100 (anomalously compact) | p100 (anomalously compact) | Null finding |
+| Proxy Reock median (bounding-box diagonal) | p100 (anomalously compact) | p100 (anomalously compact) | Null finding |
 | CSD anchoring edge-crossing (MCMC, 10,000 plans) | 29.75% → p100 | 37.63% → p100 | Null finding (see note) |
 | Justification tests 1–5 (population/area law) | All 5 FAIL | — | DONE |
 
-**CSD anchoring note.** Both maps exceed all 10,000 neutral plans on CSD boundary-following (ensemble median 17.82%, 95% interval [16.73%, 18.97%]). This indicates both commission maps are more anchored to municipal divisions than random plans — the expected direction for commission work. The pre-registered alternative direction (minority < ensemble median) is not confirmed. This channel does not add to the Fisher combination. Source: `data/outputs/csd_anchoring_results.json`.
+**CSD anchoring note.** Both maps exceed all 10,000 neutral plans on CSD boundary-following (ensemble median 17.82%, 5th–95th percentile range [16.73%, 18.97%]). This indicates both commission maps are more anchored to municipal divisions than random plans — the expected direction for commission work. The pre-registered alternative direction (minority < ensemble median) is not confirmed. This channel does not add to the Fisher combination. Source: `data/outputs/csd_anchoring_results.json`.
 
 ### SZAT Robustness (§s58a6-A)
 
@@ -218,7 +219,7 @@ Ten pre-committed seeds derived from drand round 6099592. Source: `data/outputs/
 
 ### Submission Sentiment Cross-Reference (§5.9.4.7)
 
-1,252 written submissions + 397 Hansard turns (full combined corpus). Source: `data/outputs/cross_reference_summary.json`.
+1,252 written submissions + 397 configuration-relevant Hansard turns. Source: `data/outputs/cross_reference_summary.json`.
 
 | Metric | Value |
 |---|---|
@@ -250,7 +251,7 @@ All four metrics satisfy the registered GR92 < 1.1 criterion. Efficiency gap and
 
 ## §D7 — Pre-Registration Record
 
-All registrations were submitted before examining the test data for that channel. Links are archived in `docs/FROZEN_MANIFEST.md`.
+All registrations were submitted before examining the test data for that channel. Registration links are listed in the academic report's §4.3.3 table and in `preregistration/seed_commitments.md`.
 
 | OSF ID | AsPredicted ID | Submitted | Covers |
 |---|---|---|---|
@@ -259,6 +260,7 @@ All registrations were submitted before examining the test data for that channel
 | qsgy8 | #289455 | 2026-05-06 | Phase 2: Lunty 91-seat scorecard (pending Nov 2026 map) |
 | 6pt83 | #289469 | 2026-05-07 | Ch2: SZAT bootstrap null test |
 | s58a6 | — | 2026-05-10 | §s58a6-A SZAT robustness (10 seeds); §s58a6-B R-hat diagnostics; §s58a6-C Section C channels (population MAD, Reock, anchoring) |
+| yvc7g | — | 2026-05-10 | B7 inter-map permutation test (Ch1-COMP); filed after shapefile receipt |
 | he53s | — | 2026-07-10 | Forest-ReCom Phase A sampler-robustness check (filed before execution; ROBUST on all four metrics) |
 | u47bq | — | 2026-07-14 | Lane 3 process scorecard — nine protective process features; prospective for the November committee process, retrospective/descriptive for the commission process |
 
@@ -266,16 +268,16 @@ All registrations were submitted before examining the test data for that channel
 
 The canonical Mahalanobis joint outlier test (Ch1) was not filed as a stand-alone OSF pre-registration before execution. The test null hypothesis, the four component metrics, the covariance estimation method, and the rejection threshold were specified in the pre-analysis plan documented in `analysis/methodology/` prior to running the ensemble, but no OSF registration exists for this specific channel.
 
-This is disclosed as a limitation of the audit's pre-registration architecture. The Ch1 result should be read with the same evidential weight as a hypothesis-consistent finding where the hypothesis is documented but the registration is absent. The Fisher combination includes Ch1; reviewers who apply a stricter pre-registration standard may wish to treat the Fisher result as primarily driven by Ch2 (OSF 6pt83, p = 0.0024), which is registered. This is discussed in §5.2.10 DOCUMENTED CORRECTIONS of the academic report.
+This is disclosed as a limitation of the audit's pre-registration architecture. The Ch1 result should be read with the same evidential weight as a hypothesis-consistent finding where the hypothesis is documented but the registration is absent. The Fisher combination includes Ch1; reviewers who apply a stricter pre-registration standard may wish to treat the Fisher result as primarily driven by Ch2 (OSF 6pt83, p = 0.0024), which is registered. This is discussed in §4.3.3 of the academic report.
 
 ### drand Beacon Record
 
-All random seeds are derived from Cloudflare drand (league/default, chain `8990e7a9aaed2ffed73dbd7092123d6f289930540d7651336225dc172e51b2ce`). Derivation: `SHA-256("salt:beacon_randomness_hex")` truncated to 32-bit unsigned integer.
+All random seeds are derived from Cloudflare drand (league/default, chain `8990e7a9aaed2ffed73dbd7092123d6f289930540d7651336225dc172e51b2ce`). Derivation for round 6,099,592: the first 8 hex digits of `SHA-256("salt:beacon_randomness_hex")`, read as a 32-bit unsigned integer. Round-5,500,000 seeds use `analysis/scripts/drand_seed.py` (first 4 bytes of `SHA-256(randomness_hex + salt)`).
 
 | Registration | drand round | Salt | Derived seed |
 |---|---|---|---|
 | s58a6 primary (SZAT robustness + R-hat) | 6,099,592 | `alberta-audit-szat-robustness` | 23,687,475 |
-| s58a6 Section C rerun | 6,099,592 | `alberta-audit-section-c-rerun` | 3,562,959,107 |
+| s58a6 Section C rerun | 6,099,592 | `alberta-audit-mcmc-rerun-base` | 3,562,959,107 |
 | s58a6 anchoring ensemble | 6,099,592 | `alberta-audit-anchoring-ensemble` | 80,780,579 |
 | Canonical ensemble base seed | — | (pre-registered in w2s8k) | 1,432,864,451 |
 
@@ -289,15 +291,15 @@ For reviewers who wish to trace a specific result to its source code:
 |---|---|
 | Ch1 Mahalanobis joint outlier | `analysis/scripts/joint_outlier_score_canonical.py` |
 | Ch2 SZAT bootstrap | `analysis/scripts/szat.py` |
-| Ch3 Neighbour-Drain | `analysis/scripts/neighbour_drain_test.py` |
+| Ch3 Neighbour-Drain | `analysis/scripts/neighbour_drain_adjacency.py` (coupled counts), `drain_phase_b_canonical.py` (canonical label-shuffle null) |
 | Canonical MCMC ensemble (1M plans) | `analysis/scripts/mcmc_ensemble_canonical.py` |
-| Population MAD ratio | `analysis/scripts/population_mad_ratio.py` |
-| Reock compactness | `analysis/scripts/reock_asymmetry.py` |
+| Population MAD ratio | `analysis/scripts/mcmc_ensemble_canonical.py` (per-plan values), `joint_outlier_score_canonical.py` (percentiles); `electoral_forensics_population.py` (commission-table MAD) |
+| Reock compactness | `analysis/scripts/mcmc_ensemble_canonical.py` (proxy Reock per plan), `joint_outlier_score_canonical.py` (percentiles); `reock.py` (true Reock, DPG-era substrate only) |
 | CSD anchoring MCMC (10,000 plans) | `analysis/scripts/mcmc_anchoring_ensemble.py` |
 | Justification tests 1–5 | `analysis/scripts/justification_tests.py` |
-| SZAT robustness (§s58a6-A) | `analysis/scripts/szat.py` (10-seed replay) |
-| R-hat convergence (§s58a6-B) | `analysis/scripts/simulation_convergence_diagnostics.py` |
-| Sentiment intensity scoring | `analysis/scripts/submission_sentiment_llm_full.py` |
+| SZAT robustness (§s58a6-A) | committed output (`1dd5e91b`); generating code not in repo |
+| R-hat convergence (§s58a6-B) | committed output (`1dd5e91b`); generating code not in repo |
+| Sentiment intensity scoring | `analysis/scripts/submission_sentiment_llm_full.py` (classification), `sentiment_intensity_score.py` (intensity) |
 | Quote verification and cross-reference | `analysis/scripts/quote_verify_and_clean.py`, `cross_reference_submitters.py` |
 | IRR validation sample | `analysis/scripts/validation_sample.py` |
 | Cohen's κ computation | `analysis/scripts/compute_kappa.py` |

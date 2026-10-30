@@ -42,7 +42,7 @@ The opposite happened. Municipal-boundary anchoring was one of five tests announ
 
 ---
 
-**Purpose.** This document interrogates every substantive assertion in the academic audit monograph (`outputs/academic_report/report_academic.md`) with the questions a reader who knows nothing about elections, statistics, or political science would ask. It is organized by the report's section headings. Each entry follows this format:
+**Purpose.** This document interrogates every substantive assertion in the academic audit monograph (`reports/academic/report_academic.md`) with the questions a reader who knows nothing about elections, statistics, or political science would ask. It is organized by the report's section headings. Each entry follows this format:
 
 > **Assertion:** The claim, paraphrased if needed.
 > **Why?** The naive question a reader with no domain background would ask.
@@ -164,9 +164,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** No traditional statistical software (R, Stata, SPSS), no GIS desktop software (QGIS, ArcGIS), and no commercial election-analytics platforms were used. All inputs are public.
+**Assertion:** No GIS desktop software (QGIS, ArcGIS) and no commercial election-analytics platforms were used. R 4.6 with the `redist` package was used for one SMC cross-validation script. Stata and SPSS were not used. All inputs are public.
 **Why?** Why does it matter what software was used?
-**Answer:** Commercial or proprietary software can make research harder to reproduce because other researchers may not have access to it. Using only open-source Python tools means anyone with a standard computer can run the same code against the same publicly available data and check that the numbers are correct. This is the practical meaning of "reproducible" in this context.
+**Answer:** Commercial or proprietary software can make research harder to reproduce because other researchers may not have access to it. Using only open-source tools (Python, plus R for one cross-check) means anyone with a standard computer can run the same code against the same publicly available data and check that the numbers are correct. This is the practical meaning of "reproducible" in this context.
 
 ---
 
@@ -285,9 +285,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The *Electoral Boundaries Commission Act* (EBCA) sets a ±25% population deviation window (§14).
+**Assertion:** The *Electoral Boundaries Commission Act* (EBCA) sets a ±25% population deviation window (§15(1)).
 **Why?** What does a ±25% population deviation window mean and who decided it should be 25%?
-**Answer:** The EBCA is the Alberta law governing how electoral boundaries are drawn. Section 14 says that no district can have a population more than 25% above or more than 25% below the provincial average district size. This creates a legal boundary: a district with a population below 75% or above 125% of the average would be illegal. The 25% figure is set by the legislature, not by the commission or by this audit.
+**Answer:** The EBCA is the Alberta law governing how electoral boundaries are drawn. Section 15(1) says that no district can have a population more than 25% above or more than 25% below the provincial average district size. This creates a legal boundary: a district with a population below 75% or above 125% of the average would be illegal. The 25% figure is set by the legislature, not by the commission or by this audit.
 
 ---
 
@@ -587,7 +587,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**[Corrected — Amendment 10, 2026-06-12 — this Q&A is now inverted.** It was written when a declination sign bug made B6 appear to "point the opposite direction," so the defense was "we do not claim four metrics agree; we honestly note the disagreement." After the sign fix (`mcmc_ensemble.py:215`), the report DOES report **four-of-four agreement** in the UCP-favoured direction (declination p98.79, UCP-tail). The assertion and answer below are retained only as a record of the pre-correction posture; the current honest statement is the reverse — the four metrics do agree, and the audit says so. See `reports/academic/report_academic.md` §5.4.9 and §914.**]**
+**[Corrected — Amendment 10, 2026-06-12 — this Q&A is now inverted.** It was written when a declination sign bug made B6 appear to "point the opposite direction," so the defense was "we do not claim four metrics agree; we honestly note the disagreement." After the sign fix (`mcmc_ensemble.py:215`), the report DOES report **four-of-four agreement** in the UCP-favoured direction (declination p98.79, UCP-tail). The assertion and answer below are retained only as a record of the pre-correction posture; the current honest statement is the reverse — the four metrics do agree, and the audit says so. See `reports/academic/report_academic.md` §5.4.9 and §5.2.4.**]**
 
 **Assertion:** B2 (efficiency gap), B3 (mean-median), and B4 (seats at 50/50) all show the minority more UCP-favorable; B6 (declination) points the opposite direction. The disagreement is described as "four metrics describing different faces of the same structural pattern," not "three against one."
 **Why?** Is it not misleading to call this "four metrics agree" when declination disagrees on direction?
@@ -813,13 +813,13 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-#### §5.4.8 — Targeted-gerrymander short-bursts hill-climb (Cannon et al. 2022)
+#### §5.4.8 — Targeted-gerrymander short-bursts hill-climb (Cannon et al. 2023)
 
 *DPG-era analysis; superseded by canonical §5.4.9 for final conclusions.*
 
 ---
 
-**Assertion:** A short-bursts hill-climbing procedure (Cannon et al. 2022) runs 40,000 partisan-optimizing steps and reaches 52.87% UCP seats@50/50 — within rounding of the minority map's DPG-era 52.8%. The neutral ensemble across 2,000,000 draws cannot reach 52%.
+**Assertion:** A short-bursts hill-climbing procedure (Cannon et al. 2023) runs 40,000 partisan-optimizing steps and reaches 52.87% UCP seats@50/50 — within rounding of the minority map's DPG-era 52.8%. The neutral ensemble across 2,000,000 draws cannot reach 52%.
 **Why?** Why run a purposely partisan procedure at all — doesn't that show only what an intentional gerrymander could produce?
 **Answer:** That is exactly the point. The short-bursts result is not evidence of intent; it is evidence of procedural class. The audit distinguishes two types of boundary-drawing procedures: neutral ones (random walks constrained only by the statutory rules) and non-neutral ones (hill-climbing toward a partisan objective while staying legal). Run #6 establishes that neutral procedures cannot produce the minority's seats@50/50 reading. The short-bursts result establishes that non-neutral procedures can. The minority map therefore sits in the reachable space of a partisan optimizer and outside the reachable space of a neutral procedure. This two-sided framing is more precise than simply calling the minority an outlier — it characterizes which class of process could produce it. The audit explicitly does not conclude that the minority commissioners used a partisan optimizer; intent cannot be inferred from a map's geometry.
 
@@ -1023,7 +1023,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The commission chair's documented criticism spans 7 configurations across two sections of the majority report (§5.8.2 and §5.9.4).
+**Assertion:** The commission chair's documented criticism spans 7 configurations across two sections of the majority report, analysed in this audit's §5.8.2 and §5.9.4.
 **Why?** What are the 7 configurations and how does this relate to the "3 confirmed anomalies"?
 **Answer:** The chair flagged 7 different minority-map configurations as problematic in the official majority report. Of those 7, the audit was able to verify 3 as confirmed geometric anomalies through direct measurement. The other 4 involve boundary choices that the chair criticized on community-of-interest or process grounds rather than geometry — these are also documented but are categorized differently because they require evaluating the commission's stated rationales rather than measuring boundary shapes.
 
@@ -1461,7 +1461,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Phase 4C measured attribution — replacing the 70/30 blend with observed apportionment — would reduce the sensitivity range in §5.2.2 to a single refined value.
 **Why?** What is "Phase 4C" and what is the 70/30 blend it would replace?
-**Answer:** The 70/30 blend was a modeling assumption used when precise vote attribution was not possible: 70% of a hybrid district's vote estimate came from applying the result to one zone, 30% from another. It was a placeholder for the measured value that would come from a complete geographic overlay of every polling station with the new district shapes. **Phase 4C — the canonical VA-polygon attribution step — has now been executed** (script: `analysis/scripts/phase4c_canonical_attribution.py`; output: `data/outputs/phase4c_canonical_results.json`). It produces, for canonical EA shapefiles + 2023 vote data: minority EG +4.02%, majority EG +0.10% (asymmetry +3.92pp); minority seats@50/50 = 0.5169 (UCP fraction; equivalently 0.4831 NDP fraction per Phase 4C's own convention note). These are the values the monograph and public report now cite as canonical. The earlier "uncertainty from modeling choice" framing was correct for the pre-canonical era and is now superseded: the Phase 4C measurement *converged* to a specific value rather than reducing the blend's range. The Monte Carlo interval reported in §5.2.2 is a separate (correctly disclosed) source of uncertainty — the ensemble's distribution under different neutral-map draws — not the blend-substrate uncertainty. (Earlier draft of this entry contradicted the §1706 entry on the same page; this revision aligns them.)
+**Answer:** The 70/30 blend was a modeling assumption used when precise vote attribution was not possible: 70% of a hybrid district's vote estimate came from applying the result to one zone, 30% from another. It was a placeholder for the measured value that would come from a complete geographic overlay of every polling station with the new district shapes. **Phase 4C — the canonical VA-polygon attribution step — has now been executed** (script: `analysis/scripts/phase4c_canonical_attribution.py`; output: `data/outputs/phase4c_canonical_results.json`). It produces, for canonical EA shapefiles + 2023 vote data: minority EG +4.02%, majority EG +0.10% (asymmetry +3.92pp); minority seats@50/50 = 0.5169 (UCP fraction; equivalently 0.4831 NDP fraction per Phase 4C's own convention note). These are the values the monograph and public report now cite as canonical. The earlier "uncertainty from modeling choice" framing was correct for the pre-canonical era and is now superseded: the Phase 4C measurement *converged* to a specific value rather than reducing the blend's range. The Monte Carlo interval reported in §5.2.2 is a separate (correctly disclosed) source of uncertainty — the ensemble's distribution under different neutral-map draws — not the blend-substrate uncertainty. (Earlier draft of this entry contradicted the Appendix E Phase 4C entry on the same page; this revision aligns them.)
 
 ---
 
@@ -1580,10 +1580,6 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-*End of plain-language defense document.*
-
-<!-- PLAIN_LANG_DEFENSE_END -->
-
 ## References
 
 ---
@@ -1602,7 +1598,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Saskatchewan Reference ([1991] 2 SCR 158) is the governing Canadian constitutional case.
 **Why?** Why is this a 1991 case and not something more recent?
-**Answer:** The Supreme Court of Canada has not substantially revisited the effective-representation standard since 1991. The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. Subsequent federal court cases (Raîche 2004, Cassista 2014) have applied the Saskatchewan Reference standard but have not altered its core holding. Until the Supreme Court revisits the question, the 1991 standard governs.
+**Answer:** The Supreme Court of Canada has not substantially revisited the effective-representation standard since 1991. The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. A subsequent Federal Court case (Raîche 2004) applied the Saskatchewan Reference standard but did not alter its core holding. Until the Supreme Court revisits the question, the 1991 standard governs.
 
 ---
 
@@ -1753,3 +1749,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Answer:** The Grant v. Torstar test asks whether the person publishing the characterization took reasonable steps to verify it and presented it responsibly. The seven factors include: seriousness of the allegation (electoral process legitimacy is serious), public importance (yes — boundaries affect every voter), urgency (the audit was conducted before the April 16 vote), reliability of sources (all public records), verification (all claims are reproducible), inclusion of the subject's side (the commission's own rationales are quoted and analyzed), and justifiability (the factual record is publicly accessible for anyone to check). The audit satisfies each because it is a methodologically rigorous document built entirely on public-record sources.
 
 ---
+
+*End of plain-language defense document.*
+
+<!-- PLAIN_LANG_DEFENSE_END -->
