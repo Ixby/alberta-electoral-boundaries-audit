@@ -788,44 +788,10 @@
 				// names (a–c read off the majority map, d approximate from county
 				// lines; see analysis/scripts/build_lunty_bounds.py). Part of the
 				// EBC '26 annotations, so they draw with the flag pins under
-				// filters.pois. R5 changes only c and d, so only those are shaded;
-				// a and b are where R5 forbids change (Airdrie and everything south,
-				// north Edmonton) and draw as an unfilled dashed limit line, so they
-				// never read as places R5 reaches. One explanatory pin each.
+				// filters.pois. Every zone gets the same boundary highlight as a search
+				// pick; its pin says whether Rec 5 changes the area or leaves it alone.
 				if (filters.pois && luntyBounds) {
-					const R5_RGB: Record<string, [number, number, number]> = {
-						locked: [236, 236, 236], // a, b — no change: stays as the majority drew it
-						revert: [240, 120, 165], // c — back to the October 2025 interim map
-						restore: [224, 142, 96] // d — the restored rural division
-					};
-					for (const z of luntyBounds.zones) {
-						const rgb = R5_RGB[z.kind] ?? R5_RGB.restore;
-						const locked = z.kind === 'locked';
-						layers.push(
-							new PolygonLayer({
-								id: 'lunty-' + z.id,
-								data: z.rings,
-								getPolygon: (r: number[][]) => r as any,
-								filled: !locked,
-								getFillColor: [...rgb, 40],
-								stroked: true,
-								getLineColor: [...rgb, locked ? 220 : 255],
-								getLineWidth: 2,
-								lineWidthUnits: 'pixels',
-								lineWidthMinPixels: 2,
-								// Dash and gap are multiples of the 2 px line width.
-								...(locked
-									? {
-											extensions: [new PathStyleExtension({ dash: true })],
-											getDashArray: [4, 3],
-											dashJustified: true
-										}
-									: {}),
-								parameters: { depthTest: false },
-								coordinateSystem: CART
-							})
-						);
-					}
+					layers.push(...buildInnerGlow('r5', luntyBounds.zones.flatMap((z) => z.rings)));
 					layers.push(
 						new ScatterplotLayer({
 							id: 'lunty-point',
@@ -875,65 +841,66 @@
 			// edge-of-province districts). The bbox half-side is recovered from the
 			// fit-zoom the index stored: zoom = 1 - log2(side / 256)  →  side = 256·2^(1−zoom).
 			/* eslint-disable @typescript-eslint/no-explicit-any */
-			// Inner edge glow in magenta — set apart from both party fills (UCP blue,
-			// NDP orange) where the old gold ring sank into the orange. The outline is
-			// stroked wide and masked by its own polygon, so only the inside half shows:
-			// the glow sits inside the selected area and fades toward its centre.
-			const SEL_RGB: [number, number, number] = [236, 0, 140];
-			function buildInnerGlow(rings: number[][][], sel: EdRec): any[] {
+			// Highlighted boundaries (a search pick, the Rec 5 zones): a white glow
+			// inside the boundary with a thin near-black edge, so it reads on the
+			// orange and blue fills and the pale polls, and apart from the teal,
+			// purple and gold map lines. The outline is stroked wide and masked by its
+			// own polygon, so only the inside half shows and the glow fades inward.
+			const HI_RGB: [number, number, number] = [255, 255, 255];
+			const HI_EDGE: [number, number, number, number] = [20, 20, 24, 235];
+			function buildInnerGlow(id: string, rings: number[][][]): any[] {
 				const paths = rings.map((r) => [...r, r[0]]);
 				const out: any[] = [
 					new PolygonLayer({
-						id: 'sel-mask',
+						id: id + '-mask',
 						data: rings,
 						getPolygon: (r: number[][]) => r as any,
 						operation: 'mask',
 						coordinateSystem: CART
 					})
 				];
-				for (const [w, a] of [
-					[22, 45],
-					[12, 90],
-					[5, 235]
-				]) {
+				for (const [w, color] of [
+					[22, [...HI_RGB, 60]],
+					[12, [...HI_RGB, 120]],
+					[6, [...HI_RGB, 245]],
+					[3, HI_EDGE]
+				] as [number, number[]][]) {
 					out.push(
 						new PathLayer({
-							id: 'sel-glow-' + w,
+							id: id + '-glow-' + w,
 							data: paths,
 							getPath: (p: number[][]) => p as any,
-							getColor: [...SEL_RGB, a] as [number, number, number, number],
+							getColor: color as [number, number, number, number],
 							widthUnits: 'pixels',
 							getWidth: w,
 							jointRounded: true,
 							extensions: [new MaskExtension()],
-							maskId: 'sel-mask',
-							parameters: { depthTest: false },
-							coordinateSystem: CART
-						})
-					);
-				}
-				// A community keeps its centre point, so a small place is findable at the overview.
-				if (sel.ed && sel.ccx != null && sel.ccy != null) {
-					out.push(
-						new ScatterplotLayer({
-							id: 'comm-center',
-							data: [sel],
-							getPosition: () => [sel.ccx!, sel.ccy!, 0],
-							getRadius: 5,
-							radiusUnits: 'pixels',
-							radiusMinPixels: 4,
-							filled: true,
-							stroked: true,
-							getFillColor: [...SEL_RGB, 255],
-							getLineColor: [255, 255, 255, 235],
-							getLineWidth: 1.5,
-							lineWidthUnits: 'pixels',
+							maskId: id + '-mask',
 							parameters: { depthTest: false },
 							coordinateSystem: CART
 						})
 					);
 				}
 				return out;
+			}
+			// A community's centre point, so a small place is findable at the overview.
+			function commCenter(sel: EdRec): any {
+				return new ScatterplotLayer({
+					id: 'comm-center',
+					data: [sel],
+					getPosition: () => [sel.ccx!, sel.ccy!, 0],
+					getRadius: 5,
+					radiusUnits: 'pixels',
+					radiusMinPixels: 4,
+					filled: true,
+					stroked: true,
+					getFillColor: [...HI_RGB, 255],
+					getLineColor: HI_EDGE,
+					getLineWidth: 1.5,
+					lineWidthUnits: 'pixels',
+					parameters: { depthTest: false },
+					coordinateSystem: CART
+				});
 			}
 
 			function buildSelectedGlow(): any[] {
@@ -949,15 +916,15 @@
 						: undefined
 					: (edOutlines?.[primary]?.[sel.name] ??
 						Object.values(edOutlines ?? {}).find((m) => m[sel.name])?.[sel.name]);
-				if (rings && rings.length) return buildInnerGlow(rings, sel);
+				const hasCenter = !!sel.ed && sel.ccx != null && sel.ccy != null;
+				if (rings && rings.length)
+					return [...buildInnerGlow('sel', rings), ...(hasCenter ? [commCenter(sel)] : [])];
 
 				// Community / municipality hit (sel.ed set, with its own centroid):
-				// a DISTINCT magenta marker — a center point plus a ring scaled to the
-				// community's extent — to set it apart from the gold ED glow and pinpoint
-				// the place within the district it sits in.
-				if (sel.ed && sel.ccx != null && sel.ccy != null) {
-					const cc: [number, number, number] = [sel.ccx, sel.ccy, 0];
-					const PINK: [number, number, number] = [255, 64, 150];
+				// until its outline loads, a ring scaled to the community's extent plus
+				// its centre point, in the highlight colours.
+				if (hasCenter) {
+					const cc: [number, number, number] = [sel.ccx!, sel.ccy!, 0];
 					return [
 						new ScatterplotLayer({
 							id: 'comm-ring',
@@ -968,30 +935,15 @@
 							radiusMinPixels: 16,
 							filled: true,
 							stroked: true,
-							getFillColor: [...PINK, 26],
-							getLineColor: [...PINK, 240],
+							getFillColor: [...HI_RGB, 40],
+							getLineColor: HI_EDGE,
 							getLineWidth: 3,
 							lineWidthUnits: 'pixels',
 							lineWidthMinPixels: 2,
 							parameters: { depthTest: false },
 							coordinateSystem: CART
 						}),
-						new ScatterplotLayer({
-							id: 'comm-center',
-							data: [sel],
-							getPosition: () => cc,
-							getRadius: 5,
-							radiusUnits: 'pixels',
-							radiusMinPixels: 4,
-							filled: true,
-							stroked: true,
-							getFillColor: [...PINK, 255],
-							getLineColor: [255, 255, 255, 235],
-							getLineWidth: 1.5,
-							lineWidthUnits: 'pixels',
-							parameters: { depthTest: false },
-							coordinateSystem: CART
-						})
+						commCenter(sel)
 					];
 				}
 
@@ -1029,7 +981,7 @@
 							id: 'ed-glow',
 							data: near,
 							getPath: (d: { g: number[][] }) => d.g as any,
-							getColor: [255, 226, 120, 235],
+							getColor: [...HI_RGB, 235],
 							widthUnits: 'pixels',
 							getWidth: 5,
 							widthMinPixels: 3,
@@ -1052,7 +1004,7 @@
 						radiusMinPixels: 10,
 						filled: false,
 						stroked: true,
-						getLineColor: [255, 214, 80, 235],
+						getLineColor: HI_EDGE,
 						getLineWidth: 3,
 						lineWidthUnits: 'pixels',
 						lineWidthMinPixels: 2,
