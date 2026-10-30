@@ -105,7 +105,7 @@ In Calgary's north-east and central districts, where the NDP won thirteen of sev
 
 ### Unequal district sizes
 
-Equal district populations are the one value Alberta's law puts a number on. By the commission's own population tables, the minority map's districts are off the ideal size by 4,707 people on average, compared with 3,180 on the majority map, a spread 48% wider. My own measurement on the official map files shows the same thing (3,938 against 2,827), and only about 1 in 100 neutral maps spreads its populations wider. So the usual defence of odd lines, that they were needed to balance populations, doesn't work here.
+Equal district populations are the one value Alberta's law puts a number on. By the commission's own population tables, the minority map's districts are off the ideal size by 4,707 people on average, compared with 3,180 on the majority map, a spread 48% wider. On 2021 census numbers the gap narrows: the two maps' average deviations are almost the same, though the minority's typical district is still further from equal (3,938 against 2,827). On the numbers the commission itself used, the usual defence of odd lines, that they were needed to balance populations, doesn't work here.
 <!-- key: does.spread_p | src: c4_found, c4_show -->
 
 ### Rural tails on urban districts

@@ -17,7 +17,7 @@ type: project
 **Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29.
+**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30.
 
 ---
 
@@ -44,6 +44,7 @@ type: project
 | 2026-10-29 | Amendment 19 | Errata | A withdrawn timing claim in thresholds.md |
 | 2026-10-29 | Amendment 20 | Neutral-map sets | Statute-band, municipality-aware and s.15(2) sets; harness fixes; town-split framing |
 | 2026-10-29 | Amendment 21 | s.15(2) spec; Amendment 17 corrections | s.15(2) criteria fixed and checked against the commissions; effective-sample rule; labels; municipality weight W = 0.5 anchored to the 2019 map |
+| 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
 
 ---
 
@@ -1054,3 +1055,43 @@ structural measure, with the maps under test kept out of the anchor.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 21:45 MDT
+
+---
+
+### Amendment 22 — Errata (2026-10-30)
+
+> **Status: in force.** Signed 2026-10-30 03:23 MDT. Corrects the district count
+> of the canonical neutral plans in thresholds.md. No test, threshold, rule or
+> registered value changes.
+
+`preregistration/thresholds.md` §B.2.1.D (Option D, Threshold #42), under
+"Residual vulnerability", said the ensemble imposes a uniform ±25% band "on all
+89 EDs". Every one of the 1,010,000 canonical plans has 87 districts, the 2019
+map's count (the `n_districts` column of
+`data/simulation_checkpoints_canonical/chain{0..3}_samples.csv`), and the band
+applies around a quota of 2021 population / 87. The sentence now reads "on all
+87 districts of each neutral plan (quota = 2021 population / 87)". The
+89-district official shapefiles only score the two commission maps. Found by the
+monograph audit (`analysis/review/monograph_audit_2026-10-30.md`, MC-A3) and
+applied on the author's approval, given in session on 2026-10-30 ("Go", in reply
+to the audit's list of decisions). The academic report records
+the same correction as DOCUMENTED CORRECTIONS C18.
+
+The threshold stays at the registered +4.10%. The rest of the sentence, on the
+s.15(2) districts the ensemble cannot reach, is unchanged.
+
+**Also noted, not changed:** Amendment 17, item 1, says the canonical ensemble
+"starts every chain from the 2019 map (`initial_assignment_2019`)". On 2021
+population the 2019 map has 7 of its 87 districts outside ±25%, so the harness
+reseeds every chain with an 87-part `recursive_tree_part` partition, and the
+2019 map supplies only the district count (academic report C20). Amendment 17's
+rules are unaffected: its size-matched chains are seeded that way too, as it
+states.
+
+**Left as is:** the same paragraph still describes the ensemble as run "on
+official Elections Alberta shapefiles". The plans partition the 4,765 voting
+areas, and the shapefiles score the commission maps. Decision A3 covered only
+the district count.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-30 03:23 MDT
