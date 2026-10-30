@@ -33,6 +33,7 @@
 		buildHairlines,
 		buildBasemap,
 		buildPois,
+		PIN_STYLE,
 		edgeBbox,
 		bboxIntersects,
 		padBbox,
@@ -808,15 +809,7 @@
 								n: z.eds.length
 							})),
 							getPosition: (d: any) => [d.x, d.y, 0],
-							getRadius: 7,
-							radiusUnits: 'pixels',
-							radiusMinPixels: 5,
-							filled: true,
-							stroked: true,
-							getFillColor: [210, 173, 108, 255], // match the other annotation pins
-							getLineColor: [88, 72, 40, 255],
-							getLineWidth: 1.4,
-							lineWidthUnits: 'pixels',
+							...PIN_STYLE, // same look as the other annotation pins
 							pickable: true,
 							parameters: { depthTest: false },
 							coordinateSystem: CART

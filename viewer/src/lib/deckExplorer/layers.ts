@@ -658,6 +658,22 @@ export function buildBasemap(
 	return layers;
 }
 
+/** One look for every commission annotation pin (flags and Recommendation 5):
+ *  the tan fill with a 2 px near-black ring, so a pin reads on the orange fills
+ *  as well as the blue (the old 1.4 px brown ring sank into the orange). */
+export const PIN_STYLE = {
+	getRadius: 8,
+	radiusUnits: 'pixels' as const,
+	radiusMinPixels: 6,
+	filled: true,
+	getFillColor: [210, 173, 108, 255] as [number, number, number, number],
+	stroked: true,
+	getLineColor: [20, 20, 24, 255] as [number, number, number, number],
+	getLineWidth: 2,
+	lineWidthUnits: 'pixels' as const,
+	lineWidthMinPixels: 2
+};
+
 /** Annotation pins (the "looks wrong, is faithful" markers). Returns [] when
  *  disabled or empty. Ported from the `flags` ScatterplotLayer (~382). */
 export function buildPois(
@@ -673,13 +689,7 @@ export function buildPois(
 			data: flags,
 			pickable: true,
 			getPosition: (d: { x: number; y: number }) => [d.x, d.y, 0],
-			getRadius: 7,
-			radiusUnits: 'pixels',
-			radiusMinPixels: 5,
-			getFillColor: [210, 173, 108, 255],
-			stroked: true,
-			getLineColor: [88, 72, 40, 255],
-			lineWidthMinPixels: 1.4,
+			...PIN_STYLE,
 			coordinateSystem: COORDINATE_SYSTEM.CARTESIAN
 		})
 	];
