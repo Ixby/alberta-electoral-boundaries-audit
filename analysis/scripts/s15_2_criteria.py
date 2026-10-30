@@ -20,13 +20,14 @@ the scoring of real maps.
                  each specialized municipality's urban service area (its DAs
                  at >= 400 people per km2), except Crowsnest Pass (s.15(3)).
   (d) reserve    the district holds >= 10% of the area of an Indian reserve
-                 (CSD type IRI) or a Metis settlement (--metis layer).
+                 (NRCan Aboriginal Lands, legal boundaries) or a Metis
+                 settlement (Government of Alberta layer).
   (e) border     the district's VAs share >= 1 km of edge with the
                  provincial boundary (VA edge within 100 m of the outline).
 
 Usage
-  python analysis/scripts/s15_2_criteria.py --va-table OUT.csv [--metis PATH]
-  python analysis/scripts/s15_2_criteria.py --score [--metis PATH] [--out results.json]
+  python analysis/scripts/s15_2_criteria.py --va-table OUT.csv
+  python analysis/scripts/s15_2_criteria.py --score [--out results.json]
 """
 import argparse
 import json
@@ -51,6 +52,8 @@ CSD_POP = REPO / "data/reference/alberta_2021_csd_populations.csv"
 DA = REPO / "data/shapefiles/reference/alberta_2021_das.gpkg"
 DA_POP = REPO / "data/reference/alberta_2021_da_populations.csv"
 OSM = REPO / "data/osm/alberta_osm_highways.gpkg"
+RESERVES = REPO / "data/shapefiles/reference/aboriginal_lands_nrcan_dl/aboriginal_lands_alberta.geojson"
+METIS = REPO / "data/shapefiles/reference/metis_settlements_dl/metis_settlements_goa.geojson"
 MAPS = {"majority_2026": REPO / "data/shapefiles/canonical/ea_majority_2026_eds.gpkg",
         "minority_2026": REPO / "data/shapefiles/canonical/ea_minority_2026_eds.gpkg"}
 LEGISLATURE = (-113.5068, 53.5336)  # lon, lat; Alberta Legislature Building
@@ -108,17 +111,13 @@ def towns(vas, pts):
     return j["town"].fillna(""), t.set_index("town")["pop"].to_dict()
 
 
-def reserves(vas, metis):
+def reserves(vas):
     """Per VA: {reserve or settlement: overlap area km2}, and each one's total area."""
-    csd = gpd.read_file(CSD).to_crs(WORK)
-    r = csd[csd["CSDTYPE"] == "IRI"][["CSDNAME", "geometry"]].rename(columns={"CSDNAME": "name"})
-    if metis:
-        m = gpd.read_file(metis).to_crs(WORK)
-        col = next(c for c in m.columns if c.lower() in ("name", "metis_settlement", "settlement", "msname", "ms_name"))
-        m = m.dissolve(by=col).reset_index()[[col, "geometry"]].rename(columns={col: "name"})
-        m["name"] = m["name"].astype(str) + " (Metis settlement)"
-        r = pd.concat([r, m], ignore_index=True)
-    r = r.dissolve(by="name").reset_index()
+    r = gpd.read_file(RESERVES).to_crs(WORK)
+    r = r[r["distributionType"] == "IR"][["adminAreaNameEng", "geometry"]].rename(columns={"adminAreaNameEng": "name"})
+    m = gpd.read_file(METIS).to_crs(WORK)[["METIS_NAME", "geometry"]].rename(columns={"METIS_NAME": "name"})
+    m["name"] = m["name"] + " (Metis settlement)"
+    r = pd.concat([r, m], ignore_index=True).dissolve(by="name").reset_index()
     total = (r.set_index("name").geometry.area / 1e6).to_dict()
     ov = gpd.overlay(vas[["geometry"]].reset_index(names="va"), r, how="intersection", keep_geom_type=True)
     ov["km2"] = ov.geometry.area / 1e6
@@ -134,7 +133,7 @@ def border_km(vas):
     return vas.geometry.boundary.intersection(ext).length / 1000.0
 
 
-def va_table(metis=None):
+def va_table():
     va, graph = me.build_va_graph(verbose=False)
     nodes = sorted(graph.nodes())
     vas = va.loc[nodes, ["geometry", "pop_2021"]].to_crs(WORK)
@@ -145,7 +144,7 @@ def va_table(metis=None):
     tab["area_km2"] = vas.to_crs(EQAREA).geometry.area / 1e6
     tab["road_km"] = road_km(vas)
     tab["town"], town_pop = towns(vas, pts)
-    tab["reserves"], res_area = reserves(vas, metis)
+    tab["reserves"], res_area = reserves(vas)
     tab["border_km"] = border_km(vas)
     return tab, town_pop, res_area, va
 
@@ -193,12 +192,11 @@ def score(tab, town_pop, res_area, va):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--metis", help="Metis settlement polygons (GoA open data)")
     ap.add_argument("--va-table", help="write the per-VA table here")
     ap.add_argument("--score", action="store_true", help="score the 2019, majority and minority maps")
     ap.add_argument("--out")
     a = ap.parse_args()
-    tab, town_pop, res_area, va = va_table(a.metis)
+    tab, town_pop, res_area, va = va_table()
     print(f"{len(town_pop)} towns over 8,000: " + ", ".join(f"{t} {p:,.0f}" for t, p in sorted(town_pop.items(), key=lambda x: -x[1])))
     print(f"{len(res_area)} reserves/settlements; VAs with no highway within 1 km: {int(np.isinf(tab['road_km']).sum())}")
     if a.va_table:

@@ -409,7 +409,27 @@ def real(out, va_file, extra_maps=()):
                                         "city_gap_pct", "n_city_districts", "towns_flagged", "towns_flagged_list")})
 
 
+def _no_power_throttling():
+    """Windows 11 marks windowless background processes for EcoQoS, which
+    parks them on efficiency cores at low clocks (2026-10-29: 12 chains on the
+    8 E-cores of an i7-1360P with the P-cores idle). Opt this process out.
+    Affects speed only, never results; no-op elsewhere."""
+    if sys.platform != "win32":
+        return
+    import ctypes
+
+    class _State(ctypes.Structure):
+        _fields_ = [("Version", ctypes.c_ulong), ("ControlMask", ctypes.c_ulong), ("StateMask", ctypes.c_ulong)]
+
+    st = _State(1, 1, 0)  # PROCESS_POWER_THROTTLING_EXECUTION_SPEED, explicitly off
+    k32 = ctypes.windll.kernel32
+    k32.GetCurrentProcess.restype = ctypes.c_void_p
+    k32.SetProcessInformation.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
+    k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(st), ctypes.sizeof(st))
+
+
 if __name__ == "__main__":
+    _no_power_throttling()
     ap = argparse.ArgumentParser()
     ap.add_argument("mode", choices=["rep87", "nk", "real"])
     ap.add_argument("--k", type=int, default=89)

@@ -43,6 +43,7 @@ type: project
 | 2026-10-29 | Amendment 18 | Errata | Citations, labels and stale status lines in registered documents |
 | 2026-10-29 | Amendment 19 | Errata | A withdrawn timing claim in thresholds.md |
 | 2026-10-29 | Amendment 20 | Neutral-map sets | Statute-band, municipality-aware and s.15(2) sets; harness fixes; town-split framing |
+| 2026-10-29 | Amendment 21 | s.15(2) spec; Amendment 17 corrections | s.15(2) criteria fixed and checked against the commissions; effective-sample rule; labels; municipality weight W = 0.5 anchored to the 2019 map |
 
 ---
 
@@ -851,3 +852,204 @@ municipalities.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 20:14 MDT
+
+---
+
+### Amendment 21 — The s.15(2) specification, corrections to Amendment 17, and the municipality-aware weight (2026-10-29)
+
+> **Status: in force.** Drafted 2026-10-29 20:45 MDT and signed 2026-10-29 21:45 MDT,
+> before the committee's map is due (November 2, 2026) and before any committee
+> map has been published. No s.15(2) chain has run. Two municipality-aware
+> chains (241, 243) started at W = 0.5 about 20:50 MDT, on the author's ruling in
+> item 3, before this was signed; none of their output has been examined. The author's direction: "we want to make sure we're being faithful
+> as possible to the legislation and the norm, we're not chasing goalposts."
+
+Each rule below follows the statute's words where they can be computed. Where
+they can't, the rule says which way the approximation errs. The s.15(2) rules
+were checked against what Alberta's commissions did, not against any result.
+
+**1. The s.15(2) set (Amendment 20, item 3), specified.** The criteria are
+computed by `analysis/scripts/s15_2_criteria.py` from one per-VA table, the same
+for neutral maps and real maps. The statute's text is in
+`preregistration/terms_of_reference.md` §3d–3e.
+
+- **(a) Area.** The sum of the district's VA areas in an equal-area projection
+  (Canada Albers, ESRI:102001), met above 20,000 km². No province-wide source for
+  "total surveyed area" is available, so the 15,000 km² limb is treated as not
+  met. That errs strict, and only for a district of 15,000–20,000 km² whose
+  surveyed area exceeds 15,000 km².
+- **(b) Distance.** The shortest route on the OSM highway layer
+  (`data/osm/alberta_osm_highways.gpkg`: motorway, trunk, primary and secondary
+  roads) from the node nearest the Legislature Building (53.5336° N,
+  113.5068° W) to the nearest node within 1 km of the district, met above
+  150 km. A district no highway reaches meets (b). Leaving out local roads can
+  only lengthen a route, so (b) errs lenient by that much.
+- **(c) Town.** The Act does not define "town". Read as a legal status alone, (c)
+  would credit a district holding a city with having no town over 8,000, the
+  opposite of what the criterion marks. On the real maps that reading makes
+  Calgary-Glenmore-Tsuut'ina (majority), Calgary-West-Tsuut'ina (minority) and
+  the Medicine Hat districts eligible to sit 50% under quota; no Alberta
+  commission has used s.15(2) for a district holding a city. Statutes are read
+  for their purpose and to avoid absurd results (*Rizzo & Rizzo Shoes Ltd.
+  (Re)*, [1998] 1 SCR 27, paras. 21 and 27). So a town here is a city or town
+  (2021 CSD types CY and T), or the urban service area of a specialized
+  municipality: its 2021 dissemination areas at 400 or more people per km²,
+  Statistics Canada's density rule for a population centre. Crowsnest Pass is
+  excluded under s.15(3). The author chose this reading in this session
+  (2026-10-29, about 21:40 MDT), replacing the status-only reading approved
+  earlier that evening for the s.15(2) build
+  (`governance/GOVERNANCE-s15-2-chain-model.md`). Two urban
+  service areas pass 8,000: Strathcona County's (Sherwood Park, 68,784) and Wood
+  Buffalo's (Fort McMurray, 58,964). Populations are 2021 census counts
+  (`data/reference/alberta_2021_csd_populations.csv`,
+  `alberta_2021_da_populations.csv`). A district contains a town when it holds
+  at least 2% of the town's population, Amendment 17's piece rule; (c) is met
+  when it contains no town over 8,000.
+- **(d) Reserve or settlement.** Indian reserves are the legal reserve
+  boundaries in Natural Resources Canada's "Aboriginal Lands of Canada
+  Legislative Boundaries" (Canada Lands Survey System; retrieved 2026-10-30
+  02:39 UTC; 152 Indian reserves in Alberta; SHA-256 `f87795a1…b8d0`). The 2021
+  census layer has only 83 reserve CSDs, because it can leave out uninhabited
+  reserves, and the statute does not ask whether anyone lives there. Its three
+  "Indian settlement" CSDs are not used: Statistics Canada defines an Indian
+  settlement as lacking reserve status. Metis settlements are the Government of
+  Alberta's "Metis Settlement" layer (Provincial Geospatial Centre; retrieved
+  2026-10-30 02:12 UTC; 10 polygons, all 8 settlements; SHA-256
+  `5e7c1270…c1e5`). Both sit under `data/shapefiles/reference/` with a
+  SOURCE.md. A district contains one when it holds at least 10% of its area,
+  which keeps boundary slivers out.
+- **(e) Provincial boundary.** Met when the district's VAs share at least 1 km
+  of edge with the provincial outline (VA edge within 100 m of the exterior of
+  the 2021 CSD union). Lake shores inside the province do not count.
+
+*Split rule.* ReCom accepts a cut when both new districts hold between 50% and
+125% of the average district population. A plan is valid when every district
+is within ±25% of the average, except that up to four districts may hold 50% to
+75% of it if each meets at least three of (a)–(e). The Commission's "opinion" is
+modelled as the criteria being met (Amendment 20). A neutral map takes the
+exception only when a random cut lands there; nothing pushes it there. Reported
+beside each result: the share of plans with 0 to 4 such districts, and where
+they fall. Chain indices 250–259 (91 districts) and 150–159 (89), seeded as in
+Amendment 17.
+
+*Checked against the commissions.* The script, run on the 2026 maps, gives
+(full output: `data/outputs/s15_2_real_maps.json`; per-VA table:
+`data/outputs/s15_2_va_criteria.csv`):
+
+| District | Map | Re-audit count (from the commission's text) | Computed |
+|---|---|---|---|
+| Central Peace-Notley | majority | 5 | 5 (a b c d e) |
+| Lesser Slave Lake | majority | 4 (not e) | 3 (a c d) |
+| Canmore-Banff | majority | 3 (b d e) | 3 (b d e) |
+| Central Peace-Notley | minority | 5 | 5 |
+| Lesser Slave Lake | minority | 4 (not e) | 3 (a c d) |
+| Rocky Mountain House-Banff Park | minority | 5 | 5 |
+
+Re-audit counts: `analysis/methodology/population_deviation_reaudit.md`. On the
+2019 map, Central Peace-Notley computes 5 and Lesser Slave Lake 4.
+
+Every district a commission placed under s.15(2) qualifies. The one
+disagreement is Lesser Slave Lake's (b) in the 2026 maps. Its south-east edge,
+a VA from the 2019 Athabasca-Barrhead-Westlock division, lies 134 km from the
+Legislature by highway and 113 km in a straight line, so the literal "nearest
+boundary" test fails; the commission counted (b) as met (report p. 248). The
+literal reading stands. It is the statute's wording, and it changes no
+designation: the district still qualifies on (a), (c) and (d). A second
+implementation, built separately on the author's machine, found the same
+134 km.
+
+**2. Corrections to Amendment 17.**
+
+- **(a) The provisional rule counts effective draws, not plans.** Amendment 17
+  marks size-matched results provisional below 20,000 plans. Successive plans
+  are strongly correlated, so plans are the wrong unit. On the two completed
+  chains (91 districts, chain 201; 89 districts, chain 100), the first 20,000
+  plans hold 57 and 99 effective draws for close seats, and 16 and 9 for the
+  city-versus-rest gap: too few to place a 95th percentile. The replacement: a
+  result is final when its measure's effective sample size, summed over chains
+  by the estimator the canonical ensemble reports (Geyer initial positive
+  sequence, `simulation_multichain_ensemble.autocorrelation_ess`), is at least
+  400 and the estimator's lag cap did not bind. Otherwise it is reported as
+  provisional with its n_eff, and re-scored as chains complete. At 400 effective
+  draws a map's percentile near the 95th is known to about ±2 points. This is
+  stricter than the rule it replaces.
+- **(b) X1 (a) and (b) get a strict reading beside them.** The 99%/99% rule
+  stays. A median VA holds 862 people, 1.8% of a 91-district average, so a
+  moved VA usually fails it. A VA under 1% of a division (about 470 people) can
+  move unseen, and a tenth of VAs hold 408 people or fewer. So the strict
+  reading (100%/100%) is reported beside each result, with the population moved
+  for any division that passes at 99% and not at 100%. It does not gate.
+- **(c) Town splits: Sherwood Park and Fort McMurray.** The registered test
+  counts CSD types CY and T. That leaves out two urban centres of about 60,000
+  to 70,000 people, because each sits inside a specialized municipality. The
+  running chains record only CY and T, so the registered statistic stays as
+  it is. For the November map, the splits of both urban service areas (as
+  defined in item 1(c)) are reported beside it against the 2019, majority and
+  minority maps, with no neutral-map percentile.
+- **(d) City versus rest gets two labels.** First, it runs on 2021 census
+  population for the map and the neutral maps alike, which keeps the comparison
+  consistent but departs from the commission's own tables. The majority map
+  reads −0.7% here and +9.2% on the commission's populations with districts
+  classed by name; the minority reads +5.4% and +15.9%. Population source and
+  classification both differ, and the two have not been separated. Second, as
+  with town splits (Amendment 20, item 5), a flag means "a larger city–rest
+  gap than population-only neutral maps", not "beyond what the law allows".
+  s.14(a) lets a commission weigh sparsity, and the 2019 and majority maps'
+  values, reported beside it, show what commissions that did so produced.
+- **Unchanged:** competitive seats, the town-split rule itself, and X1's (c)
+  and (d).
+
+**3. The municipality-aware weight (Amendment 20, item 2).** Amendment 20 fixed
+the weight W at 1.0 and promised not to tune it. Calibration runs on the
+author's machine, made before any production chain, show what that weight
+means. R is the share of 2021 CSDs (169: Calgary and Edmonton excluded, at least
+two VAs each) split into more pieces than their population requires, by
+Amendment 17's piece and need rules (`Geo.csd_split_ratio`). On the real maps,
+R is 0.166 for the 2019 enacted map (28 of 169), 0.112 for the majority (19) and
+0.249 for the minority (42). On neutral maps with 91 districts and the statute
+band, W = 0 gives 0.388, W = 0.5 gives 0.168 and W = 1.0 gives 0.065 (mean of
+the second half of 6,000- or 10,000-step runs).
+
+At W = 1.0 the neutral maps split municipalities at 40% of the enacted map's
+rate and well below either commission map. That models a commission stricter
+about municipalities than any Alberta commission has been. It is not the norm.
+
+The replacement is W = 0.5, anchored to the 2019 enacted map: the map in force,
+and not one under test. Its R of 0.166 falls at W ≈ 0.51 with 91 districts and
+W ≈ 0.54 with 89, both within one chain's noise of 0.5. The author first asked
+for the mean of all three maps (0.176), which also gives W ≈ 0.5, but the anchor
+leaves both 2026 maps out. The minority map is under test and splits the most
+municipalities, so it would pull its own benchmark toward itself. And under
+Recommendation 5 the November map keeps 52 majority divisions unchanged, so
+anchoring to the majority would pull the benchmark toward the map being scored.
+The author chose this anchor in this session, 2026-10-29. Production indices:
+241, 243, 244 and 245 (91 districts) and 140 and 141 (89); 240 and 242 failed
+to seed, and a further failure takes the next free index in the block.
+
+W was tuned against R only. No test statistic from the set had been computed,
+per the session that ran the calibration. W is now fixed, and the set stays a
+sensitivity reading, not a test.
+
+**4. Code.** The chains run commit `01095181` (branch `amendment17-local-runs`):
+the harness patch that Amendment 20, item 4, describes (patch SHA-256
+`84f85728…3a35`), plus a Windows power setting that changes speed, not
+results. It merges into master with this amendment, together with
+`s15_2_criteria.py` and the run log
+(`analysis/methodology/amendment17_chain_runs/README.md`).
+`tests/test_scoring.py`: 16 passed. A 1,500-step regression of chain 221 gives
+identical rows on Linux and on the author's Windows machine (content digest
+`66e00fa2…67cf`). The s.15(2) chain code (split rule and constraint) lands
+before that set runs, and its commit will be recorded here.
+
+**Why this is not a goalpost move.** Everything here is fixed before the
+committee's map exists, before any s.15(2) chain has run, and before any
+municipality-aware output has been examined.
+Item 1 writes down rules Amendment 20 promised, and tests them against the
+commissions' own designations rather than against any result. Item 2 tightens
+one rule and adds labels and reported readings; no registered test, threshold
+or baseline is loosened. Item 3 is the one place a registered value changes. It
+is a sensitivity set's weight, and it moves to match the enacted map on a
+structural measure, with the maps under test kept out of the anchor.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 21:45 MDT

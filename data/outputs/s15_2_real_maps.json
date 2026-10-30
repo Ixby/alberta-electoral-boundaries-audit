@@ -1,0 +1,4785 @@
+{
+ "2019_enacted": {
+  "Airdrie-Cochrane": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 63575.89830025846,
+   "area_km2": 755,
+   "road_km": 269.4,
+   "towns_over_8000": [
+    "Airdrie",
+    "Cochrane"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Airdrie-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 57068.38963249436,
+   "area_km2": 715,
+   "road_km": 253.2,
+   "towns_over_8000": [
+    "Airdrie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Athabasca-Barrhead-Westlock": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 3,
+   "pop": 45103.87027107291,
+   "area_km2": 23730,
+   "road_km": 57.3,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134B"
+   ],
+   "border_km": 0.0
+  },
+  "Banff-Kananaskis": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 44967.2323893021,
+   "area_km2": 15963,
+   "road_km": 312.0,
+   "towns_over_8000": [
+    "Banff",
+    "Canmore"
+   ],
+   "reserves_held": [
+    "STONEY 142, 143, 144",
+    "STONEY 142B",
+    "TSUU T'INA NATION 145"
+   ],
+   "border_km": 424.3
+  },
+  "Bonnyville-Cold Lake-St. Paul": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 2,
+   "pop": 50108.54434291579,
+   "area_km2": 15866,
+   "road_km": 148.0,
+   "towns_over_8000": [
+    "Cold Lake"
+   ],
+   "reserves_held": [
+    "BLUE QUILLS FIRST NATION INDIAN RESERVE",
+    "COLD LAKE 149",
+    "COLD LAKE 149A",
+    "COLD LAKE 149B",
+    "COLD LAKE 149C",
+    "Elizabeth (Metis settlement)",
+    "Fishing Lake (Metis settlement)",
+    "KEHEWIN 123",
+    "PUSKIAKIWENIN 122",
+    "SADDLE LAKE 125",
+    "UNIPOUHEOS 121"
+   ],
+   "border_km": 113.5
+  },
+  "Brooks-Medicine Hat": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 51556.5374276933,
+   "area_km2": 13739,
+   "road_km": 338.2,
+   "towns_over_8000": [
+    "Brooks",
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 63.8
+  },
+  "Calgary-Acadia": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50148.136405360194,
+   "area_km2": 40,
+   "road_km": 296.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Beddington": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47107.9520433201,
+   "area_km2": 28,
+   "road_km": 283.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Bhullar-McCall": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 54505.01966036205,
+   "area_km2": 43,
+   "road_km": 279.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Bow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52549.4107631813,
+   "area_km2": 35,
+   "road_km": 331.1,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Buffalo": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 55781.39308250054,
+   "area_km2": 11,
+   "road_km": 292.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Cross": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48397.11955372665,
+   "area_km2": 16,
+   "road_km": 328.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Currie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50170.67227406994,
+   "area_km2": 16,
+   "road_km": 327.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47053.89525470434,
+   "area_km2": 25,
+   "road_km": 293.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Edgemont": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47820.74741915404,
+   "area_km2": 19,
+   "road_km": 327.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Elbow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47931.201307601805,
+   "area_km2": 19,
+   "road_km": 318.4,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Falconridge": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48834.456118247195,
+   "area_km2": 15,
+   "road_km": 324.6,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Fish Creek": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 44483.8789473616,
+   "area_km2": 28,
+   "road_km": 305.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Foothills": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 59295.35610265123,
+   "area_km2": 47,
+   "road_km": 316.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Glenmore": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46786.12623016299,
+   "area_km2": 29,
+   "road_km": 312.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Hays": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52773.449597159386,
+   "area_km2": 24,
+   "road_km": 309.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Klein": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50204.974540866846,
+   "area_km2": 37,
+   "road_km": 284.9,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Lougheed": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 42675.730115859296,
+   "area_km2": 33,
+   "road_km": 310.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Mountain View": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52516.77300223844,
+   "area_km2": 18,
+   "road_km": 290.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47356.68095650777,
+   "area_km2": 21,
+   "road_km": 314.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 61516.2349376065,
+   "area_km2": 67,
+   "road_km": 273.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47449.61922046886,
+   "area_km2": 26,
+   "road_km": 332.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Peigan": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46166.7158517614,
+   "area_km2": 110,
+   "road_km": 294.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Shaw": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 55884.2643661361,
+   "area_km2": 40,
+   "road_km": 318.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-South East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 56996.153747102944,
+   "area_km2": 53,
+   "road_km": 313.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Varsity": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46190.06409906044,
+   "area_km2": 24,
+   "road_km": 330.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45572.1634193943,
+   "area_km2": 24,
+   "road_km": 332.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Camrose": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 43381.43869846781,
+   "area_km2": 10644,
+   "road_km": 48.2,
+   "towns_over_8000": [
+    "Camrose"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Cardston-Siksika": {
+   "a": false,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 44657.44149622956,
+   "area_km2": 15789,
+   "road_km": 319.4,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "BLOOD 148",
+    "SIKSIKA INDIAN RESERVE NO. 146"
+   ],
+   "border_km": 91.8
+  },
+  "Central Peace-Notley": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 27060.109613116096,
+   "area_km2": 47336,
+   "road_km": 219.9,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134A",
+    "CLEAR HILLS 152C",
+    "DUNCANS 151A",
+    "STURGEON LAKE 154",
+    "STURGEON LAKE 154A",
+    "STURGEON LAKE 154B"
+   ],
+   "border_km": 211.7
+  },
+  "Chestermere-Strathmore": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 51084.03123027361,
+   "area_km2": 1584,
+   "road_km": 306.3,
+   "towns_over_8000": [
+    "Chestermere",
+    "Strathmore"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Cypress-Medicine Hat": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 49804.00953272776,
+   "area_km2": 6106,
+   "road_km": 517.2,
+   "towns_over_8000": [
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 161.6
+  },
+  "Drayton Valley-Devon": {
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 46912.603385911185,
+   "area_km2": 6163,
+   "road_km": 14.3,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ENOCH CREE NATION NO. 135"
+   ],
+   "border_km": 0.0
+  },
+  "Drumheller-Stettler": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": false,
+   "e": true,
+   "n": 3,
+   "pop": 40045.03698683906,
+   "area_km2": 36547,
+   "road_km": 142.2,
+   "towns_over_8000": [],
+   "reserves_held": [],
+   "border_km": 179.7
+  },
+  "Edmonton-Beverly-Clareview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 46448.54440336476,
+   "area_km2": 39,
+   "road_km": 6.7,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Castle Downs": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50758.423702228625,
+   "area_km2": 21,
+   "road_km": 8.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-City Centre": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 48927.70048653268,
+   "area_km2": 12,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Decore": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 48817.36537735501,
+   "area_km2": 17,
+   "road_km": 5.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Ellerslie": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 67910.24274648672,
+   "area_km2": 64,
+   "road_km": 12.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Glenora": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 42956.841654500124,
+   "area_km2": 22,
+   "road_km": 1.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Gold Bar": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 44532.84869932663,
+   "area_km2": 54,
+   "road_km": 0.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Highlands-Norwood": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 40556.5347484232,
+   "area_km2": 17,
+   "road_km": 0.4,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Manning": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56173.506502561315,
+   "area_km2": 115,
+   "road_km": 9.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-McClung": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 42014.95229192948,
+   "area_km2": 18,
+   "road_km": 7.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Meadows": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54388.455849605634,
+   "area_km2": 19,
+   "road_km": 10.3,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Mill Woods": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 47897.03352404526,
+   "area_km2": 27,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-North West": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50384.611243045176,
+   "area_km2": 30,
+   "road_km": 4.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Riverview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 43903.92509255203,
+   "area_km2": 28,
+   "road_km": 0.1,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Rutherford": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 45515.06319392437,
+   "area_km2": 21,
+   "road_km": 5.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-South": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 69027.94939994124,
+   "area_km2": 73,
+   "road_km": 9.8,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-South West": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 65511.070102517806,
+   "area_km2": 92,
+   "road_km": 13.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Strathcona": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 44083.28877596245,
+   "area_km2": 15,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-West Henday": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 55731.52526089366,
+   "area_km2": 77,
+   "road_km": 4.9,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Whitemud": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 45542.58158805463,
+   "area_km2": 22,
+   "road_km": 5.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Fort McMurray-Lac La Biche": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 40624.278548182956,
+   "area_km2": 32329,
+   "road_km": 151.9,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "BEAVER LAKE 131",
+    "Buffalo Lake (Metis settlement)",
+    "CLEARWATER 175",
+    "COWPER LAKE 194A",
+    "GREGOIRE LAKE 176",
+    "GREGOIRE LAKE 176A",
+    "GREGOIRE LAKE 176B",
+    "HEART LAKE 167",
+    "HEART LAKE 167A",
+    "HOUSE RIVER INDIAN CEMETERY 178",
+    "JANVIER 194",
+    "Kikino (Metis settlement)",
+    "WHITE FISH LAKE 128",
+    "WINEFRED LAKE 194B"
+   ],
+   "border_km": 1.5
+  },
+  "Fort McMurray-Wood Buffalo": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 44916.8610016731,
+   "area_km2": 86417,
+   "road_km": 431.1,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "ALLISON BAY 219",
+    "CHARLES LAKE 225",
+    "CHIPEWYAN 201",
+    "CHIPEWYAN 201A",
+    "CHIPEWYAN 201B",
+    "CHIPEWYAN 201C",
+    "CHIPEWYAN 201D",
+    "CHIPEWYAN 201E",
+    "CHIPEWYAN 201F",
+    "CHIPEWYAN 201G",
+    "COLLIN LAKE 223",
+    "CORNWALL LAKE 224",
+    "DEVIL'S GATE 220",
+    "DOG HEAD 218",
+    "FORT MCKAY 174C",
+    "FORT MCKAY INDIAN RESERVE NO. 174",
+    "FORT MCKAY INDIAN RESERVE NO. 174D",
+    "HOKEDHE TUE 196E",
+    "K'I TUE 196D",
+    "LI DEZE 196C",
+    "NAMUR LAKE 174B",
+    "NAMUR RIVER 174A",
+    "OLD FORT 217",
+    "PEACE POINT INDIAN RESERVE NO. 222",
+    "SANDY POINT 221",
+    "THABACHA N\u00c1RE INDIAN RESERVE NO. 196A",
+    "THEBATHI 196",
+    "TSU K'ADHE TUE 196F",
+    "TSU NEDEHE TUE 196H",
+    "TSU TUE 196G",
+    "TTHE JERE GHAILI 196B",
+    "\u0241EJERE K'ELNI K\u0172E INDIAN RESERVE NO. 196I"
+   ],
+   "border_km": 121.7
+  },
+  "Fort Saskatchewan-Vegreville": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53931.218908110626,
+   "area_km2": 9124,
+   "road_km": 18.9,
+   "towns_over_8000": [
+    "Fort Saskatchewan"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46591.73419945718,
+   "area_km2": 111,
+   "road_km": 451.4,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie-Wapiti": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 50224.969074314955,
+   "area_km2": 16015,
+   "road_km": 413.0,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [
+    "HORSE LAKES 152B"
+   ],
+   "border_km": 158.5
+  },
+  "Highwood": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50691.14528307202,
+   "area_km2": 1345,
+   "road_km": 318.4,
+   "towns_over_8000": [
+    "Okotoks"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Innisfail-Sylvan Lake": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 49002.59735238126,
+   "area_km2": 3610,
+   "road_km": 138.6,
+   "towns_over_8000": [
+    "Sylvan Lake"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lac Ste. Anne-Parkland": {
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 45863.413510402075,
+   "area_km2": 5494,
+   "road_km": 14.3,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134",
+    "ALEXIS 133",
+    "ENOCH CREE NATION NO. 135A",
+    "WABAMUN 133A",
+    "WABAMUN 133B"
+   ],
+   "border_km": 0.0
+  },
+  "Lacombe-Ponoka": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 46355.2460443261,
+   "area_km2": 3671,
+   "road_km": 79.3,
+   "towns_over_8000": [
+    "Blackfalds",
+    "Lacombe"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Leduc-Beaumont": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56192.61629205755,
+   "area_km2": 190,
+   "road_km": 15.6,
+   "towns_over_8000": [
+    "Beaumont",
+    "Leduc"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lesser Slave Lake": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 4,
+   "pop": 27079.4834214911,
+   "area_km2": 69668,
+   "road_km": 180.4,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ASSINEAU RIVER 150F",
+    "BISON LAKE",
+    "CHIP LAKE IR 166E",
+    "DRIFT PILE RIVER 150",
+    "East Prairie (Metis settlement)",
+    "GODS LAKE INDIAN RESERVE NO. 238A",
+    "Gift Lake (Metis settlement)",
+    "HAIG LAKE",
+    "JEAN BAPTISTE GAMBLER 183",
+    "JEAN BAPTISTE GAMBLER IR 183A",
+    "JEAN BAPTISTE GAMBLER IR 183B",
+    "JEAN BAPTISTE GAMBLER IR 183C",
+    "KAPAWE'NO FIRST NATION NO. 150B",
+    "KAPAWE'NO FIRST NATION NO. 150C",
+    "KAPAWE'NO FIRST NATION NO. 150D",
+    "KAPAWE'NO FIRST NATION NO. 229",
+    "KAPAWE'NO FIRST NATION NO. 230",
+    "KAPAWE'NO FIRST NATION NO. 231",
+    "LITTLE BUFFALO LOTS",
+    "LOON LAKE 235",
+    "LOON PRAIRIE 237",
+    "LUBICON LAKE",
+    "MARTEN RIVER",
+    "PEERLESS TROUT INDIAN RESERVE NO. 238",
+    "Peavine (Metis settlement)",
+    "SAWRIDGE 150G",
+    "SAWRIDGE 150H",
+    "SUCKER CREEK 150A",
+    "SWAMPY LAKE 236",
+    "SWAN RIVER 150E",
+    "TWIN LAKES INDIAN RESERVE NO. 238B",
+    "UTIKOOMAK LAKE 155",
+    "UTIKOOMAK LAKE 155A",
+    "UTIKOOMAK LAKE 155B",
+    "WABASCA 166",
+    "WABASCA 166A",
+    "WABASCA 166B",
+    "WABASCA 166C",
+    "WABASCA 166D",
+    "WEASEL LAKE",
+    "WOODLAND CREE 226",
+    "WOODLAND CREE 227",
+    "WOODLAND CREE 228"
+   ],
+   "border_km": 0.0
+  },
+  "Lethbridge-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45150.89835102309,
+   "area_km2": 50,
+   "road_km": 500.5,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lethbridge-West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 53031.21720159175,
+   "area_km2": 74,
+   "road_km": 493.2,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Livingstone-Macleod": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 50265.62184339243,
+   "area_km2": 14167,
+   "road_km": 343.5,
+   "towns_over_8000": [
+    "High River"
+   ],
+   "reserves_held": [
+    "BLOOD TIMBER LIMIT 148A",
+    "EDEN VALLEY 216",
+    "PEIGAN TIMBER LIMIT 147B",
+    "PIIKANI RESERVE"
+   ],
+   "border_km": 225.9
+  },
+  "Maskwacis-Wetaskiwin": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 44011.44741944283,
+   "area_km2": 4225,
+   "road_km": 25.7,
+   "towns_over_8000": [
+    "Wetaskiwin"
+   ],
+   "reserves_held": [
+    "ERMINESKIN 138",
+    "LOUIS BULL 138B",
+    "MONTANA 139",
+    "PIGEON LAKE 138A",
+    "SAMSON 137",
+    "SAMSON 137A"
+   ],
+   "border_km": 0.0
+  },
+  "Morinville-St. Albert": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51910.851831093154,
+   "area_km2": 1378,
+   "road_km": 12.7,
+   "towns_over_8000": [
+    "Morinville",
+    "St. Albert"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Olds-Didsbury-Three Hills": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50492.0272546558,
+   "area_km2": 10492,
+   "road_km": 198.2,
+   "towns_over_8000": [
+    "Olds"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Peace River": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 40289.51670019701,
+   "area_km2": 109332,
+   "road_km": 445.5,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "AMBER RIVER 211",
+    "BEAVER RANCH 163",
+    "BEAVER RANCH 163A",
+    "BEAVER RANCH 163B",
+    "BISTCHO LAKE 213",
+    "BOYER RIVER 164",
+    "BUSHE RIVER 207",
+    "CHILD LAKE 164A",
+    "FORT VERMILION INDIAN RESERVE NO. 173B",
+    "FOX LAKE 162",
+    "FOX LAKE NO. 162A",
+    "HAY LAKE 209",
+    "JACKFISH POINT 214",
+    "JOHN D\u2019OR PRAIRIE INDIAN RESERVE NO. 215",
+    "PEERLESS MEADOWS INDIAN RESERVE NO. 238C",
+    "Paddle Prairie (Metis settlement)",
+    "TALL CREE 173",
+    "TALL CREE 173A",
+    "UPPER HAY RIVER 212",
+    "WADLIN LAKE 173C",
+    "WILLIAM MCKENZIE 151K",
+    "ZAMA LAKE 210"
+   ],
+   "border_km": 481.1
+  },
+  "Red Deer-North": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 46816.203714452684,
+   "area_km2": 72,
+   "road_km": 140.6,
+   "towns_over_8000": [
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Red Deer-South": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 53742.98413763144,
+   "area_km2": 35,
+   "road_km": 150.0,
+   "towns_over_8000": [
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Rimbey-Rocky Mountain House-Sundre": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 3,
+   "pop": 45322.582944375776,
+   "area_km2": 24506,
+   "road_km": 102.6,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "BIG HORN 144A",
+    "BUCK LAKE 133C",
+    "O'CHIESE 203",
+    "O'CHIESE CEMETERY 203A",
+    "SUNCHILD 202"
+   ],
+   "border_km": 0.0
+  },
+  "Sherwood Park": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 47054.135193259615,
+   "area_km2": 63,
+   "road_km": 6.3,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Spruce Grove-Stony Plain": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53784.88206073607,
+   "area_km2": 69,
+   "road_km": 23.2,
+   "towns_over_8000": [
+    "Spruce Grove",
+    "Stony Plain"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "St. Albert": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 49003.06060951203,
+   "area_km2": 39,
+   "road_km": 11.6,
+   "towns_over_8000": [
+    "St. Albert"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Strathcona-Sherwood Park": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 48188.64991524492,
+   "area_km2": 643,
+   "road_km": 11.7,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Taber-Warner": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 44534.75875412092,
+   "area_km2": 14982,
+   "road_km": 484.4,
+   "towns_over_8000": [
+    "Coaldale",
+    "Taber"
+   ],
+   "reserves_held": [],
+   "border_km": 127.5
+  },
+  "Vermilion-Lloydminster-Wainwright": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 45367.65719726733,
+   "area_km2": 10085,
+   "road_km": 159.0,
+   "towns_over_8000": [
+    "Lloydminster (Part)"
+   ],
+   "reserves_held": [
+    "MAKAOO I.R. 120"
+   ],
+   "border_km": 154.4
+  },
+  "West Yellowhead": {
+   "a": true,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 49556.395706253505,
+   "area_km2": 48353,
+   "road_km": 103.5,
+   "towns_over_8000": [
+    "Edson",
+    "Hinton",
+    "Whitecourt"
+   ],
+   "reserves_held": [
+    "ALEXIS CARDINAL 234",
+    "ALEXIS ELK RIVER 233",
+    "ALEXIS WHITECOURT 232"
+   ],
+   "border_km": 196.2
+  }
+ },
+ "majority_2026": {
+  "Airdrie-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50082.480048383746,
+   "area_km2": 1915,
+   "road_km": 236.9,
+   "towns_over_8000": [
+    "Airdrie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Airdrie-West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 38278.93180357655,
+   "area_km2": 164,
+   "road_km": 265.8,
+   "towns_over_8000": [
+    "Airdrie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Barrhead-Westlock-Athabasca": {
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 50563.71445362706,
+   "area_km2": 15546,
+   "road_km": 43.7,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134B",
+    "ALEXIS 133",
+    "ENOCH CREE NATION NO. 135A"
+   ],
+   "border_km": 0.0
+  },
+  "Calgary-Acadia": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49753.735440623284,
+   "area_km2": 23,
+   "road_km": 302.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Beddington": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50443.55362004939,
+   "area_km2": 29,
+   "road_km": 283.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Bhullar-McCall": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 38535.14507581761,
+   "area_km2": 42,
+   "road_km": 279.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Bow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48108.270454314224,
+   "area_km2": 32,
+   "road_km": 331.1,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Buffalo": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 41110.830743196035,
+   "area_km2": 4,
+   "road_km": 324.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Confluence": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47310.69344702176,
+   "area_km2": 41,
+   "road_km": 292.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Cross": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52856.46231042666,
+   "area_km2": 16,
+   "road_km": 326.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Currie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50170.67227406994,
+   "area_km2": 16,
+   "road_km": 327.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 55140.101021413364,
+   "area_km2": 112,
+   "road_km": 297.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Edgemont": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50264.95177683147,
+   "area_km2": 20,
+   "road_km": 328.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Elbow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47595.00212149445,
+   "area_km2": 18,
+   "road_km": 318.4,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Falconridge-Conrich": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45586.265668888766,
+   "area_km2": 29,
+   "road_km": 323.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Fish Creek": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 51623.27407399175,
+   "area_km2": 33,
+   "road_km": 305.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Glenmore-Tsuut'ina": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 50440.70934087217,
+   "area_km2": 334,
+   "road_km": 312.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [
+    "TSUU T'INA NATION 145"
+   ],
+   "border_km": 0.0
+  },
+  "Calgary-Hays": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45050.011709987564,
+   "area_km2": 20,
+   "road_km": 309.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Klein": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49409.02995630867,
+   "area_km2": 37,
+   "road_km": 284.9,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Lougheed": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 53030.824138216296,
+   "area_km2": 34,
+   "road_km": 321.4,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-McKenzie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 56334.12225763654,
+   "area_km2": 30,
+   "road_km": 301.1,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Mountain View": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46573.46573653959,
+   "area_km2": 16,
+   "road_km": 290.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48177.72908730065,
+   "area_km2": 20,
+   "road_km": 316.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 28880.663616651975,
+   "area_km2": 25,
+   "road_km": 275.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47449.61922046886,
+   "area_km2": 26,
+   "road_km": 332.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Nose Creek": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 38425.92893742832,
+   "area_km2": 48,
+   "road_km": 273.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Shaw": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 38389.775217148956,
+   "area_km2": 34,
+   "road_km": 318.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-South East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 35677.379386882865,
+   "area_km2": 44,
+   "road_km": 313.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Symons Valley": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 44659.97650705946,
+   "area_km2": 36,
+   "road_km": 322.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Varsity": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50631.20440792751,
+   "area_km2": 27,
+   "road_km": 330.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-West-Elbow Valley": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47838.74706066998,
+   "area_km2": 43,
+   "road_km": 332.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Camrose": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51645.17785970897,
+   "area_km2": 9992,
+   "road_km": 25.7,
+   "towns_over_8000": [
+    "Camrose"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Canmore-Banff": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 31773.812072985096,
+   "area_km2": 15404,
+   "road_km": 312.0,
+   "towns_over_8000": [
+    "Banff",
+    "Canmore"
+   ],
+   "reserves_held": [
+    "EDEN VALLEY 216",
+    "STONEY 142, 143, 144",
+    "STONEY 142B"
+   ],
+   "border_km": 424.3
+  },
+  "Central Peace-Notley": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 27060.109613116096,
+   "area_km2": 47336,
+   "road_km": 219.9,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134A",
+    "CLEAR HILLS 152C",
+    "DUNCANS 151A",
+    "STURGEON LAKE 154",
+    "STURGEON LAKE 154A",
+    "STURGEON LAKE 154B"
+   ],
+   "border_km": 211.7
+  },
+  "Chestermere-Strathmore": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 41812.57857877399,
+   "area_km2": 856,
+   "road_km": 311.9,
+   "towns_over_8000": [
+    "Chestermere",
+    "Strathmore"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Cochrane-Springbank": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49850.63431266311,
+   "area_km2": 751,
+   "road_km": 310.4,
+   "towns_over_8000": [
+    "Cochrane"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Cold Lake-Bonnyville-St. Paul": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 52702.426482675815,
+   "area_km2": 16829,
+   "road_km": 154.1,
+   "towns_over_8000": [
+    "Cold Lake"
+   ],
+   "reserves_held": [
+    "BLUE QUILLS FIRST NATION INDIAN RESERVE",
+    "COLD LAKE 149",
+    "COLD LAKE 149A",
+    "COLD LAKE 149B",
+    "COLD LAKE 149C",
+    "Elizabeth (Metis settlement)",
+    "Fishing Lake (Metis settlement)",
+    "KEHEWIN 123",
+    "PUSKIAKIWENIN 122",
+    "UNIPOUHEOS 121"
+   ],
+   "border_km": 113.5
+  },
+  "Drumheller-Stettler": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": false,
+   "e": true,
+   "n": 3,
+   "pop": 51212.507563289626,
+   "area_km2": 40338,
+   "road_km": 109.3,
+   "towns_over_8000": [],
+   "reserves_held": [],
+   "border_km": 179.7
+  },
+  "Edmonton-Beaumont": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 40329.60081357289,
+   "area_km2": 64,
+   "road_km": 14.7,
+   "towns_over_8000": [
+    "Beaumont",
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Beverly-Clareview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53716.391185750304,
+   "area_km2": 42,
+   "road_km": 6.7,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Castle Downs": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50758.423702228625,
+   "area_km2": 21,
+   "road_km": 8.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-City Centre": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 48420.60893756343,
+   "area_km2": 15,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Decore": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 52617.58207286318,
+   "area_km2": 18,
+   "road_km": 5.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Ellerslie": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54964.7756085791,
+   "area_km2": 24,
+   "road_km": 9.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Enoch": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 43192.8365412328,
+   "area_km2": 144,
+   "road_km": 12.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [
+    "ENOCH CREE NATION NO. 135"
+   ],
+   "border_km": 0.0
+  },
+  "Edmonton-Glenora-Riverview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53230.530221387104,
+   "area_km2": 26,
+   "road_km": 1.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Gold Bar": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51592.678189380684,
+   "area_km2": 57,
+   "road_km": 0.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Highlands-Norwood": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 44845.0442868894,
+   "area_km2": 19,
+   "road_km": 0.4,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Manning": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 45105.44302466761,
+   "area_km2": 111,
+   "road_km": 9.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-McClung": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56985.189134696106,
+   "area_km2": 28,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Meadows": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 40082.02852651982,
+   "area_km2": 14,
+   "road_km": 13.1,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Mill Woods": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54921.32414319209,
+   "area_km2": 24,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-North West": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54762.01824648548,
+   "area_km2": 32,
+   "road_km": 4.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Rutherford": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 52821.33653347036,
+   "area_km2": 26,
+   "road_km": 5.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-South": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 37274.48146058168,
+   "area_km2": 52,
+   "road_km": 11.7,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Strathcona": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50782.63590323079,
+   "area_km2": 27,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-West Henday": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51681.482099769964,
+   "area_km2": 74,
+   "road_km": 5.3,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Whitemud": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 55435.12450270122,
+   "area_km2": 28,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Windermere": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 36560.36741126828,
+   "area_km2": 55,
+   "road_km": 14.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Fort McMurray-Lac La Biche": {
+   "a": true,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 41333.8988075204,
+   "area_km2": 34518,
+   "road_km": 101.9,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "BEAVER LAKE 131",
+    "Buffalo Lake (Metis settlement)",
+    "CLEARWATER 175",
+    "COWPER LAKE 194A",
+    "GREGOIRE LAKE 176",
+    "GREGOIRE LAKE 176A",
+    "GREGOIRE LAKE 176B",
+    "HEART LAKE 167",
+    "HEART LAKE 167A",
+    "HOUSE RIVER INDIAN CEMETERY 178",
+    "JANVIER 194",
+    "Kikino (Metis settlement)",
+    "SADDLE LAKE 125",
+    "WHITE FISH LAKE 128",
+    "WINEFRED LAKE 194B"
+   ],
+   "border_km": 1.5
+  },
+  "Fort McMurray-Wood Buffalo": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 47339.28716009157,
+   "area_km2": 86424,
+   "road_km": 431.1,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "ALLISON BAY 219",
+    "CHARLES LAKE 225",
+    "CHIPEWYAN 201",
+    "CHIPEWYAN 201A",
+    "CHIPEWYAN 201B",
+    "CHIPEWYAN 201C",
+    "CHIPEWYAN 201D",
+    "CHIPEWYAN 201E",
+    "CHIPEWYAN 201F",
+    "CHIPEWYAN 201G",
+    "COLLIN LAKE 223",
+    "CORNWALL LAKE 224",
+    "DEVIL'S GATE 220",
+    "DOG HEAD 218",
+    "FORT MCKAY 174C",
+    "FORT MCKAY INDIAN RESERVE NO. 174",
+    "FORT MCKAY INDIAN RESERVE NO. 174D",
+    "HOKEDHE TUE 196E",
+    "K'I TUE 196D",
+    "LI DEZE 196C",
+    "NAMUR LAKE 174B",
+    "NAMUR RIVER 174A",
+    "OLD FORT 217",
+    "PEACE POINT INDIAN RESERVE NO. 222",
+    "SANDY POINT 221",
+    "THABACHA N\u00c1RE INDIAN RESERVE NO. 196A",
+    "THEBATHI 196",
+    "TSU K'ADHE TUE 196F",
+    "TSU NEDEHE TUE 196H",
+    "TSU TUE 196G",
+    "TTHE JERE GHAILI 196B",
+    "\u0241EJERE K'ELNI K\u0172E INDIAN RESERVE NO. 196I"
+   ],
+   "border_km": 121.7
+  },
+  "Fort Saskatchewan-Vegreville": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50631.360817586035,
+   "area_km2": 8208,
+   "road_km": 26.2,
+   "towns_over_8000": [
+    "Fort Saskatchewan"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46591.73419945718,
+   "area_km2": 111,
+   "road_km": 451.4,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie-Wapiti": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 50224.969074314955,
+   "area_km2": 16015,
+   "road_km": 413.0,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [
+    "HORSE LAKES 152B"
+   ],
+   "border_km": 158.5
+  },
+  "High River-Vulcan-Siksika": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 54291.45704200161,
+   "area_km2": 15050,
+   "road_km": 280.2,
+   "towns_over_8000": [
+    "High River",
+    "Strathmore"
+   ],
+   "reserves_held": [
+    "SIKSIKA INDIAN RESERVE NO. 146"
+   ],
+   "border_km": 0.0
+  },
+  "Lacombe-Clearwater": {
+   "a": true,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 50096.47192075352,
+   "area_km2": 20638,
+   "road_km": 109.3,
+   "towns_over_8000": [
+    "Blackfalds",
+    "Lacombe"
+   ],
+   "reserves_held": [
+    "BIG HORN 144A",
+    "O'CHIESE 203",
+    "O'CHIESE CEMETERY 203A",
+    "SUNCHILD 202"
+   ],
+   "border_km": 0.0
+  },
+  "Leduc-Devon": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56671.314447066834,
+   "area_km2": 1880,
+   "road_km": 15.6,
+   "towns_over_8000": [
+    "Leduc"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lesser Slave Lake": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 3,
+   "pop": 29500.668209638763,
+   "area_km2": 76843,
+   "road_km": 133.9,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ASSINEAU RIVER 150F",
+    "BISON LAKE",
+    "CHIP LAKE IR 166E",
+    "DRIFT PILE RIVER 150",
+    "East Prairie (Metis settlement)",
+    "GODS LAKE INDIAN RESERVE NO. 238A",
+    "Gift Lake (Metis settlement)",
+    "HAIG LAKE",
+    "JEAN BAPTISTE GAMBLER 183",
+    "JEAN BAPTISTE GAMBLER IR 183A",
+    "JEAN BAPTISTE GAMBLER IR 183B",
+    "JEAN BAPTISTE GAMBLER IR 183C",
+    "KAPAWE'NO FIRST NATION NO. 150B",
+    "KAPAWE'NO FIRST NATION NO. 150C",
+    "KAPAWE'NO FIRST NATION NO. 150D",
+    "KAPAWE'NO FIRST NATION NO. 229",
+    "KAPAWE'NO FIRST NATION NO. 230",
+    "KAPAWE'NO FIRST NATION NO. 231",
+    "LITTLE BUFFALO LOTS",
+    "LOON LAKE 235",
+    "LOON PRAIRIE 237",
+    "LUBICON LAKE",
+    "MARTEN RIVER",
+    "PEERLESS TROUT INDIAN RESERVE NO. 238",
+    "Peavine (Metis settlement)",
+    "SAWRIDGE 150G",
+    "SAWRIDGE 150H",
+    "SUCKER CREEK 150A",
+    "SWAMPY LAKE 236",
+    "SWAN RIVER 150E",
+    "TWIN LAKES INDIAN RESERVE NO. 238B",
+    "UTIKOOMAK LAKE 155",
+    "UTIKOOMAK LAKE 155A",
+    "UTIKOOMAK LAKE 155B",
+    "WABASCA 166",
+    "WABASCA 166A",
+    "WABASCA 166B",
+    "WABASCA 166C",
+    "WABASCA 166D",
+    "WEASEL LAKE",
+    "WOODLAND CREE 226",
+    "WOODLAND CREE 227",
+    "WOODLAND CREE 228"
+   ],
+   "border_km": 0.0
+  },
+  "Lethbridge-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48179.776994993525,
+   "area_km2": 51,
+   "road_km": 500.5,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lethbridge-West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50002.33855762132,
+   "area_km2": 73,
+   "road_km": 493.2,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Livingstone-Macleod": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 47135.8901919999,
+   "area_km2": 12730,
+   "road_km": 398.7,
+   "towns_over_8000": [
+    "Coaldale"
+   ],
+   "reserves_held": [
+    "BLOOD TIMBER LIMIT 148A",
+    "PEIGAN TIMBER LIMIT 147B",
+    "PIIKANI RESERVE"
+   ],
+   "border_km": 225.9
+  },
+  "Lloydminster-Wainwright": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 47255.58552201704,
+   "area_km2": 10855,
+   "road_km": 153.9,
+   "towns_over_8000": [
+    "Lloydminster (Part)"
+   ],
+   "reserves_held": [
+    "MAKAOO I.R. 120"
+   ],
+   "border_km": 154.4
+  },
+  "Medicine Hat-Brooks": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 51556.5374276933,
+   "area_km2": 13739,
+   "road_km": 338.2,
+   "towns_over_8000": [
+    "Brooks",
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 63.8
+  },
+  "Medicine Hat-Cypress": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 49804.00953272776,
+   "area_km2": 6106,
+   "road_km": 517.2,
+   "towns_over_8000": [
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 161.6
+  },
+  "Mountain View-Kneehill": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47881.095613572135,
+   "area_km2": 7546,
+   "road_km": 187.3,
+   "towns_over_8000": [
+    "Olds"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Okotoks-Diamond Valley": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50751.10461988043,
+   "area_km2": 1119,
+   "road_km": 318.4,
+   "towns_over_8000": [
+    "Okotoks"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Peace River": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 40289.51670019701,
+   "area_km2": 109332,
+   "road_km": 445.5,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "AMBER RIVER 211",
+    "BEAVER RANCH 163",
+    "BEAVER RANCH 163A",
+    "BEAVER RANCH 163B",
+    "BISTCHO LAKE 213",
+    "BOYER RIVER 164",
+    "BUSHE RIVER 207",
+    "CHILD LAKE 164A",
+    "FORT VERMILION INDIAN RESERVE NO. 173B",
+    "FOX LAKE 162",
+    "FOX LAKE NO. 162A",
+    "HAY LAKE 209",
+    "JACKFISH POINT 214",
+    "JOHN D\u2019OR PRAIRIE INDIAN RESERVE NO. 215",
+    "PEERLESS MEADOWS INDIAN RESERVE NO. 238C",
+    "Paddle Prairie (Metis settlement)",
+    "TALL CREE 173",
+    "TALL CREE 173A",
+    "UPPER HAY RIVER 212",
+    "WADLIN LAKE 173C",
+    "WILLIAM MCKENZIE 151K",
+    "ZAMA LAKE 210"
+   ],
+   "border_km": 481.1
+  },
+  "Red Deer-North": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 46816.203714452684,
+   "area_km2": 72,
+   "road_km": 140.6,
+   "towns_over_8000": [
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Red Deer-South": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 53742.98413763144,
+   "area_km2": 35,
+   "road_km": 150.0,
+   "towns_over_8000": [
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Sherwood Park": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 47054.135193259615,
+   "area_km2": 63,
+   "road_km": 6.3,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Spruce Grove": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51148.278246466594,
+   "area_km2": 413,
+   "road_km": 14.3,
+   "towns_over_8000": [
+    "Spruce Grove"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "St. Albert": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56503.80384908919,
+   "area_km2": 44,
+   "road_km": 11.6,
+   "towns_over_8000": [
+    "St. Albert"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "St. Albert-Sturgeon": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 51426.58965493519,
+   "area_km2": 2313,
+   "road_km": 12.7,
+   "towns_over_8000": [
+    "Morinville",
+    "St. Albert"
+   ],
+   "reserves_held": [
+    "ALEXANDER 134"
+   ],
+   "border_km": 0.0
+  },
+  "Stony Plain-Drayton Valley": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 51693.70480468746,
+   "area_km2": 5281,
+   "road_km": 26.4,
+   "towns_over_8000": [
+    "Stony Plain"
+   ],
+   "reserves_held": [
+    "WABAMUN 133A",
+    "WABAMUN 133B"
+   ],
+   "border_km": 0.0
+  },
+  "Strathcona-Sherwood Park": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50134.69891351116,
+   "area_km2": 794,
+   "road_km": 11.7,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Sylvan Lake-Innisfail": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50616.23120147533,
+   "area_km2": 4206,
+   "road_km": 138.6,
+   "towns_over_8000": [
+    "Sylvan Lake"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Taber-Cardston": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 51979.49747744668,
+   "area_km2": 21522,
+   "road_km": 450.5,
+   "towns_over_8000": [
+    "Taber"
+   ],
+   "reserves_held": [
+    "BLOOD 148"
+   ],
+   "border_km": 219.3
+  },
+  "West Yellowhead": {
+   "a": true,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 54207.07597982672,
+   "area_km2": 49694,
+   "road_km": 103.4,
+   "towns_over_8000": [
+    "Edson",
+    "Hinton",
+    "Whitecourt"
+   ],
+   "reserves_held": [
+    "ALEXIS CARDINAL 234",
+    "ALEXIS ELK RIVER 233",
+    "ALEXIS WHITECOURT 232"
+   ],
+   "border_km": 196.2
+  },
+  "Wetaskiwin-Ponoka-Maskwacis": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 53181.61148085393,
+   "area_km2": 6211,
+   "road_km": 50.4,
+   "towns_over_8000": [
+    "Wetaskiwin"
+   ],
+   "reserves_held": [
+    "BUCK LAKE 133C",
+    "ERMINESKIN 138",
+    "LOUIS BULL 138B",
+    "MONTANA 139",
+    "PIGEON LAKE 138A",
+    "SAMSON 137",
+    "SAMSON 137A"
+   ],
+   "border_km": 0.0
+  }
+ },
+ "minority_2026": {
+  "Airdrie-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 44946.35647906651,
+   "area_km2": 699,
+   "road_km": 262.6,
+   "towns_over_8000": [
+    "Airdrie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Barrhead-Westlock-Athabasca": {
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 41454.526402912205,
+   "area_km2": 16685,
+   "road_km": 57.3,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "Buffalo Lake (Metis settlement)",
+    "Kikino (Metis settlement)",
+    "SADDLE LAKE 125",
+    "WHITE FISH LAKE 128"
+   ],
+   "border_km": 0.0
+  },
+  "Calgary-Acadia": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48408.792661727544,
+   "area_km2": 23,
+   "road_km": 302.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Airdrie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 42156.84801955336,
+   "area_km2": 105,
+   "road_km": 266.0,
+   "towns_over_8000": [
+    "Airdrie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Beddington": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 55048.11459258345,
+   "area_km2": 33,
+   "road_km": 280.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Bow-Springbank": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 51841.92894701212,
+   "area_km2": 184,
+   "road_km": 331.1,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Buffalo": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45098.73578267617,
+   "area_km2": 6,
+   "road_km": 324.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Cross": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 59665.9008874669,
+   "area_km2": 220,
+   "road_km": 306.4,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Currie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 51499.12745709064,
+   "area_km2": 17,
+   "road_km": 327.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-De Winton": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 36893.87685004681,
+   "area_km2": 439,
+   "road_km": 318.7,
+   "towns_over_8000": [
+    "Calgary",
+    "Okotoks"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 51684.68756266132,
+   "area_km2": 23,
+   "road_km": 289.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Edgemont": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50552.19782524327,
+   "area_km2": 20,
+   "road_km": 327.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Elbow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 50087.322709067594,
+   "area_km2": 35,
+   "road_km": 292.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Falconridge": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52387.124711392695,
+   "area_km2": 14,
+   "road_km": 324.6,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Fish Creek": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52599.298016210254,
+   "area_km2": 31,
+   "road_km": 305.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Foothills-Airdrie West": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47152.1085412247,
+   "area_km2": 22,
+   "road_km": 300.4,
+   "towns_over_8000": [
+    "Airdrie",
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Glenmore": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49288.11259843964,
+   "area_km2": 32,
+   "road_km": 312.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Hays": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 45050.011709987564,
+   "area_km2": 20,
+   "road_km": 309.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Klein": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 54371.73537179825,
+   "area_km2": 25,
+   "road_km": 284.9,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Lougheed": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47938.73261265328,
+   "area_km2": 15,
+   "road_km": 310.5,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-McCall-Bhullar": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 48127.21936525602,
+   "area_km2": 63,
+   "road_km": 275.7,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Mountainview": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 54312.82066162919,
+   "area_km2": 20,
+   "road_km": 290.0,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Nolan Hill-Cochrane": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46961.35272686959,
+   "area_km2": 724,
+   "road_km": 311.7,
+   "towns_over_8000": [
+    "Cochrane"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 42850.18187212802,
+   "area_km2": 12,
+   "road_km": 326.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 38842.33805805912,
+   "area_km2": 19,
+   "road_km": 316.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-North West-Bearspaw": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 54411.32278570259,
+   "area_km2": 75,
+   "road_km": 322.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Peigan-Chestermere": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49950.44752896403,
+   "area_km2": 351,
+   "road_km": 297.0,
+   "towns_over_8000": [
+    "Calgary",
+    "Chestermere"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-South": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 44725.20259518645,
+   "area_km2": 24,
+   "road_km": 311.4,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-South East": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 36979.86089794932,
+   "area_km2": 430,
+   "road_km": 313.3,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-Varsity": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 56289.92817504031,
+   "area_km2": 29,
+   "road_km": 331.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Calgary-West-Tsuut'ina": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 2,
+   "pop": 48551.049652868205,
+   "area_km2": 347,
+   "road_km": 317.2,
+   "towns_over_8000": [
+    "Calgary"
+   ],
+   "reserves_held": [
+    "TSUU T'INA NATION 145"
+   ],
+   "border_km": 0.0
+  },
+  "Camrose": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 45699.342088600606,
+   "area_km2": 11106,
+   "road_km": 34.6,
+   "towns_over_8000": [
+    "Camrose"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Canmore-Kananaskis": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 44587.79126599248,
+   "area_km2": 9283,
+   "road_km": 343.5,
+   "towns_over_8000": [
+    "Banff",
+    "Canmore"
+   ],
+   "reserves_held": [
+    "EDEN VALLEY 216"
+   ],
+   "border_km": 118.4
+  },
+  "Central Peace-Notley": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 28227.69163122757,
+   "area_km2": 47920,
+   "road_km": 219.9,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ALEXANDER 134A",
+    "CLEAR HILLS 152C",
+    "DUNCANS 151A",
+    "STURGEON LAKE 154",
+    "STURGEON LAKE 154A",
+    "STURGEON LAKE 154B"
+   ],
+   "border_km": 211.7
+  },
+  "Chestermere-Strathmore": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 39667.88119362959,
+   "area_km2": 763,
+   "road_km": 306.3,
+   "towns_over_8000": [
+    "Chestermere",
+    "Strathmore"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Cold Lake-Bonnyville-St. Paul": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 52702.426482675815,
+   "area_km2": 16829,
+   "road_km": 154.1,
+   "towns_over_8000": [
+    "Cold Lake"
+   ],
+   "reserves_held": [
+    "BLUE QUILLS FIRST NATION INDIAN RESERVE",
+    "COLD LAKE 149",
+    "COLD LAKE 149A",
+    "COLD LAKE 149B",
+    "COLD LAKE 149C",
+    "Elizabeth (Metis settlement)",
+    "Fishing Lake (Metis settlement)",
+    "KEHEWIN 123",
+    "PUSKIAKIWENIN 122",
+    "UNIPOUHEOS 121"
+   ],
+   "border_km": 113.5
+  },
+  "Drumheller-Stettler": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 49168.25880836518,
+   "area_km2": 41085,
+   "road_km": 142.2,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "SIKSIKA INDIAN RESERVE NO. 146"
+   ],
+   "border_km": 179.7
+  },
+  "Edmonton-Beaumont": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 40329.60081357289,
+   "area_km2": 64,
+   "road_km": 14.7,
+   "towns_over_8000": [
+    "Beaumont",
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Beverly-Clareview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53716.391185750304,
+   "area_km2": 42,
+   "road_km": 6.7,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Castledowns": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50758.423702228625,
+   "area_km2": 21,
+   "road_km": 8.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-City Centre": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 48420.60893756343,
+   "area_km2": 15,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Decore": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 52617.58207286318,
+   "area_km2": 18,
+   "road_km": 5.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Ellerslie": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54964.7756085791,
+   "area_km2": 24,
+   "road_km": 9.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Enoch-Devon": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 43859.716761555435,
+   "area_km2": 387,
+   "road_km": 14.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [
+    "ENOCH CREE NATION NO. 135"
+   ],
+   "border_km": 0.0
+  },
+  "Edmonton-Glenora-Riverview": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56046.08806778421,
+   "area_km2": 27,
+   "road_km": 1.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Gold Bar": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 51592.678189380684,
+   "area_km2": 57,
+   "road_km": 0.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Highlands-Norwood": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 44845.0442868894,
+   "area_km2": 19,
+   "road_km": 0.4,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Manning": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 45105.44302466761,
+   "area_km2": 111,
+   "road_km": 9.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-McClung": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 56985.189134696106,
+   "area_km2": 28,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Meadows": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 40082.02852651982,
+   "area_km2": 14,
+   "road_km": 13.1,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Mill Woods": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54921.32414319209,
+   "area_km2": 24,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-North West": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 54762.01824648548,
+   "area_km2": 32,
+   "road_km": 4.6,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Rutherford": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 52821.33653347036,
+   "area_km2": 26,
+   "road_km": 5.2,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-South": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 37274.48146058168,
+   "area_km2": 52,
+   "road_km": 11.7,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Spruce Grove": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50201.04766623203,
+   "area_km2": 264,
+   "road_km": 12.5,
+   "towns_over_8000": [
+    "Spruce Grove"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Strathcona": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50782.63590323079,
+   "area_km2": 27,
+   "road_km": 0.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-West Henday": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 53320.7603987751,
+   "area_km2": 66,
+   "road_km": 5.3,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Whitemud": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 55435.12450270122,
+   "area_km2": 28,
+   "road_km": 6.0,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Edmonton-Windermere": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 36560.36741126828,
+   "area_km2": 55,
+   "road_km": 14.5,
+   "towns_over_8000": [
+    "Edmonton"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Fort McMurray-Lac La Biche": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 37534.97962145125,
+   "area_km2": 30177,
+   "road_km": 170.0,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "BEAVER LAKE 131",
+    "CLEARWATER 175",
+    "COWPER LAKE 194A",
+    "GREGOIRE LAKE 176",
+    "GREGOIRE LAKE 176A",
+    "GREGOIRE LAKE 176B",
+    "HEART LAKE 167",
+    "HEART LAKE 167A",
+    "HOUSE RIVER INDIAN CEMETERY 178",
+    "JANVIER 194",
+    "WINEFRED LAKE 194B"
+   ],
+   "border_km": 1.5
+  },
+  "Fort McMurray-Wood Buffalo": {
+   "a": true,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 4,
+   "pop": 44916.8610016731,
+   "area_km2": 86417,
+   "road_km": 431.1,
+   "towns_over_8000": [
+    "Wood Buffalo (urban service area)"
+   ],
+   "reserves_held": [
+    "ALLISON BAY 219",
+    "CHARLES LAKE 225",
+    "CHIPEWYAN 201",
+    "CHIPEWYAN 201A",
+    "CHIPEWYAN 201B",
+    "CHIPEWYAN 201C",
+    "CHIPEWYAN 201D",
+    "CHIPEWYAN 201E",
+    "CHIPEWYAN 201F",
+    "CHIPEWYAN 201G",
+    "COLLIN LAKE 223",
+    "CORNWALL LAKE 224",
+    "DEVIL'S GATE 220",
+    "DOG HEAD 218",
+    "FORT MCKAY 174C",
+    "FORT MCKAY INDIAN RESERVE NO. 174",
+    "FORT MCKAY INDIAN RESERVE NO. 174D",
+    "HOKEDHE TUE 196E",
+    "K'I TUE 196D",
+    "LI DEZE 196C",
+    "NAMUR LAKE 174B",
+    "NAMUR RIVER 174A",
+    "OLD FORT 217",
+    "PEACE POINT INDIAN RESERVE NO. 222",
+    "SANDY POINT 221",
+    "THABACHA N\u00c1RE INDIAN RESERVE NO. 196A",
+    "THEBATHI 196",
+    "TSU K'ADHE TUE 196F",
+    "TSU NEDEHE TUE 196H",
+    "TSU TUE 196G",
+    "TTHE JERE GHAILI 196B",
+    "\u0241EJERE K'ELNI K\u0172E INDIAN RESERVE NO. 196I"
+   ],
+   "border_km": 121.7
+  },
+  "Fort Saskatchewan-Vegreville": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50631.360817586035,
+   "area_km2": 8208,
+   "road_km": 26.2,
+   "towns_over_8000": [
+    "Fort Saskatchewan"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 46591.73419945718,
+   "area_km2": 111,
+   "road_km": 451.4,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Grande Prairie-Wapiti": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 49057.387056203486,
+   "area_km2": 15431,
+   "road_km": 413.0,
+   "towns_over_8000": [
+    "Grande Prairie"
+   ],
+   "reserves_held": [
+    "HORSE LAKES 152B"
+   ],
+   "border_km": 158.5
+  },
+  "Highwood": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 49043.54994821752,
+   "area_km2": 884,
+   "road_km": 318.4,
+   "towns_over_8000": [
+    "High River",
+    "Okotoks"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lac Ste Anne-Parkland": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 46148.59919825737,
+   "area_km2": 8021,
+   "road_km": 16.5,
+   "towns_over_8000": [
+    "St. Albert",
+    "Stony Plain"
+   ],
+   "reserves_held": [
+    "ALEXANDER 134",
+    "ALEXANDER 134B",
+    "ALEXIS 133",
+    "ENOCH CREE NATION NO. 135A",
+    "WABAMUN 133A",
+    "WABAMUN 133B"
+   ],
+   "border_km": 0.0
+  },
+  "Leduc": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 52674.71989402323,
+   "area_km2": 1276,
+   "road_km": 15.6,
+   "towns_over_8000": [
+    "Leduc"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lesser Slave Lake": {
+   "a": true,
+   "b": false,
+   "c": true,
+   "d": true,
+   "e": false,
+   "n": 3,
+   "pop": 29500.668209638763,
+   "area_km2": 76843,
+   "road_km": 133.9,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "ASSINEAU RIVER 150F",
+    "BISON LAKE",
+    "CHIP LAKE IR 166E",
+    "DRIFT PILE RIVER 150",
+    "East Prairie (Metis settlement)",
+    "GODS LAKE INDIAN RESERVE NO. 238A",
+    "Gift Lake (Metis settlement)",
+    "HAIG LAKE",
+    "JEAN BAPTISTE GAMBLER 183",
+    "JEAN BAPTISTE GAMBLER IR 183A",
+    "JEAN BAPTISTE GAMBLER IR 183B",
+    "JEAN BAPTISTE GAMBLER IR 183C",
+    "KAPAWE'NO FIRST NATION NO. 150B",
+    "KAPAWE'NO FIRST NATION NO. 150C",
+    "KAPAWE'NO FIRST NATION NO. 150D",
+    "KAPAWE'NO FIRST NATION NO. 229",
+    "KAPAWE'NO FIRST NATION NO. 230",
+    "KAPAWE'NO FIRST NATION NO. 231",
+    "LITTLE BUFFALO LOTS",
+    "LOON LAKE 235",
+    "LOON PRAIRIE 237",
+    "LUBICON LAKE",
+    "MARTEN RIVER",
+    "PEERLESS TROUT INDIAN RESERVE NO. 238",
+    "Peavine (Metis settlement)",
+    "SAWRIDGE 150G",
+    "SAWRIDGE 150H",
+    "SUCKER CREEK 150A",
+    "SWAMPY LAKE 236",
+    "SWAN RIVER 150E",
+    "TWIN LAKES INDIAN RESERVE NO. 238B",
+    "UTIKOOMAK LAKE 155",
+    "UTIKOOMAK LAKE 155A",
+    "UTIKOOMAK LAKE 155B",
+    "WABASCA 166",
+    "WABASCA 166A",
+    "WABASCA 166B",
+    "WABASCA 166C",
+    "WABASCA 166D",
+    "WEASEL LAKE",
+    "WOODLAND CREE 226",
+    "WOODLAND CREE 227",
+    "WOODLAND CREE 228"
+   ],
+   "border_km": 0.0
+  },
+  "Lethbridge-Cardston": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 46915.765213392944,
+   "area_km2": 8329,
+   "road_km": 478.4,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [
+    "BLOOD 148",
+    "BLOOD TIMBER LIMIT 148A"
+   ],
+   "border_km": 226.0
+  },
+  "Lethbridge-Fort Macleod-Crowsnest Pass": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 48725.57558451198,
+   "area_km2": 8422,
+   "road_km": 401.0,
+   "towns_over_8000": [
+    "Lethbridge"
+   ],
+   "reserves_held": [
+    "PEIGAN TIMBER LIMIT 147B",
+    "PIIKANI RESERVE"
+   ],
+   "border_km": 78.6
+  },
+  "Lethbridge-Little Bow": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 52653.88709454615,
+   "area_km2": 8931,
+   "road_km": 352.8,
+   "towns_over_8000": [
+    "Coaldale",
+    "Lethbridge"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Lethbridge-Taber-Warner": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 54696.25092620821,
+   "area_km2": 6645,
+   "road_km": 484.4,
+   "towns_over_8000": [
+    "Coaldale",
+    "Lethbridge",
+    "Taber"
+   ],
+   "reserves_held": [],
+   "border_km": 54.0
+  },
+  "Lloydminster-Wainwright": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 46721.4662895257,
+   "area_km2": 10850,
+   "road_km": 153.9,
+   "towns_over_8000": [
+    "Lloydminster (Part)"
+   ],
+   "reserves_held": [
+    "MAKAOO I.R. 120"
+   ],
+   "border_km": 154.4
+  },
+  "Medicine Hat-Brooks": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 51556.5374276933,
+   "area_km2": 13739,
+   "road_km": 338.2,
+   "towns_over_8000": [
+    "Brooks",
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 63.8
+  },
+  "Medicine Hat-Cypress": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": true,
+   "n": 2,
+   "pop": 56737.96125328409,
+   "area_km2": 13622,
+   "road_km": 509.3,
+   "towns_over_8000": [
+    "Medicine Hat"
+   ],
+   "reserves_held": [],
+   "border_km": 235.1
+  },
+  "Olds-Three Hills-Didsbury": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 47134.061740695106,
+   "area_km2": 7355,
+   "road_km": 198.2,
+   "towns_over_8000": [
+    "Olds"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Peace River": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 40289.51670019701,
+   "area_km2": 109332,
+   "road_km": 445.5,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "AMBER RIVER 211",
+    "BEAVER RANCH 163",
+    "BEAVER RANCH 163A",
+    "BEAVER RANCH 163B",
+    "BISTCHO LAKE 213",
+    "BOYER RIVER 164",
+    "BUSHE RIVER 207",
+    "CHILD LAKE 164A",
+    "FORT VERMILION INDIAN RESERVE NO. 173B",
+    "FOX LAKE 162",
+    "FOX LAKE NO. 162A",
+    "HAY LAKE 209",
+    "JACKFISH POINT 214",
+    "JOHN D\u2019OR PRAIRIE INDIAN RESERVE NO. 215",
+    "PEERLESS MEADOWS INDIAN RESERVE NO. 238C",
+    "Paddle Prairie (Metis settlement)",
+    "TALL CREE 173",
+    "TALL CREE 173A",
+    "UPPER HAY RIVER 212",
+    "WADLIN LAKE 173C",
+    "WILLIAM MCKENZIE 151K",
+    "ZAMA LAKE 210"
+   ],
+   "border_km": 481.1
+  },
+  "Red Deer-Blackfalds": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 42813.46246784707,
+   "area_km2": 1918,
+   "road_km": 105.1,
+   "towns_over_8000": [
+    "Blackfalds",
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Red Deer-Innisfail": {
+   "a": false,
+   "b": true,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 1,
+   "pop": 54001.84413203273,
+   "area_km2": 2265,
+   "road_km": 153.7,
+   "towns_over_8000": [
+    "Red Deer"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Red Deer-Lacombe": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50945.848870780086,
+   "area_km2": 1631,
+   "road_km": 98.3,
+   "towns_over_8000": [
+    "Blackfalds",
+    "Lacombe",
+    "Red Deer",
+    "Sylvan Lake"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Red Deer-Sylvan Lake": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 44699.45954363175,
+   "area_km2": 1752,
+   "road_km": 146.5,
+   "towns_over_8000": [
+    "Red Deer",
+    "Sylvan Lake"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Rocky Mountain House-Banff Park": {
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "e": true,
+   "n": 5,
+   "pop": 32887.96052167694,
+   "area_km2": 30578,
+   "road_km": 161.8,
+   "towns_over_8000": [],
+   "reserves_held": [
+    "BIG HORN 144A",
+    "O'CHIESE 203",
+    "O'CHIESE CEMETERY 203A",
+    "STONEY 142, 143, 144",
+    "STONEY 142B",
+    "SUNCHILD 202"
+   ],
+   "border_km": 318.9
+  },
+  "Sherwood Park": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 49700.542748510445,
+   "area_km2": 130,
+   "road_km": 6.3,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Sherwood Park-Strathcona": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50966.09142564184,
+   "area_km2": 1196,
+   "road_km": 11.7,
+   "towns_over_8000": [
+    "Strathcona County (urban service area)"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "St Albert": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50862.59339240132,
+   "area_km2": 33,
+   "road_km": 11.6,
+   "towns_over_8000": [
+    "St. Albert"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "St Albert-Sturgeon": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": false,
+   "e": false,
+   "n": 0,
+   "pop": 50460.107419319815,
+   "area_km2": 1846,
+   "road_km": 12.7,
+   "towns_over_8000": [
+    "Morinville",
+    "St. Albert"
+   ],
+   "reserves_held": [],
+   "border_km": 0.0
+  },
+  "Stony Plain-Drayton Valley": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 42922.45194789019,
+   "area_km2": 5651,
+   "road_km": 30.8,
+   "towns_over_8000": [
+    "Stony Plain"
+   ],
+   "reserves_held": [
+    "BUCK LAKE 133C"
+   ],
+   "border_km": 0.0
+  },
+  "West Yellowhead": {
+   "a": true,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": true,
+   "n": 3,
+   "pop": 48292.7280691094,
+   "area_km2": 47341,
+   "road_km": 121.7,
+   "towns_over_8000": [
+    "Edson",
+    "Hinton",
+    "Whitecourt"
+   ],
+   "reserves_held": [
+    "ALEXIS CARDINAL 234",
+    "ALEXIS ELK RIVER 233",
+    "ALEXIS WHITECOURT 232"
+   ],
+   "border_km": 196.2
+  },
+  "Wetaskiwin-Ponoka-Maskwacis": {
+   "a": false,
+   "b": false,
+   "c": false,
+   "d": true,
+   "e": false,
+   "n": 1,
+   "pop": 46904.95661448819,
+   "area_km2": 5043,
+   "road_km": 50.4,
+   "towns_over_8000": [
+    "Wetaskiwin"
+   ],
+   "reserves_held": [
+    "ERMINESKIN 138",
+    "LOUIS BULL 138B",
+    "MONTANA 139",
+    "PIGEON LAKE 138A",
+    "SAMSON 137",
+    "SAMSON 137A"
+   ],
+   "border_km": 0.0
+  }
+ }
+}
