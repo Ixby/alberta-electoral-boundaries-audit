@@ -410,3 +410,20 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   vertex to the Legislature + straight snap. **Residual cross-check differences, accepted (Audit: table and
   Amendment 23 stand; no action on set D):** the 5 shorter-on-my-side VAs (graph snapping), the 237 VAs my
   straight-line fallback reaches that are inf in A23, and 2 VAs on opposite sides of 150 km.
+- 05:42 **Set D (A23) complete.** Six chains × 252,500 rows (4,665–4,699 s each), no tracebacks (stderr holds
+  only gerrychain's polygon-overlap UserWarning). Run unpaused; no resume needed.
+  tools/check_s152_run.py against the A23 table with Audit's criteria() (b5dc9030): final state of all six
+  PASS — k divisions; low divisions −42.4% to −49.9%, each meeting 3–5 criteria. Per-plan s.15(2) divisions
+  (s152_districts column): max 4 in every chain; plans with ≥ 1: 98.4–99.6%; mean 2.8–3.0.
+  gzip -9 -n, `gzip -t` OK:
+
+  | file | raw CSV SHA-256 | .gz SHA-256 | .gz bytes |
+  |---|---|---|---|
+  | k91_s152a23/chain251 | 6281e65a2bb4a965f119bdc7aa1d5135aa477c4d0be9727da93d25bf950acf8c | c64dfff3ec2cd32148205b8dcafc59fd54c40efcf4b98651bddc9a20a0e5fb3d | 9,574,245 |
+  | k91_s152a23/chain252 | 4edfa07a855a867088041459683fea89e8347d73cc461c003d31f951b3a9bda1 | 8da67e2f292dd9e76a9160b8fd0463f304ceb31fc0b27164cbb64c6f13d104a6 | 9,572,549 |
+  | k91_s152a23/chain253 | d239ca1b51cfe73b01615cc69f966cd80e3e3e9008b3bd83aac2777e6452455d | 2c834da225727b4cbbb045b84a29776fa3a4868a0f8855118bba3d0ff9421082 | 9,571,866 |
+  | k91_s152a23/chain254 | 5dc9f9f6906be1d17c044b39da95f9122c2f3839a3249bf8d36e7fa23b3ef08a | 4229981b995c120fbb4d76a781e6297d27106ab1f3a0bebf60e2cc89120c2f98 | 9,594,574 |
+  | k89_s152a23/chain150 | a0d9a6909e1c85c17c0fbaa1f82a17ad2d71e3f57e04d5e793532d6e13db3645 | bd058069184ce90cfe089c16029006d45e2a506261bff62842759defb4527bc0 | 9,606,453 |
+  | k89_s152a23/chain151 | 3d7f2577447eb7d0f56a219b007c24f4ca591e83ab717a699b5aba3ede360c66 | d6e98b7c64e6628a49048e0105057752df4a8fbb4da2ca56e9821b08c3eb6a44 | 9,610,225 |
+
+  No outcome statistics examined here; outcomes are Audit's to run on this set.

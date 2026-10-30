@@ -157,3 +157,6 @@ s.15(2) divisions max 4 per plan in every chain, ≥ 1 in 97.5–99.1% of plans.
 - 04:20 Loop recorded: Amendment 23 (owner: erratum + rerun) changes (b) to the statutory crossing-point
   distance. First production set superseded (kept, no outcomes reported). Acceptance re-run on the A23 table
   PASS; production relaunched 04:23 into *_s152a23 directories.
+- 05:42 Set D (A23) production complete: 6 × 252,500 rows, no tracebacks; final-state AC1 PASS on all six
+  against the A23 table (criteria() at b5dc9030); ≤ 4 s.15(2) divisions per plan in every row. Raw and .gz
+  SHA-256 in the run log. Baseline = these six .gz files on amendment17-local-runs.
