@@ -891,7 +891,8 @@ for neutral maps and real maps. The statute's text is in
   the Medicine Hat districts eligible to sit 50% under quota; no Alberta
   commission has used s.15(2) for a district holding a city. Statutes are read
   for their purpose and to avoid absurd results (*Rizzo & Rizzo Shoes Ltd.
-  (Re)*, [1998] 1 SCR 27, paras. 21 and 27). So a town here is a city or town
+  (Re)*, [1998] 1 SCR 27, paras. 21 and 27; confirmed via secondary sources
+  only). So a town here is a city or town
   (2021 CSD types CY and T), or the urban service area of a specialized
   municipality: its 2021 dissemination areas at 400 or more people per km²,
   Statistics Canada's density rule for a population centre. Crowsnest Pass is
