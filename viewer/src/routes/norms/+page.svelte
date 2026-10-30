@@ -92,12 +92,12 @@
         released for public challenge before the map is final.
       </p>
       <p>
-        This page once said the process had no precedent. In May, Duane Bratt, Professor of
+        In May, Duane Bratt, Professor of
         Political Science at Mount Royal University, described it to the author as without
         precedent in Canada. That claim is wrong. In 1992 Alberta set a deadlocked
         commission's work aside and gave the map to a committee of MLAs; the Opposition
-        refused to take part, and in 1994 the Court of Appeal upheld the map while faulting the
-        committee for being unable to explain several of its boundaries. The Act was rewritten
+        refused to take part, and in 1994 the Court of Appeal let the map stand while faulting the
+        committee for being unable to explain several of its boundaries. The Act was amended
         in 1995. What is new in 2026 is narrower: a commission majority signed a report, which
         the Act treats as the commission's report, and it was set aside anyway. What it
         <em>means</em> is where the argument starts.
@@ -253,13 +253,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Arm's-length drafting</td><td class="yes">Yes</td><td class="part">Partial — the panel drafts; five MLA votes (3–2 government) decide</td></tr>
+            <tr><td>Arm's-length drafting</td><td class="yes">Yes</td><td class="part">Partial — the panel drafts; the committee's six MLAs (four government) decide</td></tr>
             <tr><td>Public hearings before adoption</td><td class="yes">Yes — sixteen communities</td><td class="no">No — none planned on the map produced</td></tr>
             <tr><td>Draft published for challenge</td><td class="yes">Yes — interim proposal revised in public</td><td class="no">No — none announced</td></tr>
             <tr><td>New public submissions accepted</td><td class="yes">Yes — 1,147 received</td><td class="no">No — reuses the commission's archive</td></tr>
             <tr><td>Demonstrated responsiveness</td><td class="yes">Yes — reversed itself on 80+ submissions</td><td class="pend">Pending</td></tr>
-            <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — named by the Chief Justice</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
-            <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of five</td></tr>
+            <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — a judge, appointed by cabinet</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
+            <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of six</td></tr>
             <tr><td>Published reasons for contested choices</td><td class="yes">Yes — both reports</td><td class="pend">Pending</td></tr>
             <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — last done in Alberta in 1992, and faulted by the Court of Appeal in 1994</td></tr>
             <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 2 Partial · 4 No · 2 Pending</td></tr>
