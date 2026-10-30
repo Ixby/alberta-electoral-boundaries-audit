@@ -673,9 +673,18 @@
 					return;
 				}
 				const m = 8; // min gap from each viewport edge
+				// The control panel is the right edge while it is open, so the tip never
+				// covers its buttons (it opened over them on pins near the panel).
+				const panel = document.querySelector('.mapsw');
+				let right = vw;
+				if (panel && mapEl) {
+					const pr = panel.getBoundingClientRect();
+					const pl = pr.left - mapEl.getBoundingClientRect().left;
+					if (pr.width > 0 && pl > 0 && pl < vw) right = pl;
+				}
 				let left = x + 12;
-				if (left + w + m > vw) left = x - 12 - w;
-				left = Math.min(Math.max(m, left), Math.max(m, vw - w - m));
+				if (left + w + m > right) left = x - 12 - w;
+				left = Math.min(Math.max(m, left), Math.max(m, right - w - m));
 				let top = y + 12;
 				if (top + h + m > vh) top = y - 12 - h;
 				top = Math.min(Math.max(m, top), Math.max(m, vh - h - m));
