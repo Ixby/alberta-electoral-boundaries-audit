@@ -13,7 +13,7 @@ import json, sys, os, time, shutil, struct, hashlib
 from pathlib import Path
 import numpy as np
 
-REPO = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "analysis" / "scripts"))
 sys.path.insert(0, str(REPO / "analysis" / "scripts" / "utils"))
 OUT = REPO / "viewer" / "static" / "mapdata"
