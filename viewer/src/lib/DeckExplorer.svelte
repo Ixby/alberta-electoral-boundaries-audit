@@ -817,10 +817,14 @@
 					);
 				}
 				// Selected-district glow (search result) — drawn under the pins, over the
-				// boundary overlays so the highlighted district reads clearly.
-				layers.push(...buildSelectedGlow());
+				// boundary overlays so the highlighted district reads clearly. A searched
+				// community's centre dot goes above the pins: at the overview a small
+				// place (Banff Springs) otherwise sits under a pin and can't be seen.
+				const selLayers = buildSelectedGlow();
+				layers.push(...selLayers.filter((l) => l.id !== 'comm-center'));
 				// Annotation pins on top.
 				layers.push(...buildPois(deckClasses, FLAGS, filters.pois));
+				layers.push(...selLayers.filter((l) => l.id === 'comm-center'));
 				return layers;
 			}
 
