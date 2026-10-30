@@ -32,12 +32,10 @@
     if (idx < 0) return { pre: raw, label, post: '' };
     return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
   });
-  import { getStoredTheme, storeTheme } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
-  import LanguageSelector from '$lib/components/LanguageSelector.svelte';
-  import { focusTrap } from '$lib/a11y/focusTrap';
+  import { sectionNav } from '$lib/sectionNav.svelte';
   import FigureLightbox from '$lib/components/FigureLightbox.svelte';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
 
@@ -45,13 +43,8 @@
   // listeners, and the section-view IntersectionObserver). Detached on destroy.
   let _analyticsCleanups: Array<() => void> = [];
 
-  // ── Share state ───────────────────────────────────────────────────────────
-  let navOpen           = $state(false);
-  let navScrolled       = $state(false);
-  // Windowed scroll-spy: the index of the section currently under the nav line.
-  // The sticky bar shows only the previous / current / next section, sliding as
-  // the reader scrolls, instead of laying every landmark out at once.
-  let currentIdx        = $state(0);
+  // Landmark sections. Registered with the site header ($lib/sectionNav), which
+  // shows the previous / current / next stepper and lists them in its menu.
   const SECTIONS: { id: string; key: string }[] = [
     { id: 'what-happened',         key: 'happened' },
     { id: 'what-the-map-does',     key: 'does' },
@@ -64,23 +57,10 @@
     { id: 'references',            key: 'references' },
     { id: 'resources',             key: 'technical' }
   ];
-  let darkMode          = $state(false);
-
-  function toggleTheme() {
-    darkMode = !darkMode;
-    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-    storeTheme(darkMode ? 'dark' : 'light');
-  }
-
-  function toggleNavDrawer() {
-    navOpen = !navOpen;
-  }
-  function closeNavDrawer() {
-    if (!navOpen) return;
-    navOpen = false;
-  }
 
   onDestroy(() => {
+    sectionNav.sections = [];
+    sectionNav.current = 0;
     for (const fn of _analyticsCleanups) fn();
     _analyticsCleanups = [];
   });
@@ -143,24 +123,18 @@
       ])
     );
 
-    // ── Dark mode — respects OS preference; user override persisted in cookie ──
-    const storedTheme = await getStoredTheme();
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    darkMode = storedTheme === 'dark' || (storedTheme === null && prefersDark);
-    // app.html inline script already set the attribute to avoid FOUC; sync state var only
 
-    // ── Nav: scroll shadow + active-landmark tracking ─────────────────────────
-    const onScroll = () => { navScrolled = window.scrollY > 8; };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // ── Section stepper in the site header: register, then track ─────────────
+    sectionNav.sections = SECTIONS;
 
     // Windowed scroll-spy. Find the last section whose heading has scrolled above
-    // a line just under the nav; that is the section the reader is currently in.
-    // It stays current until the next section's heading crosses the line, so deep
-    // scrolling within a section keeps the bar steady. currentIdx drives the
-    // previous / current / next window rendered in the bar.
+    // a line just under the header; that is the section the reader is currently
+    // in. It stays current until the next section's heading crosses the line, so
+    // deep scrolling within a section keeps the stepper steady.
     const updateActive = () => {
-      const triggerY = 80;
+      const bar = document.querySelector('.site-header .section-bar') ?? document.querySelector('.site-header');
+      const headerBottom = bar?.getBoundingClientRect().bottom ?? 44;
+      const triggerY = headerBottom + 36;
       let idx = 0;
       for (let i = 0; i < SECTIONS.length; i++) {
         const el = document.getElementById(SECTIONS[i].id);
@@ -168,7 +142,7 @@
         if (el.getBoundingClientRect().top <= triggerY) idx = i;
         else break;
       }
-      currentIdx = idx;
+      sectionNav.current = idx;
     };
     window.addEventListener('scroll', updateActive, { passive: true });
     window.addEventListener('resize', updateActive);
@@ -216,78 +190,8 @@
   </aside>
 {/snippet}
 
-<a class="skip-link" href="#main">{t(lang.current, 'nav.skip_to_content')}</a>
 
-<nav aria-label="Page sections" class:scrolled={navScrolled}>
-  <div class="nav-inner">
-    <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-    <div class="nav-landmarks" aria-label={t(lang.current, 'nav.nav_aria')}>
-      {#if currentIdx > 0}
-        <a class="nav-step nav-prev" href={'#' + SECTIONS[currentIdx - 1].id} title={t(lang.current, 'nav.' + SECTIONS[currentIdx - 1].key)}>
-          <span class="nav-chev" aria-hidden="true">‹</span><span class="nav-step-lbl">{t(lang.current, 'nav.' + SECTIONS[currentIdx - 1].key)}</span>
-        </a>
-      {:else}
-        <span class="nav-step nav-edge" aria-hidden="true"></span>
-      {/if}
-      <span class="nav-step nav-current" aria-current="location">{t(lang.current, 'nav.' + SECTIONS[currentIdx].key)}</span>
-      {#if currentIdx < SECTIONS.length - 1}
-        <a class="nav-step nav-next" href={'#' + SECTIONS[currentIdx + 1].id} title={t(lang.current, 'nav.' + SECTIONS[currentIdx + 1].key)}>
-          <span class="nav-step-lbl">{t(lang.current, 'nav.' + SECTIONS[currentIdx + 1].key)}</span><span class="nav-chev" aria-hidden="true">›</span>
-        </a>
-      {:else}
-        <span class="nav-step nav-edge" aria-hidden="true"></span>
-      {/if}
-    </div>
-    <div class="nav-tools">
-      <LanguageSelector />
-      <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')} onclick={toggleTheme}>
-        <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
-        <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
-      </button>
-      <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen} aria-controls="nav-drawer"
-        onclick={toggleNavDrawer}>
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-          {#if navOpen}
-            <path d="M2 2l14 14M2 16L16 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-          {:else}
-            <rect y="2"  width="18" height="2" rx="1"/>
-            <rect y="8"  width="18" height="2" rx="1"/>
-            <rect y="14" width="18" height="2" rx="1"/>
-          {/if}
-        </svg>
-      </button>
-    </div>
-  </div>
-  {#if navOpen}
-  <div id="nav-drawer" role="dialog" aria-modal="true" aria-label={t(lang.current, 'nav.nav_aria')} use:focusTrap={{ onEscape: () => navOpen = false }}>
-    <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
-
-    <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
-    <a href="#what-happened" onclick={closeNavDrawer}>{t(lang.current, 'nav.happened')}</a>
-    <a href="#what-the-map-does" onclick={closeNavDrawer}>{t(lang.current, 'nav.does')}</a>
-
-    <h4 class="drawer-group">{t(lang.current, 'nav.group_audit')}</h4>
-    <a href="#what-the-law-requires" onclick={closeNavDrawer}>{t(lang.current, 'nav.law')}</a>
-    <a href="#how-it-got-here" onclick={closeNavDrawer}>{t(lang.current, 'nav.system')}</a>
-    <a href="#how-we-know" onclick={closeNavDrawer}>{t(lang.current, 'nav.know')}</a>
-    <a href="#november-test" onclick={closeNavDrawer}>{t(lang.current, 'nav.test')}</a>
-    <a href="{base}/evidence" onclick={closeNavDrawer}>{t(lang.current, 'nav.evidence')}</a>
-
-    <h4 class="drawer-group">{t(lang.current, 'nav.group_forward')}</h4>
-    <a href="#change-our-mind" onclick={closeNavDrawer}>{t(lang.current, 'nav.mind')}</a>
-    <a href="#authors-view" onclick={closeNavDrawer}>{t(lang.current, 'nav.authors_view')}</a>
-    <a href="{base}/fixes" onclick={closeNavDrawer}>{t(lang.current, 'nav.fixes')}</a>
-
-    <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
-    <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
-    <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
-    <a href="{base}/explainers" onclick={closeNavDrawer}>{t(lang.current, 'nav.explainers')}</a>
-    <a href="{base}/feedback" onclick={closeNavDrawer}>{t(lang.current, 'nav.feedback')}</a>
-  </div>
-  {/if}
-</nav>
-
-<header>
+<div class="hero">
   <div class="header-inner">
     <div class="header-text">
       <h1>{t(lang.current, 'home.hero.h1')}</h1>
@@ -307,7 +211,7 @@
       </div>
     </a>
   </div>
-</header>
+</div>
 
 <main id="main" class="container" tabindex="-1">
 
@@ -666,20 +570,6 @@
 
 <FigureLightbox />
 
-<footer>
-  <div class="container">
-    {t(lang.current, 'chrome.footer.title')}<br>
-    {t(lang.current, 'chrome.footer.copyright')}
-    {t(lang.current, 'chrome.footer.text_label')} <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash;
-    {t(lang.current, 'chrome.footer.code_label')} <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a> &mdash;
-    {t(lang.current, 'chrome.footer.translation_label')} {t(lang.current, 'chrome.footer.translation_credit')}<br>
-    <span class="data-credit">{t(lang.current, 'chrome.footer.data_credit')}</span><br>
-    <a href="https://ixby.github.io">ixby.github.io</a> &mdash;
-    <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a><br>
-    <a href="{base}/privacy-policy">{t(lang.current, 'chrome.participation.privacy_policy')}</a> &mdash;
-    <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
-  </div>
-</footer>
 
 <style>
   /* --- Editorial blocks: opener, stakes, boundary card, sections 1/5/6/7 --- */
@@ -1083,7 +973,7 @@
     a { color: var(--link); }
     a:hover { text-decoration: underline; }
 
-    header {
+    .hero {
       background: #1a2e45;
       color: #fff;
       padding: 2.5rem clamp(1.2rem, 4vw, 3.5rem) 2rem;
@@ -1097,6 +987,11 @@
          the whole page. 72svh leaves a consistent strip of the next section
          visible; svh accounts for mobile UI chrome. */
       min-height: calc(72svh - 2.75rem);
+    }
+    /* The site header's section stepper hangs over the top of the hero from
+       721px up (see SiteHeader.svelte); reserve that strip. */
+    @media (min-width: 721px) {
+      .hero { padding-top: calc(2.5rem + 2.75rem); }
     }
 
     .header-inner {
@@ -1112,7 +1007,7 @@
       min-width: 0;
     }
 
-    header h1 {
+    .hero h1 {
       font-size: clamp(1.4rem, 4vw, 2.1rem);
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -1120,12 +1015,12 @@
       margin-bottom: 0.5rem;
     }
 
-    header .subtitle {
+    .hero .subtitle {
       font-size: 1rem;
       opacity: 0.78;
     }
 
-    header .badge {
+    .hero .badge {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.25rem 0.75rem;
@@ -1209,7 +1104,7 @@
     }
 
     @media (max-width: 660px) {
-      header { padding: 0; }
+      .hero { padding: 0; }
       .header-inner { flex-direction: column; gap: 0; align-items: stretch; }
       .header-text { flex: none; padding: 1.3rem 1.2rem 1.2rem; order: 2; }
       .hero-map-btn { order: 1; width: 100%; display: block; flex-shrink: 0; }
@@ -1229,232 +1124,6 @@
       line-height: 1.5;
       max-width: 380px;
     }
-
-    .skip-link {
-      position: absolute;
-      inset-inline-start: 0.5rem;
-      top: 0.5rem;
-      background: #0a1e36;
-      color: #fff;
-      padding: 0.55rem 0.95rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 200;
-      transform: translateY(-150%);
-      transition: transform 0.15s ease;
-    }
-    .skip-link:focus,
-    .skip-link:focus-visible {
-      transform: translateY(0);
-      outline: 2px solid #fff;
-      outline-offset: 2px;
-    }
-
-    nav {
-      background: var(--nav-bg);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: box-shadow 0.18s ease;
-    }
-    nav.scrolled {
-      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
-    }
-    :root[data-theme="dark"] nav.scrolled { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.55); }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding-block: 0;
-      padding-inline-start: max(0.75rem, env(safe-area-inset-left));
-      padding-inline-end: max(0.75rem, env(safe-area-inset-right));
-      min-height: 2.75rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    /* Windowed prev / current / next nav. A 3-column grid keeps the current
-       section centred while the previous and next slots flank it and slide as
-       the reader scrolls. */
-    .nav-landmarks {
-      flex: 1;
-      min-width: 0;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .nav-step { min-width: 0; }
-    .nav-step-lbl {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .nav-prev  { justify-self: end;   color: rgba(255, 255, 255, 0.62); max-width: 16rem; }
-    .nav-next  { justify-self: start; color: rgba(255, 255, 255, 0.62); max-width: 16rem; }
-    .nav-prev .nav-step-lbl, .nav-next .nav-step-lbl { max-width: 13rem; }
-    .nav-chev { opacity: 0.65; font-size: 1.15em; line-height: 1; padding: 0 0.1rem; }
-    .nav-current {
-      justify-self: center;
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.75rem;
-      padding: 0 0.7rem;
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.005em;
-      text-align: center;
-      max-width: 24rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      position: relative;
-    }
-    .nav-current::after {
-      content: '';
-      position: absolute;
-      left: 0.7rem;
-      right: 0.7rem;
-      bottom: 0;
-      height: 2px;
-      background: var(--nav-accent);
-      border-radius: 1px;
-    }
-    .nav-edge { min-width: 0; }
-    .nav-tools {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      padding-inline-start: 0.5rem;
-      margin-inline-start: 0.25rem;
-      border-inline-start: 1px solid rgba(255,255,255,0.12);
-    }
-
-    nav a {
-      color: rgba(255, 255, 255, 0.72);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.84rem;
-      font-weight: 500;
-      letter-spacing: 0.005em;
-      min-height: 2.75rem;
-      padding: 0 0.7rem;
-      white-space: nowrap;
-      position: relative;
-      transition: color 0.15s ease, background 0.15s ease;
-    }
-    nav a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.06);
-      text-decoration: none;
-    }
-    nav a:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.55);
-      outline-offset: -3px;
-      border-radius: 3px;
-    }
-    nav a.nav-home {
-      color: rgba(255,255,255,0.55);
-      padding: 0 0.65rem 0 0.3rem;
-      margin-inline-end: 0.2rem;
-      border-inline-end: 1px solid rgba(255,255,255,0.12);
-      text-decoration: none;
-    }
-    nav a.nav-home:hover {
-      color: #fff;
-      background: transparent;
-    }
-    nav a.nav-home:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.55);
-      outline-offset: -3px;
-      border-radius: 3px;
-    }
-    nav a.nav-home.active::after { display: none; }
-
-    .nav-hamburger:focus-visible,
-    .nav-theme-btn:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.55);
-      outline-offset: -3px;
-      border-radius: 3px;
-    }
-
-    .nav-hamburger {
-      display: inline-flex;
-      background: none; border: none; cursor: pointer;
-      color: rgba(255,255,255,0.72); padding: 0 0.45rem;
-      min-height: 2.75rem; align-items: center; justify-content: center;
-      border-radius: 4px;
-      transition: color 0.15s ease, background 0.15s ease;
-    }
-    .nav-hamburger:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
-    .nav-hamburger[aria-expanded="true"] { color: #fff; background: rgba(255, 255, 255, 0.08); }
-
-    #nav-drawer {
-      display: flex;
-      flex-direction: column;
-      background: #15263d;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 0.4rem 0 0.8rem;
-      max-height: calc(100vh - 2.75rem);
-      overflow-y: auto;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    }
-    :root[data-theme="dark"] #nav-drawer { background: #131623; }
-
-    #nav-drawer a {
-      display: block;
-      color: rgba(255,255,255,0.82);
-      text-decoration: none;
-      font-size: 0.92rem;
-      padding: 0.55rem 1.4rem;
-      transition: background 0.12s ease, color 0.12s ease;
-    }
-    #nav-drawer a:hover {
-      background: rgba(255,255,255,0.07);
-      color: #fff;
-      text-decoration: none;
-    }
-    #nav-drawer a.drawer-top {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.82rem;
-      padding: 0.45rem 1.4rem 0.65rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 0.3rem;
-    }
-    #nav-drawer .drawer-group {
-      margin: 0.7rem 0 0.2rem;
-      padding: 0 1.4rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.42);
-    }
-
-    @media (max-width: 720px) {
-      .nav-landmarks { display: none; }
-      .nav-tools { border-inline-start: none; padding-inline-start: 0; margin-inline-start: auto; }
-    }
-
-    .nav-theme-btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: none; border: none; cursor: pointer;
-      color: #F5C518; padding: 0 0.45rem;
-      min-height: 2.75rem;
-      border-radius: 4px;
-      transition: color 0.15s ease, background 0.15s ease;
-    }
-    .nav-theme-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
-    /* Sun shown (and yellow) in light mode; moon shown (and bright blue) in dark mode */
-    .icon-sun { display: block; }
-    .icon-moon { display: none; }
-    :root[data-theme="dark"] .nav-theme-btn { color: #4FC3F7; }
-    :root[data-theme="dark"] .icon-sun { display: none; }
-    :root[data-theme="dark"] .icon-moon { display: block; }
 
     .section-link {
       color: transparent;
@@ -1484,7 +1153,7 @@
       box-sizing: border-box;
     }
 
-    section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
+    section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1rem; }
     section:last-of-type { border-bottom: none; }
 
     /* "Preliminary findings — pending expert review" banner at the head of the
@@ -1555,7 +1224,7 @@
        doesn't apply when those ids are the jump target. Match the offset on
        the h2 ids directly so back-links land at the heading rather than
        behind the sticky nav. */
-    #stakes-heading, #boundary-heading { scroll-margin-top: 72px; }
+    #stakes-heading, #boundary-heading { scroll-margin-top: 1rem; }
     /* NOTE: these sections used to carry content-visibility:auto with a
        600px contain-intrinsic-size placeholder as a below-the-fold paint
        optimization. Removed deliberately: every one of them is an anchor
@@ -1755,34 +1424,6 @@
       color: var(--tag-text);
       margin-inline-end: 0.4rem;
       vertical-align: middle;
-    }
-
-    footer {
-      background: var(--nav-bg);
-      color: rgba(255, 255, 255, 0.6);
-      padding: 1.8rem 1.5rem 1.6rem;
-      text-align: center;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      margin-top: 2rem;
-      border-top: 2px solid var(--nav-accent);
-      letter-spacing: 0.005em;
-    }
-    footer .container { padding-block: 0; }
-    footer a {
-      color: rgba(255, 255, 255, 0.78);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      transition: color 0.15s ease, border-color 0.15s ease;
-    }
-    footer a:hover {
-      color: #fff;
-      border-bottom-color: rgba(255, 255, 255, 0.55);
-    }
-    footer a:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.55);
-      outline-offset: 2px;
-      border-radius: 2px;
     }
 
     @media (max-width: 700px) {

@@ -6,9 +6,11 @@
   https://ixby.github.io
 
   Full-viewport deck.gl explorer, lifted out of the report homepage into its
-  own route. The container is position:fixed; inset:0 so it fills the screen
-  regardless of the root layout's 1200px .app-shell (which sets no
-  transform/filter/contain and so forms no containing block — see +layout.svelte).
+  own route. The container is position:fixed from the bottom of the site header
+  to the bottom of the screen, so it fills the width regardless of the root
+  layout's 1200px .app-shell (which sets no transform/filter/contain and so
+  forms no containing block — see +layout.svelte). DeckExplorer sizes the map to
+  this container, not the window.
 -->
 <script lang="ts">
   import { base } from '$app/paths';
@@ -43,18 +45,10 @@
   <title>MapExplorer — Beta</title>
 </svelte:head>
 
-<div class="explorer-root">
+<div class="explorer-root" id="main" tabindex="-1">
   <a class="text-version-link" href="{base}/explorer/text">
     {t(lang.current, 'explorer.text.link_to_text')}
   </a>
-  {#if webgl && ready}
-    <!-- Return-to-report navigation. Desktop shows a labelled bar; mobile
-         collapses it to a single home icon to keep the map clear. -->
-    <a class="explorer-back" href="{base}/" title={t(lang.current, 'feedback.back_to_report')} aria-label={t(lang.current, 'feedback.back_to_report')}>
-      <svg class="explorer-back-ico" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg>
-      <span class="explorer-back-label">{t(lang.current, 'feedback.back_to_report')}</span>
-    </a>
-  {/if}
   {#if webgl}
     {#if ready}
       <!-- All supported locales are offered — every explorer.* key is translated
@@ -82,11 +76,23 @@
 </div>
 
 <style>
-  /* Fill the viewport regardless of the root layout's 1200px shell. */
+  /* Fill the viewport below the site header, regardless of the root layout's
+     1200px shell. --site-header-bottom is published by SiteHeader. */
   .explorer-root {
     position: fixed;
-    inset: 0;
+    inset: var(--site-header-bottom, 2.75rem) 0 0 0;
     z-index: 9000;
+    background: #0d1a26;
+  }
+  /* The site header sits in the 1200px shell; on wider screens fill the band
+     beside it with the map's backdrop (under the header, which is z 9100). */
+  .explorer-root::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--site-header-bottom, 2.75rem);
     background: #0d1a26;
   }
   /* Screen-reader-only: the link to the accessible text version is exposed to
@@ -103,43 +109,6 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     white-space: nowrap;
-  }
-  /* Return-to-report control over the map: a labelled bar on desktop, a single
-     home icon on mobile. Sits top-left, clear of the right-side map controls. */
-  .explorer-back {
-    position: absolute;
-    top: 0.7rem;
-    left: 0.7rem;
-    z-index: 9500;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.5rem 0.85rem 0.5rem 0.7rem;
-    background: rgba(13, 26, 38, 0.92);
-    color: #e6edf3;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 8px;
-    text-decoration: none;
-    font: 600 0.85rem/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
-    transition: background 0.15s ease, border-color 0.15s ease;
-  }
-  .explorer-back:hover {
-    background: rgba(20, 40, 58, 0.96);
-    border-color: rgba(255, 255, 255, 0.28);
-  }
-  .explorer-back:focus-visible {
-    outline: 2px solid #8ab4ff;
-    outline-offset: 2px;
-  }
-  .explorer-back-ico { flex-shrink: 0; }
-  @media (max-width: 720px) {
-    .explorer-back {
-      padding: 0.55rem;
-      border-radius: 50%;
-    }
-    .explorer-back-label { display: none; }
   }
   .nowebgl {
     position: absolute;

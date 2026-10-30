@@ -153,6 +153,10 @@
 
 	// DOM refs
 	let mapEl: HTMLDivElement;
+	// Map size = its container (the explorer route sits the map below the site
+	// header), not the window. Falls back to the window before mount.
+	const viewW = () => mapEl?.clientWidth || window.innerWidth;
+	const viewH = () => mapEl?.clientHeight || window.innerHeight;
 	let canvasEl: HTMLCanvasElement;
 	let tipEl: HTMLDivElement;
 	let searchInputEl: HTMLInputElement;
@@ -625,8 +629,8 @@
 				if (!tipEl) return;
 				const w = tipEl.offsetWidth;
 				const h = tipEl.offsetHeight;
-				const vw = window.innerWidth;
-				const vh = window.innerHeight;
+				const vw = viewW();
+				const vh = viewH();
 				// Mobile: anchor the tip to a fixed edge rather than the tap point —
 				// a finger-following tip covers exactly what you're inspecting.
 				if (coarse) {
@@ -990,8 +994,8 @@
 				function paint() {
 				if (!deckgl || !lastVS || !M) return;
 				const vp = new OrthographicView({ flipY: false }).makeViewport({
-					width: window.innerWidth,
-					height: window.innerHeight,
+					width: viewW(),
+					height: viewH(),
 					viewState: lastVS
 				});
 				if (!vp) return;
@@ -1312,14 +1316,14 @@
 			coarse = window.matchMedia?.('(pointer: coarse)').matches === true;
 
 			// Explicit, sized canvas (defensive — set canvas/width/height and keep in sync).
-			canvasEl.width = window.innerWidth;
-			canvasEl.height = window.innerHeight;
+			canvasEl.width = viewW();
+			canvasEl.height = viewH();
 
 			lastVS = initial;
 			deckgl = new Deck({
 				canvas: canvasEl,
-				width: window.innerWidth,
-				height: window.innerHeight,
+				width: viewW(),
+				height: viewH(),
 				views: new OrthographicView({ flipY: false }),
 				viewState: initial, // controlled, so the zoom slider can drive it
 				controller: { scrollZoom: { smooth: true }, doubleClickZoom: true },
@@ -1450,18 +1454,18 @@
 				},
 				layers: []
 			});
-			deckgl.setProps({ width: window.innerWidth, height: window.innerHeight });
+			deckgl.setProps({ width: viewW(), height: viewH() });
 			if (DEBUG) tDeck = performance.now();
 
 			// Keep deck sized to the viewport (mobile address bars resize it).
 			const onResize = () => {
-				canvasEl.width = window.innerWidth;
-				canvasEl.height = window.innerHeight;
-				deckgl!.setProps({ width: window.innerWidth, height: window.innerHeight });
-				vvH = window.visualViewport?.height ?? window.innerHeight;
+				canvasEl.width = viewW();
+				canvasEl.height = viewH();
+				deckgl!.setProps({ width: viewW(), height: viewH() });
+				vvH = Math.min(window.visualViewport?.height ?? window.innerHeight, viewH());
 				schedulePaint();
 			};
-			vvH = window.visualViewport?.height ?? window.innerHeight;
+			vvH = Math.min(window.visualViewport?.height ?? window.innerHeight, viewH());
 			window.addEventListener('resize', onResize);
 			if (window.visualViewport) window.visualViewport.addEventListener('resize', onResize);
 
@@ -1534,8 +1538,8 @@
 			if (poiFlag) {
 				// Surface the focused pin's note on arrival (deep link).
 				const vp = new OrthographicView({ flipY: false }).makeViewport({
-					width: window.innerWidth,
-					height: window.innerHeight,
+					width: viewW(),
+					height: viewH(),
 					viewState: lastVS!
 				});
 				const [sx, sy] = vp ? vp.project([poiFlag.x, poiFlag.y]) : [0, 0];

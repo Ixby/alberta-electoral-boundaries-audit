@@ -211,7 +211,7 @@
 
 <svelte:head><title>Audit Analytics</title></svelte:head>
 
-<main>
+<main id="main" tabindex="-1">
   {#if !authed}
     <!-- ── Password gate (also the prerendered shell) ── -->
     <div class="gate">
@@ -234,7 +234,7 @@
     </div>
   {:else if data}
     <!-- ── Dashboard ── -->
-    <header class="topbar">
+    <div class="topbar">
       <div>
         <h1>Audit Analytics</h1>
         <p class="meta">
@@ -253,7 +253,7 @@
         </div>
         <button class="lock" onclick={lock}>Lock</button>
       </div>
-    </header>
+    </div>
 
     {#if loading}<p class="loading">Refreshing…</p>{/if}
     {#if err}<p class="bad">{err}</p>{/if}

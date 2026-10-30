@@ -80,7 +80,8 @@
 	#fig-lightbox {
 		position: fixed;
 		inset: 0;
-		z-index: 8000;
+		/* Above the site header (z 9100). */
+		z-index: 9800;
 		background: rgba(0, 0, 0, 0.9);
 		display: none;
 		align-items: center;

@@ -8,6 +8,8 @@
 	import { base } from '$app/paths';
 	import { lang, LANG_LABELS } from '$lib/i18n/store.svelte';
 	import TranslationDisclaimer from '$lib/components/TranslationDisclaimer.svelte';
+	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
 
 	let { children } = $props();
 
@@ -57,8 +59,11 @@
 
 <div class="app-shell">
 	<TranslationDisclaimer />
+	<SiteHeader />
 
 	{@render children()}
+
+	<SiteFooter />
 </div>
 
 <style>

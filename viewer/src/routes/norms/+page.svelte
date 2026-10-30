@@ -26,7 +26,7 @@
   import { base } from '$app/paths';
 </script>
 
-<header>
+<div class="page-head">
   <div class="header-inner">
     <a href="{base}/" class="back-link">← Back to audit</a>
     <div class="header-text">
@@ -35,9 +35,9 @@
       <p class="meta">Plain-language companion · English only for now · Not a verdict on anyone</p>
     </div>
   </div>
-</header>
+</div>
 
-<main>
+<main id="main" tabindex="-1">
   <div class="content">
 
     <p class="standfirst">
@@ -334,12 +334,12 @@
     background: #1e1f26;
   }
 
-  header {
+  .page-head {
     background: #1a2e45;
     color: #fff;
     padding: 2rem clamp(1.2rem, 4vw, 3.5rem);
   }
-  :global(:root[data-theme="dark"]) header { background: #111722; }
+  :global(:root[data-theme="dark"]) .page-head { background: #111722; }
 
   .header-inner { max-width: 760px; margin: 0 auto; }
 
