@@ -172,9 +172,18 @@ _OrigMC = me.MarkovChain
 
 
 class RecordingChain(_OrigMC):
+    def __init__(self, *args, **kwargs):
+        if S152 is not None:  # s.15(2) mode replaces run_ensemble's population constraint
+            kwargs["constraints"] = [s152_constraint]
+        super().__init__(*args, **kwargs)
+
     def __next__(self):
         part = super().__next__()
-        EXTRA.append(GEO.stats([part.assignment[n] for n in GEO.nodes]))
+        row = GEO.stats([part.assignment[n] for n in GEO.nodes])
+        if S152 is not None:
+            ideal = S152["ideal"]
+            row["s152_districts"] = sum((p - ideal) / ideal < -S152_BAND for p in part["population"].values())
+        EXTRA.append(row)
         return part
 
 
@@ -188,7 +197,11 @@ MUNI = None  # {"csduid": weight} for municipality-aware chains (--muni-surcharg
 # Chain-kernel options (nk mode); recorded in every checkpoint and checked on resume.
 #   proposal_epsilon  None = canonical half-band (+/-12.5%); 0.25 = the s.15(1) band
 #   muni_surcharge    0 = population-only; > 0 = municipality-aware (see set_muni)
-OPTS_DEFAULT = {"proposal_epsilon": None, "muni_surcharge": 0.0}
+#   s152              None = off; else SHA-256 of the per-VA criteria table (--s152 PATH);
+#                     proposal_epsilon is then 0.5 so gerrychain's post-check admits a -50% side
+#                     (the real s.15(1)/s.15(2) bands are enforced by find_balanced_edge_cuts_s152)
+OPTS_DEFAULT = {"proposal_epsilon": None, "muni_surcharge": 0.0, "s152": None}
+S152_PATH = None
 OPTS = dict(OPTS_DEFAULT)
 
 
@@ -216,6 +229,12 @@ def bipartition_tree_fastfail(graph, pop_col, pop_target, epsilon, *args, **kwar
     from ever being rejected here. Same transition distribution; fewer random
     draws, so a different sample path from the unpatched script for one idx."""
     global INFEASIBLE_PAIRS
+    if S152 is not None:
+        if s152_pair_infeasible(graph, pop_col, pop_target):
+            INFEASIBLE_PAIRS += 1
+            raise ReselectException("no s.15(1)/s.15(2)-valid split of this pair is possible")
+        kwargs["balance_edge_fn"] = find_balanced_edge_cuts_s152
+        return _orig_bpt(graph, pop_col, pop_target, epsilon, *args, **kwargs)
     total = sum(graph.nodes[n][pop_col] for n in graph.nodes)
     if abs(total - 2 * pop_target) > 2 * pop_target * epsilon * (1 + 1e-9):
         INFEASIBLE_PAIRS += 1
@@ -225,6 +244,206 @@ def bipartition_tree_fastfail(graph, pop_col, pop_target, epsilon, *args, **kwar
         # overrides it; inject it here.
         kwargs["region_surcharge"] = MUNI
     return _orig_bpt(graph, pop_col, pop_target, epsilon, *args, **kwargs)
+
+# ---- EBCA s.15(2) mode (--s152 <criteria csv>) ------------------------------
+# governance/GOVERNANCE-s15-2-chain-model.md. A division may be 25-50% BELOW the
+# average, for at most 4 divisions, when it meets >= 3 of the s.15(2) criteria
+# (a)-(e), computed as sums/counts over its VAs from a per-VA criteria table
+# (s152_criteria.py or the registered equivalent). Criteria met => permitted,
+# never required. Everything else stays within +/-25% (s.15(1)).
+S152 = None  # {"attrs": {node: (area_km2, near, big_town, reserve, border)}, "ideal": float}
+S152_LOW, S152_BAND, S152_MAX = 0.50, 0.25, 4
+
+
+def load_s152(graph, path, k):
+    """Per-VA s.15(2) inputs as (area_km2, near, border, towns, reserves) plus
+    district-level thresholds. Two table formats:
+      registered (Amendment 21, s15_2_criteria.py): columns road_km, town,
+        reserves (JSON {name: overlap km2}), border_km. A town counts when the
+        division holds >= 2% of its population; a reserve or Metis settlement
+        when the division holds >= 10% of its area; the border when the
+        division's VAs share >= 1 km with the provincial boundary.
+      cross-check (s152_criteria.py): columns big_town, town_name,
+        reserve_or_metis, border (any VA counts)."""
+    df = pd.read_csv(path, index_col="node", keep_default_na=False)
+    pops = {n: graph.nodes[n]["pop_2021"] for n in graph.nodes()}
+    attrs = {}
+    if "reserves" in df.columns:
+        town_tot = {}
+        for n in graph.nodes():
+            t = df.at[int(n), "town"]
+            if t:
+                town_tot[t] = town_tot.get(t, 0.0) + pops[n]
+        for n in graph.nodes():
+            r = df.loc[int(n)]
+            t = r["town"]
+            res = json.loads(r["reserves"]) if r["reserves"] else {}
+            attrs[n] = (float(r["area_km2"]), int(float(r["road_km"]) <= 150), float(r["border_km"]),
+                        ((t, pops[n]),) if t else (), tuple(res.items()))
+        rules = {"town_tot": town_tot, "town_share": 0.02, "res_tot": _reserve_areas(),
+                 "res_share": 0.10, "border_min": 1.0}
+    else:
+        town_tot = {}
+        for n in graph.nodes():
+            if bool(df.at[int(n), "big_town"]):
+                t = df.at[int(n), "town_name"]
+                town_tot[t] = town_tot.get(t, 0.0) + pops[n]
+        for n in graph.nodes():
+            r = df.loc[int(n)]
+            big = bool(r["big_town"])
+            attrs[n] = (float(r["area_km2"]), int(float(r["road_km"]) <= 150), 1.0 if bool(r["border"]) else 0.0,
+                        ((r["town_name"], pops[n]),) if big else (),
+                        (("any", 1.0),) if bool(r["reserve_or_metis"]) else ())
+        rules = {"town_tot": town_tot, "town_share": 1e-12, "res_tot": {"any": 1.0},
+                 "res_share": 1e-12, "border_min": 1.0}
+    return {"attrs": attrs, "ideal": sum(pops.values()) / k, **rules}
+
+
+def _reserve_areas():
+    """Total area (km2) of each reserve and Metis settlement, computed exactly as
+    s15_2_criteria.reserves() does (NRCan IR polygons + GoA Metis, dissolved by name, EPSG:3400)."""
+    import geopandas as gpd
+
+    root = REPO / "data/shapefiles/reference"
+    r = gpd.read_file(root / "aboriginal_lands_nrcan_dl/aboriginal_lands_alberta.geojson").to_crs("EPSG:3400")
+    r = r[r["distributionType"] == "IR"][["adminAreaNameEng", "geometry"]].rename(columns={"adminAreaNameEng": "name"})
+    m = gpd.read_file(root / "metis_settlements_dl/metis_settlements_goa.geojson").to_crs("EPSG:3400")
+    m = m[["METIS_NAME", "geometry"]].rename(columns={"METIS_NAME": "name"})
+    m["name"] = m["name"] + " (Metis settlement)"
+    r = pd.concat([r, m], ignore_index=True).dissolve(by="name").reset_index()
+    return (r.set_index("name").geometry.area / 1e6).to_dict()
+
+
+def set_s152(graph, k):
+    global S152
+    S152 = load_s152(graph, S152_PATH, k) if OPTS["s152"] else None
+
+
+def _new_agg():
+    return [0.0, 0, 0.0, {}, {}]
+
+
+def _add(agg, rec):
+    agg[0] += rec[0]; agg[1] += rec[1]; agg[2] += rec[2]
+    for key, v in rec[3]:
+        agg[3][key] = agg[3].get(key, 0.0) + v
+    for key, v in rec[4]:
+        agg[4][key] = agg[4].get(key, 0.0) + v
+
+
+def _merge(agg, other):
+    agg[0] += other[0]; agg[1] += other[1]; agg[2] += other[2]
+    for i in (3, 4):
+        d = agg[i]
+        for key, v in other[i].items():
+            d[key] = d.get(key, 0.0) + v
+
+
+def _minus(tot, sub):
+    return [tot[0] - sub[0], tot[1] - sub[1], tot[2] - sub[2],
+            {key: v - sub[3].get(key, 0.0) for key, v in tot[3].items()},
+            {key: v - sub[4].get(key, 0.0) for key, v in tot[4].items()}]
+
+
+def s152_met(agg):
+    """Number of s.15(2) criteria (a)-(e) a division with these aggregates meets."""
+    s = S152
+    big_town = any(v >= s["town_share"] * s["town_tot"][t] for t, v in agg[3].items() if v > 0)
+    reserve = any(v >= s["res_share"] * s["res_tot"][r] for r, v in agg[4].items() if v > 0)
+    return (agg[0] > 20_000) + (agg[1] == 0) + (not big_town) + reserve + (agg[2] >= s["border_min"])
+
+
+def _side_ok(pop, ideal, agg):
+    dev = (pop - ideal) / ideal
+    if abs(dev) <= S152_BAND:
+        return True
+    return -S152_LOW <= dev < -S152_BAND and s152_met(agg) >= 3
+
+
+def find_balanced_edge_cuts_s152(h, one_sided_cut=False, choice=random.choice):
+    """gerrychain's find_balanced_edge_cuts_memoization (same root draw, same
+    traversal, same per-cut random weight) with the s.15(2) side test in place
+    of the symmetric epsilon band. Two-sided cuts only (as ReCom uses)."""
+    from gerrychain.tree import Cut, _calc_pops, _part_nodes, predecessors, successors
+
+    root = choice([x for x in h if h.degree(x) > 1])
+    pred = predecessors(h.graph, root)
+    succ = successors(h.graph, root)
+    total_pop = h.tot_pop
+    subtree_pops = _calc_pops(succ, root, h)
+    attrs = S152["attrs"]
+    agg = {}
+    for node in reversed(nx_bfs_order(succ, root)):  # children before parents
+        a = _new_agg()
+        _add(a, attrs[node])
+        for c in succ.get(node, ()):
+            _merge(a, agg[c])
+        agg[node] = a
+    tot = agg[root]
+    ideal = h.ideal_pop
+    cuts = []
+    for node, tree_pop in subtree_pops.items():
+        sub = agg[node]
+        if _side_ok(tree_pop, ideal, sub) and _side_ok(total_pop - tree_pop, ideal, _minus(tot, sub)):
+            e = (node, pred[node])
+            wt = random.random()
+            cuts.append(Cut(edge=e, weight=h.graph.edges[e].get("random_weight", wt),
+                            subset=frozenset(set(h.graph.nodes) - _part_nodes(node, succ))))
+    return cuts
+
+
+def nx_bfs_order(succ, root):
+    out = [root]
+    i = 0
+    while i < len(out):
+        out.extend(succ.get(out[i], ()))
+        i += 1
+    return out
+
+
+def s152_pair_infeasible(graph, pop_col, pop_target):
+    """Exact fast-fail for s.15(2) mode: no split can work when the merged total
+    cannot be two valid sides, or when an s.15(2) side is needed (total below
+    1.5 x target) but no part of the pair could meet 3 criteria (an upper bound:
+    area of the whole pair, any VA beyond 150 km, any VA outside a counted town,
+    any reserve the pair holds enough of, the pair's whole border length)."""
+    nodes = list(graph.nodes)
+    total = sum(graph.nodes[n][pop_col] for n in nodes)
+    if total < 2 * pop_target * (1 - S152_LOW) * (1 - 1e-9) or total > 2 * pop_target * (1 + S152_BAND) * (1 + 1e-9):
+        return True
+    if total < 2 * pop_target * (1 - S152_BAND) * (1 - 1e-9):
+        s, attrs = S152, S152["attrs"]
+        a = _new_agg()
+        for n in nodes:
+            _add(a, attrs[n])
+        best = ((a[0] > 20_000) + any(attrs[n][1] == 0 for n in nodes) + any(not attrs[n][3] for n in nodes)
+                + any(v >= s["res_share"] * s["res_tot"][r] for r, v in a[4].items() if v > 0)
+                + (a[2] >= s["border_min"]))
+        if best < 3:
+            return True
+    return False
+
+
+def s152_constraint(partition):
+    """Every division within +/-25%, except at most 4 that are 25-50% below the
+    average and meet >= 3 s.15(2) criteria."""
+    ideal = S152["ideal"]
+    attrs = S152["attrs"]
+    special = 0
+    for part, pop in partition["population"].items():
+        dev = (pop - ideal) / ideal
+        if abs(dev) <= S152_BAND:
+            continue
+        if not (-S152_LOW <= dev < -S152_BAND):
+            return False
+        a = _new_agg()
+        for n in partition.parts[part]:
+            _add(a, attrs[n])
+        if s152_met(a) < 3:
+            return False
+        special += 1
+    return special <= S152_MAX
+
 
 BASE_SEED = get_canonical_seed("mcmc_ensemble_250k")
 
@@ -260,6 +479,7 @@ def run(mode, idx, n_steps, chunk, out, va_file, k=89):
         state = _partition(graph, state)
         me._bpt_global = bipartition_tree_fastfail  # rep87 keeps the canonical replay exact
         set_muni(graph, OPTS["muni_surcharge"])
+        set_s152(graph, k)
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
     if out.exists():
@@ -296,7 +516,10 @@ def _chunks(mode, idx, graph, state, done, n_steps, chunk, out, s):
     while done < n_steps:
         n = min(chunk, n_steps - done)
         EXTRA.clear()
-        rows, part = me.run_ensemble(graph, state, n, pop_deviation=0.25, verbose=False,
+        # s.15(2) mode: pop_deviation 0.5 only keeps run_ensemble from reseeding a
+        # state that holds a legal -25..-50% division; its own constraint is
+        # replaced (RecordingChain) and the proposal epsilon is passed explicitly.
+        rows, part = me.run_ensemble(graph, state, n, pop_deviation=0.5 if OPTS["s152"] else 0.25, verbose=False,
                                      return_final_partition=True, seed=s,
                                      proposal_epsilon=OPTS["proposal_epsilon"])
         assert len(EXTRA) == len(rows), (len(EXTRA), len(rows))
@@ -378,6 +601,7 @@ def resume(idx, n_steps, chunk, out, va_file, k):
     assign = {int(node): d for node, d in c["assignment"].items()}
     me._bpt_global = bipartition_tree_fastfail
     set_muni(graph, OPTS["muni_surcharge"])
+    set_s152(graph, k)
     print(f"[nk {idx}] resumed at {c['done']}/{n_steps}", flush=True)
     _chunks("nk", idx, graph, _partition(graph, assign), c["done"], n_steps, chunk, out, c["seed"])
 
@@ -445,8 +669,15 @@ if __name__ == "__main__":
                     help="nk mode: ReCom split band; default = half of pop_deviation (+/-12.5%%); 0.25 = s.15(1)")
     ap.add_argument("--muni-surcharge", type=float, default=0.0,
                     help="nk mode: region_surcharge weight on 2021 CSDs (municipality-aware sensitivity); 0 = off")
+    ap.add_argument("--s152", default="",
+                    help="nk mode: EBCA s.15(2) mode using this per-VA criteria CSV (s152_criteria.py output)")
     a = ap.parse_args()
     OPTS.update(proposal_epsilon=a.proposal_eps, muni_surcharge=a.muni_surcharge)
+    if a.s152:
+        import hashlib
+
+        S152_PATH = Path(a.s152)
+        OPTS.update(s152=hashlib.sha256(S152_PATH.read_bytes()).hexdigest(), proposal_epsilon=0.5)
     if a.mode == "real":
         real(a.out, a.va_file, a.extra)
     elif a.resume and a.mode == "nk" and _ckpt_path(Path(a.out)).exists():

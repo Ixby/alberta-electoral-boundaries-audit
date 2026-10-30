@@ -7,14 +7,15 @@ import filecmp, json, subprocess, sys, time
 from pathlib import Path
 
 REPO, PY, OUT = Path(sys.argv[1]), sys.argv[2], Path(sys.argv[3])
-K, IDX, STEPS, CHUNK = "91", "221", "3000", "500"
+K, IDX, STEPS, CHUNK = "91", (sys.argv[4] if len(sys.argv) > 4 else "221"), "3000", "500"
+EXTRA = sys.argv[5:]  # kernel flags, e.g. --s152 <criteria csv>
 SCRIPT = str(REPO / "analysis" / "scripts" / "close_seats_ensemble.py")
 OUT.mkdir(parents=True, exist_ok=True)
 
 
 def cmd(out, *extra):
     return [PY, "-W", "ignore", SCRIPT, "nk", "--k", K, "--idx", IDX, "--steps", STEPS,
-            "--chunk", CHUNK, "--out", str(out), *extra]
+            "--chunk", CHUNK, "--out", str(out), *EXTRA, *extra]
 
 
 a, b = OUT / "A.csv", OUT / "B.csv"
