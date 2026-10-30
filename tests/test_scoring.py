@@ -487,7 +487,7 @@ def test_run_ensemble_state_persistence_across_chunks():
         g.nodes[n]["va_ucp"] = float(rng.randint(20, 80))
         g.nodes[n]["va_ndp"] = 100.0 - g.nodes[n]["va_ucp"]
         g.nodes[n]["va_other"] = 0.0
-        g.nodes[n]["va_area"] = 1_000_000.0  # 1 km² — below 5,000 km² s.15(2) threshold
+        g.nodes[n]["va_area"] = 1_000_000.0  # 1 km² — below the 20,000 km² s.15(2)(a) threshold
     graph = Graph.from_networkx(g)
 
     # THREE-district initial partition (three horizontal stripes). This is
