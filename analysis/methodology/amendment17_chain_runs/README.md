@@ -387,3 +387,19 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   151.9→149.4). Owner to choose: Amendment 23 erratum + rerun set D on the exact rule, or keep set D as
   registered and disclose. Until then no set D outcome statistics are examined or reported; validation only.
   If rerun: idx 250 is retired (seed failure) — use 251–254 plus a fresh spare, and 150–151.
+- 04:20 **Amendment 23 signed (owner chose erratum + rerun).** (b) is now the highway distance to the nearest
+  point where a highway crosses into the VA (or a highway node inside it); only road_km changed. New
+  registered table data/outputs/s15_2_va_criteria.csv SHA-256 48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc
+  (from ccr-7082dbd7-sqy3h2, code at b5dc9030; 873 VAs inf = no highway reaches them). criteria() itself
+  unchanged from the Amendment 21 copy.
+  **The first set D output (k91_s152/, k89_s152/, table 01f70a86…8f47) is SUPERSEDED. Kept; no outcome
+  statistics are to be reported from it.**
+- 04:22 Acceptance on the A23 table (k=91 idx 259, 3,000 steps, 600 plans scored by criteria() at b5dc9030,
+  which also re-checks every low division meets ≥ 3 criteria under the new road_km): AC1 0 violations,
+  AC2 max 4 / 95.3% with ≥ 1, constraint checks PASS, AC6 8.3 s / 500 median.
+- 04:23 **Set D (A23) production launched**: k91_s152a23/chain251–254, k89_s152a23/chain150–151, same seeds,
+  `--s152 data/outputs/s15_2_va_criteria.csv --resume`.
+- Cross-check road_km (s152_criteria.py: nearest vertex inside the VA + straight-line gap) vs A23, on the
+  3,892 finite VAs: median +0.08 km, p10 +0.04, p90 +0.31; 41 VAs differ by > 2 km (5 shorter on my side,
+  36 longer, max +38.5 km), listed in data/outputs/s152_road_km_crosscheck_gt2km.csv; 2 disagree on the
+  150 km side. 237 of the A23 inf VAs are ≤ 150 km on my side (straight-line gap to an unreached VA).

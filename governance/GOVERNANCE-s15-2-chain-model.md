@@ -154,3 +154,6 @@ s.15(2) divisions max 4 per plan in every chain, ≥ 1 in 97.5–99.1% of plans.
 - AC1 on production (update ~03:20): final state of all six chains PASS under Audit's criteria();
   replay of chains 251 and 150 (5,000 steps each) matched production row-for-row and 2,000 replayed maps
   scored 0 violations. Remaining plans are covered by the per-plan count column (max 4) only.
+- 04:20 Loop recorded: Amendment 23 (owner: erratum + rerun) changes (b) to the statutory crossing-point
+  distance. First production set superseded (kept, no outcomes reported). Acceptance re-run on the A23 table
+  PASS; production relaunched 04:23 into *_s152a23 directories.
