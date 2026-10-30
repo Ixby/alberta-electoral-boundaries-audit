@@ -22,16 +22,16 @@
 	<meta name="description" content={s('intro')} />
 </svelte:head>
 
-<header>
+<div class="page-head">
 	<div class="header-inner">
 		<a href="{base}/" class="back-link">{t(lang.current, 'fixes.back')}</a>
 		<div class="site-label">Alberta Electoral Boundary Audit</div>
 		<h1>{t(lang.current, 'fixes.h1')}</h1>
 		<p class="meta">{t(lang.current, 'fixes.meta')}</p>
 	</div>
-</header>
+</div>
 
-<main>
+<main id="main" tabindex="-1">
 	<div class="content">
 		<p class="standfirst">{s('intro')}</p>
 
@@ -79,12 +79,12 @@
 		color: #dde2ed;
 		background: #1e1f26;
 	}
-	header {
+	.page-head {
 		background: #1a2e45;
 		color: #fff;
 		padding: 2rem clamp(1.2rem, 4vw, 3.5rem);
 	}
-	:global(:root[data-theme='dark']) header {
+	:global(:root[data-theme='dark']) .page-head {
 		background: #111722;
 	}
 	.header-inner {

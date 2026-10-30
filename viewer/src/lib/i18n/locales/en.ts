@@ -174,7 +174,18 @@ export default {
 		test: 'The November test',
 		mind: 'What would change my mind',
 		evidence: 'The full record',
-		fixes: 'Fixes for next time'
+		fixes: 'Fixes for next time',
+		// Shared site header (every page)
+		bar_aria: 'Site',
+		bar_home: 'Main page',
+		bar_evidence: 'Full record',
+		bar_explorer: 'Map explorer',
+		bar_norms: 'Norms',
+		bar_explainers: 'Explainers',
+		bar_fixes: 'Fixes',
+		bar_feedback: 'Feedback',
+		group_this_page: 'On this page',
+		group_pages: 'Pages'
 	},
 	hero: {
 		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Reports',

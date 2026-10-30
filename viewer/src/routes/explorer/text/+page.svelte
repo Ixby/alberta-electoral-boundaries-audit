@@ -23,10 +23,8 @@
 	<meta name="description" content={t(lang.current, 'explorer.text.intro')} />
 </svelte:head>
 
-<a class="skip-link" href="#main">{t(lang.current, 'explorer.text.skip_to_main')}</a>
-
 <div class="shadow">
-	<header class="prose">
+	<div class="prose page-head">
 		<div class="site-label">Alberta Electoral Boundary Audit</div>
 		<h1>{t(lang.current, 'explorer.text.page_title')}</h1>
 		<p>{t(lang.current, 'explorer.text.intro')}</p>
@@ -35,7 +33,7 @@
 			<span aria-hidden="true">·</span>
 			<a href="{base}/">{t(lang.current, 'explorer.text.link_report')}</a>
 		</p>
-	</header>
+	</div>
 
 	<nav aria-label={t(lang.current, 'explorer.text.toc_heading')} class="toc prose">
 		<h2 class="toc-heading">{t(lang.current, 'explorer.text.toc_heading')}</h2>
@@ -47,7 +45,7 @@
 		</ul>
 	</nav>
 
-	<main id="main">
+	<main id="main" tabindex="-1">
 		<section aria-labelledby="summary" class="prose">
 			<h2 id="summary">{t(lang.current, 'explorer.text.summary_heading')}</h2>
 			<p>{t(lang.current, 'explorer.text.summary_p1')}</p>
@@ -123,14 +121,14 @@
 		</section>
 	</main>
 
-	<footer class="prose">
+	<section class="prose page-notes">
 		<p class="methodology">{t(lang.current, 'explorer.text.methodology_note')}</p>
 		<p class="footer-links">
 			<a href="{base}/explorer">{t(lang.current, 'explorer.text.back_to_map')}</a>
 			<span aria-hidden="true">·</span>
 			<a href="{base}/">{t(lang.current, 'explorer.text.link_report')}</a>
 		</p>
-	</footer>
+	</section>
 </div>
 
 <style>
@@ -168,23 +166,6 @@
 	.prose {
 		max-width: var(--c-measure);
 		margin-inline: auto;
-	}
-
-	.skip-link {
-		position: absolute;
-		left: -9999px;
-		top: 0;
-		z-index: 10;
-		padding: 0.6rem 1rem;
-		background: var(--bg, #f9f7f2);
-		color: var(--link, #1a5276);
-		border: 1px solid var(--border, #ddd);
-		border-radius: 4px;
-		text-decoration: underline;
-	}
-	.skip-link:focus {
-		left: 0.75rem;
-		top: 0.75rem;
 	}
 
 	.site-label {

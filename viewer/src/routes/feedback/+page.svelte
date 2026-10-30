@@ -81,7 +81,7 @@
 	<meta name="description" content={t(lang.current, 'feedback.meta_description')} />
 </svelte:head>
 
-<header>
+<div class="page-head">
 	<div class="header-inner">
 		<a href="{base}/" class="back-link">← {t(lang.current, 'feedback.back_to_report')}</a>
 		<div class="header-text">
@@ -89,9 +89,9 @@
 			<h1>{t(lang.current, 'feedback.heading')}</h1>
 		</div>
 	</div>
-</header>
+</div>
 
-<main>
+<main id="main" tabindex="-1">
 	<div class="wrap">
 		{#if status === 'sent'}
 			<div class="confirm" role="status" aria-live="polite">
@@ -216,12 +216,12 @@
 		background: #1e1f26;
 	}
 
-	header {
+	.page-head {
 		background: #1a2e45;
 		color: #fff;
 		padding: 2rem clamp(1.2rem, 4vw, 3.5rem);
 	}
-	:global(:root[data-theme='dark']) header {
+	:global(:root[data-theme='dark']) .page-head {
 		background: #111722;
 	}
 
