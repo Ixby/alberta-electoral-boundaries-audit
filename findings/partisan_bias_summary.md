@@ -217,7 +217,9 @@ Approximate total remediation: ~100 minutes focused work. This is before re-runn
 | Metric | 2019 baseline | Majority 2026 (Phase 4C) | Minority 2026 (Phase 4C) |
 |---|---|---|---|
 | EDs | 87 | 89 | 89 |
-| Actual seats NDP/UCP | 38/49 | 34/55 | 29/60 |
+| Seats on 2023 election-day votes NDP/UCP (UCP 57.4%) | 30/57 | 34/55 | 29/60 |
+| Seats at actual 2023 vote share NDP/UCP (UCP 54.4%, uniform swing) | 41/46 | 45/44 | 36/53 |
+| Actual 2023 result NDP/UCP | 38/49 | — | — |
 | B2 Efficiency gap | −2.64% | **+0.04%** | **+3.96%** |
 | B3 Mean-median (NDP) | −2.22 pp | **−3.64 pp** | **+1.03 pp** |
 | B4 NDP @ 50/50 | 46 | **48** | **43** |

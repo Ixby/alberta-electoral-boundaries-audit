@@ -693,7 +693,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The 1,010,000-plan canonical ensemble uses official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400, 89 EDs each).
+**Assertion:** The 1,010,000-plan canonical ensemble is made of 87-district ReCom plans. The official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400, 89 EDs each) are used only to score the two commission maps against it.
 **Why?** What is EPSG:3400 and why do the specific filenames matter?
 **Answer:** EPSG:3400 is the identifier for a specific geographic coordinate system used in Alberta — it describes how the curved surface of the Earth is flattened onto a flat map for measurement purposes. Using the wrong coordinate system would distort distances and areas. The specific filenames confirm the analysis used the official Elections Alberta shapefiles received on May 6, 2026, rather than the earlier approximate tracings. Citing exact filenames allows any researcher to verify they are using the same input data.
 
@@ -741,7 +741,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The MCMC ensemble uses a uniform ±25% population-deviation constraint for all 89 EDs. Both commission maps invoke the §15(2) rural-protection exception for 3 EDs, allowing deviations down to −47.7% — below the ensemble's floor. The 3 §15(2) EDs are by construction outside the ensemble's distribution.
+**Assertion:** The MCMC ensemble applies a uniform ±25% population-deviation constraint to all 87 districts of each neutral plan (quota = 2021 population / 87). Both commission maps invoke the §15(2) rural-protection exception for 3 EDs, allowing deviations down to −47.7% — below the ensemble's floor. The 3 §15(2) EDs are by construction outside the ensemble's distribution.
 **Why?** If the ensemble cannot even produce the rural-exception districts that both maps use, how can its percentile scores for the real maps be meaningful?
 **Answer:** The three rural-exception districts in each real map are small, remote, and heavily UCP-leaning. Their contribution to aggregate partisan metrics — efficiency gap, mean-median, declination, seats at 50/50 — is a modest fraction of total province-wide votes. The effect on percentile positions is expected to be small, and the minority-majority asymmetry comparison is less sensitive to this gap than the absolute percentile scores, because both maps invoke comparable §15(2) configurations. A methodologically complete ensemble would allow the 3 §15(2) EDs to vary across a wider deviation range; this is queued as future work. For the current run, the conservative reading is that the reported minority percentiles are slightly lower bounds than a constraint-enforcing ensemble would produce.
 

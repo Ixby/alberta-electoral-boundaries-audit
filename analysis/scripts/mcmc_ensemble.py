@@ -749,7 +749,7 @@ def plot_metric(
     ax.set_ylabel("Count (out of {:,} samples)".format(len(vals)))
     ax.set_title(
         f"Ensemble distribution of {metric_label}\n"
-        f"(ReCom on 2019 enacted map, VA-level atomic units, 2023 votes)"
+        f"(ReCom from a fresh seed with the 2019 district count, VA-level atomic units, 2023 votes)"
     )
     ax.legend(loc="upper right", framealpha=0.95, fontsize=9)
     ax.grid(axis="y", linestyle=":", linewidth=0.5, alpha=0.6, zorder=1)

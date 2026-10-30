@@ -17,16 +17,15 @@ attestations.)*
 **Funding.** This research received no external funding. All costs were borne
 by the author.
 
-**Political activity.** The author has donated to and volunteered for the New
-Democratic Party of Alberta (Alberta NDP). The author has also donated to the
-Progressive Conservative Association of Alberta (a predecessor party of the
-UCP) in past election cycles.
+**Political activity.** The author has voted for and donated to both
+conservative and progressive provincial parties in Alberta as an adult.
 
 **Relationships.** The author has worked as a contract election officer for
 Elections Alberta for about 27 years, administering the vote on election day.
 The author has had no other employment with Elections Alberta, has no
 knowledge of its work beyond those tasks, and drew nothing in this audit from
-that work; every input is public. The author has no employment, contractual,
+that work; every input is public. This research is the author's own, not
+Elections Alberta's, and does not speak for it. The author has no employment, contractual,
 or advisory relationship with the Electoral Boundaries Commission or any
 provincial political party. Neither the NDP nor the UCP has been contacted
 about this research at any stage, and neither party has had any involvement in
