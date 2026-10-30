@@ -46,7 +46,7 @@ The April 16 action is not, by itself, a violation of the Act — a commission r
 
 ## D3 — Procedural fairness (interim → final)
 
-**Interim report (October 28, 2025).** Earlier drafts described the interim report as "unanimous"; that description came from a drafting prompt and is unverified. The interim report is a consultation document, published for public comment before the final report.
+**Interim report (October 28, 2025).** The interim report is a consultation document, published for public comment before the final report.
 
 **Final report (March 23, 2026).** Five months after the interim report, the commission split 3–2 with a majority and minority report. The majority largely extends the interim framework with adjustments responsive to the ~1,340 submissions; the minority departs from the interim framework in several specific ways — most notably the Airdrie 4-way split, the Nolan Hill-Cochrane hybrid, and the Rocky Mountain House-Banff Park extension documented in Sections A and C.
 

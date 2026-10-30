@@ -17,7 +17,7 @@
 
 ## 1. Headline matrix — discriminating tests run on both maps
 
-*(Corrected 2026-07-08: the majority Ch1 cell previously read p = 0.125 — the committed `joint_outlier_score.json` value is 0.097; EG p15 → p15.5 per the percentiles CSV; the Ch3 row previously carried the superseded DPG-era reading "within null / anomalously clean" — the canonical label-shuffle re-run finds all three maps anomalously low, with 2019 enacted the most anomalous at z = −3.52.)*
+
 
 | Test | Minority | Majority | Both scored | Source |
 |---|---|---|---|---|
@@ -25,7 +25,7 @@
 | Efficiency gap (ensemble percentile) | p94.54 | p16.52 | Yes | report §5.4.9 |
 | Mean–median | p99.97 (UCP-tail) | p0.99 (NDP-tail) | Yes | report §5.4.9; `simulated_ensemble_percentiles_canonical.csv` |
 | Declination (Warrington, Amendment-10 sign) | p98.79 (UCP-tail) | p21.85 | Yes | report §5.4.9 |
-| Seats @ 50/50 | p99.99 | p77.8 | Yes | report §5.4.9 |
+| Seats @ 50/50 | p99.99 | p78.54 | Yes | report §5.4.9 |
 | Drain / neighbour-drain (Ch3) | anomalously low (z = −2.75, p ≤ 0.0002) | anomalously low (z = −3.17, p ≤ 0.0002) | Yes | `findings/drain_label_shuffle_null_canonical.json` |
 | CSD / municipal anchoring | 71.8% | 80.0% | Yes | report §5.8.5 |
 | Regional swing (canonical) | scored | scored | Yes | `data/outputs/regional_swing_canonical*.json` |

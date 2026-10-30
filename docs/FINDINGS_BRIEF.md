@@ -113,7 +113,7 @@ The minority map's gap is about **41 times larger** than the majority map's. Bot
 
 **What this means in plain terms:** Under the minority map, NDP voters as a group have to cast significantly more votes to win the same number of seats.
 
-**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric (the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes, not imported from US case law). The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold; on canonical geometry it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps, not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 2 (the structural and procedural pattern in Findings 1, 2 and 4) does the work; Lane 1 is the supporting context.
+**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric (registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes; that percentile is 4.08% on the current run; not imported from US case law). The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold; on canonical geometry it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps, not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 2 (the structural and procedural pattern in Findings 1, 2 and 4) does the work; Lane 1 is the supporting context.
 
 ---
 

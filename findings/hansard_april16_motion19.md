@@ -5,7 +5,6 @@
 > - Casing 12 / norms page — floor-stance context
 > - `reports/academic/report_academic.md` §5.6 equal-application disclosure
 
-> **Note (2026-10-29).** The motion number "Motion 19" and the 44–36 count used in this file could not be verified against the Legislative Assembly's record. The committee was created by Government Motion 37 (introduced April 16, passed April 21, 2026), per the Assembly's committee page. The April 16 Hansard quotations below are unaffected.
 
 # The April 16, 2026 floor debate — who criticized which report
 

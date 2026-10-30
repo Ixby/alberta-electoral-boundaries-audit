@@ -41,6 +41,7 @@ type: project
 | 2026-10-29 | Amendment 16 | Test X1 (Recommendation 5) | Written scoring rule |
 | 2026-10-29 | Amendment 17 | November scoring | Size-matched neutral maps; X1 (a)/(b) rule; three added tests |
 | 2026-10-29 | Amendment 18 | Errata | Citations, labels and stale status lines in registered documents |
+| 2026-10-29 | Amendment 19 | Errata | A withdrawn timing claim in thresholds.md |
 
 ---
 
@@ -764,3 +765,19 @@ committee the "Special Select Committee". The file is pinned by SHA-256
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 18:30 MDT
+
+---
+
+### Amendment 19 — Errata: a withdrawn timing claim in thresholds.md (2026-10-29)
+
+> **Status: in force.** Signed 2026-10-29 18:55 MDT. No test, threshold, rule or
+> registered value changes.
+
+`preregistration/thresholds.md` Scenario E1 said the P1 threshold "predates
+detection by 2 hours 24 minutes (git timestamps)". The academic report's
+pre-registration disclosure withdrew that claim on 2026-04-23: the criteria were
+committed in the same commit as the detection run (`282bc6d`). Scenario E1 now
+says so. Found by the third check of the swarm audit's fixes.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-29 18:55 MDT

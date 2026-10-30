@@ -152,7 +152,7 @@ confirmation.
 The observed D = 7.19 is 4.61 null-SD above the null mean — well outside the null
 distribution. This result is not marginal.
 
-*(Update 2026-07-08: the values in §4.2–§4.4 are the round-1 execution record against the
+*(Note: the values in §4.2–§4.3 and the §4.4 prose are the round-1 execution record against the
 250k v0_9 ensemble. The canonical rescore against the 1,010,000-plan ensemble
 gives Version A p = 0.0348 (null 95th percentile 3.54 pp, SD 2.17 pp) and inter-map
 D = 7.20, p = 0.0002 (null 95th percentile 4.37), with individual positions
