@@ -427,3 +427,7 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   | k89_s152a23/chain151 | 3d7f2577447eb7d0f56a219b007c24f4ca591e83ab717a699b5aba3ede360c66 | d6e98b7c64e6628a49048e0105057752df4a8fbb4da2ca56e9821b08c3eb6a44 | 9,610,225 |
 
   No outcome statistics examined here; outcomes are Audit's to run on this set.
+- 15:30 Replay on the A23 set (tools/replay_score_s152.py, 5,000 steps, every 5th map scored with criteria()
+  at b5dc9030): chain251 and chain150 rows identical to A23 production; 1,000 maps each, 0 AC1 violations,
+  max 4 s.15(2) divisions per map. PASS. The replay window does exercise the A23 table: the superseded and
+  A23 outputs first diverge at line 4,650 (chain251) and 2,513 (chain150), and the replay matches A23.
