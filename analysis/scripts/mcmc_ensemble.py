@@ -427,11 +427,12 @@ def run_ensemble(
     return_final_partition: bool = False,
     seed: int | None = None,
     proposal_method=None,
+    proposal_epsilon: float | None = None,
 ):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
     pop_deviation: maximum allowed fractional deviation from ideal per district. The
-    default 0.25 matches Alberta's Electoral Divisions Act normal tolerance. If the
+    default 0.25 matches the Electoral Boundaries Commission Act s.15(1) tolerance. If the
     2019 seed violates this constraint (which it does — 7 of 87 EDs are outside ±25%
     under the Act's special-rural provisions), we fall back to a fresh seed generated
     by recursive tree partition at the given epsilon.
@@ -581,23 +582,34 @@ def run_ensemble(
         # and is an unrealistic "neutral" baseline. The canonical ensemble therefore
         # retains the half-band; the full-band run is preserved as a robustness
         # artifact under run_id="eps_full" (data/simulation_checkpoints_eps_full/).
-        epsilon=pop_deviation / 2.0,
+        # proposal_epsilon (added 2026-10-29) lets a caller choose the band;
+        # None keeps the canonical half-band.
+        epsilon=pop_deviation / 2.0 if proposal_epsilon is None else proposal_epsilon,
         node_repeats=2,
         method=_recom_method,
     )
 
+    # EBCA s.15(1): every division within +/-pop_deviation of the average.
+    # s.15(2): at most 4 divisions may be as much as 50% BELOW the average when
+    # the Commission is of the opinion that at least 3 of 5 criteria exist. Only
+    # criterion (a) area > 20,000 km^2 is computable from the graph (not the
+    # 15,000 km^2 surveyed-area limb, nor (b)-(e)), so this branch admits more
+    # districts than the statute would. It is unreachable in practice: ReCom
+    # splits within epsilon <= pop_deviation, and the seed is built within
+    # pop_deviation (report_academic.md, ensemble-constraint caveat 2).
+    # Corrected 2026-10-29 from "area > 5,000 km^2, up to 50% either side";
+    # no chain could reach either version, so no output changes.
     def alberta_statutory_population_constraint(partition):
         ideal = ideal_pop_mcmc
         special_count = 0
         for part_id, pop in partition["population"].items():
             area_sqkm = partition["area"][part_id] / 1_000_000.0
             dev = abs(pop - ideal) / ideal
-            if area_sqkm > 5_000:
-                if dev > 0.50:
-                    return False
-                if dev > pop_deviation:
-                    special_count += 1
-            elif dev > pop_deviation:
+            if dev <= pop_deviation:
+                continue
+            if pop < ideal and dev <= 0.50 and area_sqkm > 20_000:
+                special_count += 1
+            else:
                 return False
         if special_count > 4:
             return False
