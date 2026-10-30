@@ -152,7 +152,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: the partisan-bias asymmetry reverses sign under 2019 vote input; the commission chair's "no public support" claim is upheld on three of seven configurations, not all seven; and the majority map's own MAD is tighter than the 2019 baseline.
+**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: the partisan-bias asymmetry reverses sign under 2019 vote input; the commission chair's "no public support" claim is upheld on three of seven configurations, not all seven; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables.
 **Why?** Why does it matter that some findings went against the researcher's expectations?
 **Answer:** A biased research process would quietly drop inconvenient results. These three contra-prior findings were retained precisely to show that the methodology is not rigged. If every single finding had confirmed the researcher's starting suspicion, that would be a red flag. Results that cut against the prior — and are reported anyway — provide evidence that the method is operating independently of the researcher's preferences.
 
@@ -469,21 +469,21 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Minority MAD is 4,707; majority MAD is 3,180. Source: commission's own per-ED population tables.
+**Assertion:** Minority mean absolute deviation (MAD) is 4,707; majority MAD is 3,180. Source: commission's own per-ED population tables.
 **Why?** How is this number calculated and why is the commission's own table the source?
-**Answer:** The Electoral Boundaries Commission published a table listing the proposed population of every district. The Median Absolute Deviation is computed by taking the absolute value of (each district's population minus the provincial average), then finding the median of those 89 values. Using the commission's own published numbers — not any computed or estimated values — means this finding is based directly on official data and cannot be disputed on the grounds of measurement error. The commission itself produced the population figures used to show the minority map has wider population variance.
+**Answer:** The Electoral Boundaries Commission published a table listing the proposed population of every district. The mean absolute deviation is computed by taking the absolute value of (each district's population minus the provincial average of 54,929), then averaging those 89 values. The ensemble comparison in the report's §5.4.9 uses a different statistic, the median absolute deviation from the median district (MedAD), on 2021 census population. Using the commission's own published numbers — not any computed or estimated values — means this finding is based directly on official data and cannot be disputed on the grounds of measurement error. The commission itself produced the population figures used to show the minority map has wider population variance.
 
 ---
 
 **Assertion:** Minority MAD 48% wider than majority.
 **Why?** Is a 48% wider spread actually significant or is that within normal variation?
-**Answer:** The ±25% statutory band allows some population variation. However, the MAD measures not whether any individual district exceeds the limit, but how the typical district compares to the average. A 48% wider MAD means the minority's districts, taken as a whole, are spread further from the ideal equal-population target than the majority's. For comparison, the 2019 current map's MAD is also computed in Appendix C; it can be used to judge whether this difference between the two 2026 proposals is large or small relative to what Alberta has had before.
+**Answer:** The ±25% statutory band allows some population variation. However, the MAD measures not whether any individual district exceeds the limit, but how the typical district compares to the average. A 48% wider MAD means the minority's districts, taken as a whole, are spread further from the ideal equal-population target than the majority's. Appendix C puts all three maps on the 2021 census. On that base the gap almost disappears: the minority's MAD is 10.2% of its quota, the majority's 10.1% and the 2019 map's 9.7%. The 48% figure is a statement about the commission's 2024 tables, not about the 2021 census.
 
 ---
 
-**Assertion:** The majority map's MAD of 3,180 is tighter than the 2019 current-map baseline computed on 2021 Census data (Appendix C).
-**Why?** What does it mean that the majority map is tighter than the existing map?
-**Answer:** The 2019 map was drawn before the 2021 Census data was available and is now outdated in terms of population equality. When the 2021 Census populations are applied to 2019 district boundaries, those boundaries produce a higher MAD than the majority 2026 proposal. This means the majority commission's work would actually improve population equality compared to the current situation — it is moving in the right direction. This result ran against the researcher's prior expectations and is reported as a finding that limits any blanket criticism of the commission's overall work.
+**Assertion:** On the 2021 Census, the three maps have almost the same MAD as a share of quota: 2019 map 9.7%, majority 10.1%, minority 10.2% (Appendix C).
+**Why?** Does the majority map improve on the existing map?
+**Answer:** Not on this evidence. The majority's 3,180 comes from the commission's 2024 tables, and the 2019 map's 4,745 from the 2021 Census. Those are different populations and different quotas. When all three maps are scored on the same 2021 Census base, each against its own quota, they are almost level. The 2026 maps were drawn to 2024 estimates, so the 2021 base is not the one they were drawn to; Appendix C explains this cycle lag. The result limits the population-equality case against the minority map: its wider spread shows on the commission's own tables, not on the 2021 Census.
 
 ---
 
@@ -1644,19 +1644,19 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### Appendix C — 2021-Census Legal Baseline (2019 Map)
+### Appendix C — 2021-Census Legal Baseline (Three Maps)
 
 ---
 
-**Assertion:** The 2021-Census-direct computation shows 2019 map MAD = 4,745, majority 2026 MAD = 3,180, minority 2026 MAD = 4,707.
+**Assertion:** On the 2021 Census, the 2019 map's MAD is 4,745 (9.7% of quota). On the same census, scored on the voting-area overlay, the majority's MAD is 4,847 (10.1% of its quota) and the minority's 4,871 (10.2%). On the commission's 2024 tables the 2026 maps are 3,180 and 4,707.
 **Why?** Why are there two different MAD figures for the 2019 map (2,886 from the original commission basis and 4,745 from this appendix)?
-**Answer:** The 2019 boundaries were drawn using 2011 Census data and 2017-era population estimates, which gave a MAD of 2,886 at the time. When the same 2019 boundaries are evaluated using 2021 Census populations — the data the 2026 commission used to assess current population equality — the MAD rises to 4,745 because those boundaries are now outdated relative to where Albertans actually live. The comparison that matters for assessing the 2026 proposals against the current baseline is the 2021-Census version: 4,745. Under that comparison, the minority 2026 proposal (4,707) is essentially equivalent to the aging 2019 map, while the majority (3,180) represents a meaningful improvement.
+**Answer:** The 2019 boundaries were drawn on the populations in the 2017 commission report, which gave a MAD of 2,886 (6.2% of a 46,803 quota). On 2021 Census populations the same boundaries give 4,745 (9.7% of 48,996), because growth since then was uneven. The 2026 maps get the same treatment in Appendix C. On the 2021 Census the majority is at 10.1% of its quota and the minority at 10.2%, so the three maps are almost level on that base. The 2026 maps were drawn to 2024 estimates, so the 2021 base also picks up growth they were not drawn to (Appendix C, cycle lag). Figures on different bases, such as 3,180 against 4,745, should not be ranked against each other.
 
 ---
 
 **Assertion:** Seven 2019 EDs are outside the ±25% band under 2021 Census data, including five fast-growing suburban districts.
 **Why?** Does this mean the 2019 map is already unconstitutional?
-**Answer:** Being outside the ±25% statutory band is a serious issue but not automatically a constitutional violation — the Saskatchewan Reference standard allows deviations if justified by geography or community of interest. The five fast-growing suburban districts (primarily in south Edmonton and suburban Calgary/Airdrie) are outside the band purely because of population growth since the map was drawn. The audit documents them to establish the context: the 2026 commission was inheriting a population-equality problem that needed fixing, which makes the majority's improvement (MAD 3,180 vs baseline 4,745) a meaningful achievement and the minority's reproduction of the old variance level (4,707) a notable failure to improve.
+**Answer:** Being outside the ±25% statutory band is a serious issue but not automatically a constitutional violation — the Saskatchewan Reference standard allows deviations if justified by geography or community of interest. The five fast-growing suburban districts (primarily in south Edmonton and suburban Calgary/Airdrie) are outside the band purely because of population growth since the map was drawn. The audit documents them to establish the context: the 2026 commission inherited a population-equality problem that needed fixing. On the commission's 2024 tables, both 2026 maps keep every district inside the band apart from their s.15(2) districts. Whether either map improves on the 2019 map's spread depends on the base. On the 2021 Census the three maps are almost level (Appendix C).
 
 ---
 

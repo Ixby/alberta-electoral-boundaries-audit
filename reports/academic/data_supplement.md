@@ -199,10 +199,12 @@ Coupled chain-signal counts (adjacency test): minority 1, majority 2, 2019 enact
 
 | Channel | Minority result | Majority result | Status |
 |---|---|---|---|
-| Population MAD (canonical ensemble) | p ≈ 0.0098 (p99.0 — outlier) | p15.8 (within null) | DONE 2026-05-12 |
+| Population MedAD (median absolute deviation from the median district; canonical ensemble, ±12.5% proposal band) | p99.13 (outlier under this band only); p0.013 under the ±25% statute band | p15.87 (within null); p0.0 under the ±25% statute band | DONE 2026-05-12 |
 | Proxy Reock median (bounding-box diagonal) | p100 (anomalously compact) | p100 (anomalously compact) | Null finding |
 | CSD anchoring edge-crossing (MCMC, 10,000 plans) | 29.75% → p100 | 37.63% → p100 | Null finding (see note) |
 | Justification tests 1–5 (population/area law) | All 5 FAIL | — | DONE |
+
+**MedAD note.** This channel is not the 3,180 / 4,707 MAD headline, which is the mean absolute deviation on the commission's tables. It compares the 89-district commission maps with 87-district plans. Measured as a share of each map's own quota, the canonical-band placements are p99.6 (minority) and p21.0 (majority). Sources: `data/simulation_checkpoints_canonical/chain*_samples.csv` and `data/outputs/simulated_ensemble_percentiles_eps_full.csv`.
 
 **CSD anchoring note.** Both maps exceed all 10,000 neutral plans on CSD boundary-following (ensemble median 17.82%, 5th–95th percentile range [16.73%, 18.97%]). This indicates both commission maps are more anchored to municipal divisions than random plans — the expected direction for commission work. The pre-registered alternative direction (minority < ensemble median) is not confirmed. This channel does not add to the Fisher combination. Source: `data/outputs/csd_anchoring_results.json`.
 
@@ -293,7 +295,7 @@ For reviewers who wish to trace a specific result to its source code:
 | Ch2 SZAT bootstrap | `analysis/scripts/szat.py` |
 | Ch3 Neighbour-Drain | `analysis/scripts/neighbour_drain_adjacency.py` (coupled counts), `drain_phase_b_canonical.py` (canonical label-shuffle null) |
 | Canonical MCMC ensemble (1M plans) | `analysis/scripts/mcmc_ensemble_canonical.py` |
-| Population MAD ratio | `analysis/scripts/mcmc_ensemble_canonical.py` (per-plan values), `joint_outlier_score_canonical.py` (percentiles); `electoral_forensics_population.py` (commission-table MAD) |
+| Population MAD (commission tables) and MedAD (ensemble) | `electoral_forensics_population.py` (commission-table MAD, the mean absolute deviation); `analysis/scripts/mcmc_ensemble_canonical.py` (per-plan MedAD), `joint_outlier_score_canonical.py` (percentiles) |
 | Reock compactness | `analysis/scripts/mcmc_ensemble_canonical.py` (proxy Reock per plan), `joint_outlier_score_canonical.py` (percentiles); `reock.py` (true Reock, DPG-era substrate only) |
 | CSD anchoring MCMC (10,000 plans) | `analysis/scripts/mcmc_anchoring_ensemble.py` |
 | Justification tests 1–5 | `analysis/scripts/justification_tests.py` |
