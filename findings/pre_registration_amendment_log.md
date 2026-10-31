@@ -1307,3 +1307,38 @@ and finds no special district that fails both readings.
 
 **Signed:** not signed (withdrawn 2026-10-31 12:05 MDT)
 
+
+---
+
+### Amendment 26 — Size-matched sets for a map of any seat count (2026-10-31)
+
+> **Status: in force.** Signed 2026-10-31 12:16 MDT, before the committee's map is
+> due (November 2, 2026) and before any committee map has been published. The
+> author asked what happens if the map has 93, 94 or another number of seats,
+> and approved this rule in session ("Suree").
+
+**The gap.** Amendment 17 compares the November map with neutral maps "with the
+same number of districts as the map", but chain indices, and so seeds, were fixed
+only for 91 districts (Amendment 17 and Amendment 20: A 220s, B 230–239, C
+240–249, D 250–259) and 89 (100s to 150s). For any other count the indices would
+be chosen after the map is seen.
+
+**The rule.** If the map has K districts and K is neither 89 nor 91, each of sets A
+to D is run at K districts with the harness, settings and seeding of Amendments
+17, 20, 21 and 23, using the 91-district index blocks: A from 220, B from 230, C
+from 240, D from 250. Each set takes the first four indices in its block, in
+increasing order, that seed at K districts; an index that fails to seed is retired
+for K and the next free index in the block is taken (the Amendment 21 rule). Each
+chain runs 252,500 steps in chunks of 500. Set C keeps W = 0.5 (Amendment 21). Set
+D keeps the Amendment 23 table and at most four s.15(2) divisions. Amendment 24's
+order applies: set D primary, A to C beside it. Amendment 17's provisional rule
+applies unchanged. Output goes to `data/simulation_checkpoints_k<K><suffix>/`,
+which `size_matched_results.py` reads for any K.
+
+**What does not change.** The 87-district canonical comparison stays the headline
+whatever K is. No test, threshold or flag rule changes. A chain seed depends only
+on its index (Amendment 17), so the same index at a different K is a different,
+equally fixed draw.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-31 12:16 MDT
