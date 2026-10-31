@@ -5,11 +5,11 @@
 > - `analysis/methodology/fisher_combination_defense.md` §3 (AV3) — why SZAT/Fisher is minority-anchored
 >
 > **Forward:**
-> - `reports/academic/report_academic.md` §4.3.1 (conflict-of-interest disclosure) — symmetric methodology is the stated defense
+> - `reports/academic/report_academic.md` cover-page disclosure block and Author disclosure — symmetric methodology is the stated defense
 
 # Evaluation Symmetry Matrix
 
-**Purpose.** The audit's author carries a disclosed conflict of interest (donation to and volunteer work for the NDP; see report §4.3.1). The stated methodological defense against that conflict is **symmetric evaluation**: every discriminating test is applied to *both* commission proposals — the majority map and the minority map — through the same pipeline, with thresholds pre-committed before scoring. This document records, test by test, whether that symmetry holds, names the disclosed exceptions and why they are directional by construction, and points to the artifacts that demonstrate each claim.
+**Purpose.** The audit's author carries a disclosed conflict of interest (he has voted for and donated to both conservative and progressive provincial parties in Alberta; see the report's cover-page disclosure and `analysis/methodology/reference/conflict_of_interest.md`). The stated methodological defense against that conflict is **symmetric evaluation**: every discriminating test is applied to *both* commission proposals — the majority map and the minority map — through the same pipeline, with thresholds pre-committed before scoring. This document records, test by test, whether that symmetry holds, names the disclosed exceptions and why they are directional by construction, and points to the artifacts that demonstrate each claim.
 
 **Verification basis.** Built 2026-06-14 from (a) a coverage scan of all 80 tracked result JSONs under `data/outputs/` and `findings/`; (b) a per-script triage of all 122 tracked scripts under `analysis/scripts/`; (c) a direct run of the structural battery on the majority shapefile (this session). Every figure below was read from the cited source file in this session.
 

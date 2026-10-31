@@ -382,7 +382,7 @@ def resume(idx, n_steps, chunk, out, va_file, k):
     _chunks("nk", idx, graph, _partition(graph, assign), c["done"], n_steps, chunk, out, c["seed"])
 
 
-def real(out, va_file, extra_maps=()):
+def real(out, va_file, extra_maps=(), name_col="EDName2025"):
     import geopandas as gpd
 
     va, graph = me.build_va_graph(verbose=False, va_path=Path(va_file) if va_file else None)
@@ -391,17 +391,17 @@ def real(out, va_file, extra_maps=()):
     agg = va.groupby("parent_ed_2019")[["va_ucp", "va_ndp"]].sum()
     res["2019_enacted"] = {**seat_results_close(agg["va_ucp"].values, agg["va_ndp"].values),
                            **geo.stats(va.loc[geo.nodes, "parent_ed_2019"].to_numpy())}
-    maps = [("majority_2026", REPO / "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"),
-            ("minority_2026", REPO / "data/shapefiles/canonical/ea_minority_2026_eds.gpkg")]
-    maps += [(Path(p).stem, Path(p)) for p in extra_maps]
+    maps = [("majority_2026", REPO / "data/shapefiles/canonical/ea_majority_2026_eds.gpkg", "EDName2025"),
+            ("minority_2026", REPO / "data/shapefiles/canonical/ea_minority_2026_eds.gpkg", "EDName2025")]
+    maps += [(Path(p).stem, Path(p), name_col) for p in extra_maps]
     pts = va.loc[geo.nodes].copy()
     pts["geometry"] = pts.geometry.representative_point()
-    for name, f in maps:
-        m = me.score_exogenous_map(va, f, id_col="EDName2025")
+    for name, f, col in maps:
+        m = me.score_exogenous_map(va, f, id_col=col)
         eds = gpd.read_file(f).to_crs(pts.crs)
-        j = gpd.sjoin(pts[["geometry"]], eds[["EDName2025", "geometry"]], how="left", predicate="within")
+        j = gpd.sjoin(pts[["geometry"]], eds[[col, "geometry"]], how="left", predicate="within")
         j = j[~j.index.duplicated(keep="first")].reindex(pts.index)
-        labels = j["EDName2025"].fillna("__unassigned__").to_numpy()
+        labels = j[col].fillna("__unassigned__").to_numpy()
         res[name] = {**m, **geo.stats(labels)}
     Path(out).write_text(json.dumps(res, indent=1, default=float))
     for k, v in res.items():
@@ -438,7 +438,8 @@ if __name__ == "__main__":
     ap.add_argument("--chunk", type=int, default=5000)
     ap.add_argument("--out", required=True)
     ap.add_argument("--va-file", default="")
-    ap.add_argument("--extra", nargs="*", default=[], help="real mode: more map files (EDName2025 column)")
+    ap.add_argument("--extra", nargs="*", default=[], help="real mode: more map files")
+    ap.add_argument("--name-col", default="EDName2025", help="real mode: district-name column of the --extra maps")
     ap.add_argument("--resume", action="store_true",
                     help="nk mode: continue from <out>.ckpt.json if it exists, else start fresh")
     ap.add_argument("--proposal-eps", type=float, default=None,
@@ -448,7 +449,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
     OPTS.update(proposal_epsilon=a.proposal_eps, muni_surcharge=a.muni_surcharge)
     if a.mode == "real":
-        real(a.out, a.va_file, a.extra)
+        real(a.out, a.va_file, a.extra, a.name_col)
     elif a.resume and a.mode == "nk" and _ckpt_path(Path(a.out)).exists():
         resume(a.idx, a.steps, a.chunk, a.out, a.va_file, a.k)
     else:

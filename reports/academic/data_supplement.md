@@ -28,7 +28,7 @@ This supplement is not a second manuscript. It is a structured index for externa
 ```
 alberta_audit/
 ├── analysis/
-│   ├── scripts/          # 127 single-responsibility analysis scripts (incl. automation/ subdir)
+│   ├── scripts/          # 133 single-responsibility Python analysis scripts (incl. 2 in automation/) and 1 R script
 │   ├── methodology/      # test protocols, pre-analysis plans, defense docs
 │   └── review/           # peer-review and red-team artifacts
 ├── data/
@@ -36,7 +36,7 @@ alberta_audit/
 │   │   ├── canonical/    # authoritative Elections Alberta shapefiles (ground truth)
 │   │   ├── derived/      # VA polygons with vote attribution (2015/2019/2023)
 │   │   └── reference/    # 2019 enacted baseline
-│   └── outputs/          # 102 CSV + 48 JSON script outputs (committed for reproducibility)
+│   └── outputs/          # 103 CSV + 49 JSON script outputs at top level, 124 CSV + 63 JSON with subfolders (committed for reproducibility)
 ├── reports/
 │   ├── academic/         # report_academic.md, this supplement
 │   └── public/           # report_public.md
@@ -111,7 +111,8 @@ python -m pytest tests/ -v
 |---|---|---|
 | `findings/joint_outlier_score.json` | `joint_outlier_score_canonical.py` | §5.4.9 (Ch1 Mahalanobis) |
 | `findings/szat_summary.json` | `szat.py` | §5.2.10 (Ch2 SZAT) |
-| `data/outputs/rhat_diagnostic_section_b.json` | committed output (`1dd5e91b`); generating code not in repo | §5.4 (convergence) |
+| `findings/joint_empirical_bound_verification.json` | `verify_joint_empirical_bound.py` | §5.4.2 (full-run R̂, 2026-07-12) |
+| `data/outputs/rhat_diagnostic_section_b.json` | committed output (`1dd5e91b`); generating code not in repo | s58a6-B R̂ at 4 × 62,500 draws (2026-05-10); superseded by the full-run R̂ |
 | `data/outputs/szat_robustness_section_a.json` | committed output (`1dd5e91b`); generating code not in repo | §5.2.10 (robustness) |
 | `data/outputs/csd_anchoring_results.json` | `mcmc_anchoring_ensemble.py` | §5.4.9 (anchoring) |
 | `data/outputs/csd_anchoring_ensemble.csv` | `mcmc_anchoring_ensemble.py` | §5.4.9 |
@@ -167,11 +168,11 @@ Source: `findings/szat_summary.json`.
 
 ### Fisher Combination (Ch1 × Ch2)
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.4.9.]** The Fisher combination of Ch1 and Ch2 (T = 39.0, p ≈ 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.4.9.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p ≈ 4.61×10⁻⁸, recomputed on the clean rerun; the table below gives the figures as published on 2026-06-10) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
 
 Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`.
 
-| Statistic | Value |
+| Statistic (as published 2026-06-10) | Value |
 |---|---|
 | Fisher T | 39.028 |
 | Degrees of freedom | 4 |
@@ -199,10 +200,12 @@ Coupled chain-signal counts (adjacency test): minority 1, majority 2, 2019 enact
 
 | Channel | Minority result | Majority result | Status |
 |---|---|---|---|
-| Population MAD (canonical ensemble) | p ≈ 0.0098 (p99.0 — outlier) | p15.8 (within null) | DONE 2026-05-12 |
+| Population MedAD (median absolute deviation from the median district; canonical ensemble, ±12.5% proposal band) | p99.13 (outlier under this band only); p0.013 under the ±25% statute band | p15.87 (within null); p0.0 under the ±25% statute band | DONE 2026-05-12 |
 | Proxy Reock median (bounding-box diagonal) | p100 (anomalously compact) | p100 (anomalously compact) | Null finding |
 | CSD anchoring edge-crossing (MCMC, 10,000 plans) | 29.75% → p100 | 37.63% → p100 | Null finding (see note) |
 | Justification tests 1–5 (population/area law) | All 5 FAIL | — | DONE |
+
+**MedAD note.** This channel is not the 3,180 / 4,707 MAD headline, which is the mean absolute deviation on the commission's tables. It compares the 89-district commission maps with 87-district plans. Measured as a share of each map's own quota, the canonical-band placements are p99.6 (minority) and p21.0 (majority). Sources: `data/simulation_checkpoints_canonical/chain*_samples.csv` and `data/outputs/simulated_ensemble_percentiles_eps_full.csv`.
 
 **CSD anchoring note.** Both maps exceed all 10,000 neutral plans on CSD boundary-following (ensemble median 17.82%, 5th–95th percentile range [16.73%, 18.97%]). This indicates both commission maps are more anchored to municipal divisions than random plans — the expected direction for commission work. The pre-registered alternative direction (minority < ensemble median) is not confirmed. This channel does not add to the Fisher combination. Source: `data/outputs/csd_anchoring_results.json`.
 
@@ -236,16 +239,16 @@ Ten pre-committed seeds derived from drand round 6099592. Source: `data/outputs/
 
 ## §D6 — MCMC Convergence Diagnostics
 
-4-chain ensemble, 252,500 steps per chain. Gelman-Rubin R̂ computed per metric. Pre-registered criterion: GR92 R̂ < 1.1. Source: `data/outputs/rhat_diagnostic_section_b.json`.
+4-chain ensemble, 252,500 steps per chain (1,010,000 plans; the 2026-07-12 clean rerun). Gelman-Rubin R̂ computed per metric on the full run. Pre-registered criterion: GR92 R̂ < 1.1. Sources: `findings/joint_empirical_bound_verification.json` (R̂) and `data/outputs/simulation_convergence_diagnostics_canonical.json` (n_eff).
 
-| Metric | R̂ (GR92) | R̂ (Vehtari 2021) | GR92 < 1.1 | V21 < 1.01 | Worst-chain ESS |
-|---|---|---|---|---|---|
-| Efficiency gap | 1.01843 | 1.01847 | **PASS** | marginal | 76 |
-| Mean-median | 1.00179 | 1.00181 | **PASS** | **PASS** | 63 |
-| Declination | 1.01343 | 1.01440 | **PASS** | marginal | 70 |
-| Seats at 50/50 | 1.00540 | 1.00527 | **PASS** | **PASS** | 94 |
+| Metric | R̂ (GR92) | GR92 < 1.1 | V21 < 1.01 | n_eff (pooled) |
+|---|---|---|---|---|
+| Efficiency gap | 1.00011 | **PASS** | **PASS** | 1,522 |
+| Mean-median | 1.00205 | **PASS** | **PASS** | 1,448 |
+| Declination | 1.00016 | **PASS** | **PASS** | 1,513 |
+| Seats at 50/50 | 1.00149 | **PASS** | **PASS** | 1,413 |
 
-All four metrics satisfy the registered GR92 < 1.1 criterion. Efficiency gap and declination marginally exceed the stricter Vehtari (2021) 1.01 recommendation; this is disclosed in §5.4 of the academic report with a note on headroom relative to Ch1 scores.
+All four metrics satisfy the registered GR92 < 1.1 criterion and the stricter Vehtari (2021) 1.01 recommendation. The rank-normalized split R̂ was recomputed from the four chain files in `data/simulation_checkpoints_canonical/`. The registered s58a6-B diagnostic (`data/outputs/rhat_diagnostic_section_b.json`) was computed on 2026-05-10, at 4 × 62,500 draws. At that stage all four metrics passed GR92 < 1.1, and efficiency gap and declination sat just above the Vehtari 1.01 line. The academic report gives the full-run table in §5.4.2.
 
 ---
 
@@ -276,10 +279,13 @@ All random seeds are derived from Cloudflare drand (league/default, chain `8990e
 
 | Registration | drand round | Salt | Derived seed |
 |---|---|---|---|
-| s58a6 primary (SZAT robustness + R-hat) | 6,099,592 | `alberta-audit-szat-robustness` | 23,687,475 |
+| Ch2 primary (6pt83) | 5,500,000 | `szat-bootstrap` (`drand_seed.py`) | 23,687,475 |
+| s58a6 Section A (SZAT robustness) | 6,099,592 | `alberta-audit-robustness-szat-seed-{0..9}` | 10 seeds (see `preregistration/seed_robustness_rerun.md`) |
 | s58a6 Section C rerun | 6,099,592 | `alberta-audit-mcmc-rerun-base` | 3,562,959,107 |
 | s58a6 anchoring ensemble | 6,099,592 | `alberta-audit-anchoring-ensemble` | 80,780,579 |
 | Canonical ensemble base seed | — | (pre-registered in w2s8k) | 1,432,864,451 |
+
+s58a6 Section B (R̂ diagnostics) draws no random numbers, so it has no seed.
 
 ---
 
@@ -293,7 +299,7 @@ For reviewers who wish to trace a specific result to its source code:
 | Ch2 SZAT bootstrap | `analysis/scripts/szat.py` |
 | Ch3 Neighbour-Drain | `analysis/scripts/neighbour_drain_adjacency.py` (coupled counts), `drain_phase_b_canonical.py` (canonical label-shuffle null) |
 | Canonical MCMC ensemble (1M plans) | `analysis/scripts/mcmc_ensemble_canonical.py` |
-| Population MAD ratio | `analysis/scripts/mcmc_ensemble_canonical.py` (per-plan values), `joint_outlier_score_canonical.py` (percentiles); `electoral_forensics_population.py` (commission-table MAD) |
+| Population MAD (commission tables) and MedAD (ensemble) | `electoral_forensics_population.py` (commission-table MAD, the mean absolute deviation); `analysis/scripts/mcmc_ensemble_canonical.py` (per-plan MedAD), `joint_outlier_score_canonical.py` (percentiles) |
 | Reock compactness | `analysis/scripts/mcmc_ensemble_canonical.py` (proxy Reock per plan), `joint_outlier_score_canonical.py` (percentiles); `reock.py` (true Reock, DPG-era substrate only) |
 | CSD anchoring MCMC (10,000 plans) | `analysis/scripts/mcmc_anchoring_ensemble.py` |
 | Justification tests 1–5 | `analysis/scripts/justification_tests.py` |

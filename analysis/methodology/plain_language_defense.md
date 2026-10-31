@@ -34,7 +34,9 @@ The threshold — 4.10% efficiency gap — was not chosen by the researcher. It 
 
 ### 5. "You used AI tools — the analysis isn't reliable."
 
-AI tools were used the way a researcher might use a spell-checker or a search engine — to help draft text, catch inconsistencies, and suggest approaches. No AI tool ran any analysis, accessed any data file, or produced any number that appears in the report. Every number was verified by the researcher against the original source files and script outputs. All code is publicly available Python; all input data comes from Elections Alberta and Statistics Canada. Anyone with a standard computer can re-run every script against the same publicly available data and reproduce every number independently.
+AI tools helped draft and check the text, review code, write scripts and suggest approaches. Most numbers in the report come from Python or R scripts run by the researcher on public data, and the researcher checked them against the script outputs. One group of numbers is different. In the public-input analysis (report §5.9.4.6 and §5.9.4.7), Claude models read each written submission and each relevant hearing comment, and labelled it as opposing, supporting or neutral on each of seven contested boundary choices. Every count of opposing and supporting comments in those two sections comes from those labels. A second Claude pass scored how strongly each comment was worded, and the intensity totals come from that pass. A Claude vision model was also used to inspect the commission's published map images (report §5.8.1).
+
+The labels have been checked in two ways. Their row counts were reconciled against the pipelines' output files, and the results were compared with a separate keyword search of the same submissions, which they agree with. No person has checked the labels themselves yet. A sample of 60 labelled items has been drawn for a human agreement check, but none of it has been scored, so the labels' accuracy has not been measured. Until it is, read those counts as machine labels. All code and all labels are public, and anyone can re-run every script against the same public data from Elections Alberta and Statistics Canada.
 
 ### 6. "You hid a finding that didn't work out."
 
@@ -68,9 +70,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every partisan-fairness metric. The minority map is not.
+**Assertion:** The majority map is within the neutral null on three of four partisan-fairness metrics and jointly (Mahalanobis p = 0.102). Its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP. The minority map is not within the null.
 **Why?** What is a "neutral statistical band" and how do you know the majority map is inside it while the minority is outside?
-**Answer:** To judge whether a map is unusual, the audit ran a computer simulation that randomly drew over one million legal Alberta maps — maps that follow all the same rules the commission was required to follow (equal population, connected districts, and so on). Those million random maps form a reference band: the range of outcomes you would expect from an unbiased process. The majority map's scores on every fairness measure fall comfortably inside that range. The minority map's scores on several measures fall outside it — meaning they are more extreme than all but a tiny fraction of the randomly drawn neutral maps.
+**Answer:** To judge whether a map is unusual, the audit ran a computer simulation that randomly drew over one million legal Alberta maps — maps that follow all the same rules the commission was required to follow (equal population, connected districts, and so on). Those million random maps form a reference band: the range of outcomes you would expect from an unbiased process. The majority map's scores fall inside that range on three of the four fairness measures, and on the combined test. On the fourth, mean-median, it leans further toward the NDP than about 99% of the random maps, which does not help the UCP. The minority map's scores on several measures fall outside it — meaning they are more extreme than all but a tiny fraction of the randomly drawn neutral maps.
 
 ---
 
@@ -138,11 +140,17 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The November 2026 committee-map trigger remains pending.
 **Why?** What is a "committee-map trigger"?
-**Answer:** After the commission's reports were set aside, the Alberta legislature created a Special Select Committee to draw a new 91-seat map by November 2026. The audit pre-registered a commitment to evaluate that map using the same methodology as soon as it is published. The "trigger" is simply that planned rerun, which cannot happen until the committee releases its map.
+**Answer:** After the commission's reports were set aside, the Alberta legislature created a Select Special Committee to draw a new 91-seat map by November 2026. The audit pre-registered a commitment to evaluate that map using the same methodology as soon as it is published. The "trigger" is simply that planned rerun, which cannot happen until the committee releases its map.
 
 ---
 
 ## Author Disclosure
+
+---
+
+**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. The author is not under contract now and last worked at a recent election. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. Every input is public.
+**Why?** Doesn't working for Elections Alberta create a conflict?
+**Answer:** The audit tests maps drawn by the Electoral Boundaries Commission and the MLA committee. Elections Alberta runs elections; its Chief Electoral Officer advises and assists the commission, but does not draw the boundaries. The author's work was administering the vote on election day, not boundary or policy work, and none of the audit's data or reasoning comes from it. The one data set Elections Alberta supplied directly, the official 2026 boundary shapefiles, came through a formal data request in May 2026 and is published with the audit. It is disclosed so readers can weigh it for themselves.
 
 ---
 
@@ -152,7 +160,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: the partisan-bias asymmetry reverses sign under 2019 vote input; the commission chair's "no public support" claim is upheld on three of seven configurations, not all seven; and the majority map's own MAD is tighter than the 2019 baseline.
+**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: the partisan-bias asymmetry reverses sign under 2019 vote input; the commission chair's "no public support" claim is upheld on three of seven configurations, not all seven; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables.
 **Why?** Why does it matter that some findings went against the researcher's expectations?
 **Answer:** A biased research process would quietly drop inconvenient results. These three contra-prior findings were retained precisely to show that the methodology is not rigged. If every single finding had confirmed the researcher's starting suspicion, that would be a red flag. Results that cut against the prior — and are reported anyway — provide evidence that the method is operating independently of the researcher's preferences.
 
@@ -160,7 +168,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Three large language models were used as analytical and writing assistants (Claude Pro Max, Gemini Pro, Codex). All substantive claims were verified against primary sources by the author.
 **Why?** Does using AI tools make the analysis less reliable?
-**Answer:** AI tools were used the way a researcher might use a calculator or a grammar checker — to help draft text, identify inconsistencies, and suggest analytical approaches. The audit explicitly states that no AI tool executed code or independently accessed data. Every number was verified by the researcher against the original data files and script outputs. The AI's role was assistance, not decision-making.
+**Answer:** AI tools helped draft text, find inconsistencies, review code, write scripts and suggest analytical approaches. The report states that no AI tool ran code or reached data on its own; the researcher ran every script. One part of the analysis does rest on AI output. The public-input scripts (report §5.9.4.6) send each submission and hearing comment to a Claude model, which labels it, and the counts of opposing and supporting comments in §5.9.4.6 and §5.9.4.7 come from those labels. A Claude vision model was also used to inspect the commission's map images (§5.8.1). The label counts were reconciled against the output files and compared with a keyword search of the same submissions. No person has yet scored the 60-item check sample, so the labels' accuracy has not been measured. Every other number was checked by the researcher against the original data files and script outputs.
 
 ---
 
@@ -385,15 +393,15 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Gelman-Rubin R̂ values are 1.007–1.017 on the final canonical run, indicating convergence.
+**Assertion:** Gelman-Rubin R̂ values are 1.00011–1.00205 on the final canonical run, indicating convergence.
 **Why?** What is a Gelman-Rubin value and what does convergence mean here?
-**Answer:** Gelman-Rubin R̂ is a diagnostic that compares variation within each chain to variation between chains. If the four chains are all exploring the same landscape (converging on the same distribution of maps), R̂ is close to 1.0. Values above 1.1 are typically a warning sign that the chains have not converged. Values of 1.007–1.017 are very close to 1.0 and indicate that all four chains are sampling from the same distribution — the simulation has stabilized and the results are reliable.
+**Answer:** Gelman-Rubin R̂ is a diagnostic that compares variation within each chain to variation between chains. If the four chains are all exploring the same landscape (converging on the same distribution of maps), R̂ is close to 1.0. Values above 1.1 are typically a warning sign that the chains have not converged. Values of 1.00011–1.00205 are very close to 1.0 and indicate that all four chains are sampling from the same distribution — the simulation has stabilized and the results are reliable.
 
 ---
 
 **Assertion:** Effective Sample Size (ESS) is 1,413–1,522 on canonical 1M partisan metrics — described as publication-grade.
 **Why?** What is an Effective Sample Size and why does "1,413–1,522" matter when you have 1,000,000 total samples?
-**Answer:** In a simulation where each new map is based on the previous one, consecutive maps are correlated — they are not fully independent observations. The Effective Sample Size adjusts the total sample count downward to reflect how much independent information is actually present. An ESS of 1,413–1,522 out of 1,000,000 total steps means the chain has about 1,400–1,700 truly independent observations. That is still more than enough for reliable percentile estimates; comparable published ensemble studies use similar or lower ESS values, which is why this is described as meeting publication standards.
+**Answer:** In a simulation where each new map is based on the previous one, consecutive maps are correlated — they are not fully independent observations. The Effective Sample Size adjusts the total sample count downward to reflect how much independent information is actually present. An ESS of 1,413–1,522 out of 1,000,000 total steps means the chain has about 1,413–1,522 truly independent observations. That is still more than enough for reliable percentile estimates; comparable published ensemble studies use similar or lower ESS values, which is why this is described as meeting publication standards.
 
 ---
 
@@ -449,9 +457,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** P2 threshold: +15pp above mean margin — described as calibrated to Chen 2017.
+**Assertion:** P2 threshold: +15pp above mean margin, which gives a safe-seat cut-off stricter than the 20 pp threshold in Chen (2017).
 **Why?** What is "mean margin" and what does Chen 2017 have to do with this?
-**Answer:** "Mean margin" is the average winning margin across all districts. P2 flags any district where one party's winning margin exceeds the average by 15 percentage points or more — indicating that party's voters are heavily "packed" into that district. The 15pp figure is calibrated to a 2017 academic paper by Jowei Chen that studied natural geographic clustering of voters; it is set at the level where packing effects become distinguishable from the natural tendency of like-minded people to live near each other. Like all derived thresholds in this audit, its provenance is documented in the threshold provenance compendium.
+**Answer:** "Mean margin" is the average winning margin across all districts. P2 flags any district where one party's winning margin exceeds the average by 15 percentage points or more — indicating that party's voters are heavily "packed" into that district. Added to the mean winning margin, the 15pp figure gives a "safe seat" cut-off above the 20 pp threshold in a 2017 academic paper by Jowei Chen that studied natural geographic clustering of voters, so the test flags fewer districts than Chen's line would. Like all derived thresholds in this audit, its provenance is documented in the threshold provenance compendium.
 
 ---
 
@@ -469,21 +477,21 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Minority MAD is 4,707; majority MAD is 3,180. Source: commission's own per-ED population tables.
+**Assertion:** Minority mean absolute deviation (MAD) is 4,707; majority MAD is 3,180. Source: commission's own per-ED population tables.
 **Why?** How is this number calculated and why is the commission's own table the source?
-**Answer:** The Electoral Boundaries Commission published a table listing the proposed population of every district. The Median Absolute Deviation is computed by taking the absolute value of (each district's population minus the provincial average), then finding the median of those 89 values. Using the commission's own published numbers — not any computed or estimated values — means this finding is based directly on official data and cannot be disputed on the grounds of measurement error. The commission itself produced the population figures used to show the minority map has wider population variance.
+**Answer:** The Electoral Boundaries Commission published a table listing the proposed population of every district. The mean absolute deviation is computed by taking the absolute value of (each district's population minus the provincial average of 54,929), then averaging those 89 values. The ensemble comparison in the report's §5.4.9 uses a different statistic, the median absolute deviation from the median district (MedAD), on 2021 census population. Using the commission's own published numbers — not any computed or estimated values — means this finding is based directly on official data and cannot be disputed on the grounds of measurement error. The commission itself produced the population figures used to show the minority map has wider population variance.
 
 ---
 
 **Assertion:** Minority MAD 48% wider than majority.
 **Why?** Is a 48% wider spread actually significant or is that within normal variation?
-**Answer:** The ±25% statutory band allows some population variation. However, the MAD measures not whether any individual district exceeds the limit, but how the typical district compares to the average. A 48% wider MAD means the minority's districts, taken as a whole, are spread further from the ideal equal-population target than the majority's. For comparison, the 2019 current map's MAD is also computed in Appendix C; it can be used to judge whether this difference between the two 2026 proposals is large or small relative to what Alberta has had before.
+**Answer:** The ±25% statutory band allows some population variation. However, the MAD measures not whether any individual district exceeds the limit, but how the typical district compares to the average. A 48% wider MAD means the minority's districts, taken as a whole, are spread further from the ideal equal-population target than the majority's. Appendix C puts all three maps on the 2021 census. On that base the gap almost disappears: the minority's MAD is 10.2% of its quota, the majority's 10.1% and the 2019 map's 9.7%. The 48% figure is a statement about the commission's 2024 tables, not about the 2021 census.
 
 ---
 
-**Assertion:** The majority map's MAD of 3,180 is tighter than the 2019 current-map baseline computed on 2021 Census data (Appendix C).
-**Why?** What does it mean that the majority map is tighter than the existing map?
-**Answer:** The 2019 map was drawn before the 2021 Census data was available and is now outdated in terms of population equality. When the 2021 Census populations are applied to 2019 district boundaries, those boundaries produce a higher MAD than the majority 2026 proposal. This means the majority commission's work would actually improve population equality compared to the current situation — it is moving in the right direction. This result ran against the researcher's prior expectations and is reported as a finding that limits any blanket criticism of the commission's overall work.
+**Assertion:** On the 2021 Census, the three maps have almost the same MAD as a share of quota: 2019 map 9.7%, majority 10.1%, minority 10.2% (Appendix C).
+**Why?** Does the majority map improve on the existing map?
+**Answer:** Not on this evidence. The majority's 3,180 comes from the commission's 2024 tables, and the 2019 map's 4,745 from the 2021 Census. Those are different populations and different quotas. When all three maps are scored on the same 2021 Census base, each against its own quota, they are almost level. The 2026 maps were drawn to 2024 estimates, so the 2021 base is not the one they were drawn to; Appendix C explains this cycle lag. The result limits the population-equality case against the minority map: its wider spread shows on the commission's own tables, not on the 2021 Census.
 
 ---
 
@@ -499,7 +507,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Minority EG = +4.02% on canonical results, which is below the audit's 4.10% threshold; the EG flag is withdrawn.
 **Why?** Why is a threshold of 4.10% used rather than the academic 7% threshold?
-**Answer:** The 7% threshold from Stephanopoulos and McGhee's foundational academic paper was derived from US electoral data and has never been adopted by any Canadian court. The audit's own threshold of 4.10% was derived from the canonical 1,010,000-plan simulation: it is the value at the 95th percentile of efficiency gap magnitudes across those random maps, meaning 95% of neutral randomly drawn maps fall below 4.10%. Using this simulation-derived threshold is more appropriate for Alberta because it reflects what Alberta's specific geography and population distribution produce, not what US states produce. At 4.02%, the minority EG is below even this stricter Alberta-specific threshold, so the efficiency gap alone does not trigger a finding.
+**Answer:** The 7% threshold from Stephanopoulos and McGhee's foundational academic paper was derived from US electoral data and has never been adopted by any Canadian court. The audit's own threshold of 4.10% was derived from the canonical 1,010,000-plan simulation: it is the 95th-percentile efficiency gap across those random maps as registered, and it stays frozen as the Option D line. The 2026-07-12 clean rerun of the simulation puts the 95th percentile at 4.08%. Using this simulation-derived threshold is more appropriate for Alberta because it reflects what Alberta's specific geography and population distribution produce, not what US states produce. At 4.02%, the minority EG is below even this stricter Alberta-specific threshold, so the efficiency gap alone does not trigger a finding.
 
 ---
 
@@ -507,11 +515,11 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Why?** What does "p99.97" mean and why is declination at p98.79 (UCP-tail, post-Amendment-10; was p1.21 NDP-tail under pre-Amendment-10 swapped operand) a problem when the others are at p99.97?
 **[Corrected — Amendment 10, 2026-06-12.** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
 
-**Answer:** p99.97 means the minority map's mean-median score is higher than 99.98% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
+**Answer:** p99.97 means the minority map's mean-median score is higher than 99.97% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
 
 ---
 
-**Assertion:** The majority map's mean-median is at p0.85 (NDP-tail), explained as a rural-district preservation convention.
+**Assertion:** The majority map's mean-median is at p0.99 (NDP-tail), explained as a rural-district preservation convention.
 **Why?** Why would a finding that appears to favor the NDP appear in the majority map?
 **Answer:** The majority map was drawn by commission members who aimed to preserve existing rural district boundaries, including several rural districts that consistently vote heavily UCP. By preserving those districts unchanged, the majority map creates a cluster of high-UCP-vote-share districts at one end of the distribution. The mean-median score is sensitive to exactly this kind of clustering; a group of high-margin wins for one party shifts the mean away from the median in a direction the formula interprets as favoring the other party. The finding is mechanically explained and is consistent with rural-preservation intent rather than partisan manipulation.
 
@@ -533,9 +541,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** B2 Efficiency Gap (canonical MCMC convention, positive = UCP-favored): majority +0.10%, minority +4.02% (p94.4). B3 Mean-Median: majority −0.66 pp, minority −1.20 pp. B4 NDP seats at 50/50 uniform swing: majority 45, minority 46.
+**Assertion:** B2 Efficiency Gap (canonical MCMC convention, positive = UCP-favored): majority +0.10%, minority +4.02% (p94.54). B3 Mean-Median: majority −3.64 pp, minority +1.03 pp. B4 NDP seats at 50/50 uniform swing: majority 48, minority 43.
 **Why?** The efficiency gap numbers in §5.2.1 look different from the ones in the §5.2 parent section — are they the same measurement?
-**Answer:** Yes, they measure the same thing using two different reporting conventions. The §5.2 parent section uses the convention from the crosswalk-blending calculation (negative = UCP-advantaged), which produces majority −0.40% and minority −1.81%. The §5.2.1 results table uses the MCMC ensemble convention (positive = UCP-favored), which produces majority +0.10% and minority +4.02%. The sign is flipped but the mathematical direction is the same: the minority map gives the UCP more advantage than the majority map under both conventions. The §5.2.1 table is the canonical result against the official Elections Alberta shapefiles; the parent-section numbers come from the blended-crosswalk vote attribution used before official shapefiles arrived. Neither is wrong; they use different attribution methods, and the report notes both with the convention explicitly labeled.
+**Answer:** They measure the same thing, but the older figures are superseded. Majority −0.40% and minority −1.81% (negative = UCP-advantaged) came from the v0.2 crosswalk-blend calculation, used before the official shapefiles arrived. Phase 4C replaced them on 2026-05-18 with exact attribution on the official Elections Alberta shapefiles (DOCUMENTED CORRECTIONS C5). The current figures are majority +0.10% and minority +4.02% on the canonical MCMC scoring (positive = UCP-favored), and +0.04% and +3.96% in the §5.2.1 table's standard calculation. The old and the current figures both put the minority map on the UCP-favoured side of the majority map.
 
 ---
 
@@ -545,9 +553,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** B4 direction was revised mid-audit: earlier versions reported majority 44 / minority 42 (minority fewer NDP seats); current version reports majority 45 / minority 46 (minority matches 2019 baseline).
+**Assertion:** B4 direction was revised mid-audit: earlier versions reported majority 44 / minority 42 (minority fewer NDP seats); the v0.2 version reported majority 45 / minority 46; Phase 4C (2026-05-18) reports majority 48 / minority 43 (minority 5 fewer NDP seats).
 **Why?** How should readers interpret a mid-audit direction reversal on one of the four metrics?
-**Answer:** The direction reversal on B4 is disclosed openly and explained mechanically: two corrections drove it — a fix to the mapping dictionary for several Calgary suburban hybrid districts, and a change in the default urban weight from 0.70 to 0.85. At the revised weight, several minority-map suburban districts cross the NDP-win threshold under uniform swing that they did not cross before. The audit documents the correction rather than hiding it. Importantly, the other three metrics (B2 EG, B3 mean-median, B6 declination) are unaffected in direction: the minority map remains more UCP-favorable on those three under every tested parameter.
+**Answer:** The direction reversal on B4 is disclosed openly and explained mechanically: two corrections drove it — a fix to the mapping dictionary for several Calgary suburban hybrid districts, and a change in the default urban weight from 0.70 to 0.85. At the revised weight, several minority-map suburban districts cross the NDP-win threshold under uniform swing that they did not cross before. Phase 4C then replaced the blend model with exact VA-level attribution on the official shapefiles, which gives majority 48 / minority 43. The audit documents each correction rather than hiding it. Importantly, the other three metrics (B2 EG, B3 mean-median, B6 declination) are unaffected in direction: the minority map remains more UCP-favorable on those three under every tested parameter.
 
 ---
 
@@ -609,9 +617,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** In 2023, 14 of 87 ridings were decided by less than 3 pp of two-party margin; 12 of those 14 are in Calgary. The audit's 1–3 seat map effect concentrates in these already-marginal ridings.
+**Assertion:** In 2023, 14 of 87 ridings were decided by less than 3 pp of two-party margin; 12 of those 14 are in Calgary. The audit's 5-seat map effect concentrates in these already-marginal ridings.
 **Why?** What does it mean for the map effect to "concentrate" in marginal ridings?
-**Answer:** The efficiency gap and seats-at-50/50 findings project that the minority map produces approximately 1–3 fewer NDP seats than the majority map at a 50/50 province-wide vote split. When the audit traces which specific seats those would be, they are the Calgary ridings that were already decided by tiny margins in 2023 — races within a few percentage points of flipping. The map effect does not add or subtract seats in safe districts; it operates in the places where the outcome is already uncertain. A 1.5 percentage-point shift in the audit's estimate range would flip 6 Calgary seats toward UCP and 4 toward NDP. The map effect is small in an UCP landslide environment but potentially outcome-determinative in a close election.
+**Answer:** The efficiency gap and seats-at-50/50 findings project that the minority map produces 5 fewer NDP seats than the majority map at a 50/50 province-wide vote split (48 vs 43 under Phase 4C). When the audit traces which specific seats those would be, they are the Calgary ridings that were already decided by tiny margins in 2023 — races within a few percentage points of flipping. The map effect does not add or subtract seats in safe districts; it operates in the places where the outcome is already uncertain. A 1.5 percentage-point shift in the audit's estimate range would flip 6 Calgary seats toward UCP and 4 toward NDP. The map effect is small in an UCP landslide environment but potentially outcome-determinative in a close election.
 
 ---
 
@@ -629,9 +637,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The 7% EG threshold from Stephanopoulos and McGhee was calibrated to US Congressional delegations; it has never been adopted by any Canadian court. Option D, the Alberta-derived 95th-percentile threshold, is 4.10% (canonical 1M ensemble). Both 2026 maps fall below 4.10%.
+**Assertion:** The 7% EG threshold from Stephanopoulos and McGhee was calibrated to US Congressional delegations; it has never been adopted by any Canadian court. Option D, the Alberta-derived 95th-percentile threshold, is 4.10% (canonical 1M ensemble, frozen as registered; the clean-rerun 95th percentile is 4.08%). Both 2026 maps fall below 4.10%.
 **Why?** If both maps are below the Alberta-derived threshold, doesn't that mean neither map is an EG outlier?
-**Answer:** Correct — on the efficiency gap metric alone, neither map triggers the outlier flag under the Alberta-calibrated 4.10% threshold. The minority's canonical EG is +4.02% (p94.4), just below the 4.10% / p95 line. The EG flag is accordingly withdrawn in the canonical analysis. This is consistent with the audit's overall finding: EG alone does not make the case; the case rests on three metrics that do trigger flags (mean-median p99.97, seats-at-50/50 p99.99, Mahalanobis D²) combined with the structural signals. The sub-threshold EG result is reported honestly as a null result on that specific metric, not discarded.
+**Answer:** Correct — on the efficiency gap metric alone, neither map triggers the outlier flag under the Alberta-calibrated 4.10% threshold. The minority's canonical EG is +4.02% (p94.54), just below the 4.10% Option D line and the 4.08% clean-rerun 95th percentile. The EG flag is accordingly withdrawn in the canonical analysis. This is consistent with the audit's overall finding: EG alone does not make the case; the case rests on three metrics that do trigger flags (mean-median p99.97, seats-at-50/50 p99.99, Mahalanobis D²) combined with the structural signals. The sub-threshold EG result is reported honestly as a null result on that specific metric, not discarded.
 
 ---
 
@@ -639,9 +647,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Against v0_7 DPG geometry: majority Partisan Bias p>99.9 (NDP-favored), minority p93.6 (slightly NDP-favored); minority Responsiveness 1.41 vs majority 0.76 (seats per 1% swing); Lopsided Margins signal present in all three maps including 2019.
+**Assertion:** On the canonical shapefiles (refreshed 2026-06-11): turnout-weighted Partisan Bias is −0.0402 for 2019, −0.0393 for the majority and +0.0169 for the minority; Responsiveness is 2.87, 1.12 and 1.69 seats per 1% swing; the Lopsided Margins signal is present in all three maps including 2019.
 **Why?** The extended metrics seem to show the majority map as more partisan in some ways — how should these results be read alongside the main findings?
-**Answer:** These four additional metrics use DPG (derived provisional geometry) rather than official shapefiles, so they are not the primary canonical results. Among them, Partisan Bias at p>99.9 on the majority map reads as NDP-favorable because it measures how many seats the majority's configuration awards the UCP at a tied province-wide vote — and at 43 seats, the majority awards the UCP more seats at 50/50 than many neutral maps, even though less than the minority. Responsiveness at 1.41 for the minority means vote swings translate into more seat changes under the minority map, which is sometimes considered a democratic virtue but also means the minority would produce large swings if NDP vote share improves modestly. Lopsided Margins, significant on all three maps, is a feature of Alberta's political geography inherited by any legal map and is not a distinctive minority characteristic.
+**Answer:** These four additional metrics supplement the four core metrics. Partisan Bias measures the share of seats a map gives the UCP at a tied province-wide vote, minus one half. At a tie the minority gives the UCP slightly more than half the seats (+0.0169), while the majority and the 2019 map give it slightly less (−0.0393 and −0.0402). Responsiveness is the number of seats that change hands for each 1% swing in the vote. Both 2026 maps are less responsive than the 2019 map, and the majority (1.12) is less responsive than the minority (1.69). Lopsided Margins, significant on all three maps, is a feature of Alberta's political geography inherited by any legal map and is not a distinctive minority characteristic.
 
 ---
 
@@ -687,7 +695,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The 1,010,000-plan canonical ensemble uses official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400, 89 EDs each).
+**Assertion:** The 1,010,000-plan canonical ensemble is made of 87-district ReCom plans. The official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400, 89 EDs each) are used only to score the two commission maps against it.
 **Why?** What is EPSG:3400 and why do the specific filenames matter?
 **Answer:** EPSG:3400 is the identifier for a specific geographic coordinate system used in Alberta — it describes how the curved surface of the Earth is flattened onto a flat map for measurement purposes. Using the wrong coordinate system would distort distances and areas. The specific filenames confirm the analysis used the official Elections Alberta shapefiles received on May 6, 2026, rather than the earlier approximate tracings. Citing exact filenames allows any researcher to verify they are using the same input data.
 
@@ -695,7 +703,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Minority Mean-Median p99.97 on canonical 1M ensemble.
 **Why?** What does "p99.97 on canonical 1M ensemble" mean in plain terms?
-**Answer:** The canonical ensemble of one million randomly drawn legal Alberta maps produces one million different mean-median scores. The minority map's actual mean-median score is higher than 99.98% of those million scores — meaning only about 200 maps out of every million random maps are as extreme as the minority map on this measure. Said differently: if you drew Alberta maps randomly, following all the legal rules, you would almost never produce a map as extreme as the minority proposal by accident.
+**Answer:** The canonical ensemble of one million randomly drawn legal Alberta maps produces one million different mean-median scores. The minority map's actual mean-median score is higher than 99.97% of those million scores — meaning only about 335 maps out of every million random maps are as extreme as the minority map on this measure. Said differently: if you drew Alberta maps randomly, following all the legal rules, you would almost never produce a map as extreme as the minority proposal by accident.
 
 ---
 
@@ -735,7 +743,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The MCMC ensemble uses a uniform ±25% population-deviation constraint for all 89 EDs. Both commission maps invoke the §15(2) rural-protection exception for 3 EDs, allowing deviations down to −47.7% — below the ensemble's floor. The 3 §15(2) EDs are by construction outside the ensemble's distribution.
+**Assertion:** The MCMC ensemble applies a uniform ±25% population-deviation constraint to all 87 districts of each neutral plan (quota = 2021 population / 87). Both commission maps invoke the §15(2) rural-protection exception for 3 EDs, allowing deviations down to −47.7% — below the ensemble's floor. The 3 §15(2) EDs are by construction outside the ensemble's distribution.
 **Why?** If the ensemble cannot even produce the rural-exception districts that both maps use, how can its percentile scores for the real maps be meaningful?
 **Answer:** The three rural-exception districts in each real map are small, remote, and heavily UCP-leaning. Their contribution to aggregate partisan metrics — efficiency gap, mean-median, declination, seats at 50/50 — is a modest fraction of total province-wide votes. The effect on percentile positions is expected to be small, and the minority-majority asymmetry comparison is less sensitive to this gap than the absolute percentile scores, because both maps invoke comparable §15(2) configurations. A methodologically complete ensemble would allow the 3 §15(2) EDs to vary across a wider deviation range; this is queued as future work. For the current run, the conservative reading is that the reported minority percentiles are slightly lower bounds than a constraint-enforcing ensemble would produce.
 
@@ -829,7 +837,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.97, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,500,000; seeds committed, test exploratory). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.97, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.54 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
 **Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
 **Answer:** The DPG-era runs used approximate boundary tracings the audit team constructed from commission PDF thumbnails before official shapefiles were available. Where those approximations differed from the actual boundary lines — particularly in rural areas near the fringe of cities — vote attribution to individual EDs changed when the official files arrived. The canonical run is the first analysis using the same shapefiles Elections Alberta actually uses; it is the only run whose results can be verified against the official record. The §4.1.4 sunset clause bound the audit to replace all DPG-era results with canonical results within two weeks of shapefile release; this run fulfills that commitment.
 
@@ -857,7 +865,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Metric-by-metric trajectory: majority moved the 2019 Declination reading toward neutral (p91.05 → p21.85, UCP-side to NDP-side) and moved EG toward neutral; minority preserved and amplified Declination in the UCP direction (p91.05 → p98.79), and dramatically extended MM (p91.5 → p99.97) and seats@50/50 (p77.8 → p99.99) in the UCP direction.
+**Assertion:** Metric-by-metric trajectory: majority moved the 2019 Declination reading toward neutral (p91.33 → p21.85, UCP-side to NDP-side) and moved EG toward neutral; minority preserved and amplified Declination in the UCP direction (p91.33 → p98.79), and dramatically extended MM (p91.81 → p99.97) and seats@50/50 (p78.54 as registered, p65.36 once ties are counted → p99.99) in the UCP direction.
 **Why?** Does a trajectory comparison like this prove the minority was drawing off the 2019 map and adding partisan tilt?
 **Answer:** No — the trajectory comparison shows what each proposal did to the existing map's statistical properties, not why it did so. The fact that the minority map's metrics are more extreme than 2019 on three of four dimensions is consistent with partisan engineering, but it is also consistent with other explanations such as different community-of-interest judgments, different readings of the §15(2) constraint, or geographic factors the 2019 map did not reflect. The direction-of-travel table is reported as exploratory evidence — one more consistent signal pointing the same direction as the pre-registered tests — rather than as an independent finding that stands on its own. The canonical Mahalanobis test and SZAT results carry the primary evidentiary weight.
 
@@ -889,9 +897,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every partisan-fairness metric.
+**Assertion:** The majority map is within the neutral null on three of four partisan-fairness metrics and jointly (Mahalanobis p = 0.102). Its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP.
 **Why?** Does "within the neutral band" mean the majority map is perfectly neutral?
-**Answer:** Being within the neutral band means the majority map's scores fall in the range you would expect from the million randomly drawn neutral maps — its values are not unusually extreme. It does not mean the majority map is perfectly equal or that every boundary choice is beyond criticism. It means that when measured against the realistic distribution of what neutral independent map-drawing produces, the majority map's scores are unremarkable. The minority map's scores, by contrast, are in the extreme tail of that distribution.
+**Answer:** Being within the neutral band means the majority map's scores fall in the range you would expect from the million randomly drawn neutral maps on efficiency gap, declination and seats at 50/50, and on the combined test. Its mean-median is the exception, and it leans toward the NDP, not the UCP. It does not mean the majority map is perfectly equal or that every boundary choice is beyond criticism. It means that when measured against the realistic distribution of what neutral independent map-drawing produces, the majority map's scores are unremarkable. The minority map's scores, by contrast, are in the extreme tail of that distribution.
 
 ---
 
@@ -997,14 +1005,14 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** On April 16, 2026, the Alberta Legislative Assembly passed Motion 19 setting aside both reports and establishing a Special Select Committee of five MLAs to draft a 91-seat map by November 2, 2026.
+**Assertion:** Government Motion 37 (introduced April 16, passed April 21, 2026) set both reports aside and created the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, with a 91-seat map due November 2, 2026.
 **Why?** Why is a legislature setting aside a commission's report unusual?
 **Answer:** The purpose of an independent boundary commission is to insulate the redistricting process from direct political control. Elected representatives are expected to have an interest in how boundaries are drawn because those boundaries determine whether they win or lose future elections. When a legislature sets aside an independent commission's work and replaces the drafting process with a committee of elected members, that transfers control of boundary-drawing directly to politicians. Whether this is legally permissible is a statutory question; whether it is consistent with the norms of independent redistricting is addressed in §5.9.
 
 ---
 
 **Assertion:** The procedural pivot replaces an independent commission's drafting process with a government-chaired committee mid-cycle.
-**Why?** Who chairs the Special Select Committee and why does that matter?
+**Why?** Who chairs the Select Special Committee and why does that matter?
 **Answer:** A government-chaired committee is chaired by a member of the governing party — in this case, the UCP. In the Canadian tradition of electoral boundary reform, independent commissions are chaired by judges or academics specifically to avoid this kind of partisan involvement. A committee that reports to the legislature, with a governing-party chair, faces structural incentives that a fully independent commission does not.
 
 ---
@@ -1109,15 +1117,15 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** On April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada dismissed Quebec's appeal (7–2, from the bench) of a ruling striking down a law that blocked Quebec's electoral commission from redrawing the provincial map. The SCC held the freeze law violated the Charter's democratic-representation guarantee.
+**Assertion:** On April 22, 2026 — six days after Government Motion 37 was introduced (passed April 21) — the Supreme Court of Canada dismissed Quebec's appeal (7–2, from the bench) of a ruling striking down a law that blocked Quebec's electoral commission from redrawing the provincial map. The SCC held the freeze law violated the Charter's democratic-representation guarantee.
 **Why?** Why does a Quebec ruling about a freeze law matter for Alberta's situation, which involves a committee assignment rather than a freeze?
 **Answer:** The Alberta motion did not freeze the existing map — it reassigned boundary-drawing authority from the independent commission to a legislature-selected committee. That is structurally different from Quebec's legislative freeze. The SCC's ruling is relevant because it establishes that provincial legislatures cannot protect voter-weight disparities from commission revision on regional-representation grounds alone — which is precisely the class of argument the minority commissioners advance in Appendix E. Whether the Alberta structure is constitutionally distinguishable from the Quebec freeze is for a court to decide on its own facts; the audit does not make that determination. What the ruling does is remove the hypothetical status of that constitutional question: it is no longer speculative whether this category of interference is reviewable under the Charter.
 
 ---
 
-**Assertion:** The doctrinal implications cited in the report are extracted from journalistic reporting; the formal SCC reasons are pending publication. The audit notes it will update this section when written reasons are published.
-**Why?** Why report on a ruling before the formal written reasons are available?
-**Answer:** The SCC's from-the-bench ruling — delivered verbally in the courtroom immediately after argument — is itself a legally operative decision; it dismisses the appeal and the lower court ruling stands. The outcome and the 7–2 margin are confirmed facts. The detailed reasoning, including the precise doctrinal analysis, will not be fully known until the written reasons are published. The audit reports what is confirmed (outcome, majority size, from-the-bench posture) and explicitly hedges what is drawn from reporting rather than written reasons. The from-the-bench posture — reserved for cases the court views as clear-cut — is itself a meaningful signal about the SCC's assessment of the question, even before the formal reasons.
+**Assertion:** The SCC's written reasons were published May 1, 2026 (*Quebec (AG) v. Lalande*, 2026 SCC 13). The doctrinal implications cited in the report are summarised from secondary sources; the judgment was not read in full.
+**Why?** Why rely on secondary sources for a ruling whose written reasons are available?
+**Answer:** The SCC's from-the-bench ruling — delivered verbally in the courtroom immediately after argument — is itself a legally operative decision; it dismisses the appeal and the lower court ruling stands. The outcome and the 7–2 margin are confirmed facts. The written reasons followed on May 1, 2026, but the audit has summarised their doctrine from secondary sources rather than from a full reading of the judgment, and it says so. The audit reports what is confirmed (outcome, majority size, from-the-bench posture) and explicitly hedges what is drawn from secondary sources. The from-the-bench posture — reserved for cases the court views as clear-cut — is itself a meaningful signal about the SCC's assessment of the question, even before the formal reasons.
 
 ---
 
@@ -1165,7 +1173,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Fisher combined p = 4.61×10⁻⁸ was the earlier formal statement of convergence between Ch1 and Ch2 (retired 2026-06-10).
 **Why?** Is it valid to combine two p-values using Fisher's method?
-**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions, but they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975) — and the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons the Fisher combination (p = 4.61×10⁻⁸, "once in 15 million") was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own — about one in 1,140,000 (p = 8.80×10⁻⁷) — with a conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶) that does not rely on independence. See the academic report §4.3.3 and §5.5.
+**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions, but they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975) — and the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons the Fisher combination (p = 4.61×10⁻⁸, about one in 22 million) was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own — about one in 1,140,000 (p = 8.80×10⁻⁷) — with a conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶) that does not rely on independence. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -1295,7 +1303,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Public-submission support: two contested configurations (Airdrie 4-way, Nolan Hill) have no documented submissions in the ~1,340 archive.
 **Why?** What does it mean to check the submission archive and why does the absence of submissions matter?
-**Answer:** The commission received over 1,140 public submissions from citizens, communities, and organizations. These submissions are the documented evidence that the public wanted specific boundary choices. If a minority commissioner made a specific boundary decision — such as splitting Airdrie four ways or drawing the Nolan Hill corridor — and no submission in the archive requested that specific configuration, then the choice cannot be defended as responding to public input. Finding no submissions for two of the most unusual configurations is a gap in the rationale, not proof of bad intent.
+**Answer:** The commission's archive holds the public submissions it received from citizens, communities, and organizations. These submissions are the documented evidence that the public wanted specific boundary choices. If a minority commissioner made a specific boundary decision — such as splitting Airdrie four ways or drawing the Nolan Hill corridor — and no submission in the archive requested that specific configuration, then the choice cannot be defended as responding to public input. Finding no submissions for two of the most unusual configurations is a gap in the rationale, not proof of bad intent.
 
 ---
 
@@ -1369,7 +1377,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Substituting a UCP-MLA-chaired committee for the independent commission's drafting process is the most government-controlled response among the three most commonly cited Canadian comparator cases.
 **Why?** What are the comparator cases and why does this comparison matter?
-**Answer:** The three Canadian cases used as comparators are the federal 2012 redistribution challenge, Saskatchewan's 1989 court referral, and Alberta's current 2026 situation. In the federal 2012 case, Parliament challenged but did not replace the commission's recommendations. In the Saskatchewan 1989 case, the government sought court guidance before the commission finished its work. In Alberta 2026, the legislature set aside a completed commission report and transferred drawing authority to a committee of elected members from the governing party. Placing this action within the comparator range establishes that it represents a larger departure from independent-commission norms than the other cases cited.
+**Answer:** The three Canadian cases used as comparators are the federal 2012 redistribution challenge, Saskatchewan's 1989 court referral, and Alberta's current 2026 situation. In the federal 2012 case, Parliament challenged but did not replace the commission's recommendations. In the Saskatchewan 1989 case, the government sought court guidance before the commission finished its work. In Alberta 2026, the legislature set aside a completed commission report and transferred drawing authority to a government-majority committee of MLAs (four UCP, two NDP). Placing this action within the comparator range establishes that it represents a larger departure from independent-commission norms than the other cases cited.
 
 ---
 
@@ -1525,7 +1533,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority map is within the neutral statistical band on every metric; the minority is not. This is the headline.
+**Assertion:** The majority map is within the neutral null on three of four metrics and jointly (Mahalanobis p = 0.102); its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP. The minority is not within the null. This is the headline.
 **Why?** What should a reader conclude from this if they are a policymaker, a court, or a journalist?
 **Answer:** A policymaker reviewing two competing redistricting proposals should understand that these are not equivalent options: one falls within the range that neutral independent processes produce, and one does not. A court evaluating a Charter challenge to the redistricting process would have access to quantified outlier statistics and pre-registered methodology to assess. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals — with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do; it provides the measurement.
 
@@ -1598,7 +1606,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Saskatchewan Reference ([1991] 2 SCR 158) is the governing Canadian constitutional case.
 **Why?** Why is this a 1991 case and not something more recent?
-**Answer:** The Supreme Court of Canada has not substantially revisited the effective-representation standard since 1991. The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. A subsequent Federal Court case (Raîche 2004) applied the Saskatchewan Reference standard but did not alter its core holding. Until the Supreme Court revisits the question, the 1991 standard governs.
+**Answer:** The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. A subsequent Federal Court case (Raîche 2004) applied the Saskatchewan Reference standard but did not alter its core holding. The Supreme Court returned to s. 3 in 2026 in *Quebec (AG) v. Lalande*, 2026 SCC 13, which left in place the ruling that struck down Quebec's law blocking its commission from redrawing the map. The audit summarises Lalande from secondary sources and applies the 1991 standard as the governing test.
 
 ---
 
@@ -1644,19 +1652,19 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### Appendix C — 2021-Census Legal Baseline (2019 Map)
+### Appendix C — 2021-Census Legal Baseline (Three Maps)
 
 ---
 
-**Assertion:** The 2021-Census-direct computation shows 2019 map MAD = 4,745, majority 2026 MAD = 3,180, minority 2026 MAD = 4,707.
+**Assertion:** On the 2021 Census, the 2019 map's MAD is 4,745 (9.7% of quota). On the same census, scored on the voting-area overlay, the majority's MAD is 4,847 (10.1% of its quota) and the minority's 4,871 (10.2%). On the commission's 2024 tables the 2026 maps are 3,180 and 4,707.
 **Why?** Why are there two different MAD figures for the 2019 map (2,886 from the original commission basis and 4,745 from this appendix)?
-**Answer:** The 2019 boundaries were drawn using 2011 Census data and 2017-era population estimates, which gave a MAD of 2,886 at the time. When the same 2019 boundaries are evaluated using 2021 Census populations — the data the 2026 commission used to assess current population equality — the MAD rises to 4,745 because those boundaries are now outdated relative to where Albertans actually live. The comparison that matters for assessing the 2026 proposals against the current baseline is the 2021-Census version: 4,745. Under that comparison, the minority 2026 proposal (4,707) is essentially equivalent to the aging 2019 map, while the majority (3,180) represents a meaningful improvement.
+**Answer:** The 2019 boundaries were drawn on the populations in the 2017 commission report, which gave a MAD of 2,886 (6.2% of a 46,803 quota). On 2021 Census populations the same boundaries give 4,745 (9.7% of 48,996), because growth since then was uneven. The 2026 maps get the same treatment in Appendix C. On the 2021 Census the majority is at 10.1% of its quota and the minority at 10.2%, so the three maps are almost level on that base. The 2026 maps were drawn to 2024 estimates, so the 2021 base also picks up growth they were not drawn to (Appendix C, cycle lag). Figures on different bases, such as 3,180 against 4,745, should not be ranked against each other.
 
 ---
 
 **Assertion:** Seven 2019 EDs are outside the ±25% band under 2021 Census data, including five fast-growing suburban districts.
 **Why?** Does this mean the 2019 map is already unconstitutional?
-**Answer:** Being outside the ±25% statutory band is a serious issue but not automatically a constitutional violation — the Saskatchewan Reference standard allows deviations if justified by geography or community of interest. The five fast-growing suburban districts (primarily in south Edmonton and suburban Calgary/Airdrie) are outside the band purely because of population growth since the map was drawn. The audit documents them to establish the context: the 2026 commission was inheriting a population-equality problem that needed fixing, which makes the majority's improvement (MAD 3,180 vs baseline 4,745) a meaningful achievement and the minority's reproduction of the old variance level (4,707) a notable failure to improve.
+**Answer:** Being outside the ±25% statutory band is a serious issue but not automatically a constitutional violation — the Saskatchewan Reference standard allows deviations if justified by geography or community of interest. The five fast-growing suburban districts (primarily in south Edmonton and suburban Calgary/Airdrie) are outside the band purely because of population growth since the map was drawn. The audit documents them to establish the context: the 2026 commission inherited a population-equality problem that needed fixing. On the commission's 2024 tables, both 2026 maps keep every district inside the band apart from their s.15(2) districts. Whether either map improves on the 2019 map's spread depends on the base. On the 2021 Census the three maps are almost level (Appendix C).
 
 ---
 
@@ -1682,9 +1690,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Declination formula: δ = (2/π)(arctan((ȳ_R − x̄_R)/x̄_R) − arctan((ȳ_D − x̄_D)/x̄_D)). Alberta results: 2019 = −0.034, majority = −0.021, minority = −0.015. Minority is at p1.21 (NDP-tail).
+**Assertion:** Declination formula: δ = (2/π)(arctan((ȳ_R − x̄_R)/x̄_R) − arctan((ȳ_D − x̄_D)/x̄_D)). Alberta results (canonical scoring, Amendment 10 sign): 2019 = +0.045 (p91.33), majority = −0.027 (p21.85), minority = +0.077 (p98.79, UCP tail).
 **Why?** What does the formula actually measure in plain terms?
-**Answer:** The declination measures the difference in how steeply each party's win-margin increases as it wins more districts. If Party A's winning margins are concentrated near 50% (many close wins) while Party B's winning margins are spread across both close and blowout wins, declination measures that asymmetry as an angular difference between two trend lines. A negative declination in the Alberta convention means the NDP's wins are harder-earned (closer to 50%) relative to the UCP's wins — consistent with NDP voters being packed in a way that makes their votes "less efficient" at producing wins. The minority's p1.21 means its declination is lower (more NDP-tail) than 98.79% of random maps — disagreeing with the EG and mean-median direction.
+**Answer:** The declination measures the difference in how steeply each party's win-margin increases as it wins more districts. If Party A's winning margins are concentrated near 50% (many close wins) while Party B's winning margins are spread across both close and blowout wins, declination measures that asymmetry as an angular difference between two trend lines. Under the corrected sign (Amendment 10), a positive declination favours the UCP: the UCP wins many seats by thin margins while NDP votes are packed into a few high-share districts. The minority's p98.79 means its declination is higher (further toward the UCP tail) than 98.79% of random maps. That agrees with the efficiency gap, mean-median and seats-at-50/50 readings.
 
 ---
 

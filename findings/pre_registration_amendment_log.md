@@ -17,7 +17,7 @@ type: project
 **Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29.
+**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30 · 2026-10-31.
 
 ---
 
@@ -44,6 +44,9 @@ type: project
 | 2026-10-29 | Amendment 19 | Errata | A withdrawn timing claim in thresholds.md |
 | 2026-10-29 | Amendment 20 | Neutral-map sets | Statute-band, municipality-aware and s.15(2) sets; harness fixes; town-split framing |
 | 2026-10-29 | Amendment 21 | s.15(2) spec; Amendment 17 corrections | s.15(2) criteria fixed and checked against the commissions; effective-sample rule; labels; municipality weight W = 0.5 anchored to the 2019 map |
+| 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
+| 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
+| 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
 
 ---
 
@@ -1054,3 +1057,157 @@ structural measure, with the maps under test kept out of the anchor.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-29 21:45 MDT
+
+---
+
+### Amendment 22 — Errata (2026-10-30)
+
+> **Status: in force.** Signed 2026-10-30 03:23 MDT. Corrects the district count
+> of the canonical neutral plans in thresholds.md. No test, threshold, rule or
+> registered value changes.
+
+`preregistration/thresholds.md` §B.2.1.D (Option D, Threshold #42), under
+"Residual vulnerability", said the ensemble imposes a uniform ±25% band "on all
+89 EDs". Every one of the 1,010,000 canonical plans has 87 districts, the 2019
+map's count (the `n_districts` column of
+`data/simulation_checkpoints_canonical/chain{0..3}_samples.csv`), and the band
+applies around a quota of 2021 population / 87. The sentence now reads "on all
+87 districts of each neutral plan (quota = 2021 population / 87)". The
+89-district official shapefiles only score the two commission maps. Found by the
+monograph audit (`analysis/review/monograph_audit_2026-10-30.md`, MC-A3) and
+applied on the author's approval, given in session on 2026-10-30 ("Go", in reply
+to the audit's list of decisions). The academic report records
+the same correction as DOCUMENTED CORRECTIONS C18.
+
+The threshold stays at the registered +4.10%. The rest of the sentence, on the
+s.15(2) districts the ensemble cannot reach, is unchanged.
+
+**Also noted, not changed:** Amendment 17, item 1, says the canonical ensemble
+"starts every chain from the 2019 map (`initial_assignment_2019`)". On 2021
+population the 2019 map has 7 of its 87 districts outside ±25%, so the harness
+reseeds every chain with an 87-part `recursive_tree_part` partition, and the
+2019 map supplies only the district count (academic report C20). Amendment 17's
+rules are unaffected: its size-matched chains are seeded that way too, as it
+states.
+
+**Left as is:** the same paragraph still describes the ensemble as run "on
+official Elections Alberta shapefiles". The plans partition the 4,765 voting
+areas, and the shapefiles score the commission maps. Decision A3 covered only
+the district count.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-30 03:23 MDT
+
+---
+
+### Amendment 23 — Erratum: s.15(2)(b) measured to the boundary itself (2026-10-30)
+
+> **Status: in force.** Signed 2026-10-30 04:20 MDT, before the committee's map is
+> due (November 2, 2026), before any committee map has been published, and before
+> any outcome of the s.15(2) set has been examined. The author chose this fix in
+> session ("Erratum + rerun").
+
+**What was wrong.** Amendment 21, item 1(b), measured the highway distance from
+the Legislature Building to "the nearest node within 1 km of the district". A
+highway node within 1 km can sit on a road that runs beside the district without
+entering it, so the route could stop short of the boundary. Amendment 21 said
+(b) errs lenient; on this point it erred strict. The independent cross-check on
+the author's machine found it, in a diff of the two criteria tables (2019
+Bonnyville-Cold Lake-St. Paul).
+
+**The rule now.** The shortest route on the same OSM highway layer, from the node
+nearest the Legislature Building to the nearest point where a highway reaches
+the district's boundary, or to a highway node inside the district; met above
+150 km. Each VA records its nearest highway crossing or inside node, and a
+district takes the minimum over its VAs, which is the first point a shortest
+route reaches inside the district. A district no highway reaches meets (b), as
+before. Leaving out local roads still errs lenient.
+
+**Effect.** Per VA, the new distance is longer than the old by 1.1 km at the
+median and 3.2 km at the 90th percentile, and up to 62 km. In a few VAs it is
+shorter, by up to 3.3 km. 236 VAs move from 150 km or less to over 150 km, and
+one moves the other way. On the real maps, no 2026 district and no district a
+commission placed under s.15(2) changes; the Amendment 21 check stands,
+including Lesser Slave Lake at 134.0 km. Two 2019 districts change on (b):
+Bonnyville-Cold Lake-St. Paul goes from 148.0 to 153.1 km (now met), and Fort
+McMurray-Lac La Biche from 151.9 to 149.4 km (now not met). Neither was
+designated, and each still meets three criteria. Criteria (a), (c), (d) and (e)
+are unchanged.
+
+**The s.15(2) set.** The chains already run on the Amendment 21 table are
+superseded. Their output stays on file, labelled superseded. Only validation
+counts were taken from them (special districts per plan and constraint checks),
+and no outcome statistic from them will be reported. The set is rerun on the
+corrected table, with the same chain indices and seeds: 251–254 (91 districts)
+and 150–151 (89), seeded as in Amendment 17. Index 250 is retired because it
+does not seed. Table: `data/outputs/s15_2_va_criteria.csv`, SHA-256
+`48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc`, built by
+`analysis/scripts/s15_2_criteria.py` at this amendment's commit.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-30 04:20 MDT
+
+---
+
+### Amendment 24 — Set D is the primary size-matched comparison (2026-10-31)
+
+> **Status: in force.** Signed 2026-10-31 00:00 MDT, before the committee's map is
+> due (November 2, 2026) and before any committee map has been published. The
+> author's direction: "I want the most defensible set"; set D proposed, and the
+> author confirmed it in the session on the author's machine ("yes"). The
+> disclosure below was corrected 2026-10-31 01:12 MDT, before publication, on the
+> author's statement that the results had not been seen.
+
+**What changes.** Amendment 20 put Amendment 17's half-band set (set A) beside the
+headline and the three further sets beside those. From this amendment, set D
+(s.15(2), the Amendment 23 rule; Amendment 20 set 3) is the primary size-matched
+comparison, and sets A, B and C are reported beside it, each labelled; C remains
+a sensitivity reading. The scoring spec's 87-district canonical comparison stays
+the headline. Every set is reported in one table for every measure, whatever it
+shows. No test, threshold or flag rule changes.
+
+**Why set D.** The author's standing rule for the neutral maps is "as strict as
+the statute, no more, no less" (Amendment 20). Set A draws its maps with a ±12.5%
+proposal band, stricter than the Act's ±25% (s.15(1)). Set B uses the Act's band
+but allows no division below −25%, which s.15(2) permits for up to four. Set C
+adds a weight chosen by the audit (Amendment 21). Set D is the only set whose
+maps may do what the Act allows.
+
+**What set D does not do.** Its criteria are approximations, and they do not all
+err the same way (Amendments 21 and 23): (a) errs strict (the surveyed-area limb
+is not computed); (b) errs lenient (local roads are left out, which can only
+lengthen a route); (c) counts cities as towns, a reading chosen in Amendment 21.
+
+**Disclosure: what existed before this choice.** Amendment 17's flags for the two
+commission maps against the 89-district sets had been computed and committed
+before this choice (commit `2ecd7931`, 2026-10-30 19:10 MDT;
+`findings/size_matched_results_2026-10-30.md`, provisional). The author did not
+look at them before choosing. They are:
+
+| Map | Measure | A | B | C | D |
+|---|---|---|---|---|---|
+| Minority | Competitive seats | p0.2 flag | p0.2 flag | p0.1 flag | p0.3 flag |
+| Minority | City versus rest | p99.9 flag | p93.0 | p87.8 | p71.7 |
+| Minority | Towns split | p33.3 | p45.0 | p100.0 flag | p47.5 |
+| Majority | all three | no flag | no flag | no flag | no flag |
+
+Choosing D over A removes the minority map's city-versus-rest flag from the
+primary comparison; it is still reported, under set A. The committee's map has
+not been published, so this choice is made without knowledge of its results.
+The only prior information about the panel's draft was a meme posted on Facebook
+around the committee's October 28 meeting, the item Amendment 17 calls public
+reporting. It is archived, with a transcription, at
+`preregistration/evidence/2026-10-29_facebook_meme_panel_draft.md` (uploaded
+2026-10-29 17:52 MDT, before Amendment 17 was signed). Its claims about Lethbridge,
+Okotoks and the Calgary and Edmonton ridings are what Amendment 17's town-split and
+city-versus-rest tests address. No panel or committee map, and no result from
+either, had been seen.
+
+The four sets are four readings of what a neutral map is, and all four stay in
+the report as competing readings, each labelled. D is primary because it alone
+follows the Act, the rule the author set in Amendment 20, not because of what it
+shows. Against the commission maps the choice cuts against the audit's earlier
+findings: it removes one flag on the minority map and adds none.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-31 00:00 MDT

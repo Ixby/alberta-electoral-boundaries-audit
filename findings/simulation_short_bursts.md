@@ -1,7 +1,7 @@
 # MCMC Short-Burst Analysis — Alberta 2026 Electoral Maps
 
 **Config:** 500 bursts × 10 steps each; pop deviation ±25%; seed 42.
-Starting point: 2019 enacted assignment. Each burst is an independent ReCom chain with a unique seed.
+Starting point: one fresh 87-part `recursive_tree_part` seed, shared by all bursts. The 2019 enacted map breaks ±25% on 2021 population (7 of 87 districts), so it supplies only the district count. Each burst is an independent ReCom chain with a unique seed.
 
 ## Burst-endpoint distribution
 
@@ -14,7 +14,7 @@ Starting point: 2019 enacted assignment. Each burst is an independent ReCom chai
 
 ## Real map percentile ranks within burst distribution
 
-A high rank means the real map score is more extreme than most 10-step neighbourhood walks can reach from the 2019 starting point.
+A high rank means the real map score is more extreme than most 10-step walks can reach from that starting point.
 
 | Map | Metric | Value | Burst pct rank |
 |---|---|---|---|

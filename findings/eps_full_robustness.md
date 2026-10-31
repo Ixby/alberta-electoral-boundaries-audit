@@ -27,9 +27,12 @@ Minority partisan-metric percentiles vs the canonical half-band (±12.5%) ensemb
 | seats_at_50_50 | p99.99 | p99.97 | −0.02 |
 
 All shifts < 0.05 pp at publication-grade resolution (n_eff 1573–2565). The
-partisan headline is invariant to the proposal-epsilon. population_mad confirms
+partisan headline is invariant to the proposal-epsilon. Population MedAD
+(`population_mad`, the median absolute deviation from the median district) shows
 the malapportionment mechanism at scale (eps_full band p5/p50/p95 =
-5265/6379/7464 vs canonical 2613/3163/3709; both real maps at p0). Detail below.
+5265/6379/7464 vs canonical 2613/3163/3709). The majority sits at p0.0 and the
+minority at p0.013 (135 of 1,010,000 plans are more equal). The minority's
+canonical MedAD flag therefore holds only under the half band. Detail below.
 
 # Proposal-epsilon robustness check (T1.11 / Amendment 11)
 
@@ -93,16 +96,19 @@ The proposal-epsilon choice does not affect the partisan headline.**
 
 ### The population-equality distribution is NOT invariant to epsilon
 
-The structural population-MAD metric behaves very differently:
+The structural population MedAD metric (`population_mad`, the median absolute
+deviation from the median district; not the commission-table mean absolute
+deviation of 3,180 / 4,707) behaves very differently:
 
 | Metric | Canonical band (±12.5%) | eps_full band (±25%) |
 |---|---|---|
 | population_mad | 2613 / 3163 / 3709 | 5229 / 6393 / 7461 |
 
 Widening the proposal balance to ±25% lets ensemble plans become roughly twice
-as malapportioned (median per-district MAD ~6400 vs ~3160). Both commission maps
-(MAD 2827 majority / 3938 minority) then sit *below* the entire full-band
-ensemble (p0), where under the canonical band they sit at p15.8 / p99.0.
+as malapportioned (median MedAD ~6400 vs ~3160). Both commission maps
+(MedAD 2827 majority / 3938 minority) then sit below almost the entire
+full-band ensemble (pilot: p0.0 / p0.002; 1.01M run: p0.0 / p0.013), where under
+the canonical band they sit at p15.8 / p99.0.
 
 This is the expected mechanism, not a bug, and it carries a methodological
 implication: **the full ±25% proposal produces a neutral comparator that is
@@ -123,6 +129,10 @@ T1.11 is resolved as a **robustness check, not a headline replacement**:
    The code change is therefore reverted/parametrised after this run so canonical
    reproduction is faithful; the eps_full artifacts are retained as the
    robustness evidence.
+3. The population MedAD placements are **not** robust to the choice. Every
+   report of them is conditional on the half band, and the statute-band
+   placement (majority p0.0, minority p0.013) is reported beside them. Amendment
+   20's statute-band set (set 1) re-tests them on size-matched plans.
 
 This mirrors how SZAT and the constraint-enforcing ensemble were handled:
 a more-permissive alternative null is run symmetrically, the partisan tail is
