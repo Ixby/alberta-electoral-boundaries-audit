@@ -123,7 +123,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
   |---|---|
   | 2019 (87 districts) | 1: Spruce Grove (3.5% and 1.5%; possibly land the city added after the 2017 lines were drawn, not verified) |
   | Majority (89) | 0 |
-  | Minority (89) | 8: Blackfalds (43%), Sylvan Lake (20%), Bowden (16%), Coaldale (14%), Okotoks (9%), Chestermere (9%), Devon (5%), Lac la Biche County (4%) |
+  | Minority (89) | 8: Blackfalds (43%), Sylvan Lake (20%), Bowden (16%), Coaldale (14%), Okotoks (9%), Chestermere (9%), Devon (5%), Lac la Biche County (4%). Blackfalds, Sylvan Lake and Chestermere are firm. Bowden, Coaldale, Okotoks, Devon and Lac la Biche County rest only on census areas the line cuts, so they are unresolved (`findings/minority_unneeded_splits_stated_reasons.md`) |
 
   The registered size-matched town-split measure (Amendment 17: cities and towns of 20,000–150,000 split into more pieces than their population requires) places the two maps against all four rulebooks at 89 districts (`findings/size_matched_results_2026-10-30.md`, provisional):
 
