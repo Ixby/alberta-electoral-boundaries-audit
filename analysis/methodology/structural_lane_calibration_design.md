@@ -121,7 +121,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
   | Map | Unneeded splits (people in the second district) |
   |---|---|
-  | 2019 (87 districts) | 1: Spruce Grove (3.5% and 1.5%; the city has grown and annexed land since the 2017 lines) |
+  | 2019 (87 districts) | 1: Spruce Grove (3.5% and 1.5%; possibly land the city added after the 2017 lines were drawn, not verified) |
   | Majority (89) | 0 |
   | Minority (89) | 8: Blackfalds (43%), Sylvan Lake (20%), Bowden (16%), Coaldale (14%), Okotoks (9%), Chestermere (9%), Devon (5%), Lac la Biche County (4%) |
 
