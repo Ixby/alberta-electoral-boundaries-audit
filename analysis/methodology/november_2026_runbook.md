@@ -64,12 +64,32 @@ with spec §3; no rule or threshold changed.
 
 The guard is `tests/test_verdict_synthesis.py`: 4 of its 5 tests fail on the old code.
 
-Also registered: X1 (Amendment 16), and the size-matched tests in Amendment 17, which Audit runs.
+Also registered: X1 (Amendment 16).
 
 ```bash
 python analysis/scripts/score_x1.py --map data/shapefiles/lunty/lunty_2026_eds.gpkg \
   [--interim <October 2025 interim map>] [--d-record considered|not_shown] --out findings/lunty_x1.json
 ```
+
+## 3b. Registered: size-matched comparison (Amendments 17, 20, 21, 23)
+
+Amendment 20 fixes the order. The 87-district canonical comparison above is the headline. Set A
+(Amendment 17) is reported beside it. Sets B, C and D are reported beside those, each labelled; C
+is a sensitivity reading. These commands need `--candidate` and `--name-col`, which are on branch
+`size-matched-candidate` (on top of Audit's `ccr-7082dbd7-sqy3h2`) until it lands. The chain
+outputs are on `amendment17-local-runs`; pass that checkout as `--root`.
+
+```bash
+python analysis/scripts/close_seats_ensemble.py real --out data/outputs/lunty_real_maps.json \
+  --extra data/shapefiles/lunty/lunty_2026_eds.gpkg [--name-col <column>]
+python analysis/scripts/size_matched_results.py --root <checkout with the chain outputs> \
+  --real data/outputs/lunty_real_maps.json --candidate lunty_2026_eds \
+  --out-json findings/lunty_size_matched.json --out-md findings/lunty_size_matched.md
+```
+
+The candidate key is the map file's stem. A map whose district count has no neutral-map set is an
+error. Check: a copy of the minority map given as a candidate reproduces `minority_2026`'s
+placements in every 89-district set.
 
 ## 4. Supplementary: EBCA population rules
 
@@ -128,18 +148,19 @@ These are entered by hand, with page references:
       describes binding rules or a yardstick.
 - [ ] The map's own population table, saved for `--stated`.
 
-## Dry-run note for Audit (2026-10-30)
+## Dry-run note (2026-10-30, corrected the same day)
 
-On the synthetic neutral plan, the registered pipeline returned "replicates the minority-style
-signature on both lanes":
+On the synthetic 91-district plan, the registered pipeline returned "replicates the minority-style
+signature on both lanes": structural lane 3 flags; partisan lane P1 EG +5.97% and P3 declination
+at the 99.5th percentile of the 87-district canonical ensemble.
 
-- Structural lane: 3 flags.
-- Partisan lane: 2 flags. P1 EG +5.97% and P3 declination at the 99.5th percentile, against the
-  87-district canonical ensemble.
+That plan is not a neutral draw, so it says nothing about the test's false-positive rate. Against
+the 91-district size-matched sets it still sits at EG p99.8 and declination p99.4, and its
+population spread is below every neutral plan in sets B, C and D (MAD p0.0). The district-count
+mismatch did not produce its flags. An earlier version of this note suggested it did; that was
+wrong.
 
-That plan is a single random 91-district partition, within ±25%, with no committee-style intent.
-One plan is not a rate. Still, it is direct evidence of the specificity concern already recorded
-under Amendment 9 (S1 alone fires on 25.7% of neutral plans). It is also consistent with the
-district-count mismatch that Amendment 17's size-matched comparison was added to address. The
-registered headline should be read beside the size-matched results, as Amendment 17 already
-requires.
+The measured rate is in `findings/size_matched_results_2026-10-30.md` (Audit's branch): neutral
+plans from sets A-D, scored by the registered P1-P4 rule against the canonical ensemble, fire the
+partisan lane 4.8-8.3% of the time. The structural lane's rate on neutral plans is not yet
+measured.
