@@ -97,26 +97,36 @@ def partisan_verdict_from_joint(joint: dict) -> tuple[str, dict]:
     The November spec freezes the candidate map as a third entry alongside the
     May commission's majority and minority.
     """
-    try:
-        m = joint["maps"]["candidate"]["marginals"]
-    except KeyError:
-        # Fall back to checking against a "lunty_2026" key
-        m = joint["maps"].get("lunty_2026", {}).get("marginals", {})
-        if not m:
-            return "absent", {"_note": "candidate map not present in joint outlier output."}
+    maps = joint.get("maps", {})
+    m = (maps.get("candidate") or maps.get("lunty_2026") or {}).get("marginals")
+    if not m:
+        # A missing candidate is an error, never an "absent" verdict (no evidence, no green).
+        raise SystemExit("ERROR: no candidate map in the joint outlier output; run "
+                         "joint_outlier_score_canonical.py --map-key ... --real-scores ... --output ... first.")
 
+    def ucp_pct(col):
+        """Share of ensemble plans at or below the map (higher = more UCP-favourable for all four)."""
+        x = m[col]
+        if "ucp_direction_percentile" in x:
+            return float(x["ucp_direction_percentile"])
+        # marginal_tail_p is one-sided toward whichever side of the mean the map sits on
+        above = float(x["observed"]) >= float(x["ensemble_mean"])
+        return 1.0 - float(x["marginal_tail_p"]) if above else float(x["marginal_tail_p"])
+
+    pct = {c: ucp_pct(c) for c in ("mean_median", "declination", "seats_at_50_50")}
     flags = {
         "P1_EG": float(m["efficiency_gap"]["observed"]) >= P1_EG_THRESHOLD,
-        "P2_MM": (1.0 - float(m["mean_median"]["marginal_tail_p"])) >= P2_MM_PERCENTILE,
-        "P3_DECL": (
-            float(m["declination"]["marginal_tail_p"]) <= P3_DECL_LOWER
-            or float(m["declination"]["marginal_tail_p"]) >= (1.0 - P3_DECL_LOWER)
-        ),
-        "P4_S50": (1.0 - float(m["seats_at_50_50"]["marginal_tail_p"])) >= P4_S50_PERCENTILE,
+        "P2_MM": pct["mean_median"] >= P2_MM_PERCENTILE,
+        "P3_DECL": pct["declination"] >= P3_DECL_UPPER,
+        "P4_S50": pct["seats_at_50_50"] >= P4_S50_PERCENTILE,
     }
+    # P3 is registered as a two-tailed flag; its NDP-direction tail is reported but, per the
+    # verdict rule ("fire in the UCP direction"), not counted.
+    p3_ndp_tail = pct["declination"] <= P3_DECL_LOWER
     n_flags = sum(1 for f in flags.values() if f)
     verdict = "present" if n_flags >= PARTISAN_PRESENT_THRESHOLD else "absent"
-    return verdict, {"flags": flags, "n_flags": n_flags}
+    return verdict, {"flags": flags, "n_flags": n_flags, "ucp_direction_percentiles": pct,
+                     "P3_ndp_direction_tail": p3_ndp_tail}
 
 
 def synthesize(structural: dict, joint: dict) -> dict:
