@@ -8,7 +8,7 @@
 
 # Municipalities the minority map splits without need, and the reasons its report gives
 
-**Written:** 2026-10-31 10:25 MDT (Alberta time).
+**Written:** 2026-10-31 10:20 MDT (Alberta time).
 
 A split is unneeded when the municipality's people would fit in one district inside the Act's ±25% band, yet a second district holds at least 2% of them (Amendment 17's piece rule). People are 2021 census dissemination areas (DAs) laid over Elections Alberta's official 2026 boundaries. Municipal limits are 2021 census limits. The majority map has no unneeded split by this count.
 

@@ -47,6 +47,7 @@ type: project
 | 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
 | 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
 | 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
+| 2026-10-31 | Amendment 25 (proposed) | s.15(2)(c) read both ways | A second set D with "town" read as legal town status; both readings reported side by side |
 
 ---
 
@@ -1211,3 +1212,81 @@ findings: it removes one flag on the minority map and adds none.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-31 00:00 MDT
+
+---
+
+### Amendment 25 — s.15(2)(c) read both ways: a second set D on legal town status (2026-10-31)
+
+> **Status: proposed, not signed.** Drafted 2026-10-31 10:25 MDT. It takes effect
+> when the author signs it in session. The committee's map is due November 2,
+> 2026, and has not been published.
+
+**Why.** Amendment 21 read "town" in s.15(2)(c) to include cities and the urban
+service areas of specialized municipalities, on the statute's purpose. The author
+asked whether Alberta's legal definition of a town should govern ("I rather
+accuracy over convenience") and chose in session to verify the sources and then
+run set D both ways ("Verify, then run both"). The sources are in `evidence/`, with
+the passages relied on in `evidence/README.md`. They support both readings:
+
+- **The wording.** The Act defines no "town" (s.1 defines only "Commission"), and
+  it says "city" where it means city (s.2(3) and (4)). The Interpretation Act
+  (s.28(1)(kk)) and the Municipal Government Act (ss.77, 91) treat town and city
+  as separate legal statuses. Since 2022 neither status has a population rule.
+- **The history and purpose.** The criterion read 4,000 until 2009 (2003 report;
+  history note "2009 c19 s5"). In 1990 the Crowsnest Pass clause was defended on
+  density and settlement pattern (Hansard, 1990-12-10, pp. 2749–2751). Read by
+  status, a district holding Brooks (a city of 14,924) meets (c) while one holding
+  Taber (a town of 8,862) does not.
+
+No commission report or court decision found states a reading.
+
+**What changes.**
+
+1. **A second s.15(2) set**, "set D (status reading)". It is identical to set D
+   (Amendment 23 rule) except in criterion (c): a town is a municipality with town
+   status, 2021 census subdivision type T, over 8,000 people. Cities (type CY) and
+   the urban service areas of specialized municipalities do not count. Crowsnest
+   Pass is a specialized municipality, so s.15(3) is met either way. The 2% piece
+   rule, the 2021 populations and criteria (a), (b), (d) and (e) are unchanged.
+2. **Table.** `data/outputs/s15_2_va_criteria_status.csv`, built by
+   `analysis/scripts/s15_2_criteria.py --town-reading status` at this amendment's
+   commit, SHA-256
+   `bec8fa58f48d8e41a6b1927a7faeb35d3992af1f6b58f67e67169ddf9f31069f`. It lists 16
+   towns over 8,000, against 37 under Amendment 21. The default reading is
+   unchanged: rebuilt with the new code, the Amendment 23 table is byte-identical
+   (SHA-256 `48c928b8…2fafc`). Real-map scores under the status reading:
+   `data/outputs/s15_2_real_maps_status.json`.
+3. **Chains.** Indices 260–263 (91 districts) and 160–161 (89), seeded as in
+   Amendment 17, with set D's options (proposal epsilon 0.5, no municipal
+   surcharge). A chain that fails to seed is replaced by the next index in its
+   block. Amendment 17's plan-count rule and Amendment 21's effective-sample rule
+   apply.
+4. **Reporting.** Every set D result is reported under both readings, side by side,
+   labelled "cities count as towns" and "status reading". Set D stays the primary
+   size-matched comparison (Amendment 24). A flag counts as a set D flag only when
+   both readings give it; a flag under one reading only is reported as
+   reading-dependent, with both values.
+5. **Not changed.** The structural and partisan lanes, the 87-district headline,
+   and sets A–C. The lane calibration is not a registered test.
+
+**Effect on the real maps.** Checked 2026-10-31 at about 09:45 MDT, before this draft.
+Under the status reading, two Medicine Hat districts on each map and the
+Tsuut'ina Calgary district on each 2026 map newly meet three criteria. All of them
+sit above the average population (+1.4% to +18.5% on 2021 figures), so no
+district any commission placed under s.15(2) changes.
+
+**Disclosure: what existed before this choice.**
+
+- Set D (Amendment 23 rule) had been run at 89 and 91 districts, and its
+  placements of the commission maps were committed
+  (`findings/size_matched_results_2026-10-30.md`, provisional; shown in
+  Amendment 24).
+- Seen in session before the choice: the real-map check above; an unverified
+  research summary leaning toward the status reading; and the commission maps'
+  municipal splits counted by dissemination area (2019 one, majority none,
+  minority eight; `findings/minority_unneeded_splits_stated_reasons.md`).
+- No output from a status-reading set exists. No committee map, and no result
+  from one, has been seen.
+
+**Signed:** pending
+

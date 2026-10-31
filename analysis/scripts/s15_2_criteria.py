@@ -20,6 +20,9 @@ the scoring of real maps.
                  population in the district. Towns: CSD types CY and T, and
                  each specialized municipality's urban service area (its DAs
                  at >= 400 people per km2), except Crowsnest Pass (s.15(3)).
+                 --town-reading status (Amendment 25): towns are CSD type T
+                 only, the legal town status; cities and urban service areas
+                 do not count.
   (d) reserve    the district holds >= 10% of the area of an Indian reserve
                  (NRCan Aboriginal Lands, legal boundaries) or a Metis
                  settlement (Government of Alberta layer).
@@ -27,8 +30,8 @@ the scoring of real maps.
                  provincial boundary (VA edge within 100 m of the outline).
 
 Usage
-  python analysis/scripts/s15_2_criteria.py --va-table OUT.csv
-  python analysis/scripts/s15_2_criteria.py --score [--out results.json]
+  python analysis/scripts/s15_2_criteria.py --va-table OUT.csv [--town-reading status]
+  python analysis/scripts/s15_2_criteria.py --score [--out results.json] [--town-reading status]
 """
 import argparse
 import json
@@ -102,12 +105,20 @@ def road_km(vas):
             best[v] = min(best[v], dp)
     return pd.Series(best / 1000.0, index=vas.index)
 
-def towns(vas, pts):
-    """Per VA: the town it belongs to (by representative point), and each town's 2021 population."""
+def towns(vas, pts, reading="purposive"):
+    """Per VA: the town it belongs to (by representative point), and each town's 2021 population.
+    reading "purposive" (Amendment 21): cities, towns and urban service areas; "status"
+    (Amendment 25): towns by legal status (CSD type T) only."""
     csd = gpd.read_file(CSD).to_crs(WORK)
     pop = pd.read_csv(CSD_POP).set_index("DGUID")["population_2021"]
     csd["pop"] = csd["DGUID"].map(pop)
-    t = csd[csd["CSDTYPE"].isin(["CY", "T"])][["CSDNAME", "pop", "geometry"]].rename(columns={"CSDNAME": "town"})
+    types = ["CY", "T"] if reading == "purposive" else ["T"]
+    t = csd[csd["CSDTYPE"].isin(types)][["CSDNAME", "pop", "geometry"]].rename(columns={"CSDNAME": "town"})
+    if reading == "status":
+        t = t[t["pop"] > TOWN_POP]
+        j = gpd.sjoin(pts[["geometry"]], t[["town", "geometry"]], how="left", predicate="within")
+        j = j[~j.index.duplicated(keep="first")].reindex(pts.index)
+        return j["town"].fillna(""), t.set_index("town")["pop"].to_dict()
     da = gpd.read_file(DA).to_crs(WORK)
     da["pop"] = da["DGUID"].map(pd.read_csv(DA_POP).set_index("DGUID")["population_2021"]).fillna(0)
     da["dens"] = da["pop"] / da["LANDAREA"].where(da["LANDAREA"] > 0)
@@ -148,7 +159,7 @@ def border_km(vas):
     return vas.geometry.boundary.intersection(ext).length / 1000.0
 
 
-def va_table():
+def va_table(reading="purposive"):
     va, graph = me.build_va_graph(verbose=False)
     nodes = sorted(graph.nodes())
     vas = va.loc[nodes, ["geometry", "pop_2021"]].to_crs(WORK)
@@ -158,7 +169,7 @@ def va_table():
     tab["pop"] = vas["pop_2021"]
     tab["area_km2"] = vas.to_crs(EQAREA).geometry.area / 1e6
     tab["road_km"] = road_km(vas)
-    tab["town"], town_pop = towns(vas, pts)
+    tab["town"], town_pop = towns(vas, pts, reading)
     tab["reserves"], res_area = reserves(vas)
     tab["border_km"] = border_km(vas)
     return tab, town_pop, res_area, va
@@ -210,8 +221,10 @@ if __name__ == "__main__":
     ap.add_argument("--va-table", help="write the per-VA table here")
     ap.add_argument("--score", action="store_true", help="score the 2019, majority and minority maps")
     ap.add_argument("--out")
+    ap.add_argument("--town-reading", choices=["purposive", "status"], default="purposive",
+                    help="s.15(2)(c): purposive = cities count as towns (Amendment 21); status = legal towns only (Amendment 25)")
     a = ap.parse_args()
-    tab, town_pop, res_area, va = va_table()
+    tab, town_pop, res_area, va = va_table(a.town_reading)
     print(f"{len(town_pop)} towns over 8,000: " + ", ".join(f"{t} {p:,.0f}" for t, p in sorted(town_pop.items(), key=lambda x: -x[1])))
     print(f"{len(res_area)} reserves/settlements; VAs no highway reaches: {int(np.isinf(tab['road_km']).sum())}")
     if a.va_table:

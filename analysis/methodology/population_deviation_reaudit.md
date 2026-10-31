@@ -40,7 +40,7 @@ From the King's Printer consolidation of the Act, December 5, 2024 (reproduced v
 
 Interpretive notes:
 - **(b)** specifies distance to the **nearest boundary** of the ED. Conservative interpretation: compute distance from the Legislature to the closest point on the ED's outer boundary along the shortest drivable highway route. Audit uses town-of-nearest-corner as a lower bound where full GIS is not available.
-- **(c)** tests the presence/absence of towns above 8,000 — statutory definition of "town" tracks the *Municipal Government Act*, so hamlets and villages are not in scope; Crowsnest Pass is explicitly excluded per §15(3).
+- **(c)** tests the presence/absence of towns above 8,000. The Act does not define "town" (`evidence/README.md`). Amendment 21 reads it to include cities and the urban service areas of specialized municipalities; Amendment 25 (proposed 2026-10-31) adds the legal-status reading, *Municipal Government Act* town status only, beside it. Villages are out of scope under both. Crowsnest Pass is excluded per §15(3).
 - **(d)** is a presence/absence test for "an Indian reserve or a Metis settlement" inside the ED, not a demographic threshold.
 - **(e)** tests "coterminous with a boundary of the Province of Alberta" — shares a perimeter-line segment with BC, SK, NWT, or Montana/USA.
 
