@@ -20,9 +20,10 @@ the scoring of real maps.
                  population in the district. Towns: CSD types CY and T, and
                  each specialized municipality's urban service area (its DAs
                  at >= 400 people per km2), except Crowsnest Pass (s.15(3)).
-                 --town-reading status (Amendment 25): towns are CSD type T
-                 only, the legal town status; cities and urban service areas
-                 do not count.
+                 --town-reading status: towns are CSD type T only, the legal
+                 town status; cities and urban service areas do not count.
+                 Diagnostic only (Amendment 25, withdrawn); not a registered
+                 reading.
   (d) reserve    the district holds >= 10% of the area of an Indian reserve
                  (NRCan Aboriginal Lands, legal boundaries) or a Metis
                  settlement (Government of Alberta layer).
@@ -108,7 +109,7 @@ def road_km(vas):
 def towns(vas, pts, reading="purposive"):
     """Per VA: the town it belongs to (by representative point), and each town's 2021 population.
     reading "purposive" (Amendment 21): cities, towns and urban service areas; "status"
-    (Amendment 25): towns by legal status (CSD type T) only."""
+    (diagnostic only; Amendment 25 withdrawn): towns by legal status (CSD type T) only."""
     csd = gpd.read_file(CSD).to_crs(WORK)
     pop = pd.read_csv(CSD_POP).set_index("DGUID")["population_2021"]
     csd["pop"] = csd["DGUID"].map(pop)
@@ -222,7 +223,7 @@ if __name__ == "__main__":
     ap.add_argument("--score", action="store_true", help="score the 2019, majority and minority maps")
     ap.add_argument("--out")
     ap.add_argument("--town-reading", choices=["purposive", "status"], default="purposive",
-                    help="s.15(2)(c): purposive = cities count as towns (Amendment 21); status = legal towns only (Amendment 25)")
+                    help="s.15(2)(c): purposive = cities count as towns (Amendment 21); status = legal towns only (diagnostic; Amendment 25 withdrawn)")
     a = ap.parse_args()
     tab, town_pop, res_area, va = va_table(a.town_reading)
     print(f"{len(town_pop)} towns over 8,000: " + ", ".join(f"{t} {p:,.0f}" for t, p in sorted(town_pop.items(), key=lambda x: -x[1])))

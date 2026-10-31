@@ -47,7 +47,7 @@ type: project
 | 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
 | 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
 | 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
-| 2026-10-31 | Amendment 25 (proposed) | s.15(2)(c) read both ways | A second set D with "town" read as legal town status; both readings reported side by side |
+| 2026-10-31 | Amendment 25 (withdrawn, unsigned) | s.15(2)(c) read both ways | Not adopted; Amendment 21's reading stands, following commission practice; the legal-status argument and a diagnostic are recorded |
 
 ---
 
@@ -1217,9 +1217,15 @@ findings: it removes one flag on the minority map and adds none.
 
 ### Amendment 25 — s.15(2)(c) read both ways: a second set D on legal town status (2026-10-31)
 
-> **Status: proposed, not signed.** Drafted 2026-10-31 10:25 MDT. It takes effect
-> when the author signs it in session. The committee's map is due November 2,
-> 2026, and has not been published.
+> **Status: withdrawn, never signed.** Drafted 2026-10-31 10:25 MDT; withdrawn
+> 12:05 MDT on the author's direction in session, after the diagnostic below:
+> "Follow the norm." No status-reading set was run beyond the diagnostic, and no
+> rule or reading changes. Amendment 21's reading of s.15(2)(c), which counts
+> cities and urban service areas as towns, stands. It follows commission
+> practice: under the legal-status reading, about three in four neutral maps
+> include a half-size district around a city or Fort McMurray, which no Alberta
+> commission has drawn. The draft is kept below as the record of the question,
+> the sources and the check.
 
 **Why.** Amendment 21 read "town" in s.15(2)(c) to include cities and the urban
 service areas of specialized municipalities, on the statute's purpose. The author
@@ -1299,5 +1305,5 @@ and finds no special district that fails both readings.
 - No output from a status-reading set exists. No committee map, and no result
   from one, has been seen.
 
-**Signed:** pending
+**Signed:** not signed (withdrawn 2026-10-31 12:05 MDT)
 
