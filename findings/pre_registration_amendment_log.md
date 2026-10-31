@@ -1154,7 +1154,9 @@ does not seed. Table: `data/outputs/s15_2_va_criteria.csv`, SHA-256
 > **Status: in force.** Signed 2026-10-31 00:00 MDT, before the committee's map is
 > due (November 2, 2026) and before any committee map has been published. The
 > author's direction: "I want the most defensible set"; set D proposed, and the
-> author confirmed it in this session ("yes").
+> author confirmed it in the session on the author's machine ("yes"). The
+> disclosure below was corrected 2026-10-31 01:12 MDT, before publication, on the
+> author's statement that the results had not been seen.
 
 **What changes.** Amendment 20 put Amendment 17's half-band set (set A) beside the
 headline and the three further sets beside those. From this amendment, set D
@@ -1176,9 +1178,11 @@ err the same way (Amendments 21 and 23): (a) errs strict (the surveyed-area limb
 is not computed); (b) errs lenient (local roads are left out, which can only
 lengthen a route); (c) counts cities as towns, a reading chosen in Amendment 21.
 
-**Disclosure: the commission maps were seen first.** Amendment 17's flags for the
-two commission maps against the 89-district sets were computed before this choice
-(`findings/size_matched_results_2026-10-30.md`, provisional):
+**Disclosure: what existed before this choice.** Amendment 17's flags for the two
+commission maps against the 89-district sets had been computed and committed
+before this choice (commit `2ecd7931`, 2026-10-30 19:10 MDT;
+`findings/size_matched_results_2026-10-30.md`, provisional). The author did not
+look at them before choosing. They are:
 
 | Map | Measure | A | B | C | D |
 |---|---|---|---|---|---|
@@ -1190,6 +1194,15 @@ two commission maps against the 89-district sets were computed before this choic
 Choosing D over A removes the minority map's city-versus-rest flag from the
 primary comparison; it is still reported, under set A. The committee's map has
 not been published, so this choice is made without knowledge of its results.
+The author had heard the public reporting on the advisory panel's draft around
+the committee's October 28 meeting, the reporting Amendment 17 records; no panel
+or committee map had been seen.
+
+The four sets are four readings of what a neutral map is, and all four stay in
+the report as competing readings, each labelled. D is primary because it alone
+follows the Act, the rule the author set in Amendment 20, not because of what it
+shows. Against the commission maps the choice cuts against the audit's earlier
+findings: it removes one flag on the minority map and adds none.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-31 00:00 MDT
