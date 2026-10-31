@@ -1,0 +1,6829 @@
+{
+ "n_plans": 200,
+ "chains": [
+  290,
+  291,
+  293,
+  295
+ ],
+ "flag_rates": {
+  "S1_population_mad": {
+   "k": 200,
+   "n": 200,
+   "rate": 1.0,
+   "wilson95": [
+    0.9811539940816792,
+    1.0
+   ]
+  },
+  "S2_municipal_split_count": {
+   "k": 182,
+   "n": 200,
+   "rate": 0.91,
+   "wilson95": [
+    0.8622332538615106,
+    0.9423130212854665
+   ]
+  },
+  "S3_anchoring_score": {
+   "k": 200,
+   "n": 200,
+   "rate": 1.0,
+   "wilson95": [
+    0.9811539940816792,
+    1.0
+   ]
+  },
+  "S4_polsby_popper_median": {
+   "k": 0,
+   "n": 200,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.018846005918320894
+   ]
+  },
+  "S5_drain_score": {
+   "k": 87,
+   "n": 200,
+   "rate": 0.435,
+   "wilson95": [
+    0.368156071588974,
+    0.5042939091804078
+   ]
+  },
+  "S6_chair_flag_replication": {
+   "k": 0,
+   "n": 200,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.018846005918320894
+   ]
+  },
+  "S6_geometric_stand_in": {
+   "k": 178,
+   "n": 200,
+   "rate": 0.89,
+   "wilson95": [
+    0.8390720169908703,
+    0.9262280983928396
+   ]
+  }
+ },
+ "structural_replicated_registered": {
+  "k": 187,
+  "n": 200,
+  "rate": 0.935,
+  "wilson95": [
+   0.8919799625008207,
+   0.9616240123502403
+  ]
+ },
+ "structural_replicated_geometric_s6": {
+  "k": 200,
+  "n": 200,
+  "rate": 1.0,
+  "wilson95": [
+   0.9811539940816792,
+   1.0
+  ]
+ },
+ "partisan_present": {
+  "k": 17,
+  "n": 200,
+  "rate": 0.085,
+  "wilson95": [
+   0.05374529946985246,
+   0.13189688544235392
+  ]
+ },
+ "both_lanes_registered": {
+  "k": 15,
+  "n": 200,
+  "rate": 0.075,
+  "wilson95": [
+   0.045974507057252416,
+   0.12004459797332036
+  ]
+ },
+ "both_lanes_geometric_s6": {
+  "k": 17,
+  "n": 200,
+  "rate": 0.085,
+  "wilson95": [
+   0.05374529946985246,
+   0.13189688544235392
+  ]
+ },
+ "plans": [
+  {
+   "plan": "plan_290_10000",
+   "chain": 290,
+   "step": 10000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_100000",
+   "chain": 290,
+   "step": 100000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_102500",
+   "chain": 290,
+   "step": 102500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_105000",
+   "chain": 290,
+   "step": 105000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_107500",
+   "chain": 290,
+   "step": 107500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_110000",
+   "chain": 290,
+   "step": 110000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_112500",
+   "chain": 290,
+   "step": 112500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_115000",
+   "chain": 290,
+   "step": 115000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_117500",
+   "chain": 290,
+   "step": 117500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_120000",
+   "chain": 290,
+   "step": 120000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_122500",
+   "chain": 290,
+   "step": 122500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_12500",
+   "chain": 290,
+   "step": 12500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_125000",
+   "chain": 290,
+   "step": 125000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_127500",
+   "chain": 290,
+   "step": 127500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_130000",
+   "chain": 290,
+   "step": 130000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_132500",
+   "chain": 290,
+   "step": 132500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_15000",
+   "chain": 290,
+   "step": 15000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_17500",
+   "chain": 290,
+   "step": 17500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_20000",
+   "chain": 290,
+   "step": 20000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_22500",
+   "chain": 290,
+   "step": 22500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_25000",
+   "chain": 290,
+   "step": 25000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_27500",
+   "chain": 290,
+   "step": 27500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_30000",
+   "chain": 290,
+   "step": 30000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_32500",
+   "chain": 290,
+   "step": 32500,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_35000",
+   "chain": 290,
+   "step": 35000,
+   "s6_geometric": {
+    "hits": [
+     "P5_RedDeer_3plus"
+    ],
+    "count": 1,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_37500",
+   "chain": 290,
+   "step": 37500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_40000",
+   "chain": 290,
+   "step": 40000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_42500",
+   "chain": 290,
+   "step": 42500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_45000",
+   "chain": 290,
+   "step": 45000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_47500",
+   "chain": 290,
+   "step": 47500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_50000",
+   "chain": 290,
+   "step": 50000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_52500",
+   "chain": 290,
+   "step": 52500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_55000",
+   "chain": 290,
+   "step": 55000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_57500",
+   "chain": 290,
+   "step": 57500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_60000",
+   "chain": 290,
+   "step": 60000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_62500",
+   "chain": 290,
+   "step": 62500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_65000",
+   "chain": 290,
+   "step": 65000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_67500",
+   "chain": 290,
+   "step": 67500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_70000",
+   "chain": 290,
+   "step": 70000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_72500",
+   "chain": 290,
+   "step": 72500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_75000",
+   "chain": 290,
+   "step": 75000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_77500",
+   "chain": 290,
+   "step": 77500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_80000",
+   "chain": 290,
+   "step": 80000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_82500",
+   "chain": 290,
+   "step": 82500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_85000",
+   "chain": 290,
+   "step": 85000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_87500",
+   "chain": 290,
+   "step": 87500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_90000",
+   "chain": 290,
+   "step": 90000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_92500",
+   "chain": 290,
+   "step": 92500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_95000",
+   "chain": 290,
+   "step": 95000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_290_97500",
+   "chain": 290,
+   "step": 97500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_10000",
+   "chain": 291,
+   "step": 10000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_100000",
+   "chain": 291,
+   "step": 100000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_102500",
+   "chain": 291,
+   "step": 102500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_105000",
+   "chain": 291,
+   "step": 105000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_107500",
+   "chain": 291,
+   "step": 107500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_110000",
+   "chain": 291,
+   "step": 110000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_112500",
+   "chain": 291,
+   "step": 112500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_115000",
+   "chain": 291,
+   "step": 115000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_117500",
+   "chain": 291,
+   "step": 117500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_120000",
+   "chain": 291,
+   "step": 120000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_122500",
+   "chain": 291,
+   "step": 122500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_12500",
+   "chain": 291,
+   "step": 12500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_125000",
+   "chain": 291,
+   "step": 125000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_127500",
+   "chain": 291,
+   "step": 127500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_130000",
+   "chain": 291,
+   "step": 130000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_132500",
+   "chain": 291,
+   "step": 132500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_15000",
+   "chain": 291,
+   "step": 15000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_17500",
+   "chain": 291,
+   "step": 17500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_20000",
+   "chain": 291,
+   "step": 20000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_22500",
+   "chain": 291,
+   "step": 22500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_25000",
+   "chain": 291,
+   "step": 25000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_27500",
+   "chain": 291,
+   "step": 27500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_30000",
+   "chain": 291,
+   "step": 30000,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_32500",
+   "chain": 291,
+   "step": 32500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_35000",
+   "chain": 291,
+   "step": 35000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_37500",
+   "chain": 291,
+   "step": 37500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_40000",
+   "chain": 291,
+   "step": 40000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_42500",
+   "chain": 291,
+   "step": 42500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_45000",
+   "chain": 291,
+   "step": 45000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_47500",
+   "chain": 291,
+   "step": 47500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_50000",
+   "chain": 291,
+   "step": 50000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_52500",
+   "chain": 291,
+   "step": 52500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_55000",
+   "chain": 291,
+   "step": 55000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_57500",
+   "chain": 291,
+   "step": 57500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_60000",
+   "chain": 291,
+   "step": 60000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_62500",
+   "chain": 291,
+   "step": 62500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": true,
+    "P3_DECL": true,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_65000",
+   "chain": 291,
+   "step": 65000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_67500",
+   "chain": 291,
+   "step": 67500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_70000",
+   "chain": 291,
+   "step": 70000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_72500",
+   "chain": 291,
+   "step": 72500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_75000",
+   "chain": 291,
+   "step": 75000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_77500",
+   "chain": 291,
+   "step": 77500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_80000",
+   "chain": 291,
+   "step": 80000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_82500",
+   "chain": 291,
+   "step": 82500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_85000",
+   "chain": 291,
+   "step": 85000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_87500",
+   "chain": 291,
+   "step": 87500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_90000",
+   "chain": 291,
+   "step": 90000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_92500",
+   "chain": 291,
+   "step": 92500,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_95000",
+   "chain": 291,
+   "step": 95000,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_291_97500",
+   "chain": 291,
+   "step": 97500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_10000",
+   "chain": 293,
+   "step": 10000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_100000",
+   "chain": 293,
+   "step": 100000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_102500",
+   "chain": 293,
+   "step": 102500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_105000",
+   "chain": 293,
+   "step": 105000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_107500",
+   "chain": 293,
+   "step": 107500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_110000",
+   "chain": 293,
+   "step": 110000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_112500",
+   "chain": 293,
+   "step": 112500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_115000",
+   "chain": 293,
+   "step": 115000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_117500",
+   "chain": 293,
+   "step": 117500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_120000",
+   "chain": 293,
+   "step": 120000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_122500",
+   "chain": 293,
+   "step": 122500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_12500",
+   "chain": 293,
+   "step": 12500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_125000",
+   "chain": 293,
+   "step": 125000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_127500",
+   "chain": 293,
+   "step": 127500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_130000",
+   "chain": 293,
+   "step": 130000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_132500",
+   "chain": 293,
+   "step": 132500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_15000",
+   "chain": 293,
+   "step": 15000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_17500",
+   "chain": 293,
+   "step": 17500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_20000",
+   "chain": 293,
+   "step": 20000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_22500",
+   "chain": 293,
+   "step": 22500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_25000",
+   "chain": 293,
+   "step": 25000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_27500",
+   "chain": 293,
+   "step": 27500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_30000",
+   "chain": 293,
+   "step": 30000,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary"
+    ],
+    "count": 1,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_32500",
+   "chain": 293,
+   "step": 32500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_35000",
+   "chain": 293,
+   "step": 35000,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_37500",
+   "chain": 293,
+   "step": 37500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_40000",
+   "chain": 293,
+   "step": 40000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_42500",
+   "chain": 293,
+   "step": 42500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_45000",
+   "chain": 293,
+   "step": 45000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_47500",
+   "chain": 293,
+   "step": 47500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_50000",
+   "chain": 293,
+   "step": 50000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_52500",
+   "chain": 293,
+   "step": 52500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_55000",
+   "chain": 293,
+   "step": 55000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_57500",
+   "chain": 293,
+   "step": 57500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_60000",
+   "chain": 293,
+   "step": 60000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_62500",
+   "chain": 293,
+   "step": 62500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_65000",
+   "chain": 293,
+   "step": 65000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_67500",
+   "chain": 293,
+   "step": 67500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_70000",
+   "chain": 293,
+   "step": 70000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_72500",
+   "chain": 293,
+   "step": 72500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_75000",
+   "chain": 293,
+   "step": 75000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_77500",
+   "chain": 293,
+   "step": 77500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_80000",
+   "chain": 293,
+   "step": 80000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_82500",
+   "chain": 293,
+   "step": 82500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_85000",
+   "chain": 293,
+   "step": 85000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_87500",
+   "chain": 293,
+   "step": 87500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_90000",
+   "chain": 293,
+   "step": 90000,
+   "s6_geometric": {
+    "hits": [
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_92500",
+   "chain": 293,
+   "step": 92500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_95000",
+   "chain": 293,
+   "step": 95000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_293_97500",
+   "chain": 293,
+   "step": 97500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_10000",
+   "chain": 295,
+   "step": 10000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_100000",
+   "chain": 295,
+   "step": 100000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_102500",
+   "chain": 295,
+   "step": 102500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_105000",
+   "chain": 295,
+   "step": 105000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_107500",
+   "chain": 295,
+   "step": 107500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_110000",
+   "chain": 295,
+   "step": 110000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_112500",
+   "chain": 295,
+   "step": 112500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_115000",
+   "chain": 295,
+   "step": 115000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_117500",
+   "chain": 295,
+   "step": 117500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_120000",
+   "chain": 295,
+   "step": 120000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_122500",
+   "chain": 295,
+   "step": 122500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_12500",
+   "chain": 295,
+   "step": 12500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_125000",
+   "chain": 295,
+   "step": 125000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_127500",
+   "chain": 295,
+   "step": 127500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_130000",
+   "chain": 295,
+   "step": 130000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_132500",
+   "chain": 295,
+   "step": 132500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_15000",
+   "chain": 295,
+   "step": 15000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": true,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_17500",
+   "chain": 295,
+   "step": 17500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_20000",
+   "chain": 295,
+   "step": 20000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_22500",
+   "chain": 295,
+   "step": 22500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_25000",
+   "chain": 295,
+   "step": 25000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_27500",
+   "chain": 295,
+   "step": 27500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_30000",
+   "chain": 295,
+   "step": 30000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_32500",
+   "chain": 295,
+   "step": 32500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_35000",
+   "chain": 295,
+   "step": 35000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_37500",
+   "chain": 295,
+   "step": 37500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": true
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_40000",
+   "chain": 295,
+   "step": 40000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_42500",
+   "chain": 295,
+   "step": 42500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_45000",
+   "chain": 295,
+   "step": 45000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_47500",
+   "chain": 295,
+   "step": 47500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_50000",
+   "chain": 295,
+   "step": 50000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_52500",
+   "chain": 295,
+   "step": 52500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": false,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 2,
+   "structural_registered_replicated": false,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_55000",
+   "chain": 295,
+   "step": 55000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_57500",
+   "chain": 295,
+   "step": 57500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_60000",
+   "chain": 295,
+   "step": 60000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_62500",
+   "chain": 295,
+   "step": 62500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_65000",
+   "chain": 295,
+   "step": 65000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_67500",
+   "chain": 295,
+   "step": 67500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_70000",
+   "chain": 295,
+   "step": 70000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_72500",
+   "chain": 295,
+   "step": 72500,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 5,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_75000",
+   "chain": 295,
+   "step": 75000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_77500",
+   "chain": 295,
+   "step": 77500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_80000",
+   "chain": 295,
+   "step": 80000,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_82500",
+   "chain": 295,
+   "step": 82500,
+   "s6_geometric": {
+    "hits": [
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_85000",
+   "chain": 295,
+   "step": 85000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 2,
+    "flag": false
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 3,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_87500",
+   "chain": 295,
+   "step": 87500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 3,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_90000",
+   "chain": 295,
+   "step": 90000,
+   "s6_geometric": {
+    "hits": [
+     "P1_Airdrie_3plus",
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_92500",
+   "chain": 295,
+   "step": 92500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": true,
+    "P2_MM": false,
+    "P3_DECL": true,
+    "P4_S50": false
+   },
+   "partisan_present": true,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_95000",
+   "chain": 295,
+   "step": 95000,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": true,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 4,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 5,
+   "structural_geometric_replicated": true
+  },
+  {
+   "plan": "plan_295_97500",
+   "chain": 295,
+   "step": 97500,
+   "s6_geometric": {
+    "hits": [
+     "P2_Cochrane_Calgary",
+     "P3_Chestermere_Calgary",
+     "P4_RockyView_Calgary",
+     "P5_RedDeer_3plus"
+    ],
+    "count": 4,
+    "flag": true
+   },
+   "partisan_flags": {
+    "P1_EG": false,
+    "P2_MM": false,
+    "P3_DECL": false,
+    "P4_S50": false
+   },
+   "partisan_present": false,
+   "structural_flags": {
+    "S1_population_mad": true,
+    "S2_municipal_split_count": true,
+    "S3_anchoring_score": true,
+    "S4_polsby_popper_median": false,
+    "S5_drain_score": false,
+    "S6_chair_flag_replication": false
+   },
+   "structural_registered": 3,
+   "structural_registered_replicated": true,
+   "structural_with_geometric_s6": 4,
+   "structural_geometric_replicated": true
+  }
+ ]
+}
