@@ -26,9 +26,14 @@ The commission maps have 89 districts, so they are placed against the k = 89
 sets only. These placements are baselines; the registered test is the
 November map's.
 
+  --candidate KEY places another map from --real (for November, the committee's
+  map, scored by close_seats_ensemble.py real --extra) against the sets whose
+  district count equals its n_parts. A candidate whose count matches no set is
+  an error, not a silent omission.
+
 Usage
   python analysis/scripts/size_matched_results.py --root DIR --real real_maps.json
-         [--out-json PATH] [--out-md PATH]
+         [--candidate KEY ...] [--out-json PATH] [--out-md PATH]
   DIR holds data/simulation_checkpoints_*/chainNNN_samples.csv[.gz]; chains
   also present under the repo's data/ are read from there.
 """
@@ -130,7 +135,14 @@ def summarize(chains, real):
 def main(a):
     roots = [a.root, REPO]
     real = json.loads(Path(a.real).read_text())
-    commission = {m: real[m] for m in ("majority_2026", "minority_2026")}
+    placed = {89: {m: real[m] for m in ("majority_2026", "minority_2026")}}
+    for m in a.candidate or []:
+        if m not in real:
+            raise SystemExit(f"--candidate {m}: not in {a.real} (keys: {', '.join(real)})")
+        k = int(real[m]["n_parts"])
+        if k not in (89, 91):
+            raise SystemExit(f"--candidate {m}: {k} districts; there are neutral-map sets for 89 and 91 only")
+        placed.setdefault(k, {})[m] = real[m]
     res = {}
     for key, (suffix, label) in SETS.items():
         for k in (89, 91):
@@ -138,8 +150,12 @@ def main(a):
             if not chains:
                 continue
             res[f"{key}_k{k}"] = {"set": key, "label": label, "k": k, "chains": sorted(chains),
-                                  "measures": summarize(chains, commission if k == 89 else None)}
+                                  "placed": list(placed.get(k, {})),
+                                  "measures": summarize(chains, placed.get(k))}
             print(f"{key} k={k}: chains {sorted(chains)}", flush=True)
+    for k, maps in placed.items():
+        if not any(r["k"] == k for r in res.values()):
+            raise SystemExit(f"no {k}-district neutral-map set found for {', '.join(maps)}")
     if a.out_json:
         Path(a.out_json).write_text(json.dumps(res, indent=1))
     if a.out_md:
@@ -166,21 +182,21 @@ def render(res):
         lines.append(f"Chains {', '.join(map(str, r['chains']))}.\n")
         cols = "| Measure | Plans | n_eff | Status | n_eff, no cap (diagnostic) | 5th | Median | 95th |"
         sep = "|---|---|---|---|---|---|---|---|"
-        if r["k"] == 89:
-            cols += " Majority | Minority |"
-            sep += "---|---|"
+        names = {"majority_2026": "Majority", "minority_2026": "Minority"}
+        for mp in r.get("placed", []):
+            cols += f" {names.get(mp, mp)} |"
+            sep += "---|"
         lines += [cols, sep]
         for col, m in r["measures"].items():
             neff = f"{m['n_eff']:,.0f}" + (" (cap)" if m["lag_cap_bound"] else "")
             row = f"| {col} | {m['n_plans']:,} | {neff} | {m['status']} | {m['n_eff_uncapped_diagnostic']:,.0f} | {fmt(m['q05'], col)} | {fmt(m['q50'], col)} | {fmt(m['q95'], col)} |"
-            if r["k"] == 89:
-                for mp in ("majority_2026", "minority_2026"):
-                    e = m.get(mp)
-                    if e:
-                        flag = " **flag**" if e.get("flag") else ""
-                        row += f" {fmt(e['value'], col)} (p{e['pct']:.1f}){flag} |"
-                    else:
-                        row += " — |"
+            for mp in r.get("placed", []):
+                e = m.get(mp)
+                if e:
+                    flag = " **flag**" if e.get("flag") else ""
+                    row += f" {fmt(e['value'], col)} (p{e['pct']:.1f}){flag} |"
+                else:
+                    row += " — |"
             lines.append(row)
         lines.append("")
     return "\n".join(lines)
@@ -190,6 +206,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", required=True)
     ap.add_argument("--real", required=True)
+    ap.add_argument("--candidate", nargs="*", help="keys in --real to place against the sets of their district count")
     ap.add_argument("--out-json")
     ap.add_argument("--out-md")
     main(ap.parse_args())
