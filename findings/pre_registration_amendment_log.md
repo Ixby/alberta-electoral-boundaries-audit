@@ -1196,7 +1196,12 @@ primary comparison; it is still reported, under set A. The committee's map has
 not been published, so this choice is made without knowledge of its results.
 The only prior information about the panel's draft was a meme posted on Facebook
 around the committee's October 28 meeting, the item Amendment 17 calls public
-reporting. No panel or committee map, and no result from either, had been seen.
+reporting. It is archived, with a transcription, at
+`preregistration/evidence/2026-10-29_facebook_meme_panel_draft.md` (uploaded
+2026-10-29 17:52 MDT, before Amendment 17 was signed). Its claims about Lethbridge,
+Okotoks and the Calgary and Edmonton ridings are what Amendment 17's town-split and
+city-versus-rest tests address. No panel or committee map, and no result from
+either, had been seen.
 
 The four sets are four readings of what a neutral map is, and all four stay in
 the report as competing readings, each labelled. D is primary because it alone
