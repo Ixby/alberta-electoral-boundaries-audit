@@ -25,6 +25,13 @@ Forward dependencies:
   findings/joint_outlier_score.json
   findings/joint_outlier_score_summary.md
 
+Candidate map (November spec section 7, step 2)
+  python analysis/scripts/joint_outlier_score_canonical.py       --map-key lunty_2026 --real-scores data/outputs/lunty_phase4c_results.json       --output findings/lunty_joint_outlier.json
+  Channel 1 only, for the one map: Mahalanobis distance across P1-P4 and each
+  metric's placement in the canonical ensemble. Writes {"maps": {"candidate":
+  ...}}, the structure verdict_synthesis.py reads. The no-argument run is
+  unchanged.
+
 Backward:
   data/outputs/simulation_real_map_scores_canonical.json
 Forward:
@@ -694,5 +701,64 @@ center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favour
     _log_run(__file__, [str(p) for p in [OUT_JSON, OUT_MD]], time.time() - t0)
 
 
+def run_candidate(real_scores: Path, map_key: str, output: Path) -> None:
+    """Channel 1 for one candidate map against the canonical ensemble."""
+    t0 = time.time()
+    verify_canonical_files()
+    real = json.loads(Path(real_scores).read_text(encoding="utf-8"))
+    if map_key not in real:
+        sys.exit(f"ERROR: {map_key!r} not in {real_scores} (keys: {[k for k in real if isinstance(real[k], dict)]})")
+    obs = real[map_key]
+    missing = [c for c in PARTISAN_COLS if c not in obs]
+    if missing:
+        sys.exit(f"ERROR: {real_scores} lacks {missing}; score the map with "
+                 f"phase4c_canonical_attribution.py --majority (canonical conventions).")
+    print("Loading canonical 1.01M ensemble...")
+    ensemble = pd.read_csv(ENSEMBLE_CSV, usecols=PARTISAN_COLS)
+    d, p, mu = mahalanobis_pvalue(ensemble, obs, PARTISAN_COLS)
+    p_adj, f_stat = mahalanobis_pvalue_neff_adjusted(d, len(PARTISAN_COLS))
+    marginals = {}
+    for i, col in enumerate(PARTISAN_COLS):
+        vals = ensemble[col].dropna().values
+        marginals[col] = {
+            "observed": round(obs[col], 6),
+            "ensemble_mean": round(float(mu[i]), 6),
+            "ensemble_p5": round(float(np.percentile(vals, 5)), 6),
+            "ensemble_p95": round(float(np.percentile(vals, 95)), 6),
+            "marginal_tail_p": round(ensemble_marginal_percentile(ensemble, col, obs[col],
+                                                                  upper_tail=(obs[col] >= float(mu[i]))), 6),
+            # share of ensemble plans at or below the map: the percentile in the UCP direction
+            # (all four metrics are signed so that higher = more UCP-favourable)
+            "ucp_direction_percentile": round(float(np.mean(vals <= obs[col])), 6),
+        }
+    cand = {"mahalanobis_distance": round(d, 4), "joint_partisan_p": round(p, 8),
+            "joint_partisan_p_neff_adjusted": round(p_adj, 8),
+            "neff_adjustment": {"n_eff_used": N_EFF_CONSERVATIVE, "f_stat": round(f_stat, 4),
+                                "df1": len(PARTISAN_COLS), "df2": N_EFF_CONSERVATIVE - len(PARTISAN_COLS)},
+            "df": len(PARTISAN_COLS), "marginals": marginals,
+            "n_districts": obs.get("n_districts"), "source": real.get(f"{map_key}_source")}
+    out = {"map_key": map_key, "real_scores": str(real_scores), "ensemble": ENSEMBLE_CSV.name,
+           "ensemble_rows": int(len(ensemble)), "maps": {"candidate": cand, map_key: cand}}
+    Path(output).parent.mkdir(parents=True, exist_ok=True)
+    Path(output).write_text(json.dumps(out, indent=2), encoding="utf-8")
+    print(f"  {map_key}: Mahal={d:.3f}  p={p:.2e}  p_adj(n_eff={N_EFF_CONSERVATIVE})={p_adj:.2e}")
+    for col, m in marginals.items():
+        print(f"    {col:16s} {m['observed']:+.4f}  UCP-direction percentile {100 * m['ucp_direction_percentile']:.1f}")
+    print(f"-> {output}")
+    _log_run(__file__, [str(output)], time.time() - t0)
+
+
 if __name__ == "__main__":
-    run()
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Joint outlier score; with --map-key, Channel 1 for one candidate map.")
+    ap.add_argument("--map-key")
+    ap.add_argument("--real-scores", type=Path)
+    ap.add_argument("--output", type=Path)
+    a = ap.parse_args()
+    if a.map_key or a.real_scores or a.output:
+        if not (a.map_key and a.real_scores and a.output):
+            sys.exit("ERROR: --map-key, --real-scores and --output go together.")
+        run_candidate(a.real_scores, a.map_key, a.output)
+    else:
+        run()
