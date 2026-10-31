@@ -19,6 +19,9 @@ export interface EdRec {
 	// Also community-only: the place's OWN centroid (ccx, ccy) and radius in
 	// metres (crad), for the distinct community marker. cx/cy/zoom still fly to the
 	// containing district; these pinpoint the community within it.
+	// Community-only: the place key ("community|municipality") into
+	// community_outlines_2019.json, for the selected-area inner glow.
+	k?: string;
 	ccx?: number;
 	ccy?: number;
 	crad?: number;
