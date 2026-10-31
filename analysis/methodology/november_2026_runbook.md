@@ -71,11 +71,11 @@ python analysis/scripts/score_x1.py --map data/shapefiles/lunty/lunty_2026_eds.g
   [--interim <October 2025 interim map>] [--d-record considered|not_shown] --out findings/lunty_x1.json
 ```
 
-## 3b. Registered: size-matched comparison (Amendments 17, 20, 21, 23)
+## 3b. Registered: size-matched comparison (Amendments 17, 20, 21, 23, 24)
 
-Amendment 20 fixes the order. The 87-district canonical comparison above is the headline. Set A
-(Amendment 17) is reported beside it. Sets B, C and D are reported beside those, each labelled; C
-is a sensitivity reading. These commands need `--candidate` and `--name-col`, which are on branch
+Amendment 24 fixes the order. The 87-district canonical comparison above is the headline. Set D
+(s.15(2), Amendment 23 rule) is the primary size-matched comparison. Sets A, B and C are reported
+beside it in the same table, each labelled; C is a sensitivity reading. These commands need `--candidate` and `--name-col`, which are on branch
 `size-matched-candidate` (on top of Audit's `ccr-7082dbd7-sqy3h2`) until it lands. The chain
 outputs are on `amendment17-local-runs`; pass that checkout as `--root`.
 
