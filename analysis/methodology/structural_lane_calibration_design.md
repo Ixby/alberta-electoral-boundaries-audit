@@ -10,7 +10,7 @@
 
 # Calibrating the November verdict on neutral maps: design, method, rationale, timeline
 
-**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:55 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
+**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:50 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
 
 ## Plain terms
 
