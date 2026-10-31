@@ -113,7 +113,7 @@ The minority map's gap is about **41 times larger** than the majority map's. Bot
 
 **What this means in plain terms:** Under the minority map, NDP voters as a group have to cast significantly more votes to win the same number of seats.
 
-**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric. It was registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes (on the current run that percentile is 4.08%), and it was not imported from US case law. The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold. On canonical geometry, the official Elections Alberta maps, it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps: not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 2 (the structural and procedural pattern in Findings 1, 2 and 4) does the work. Lane 1 is the supporting context.
+**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric. It was registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes (on the current run that percentile is 4.08%), and it was not imported from US case law. The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold. On canonical geometry, the official Elections Alberta maps, it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps: not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 2 (the structural and procedural pattern in Findings 1 and 4) does the work. Lane 1 is the supporting context.
 
 ---
 
@@ -121,7 +121,7 @@ The minority map's gap is about **41 times larger** than the majority map's. Bot
 
 ### The supermajority problem
 
-Past the 45-seat threshold for a majority government sits a higher threshold: **60 seats out of 89** is a two-thirds supermajority. A party with 60 or more seats can pass legislation without any cooperation from the opposition, including, in Alberta, legislation that changes electoral and voting rules.
+Past the 45-seat threshold for a majority government sits a higher threshold: **60 seats out of 89** is a two-thirds supermajority. In Alberta that unlocks no special power. Any majority can already pass legislation without the opposition, including legislation that changes electoral and voting rules. What a supermajority adds is a cushion: a few floor-crossings cannot threaten the government, and a smaller opposition has fewer members to keep up scrutiny.
 
 The minority map's structural tilt turns modest UCP vote advantages into very large seat leads. Under a realistic UCP vote advantage, the minority map produces seat totals in the range where a supermajority comes within reach. The majority map does not show the same amplification.
 
@@ -141,15 +141,15 @@ The majority map puts Airdrie in two ridings. The minority map splits it into **
 
 The commission chair called the four-way split "not something that I can condone." Zero public submissions asked for it.
 
-### Northwest Calgary: packing UCP votes
+### Northeast and central Calgary: packing NDP votes
 
-Northwest Calgary votes mostly UCP. The minority map packs **11.5% more people than average** into northwest Calgary ridings. So large numbers of UCP votes pile up in ridings the UCP already wins easily: votes past the winning threshold that do nothing. Meanwhile, voters in other parts of Calgary have more say per person.
+Northeast and central Calgary votes mostly NDP. The minority map packs **11.5% more people than average** into northeast and central Calgary ridings. So large numbers of NDP votes pile up in ridings the NDP already wins easily: votes past the winning threshold that do nothing. Meanwhile, voters in other parts of Calgary have more say per person.
 
-The majority map has northwest Calgary only **2.8% above average**, well within the normal range. The 11.5% vs 2.8% gap is one of the clearest structural differences between the two maps.
+The majority map has northeast and central Calgary only **2.8% above average**, well within the normal range. The 11.5% vs 2.8% gap is one of the clearest structural differences between the two maps.
 
 ### Cochrane and Rocky Mountain House–Banff
 
-The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, 75 km from Nolan Hill. No evidence of commuter flows or a community of interest supports this join at the level of the census sub-division. The commission chair specifically flagged this configuration.
+The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, about 21 km from Nolan Hill. No evidence of commuter flows or a community of interest supports this join at the level of the census sub-division. The commission chair specifically flagged this configuration.
 
 The minority also invokes the statutory §15(2) exception to stretch Rocky Mountain House–Banff Park into Banff National Park: a boundary that runs through territory with no permanent residents and no agricultural land base. The majority map uses its matching statutory exception for the Canmore-Banff area, a configuration with a clearer community-of-interest footing.
 
@@ -175,7 +175,7 @@ The pattern across these smaller anomalies is consistent with the larger finding
 
 ## What this audit does NOT say
 
-**It does not say either map is illegal or a "gerrymander."** A "gerrymander" is an American legal term for a specific kind of unconstitutional riding map. Canada does not have that law. In Canada, the legal question is whether voters have "effective representation" under the *Canadian Charter of Rights and Freedoms*, and whether the commission followed the *Electoral Boundaries Commission Act*. Whether these maps cross that line is a question for courts and legislators. Not this audit.
+**It does not say either map is illegal or a "gerrymander."** A "gerrymander" is a riding map drawn to favour one party or group. The word is American, and it is not a test in Canadian law. In Canada, the legal question is whether voters have "effective representation" under the *Canadian Charter of Rights and Freedoms*, and whether the commission followed the *Electoral Boundaries Commission Act*. Whether these maps cross that line is a question for courts and legislators. Not this audit.
 
 **It does not say anyone drew the minority map to cheat.** Statistics can show what a map does. They cannot show what anyone intended. The same outcome could come from deliberate choices, from geography, from habit, or from coincidence. This audit measures the effect, not the motive.
 
