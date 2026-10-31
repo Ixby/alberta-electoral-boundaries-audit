@@ -43,8 +43,8 @@
     <p class="standfirst">
       This episode has three lenses. The <a href="{base}/law">law</a> asks what is legal.
       The <a href="{base}/methods">statistics</a> ask what is unusual. The third lens asks
-      what is customary — and custom is the contested ground. "The government broke a
-      sixty-year norm" is not a neutral measurement; it is the heart of the opposition's
+      what is customary, and custom is the contested ground. "The government broke a
+      sixty-year norm" is not a neutral measurement. It is the heart of the opposition's
       accusation. So this page does not just recite the norms. It cross-examines them:
       where they came from, what they are for, what the case for setting them aside
       actually is, and what remains once the rhetoric on both sides is cleared away.
@@ -54,18 +54,18 @@
       <h2>The norm, stated plainly</h2>
       <p>
         Politicians do not draw their own districts. Canada spent roughly sixty years
-        building that rule — not as a law, but as a practice. Since the federal reform era
+        building that rule, not as a law but as a practice. Since the federal reform era
         of the 1960s, every province and the federal process have used arm's-length boundary
         commissions. The person who will run in a district does not hold the pen that
         draws it.
       </p>
       <p>
         The norm exists because of what came before it. Governing parties once routinely
-        drew their own ridings, and the conflict of interest is not subtle: a map-drawer who
+        drew their own ridings, and the conflict of interest is not subtle. A map-drawer who
         must win under the map has every reason to draw it in his own favour, and no one
         watching can tell an honest line from a self-serving one. The commission model does
-        not make maps perfect. It makes the drawer's interest separable from the outcome —
-        which is the thing that lets everyone else trust the result.
+        not make maps perfect. It makes the drawer's interest separable from the outcome.
+        That is what lets everyone else trust the result.
       </p>
     </section>
 
@@ -75,7 +75,7 @@
         The 2025–26 commission is its own best exhibit. It held hearings in sixteen
         communities. It received 1,147 written submissions. It published an interim
         proposal, took criticism, and reversed itself on the strength of eighty-plus
-        submissions — the system visibly responding to public input. Whatever else the
+        submissions. That is the system visibly responding to public input. Whatever else the
         commission failed at, the process around it worked exactly as designed: in public,
         on the record, and answerable to what citizens said.
       </p>
@@ -84,11 +84,11 @@
     <section id="the-departure">
       <h2>The departure</h2>
       <p>
-        In April 2026 — weeks after the split commission filed two incompatible maps — the
+        In April 2026, weeks after the split commission filed two incompatible maps, the
         Legislative Assembly set both aside. Government Motion 37, passed April 21, handed
         the work to a committee of six MLAs, four from the governing party, chaired by a
-        government member. The committee is not required to hold public hearings, and per
-        CBC's reporting it will not hold hearings on the map it produces. No draft will be
+        government member. The committee is not required to hold public hearings. Per
+        CBC's reporting, it will not hold hearings on the map it produces. No draft will be
         released for public challenge before the map is final.
       </p>
       <p>
@@ -108,14 +108,15 @@
       <h2>The case for setting the norm aside — taken seriously</h2>
       <p>
         An audit that only rehearses one side's outrage is not checking anything. So take
-        the government's side at full strength:
+        the government's side at full strength. Build its strongest case, the steel-man,
+        before testing it:
       </p>
       <ul>
         <li>
           <strong>The commission failed at its one job.</strong> The commission model
           promises a single arm's-length answer. This commission delivered two incompatible
           maps and a chair publicly accusing colleagues of bad faith. When the independent
-          route deadlocks, someone has to decide — and the statute says who.
+          route deadlocks, someone has to decide. The statute says who.
         </li>
         <li>
           <strong>The statute gives the legislature the pen by design.</strong> Under
@@ -135,8 +136,8 @@
         </li>
         <li>
           <strong>The government cited the chair's own recommendation.</strong> Its stated
-          justification for the 91-seat mandate was Recommendation 5 — written by the
-          commission chair himself — and it told the House exactly that: “We are adopting
+          justification for the 91-seat mandate was Recommendation 5, written by the
+          commission chair himself. And it told the House exactly that: “We are adopting
           the recommendations from the report.”
         </li>
       </ul>
@@ -151,39 +152,39 @@
         <li>
           The deadlock explains <em>replacing</em> the maps. It does not explain
           <em>removing the public</em>. A hearing requirement, a published draft, or a
-          binding panel would have answered the deadlock too — the chosen vehicle forfeits
-          each transparency feature the comparative literature treats as protective, and
-          none of those forfeits was forced by the deadlock.
+          binding panel would have answered the deadlock too. The chosen vehicle forfeits
+          each transparency feature the comparative literature treats as protective. The
+          deadlock forced none of those forfeits.
         </li>
         <li>
           "The statute allows it" is the law lens, and it is answered there: every step was
-          lawful. The norms question is different — most provinces make a commission's map
+          lawful. The norms question is different. Most provinces make a commission's map
           effective <em>unless</em> the legislature overrides it. Alberta's reversed default
           means the governing party always controls whether any commission map becomes law.
           Lawful and customary are different questions.
         </li>
         <li>
-          The accountability argument proves too much: it argues against boundary
-          commissions everywhere, yet every Canadian jurisdiction — and the UK, and
+          The accountability argument proves too much. It argues against boundary
+          commissions everywhere. Yet every Canadian jurisdiction — and the UK, and
           Australia — moved the other way, precisely because election-time accountability
           is weak protection against a map designed to shape those same elections.
         </li>
         <li>
           The panel advises; the five MLA votes decide. Bipartisan advice with a
           government-controlled decision is a different institution from an independent
-          commission, and the difference is exactly the norm at issue.
+          commission. The difference is exactly the norm at issue.
         </li>
         <li>
           Recommendation 5's author wrote it to dissuade the legislature from adopting the
-          minority map, and his majority colleagues did not endorse it. It is also specific:
-          it leaves Airdrie, Calgary and everything south of them exactly as the majority
-          drew them, which are the very lines the commission split over, and nothing in the
+          minority map, and his majority colleagues did not endorse it. It is also specific.
+          It leaves Airdrie, Calgary and everything south of them exactly as the majority
+          drew them, the very lines the commission split over, and nothing in the
           committee's mandate holds it to that. Citing a recommendation against its
           author's stated purpose is a documented tension, not a resolved one.
         </li>
         <li>
           The other document read onto the floor — page 58 of the majority report —
-          laments the two-seat cap, but the remedy attached to it is for the Legislature to
+          laments the two-seat cap. But the remedy attached to it is for the Legislature to
           give <em>future commissions</em> the power to set seat counts. The motion took
           that latitude now, for a committee of MLAs, while declining the report’s
           operative request: adopt the 89-seat map.
@@ -194,42 +195,43 @@
     <section id="whose-accusation">
       <h2>Whose accusation is it?</h2>
       <p>
-        Here is the separation this page exists to make. The following are documented facts:
-        the departure happened, for the first time since Alberta's own 1992 committee; the
-        transparency features were forfeited; the commission chair called one minority
-        boundary a "bad faith effort" in a public statutory document; the Canadian Civil
+        Here is the separation this page exists to make. The following are documented facts.
+        The departure happened, for the first time since Alberta's own 1992 committee. The
+        transparency features were forfeited. The commission chair called one minority
+        boundary a "bad faith effort" in a public statutory document. The Canadian Civil
         Liberties Association publicly
-        <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>;
-        the opposition voted against the motion. And the accusations run both ways: the minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” — rural representation being, in the minority's own words, “not merely a question of numbers; it is a question of access, voice, and practical governability” (p. 356) — a charge the audit tested the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses: the minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019's 31) and absorbs more of 2019's rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019 — the charge's core observation is real — but on the measure the accusation names, it lands on its author. Its companion charge — that the majority declined to use the Act's ±25% flexibility for rural Alberta — was tested the same day and holds: the majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair's flags applies here too, in both directions.
+        <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>.
+        The opposition voted against the motion. And the accusations run both ways. The minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” — rural representation being, in the minority's own words, “not merely a question of numbers; it is a question of access, voice, and practical governability” (p. 356). The audit tested that charge the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses. The minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019's 31) and absorbs more of 2019's rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019, so the charge's core observation is real. But on the measure the accusation names, it lands on its author. Its companion charge, that the majority declined to use the Act's ±25% flexibility for rural Alberta, was tested the same day and holds. The majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair's flags applies here too, in both directions.
       </p>
       <p>
-        The following is <em>not</em> a documented fact — it is a political judgment: that
+        The following is <em>not</em> a documented fact. It is a political judgment: that
         the departure was illegitimate. That judgment depends on how much deference the norm
         deserved in the face of a deadlocked commission, and reasonable people weigh that
         differently. The audit documents the departure and its costs. It does not carry the
-        opposition's conclusion, and nothing in the audit's statistics can carry it either —
-        a number can say a map is rare; it cannot say a process was wrong.
+        opposition's conclusion, and nothing in the audit's statistics can carry it either.
+        A number can say a map is rare. It cannot say a process was wrong.
       </p>
     </section>
 
     <section id="norms-vs-law">
       <h2>Norms are not law — and one place turned the norm into law</h2>
       <p>
-        Constitutional conventions bind politically, not judicially. The Supreme Court said
-        so in the 1981 Patriation Reference, and courts have held that line since: a court
-        may name a convention and will still decline to enforce it. That gap — between what
-        is customary and what is compellable — is where this entire episode lives.
+        Constitutional conventions, the unwritten rules of political behaviour, bind
+        politically, not judicially. The Supreme Court said so in the 1981 Patriation
+        Reference, and courts have held that line since: a court may name a convention and
+        will still decline to enforce it. That gap, between what is customary and what is
+        compellable, is where this entire episode lives.
       </p>
       <p>
         Quebec shows what the other choice looks like. Its boundary commission is permanent
         and independent, and on the map itself the commission ordinarily has the last
         word. When Quebec's government tried to freeze its commission by
-        legislation, the courts <em>did</em> act, because a law was now in play: on
+        legislation, the courts <em>did</em> act, because a law was now in play. On
         April 22, 2026, the Supreme Court of Canada upheld, 7–2 and from the bench, the
         ruling that the freeze violated the Charter's democratic-representation guarantee.
         Its reasons followed on May 1 (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Where the
         norm was written into law, it became enforceable. Alberta's norm never was, and so it
-        wasn't. The contrast cuts both ways, though: on June 12, 2026 Quebec's National
+        wasn't. The contrast cuts both ways, though. On June 12, 2026, Quebec's National
         Assembly passed its own 127-seat map.
       </p>
     </section>
@@ -238,7 +240,7 @@
       <h2>The process scorecard: making the norms question measurable</h2>
       <p>
         Rhetoric about norms is cheap in both directions. The audit's answer is a third
-        scorecard — alongside the structural tests and the statistics — that scores the
+        scorecard, alongside the structural tests and the statistics. It scores the
         <em>process</em> on nine protective features the sixty-year practice guaranteed.
         Each is a yes-or-no question answerable from public documents, and the same nine
         score every process this audit examines.
@@ -268,16 +270,16 @@
       </div>
       <p>
         One more way to see this scorecard: it is the <em>third axis</em>. The audit's chart plots
-        every map on two dimensions — structure and statistics — and all three maps plotted so far
+        every map on two dimensions: structure and statistics. All three maps plotted so far
         were drawn by commission processes that score nine of nine here, so the third axis has had
         nothing to separate. The November map will be the first point in the audit's history with a
         different process score behind it.
       </p>
       <p>
         Read the table honestly, in both directions. The commission scores nine of nine
-        <em>by construction</em> — the criteria describe the institution the norm built, and
-        the commission was that institution. The informative part is prospective: four of the
-        committee's No cells are features it can still add between now and November —
+        <em>by construction</em>. The criteria describe the institution the norm built, and
+        the commission was that institution. The informative part looks forward. Four of the
+        committee's No cells are features it can still add between now and November:
         hearings, a published draft, new submissions, and the responsiveness they make
         possible. If it adds them, the audit's process-departure finding is materially
         mitigated, and the audit has committed in writing to saying so.
@@ -301,10 +303,10 @@
     <section>
       <h2>The audit's standing rule</h2>
       <p>
-        Same rule as everywhere else on this site: the audit documents what happened, how
+        Same rule as everywhere else on this site. The audit documents what happened, how
         rare it is, and who claimed what. Whether the norm deserved to survive the deadlock
         — and what its setting-aside should cost at the ballot box, if anything — belongs
-        to readers and voters, not to a statistical audit.
+        to readers and voters. Not to a statistical audit.
       </p>
       <p class="cross-ref">
         Companion pages: <a href="{base}/law">What the law asks of an electoral map</a> ·

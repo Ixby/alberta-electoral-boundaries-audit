@@ -43,9 +43,9 @@
   <div class="content">
 
     <p class="standfirst">
-      The whole audit rests on one simple idea. If you want to know whether a map is unusual,
-      draw a million maps that could not be biased — a computer draws them, and it never sees
-      a single vote — then check where the real maps land among them. This page walks through
+      The whole audit rests on one simple idea. Want to know whether a map is unusual? Draw a
+      million maps that could not be biased. A computer draws them, and it never sees a single
+      vote. Then check where the real maps land among them. This page walks through
       that idea and every test built on it. No formulas. If you can read a weather forecast,
       you can read this.
     </p>
@@ -78,14 +78,14 @@
       <p>
         The key fact: <strong>the computer never sees a vote.</strong> It does not know where NDP
         or UCP voters live. So if a neutral map still leans one way, that lean comes from
-        Alberta's geography alone — and if a real map leans much further than nearly all the
+        Alberta's geography alone. And if a real map leans much further than nearly all the
         neutral ones, geography can no longer be the explanation.
       </p>
       <p>Three honesty points about the machine:</p>
       <ul>
         <li>
-          <strong>The dice were rolled in public.</strong> The random seed was not picked by the
-          author. It comes from a public randomness beacon (Cloudflare's "drand"), like a
+          <strong>The dice were rolled in public.</strong> The random seed (the starting number
+          behind every random choice) was not picked by the author. It comes from a public randomness beacon (Cloudflare's "drand"), like a
           lottery draw broadcast live. It was locked in before the official map files existed.
           Anyone can recompute it.
         </li>
@@ -95,15 +95,15 @@
           checks for this (used across the field) pass with room to spare.
         </li>
         <li>
-          <strong>A note on seat counts.</strong> The 2026 commission maps have 89 districts each; the
-          simulation runs on the 87-district 2019 map (the last legally enacted one — the algorithm
-          needs a real map to start walking from); the November committee will produce 91. Every
+          <strong>A note on seat counts.</strong> The 2026 commission maps have 89 districts each. The
+          simulation runs on the 87-district 2019 map, the last legally enacted one, because the
+          algorithm needs a real map to start walking from. The November committee will produce 91. Every
           percentage on this site is a seat <em>share</em>, so the numbers compare cleanly across all
           three sizes.
         </li>
         <li>
           <strong>The machine is not a perfect referee.</strong> It follows the two hard rules,
-          but not every soft rule real commissions honour — like keeping communities together.
+          but not every soft rule real commissions honour, like keeping communities together.
           Real commission maps are actually tidier than most neutral maps. The audit says this
           plainly everywhere the machine's numbers appear.
         </li>
@@ -116,13 +116,13 @@
         Line up all 1,010,000 neutral maps from least UCP-leaning to most UCP-leaning. Now
         place a real map in the line. Its <strong>percentile</strong> is just its position:
         "78th percentile" means it leans further than 78 out of every 100 neutral maps. That is
-        unremarkable — a bit above the middle of the pack.
+        unremarkable: a bit above the middle of the pack.
       </p>
       <p>
         "99.99th percentile" is different. It means the map out-leans virtually every neutral
         map in the line — in this audit, all but <strong>69 of the 1,010,000</strong>. Height
-        works the same way: a man at the 78th percentile is a bit tall; a man at the 99.99th
-        percentile is about seven feet.
+        works the same way. A man at the 78th percentile is a bit tall. A man at the 99.99th
+        percentile stands about seven feet.
       </p>
     </section>
 
@@ -135,14 +135,14 @@
       <ul>
         <li>
           <strong>1. Population spread.</strong> How far do districts drift from the ideal size?
-          On the commission's own tables, the majority map's typical drift is 3,180 people; the
-          minority map's is 4,707 — about half again wider. Wider drift means votes count less
+          On the commission's own tables, the majority map's typical drift is 3,180 people. The
+          minority map's is 4,707, about half again wider. Wider drift means votes count less
           equally.
         </li>
         <li>
           <strong>2. Calgary crowding.</strong> In north-east and central Calgary, the minority
           map's districts run 11.5% bigger than the provincial average. The majority's run 2.8%
-          bigger. Bigger districts mean each vote inside them weighs less — and this zone votes
+          bigger. Bigger districts mean each vote inside them weighs less. And this zone votes
           heavily NDP. The pattern is called <em>packing</em>.
         </li>
         <li>
@@ -178,10 +178,10 @@
         <li>
           <strong>1. Seats at a tied vote.</strong> The most intuitive test. Pretend the
           province votes exactly 50/50 and count each side's seats. On Alberta's geography a
-          typical neutral map gives the UCP about 44.8% of seats at a tie — city NDP votes are
+          typical neutral map gives the UCP about 44.8% of seats at a tie. City NDP votes are
           used a little more efficiently, so a tie naturally favours the NDP slightly. The
-          majority map gives the UCP 46.1% — 78th percentile, ordinary. The minority map gives
-          the UCP <strong>51.7%</strong> — a majority of seats while tied in votes. Only 69 of
+          majority map gives the UCP 46.1%: 78th percentile, ordinary. The minority map gives
+          the UCP <strong>51.7%</strong>, a majority of seats while tied in votes. Only 69 of
           the 1,010,000 neutral maps do better for the UCP. For scale, a procedure told to
           <em>deliberately</em> maximize UCP seats reached 52.9%. The minority map sits closer
           to that engineered ceiling than to the neutral middle.
@@ -190,9 +190,9 @@
           <strong>2. The efficiency gap.</strong> Every vote is either needed to win a seat or
           "wasted" — cast for a loser, or piled onto a winner beyond what victory required.
           This measure compares how fast each party's votes are wasted. The majority map scores
-          +0.1% — essentially nothing. The minority scores +4.0% in the UCP's favour — the
+          +0.1%: essentially nothing. The minority scores +4.0% in the UCP's favour, the
           94.5th percentile, just <em>under</em> the audit's pre-set alarm line at the 95th.
-          This is the one measure that did not fire, and the audit reports it as a miss.
+          This is the one measure that did not fire. The audit reports it as a miss.
         </li>
         <li>
           <strong>3. The mean-median gap.</strong> Compare a party's average district result
@@ -210,8 +210,8 @@
         </li>
       </ul>
       <p>
-        Score: three of four fire on the minority map, all in the same direction, and the fourth
-        lands just under the line — also in the same direction. The majority map is ordinary on
+        Score: three of four fire on the minority map, all in the same direction. The fourth
+        lands just under the line, pointing the same way. The majority map is ordinary on
         all four.
       </p>
     </section>
@@ -235,7 +235,7 @@
         The doubling has one more virtue: it needs no assumptions. It holds whether the two
         tests are related or not. An earlier version of this audit combined the two tests with
         a method that <em>assumed</em> they were unrelated, and got "1 in 15 million." The two
-        tests share the same vote data, so that assumption was wrong, and the number was
+        tests share the same vote data, so that assumption was wrong. The number was
         retired. What is left is the number a hostile statistician could not beat down.
       </p>
       <p>
@@ -283,7 +283,7 @@
         </li>
         <li>
           <strong>Swap the software.</strong> An independent implementation in a different
-          programming language also finds no plans reaching the minority map's value.
+          programming language also finds no maps reaching the minority map's value.
         </li>
         <li>
           <strong>Test the mechanism — and fail.</strong> The audit guessed that the strange
@@ -299,13 +299,13 @@
       <p>
         The strongest defence against fooling yourself is to write your predictions down before
         you look. The audit locked its tests, thresholds, and predicted directions into public,
-        time-stamped registrations (on the Open Science Framework) — and locked its random
-        seeds to a public beacon — before the official map files were released. When a locked
-        prediction missed, it stayed a miss. The same locked tests will be run, unchanged, on
-        the committee's new map when it lands in November 2026. The audit also names which of
+        time-stamped registrations on the Open Science Framework. It locked its random seeds
+        to a public beacon. Both happened before the official map files were released. When a
+        locked prediction missed, it stayed a miss. The same locked tests will be run, unchanged,
+        on the committee's new map when it lands in November 2026. The audit also names which of
         its results are <em>exploratory</em> (seeds locked, but the exact test combination
-        chosen later) versus fully pre-registered. The headline odds are exploratory; the
-        November scorecard is the fully pre-registered test.
+        chosen later) and which are fully pre-registered. The headline odds are exploratory.
+        The November scorecard is the fully pre-registered test.
       </p>
     </section>
 
