@@ -1,4 +1,4 @@
-import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/DjneNb1u.js";import{u as f}from"../chunks/BI2xX2XK.js";import"../chunks/xihTtKlq.js";var p=e(`<meta name="description" content="Every test and statistic in the audit, explained in plain language: the million-map what-if machine, the five structural tests, the four fairness measures, p-values, and the tests that died." class="svelte-1r4fau9"/>`),m=e(`<div class="page-head svelte-1r4fau9"><div class="header-inner svelte-1r4fau9"><a class="back-link svelte-1r4fau9">← Back to audit</a> <div class="header-text svelte-1r4fau9"><div class="site-label svelte-1r4fau9">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1r4fau9">How the Maps Were Tested</h1> <p class="meta svelte-1r4fau9">Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository</p></div></div></div> <main id="main" tabindex="-1" class="svelte-1r4fau9"><div class="content svelte-1r4fau9"><p class="standfirst svelte-1r4fau9">The whole audit rests on one simple idea. Want to know whether a map is unusual? Draw a
+import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt as u,w as d}from"../chunks/DjneNb1u.js";import{u as f}from"../chunks/CSX3ec0o.js";import"../chunks/xihTtKlq.js";var p=e(`<meta name="description" content="Every test and statistic in the audit, explained in plain language: the million-map what-if machine, the five structural tests, the four fairness measures, p-values, and the tests that died." class="svelte-1r4fau9"/>`),m=e(`<div class="page-head svelte-1r4fau9"><div class="header-inner svelte-1r4fau9"><a class="back-link svelte-1r4fau9">← Back to audit</a> <div class="header-text svelte-1r4fau9"><div class="site-label svelte-1r4fau9">Alberta Electoral Boundary Audit</div> <h1 class="svelte-1r4fau9">How the Maps Were Tested</h1> <p class="meta svelte-1r4fau9">Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository</p></div></div></div> <main id="main" tabindex="-1" class="svelte-1r4fau9"><div class="content svelte-1r4fau9"><p class="standfirst svelte-1r4fau9">The whole audit rests on one simple idea. Want to know whether a map is unusual? Draw a
       million maps that could not be biased. A computer draws them, and it never sees a single
       vote. Then check where the real maps land among them. This page walks through
       that idea and every test built on it. No formulas. If you can read a weather forecast,
@@ -10,8 +10,8 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
         ReCom, and it is the standard tool in this field.</p> <p class="svelte-1r4fau9">The key fact: <strong class="svelte-1r4fau9">the computer never sees a vote.</strong> It does not know where NDP
         or UCP voters live. So if a neutral map still leans one way, that lean comes from
         Alberta's geography alone. And if a real map leans much further than nearly all the
-        neutral ones, geography can no longer be the explanation.</p> <p class="svelte-1r4fau9">Three honesty points about the machine:</p> <ul class="svelte-1r4fau9"><li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">The dice were rolled in public.</strong> The random seed (the starting number
-          behind every random choice) was not picked by the author. It comes from a public randomness beacon (Cloudflare's "drand"), like a
+        neutral ones, geography can no longer be the explanation.</p> <p class="svelte-1r4fau9">Four honesty points about the machine:</p> <ul class="svelte-1r4fau9"><li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">The dice were rolled in public.</strong> The random seed (the starting number
+          behind every random choice) was not picked by the author. It comes from a public randomness beacon ("drand", run by the League of Entropy, a group that includes Cloudflare), like a
           lottery draw broadcast live. It was locked in before the official map files existed.
           Anyone can recompute it.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">Four separate runs agree.</strong> The million maps came from four independent
           runs, each starting differently. All four settled on the same picture. The standard
@@ -38,8 +38,8 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
           heavily NDP. The pattern is called <em class="svelte-1r4fau9">packing</em>.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">3. The Airdrie split.</strong> The law forces Airdrie into at least two
           districts. The majority map uses two. The minority map cuts the city into four pieces,
           each attached to different outside territory. Splitting a community thin is called <em class="svelte-1r4fau9">cracking</em>.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">4. The chair's flags.</strong> The commission's own chair publicly flagged
-          boundaries as geographically strange. Three of his flags land on the minority map.
-          Zero land on the majority map.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">5. Following city limits (the test that died).</strong> Early data suggested
+          boundaries as geographically strange. Four of his flags land on the minority map, and
+          the audit's own geometry check confirmed three. Zero land on the majority map.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">5. Following city limits (the test that died).</strong> Early data suggested
           the minority map ignored municipal lines. Official map files killed that finding:
           both maps follow city limits at normal Canadian rates (80% and 72%). The audit keeps
           the dead test on display instead of deleting it.</li></ul> <p class="svelte-1r4fau9">Score: the minority map crosses all four live thresholds. The majority map crosses none.</p></section> <section id="fairness" class="svelte-1r4fau9"><h2 class="svelte-1r4fau9">The four fairness measures (votes added)</h2> <p class="svelte-1r4fau9">Now add the 2023 votes and ask: how does each map turn votes into seats? Four standard
@@ -61,7 +61,7 @@ import{E as e,G as t,H as n,L as r,R as i,U as a,W as o,g as s,l as c,nt as l,rt
           neutral maps. The majority's gap leans the other way — mildly NDP-efficient — which
           matches how tidy commission maps behave on Alberta's geography.</li> <li class="svelte-1r4fau9"><strong class="svelte-1r4fau9">4. Declination.</strong> A geometry reading of win margins: does the map treat
           the two parties' wins alike, or does it bend at the 50% line? The minority map bends
-          in the UCP's favour more than 98.8% of neutral maps. The majority map reads normal.
+          further in the UCP's favour than about 98.8% of neutral maps. The majority map reads normal.
           (An early version of this measure had its sign flipped by a coding error; the
           correction is documented, not erased.)</li></ul> <p class="svelte-1r4fau9">Score: three of four fire on the minority map, all in the same direction. The fourth
         lands just under the line, pointing the same way. The majority map is ordinary on
