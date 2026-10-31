@@ -1194,9 +1194,9 @@ look at them before choosing. They are:
 Choosing D over A removes the minority map's city-versus-rest flag from the
 primary comparison; it is still reported, under set A. The committee's map has
 not been published, so this choice is made without knowledge of its results.
-The author had heard the public reporting on the advisory panel's draft around
-the committee's October 28 meeting, the reporting Amendment 17 records; no panel
-or committee map had been seen.
+The only prior information about the panel's draft was a meme posted on Facebook
+around the committee's October 28 meeting, the item Amendment 17 calls public
+reporting. No panel or committee map, and no result from either, had been seen.
 
 The four sets are four readings of what a neutral map is, and all four stay in
 the report as competing readings, each labelled. D is primary because it alone
