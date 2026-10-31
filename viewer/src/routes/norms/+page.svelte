@@ -170,7 +170,7 @@
           is weak protection against a map designed to shape those same elections.
         </li>
         <li>
-          The panel advises; the five MLA votes decide. Bipartisan advice with a
+          The panel advises; the MLAs' votes decide. Bipartisan advice with a
           government-controlled decision is a different institution from an independent
           commission. The difference is exactly the norm at issue.
         </li>
