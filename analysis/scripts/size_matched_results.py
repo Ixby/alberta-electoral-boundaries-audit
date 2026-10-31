@@ -76,6 +76,19 @@ def load_chains(roots, k, suffix):
     return {i: pd.read_csv(f, usecols=lambda c: c in set(REGISTERED) | set(REPORTED)) for i, f in sorted(found.items())}
 
 
+def seat_counts(roots, suffix):
+    """District counts with a chain directory for this set, e.g. simulation_checkpoints_k91_eps25."""
+    pat = re.compile(rf"simulation_checkpoints_k(\d+){re.escape(suffix)}$")
+    ks = set()
+    for root in roots:
+        d = Path(root) / "data"
+        for f in d.iterdir() if d.exists() else []:
+            m = pat.match(f.name)
+            if m and f.is_dir():
+                ks.add(int(m.group(1)))
+    return sorted(ks)
+
+
 def neff_uncapped(x):
     """Diagnostic only, not the registered estimator: the same first-non-positive truncation
     with no lag cap (FFT autocorrelation, lags up to n/4)."""
@@ -140,12 +153,10 @@ def main(a):
         if m not in real:
             raise SystemExit(f"--candidate {m}: not in {a.real} (keys: {', '.join(real)})")
         k = int(real[m]["n_parts"])
-        if k not in (89, 91):
-            raise SystemExit(f"--candidate {m}: {k} districts; there are neutral-map sets for 89 and 91 only")
         placed.setdefault(k, {})[m] = real[m]
     res = {}
     for key, (suffix, label) in SETS.items():
-        for k in (89, 91):
+        for k in seat_counts(roots, suffix):
             chains = load_chains(roots, k, suffix)
             if not chains:
                 continue
