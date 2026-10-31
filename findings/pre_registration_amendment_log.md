@@ -17,7 +17,7 @@ type: project
 **Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30.
+**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30 · 2026-10-31.
 
 ---
 
@@ -46,6 +46,7 @@ type: project
 | 2026-10-29 | Amendment 21 | s.15(2) spec; Amendment 17 corrections | s.15(2) criteria fixed and checked against the commissions; effective-sample rule; labels; municipality weight W = 0.5 anchored to the 2019 map |
 | 2026-10-30 | Amendment 22 | Errata | thresholds.md Option D: the neutral plans have 87 districts, not 89 |
 | 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
+| 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
 
 ---
 
