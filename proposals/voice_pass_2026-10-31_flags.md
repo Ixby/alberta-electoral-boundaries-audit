@@ -86,3 +86,14 @@ Items already corrected are marked done. Line numbers are as the writers reporte
 14. §5.9.7 EBCA "decennial census" vs 2026 census as next baseline — check
 15. §5.4.1 "median of 10,000 legal maps" vs 1,010,000
 - §7 first entry last sentence "The audit does (a) correctly" looks erroneous
+## voice-report (b15efb46)
+1. l.466 "Canada counts its population every ten years" (five); l.466 vs l.123 "had to use the 2021 census" vs Casing 4 "the commission's 2024 estimates"
+2. l.109 and Casing 3 heading "a quarter larger" (11.5% vs 2.8% above average ≈ 8.5% larger)
+3. l.39 "five legal reasons" vs eight numbered legal lessons
+4. ll.213, 542 "94th percentile" vs scorecard/Plain Reading 94.5th
+5. submission counts "about 1,345" (ll.75, 325) vs "~1,340" (l.291)
+6. l.357 EG "Act II's headline number" vs Casing 6 (seats at a tied vote) headline; EG is the reported miss
+7. l.293 "The audit ran that count" refers to nothing before it
+8. l.490 vs ledger l.315: park extension made to qualify for s.15(2) vs qualifies without it
+9. l.550 DNA analogy "90% chance someone else matches too" -> "is the source"
+10. subtitle "Electoral Boundary Commission" vs "Boundaries"; l.277 footnote "seven-rationale" though six remain; file name hansard_april16_motion19.md vs Motion 37; retraction condition 5 cites a Quebec ruling the report never introduces
