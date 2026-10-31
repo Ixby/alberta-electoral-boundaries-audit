@@ -10,14 +10,18 @@
 
 # Calibrating the November verdict on neutral maps: design, method, rationale, timeline
 
-**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
+**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:55 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
 
 ## Plain terms
 
 - **Computer-drawn ("neutral") map.** A map a computer draws by one rulebook: every district in one piece, every population inside the rulebook's limits. It never sees votes, parties or who holds a seat. Neutral means nobody is steering. It does not mean ideal, and it does not mean what the Act asks for.
 - **Sets A–D.** The same computer with four rulebooks. A keeps populations within ±12.5% of average. B allows the Act's full ±25%. C also tries to keep towns whole. D allows up to four large special districts under s.15(2). All four are built to stay inside the Act's population limits.
 - **A flag "fires".** Each structural flag is a line drawn halfway between the two commission maps. A map fires it by landing past that line on the minority's side. Firing is not breaking the law.
-- **Why computer maps fire.** The computer only follows its rulebook. It does not weigh what s.14 lets a commission weigh, such as municipalities (s.14(b)) and clear boundaries (s.14(e)). So on population equality and boundaries along town and county lines, both commission maps are tidier than every computer-drawn map. The halfway line sits between two tidy maps, and the untidier computer maps land past it. They fire because they are untidier than both maps, not because they resemble the minority.
+- **Why computer maps fire.** The computer only follows its rulebook. It does not weigh what s.14 lets a commission weigh, such as municipalities (s.14(b)) and clear boundaries (s.14(e)). Both commission maps have more equal populations and more boundary on town and county lines than every computer-drawn map. The halfway line sits between two maps that are both outside the computer's range, so computer maps land on the minority's side of it. They fire because they sit further out than both commission maps, not because they resemble the minority.
+- **Words used.** Equal populations: how close districts are to the same size. Unneeded splits: a municipality split when its population did not require it, which is how a community gets cracked. Boundaries on municipal lines: how much of a map's boundary follows town, city and county limits. No single word sums these up, and none of them says whether a map favours a party. The partisan lane checks that.
+- **Cities counted as towns.** The audit counts cities as towns in two places. Neither changes how the three real maps (2019, majority, minority) compare:
+  - **s.15(2)(c)** (Amendment 21). Read by legal status alone, "town" would make two Medicine Hat districts and one Tsuut'ina Calgary district on each map eligible to sit 50% under. All of them sit at or above the average population (+1.4% to +18.5% on 2021 figures), so none uses the allowance. No special district on any of the three maps holds a city. The reading only stops set D's computer from shrinking a city district to half size, which no Alberta commission has done.
+  - **S2** (Amendment 9) counts every split city, town and specialized municipality. That includes the 10 too big for one legal district: Airdrie, Calgary, Edmonton, Grande Prairie, Lethbridge, Medicine Hat, Red Deer, St. Albert, Strathcona County and Wood Buffalo. Every map, real or computer-drawn, splits all 10, so they add the same count to each.
 
 ## 1. Rationale
 
@@ -111,7 +115,18 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
   | S2 towns split | 24 – 31 – 41 | 30: 41.5% of computer maps split 30 or fewer | 23: fewer than all 200 |
   | S5 neighbour drain | 0 – 0.0050 – 0.0454 | 0.0006: 12% at or below | 0.0072: 37% at or above |
 
-  S6 reads district names and cannot be placed. Two cautions: set D allows the Act's widest population range, so its spread is wide partly by design, and set A would be tighter; and computer maps are built from voting-area blocks, which may hold down their share of boundary on town and county lines. The second has not been tested.
+  S6 reads district names and cannot be placed.
+
+  The registered S2 counts land: any 5 hectares of a municipality in a second district is a split. Counted by people instead (a split needs a second district holding at least 2% of the municipality's people, Amendment 17's piece rule), at voting-area resolution, and leaving out the 10 municipalities that must be split, the picture changes for the minority:
+
+  | Unneeded splits | 2019 (87 districts) | Majority (89) | Minority (89) | Computer maps (91) |
+  |---|---|---|---|---|
+  | Count | 0 | 1 (Strathmore) | 7 (Blackfalds, Chestermere, Coaldale, Lac la Biche County, Okotoks, Stony Plain, Sylvan Lake) | 6 – 11 – 16 |
+  | Computer maps with as few or fewer | 0 of 200 | 0 of 200 | 15 of 200 | |
+
+  By land the minority's 30 is mid-range among computer maps; by people its 7 is near the low end. The people count is a calibration measure, not the registered S2. Single splits at voting-area resolution can be edge effects and have not been checked on the map. Script `analysis/scripts/calibration_unneeded_splits.py`; output `data/outputs/calibration_unneeded_splits_91_2026-10-31.json`.
+
+  Two cautions: set D allows the Act's widest population range, so its spread is wide partly by design, and set A would be tighter; and computer maps are built from voting-area blocks, which may hold down their share of boundary on town and county lines. The second has not been tested.
 - **89 districts, and the 87-district structural lane:** pending. This file and the findings file will be updated when they land.
 
 ## 6. Limits
