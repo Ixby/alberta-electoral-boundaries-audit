@@ -56,7 +56,20 @@ export function decodeTile(buf: ArrayBuffer, dv: DataView, off: number): TileFea
 		feats[i] = { id: vid, coords: new Float32Array(buf, off, nPts * 2) };
 		off += nPts * 2 * 4;
 	}
+	// Rings are exterior-only (holes dropped by the tiler), so a poll that surrounds
+	// another is a solid ring. deck.gl draws later features on top and picks the top
+	// one, so draw largest first: an enclosed poll is always smaller than the ring
+	// around it, and stays visible and hoverable.
+	const area = new Map(feats.map((f) => [f, ringArea(f.coords)]));
+	feats.sort((a, b) => area.get(b)! - area.get(a)!);
 	return feats;
+}
+
+/** Absolute shoelace area of a flat XY ring. */
+function ringArea(c: Float32Array): number {
+	let s = 0;
+	for (let i = 0, j = c.length - 2; i < c.length; j = i, i += 2) s += c[j] * c[i + 1] - c[i] * c[j + 1];
+	return Math.abs(s) / 2;
 }
 
 /** Decode a binary bundle into a tile archive keyed by tile key. */

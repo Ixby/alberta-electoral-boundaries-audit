@@ -86,7 +86,8 @@ for (const { community, muni, edCounts } of places.values()) {
 	// The place's own centroid + radius (m) for the distinct community marker;
 	// fly-to (cx/cy/zoom) stays the ED so the user lands in district context.
 	const g = placeGeom[community + '|' + muni];
-	const entry = { name, ed: bestEd, cx: e.cx, cy: e.cy, zoom: e.zoom };
+	// k: the place key, for looking up its outline (community_outlines_2019.json).
+	const entry = { name, ed: bestEd, k: community + '|' + muni, cx: e.cx, cy: e.cy, zoom: e.zoom };
 	if (g) {
 		entry.ccx = g[0];
 		entry.ccy = g[1];
