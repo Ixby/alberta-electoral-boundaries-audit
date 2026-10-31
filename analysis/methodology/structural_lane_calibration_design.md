@@ -10,7 +10,7 @@
 
 # Calibrating the November verdict on neutral maps: design, method, rationale, timeline
 
-**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:50 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
+**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:50 MDT; splits recounted by dissemination area 10:03 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
 
 ## Plain terms
 
@@ -18,7 +18,7 @@
 - **Sets A–D.** The same computer with four rulebooks. A keeps populations within ±12.5% of average. B allows the Act's full ±25%. C also tries to keep towns whole. D allows up to four large special districts under s.15(2). All four are built to stay inside the Act's population limits.
 - **A flag "fires".** Each structural flag is a line drawn halfway between the two commission maps. A map fires it by landing past that line on the minority's side. Firing is not breaking the law.
 - **Why computer maps fire.** The computer only follows its rulebook. It does not weigh what s.14 lets a commission weigh, such as municipalities (s.14(b)) and clear boundaries (s.14(e)). Both commission maps have more equal populations and more boundary on town and county lines than every computer-drawn map. The halfway line sits between two maps that are both outside the computer's range, so computer maps land on the minority's side of it. They fire because they sit further out than both commission maps, not because they resemble the minority.
-- **Words used.** Equal populations: how close districts are to the same size. Unneeded splits: a municipality split when its population did not require it, which is how a community gets cracked. Boundaries on municipal lines: how much of a map's boundary follows town, city and county limits. No single word sums these up, and none of them says whether a map favours a party. The partisan lane checks that.
+- **Words used.** Equal populations: how close districts are to the same size. Unneeded splits: a municipality split when its population did not require it. That is a cracking signal, since cracking divides a community's voters among districts. Boundaries on municipal lines: how much of a map's boundary follows town, city and county limits. Packing, crowding one side's voters into a few lopsided districts, shows in vote shares, so the partisan lane measures it (efficiency gap, declination). None of the structural measures says whether a map favours a party; they show where a map did what a gerrymander would need to do.
 - **Cities counted as towns.** The audit counts cities as towns in two places. Neither changes how the three real maps (2019, majority, minority) compare:
   - **s.15(2)(c)** (Amendment 21). Read by legal status alone, "town" would make two Medicine Hat districts on each map, and one Tsuut'ina Calgary district on each 2026 map, eligible to sit 50% under. All of them sit above the average population (+1.4% to +18.5% on 2021 census figures), so none uses the allowance. The districts more than 25% under that meet three criteria hold no city. Two majority districts, Calgary-North East and Calgary-South East, are also more than 25% under on 2021 figures (growth areas the census predates), but they meet one criterion under the audit's reading and two under the legal-status reading, so they are not eligible either way. The reading only stops set D's computer from shrinking a city district to half size, which no Alberta commission has done.
   - **S2** (Amendment 9) counts every split city, town and specialized municipality. That includes the 10 too big for one legal district: Airdrie, Calgary, Edmonton, Grande Prairie, Lethbridge, Medicine Hat, Red Deer, St. Albert, Strathcona County and Wood Buffalo. Every map, real or computer-drawn, splits all 10, so they add the same count to each.
@@ -117,14 +117,26 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
   S6 reads district names and cannot be placed.
 
-  The registered S2 counts land: any 5 hectares of a municipality in a second district is a split. Counted by people instead (a split needs a second district holding at least 2% of the municipality's people, Amendment 17's piece rule), at voting-area resolution, and leaving out the 10 municipalities that must be split, the picture changes for the minority:
+  The registered S2 counts land: any 5 hectares of a municipality in a second district is a split. Counted by people instead, leaving out the 10 municipalities that must be split, the picture changes for the minority. A split here needs a second district holding at least 2% of the municipality's people (Amendment 17's piece rule). People are 2021 census dissemination areas laid over each map's official boundaries.
 
-  | Unneeded splits | 2019 (87 districts) | Majority (89) | Minority (89) | Computer maps (91) |
-  |---|---|---|---|---|
-  | Count | 0 | 1 (Strathmore) | 7 (Blackfalds, Chestermere, Coaldale, Lac la Biche County, Okotoks, Stony Plain, Sylvan Lake) | 6 – 11 – 16 |
-  | Computer maps with as few or fewer | 0 of 200 | 0 of 200 | 15 of 200 | |
+  | Map | Unneeded splits (people in the second district) |
+  |---|---|
+  | 2019 (87 districts) | 1: Spruce Grove (3.5% and 1.5%; the city has grown and annexed land since the 2017 lines) |
+  | Majority (89) | 0 |
+  | Minority (89) | 8: Blackfalds (43%), Sylvan Lake (20%), Bowden (16%), Coaldale (14%), Okotoks (9%), Chestermere (9%), Devon (5%), Lac la Biche County (4%) |
 
-  By land the minority's 30 is mid-range among computer maps; by people its 7 is near the low end. The people count is a calibration measure, not the registered S2. Single splits at voting-area resolution can be edge effects and have not been checked on the map. Script `analysis/scripts/calibration_unneeded_splits.py`; output `data/outputs/calibration_unneeded_splits_91_2026-10-31.json`.
+  The registered size-matched town-split measure (Amendment 17: cities and towns of 20,000–150,000 split into more pieces than their population requires) places the two maps against all four rulebooks at 89 districts (`findings/size_matched_results_2026-10-30.md`, provisional):
+
+  | Rulebook | Computer maps: 5th – median – 95th | Majority (0) | Minority (6) |
+  |---|---|---|---|
+  | A: ±12.5% | 4 – 7 – 9 | below all | 33rd percentile |
+  | B: ±25% | 4 – 6 – 8 | below all | 45th percentile |
+  | C: tries to keep towns whole | 0 – 1 – 3 | within range (about 18% of these maps also split none) | above all (flag) |
+  | D: s.15(2) | 4 – 6 – 8 | below all | 48th percentile |
+
+  So the majority splits towns about as often as a computer that tries to keep them whole, and the minority splits them about as often as a computer that does not try. Every computer map at 91 districts makes 10 to 24 unneeded splits of municipalities of any size (median 16), more than either commission map; that count leans on the 2% rule, which is coarse for small towns, and on area sharing inside dissemination areas.
+
+  Earlier in this session (09:48 MDT) the same count was made at voting-area resolution. It gave the majority a false split (Strathmore: 0.4% of its people) and the minority a false one (Stony Plain: 1.6%), and missed Bowden and Devon. It was replaced at 10:03 MDT. Municipal limits are 2021 census limits; annexations since then are not reflected. Script `analysis/scripts/calibration_unneeded_splits.py`; output `data/outputs/calibration_unneeded_splits_91_2026-10-31.json`.
 
   Two cautions: set D allows the Act's widest population range, so its spread is wide partly by design, and set A would be tighter; and computer maps are built from voting-area blocks, which may hold down their share of boundary on town and county lines. The second has not been tested.
 - **89 districts, and the 87-district structural lane:** pending. This file and the findings file will be updated when they land.
