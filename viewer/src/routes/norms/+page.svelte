@@ -73,7 +73,7 @@
       <h2>What the norm bought, in this very cycle</h2>
       <p>
         The 2025–26 commission is its own best exhibit. It held hearings in sixteen
-        communities. It received 1,147 written submissions. It published an interim
+        communities. It received 1,345 written submissions. It published an interim
         proposal, took criticism, and reversed itself on the strength of eighty-plus
         submissions. That is the system visibly responding to public input. Whatever else the
         commission failed at, the process around it worked exactly as designed: in public,
@@ -158,7 +158,7 @@
         </li>
         <li>
           "The statute allows it" is the law lens, and it is answered there: every step was
-          lawful. The norms question is different. Most provinces make a commission's map
+          lawful. The norms question is different. Some jurisdictions make a commission's map
           effective <em>unless</em> the legislature overrides it. Alberta's reversed default
           means the governing party always controls whether any commission map becomes law.
           Lawful and customary are different questions.
@@ -258,13 +258,13 @@
             <tr><td>Arm's-length drafting</td><td class="yes">Yes</td><td class="part">Partial — the panel drafts; the committee's six MLAs (four government) decide</td></tr>
             <tr><td>Public hearings before adoption</td><td class="yes">Yes — sixteen communities</td><td class="no">No — none planned on the map produced</td></tr>
             <tr><td>Draft published for challenge</td><td class="yes">Yes — interim proposal revised in public</td><td class="no">No — none announced</td></tr>
-            <tr><td>New public submissions accepted</td><td class="yes">Yes — 1,147 received</td><td class="no">No — reuses the commission's archive</td></tr>
+            <tr><td>New public submissions accepted</td><td class="yes">Yes — 1,345 received</td><td class="no">No — reuses the commission's archive</td></tr>
             <tr><td>Demonstrated responsiveness</td><td class="yes">Yes — reversed itself on 80+ submissions</td><td class="pend">Pending</td></tr>
             <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — a judge, appointed by cabinet</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
             <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of six</td></tr>
             <tr><td>Published reasons for contested choices</td><td class="yes">Yes — both reports</td><td class="pend">Pending</td></tr>
             <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — last done in Alberta in 1992, and faulted by the Court of Appeal in 1994</td></tr>
-            <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 2 Partial · 4 No · 2 Pending</td></tr>
+            <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 1 Partial · 5 No · 2 Pending</td></tr>
           </tbody>
         </table>
       </div>
@@ -279,7 +279,7 @@
         Read the table honestly, in both directions. The commission scores nine of nine
         <em>by construction</em>. The criteria describe the institution the norm built, and
         the commission was that institution. The informative part looks forward. Four of the
-        committee's No cells are features it can still add between now and November:
+        committee's No and Pending cells are features it can still add between now and November:
         hearings, a published draft, new submissions, and the responsiveness they make
         possible. If it adds them, the audit's process-departure finding is materially
         mitigated, and the audit has committed in writing to saying so.
