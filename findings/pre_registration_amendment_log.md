@@ -1275,6 +1275,17 @@ Tsuut'ina Calgary district on each 2026 map newly meet three criteria. All of th
 sit above the average population (+1.4% to +18.5% on 2021 figures), so no
 district any commission placed under s.15(2) changes.
 
+**Diagnostic before signing.** The author asked whether the distinction matters
+in practice. On the real maps it does not (above). For set D it does. One short
+chain at each size on the status-reading table (validation counts only, no
+outcome statistic; `analysis/methodology/amendment25_diagnostic/`) gave 45 of 61
+plans at 89 districts, and 44 of 61 at 91, with at least one special district
+that qualifies only under the status reading. Those districts are built around
+Fort McMurray, Medicine Hat, Brooks, Lloydminster, Lethbridge, Grande Prairie
+and, once, Calgary, at 25% to 50% under the average. No Alberta commission has
+drawn such a district. On the existing set D plans, the same check finds none,
+and finds no special district that fails both readings.
+
 **Disclosure: what existed before this choice.**
 
 - Set D (Amendment 23 rule) had been run at 89 and 91 districts, and its
