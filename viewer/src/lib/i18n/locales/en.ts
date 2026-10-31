@@ -40,13 +40,13 @@ export default {
 	},
 	disclaimer: {
 		text:
-			'This site has been translated by AI. Some content may still appear in English while translations are in progress. If you notice errors or would like to help translate this project, please %s.',
+			'AI translated this site. Some of it may still appear in English while the translations are in progress. If you notice errors or would like to help translate this project, please %s.',
 		link_label: 'contact us',
 		// {count} is replaced at runtime with the live word count of the
 		// English prose, so volunteer translators know the size of the job
 		// before raising their hand. Computed, never hardcoded — it stays
 		// correct as the prose grows.
-		word_count: 'For scale: the English prose runs about {count} words. You are welcome to contribute to all of it or just a portion \u2014 in most cases the work is correcting minor errors the machine made, not translating from scratch.'
+		word_count: 'For scale: the English prose runs about {count} words. You are welcome to take on all of it or just a part. In most cases the work is fixing small errors the machine made, not translating from scratch.'
 	},
 	// Opening epigraph: a real exchange that frames how to read the cover map and
 	// states the project's ethic before any finding. The commenter is anonymized
@@ -190,15 +190,15 @@ export default {
 	hero: {
 		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Reports',
 		subtitle:
-			"Alberta's commission produced two competing riding maps in 2026. This audit ran the same tests on both, asking one question: do they treat voters the same way?",
+			"Alberta's commission produced two competing riding maps in 2026. I ran the same tests on both and asked one question: do they treat voters the same way?",
 		badge: 'Official Elections Alberta maps — Published May 2026',
-		cover_note: 'Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps — boundaries shift, voters stay put. Scroll down for the analysis.',
+		cover_note: 'Click to zoom in and explore all three boundary proposals at once. Pin the viewport and flip between maps. The boundaries shift; the voters stay put. Scroll down for the analysis.',
 		cover_note_1:
-			'This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries — or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.',
+			'This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map and the 2019 enacted boundaries, or layer all three to see exactly where they part ways. <strong>Detail</strong> colours each polling area by how people voted in 2023. <strong>Trend</strong> adds party shading by district (blue UCP, orange NDP). <strong>Lines</strong> turns boundaries on and off. <strong>Find</strong> jumps to any riding by name.',
 		cover_note_2:
-			"Try locking the viewport and flipping between maps — watch a boundary shift while the voters underneath stay still. The whole question, in one gesture.",
+			"Lock the viewport and flip between maps. Watch a boundary move while the voters underneath stay still. The whole question, in one gesture.",
 		cover_note_3:
-			"When you're done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.",
+			"When you're done exploring, scroll down for the summary. The full technical analysis is in the Resources section. All of the data comes from official Elections Alberta shapefiles and other government and open-source records.",
 		image_alt:
 			'Alberta electoral district maps — minority commission proposal, coloured by 2023 vote',
 		map_hint: 'Click to explore interactively',
@@ -278,77 +278,77 @@ export default {
 		'electoral-district': {
 			term: 'Electoral district (ED)',
 			definition:
-				'The geographic area that elects one member to the provincial legislature. Often shortened to "ED" after first use. Each ED has one MLA. (The word "riding" usually refers to federal districts; in the provincial context the proper term is electoral district.)'
+				'The geographic area that elects one member to the provincial legislature, often shortened to "ED" after first use. Each ED has one MLA. (The word "riding" usually refers to federal districts. Provincially, the proper term is electoral district.)'
 		},
 		riding: {
 			term: 'Riding',
 			definition:
-				'In Canadian usage, this most often refers to a federal electoral district. The Alberta provincial equivalent is called an "electoral district" (ED). The audit uses the provincial term throughout.'
+				'In Canada, the word most often means a federal electoral district. In Alberta, the provincial equivalent is called an "electoral district" (ED). The audit uses the provincial term throughout.'
 		},
 		mla: {
 			term: 'MLA',
 			definition:
-				'Member of the Legislative Assembly — the person elected from one electoral district to represent it in the Alberta legislature.'
+				'Member of the Legislative Assembly: the person one electoral district elects to represent it in the Alberta legislature.'
 		},
 		ucp: {
 			term: 'UCP',
 			definition:
-				"United Conservative Party — Alberta's current governing provincial party. Formed in 2017 from the merger of the Progressive Conservatives and the Wildrose Party; has held government since 2019."
+				"United Conservative Party, Alberta's governing provincial party today. It formed in 2017 when the Progressive Conservatives and the Wildrose Party merged, and it has held government since 2019."
 		},
 		ndp: {
 			term: 'NDP',
 			definition:
-				"New Democratic Party (Alberta NDP) — Alberta's current official opposition. The Alberta NDP held government from 2015 to 2019."
+				"New Democratic Party (Alberta NDP), Alberta's official opposition today. It held government from 2015 to 2019."
 		},
 		gerrymander: {
 			term: 'Gerrymander',
 			definition:
-				'Drawing electoral boundaries for partisan advantage. The word comes from an 1812 Massachusetts map. Canadian law has no offence by that name, which limits what a court will call it, not whether it happens; the closest legal test is effective representation under section 3 of the Charter.'
+				'Drawing electoral boundaries to give a party an advantage. The word comes from an 1812 Massachusetts map. Canadian law has no offence by that name. That limits what a court will call it, not whether it happens. The closest legal test is effective representation under section 3 of the Charter.'
 		},
 		cracking: {
 			term: 'Cracking',
 			definition:
-				"A gerrymandering technique that splits a voting bloc across many districts so it never reaches a majority in any single one. For example, dividing a city across four ridings so its voters are outnumbered in each."
+				"A gerrymandering technique: split a voting bloc across many districts so it never reaches a majority in any single one. Divide a city across four ridings, for example, and its voters are outnumbered in each."
 		},
 		packing: {
 			term: 'Packing',
 			definition:
-				"A gerrymandering technique that concentrates one party's voters into a small number of districts. The party wins those districts overwhelmingly but \"wastes\" many votes — leaving fewer of its voters available to compete in other districts."
+				"A gerrymandering technique: crowd one party's voters into a small number of districts. The party wins those districts overwhelmingly but \"wastes\" many votes, and fewer of its voters are left to compete in other districts."
 		},
 		draining: {
 			term: 'Draining',
 			definition:
-				"A term this audit uses for a follow-on effect of cracking and packing: the wasted votes those techniques produce get pushed into strategically chosen places, altering the political character of nearby electoral districts. It is the audit's own framing rather than an established concept in the redistricting literature — the audit tests for the effect and finds results consistent with it, but treats it as exploratory rather than a settled methodology."
+				"This audit's term for a follow-on effect of cracking and packing. The wasted votes those techniques produce get pushed into strategically chosen places, where they alter the political character of nearby electoral districts. The framing is the audit's own, not an established concept in the redistricting literature. The audit tests for the effect and finds results consistent with it, but treats it as exploratory, not as a settled methodology."
 		},
 		anchoring: {
 			term: 'Anchoring',
 			definition:
-				'How firmly the proposed boundaries follow existing municipal lines (city limits, town boundaries). A highly anchored map mostly respects those lines; a loosely anchored map departs from them often — especially at politically meaningful spots, which is a structural warning sign.'
+				'How firmly the proposed boundaries follow existing municipal lines, such as city limits and town boundaries. A highly anchored map mostly respects those lines. A loosely anchored map often departs from them, especially at politically meaningful spots, and that is a structural warning sign.'
 		},
 		'charter-s3': {
 			term: 'Section 3 of the Charter',
 			definition:
-				'The section of the Canadian Charter of Rights and Freedoms that guarantees citizens the right to vote. Canadian courts have interpreted it not as a strict "one person, one vote" rule but as a right to "effective representation."'
+				'The section of the Canadian Charter of Rights and Freedoms that guarantees citizens the right to vote. Canadian courts read it not as a strict "one person, one vote" rule but as a right to "effective representation."'
 		},
 		'effective-representation': {
 			term: 'Effective representation',
 			definition:
-				"The standard Canadian courts apply when judging electoral boundaries. It means voters should have a meaningful voice — not just numerical equality of riding populations, but also recognition of community ties, geography, and minority representation. The leading statement is from the Supreme Court of Canada's 1991 Saskatchewan Reference."
+				"The standard Canadian courts apply when they judge electoral boundaries. It means voters should have a meaningful voice. Equal riding populations are part of that, but so is recognition of community ties, geography and minority representation. The leading statement is from the Supreme Court of Canada's 1991 Saskatchewan Reference."
 		},
 		ebc: {
 			term: 'Electoral Boundaries Commission (EBC)',
 			definition:
-				"The body that draws Alberta's provincial electoral boundaries under the EBCA. The 2026 commission was chaired by Justice Miller and split 3–2 among its commissioners, producing two competing proposals (the majority and minority proposals) rather than a single recommendation."
+				"The body that draws Alberta's provincial electoral boundaries under the EBCA. Justice Miller chaired the 2026 commission. Its commissioners split 3–2 and produced two competing proposals, the majority and minority proposals, instead of a single recommendation."
 		},
 		'lunty-committee': {
 			term: 'Lunty committee',
 			definition:
-				"The Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, chaired by UCP MLA Brandon Lunty. Government Motion 37 (introduced April 16, passed April 21, 2026) created it after the Assembly set both commission maps aside. It oversees an Independent Advisory Panel that produces a 91-seat proposal, and must report to the Legislature by November 2, 2026. It is not part of the standard commission process, and no law requires it to hold public hearings."
+				"The Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, chaired by UCP MLA Brandon Lunty. Government Motion 37 (introduced April 16, passed April 21, 2026) created it after the Assembly set both commission maps aside. It oversees an Independent Advisory Panel that produces a 91-seat proposal, and it must report to the Legislature by November 2, 2026. It sits outside the standard commission process. No law requires it to hold public hearings."
 		},
 		'advisory-panel': {
 			term: 'Independent Advisory Panel',
 			definition:
-				"The panel the Lunty committee engaged under Government Motion 37 to draw a 91-seat proposal. The Premier nominated the Hon. Monte Solberg and Darwin Durnie; the Leader of the Opposition nominated Dr. Gerard Kennedy and Brent Robinson. Alberta's acting chief justice declined to help find a judge to chair it, and retired Court of Appeal justice Brian O'Ferrall was later named chair. The panel advises; the committee's MLAs decide."
+				"The panel the Lunty committee engaged under Government Motion 37 to draw a 91-seat proposal. The Premier nominated the Hon. Monte Solberg and Darwin Durnie. The Leader of the Opposition nominated Dr. Gerard Kennedy and Brent Robinson. Alberta's acting chief justice declined to help find a judge to chair it, and retired Court of Appeal justice Brian O'Ferrall was later named chair. The panel advises. The committee's MLAs decide."
 		},
 		ebca: {
 			term: 'EBCA',
@@ -358,22 +358,22 @@ export default {
 		ensemble: {
 			term: 'The 1.01-million-map test',
 			definition:
-				'A computer drew 1.01 million legal Alberta maps at random, all following the same rules. A real map counts as unusual when it falls outside what almost all of these neutral maps produce.'
+				'A computer drew 1.01 million legal Alberta maps at random. All of them follow the same rules, and the computer never sees a vote, which is what makes them neutral. A real map counts as unusual when it falls outside what almost all of these maps produce.'
 		},
 		efficiency_gap: {
 			term: 'Efficiency gap',
 			definition:
-				'A measure of "wasted" votes — votes beyond what a candidate needed to win, plus every vote for a loser — compared between the two parties. A large gap points to a one-sided map.'
+				'A measure of "wasted" votes, compared between the two parties. A vote is wasted if it goes to a loser, or if it goes to a winner beyond what the win needed. A large gap points to a one-sided map.'
 		},
 		mean_median: {
 			term: 'Mean-median gap',
 			definition:
-				'The gap between a party\'s average vote share across districts and its middle (median) one. A large gap suggests its voters are spread in a way that wastes votes.'
+				'Take a party\'s vote share in each district. The mean-median gap is the distance between the average of those shares and the middle (median) one. A large gap suggests its voters are spread in a way that wastes votes.'
 		},
 		declination: {
 			term: 'Declination',
 			definition:
-				'A measure of how lopsidedly each party wins its seats — by blowouts or by squeakers. On the minority map it points the same way as the other measures (toward the governing party) after a June 2026 sign correction.'
+				'A measure of how lopsidedly each party wins its seats: by blowouts or by squeakers. After a June 2026 sign correction, it points the same way on the minority map as the other measures do, toward the governing party.'
 		},
 		seats_5050: {
 			term: 'Seats at a tie',
@@ -391,67 +391,67 @@ export default {
 	home: {
 		hero: {
 			h1: "Alberta's Electoral Map, Audited",
-			subtitle: "Alberta's boundary commission split in 2026 and filed two maps. I compared both with 1.01 million neutral maps drawn by computer. The majority's map looks like them. The minority's favours the UCP more than almost all of them.",
-			status: "The committee map that replaces both is due Monday, November 2, 2026. This page will score it within 72 hours.",
-			week: "<strong>This week.</strong> I registered the November tests before the committee's map existed (OSF registration qsgy8), and I'll publish the scores whichever way they point. The first check is the one the government picked: <a href=\"#recommendation-5\">Recommendation 5</a>.",
+			subtitle: "Alberta's boundary commission split in 2026 and filed two maps. I set both beside 1.01 million maps a computer drew with no stake in who wins. The majority's map sits among them. The minority's leans to the UCP further than almost any of them.",
+			status: "The committee map that replaces both is due Monday, November 2, 2026. Within 72 hours, this page will score it.",
+			week: "<strong>This week.</strong> I registered the November tests before the committee's map existed (OSF registration qsgy8). I'll publish the scores whichever way they point. The first check is the one the government picked: <a href=\"#recommendation-5\">Recommendation 5</a>.",
 		},
 		happened: {
 			h: "What happened",
-			p1: "Every so often Alberta redraws its ridings, the districts that each elect one MLA. Where the lines go can decide which party wins a seat.",
-			p2: "On March 23, 2026 the independent commission doing the redraw split three to two and filed two maps. Both are legal under the Act. The chair and the two commissioners nominated by the opposition wrote the majority map. The two commissioners nominated by the government wrote the minority map. Both worked from the same rules, data and 1,147 public submissions.",
-			p3: "The majority map looks like the maps a neutral process draws. The minority map doesn't:",
-			li1: "It splits Airdrie, a city of 85,805, into four districts, and leaves its residents a minority in every one.",
-			li2: "In north-east and central Calgary, where the NDP won thirteen of seventeen seats in 2023, it draws districts 11.5% above the provincial average.",
-			li3: "At a perfectly tied vote it gives the UCP 51.7% of the seats. Only 69 of 1,010,000 neutral maps give more.",
-			li4: "On 2023 election-day votes it yields 60 of 89 seats for the UCP, against 55 on the majority map.",
-			p4: "The Assembly adopted neither map. On April 21 it passed Government Motion 37, which handed the job to the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, chaired by UCP MLA Brandon Lunty. The committee's 91-seat map is due November 2. CBC has reported that there will be no public hearings on it, and no draft released for the public to comment on first.",
+			p1: "Every so often Alberta redraws its ridings, the districts that each send one MLA to the Legislature. Where the lines fall can decide who wins.",
+			p2: "On March 23, 2026 the independent commission doing the redraw split three to two and filed a map from each side. Both are legal under the Act. The chair and the two commissioners nominated by the opposition wrote the majority map. The two commissioners nominated by the government wrote the minority map. Same rules, same data, same 1,147 public submissions. Two maps.",
+			p3: "The majority map looks like what a neutral process draws. The minority map doesn't:",
+			li1: "It splits Airdrie, a city of 85,805, into four districts. In every one, Airdrie's residents are a minority.",
+			li2: "In north-east and central Calgary, where the NDP won thirteen of seventeen seats in 2023, its districts run 11.5% above the provincial average.",
+			li3: "Split the vote dead even and it hands the UCP 51.7% of the seats. Only 69 of 1,010,000 computer-drawn maps give more.",
+			li4: "Replay the 2023 election-day vote and the UCP takes 60 of 89 seats. On the majority map, 55.",
+			p4: "The Assembly adopted neither map. On April 21 it passed Government Motion 37, which handed the job to the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, chaired by UCP MLA Brandon Lunty. The committee's 91-seat map is due November 2. CBC has reported there will be no public hearings on it, and no draft released first for the public to comment on.",
 			box_h: "What I can say, and what I can't",
 			can1: "The minority map falls outside what 1.01 million neutral maps produce, in the UCP's favour.",
 			can2: "All four partisan-fairness measures lean the same way.",
-			cant1: "That any commissioner meant to do this. My tests measure what a map does, and they can't show motive.",
-			cant2: "That the government directed its nominees. I found no evidence of coordination, and appointing someone is not evidence of it.",
+			cant1: "That any commissioner meant to do this. My tests measure what a map does. They can't show motive.",
+			cant2: "That the government directed its nominees. I found no evidence of coordination. Appointing someone is not evidence of it.",
 			cant3: "That the pattern will happen again. The map that has it was never enacted. November will show whether it comes back.",
 			cant4: "How a court would rule, or what the committee will choose.",
-			p5: "<strong>On the word.</strong> Gerrymandering means drawing lines for partisan advantage. You recognise it by what a map does and by what is known about how it was drawn. Canadian law has no offence by that name, so a court won't rule on gerrymandering as such, but that doesn't mean it can't happen here. The closest legal test is effective representation under section 3 of the Charter, covered below.",
-			p6: "<strong>Reading the cover map.</strong> The cover colours Alberta's 4,765 voting areas by how people in each one voted in 2023: orange where NDP votes are concentrated, blue where UCP votes are. The colour only deepens where lots of people live, so a voting area covering hundreds of square kilometres of parkland stays pale. The land west of Ponoka is pure white because it has no polling station and nobody was recorded living or voting there. The lines on top are the minority map's 89 proposed districts. <a href=\"__BASE__/explorer\">Open the map explorer</a> to switch between all three maps.",
+			p5: "<strong>On the word.</strong> Gerrymandering means drawing lines to give a party an advantage. You recognise it by what a map does, and by what is known about how it was drawn. Canadian law has no offence by that name, so a court won't rule on gerrymandering as such. That doesn't mean it can't happen here. The closest legal test is effective representation under section 3 of the Charter, covered below.",
+			p6: "<strong>Reading the cover map.</strong> The cover colours Alberta's 4,765 voting areas by how people in each one voted in 2023: orange where NDP votes are concentrated, blue where UCP votes are. The colour deepens only where lots of people live, so a voting area spread over hundreds of square kilometres of parkland stays pale. West of Ponoka the land is pure white, because it has no polling station and nobody was recorded living or voting there. The lines on top are the minority map's 89 proposed districts. <a href=\"__BASE__/explorer\">Open the map explorer</a> to switch between all three maps.",
 		},
 		does: {
 			h: "What the minority map does",
-			p1: "The two maps agree on most of Alberta. Where they differ, here is what the minority map chose and what each choice does.",
+			p1: "The two maps agree on most of Alberta. Where they differ, here is what the minority map chose, and what each choice does.",
 			h3_1: "One city, four districts",
 			p2: "Airdrie has 85,805 people (2024 municipal census), one city council and one school division. The law caps each district at one-and-a-quarter times the provincial average, so Airdrie needs at least two districts. The majority map gives it two.",
-			p3: "The minority map gives it four: north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, and centre-south to Calgary-Airdrie. Each piece is joined to a different rural or Calgary-edge district, and Airdrie's residents are a minority in all four. The split meets every criterion of my pre-registered cracking test. The majority's two-way split meets none.",
-			p4: "Splitting a community so thinly that it can't decide any of its seats is called cracking. Airdrie would have four MLAs, and most of the voters who elect each one live outside Airdrie.",
+			p3: "The minority map gives it four: north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, and centre-south to Calgary-Airdrie. Each piece is joined to a different rural or Calgary-edge district, and in all four, Airdrie's residents are a minority. The split meets every criterion of my pre-registered cracking test. The majority's two-way split meets none.",
+			p4: "Splitting a community so thinly that it can't decide any of its seats is called cracking. Airdrie would have four MLAs. Most of the voters who elect each one live outside Airdrie.",
 			h3_2: "Bigger districts where the NDP is strongest",
-			p5: "In Calgary's north-east and central districts, where the NDP won thirteen of seventeen seats in 2023, the minority map's districts average 11.5% above the provincial average population. The majority's average 2.8%. A bigger district means each vote in it counts for less. Putting one party's voters into fewer, larger districts is called packing, and this pattern meets my pre-registered packing test.",
+			p5: "In Calgary's north-east and central districts, where the NDP won thirteen of seventeen seats in 2023, the minority map's districts average 11.5% above the provincial average population. The majority's average 2.8%. A bigger district means each vote in it counts for less. Putting one party's voters into fewer, larger districts is called packing. This pattern meets my pre-registered packing test.",
 			h3_3: "Unequal district sizes",
-			p6: "Equal district populations are the one value Alberta's law puts a number on. By the commission's own population tables, the minority map's districts are off the ideal size by 4,707 people on average, compared with 3,180 on the majority map, a spread 48% wider. On 2021 census numbers the gap narrows: the two maps' average deviations are almost the same, though the minority's typical district is still further from equal (3,938 against 2,827). On the numbers the commission itself used, the usual defence of odd lines, that they were needed to balance populations, doesn't work here.",
+			p6: "Equal district populations are the one value Alberta's law puts a number on. By the commission's own population tables, the minority map's districts miss the ideal size by 4,707 people on average. On the majority map, 3,180. The minority's spread is 48% wider. On 2021 census numbers the gap narrows: the two maps' average deviations are almost the same, though the minority's typical district is still further from equal (3,938 against 2,827). The usual defence of odd lines is that they were needed to balance populations. On the numbers the commission itself used, that defence doesn't work here.",
 			h3_4: "Rural tails on urban districts",
 			p7: "I'm not saying rural Alberta has too many seats. The Act lets district populations vary by up to 25%, so one rural MLA doesn't have to cover an area the size of southern France. Both maps use that room.",
-			p8: "But in several places the minority map attaches rural communities to a district whose population centre is in a city. Each of Airdrie's four pieces runs out into a different stretch of countryside, and in every one the district's population centre falls in the urban part. That happens on the minority map in places where it doesn't on the majority.",
+			p8: "But in several places the minority map ties rural communities to a district whose population centre is in a city. Each of Airdrie's four pieces runs out into a different stretch of countryside, and in every one the district's population centre falls in the urban part. The minority map does this in places where the majority doesn't.",
 			h3_5: "Three boundaries the chair called out",
 			p9: "The commission's chair flagged three of the minority's boundaries as geographically anomalous:",
 			li1: "the Rocky Mountain House–Banff Park extension into uninhabited national-park land;",
 			li2: "the lasso-shaped corridor of Calgary-Nolan Hill–Cochrane;",
 			li3: "the reach of Olds–Three Hills–Didsbury into north Airdrie.",
-			p10: "The chair signed the majority report, so you would expect him to criticise only the minority. But my geometry tests, which were run without knowing which boundaries he had flagged, independently confirmed three of his four geometric flags.",
-			p11: "He called the park extension \"a bad faith effort\" to claim a population protection, section 15(2), that is written for remote communities where people actually live. My check undercuts that charge, because the division qualifies under s.15(2) even without the extension. Putting the Banff townsite with Canmore makes sense as a community of interest, because the town sits inside a national park it can't grow into. His objection to the empty-park extension still stands, and the townsite's placement doesn't affect it.",
+			p10: "The chair signed the majority report, so you would expect him to criticise only the minority. But I ran my geometry tests without knowing which boundaries he had flagged, and they independently confirmed three of his four geometric flags.",
+			p11: "He called the park extension \"a bad faith effort\" to claim a population protection, section 15(2), that is written for remote communities where people actually live. My check undercuts that charge: the division qualifies under s.15(2) even without the extension. Putting the Banff townsite with Canmore makes sense as a community of interest, because the town sits inside a national park it can't grow into. His objection to the empty-park extension still stands. The townsite's placement doesn't affect it.",
 			h3_6: "The seat advantage",
-			p12: "At a perfectly tied province-wide vote, this is the UCP's share of seats on each map:",
+			p12: "Split the province-wide vote dead even, and this is the UCP's share of seats on each map:",
 			li4: "the median neutral map gives 44.8%;",
 			li5: "the majority map gives 46.1%, the 78th percentile;",
 			li6: "the minority map gives 51.7%, the 99.99th percentile, and only 69 of 1,010,000 neutral maps exceed it.",
-			p13: "On the minority map the UCP keeps the 45 seats it needs for a majority even if its vote share falls to about 49.7%. On the majority map it would need to win the popular vote by about 4 points. On 2023 election-day votes the minority map yields 60 of 89 seats, against 55.",
-			p14: "Sixty seats is a two-thirds majority, but in Alberta that doesn't unlock any special power. A simple majority can already pass laws and budgets, invoke closure, change the rules of the House and set every committee's membership. Sixty seats would give the government a cushion. A few floor-crossings couldn't threaten it, and a smaller opposition would have fewer members to keep up committee scrutiny.",
-			p15: "None of these choices breaks Alberta's law. The Act allows splitting cities, and every district on both maps is inside the ±25% band. Canadian law has no rule against partisan advantage as such. Its test is whether voters get effective representation.",
+			p13: "On the minority map the UCP keeps the 45 seats it needs for a majority even if its vote share falls to about 49.7%. On the majority map it would need to win the popular vote by about 4 points. Replay the 2023 election-day vote and the minority map gives it 60 of 89 seats. On the majority map, 55.",
+			p14: "Sixty seats is a two-thirds majority. In Alberta, that unlocks no special power. A simple majority can already pass laws and budgets, invoke closure, change the rules of the House and set every committee's membership. Sixty seats would give the government a cushion. A few floor-crossings couldn't threaten it, and a smaller opposition would have fewer members to keep up committee scrutiny.",
+			p15: "None of these choices breaks Alberta's law. The Act allows splitting cities, and every district on both maps sits inside the ±25% band. Canadian law has no rule against partisan advantage as such. Its test is whether voters get effective representation.",
 		},
 		law: {
 			h: "What the law requires, and what it doesn't",
 			h3_1: "The Constitution",
-			p1: "Section 3 of the Charter gives every citizen the right to vote, which the Supreme Court of Canada reads as a right to effective representation. Roughly equal voting power is the starting point, a \"prime condition\", though strict equality isn't required. A district can be bigger or smaller for a real reason, such as geography, community history, shared local interests or a minority community's voice, but the difference has to be justified.",
-			p2: "Courts give legislatures a lot of room here. They ask whether reasonable people, applying those principles, could have drawn the lines this way. No government can switch the right off, because the notwithstanding clause doesn't apply to section 3.",
+			p1: "Section 3 of the Charter gives every citizen the right to vote. The Supreme Court of Canada reads it as a right to effective representation. Roughly equal voting power is the starting point, a \"prime condition\", but strict equality isn't required. A district can be bigger or smaller for a real reason, such as geography, community history, shared local interests or a minority community's voice. The difference has to be justified.",
+			p2: "Courts give legislatures a lot of room here. They ask whether reasonable people, applying those principles, could have drawn the lines this way. And no government can switch the right off: the notwithstanding clause doesn't apply to section 3.",
 			p3: "Courts have also looked at how a map gets made. In 2017 Nova Scotia's Court of Appeal found the province's map violated section 3, because the government had directed its independent commission to change course and the final map didn't reflect the commission's own view. The court added that a legislature may still draw a map itself.",
-			p4: "In 2026 the Supreme Court of Canada struck down a Quebec law that paused Quebec's commission to protect ridings in the Gaspésie (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, 7–2, reasons May 1). Quebec could have protected them more narrowly, and the fact that the law passed unanimously didn't save it. On June 12, 2026 Quebec's National Assembly passed its own 127-seat map.",
+			p4: "In 2026 the Supreme Court of Canada struck down a Quebec law that paused Quebec's commission to protect ridings in the Gaspésie (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, 7–2, reasons May 1). Quebec could have protected them more narrowly. A unanimous vote didn't save the law. On June 12, 2026 Quebec's National Assembly passed its own 127-seat map.",
 			h3_2: "Alberta's statute",
 			p5: "The <em>Electoral Boundaries Commission Act</em> sets the commission's rules:",
 			li1: "<strong>Who sits.</strong> A chair appointed by cabinet from eligible roles that include judges. Four non-MLA members, two nominated by the Premier and two by the Opposition, appointed by the Speaker.",
@@ -466,42 +466,42 @@ export default {
 			li7: "The Legislature doesn't have to adopt a commission's map. A report becomes law only if MLAs pass a bill.",
 			li8: "I found no provision that requires a committee of MLAs to hold hearings, be independent, publish a draft or explain its choices. Government Motion 37 reportedly says the review is expedited and does not require public hearings.",
 			li9: "Recommendation 5, which the government cited, binds no one.",
-			li10: "Elections Alberta says it needs at least a year and a half to prepare new ridings. That's a planning need, and no law makes it a deadline.",
+			li10: "Elections Alberta says it needs at least a year and a half to prepare new ridings. That's a planning need. No law makes it a deadline.",
 			li11: "Courts don't review a law while it's being made. A challenge can only come after a boundaries law passes.",
 			h3_4: "It has happened here before",
-			p8: "In 1992 Alberta's commission could not agree: its final report was five separate reports, one from each commissioner. On July 2, 1992 the Assembly passed Motion 24, handing the work to a Select Special Committee of MLAs chaired by Bob Bogle. The Opposition refused to appoint members, so four Progressive Conservative MLAs drew the map. It was used in the 1993 election.",
-			p9: "In 1994 the Court of Appeal let that map stand but criticised how it was made. The committee's members couldn't explain several of its boundaries and district populations, and one of the smallest districts was Bogle's own. The court said a proper review was needed before the Legislature's term ran out. In 1995 the Legislature amended the Act and changed how commissions are appointed, the process Alberta used from then until 2026.",
+			p8: "In 1992 Alberta's commission could not agree. Its final report was five separate reports, one from each commissioner. On July 2, 1992 the Assembly passed Motion 24 and handed the work to a Select Special Committee of MLAs chaired by Bob Bogle. The Opposition refused to appoint members, so four Progressive Conservative MLAs drew the map. Alberta voted on it in the 1993 election.",
+			p9: "In 1994 the Court of Appeal let that map stand but criticised how it was made. The committee's members couldn't explain several of its boundaries and district populations. One of the smallest districts was Bogle's own. The court said a proper review was needed before the Legislature's term ran out. In 1995 the Legislature amended the Act and changed how commissions are appointed. Alberta used that process from then until 2026.",
 			h3_5: "What this means in November",
-			p10: "The committee's map can still be challenged in court. It faces the same test as any map: effective representation, with every population gap justified. Reasons matter, and Alberta's Court of Appeal criticised the last committee-drawn map for not giving them. I'm scoring the map and the process. Whether it's constitutional is up to a court.",
+			p10: "The committee's map can still be challenged in court. It faces the same test as any map: effective representation, with every population gap justified. Reasons matter. Alberta's Court of Appeal criticised the last committee-drawn map for not giving them. I'm scoring the map and the process. Whether it's constitutional is for a court to say.",
 		},
 		system: {
 			h: "How the committee got the job",
-			p1: "The commission did its work in public. It held hearings in sixteen communities, received 1,147 written submissions, and reversed its own interim proposal based on more than 80 of them.",
+			p1: "The commission did its work in public. It held hearings in sixteen communities. It received 1,147 written submissions. And on the strength of more than 80 of them, it reversed its own interim proposal.",
 			p2: "Four weeks after the split, Government Motion 37 (introduced April 16, passed April 21, 2026) created the Select Special Committee on Electoral Boundaries, with six MLAs:",
 			li1: "four UCP: Brandon Lunty (chair), de Jonge, Sawyer and Wiebe;",
 			li2: "two NDP: Ganley and Gray.",
 			p3: "The committee oversees an Independent Advisory Panel, which drafts the 91-seat proposal. In June the committee appointed four panel members: the Hon. Monte Solberg and Darwin Durnie, nominated by the Premier, and Dr. Gerard Kennedy and Brent Robinson, nominated by the Opposition.",
-			p4: "Alberta's acting chief justice declined the committee's request to help find a judge to chair the panel, citing \"the irregularity of this process\". The Alberta branch of the Canadian Bar Association and the Law Society of Alberta also declined to take part. Retired Court of Appeal justice Brian O'Ferrall was later named chair. The panel's role is advisory, and the decisions belong to the committee's MLAs. The committee's UCP members also declined to release the submissions the committee received, citing privileged information. At the committee's October 28 meeting, its UCP members voted 3–2 to end the review of the panel's report before NDP motions on it were considered, and voted down an NDP motion to disclose what the panel and its consultants were paid (per reporting on the committee's October 28, 2026 meeting; transcript citation pending). The panel was due to report to the committee by October 22. Its report is now before the committee, but its map has not been made public.",
-			p5: "In May, Duane Bratt, Professor of Political Science at Mount Royal University, described the process to me as without precedent in Canada. That was wrong. Alberta did it in 1992, when a deadlocked commission's work went to a committee of MLAs, PC members alone drew the map after the Opposition refused to take part, and the Court of Appeal later criticised the result.",
+			p4: "Alberta's acting chief justice declined the committee's request to help find a judge to chair the panel, citing \"the irregularity of this process\". The Alberta branch of the Canadian Bar Association declined to take part, and so did the Law Society of Alberta. Retired Court of Appeal justice Brian O'Ferrall was later named chair. The panel advises. The decisions belong to the committee's MLAs. The committee's UCP members also declined to release the submissions the committee received, citing privileged information. At the committee's October 28 meeting, its UCP members voted 3–2 to end the review of the panel's report before NDP motions on it were considered, and voted down an NDP motion to disclose what the panel and its consultants were paid (per reporting on the committee's October 28, 2026 meeting; transcript citation pending). The panel was due to report to the committee by October 22. Its report is now before the committee, but its map has not been made public.",
+			p5: "In May, Duane Bratt, Professor of Political Science at Mount Royal University, described the process to me as without precedent in Canada. That was wrong. Alberta did it in 1992. A deadlocked commission's work went to a committee of MLAs, PC members alone drew the map after the Opposition refused to take part, and the Court of Appeal later criticised the result.",
 			p6: "2026 differs from 1992 in one important way. The commission didn't deadlock. A majority signed a report, and under the Act a majority report is the commission's report. Government Motion 37 set it aside anyway.",
-			p7: "On the floor, the government presented its route as following the commission: \"We are adopting the recommendations from the report\" (Government House Leader, Hansard, April 16, 2026). The opposition called it \"retaliation against the independent Electoral [Boundaries Commission].\" The report itself doesn't fully support the government's claim. The majority asked the Legislature to adopt its 89-seat map, and the one recommendation that proposed 91 seats came from the chair alone.",
-			p8: "Every step was lawful. But this time the MLAs who approve the map will also run in it, and nothing stops a future government of any party from citing this cycle as precedent.",
+			p7: "On the floor, the government presented its route as following the commission: \"We are adopting the recommendations from the report\" (Government House Leader, Hansard, April 16, 2026). The opposition called it \"retaliation against the independent Electoral [Boundaries Commission].\" The report itself doesn't fully support the government's claim. The majority asked the Legislature to adopt its 89-seat map. The one recommendation that proposed 91 seats came from the chair alone.",
+			p8: "Every step was lawful. But this time the MLAs who approve the map will also run in it. And nothing stops a future government, of any party, from citing this cycle as precedent.",
 			h3_1: "Recommendation 5: what the government cited",
-			p9: "The government's justification for handing the job to a committee was one recommendation in the commission's report, so it's the first thing to check when the committee's map comes out. The chair, Justice Dallas Miller, wrote Recommendation 5 alone, in an addendum to the majority report: \"My majority colleagues do not agree with me on this point. That is why I am alone in making this recommendation\" (final report, p. 66). He also stated its purpose: it \"is formulated for the express purpose of dissuading the Legislature from accepting the minority report.\"",
+			p9: "The government justified handing the job to a committee with one recommendation in the commission's report. So that recommendation is the first thing to check when the committee's map comes out. The chair, Justice Dallas Miller, wrote Recommendation 5 alone, in an addendum to the majority report: \"My majority colleagues do not agree with me on this point. That is why I am alone in making this recommendation\" (final report, p. 66). He also stated its purpose: it \"is formulated for the express purpose of dissuading the Legislature from accepting the minority report.\"",
 			p10: "It's a fallback, and a specific one. If the Legislature wouldn't accept the majority's choice to remove two divisions outside Edmonton and Calgary, the chair asked it to amend the <em>Electoral Divisions Act</em> from 89 seats to 91, restore those two divisions, and keep \"the rest of the province as we propose\" (the majority map) \"to the extent possible.\" Restoring the two divisions should:",
 			li3: "<strong>(a) Leave Airdrie and the south alone.</strong> No change to any division in Airdrie, or with any land south of Airdrie's southern city limit, except Drumheller-Stettler. On the majority map that is 41 divisions: both Airdrie seats, all 28 Calgary seats, and the 11 divisions around and south of Calgary.",
 			li4: "<strong>(b) Leave north Edmonton alone.</strong> No change to any Edmonton division north of the North Saskatchewan River: 11 divisions on the majority map.",
 			li5: "<strong>(c) Put south Edmonton back.</strong> Every Edmonton division south of the river returns to the commission's October 2025 interim map, the draft it published for comment before the final split. The committee may add Nisku to Edmonton-South East if it wants Leduc and Beaumont back in one division. That is 10 divisions.",
 			li6: "<strong>(d) Consider a Clearwater seat.</strong> Consider restoring a division made mostly of Clearwater County and western Mountain View County, with s.15(2) status. This is the only restored seat the recommendation places. It names no place for the second.",
-			p11: "Together, the conditions rule out most of the ground the commission split over. Airdrie, Calgary, Cochrane and Chestermere, where the four-way Airdrie split and the Calgary-edge hybrids are, all fall under condition (a). Red Deer and St. Albert are covered only by the softer clause, \"to the extent possible.\" A map that reopens Airdrie or Calgary may still be lawful, but it isn't the map Recommendation 5 describes. Government Motion 37 itself reportedly lets the panel apply the recommendation \"subject to any modifications the independent advisory panel considers necessary.\" The <a href=\"__BASE__/explorer\">map explorer</a> outlines all four areas, and each one's pin says whether Recommendation 5 changes it or leaves it alone.",
+			p11: "Together, the conditions rule out most of the ground the commission split over. Airdrie, Calgary, Cochrane and Chestermere, home to the four-way Airdrie split and the Calgary-edge hybrids, all fall under condition (a). Red Deer and St. Albert are covered only by the softer clause, \"to the extent possible.\" A map that reopens Airdrie or Calgary may still be lawful. But it isn't the map Recommendation 5 describes. Government Motion 37 itself reportedly lets the panel apply the recommendation \"subject to any modifications the independent advisory panel considers necessary.\" The <a href=\"__BASE__/explorer\">map explorer</a> outlines all four areas, and each one's pin says whether Recommendation 5 changes it or leaves it alone.",
 		},
 		know: {
 			h: "How we know",
 			h3_1: "How the neutral maps were drawn",
-			p1: "A computer drew 1,010,000 legal Alberta maps from the official Elections Alberta files, each with its districts inside the population band and in one piece. The method, ReCom, is the standard one in this field. It merges two neighbouring districts, splits the result at random into two new legal ones, and repeats. The computer never sees a vote. Where a real map's numbers fall among the million shows how unusual it is.",
+			p1: "A computer drew 1,010,000 legal Alberta maps from the official Elections Alberta files, each with its districts inside the population band and in one piece. The method, ReCom, is the standard one in this field. It merges two neighbouring districts, splits the result at random into two new legal ones, and repeats. The computer never sees a vote. That is what makes these maps neutral. Where a real map's numbers fall among the million shows how unusual it is.",
 			p2: "My commitments are filed on the Open Science Framework. The random seeds were locked to a public beacon before the official map files existed, and <a href=\"__BASE__/methods\">the Methods page</a> labels each finding pre-registered or exploratory.",
 			h3_2: "In Alberta, neutral is not 50/50",
-			p3: "Rural UCP voters win their ridings by wide margins, like 60-40, which wastes a lot of extra votes. Urban NDP voters win theirs by closer margins, like 51-49. So at a perfectly tied vote, the median neutral map gives the UCP only 44.8% of seats. Both maps are measured against that baseline.",
+			p3: "Rural UCP voters win their ridings by wide margins, like 60-40, and those margins waste a lot of extra votes. Urban NDP voters win theirs by closer margins, like 51-49. So when the vote splits dead even, the median neutral map gives the UCP only 44.8% of seats. That is the baseline both maps are measured against.",
 			h3_3: "The results, side by side",
 			table1_h1: "Test",
 			table1_h2: "Majority map",
@@ -542,22 +542,22 @@ export default {
 			table1_r12c1: "Odds of this profile under neutral drawing",
 			table1_r12c2: "n/a",
 			table1_r12c3: "at most about 1 in 568,000",
-			p4: "The structural tests use geometry only, and all five were pre-registered on April 24, 2026, before the final simulation results were compiled. The 2019 enacted map sits beside the majority, at a 46.0% tied-vote seat share (78th percentile).",
-			fig_caption: "Partisan skew runs left to right, and failed structural tests run bottom to top. The 2019 map and the 2026 majority map sit in the safe corner. The minority map sits by itself in the outlier region.",
+			p4: "The structural tests use geometry only. All five were pre-registered on April 24, 2026, before the final simulation results were compiled. The 2019 enacted map sits beside the majority, at a 46.0% tied-vote seat share (78th percentile).",
+			fig_caption: "Partisan skew runs left to right; failed structural tests run bottom to top. The 2019 map and the 2026 majority map sit in the safe corner. The minority map sits alone, out in the outlier region.",
 			h3_4: "What \"1 in 568,000\" means",
-			p5: "The chance that a neutral process produces the minority map's combined profile across the four fairness measures is at most about 1 in 568,000 (p ≤ 1.76×10⁻⁶, a Bonferroni-corrected, dependence-robust upper bound). I doubled the raw figure because I looked in two places, so the real chance is at most this, and probably smaller.",
+			p5: "The chance that a neutral process produces the minority map's combined profile across the four fairness measures is at most about 1 in 568,000 (p ≤ 1.76×10⁻⁶, a Bonferroni-corrected, dependence-robust upper bound). I looked in two places, so I doubled the raw figure. The real chance is at most this, and probably smaller.",
 			p6: "That figure isn't the probability that the map is innocent. Treating it that way is the prosecutor's fallacy. A map this rare can still come from unusual but honest judgment. My claim is only that ordinary drafting variation isn't a plausible explanation.",
 			h3_5: "Checking with a second method",
 			p7: "I swapped the simulation's engine for a structurally different one, a spanning-forest sampler registered in advance at OSF (he53s) and run on 2026-07-10. Every metric's percentile moved by less than one point. A separate implementation, the R redist package, also found zero plans reaching the minority's value.",
 			h3_6: "Limits of the simulation",
-			p8: "The simulation enforces population and contiguity, but not every rule the commission weighed (s.15(2), community of interest, municipal anchoring). It's a strong outside check rather than a list of every map a lawful commission might draw, so the geometry tests, which don't use the simulation, carry most of the weight. The tied-vote test isolates what a map contributes on its own. A big enough swing in a real election can still outweigh any map's lean.",
+			p8: "The simulation enforces population and contiguity, keeping each district in a single piece, but not every rule the commission weighed (s.15(2), community of interest, municipal anchoring). It's a strong outside check, not a list of every map a lawful commission might draw. So the geometry tests, which don't use the simulation, carry most of the weight. The tied-vote test isolates what a map contributes on its own. A big enough swing in a real election can still outweigh any map's lean.",
 			h3_7: "What didn't hold up",
 			p9: "Some tests came back against my findings. They stay on the page.",
-			li1: "<strong>The anchoring test came back neutral.</strong> The minority map follows municipal lines 72% of the time and the majority 80%, and both are inside the 70–85% Canadian norm.",
+			li1: "<strong>The anchoring test came back neutral.</strong> The minority map follows municipal lines 72% of the time and the majority 80%. Both sit inside the 70–85% Canadian norm.",
 			li2: "<strong>The efficiency gap missed.</strong> The minority came in at +4.0%, the 94.5th percentile. The pre-registered line was the 95th (about +4.1%), so I report it as a miss.",
-			li3: "<strong>The mechanism test failed.</strong> I tested whether the flagged shapes produce the seat advantage, and on my test they don't. The shapes and the seat numbers point at the same map, but the link between them didn't hold up.",
+			li3: "<strong>The mechanism test failed.</strong> I tested whether the flagged shapes produce the seat advantage. On my test, they don't. The shapes and the seat numbers point at the same map, but the link between them didn't hold up.",
 			li4: "<strong>The minority passed one test outright.</strong> On neighbour-drain, which looks for packed districts next to thin-margin ones, it shows 1 coupled signal, against the majority's 2 and the 2019 map's 5.",
-			li5: "<strong>I retired two statistics.</strong> The Swing-Zone Allocation Test fell from p = 0.0024 to p ≈ 0.19 once corrected for neighbouring areas voting alike, and I retired it on 2026-06-13. The one-in-fifteen-million headline combined two channels that weren't independent, and I retired it on 2026-06-10.",
+			li5: "<strong>I retired two statistics.</strong> The Swing-Zone Allocation Test fell from p = 0.0024 to p ≈ 0.19 once corrected for neighbouring areas voting alike. I retired it on 2026-06-13. The one-in-fifteen-million headline combined two channels that weren't independent. I retired it on 2026-06-10.",
 			h3_8: "Both sides tested",
 			p10: "I ran every written accusation from either side through the same tests. None of these checks was set up in advance, so they carry less weight than the five structural tests. Every number behind them is public.",
 			table2_h1: "The accusation",
@@ -584,7 +584,7 @@ export default {
 			table2_r7c1: "The majority's rural districts are engineered corridors of isolation",
 			table2_r7c2: "My own counter-hypothesis (T3.2)",
 			table2_r7c3: "Not supported: the geographic explanation held, and the majority cleared",
-			p11: "The minority's published reasons for its contested lines mostly fail on public data: five of six don't survive an independent check. Usually the general claim is true and the specific line isn't. About a third of Cochrane's workers commute somewhere in Calgary, but that says nothing about the Nolan Hill neighbourhood the corridor reaches. The majority published no such list, so this check only runs one way. Taken together, the minority's two charges against the majority describe two different approaches: more but fuller rural divisions on the majority map, and fewer but lighter ones on the minority map.",
+			p11: "The minority's published reasons for its contested lines mostly fail on public data: five of six don't survive an independent check. Usually the general claim is true and the specific line isn't. About a third of Cochrane's workers commute somewhere in Calgary. That says nothing about the Nolan Hill neighbourhood the corridor reaches. The majority published no such list, so this check only runs one way. Taken together, the minority's two charges against the majority describe two different approaches. More but fuller rural divisions on the majority map. Fewer but lighter ones on the minority map.",
 			h3_9: "Who did this",
 			p12: "I'm the only author, a self-funded student at Mount Royal University, and I've voted for and donated to both conservative and progressive provincial parties (more under About me). Findings that went against what I expected stay on the record, and every number can be reproduced from public code, public data and random seeds committed in public before the analysis ran.",
 			h3_10: "The full record",
@@ -597,9 +597,9 @@ export default {
 			p3: "<strong>Recommendation 5.</strong> Test X1 scores the committee's map against the chair's four conditions, one at a time:",
 			li1: "(a), (b) and (c) pass if the map leaves those divisions as described.",
 			li2: "(d) asks only that a Clearwater seat be considered, so it's scored on evidenced consideration. It passes if the map contains the division, or if the committee's published report names the option and gives a reason for adopting or declining it. With the submissions withheld, the report is the only record that counts. Silence or boilerplate fails.",
-			p4: "X1 passes only if all four do. I'll also report a strict reading, which fails (d) unless the seat exists. Recommendation 5 binds no one in law, so X1 tests whether the committee delivered what the government cited.",
+			p4: "X1 passes only if all four do. I'll also report a strict reading, which fails (d) unless the seat exists. Recommendation 5 binds no one in law. What X1 tests is whether the committee delivered what the government cited.",
 			p5: "<strong>The map.</strong> Where does it land on every measure on this page, against the same million-map distribution and under the same pre-registered thresholds?",
-			p6: "<strong>What each outcome means.</strong> If the committee's map repeats the minority map's pattern, drawn by different people under different constraints on a different timeline, the structural finding becomes confirmatory. If it lands inside the neutral bands, the finding stays an isolated observation about one map that was never enacted, and I'll say so here. Either way, the arithmetic is public and you can check it yourself.",
+			p6: "<strong>What each outcome means.</strong> If the committee's map repeats the minority map's pattern, drawn by different people, under different constraints, on a different timeline, the structural finding becomes confirmatory. If it lands inside the neutral bands, the finding stays an isolated observation about one map that was never enacted, and I'll say so here. Either way, the arithmetic is public. You can check it yourself.",
 		},
 		mind: {
 			h: "What would change my mind",
@@ -609,23 +609,23 @@ export default {
 			li3: "<strong>The neighbour-drain pass turns out to be an artefact.</strong> If the continuous version of that score falls in the extreme upper tail (p < 0.05) of random permutations, I'll withdraw the minority's pass.",
 			li4: "<strong>An election contradicts the simulation.</strong> If the 2027 election is fought on either commission map and the actual seat split contradicts the projection from 2023 votes, I'll revisit the simulation's percentile findings against the actual results.",
 			li5: "<strong>A court distinguishes <em>Lalande</em>.</strong> In <em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, the Supreme Court struck down Quebec's law pausing its commission, and Quebec then legislated its own map. If a court reviewing Alberta's route finds it constitutionally different, for example because handing a finished commission's work to an MLA committee isn't the same as freezing a commission mid-process, I'll retract the argument on <a href=\"__BASE__/norms\">the norms page</a> that the two belong in the same class.",
-			p2: "The November map can also weaken the overall conclusion, as described above. I correct mistakes in public and don't delete them. Every correction is listed in the <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">academic report's Documented Corrections section</a>.",
+			p2: "The November map can also weaken the overall conclusion, as described above. I correct mistakes in public. I don't delete them. Every correction is listed in the <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">academic report's Documented Corrections section</a>.",
 		},
 		authors: {
 			h: "The author's view",
 			p1: "Everything above is the audit. This section is my opinion. Delete it and no number on this page changes.",
 			p2: "Two facts are hard to explain innocently. The commissioners the government nominated drew a map that neutral map-drawing almost never produces: fewer than a hundred matches in a million draws. And when the commission split instead of endorsing that map, the government didn't ask why. It moved the job to a committee its own MLAs control.",
 			p3: "Each fact has an innocent explanation. A commissioner can be eccentric in good faith, and a legislature can lose patience with a split commission. Put the two facts in order, though, and the innocent explanations get harder to hold: a government wanted a certain kind of map, the independent process didn't produce one, and a different process was set up.",
-			p4: "What worries me is that no law was broken. I checked, and that checking is most of what this audit is. The Act makes the commission's report advisory, and it sets no notice period and requires no draft, hearings or consultation before the Legislature acts. The protection was a convention, not a law, and a convention only binds a government that chooses to follow it. Alberta went through this in 1992, and in 1995 it changed how commissions are appointed.",
+			p4: "What worries me is that no law was broken. I checked, and that checking is most of what this audit is. The Act makes the commission's report advisory. It sets no notice period, and requires no draft, hearings or consultation before the Legislature acts. The protection was a convention, not a law, and a convention binds only a government that chooses to follow it. Alberta went through this in 1992, and in 1995 it changed how commissions are appointed.",
 			p5: "The committee that replaced the commission has six MLAs, four from the government and two from the opposition, with a government MLA as chair. It has an advisory panel, chaired by a retired judge who was appointed after the province's acting chief justice declined to help find one. The panel only advises. The MLAs vote, and they will run in the districts they approve. The map won't have a public hearing before it's final.",
 			p6: "This government has done this kind of thing before. Its first bill, as written, would have let cabinet rewrite laws without the Legislature, and that power was removed only after public outcry. Its own ethics commissioner found the Premier breached the conflicts law by pressing her attorney general about a criminal case. It passed a law letting cabinet repeal local bylaws and trigger the removal of elected councillors. When a court paused one of its laws in December 2025, it invoked the notwithstanding clause. Each of those moves was lawful, and each set aside a convention to get past an independent check.",
-			p7: "I also worry about what the map buys. On 2023 election-day votes, the minority map gives the UCP sixty seats of eighty-nine. Sixty seats would protect a government from floor-crossings and from an opposition large enough to keep up scrutiny in committee, and I'd worry about that in anyone's hands.",
+			p7: "I also worry about what the map buys. Replay the 2023 election-day vote and the minority map gives the UCP sixty seats of eighty-nine. Sixty seats would protect a government from floor-crossings, and from an opposition large enough to keep up scrutiny in committee. I'd worry about that in anyone's hands.",
 			p8: "I could be wrong, and I've set out how you'd know. The committee's map is due November 2, and I registered the tests before it existed. If it lands inside the neutral range, my suspicion has taken real damage, and this site will say so within 72 hours. I committed to that before I knew the answer.",
 			signed: "— Will Conner",
 		},
 		fixes: {
 			h: "Fixes for next time",
-			p1: "Two problems make every audit of Alberta's maps harder than it needs to be. About half of all votes now come in before election day, and Elections Alberta reports them by division rather than by voting area, so roughly 395,000 NDP and UCP votes cast in 2023 can't be placed on a map. Commissions also draw from census data that's already years old by the time a map takes effect. Both problems can be fixed, and <a href=\"__BASE__/fixes\">the proposals page</a> explains how.",
+			p1: "Two problems make every audit of Alberta's maps harder than it needs to be. First, about half of all votes now come in before election day, and Elections Alberta reports them by division rather than by voting area. So roughly 395,000 NDP and UCP votes cast in 2023 can't be placed on a map. Second, commissions draw from census data that's already years old by the time a map takes effect. Both problems can be fixed. <a href=\"__BASE__/fixes\">The proposals page</a> explains how.",
 		},
 	},
 
@@ -639,7 +639,7 @@ export default {
 		page_title: "The full record · Alberta Electoral Boundary Audit",
 		h1: "The full record",
 		meta: "Plain-language companion · the fourteen findings in full",
-		intro: "Every finding behind the main page, in full: what was found, what it could show, what Canadian practice expects, and its limits, including what the law does with it. Findings that ran against the audit are kept beside the ones that support it.",
+		intro: "Every finding behind the main page, in full: what was found, what it could show, what Canadian practice expects, and its limits, including what the law does with it. The findings that ran against the audit stay right beside the ones that support it.",
 		back: "← Back to the audit",
 		group_map: "On the map",
 		group_sim: "In the simulation",
