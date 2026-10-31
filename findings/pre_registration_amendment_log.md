@@ -1145,3 +1145,50 @@ does not seed. Table: `data/outputs/s15_2_va_criteria.csv`, SHA-256
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-30 04:20 MDT
+
+---
+
+### Amendment 24 — Set D is the primary size-matched comparison (2026-10-31)
+
+> **Status: in force.** Signed 2026-10-31 00:00 MDT, before the committee's map is
+> due (November 2, 2026) and before any committee map has been published. The
+> author's direction: "I want the most defensible set"; set D proposed, and the
+> author confirmed it in this session ("yes").
+
+**What changes.** Amendment 20 put Amendment 17's half-band set (set A) beside the
+headline and the three further sets beside those. From this amendment, set D
+(s.15(2), the Amendment 23 rule; Amendment 20 set 3) is the primary size-matched
+comparison, and sets A, B and C are reported beside it, each labelled; C remains
+a sensitivity reading. The scoring spec's 87-district canonical comparison stays
+the headline. Every set is reported in one table for every measure, whatever it
+shows. No test, threshold or flag rule changes.
+
+**Why set D.** The author's standing rule for the neutral maps is "as strict as
+the statute, no more, no less" (Amendment 20). Set A draws its maps with a ±12.5%
+proposal band, stricter than the Act's ±25% (s.15(1)). Set B uses the Act's band
+but allows no division below −25%, which s.15(2) permits for up to four. Set C
+adds a weight chosen by the audit (Amendment 21). Set D is the only set whose
+maps may do what the Act allows.
+
+**What set D does not do.** Its criteria are approximations, and they do not all
+err the same way (Amendments 21 and 23): (a) errs strict (the surveyed-area limb
+is not computed); (b) errs lenient (local roads are left out, which can only
+lengthen a route); (c) counts cities as towns, a reading chosen in Amendment 21.
+
+**Disclosure: the commission maps were seen first.** Amendment 17's flags for the
+two commission maps against the 89-district sets were computed before this choice
+(`findings/size_matched_results_2026-10-30.md`, provisional):
+
+| Map | Measure | A | B | C | D |
+|---|---|---|---|---|---|
+| Minority | Competitive seats | p0.2 flag | p0.2 flag | p0.1 flag | p0.3 flag |
+| Minority | City versus rest | p99.9 flag | p93.0 | p87.8 | p71.7 |
+| Minority | Towns split | p33.3 | p45.0 | p100.0 flag | p47.5 |
+| Majority | all three | no flag | no flag | no flag | no flag |
+
+Choosing D over A removes the minority map's city-versus-rest flag from the
+primary comparison; it is still reported, under set A. The committee's map has
+not been published, so this choice is made without knowledge of its results.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-31 00:00 MDT
