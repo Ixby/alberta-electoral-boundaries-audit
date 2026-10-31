@@ -56,6 +56,19 @@ As a diagnostic only, the same estimator with no lag cap gives these figures at 
 - **Towns split.** It splits none (p0 to p9).
 - **Population spread (MedAD).** It's at p21 against set A and p0.0 against B, C and D.
 
+## The registered partisan lane on neutral maps
+
+The November spec scores the committee's map against the 87-district canonical ensemble. To see how often that rule fires on a map with no partisan intent, each neutral plan in sets A to D was scored the same way. The lane counts as "present" when at least 2 of P1–P4 fire in the UCP direction, as spec §3 sets out.
+
+| Set | 89 districts | 91 districts |
+|---|---|---|
+| A | 4.8% | 4.8% |
+| B | 5.8% | 5.7% |
+| C | 6.6% | 5.5% |
+| D | 8.2% | 8.3% |
+
+The partisan lane's false-positive rate stays near the nominal 5%. It is a little higher in the statute-band sets because P4 (seats at 50/50) fires on 7% to 15% of their plans. The structural lane's rate on neutral maps has not been measured (Amendment 9 records S1 alone firing on 25.7%), so a both-lanes headline is bounded by the partisan figures above.
+
 ## Tables
 
 Percentiles are midrank, as in the canonical harness. "(cap)" marks an effective sample size where the lag cap bound, which makes it an upper bound. **flag** marks a registered Amendment 17 flag: towns split and city gap at or above the set's 95th percentile, competitive seats at or below its 5th.
