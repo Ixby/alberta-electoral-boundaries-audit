@@ -81,11 +81,11 @@
         Alberta's geography alone. And if a real map leans much further than nearly all the
         neutral ones, geography can no longer be the explanation.
       </p>
-      <p>Three honesty points about the machine:</p>
+      <p>Four honesty points about the machine:</p>
       <ul>
         <li>
           <strong>The dice were rolled in public.</strong> The random seed (the starting number
-          behind every random choice) was not picked by the author. It comes from a public randomness beacon (Cloudflare's "drand"), like a
+          behind every random choice) was not picked by the author. It comes from a public randomness beacon ("drand", run by the League of Entropy, a group that includes Cloudflare), like a
           lottery draw broadcast live. It was locked in before the official map files existed.
           Anyone can recompute it.
         </li>
@@ -153,8 +153,8 @@
         </li>
         <li>
           <strong>4. The chair's flags.</strong> The commission's own chair publicly flagged
-          boundaries as geographically strange. Three of his flags land on the minority map.
-          Zero land on the majority map.
+          boundaries as geographically strange. Four of his flags land on the minority map, and
+          the audit's own geometry check confirmed three. Zero land on the majority map.
         </li>
         <li>
           <strong>5. Following city limits (the test that died).</strong> Early data suggested
@@ -204,7 +204,7 @@
         <li>
           <strong>4. Declination.</strong> A geometry reading of win margins: does the map treat
           the two parties' wins alike, or does it bend at the 50% line? The minority map bends
-          in the UCP's favour more than 98.8% of neutral maps. The majority map reads normal.
+          further in the UCP's favour than about 98.8% of neutral maps. The majority map reads normal.
           (An early version of this measure had its sign flipped by a coding error; the
           correction is documented, not erased.)
         </li>
