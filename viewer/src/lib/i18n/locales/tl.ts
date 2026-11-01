@@ -1140,13 +1140,13 @@ export default {
 			c4_what: "<em>Ang babawiin:</em> Ang natuklasan ng simulasyon — na kapag tabla ang boto, nagbibigay ang mapa ng minorya ng bahagi ng upuan na 69 lamang sa 1,010,000 neutral na draw ang lumalampas.",
 			c4_cond: "Kondisyon: kung ang halalan sa probinsya sa 2027 ay idaraos sa alinmang mapa ng komisyon at ang aktwal na partisan na hati ng upuan ay sumasalungat sa direksyonal na projection mula sa mga boto noong 2023, muling susuriin ang mga persentil na natuklasan ng simulasyon laban sa aktwal na mga resulta.",
 			c5_title: "Kondisyon 5 — Iniiba ng isang korte ng Alberta ang desisyon ng Quebec SCC",
-			c5_what: "<em>Ano ang babawiin:</em> Ang procedural na argumento ng Seksyon 7 na ang Government Motion 37 na palitan ang komisyon ng Lunty committee ay nasa parehong konstitusyonal na klase ng 2024 redistricting freeze ng Quebec.",
-			c5_cond: "Background: noong Abril 22, 2026 — isang araw matapos ipasa ng Alberta ang Government Motion 37 — pinanigan ng Korte Suprema ng Canada, 7–2 at mula sa upuan, ang desisyon ng Quebec Court of Appeal na ang legislative freeze ng gobyernong Legault sa redistricting commission nito ay lumabag sa s.3 democratic-representation na garantiya ng Charter. Kondisyon: ang isang korteng sumusuri sa mosyon ng Alberta ay nakatuklas na ito ay konstitusyonal na natatangi — halimbawa, dahil ang muling pagtatalaga ng trabaho sa isang komite ng MLA ay istrukturang naiiba sa isang legislative freeze, o dahil ang epektibong-representasyon na pagsusuri ng Alberta sa ilalim ng s.3 ay lumalabas nang naiiba sa Quebec.",
+			c5_what: "<em>Ano ang babawiin:</em> Ang procedural na argumento sa seksyon ng Lunty Committee na ang Government Motion 37, na pumalit sa komisyon sa pamamagitan ng Lunty committee, ay nasa parehong konstitusyonal na klase ng 2024 redistricting freeze ng Quebec.",
+			c5_cond: "Background: noong Abril 22, 2026 — isang araw matapos ipasa ng Alberta ang Government Motion 37 — pinanigan ng Korte Suprema ng Canada, 7–2, sa pasyang binigkas agad sa pagdinig (from the bench), ang desisyon ng Quebec Court of Appeal na ang legislative freeze ng gobyernong Legault sa redistricting commission nito ay lumabag sa s.3 democratic-representation na garantiya ng Charter. Kondisyon: ang isang korteng sumusuri sa mosyon ng Alberta ay nakatuklas na ito ay konstitusyonal na natatangi — halimbawa, dahil ang muling pagtatalaga ng trabaho sa isang komite ng MLA ay istrukturang naiiba sa isang legislative freeze, o dahil ang epektibong-representasyon na pagsusuri ng Alberta sa ilalim ng s.3 ay lumalabas nang naiiba sa Quebec.",
 			corr_label: "DOKUMENTADONG MGA PAGWAWASTO (canonical recomputation, 2026-05-11)",
 			corr_light_label: "MGA PAGWAWASTO",
 			corr_light_intro: "Nagtatama ang audit na ito sa publiko at walang binubura. Ang istrukturang pagsusulit na nagbago sa opisyal na mga hangganan ay isinasalaysay nang buo sa Casing 5; ang dalawang estadistikong pagsusulit na hindi nanindigan, sa Casing 8 at 10. Ang kumpletong talaan ng bawat pagwawasto — ano ang nagbago, kailan, at bakit — ay iniingatan sa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">seksyong DOCUMENTED CORRECTIONS ng akademikong ulat</a>.",
 			corr_intro: "Ang sumusunod na maagang natuklasan ay hindi nakaligtas sa muling pagsusuri laban sa opisyal na mga shapefile ng Elections Alberta (natanggap 2026-05-06). Pinananatili ito rito ayon sa nakapangakong patakaran ng audit na hindi kailanman tinatanggal ang mga nabigong natuklasan.",
-			corr_municipal: "<strong>Municipal anchoring.</strong> Ang maagang draft na pagsusuri gamit ang provisional na mga hangganan ng mapa ay nagpakita na ang mapa ng minorya ay nag-angkla sa mga linya ng munisipyo 15% lamang ng panahon — 4.9&times; sa ibaba ng 70–85% na pamantayang Canadian. Ang figure na ito ay isang artefact ng provisional (DPG-era) na mga reconstruction ng hangganan. Sa opisyal na canonical na mga shapefile ng Elections Alberta, ang parehong mapa ay nag-aangkla sa loob ng pamantayang Canadian: mayorya 80%, minorya 72%. Ang municipal-anchoring na <em>pagkakaiba</em> sa pagitan ng dalawang mapa ay hindi isang senyas na nakakaligtas sa canonical recomputation. Ang tatlong anomalya ng hangganan na binandilaan ng punong komisyon (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) ay nananatili at hindi naapektuhan ng pagwawastong ito."
+			corr_municipal: "<strong>Municipal anchoring.</strong> Ang maagang draft na pagsusuri gamit ang provisional na mga hangganan ng mapa ay nagpakita na ang mapa ng minorya ay nag-angkla sa mga linya ng munisipyo 15% lamang ng panahon — 4.9&times; sa ibaba ng 70–85% na pamantayang Canadian. Ang figure na ito ay isang artefact ng provisional (DPG-era) na mga reconstruction ng hangganan. Sa opisyal na canonical na mga shapefile ng Elections Alberta, ang parehong mapa ay nag-aangkla sa loob ng pamantayang Canadian: mayorya 80%, minorya 72%. Ang municipal-anchoring na <em>pagkakaiba</em> sa pagitan ng dalawang mapa ay hindi isang senyas na nakakaligtas sa canonical recomputation. Ang tatlong anomalya ng hangganan na binandilaan ng tagapangulo ng komisyon (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) ay nananatili at hindi naapektuhan ng pagwawastong ito."
 		},
 		suggestions: {
 			heading: "Mga Mungkahi",
@@ -1171,8 +1171,8 @@ export default {
 		heading: "Konteksto: Iba ang Canada — at magkapareho",
 		p1: "Ang Canada ay kabilang sa parehong pamilya ng U.S., U.K., at Australia. Naghahalal tayo ng mga nag-iisang miyembro mula sa mga heograpikong distrito sa ilalim ng first-past-the-post. Muli nating iginuguhit ang mga linya paminsan-minsan — pederal pagkatapos ng bawat decennial census, sa probinsya sa mga staggered na iskedyul. Minana natin ang pangunahing makinarya mula sa parehong mga ugat ng Westminster. Sa ngayon, walang sorpresa.",
 		p2: "Ang nagtatangi sa Canada ay ang pagsusulit na dapat ipasa ng mga linya.",
-		p3: "Sa konstitusyonal na batas ng Amerika, ang nagbibigkis na tuntunin ay <em>isang tao, isang boto</em> — ang mga distrito ay dapat magkaroon ng populasyong kasinglapit sa pantay hangga't maaari, at ang malalaking pag-iiba ay nangangailangan ng mahigpit na katwiran. Sa konstitusyonal na batas ng Canada, ang nagbibigkis na tuntunin ay naiiba. Ang Seksyon 3 ng <em>Canadian Charter of Rights and Freedoms</em> ay nagtatakda ng karapatan ng bawat mamamayan na bumoto. Sa <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — ang 1991 Saskatchewan Reference, ang pangunahing kaso — binigyang-kahulugan ng Korte Suprema ng Canada ang karapatan bilang isang karapatan sa <em>epektibong representasyon</em>, hindi isang karapatan sa matematikong pagkakapantay ng populasyon ng distrito.",
-		p4: "Mahalaga ang pagkakaibang iyon. Ang epektibong representasyon ay nagpapahintulot sa populasyon ng distrito na mag-iba, kung minsan nang malaki, kapag may magagandang dahilan: malalawak na rural na heograpiya na hindi makakapaglingkod ng isang MLA sa karaniwang densidad ng populasyon, mga komunidad ng interes na dapat panatilihing magkakasama, representasyon ng minorya na lalabnawin ng matematikong pagkakapantay. Ginawang konstitusyonal ng Saskatchewan Reference ang flexibility na iyon. Ang 25% na baryasyon ng populasyon ng EBCA — ang tuntuning nagpoprotekta sa mga rural na upuan ng Alberta — ay direktang dumadaloy mula rito.",
+		p3: "Sa konstitusyonal na batas ng Amerika, ang nagbibigkis na tuntunin ay <em>isang tao, isang boto</em> — ang mga distrito ay dapat magkaroon ng populasyong kasinglapit sa pantay hangga't maaari, at ang malalaking pag-iiba ay nangangailangan ng mahigpit na katwiran. Sa konstitusyonal na batas ng Canada, ang nagbibigkis na tuntunin ay naiiba. Ang Seksyon 3 ng <em>Canadian Charter of Rights and Freedoms</em> ay gumagarantiya sa karapatan ng bawat mamamayan na bumoto. Sa <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — ang 1991 Saskatchewan Reference, ang pangunahing kaso — binigyang-kahulugan ng Korte Suprema ng Canada ang karapatan bilang isang karapatan sa <em>epektibong representasyon</em>, hindi isang karapatan sa matematikong pagkakapantay ng populasyon ng distrito.",
+		p4: "Mahalaga ang pagkakaibang iyon. Ang epektibong representasyon ay nagpapahintulot sa populasyon ng distrito na mag-iba, kung minsan nang malaki, kapag may magagandang dahilan: malalawak na rural na heograpiya na hindi makatwirang mapaglilingkuran ng isang MLA sa karaniwang densidad ng populasyon, mga komunidad ng interes na dapat panatilihing magkakasama, representasyon ng minorya na lalabnawin ng matematikong pagkakapantay. Ginawang konstitusyonal ng Saskatchewan Reference ang flexibility na iyon. Ang 25% na baryasyon ng populasyon ng EBCA — ang tuntuning nagpoprotekta sa mga rural na upuan ng Alberta — ay direktang dumadaloy mula rito.",
 		p5: "Ang catch ay ang flexibility ay humihiwa sa magkabilang paraan. Kung ang isang komisyon ay maaaring lehitimong umalis sa pagkakapantay ng populasyon para sa tamang dahilan, maaari rin itong umalis sa pagkakapantay ng populasyon para sa maling dahilan. Ang batas ng Canada ay walang Amerikanong-istilong matematikong sahig na babalikan. Mayroon itong epektibong-representasyon na pagsusulit, na inilalapat ng mga huwes, pagkatapos, sa litigasyon. Karamihan ng mga hurisdiksyon ay nagbabantay laban sa maling dahilan sa pamamagitan ng mga istrukturang proteksyon: sa antas pederal, ang mga redistribution commission ay hiwalay sa pamamagitan ng batas at ang kanilang mga hangganan ay nagkakabisa sa pamamagitan ng isang representation order, nang walang botong parliyamentaryo upang ampunin ang mga ito. Ang Quebec ang pinakamalayo — ang permanenteng independiyenteng komisyon nito mismo ang nagtatatag ng panghuling mapa, nang walang botong Assembly upang ampunin o pawalang-bisa ito. Maging ang British Columbia, na ang Lehislatibong Asembleya ay bumoboto upang aprubahan ang mga panukala ng komisyon at isabatas ang mga ito, ay itinuturing ang pag-ampon sa trabaho ng independiyenteng komisyon bilang ang pamantayan sa halip na magpalit ng sarili nitong mapa.",
 		p6: "Ang Alberta ay ang eksepsyon. Sa ilalim ng <em>Electoral Boundaries Commission Act</em>, ang ulat ng komisyon ay isang rekomendasyon lamang — dapat bumoto ang lehislatura upang isabatas ito. Ang pag-apruba ay karaniwang isang pormalidad. Sa 2026 cycle, naghati ang komisyon nang 3–2 at nagprodyus ng dalawang nagtutunggaling panukala; gumawa ang lehislatura ng hiwalay na komite ng MLA, na pinamumunuan ng isang UCP MLA, upang pumili sa pagitan ng mga ito. Walang sa konstitusyonal na batas ng Canada ang nag-atas na umiral ang komite. Walang nag-aatas na sundin ng pagpili nito ang proseso ng komisyon. Ito ang istrukturang puwang na sinusuri ng audit na ito.",
 		p7: "Kaya kapag sinasabi ng mga korte ng Canada na ang \"gerrymander\" ay hindi kanilang legal na bokabularyo, hindi nila sinasabi na hindi naaangkop dito ang pinagbabatayang konsepto. Sinasabi nila na ang pagsusulit ay naiiba — epektibong representasyon, hindi matematikong pagkakapantay. Kung tinutugunan ng panukala ng minorya ang pagsusulit na iyon ay eksaktong ang tanong na isinukat ng audit na ito ang geometriya laban dito, at eksaktong ang tanong na isang huwes lamang ang makakasagot nang tiyak. Ang buong pangangatwiran ng <em>Saskatchewan Reference</em>, ang kaibahan sa ibang probinsya, ang tanong ng standing, at ang mga magagamit na landas ng reporma ay tinatalakay sa <a href=\"#references\">seksyon ng mga sanggunian sa ibaba</a>."
@@ -1225,7 +1225,7 @@ export default {
 			partisan_title: "Kulayan ang bawat distrito ayon sa partisan na resulta (UCP asul / NDP kahel)",
 			borders: "Mga Hangganan",
 			flagged: "Nabandilaan",
-			flagged_title: "Lahat ng 7 configuration na binandilaan ng punong komisyon na si Justice Miller — awtomatikong lumilipat sa mapa ng minorya",
+			flagged_title: "Lahat ng 7 configuration na binandilaan ng tagapangulo ng komisyon na si Justice Miller — awtomatikong lumilipat sa mapa ng minorya",
 			help_aria: "Tulong sa mapa",
 			help_title: "Paano gamitin ang mapa",
 			pin_aria: "I-pin ang Mapa",
@@ -1255,7 +1255,7 @@ export default {
 			context_majority: "2026 panukala ng mayorya · 2023 resulta ng halalan",
 			context_2019: "2019 naisabatas na mga hangganan · 2023 resulta ng halalan",
 			tag_min: "Min",
-			tag_maj: "Mau",
+			tag_maj: "May",
 			tag_2019: "2019",
 			dev_notice: "Ang Map Explorer ay nasa tuloy-tuloy na live na pag-develop at maaaring minsan masira. Kung may mukhang mali, bumalik sa loob ng ilang araw — malamang na malulutas ang isyu. Malugod ang mga mungkahi: %s.",
 			dev_notice_email_label: "mag-email sa akin",
@@ -1307,7 +1307,7 @@ export default {
 			map_majority: "Mayorya",
 			map_2019: "Opisyal",
 			map_minority_short: "Min",
-			map_majority_short: "Mau",
+			map_majority_short: "May",
 			map_2019_short: "Opis.",
 			search_placeholder: "Maghanap ng distrito…",
 			search_aria: "Maghanap ng mga distrito",
@@ -1351,7 +1351,7 @@ export default {
 			inperson_votes: "mga in-person na boto",
 			ed_total: "Kabuuan ng distrito: {n} boto",
 			ed_total_eday: "Kabuuan ng distrito: {n} (araw ng halalan)",
-			poll: "Poll #{id} · in-person na boto",
+			poll: "Poll #{id}",
 			ucp_pct: "UCP {u}%",
 			ndp_pct: "NDP {n}%",
 			unassigned: "(hindi nakatalaga)",
@@ -1365,7 +1365,7 @@ export default {
 		},
 		miller: {
 			locked_hint: "Walang anumang gumagalaw sa loob ng balangkas na ito sa ilalim ng Rekomendasyon 5.",
-			title: "Recommendation 5(d): ang rural na upuang ibabalik",
+			title: "Rekomendasyon 5(d): ang rural na upuang ibabalik",
 			body: "Isinulat ni Justice Dallas Miller, ang tagapangulo ng komisyon, na kung hindi tatanggapin ng Lehislatura ang pagkawala ng dalawang rural na riding, dapat itong lumipat mula 89 tungo sa 91 upuan at ibalik ang mga ito. Ito ang iisang lugar na pinangalanan niya para sa isang ibinalik na upuan: isang riding na binubuo pangunahin ng Clearwater County at kanlurang Mountain View County, na may s. 15(2) na katayuan (ang tuntuning nagpapahintulot sa isang malaki at liblib na riding na magkaroon ng mas kaunting tao kaysa karaniwan). Hiniling niya na isaalang-alang ito, hindi iatas. Tantiya lamang ang balangkas: ang Clearwater County at ang bahagi ng Mountain View County na nasa riding na Rimbey-Rocky Mountain House-Sundre noong 2019. Ganap itong nasa hilaga ng Airdrie at walang kinukuhang lupa mula sa anumang riding na pinoprotektahan ng mga kondisyon (a) o (b). Wala siyang pinangalanang lugar para sa ikalawang upuan.",
 			a: {
 				title: "Rekomendasyon 5(a): walang pagbabago mula Airdrie patimog",
@@ -1387,7 +1387,7 @@ export default {
 			},
 			"banff-park": {
 				title: "Hilaga ng Banff — \"Rocky Mountain House–Banff Park\"",
-				body: "Ang \"Rocky Mountain House–Banff Park\" ay isa sa mga iminungkahing riding ng minorya, na binubuo ng higit sa lahat na walang-taong national park; ang bayan ng Banff ay nasa kalapit na riding sa timog. Inilapat ng minorya ang smaller-population na probisyon ng Electoral Boundaries Commission Act sa riding na ito — isang pagpiling tinalakay ng punong komisyon sa huling ulat."
+				body: "Ang \"Rocky Mountain House–Banff Park\" ay isa sa mga iminungkahing riding ng minorya, na binubuo ng higit sa lahat na walang-taong national park; ang bayan ng Banff ay nasa kalapit na riding sa timog. Inilapat ng minorya ang smaller-population na probisyon ng Electoral Boundaries Commission Act sa riding na ito — isang pagpiling tinalakay ng tagapangulo ng komisyon sa huling ulat."
 			},
 			"airdrie-split": {
 				title: "Airdrie — hinati sa apat",
@@ -1415,7 +1415,7 @@ export default {
 			},
 			"calgary-zone-a-packing": {
 				title: "Hilaga at silangan ng Calgary — isang lagda ng packing",
-				body: "Hindi ito binandilaan ng punong komisyon — ang sariling matematika ng audit ang gumagawa. Sa kabuuan ng hilaga at silangan ng Calgary (ang \"Zone A\" ng audit, hilaga at silangan ng Bow River), ang mga distrito ng mapa ng minorya ay humigit-kumulang 11.5% na mas malaki kaysa sa karaniwan ng probinsya, laban sa 2.8% sa mapa ng mayorya. Ang packing ay nangangahulugan ng pagtitipon ng mga botante ng isang panig sa mas kaunti, mas malalaking distrito, upang ang bawat balota nila ay tumimbang nang kaunti pang mababa; ang Zone A ay NDP-competitive, at 13 sa 17 distrito nito ay napanalunan ng NDP noong 2023. Sinusukat ng audit ang istrukturang epekto, hindi ang intensyon. (Akademiko §5.3.1.)"
+				body: "Hindi ito binandilaan ng tagapangulo ng komisyon — ang sariling matematika ng audit ang gumagawa. Sa kabuuan ng hilaga at silangan ng Calgary (ang \"Zone A\" ng audit, hilaga at silangan ng Bow River), ang mga distrito ng mapa ng minorya ay humigit-kumulang 11.5% na mas malaki kaysa sa karaniwan ng probinsya, laban sa 2.8% sa mapa ng mayorya. Ang packing ay nangangahulugan ng pagtitipon ng mga botante ng isang panig sa mas kaunti, mas malalaking distrito, upang ang bawat balota nila ay tumimbang nang kaunti pang mababa; ang Zone A ay NDP-competitive, at 13 sa 17 distrito nito ay napanalunan ng NDP noong 2023. Sinusukat ng audit ang istrukturang epekto, hindi ang intensyon. (Akademiko §5.3.1.)"
 			}
 		},
 		text: {
@@ -1430,7 +1430,7 @@ export default {
 			toc_r5: "Mga lugar ng Rekomendasyon 5",
 			toc_directory: "Direktoryo ng mga distrito",
 			summary_heading: "Maikling buod",
-			summary_p1: "Inihahambing ng audit ang tatlong mapa ng mga elektoral na distrito ng Alberta: ang panukala ng minorya ng komisyon, ang panukala ng mayorya nito, at ang mapang nasaad noong 2019 na may bisa ngayon.",
+			summary_p1: "Inihahambing ng audit ang tatlong mapa ng mga elektoral na distrito ng Alberta: ang panukala ng minorya ng komisyon, ang panukala ng mayorya nito, at ang mapang naisabatas noong 2019 na may bisa ngayon.",
 			summary_p2: "Sa mga pre-registered na istrukturang pagsusulit ng audit, na gumagamit ng geometriya lamang, ang mapa ng mayorya ay hindi tumatawid sa alinman sa limang threshold at ang mapa ng minorya ay tumatawid sa apat sa lima. Ang hiwalay na mga resultang estadistiko, na inihahambing ang bawat mapa sa isang malaking hanay ng mga computer-drawn na neutral na mapa, ay paunang resulta at naghihintay ng independiyenteng pagsusuri ng eksperto.",
 			summary_p3: "Ipinapaliwanag ng mga seksyon sa ibaba ang siyam na tiyak na hangganang binandilaan ng audit, pagkatapos ay inililista ang bawat distrito. Inilalarawan ng pahinang ito ang posisyong estadistiko at istruktural lamang. Hindi ito umaabot sa isang legal na konklusyon tungkol sa alinmang mapa.",
 			flagged_heading: "Mga binandilaang hangganan",
@@ -1439,7 +1439,7 @@ export default {
 			r5_lead: "Binanggit ng gobyerno ang Rekomendasyon 5 ng tagapangulo ng komisyon nang ibigay nito ang mapa sa isang komite ng mga MLA. Nagtatakda ang rekomendasyon ng apat na kondisyon para sa isang 91-upuang mapa, tatlo sa mga ito ay nakatali sa mga distrito sa mapa ng mayorya. Inilalarawan sa ibaba ang bawat lugar na iginuguhit ng mapa, kasama ang mga distrito sa mapa ng mayorya na saklaw nito.",
 			r5_districts: "Mga distrito sa mapa ng mayorya sa lugar na ito:",
 			directory_heading: "Direktoryo ng mga distrito",
-			directory_lead: "Inililista ng talahanayang ito ang bawat pangalan ng distrito na lumilitaw sa alinman sa tatlong mapa, ayon sa pagkakasunod-sunod ng alpabeto. Para sa bawat pangalan ay ipinapakita nito kung ang pangalang iyon ay bahagi ng panukala ng minorya, ng panukala ng mayorya, at ng mapang nasaad noong 2019. Naiiba ang mga pangalan ng distrito sa pagitan ng mga mapa, kaya may ilang hilera na lumilitaw sa isa o dalawa lamang sa mga ito. Naglalaman lamang ang talahanayan ng mga pangalan at pagiging kasapi sa mapa — para sa kabuuang boto, mga bilang ng populasyon, at mga resulta ng pagsusulit, tingnan ang buong ulat.",
+			directory_lead: "Inililista ng talahanayang ito ang bawat pangalan ng distrito na lumilitaw sa alinman sa tatlong mapa, ayon sa pagkakasunod-sunod ng alpabeto. Para sa bawat pangalan ay ipinapakita nito kung ang pangalang iyon ay bahagi ng panukala ng minorya, ng panukala ng mayorya, at ng mapang naisabatas noong 2019. Naiiba ang mga pangalan ng distrito sa pagitan ng mga mapa, kaya may ilang hilera na lumilitaw sa isa o dalawa lamang sa mga ito. Naglalaman lamang ang talahanayan ng mga pangalan at pagiging kasapi sa mapa — para sa kabuuang boto, mga bilang ng populasyon, at mga resulta ng pagsusulit, tingnan ang buong ulat.",
 			directory_totals_note: "Ang bawat bilang ay ang kabuuang in-person (araw ng halalan) na boto ng distrito sa mapang iyon — ang kabuuan ng mga poll nito. Ang mga advance at espesyal na balota ay hindi itinatalaga sa bawat voting area, kaya hindi ito kasama rito; para sa buong mga resulta, tingnan ang ulat. Ang gitling (—) ay nangangahulugang hindi lumilitaw ang pangalan ng distrito sa mapang iyon.",
 			col_district: "Distrito",
 			col_minority: "Panukala ng minorya",
