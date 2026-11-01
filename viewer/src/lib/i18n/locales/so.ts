@@ -1687,7 +1687,135 @@ export default {
 			}
 		},
 		norms: {
-			head_title: "Waxa Caadooyinku Weydiiyaan · Hubinta Xudduudaha Doorashada Alberta"
+			head_title: "Waxa Caadooyinku Weydiiyaan · Hubinta Xudduudaha Doorashada Alberta",
+			head_description: "Muraayadda saddexaad ee dhacdada xudduudaha Alberta ee 2026: halka ay ka timid caadada ah in siyaasiyiintu aanay sawirin degmooyinkooda, waxa ay iibsatay, kiiska ah in dhinac la iska dhigo, iyo cidda dhab ahaan cidda ku eedaynaysa waxa.",
+			back: "← Ku noqo hubinta",
+			site_label: "Hubinta Xudduudaha Doorashada Alberta",
+			h1: "Waxa Caadooyinku ka Weydiiyaan Khariidad Doorasho",
+			meta: "Wehel luqad fudud · hadda Ingiriisi oo keliya · Xukun laguma ridayo cidna",
+			standfirst: "Dhacdadan waxay leedahay saddex muraayadood. <a href=\"__BASE__/law\">Sharcigu</a> wuxuu weydiiyaa waxa sharci ah. <a href=\"__BASE__/methods\">Tirakoobku</a> wuxuu weydiiyaa waxa caadi ka duwan. Muraayadda saddexaad waxay weydiisaa waxa caado ah, caadaduna waa dhulka lagu murmo. \"Dawladdu waxay jebisay caado lixdan sano jirtay\" ma aha cabbir dhexdhexaad ah. Waa wadnaha eedeynta mucaaradka. Sidaa darteed boggani caadooyinka uma akhrinayo uun. Wuu su'aalayaa: halka ay ka yimaadeen, waxa loogu talagalay, waxa kiiska dhab ahaan dhinac looga dhigayo yahay, iyo waxa hadha marka hadallada labada dhinac meesha laga saaro.",
+			the_norm: {
+				heading: "Caadada, oo si fudud loo sheegay",
+				p1: "Siyaasiyiintu ma sawiraan degmooyinkooda. Kanada waxay qiyaastii lixdan sano ku bixisay dhisidda xeerkaas, ma aha sharci ahaan ee dhaqan ahaan. Tan iyo xilligii dib-u-habaynta federaalka ee 1960-meeyadii, gobol kasta iyo habraaca federaalkuba waxay isticmaaleen guddiyo xudduudeed oo gacan-ka-fog ah. Qofka ku tartami doona degmo ma hayo qalinka sawira.",
+				p2: "Caadadu waxay u jirtaa waxa ka horreeyay awgeed. Xisbiyada talada hayay mar waxay si caadi ah u sawiri jireen riding-yadooda, isku-dhaca danahuna ma aha mid qarsoon. Sawiraha khariidadda ee ay tahay inuu ku guulaysto khariidadda hoosteeda wuxuu leeyahay sabab kasta oo uu ugu sawiro danta naftiisa, cid daawanaysaana ma kala garan karto khad daacad ah iyo mid dan gaar ah u adeegaya. Habka guddidu khariidadaha kama dhigo kuwo kaamil ah. Wuxuu danta sawiraha ka kala saaraa natiijada. Taasi waa waxa u oggolaanaya qof kasta oo kale inuu natiijada aamino."
+			},
+			what_it_bought: {
+				heading: "Waxa caadadu iibsatay, wareeggan laftiisa",
+				p1: "Guddida 2025–26 laftigeedu waa tusaalaheeda ugu fiican. Waxay dhageysiyo ku qabatay lix iyo toban bulshood. Waxay heshay 1,345 soo gudbin qoraal ah. Waxay daabacday soo jeedin ku-meel-gaadh ah, qaadatay dhaleecayn, oo dib uga noqotay iyadoo ku tiirsan in ka badan siddeetan soo gudbin. Taasi waa nidaamka oo si muuqata uga jawaabaya fikradaha dadweynaha. Wax kasta oo kale oo guddidu ku guuldarraysatay ha ahaadee, habraaca ku xeernaa wuxuu u shaqeeyay si sax ah sidii loo naqshadeeyay: meel dadweyne, diiwaanka, oo laga jawaabayo waxa muwaadiniintu yidhaahdeen."
+			},
+			the_departure: {
+				heading: "Ka leexashada",
+				p1: "Abriil 2026, toddobaadyo ka dib markii guddidii kala qaybsantay soo gudbisay laba khariidadood oo aan is waafaqin, Golaha Sharci-dejintu labadaba dhinac ayuu iska dhigay. Mooshinka Dawladda 37, oo la meel mariyay 21 Abriil, wuxuu shaqada u dhiibay guddi lix MLA ah, afar ka mid ah xisbiga talada haya, oo uu guddoomiyo xubin dawladeed. Guddiga laguma waajibin inuu qabto dhageysiyo dadweyne. Sida ay sheegtay warbixinta CBC, kama qaban doono dhageysiyo khariidadda uu soo saaro. Qabyo looma sii deyn doono loolan dadweyne ka hor intaanay khariidaddu kama dambays noqon.",
+				p2: "Maajo, Duane Bratt, Borofisar Cilmiga Siyaasadda ee Mount Royal University, wuxuu qoraaga u sheegay inaanay Kanada tusaale hore ku lahayn. Sheegashadaasi waa khalad. 1992 Alberta waxay dhinac iska dhigtay shaqadii guddi xayiran oo khariidadda u dhiibtay guddi MLA-yo ah; Mucaaradku wuu diiday inuu ka qayb qaato, 1994-na Maxkamadda Rafcaanku way u daysay khariidadda inay sii jirto iyadoo guddiga ku eedaynaysa inuu sharrixi kari waayay dhowr ka mid ah xudduudihiisa. Sharciga waa la beddelay 1995. Waxa 2026 cusub waa wax ka cidhiidhi badan: aqlabiyadda guddi ayaa saxeexday warbixin, oo Sharcigu u arko warbixinta guddida, haddana si kastaba dhinac ayaa la iska dhigay. Waxa ay <em>ka dhigan tahay</em> waa halka doodu ka bilaabato."
+			},
+			steel_man: {
+				heading: "Kiiska ah in caadada dhinac la iska dhigo — oo si dhab ah loo qaatay",
+				p1: "Hubin ku celcelisa cadhada hal dhinac oo keliya waxba ma hubinayso. Sidaa darteed qaado dhinaca dawladda xooggiisa oo dhan. Dhis kiiskeeda ugu xoogga badan — nooca ugu adag ee doodda aad diiddan tahay — ka hor intaadan tijaabin:",
+				li1: "<strong>Guddidu waxay ku guuldarraysatay shaqadeeda keliya.</strong> Habka guddidu wuxuu ballanqaadaa hal jawaab oo gacan-ka-fog ah. Guddidan waxay keentay laba khariidadood oo aan is waafaqin iyo guddoomiye si dadweyne ugu eedeeya asxaabtiisa niyad xumo. Marka jidka madax-bannaan xayirmo, qof uun waa inuu go'aamiyaa. Sharcigu wuxuu sheegaa cidda.",
+				li2: "<strong>Sharcigu wuxuu golaha sharci-dejinta siiyaa qalinka si ula kac ah.</strong> Sharciga Alberta hoostiisa, warbixin guddi ma laha awood sharci. Xudduuduhu waxay isbeddelaan oo keliya marka Goluhu meel mariyo Electoral Divisions Act. Mooshinka Dawladda 37 wuxuu isticmaalay albaab uu sharcigu ula kac u dhisay. Waxba si qarsoodi ah looma soo gelin.",
+				li3: "<strong>Xubnaha la doortay waxay ka jawaabaan codbixiyayaasha; xubnaha guddidu cidna kama jawaabaan.</strong> Doodda ugu da'da weyn ee xakamaynta sharci-dejinta waa la-xisaabtan. MLA sawira khariidad dantiisa u adeegta waa laga codayn karaa. Xubin guddi lama codayn karo.",
+				li4: "<strong>Guddigu ma aha qalab xisbiyeed oo saafi ah.</strong> Laba ka mid ah lixdiisa xubnood waa MLA-yo mucaarad ah. Guddida talo-bixinta ee qorta soo jeedinta waxa ku jira laba qof oo mucaaradku soo jeediyay, waxaana guddoomiya garsoore hawlgab ah oo ka tirsanaa Maxkamadda Rafcaanka.",
+				li5: "<strong>Dawladdu waxay tixraacday talada guddoomiyaha laftiisa.</strong> Cudurdaarka ay sheegtay ee waajibaadka 91-ka kursi wuxuu ahaa Talada 5, oo uu qoray guddoomiyaha guddida laftiisa. Golahana sidaas ayay si sax ah ugu sheegtay: “Waxaan qaadanaynaa talooyinka warbixinta.”"
+			},
+			where_it_bends: {
+				heading: "Halka doodda ugu xoogga badani ka qalloocato",
+				p1: "Qodobbadaas mid kastaa waa dhab. Diiwaanka la qoray ayaa sidoo kale mid kasta dib u riixaya:",
+				li1: "Xayiriddu waxay sharraxaysaa <em>beddelka</em> khariidadaha. Ma sharraxdo <em>ka saaridda dadweynaha</em>. Shuruud dhageysi, qabyo la daabacay, ama guddi talo-bixin oo go'aankiisu xidho ayaa iyaguna ka jawaabi lahaa xayiridda. Gaadiidka la doortay wuxuu ka tanaasulayaa astaan kasta oo daah-furnaan ah oo qoraallada is barbar dhigga ahi u arkaan ilaalin. Xayiriddu ma qasbin midkood.",
+				li2: "\"Sharcigu wuu oggol yahay\" waa muraayadda sharciga, halkaasna waa looga jawaabay: tallaabo kastaa waxay ahayd sharci. Su'aasha caadooyinku way ka duwan tahay. Maamullada qaarkood khariidadda guddida waxay ka dhigaan mid dhaqan gasha <em>haddii</em> aanu golaha sharci-dejintu diidin mooyaane. Habka caadiga ah ee Alberta oo rogan wuxuu ka dhigan yahay in xisbiga talada hayaa had iyo jeer xakameeyo in khariidad guddi kasta sharci noqoto iyo in kale. Sharci iyo caado waa su'aalo kala duwan.",
+				li3: "Doodda la-xisaabtanku waxay caddaynaysaa wax aad u badan. Waxay ka dooddaa guddiyada xudduudaha meel kasta. Haddana maamul kasta oo Kanadiyan ah — iyo UK, iyo Australia — waxay u dhaqaaqeen jihada kale, si sax ah maxaa yeelay la-xisaabtanka waqtiga doorashadu waa ilaalin daciif ah oo ka dhan ah khariidad loo naqshadeeyay inay qaabayso isla doorashooyinkaas.",
+				li4: "Guddida talo-bixintu talo ayay bixisaa; codadka MLA-yada ayaa go'aamiya. Talo laba-xisbi ah oo leh go'aan ay dawladdu xakamayso waa hay'ad ka duwan guddi madax-bannaan. Farqigu waa si sax ah caadada laga hadlayo.",
+				li5: "Qoraaga Talada 5 wuxuu u qoray inuu golaha sharci-dejinta ka waaniyo qaadashada khariidadda inta yar, asxaabtiisa inta badanna ma taageerin. Waa sidoo kale mid gaar ah. Waxay Airdrie, Calgary iyo wax kasta oo ka koonfureeya uga tagtaa si sax ah sidii inta badan u sawirtay, khadadka guddidu isku khilaaftay laftooda, waxba oo waajibaadka guddiga ku jirana kuma xidhaan taas. Tixraacidda talo ka soo horjeedda ujeeddada qoraageedu sheegay waa xiisad la diiwaangeliyay, ma aha mid la xalliyay.",
+				li6: "Dukumeentiga kale ee golaha lagu akhriyay — bogga 58 ee warbixinta inta badan — wuxuu ka calaacalaa xadka laba kursi. Laakiin daawada ku lifaaqan waa in Golaha Sharci-dejintu siiyo <em>guddiyada mustaqbalka</em> awoodda ay ku dejiyaan tirada kursiyada. Mooshinku hadda ayuu qaatay bannaankaas, guddi MLA-yo ah, isagoo diidaya codsiga shaqaynaya ee warbixinta: qaado khariidadda 89-ka kursi."
+			},
+			whose_accusation: {
+				heading: "Eedeyntu yay leedahay?",
+				p1: "Waa kan kala saarka uu boggani u jiro inuu sameeyo. Kuwa soo socdaa waa xaqiiqooyin la diiwaangeliyay. Ka leexashadu way dhacday, markii ugu horreysay tan iyo guddigii Alberta laftigeeda ee 1992. Astaamihii daah-furnaanta waa laga tanaasulay. Guddoomiyaha guddidu wuxuu hal xudduud oo inta yar ah ugu yeedhay \"isku day niyad xun\" dukumeenti sharci oo dadweyne ah. Ururka Xorriyadaha Madaniga ee Kanada ayaa si dadweyne <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">u soo qaaday walaaca siyaasadaynta</a>. Mucaaradku wuxuu u codeeyay ka soo horjeedka mooshinka. Eedeymuhuna labada jiho ayay u socdaan. Warbixinta inta yar waxay inta badan ku eedaysaa “u janjeedh ah in la tirtiro ama la burburiyo qaybaha doorashada miyiga, oo dhab ahaan la dhimo matalaadda waxtarka leh ee miyiga” — matalaadda miyiga oo ah, erayada inta yar laftigeeda, “ma aha su'aal tirooyin oo keliya; waa su'aal helitaan, cod, iyo maamul suurtagal ah” (b. 356). Hubintu waxay eedeyntaas tijaabisay maalintii ay soo saartay (sahamin; kala-saaraha u adkaysta xarriiqda iyo magac kasta oo la kala saaray waxa lala daabacay natiijada). Jihadu way rogmataa. Khariidadda inta yar waxay haysaa qaybo miyi ku xajisan oo ka yar inta badan (23 iyo 28 marka loo eego 31-kii 2019) waxayna qaybaha miyiga ee 2019 ku dartaa qaar ka badan degmooyin magaalo magacooda wata (toddoba iyo saddex). Labada khariidadoodba waxay khafiifiyaan matalaadda miyiga marka loo eego 2019, sidaa darteed indho-indhaynta udub-dhexaadka u ah eedeyntu waa dhab. Laakiin cabbirka ay eedeyntu magacawdo, waxay ku dhacdaa qoraageeda. Eedeynteeda wehelka ah, in inta badan ay diidday inay isticmaasho dabacsanaanta ±25% ee Sharciga ee Alberta miyiga, waxa la tijaabiyay isla maalintaas wayna adkaysataa. Inta badan waxay qaybaheeda miyiga u sawirtay meel u dhow sinnaanta dadka; inta yar waxay u sawirtay kuwo fudud. Hal eedeyn way rogmatay, hal waa la taageeray, labadaba waa la daabacay. Isla dhimista asalka hal-dhinac ee lagu dabaqay calaamadaha guddoomiyaha ayaa halkan sidoo kale lagu dabaqaa, labada jihoba.",
+				p2: "Waxa soo socdaa <em>ma aha</em> xaqiiqo la diiwaangeliyay. Waa go'aan siyaasadeed: in ka leexashadu ahayd mid aan sharci ahayn. Go'aankaasi wuxuu ku xidhan yahay inta ixtiraam ee caadadu mudnayd marka la wajahayo guddi xayiran, dad caqli lehna si kala duwan ayay u miisaamaan. Hubintu waxay diiwaangelisaa ka leexashada iyo kharashkeeda. Ma qaado gunaanadka mucaaradka, waxba oo tirakoobka hubinta ku jirana ma qaadi karaan. Tiro waxay sheegi kartaa in khariidad naadir tahay. Ma sheegi karto in habraac khaldanaa."
+			},
+			norms_vs_law: {
+				heading: "Caadooyinku sharci ma aha — hal meelna caadada ayay sharci ka dhigtay",
+				p1: "Caadooyinka dastuuriga ah, xeerarka aan qornayn ee dhaqanka siyaasadeed, waxay xidhaan siyaasad ahaan, ma aha garsoor ahaan. Maxkamadda Sare sidaas ayay ku tidhi Patriation Reference-kii 1981, maxkamaduhuna khadkaas way sii hayeen tan iyo markaas: maxkamadi way magacaabi kartaa caado haddana way diidi doontaa inay dhaqan geliso. Farqigaas, u dhexeeya waxa caadada ah iyo waxa lagu qasbi karo, waa halka dhacdadan oo dhammi ku nooshahay.",
+				p2: "Quebec waxay muujinaysaa sida doorashada kale u eg tahay. Guddideeda xudduudaha waa joogto oo madax-bannaan, khariidadda laftigeedana guddidu badanaa waxay leedahay erayga ugu dambeeya. Markii dawladda Quebec isku dayday inay guddideeda sharci ku barafayso, maxkamaduhu <em>way</em> dhaqaaqeen, maxaa yeelay sharci ayaa hadda ku lug lahaa. 22 Abriil 2026, Maxkamadda Sare ee Kanada waxay ansixisay, 7–2 iyo kursiga garsoorka laga sheegay, xukunka ah in barafayntu jebisay dammaanadda matalaadda dimuqraadiga ah ee Axdiga. Sababaheedu waxay daba yimaadeen 1 Maajo (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Halka caadada sharci lagu qoray, waxay noqotay mid la dhaqan gelin karo. Caadada Alberta weligeed lama qorin, sidaa darteed ma noqon. Isbarbardhiggu labada dhinac ayuu wax ka goynayaa, se. 12 Juun 2026, Golaha Qaranka ee Quebec wuxuu meel mariyay khariidaddiisa 127-kursi ah."
+			},
+			measurable: {
+				heading: "Kaarka dhibcaha habraaca: ka dhigidda su'aasha caadooyinka mid la cabbiri karo",
+				p1: "Hadallada caadooyinka ku saabsani waa raqiis labada jihoba. Jawaabta hubintu waa kaar dhibco saddexaad, oo la socda imtixaannada qaab-dhismeedka iyo tirakoobka. Wuxuu <em>habraaca</em> ku qiimeeyaa sagaal astaamood oo ilaalin ah oo dhaqankii lixdanka sano dammaanad qaaday. Mid kastaa waa su'aal haa-ama-maya ah oo looga jawaabi karo dukumeentiyo dadweyne, isla sagaalkaasina waxay qiimeeyaan habraac kasta oo hubintani baadho.",
+				table: {
+					head: {
+						feature: "Astaanta ilaalinta",
+						commission: "Habraaca guddida",
+						committee: "Habraaca guddiga (sida loo dhisay)"
+					},
+					arms_length_drafting: {
+						feature: "Qoris gacan-ka-fog ah",
+						commission: "Haa",
+						committee: "Qayb ahaan — guddida talo-bixinta ayaa qorta; lixda MLA ee guddiga (afar dawladeed) ayaa go'aamiya"
+					},
+					public_hearings_before: {
+						feature: "Dhageysiyo dadweyne ka hor ansixinta",
+						commission: "Haa — lix iyo toban bulshood",
+						committee: "Maya — midna looma qorshayn khariidadda la soo saaray"
+					},
+					draft_published_challenge: {
+						feature: "Qabyo loo daabacay loolan",
+						commission: "Haa — soo jeedinta ku-meel-gaadhka ah ayaa si dadweyne dib loogu eegay",
+						committee: "Maya — midna lama shaacin"
+					},
+					new_public_submissions: {
+						feature: "Soo gudbinno dadweyne oo cusub oo la aqbalay",
+						commission: "Haa — 1,345 ayaa la helay",
+						committee: "Maya — wuxuu dib u isticmaalaa kaydka guddida"
+					},
+					demonstrated_responsiveness: {
+						feature: "Ka-jawaab la muujiyay",
+						commission: "Haa — dib ayay uga noqotay 80+ soo gudbin awgood",
+						committee: "Sugaya"
+					},
+					neutral_chair_deciding: {
+						feature: "Guddoomiye dhexdhexaad ah oo hay'adda go'aamisa",
+						commission: "Haa — garsoore, oo golaha wasiirradu magacaabeen",
+						committee: "Maya — MLA dawladeed ayaa guddoomiya; garsooraha hawlgabka ahi wuxuu guddoomiyaa lakabka talo-bixinta oo keliya"
+					},
+					opposition_deciding_body: {
+						feature: "Mucaarad ku jira hay'adda go'aamisa",
+						commission: "Haa — laba ka mid ah shan",
+						committee: "Haa — laba ka mid ah lix"
+					},
+					published_reasons_contested: {
+						feature: "Sababo la daabacay oo doorashooyinka lagu murmay",
+						commission: "Haa — labada warbixinoodba",
+						committee: "Sugaya"
+					},
+					precedent_conformity: {
+						feature: "La jaanqaadka tusaalooyinka hore",
+						commission: "Haa",
+						committee: "Maya — Alberta waxa ugu dambaysay 1992, waxaana eedaysay Maxkamadda Rafcaanka 1994"
+					},
+					count: {
+						feature: "Tirada",
+						commission: "9 ka mid ah 9",
+						committee: "1 Haa · 1 Qayb ahaan · 5 Maya · 2 Sugaya"
+					}
+				},
+				p2: "Hab kale oo kaarkan dhibcaha loo arko: waa <em>dhidibka saddexaad</em>. Shaxda hubintu khariidad kasta waxay ku sawirtaa laba cabbir: qaab-dhismeed iyo tirakoob. Saddexda khariidadood ee ilaa hadda la sawiray waxa sawiray habraacyo guddi oo halkan ka hela sagaal ka mid ah sagaal, sidaa darteed dhidibka saddexaad wax uu kala saaro ma helin. Khariidadda Noofembar waxay noqon doontaa barta ugu horreysa taariikhda hubinta oo ay ka dambeeyaan dhibco habraac oo kala duwan.",
+				p3: "Shaxda si daacad ah u akhri, labada jihoba. Guddidu waxay heshaa sagaal ka mid ah sagaal <em>dhismaha awgii</em>. Shuruuduhu waxay qeexayaan hay'adda caadadu dhistay, guddiduna waxay ahayd hay'addaas. Qaybta xogta leh waxay eegaysaa hore. Afar ka mid ah unugyada Maya iyo Sugaya ee guddiga waa astaamo uu weli ku dari karo inta u dhexaysa hadda iyo Noofembar: dhageysiyo, qabyo la daabacay, soo gudbinno cusub, iyo ka-jawaabidda ay suurtagal ka dhigaan. Haddii uu ku daro, natiijada ka leexashada habraaca ee hubintu si muuqata ayay u yaraanaysaa, hubintuna waxay qoraal ku ballanqaadday inay sidaas sheegto.",
+				draft_note: "Xaaladdu halkan way muhiim tahay: shuruudaha kaarkan dhibcaha, ilihiisa, iyo jihooyinka la saadaaliyay waxay <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">ku diiwaangashan yihiin OSF (u47bq, 14 Luulyo 2026)</a> — oo la barafeeyay bilo ka hor intaanu guddigu warbixin soo gudbin, sidaa darteed waxba si aamusnaan ah dib looma qori karo marka jawaabtu timaado. Waxa la qoray dhacdada badhtankeeda, waxaana qoray qoraa aad hadda akhriday natiijooyinkiisii hore — khatar eex oo <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">dukumeentiga la diiwaangeliyay</a> shaaciyo halkii uu qarin lahaa. Marka gadaal loogu dabaqo guddida, waa sharraxaad, ma aha saadaal. Marka khariidadda guddigu timaado, isla imtixaannada khariidadda ee la xidhay ayaa socon doona iyagoon la beddelin — liiskan hubintuna wuxuu qiimayn doonaa habraaca soo saaray. Waqtigaas doodda caadooyinku waxay joojinaysaa inay noqoto qaylo ku saabsan dhaqanka waxayna noqonaysaa isbarbardhig la qiimeeyay: guddigu ma u dhaqmay sidii hay'addii uu beddelay?"
+			},
+			audits_standing_rule: {
+				heading: "Xeerka joogtada ah ee hubinta",
+				p1: "Isla xeerka meel kasta oo kale oo goobtan ah. Hubintu waxay diiwaangelisaa waxa dhacay, sida uu u naadir yahay, iyo cidda sheegatay waxa. In caadadu mudnayd inay ka badbaado xayiridda — iyo waxa ay tahay in dhinac-iska-dhigiddeedu ku kacdo sanduuqa codbixinta, haddii ay jirto — waxa leh akhristayaasha iyo codbixiyayaasha. Ma aha hubin tirakoob.",
+				cross_ref: "Bogag wehel ah: <a href=\"__BASE__/law\">Waxa sharcigu ka weydiiyo khariidad doorasho</a> · <a href=\"__BASE__/methods\">Sida khariidadaha loo tijaabiyay</a>",
+				disclaimer: "Boggani waa wehel luqad fudud oo hubinta ah, oo loo qoray hanuunin. Ma aha talo sharci, mana aha xukun lagu riday qof ama xisbi."
+			}
+		},
+		law: {
+			head_title: "Waxa Sharcigu Weydiiyo · Hubinta Xudduudaha Doorashada Alberta",
+			head_description: "Sida sharciga Kanada u qiimeeyo khariidad doorasho: matalaadda waxtarka leh ee qaybta 3 ee Axdiga, Saskatchewan Reference, iyo Electoral Boundaries Commission Act ee Alberta — iyo sida caddaynta hubintani ula xidhiidho imtixaannadaas.",
+			back: "← Ku noqo hubinta",
+			site_label: "Hubinta Xudduudaha Doorashada Alberta",
+			h1: "Waxa Sharcigu ka Weydiiyo Khariidad Doorasho",
+			meta: "Wehel luqad fudud · hadda Ingiriisi oo keliya · Ma aha talo sharci",
+			standfirst: "Hubintani waxay cabbirtaa khariidado. Maxkamaduhu way xukumaan. Labada shaqo way xidhiidhaan, laakiin isku mid ma aha, boggannu wuxuu ku socodsiinayaa farqiga: waxa sharciga Kanada dhab ahaan ka weydiiyo xudduud doorasho, su'aalaha ay leedahay maxkamad halkii ay lahaan lahayd tirakoobe, iyo halka caddaynta hubintu ku habboon tahay. Hubintu laftigeedu mowqif kama qaadato gunaanad sharci kasta. Waxay soo sheegtaa waxa xogtu muujiso, halkaasna way ku joogsataa."
 		}
 	}
 } as const;
