@@ -11,6 +11,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 | `commission_reports/abebc_2026_rpt_final.pdf` | 2025–26 Electoral Boundaries Commission final report: majority report, with the minority report and maps as Appendix E (p. 285 on); 362 pages; PDF created 2026-03-16 | https://www.elections.ab.ca/uploads/abebc_2026_rpt_final.pdf | 2026-10-31 10:15 |
 | `commission_reports/abebc_2003_rpt_final.pdf` | 2002–03 Electoral Boundaries Commission final report, 92 pages | https://www.elections.ab.ca/uploads/abebc_2003_rpt_final.pdf | 2026-10-31 10:16 |
 | `legislature/assembly_committee_page_ceb_2026-10-31.html` | Legislative Assembly of Alberta page for the Select Special Committee on Electoral Boundaries, as served | https://www.assembly.ab.ca/assembly-business/committees/ceb | 2026-10-31 15:01 |
+| `legislature/standing_orders_alberta_effective_2026-03-16.pdf` | Standing Orders of the Legislative Assembly of Alberta, effective March 16, 2026 | https://www.assembly.ab.ca/docs/default-source/reference/assembly-documents/StandingOrders.pdf | 2026-10-31 19:40 |
 
 Full hashes:
 
@@ -22,6 +23,7 @@ fa0c134755325fa37839512c27472fd78fc28c007db5174c0ce3333cf277b7b4  municipal_gove
 7236cd0aaa611f5198f88856f677a2028f9a442dccdc0359725b4995a2d0247e  abebc_2026_rpt_final.pdf
 a3555d34175901deac78706820d7778c3adf5e37128020879fccaaa1feedc5f0  abebc_2003_rpt_final.pdf
 5520241bf9d35f3efb90fa2dff019a6993fe70ad1e01b9b8ed3872e0ce58d4a3  assembly_committee_page_ceb_2026-10-31.html
+46c4825da82f5e6483404f1eb5b1968f5a424cff18cd91898cb468d19e4a7972  standing_orders_alberta_effective_2026-03-16.pdf
 ```
 
 The audit used the 2026 final report earlier (`data/meta/data_acquisition_manifest.md`, as `commission_report.pdf`), but no hash was recorded then, so this copy cannot be shown to be byte-identical to that one.
@@ -48,4 +50,4 @@ Checked 2026-10-31 against the committee page above (correction C37 in the acade
 - **Who sits on it.** "Committee Members (6)": Brandon Lunty (Chair, UC, Leduc-Beaumont), Chantelle de Jonge (UC), Kathleen Ganley (NDP), Christina Gray (NDP), Tara Sawyer (UC) and Ron Wiebe (UC). Four UCP, two NDP.
 - **What created it, and when.** The committee "was established by Government Motion 37, passed by the Assembly on April 21, 2026, to oversee an independent review of the electoral boundaries of Alberta", and "is directed to engage independent advisors in accordance with clause C.(d)" of that motion.
 - **The vote.** CBC News, "MLA committee to review Alberta electoral boundaries after report is set aside" (Michelle Bellefontaine, posted April 21, 2026, https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743, read 2026-10-31 15:05): "MLAs voted 44-36 in favour of the measure following a highly charged debate Tuesday afternoon." April 21, 2026 was a Tuesday. The article is not copied here because it is a copyrighted news story; the quotation and link are the record.
-
+- **Committee voting.** The Standing Orders cap a special committee at 11 members (SO 56(1)) and give the Speaker a casting vote in the Assembly (SO 11(3)); no rule on whether a committee chair votes on every question or only to break a tie was found (searched 2026-11-01). Amendment 27 relies on that absence.
