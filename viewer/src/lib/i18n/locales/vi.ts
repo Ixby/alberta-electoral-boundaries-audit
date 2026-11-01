@@ -1842,7 +1842,66 @@ export default {
 				criterion4: "đơn vị có một khu bảo tồn của người Da đỏ (Indian reserve) hoặc một khu định cư Métis;",
 				criterion5: "một phần ranh giới chạy dọc biên giới tỉnh của Alberta.",
 				p4: "Điều khoản này mang tính cho phép: đáp ứng các tiêu chí làm cho một đơn vị đủ điều kiện, nhưng không bao giờ buộc ủy ban phải dùng khoản cho phép đó. Cả hai bản đồ năm 2026 đều viện dẫn s.15(2) cho ba đơn vị mỗi bản. Cuộc kiểm toán đã kiểm tra lại cả sáu lần viện dẫn theo các ngưỡng luật định đã hiệu chỉnh và thấy tất cả đều đủ điều kiện. Tranh cãi mà cuộc kiểm toán ghi nhận không phải là tính đủ điều kiện. Đó là một lựa chọn khi vẽ. Đơn vị Rocky Mountain House–Banff Park của phe thiểu số có được một tiêu chí đủ điều kiện, tiêu chí biên giới tỉnh, chỉ bằng cách kéo dài qua vùng đất công viên quốc gia không người ở. Về lựa chọn đó, chính báo cáo cuối cùng của ủy ban (ngày 23 tháng Ba năm 2026, tr. 10) đã tự nói lên. Các ủy viên đa số viết:",
-				quote: "\"Họ đề xuất giữ lại một đơn vị bầu cử 'Rocky Mountain House-Banff Park' bằng cách kéo dài ranh giới của nó một cách giả tạo đến biên giới phía tây của tỉnh với British Columbia (lấy một phần Vườn Quốc gia Banff, nơi không ai sinh sống), đó là một nỗ lực thiếu thiện chí nhằm bảo đảm nó có thể được bảo vệ theo s. 15(2) của Luật.\""
+				quote: "\"Họ đề xuất giữ lại một đơn vị bầu cử 'Rocky Mountain House-Banff Park' bằng cách kéo dài ranh giới của nó một cách giả tạo đến biên giới phía tây của tỉnh với British Columbia (lấy một phần Vườn Quốc gia Banff, nơi không ai sinh sống), đó là một nỗ lực thiếu thiện chí nhằm bảo đảm nó có thể được bảo vệ theo s. 15(2) của Luật.\"",
+				p5: "Cách mô tả đó — bao gồm cụm từ \"thiếu thiện chí\" — là của chủ tịch ủy ban, được đưa ra trong một văn bản luật định công khai. Nó không phải của cuộc kiểm toán. Phân tích của chính cuộc kiểm toán thấy rằng đơn vị này đủ điều kiện theo s.15(2) ngay cả khi không có phần mở rộng. Trích dẫn chủ tịch là ghi lại những gì nguồn gốc nói. Nó không ghi lại ý định của bất kỳ ủy viên nào.",
+				p6: "<strong>Báo cáo của ủy ban là gì — và không phải là gì.</strong> Theo EBCA, báo cáo của ủy ban tự nó không có hiệu lực pháp lý. Ranh giới chỉ thay đổi khi Hội đồng Lập pháp thông qua một Electoral Divisions Act riêng. Một số khu vực tài phán cho bản đồ của ủy ban có hiệu lực trừ khi cơ quan lập pháp chủ động bác bỏ nó. Mặc định của Alberta thì ngược lại: đảng cầm quyền kiểm soát việc bản đồ nào của ủy ban trở thành luật. Các quy tắc của Luật về điều trần, thời hạn và biên độ ±25% được viết cho ủy ban. Không có gì trong đó điều chỉnh những gì Hội đồng làm thay vào đó, và nó không đặt thời hạn thông báo hay góp ý công khai tối thiểu nào. Motion 37 của Chính phủ, thông qua ngày 21 tháng Tư năm 2026, đã gạt cả hai bản đồ của ủy ban sang một bên. Nó trao công việc cho một ủy ban gồm sáu MLA, bốn người từ đảng cầm quyền, phải báo cáo trước ngày 2 tháng Mười Một năm 2026. Alberta đã từng làm điều này một lần. Năm 1992, một ủy ban gồm các MLA đã vẽ bản đồ sau khi một ủy ban ranh giới bế tắc, và năm 1994 Tòa Phúc thẩm giữ nguyên bản đồ đó nhưng chỉ trích ủy ban vì không thể giải thích một số ranh giới của nó. Cuộc kiểm toán ghi nhận lựa chọn quy trình đó như một phát hiện về thủ tục, tách biệt và bổ sung cho bất cứ điều gì hình học của các bản đồ cho thấy.",
+				cross_ref: "Toàn bộ phân tích pháp lý — bao gồm phần rà soát án lệ, tài liệu về sự tôn trọng dành cho ủy ban, và phần so sánh thủ tục với các tỉnh khác — có trong chuyên khảo học thuật, §2 và §5.9, tại <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">kho mã nguồn của cuộc kiểm toán</a>."
+			},
+			audits_standing_rule: {
+				heading: "Quy tắc thường trực của cuộc kiểm toán",
+				p1: "Mọi phiên bản của cuộc kiểm toán này đều mang cùng một kỷ luật. Nó có thể báo cáo những gì các bài kiểm tra cho thấy. Nó có thể nói một bản đồ bất thường đến mức nào so với một đường cơ sở trung lập. Nhưng nó không tuyên bố bản đồ nào là một gerrymander, không suy ra ý định từ hình học, và không phán xét về việc tuân thủ hiến pháp hay luật định. Đó là những câu hỏi dành cho tòa án, ủy ban và người đọc, với bằng chứng của cuộc kiểm toán được bày ra trên bàn.",
+				cross_ref: "Các trang đồng hành: <a href=\"__BASE__/methods\">Các bản đồ đã được kiểm tra ra sao</a> — mọi bài kiểm tra và số liệu thống kê bằng ngôn ngữ đơn giản — và <a href=\"__BASE__/norms\">Các chuẩn mực đòi hỏi gì</a> — lăng kính thứ ba, về thông lệ và việc chất vấn nó.",
+				disclaimer: "Trang này là một bản đồng hành bằng ngôn ngữ đơn giản cho cuộc kiểm toán, được viết để định hướng. Đây không phải là tư vấn pháp lý, và không nội dung nào ở đây nên được dựa vào như một ý kiến pháp lý."
+			}
+		},
+		privacy_policy: {
+			head_title: "Chính sách quyền riêng tư · Kiểm toán Ranh giới Bầu cử Alberta",
+			head_description: "Chính sách quyền riêng tư và lưu giữ dữ liệu của Kiểm toán Ranh giới Bầu cử Alberta.",
+			back: "← Quay lại cuộc kiểm toán",
+			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
+			h1: "Chính sách quyền riêng tư và lưu giữ dữ liệu",
+			meta: "Có hiệu lực: 2026-06-24 · Do Will Conner duy trì",
+			overview: {
+				heading: "Tổng quan",
+				p1: "Công cụ này là một cuộc kiểm toán vì lợi ích công cộng về quy trình của ủy ban ranh giới bầu cử năm 2023 của Alberta. Nó không phải là sản phẩm thương mại và không chạy quảng cáo. Trang này giải thích những gì được đo lường, những gì không bao giờ được thu thập, và vì sao không dữ liệu nào trong số đó có thể được liên kết ngược lại với bạn.",
+				p2: "Phiên bản ngắn gọn: trang web dùng phân tích tổng hợp, không dùng cookie. Không có cookie theo dõi, không có quảng cáo, không có việc lập hồ sơ trên nhiều trang web, và không có mã định danh nào theo dấu bạn. Vì không có gì mang tính cá nhân được lưu trữ, nên không có biểu ngữ xin đồng ý nào để bạn bấm qua — sự bảo vệ quyền riêng tư được tích hợp vào chính cách thức đo lường hoạt động, chứ không phải gắn thêm vào dưới dạng một lời nhắc."
+			},
+			how_analytics_work: {
+				heading: "Cách hoạt động của phân tích",
+				p1: "Khi một trang được tải hoặc bạn tương tác với bản đồ, trang web gửi một sự kiện nhỏ, ẩn danh đến một dịch vụ đếm do chúng tôi vận hành. Mỗi sự kiện chỉ là tên của điều đã xảy ra — ví dụ, \"đã xem trang\" hoặc \"đã chọn khu vực\" — cộng với vài chi tiết sơ lược về hành động đó. Sự kiện không mang tên, không email, không tài khoản, và không mã định danh nào được lưu trên thiết bị của bạn.",
+				p2: "Để đếm có bao nhiêu người khác nhau đã truy cập trong một ngày nhất định mà không nhận dạng ai, dịch vụ đếm kết hợp địa chỉ mạng và loại trình duyệt của bạn rồi đưa chúng qua một hàm băm mật mã một chiều cùng với một khóa bí mật thay đổi mỗi ngày. Kết quả là một mã ngắn cho phép chúng tôi phân biệt hai lượt truy cập <em>trong</em> cùng một ngày, và không gì hơn. Địa chỉ gốc không bao giờ được lưu trữ — chỉ giá trị băm được lưu. Vì khóa bí mật thay đổi hằng ngày, cùng một người truy cập sẽ tạo ra một mã khác vào ngày mai, nên không có cách nào để theo dấu bất kỳ ai qua các ngày hoặc suy ngược từ một mã ra một người.",
+				p3: "Chúng tôi quan tâm đến bức tranh mà người truy cập vẽ nên khi xét như một nhóm — phát hiện nào được đọc, bản đồ nào được mở, khu vực nào thu hút sự chú ý. Chúng tôi không quan tâm đến riêng cá nhân bạn, và cách đo lường được xây dựng để \"riêng cá nhân bạn\" không phải là điều mà dữ liệu có thể thể hiện."
+			},
+			measured: {
+				heading: "Những gì được đo lường",
+				p1: "Phân tích ghi lại các sự kiện tổng hợp, ẩn danh như:",
+				li1: "Lượt xem trang",
+				li2: "Mọi người cuộn xuống một trang bao xa, theo các mức sơ lược (25%, 50%, 75%, 100%)",
+				li3: "Trang đã thực sự hiển thị trên màn hình trong khoảng bao lâu, theo các khoảng thời gian sơ lược",
+				li4: "Những mục phát hiện nào hiện ra trong tầm nhìn khi mọi người đọc",
+				li5: "Những bản đồ nào được mở trong trình khám phá, và những khu vực nào được chọn",
+				li6: "Những lớp bản đồ nào được bật hoặc tắt, và mọi người phóng to khoảng bao nhiêu",
+				li7: "Những điểm đáng chú ý hoặc liên kết báo cáo nào được mở",
+				li8: "Một bức tranh sơ lược về thiết bị của bạn — nhóm kích thước màn hình (như điện thoại, máy tính bảng hoặc máy tính để bàn), dạng thiết bị, và dòng trình duyệt (như Chrome, Safari hoặc Firefox). Chúng tôi không bao giờ lưu kích thước màn hình chính xác hay chuỗi nhận dạng trình duyệt đầy đủ của bạn.",
+				li9: "Một ảnh chụp một lần về hiệu năng của trình khám phá bản đồ khi nó vẽ lần đầu — ví dụ, thời gian tải theo các mức sơ lược và một con số bộ nhớ đã làm tròn. Điều này giúp chúng tôi biết trình khám phá có đủ nhanh trên các thiết bị thực hay không. Các con số được cố ý chia theo mức, không chính xác, để chúng mô tả một loại thiết bị chứ không phải một thiết bị.",
+				p2: "Mỗi mục trong số này chỉ được lưu ở dạng tổng hợp. Không có hồ sơ theo từng người, không có tính năng phát lại phiên, và không có bản ghi nào về đường đi của một cá nhân qua trang web. Chúng tôi thấy các con số tổng và phân phối, không thấy con người."
+			},
+			never_collected: {
+				heading: "Những gì không bao giờ được thu thập",
+				p1: "Không tên. Không email. Không tài khoản. Không mã định danh quảng cáo. Không lưu địa chỉ IP — địa chỉ mạng của bạn được băm cùng một khóa bí mật thay đổi hằng ngày và bị loại bỏ ngay lập tức; chỉ mã hằng ngày có thời hạn ngắn được giữ lại. Không có dấu vân tay trình duyệt thô. Không có mã định danh xuyên ngày hay xuyên trang web. Không có vị trí chính xác. Không có cookie hay mã định danh trong bộ nhớ trình duyệt nào đánh dấu bạn là người truy cập quay lại cho mục đích phân tích."
+			},
+			github_pages_collects: {
+				heading: "Những gì GitHub Pages thu thập",
+				p1: "Trang web này được lưu trữ trên GitHub Pages. Máy chủ của GitHub tự động ghi nhật ký các chi tiết yêu cầu cơ bản khi bất kỳ trang nào được tải — địa chỉ IP, loại trình duyệt, trang giới thiệu và dấu thời gian của bạn. Chúng tôi không nhận hay kiểm soát các nhật ký này; chúng chịu sự điều chỉnh của <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Tuyên bố Quyền riêng tư của GitHub</a>. Chúng tôi không có quan hệ nào với GitHub ngoài việc lưu trữ. Phân tích được mô tả ở trên chạy riêng biệt và không bao giờ nhận địa chỉ IP của bạn."
+			},
+			share_codes: {
+				heading: "Mã chia sẻ",
+				p1: "Trình khám phá bản đồ có tính năng Chia sẻ. Nó biến chế độ xem bản đồ hiện tại của bạn — bản đồ nào đang hoạt động, những lớp phủ và lớp nào đang bật, khung nhìn của bạn nằm khoảng ở đâu — thành một mã ngắn gồm ba từ mà bạn có thể sao chép và gửi cho ai đó. Có đúng 19.200 mã hợp lệ, vì một mã đại diện cho một cấu hình bản đồ, không phải một người. Hai người độc lập đi đến cùng một chế độ xem sẽ nhận được cùng một mã; điều đó là bình thường và không tạo ra liên kết nào giữa họ.",
+				p2: "Mã chia sẻ xuất hiện trên màn hình và chỉ được đưa vào bộ nhớ tạm của bạn khi bạn bấm Sao chép. Chúng không bao giờ được nhúng vào URL, nên chúng không xuất hiện trong lịch sử trình duyệt, nhật ký máy chủ hay tiêu đề giới thiệu (referrer). Để mở chế độ xem được chia sẻ của ai đó, người nhận gõ mã trực tiếp vào trang web.",
+				p3: "Khi bạn tạo một mã chia sẻ, cấu hình bản đồ mà mã đó mã hóa được lưu vào cơ sở dữ liệu của chúng tôi để liên kết tiếp tục hoạt động. Bản ghi được lưu đó là một trạng thái bản đồ — không phải một người, không phải một đường đi, và không được kết nối với dữ liệu phân tích. Nó không chứa mã định danh nào của bạn."
+			},
+			cookies_browser_storage: {
+				heading: "Cookie và bộ nhớ trình duyệt"
 			}
 		}
 	}

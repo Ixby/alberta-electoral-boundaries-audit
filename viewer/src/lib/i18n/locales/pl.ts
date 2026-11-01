@@ -764,7 +764,7 @@ export default {
 			table_r6_b: "<strong>0 z 5 uruchomionych</strong>",
 			table_r6_c: "<strong>4 z 5 uruchomione</strong> (test zakotwiczenia neutralny — obie mapy w kanadyjskiej normie; pozostałe 4 testy wszystkie uruchomione)",
 			table_r6_d: "<strong>UCP</strong>",
-			rationales_p: "Osobne ustalenie, dotyczące tylko mniejszości: <strong>pięć z sześciu opublikowanych uzasadnień komisarzy mniejszości nie wytrzymuje niezależnego sprawdzenia</strong>. Test dotyczy wyłącznie mniejszości, ponieważ większość nie opublikowała listy uzasadnień spornych zmian granic. Audyt nie może zastosować go jednakowo do obu map, więc podaje go tu jako pojedynczą flagę, a nie jako dodatkowe wiersze w liczniku nieprawidłowości strukturalnych. (Audyt wymieniał kiedyś siódmą zmianę granic. Okazało się, że opierała się na twierdzeniu o granicy federalnej, którego nie da się odnaleźć w raporcie mniejszości, więc ją usunięto, zamiast zostawiać jako słabe twierdzenie).",
+			rationales_p: "Osobne ustalenie, dotyczące tylko mniejszości: <strong>pięć z sześciu opublikowanych uzasadnień komisarzy mniejszości nie wytrzymuje niezależnego sprawdzenia</strong>. Test dotyczy wyłącznie mniejszości, ponieważ większość nie opublikowała listy uzasadnień spornych zmian granic. Audyt nie może zastosować go jednakowo do obu map, więc podaje go tu jako pojedynczą flagę, a nie jako dodatkowe wiersze w liczniku nieprawidłowości strukturalnych.",
 			chair_appendix_p: "Audyt sprawdził też osobne, ogólne twierdzenie z raportu większościowego, który podpisał przewodniczący: że zmiany mniejszości w pięciu miejscach (Airdrie, Cochrane, Chestermere, Red Deer i St. Albert) nie miały <strong>żadnego poparcia publicznego</strong> wśród 1 345 publicznych zgłoszeń (raport końcowy, s. 59 i 62). Wyszukiwanie słów kluczowych w całym archiwum zgłoszeń (93,4% przetworzonych maszynowo, 6,6% zawierających tylko obrazy i wyłączonych; metodologia i dowody dla każdej konfiguracji w <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>) dało obraz bardziej zniuansowany niż zarówno ogólne twierdzenie większości, jak i jego ogólne odrzucenie. Większość miała rację w trzech z pięciu przypadków: 4-częściowy podział Airdrie, hybryda Calgary–Nolan-Hill–Cochrane i alternatywa mniejszości dla St. Albert nie mają żadnego udokumentowanego poparcia. Myliła się co do Chestermere, które przyciągnęło wiele zgłoszeń sprzeciwiających się połączeniu z Calgary, w istotny sposób zgodnych z intencją mniejszości. Częściowo myliła się co do Red Deer: hybrydy Red Deer przyciągnęły propozycję hybrydy obejmującej okolice Red Deer od urzędującego radnego Red Deer, zgodną co do kierunku, ale nie co do dokładnej konfiguracji. Dwie konfiguracje, które większość zaatakowała z innych powodów, również zyskały poparcie: Rocky Mountain House–Banff Park przyciągnęła wyraźną, szczegółową propozycję z co najmniej jednego zgłoszenia z okolic Clearwater oraz kilka zbieżnych, a mieszkańcy Beiseker poparli na piśmie Olds–Three-Hills–Didsbury. Tak więc twierdzenie większości o „braku poparcia publicznego” jest wyraźnie zbyt szerokie, ale nie jest wyssane z palca, bo trzy z pięciu przypadków się utrzymują. <strong>To ustalenie przemawia przeciwko większości, a nie przeciwko mniejszości.</strong>",
 			summary_p: "<strong>W Torze 2 większość przekracza zero progów strukturalnych. Mniejszość przekracza cztery z pięciu, z dużym zapasem.</strong> Ta liczba to surowe zliczenie. Nie jest to skalibrowane prawdopodobieństwo dla całej rodziny testów. Jej waga wynika z jednomyślności kierunku — każdy test, który się uruchamia, wskazuje w tę samą stronę — a nie z obliczenia łącznego rozkładu zerowego. Tor statystyczny (§3) dostarcza łącznego prawdopodobieństwa innym instrumentem."
 		},
@@ -992,7 +992,7 @@ export default {
 			act3_h: "Akt III: Co zrobili ludzie",
 			act3_intro: "Akty I i II mierzyły papier. Akt III odczytuje postępowanie: co ludzie w procesie i wokół niego napisali, twierdzili i wybrali. W sądzie to zwykle postępowanie odpowiada na pytania o zamiar. Zobacz, co dzieje się z nim tutaj.",
 			c11_title: "Łuska 11 — Pięć z sześciu uzasadnień nie wytrzymuje sprawdzenia",
-			c11_found: "Komisarze mniejszości opublikowali uzasadnienia swoich spornych zmian granic. Pięć z sześciu nie przechodzi niezależnego sprawdzenia. (Siódma zmiana, którą wcześniej wymieniliśmy, okazała się opierać na twierdzeniu o granicy federalnej, którego nie da się znaleźć w raporcie mniejszości; usunęliśmy ją, zamiast zostawiać jako słabe twierdzenie.) Nie chodzi o to, że rozumowanie mniejszości jest wymyślone. W większości tych przypadków ogólne twierdzenie jest prawdziwe i dałoby się narysować granicę, która by je respektowała. Dane nie sięgają natomiast konkretnej linii, którą mniejszość faktycznie narysowała. Broni ona Calgary-Nolan Hill–Cochrane ideą, że mieszkańcy Cochrane „płynnie przemieszczają się” do Calgary. Dane Statistics Canada z 2021 roku o dojazdach do pracy pokazują, że około jednej trzeciej pracujących mieszkańców Cochrane dojeżdża gdzieś do Calgary, a mniej więcej połowa pracuje w samym Cochrane: to realna więź między miastami, ale nie mówi nic o osiedlu Nolan Hill, do którego faktycznie sięga korytarz. Dojazdy z Airdrie do Calgary (około 76 procent osób dojeżdżających do pracy poza miasto) i szybki wzrost miasta są prawdziwe i mogłyby uzasadnić nowy mandat w rejonie Airdrie. Żadne z nich nie wymaga dzielenia miasta na cztery części. Chestermere wysyła 86 procent osób dojeżdżających do pracy poza miasto do Calgary, a mimo to nie dzieli okręgu szkolnego ani systemu transportu publicznego z konkretnym okręgiem Calgary, do którego mniejszość wcina jego część. A argument mniejszości o „wspólnych szkołach” na rzecz połączenia Red Deer z Sylvan Lake się nie utrzymuje. Sylvan Lake należy do Chinook’s Edge School Division; Miasto Red Deer — do Red Deer Public.",
+			c11_found: "Komisarze mniejszości opublikowali uzasadnienia swoich spornych zmian granic. Pięć z sześciu nie przechodzi niezależnego sprawdzenia. Nie chodzi o to, że rozumowanie mniejszości jest wymyślone. W większości tych przypadków ogólne twierdzenie jest prawdziwe i dałoby się narysować granicę, która by je respektowała. Dane nie sięgają natomiast konkretnej linii, którą mniejszość faktycznie narysowała. Broni ona Calgary-Nolan Hill–Cochrane ideą, że mieszkańcy Cochrane „płynnie przemieszczają się” do Calgary. Dane Statistics Canada z 2021 roku o dojazdach do pracy pokazują, że około jednej trzeciej pracujących mieszkańców Cochrane dojeżdża gdzieś do Calgary, a mniej więcej połowa pracuje w samym Cochrane: to realna więź między miastami, ale nie mówi nic o osiedlu Nolan Hill, do którego faktycznie sięga korytarz. Dojazdy z Airdrie do Calgary (około 76 procent osób dojeżdżających do pracy poza miasto) i szybki wzrost miasta są prawdziwe i mogłyby uzasadnić nowy mandat w rejonie Airdrie. Żadne z nich nie wymaga dzielenia miasta na cztery części. Chestermere wysyła 86 procent osób dojeżdżających do pracy poza miasto do Calgary, a mimo to nie dzieli okręgu szkolnego ani systemu transportu publicznego z konkretnym okręgiem Calgary, do którego mniejszość wcina jego część. A argument mniejszości o „wspólnych szkołach” na rzecz połączenia Red Deer z Sylvan Lake się nie utrzymuje. Sylvan Lake należy do Chinook’s Edge School Division; Miasto Red Deer — do Red Deer Public.",
 			c11_note: "Sprawdzone tylko wobec mniejszości, bo to mapa mniejszościowa ma publiczne sporne zmiany granic. Większość nie opublikowała listy uzasadnień spornych zmian, więc sprawdzenia nie można zastosować do obu stron jednakowo; jest raportowane jako pojedynczy sygnał.",
 			c11_show: "Uzasadnienia, które nie wytrzymują sprawdzenia, wyglądają jak racjonalizacje: powody znalezione po narysowaniu linii, a nie przed. W każdym przypadku dowody wskazywały na granicę, którą mniejszość mogła narysować. Linia, którą narysowała, jest inna.",
 			c11_experts: "Zestawienie podanego powodu z tym, co potwierdzają dowody, to analiza pretekstu — test tego, czy powód jest przykrywką. Dokładnie tak sądy w USA badają zamiar w sprawach o gerrymandering, które rozpatrują. Uzasadnienia, które upadają w zderzeniu z danymi publicznymi, to typowy znak ostrzegawczy.",
@@ -1485,6 +1485,7 @@ export default {
 			back: "← Powrót do audytu",
 			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
 			h1: "Czternaście objaśnień",
+			meta: "Dodatki A–N · po jednym pojęciu",
 			standfirst: "Każda łuska w audycie prowadzi do jednego dodatku na tej stronie, a każdy dodatek dotyczy dokładnie jednego pojęcia. Zaczyna od szczerego zagubienia. Buduje pojęcie na jednym konkretnym przykładzie. Odsyła cię z powrotem do liczby z łuski, tak abyś umiał ją odczytać bez pomocy. I kończy na tym, czego to pojęcie <em>nie może</em> ci powiedzieć. Czytaj je w dowolnej kolejności.",
 			appendix_a: {
 				heading: "Dodatek A — Co „rozdrabnianie” faktycznie robi z głosem",
@@ -1597,7 +1598,8 @@ export default {
 				p2: "Teraz przeczytaj ponownie ustalenie 14: prawdziwe naruszenie, w pełni udokumentowane, bez znaczenia dla sądów — wszystko trzy naraz.",
 				limit: "<em>Granica:</em> „niewykonalny w sądzie” to stwierdzenie o sądach, nie o konsekwencjach. Konwenanse egzekwuje się przy urnach, przez ludzi, którzy wiedzą, co zrobiono. Raporty takie jak ten istnieją po to, żeby wiedzieli.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Powrót do ustalenia 14</a>"
-			}
+			},
+			footer_note: "Treść odpowiada dodatkom <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">pełnego raportu publicznego</a>."
 		},
 		methods: {
 			head_title: "Jak testowano mapy · Audyt Granic Okręgów Wyborczych Alberty",
@@ -1605,6 +1607,7 @@ export default {
 			back: "← Powrót do audytu",
 			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
 			h1: "Jak testowano mapy",
+			meta: "Każdy test i każda statystyka prostym językiem · Każdą liczbę można odtworzyć z publicznego repozytorium",
 			standfirst: "Cały audyt opiera się na jednym prostym pomyśle. Chcesz wiedzieć, czy mapa jest nietypowa? Narysuj milion map, które nie mogą być stronnicze. Rysuje je komputer i nigdy nie widzi żadnego głosu. Potem sprawdź, gdzie wśród nich lądują rzeczywiste mapy. Ta strona przeprowadza przez ten pomysł i każdy test na nim zbudowany. Bez wzorów. Jeśli potrafisz przeczytać prognozę pogody, potrafisz przeczytać i to.",
 			toc: {
 				aria: "Zawartość strony",
@@ -1690,6 +1693,7 @@ export default {
 			back: "← Powrót do audytu",
 			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
 			h1: "Czego normy wymagają od mapy wyborczej",
+			meta: "Przewodnik prostym językiem · To nie jest werdykt w sprawie kogokolwiek",
 			standfirst: "Ten odcinek ma trzy soczewki. <a href=\"__BASE__/law\">Prawo</a> pyta, co jest legalne. <a href=\"__BASE__/methods\">Statystyka</a> pyta, co jest nietypowe. Trzecia soczewka pyta, co jest zwyczajowe, a zwyczaj to sporny teren. „Rząd złamał sześćdziesięcioletnią normę” nie jest neutralnym pomiarem. To sedno oskarżenia ze strony opozycji. Dlatego ta strona nie tylko recytuje normy. Przesłuchuje je krzyżowo: skąd się wzięły, czemu służą, jakie naprawdę są argumenty za ich odłożeniem i co zostaje, gdy uprzątnie się retorykę obu stron.",
 			the_norm: {
 				heading: "Norma, powiedziana wprost",
@@ -1707,7 +1711,7 @@ export default {
 			},
 			steel_man: {
 				heading: "Argumenty za odłożeniem normy — potraktowane poważnie",
-				p1: "Audyt, który powtarza tylko oburzenie jednej strony, niczego nie sprawdza. Weźmy więc stronę rządu w pełnej sile. Zbudujmy jej najmocniejsze argumenty — tak zwanego stalowego człowieka — zanim je przetestujemy:",
+				p1: "Audyt, który powtarza tylko oburzenie jednej strony, niczego nie sprawdza. Weźmy więc stronę rządu w pełnej sile. Zbudujmy najmocniejszą wersję jej argumentów, zanim je przetestujemy:",
 				li1: "<strong>Komisja zawiodła w swoim jedynym zadaniu.</strong> Model komisji obiecuje jedną odpowiedź wypracowaną z dystansem wobec władzy. Ta komisja dostarczyła dwie niezgodne mapy i przewodniczącego publicznie oskarżającego kolegów o złą wiarę. Gdy niezależna droga utyka w impasie, ktoś musi zdecydować. Ustawa mówi kto.",
 				li2: "<strong>Ustawa celowo daje pióro legislaturze.</strong> Zgodnie z ustawą Alberty raport komisji nie ma mocy prawnej. Granice zmieniają się tylko wtedy, gdy Zgromadzenie uchwali Electoral Divisions Act. Wniosek Rządowy 37 skorzystał z drzwi, które prawo zbudowało celowo. Niczego nie przemycono.",
 				li3: "<strong>Wybrani posłowie odpowiadają przed wyborcami; komisarze przed nikim.</strong> Najstarszym argumentem za kontrolą legislatury jest rozliczalność. MLA, który narysuje wyrachowaną mapę, może zostać odwołany w wyborach. Komisarz nie.",
@@ -1715,7 +1719,7 @@ export default {
 				li5: "<strong>Rząd powołał się na własną rekomendację przewodniczącego.</strong> Jego deklarowanym uzasadnieniem mandatu na 91 miejsc była Rekomendacja 5, napisana przez samego przewodniczącego komisji. I dokładnie to powiedział Izbie: „Przyjmujemy rekomendacje z raportu”."
 			},
 			where_it_bends: {
-				heading: "Gdzie stalowy człowiek się wygina",
+				heading: "Gdzie najmocniejsza wersja argumentów się ugina",
 				p1: "Każdy z tych punktów jest prawdziwy. Udokumentowany zapis odpiera jednak każdy z nich:",
 				li1: "Impas wyjaśnia <em>zastąpienie</em> map. Nie wyjaśnia <em>usunięcia opinii publicznej</em>. Wymóg przesłuchań, opublikowany projekt czy wiążący panel również odpowiedziałyby na impas. Wybrany instrument rezygnuje z każdej cechy przejrzystości, którą literatura porównawcza uznaje za ochronną. Impas nie wymusił żadnej z tych rezygnacji.",
 				li2: "„Ustawa na to pozwala” to soczewka prawa i tam ma odpowiedź: każdy krok był zgodny z prawem. Pytanie o normy jest inne. Niektóre jurysdykcje sprawiają, że mapa komisji wchodzi w życie, <em>chyba że</em> legislatura ją uchyli. Odwrócone ustawienie domyślne w Albercie oznacza, że partia rządząca zawsze kontroluje, czy jakakolwiek mapa komisji stanie się prawem. Zgodne z prawem i zwyczajowe to różne pytania.",
@@ -1811,6 +1815,7 @@ export default {
 			back: "← Powrót do audytu",
 			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
 			h1: "Czego prawo wymaga od mapy wyborczej",
+			meta: "Przewodnik prostym językiem · To nie jest porada prawna",
 			standfirst: "Ten audyt mierzy mapy. Sądy je osądzają. Te dwa zadania są powiązane, ale nie są tym samym, a ta strona przeprowadza przez różnicę: czego prawo kanadyjskie faktycznie wymaga od granicy wyborczej, które pytania należą do sądu, a nie do statystyka, i gdzie mieszczą się dowody audytu. Sam audyt nie zajmuje stanowiska co do żadnego wniosku prawnego. Podaje, co pokazują dane, i na tym poprzestaje.",
 			why_not_gerrymander: {
 				heading: "Dlaczego ten audyt nigdy nie orzeka „gerrymanderingu”",
