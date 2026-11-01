@@ -1679,7 +1679,54 @@ export default {
 				li3: "<strong>Subukin ang mekanismo — at mabigo.</strong> Hinulaan ng audit na ang kakaibang mga hugis mula sa mga istrukturang pagsusulit ang direktang sanhi ng kalamangan sa upuan. Nabigo ang hulang iyon sa pagsusulit nito. Tumuturo sa iisang mapa ang mga hugis at ang kiling sa upuan, ngunit hindi ang mga hugis ang makina. Sinasabi iyon ng audit."
 			},
 			prereg: {
-				heading: "Mga pangakong ginawa nang maaga"
+				heading: "Mga pangakong ginawa nang maaga",
+				p1: "Ang pinakamatibay na depensa laban sa panlilinlang sa sarili ay isulat ang inyong mga hula bago tumingin. Ikinandado ng audit ang mga pagsusulit, threshold, at hinulaang direksyon nito sa mga pampubliko at may-time-stamp na rehistrasyon sa Open Science Framework. Ikinandado nito ang mga random seed nito sa isang pampublikong beacon. Parehong nangyari ito bago inilabas ang opisyal na mga file ng mapa. Kapag hindi tumama ang isang nakakandadong hula, nanatili itong hindi tumama. Ang parehong nakakandadong mga pagsusulit ay patatakbuhin, nang walang pagbabago, sa bagong mapa ng komite kapag dumating ito sa Nobyembre 2026. Pinangangalanan din ng audit kung alin sa mga resulta nito ang <em>exploratory</em> (nakakandado ang mga seed, ngunit pinili kalaunan ang eksaktong kombinasyon ng pagsusulit) at alin ang ganap na pre-registered. Exploratory ang pangunahing tsansa. Ang scorecard sa Nobyembre ang ganap na pre-registered na pagsusulit."
+			},
+			reproduce: {
+				heading: "Patakbuhin ito mismo",
+				p1: "Ang bawat numero sa site na ito ay nagmumula sa isang script sa pampublikong repository na pinatakbo laban sa naka-commit na datos. Ang buong resipe ay nasa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; ang maikling bersyon:",
+				p2: "Isang naka-host na bersyon ng notebook ang tumatakbo sa browser sa pamamagitan ng <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Ang buong metodolohiya — kasama ang bawat pagwawasto sa daan — ay nasa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">akademikong monograp</a>.",
+				cross_ref: "Mga kasamang pahina: <a href=\"__BASE__/law\">Ano ang hinihingi ng batas sa isang mapa ng halalan</a> · <a href=\"__BASE__/norms\">Ano ang hinihingi ng mga pamantayan</a> · <a href=\"__BASE__/explainers\">Ang labing-apat na paliwanag (Mga Apendiks A–N)</a>, isa para sa bawat casing sa pangunahing ulat."
+			}
+		},
+		norms: {
+			head_title: "Ano ang Hinihingi ng mga Pamantayan · Pag-audit ng Hangganan ng Halalan sa Alberta",
+			head_description: "Ang ikatlong lente sa yugto ng mga hangganan ng Alberta noong 2026: saan nagmula ang pamantayang hindi-iginuguhit-ng-mga-pulitiko-ang-sarili-nilang-distrito, ano ang nabili nito, ang kaso para isantabi ito, at kung sino talaga ang nag-aakusa kanino ng ano.",
+			back: "← Bumalik sa audit",
+			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
+			h1: "Ano ang Hinihingi ng mga Pamantayan sa isang Mapa ng Halalan",
+			meta: "Kasama sa simpleng wika · Sa Ingles lamang sa ngayon · Hindi hatol sa sinuman",
+			standfirst: "May tatlong lente ang yugtong ito. Itinatanong ng <a href=\"__BASE__/law\">batas</a> kung ano ang legal. Itinatanong ng <a href=\"__BASE__/methods\">estadistika</a> kung ano ang kakaiba. Itinatanong ng ikatlong lente kung ano ang nakaugalian, at ang kaugalian ang pinagtatalunang lupa. Ang \"Nilabag ng gobyerno ang animnapung-taong pamantayan\" ay hindi neutral na sukat. Ito ang puso ng akusasyon ng oposisyon. Kaya hindi lamang binibigkas ng pahinang ito ang mga pamantayan. Kinukuwestiyon nito ang mga ito: saan sila nagmula, para saan sila, ano talaga ang kaso para isantabi sila, at ano ang natitira kapag naalis ang retorika ng dalawang panig.",
+			the_norm: {
+				heading: "Ang pamantayan, sinabi nang tuwiran",
+				p1: "Hindi iginuguhit ng mga pulitiko ang sarili nilang mga distrito. Gumugol ang Canada ng humigit-kumulang animnapung taon sa pagbuo ng tuntuning iyon, hindi bilang batas kundi bilang praktika. Mula sa panahon ng pederal na reporma noong dekada 1960, gumamit ang bawat probinsya at ang pederal na proseso ng mga boundary commission na malayo sa gobyerno. Ang taong tatakbo sa isang distrito ay hindi ang may hawak ng panulat na gumuguhit dito.",
+				p2: "Umiiral ang pamantayan dahil sa nauna rito. Dati ay karaniwang iginuguhit ng mga naghaharing partido ang sarili nilang mga riding, at hindi banayad ang conflict of interest. Ang gumuguhit ng mapa na kailangang manalo sa ilalim ng mapa ay may lahat ng dahilan para iguhit ito pabor sa sarili, at walang nanonood na makapagsasabi ng pagkakaiba ng tapat na linya at makasariling linya. Hindi ginagawang perpekto ng modelo ng komisyon ang mga mapa. Ginagawa nitong maihihiwalay ang interes ng gumuguhit mula sa resulta. Iyan ang nagpapahintulot sa lahat ng iba pa na pagkatiwalaan ang resulta."
+			},
+			what_it_bought: {
+				heading: "Ano ang nabili ng pamantayan, sa mismong siklong ito",
+				p1: "Ang komisyon ng 2025–26 ang sarili nitong pinakamahusay na ebidensya. Nagdaos ito ng mga pagdinig sa labing-anim na komunidad. Nakatanggap ito ng 1,345 nakasulat na submission. Naglathala ito ng pansamantalang panukala, tumanggap ng pagpuna, at binaligtad ang sarili dahil sa walumpu't higit na submission. Iyan ang sistemang nakikitang tumutugon sa input ng publiko. Anuman pa ang kinabigoan ng komisyon, gumana ang prosesong nakapaligid dito ayon mismo sa disenyo: sa publiko, nakatala, at sumasagot sa sinabi ng mga mamamayan."
+			},
+			the_departure: {
+				heading: "Ang paglihis",
+				p1: "Noong Abril 2026, ilang linggo matapos isumite ng hating komisyon ang dalawang hindi magkatugmang mapa, isinantabi ng Legislative Assembly ang dalawa. Ang Government Motion 37, na ipinasa noong Abril 21, ay nagbigay ng trabaho sa isang komite ng anim na MLA, apat mula sa naghaharing partido, na pinamumunuan ng isang miyembro ng gobyerno. Hindi obligado ang komite na magdaos ng mga pampublikong pagdinig. Ayon sa ulat ng CBC, hindi ito magdaraos ng mga pagdinig tungkol sa mapang gagawin nito. Walang draft na ilalabas para sa pampublikong paghamon bago maging pinal ang mapa.",
+				p2: "Noong Mayo, inilarawan ito ni Duane Bratt, Propesor ng Political Science sa Mount Royal University, sa may-akda bilang walang precedent sa Canada. Mali ang pahayag na iyon. Noong 1992, isinantabi ng Alberta ang trabaho ng isang naipit na komisyon at ibinigay ang mapa sa isang komite ng mga MLA; tumangging lumahok ang Oposisyon, at noong 1994 ay hinayaan ng Court of Appeal na manatili ang mapa habang sinisisi ang komite dahil hindi nito maipaliwanag ang ilan sa mga hangganan nito. Inamyendahan ang Act noong 1995. Mas makitid ang bago sa 2026: nilagdaan ng isang mayorya ng komisyon ang isang ulat, na itinuturing ng Act na ulat ng komisyon, at isinantabi pa rin ito. Kung ano ang <em>ibig sabihin</em> nito ang simula ng pagtatalo."
+			},
+			steel_man: {
+				heading: "Ang kaso para isantabi ang pamantayan — sineryoso",
+				p1: "Ang audit na inuulit lamang ang galit ng isang panig ay walang sinusuri. Kaya kunin ang panig ng gobyerno sa buong lakas nito. Buuin ang pinakamatibay nitong kaso, ang steel-man, bago ito subukin:",
+				li1: "<strong>Nabigo ang komisyon sa nag-iisang trabaho nito.</strong> Nangangako ang modelo ng komisyon ng iisang sagot na malayo sa gobyerno. Naghatid ang komisyong ito ng dalawang hindi magkatugmang mapa at isang tagapangulong pampublikong nag-aakusa sa mga kasamahan ng masamang hangarin. Kapag naipit ang independiyenteng ruta, may kailangang magpasya. Sinasabi ng batas kung sino.",
+				li2: "<strong>Sadyang ibinibigay ng batas sa lehislatura ang panulat.</strong> Sa ilalim ng Act ng Alberta, walang legal na bisa ang ulat ng komisyon. Nagbabago lamang ang mga hangganan kapag nagpasa ang Assembly ng isang Electoral Divisions Act. Gumamit ang Government Motion 37 ng pintong sadyang itinayo ng batas. Walang ipinuslit.",
+				li3: "<strong>Sumasagot sa mga botante ang mga halal na miyembro; walang sinasagot ang mga komisyonado.</strong> Ang pinakamatandang argumento para sa kontrol ng lehislatura ay ang pananagutan. Ang MLA na gumuhit ng makasariling mapa ay maaaring matalo sa halalan. Ang komisyonado ay hindi.",
+				li4: "<strong>Hindi purong partisan na instrumento ang komite.</strong> Dalawa sa anim na miyembro nito ay MLA ng oposisyon. Ang advisory panel na bumabalangkas ng panukala ay may dalawang hinirang ng oposisyon at pinamumunuan ng isang retiradong justice ng Court of Appeal.",
+				li5: "<strong>Binanggit ng gobyerno ang sariling rekomendasyon ng tagapangulo.</strong> Ang nakasaad nitong katwiran para sa 91-upuang mandato ay ang Rekomendasyon 5, na isinulat mismo ng tagapangulo ng komisyon. At iyon mismo ang sinabi nito sa Kapulungan: “Tinatanggap namin ang mga rekomendasyon mula sa ulat.”"
+			},
+			where_it_bends: {
+				heading: "Kung saan bumabaluktot ang steel-man",
+				p1: "Totoo ang bawat isa sa mga puntong iyon. Ngunit tumutulak din pabalik sa bawat isa ang dokumentadong rekord:",
+				li1: "Ipinaliliwanag ng pagkakaipit ang <em>pagpapalit</em> sa mga mapa. Hindi nito ipinaliliwanag ang <em>pag-aalis sa publiko</em>. Sasagutin din sana ang pagkakaipit ng isang kinakailangang pagdinig, isang inilathalang draft, o isang panel na may tumatali na pasya. Isinusuko ng piniling sasakyan ang bawat katangian ng transparency na itinuturing ng comparative na literatura na nagpoprotekta. Wala sa mga pagsukong iyon ang ipinilit ng pagkakaipit.",
+				li2: "Ang \"Pinahihintulutan ito ng batas\" ay ang lente ng batas, at nasagot na ito roon: legal ang bawat hakbang. Iba ang tanong ng mga pamantayan. Sa ilang hurisdiksyon, nagkakabisa ang mapa ng komisyon <em>maliban kung</em> pawalang-bisa ito ng lehislatura. Ang baligtad na default ng Alberta ay nangangahulugang palaging kontrolado ng naghaharing partido kung magiging batas ang anumang mapa ng komisyon. Magkaibang tanong ang legal at ang nakaugalian.",
+				li3: "Masyadong marami ang napatutunayan ng argumento ng pananagutan. Tinututulan nito ang mga boundary commission saanman. Ngunit ang bawat hurisdiksyon sa Canada — at ang UK, at Australia — ay kumilos sa kabilang direksyon, mismo dahil mahinang proteksyon ang pananagutan sa halalan laban sa isang mapang idinisenyo upang hubugin ang mismong mga halalang iyon.",
+				li4: "Nagpapayo ang panel; ang mga boto ng mga MLA ang nagpapasya. Ang bipartisan na payo na may desisyong kontrolado ng gobyerno ay ibang institusyon kaysa sa isang independiyenteng komisyon. Ang pagkakaibang iyon mismo ang pamantayang pinag-uusapan."
 			}
 		}
 	}

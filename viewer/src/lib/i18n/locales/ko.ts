@@ -1599,7 +1599,7 @@ export default {
 				limit: "<em>한계:</em> \"강제할 수 없다\"는 법원에 대한 진술이지, 결과에 대한 진술이 아닙니다. 관례는 선거에서, 무슨 일이 있었는지 아는 사람들에 의해 강제됩니다. 이런 보고서는 그들이 알도록 하려고 존재합니다.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ 발견 14로 돌아가기</a>"
 			},
-			footer_note: "내용은 <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">전체 공개 보고서</a>의 부록과 같습니다. 이 번역은 아직 저자의 검토를 거치지 않았습니다."
+			footer_note: "내용은 <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">전체 공개 보고서</a>의 부록과 같습니다."
 		},
 		methods: {
 			head_title: "지도를 어떻게 시험했는가 · 앨버타 선거구 경계 감사",
@@ -1660,6 +1660,7 @@ export default {
 				heading: "\"568,000분의 1\"이 뜻하는 것 — 그리고 감사가 여유를 두 배로 잡은 이유",
 				p1: "네 가지 공정성 척도를 점수 하나로 합치고 묻습니다. 중립적인 작성은 소수 지도만큼 극단적인 특성을 얼마나 자주 만들어 내는가? 답은 약 <strong>110만분의 1</strong>입니다. 그러나 감사는 그 숫자를 인용하지 않습니다. <strong>568,000분의 1</strong>을 인용합니다 — 정확히 절반만큼 덜 인상적인 숫자입니다. 이유는 이렇습니다.",
 				p2: "감사는 두 곳에서 신호를 찾았습니다. 이 결합 점수, 그리고 구체적인 경계 선택에 대한 두 번째 시험입니다. 두 곳을 보면 운에게 기회를 두 번 주게 됩니다. 복권을 생각해 보세요. 두 장을 사면 당첨 복권을 쥘 확률이 두 배가 됩니다. 그래서 확률을 인용하기 전에, 감사는 스스로에게 불리하게 그것을 두 배로 합니다. 그렇게 하면 \"두 번 시도했잖아\"라는 몫은 이미 치른 셈입니다.",
+				p3: "두 배로 하는 데는 장점이 하나 더 있습니다. 아무 가정도 필요 없다는 것입니다. 두 시험이 관련되어 있든 아니든 성립하므로, 적대적인 통계학자도 깎아내릴 수 없는 숫자입니다.",
 				p4: "감사가 어디서나 되풀이하는 주의 하나: 이 확률은 <em>지도</em>가 얼마나 이례적인지를 잽니다. 누군가 의도를 갖고 행동했을 확률이 아닙니다. 드문 지도도 원칙적으로는 정직한 작업일 수 있습니다. 확률이 말하는 것은 이것뿐입니다. 일상적인 작성은 이 지도를 만들어 내지 않는다."
 			},
 			died: {
@@ -1863,7 +1864,7 @@ export default {
 			meta: "시행일: 2026-06-24 · 관리자: Will Conner",
 			overview: {
 				heading: "개요",
-				p1: "이 도구는 앨버타의 2023년 선거구획정위원회 절차에 대한 공익 감사입니다. 상업적 제품이 아니며 광고를 싣지 않습니다. 이 페이지는 무엇을 측정하는지, 무엇을 결코 수집하지 않는지, 그리고 왜 그 어느 것도 당신과 연결될 수 없는지 설명합니다.",
+				p1: "이 도구는 앨버타의 2025–26 선거구획정위원회 절차에 대한 공익 감사입니다. 상업적 제품이 아니며 광고를 싣지 않습니다. 이 페이지는 무엇을 측정하는지, 무엇을 결코 수집하지 않는지, 그리고 왜 그 어느 것도 당신과 연결될 수 없는지 설명합니다.",
 				p2: "짧게 말하면: 이 사이트는 쿠키를 쓰지 않는 집계 분석을 사용합니다. 추적 쿠키도, 광고도, 사이트 간 프로파일링도, 당신을 따라다니는 식별자도 없습니다. 개인적인 것은 아무것도 저장하지 않으므로, 클릭해서 넘겨야 할 동의 배너도 없습니다. 개인정보 보호는 안내창으로 덧붙인 것이 아니라 측정 방식 자체에 내장되어 있습니다."
 			},
 			how_analytics_work: {
@@ -1871,6 +1872,83 @@ export default {
 				p1: "페이지가 열리거나 당신이 지도와 상호작용하면, 사이트는 우리가 운영하는 집계 서비스로 작고 익명인 이벤트를 보냅니다. 각 이벤트는 일어난 일의 이름 — 예를 들어 \"페이지 조회\"나 \"선거구 선택\" — 과 그 행동에 관한 몇 가지 대략적인 세부 정보뿐입니다. 이벤트에는 이름, 이메일, 계정, 기기에 저장된 식별자가 담기지 않습니다.",
 				p2: "누구도 식별하지 않고 특정 날짜에 서로 다른 사람이 몇 명 방문했는지 세기 위해, 집계 서비스는 당신의 네트워크 주소와 브라우저 종류를 합쳐 매일 바뀌는 비밀 값과 함께 일방향 암호 해시에 통과시킵니다. 그 결과는 하루 <em>안에서</em> 두 방문을 구별하게 해 주는 짧은 코드이며, 그 이상은 아닙니다. 원래 주소는 결코 저장되지 않으며 — 해시만 저장됩니다. 비밀 값이 매일 바뀌므로 같은 방문자도 내일은 다른 코드를 만들어 내고, 따라서 누군가를 여러 날에 걸쳐 추적하거나 코드에서 거꾸로 사람을 알아낼 방법이 없습니다.",
 				p3: "우리가 관심을 갖는 것은 방문자들이 집단으로 그려 내는 그림입니다 — 어떤 발견이 읽히는지, 어떤 지도가 열리는지, 어떤 선거구가 관심을 끄는지. 우리는 당신 개인에게는 관심이 없으며, 측정은 \"당신 개인\"이 데이터로 표현될 수 없도록 만들어져 있습니다."
+			},
+			measured: {
+				heading: "측정하는 것",
+				p1: "분석은 다음과 같은 집계된 익명 이벤트를 기록합니다.",
+				li1: "페이지 조회",
+				li2: "사람들이 페이지를 얼마나 아래까지 스크롤하는지, 대략적인 구간으로 (25%, 50%, 75%, 100%)",
+				li3: "페이지가 화면에 실제로 떠 있던 대략적인 시간, 대략적인 시간 구간으로",
+				li4: "읽는 동안 어떤 발견 절이 화면에 들어오는지",
+				li5: "탐색기에서 어떤 지도가 열리고, 어떤 선거구가 선택되는지",
+				li6: "어떤 지도 레이어가 켜지거나 꺼지는지, 그리고 사람들이 대략 얼마나 확대하는지",
+				li7: "어떤 관심 지점이나 보고서 링크가 열리는지",
+				li8: "당신의 환경에 대한 대략적인 그림 — 화면 크기 구간(휴대폰, 태블릿, 데스크톱 등), 기기 형태, 브라우저 계열(Chrome, Safari, Firefox 등). 정확한 화면 크기나 전체 브라우저 식별 문자열은 결코 저장하지 않습니다.",
+				li9: "지도 탐색기가 처음 그려질 때 어떻게 작동했는지에 대한 1회성 스냅숏 — 예를 들어 대략적인 구간으로 나눈 로딩 시간과 반올림한 메모리 수치. 이는 탐색기가 실제 기기에서 충분히 빠른지 판단하는 데 도움이 됩니다. 숫자는 정확한 값이 아니라 일부러 구간으로 나누었으므로, 기기 하나가 아니라 기기 등급을 묘사합니다.",
+				p2: "이 모든 것은 집계된 형태로만 저장됩니다. 개인별 프로필도, 세션 재생도, 한 개인이 사이트를 지나간 경로의 기록도 없습니다. 우리는 사람이 아니라 합계와 분포를 봅니다."
+			},
+			never_collected: {
+				heading: "결코 수집하지 않는 것",
+				p1: "이름 없음. 이메일 없음. 계정 없음. 광고 식별자 없음. 저장된 IP 주소 없음 — 당신의 네트워크 주소는 매일 바뀌는 비밀 값과 함께 해시된 뒤 즉시 폐기되며, 수명이 짧은 하루 단위 코드만 보관됩니다. 원시 브라우저 지문 없음. 여러 날 또는 여러 사이트에 걸친 식별자 없음. 정밀한 위치 없음. 분석 목적으로 당신을 재방문자로 표시하는 쿠키나 브라우저 저장소 식별자 없음."
+			},
+			github_pages_collects: {
+				heading: "GitHub Pages가 수집하는 것",
+				p1: "이 사이트는 GitHub Pages에서 호스팅됩니다. GitHub의 서버는 어떤 페이지가 열릴 때든 기본적인 요청 정보 — IP 주소, 브라우저 종류, 참조 페이지, 시각 — 를 자동으로 기록합니다. 우리는 이 기록을 받지도 통제하지도 않으며, 그것은 <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub의 개인정보 처리방침</a>의 적용을 받습니다. 우리는 호스팅 외에는 GitHub와 아무 관계가 없습니다. 위에서 설명한 분석은 별도로 실행되며 당신의 IP 주소를 결코 받지 않습니다."
+			},
+			share_codes: {
+				heading: "공유 코드",
+				p1: "지도 탐색기에는 공유 기능이 있습니다. 현재의 지도 보기 — 어떤 지도가 활성화되어 있는지, 어떤 오버레이와 레이어가 켜져 있는지, 화면이 대략 어디에 있는지 — 를, 복사해서 누군가에게 보낼 수 있는 짧은 세 단어 코드로 바꿉니다. 유효한 코드는 정확히 19,200개입니다. 코드는 사람이 아니라 지도 구성을 나타내기 때문입니다. 서로 독립적으로 같은 보기에 이른 두 사람은 같은 코드를 받습니다. 이는 예상된 일이며 두 사람 사이에 아무 연결도 만들지 않습니다.",
+				p2: "공유 코드는 화면에 나타나며, 복사를 클릭할 때만 클립보드로 갑니다. URL에 결코 포함되지 않으므로, 브라우저 기록, 서버 로그, 참조 헤더에 나타나지 않습니다. 누군가 공유한 보기를 열려면, 받는 사람이 사이트에 코드를 직접 입력합니다.",
+				p3: "공유 코드를 만들면, 그것이 담은 지도 구성이 링크가 계속 작동하도록 우리 데이터베이스에 저장됩니다. 그 저장된 기록은 지도 상태입니다 — 사람도, 경로도 아니며, 분석 자료와 결합되지도 않습니다. 당신에 대한 식별자는 담겨 있지 않습니다."
+			},
+			cookies_browser_storage: {
+				heading: "쿠키와 브라우저 저장소",
+				p1: "분석은 쿠키도, 브라우저 저장소 식별자도 쓰지 않습니다. 측정의 어떤 부분도 당신을 재방문자로 표시하지 않습니다.",
+				p2: "사이트는 방문과 방문 사이에 당신의 설정을 기억하기 위해 작은 <strong>기능성</strong> 쿠키 하나를 설정합니다. 분석이나 추적에 쓰이지 않으며, 읽을 수 있는 형태로 당신의 브라우저를 떠나는 일은 결코 없습니다. 저장하는 것은 다음과 같습니다.",
+				li1: "<strong>색상 테마</strong> — 바꾸었다면 다크 또는 라이트",
+				li2: "<strong>소개 닫음</strong> — 지도 소개가 반복되지 않도록",
+				li3: "<strong>현재 지도 보기</strong> — 다음 방문 때 마지막 보기를 되살리도록",
+				li4: "<strong>브라우저 언어</strong> — 사이트가 당신이 선호하는 언어로 보이도록",
+				p3: "이 쿠키에는 위의 설정만 담기며, 개인 정보나 식별 정보는 담기지 않습니다. 그 내용은 페이지 안에 함께 배포되는 키로 뒤섞여 있어 저장된 값을 사람이 읽을 수 없습니다. 그 키가 공개되어 있으므로, 이것은 진정한 비밀 유지가 아니라 변조 방지로 여기십시오. 이 쿠키는 HTTPS로만 전송되고, 다른 사이트와 결코 공유되지 않으며, 쿠키를 지우면 언제든 삭제할 수 있습니다. 사이트는 정적 파일로 제공되므로, 서버 쪽에서 그것을 읽는 것은 아무것도 없습니다. 색상 테마는 페이지가 열릴 때 깜빡임 없이 바로 올바른 테마를 적용할 수 있도록 브라우저의 로컬 저장소에도 복사됩니다. 그 값 역시 순전히 기능적이며 어디로도 전송되지 않습니다."
+			},
+			data_retention: {
+				heading: "데이터 보존",
+				p1: "분석 기록은 구조상 집계되고 익명이며, 보존할 식별자가 없습니다. 기록은 캐나다에서 호스팅되는 인프라(ca-central-1)에 저장되며 연구 자료로 보관됩니다. 만약 어떤 기록에 식별 정보가 담겨 있다는 것을 알게 된다면 — 설계는 그것을 막도록 만들어져 있지만 — 30일 안에 삭제하겠습니다."
+			},
+			your_choices: {
+				heading: "당신의 선택",
+				p1: "개인적인 것은 아무것도 수집하지 않으므로, 거부할 것도 관리할 동의 안내창도 없습니다. 그래도 분석 이벤트를 전혀 보내고 싶지 않다면, 콘텐츠 차단기나 집계 서비스로의 요청을 막는 브라우저가 그것을 멈출 것이며, 사이트는 똑같이 작동합니다. 기능성 설정 쿠키도 언제든 브라우저에서 지울 수 있습니다."
+			},
+			contact: {
+				heading: "연락처",
+				p1: "Will Conner — 독립 연구이며, 어떤 기관과도 제휴하거나 그 지지를 받지 않습니다.",
+				p2: "질문, 정정, 삭제 요청은 <a href=\"__BASE__/feedback\">피드백 양식</a>을 이용해 주십시오. 요청에는 영업일 기준 10일 안에 답합니다."
+			},
+			policy_updates: {
+				heading: "방침 변경",
+				p1: "이 방침이 바뀌면 맨 위의 시행일이 갱신되고 변경 사항이 <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">공개 git 저장소</a>에 커밋됩니다. 커밋 기록이 곧 변경 이력입니다. 수집 범위를 넓히는 변경은 모두 커밋 메시지에 명시됩니다."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (1,010,000개 지도 앙상블을 만드는 데 쓴 ReCom 알고리즘.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274. (선거구에 관한 캐나다 헌법적 틀.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900. (이 감사 전반에서 쓰는 효율성 격차 척도의 출처.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (선거구 획정의 헌법적 기준에 관한 캐나다 대법원의 대표 판례.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (연방법원. 선거구 분쟁에서 이익 공동체 증거에 관한 캐나다의 대표 판례.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (미국 대법원. 연방 법원에서 정파적 게리맨더링 청구가 사법 판단의 대상이 아님을 확립함 — 캐나다의 제3조 실효적 대표성 기준이 왜 다른지에 대한 맥락.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}
