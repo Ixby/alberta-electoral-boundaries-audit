@@ -767,7 +767,7 @@ export default {
 			table_r6_b: "<strong>5 项中 0 项触发</strong>",
 			table_r6_c: "<strong>5 项中 4 项触发</strong>(锚定测试中性——两份地图均在加拿大常态范围内;其余 4 项全部触发)",
 			table_r6_d: "<strong>UCP</strong>",
-			rationales_p: "另有一项只针对少数派的发现:<strong>少数派委员公开发表的六项理由中,有五项经不起独立核查</strong>。这项测试只针对少数派运行,因为多数派没有为有争议的重划公布理由清单。审计无法把它同等地应用于两份地图,因此在此作为一个单独的标记报告,而不是作为结构性不规则计数中的额外几行。(审计曾列出第七处重划。后来发现它依据的是一项在少数派报告中无从追溯的联邦边界说法,所以它被删除了,而没有作为一项站不住的主张保留下来。)",
+			rationales_p: "另有一项只针对少数派的发现:<strong>少数派委员公开发表的六项理由中,有五项经不起独立核查</strong>。这项测试只针对少数派运行,因为多数派没有为有争议的重划公布理由清单。审计无法把它同等地应用于两份地图,因此在此作为一个单独的标记报告,而不是作为结构性不规则计数中的额外几行。",
 			chair_appendix_p: "审计还检验了主席签署的多数派报告中另一项笼统的断言:少数派在五个地方(Airdrie、Cochrane、Chestermere、Red Deer 和 St. Albert)所做的改动,在 1,345 份公众意见中<strong>没有公众支持</strong>(最终报告第 59 页和第 62 页)。对完整意见档案的关键词搜索(93.4% 由机器解析,6.6% 仅为图像而被排除;方法和逐项配置证据见 <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>)得出的图景,比多数派的笼统说法或对它的笼统否定都更为细致。多数派在五项中的三项上是对的:Airdrie 的 4 向分割、Calgary–Nolan-Hill–Cochrane 混合选区,以及 St. Albert 的少数派替代方案,都没有任何有记录的支持。它在 Chestermere 上是错的:那里有多份意见反对与 Calgary 合并,这些意见与少数派的意图实质上一致。它在 Red Deer 上部分错误:Red Deer 的混合选区得到了一位在任 Red Deer 市议员提出的环 Red Deer 混合方案,方向一致,但具体配置并不完全相同。多数派以其他理由批评的两处配置也得到了支持:Rocky Mountain House–Banff Park 得到了至少一份来自 Clearwater 地区的意见明确而详细的提议,另有若干意见与之一致;Beiseker 居民也书面支持 Olds–Three-Hills–Didsbury。因此,多数派\"没有公众支持\"的一概而论明显过于宽泛,但也并非凭空捏造,因为五项中确有三项成立。<strong>这一发现不利于多数派,而不是不利于少数派。</strong>",
 			summary_p: "<strong>在路径 2 上,多数派没有跨越任何结构性阈值。少数派以很大的差距跨越了五项中的四项。</strong>这个数字只是原始计数,不是经过校准的族系概率。它的分量来自方向上的一致——每一项触发的测试都指向同一个方向——而不是来自对联合零分布的计算。统计路径(§3)通过另一种工具给出联合概率。"
 		},

@@ -1724,7 +1724,82 @@ export default {
 				li2: "\"Luật cho phép điều đó\" là lăng kính pháp luật, và nó đã được trả lời ở đó: mọi bước đều hợp pháp. Câu hỏi về chuẩn mực thì khác. Một số khu vực tài phán cho bản đồ của ủy ban có hiệu lực <em>trừ khi</em> cơ quan lập pháp bác bỏ nó. Mặc định đảo ngược của Alberta có nghĩa là đảng cầm quyền luôn kiểm soát việc bản đồ nào của ủy ban trở thành luật. Hợp pháp và đúng thông lệ là hai câu hỏi khác nhau.",
 				li3: "Lập luận về trách nhiệm giải trình chứng minh quá nhiều. Nó lập luận chống lại các ủy ban ranh giới ở mọi nơi. Thế nhưng mọi khu vực tài phán của Canada — cùng Vương quốc Anh và Úc — đã đi theo hướng ngược lại, chính vì trách nhiệm giải trình vào lúc bầu cử là sự bảo vệ yếu ớt trước một bản đồ được thiết kế để định hình chính những cuộc bầu cử đó.",
 				li4: "Ban cố vấn tư vấn; lá phiếu của các MLA quyết định. Lời khuyên từ cả hai đảng đi kèm một quyết định do chính phủ kiểm soát là một thể chế khác với một ủy ban độc lập. Sự khác biệt đó chính là chuẩn mực đang bàn.",
-				li5: "Tác giả của Khuyến nghị 5 viết nó để can ngăn cơ quan lập pháp thông qua bản đồ thiểu số, và các đồng nghiệp đa số của ông không tán thành nó. Nó cũng cụ thể. Nó để Airdrie, Calgary và mọi thứ ở phía nam chúng y nguyên như phe đa số đã vẽ, chính những đường ranh giới mà ủy ban đã chia rẽ vì chúng, và không có gì trong nhiệm vụ của ủy ban lập pháp buộc nó phải tuân theo điều đó. Viện dẫn một khuyến nghị đi ngược lại mục đích mà chính tác giả đã nêu là một mâu thuẫn được ghi nhận, chưa phải đã được giải quyết."
+				li5: "Tác giả của Khuyến nghị 5 viết nó để can ngăn cơ quan lập pháp thông qua bản đồ thiểu số, và các đồng nghiệp đa số của ông không tán thành nó. Nó cũng cụ thể. Nó để Airdrie, Calgary và mọi thứ ở phía nam chúng y nguyên như phe đa số đã vẽ, chính những đường ranh giới mà ủy ban đã chia rẽ vì chúng, và không có gì trong nhiệm vụ của ủy ban lập pháp buộc nó phải tuân theo điều đó. Viện dẫn một khuyến nghị đi ngược lại mục đích mà chính tác giả đã nêu là một mâu thuẫn được ghi nhận, chưa phải đã được giải quyết.",
+				li6: "Tài liệu còn lại được đọc trước nghị trường — trang 58 của báo cáo đa số — than phiền về mức trần hai ghế. Nhưng biện pháp đi kèm là để Cơ quan Lập pháp trao cho <em>các ủy ban tương lai</em> quyền ấn định số ghế. Kiến nghị đã lấy quyền tự do đó ngay bây giờ, cho một ủy ban gồm các MLA, trong khi từ chối yêu cầu thực chất của báo cáo: thông qua bản đồ 89 ghế."
+			},
+			whose_accusation: {
+				heading: "Đó là lời cáo buộc của ai?",
+				p1: "Đây là sự phân tách mà trang này tồn tại để thực hiện. Sau đây là các sự thật được ghi nhận. Sự rời bỏ đã xảy ra, lần đầu tiên kể từ ủy ban năm 1992 của chính Alberta. Các đặc điểm minh bạch đã bị từ bỏ. Chủ tịch ủy ban đã gọi một ranh giới của phe thiểu số là \"một nỗ lực thiếu thiện chí\" trong một văn bản luật định công khai. Hiệp hội Tự do Dân sự Canada đã công khai <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">nêu mối lo ngại về sự chính trị hóa</a>. Phe đối lập đã bỏ phiếu chống kiến nghị. Và các lời cáo buộc đi theo cả hai chiều. Báo cáo thiểu số cáo buộc phe đa số có “khuynh hướng xóa bỏ hoặc làm biến dạng các đơn vị bầu cử nông thôn và, trên thực tế, làm giảm sự đại diện hiệu quả của nông thôn” — sự đại diện nông thôn, theo chính lời của phe thiểu số, “không chỉ là vấn đề con số; đó là vấn đề tiếp cận, tiếng nói và khả năng quản trị thực tế” (tr. 356). Cuộc kiểm toán đã kiểm tra cáo buộc đó ngay trong ngày phát hiện ra nó (thăm dò; bộ phân loại vững trước dấu gạch nối và mọi tên được phân loại đều được công bố cùng phát hiện). Hướng đi đảo ngược. Bản đồ thiểu số giữ ít đơn vị neo vào nông thôn hơn bản đồ đa số (23 so với 28, so với 31 của năm 2019) và sáp nhập nhiều đơn vị nông thôn của năm 2019 hơn vào các khu vực mang tên thành phố (bảy so với ba). Cả hai bản đồ đều làm mỏng sự đại diện nông thôn so với năm 2019, nên nhận định cốt lõi của cáo buộc là có thật. Nhưng trên chính phép đo mà lời cáo buộc nêu ra, nó rơi vào chính tác giả của nó. Cáo buộc đi kèm, rằng phe đa số đã từ chối sử dụng sự linh hoạt ±25% của Luật cho nông thôn Alberta, đã được kiểm tra cùng ngày và đứng vững. Phe đa số vẽ các đơn vị nông thôn gần mức ngang bằng dân số; phe thiểu số vẽ chúng thưa dân. Một cáo buộc bị đảo ngược, một được ủng hộ, cả hai đều được công bố. Cùng mức chiết khấu vì nguồn gốc một phía áp dụng cho các cờ của chủ tịch cũng áp dụng ở đây, theo cả hai chiều.",
+				p2: "Điều sau đây <em>không</em> phải là một sự thật được ghi nhận. Đó là một phán đoán chính trị: rằng sự rời bỏ là không chính đáng. Phán đoán đó phụ thuộc vào việc chuẩn mực đáng được tôn trọng đến mức nào trước một ủy ban bế tắc, và những người biết lẽ phải cân nhắc điều đó khác nhau. Cuộc kiểm toán ghi nhận sự rời bỏ và cái giá của nó. Nó không gánh kết luận của phe đối lập, và không có gì trong các số liệu thống kê của cuộc kiểm toán có thể gánh kết luận đó. Một con số có thể nói một bản đồ là hiếm gặp. Nó không thể nói một quy trình là sai."
+			},
+			norms_vs_law: {
+				heading: "Chuẩn mực không phải là luật — và có một nơi đã biến chuẩn mực thành luật",
+				p1: "Các quy ước hiến pháp, những quy tắc bất thành văn về hành xử chính trị, ràng buộc về mặt chính trị, không phải về mặt tư pháp. Tòa án Tối cao đã nói vậy trong vụ Patriation Reference năm 1981, và các tòa án đã giữ lập trường đó kể từ đó: một tòa án có thể gọi tên một quy ước mà vẫn từ chối thực thi nó. Khoảng trống đó, giữa điều là thông lệ và điều có thể bị cưỡng chế, là nơi toàn bộ câu chuyện này diễn ra.",
+				p2: "Quebec cho thấy lựa chọn kia trông như thế nào. Ủy ban ranh giới của Quebec là thường trực và độc lập, và về chính bản đồ, ủy ban thường có tiếng nói cuối cùng. Khi chính phủ Quebec cố đóng băng ủy ban của mình bằng luật, các tòa án <em>đã</em> hành động, vì giờ đây có một đạo luật được đưa vào cuộc. Ngày 22 tháng Tư năm 2026, Tòa án Tối cao Canada đã giữ nguyên, với tỷ lệ 7–2 và tuyên ngay tại phiên tòa, phán quyết rằng việc đóng băng vi phạm bảo đảm về đại diện dân chủ của Hiến chương. Lý do được công bố sau đó vào ngày 1 tháng Năm (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Nơi chuẩn mực được viết thành luật, nó trở nên có thể thực thi. Chuẩn mực của Alberta chưa bao giờ được viết thành luật, nên nó không thể thực thi. Tuy vậy, sự tương phản này cắt theo cả hai chiều. Ngày 12 tháng Sáu năm 2026, Quốc hội Quebec đã thông qua bản đồ 127 ghế của riêng mình."
+			},
+			measurable: {
+				heading: "Bảng điểm quy trình: biến câu hỏi về chuẩn mực thành thứ đo được",
+				p1: "Lời lẽ hùng biện về chuẩn mực rẻ mạt theo cả hai chiều. Câu trả lời của cuộc kiểm toán là một bảng điểm thứ ba, bên cạnh các bài kiểm tra cấu trúc và thống kê. Nó chấm điểm <em>quy trình</em> dựa trên chín đặc điểm bảo vệ mà thông lệ sáu mươi năm đã bảo đảm. Mỗi đặc điểm là một câu hỏi có-hoặc-không, có thể trả lời từ các tài liệu công khai, và cùng chín đặc điểm đó chấm điểm mọi quy trình mà cuộc kiểm toán này xem xét.",
+				table: {
+					head: {
+						feature: "Đặc điểm bảo vệ",
+						commission: "Quy trình của ủy ban ranh giới",
+						committee: "Quy trình của ủy ban lập pháp (như đã được thành lập)"
+					},
+					arms_length_drafting: {
+						feature: "Soạn thảo độc lập",
+						commission: "Có",
+						committee: "Một phần — ban cố vấn soạn thảo; sáu MLA của ủy ban (bốn của chính phủ) quyết định"
+					},
+					public_hearings_before: {
+						feature: "Điều trần công khai trước khi thông qua",
+						commission: "Có — mười sáu cộng đồng",
+						committee: "Không — không có kế hoạch nào cho bản đồ được tạo ra"
+					},
+					draft_published_challenge: {
+						feature: "Bản dự thảo được công bố để phản biện",
+						commission: "Có — đề xuất tạm thời được sửa đổi công khai",
+						committee: "Không — chưa được thông báo"
+					},
+					new_public_submissions: {
+						feature: "Tiếp nhận bài nộp mới của công chúng",
+						commission: "Có — nhận được 1.345 bài",
+						committee: "Không — dùng lại kho lưu trữ của ủy ban ranh giới"
+					},
+					demonstrated_responsiveness: {
+						feature: "Sự phản hồi đã được chứng minh",
+						commission: "Có — tự đảo ngược dựa trên hơn 80 bài nộp",
+						committee: "Đang chờ"
+					},
+					neutral_chair_deciding: {
+						feature: "Chủ tịch trung lập của cơ quan quyết định",
+						commission: "Có — một thẩm phán, do nội các bổ nhiệm",
+						committee: "Không — một MLA của chính phủ làm chủ tịch; vị thẩm phán đã nghỉ hưu chỉ chủ trì tầng cố vấn"
+					},
+					opposition_deciding_body: {
+						feature: "Phe đối lập trong cơ quan quyết định",
+						commission: "Có — hai trên năm",
+						committee: "Có — hai trên sáu"
+					},
+					published_reasons_contested: {
+						feature: "Lý do được công bố cho các lựa chọn gây tranh cãi",
+						commission: "Có — cả hai báo cáo",
+						committee: "Đang chờ"
+					},
+					precedent_conformity: {
+						feature: "Phù hợp với tiền lệ",
+						commission: "Có",
+						committee: "Không — lần gần nhất được làm ở Alberta là năm 1992, và bị Tòa Phúc thẩm chỉ trích năm 1994"
+					},
+					count: {
+						feature: "Tổng số",
+						commission: "9 trên 9",
+						committee: "1 Có · 1 Một phần · 5 Không · 2 Đang chờ"
+					}
+				},
+				p2: "Thêm một cách để nhìn bảng điểm này: nó là <em>trục thứ ba</em>. Biểu đồ của cuộc kiểm toán đặt mọi bản đồ trên hai chiều: cấu trúc và thống kê. Cả ba bản đồ được đặt lên cho đến nay đều được vẽ bởi các quy trình ủy ban đạt chín trên chín ở đây, nên trục thứ ba chưa có gì để phân biệt. Bản đồ tháng Mười Một sẽ là điểm đầu tiên trong lịch sử cuộc kiểm toán có một điểm số quy trình khác đằng sau nó.",
+				p3: "Hãy đọc bảng một cách trung thực, theo cả hai chiều. Ủy ban ranh giới đạt chín trên chín <em>do chính cách xây dựng</em>. Các tiêu chí mô tả thể chế mà chuẩn mực đã xây dựng, và ủy ban chính là thể chế đó. Phần có giá trị thông tin là phần nhìn về phía trước. Bốn ô Không và Đang chờ của ủy ban lập pháp là những đặc điểm mà nó vẫn có thể bổ sung từ nay đến tháng Mười Một: điều trần, một bản dự thảo được công bố, các bài nộp mới, và sự phản hồi mà chúng tạo điều kiện. Nếu nó bổ sung chúng, phát hiện của cuộc kiểm toán về sự rời bỏ quy trình sẽ được giảm nhẹ đáng kể, và cuộc kiểm toán đã cam kết bằng văn bản sẽ nói như vậy.",
+				draft_note: "Trạng thái là quan trọng ở đây: các tiêu chí, nguồn và hướng dự đoán của bảng điểm này đã được <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">đăng ký trên OSF (u47bq, ngày 14 tháng Bảy năm 2026)</a> — được đóng băng nhiều tháng trước khi ủy ban báo cáo, nên không có gì có thể được lặng lẽ viết lại khi câu trả lời đến. Nó được viết giữa chừng câu chuyện bởi một tác giả mà bạn vừa đọc các phát hiện trước đó — một nguy cơ thiên lệch mà <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">tài liệu đã đăng ký</a> công khai thay vì che giấu. Áp dụng ngược lại cho ủy ban ranh giới, nó là sự mô tả, không phải dự đoán. Khi bản đồ của ủy ban lập pháp ra mắt, cùng các bài kiểm tra bản đồ đã khóa sẽ chạy không thay đổi — và danh sách kiểm tra này chấm điểm quy trình đã tạo ra nó. Đến lúc đó, cuộc tranh luận về chuẩn mực không còn là một cuộc cãi vã về truyền thống mà trở thành một sự so sánh có chấm điểm: ủy ban lập pháp có hành xử như thể chế mà nó đã thay thế hay không?"
 			}
 		}
 	}
