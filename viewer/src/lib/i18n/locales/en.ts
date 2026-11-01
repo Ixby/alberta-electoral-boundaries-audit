@@ -1748,7 +1748,7 @@ export default {
 			back: '← Back to audit',
 			site_label: 'Alberta Electoral Boundary Audit',
 			h1: 'The Fourteen Explainers',
-			meta: 'Appendices A–N · one concept each · English only for now',
+			meta: 'Appendices A–N · one concept each',
 			standfirst: "Each casing in the audit links to one appendix here, and each appendix owns exactly one concept. It starts from the honest confusion. It builds the idea with one concrete example. It sends you back to the casing's number able to read it unaided. And it ends with what the concept <em>cannot</em> tell you. Read them in any order.",
 			appendix_a: {
 				heading: 'Appendix A — What "cracking" actually does to a vote',
@@ -1862,7 +1862,7 @@ export default {
 				limit: '<em>The limit:</em> "unenforceable" is a statement about courts, not about consequences. Conventions are enforced at elections, by people who know what was done. Reports like this one exist so they know.',
 				back_anchor: '<a href="__BASE__/evidence#casing-14">↩ Back to finding 14</a>'
 			},
-			footer_note: 'Content mirrors the appendices of the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md" rel="noopener">full public report</a>. English only for now, pending author review before translation.'
+			footer_note: 'Content mirrors the appendices of the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md" rel="noopener">full public report</a>.'
 		},
 		methods: {
 			head_title: 'How the Maps Were Tested · Alberta Electoral Boundary Audit',
@@ -1870,7 +1870,7 @@ export default {
 			back: '← Back to audit',
 			site_label: 'Alberta Electoral Boundary Audit',
 			h1: 'How the Maps Were Tested',
-			meta: 'Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository',
+			meta: 'Every test and every statistic, in plain language · Every number reproducible from the public repository',
 			standfirst: 'The whole audit rests on one simple idea. Want to know whether a map is unusual? Draw a million maps that could not be biased. A computer draws them, and it never sees a single vote. Then check where the real maps land among them. This page walks through that idea and every test built on it. No formulas. If you can read a weather forecast, you can read this.',
 			toc: {
 				aria: 'Page contents',
@@ -1956,7 +1956,7 @@ export default {
 			back: '← Back to audit',
 			site_label: 'Alberta Electoral Boundary Audit',
 			h1: 'What the Norms Ask of an Electoral Map',
-			meta: 'Plain-language companion · English only for now · Not a verdict on anyone',
+			meta: 'Plain-language companion · Not a verdict on anyone',
 			standfirst: 'This episode has three lenses. The <a href="__BASE__/law">law</a> asks what is legal. The <a href="__BASE__/methods">statistics</a> ask what is unusual. The third lens asks what is customary, and custom is the contested ground. "The government broke a sixty-year norm" is not a neutral measurement. It is the heart of the opposition\'s accusation. So this page does not just recite the norms. It cross-examines them: where they came from, what they are for, what the case for setting them aside actually is, and what remains once the rhetoric on both sides is cleared away.',
 			the_norm: {
 				heading: 'The norm, stated plainly',
@@ -2078,7 +2078,7 @@ export default {
 			back: '← Back to audit',
 			site_label: 'Alberta Electoral Boundary Audit',
 			h1: 'What the Law Asks of an Electoral Map',
-			meta: 'Plain-language companion · English only for now · Not legal advice',
+			meta: 'Plain-language companion · Not legal advice',
 			standfirst: "This audit measures maps. Courts judge them. The two jobs are related, but they are not the same, and this page walks through the difference: what Canadian law actually asks of an electoral boundary, which questions belong to a court rather than to a statistician, and where the audit's evidence fits. The audit itself takes no position on any legal conclusion. It reports what the data show, and it stops there.",
 			why_not_gerrymander: {
 				heading: 'Why this audit never rules "gerrymander"',
