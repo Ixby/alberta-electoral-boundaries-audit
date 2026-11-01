@@ -1598,6 +1598,69 @@ export default {
 				p2: "Nu läst Aunfindunk 14 noch eemol: en echta Vestoot, gaunz belajcht, fa Jerechte onwichtich — aule dree opp eenmol.",
 				limit: "<em>Dee Grenz:</em> „nich dorchsatsboa“ es en Aussoag äwa Jerechte, nich äwa Foljes. Brukj woat bie Wahle dorchjesat, von Mensche, dee weete, waut jedonn wort. Berichte soo aus dissa senn doa, soo daut see daut weete.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Trigj to Aunfindunk 14</a>"
+			},
+			footer_note: "Dee Inhoolt spajchelt dee Aunhäng von dän <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">gaunze öffentlijche Bericht</a>. Fa nu bloos opp Enjlisch, bat dee Schriewa daut äwapreeft haft, ear daut äwasat woat."
+		},
+		methods: {
+			head_title: "Woo dee Koate jeproowt wudde · Alberta Electoral Boundary Audit",
+			head_description: "Jiedre Proow un Statistik en dee Pruewunk, en eenfache Sproak erkloat: dee Waut-wan-Moschien met en Milljoon Koate, dee fief strukturelle Proowe, dee vea Jerajchtichkjeitsmote, p-Wäate, un dee Proowe, dee jestorwe senn.",
+			back: "← Trigj to dee Pruewunk",
+			site_label: "Alberta Electoral Boundary Audit",
+			h1: "Woo dee Koate jeproowt wudde",
+			meta: "Jiedre Proow un jiedre Statistik, en eenfache Sproak · fa nu bloos opp Enjlisch · Jiedre Tal lat sikj ut dän öffentlijche Repository nomoake",
+			standfirst: "Dee gaunze Pruewunk steit opp eene eenfache Idee. Jie welle weete, aub en Koat onjewehnlich es? Teidchent en Milljoon Koate, dee nich parteiisch senne kjenne. En Computer teidchent dee, un hee sitt nie eene eenje Stemm. Dan kjikjt, wua dee wirkjlije Koate mank dee lande. Dise Sied jeit dee Idee dorch un jiedre Proow, dee doaropp jebut es. Kjeene Formle. Wan jie en Wadavähasaach läse kjenne, kjenne jie dit läse.",
+			toc: {
+				aria: "Sied-Inhoolt",
+				what_if: "Dee Waut-wan-Moschien",
+				percentile: "Woo eena en Prezentiel läst",
+				structural: "Dee fief strukturelle Proowe",
+				fairness: "Dee vea Jerajchtichkjeitsmote",
+				odds: "Waut dee Chauncen meene",
+				died: "Dee Proowe, dee jestorwe senn",
+				break: "Versieekje, onset eajnet Resultot to brakje",
+				prereg: "Vesprakje, em väa jejäwe",
+				reproduce: "Lot daut selfst loope"
+			},
+			what_if: {
+				heading: "Dee Waut-wan-Moschien: 1.010.000 neutrale Koate",
+				p1: "En Computer haft <strong>1.010.000 jesatslije Alberta-Koate</strong> jeteidchent. Jiede foljt dieselwe twee harde Rejle, dee dee wirkjlije Kommissjon foljd: jieda Wahlkraus hoolt meist dieselwe Tal Mensche (bennen 25% vom Dorchschnett), un jieda Wahlkraus es eent toopjehankjet Stekj.",
+				p2: "Woo teidchent en Computer en Koat? Een kjlana Schrett no dän aundren. Nämt twee Wahlkreise, dee en Grenz deele. Schmelt dee to eenem Klumpe toop. Spalt dän Klumpe toofällich wada en twee nie jesatslije Wahlkreise. Wadahoolt daut, 1.010.000 Mol, un spiekat dee Koat no jiedem Schrett. Dee Method heet ReCom, un see es daut jewehnlije Werkjtieech en dissem Feld.",
+				p3: "Daut Hauptfakt: <strong>dee Computer sitt nie eene Stemm.</strong> Hee weet nich, wua NDP- oda UCP-Wähla wone. Wan also en neutrale Koat trotsdäm no eene Sied neicht, kjemt dee Neijunk bloos von Albertas Jeografie. Un wan en wirkjlije Koat väl wieda neicht aus meist aule neutrale, dan kjann Jeografie nich meea dee Erkloarunk senne.",
+				p4: "Vea Ährlichkjeitspunkte äwa dee Moschien:",
+				li1: "<strong>Dee Werpel wudde öffentlich jeschmete.</strong> Dee Toofallsseed (dee Aunfangstal hinja jiedre toofällije Wal) wort nich vom Schriewa utjesocht. Dee kjemt von en öffentlijchen Toofallsbeacon („drand“, bedräwe von dee League of Entropy, en Grupp, to dee Cloudflare jehiat), soo aus en Lotteriedrekjnunk, dee live jesendt woat. Dee wort fastjelajcht, ear dee offizielle Koatendoten existeade. Jieda kjann dee noräakjne.",
+				li2: "<strong>Vea aparte Leep stemme äwaeen.</strong> Dee Milljoon Koate kjeeme von vea onaufhenjije Leep, jieda opp aundre Wiess aunjefange. Aule vea senn bie datselwe Bilt aunjekome. Dee jewehnlije Proowe doafäa (äwaraul em Feld jebrukt) jone met väl Rum dorch.",
+				li3: "<strong>En Notiz äwa Sitztale.</strong> Dee Kommissjoonskoate von 2026 ha jiede 89 Wahlkreise. Dee Simulatsjoon leept opp dee Koat von 2019 met 87 Wahlkreise, dee latste, dee jesatslich aunjenome wort, wiel dee Algorithmus en wirkjlije Koat brukt, von dee hee lostogone kjann. Daut Novemba-Komitee woat 91 moake. Jiedre Prozenttal opp dise Sied es en Sitz<em>aundeel</em>, also lote sikj dee Tale äwa aule dree Greete sauba vejlikje.",
+				li4: "<strong>Dee Moschien es kjeen perfekta Schiedsrechta.</strong> See foljt dee twee harde Rejle, oba nich jiedre weakje Rejel, dee wirkjlije Kommissjoone ähre, soo aus Jemeende toop to hoole. Wirkjlije Kommissjoonskoate senn eajentlich orntlijcha aus dee meeste neutrale Koate. Dee Pruewunk sajcht daut kloa äwaraul, wua dee Moschien äare Tale oppduuke."
+			},
+			percentile: {
+				heading: "Woo eena en Prezentiel läst",
+				p1: "Stalt aule 1.010.000 neutrale Koate en en Reaj, von dee, dee aum wienichsten no dee UCP neicht, bat to dee, dee aum meeste neicht. Nu stalt en wirkjlije Koat en dee Reaj. Äa <strong>Prezentiel</strong> es eenfach äare Plauts: „78ste Prezentiel“ meent, daut see wieda neicht aus 78 von jiede 100 neutrale Koate. Daut es onopfallend: en bät äwa dee Medd von daut Feld.",
+				p2: "„99,99ste Prezentiel“ es aundasch. Daut meent, daut dee Koat wieda neicht aus soo goot aus jiede neutrale Koat en dee Reaj — en dise Pruewunk aula utsenomme <strong>69 von dee 1.010.000</strong>. Mit dee Jreet von Mensche es daut datselwe. En Maun aum 78ste Prezentiel es en bät groot. En Maun aum 99,99ste Prezentiel es omtrent säwen Foot groot."
+			},
+			structural: {
+				heading: "Dee fief strukturelle Proowe (kjeene Stemme nädich)",
+				p1: "Ear irjent eene Simulatsjoon haft dee Pruewunk dee jeteidchende Linie selfst jemäte. Fief Proowe, aula fastjelajcht, ear dee Resultote bekaunt wiere. Jiede vejlikjt dee beide Kommissjoonskoate direkt.",
+				li1: "<strong>1. Bevälkarungsstreijunk.</strong> Woo wiet driewe Wahlkreise von dee ideale Jreet wajch? No dee Kommissjon äare eajne Toowle es dee Mehrheitskoat äare typische Afwiekjunk 3.180 Mensche. Dee von dee Minoritätskoat es 4.707, omtrent noch eemol hauft so breet. Breedre Afwiekjunk meent, daut Stemme wieniga jlikj tale.",
+				li2: "<strong>2. Calgary-Drenje.</strong> En Noodoost- un Meddel-Calgary senn dee Minoritätskoat äare Wahlkreise 11,5% jrata aus dee Provinzdorchschnett. Dee von dee Mehrheit 2,8% jrata. Jratre Wahlkreise meene, daut jiede Stemm doa wieniga wejcht. Un dit Jebiet stemt stoakj NDP. Daut Musta heet <em>Stoppe</em>.",
+				li3: "<strong>3. Dee Airdrie-Spaltunk.</strong> Daut Jesats dwinjt Airdrie en weinjstens twee Wahlkreise. Dee Mehrheitskoat brukt twee. Dee Minoritätskoat schnit dee Staut en vea Stekje (dree, dee weinjstens 2% von äare Mensche hoole), jiedet aun aundret Launt von buta jeheft. En Jemeend dinn to spalte heet <em>Opsprenjunk</em>.",
+				li4: "<strong>4. Dän Vorsetza siene Flemmteekje.</strong> Dee Kommissjon äa eajna Vorsetza haft öffentlich Grenze aus jeografisch komisch jeflemmt. Vea von siene Flemmteekje lande opp dee Minoritätskoat, un dee Pruewunk äare eajne Jeometrie-Proow haft dree bestäticht. Nul lande opp dee Mehrheitskoat.",
+				li5: "<strong>5. Stautgrenze folje (dee Proow, dee jestorwe es).</strong> Fräaje Doten deede vemuede, daut dee Minoritätskoat städtische Linie äwaseach. Dee offizielle Koatendoten ha dee Aunfindunk ommjebroocht: beide Koate folje Stautgrenze met normaule kanadische Rote (80% un 72%). Dee Pruewunk behelt dee doodje Proow to seene, aunstaut dee to struike.",
+				p2: "Wäatunk: dee Minoritätskoat äwaschrit aule vea läwendje Schwalle. Dee Mehrheitskoat kjeene."
+			},
+			fairness: {
+				heading: "Dee vea Jerajchtichkjeitsmote (Stemme doatoo)",
+				p1: "Nu nämt dee Stemme von 2023 doatoo un froagt: woo mookt jiede Koat Stemme to Sitze? Vea jewehnlije Mote, jiedet jäajen dee Milljoon neutrale Koate jeproowt.",
+				li1: "<strong>1. Sitze bie Stemmjlikjheit.</strong> Dee aum leichtsten to vestohne Proow. Doot soo, aus stemt dee Provinz jenau 50/50, un talt jiede Sied äare Sitze. Opp Albertas Jeografie jeft en typische neutrale Koat dee UCP omtrent 44,8% von dee Sitze bie Jlikjheit. Städtische NDP-Stemme woare en bät effizienta jebrukt, also bevorzucht en Jlikjheit natüarlich dee NDP en bät. Dee Mehrheitskoat jeft dee UCP 46,1%: 78ste Prezentiel, jewehnlich. Dee Minoritätskoat jeft dee UCP <strong>51,7%</strong>, en Mehrheit von dee Sitze bie jlikje Stemme. Bloos 69 von dee 1.010.000 neutrale Koate doone daut bäta fa dee UCP. Toom Vejlikj: en Vefoare, daut dee UCP-Sitze <em>met Afsecht</em> maximeare sull, kjeem opp 52,9%. Dee Minoritätskoat sett neeja aun dän jebuade Deckel aus aun dee neutrale Medd.",
+				li2: "<strong>2. Dee efficiency gap.</strong> Jiede Stemm es entwäda nädich, om en Sitz to jewenne, oda „vaschwendt“ — fa en Valiera aufjejäwe, oda opp en Jewenna jestaplt äwa daut, waut dee Sieech brukt. Dit Mot vejlikjt, woo schnall jiede Partei äare Stemme vaschwendt woare. Dee Mehrheitskoat kjricht +0,1%: soo goot aus nuscht. Dee Minorität kjricht +4,0% to dee UCP äare Gunst, daut 94,5ste Prezentiel, jrod <em>unja</em> dee Pruewunk äare vääfastjelajchte Alarmlinie bie't 95ste. Dit es daut eene Mot, daut nich losjinkj. Dee Pruewunk berecht daut aus Fehlschoss.",
+				li3: "<strong>3. Daut Meen-Median-Loch.</strong> Vejlikjt en Partei äa dorchschnettlijet Wahlkreisresultot met äaren meddelsten Wahlkraus sien Resultot. Wan dee beide ut'nauda driewe, woare Stemme irjentwua en Äwastemm toopjedrenjt. Dee Minoritätskoat äa Loch bevorzucht dee UCP meea aus 99,9% von dee neutrale Koate. Dee Mehrheit äa Loch neicht no dee aundre Sied — en bät NDP-effizient — waut doamet äwaeenstemt, woo orntlije Kommissjoonskoate sikj opp Albertas Jeografie vehoole.",
+				li4: "<strong>4. Deklinatsjoon.</strong> En jeometrische Lesunk von Sieechofstäng: behaundelt dee Koat dee beide Parteie äare Sieeje jlikj, oda bucht see sikj aun dee 50%-Linie? Dee Minoritätskoat bucht sikj wieda to dee UCP äare Gunst aus omtrent 98,8% von dee neutrale Koate. Dee Mehrheitskoat läst sikj normaul. (En fräaje Versjoon von dit Mot haud äa Teekje dorch en Programmearfäla omjedreit; dee Korrektua es belajcht, nich utjestriekje.)",
+				p2: "Wäatunk: dree von vea jone bie dee Minoritätskoat los, aula en dieselwe Richtunk. Daut vieede landt jrod unja dee Linie un wiest dieselwe Richtunk. Dee Mehrheitskoat es bie aule vea jewehnlich."
+			},
+			odds: {
+				heading: "Waut „1 von 568.000“ meent — un wurom dee Pruewunk äaren Ofstaunt vadoppelt haft",
+				p1: "Nämt dee vea Jerajchtichkjeitsmote to eene Wäatunk toop un froagt: woo oft brinjt neutralet Teidchne en Profil soo extrem aus dee Minoritätskoat äat väa? Dee Äntwuat es omtrent <strong>1 von 1,1 Milljoon</strong>. Oba dee Pruewunk nant dee Tal nich. See nant <strong>1 von 568.000</strong> — jenau hauft so beendrukjend. Hia es, wurom.",
+				p2: "Dee Pruewunk haft aun twee vescheedne Stalle no en Teekje jesocht: dise toopjenomne Wäatunk, un en tweede Proow aun dee bestemde Grenzwale. Aun twee Stalle to sieekje jeft dän Jlekj twee Chauncen. Denkjt aun Lotteriezaddels: kjeapt twee, un jüare Chaunce, en Jewenna to habe, vadoppelt sikj. Doaromm vadoppelt dee Pruewunk dee Chaunce jäajen sikj selfst, ear see dee nant. Soo es „jie hade twee Väasieekje“ aul betolt.",
+				p4: "Eene Woarnunk, dee dee Pruewunk äwaraul wadahoolt: dise Chauncen mäte, woo onjewehnlich dee <em>Koat</em> es. See senn nich dee Chaunce, daut irjentwäa met Afsecht jehanelt haft. En rare Koat kunn emma noch, em Prinzip, ährlije Oabeit senne. Dee Chauncen saje bloos dit: jewehnlijet Entwoafe brinjt dise Koat nich väa."
 			}
 		}
 	}

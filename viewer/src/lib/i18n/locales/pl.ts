@@ -1859,7 +1859,7 @@ export default {
 			meta: "Obowiązuje od: 2026-06-24 · Prowadzi: Will Conner",
 			overview: {
 				heading: "Przegląd",
-				p1: "To narzędzie jest audytem w interesie publicznym procesu komisji ds. granic wyborczych Alberty z 2023 roku. Nie jest produktem komercyjnym i nie wyświetla żadnych reklam. Ta strona wyjaśnia, co jest mierzone, czego nigdy się nie zbiera i dlaczego nic z tego nie da się powiązać z tobą.",
+				p1: "To narzędzie jest audytem w interesie publicznym procesu komisji ds. granic wyborczych Alberty z lat 2025–26. Nie jest produktem komercyjnym i nie wyświetla żadnych reklam. Ta strona wyjaśnia, co jest mierzone, czego nigdy się nie zbiera i dlaczego nic z tego nie da się powiązać z tobą.",
 				p2: "Krótka wersja: strona korzysta z analityki zbiorczej bez plików cookie. Nie ma śledzącego pliku cookie, reklam, profilowania między witrynami ani identyfikatora, który by za tobą podążał. Ponieważ nie przechowuje się niczego osobistego, nie ma baneru zgody do klikania — ochrona prywatności jest wbudowana w sposób działania pomiaru, a nie doklejona jako komunikat."
 			},
 			how_analytics_work: {
