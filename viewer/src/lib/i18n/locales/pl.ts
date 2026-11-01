@@ -1598,6 +1598,211 @@ export default {
 				limit: "<em>Granica:</em> „niewykonalny w sądzie” to stwierdzenie o sądach, nie o konsekwencjach. Konwenanse egzekwuje się przy urnach, przez ludzi, którzy wiedzą, co zrobiono. Raporty takie jak ten istnieją po to, żeby wiedzieli.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Powrót do ustalenia 14</a>"
 			}
+		},
+		methods: {
+			head_title: "Jak testowano mapy · Audyt Granic Okręgów Wyborczych Alberty",
+			head_description: "Każdy test i każda statystyka audytu wyjaśnione prostym językiem: maszyna co-jeśli z milionem map, pięć testów strukturalnych, cztery miary sprawiedliwości, wartości p i testy, które upadły.",
+			back: "← Powrót do audytu",
+			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
+			h1: "Jak testowano mapy",
+			standfirst: "Cały audyt opiera się na jednym prostym pomyśle. Chcesz wiedzieć, czy mapa jest nietypowa? Narysuj milion map, które nie mogą być stronnicze. Rysuje je komputer i nigdy nie widzi żadnego głosu. Potem sprawdź, gdzie wśród nich lądują rzeczywiste mapy. Ta strona przeprowadza przez ten pomysł i każdy test na nim zbudowany. Bez wzorów. Jeśli potrafisz przeczytać prognozę pogody, potrafisz przeczytać i to.",
+			toc: {
+				aria: "Zawartość strony",
+				what_if: "Maszyna co-jeśli",
+				percentile: "Jak czytać percentyl",
+				structural: "Pięć testów strukturalnych",
+				fairness: "Cztery miary sprawiedliwości",
+				odds: "Co oznaczają szanse",
+				died: "Testy, które upadły",
+				break: "Próba obalenia własnego wyniku",
+				prereg: "Obietnice złożone z góry",
+				reproduce: "Uruchom to sam"
+			},
+			what_if: {
+				heading: "Maszyna co-jeśli: 1 010 000 neutralnych map",
+				p1: "Komputer narysował <strong>1 010 000 legalnych map Alberty</strong>. Każda przestrzega tych samych dwóch twardych zasad, których przestrzegała prawdziwa komisja: każdy okręg ma zbliżoną liczbę mieszkańców (w granicach 25% od średniej) i każdy okręg stanowi jeden połączony kawałek.",
+				p2: "Jak komputer rysuje mapę? Jeden mały krok naraz. Weź dwa okręgi, które mają wspólną granicę. Połącz je w jedną plamę. Podziel plamę z powrotem na dwa nowe legalne okręgi, losowo. Powtórz to 1 010 000 razy, zapisując mapę po każdym kroku. Metoda nazywa się ReCom i jest standardowym narzędziem w tej dziedzinie.",
+				p3: "Kluczowy fakt: <strong>komputer nigdy nie widzi żadnego głosu.</strong> Nie wie, gdzie mieszkają wyborcy NDP czy UCP. Jeśli więc neutralna mapa i tak przechyla się w jedną stronę, to przechylenie pochodzi wyłącznie z geografii Alberty. A jeśli rzeczywista mapa przechyla się znacznie dalej niż niemal wszystkie neutralne, geografia nie może już być wyjaśnieniem.",
+				p4: "Cztery uczciwe uwagi o maszynie:",
+				li1: "<strong>Kośćmi rzucono publicznie.</strong> Losowego ziarna (liczby początkowej stojącej za każdym losowym wyborem) nie wybrał autor. Pochodzi z publicznego beaconu losowości („drand”, prowadzonego przez League of Entropy, grupę, do której należy Cloudflare), jak losowanie loterii transmitowane na żywo. Zostało zablokowane, zanim powstały oficjalne pliki map. Każdy może je przeliczyć.",
+				li2: "<strong>Cztery osobne przebiegi się zgadzają.</strong> Milion map pochodzi z czterech niezależnych przebiegów, z których każdy zaczynał się inaczej. Wszystkie cztery ustaliły się na tym samym obrazie. Standardowe testy tego (stosowane w całej dziedzinie) są spełnione z zapasem.",
+				li3: "<strong>Uwaga o liczbie mandatów.</strong> Mapy komisji z 2026 roku mają po 89 okręgów. Symulacja działa na mapie z 2019 roku liczącej 87 okręgów, ostatniej uchwalonej zgodnie z prawem, bo algorytm potrzebuje prawdziwej mapy, od której zacznie wędrówkę. Komitet listopadowy przygotuje 91. Każdy odsetek na tej stronie to <em>udział</em> w mandatach, więc liczby dają się czysto porównywać między wszystkimi trzema rozmiarami.",
+				li4: "<strong>Maszyna nie jest doskonałym sędzią.</strong> Przestrzega dwóch twardych zasad, ale nie każdej miękkiej zasady, którą respektują prawdziwe komisje, jak utrzymywanie społeczności razem. Rzeczywiste mapy komisji są w praktyce bardziej uporządkowane niż większość neutralnych map. Audyt mówi to wprost wszędzie tam, gdzie pojawiają się liczby z maszyny."
+			},
+			percentile: {
+				heading: "Jak czytać percentyl",
+				p1: "Ustaw wszystkie 1 010 000 neutralnych map w kolejce od najmniej do najbardziej przechylonej ku UCP. Teraz wstaw do kolejki rzeczywistą mapę. Jej <strong>percentyl</strong> to po prostu jej pozycja: „78. percentyl” oznacza, że przechyla się dalej niż 78 na każde 100 neutralnych map. To nic szczególnego: trochę powyżej środka stawki.",
+				p2: "„99,99. percentyl” to co innego. Oznacza, że mapa przechyla się bardziej niż praktycznie każda neutralna mapa w kolejce — w tym audycie bardziej niż wszystkie z wyjątkiem <strong>69 z 1 010 000</strong>. Ze wzrostem jest tak samo. Mężczyzna na 78. percentylu jest trochę wysoki. Mężczyzna na 99,99. percentylu mierzy około siedmiu stóp."
+			},
+			structural: {
+				heading: "Pięć testów strukturalnych (bez potrzeby głosów)",
+				p1: "Przed jakąkolwiek symulacją audyt zmierzył same narysowane linie. Pięć testów, wszystkie zablokowane, zanim znane były wyniki. Każdy porównuje obie mapy komisji bezpośrednio.",
+				li1: "<strong>1. Rozrzut liczby ludności.</strong> Jak daleko okręgi odbiegają od idealnej wielkości? Według własnych tabel komisji typowe odchylenie mapy większościowej to 3 180 osób. Mapy mniejszościowej — 4 707, mniej więcej o połowę więcej. Większe odchylenie oznacza, że głosy liczą się mniej równo.",
+				li2: "<strong>2. Stłoczenie w Calgary.</strong> W północno-wschodnim i centralnym Calgary okręgi mapy mniejszościowej są o 11,5% większe od średniej prowincjonalnej. Okręgi mapy większościowej — o 2,8%. Większe okręgi oznaczają, że każdy głos w nich waży mniej. A ta strefa głosuje w dużej mierze na NDP. Ten wzorzec nazywa się <em>upychaniem</em>.",
+				li3: "<strong>3. Podział Airdrie.</strong> Prawo wymusza podział Airdrie na co najmniej dwa okręgi. Mapa większościowa używa dwóch. Mapa mniejszościowa tnie miasto na cztery kawałki (trzy obejmujące co najmniej 2% jego mieszkańców), z których każdy jest dołączony do innego terytorium z zewnątrz. Cienkie dzielenie społeczności nazywa się <em>rozdrabnianiem</em>.",
+				li4: "<strong>4. Zastrzeżenia przewodniczącego.</strong> Własny przewodniczący komisji publicznie oznaczył granice jako geograficznie dziwne. Cztery jego zastrzeżenia dotyczą mapy mniejszościowej, a własne sprawdzenie geometrii przez audyt potwierdziło trzy. Żadne nie dotyczy mapy większościowej.",
+				li5: "<strong>5. Podążanie za granicami miast (test, który upadł).</strong> Wczesne dane sugerowały, że mapa mniejszościowa ignoruje linie miejskie. Oficjalne pliki map obaliły to ustalenie: obie mapy podążają za granicami miast w normalnym kanadyjskim stopniu (80% i 72%). Audyt zostawia upadły test na widoku, zamiast go usuwać.",
+				p2: "Wynik: mapa mniejszościowa przekracza wszystkie cztery żywe progi. Mapa większościowa nie przekracza żadnego."
+			},
+			fairness: {
+				heading: "Cztery miary sprawiedliwości (z głosami)",
+				p1: "Teraz dodaj głosy z 2023 roku i zapytaj: jak każda mapa zamienia głosy na mandaty? Cztery standardowe miary, każda sprawdzona wobec miliona neutralnych map.",
+				li1: "<strong>1. Mandaty przy remisie w głosach.</strong> Najbardziej intuicyjny test. Załóż, że prowincja głosuje dokładnie 50/50, i policz mandaty każdej strony. Na geografii Alberty typowa neutralna mapa daje UCP przy remisie około 44,8% mandatów. Miejskie głosy NDP są wykorzystywane nieco efektywniej, więc remis naturalnie lekko sprzyja NDP. Mapa większościowa daje UCP 46,1%: 78. percentyl, zwyczajnie. Mapa mniejszościowa daje UCP <strong>51,7%</strong>, większość mandatów przy remisie w głosach. Tylko 69 z 1 010 000 neutralnych map wypada lepiej dla UCP. Dla skali: procedura, której kazano <em>celowo</em> maksymalizować mandaty UCP, osiągnęła 52,9%. Mapa mniejszościowa leży bliżej tego zaprojektowanego pułapu niż neutralnego środka.",
+				li2: "<strong>2. Luka efektywności.</strong> Każdy głos jest albo potrzebny do zdobycia mandatu, albo „zmarnowany” — oddany na przegranego lub dorzucony zwycięzcy ponad to, czego wymagało zwycięstwo. Ta miara porównuje, jak szybko marnują się głosy każdej partii. Mapa większościowa uzyskuje +0,1%: praktycznie nic. Mapa mniejszościowa uzyskuje +4,0% na korzyść UCP, 94,5. percentyl, tuż <em>poniżej</em> ustalonej z góry przez audyt linii alarmowej na 95. percentylu. To jedyna miara, która się nie uruchomiła. Audyt raportuje ją jako chybienie.",
+				li3: "<strong>3. Luka średnia-mediana.</strong> Porównaj średni wynik partii w okręgach z jej wynikiem w środkowym okręgu. Gdy te dwie wartości się rozchodzą, gdzieś głosy są stłaczane w miażdżące zwycięstwa. Luka mapy mniejszościowej sprzyja UCP bardziej niż w 99,9% neutralnych map. Luka mapy większościowej przechyla się w drugą stronę — lekko na korzyść efektywności NDP — co zgadza się z tym, jak uporządkowane mapy komisji zachowują się na geografii Alberty.",
+				li4: "<strong>4. Deklinacja.</strong> Geometryczny odczyt marginesów zwycięstw: czy mapa traktuje zwycięstwa obu partii podobnie, czy zgina się na linii 50%? Mapa mniejszościowa zgina się bardziej na korzyść UCP niż około 98,8% neutralnych map. Mapa większościowa wypada normalnie. (Wczesna wersja tej miary miała odwrócony znak przez błąd w kodzie; korekta jest udokumentowana, a nie wymazana.)",
+				p2: "Wynik: trzy z czterech uruchamiają się na mapie mniejszościowej, wszystkie w tym samym kierunku. Czwarta ląduje tuż pod linią, wskazując w tę samą stronę. Mapa większościowa jest zwyczajna we wszystkich czterech."
+			},
+			odds: {
+				heading: "Co znaczy „1 na 568 000” — i dlaczego audyt podwoił swój margines",
+				p1: "Połącz cztery miary sprawiedliwości w jeden wynik i zapytaj: jak często neutralne rysowanie daje profil tak skrajny jak mapa mniejszościowa? Odpowiedź to około <strong>1 na 1,1 miliona</strong>. Ale audyt nie podaje tej liczby. Podaje <strong>1 na 568 000</strong> — dokładnie o połowę mniej imponującą. Oto dlaczego.",
+				p2: "Audyt szukał sygnału w dwóch różnych miejscach: w tym łącznym wyniku i w drugim teście, dotyczącym konkretnych wyborów granic. Szukanie w dwóch miejscach daje szczęściu dwie szanse. Pomyśl o losach na loterii: kup dwa, a twoje szanse na posiadanie wygrywającego się podwajają. Dlatego zanim audyt poda szanse, podwaja je na własną niekorzyść. W ten sposób „miałeś dwie próby” jest już opłacone.",
+				p4: "Jedno zastrzeżenie, które audyt powtarza wszędzie: te szanse mierzą, jak nietypowa jest <em>mapa</em>. Nie są szansami na to, że ktokolwiek działał z zamiarem. Rzadka mapa nadal mogłaby, co do zasady, być uczciwą pracą. Szanse mówią tylko tyle: rutynowe rysowanie nie daje tej mapy."
+			},
+			died: {
+				heading: "Testy, które upadły",
+				p1: "Dwa ustalenia nie przetrwały i oba pozostają w druku. To celowe: audyt, który pokazuje tylko swoje zwycięstwa, jest reklamą.",
+				li1: "<strong>Test granic miast</strong> nie znalazł niczego, co odróżniałoby mapy: obie podążają za liniami miejskimi w ramach kanadyjskiej normy (większościowa 80%, mniejszościowa 72%).",
+				li2: "<strong>Test wyborów granic (SZAT)</strong> wyglądał na istotny, dopóki audyt nie poprawił go o prosty fakt: sąsiednie miejsca głosują podobnie. Traktowanie sąsiadów jako niezależnych upiększa wynik. Po korekcie test nie pokazał niczego. Został wycofany."
+			},
+			break: {
+				heading: "Próba obalenia własnego wyniku",
+				p1: "Zanim zaufał głównej tezie, audyt zaatakował ją na trzy sposoby.",
+				li1: "<strong>Wymień silnik.</strong> Przelicz wszystko zupełnie innym algorytmem rysowania map (metodą lasów rozpinających, zapowiedzianą publicznie przed uruchomieniem). Każdy wynik przesunął się o mniej niż jeden punkt percentylowy. Ustalenie przetrwało.",
+				li2: "<strong>Wymień oprogramowanie.</strong> Niezależna implementacja w innym języku programowania również nie znajduje żadnych map osiągających wartość mapy mniejszościowej.",
+				li3: "<strong>Przetestuj mechanizm — i polegnij.</strong> Audyt zgadywał, że dziwne kształty z testów strukturalnych są bezpośrednią przyczyną przewagi w mandatach. To przypuszczenie nie przeszło testu. Kształty i przechylenie mandatów wskazują na tę samą mapę, ale kształty nie są silnikiem. Audyt mówi to wprost."
+			},
+			prereg: {
+				heading: "Obietnice złożone z góry",
+				p1: "Najsilniejszą obroną przed oszukiwaniem samego siebie jest spisanie przewidywań, zanim się spojrzy. Audyt zablokował swoje testy, progi i przewidywane kierunki w publicznych, opatrzonych znacznikiem czasu rejestracjach w Open Science Framework. Zablokował losowe ziarna na podstawie publicznego beaconu. Oba kroki nastąpiły przed udostępnieniem oficjalnych plików map. Gdy zablokowane przewidywanie chybiło, pozostało chybieniem. Te same zablokowane testy zostaną przeprowadzone, bez zmian, na nowej mapie komitetu, gdy pojawi się w listopadzie 2026 roku. Audyt wskazuje też, które z jego wyników są <em>eksploracyjne</em> (ziarna zablokowane, ale dokładną kombinację testów wybrano później), a które są w pełni wstępnie zarejestrowane. Główne szanse są eksploracyjne. Listopadowa tabela wyników to w pełni wstępnie zarejestrowany test."
+			},
+			reproduce: {
+				heading: "Uruchom to sam",
+				p1: "Każda liczba na tej stronie pochodzi ze skryptu w publicznym repozytorium, uruchomionego na zatwierdzonych danych. Pełny przepis jest w <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; krótka wersja:",
+				p2: "Wersja notatnika działa w przeglądarce przez <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Pełna metodologia — wraz z każdą korektą wprowadzoną po drodze — jest w <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">monografii akademickiej</a>.",
+				cross_ref: "Strony towarzyszące: <a href=\"__BASE__/law\">Czego prawo wymaga od mapy wyborczej</a> · <a href=\"__BASE__/norms\">Czego wymagają normy</a> · <a href=\"__BASE__/explainers\">Czternaście objaśnień (Dodatki A–N)</a>, po jednym dla każdej łuski w głównym raporcie."
+			}
+		},
+		norms: {
+			head_title: "Czego wymagają normy · Audyt Granic Okręgów Wyborczych Alberty",
+			head_description: "Trzecia soczewka na epizod granic wyborczych Alberty z 2026 roku: skąd wzięła się norma, że politycy nie rysują własnych okręgów, co dawała, jakie są argumenty za jej odłożeniem i kto właściwie oskarża kogo i o co.",
+			back: "← Powrót do audytu",
+			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
+			h1: "Czego normy wymagają od mapy wyborczej",
+			standfirst: "Ten odcinek ma trzy soczewki. <a href=\"__BASE__/law\">Prawo</a> pyta, co jest legalne. <a href=\"__BASE__/methods\">Statystyka</a> pyta, co jest nietypowe. Trzecia soczewka pyta, co jest zwyczajowe, a zwyczaj to sporny teren. „Rząd złamał sześćdziesięcioletnią normę” nie jest neutralnym pomiarem. To sedno oskarżenia ze strony opozycji. Dlatego ta strona nie tylko recytuje normy. Przesłuchuje je krzyżowo: skąd się wzięły, czemu służą, jakie naprawdę są argumenty za ich odłożeniem i co zostaje, gdy uprzątnie się retorykę obu stron.",
+			the_norm: {
+				heading: "Norma, powiedziana wprost",
+				p1: "Politycy nie rysują własnych okręgów. Kanada przez mniej więcej sześćdziesiąt lat budowała tę zasadę, nie jako prawo, lecz jako praktykę. Od federalnej ery reform z lat 1960. każda prowincja i proces federalny korzystają z komisji ds. granic działających z dystansem wobec władzy. Osoba, która będzie kandydować w okręgu, nie trzyma pióra, którym się go rysuje.",
+				p2: "Norma istnieje z powodu tego, co było przed nią. Partie rządzące rysowały kiedyś rutynowo własne okręgi, a konflikt interesów nie jest subtelny. Rysujący mapę, który musi na niej wygrać, ma wszelkie powody, by narysować ją na swoją korzyść, a nikt z obserwujących nie odróżni uczciwej linii od wyrachowanej. Model komisji nie czyni map doskonałymi. Sprawia, że interes rysującego da się oddzielić od wyniku. To pozwala wszystkim pozostałym ufać rezultatowi."
+			},
+			what_it_bought: {
+				heading: "Co norma dała w tym właśnie cyklu",
+				p1: "Komisja z lat 2025–26 jest swoim własnym najlepszym dowodem. Przeprowadziła przesłuchania w szesnastu społecznościach. Otrzymała 1 345 pisemnych zgłoszeń. Opublikowała propozycję wstępną, przyjęła krytykę i wycofała się z niej na podstawie ponad osiemdziesięciu zgłoszeń. To system wyraźnie reagujący na głos opinii publicznej. W czymkolwiek innym komisja zawiodła, otaczający ją proces działał dokładnie tak, jak zaprojektowano: jawnie, protokołowany i odpowiadający na to, co mówili obywatele."
+			},
+			the_departure: {
+				heading: "Odejście od normy",
+				p1: "W kwietniu 2026 roku, kilka tygodni po tym, jak podzielona komisja złożyła dwie niezgodne mapy, Zgromadzenie Ustawodawcze odłożyło obie na bok. Wniosek Rządowy 37, uchwalony 21 kwietnia, przekazał pracę komitetowi sześciu MLA, czterech z partii rządzącej, pod przewodnictwem członka partii rządzącej. Komitet nie ma obowiązku przeprowadzania przesłuchań publicznych. Według doniesień CBC nie przeprowadzi przesłuchań w sprawie mapy, którą przygotuje. Żaden projekt nie zostanie udostępniony do publicznego zakwestionowania, zanim mapa stanie się ostateczna.",
+				p2: "W maju Duane Bratt, profesor nauk politycznych na Mount Royal University, opisał to autorowi jako bezprecedensowe w Kanadzie. To twierdzenie jest błędne. W 1992 roku Alberta odłożyła na bok pracę komisji, która utknęła w impasie, i oddała mapę komitetowi MLA; opozycja odmówiła udziału, a w 1994 roku Sąd Apelacyjny pozostawił mapę w mocy, zarzucając jednak komitetowi, że nie potrafił wyjaśnić kilku jej granic. Ustawę znowelizowano w 1995 roku. Nowe w 2026 roku jest coś węższego: większość komisji podpisała raport, który ustawa traktuje jako raport komisji, a mimo to go odłożono. To, co to <em>oznacza</em>, jest miejscem, w którym zaczyna się spór."
+			},
+			steel_man: {
+				heading: "Argumenty za odłożeniem normy — potraktowane poważnie",
+				p1: "Audyt, który powtarza tylko oburzenie jednej strony, niczego nie sprawdza. Weźmy więc stronę rządu w pełnej sile. Zbudujmy jej najmocniejsze argumenty — tak zwanego stalowego człowieka — zanim je przetestujemy:",
+				li1: "<strong>Komisja zawiodła w swoim jedynym zadaniu.</strong> Model komisji obiecuje jedną odpowiedź wypracowaną z dystansem wobec władzy. Ta komisja dostarczyła dwie niezgodne mapy i przewodniczącego publicznie oskarżającego kolegów o złą wiarę. Gdy niezależna droga utyka w impasie, ktoś musi zdecydować. Ustawa mówi kto.",
+				li2: "<strong>Ustawa celowo daje pióro legislaturze.</strong> Zgodnie z ustawą Alberty raport komisji nie ma mocy prawnej. Granice zmieniają się tylko wtedy, gdy Zgromadzenie uchwali Electoral Divisions Act. Wniosek Rządowy 37 skorzystał z drzwi, które prawo zbudowało celowo. Niczego nie przemycono.",
+				li3: "<strong>Wybrani posłowie odpowiadają przed wyborcami; komisarze przed nikim.</strong> Najstarszym argumentem za kontrolą legislatury jest rozliczalność. MLA, który narysuje wyrachowaną mapę, może zostać odwołany w wyborach. Komisarz nie.",
+				li4: "<strong>Komitet nie jest czysto partyjnym narzędziem.</strong> Dwóch z jego sześciu członków to MLA z opozycji. Panel doradczy, który przygotowuje projekt, obejmuje dwóch nominatów opozycji, a przewodniczy mu emerytowany sędzia Sądu Apelacyjnego.",
+				li5: "<strong>Rząd powołał się na własną rekomendację przewodniczącego.</strong> Jego deklarowanym uzasadnieniem mandatu na 91 miejsc była Rekomendacja 5, napisana przez samego przewodniczącego komisji. I dokładnie to powiedział Izbie: „Przyjmujemy rekomendacje z raportu”."
+			},
+			where_it_bends: {
+				heading: "Gdzie stalowy człowiek się wygina",
+				p1: "Każdy z tych punktów jest prawdziwy. Udokumentowany zapis odpiera jednak każdy z nich:",
+				li1: "Impas wyjaśnia <em>zastąpienie</em> map. Nie wyjaśnia <em>usunięcia opinii publicznej</em>. Wymóg przesłuchań, opublikowany projekt czy wiążący panel również odpowiedziałyby na impas. Wybrany instrument rezygnuje z każdej cechy przejrzystości, którą literatura porównawcza uznaje za ochronną. Impas nie wymusił żadnej z tych rezygnacji.",
+				li2: "„Ustawa na to pozwala” to soczewka prawa i tam ma odpowiedź: każdy krok był zgodny z prawem. Pytanie o normy jest inne. Niektóre jurysdykcje sprawiają, że mapa komisji wchodzi w życie, <em>chyba że</em> legislatura ją uchyli. Odwrócone ustawienie domyślne w Albercie oznacza, że partia rządząca zawsze kontroluje, czy jakakolwiek mapa komisji stanie się prawem. Zgodne z prawem i zwyczajowe to różne pytania.",
+				li3: "Argument z rozliczalności dowodzi za dużo. Przemawia przeciw komisjom ds. granic wszędzie. A jednak każda kanadyjska jurysdykcja — i Wielka Brytania, i Australia — poszła w drugą stronę, właśnie dlatego, że rozliczalność w wyborach to słaba ochrona przed mapą zaprojektowaną po to, by kształtować te same wybory.",
+				li4: "Panel doradza; decydują głosy MLA. Ponadpartyjne doradztwo przy decyzji kontrolowanej przez rząd to inna instytucja niż niezależna komisja. Ta różnica to dokładnie norma, o którą chodzi.",
+				li5: "Autor Rekomendacji 5 napisał ją, by odwieść legislaturę od przyjęcia mapy mniejszościowej, a jego koledzy z większości jej nie poparli. Jest ona też konkretna. Zostawia Airdrie, Calgary i wszystko na południe od nich dokładnie tak, jak narysowała to większość — te same linie, o które komisja się podzieliła — a nic w mandacie komitetu go do tego nie zobowiązuje. Powoływanie się na rekomendację wbrew deklarowanemu celowi jej autora to udokumentowane napięcie, a nie rozwiązane.",
+				li6: "Drugi dokument odczytany na sali — strona 58 raportu większościowego — ubolewa nad limitem dwóch mandatów. Ale dołączony do niego środek zaradczy polega na tym, by legislatura dała <em>przyszłym komisjom</em> prawo do ustalania liczby mandatów. Wniosek wziął tę swobodę teraz, dla komitetu MLA, odrzucając jednocześnie operacyjną prośbę raportu: przyjąć mapę na 89 mandatów."
+			},
+			whose_accusation: {
+				heading: "Czyje to oskarżenie?",
+				p1: "Oto rozróżnienie, dla którego istnieje ta strona. Następujące rzeczy są udokumentowanymi faktami. Odejście od normy nastąpiło, po raz pierwszy od albertańskiego komitetu z 1992 roku. Z cech przejrzystości zrezygnowano. Przewodniczący komisji nazwał jedną z granic mniejszości „działaniem w złej wierze” w publicznym dokumencie ustawowym. Kanadyjskie Stowarzyszenie Swobód Obywatelskich (Canadian Civil Liberties Association) publicznie <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">zgłosiło obawy o upolitycznienie</a>. Opozycja głosowała przeciw wnioskowi. A oskarżenia biegną w obie strony. Raport mniejszościowy zarzuca większości „skłonność do likwidowania lub okaleczania wiejskich okręgów wyborczych i w efekcie ograniczania skutecznej reprezentacji wsi” — przy czym reprezentacja wsi to, słowami samej mniejszości, „nie tylko kwestia liczb; to kwestia dostępu, głosu i praktycznej sterowności” (s. 356). Audyt sprawdził ten zarzut tego samego dnia, w którym go wychwycił (eksploracyjnie; klasyfikator odporny na łączniki i każda sklasyfikowana nazwa są opublikowane wraz z ustaleniem). Kierunek się odwraca. Mapa mniejszościowa zachowuje mniej okręgów zakotwiczonych na wsi niż większościowa (23 wobec 28, przy 31 w 2019 roku) i wchłania więcej wiejskich okręgów z 2019 roku do okręgów noszących nazwę miasta (siedem wobec trzech). Obie mapy uszczuplają reprezentację wsi względem 2019 roku, więc główna obserwacja zarzutu jest prawdziwa. Ale w mierze, którą wskazuje oskarżenie, trafia ono w swojego autora. Towarzyszący mu zarzut, że większość odmówiła skorzystania z przewidzianej w ustawie elastyczności ±25% dla wiejskiej Alberty, sprawdzono tego samego dnia i się utrzymuje. Większość narysowała swoje wiejskie okręgi blisko parytetu liczby ludności; mniejszość narysowała je lżejsze. Jeden zarzut odwrócony, jeden potwierdzony, oba opublikowane. To samo pomniejszenie wagi ze względu na jednostronne pochodzenie, które stosuje się do zastrzeżeń przewodniczącego, obowiązuje także tutaj, w obu kierunkach.",
+				p2: "Następujące <em>nie</em> jest udokumentowanym faktem. To osąd polityczny: że odejście od normy było nieprawomocne. Ten osąd zależy od tego, ile szacunku należało się normie w obliczu komisji w impasie, a rozsądni ludzie ważą to różnie. Audyt dokumentuje odejście i jego koszty. Nie niesie wniosku opozycji i nic w statystykach audytu też nie może go unieść. Liczba może powiedzieć, że mapa jest rzadka. Nie może powiedzieć, że proces był zły."
+			},
+			norms_vs_law: {
+				heading: "Normy nie są prawem — a w jednym miejscu normę uczyniono prawem",
+				p1: "Konwenanse konstytucyjne, niespisane zasady zachowania politycznego, wiążą politycznie, a nie sądownie. Sąd Najwyższy powiedział to w Patriation Reference z 1981 roku, a sądy trzymają się tej linii od tamtej pory: sąd może nazwać konwenans, a mimo to odmówić jego egzekwowania. Ta luka, między tym, co zwyczajowe, a tym, co egzekwowalne, to miejsce, w którym rozgrywa się cały ten odcinek.",
+				p2: "Quebec pokazuje, jak wygląda drugi wybór. Jego komisja ds. granic jest stała i niezależna, a w sprawie samej mapy komisja zwykle ma ostatnie słowo. Gdy rząd Quebecu próbował zamrozić swoją komisję ustawą, sądy <em>zareagowały</em>, bo w grę weszło prawo. 22 kwietnia 2026 roku Sąd Najwyższy Kanady utrzymał w mocy, 7–2 i z urzędu, orzeczenie, że zamrożenie naruszało gwarancję reprezentacji demokratycznej zawartą w Karcie. Uzasadnienie nastąpiło 1 maja (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Tam, gdzie normę zapisano w prawie, stała się egzekwowalna. Norma Alberty nigdy nie została zapisana, więc egzekwowalna nie była. Kontrast działa jednak w obie strony. 12 czerwca 2026 roku Zgromadzenie Narodowe Quebecu uchwaliło własną mapę na 127 mandatów."
+			},
+			measurable: {
+				heading: "Tabela wyników procesu: jak uczynić pytanie o normy mierzalnym",
+				p1: "Retoryka o normach jest tania w obu kierunkach. Odpowiedzią audytu jest trzecia tabela wyników, obok testów strukturalnych i statystyki. Ocenia <em>proces</em> według dziewięciu cech ochronnych, które gwarantowała sześćdziesięcioletnia praktyka. Każda to pytanie typu tak/nie, na które można odpowiedzieć na podstawie publicznych dokumentów, a te same dziewięć cech służy do oceny każdego procesu, który bada ten audyt.",
+				table: {
+					head: {
+						feature: "Cecha ochronna",
+						commission: "Proces komisji",
+						committee: "Proces komitetu (w obecnym składzie)"
+					},
+					arms_length_drafting: {
+						feature: "Rysowanie z dystansem wobec władzy",
+						commission: "Tak",
+						committee: "Częściowo — rysuje panel; decyduje sześciu MLA w komitecie (czterech z partii rządzącej)"
+					},
+					public_hearings_before: {
+						feature: "Przesłuchania publiczne przed przyjęciem",
+						commission: "Tak — szesnaście społeczności",
+						committee: "Nie — żadnych nie zaplanowano w sprawie przygotowanej mapy"
+					},
+					draft_published_challenge: {
+						feature: "Projekt opublikowany do zakwestionowania",
+						commission: "Tak — propozycja wstępna poprawiona publicznie",
+						committee: "Nie — żadnego nie zapowiedziano"
+					},
+					new_public_submissions: {
+						feature: "Przyjmowanie nowych zgłoszeń publicznych",
+						commission: "Tak — otrzymano 1 345",
+						committee: "Nie — korzysta z archiwum komisji"
+					},
+					demonstrated_responsiveness: {
+						feature: "Wykazana reakcja na uwagi",
+						commission: "Tak — zmieniła zdanie na podstawie ponad 80 zgłoszeń",
+						committee: "W toku"
+					},
+					neutral_chair_deciding: {
+						feature: "Neutralny przewodniczący organu decydującego",
+						commission: "Tak — sędzia, powołany przez gabinet",
+						committee: "Nie — przewodniczy MLA partii rządzącej; emerytowany sędzia przewodniczy tylko warstwie doradczej"
+					},
+					opposition_deciding_body: {
+						feature: "Opozycja w organie decydującym",
+						commission: "Tak — dwóch z pięciu",
+						committee: "Tak — dwóch z sześciu"
+					},
+					published_reasons_contested: {
+						feature: "Opublikowane uzasadnienia spornych wyborów",
+						commission: "Tak — oba raporty",
+						committee: "W toku"
+					},
+					precedent_conformity: {
+						feature: "Zgodność z precedensem",
+						commission: "Tak",
+						committee: "Nie — ostatnio zrobione w Albercie w 1992 roku i skrytykowane przez Sąd Apelacyjny w 1994 roku"
+					},
+					count: {
+						feature: "Liczba",
+						commission: "9 z 9",
+						committee: "1 Tak · 1 Częściowo · 5 Nie · 2 W toku"
+					}
+				},
+				p2: "Jeszcze jeden sposób patrzenia na tę tabelę: to <em>trzecia oś</em>. Wykres audytu umieszcza każdą mapę w dwóch wymiarach: struktury i statystyki. Wszystkie trzy dotychczas umieszczone mapy narysowały procesy komisyjne, które uzyskują tu dziewięć na dziewięć, więc trzecia oś nie miała czego rozróżniać. Mapa listopadowa będzie pierwszym punktem w historii audytu, za którym stoi inny wynik procesu.",
+				p3: "Czytaj tabelę uczciwie, w obu kierunkach. Komisja uzyskuje dziewięć na dziewięć <em>z samej konstrukcji</em>. Kryteria opisują instytucję, którą zbudowała norma, a komisja była tą instytucją. Pouczająca część patrzy w przyszłość. Cztery z pól komitetu oznaczonych Nie i W toku to cechy, które wciąż może dodać od teraz do listopada: przesłuchania, opublikowany projekt, nowe zgłoszenia i reakcję na uwagi, którą one umożliwiają. Jeśli je doda, ustalenie audytu o odejściu procesu od normy zostanie istotnie złagodzone, a audyt zobowiązał się na piśmie, że to powie.",
+				draft_note: "Status ma tu znaczenie: kryteria tej tabeli, źródła i przewidywane kierunki są <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">zarejestrowane w OSF (u47bq, 14 lipca 2026 roku)</a> — zamrożone na miesiące przed raportem komitetu, więc nic nie może zostać po cichu przeredagowane, gdy pojawi się odpowiedź. Napisał ją w trakcie epizodu autor, którego wcześniejsze ustalenia właśnie przeczytałeś — to ryzyko stronniczości, które <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">zarejestrowany dokument</a> ujawnia, a nie ukrywa. Zastosowana wstecz do komisji, jest opisem, a nie przewidywaniem. Gdy pojawi się mapa komitetu, te same zablokowane testy mapy zostaną przeprowadzone bez zmian — a ta lista kontrolna oceni proces, który ją wytworzył. Wtedy debata o normach przestanie być przekrzykiwaniem się o tradycję i stanie się ocenionym porównaniem: czy komitet zachował się jak instytucja, którą zastąpił?"
+			},
+			audits_standing_rule: {
+				heading: "Stała zasada audytu",
+				p1: "Ta sama zasada co wszędzie indziej na tej stronie. Audyt dokumentuje, co się stało, jak rzadkie to jest i kto co twierdził. To, czy norma zasługiwała na przetrwanie impasu — i ile, jeśli w ogóle, powinno kosztować przy urnach jej odłożenie — należy do czytelników i wyborców. Nie do statystycznego audytu.",
+				cross_ref: "Strony towarzyszące: <a href=\"__BASE__/law\">Czego prawo wymaga od mapy wyborczej</a> · <a href=\"__BASE__/methods\">Jak testowano mapy</a>",
+				disclaimer: "Ta strona jest przewodnikiem prostym językiem do audytu, napisanym dla orientacji. Nie jest poradą prawną ani werdyktem w sprawie jakiejkolwiek osoby czy partii."
+			}
 		}
 	}
 } as const;

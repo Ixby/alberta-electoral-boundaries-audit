@@ -47,9 +47,9 @@ export default {
 	},
 	epigraph: {
 		heading: "关于如何看待这张地图",
-		reader: "土地并不投票。这样给地图上色,只会让乡村艾伯塔显得比它实际更大。让空旷的土地保持空白吧。",
+		reader: "土地并不投票。这样给地图上色,只会让乡村阿尔伯塔显得比它实际更大。让空旷的土地保持空白吧。",
 		reader_label: "一位读者",
-		author_p1: "说得有理——而这正是这张地图所做的。它依据艾伯塔选举委员会自己的几何数据与计票结果构建,采用他们所保留的唯一精度:每个投票区有多少人投票,以及如何投票。颜色在两党之间呈光谱过渡,其深浅随人口而变——这正是城市熠熠发光、而开阔地带保持暗淡的原因。",
+		author_p1: "说得有理——而这正是这张地图所做的。它依据阿尔伯塔选举委员会自己的几何数据与计票结果构建,采用他们所保留的唯一精度:每个投票区有多少人投票,以及如何投票。颜色在两党之间呈光谱过渡,其深浅随人口而变——这正是城市熠熠发光、而开阔地带保持暗淡的原因。",
 		author_p2: "波诺卡以西的土地是纯白色:那里没有投票站,也没有记录到任何人在此居住或投票。它之所以空白,恰恰是因为土地并不投票。我们的目的不是去解读数据,而只是让它以被记录时的精度发声——并让你在离开时比来时多懂一点。",
 		author_label: "作者",
 		ethic: "这正是整个审计背后的承诺:绘制这套系统,并让数据为自己发声——不超出它所允许的范围。"
@@ -1455,7 +1455,7 @@ export default {
 	feedback: {
 		nav_link: "提交反馈",
 		page_title: "提交反馈",
-		meta_description: "就《艾伯塔选区边界审计》分享更正、提问或建议。",
+		meta_description: "就《阿尔伯塔选区边界审计》分享更正、提问或建议。",
 		heading: "提交反馈",
 		intro: "发现了错误、有疑问,或想提出改进建议?这将直接发送给作者。姓名和邮箱均为可选——只有在你希望得到回复时才需留下邮箱。",
 		name_label: "姓名",
@@ -1663,6 +1663,7 @@ export default {
 				heading: "“568,000 分之 1”是什么意思——以及为什么审计把余量翻了一倍",
 				p1: "把四项公平性指标合并成一个得分,然后问:中立绘制产生一个像少数派地图那样极端的特征有多常见?答案约为 <strong>110 万分之 1</strong>。但审计并不引用这个数字。它引用的是 <strong>568,000 分之 1</strong>——恰好只有前者一半那么惊人。原因如下。",
 				p2: "审计在两个不同的地方寻找信号:这个合并得分,以及针对具体边界选择的第二项测试。在两个地方寻找,就给了运气两次机会。想想彩票:买两张,你中奖的几率就翻倍。所以在引用几率之前,审计先对自己不利地把几率翻倍。这样,“你试了两次”这一点就已经被计入了。",
+				p3: "翻倍还有一个优点:它不需要任何假设。无论两项测试是否相关,它都成立,所以这是一个充满敌意的统计学家也压不下去的数字。",
 				p4: "审计在每个地方都重复的一个提醒:这些几率衡量的是<em>地图</em>有多不寻常。它们不是任何人蓄意行事的几率。一份罕见的地图,原则上仍然可能是诚实工作的成果。这些几率只说明一件事:常规的起草不会产出这份地图。"
 			},
 			died: {
@@ -1843,7 +1844,114 @@ export default {
 				criterion2: "沿最直接的公路,从立法大楼到该选区最近边界的距离超过 150 公里;",
 				criterion3: "该选区内没有人口超过 8,000 人的镇;",
 				criterion4: "该选区包含一个印第安保留地或一个梅蒂人定居点;",
-				criterion5: "边界的一部分沿着阿尔伯塔的省界。"
+				criterion5: "边界的一部分沿着阿尔伯塔的省界。",
+				p4: "这项条款是许可性的:满足标准使一个选区具备资格,但从不强制委员会使用这一宽限。2026 年的两份地图各为三个选区援引了 s.15(2)。审计按更正后的法定门槛重新核查了全部六次援引,发现每一个都符合资格。审计所记录的争议不在于资格。它在于一个绘图选择。少数派的 Rocky Mountain House–Banff Park 选区只是通过延伸穿过无人居住的国家公园土地,才获得了一项合格标准,即省界那一项。关于这一选择,委员会自己的最终报告(2026 年 3 月 23 日,第 10 页)不言自明。多数派委员写道:",
+				quote: "“他们提议保留一个名为‘Rocky Mountain House-Banff Park’的选区,办法是人为地把其边界延伸到本省与不列颠哥伦比亚省接壤的西部省界(占用 Banff 国家公园中无人居住的一部分),这是为确保它能够受到该法 s. 15(2) 保护而做的恶意之举。”",
+				p5: "这一定性——包括“恶意”一词——出自委员会主席,写在一份公开的法定文件中。它不是审计的定性。审计自己的分析发现,即使没有这段延伸,这个选区也符合 s.15(2) 的条件。引用主席的话,记录的是原始资料说了什么。它并不记录任何委员的意图。",
+				p6: "<strong>委员会报告是什么——以及不是什么。</strong>按照 EBCA,委员会的报告本身没有法律效力。只有当立法议会另行通过一项选区法(Electoral Divisions Act)时,边界才会改变。一些司法管辖区让委员会的地图自动生效,除非立法机关主动推翻它。阿尔伯塔的默认设置是反过来的:执政党掌控任何委员会地图能否成为法律。该法关于听证、期限和 ±25% 范围的规则针对的是委员会。其中没有任何内容规范立法议会改而做什么,它也没有规定最短的通知期或公众评论期。2026 年 4 月 21 日通过的政府第 37 号动议,把两份委员会地图都搁置了。它把这项工作交给一个由六位 MLA 组成的委员会,其中四位来自执政党,须于 2026 年 11 月 2 日之前提交报告。阿尔伯塔以前这样做过一次。1992 年,在委员会陷入僵局之后,一个由 MLA 组成的委员会绘制了地图,而 1994 年上诉法院维持了那份地图,同时指责该委员会无法解释其中好几条边界。审计把这一程序选择作为关于程序的发现加以记录,它独立于地图几何所显示的任何内容,并在其之外。",
+				cross_ref: "完整的法律分析——包括判例法审阅、关于尊重委员会的文献,以及与其他省份的程序比较——见学术专著 §2 和 §5.9,位于<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">审计代码库</a>。"
+			},
+			audits_standing_rule: {
+				heading: "审计的一贯规则",
+				p1: "本次审计的每一个版本都遵守同样的纪律。它可以报告测试显示了什么。它可以说明一份地图相对于中立基准有多不寻常。但它不宣布任何地图为选区不公划分,不从几何推断意图,也不就是否符合宪法或法规作出判断。这些问题属于法院、委员会和读者,审计的证据摆在桌面上供其参考。",
+				cross_ref: "配套页面:<a href=\"__BASE__/methods\">地图是如何检验的</a>——用通俗语言说明每一项测试和统计——以及<a href=\"__BASE__/norms\">规范要求什么</a>——第三个视角,关于惯例及对它的交叉质询。",
+				disclaimer: "本页是审计的通俗语言配套页面,用于帮助理解。它不是法律意见,本页任何内容都不应被当作法律意见来依赖。"
+			}
+		},
+		privacy_policy: {
+			head_title: "隐私政策 · 阿尔伯塔选举边界审计",
+			head_description: "阿尔伯塔选举边界审计的隐私与数据保留政策。",
+			back: "← 返回审计",
+			site_label: "阿尔伯塔选举边界审计",
+			h1: "隐私与数据保留政策",
+			meta: "生效日期:2026-06-24 · 维护者:Will Conner",
+			overview: {
+				heading: "概述",
+				p1: "本工具是对阿尔伯塔 2023 年选举边界委员会程序的公共利益审计。它不是商业产品,不投放任何广告。本页说明测量了什么、从不收集什么,以及为什么这些都无法追溯到你。",
+				p2: "简要版本:本网站使用无 cookie 的汇总分析。没有跟踪 cookie,没有广告,没有跨网站画像,也没有会跟随你的标识符。由于不存储任何个人信息,所以没有需要点击的同意横幅——隐私保护内置于测量的运作方式之中,而不是作为一个弹出提示附加上去的。"
+			},
+			how_analytics_work: {
+				heading: "分析如何运作",
+				p1: "当页面加载或你与地图交互时,本网站会向我们运营的一个计数服务发送一个小型的匿名事件。每个事件只是所发生事情的名称——例如“页面被浏览”或“选区被选中”——加上关于该操作的少量粗略细节。事件不携带任何姓名、电子邮件、账户,也不携带任何存储在你设备上的标识符。",
+				p2: "为了在不识别任何人的情况下统计某一天有多少不同的人访问,计数服务会把你的网络地址和浏览器类型合并,并与一个每天更换的密钥一起进行单向加密哈希运算。结果是一个短代码,让我们能够区分<em>同一天之内</em>的两次访问,仅此而已。原始地址从不存储——只存储哈希值。由于密钥每天轮换,同一位访问者明天会产生不同的代码,所以无法跨天追踪任何人,也无法从代码倒推出一个人。",
+				p3: "我们感兴趣的是访问者作为一个群体所呈现的图景——哪些发现被阅读、哪些地图被打开、哪些选区引起关注。我们对“你个人”不感兴趣,而且测量的构建方式使得“你个人”不是这些数据能够表达的东西。"
+			},
+			measured: {
+				heading: "测量了什么",
+				p1: "分析记录汇总的匿名事件,例如:",
+				li1: "页面浏览",
+				li2: "人们在页面上向下滚动多远,按粗略区间计(25%、50%、75%、100%)",
+				li3: "页面大致在屏幕上处于活动状态多长时间,按粗略的时间区间计",
+				li4: "人们阅读时哪些发现章节进入视野",
+				li5: "在浏览器中打开了哪些地图,选中了哪些选区",
+				li6: "打开或关闭了哪些地图图层,以及人们大致放大到什么程度",
+				li7: "打开了哪些兴趣点或报告链接",
+				li8: "关于你的设备环境的粗略图景——屏幕尺寸区间(例如手机、平板或桌面)、外形类型,以及浏览器类别(例如 Chrome、Safari 或 Firefox)。我们从不存储你的确切屏幕尺寸或完整的浏览器标识字符串。",
+				li9: "地图浏览器首次绘制时性能表现的一次性快照——例如按粗略区间计的加载时间,以及一个取整后的内存数字。这帮助我们判断浏览器在真实设备上是否足够快。这些数字被有意分成区间,而不是精确值,因此它们描述的是一类设备,而不是一台设备。",
+				p2: "以上每一项都只以汇总形式存储。没有个人画像,没有会话回放,也没有关于某个人在网站中浏览路径的记录。我们看到的是总数和分布,而不是人。"
+			},
+			never_collected: {
+				heading: "从不收集什么",
+				p1: "没有姓名。没有电子邮件。没有账户。没有广告标识符。不存储 IP 地址——你的网络地址会与一个每天轮换的密钥一起进行哈希运算,然后立即丢弃;只保留短期有效的当日代码。没有原始的浏览器指纹。没有跨天或跨网站的标识符。没有精确位置。没有出于分析目的、将你标记为回访者的 cookie 或浏览器存储标识符。"
+			},
+			github_pages_collects: {
+				heading: "GitHub Pages 收集什么",
+				p1: "本网站托管在 GitHub Pages 上。任何页面加载时,GitHub 的服务器都会自动记录基本的请求详情——你的 IP 地址、浏览器类型、来源页面和时间戳。我们不接收也不控制这些日志;它们受 <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub 隐私声明</a>约束。除托管之外,我们与 GitHub 没有任何关系。上文所述的分析是单独运行的,从不接收你的 IP 地址。"
+			},
+			share_codes: {
+				heading: "分享代码",
+				p1: "地图浏览器有一个分享功能。它把你当前的地图视图——哪份地图处于活动状态、打开了哪些叠加层和图层、你的视口大致位于何处——转换成一个简短的三词代码,你可以复制并发送给别人。有效代码恰好有 19,200 个,因为一个代码代表的是一种地图配置,而不是一个人。两个人各自独立地到达同一视图,会得到同一个代码;这是预期之中的,并不在他们之间建立任何联系。",
+				p2: "分享代码会显示在屏幕上,只有在你点击“复制”时才会进入你的剪贴板。它们从不嵌入 URL,所以不会出现在浏览器历史记录、服务器日志或来源(referrer)标头中。要打开别人分享的视图,接收者需直接在网站中输入代码。",
+				p3: "当你生成一个分享代码时,它所编码的地图配置会被保存到我们的数据库中,以便链接持续有效。这条保存的记录是一个地图状态——不是一个人,不是一条路径,也不与分析数据关联。它不包含关于你的任何标识符。"
+			},
+			cookies_browser_storage: {
+				heading: "Cookie 与浏览器存储",
+				p1: "分析不使用任何 cookie,也不使用任何浏览器存储标识符。测量中没有任何东西会把你标记为回访者。",
+				p2: "本网站确实会设置一个小型的<strong>功能性</strong> cookie,用于在多次访问之间记住你自己的偏好。它不用于分析或跟踪,也从不以可读形式离开你的浏览器。它存储:",
+				li1: "<strong>颜色主题</strong>——深色或浅色,如果你更改过的话",
+				li2: "<strong>介绍已关闭</strong>——这样地图介绍就不会重复出现",
+				li3: "<strong>当前地图视图</strong>——这样你下次访问时会恢复你上次的视图",
+				li4: "<strong>浏览器语言</strong>——这样本网站可以显示你偏好的语言",
+				p3: "这个 cookie 只保存上述偏好——不含任何个人或可识别身份的信息。其内容用一个随页面一起提供的密钥加以打乱,因此存储的值不是人类可读的;由于该密钥是公开的,应将此视为防篡改措施,而不是真正的保密。它只通过 HTTPS 发送,从不与其他网站共享,你可以随时通过清除 cookie 删除它。本网站以静态文件形式提供,因此服务器端没有任何东西会读取它。你的颜色主题还会被镜像到浏览器的本地存储中,以便在加载时立即应用正确的主题,避免任何闪烁;这个值同样纯粹是功能性的,从不发送到任何地方。"
+			},
+			data_retention: {
+				heading: "数据保留",
+				p1: "分析记录在构造上就是汇总和匿名的,没有可供保留的标识符。它们存储在托管于加拿大的基础设施上(ca-central-1),并作为研究数据保存。如果我们发现某条记录包含可识别身份的信息——而这一设计正是为了防止这种情况——我们会在 30 天内将其删除。"
+			},
+			your_choices: {
+				heading: "你的选择",
+				p1: "由于不收集任何个人信息,所以没有需要选择退出的内容,也没有需要管理的同意提示。如果你仍然希望完全不发送任何分析事件,内容拦截器或会拦截发往计数服务请求的浏览器可以阻止它们,而网站的运作完全不受影响。你也可以随时通过浏览器清除功能性偏好 cookie。"
+			},
+			contact: {
+				heading: "联系方式",
+				p1: "Will Conner——独立研究,不隶属于任何机构,也未获任何机构认可。",
+				p2: "问题、更正和删除请求:请使用<a href=\"__BASE__/feedback\">反馈表单</a>。请求将在 10 个工作日内得到答复。"
+			},
+			policy_updates: {
+				heading: "政策更新",
+				p1: "本政策变更时,顶部的生效日期会随之更新,变更会提交到<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">公开的 git 代码库</a>。提交历史就是变更日志。任何扩大收集范围的变更都会在提交信息中注明。"
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1).(用于生成 1,010,000 张地图集合的 ReCom 算法。)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274.(加拿大选举边界的宪法框架。)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900.(本报告通篇使用的效率差指标的出处。)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158.(关于选举边界划定的宪法标准,加拿大最高法院的主导判例。)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679.(联邦法院;加拿大关于选举边界争议中利益共同体证据的主导判例。)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019).(美国最高法院;确立了党派性选区不公划分诉求在联邦法院不可裁决——这有助于理解为什么加拿大第 3 条的有效代表权标准有所不同。)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}

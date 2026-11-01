@@ -1607,6 +1607,162 @@ export default {
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Zurück zu Befund 14</a>"
 			},
 			footer_note: "Der Inhalt entspricht den Anhängen des <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">vollständigen öffentlichen Berichts</a>. Vorerst nur auf Englisch, bis der Autor ihn vor einer Übersetzung geprüft hat."
+		},
+		methods: {
+			head_title: "Wie die Karten getestet wurden · Audit der Wahlkreisgrenzen Albertas",
+			head_description: "Jeder Test und jede Statistik des Audits, in einfacher Sprache erklärt: die Was-wäre-wenn-Maschine mit einer Million Karten, die fünf strukturellen Tests, die vier Fairnessmaße, p-Werte und die Tests, die gescheitert sind.",
+			back: "← Zurück zum Audit",
+			site_label: "Audit der Wahlkreisgrenzen Albertas",
+			h1: "Wie die Karten getestet wurden",
+			meta: "Jeder Test und jede Statistik, in einfacher Sprache · vorerst nur auf Englisch · Jede Zahl aus dem öffentlichen Repository reproduzierbar",
+			standfirst: "Das ganze Audit beruht auf einer einfachen Idee. Sie wollen wissen, ob eine Karte ungewöhnlich ist? Zeichnen Sie eine Million Karten, die nicht verzerrt sein können. Ein Computer zeichnet sie, und er sieht nie eine einzige Stimme. Dann prüfen Sie, wo die realen Karten unter ihnen landen. Diese Seite geht diese Idee und jeden darauf aufbauenden Test durch. Keine Formeln. Wenn Sie einen Wetterbericht lesen können, können Sie das hier lesen.",
+			toc: {
+				aria: "Inhalt der Seite",
+				what_if: "Die Was-wäre-wenn-Maschine",
+				percentile: "Wie man ein Perzentil liest",
+				structural: "Die fünf strukturellen Tests",
+				fairness: "Die vier Fairnessmaße",
+				odds: "Was die Wahrscheinlichkeit bedeutet",
+				died: "Die Tests, die gescheitert sind",
+				break: "Der Versuch, unser eigenes Ergebnis zu brechen",
+				prereg: "Im Voraus gegebene Versprechen",
+				reproduce: "Selbst ausführen"
+			},
+			what_if: {
+				heading: "Die Was-wäre-wenn-Maschine: 1.010.000 neutrale Karten",
+				p1: "Ein Computer hat <strong>1.010.000 legale Alberta-Karten</strong> gezeichnet. Jede folgt denselben zwei harten Regeln, denen die reale Kommission folgte: Jeder Bezirk umfasst annähernd gleich viele Menschen (innerhalb von 25 % des Durchschnitts), und jeder Bezirk ist ein zusammenhängendes Stück.",
+				p2: "Wie zeichnet ein Computer eine Karte? Einen kleinen Schritt nach dem anderen. Nehmen Sie zwei Bezirke, die eine Grenze teilen. Verschmelzen Sie sie zu einem Klumpen. Teilen Sie den Klumpen zufällig wieder in zwei neue legale Bezirke. Wiederholen Sie das, 1.010.000 Mal, und speichern Sie die Karte nach jedem Schritt. Die Methode heißt ReCom und ist das Standardwerkzeug auf diesem Gebiet.",
+				p3: "Die entscheidende Tatsache: <strong>Der Computer sieht nie eine Stimme.</strong> Er weiß nicht, wo NDP- oder UCP-Wählerinnen und -Wähler leben. Wenn sich eine neutrale Karte trotzdem in eine Richtung neigt, kommt diese Neigung also allein aus Albertas Geographie. Und wenn sich eine reale Karte viel weiter neigt als fast alle neutralen, kann die Geographie nicht mehr die Erklärung sein.",
+				p4: "Vier ehrliche Hinweise zur Maschine:",
+				li1: "<strong>Die Würfel wurden öffentlich geworfen.</strong> Der Zufalls-Seed (die Startzahl hinter jeder zufälligen Entscheidung) wurde nicht vom Autor gewählt. Er stammt aus einem öffentlichen Zufallsgeber („drand“, betrieben von der League of Entropy, einer Gruppe, zu der Cloudflare gehört), wie eine live übertragene Lottoziehung. Er wurde festgeschrieben, bevor die offiziellen Kartendateien existierten. Jeder kann ihn nachrechnen.",
+				li2: "<strong>Vier getrennte Läufe stimmen überein.</strong> Die Million Karten stammt aus vier unabhängigen Läufen, die jeweils anders begannen. Alle vier kamen beim selben Bild an. Die dafür üblichen Prüfungen (auf dem ganzen Gebiet verwendet) werden mit reichlich Spielraum bestanden.",
+				li3: "<strong>Eine Anmerkung zu den Sitzzahlen.</strong> Die Kommissionskarten von 2026 haben jeweils 89 Bezirke. Die Simulation läuft auf der Karte von 2019 mit 87 Bezirken, der letzten rechtlich erlassenen, weil der Algorithmus eine reale Karte braucht, von der aus er losgehen kann. Das Komitee wird im November 91 vorlegen. Jeder Prozentwert auf dieser Website ist ein Sitz<em>anteil</em>, die Zahlen lassen sich also über alle drei Größen hinweg sauber vergleichen.",
+				li4: "<strong>Die Maschine ist kein perfekter Schiedsrichter.</strong> Sie folgt den beiden harten Regeln, aber nicht jeder weichen Regel, die reale Kommissionen achten, etwa Gemeinschaften zusammenzuhalten. Reale Kommissionskarten sind sogar ordentlicher als die meisten neutralen Karten. Das Audit sagt das überall deutlich, wo die Zahlen der Maschine erscheinen."
+			},
+			percentile: {
+				heading: "Wie man ein Perzentil liest",
+				p1: "Stellen Sie alle 1.010.000 neutralen Karten in eine Reihe, von der am wenigsten zur UCP geneigten bis zur am stärksten zur UCP geneigten. Stellen Sie jetzt eine reale Karte in die Reihe. Ihr <strong>Perzentil</strong> ist einfach ihre Position: „78. Perzentil“ bedeutet, dass sie sich weiter neigt als 78 von 100 neutralen Karten. Das ist unauffällig: etwas über der Mitte des Feldes.",
+				p2: "„99,99. Perzentil“ ist etwas anderes. Es bedeutet, dass sich die Karte stärker neigt als praktisch jede neutrale Karte in der Reihe — in diesem Audit alle bis auf <strong>69 von 1.010.000</strong>. Bei der Körpergröße ist es genauso. Ein Mann am 78. Perzentil ist etwas groß. Ein Mann am 99,99. Perzentil misst etwa sieben Fuß, also gut zwei Meter."
+			},
+			structural: {
+				heading: "Die fünf strukturellen Tests (keine Stimmen nötig)",
+				p1: "Vor jeder Simulation hat das Audit die gezogenen Linien selbst vermessen. Fünf Tests, alle festgeschrieben, bevor die Ergebnisse bekannt waren. Jeder vergleicht die beiden Kommissionskarten direkt.",
+				li1: "<strong>1. Bevölkerungsstreuung.</strong> Wie weit weichen die Bezirke von der idealen Größe ab? Nach den eigenen Tabellen der Kommission beträgt die typische Abweichung der Mehrheitskarte 3.180 Menschen. Die der Minderheitenkarte 4.707, etwa um die Hälfte breiter. Größere Abweichung bedeutet, dass Stimmen ungleicher zählen.",
+				li2: "<strong>2. Gedränge in Calgary.</strong> Im Nordosten und im Zentrum Calgarys sind die Bezirke der Minderheitenkarte 11,5 % größer als der Provinzdurchschnitt. Die der Mehrheit sind 2,8 % größer. Größere Bezirke bedeuten, dass jede Stimme darin weniger wiegt. Und diese Zone wählt stark NDP. Das Muster heißt <em>Packing</em>.",
+				li3: "<strong>3. Die Aufteilung Airdries.</strong> Das Gesetz zwingt Airdrie in mindestens zwei Bezirke. Die Mehrheitskarte nimmt zwei. Die Minderheitenkarte schneidet die Stadt in vier Stücke (drei davon mit mindestens 2 % ihrer Einwohner), jedes an anderes Gebiet außerhalb angehängt. Eine Gemeinschaft dünn aufzuteilen, nennt man <em>Cracking</em>.",
+				li4: "<strong>4. Die Beanstandungen des Vorsitzenden.</strong> Der eigene Vorsitzende der Kommission hat öffentlich Grenzen als geographisch seltsam beanstandet. Vier seiner Beanstandungen betreffen die Minderheitenkarte, und die eigene Geometrieprüfung des Audits hat drei bestätigt. Keine betrifft die Mehrheitskarte.",
+				li5: "<strong>5. Stadtgrenzen folgen (der Test, der gescheitert ist).</strong> Frühe Daten deuteten darauf hin, dass die Minderheitenkarte Gemeindegrenzen missachtet. Die offiziellen Kartendateien haben diesen Befund erledigt: Beide Karten folgen Stadtgrenzen in normalen kanadischen Raten (80 % und 72 %). Das Audit zeigt den gescheiterten Test weiterhin, statt ihn zu löschen.",
+				p2: "Ergebnis: Die Minderheitenkarte überschreitet alle vier noch gültigen Schwellen. Die Mehrheitskarte keine."
+			},
+			fairness: {
+				heading: "Die vier Fairnessmaße (Stimmen hinzugenommen)",
+				p1: "Nehmen Sie jetzt die Stimmen von 2023 hinzu und fragen Sie: Wie macht jede Karte aus Stimmen Sitze? Vier übliche Maße, jedes an der Million neutraler Karten geprüft.",
+				li1: "<strong>1. Sitze bei Stimmengleichstand.</strong> Der anschaulichste Test. Tun Sie so, als wähle die Provinz exakt 50/50, und zählen Sie die Sitze jeder Seite. Auf Albertas Geographie gibt eine typische neutrale Karte der UCP bei Gleichstand etwa 44,8 % der Sitze. Die NDP-Stimmen in den Städten werden etwas effizienter genutzt, deshalb begünstigt ein Gleichstand von Natur aus leicht die NDP. Die Mehrheitskarte gibt der UCP 46,1 %: 78. Perzentil, gewöhnlich. Die Minderheitenkarte gibt der UCP <strong>51,7 %</strong>, eine Mehrheit der Sitze bei Gleichstand der Stimmen. Nur 69 der 1.010.000 neutralen Karten schneiden für die UCP besser ab. Zum Vergleich: Ein Verfahren, das angewiesen war, die UCP-Sitze <em>absichtlich</em> zu maximieren, erreichte 52,9 %. Die Minderheitenkarte liegt näher an dieser konstruierten Obergrenze als an der neutralen Mitte.",
+				li2: "<strong>2. Die Effizienzlücke.</strong> Jede Stimme wird entweder gebraucht, um einen Sitz zu gewinnen, oder ist „verschwendet“ — für einen Verlierer abgegeben oder auf einen Sieger gehäuft, über das hinaus, was der Sieg erforderte. Dieses Maß vergleicht, wie schnell die Stimmen jeder Partei verschwendet werden. Die Mehrheitskarte kommt auf +0,1 %: praktisch nichts. Die Minderheit kommt auf +4,0 % zugunsten der UCP, das 94,5. Perzentil, knapp <em>unter</em> der vorab festgelegten Alarmlinie des Audits beim 95. Das ist das eine Maß, das nicht angeschlagen hat. Das Audit berichtet es als Fehlschuss.",
+				li3: "<strong>3. Die Mittel-Median-Lücke.</strong> Vergleichen Sie das durchschnittliche Bezirksergebnis einer Partei mit ihrem mittleren Bezirksergebnis. Wenn die beiden auseinanderdriften, werden irgendwo Stimmen in Erdrutschsiegen gebündelt. Die Lücke der Minderheitenkarte begünstigt die UCP stärker als 99,9 % der neutralen Karten. Die Lücke der Mehrheit neigt sich in die andere Richtung — leicht NDP-effizient —, was dazu passt, wie sich ordentliche Kommissionskarten auf Albertas Geographie verhalten.",
+				li4: "<strong>4. Declination.</strong> Eine geometrische Lesart der Siegesabstände: Behandelt die Karte die Siege beider Parteien gleich, oder knickt sie an der Linie von 50 % ab? Die Minderheitenkarte knickt stärker zugunsten der UCP ab als etwa 98,8 % der neutralen Karten. Die Mehrheitskarte wirkt normal. (Bei einer frühen Version dieses Maßes war das Vorzeichen durch einen Programmierfehler vertauscht; die Korrektur ist dokumentiert, nicht gelöscht.)",
+				p2: "Ergebnis: Drei von vier schlagen bei der Minderheitenkarte an, alle in dieselbe Richtung. Das vierte landet knapp unter der Linie und zeigt in dieselbe Richtung. Die Mehrheitskarte ist bei allen vier gewöhnlich."
+			},
+			odds: {
+				heading: "Was „1 zu 568.000“ bedeutet — und warum das Audit seine Marge verdoppelt hat",
+				p1: "Fassen Sie die vier Fairnessmaße zu einem Wert zusammen und fragen Sie: Wie oft bringt neutrales Zeichnen ein so extremes Profil hervor wie das der Minderheitenkarte? Die Antwort lautet etwa <strong>1 zu 1,1 Millionen</strong>. Aber das Audit nennt diese Zahl nicht. Es nennt <strong>1 zu 568.000</strong> — genau halb so eindrucksvoll. Hier ist der Grund.",
+				p2: "Das Audit hat an zwei verschiedenen Stellen nach einem Signal gesucht: bei diesem kombinierten Wert und bei einem zweiten Test zu den konkreten Grenzentscheidungen. An zwei Stellen zu suchen, gibt dem Glück zwei Chancen. Denken Sie an Lose: Kaufen Sie zwei, und Ihre Chance, ein Gewinnlos zu haben, verdoppelt sich. Bevor das Audit die Wahrscheinlichkeit nennt, verdoppelt es sie deshalb gegen sich selbst. So ist „Sie hatten zwei Versuche“ bereits bezahlt.",
+				p4: "Eine Warnung, die das Audit überall wiederholt: Diese Wahrscheinlichkeit misst, wie ungewöhnlich die <em>Karte</em> ist. Sie ist nicht die Wahrscheinlichkeit, dass jemand mit Absicht gehandelt hat. Eine seltene Karte könnte grundsätzlich trotzdem ehrliche Arbeit sein. Die Wahrscheinlichkeit sagt nur dies: Gewöhnliches Entwerfen bringt diese Karte nicht hervor."
+			},
+			died: {
+				heading: "Die Tests, die gescheitert sind",
+				p1: "Zwei Befunde haben nicht überlebt, und beide bleiben stehen. Das ist Absicht: Ein Audit, das Ihnen nur seine Erfolge zeigt, ist Werbung.",
+				li1: "<strong>Der Stadtgrenzen-Test</strong> fand nichts, was die Karten unterscheidet: Beide folgen Gemeindegrenzen innerhalb der kanadischen Norm (Mehrheit 80 %, Minderheit 72 %).",
+				li2: "<strong>Der Test der Grenzentscheidungen (SZAT)</strong> sah signifikant aus, bis das Audit ihn um eine einfache Tatsache korrigierte: Benachbarte Orte wählen ähnlich. Nachbarn als unabhängig zu behandeln, schönt das Ergebnis. Nach der Korrektur zeigte der Test nichts. Er wurde zurückgezogen."
+			},
+			break: {
+				heading: "Der Versuch, unser eigenes Ergebnis zu brechen",
+				p1: "Bevor es dem Hauptergebnis vertraute, hat das Audit es auf drei Arten angegriffen.",
+				li1: "<strong>Den Motor austauschen.</strong> Alles mit einem völlig anderen Algorithmus zum Kartenzeichnen neu berechnen (einer Spanning-Forest-Methode, vor dem Lauf öffentlich angekündigt). Jedes Ergebnis verschob sich um weniger als einen Perzentilpunkt. Der Befund hat überlebt.",
+				li2: "<strong>Die Software austauschen.</strong> Eine unabhängige Implementierung in einer anderen Programmiersprache findet ebenfalls keine Karten, die den Wert der Minderheitenkarte erreichen.",
+				li3: "<strong>Den Mechanismus testen — und scheitern.</strong> Das Audit vermutete, die seltsamen Formen aus den strukturellen Tests seien die direkte Ursache des Sitzvorteils. Diese Vermutung hat ihren Test nicht bestanden. Die Formen und die Schlagseite bei den Sitzen zeigen auf dieselbe Karte, aber die Formen sind nicht der Motor. Das Audit sagt das."
+			},
+			prereg: {
+				heading: "Im Voraus gegebene Versprechen",
+				p1: "Der stärkste Schutz davor, sich selbst zu täuschen, ist, seine Vorhersagen aufzuschreiben, bevor man hinsieht. Das Audit hat seine Tests, Schwellen und vorhergesagten Richtungen in öffentlichen, mit Zeitstempel versehenen Registrierungen beim Open Science Framework festgeschrieben. Es hat seine Zufallsseeds an einen öffentlichen Zufallsgeber gebunden. Beides geschah, bevor die offiziellen Kartendateien veröffentlicht wurden. Wenn eine festgeschriebene Vorhersage danebenlag, blieb es ein Fehlschuss. Dieselben festgeschriebenen Tests werden unverändert auf die neue Karte des Komitees angewandt, wenn sie im November 2026 erscheint. Das Audit benennt außerdem, welche seiner Ergebnisse <em>explorativ</em> sind (Seeds festgeschrieben, aber die genaue Testkombination später gewählt) und welche vollständig vorab registriert sind. Die Hauptwahrscheinlichkeit ist explorativ. Die Bewertung im November ist der vollständig vorab registrierte Test."
+			},
+			reproduce: {
+				heading: "Selbst ausführen",
+				p1: "Jede Zahl auf dieser Website stammt aus einem Skript im öffentlichen Repository, das auf festgeschriebene Daten angewandt wird. Das vollständige Rezept steht in <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; die Kurzfassung:",
+				p2: "Eine gehostete Notebook-Version läuft im Browser über <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Die vollständige Methodik — einschließlich jeder Korrektur unterwegs — steht in der <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">akademischen Monographie</a>.",
+				cross_ref: "Begleitseiten: <a href=\"__BASE__/law\">Was das Recht von einer Wahlkarte verlangt</a> · <a href=\"__BASE__/norms\">Was die Normen verlangen</a> · <a href=\"__BASE__/explainers\">Die vierzehn Erklärstücke (Anhänge A–N)</a>, eines für jede Hülse im Hauptbericht."
+			}
+		},
+		norms: {
+			head_title: "Was die Normen verlangen · Audit der Wahlkreisgrenzen Albertas",
+			head_description: "Der dritte Blickwinkel auf Albertas Grenzepisode 2026: woher die Norm stammt, dass Politiker ihre eigenen Bezirke nicht selbst zeichnen, was sie eingebracht hat, was dafür spricht, sie beiseitezulegen, und wer eigentlich wem was vorwirft.",
+			back: "← Zurück zum Audit",
+			site_label: "Audit der Wahlkreisgrenzen Albertas",
+			h1: "Was die Normen von einer Wahlkarte verlangen",
+			meta: "Begleittext in einfacher Sprache · vorerst nur auf Englisch · Kein Urteil über irgendjemanden",
+			standfirst: "Diese Episode hat drei Blickwinkel. Das <a href=\"__BASE__/law\">Recht</a> fragt, was legal ist. Die <a href=\"__BASE__/methods\">Statistik</a> fragt, was ungewöhnlich ist. Der dritte Blickwinkel fragt, was üblich ist, und das Übliche ist das umstrittene Terrain. „Die Regierung hat eine sechzigjährige Norm gebrochen“ ist keine neutrale Messung. Es ist der Kern des Vorwurfs der Opposition. Deshalb zählt diese Seite die Normen nicht einfach auf. Sie nimmt sie ins Kreuzverhör: woher sie stammen, wozu sie da sind, was tatsächlich dafür spricht, sie beiseitezulegen, und was übrig bleibt, wenn die Rhetorik beider Seiten abgeräumt ist.",
+			the_norm: {
+				heading: "Die Norm, schlicht gesagt",
+				p1: "Politiker zeichnen ihre eigenen Bezirke nicht selbst. Kanada hat rund sechzig Jahre gebraucht, um diese Regel aufzubauen, nicht als Gesetz, sondern als Praxis. Seit der Reformzeit auf Bundesebene in den 1960er-Jahren haben alle Provinzen und das Bundesverfahren Grenzkommissionen auf Abstand zur Politik eingesetzt. Wer in einem Bezirk antreten wird, hält nicht den Stift, der ihn zeichnet.",
+				p2: "Die Norm existiert wegen dessen, was vor ihr war. Regierende Parteien zeichneten einst routinemäßig ihre eigenen Ridings, und der Interessenkonflikt ist nicht subtil. Wer eine Karte zeichnet und auf ihr gewinnen muss, hat jeden Grund, sie zu seinen Gunsten zu zeichnen, und kein Beobachter kann eine ehrliche Linie von einer eigennützigen unterscheiden. Das Kommissionsmodell macht Karten nicht perfekt. Es trennt das Interesse dessen, der zeichnet, vom Ergebnis. Genau das erlaubt allen anderen, dem Ergebnis zu vertrauen."
+			},
+			what_it_bought: {
+				heading: "Was die Norm eingebracht hat, in genau diesem Zyklus",
+				p1: "Die Kommission 2025–26 ist ihr eigenes bestes Beweisstück. Sie hielt Anhörungen in sechzehn Gemeinden ab. Sie erhielt 1.345 schriftliche Eingaben. Sie veröffentlichte einen Zwischenvorschlag, nahm Kritik entgegen und nahm ihn gestützt auf mehr als achtzig Eingaben zurück. Das ist das System, das sichtbar auf die Beteiligung der Öffentlichkeit reagiert. Woran die Kommission sonst auch gescheitert sein mag, das Verfahren um sie herum funktionierte genau wie vorgesehen: öffentlich, nachvollziehbar dokumentiert und dem verpflichtet, was die Bürgerinnen und Bürger sagten."
+			},
+			the_departure: {
+				heading: "Die Abkehr",
+				p1: "Im April 2026, Wochen nachdem die gespaltene Kommission zwei unvereinbare Karten vorgelegt hatte, legte die Legislativversammlung beide beiseite. Regierungsantrag 37, verabschiedet am 21. April, übertrug die Arbeit einem Komitee aus sechs MLAs, vier davon von der Regierungspartei, unter Vorsitz eines Regierungsmitglieds. Das Komitee ist nicht verpflichtet, öffentliche Anhörungen abzuhalten. Laut Berichterstattung von CBC wird es zu der Karte, die es vorlegt, keine Anhörungen abhalten. Kein Entwurf wird zur öffentlichen Anfechtung veröffentlicht, bevor die Karte endgültig ist.",
+				p2: "Im Mai beschrieb Duane Bratt, Professor für Politikwissenschaft an der Mount Royal University, dem Autor dies als in Kanada beispiellos. Diese Behauptung ist falsch. 1992 legte Alberta die Arbeit einer festgefahrenen Kommission beiseite und gab die Karte einem Komitee aus MLAs; die Opposition verweigerte die Mitwirkung, und 1994 ließ der Court of Appeal die Karte bestehen, bemängelte aber, dass das Komitee mehrere seiner Grenzen nicht erklären konnte. Das Gesetz wurde 1995 geändert. Was 2026 neu ist, ist enger gefasst: Eine Mehrheit der Kommission hat einen Bericht unterzeichnet, den das Gesetz als Bericht der Kommission behandelt, und er wurde trotzdem beiseitegelegt. Was das <em>bedeutet</em>, ist der Punkt, an dem der Streit beginnt."
+			},
+			steel_man: {
+				heading: "Was dafür spricht, die Norm beiseitezulegen — ernst genommen",
+				p1: "Ein Audit, das nur die Empörung einer Seite wiederholt, prüft gar nichts. Nehmen wir also die Seite der Regierung in ihrer stärksten Form. Bauen wir ihr stärkstes Argument auf, die bestmögliche Fassung (Steel-Man), bevor wir es prüfen:",
+				li1: "<strong>Die Kommission ist an ihrer einen Aufgabe gescheitert.</strong> Das Kommissionsmodell verspricht eine einzige Antwort auf Abstand zur Politik. Diese Kommission lieferte zwei unvereinbare Karten und einen Vorsitzenden, der Kollegen öffentlich Bösgläubigkeit vorwarf. Wenn der unabhängige Weg festgefahren ist, muss jemand entscheiden. Das Gesetz sagt, wer.",
+				li2: "<strong>Das Gesetz gibt der Legislative den Stift absichtlich.</strong> Nach Albertas Gesetz hat ein Kommissionsbericht keine Rechtskraft. Grenzen ändern sich nur, wenn die Versammlung einen Electoral Divisions Act verabschiedet. Regierungsantrag 37 hat eine Tür benutzt, die das Gesetz bewusst eingebaut hat. Nichts wurde eingeschmuggelt.",
+				li3: "<strong>Gewählte Abgeordnete sind den Wählern verantwortlich; Kommissionsmitglieder niemandem.</strong> Das älteste Argument für die Kontrolle durch die Legislative ist Rechenschaft. Ein MLA, der eine eigennützige Karte zeichnet, kann abgewählt werden. Ein Kommissionsmitglied nicht.",
+				li4: "<strong>Das Komitee ist kein rein parteiisches Instrument.</strong> Zwei seiner sechs Mitglieder sind MLAs der Opposition. Das Beratungsgremium, das den Vorschlag entwirft, umfasst zwei von der Opposition Benannte und wird von einem pensionierten Richter am Court of Appeal geleitet.",
+				li5: "<strong>Die Regierung berief sich auf die eigene Empfehlung des Vorsitzenden.</strong> Ihre angegebene Begründung für den Auftrag mit 91 Sitzen war Empfehlung 5, die der Vorsitzende der Kommission selbst geschrieben hatte. Und genau das sagte sie der Legislative: „Wir übernehmen die Empfehlungen aus dem Bericht.“"
+			},
+			where_it_bends: {
+				heading: "Wo das stärkste Argument nachgibt",
+				p1: "Jeder dieser Punkte ist echt. Die dokumentierten Unterlagen halten aber auch jedem etwas entgegen:",
+				li1: "Der Stillstand erklärt, warum die Karten <em>ersetzt</em> wurden. Er erklärt nicht, warum <em>die Öffentlichkeit ausgeschlossen</em> wurde. Eine Anhörungspflicht, ein veröffentlichter Entwurf oder ein verbindliches Gremium hätten den Stillstand ebenfalls aufgelöst. Das gewählte Instrument verzichtet auf jedes Transparenzmerkmal, das die vergleichende Fachliteratur als schützend betrachtet. Der Stillstand hat keinen dieser Verzichte erzwungen.",
+				li2: "„Das Gesetz erlaubt es“ ist der Blickwinkel des Rechts, und dort wird es beantwortet: Jeder Schritt war rechtmäßig. Die Frage der Normen ist eine andere. Manche Rechtsordnungen lassen die Karte einer Kommission in Kraft treten, <em>sofern</em> die Legislative sie nicht aufhebt. Albertas umgekehrte Grundregel bedeutet, dass die Regierungspartei immer kontrolliert, ob eine Kommissionskarte Gesetz wird. Rechtmäßig und üblich sind verschiedene Fragen.",
+				li3: "Das Rechenschaftsargument beweist zu viel. Es spricht überall gegen Grenzkommissionen. Doch jede kanadische Rechtsordnung — und das Vereinigte Königreich und Australien — ist den anderen Weg gegangen, gerade weil Rechenschaft am Wahltag ein schwacher Schutz gegen eine Karte ist, die darauf angelegt ist, eben diese Wahlen zu prägen.",
+				li4: "Das Gremium berät; die Stimmen der MLAs entscheiden. Überparteilicher Rat mit einer von der Regierung kontrollierten Entscheidung ist eine andere Institution als eine unabhängige Kommission. Der Unterschied ist genau die Norm, um die es geht.",
+				li5: "Der Verfasser von Empfehlung 5 schrieb sie, um die Legislative davon abzubringen, die Minderheitenkarte anzunehmen, und seine Kollegen der Mehrheit haben sie nicht unterstützt. Sie ist außerdem genau umrissen. Sie belässt Airdrie, Calgary und alles südlich davon genau so, wie die Mehrheit es gezeichnet hat, also genau die Linien, über die sich die Kommission gespalten hat, und nichts im Auftrag des Komitees bindet es daran. Sich auf eine Empfehlung entgegen dem erklärten Zweck ihres Verfassers zu berufen, ist ein dokumentierter Widerspruch, kein aufgelöster.",
+				li6: "Das andere Dokument, das im Plenum verlesen wurde — Seite 58 des Mehrheitsberichts —, beklagt die Obergrenze von zwei Sitzen. Aber die daran geknüpfte Abhilfe ist, dass die Legislative <em>künftigen Kommissionen</em> die Befugnis gibt, die Sitzzahl festzulegen. Der Antrag nahm sich diesen Spielraum jetzt, für ein Komitee aus MLAs, und lehnte zugleich die eigentliche Bitte des Berichts ab: die Karte mit 89 Sitzen zu übernehmen."
+			},
+			whose_accusation: {
+				heading: "Wessen Vorwurf ist es?",
+				p1: "Hier ist die Trennung, für die diese Seite existiert. Das Folgende sind dokumentierte Tatsachen. Die Abkehr hat stattgefunden, zum ersten Mal seit Albertas eigenem Komitee von 1992. Auf die Transparenzmerkmale wurde verzichtet. Der Vorsitzende der Kommission nannte eine Grenze der Minderheit in einem öffentlichen gesetzlich vorgesehenen Dokument „einen bösgläubigen Versuch“. Die Canadian Civil Liberties Association hat öffentlich <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">die Sorge vor einer Politisierung geäußert</a>. Die Opposition stimmte gegen den Antrag. Und die Vorwürfe laufen in beide Richtungen. Der Minderheitenbericht wirft der Mehrheit „eine Neigung, ländliche Wahlbezirke zu streichen oder zu verstümmeln und damit faktisch die wirksame ländliche Vertretung zu verringern“ vor — wobei ländliche Vertretung nach den eigenen Worten der Minderheit „nicht bloß eine Frage der Zahlen ist; sie ist eine Frage des Zugangs, der Stimme und der praktischen Regierbarkeit“ (S. 356). Das Audit hat diesen Vorwurf an dem Tag geprüft, an dem es ihn aufgriff (explorativ; der gegen Bindestriche robuste Klassifikator und jeder klassifizierte Name sind mit dem Befund veröffentlicht). Die Richtung kehrt sich um. Die Minderheitenkarte behält weniger ländlich verankerte Bezirke als die Mehrheit (23 gegenüber 28, bei 31 im Jahr 2019) und schlägt mehr der ländlichen Bezirke von 2019 Bezirken mit Städtenamen zu (sieben gegenüber drei). Beide Karten dünnen die ländliche Vertretung gegenüber 2019 aus, die Kernbeobachtung des Vorwurfs ist also echt. Aber bei dem Maß, das der Vorwurf nennt, fällt er auf seinen Urheber zurück. Der begleitende Vorwurf, die Mehrheit habe es abgelehnt, die Flexibilität von ±25 % des Gesetzes für das ländliche Alberta zu nutzen, wurde am selben Tag geprüft und hält. Die Mehrheit zeichnete ihre ländlichen Bezirke nahe an der Bevölkerungsgleichheit; die Minderheit zeichnete sie schwach besetzt. Ein Vorwurf umgekehrt, einer gestützt, beide veröffentlicht. Derselbe Abschlag wegen einseitiger Herkunft, der für die Beanstandungen des Vorsitzenden gilt, gilt auch hier, in beide Richtungen.",
+				p2: "Das Folgende ist <em>keine</em> dokumentierte Tatsache. Es ist ein politisches Urteil: dass die Abkehr illegitim war. Dieses Urteil hängt davon ab, wie viel Respekt die Norm angesichts einer festgefahrenen Kommission verdiente, und vernünftige Menschen gewichten das unterschiedlich. Das Audit dokumentiert die Abkehr und ihre Kosten. Es trägt die Schlussfolgerung der Opposition nicht mit, und nichts in der Statistik des Audits kann sie tragen. Eine Zahl kann sagen, dass eine Karte selten ist. Sie kann nicht sagen, dass ein Verfahren falsch war."
+			},
+			norms_vs_law: {
+				heading: "Normen sind kein Recht — und ein Ort hat die Norm zu Recht gemacht",
+				p1: "Verfassungskonventionen, die ungeschriebenen Regeln politischen Verhaltens, binden politisch, nicht gerichtlich. Der Supreme Court hat das 1981 in der Patriation Reference gesagt, und die Gerichte haben diese Linie seither gehalten: Ein Gericht kann eine Konvention benennen und wird es dennoch ablehnen, sie durchzusetzen. Diese Lücke zwischen dem Üblichen und dem Erzwingbaren ist der Ort, an dem sich diese ganze Episode abspielt.",
+				p2: "Quebec zeigt, wie die andere Wahl aussieht. Seine Grenzkommission ist ständig und unabhängig, und bei der Karte selbst hat die Kommission normalerweise das letzte Wort. Als die Regierung Quebecs versuchte, ihre Kommission per Gesetz einzufrieren, <em>handelten</em> die Gerichte, weil nun ein Gesetz im Spiel war. Am 22. April 2026 bestätigte der Supreme Court of Canada mit 7–2 und aus dem Stand das Urteil, dass das Einfrieren die Garantie demokratischer Vertretung in der Charter verletzte. Seine Begründung folgte am 1. Mai (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Wo die Norm ins Gesetz geschrieben war, wurde sie durchsetzbar. Albertas Norm war es nie, und so war sie es auch nicht. Der Kontrast schneidet allerdings in beide Richtungen. Am 12. Juni 2026 verabschiedete die Nationalversammlung Quebecs ihre eigene Karte mit 127 Sitzen."
+			},
+			measurable: {
+				heading: "Die Bewertung des Verfahrens: die Frage der Normen messbar machen",
+				p1: "Rhetorik über Normen ist in beide Richtungen billig. Die Antwort des Audits ist eine dritte Bewertung, neben den strukturellen Tests und der Statistik. Sie bewertet das <em>Verfahren</em> anhand von neun Schutzmerkmalen, die die sechzigjährige Praxis garantierte. Jedes ist eine Ja-oder-Nein-Frage, die sich aus öffentlichen Dokumenten beantworten lässt, und dieselben neun bewerten jedes Verfahren, das dieses Audit untersucht.",
+				table: {
+					head: {
+						feature: "Schutzmerkmal",
+						commission: "Verfahren der Kommission",
+						committee: "Verfahren des Komitees (in seiner jetzigen Form)"
+					},
+					arms_length_drafting: {
+						feature: "Entwurf auf Abstand zur Politik",
+						commission: "Ja",
+						committee: "Teilweise — das Gremium entwirft; die sechs MLAs des Komitees (vier von der Regierung) entscheiden"
+					},
+					public_hearings_before: {
+						feature: "Öffentliche Anhörungen vor der Annahme"
+					}
+				}
+			}
 		}
 	}
 } as const;

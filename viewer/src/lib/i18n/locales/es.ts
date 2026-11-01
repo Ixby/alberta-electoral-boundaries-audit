@@ -1665,6 +1665,7 @@ export default {
 				heading: "Qué significa \"1 en 568,000\" — y por qué la auditoría duplicó su margen",
 				p1: "Combine las cuatro medidas de equidad en una sola puntuación y pregunte: ¿con qué frecuencia produce el trazado neutral un perfil tan extremo como el del mapa minoritario? La respuesta es cerca de <strong>1 en 1.1 millones</strong>. Pero la auditoría no cita esa cifra. Cita <strong>1 en 568,000</strong> — exactamente la mitad de impresionante. Esta es la razón.",
 				p2: "La auditoría buscó una señal en dos lugares distintos: esta puntuación combinada, y una segunda prueba sobre las decisiones específicas de límites. Buscar en dos lugares le da a la suerte dos oportunidades. Piense en boletos de lotería: compre dos, y su probabilidad de tener uno ganador se duplica. Así que antes de citar la probabilidad, la auditoría la duplica en su propia contra. De esa forma, \"tuvo dos intentos\" ya está pagado.",
+				p3: "La duplicación tiene una virtud más: no necesita supuestos. Vale tanto si las dos pruebas están relacionadas como si no, así que es la cifra que un estadístico hostil no podría rebajar.",
 				p4: "Una advertencia que la auditoría repite en todas partes: estas probabilidades miden qué tan inusual es el <em>mapa</em>. No son la probabilidad de que alguien haya actuado con intención. Un mapa raro todavía podría, en principio, ser un trabajo honesto. Las probabilidades dicen solo esto: la redacción rutinaria no produce este mapa."
 			},
 			died: {
@@ -1880,7 +1881,79 @@ export default {
 			measured: {
 				heading: "Qué se mide",
 				p1: "La analítica registra eventos agregados y anónimos como:",
-				li1: "Vistas de página"
+				li1: "Vistas de página",
+				li2: "Hasta dónde se desplaza la gente hacia abajo en una página, en franjas generales (25%, 50%, 75%, 100%)",
+				li3: "Cuánto tiempo, aproximadamente, estuvo la página activa en pantalla, en intervalos de tiempo generales",
+				li4: "Qué secciones de hallazgos aparecen en pantalla a medida que la gente lee",
+				li5: "Qué mapas se abren en el explorador, y qué distritos se seleccionan",
+				li6: "Qué capas del mapa se activan o desactivan, y cuánto acerca la gente el mapa, aproximadamente",
+				li7: "Qué puntos de interés o enlaces a informes se abren",
+				li8: "Una imagen general de su equipo — franja de tamaño de pantalla (como teléfono, tableta o computadora de escritorio), tipo de dispositivo y familia de navegador (como Chrome, Safari o Firefox). Nunca almacenamos las dimensiones exactas de su pantalla ni la cadena completa de identificación de su navegador.",
+				li9: "Una instantánea única de cómo funcionó el explorador de mapas cuando se dibujó por primera vez — por ejemplo, el tiempo de carga en franjas generales y una cifra redondeada de memoria. Esto nos ayuda a saber si el explorador es lo bastante rápido en dispositivos reales. Las cifras se agrupan en franjas a propósito, no son exactas, así que describen una clase de dispositivo y no un dispositivo.",
+				p2: "Cada uno de estos datos se almacena solo de forma agregada. No hay ningún perfil por persona, ninguna repetición de sesiones, y ningún registro del recorrido de una persona por el sitio. Vemos totales y distribuciones, no personas."
+			},
+			never_collected: {
+				heading: "Qué nunca se recopila",
+				p1: "Ningún nombre. Ningún correo electrónico. Ninguna cuenta. Ningún identificador publicitario. Ninguna dirección IP almacenada — su dirección de red se pasa por un hash con un secreto que cambia a diario y se descarta de inmediato; solo se conserva el código diario de corta duración. Ninguna huella digital del navegador sin procesar. Ningún identificador entre días o entre sitios. Ninguna ubicación precisa. Ninguna cookie ni identificador de almacenamiento del navegador que lo marque a usted como visitante recurrente para fines de analítica."
+			},
+			github_pages_collects: {
+				heading: "Qué recopila GitHub Pages",
+				p1: "Este sitio está alojado en GitHub Pages. Los servidores de GitHub registran automáticamente datos básicos de la solicitud cuando se carga cualquier página — su dirección IP, tipo de navegador, página de referencia y marca de tiempo. Nosotros no recibimos ni controlamos esos registros; se rigen por la <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Declaración de Privacidad de GitHub</a>. No tenemos ninguna relación con GitHub más allá del alojamiento. La analítica descrita arriba funciona por separado y nunca recibe su dirección IP."
+			},
+			share_codes: {
+				heading: "Códigos para compartir",
+				p1: "El explorador de mapas tiene una función para Compartir. Convierte su vista actual del mapa — qué mapa está activo, qué superposiciones y capas están encendidas, aproximadamente dónde está su ventana de visualización — en un código corto de tres palabras que puede copiar y enviar a alguien. Hay exactamente 19,200 códigos válidos, porque un código representa una configuración del mapa, no una persona. Dos personas que llegan a la misma vista de forma independiente obtienen el mismo código; eso es lo esperado y no crea ningún vínculo entre ellas.",
+				p2: "Los códigos para compartir aparecen en pantalla y van a su portapapeles solo cuando usted hace clic en Copiar. Nunca se incrustan en una URL, así que no aparecen en el historial del navegador, en los registros del servidor ni en los encabezados de referencia. Para abrir la vista compartida por alguien, quien la recibe escribe el código directamente en el sitio.",
+				p3: "Cuando usted genera un código para compartir, la configuración del mapa que codifica se guarda en nuestra base de datos para que el enlace siga funcionando. Ese registro guardado es un estado del mapa — no una persona, no un recorrido, y no está unido a la analítica. No contiene ningún identificador suyo."
+			},
+			cookies_browser_storage: {
+				heading: "Cookies y almacenamiento del navegador",
+				p1: "La analítica no usa ninguna cookie ni ningún identificador de almacenamiento del navegador. Nada en la medición lo marca a usted como visitante recurrente.",
+				p2: "El sitio sí establece una pequeña cookie <strong>funcional</strong> para recordar sus propias preferencias entre visitas. No se usa para analítica ni seguimiento, y nunca sale de su navegador en forma legible. Almacena:",
+				li1: "<strong>Tema de color</strong> — oscuro o claro, si usted lo cambió",
+				li2: "<strong>Introducción descartada</strong> — para que la introducción del mapa no se repita",
+				li3: "<strong>Vista actual del mapa</strong> — para que su última vista se restaure en su próxima visita",
+				li4: "<strong>Idioma del navegador</strong> — para que el sitio pueda mostrar su idioma preferido",
+				p3: "Esta cookie contiene solo las preferencias anteriores — ninguna información personal ni identificable. Su contenido se codifica con una clave que viene incluida en la página, así que el valor almacenado no es legible para una persona; como esa clave es pública, considérelo una protección contra la manipulación y no un verdadero secreto. Se envía solo por HTTPS, nunca se comparte con otros sitios, y usted puede eliminarla en cualquier momento borrando sus cookies. El sitio se sirve como archivos estáticos, así que nada del lado del servidor la lee. Su tema de color también se copia en el almacenamiento local de su navegador para que el tema correcto pueda aplicarse al instante al cargar, antes de que algo parpadee; ese valor también es puramente funcional y nunca se envía a ninguna parte."
+			},
+			data_retention: {
+				heading: "Conservación de datos",
+				p1: "Los registros de analítica son agregados y anónimos por construcción, sin ningún identificador que conservar. Se almacenan en infraestructura alojada en Canadá (ca-central-1) y se conservan como datos de investigación. Si alguna vez descubriéramos que un registro contiene información identificable — algo que el diseño está hecho para impedir — lo eliminaríamos en un plazo de 30 días."
+			},
+			your_choices: {
+				heading: "Sus opciones",
+				p1: "Como no se recopila nada personal, no hay nada de qué excluirse ni ningún aviso de consentimiento que gestionar. Si aun así prefiere no enviar ningún evento de analítica, un bloqueador de contenido o un navegador que bloquee la solicitud al servicio de conteo los detendrá, y el sitio funcionará exactamente igual. También puede borrar la cookie funcional de preferencias en cualquier momento desde su navegador."
+			},
+			contact: {
+				heading: "Contacto",
+				p1: "Will Conner — investigación independiente, sin afiliación con ninguna institución ni respaldo de ninguna.",
+				p2: "Preguntas, correcciones y solicitudes de eliminación: por favor use el <a href=\"__BASE__/feedback\">formulario de comentarios</a>. Las solicitudes se responden en un plazo de 10 días hábiles."
+			},
+			policy_updates: {
+				heading: "Actualizaciones de la política",
+				p1: "Cuando esta política cambia, la fecha de vigencia de arriba se actualiza y el cambio se registra en el <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">repositorio git público</a>. El historial de commits es el registro de cambios. Todo cambio que amplíe lo que se recopila se indica en el mensaje del commit."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Gobierno de Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, y Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal y Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin y Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (El algoritmo ReCom usado para generar el conjunto de 1,010,000 mapas.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, y Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King y Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274. (Marco constitucional canadiense de los límites electorales.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., y Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900. (Fuente de la medida de la brecha de eficiencia usada a lo largo de todo el texto.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (La principal autoridad de la Corte Suprema de Canadá sobre el estándar constitucional para el trazado de límites electorales.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Tribunal Federal; principal autoridad canadiense sobre la evidencia de comunidad de interés en disputas sobre límites electorales.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Corte Suprema de EE. UU.; establece que las demandas por gerrymandering partidista no son justiciables en los tribunales federales — contexto de por qué el estándar canadiense de representación efectiva del art. 3 es distinto.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}

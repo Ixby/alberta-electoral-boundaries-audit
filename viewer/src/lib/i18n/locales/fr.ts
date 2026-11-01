@@ -1687,6 +1687,174 @@ export default {
 				p2: "Une version carnet hébergée s'exécute dans le navigateur grâce à <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. La méthodologie complète — y compris chaque correction en cours de route — se trouve dans la <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">monographie technique</a>.",
 				cross_ref: "Pages complémentaires : <a href=\"__BASE__/law\">Ce que le droit demande d'une carte électorale</a> · <a href=\"__BASE__/norms\">Ce que demandent les normes</a> · <a href=\"__BASE__/explainers\">Les quatorze fiches explicatives (annexes A à N)</a>, une pour chaque douille du rapport principal."
 			}
+		},
+		norms: {
+			head_title: "Ce que demandent les normes · Audit des limites électorales de l'Alberta",
+			head_description: "Le troisième angle sur l'épisode de délimitation de 2026 en Alberta : d'où vient la norme selon laquelle les élus ne tracent pas leurs propres circonscriptions, ce qu'elle a permis d'obtenir, les arguments pour l'écarter, et qui accuse réellement qui de quoi.",
+			back: "← Retour à l'audit",
+			site_label: "Audit des limites électorales de l'Alberta",
+			h1: "Ce que les normes demandent d'une carte électorale",
+			meta: "Complément en langage clair · En anglais seulement pour l'instant · Pas un verdict sur qui que ce soit",
+			standfirst: "Cet épisode a trois angles. Le <a href=\"__BASE__/law\">droit</a> demande ce qui est légal. Les <a href=\"__BASE__/methods\">statistiques</a> demandent ce qui est inhabituel. Le troisième angle demande ce qui est coutumier, et la coutume est le terrain disputé. « Le gouvernement a rompu une norme vieille de soixante ans » n'est pas une mesure neutre. C'est le cœur de l'accusation de l'opposition. Cette page ne se contente donc pas de réciter les normes. Elle les contre-interroge : d'où elles viennent, à quoi elles servent, quels sont réellement les arguments pour les écarter, et ce qui reste une fois la rhétorique des deux camps balayée.",
+			the_norm: {
+				heading: "La norme, énoncée simplement",
+				p1: "Les élus ne tracent pas leurs propres circonscriptions. Le Canada a passé environ soixante ans à bâtir cette règle, non pas comme une loi, mais comme une pratique. Depuis l'époque des réformes fédérales des années 1960, chaque province et le processus fédéral recourent à des commissions de délimitation indépendantes. La personne qui se présentera dans une circonscription ne tient pas le crayon qui la trace.",
+				p2: "La norme existe à cause de ce qui l'a précédée. Les partis au pouvoir traçaient autrefois couramment leurs propres circonscriptions, et le conflit d'intérêts n'a rien de subtil. Celui qui trace une carte et doit gagner selon cette carte a toutes les raisons de la tracer à son avantage, et personne ne peut distinguer de l'extérieur une ligne honnête d'une ligne intéressée. Le modèle de la commission ne rend pas les cartes parfaites. Il dissocie l'intérêt de celui qui trace du résultat. C'est ce qui permet à tous les autres de faire confiance au résultat."
+			},
+			what_it_bought: {
+				heading: "Ce que la norme a permis d'obtenir, dans ce cycle même",
+				p1: "La commission de 2025-26 en est elle-même la meilleure illustration. Elle a tenu des audiences dans seize communautés. Elle a reçu 1 345 mémoires écrits. Elle a publié une proposition provisoire, essuyé des critiques, et s'est ravisée sur la foi de plus de quatre-vingts mémoires. C'est le système qui répond visiblement à l'apport du public. Quels que soient les autres échecs de la commission, le processus qui l'entourait a fonctionné exactement comme prévu : en public, de façon consignée, et en répondant de ce que disaient les citoyens."
+			},
+			the_departure: {
+				heading: "La rupture",
+				p1: "En avril 2026, quelques semaines après que la commission divisée eut déposé deux cartes incompatibles, l'Assemblée législative a écarté les deux. La Motion gouvernementale 37, adoptée le 21 avril, a confié le travail à un comité de six MLA, dont quatre du parti au pouvoir, présidé par un membre du gouvernement. Le comité n'est pas tenu de tenir des audiences publiques. Selon les reportages de CBC, il n'en tiendra pas sur la carte qu'il produira. Aucune ébauche ne sera publiée pour être contestée par le public avant que la carte soit définitive.",
+				p2: "En mai, Duane Bratt, professeur de science politique à l'Université Mount Royal, l'a décrit à l'auteur comme sans précédent au Canada. Cette affirmation est fausse. En 1992, l'Alberta a écarté le travail d'une commission dans l'impasse et a confié la carte à un comité de MLA ; l'opposition a refusé d'y participer, et en 1994, la Cour d'appel a maintenu la carte tout en reprochant au comité d'être incapable d'expliquer plusieurs de ses limites. La Loi a été modifiée en 1995. Ce qui est nouveau en 2026 est plus étroit : une majorité de la commission a signé un rapport, que la Loi traite comme le rapport de la commission, et il a été écarté quand même. Ce que cela <em>signifie</em>, c'est là que commence le débat."
+			},
+			steel_man: {
+				heading: "Les arguments pour écarter la norme — pris au sérieux",
+				p1: "Un audit qui ne fait que répéter l'indignation d'un seul camp ne vérifie rien. Prenons donc le parti du gouvernement dans toute sa force. Construisons son meilleur argumentaire, sa version la plus solide, avant de la tester :",
+				li1: "<strong>La commission a échoué à sa seule tâche.</strong> Le modèle de la commission promet une seule réponse indépendante. Cette commission a livré deux cartes incompatibles et un président qui accuse publiquement ses collègues de mauvaise foi. Quand la voie indépendante aboutit à une impasse, quelqu'un doit décider. La loi dit qui.",
+				li2: "<strong>La loi donne délibérément le crayon à la législature.</strong> En vertu de la loi albertaine, un rapport de commission n'a aucune force juridique. Les limites ne changent que lorsque l'Assemblée adopte une Electoral Divisions Act. La Motion gouvernementale 37 a utilisé une porte que la loi a construite exprès. Rien n'a été passé en contrebande.",
+				li3: "<strong>Les élus répondent aux électeurs ; les commissaires ne répondent à personne.</strong> Le plus ancien argument en faveur du contrôle législatif est la reddition de comptes. Un MLA qui trace une carte intéressée peut être défait aux urnes. Un commissaire, non.",
+				li4: "<strong>Le comité n'est pas un instrument purement partisan.</strong> Deux de ses six membres sont des MLA de l'opposition. Le comité consultatif qui rédige la proposition comprend deux personnes proposées par l'opposition et est présidé par un juge retraité de la Cour d'appel.",
+				li5: "<strong>Le gouvernement a invoqué la propre recommandation du président.</strong> La justification qu'il a donnée au mandat de 91 sièges était la Recommandation 5, rédigée par le président de la commission lui-même. Et il l'a dit exactement ainsi en Chambre : « Nous adoptons les recommandations du rapport. »"
+			},
+			where_it_bends: {
+				heading: "Là où cette version la plus solide plie",
+				p1: "Chacun de ces points est réel. Le dossier documenté répond aussi à chacun :",
+				li1: "L'impasse explique le <em>remplacement</em> des cartes. Elle n'explique pas qu'on <em>écarte le public</em>. Une exigence d'audiences, une ébauche publiée ou un comité dont l'avis lie auraient aussi répondu à l'impasse. Le véhicule choisi renonce à chacune des mesures de transparence que la littérature comparative considère comme protectrices. L'impasse n'a imposé aucun de ces renoncements.",
+				li2: "« La loi le permet », c'est l'angle du droit, et la réponse y est donnée : chaque étape était légale. La question des normes est différente. Certains ressorts rendent la carte d'une commission exécutoire <em>à moins que</em> la législature ne l'annule. Le défaut inversé de l'Alberta signifie que le parti au pouvoir contrôle toujours si une carte de commission devient loi. Légal et coutumier sont deux questions différentes.",
+				li3: "L'argument de la reddition de comptes prouve trop. Il plaide contre les commissions de délimitation partout. Pourtant, chaque ressort canadien — et le Royaume-Uni, et l'Australie — est allé dans l'autre sens, justement parce que la reddition de comptes au moment des élections protège mal contre une carte conçue pour façonner ces mêmes élections.",
+				li4: "Le comité consultatif conseille ; ce sont les votes des MLA qui décident. Un avis bipartite assorti d'une décision contrôlée par le gouvernement, c'est une institution différente d'une commission indépendante. La différence est exactement la norme en cause.",
+				li5: "L'auteur de la Recommandation 5 l'a rédigée pour dissuader la législature d'adopter la carte minoritaire, et ses collègues de la majorité ne l'ont pas appuyée. Elle est aussi précise. Elle laisse Airdrie, Calgary et tout ce qui se trouve au sud exactement tels que la majorité les a tracés — les lignes mêmes sur lesquelles la commission s'est divisée —, et rien dans le mandat du comité ne l'y oblige. Invoquer une recommandation à l'encontre du but déclaré de son auteur est une tension documentée, pas une tension résolue.",
+				li6: "L'autre document lu en Chambre — la page 58 du rapport majoritaire — déplore le plafond de deux sièges. Mais le remède qui y est rattaché consiste, pour l'assemblée législative, à donner aux <em>commissions futures</em> le pouvoir de fixer le nombre de sièges. La motion s'est arrogé cette latitude dès maintenant, au profit d'un comité de MLA, tout en écartant la demande opérante du rapport : adopter la carte à 89 sièges."
+			},
+			whose_accusation: {
+				heading: "De qui est l'accusation ?",
+				p1: "Voici la distinction que cette page existe pour faire. Les éléments suivants sont des faits documentés. La rupture a eu lieu, pour la première fois depuis le propre comité albertain de 1992. Les mesures de transparence ont été abandonnées. Le président de la commission a qualifié une limite de la minorité d'« effort de mauvaise foi » dans un document public prévu par la loi. L'Association canadienne des libertés civiles a publiquement <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">soulevé la crainte d'une politisation</a>. L'opposition a voté contre la motion. Et les accusations vont dans les deux sens. Le rapport minoritaire accuse la majorité d'« une propension à supprimer ou à mutiler des circonscriptions électorales rurales et, en fait, à réduire la représentation rurale effective » — la représentation rurale n'étant, selon les propres mots de la minorité, « pas seulement une question de chiffres ; c'est une question d'accès, de voix et de gouvernabilité pratique » (p. 356). L'audit a testé cette accusation le jour même où il l'a relevée (exploratoire ; le classificateur robuste aux traits d'union et chaque nom classé sont publiés avec le constat). Le sens s'inverse. La carte minoritaire conserve moins de circonscriptions à ancrage rural que la majoritaire (23 contre 28, par rapport à 31 en 2019) et absorbe davantage de circonscriptions rurales de 2019 dans des circonscriptions portant un nom de ville (sept contre trois). Les deux cartes réduisent la représentation rurale par rapport à 2019 ; l'observation centrale de l'accusation est donc réelle. Mais sur la mesure que l'accusation nomme, elle retombe sur son auteur. L'accusation qui l'accompagne, selon laquelle la majorité a refusé d'utiliser la flexibilité de ±25 % de la Loi pour l'Alberta rurale, a été testée le même jour et tient. La majorité a tracé ses circonscriptions rurales près de la parité de population ; la minorité les a tracées légères. Une accusation inversée, une appuyée, les deux publiées. La même réserve liée à une provenance unilatérale qui s'applique aux signalements du président s'applique ici aussi, dans les deux sens.",
+				p2: "Ce qui suit n'est <em>pas</em> un fait documenté. C'est un jugement politique : que la rupture était illégitime. Ce jugement dépend de la déférence que méritait la norme face à une commission dans l'impasse, et des personnes raisonnables en jugent différemment. L'audit documente la rupture et ses coûts. Il ne porte pas la conclusion de l'opposition, et rien dans les statistiques de l'audit ne peut la porter non plus. Un chiffre peut dire qu'une carte est rare. Il ne peut pas dire qu'un processus était mauvais."
+			},
+			norms_vs_law: {
+				heading: "Les normes ne sont pas le droit — et un endroit a fait de la norme une loi",
+				p1: "Les conventions constitutionnelles, ces règles non écrites de comportement politique, lient sur le plan politique, et non judiciaire. La Cour suprême l'a dit dans le Renvoi sur le rapatriement de 1981, et les tribunaux ont maintenu cette position depuis : un tribunal peut nommer une convention et refuser tout de même de la faire respecter. Cet écart, entre ce qui est coutumier et ce qui peut être imposé, c'est là que se joue tout cet épisode.",
+				p2: "Le Québec montre à quoi ressemble l'autre choix. Sa commission de délimitation est permanente et indépendante, et sur la carte elle-même, c'est ordinairement la commission qui a le dernier mot. Quand le gouvernement du Québec a tenté de geler sa commission par voie législative, les tribunaux <em>ont</em> agi, parce qu'une loi était désormais en jeu. Le 22 avril 2026, la Cour suprême du Canada a confirmé, à 7 contre 2 et séance tenante, la décision selon laquelle le gel violait la garantie de représentation démocratique de la Charte. Ses motifs ont suivi le 1er mai (<em>Québec (Procureur général) c. Lalande</em>, 2026 CSC 13). Là où la norme a été inscrite dans la loi, elle est devenue exécutoire. Celle de l'Alberta ne l'a jamais été, et elle ne l'était donc pas. Le contraste coupe toutefois dans les deux sens. Le 12 juin 2026, l'Assemblée nationale du Québec a adopté sa propre carte à 127 sièges."
+			},
+			measurable: {
+				heading: "La grille d'évaluation du processus : rendre mesurable la question des normes",
+				p1: "La rhétorique sur les normes ne coûte pas cher, dans un sens comme dans l'autre. La réponse de l'audit est une troisième grille d'évaluation, à côté des tests structurels et des statistiques. Elle évalue le <em>processus</em> selon neuf caractéristiques protectrices que garantissait la pratique vieille de soixante ans. Chacune est une question par oui ou par non à laquelle on peut répondre à partir de documents publics, et les mêmes neuf critères évaluent chaque processus que cet audit examine.",
+				table: {
+					head: {
+						feature: "Caractéristique protectrice",
+						commission: "Processus de la commission",
+						committee: "Processus du comité (tel que constitué)"
+					},
+					arms_length_drafting: {
+						feature: "Tracé indépendant",
+						commission: "Oui",
+						committee: "Partiel — le comité consultatif rédige ; les six MLA du comité (dont quatre du gouvernement) décident"
+					},
+					public_hearings_before: {
+						feature: "Audiences publiques avant l'adoption",
+						commission: "Oui — seize communautés",
+						committee: "Non — aucune prévue sur la carte produite"
+					},
+					draft_published_challenge: {
+						feature: "Ébauche publiée pour contestation",
+						commission: "Oui — proposition provisoire révisée en public",
+						committee: "Non — aucune annoncée"
+					},
+					new_public_submissions: {
+						feature: "Nouveaux mémoires du public acceptés",
+						commission: "Oui — 1 345 reçus",
+						committee: "Non — réutilise les archives de la commission"
+					},
+					demonstrated_responsiveness: {
+						feature: "Capacité de réponse démontrée",
+						commission: "Oui — s'est ravisée sur la foi de plus de 80 mémoires",
+						committee: "En attente"
+					},
+					neutral_chair_deciding: {
+						feature: "Présidence neutre de l'organe décisionnel",
+						commission: "Oui — un juge, nommé par le Cabinet",
+						committee: "Non — un MLA du gouvernement préside ; le juge retraité ne préside que l'échelon consultatif"
+					},
+					opposition_deciding_body: {
+						feature: "Opposition au sein de l'organe décisionnel",
+						commission: "Oui — deux sur cinq",
+						committee: "Oui — deux sur six"
+					},
+					published_reasons_contested: {
+						feature: "Motifs publiés pour les choix contestés",
+						commission: "Oui — les deux rapports",
+						committee: "En attente"
+					},
+					precedent_conformity: {
+						feature: "Conformité aux précédents",
+						commission: "Oui",
+						committee: "Non — fait pour la dernière fois en Alberta en 1992, et critiqué par la Cour d'appel en 1994"
+					},
+					count: {
+						feature: "Total",
+						commission: "9 sur 9",
+						committee: "1 Oui · 1 Partiel · 5 Non · 2 En attente"
+					}
+				},
+				p2: "Une autre façon de voir cette grille : c'est le <em>troisième axe</em>. Le graphique de l'audit place chaque carte selon deux dimensions : la structure et les statistiques. Les trois cartes placées jusqu'ici ont toutes été tracées par des processus de commission qui obtiennent neuf sur neuf ici ; le troisième axe n'a donc rien eu à distinguer. La carte de novembre sera le premier point de l'histoire de l'audit à reposer sur un score de processus différent.",
+				p3: "Lisez le tableau honnêtement, dans les deux sens. La commission obtient neuf sur neuf <em>par construction</em>. Les critères décrivent l'institution que la norme a bâtie, et la commission était cette institution. La partie instructive regarde vers l'avant. Quatre des cases Non et En attente du comité correspondent à des caractéristiques qu'il peut encore ajouter d'ici novembre : des audiences, une ébauche publiée, de nouveaux mémoires, et la capacité de réponse qu'ils rendent possible. S'il les ajoute, le constat de l'audit sur la rupture de processus s'en trouve sensiblement atténué, et l'audit s'est engagé par écrit à le dire.",
+				draft_note: "Le statut compte ici : les critères, les sources et les directions prévues de cette grille sont <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">enregistrés sur l'OSF (u47bq, 14 juillet 2026)</a> — figés des mois avant le rapport du comité, pour que rien ne puisse être discrètement reformulé quand la réponse arrivera. Elle a été rédigée en plein épisode par un auteur dont vous venez de lire les constats antérieurs — un risque de biais que le <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">document enregistré</a> divulgue plutôt que de le cacher. Appliquée rétroactivement à la commission, c'est une description, pas une prédiction. Quand la carte du comité arrivera, les mêmes tests verrouillés sur la carte seront appliqués sans changement — et cette liste évaluera le processus qui l'a produite. À ce moment-là, le débat sur les normes cessera d'être une foire d'empoigne sur la tradition pour devenir une comparaison chiffrée : le comité s'est-il comporté comme l'institution qu'il a remplacée ?"
+			},
+			audits_standing_rule: {
+				heading: "La règle permanente de l'audit",
+				p1: "Même règle que partout ailleurs sur ce site. L'audit documente ce qui s'est passé, à quel point c'est rare, et qui a affirmé quoi. Savoir si la norme méritait de survivre à l'impasse — et ce que sa mise à l'écart devrait coûter aux urnes, le cas échéant — appartient aux lecteurs et aux électeurs. Pas à un audit statistique.",
+				cross_ref: "Pages complémentaires : <a href=\"__BASE__/law\">Ce que le droit demande d'une carte électorale</a> · <a href=\"__BASE__/methods\">Comment les cartes ont été testées</a>",
+				disclaimer: "Cette page est un complément en langage clair à l'audit, rédigé pour aider à s'orienter. Ce n'est pas un avis juridique, ni un verdict sur une personne ou un parti."
+			}
+		},
+		law: {
+			head_title: "Ce que demande le droit · Audit des limites électorales de l'Alberta",
+			head_description: "Comment le droit canadien évalue une carte électorale : la représentation effective au sens de l'article 3 de la Charte, le Renvoi de la Saskatchewan et l'Electoral Boundaries Commission Act de l'Alberta — et comment les preuves de cet audit se rattachent à ces critères.",
+			back: "← Retour à l'audit",
+			site_label: "Audit des limites électorales de l'Alberta",
+			h1: "Ce que le droit demande d'une carte électorale",
+			meta: "Complément en langage clair · En anglais seulement pour l'instant · Pas un avis juridique",
+			standfirst: "Cet audit mesure des cartes. Les tribunaux les jugent. Les deux tâches sont liées, mais elles ne sont pas identiques, et cette page parcourt la différence : ce que le droit canadien demande réellement d'une limite électorale, quelles questions relèvent d'un tribunal plutôt que d'un statisticien, et où s'insèrent les preuves de l'audit. L'audit lui-même ne prend position sur aucune conclusion juridique. Il rapporte ce que montrent les données, et il s'arrête là.",
+			why_not_gerrymander: {
+				heading: "Pourquoi cet audit ne conclut jamais au « découpage partisan »",
+				p1: "L'audit emploie partout « découpage partisan » dans son sens politique courant : la manipulation des limites électorales pour un avantage partisan. Mais en droit canadien, le mot n'a pas de définition juridique. Il n'existe aucune loi que l'on violerait par un « découpage partisan », et aucun critère judiciaire portant ce nom. Une carte ne peut pas être déclarée coupable d'une catégorie qui n'existe pas. C'est l'une des raisons pour lesquelles l'audit refuse de rendre ce verdict, quels que soient les chiffres.",
+				p2: "Le contraste avec les États-Unis mérite qu'on s'y arrête, parce que la plupart des outils statistiques de cet audit — l'écart d'efficacité, les ensembles de cartes neutres (de grands ensembles de cartes tracées par ordinateur) — ont été inventés pour des batailles américaines. Aux États-Unis, le découpage partisan est au moins un recours nommé. Mais la Cour suprême des États-Unis a fermé la porte des tribunaux fédéraux dans <em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019), en statuant que les tribunaux fédéraux ne disposent pas de « normes judiciairement discernables et applicables » pour juger de tels recours. Les mêmes mesures restent utilisées devant certains tribunaux d'État américains, le plus notamment dans <em>League of Women Voters v. Commonwealth</em>, 178 A.3d 737 (Pa. 2018).",
+				p3: "Le Canada a pris un autre chemin. Au lieu d'un critère de découpage partisan, le droit canadien pose deux questions auxquelles on peut répondre. La carte assure-t-elle une <a href=\"#effective-representation\">représentation effective</a> au sens de l'article 3 de la <em>Charte</em> ? Et la commission a-t-elle respecté <a href=\"#ebca\">la loi qui la régit</a> ? Les constats de l'audit sont des preuves qu'un tribunal pourrait prendre en considération dans le cadre de ces deux examens. Des éléments, pas un verdict sur l'une ou l'autre question. Et les statistiques ne lisent pas dans les pensées : la géométrie des limites peut montrer ce qu'une carte <em>fait</em>, jamais ce que ses auteurs <em>voulaient</em>."
+			},
+			effective_representation: {
+				heading: "Le critère constitutionnel : la représentation effective",
+				p1: "L'article 3 de la <em>Charte des droits et libertés</em> garantit aux citoyens le droit de vote. Dans le <em>Renvoi : Circonscriptions électorales provinciales (Saskatchewan)</em>, [1991] 2 RCS 158 — que l'audit appelle le <em>Renvoi de la Saskatchewan</em> —, la Cour suprême du Canada a statué que ce que protège l'article 3 en matière de délimitation n'est pas l'arithmétique « une personne, un vote », mais la <strong>représentation effective</strong>.",
+				p2: "Au nom de la majorité, la juge McLachlin a expliqué que la « parité relative du pouvoir électoral » est le point de départ. Mais elle doit être mise en balance avec des écarts admissibles fondés sur la géographie, l'histoire des communautés, les intérêts des communautés et la représentation des minorités. La Cour n'a délibérément fixé aucune tolérance stricte, aucun chiffre fixe indiquant jusqu'où une circonscription peut s'écarter. Un écart par rapport à l'égalité stricte de population est défendable sur le plan constitutionnel <em>si les facteurs non numériques le justifient</em>.",
+				p3: "Deux conséquences en découlent, et toutes deux mettent en garde contre une surinterprétation des chiffres de cet audit :",
+				li1: "<strong>L'asymétrie partisane ne rend pas à elle seule une carte inconstitutionnelle.</strong> Selon la jurisprudence examinée dans la monographie, une inclinaison statistique doit être accompagnée de quelque chose de plus — des écarts de population non justifiés par la géographie ou la communauté d'intérêts, ou des preuves que les facteurs neutres ont été invoqués pour rationaliser un résultat partisan plutôt que pour servir leur objectif légal. Les tests structurels de l'audit (écart de population, divisions de villes, limites signalées par le président) existent précisément parce que le droit s'intéresse à cette combinaison.",
+				li2: "<strong>Les tribunaux font preuve de déférence envers les commissions.</strong> La norme est un examen empreint de déférence, celui de la « commission raisonnable », et non la recherche de la meilleure carte possible. Dans <em>Raîche c. Canada (Procureur général)</em>, 2004 CF 679 — l'affaire examinée la plus proche d'une contestation de limites fondée sur la communauté d'intérêts —, la Cour fédérale n'a conclu à <em>aucune</em> violation de l'article 3 de la Charte. Les violations qu'elle a constatées étaient d'ordre législatif (l'obligation relative à la communauté d'intérêts prévue par la loi fédérale sur la délimitation), et la réparation a été le renvoi à la commission, non l'invalidation des limites. C'est une décision de première instance portant sur la loi fédérale : convaincante, mais non contraignante, pour toute contestation en Alberta.",
+				p4: "Où se situe l'audit dans ce cadre ? Ses mesures sont des éléments qu'un tribunal pourrait prendre en considération dans l'analyse de la représentation effective : à quelle distance les mesures partisanes de chaque carte se situent d'un million de solutions de rechange neutres, comment la variation de population est répartie, où les limites s'écartent des limites municipales. Aucune mesure, ni aucune combinaison de mesures, ne tient lieu de résultat du critère. Quand l'audit rapporte que plusieurs indicateurs pointent dans le même sens, c'est un énoncé sur un schéma empirique. Ce n'est pas une conclusion juridique."
+			},
+			ebca: {
+				heading: "La loi : l'Electoral Boundaries Commission Act de l'Alberta",
+				p1: "Les commissions de l'Alberta sont régies par l'<em>Electoral Boundaries Commission Act</em>, RSA 2000, c. E-3 (l'EBCA). Trois de ses règles comptent le plus pour lire cet audit.",
+				p2: "<strong>La bande de population.</strong> En règle générale, chaque circonscription électorale proposée doit rester à ±25 % de la population provinciale moyenne. Les deux propositions de 2026 s'y conforment. Hormis les trois circonscriptions que chaque carte protège au titre de l'exception de l'art. 15(2) décrite ci-après, chaque circonscription se situe dans la bande. L'écart le plus important vers le haut (+24,06 %, sur la carte minoritaire) s'approche à moins d'un point du plafond sans le franchir. À l'intérieur de cette bande généreuse, la commission dispose d'un large pouvoir discrétionnaire, et les constats de l'audit sur la population (l'écart 48 % plus large de la minorité, l'encombrement dans le nord-est et le centre de Calgary) décrivent tous des choix faits <em>à l'intérieur</em> de la bande légale. Légal et inhabituel sont deux questions différentes.",
+				p3: "<strong>L'exception de l'art. 15(2).</strong> Pour au plus quatre circonscriptions, la population peut descendre jusqu'à 50 % sous la moyenne — si la commission est d'avis qu'au moins trois de ces cinq critères sont remplis :",
+				criterion1: "une superficie de plus de 20 000 km² (ou une superficie arpentée totale de plus de 15 000 km²) ;",
+				criterion2: "plus de 150 km entre l'édifice de l'Assemblée législative et la limite la plus proche de la circonscription, par la route la plus directe ;",
+				criterion3: "aucune ville de la circonscription ne compte plus de 8 000 habitants ;",
+				criterion4: "la circonscription comprend une réserve indienne ou un établissement métis ;",
+				criterion5: "une partie de la limite longe la frontière provinciale de l'Alberta.",
+				p4: "La disposition est facultative : remplir les critères rend une circonscription admissible, mais n'oblige jamais la commission à recourir à cette tolérance. Les deux cartes de 2026 invoquent l'art. 15(2) pour trois circonscriptions chacune. L'audit a revérifié les six invocations selon les seuils légaux corrigés et a constaté que toutes sont admissibles. La controverse que l'audit documente ne porte pas sur l'admissibilité. Elle porte sur un choix de tracé. La circonscription Rocky Mountain House–Banff Park de la minorité ne remplit l'un des critères, celui de la frontière provinciale, qu'en se prolongeant à travers des terres inhabitées du parc national. Sur ce choix, le propre rapport final de la commission (23 mars 2026, p. 10) parle de lui-même. Les commissaires de la majorité écrivent :",
+				quote: "« Ils proposent de conserver une circonscription électorale “Rocky Mountain House-Banff Park” en prolongeant artificiellement sa limite jusqu'à la frontière ouest de la province avec la Colombie-Britannique (en prenant une partie du parc national Banff, où personne ne vit), ce qui constitue un effort de mauvaise foi pour s'assurer qu'elle puisse être protégée en vertu de l'art. 15(2) de la Loi. »",
+				p5: "Cette qualification — y compris l'expression « mauvaise foi » — est celle du président de la commission, faite dans un document public prévu par la loi. Ce n'est pas celle de l'audit. La propre analyse de l'audit a établi que la circonscription se qualifie en vertu de l'art. 15(2) même sans le prolongement. Citer le président consigne ce que dit la source primaire. Cela ne consigne pas ce qu'un commissaire voulait.",
+				p6: "<strong>Ce qu'est un rapport de commission — et ce qu'il n'est pas.</strong> En vertu de l'EBCA, le rapport de la commission n'a aucun effet juridique par lui-même. Les limites ne changent que lorsque l'Assemblée législative adopte une Electoral Divisions Act distincte. Certains ressorts rendent la carte d'une commission exécutoire à moins que la législature ne l'annule activement. En Alberta, le défaut est inversé : le parti au pouvoir contrôle si une carte de commission devient loi. Les règles de la Loi sur les audiences, les échéances et la bande de ±25 % s'adressent à la commission. Rien dans la Loi ne régit ce que l'Assemblée fait à la place, et elle ne fixe aucun délai minimal de préavis ou de commentaires du public. La Motion gouvernementale 37, adoptée le 21 avril 2026, a écarté les deux cartes de la commission. Elle a confié le travail à un comité de six MLA, dont quatre du parti au pouvoir, qui doit faire rapport au plus tard le 2 novembre 2026. L'Alberta l'a déjà fait une fois. En 1992, un comité de MLA a tracé la carte après l'impasse d'une commission, et en 1994, la Cour d'appel a maintenu cette carte tout en reprochant au comité d'être incapable d'expliquer plusieurs de ses limites. L'audit documente ce choix de processus comme un constat de procédure, distinct de tout ce que montre la géométrie des cartes et s'y ajoutant.",
+				cross_ref: "L'analyse juridique complète — y compris l'examen de la jurisprudence, la littérature sur la déférence envers les commissions et la comparaison procédurale avec d'autres provinces — se trouve dans la monographie technique, §2 et §5.9, dans <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">le dépôt de l'audit</a>."
+			},
+			audits_standing_rule: {
+				heading: "La règle permanente de l'audit",
+				p1: "Chaque version de cet audit obéit à la même discipline. Il peut rapporter ce que montrent les tests. Il peut dire à quel point une carte est inhabituelle par rapport à un point de repère neutre. Mais il ne déclare aucune carte coupable de découpage partisan, ne déduit pas l'intention de la géométrie et ne se prononce pas sur la conformité constitutionnelle ou législative. Ce sont des questions pour les tribunaux, les commissions et les lecteurs, avec les preuves de l'audit sur la table.",
+				cross_ref: "Pages complémentaires : <a href=\"__BASE__/methods\">Comment les cartes ont été testées</a> — chaque test et chaque statistique en langage clair — et <a href=\"__BASE__/norms\">Ce que demandent les normes</a> — le troisième angle, sur la coutume et son contre-interrogatoire.",
+				disclaimer: "Cette page est un complément en langage clair à l'audit, rédigé pour aider à s'orienter. Ce n'est pas un avis juridique, et rien ici ne doit être considéré comme une opinion juridique."
+			}
 		}
 	}
 } as const;

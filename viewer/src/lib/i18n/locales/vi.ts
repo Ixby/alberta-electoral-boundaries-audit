@@ -1570,7 +1570,113 @@ export default {
 			appendix_k: {
 				heading: "Phụ lục K — Cách kiểm tra một lý do được nêu so với dữ liệu công khai",
 				confusion: "<em>Sự bối rối:</em> \"Các ủy viên là chuyên gia. Một cuộc kiểm toán là ai mà chấm điểm lý do của họ?\"",
-				p1: "Chẳng là ai đặc biệt cả, và đó chính là điểm mấu chốt: phép kiểm tra không đòi hỏi quyền tiếp cận đặc biệt nào. Báo cáo thiểu số nói cư dân Cochrane \"di chuyển trôi chảy\" vào Calgary. Các bảng đi lại đến nơi làm việc của Statistics Canada (miễn phí, công khai) cho thấy khoảng một phần ba người lao động ở Cochrane đi làm vào Calgary, trong khi khoảng một nửa làm việc ở Cochrane. Một mối liên kết thực sự, và không nói gì về hành lang Nolan Hill cụ thể đã được vẽ. Báo cáo ngụ ý rằng trường học chung liên kết Red Deer và Sylvan Lake. Ranh giới khu học chánh của hai nơi (cũng công khai) đặt chúng vào các khu học chánh khác nhau. Mỗi phép kiểm tra theo cùng một công thức. Lấy lý do được nêu. Tìm bộ dữ liệu công khai có thể cho thấy nó. Xem liệu <em>đường ranh giới cụ thể đã vẽ</em> có phải là đường mà dữ liệu ủng hộ hay không. Năm trong sáu lý do được kiểm tra thất bại ở bước cuối đó. Mối liên kết là thật; đường ranh giới không phải là đường mà mối liên kết chỉ tới."
+				p1: "Chẳng là ai đặc biệt cả, và đó chính là điểm mấu chốt: phép kiểm tra không đòi hỏi quyền tiếp cận đặc biệt nào. Báo cáo thiểu số nói cư dân Cochrane \"di chuyển trôi chảy\" vào Calgary. Các bảng đi lại đến nơi làm việc của Statistics Canada (miễn phí, công khai) cho thấy khoảng một phần ba người lao động ở Cochrane đi làm vào Calgary, trong khi khoảng một nửa làm việc ở Cochrane. Một mối liên kết thực sự, và không nói gì về hành lang Nolan Hill cụ thể đã được vẽ. Báo cáo ngụ ý rằng trường học chung liên kết Red Deer và Sylvan Lake. Ranh giới khu học chánh của hai nơi (cũng công khai) đặt chúng vào các khu học chánh khác nhau. Mỗi phép kiểm tra theo cùng một công thức. Lấy lý do được nêu. Tìm bộ dữ liệu công khai có thể cho thấy nó. Xem liệu <em>đường ranh giới cụ thể đã vẽ</em> có phải là đường mà dữ liệu ủng hộ hay không. Năm trong sáu lý do được kiểm tra thất bại ở bước cuối đó. Mối liên kết là thật; đường ranh giới không phải là đường mà mối liên kết chỉ tới.",
+				p2: "Giờ hãy đọc lại phát hiện 11. Lưu ý rằng cuộc kiểm toán đã bỏ một trong bảy khẳng định dự thảo của chính mình theo cùng tiêu chuẩn đó, khi không thể tìm thấy nguồn.",
+				limit: "<em>Giới hạn:</em> một lý do thất bại khi kiểm tra chứng minh rằng lý do <em>được nêu</em> không phù hợp. Nó không thể tiết lộ lý do thực sự. Sự cẩu thả và cái cớ để lại giấy tờ giống hệt nhau.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-11\">↩ Quay lại phát hiện 11</a>"
+			},
+			appendix_l: {
+				heading: "Phụ lục L — Các ủy viên được bổ nhiệm ra sao, và việc đề cử ngụ ý gì",
+				confusion: "<em>Sự bối rối:</em> \"Các ủy viên do chính phủ đề cử đã vẽ bản đồ có lợi cho chính phủ. Hẳn là vụ việc đã rõ rồi chứ?\"",
+				p1: "Ủy ban của Alberta được xây dựng từ các đề cử: một chủ tịch, cộng với các ủy viên được đề cử từ phía chính phủ và phía đối lập. Thiết kế này giả định có các góc nhìn đảng phái và cân bằng chúng. Nó đặt cược rằng một căn phòng hỗn hợp sẽ hội tụ về một bản đồ có thể bảo vệ được. Trong nhiều thập kỷ, canh bạc đó đã thắng: các ủy ban ký báo cáo đồng thuận. Chu kỳ này, căn phòng đã chia rẽ theo đúng đường đề cử của nó, và những người được chính phủ đề cử đã tạo ra ngoại lệ thống kê. Mối tương quan đó là thật và đáng được ghi lại. Đó cũng chính là chỗ mà suy luận phải dừng lại. Các ủy viên được đề cử không phải là người đại diện thừa hành. Không có bằng chứng nào trong hồ sơ của cuộc kiểm toán này cho thấy chính phủ đã chỉ đạo, phối hợp với, hay thậm chí biết hình dạng bản đồ của những người mình đề cử trước khi nó được nộp. Lịch sử đầy những người được đề cử đã làm người đề cử mình thất vọng. Mối tương quan gợi ra một câu hỏi. Nó không thể trả lời câu hỏi đó. Và các công cụ của cuộc kiểm toán cũng đi ngược lại phía của chủ tịch khi dữ liệu chỉ theo hướng đó. Đó là ý nghĩa của việc đo lường đối xứng.",
+				p2: "Giờ hãy đọc lại phát hiện 12: sự chia rẽ là điều bất thường; nguồn gốc, ai đã đề cử ai, là dấu hỏi, không phải câu trả lời.",
+				limit: "<em>Giới hạn:</em> nguồn gốc bổ nhiệm là bối cảnh, không bao giờ là bằng chứng. Coi nó là bằng chứng là cùng một ngụy biện như ở Phụ lục H, khoác một chiếc áo chính trị.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-12\">↩ Quay lại phát hiện 12</a>"
+			},
+			appendix_m: {
+				heading: "Phụ lục M — Quy trình của Luật, từ ủy ban ranh giới đến ủy ban lập pháp, từ đầu đến cuối",
+				confusion: "<em>Sự bối rối:</em> \"Làm sao cơ quan lập pháp có thể cứ thế… tiếp quản việc phân định lại khu vực bầu cử? Chẳng phải bản đồ của ủy ban chính là bản đồ sao?\"",
+				p1: "Không. Đây là điều bất ngờ then chốt của toàn bộ câu chuyện. Theo <em>Electoral Boundaries Commission Act</em> của Alberta, ủy ban đề xuất; chỉ Hội đồng Lập pháp quyết định. Báo cáo cuối cùng của ủy ban — cùng mọi phiên điều trần, bài nộp, bản sửa đổi — là lời khuyên. Nó không có hiệu lực pháp lý cho đến khi Hội đồng ban hành một bản đồ. Và Luật không đặt ràng buộc nào lên những gì Hội đồng làm thay vào đó: không có thời lượng tranh luận tối thiểu, không có thời hạn thông báo, không có nghĩa vụ ưu tiên công trình của ủy ban, không có yêu cầu điều trần cho bất kỳ quy trình nào tiếp theo. Không có gì trong Luật ngăn Hội đồng chuyển công việc sang nơi khác. Đó là điều Motion 37 của Chính phủ đã làm, chuyển nó cho một ủy ban tuyển chọn. Các ủy ban tuyển chọn của Hội đồng gồm các MLA, nên chính việc chọn phương tiện đã loại trừ sự độc lập. Một cách hợp pháp. Trong mọi chu kỳ kể từ khi Luật được sửa đổi năm 1995, chính sự tự kiềm chế của Hội đồng, chứ không phải luật, là điều giữ cho tay các chính trị gia tránh xa cây bút. Năm 1992 thì không. Một ủy ban gồm các MLA đã vẽ bản đồ, và năm 1994 Tòa Phúc thẩm đã chỉ trích ủy ban đó vì không thể giải thích một số ranh giới của nó.",
+				p2: "Giờ hãy đọc lại phát hiện 13: các phiên điều trần ở mười sáu cộng đồng bị thay thế bởi một cơ quan không bắt buộc tổ chức phiên nào. Tất cả đều nằm trong khuôn khổ Luật.",
+				limit: "<em>Giới hạn:</em> phụ lục này giải thích những gì luật cho phép. Liệu những gì luật cho phép có phải là điều người dân Alberta nên chấp nhận hay không là một câu hỏi chính trị — câu hỏi mà các bài kiểm tra tháng Mười Một được xây dựng để cung cấp thông tin.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-13\">↩ Quay lại phát hiện 13</a>"
+			},
+			appendix_n: {
+				heading: "Phụ lục N — Quy ước so với luật, và các chuẩn mực bị xói mòn ra sao",
+				confusion: "<em>Sự bối rối:</em> \"Nếu việc các chính trị gia tự vẽ khu vực của mình vi phạm chuẩn mực bầu cử sâu sắc nhất của chúng ta, làm sao nó có thể hợp pháp?\"",
+				p1: "Vì hiến pháp Canada vận hành trên hai hệ điều hành. Một là luật: thành văn, có thể đưa ra tòa (tòa án có thể phán quyết về nó), được tòa án thực thi. Hệ kia là quy ước: những quy tắc bất thành văn về hành xử chính trị, ràng buộc trong thực tế, vô hình trước phòng xử án. Tòa án Tối cao đã mô tả sự phân chia này trong vụ Patriation Reference năm 1981. Tòa án có thể <em>công nhận</em> một quy ước mà vẫn từ chối <em>thực thi</em> nó, vì quy ước được giám sát bằng con đường chính trị — bởi phe đối lập, báo chí và cử tri — chứ không phải bằng con đường tư pháp. Các ủy ban ranh giới độc lập nằm ở phía quy ước. Sáu mươi năm thực tiễn, ở mọi tỉnh và ở cấp liên bang, đã xây dựng nên quy tắc rằng các chính trị gia không tự vẽ khu vực bầu cử của mình. Không có luật nào ở đâu khiến quy tắc đó trở thành bắt buộc. Vì vậy toàn bộ sức mạnh của hàng rào bảo vệ nằm ở chỗ các chính phủ cứ tiếp tục chọn tôn trọng nó. Một chuẩn mực bị vi phạm một lần, mà không có hậu quả, sẽ yếu đi đối với mọi chính phủ tiếp theo. Của bất kỳ đảng nào.",
+				p2: "Giờ hãy đọc lại phát hiện 14: vi phạm thực sự, được ghi nhận đầy đủ, không liên quan về mặt tư pháp — cả ba cùng lúc.",
+				limit: "<em>Giới hạn:</em> \"không thể thực thi\" là một nhận định về tòa án, không phải về hậu quả. Quy ước được thực thi tại các cuộc bầu cử, bởi những người biết điều gì đã được làm. Những báo cáo như báo cáo này tồn tại để họ biết.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Quay lại phát hiện 14</a>"
+			},
+			footer_note: "Nội dung phản ánh các phụ lục của <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">báo cáo công khai đầy đủ</a>. Hiện chỉ có bằng tiếng Anh, đang chờ tác giả xem xét trước khi dịch."
+		},
+		methods: {
+			head_title: "Các bản đồ đã được kiểm tra ra sao · Kiểm toán Ranh giới Bầu cử Alberta",
+			head_description: "Mọi bài kiểm tra và số liệu thống kê trong cuộc kiểm toán, được giải thích bằng ngôn ngữ đơn giản: cỗ máy giả định một triệu bản đồ, năm bài kiểm tra cấu trúc, bốn phép đo công bằng, giá trị p, và các bài kiểm tra đã bị loại bỏ.",
+			back: "← Quay lại cuộc kiểm toán",
+			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
+			h1: "Các bản đồ đã được kiểm tra ra sao",
+			meta: "Mọi bài kiểm tra và mọi số liệu thống kê, bằng ngôn ngữ đơn giản · Hiện chỉ có bằng tiếng Anh · Mọi con số đều tái tạo được từ kho mã nguồn công khai",
+			standfirst: "Toàn bộ cuộc kiểm toán dựa trên một ý tưởng đơn giản. Muốn biết một bản đồ có bất thường không? Hãy vẽ một triệu bản đồ không thể thiên vị. Một máy tính vẽ chúng, và nó không bao giờ nhìn thấy một lá phiếu nào. Rồi kiểm tra xem các bản đồ thực rơi vào đâu giữa chúng. Trang này đi qua ý tưởng đó và mọi bài kiểm tra được xây dựng trên nó. Không có công thức. Nếu bạn đọc được bản tin thời tiết, bạn đọc được trang này.",
+			toc: {
+				aria: "Nội dung trang",
+				what_if: "Cỗ máy giả định",
+				percentile: "Cách đọc một phân vị",
+				structural: "Năm bài kiểm tra cấu trúc",
+				fairness: "Bốn phép đo công bằng",
+				odds: "Xác suất có nghĩa là gì",
+				died: "Các bài kiểm tra đã bị loại bỏ",
+				break: "Cố phá vỡ chính kết quả của mình",
+				prereg: "Những lời hứa được đưa ra từ trước",
+				reproduce: "Tự mình chạy thử"
+			},
+			what_if: {
+				heading: "Cỗ máy giả định: 1.010.000 bản đồ trung lập",
+				p1: "Một máy tính đã vẽ <strong>1.010.000 bản đồ Alberta hợp pháp</strong>. Mỗi bản đồ tuân theo cùng hai quy tắc cứng mà ủy ban thực đã tuân theo: mọi khu vực có số dân gần bằng nhau (trong phạm vi 25% so với mức trung bình), và mọi khu vực là một mảnh liền.",
+				p2: "Máy tính vẽ bản đồ như thế nào? Từng bước nhỏ một. Lấy hai khu vực có chung đường biên. Gộp chúng thành một khối. Chia khối đó trở lại thành hai khu vực hợp lệ mới, một cách ngẫu nhiên. Lặp lại, 1.010.000 lần, lưu bản đồ sau mỗi bước. Phương pháp này tên là ReCom, và nó là công cụ tiêu chuẩn trong lĩnh vực này.",
+				p3: "Sự thật then chốt: <strong>máy tính không bao giờ nhìn thấy một lá phiếu.</strong> Nó không biết cử tri NDP hay UCP sống ở đâu. Vì vậy nếu một bản đồ trung lập vẫn nghiêng về một phía, độ nghiêng đó chỉ đến từ địa lý của Alberta. Và nếu một bản đồ thực nghiêng xa hơn nhiều so với gần như tất cả các bản đồ trung lập, địa lý không còn có thể là lời giải thích.",
+				p4: "Bốn điểm trung thực về cỗ máy:",
+				li1: "<strong>Xúc xắc đã được tung công khai.</strong> Hạt giống ngẫu nhiên (con số khởi đầu đằng sau mọi lựa chọn ngẫu nhiên) không do tác giả chọn. Nó đến từ một nguồn phát tín hiệu ngẫu nhiên công khai (\"drand\", do League of Entropy vận hành, một nhóm có cả Cloudflare), giống như một lần quay xổ số được truyền hình trực tiếp. Nó đã được khóa trước khi các tập tin bản đồ chính thức tồn tại. Ai cũng có thể tính lại nó.",
+				li2: "<strong>Bốn lần chạy riêng biệt đều đồng ý.</strong> Một triệu bản đồ đến từ bốn lần chạy độc lập, mỗi lần bắt đầu khác nhau. Cả bốn đều đi đến cùng một bức tranh. Các phép kiểm tra tiêu chuẩn cho việc này (được dùng khắp lĩnh vực) đều đạt với biên độ dư dả.",
+				li3: "<strong>Một ghi chú về số ghế.</strong> Mỗi bản đồ của ủy ban năm 2026 có 89 khu vực. Mô phỏng chạy trên bản đồ 87 khu vực năm 2019, bản đồ được ban hành hợp pháp gần nhất, vì thuật toán cần một bản đồ thực để bắt đầu bước đi. Ủy ban tháng Mười Một sẽ tạo ra 91. Mọi tỷ lệ phần trăm trên trang web này là <em>tỷ lệ</em> ghế, nên các con số so sánh được rõ ràng giữa cả ba quy mô.",
+				li4: "<strong>Cỗ máy không phải là một trọng tài hoàn hảo.</strong> Nó tuân theo hai quy tắc cứng, nhưng không phải mọi quy tắc mềm mà các ủy ban thực tôn trọng, như giữ các cộng đồng với nhau. Bản đồ thực của các ủy ban thực ra gọn gàng hơn hầu hết các bản đồ trung lập. Cuộc kiểm toán nói rõ điều này ở mọi nơi các con số của cỗ máy xuất hiện."
+			},
+			percentile: {
+				heading: "Cách đọc một phân vị",
+				p1: "Xếp hàng toàn bộ 1.010.000 bản đồ trung lập từ ít nghiêng về UCP nhất đến nghiêng về UCP nhiều nhất. Giờ đặt một bản đồ thực vào hàng. <strong>Phân vị</strong> của nó chỉ đơn giản là vị trí của nó: \"phân vị thứ 78\" nghĩa là nó nghiêng xa hơn 78 trong mỗi 100 bản đồ trung lập. Điều đó chẳng có gì đáng chú ý: hơi trên mức giữa của nhóm một chút.",
+				p2: "\"Phân vị thứ 99,99\" thì khác. Nó có nghĩa là bản đồ nghiêng xa hơn hầu như mọi bản đồ trung lập trong hàng — trong cuộc kiểm toán này, tất cả trừ <strong>69 trong số 1.010.000</strong>. Chiều cao cũng vậy. Một người đàn ông ở phân vị thứ 78 thì hơi cao. Một người đàn ông ở phân vị thứ 99,99 cao khoảng bảy feet."
+			},
+			structural: {
+				heading: "Năm bài kiểm tra cấu trúc (không cần phiếu bầu)",
+				p1: "Trước bất kỳ mô phỏng nào, cuộc kiểm toán đã đo chính các đường ranh giới được vẽ. Năm bài kiểm tra, tất cả đều được khóa trước khi biết kết quả. Mỗi bài so sánh trực tiếp hai bản đồ của ủy ban.",
+				li1: "<strong>1. Độ phân tán dân số.</strong> Các khu vực lệch khỏi quy mô lý tưởng bao xa? Theo chính các bảng của ủy ban, mức lệch điển hình của bản đồ đa số là 3.180 người. Của bản đồ thiểu số là 4.707, rộng hơn khoảng một nửa. Lệch rộng hơn nghĩa là các lá phiếu có giá trị kém đồng đều hơn.",
+				li2: "<strong>2. Sự chen chúc ở Calgary.</strong> Ở đông bắc và trung tâm Calgary, các khu vực của bản đồ thiểu số lớn hơn mức trung bình của tỉnh 11,5%. Của bản đồ đa số lớn hơn 2,8%. Khu vực lớn hơn nghĩa là mỗi lá phiếu trong đó nhẹ ký hơn. Và vùng này bỏ phiếu rất mạnh cho NDP. Mẫu hình này được gọi là <em>nhồi nhét</em>.",
+				li3: "<strong>3. Sự chia cắt Airdrie.</strong> Luật buộc Airdrie phải được chia vào ít nhất hai khu vực. Bản đồ đa số dùng hai. Bản đồ thiểu số cắt thành phố thành bốn mảnh (ba mảnh chứa ít nhất 2% dân số của nó), mỗi mảnh gắn với một vùng lãnh thổ bên ngoài khác nhau. Chia một cộng đồng thành những phần mỏng được gọi là <em>phá vỡ</em>.",
+				li4: "<strong>4. Các cờ của chủ tịch.</strong> Chính chủ tịch của ủy ban đã công khai gắn cờ các ranh giới là kỳ lạ về mặt địa lý. Bốn cờ của ông rơi vào bản đồ thiểu số, và phép kiểm tra hình học của chính cuộc kiểm toán đã xác nhận ba. Không cờ nào rơi vào bản đồ đa số.",
+				li5: "<strong>5. Bám theo giới hạn thành phố (bài kiểm tra đã bị loại bỏ).</strong> Dữ liệu ban đầu cho thấy bản đồ thiểu số phớt lờ các đường ranh giới đô thị. Các tập tin bản đồ chính thức đã loại bỏ phát hiện đó: cả hai bản đồ đều bám theo giới hạn thành phố ở tỷ lệ bình thường của Canada (80% và 72%). Cuộc kiểm toán giữ bài kiểm tra đã bị loại bỏ được trưng ra thay vì xóa nó.",
+				p2: "Điểm số: bản đồ thiểu số vượt cả bốn ngưỡng còn hiệu lực. Bản đồ đa số không vượt ngưỡng nào."
+			},
+			fairness: {
+				heading: "Bốn phép đo công bằng (thêm phiếu bầu vào)",
+				p1: "Giờ hãy thêm phiếu bầu năm 2023 vào và hỏi: mỗi bản đồ chuyển phiếu bầu thành ghế như thế nào? Bốn phép đo tiêu chuẩn, mỗi phép đều được kiểm tra so với một triệu bản đồ trung lập.",
+				li1: "<strong>1. Số ghế khi phiếu ngang nhau.</strong> Bài kiểm tra trực quan nhất. Giả sử tỉnh bỏ phiếu chính xác 50/50 và đếm số ghế của mỗi bên. Trên địa lý của Alberta, một bản đồ trung lập điển hình cho UCP khoảng 44,8% số ghế khi hòa. Phiếu NDP ở thành phố được sử dụng hiệu quả hơn một chút, nên khi hòa thì tự nhiên hơi có lợi cho NDP. Bản đồ đa số cho UCP 46,1%: phân vị thứ 78, bình thường. Bản đồ thiểu số cho UCP <strong>51,7%</strong>, đa số ghế trong khi số phiếu hòa nhau. Chỉ 69 trong số 1.010.000 bản đồ trung lập làm tốt hơn cho UCP. Để so sánh, một quy trình được lệnh <em>cố ý</em> tối đa hóa số ghế UCP đạt 52,9%. Bản đồ thiểu số nằm gần mức trần được thiết kế có chủ đích đó hơn là gần điểm giữa trung lập.",
+				li2: "<strong>2. Khoảng cách hiệu quả.</strong> Mỗi lá phiếu hoặc là cần thiết để giành ghế, hoặc bị \"lãng phí\" — bỏ cho người thua, hoặc chất thêm cho người thắng vượt quá mức chiến thắng đòi hỏi. Phép đo này so sánh tốc độ phiếu bầu của mỗi đảng bị lãng phí. Bản đồ đa số đạt +0,1%: về cơ bản là không có gì. Bản đồ thiểu số đạt +4,0% có lợi cho UCP, phân vị thứ 94,5, chỉ hơi <em>dưới</em> ngưỡng báo động đặt trước của cuộc kiểm toán ở phân vị thứ 95. Đây là phép đo duy nhất không kích hoạt. Cuộc kiểm toán báo cáo nó là không đạt.",
+				li3: "<strong>3. Khoảng cách trung bình-trung vị.</strong> So sánh kết quả khu vực trung bình của một đảng với kết quả ở khu vực nằm giữa của đảng đó. Khi hai giá trị này tách xa nhau, phiếu bầu đang bị dồn vào những chiến thắng áp đảo ở đâu đó. Khoảng cách của bản đồ thiểu số có lợi cho UCP hơn 99,9% bản đồ trung lập. Khoảng cách của bản đồ đa số nghiêng về phía ngược lại — hơi hiệu quả cho NDP — điều phù hợp với cách các bản đồ gọn gàng của ủy ban hoạt động trên địa lý của Alberta.",
+				li4: "<strong>4. Độ nghiêng.</strong> Một cách đọc hình học về cách biệt chiến thắng: bản đồ có đối xử với chiến thắng của hai đảng như nhau không, hay nó bẻ cong ở đường 50%? Bản đồ thiểu số bẻ cong về phía có lợi cho UCP xa hơn khoảng 98,8% bản đồ trung lập. Bản đồ đa số cho kết quả bình thường. (Một phiên bản ban đầu của phép đo này đã bị đảo dấu do một lỗi lập trình; việc đính chính được ghi nhận, không bị xóa.)",
+				p2: "Điểm số: ba trong bốn phép đo kích hoạt trên bản đồ thiểu số, tất cả theo cùng một hướng. Phép thứ tư nằm ngay dưới ngưỡng, chỉ cùng hướng. Bản đồ đa số bình thường trên cả bốn."
+			},
+			odds: {
+				heading: "\"1 trên 568.000\" có nghĩa là gì — và vì sao cuộc kiểm toán nhân đôi biên độ của mình",
+				p1: "Gộp bốn phép đo công bằng thành một điểm số và hỏi: việc vẽ trung lập tạo ra một hồ sơ cực đoan như của bản đồ thiểu số thường xuyên đến mức nào? Câu trả lời là khoảng <strong>1 trên 1,1 triệu</strong>. Nhưng cuộc kiểm toán không trích dẫn con số đó. Nó trích dẫn <strong>1 trên 568.000</strong> — ấn tượng đúng bằng một nửa. Đây là lý do.",
+				p2: "Cuộc kiểm toán đã tìm kiếm tín hiệu ở hai nơi khác nhau: điểm số kết hợp này, và một bài kiểm tra thứ hai về các lựa chọn ranh giới cụ thể. Tìm ở hai nơi cho sự may mắn hai cơ hội. Hãy nghĩ đến vé số: mua hai vé, và khả năng bạn cầm vé trúng tăng gấp đôi. Vì vậy trước khi trích dẫn xác suất, cuộc kiểm toán nhân đôi nó theo hướng bất lợi cho chính mình. Bằng cách đó, \"bạn đã có hai lần thử\" đã được trả giá từ trước.",
+				p4: "Một lời cảnh báo mà cuộc kiểm toán nhắc lại ở mọi nơi: những xác suất này đo mức độ bất thường của <em>bản đồ</em>. Chúng không phải là xác suất rằng ai đó đã hành động có chủ ý. Về nguyên tắc, một bản đồ hiếm gặp vẫn có thể là sản phẩm trung thực. Xác suất chỉ nói điều này: việc soạn thảo thông thường không tạo ra bản đồ này."
+			},
+			died: {
+				heading: "Các bài kiểm tra đã bị loại bỏ",
+				p1: "Hai phát hiện đã không đứng vững, và cả hai vẫn được giữ trên trang. Đó là có chủ ý: một cuộc kiểm toán chỉ cho bạn thấy những lần thắng của nó là quảng cáo.",
+				li1: "<strong>Bài kiểm tra giới hạn thành phố</strong> không tìm thấy gì để tách bạch hai bản đồ: cả hai đều bám theo các đường ranh giới đô thị trong tiêu chuẩn Canada (đa số 80%, thiểu số 72%).",
+				li2: "<strong>Bài kiểm tra lựa chọn ranh giới (SZAT)</strong> trông có ý nghĩa thống kê cho đến khi cuộc kiểm toán hiệu chỉnh nó theo một sự thật đơn giản: những nơi lân cận bỏ phiếu giống nhau. Coi láng giềng là độc lập sẽ tô đẹp kết quả. Sau khi hiệu chỉnh, bài kiểm tra không cho thấy gì. Nó đã bị gỡ bỏ."
+			},
+			break: {
+				heading: "Cố phá vỡ chính kết quả của mình",
+				p1: "Trước khi tin vào kết luận chính, cuộc kiểm toán đã tấn công nó theo ba cách.",
+				li1: "<strong>Thay bộ máy.</strong> Chạy lại mọi thứ với một thuật toán vẽ bản đồ hoàn toàn khác (một phương pháp rừng bao trùm, được hứa công khai trước khi chạy). Mọi kết quả dịch chuyển chưa đến một điểm phân vị. Phát hiện đứng vững.",
+				li2: "<strong>Thay phần mềm.</strong> Một cách triển khai độc lập bằng một ngôn ngữ lập trình khác cũng không tìm thấy bản đồ nào đạt đến giá trị của bản đồ thiểu số.",
+				li3: "<strong>Kiểm tra cơ chế — và thất bại.</strong> Cuộc kiểm toán đoán rằng những hình dạng kỳ lạ từ các bài kiểm tra cấu trúc là nguyên nhân trực tiếp của lợi thế về ghế. Phỏng đoán đó đã thất bại trong bài kiểm tra của nó. Các hình dạng và độ nghiêng về ghế cùng chỉ vào một bản đồ, nhưng các hình dạng không phải là động cơ. Cuộc kiểm toán nói rõ như vậy."
+			},
+			prereg: {
+				heading: "Những lời hứa được đưa ra từ trước"
 			}
 		}
 	}

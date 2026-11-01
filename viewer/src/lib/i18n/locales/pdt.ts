@@ -1477,5 +1477,72 @@ export default {
 		privacy_link_text: "Privatschuts-Politikj",
 		back_to_report: "Trigj nom Berecht",
 		back_to_map: "Trigj nom Koaten-Explorer"
+	},
+	pages: {
+		explainers: {
+			head_title: "Dee vieetieen Erkloarunge · Alberta Electoral Boundary Audit",
+			head_description: "Vieetieen kotte Erkloarunge — eene fa jiede Aunfindunk en dee Alberta Electoral Boundary Audit: Opsprenjunk, Stoppe, neutrale Ensembles, dee Truggschluss vom Aunkloaja, Brukj jäajen Jesats, un meea.",
+			back: "← Trigj to dee Pruewunk",
+			site_label: "Alberta Electoral Boundary Audit",
+			h1: "Dee vieetieen Erkloarunge",
+			meta: "Aunhäng A–N · jiedet een Bejreff · fa nu bloos opp Enjlisch",
+			standfirst: "Jiede Hilse en dee Pruewunk vabint no eenen Aunhank hia, un jieda Aunhank haft jenau eenen Bejreff. Hee fangt bie dee ährlije Vewirrunk aun. Hee buut dee Idee met eenem konkreete Biespell op. Hee schekjt jüch trigj to dee Hilse äare Tal, soo daut jie dee aleen läse kjenne. Un hee enjt met daut, waut dee Bejreff <em>nich</em> saje kjann. Läst dee en irjent eena Reaj.",
+			appendix_a: {
+				heading: "Aunhank A — Waut „Opsprenjunk“ wirkjlich met en Stemm moakt",
+				confusion: "<em>Dee Vewirrunk:</em> „Airdrie siene Wähla stemme doch emma noch. Kjeena haft äare Stemmzaddels jenome. Woo kjann Linie teidchne irjentwaut ‚vedenne‘?“",
+				p1: "Stalt jüch en Staut met 40.000 Mensche väa, dee meist Orantsch stemmt, en en Jejent, dee meist Blau stemmt. Jäwt dee Staut äaren eajnen Wahlkraus, en Jebiet met en eajnen Sitz em Laanddach, un see wält en orantschen MLA: 40.000 Mensche, een Sitz, eene Stemm. Nu schnied dee Staut en vea Stekje un heft jiedet Stekj aun en Stekj blauet Launt. En jiedem nie Wahlkraus stone dee Staut äare 10.000 Wähla 30.000 ländlije Wähla jäajenäwa. Orantsch velieet aule vea. Dieselwe Wähla, dieselwe Stemmzaddels, nul Sitze. Kjeenem eenselne Wähla wort waut jestole. Waut wajchjenome wort, es dee <em>Jemeend</em> äare Fähichkjeit, irjent wäm to wäle. Daut es Opsprenjunk. Sien Speajelzuch es Stoppe (Aunhank C): en Grupp en soo wieniga Wahlkreise aus mäajlich stoppe, soo daut see dee met Äwastemm jewennt un nuscht aundret.",
+				p2: "Nu läst Aunfindunk 1 noch eemol: 85.805 Mensche, vea Wahlkreise, en Minorität en dree von dee. Dee selwje Kommissjon äa aundra Entworf wiest, daut twee Wahlkreise jenuach wiere, om daut Jesats to erfelle.",
+				limit: "<em>Dee Grenz:</em> Opsprenjunk beschrift en Wirkunk, kjeen Motiw. En Spaltunk kjann passeare, wiel irjentwäa vedenne wull. See kjann uk passeare, wiel aundre Bedinjunge dee Koat enjedrenjt ha. Dee Jeometrie aleen kjann nich saje, wäakjet.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Trigj to Aunfindunk 1</a>"
+			},
+			appendix_b: {
+				heading: "Aunhank B — Fuarmanalüs, un wofäa s.15(2)-Schutz doa es",
+				confusion: "<em>Dee Vewirrunk:</em> „Aule Wahlkreise sitte komisch ut. Wurom senn dise dree Fuarme wichtich?“",
+				p1: "Wahlkreise folje dee Jeografie, also es klumpich normaul. Fuarmanalüs sieekjt no <em>Oabeit</em>: en Grenz, dee waut deit, waut kjeene jewehnlije Bedinjunk erkloat. En Gang, dee eene Noowaschaft met en Lasso en en wiedwajchen Wahlkraus trakjt. En Oarm, dee en en Staut äaren Raund rekjt. En Linie, dee dorch Launt väalenjt es, wua kjeena wont. Albertas Jesats haft en besondre Bestemmunk, Aufsats 15(2), dee bat to vea Wahlkreise unja dän normaule Bevälkarungsbodem faule lat. Dee wort fa feane Wahlkreise met stoakje Jemeenschaftsbaund jeschräwe, soo aus nuardlije Wahlkreise, dee indigene Jemeende äwa wiede Ofstäng bedeene. En Grenz dorch onbewonden Nationalpoak to väalenje, soo daut en Wahlkraus fa dän Schutz qualifizeat, es daut, waut dee Kommissjon äa eajna Vorsetza „en Versieekj en schlajchtem Gloowe“ nand: en Rejel, dee fa Mensche jeschräwe es, dee wiet ut'nauda wone, jebrukt, om en Linie to schitze, wua goa kjeena wont.",
+				p2: "Nu läst Aunfindunk 2 noch eemol: dree Fuarme, jeflemmt von dän Prozäss sienen eajnen Vorsetza, onaufhenjich bestäticht von Proowe, dee nuscht met sienen Strit to doone hade.",
+				limit: "<em>Dee Grenz:</em> en komische Fuarm es en Froag, kjeene Äntwuat. Eene von dise Fuarme haft en echte, glaubwirdje Logik doaunja: daut Banff-Stautjebiet met Canmore toop. Dän Vorsetza sien Enwand äwalaeft daut trotsdäm. Dee wea jäajen dee Väalenjunk en dän leddje Poak jerecht, un doaraun endat dee Plauts von daut Stautjebiet nuscht.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Trigj to Aunfindunk 2</a>"
+			},
+			appendix_c: {
+				heading: "Aunhank C — Stoppe, en en Spälbiespell met dree Wahlkreise",
+				confusion: "<em>Dee Vewirrunk:</em> „Jratre Wahlkreise ha meea Wähla. Na un? Jieda kjricht emma noch eene Stemm.“",
+				p1: "Nämt 12.000 Wähla, 7.000 Orantsch un 5.000 Blau, opjedeelt en dree Wahlkreise von 4.000. Teidchent dee jlikjmässich, un Orantsch jewennt aule dree. Nu teidchent nij. Drenjt 4.000 orantsche Wähla en eenen Wahlkraus (Orantsch jewennt dän 100–0). Vedeelt dee äwrije 3.000 Orantsche opp twee Wahlkreise von 4.000, wua Blau siene 5.000 äm en beide dän Väasprunk jäwe. Dieselwe 12.000 Wähla, dieselwe orantsche Mehrheit von 7.000. Nu haft Orantsch eenen Sitz un Blau twee. Daut es Stoppe: jüare Jäajna äare Stemme woare doa enjelajcht, wua see sikj aus Äwaschoss opstaple, vaschwendt opp Ofstäng, dee see nich bruckte. Daut Teekje es dee Wahlkreise äare <em>Jreet un Dichtheit</em>. Dee Jäajna äare Wahlkreise senn groot un deep. Jüare senn schlank un effizient.",
+				p2: "Nu läst Aunfindunk 3 noch eemol: en dän eenen Calgary-Jebiet, wua 13 von 17 Wahlkreise NDP stemme, senn dee Minorität äare Wahlkreise 11,5% äwa dän Provinzdorchschnett. Dee von dee Mehrheit, en dän selwje Rum jeteidchent, 2,8%.",
+				limit: "<em>Dee Grenz:</em> äwajrote Wahlkreise kjenne uk von ährlije Schautunge äwa Wauskdom kome, oda doavon, daut en Jemeend gaunz behoole woat. Onjlikje Jreet es daut Teekje, daut Stoppe lat. Mehrere onschuldije Wale loate daut uk.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Trigj to Aunfindunk 3</a>"
+			},
+			appendix_d: {
+				heading: "Aunhank D — Waut MAD mät, un wurom dee Band doa es",
+				confusion: "<em>Dee Vewirrunk:</em> „Mittlere absolute Afwiekjunk von dee Bevälkarunk — es dit bloos Statistik fa ‚dee Wahlkreise senn nich jlikj‘?“",
+				p1: "Meist. Wahlkreise kjenne nich aula jenau dieselwe Tal Mensche hoole; Jemeende kome en onjeschekjte Greete. MAD stalt en eenfache Froag: em Dorchschnett, woo wiet jeit jieda Wahlkraus von dän ideale Deel wajch? En MAD von 3.180 meent, daut Wahlkreise dän ideale Wäat em Dorchschnett om omtrent 3.180 Mensche missen. En MAD von 4.707 meent, daut dee Fehlbedräaj em Dorchschnett noch eemol hauft so groot senn. Daut Jesats dult Afwiekjunk, bennen en Band (Alberta lat ±25% too), wiel echte Jemeende to ähre eenje Onjlikjheit wäat es. Daut es dee Hanel. Afwiekjunk es daut Jelt, un jie jäwt daut ut, om Sache soo aus gaunze Städte un vernenftije Grenze to kjeape. Daut jeft Aunfindunk 4 äaren Punkt: dee Minoritätskoat jeft 48% meea von daut Jelt ut aus dee Mehrheit. Un Aunfindunk 1 wiest, daut see doamet Airdrie siene Ganzheit <em>nich</em> jekjeapt haft.",
+				p2: "Nu läst Aunfindunk 4 noch eemol: breedre Streijunk aus 99 von jiede 100 neutrale Koate (Koate, dee en Computer jeteidchent haft, oone eene eenje Stemm to seene; Aunhank F), bie dän eenen Wäat, dän daut Jesats wirkjlich en Tal jeft.",
+				limit: "<em>Dee Grenz:</em> daut Jesats rangeat nuscht bennen dän Band. „Meea Afwiekjunk utjejäwe“ es en Beobachtunk äwa Väarang, kjeen Vestoot. Jieda Wahlkraus opp beide Koate es jesatslich.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Trigj to Aunfindunk 4</a>"
+			},
+			appendix_e: {
+				heading: "Aunhank E — Waut städtische Vaunkjank mät, un waut daut nich wiese kjann",
+				confusion: "<em>Dee Vewirrunk:</em> „Wurom tale, woo oft en Grenz en Staut- oda Darplinie foljt?“",
+				p1: "Wiel daut doa es, wua Mensche aul weete, daut see wone. Wan en Wahlkreisgrenz lenjd en städtische Grenz leept, dan faule dee Jrunstieerlinie, dee Schooldivisjoonslinie, dee lokale Wardlinie un dee Provinzwahllinie toop. En Wähla kjann oone Koat saje, en wäakjem Wahlkraus hee es. Dee Proow mät, woo väl von jieda Koat äare Wahlkreisgrenzlenjd bennen 500 Meeta von en städtische Grenz von Statistics Canada leept. Kanadische Kommissjoone lande bie dän Mot tweschen 70% un 85% (Quebec 78%, Ontario 82%, BC 71%). Dee Mehrheitskoat kjricht 80%. Dee Minorität 72%. Beide sette bennen dee Norm, also unjascheet dee Proow dee bie dee Rote em gaunze nich.",
+				p2: "Nu läst Aunfindunk 5 noch eemol: dee Root em gaunze es opp beide Koate jewehnlich. Waut opfelt, es, wua dee Minorität äare Afwiekjunge faule: aun dee Raunde, dee dee Vorsetza jeflemmt haft.",
+				limit: "<em>Dee Grenz:</em> dee Vaunkjungsroot es en Norm, kjeene Rejel. Daut Jesats sat kjeene Schwal. Un en Afwiekjunk kjann en gooden Grunt habe, soo aus en Vorstaut, dee äwa en Stautgrenz rut jewossen es.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Trigj to Aunfindunk 5</a>"
+			},
+			appendix_f: {
+				heading: "Aunhank F — Dee Waut-wan-Moschien, un woo eena en Prezentiel läst",
+				confusion: "<em>Dee Vewirrunk:</em> „En Milljoon Computerkoate? En Prezentiel von en Simulatsjoon? Waut sull daut äwahaupt meene?“",
+				p1: "Jie kjenne nich beurteele, aub en Koat onjewehnlich es, oone to weete, woo jewehnlich utsitt. Bie Wahlkoate kjricht kjeena dee Alternatiewe to seene. Doaromm haft dee Pruewunk dee jebut. En Algorithmus fangt bie en jesatslije Koat aun un mookt en lange Kjääd von toofällije jesatslije Endrunge. Twee Nobawahlkreise toopschmelte. Dee opp en toofällije jeltje Wiess wada spalte. Wadahoole: 252.500 Mol, en vea onaufhenjije Kjäde, 1.010.000 Koate em gaunze. Bie't Teidchne woare kjeene Stemmdoten aunjekjikjt. Dee Moschien kjann kjeenem bevorzucht, wiel see kjeenem seene kjann, un daut es, waut „neutral“ hia meent. Dan nämt jie dee wirkjlije Koat, mät dee, un froagt: von dee Milljoon neutrale Koate, woo väle kome soo huach? Wan 500.000 daut doone, es jüare Koat jewehnlich. Wan 69 daut doone, es jüare Koat dee Oat Koat, dee neutralet Teidchne 69 Mol en 1.010.000 Väasieekje väabrinjt.",
+				p2: "Nu läst Aunfindunk 6 noch eemol: dee Mehrheitskoat aum 78ste Prezentiel — jewehnlich. Dee Minorität aum 99,99ste — 69 en 1.010.000 kome heaja.",
+				limit: "<em>Dee Grenz:</em> dee Moschien hoolt sikj aun Bevälkarunk un Toophang (jieda Wahlkraus en eent toopjehankjet Stekj), oba nich aun jiedre jesatslije Feinheit, dee en wirkjlije Kommissjon aufwajcht. Doaromm mäte äare Prezentiele dän Ofstaunt von <em>neutralem Teidchne</em>, nich von <em>aules, waut en jesatsmässje Kommissjon doone kunn</em>. Un en Prezentiel es en Ofstaunt, kjeen Urteel.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-6\">↩ Trigj to Aunfindunk 6</a>"
+			},
+			appendix_g: {
+				heading: "Aunhank G — Dee efficiency gap, en eenem dorchjeräakjenden Biespell",
+				confusion: "<em>Dee Vewirrunk:</em> „Eene Tal, dee Gerrymandering faungt? Daut kljingt to bequäm.“",
+				p1: "Daut es daut, en bät. Doaromm kjricht see en Schwal, un en Fehlschoss, en dissem Bericht. Dee Idee: jiede Stemm, dee nich helpt, en Sitz to jewenne, es „vaschwendt“. Daut meent aule Stemme fa Valiera, un dee Jewenna äare Stemme äwa dee 50% un eent, dee see bruckte. En en jerajchte Koat vaschwende beide Parteie omtrent jlikj väl. Dee efficiency gap es dee Unjascheet en vaschwendte Stemme, aus Aundeel von aule Stemme. Nämt aun, Orantsch jewennt en Wahlkraus met 100 Stemme 90–10. Orantsch haft 39 vaschwendt, sienen Äwaschoss äwa 51. Blau haft 10 vaschwendt, aula Stemme fa dän Valiera. Jestoppte un opjesprenjte Koate loote eene Partei sistematisch meea vaschwende. No dissem Bericht siene Teekjeräajel bevorzucht en positiewe Gap dee Konservatiewe. Dee Pruewunk äare Alberta-Kalibrearungslinie (~4,1%) es dee Heajt, äwa dee bloos 5% von dee Milljoon neutrale Koate jone.",
+				p2: "Nu läst Aunfindunk 7 noch eemol: Minorität bie +4,0%, 94,5ste Prezentiel. Daut es unja dee Pruewunk äare eajne voarrejistreade Linie, em väa öffentlich fastjelajcht, un daut woat aus dee Fehlschoss berecht, dee daut es.",
+				limit: "<em>Dee Grenz:</em> dee efficiency gap drekjt en gaunze Koat en eene Tal toop, un eene Tal kjann en Gerrymander nich von klumpje Jeografie unjascheede. Doaromm brukt dise Pruewunk vea Mote un en fastjelajchte Schwal. Un see behelt dän Fehlschoss em Buak.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-7\">↩ Trigj to Aunfindunk 7</a>"
+			}
+		}
 	}
 } as const;
