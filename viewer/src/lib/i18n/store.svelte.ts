@@ -7,6 +7,10 @@ import { browser } from '$app/environment';
 // Korean ~17k → Urdu ~17k → Polish ~15k → Ukrainian ~14k (plus the
 // post-2022 arrival wave the census predates). The language dropdown
 // renders in this order.
+// Plains Cree (locales/crk.ts) is hidden until a native speaker reviews it:
+// the 2026-11-01 review found terms it could not verify (one word used for
+// commission, committee, government, court and constitution). The file stays
+// in the repo; add 'crk' back here, to LANG_LABELS and to the loaders to restore it.
 export const SUPPORTED_LANGS = [
 	'en',
 	'tl',
@@ -25,7 +29,6 @@ export const SUPPORTED_LANGS = [
 	'uk',
 	'ru',
 	'so',
-	'crk',
 	'pdt'
 ] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
@@ -51,7 +54,6 @@ export const LANG_LABELS: Record<
 	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk', dir: 'ltr' },
 	ru: { native: 'Русский', english: 'Russian', htmlLang: 'ru', dir: 'ltr' },
 	so: { native: 'Soomaali', english: 'Somali', htmlLang: 'so', dir: 'ltr' },
-	crk: { native: 'ᓀᐦᐃᔭᐍᐏᐣ', english: 'Plains Cree', htmlLang: 'crk', dir: 'ltr' },
 	pdt: { native: 'Plautdietsch', english: 'Plautdietsch (Mennonite Low German)', htmlLang: 'pdt', dir: 'ltr' }
 };
 
@@ -129,7 +131,6 @@ const loaders: Partial<Record<Lang, () => Promise<{ default: unknown }>>> = {
 	uk: () => import('./locales/uk'),
 	ru: () => import('./locales/ru'),
 	so: () => import('./locales/so'),
-	crk: () => import('./locales/crk'),
 	pdt: () => import('./locales/pdt')
 };
 
