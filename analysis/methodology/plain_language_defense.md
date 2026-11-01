@@ -1535,7 +1535,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** When the Lunty committee tables its 91-seat map by November 2, 2026, the same scripts will be re-run as fulsomely and faithfully as they were for the commission proposals.
+**Assertion:** The committee had to report the 91-seat map to the Assembly by November 2, 2026. The audit re-runs the same scripts on it within 72 hours of its first public release, as fully and faithfully as it did for the commission proposals.
 **Why?** Why make a public commitment to re-run the analysis on the new map?
 **Answer:** For the same reason as every other methodological safeguard in this audit: to prevent the appearance, or the reality, of cherry-picking. If I analyzed only the commission maps and declined to analyze the committee map, a skeptic could argue the analysis was not symmetric, that it targeted the minority proposal specifically because it was expected to show findings. Run the same analysis on the November map, with the same thresholds and the same commitment to reporting null results, and the framework stops being an accusation. It becomes a repeatable test.
 
@@ -1601,7 +1601,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Every script prints a gate PASS/FAIL line; numbers in the body text must match the gate-passed output.
 **Why?** What is a gate PASS/FAIL check and how does it prevent errors?
-**Answer:** Each analysis script includes an assertion that checks its own key output values against expected ranges. When the script runs, it prints "GATE PASS" if the computed values are within the expected range, or "GATE FAIL" with a description of the discrepancy if they are not. This is a form of automated self-checking: it prevents a situation where a script runs without error but produces a wrong answer because of a subtle data issue. Any number cited in the report must be traced back to a gate-passing script run, ensuring that no number was copied from a failed or intermediate calculation.
+**Answer:** That description is wrong. No script prints a "GATE PASS" or "GATE FAIL" line. A few scripts check their outputs against expected ranges and stop on failure; most don't. Such a check would catch a script that runs without error but produces a wrong answer because of a subtle data issue, so its absence from most scripts is a limitation.
 
 ---
 
@@ -1665,7 +1665,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Declination formula: δ = (2/π)(arctan((ȳ_R − x̄_R)/x̄_R) − arctan((ȳ_D − x̄_D)/x̄_D)). Alberta results (canonical scoring, Amendment 5, Part 9 sign): 2019 = +0.045 (p91.33), majority = −0.027 (p21.85), minority = +0.077 (p98.79, UCP tail).
+**Assertion:** Declination formula: δ = (2/π)(θ_D − θ_R), where θ_R = arctan((ȳ_R − ½)/(R/2n)) and θ_D = arctan((½ − ȳ_D)/(D/2n)); ȳ_R and ȳ_D are the mean UCP vote shares in the R UCP-won and D NDP-won districts, out of n (Warrington 2018; `analysis/scripts/mcmc_ensemble.py`). Alberta results (canonical scoring, Amendment 5, Part 9 sign): 2019 = +0.045 (p91.33), majority = −0.027 (p21.85), minority = +0.077 (p98.79, UCP tail).
 **Why?** What does the formula actually measure in plain terms?
 **Answer:** The declination measures the difference in how steeply each party's win-margin increases as it wins more districts. If Party A's winning margins are concentrated near 50% (many close wins) while Party B's winning margins are spread across both close and blowout wins, declination measures that asymmetry as an angular difference between two trend lines. Under the corrected sign (Amendment 5, Part 9), a positive declination favours the UCP: the UCP wins many seats by thin margins while NDP votes are packed into a few high-share districts. The minority's p98.79 means its declination is higher (further toward the UCP tail) than 98.79% of random maps. That agrees with the efficiency gap, mean-median and seats-at-50/50 readings.
 
@@ -1673,7 +1673,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Polsby-Popper (PP) results: minority 2026 mean PP = 0.334, majority 2026 = 0.356, 2019 enacted = 0.419. All three pass the gate (mean PP > 0.15).
 **Why?** What does Polsby-Popper measure and why does a lower score matter?
-**Answer:** The Polsby-Popper score is a shape compactness measure: a perfect circle scores 1.0, and irregular, elongated, or contorted shapes score close to 0. The minority map's districts are, on average, more geometrically irregular than the majority's or the 2019 map's — its lower mean PP reflects more convoluted boundaries. The gate threshold of 0.15 is a very low floor (below which districts are pathologically misshapen); passing the gate means none of the three maps has absurdly shaped districts. The minority's lower score is a noteworthy difference but not a gate failure.
+**Answer:** The Polsby-Popper score is a shape compactness measure: a perfect circle scores 1.0, and irregular, elongated, or contorted shapes score close to 0. The means above are from traced boundaries. On the official boundaries the median Polsby–Popper score is the same on both maps (0.437), so this measure does not separate them. The gate threshold of 0.15 is a very low floor (below which districts are pathologically misshapen); passing it means none of the three traced maps had absurdly shaped districts.
 
 ---
 
@@ -1689,7 +1689,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** 47.5% of 2023 valid votes are Vote Anywhere Advance/Mobile ballots; Elections Alberta verified no disaggregated VA-level mapping exists for these ballots.
 **Why?** Why does this resolve the question of data precision rather than being a limitation?
-**Answer:** If disaggregated data existed, using it would improve the vote attribution. But Elections Alberta confirmed that the data does not exist: the advance ballots are not tracked at the polling-station level in a way that maps them to a geographic location. This means no researcher — regardless of their methods — can do better than the area-weighted spread approach used here. The audit's method is not merely the best available; it is the only mathematically valid approach given the data that exists. The +0.0000 pp shift from the residual geographic error (1,396 votes, 0.15% of the province) confirms the area-weighted method is at the precision ceiling.
+**Answer:** It doesn't resolve it; it is a limitation. If disaggregated data existed, using it would improve the vote attribution. But Elections Alberta confirmed that the data does not exist: the advance ballots are not tracked at the polling-station level in a way that maps them to a geographic location. So Phase 4C counts 2023 election-day votes by voting area and places each area by its centre point. It leaves out advance votes, nearly half of all ballots (§3.2).
 
 ---
 
@@ -1717,19 +1717,19 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The *Saskatchewan Reference* requires holistic assessment; there is no bright-line variance ceiling. Partisan asymmetry, standing alone, does not trigger a violation.
 **Why?** If there is no bright-line test, how would a court ever find a violation?
-**Answer:** Courts applying the Saskatchewan Reference look at the totality of evidence: are population deviations justified by genuine geographic necessity or community preservation, or do they appear to serve partisan purposes? Is there evidence that non-partisan factors were invoked post-hoc to rationalize predetermined choices? The audit provides exactly the kind of evidence a court would examine under that holistic test: directional consistency across six independent measurements, rationale failures where stated reasons do not hold up against cleaner alternatives, and procedural departure from comparator Canadian practice. A court would weigh all of this together, not look for a single threshold violation.
+**Answer:** Courts applying the Saskatchewan Reference look at the totality of evidence: are population deviations justified by genuine geographic necessity or community preservation, or do they appear to serve partisan purposes? The audit provides measurements a court could weigh under that holistic test: directional consistency across several measurements (not independent ones), configurations where a simpler legal line also meets the stated reasons, and procedural departure from comparator Canadian practice. A court would weigh all of this together, not look for a single threshold violation.
 
 ---
 
 **Assertion:** Adverse characterizations of named public officials are defensible under *Grant v. Torstar* (responsible communication) and *WIC Radio* (fair comment).
 **Why?** Why does a technical audit need to discuss defamation defenses?
-**Answer:** The audit characterizes specific statements made by the commission chair and specific boundary choices made by named commissioners as not holding up against the primary-source evidence. These characterizations could theoretically form the basis of a defamation complaint. The audit's legal note addresses this by documenting that all characterizations are (a) grounded in publicly verifiable facts from official documents, (b) made in a context of genuine public interest (electoral boundaries affecting all Albertans), and (c) clearly framed as inferences from the public record rather than assertions about private intent. Both Canadian defamation defenses cited protect exactly this kind of public-interest accountability reporting.
+**Answer:** The audit characterizes specific statements made by the commission majority and specific boundary choices made by named commissioners as not holding up against the primary-source evidence. These characterizations could theoretically form the basis of a defamation complaint. The audit relies on public records and quotes each side's published reasons, on a matter of public interest (electoral boundaries affecting all Albertans). It hasn't asked the commissioners for comment. Whether a defence applies is for counsel.
 
 ---
 
 **Assertion:** The seven *Grant v. Torstar* diligence factors are all satisfied by the audit's methodology.
 **Why?** What are the seven factors and why does each apply?
-**Answer:** The Grant v. Torstar test asks whether the person publishing the characterization took reasonable steps to verify it and presented it responsibly. The seven factors include: seriousness of the allegation (electoral process legitimacy is serious), public importance (yes — boundaries affect every voter), urgency (the boundaries were being redrawn while the audit ran), reliability of sources (all public records), verification (all claims are reproducible), inclusion of the subject's side (the commission's own rationales are quoted and analyzed), and justifiability (the factual record is publicly accessible for anyone to check). The audit satisfies each because it is a methodologically rigorous document built entirely on public-record sources.
+**Answer:** The Grant v. Torstar test asks whether the person publishing the characterization took reasonable steps to verify it and presented it responsibly. The seven factors include: seriousness of the allegation (electoral process legitimacy is serious), public importance (yes — boundaries affect every voter), urgency (the boundaries were being redrawn while the audit ran), reliability of sources (all public records), verification (all claims are reproducible), whether the subject's side was sought (the audit quotes each side's published reasons, but it hasn't asked the commissioners for comment, and quoting published reasons is not the same as seeking their side), and justifiability (the factual record is publicly accessible for anyone to check). Whether a defence applies is for counsel.
 
 ---
 

@@ -33,7 +33,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 
 Every so often Alberta redraws its electoral divisions (EDs), the districts that each elect a Member of the Legislative Assembly (MLA). The lines decide who represents you and which neighbourhoods are grouped with yours. Where they fall can decide who wins.
 
-The 2025–26 Alberta Electoral Boundaries Commission produced two competing recommendations: a majority, backed by most of the commissioners, and a minority. Both comply with the *Electoral Boundaries Commission Act*, and the Act treats the majority's as the commission's report (s.9). This audit measures the structural distance between the two maps, on dimensions that have nothing to do with which party benefits.
+The 2025–26 Alberta Electoral Boundaries Commission produced two competing recommendations: a majority, backed by most of the commissioners, and a minority. Both meet the *Electoral Boundaries Commission Act*'s numeric rules, and the Act treats the majority's as the commission's report (s.9). This audit measures the structural distance between the two maps, on dimensions that have nothing to do with which party benefits.
 
 **Airdrie.** The City of Airdrie has approximately 85,805 residents (City of Airdrie 2024 municipal census, July 2, 2024). That is above the statutory ceiling for a single electoral division under the Act's ±25% population band, the room the Act allows above or below the provincial average. So the city has to be split. The majority recommendation splits it across two electoral divisions. The minority splits it across four, placing more than half the city in Airdrie East and nearly all the rest in two divisions where Calgary residents outnumber Airdrie's. Both maps stay inside the Act's population band; the majority argued the minority map would likely fail a Charter challenge (final report, p. 10). Neither is required to use four instead of two. That is a drawing choice.
 
@@ -159,7 +159,7 @@ The findings come with two policy recommendations.
 
 ## The structural cost
 
-Both maps satisfy the law. The table below sets out the structural distance between them: five measures of geometry and population (one, anchoring, does not separate the maps on canonical geometry) and two measures that depend on votes, in the same units, applied the same way to both.
+Both maps stay inside the Act's population limits. The table below sets out the structural distance between them: five measures of geometry and population (one, anchoring, does not separate the maps on canonical geometry) and two measures that depend on votes, in the same units, applied the same way to both.
 
 | Dimension | Majority 2026 | Minority 2026 | Gap |
 |---|---|---|---|
