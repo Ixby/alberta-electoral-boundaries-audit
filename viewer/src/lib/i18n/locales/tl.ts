@@ -1480,5 +1480,61 @@ export default {
 		privacy_link_text: "patakaran sa privacy",
 		back_to_report: "Bumalik sa ulat",
 		back_to_map: "Bumalik sa map explorer"
+	},
+	pages: {
+		explainers: {
+			head_title: "Ang Labing-apat na Paliwanag · Pag-audit ng Hangganan ng Halalan sa Alberta",
+			head_description: "Labing-apat na maikling paliwanag — isa para sa bawat natuklasan sa Pag-audit ng Hangganan ng Halalan sa Alberta: cracking, packing, mga neutral na ensemble, ang prosecutor's fallacy, mga kumbensyon laban sa batas, at iba pa.",
+			back: "← Bumalik sa audit",
+			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
+			h1: "Ang Labing-apat na Paliwanag",
+			meta: "Mga Apendiks A–N · isang konsepto bawat isa · sa Ingles lamang sa ngayon",
+			standfirst: "Ang bawat casing sa audit ay may link sa isang apendiks dito, at bawat apendiks ay may hawak na eksaktong isang konsepto. Nagsisimula ito sa tapat na pagkalito. Binubuo nito ang ideya gamit ang isang kongkretong halimbawa. Ibinabalik kayo nito sa numero ng casing na kaya na itong basahin nang walang tulong. At nagtatapos ito sa kung ano ang <em>hindi</em> masasabi sa inyo ng konsepto. Basahin ang mga ito sa anumang pagkakasunod.",
+			appendix_a: {
+				heading: "Apendiks A — Ano talaga ang ginagawa ng \"cracking\" sa isang boto",
+				confusion: "<em>Ang pagkalito:</em> \"Bumoboto pa rin ang mga botante ng Airdrie. Walang kumuha ng kanilang mga balota. Paano 'napalalabnaw' ng pagguhit ng mga linya ang anuman?\"",
+				p1: "Isipin ang isang bayang may 40,000 na tao na karamihang bumoboto ng Orange, na nasa isang rehiyong karamihang bumoboto ng Blue. Bigyan ang bayan ng sarili nitong riding, isang distritong may sariling upuan sa Lehislatura, at maghahalal ito ng isang Orange na MLA: 40,000 tao, isang upuan, isang boses. Ngayon, hatiin ang bayan sa apat na piraso at ikabit ang bawat piraso sa isang tipak ng Blue na kanayunan. Sa bawat bagong riding, haharapin ng 10,000 botante ng bayan ang 30,000 rural na botante. Matatalo ang Orange sa lahat ng apat. Parehong mga botante, parehong mga balota, walang upuan. Walang ninakaw mula sa sinumang iisang botante. Ang kinuha ay ang kakayahan ng <em>komunidad</em> na maghalal ng sinuman. Iyan ang cracking. Ang kabaligtarang galaw nito ay packing (Apendiks C): isiksik ang isang grupo sa kakaunting riding hangga't maaari, upang manalo ito roon nang napakalaki at wala nang iba.",
+				p2: "Ngayon, basahin muli ang natuklasan 1: 85,805 tao, apat na riding, minorya sa tatlo sa mga ito. Ipinapakita ng ibang draft ng parehong komisyon na sapat na ang dalawang riding para matugunan ang batas.",
+				limit: "<em>Ang limitasyon:</em> inilalarawan ng cracking ang isang epekto, hindi isang motibo. Maaaring mangyari ang isang paghahati dahil may nagnais ng pagpapalabnaw. Maaari rin itong mangyari dahil sumikip ang mapa sa ibang mga limitasyon. Hindi masasabi ng heometriya lamang kung alin.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Bumalik sa natuklasan 1</a>"
+			},
+			appendix_b: {
+				heading: "Apendiks B — Pagsusuri sa hugis, at kung para saan ang proteksyon ng s.15(2)",
+				confusion: "<em>Ang pagkalito:</em> \"Mukhang kakaiba ang lahat ng electoral district. Bakit mahalaga ang tatlong hugis na ito?\"",
+				p1: "Sumusunod sa heograpiya ang mga distrito, kaya normal ang pagiging bako-bako. Hinahanap ng pagsusuri sa hugis ang <em>trabaho</em>: isang hangganang gumagawa ng isang bagay na hindi maipaliwanag ng anumang karaniwang limitasyon. Isang koridor na sumisilo sa isang kapitbahayan papasok sa isang malayong distrito. Isang braso na umaabot sa gilid ng isang lungsod. Isang linyang pinahaba sa lupang walang nakatira. May espesyal na probisyon ang batas ng Alberta, seksyon 15(2), na nagpapahintulot sa hanggang apat na distrito na bumaba sa normal na pinakamababang populasyon. Isinulat ito para sa malalayong distritong may matibay na ugnayan ng komunidad, gaya ng mga riding sa hilaga na naglilingkod sa mga katutubong komunidad sa malalawak na distansya. Ang pagpapahaba sa isang hangganan sa walang-taong pambansang parke upang maging kwalipikado ang isang distrito sa proteksyong iyon ang tinawag ng sariling tagapangulo ng komisyon na \"isang pagsisikap na may masamang hangarin\": isang tuntuning isinulat para sa mga taong magkakalayo ang tirahan, ginamit upang protektahan ang isang linya kung saan walang nakatira.",
+				p2: "Ngayon, basahin muli ang natuklasan 2: tatlong hugis, binandilaan ng sariling tagapangulo ng proseso, hiwalay na kinumpirma ng mga pagsusulit na walang kinalaman sa kanyang laban.",
+				limit: "<em>Ang limitasyon:</em> ang kakaibang hugis ay isang tanong, hindi isang sagot. May tunay at kapani-paniwalang lohika sa ilalim ng isa sa mga hugis na ito: ang paglalagay sa Banff townsite kasama ng Canmore. Nananatili pa rin ang pagtutol ng tagapangulo. Nakatuon ito sa ekstensyon sa walang-taong parke, at hindi iyon naaapektuhan ng paglalagay.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Bumalik sa natuklasan 2</a>"
+			},
+			appendix_c: {
+				heading: "Apendiks C — Packing, sa isang halimbawang laruan na may tatlong distrito",
+				confusion: "<em>Ang pagkalito:</em> \"Mas maraming botante ang mas malalaking distrito. E ano ngayon? Isang boto pa rin ang bawat isa.\"",
+				p1: "Kumuha ng 12,000 botante, 7,000 Orange at 5,000 Blue, na hinati sa tatlong distrito ng tig-4,000. Iguhit ang mga ito nang pantay at mananalo ang Orange sa lahat ng tatlo. Ngayon, gumuhit muli. Isiksik ang 4,000 Orange na botante sa isang distrito (panalo roon ang Orange, 100–0). Ikalat ang natitirang 3,000 Orange sa dalawang distrito ng tig-4,000, kung saan ang 5,000 ng Blue ang nagbibigay rito ng kalamangan sa dalawa. Parehong 12,000 botante, parehong 7,000 na mayorya ng Orange. Ngayon, isang upuan ang hawak ng Orange at dalawa ang sa Blue. Iyan ang packing: iniimbak ang mga boto ng inyong mga kalaban kung saan sila natatambak bilang sobra, nasasayang sa mga lamang na hindi nila kailangan. Ang palatandaan ay ang <em>laki at konsentrasyon</em> ng distrito. Malalaki at malalim ang mga distrito ng mga kalaban. Payat at mahusay ang sa inyo.",
+				p2: "Ngayon, basahin muli ang natuklasan 3: sa iisang zone ng Calgary kung saan 13 sa 17 distrito ang bumoboto ng NDP, ang mga distrito ng minorya ay 11.5% na lampas sa karaniwan ng probinsya. Ang sa mayorya, na iginuhit sa parehong silid, ay 2.8%.",
+				limit: "<em>Ang limitasyon:</em> maaari ring magmula ang sobrang laking mga distrito sa tapat na hula tungkol sa paglago, o sa pagpapanatiling buo sa isang komunidad. Ang hindi pagkakapantay ng laki ang tandang iniiwan ng packing. Iniiwan din ito ng ilang inosenteng pagpili.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Bumalik sa natuklasan 3</a>"
+			},
+			appendix_d: {
+				heading: "Apendiks D — Ano ang sinusukat ng MAD, at bakit umiiral ang saklaw",
+				confusion: "<em>Ang pagkalito:</em> \"Population Mean Absolute Deviation — estadistika lamang ba ito para sa 'hindi magkakapareho ang mga distrito'?\"",
+				p1: "Halos. Hindi maaaring magkakapareho ang bilang ng tao sa lahat ng distrito; may mga komunidad na alanganin ang laki. Simpleng tanong ang itinatanong ng MAD: sa karaniwan, gaano kalayo lumilihis ang bawat distrito sa ideyal na bahagi? Ang MAD na 3,180 ay nangangahulugang lumilihis ang mga distrito sa ideyal nang humigit-kumulang 3,180 tao sa karaniwan. Ang MAD na 4,707 ay nangangahulugang kalahati pang mas malaki ang karaniwang paglihis. Pinahihintulutan ng batas ang paglihis, sa loob ng isang saklaw (±25% ang pinahihintulutan ng Alberta), dahil sulit ang kaunting hindi pagkakapantay para igalang ang mga tunay na komunidad. Iyan ang kasunduan. Ang paglihis ang salapi, at ginagastos ninyo ito para bumili ng mga bagay gaya ng buong mga bayan at makatwirang mga hangganan. Iyan ang nagbibigay ng punto sa natuklasan 4: 48% na mas marami sa salaping iyon ang ginagastos ng mapa ng minorya kaysa sa mayorya. At ipinapakita ng natuklasan 1 na <em>hindi</em> nito ginamit iyon para bilhin ang pagkabuo ng Airdrie.",
+				p2: "Ngayon, basahin muli ang natuklasan 4: mas malawak na pagkalat kaysa sa 99 sa bawat 100 neutral na mapa (mga mapang iginuhit ng kompyuter nang hindi nakakakita ng kahit isang boto; Apendiks F), sa tanging pagpapahalagang talagang binibilang ng batas.",
+				limit: "<em>Ang limitasyon:</em> walang niraranggo ang batas sa loob ng saklaw. Ang \"mas maraming paglihis ang ginastos\" ay isang obserbasyon tungkol sa mga prayoridad, hindi isang paglabag. Legal ang bawat distrito sa dalawang mapa.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Bumalik sa natuklasan 4</a>"
+			},
+			appendix_e: {
+				heading: "Apendiks E — Ano ang sinusukat ng municipal anchoring, at ano ang hindi nito maipapakita",
+				confusion: "<em>Ang pagkalito:</em> \"Bakit bibilangin kung gaano kadalas sumusunod ang isang hangganan sa linya ng isang lungsod o bayan?\"",
+				p1: "Dahil doon alam na ng mga tao kung saan sila nakatira. Kapag tumatakbo ang hangganan ng distrito sa kahabaan ng hangganan ng munisipyo, nagtutugma ang linya ng buwis sa ari-arian, ang linya ng school division, ang linya ng lokal na ward at ang linya ng halalan sa probinsya. Malalaman ng isang botante kung saang distrito siya nang walang mapa. Sinusukat ng pagsusulit kung gaano karami sa haba ng hangganan ng distrito ng bawat mapa ang tumatakbo sa loob ng 500 metro mula sa isang hangganan ng munisipyo ng Statistics Canada. Ang mga komisyon sa Canada ay nasa pagitan ng 70% at 85% sa sukat na iyon (Quebec 78%, Ontario 82%, BC 71%). 80% ang mapa ng mayorya. 72% ang minorya. Pareho silang nasa loob ng pamantayan, kaya sa pangkalahatang mga antas, hindi sila pinaghihiwalay ng pagsusulit.",
+				p2: "Ngayon, basahin muli ang natuklasan 5: karaniwan ang pangkalahatang antas sa dalawang mapa. Ang namumukod ay kung saan bumabagsak ang mga paglihis ng minorya: sa mga gilid na binandilaan ng tagapangulo.",
+				limit: "<em>Ang limitasyon:</em> pamantayan ang antas ng anchoring, hindi tuntunin. Walang itinatakdang threshold ang Act. At maaaring may mabuting dahilan ang isang paglihis, gaya ng isang suburb na lumago lampas sa hangganan ng lungsod.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Bumalik sa natuklasan 5</a>"
+			},
+			appendix_f: {
+				heading: "Apendiks F — Ang makinang paano-kung, at kung paano basahin ang isang persentil",
+				confusion: "<em>Ang pagkalito:</em> \"Isang milyong mapa ng kompyuter? Persentil ng isang simulasyon? Ano ba ang ibig sabihin niyan?\"",
+				p1: "Hindi ninyo mahuhusgahan kung kakaiba ang isang mapa nang hindi alam ang itsura ng karaniwan. Para sa mga mapa ng halalan, walang nakakakita ng mga alternatibo. Kaya binuo ng audit ang mga ito. Nagsisimula ang isang algoritmo sa isang legal na mapa at gumagawa ng mahabang kadena ng random na legal na pagbabago. Pagsamahin ang dalawang magkatabing distrito. Hatiin muli ang mga ito sa isang random na wastong paraan. Ulitin: 252,500 beses, sa apat na independiyenteng chain, 1,010,000 mapa sa kabuuan. Walang datos ng boto ang kinokonsulta habang gumuguhit. Hindi makapapabor ang makina sa sinuman dahil wala itong nakikitang sinuman, at iyan ang ibig sabihin ng \"neutral\" dito. Pagkatapos, kunin ang tunay na mapa, sukatin ito, at itanong: sa milyong neutral na mapa, ilan ang ganito kataas ang score? Kung 500,000, karaniwan ang inyong mapa. Kung 69, ang inyong mapa ay ang uri ng mapang nagagawa ng neutral na pagguhit nang 69 na beses sa 1,010,000 na subok."
+			}
+		}
 	}
 } as const;

@@ -1665,6 +1665,7 @@ export default {
 				heading: "「568,000 分之 1」是什麼意思——以及審計為什麼把界限加倍",
 				p1: "把四項公平性量度合併成一個分數,然後問:中立繪製有多常產生像少數派地圖這麼極端的特徵?答案約為 <strong>110 萬分之 1</strong>。但審計並不引用這個數字。它引用的是 <strong>568,000 分之 1</strong>——驚人程度剛好減半。原因如下。",
 				p2: "審計在兩個不同的地方尋找訊號:這個合併分數,以及針對具體邊界選擇的第二項檢驗。在兩個地方找,就給了運氣兩次機會。想想彩票:買兩張,你持有中獎彩票的機率就加倍。所以在引用機率之前,審計先對自己不利地把它加倍。這樣,「你試了兩次」這一點就已經算進去了。",
+				p3: "加倍還有一個優點:它不需要任何假設。不論兩項檢驗是否相關,它都成立,所以它是一個充滿敵意的統計學家也無法壓低的數字。",
 				p4: "審計到處重複的一項提醒:這些機率量的是<em>地圖</em>有多不尋常。它們不是任何人蓄意行事的機率。一張罕見的地圖,原則上仍然可能是誠實的成果。這些機率只說明一點:一般的起草不會產生這張地圖。"
 			},
 			died: {
@@ -1857,6 +1858,102 @@ export default {
 				p1: "本次審計的每一個版本都遵守同樣的紀律。它可以報告檢驗顯示了什麼。它可以說明一張地圖相對於中立基準有多不尋常。但它不宣布任何地圖是選區操控,不從幾何推斷意圖,也不就是否符合憲法或法規作出判斷。那些是法院、委員會和讀者的問題,而審計的證據擺在桌上。",
 				cross_ref: "配套頁面:<a href=\"__BASE__/methods\">地圖是如何檢驗的</a>——以淺白語言說明每一項檢驗和統計——以及<a href=\"__BASE__/norms\">規範有什麼要求</a>——第三個視角,關於慣例及對它的盤問。",
 				disclaimer: "本頁是審計的淺白語言配套頁,用於導讀。它不是法律意見,本頁任何內容都不應被當作法律意見來依賴。"
+			}
+		},
+		privacy_policy: {
+			head_title: "私隱政策 · 阿爾伯塔選舉邊界審計",
+			head_description: "阿爾伯塔選舉邊界審計的私隱及資料保留政策。",
+			back: "← 返回審計",
+			site_label: "阿爾伯塔選舉邊界審計",
+			h1: "私隱及資料保留政策",
+			meta: "生效日期:2026-06-24 · 由 Will Conner 維護",
+			overview: {
+				heading: "概覽",
+				p1: "本工具是一項關於阿爾伯塔 2023 年選舉邊界委員會程序的公益審計。它不是商業產品,也不播放任何廣告。本頁說明測量了什麼、從不收集什麼,以及為什麼這些都無法追溯到你。",
+				p2: "簡短版本:本網站使用不依賴 cookie 的匯總分析。沒有追蹤 cookie,沒有廣告,沒有跨網站的個人檔案建立,也沒有任何會跟隨你的識別碼。由於不儲存任何個人資料,所以沒有需要點擊同意的橫幅——私隱保護是內建在測量方式之中的,而不是事後附加的提示。"
+			},
+			how_analytics_work: {
+				heading: "分析如何運作",
+				p1: "當頁面載入或你與地圖互動時,本網站會向我們營運的一個計數服務發送一個小型的匿名事件。每個事件只是所發生之事的名稱——例如「頁面已瀏覽」或「已選擇選區」——加上關於該動作的幾項粗略細節。事件不包含姓名、電郵、帳戶,也不包含任何儲存在你裝置上的識別碼。",
+				p2: "為了在不識別任何人的情況下計算某一天有多少不同的人到訪,計數服務會把你的網絡位址和瀏覽器類型結合起來,連同一個每天更換的密鑰,一起經過單向加密雜湊處理。結果是一個簡短的代碼,讓我們能在<em>同一天之內</em>分辨兩次到訪,僅此而已。原始位址從不儲存——只儲存雜湊值。由於密鑰每天輪換,同一位訪客明天會產生不同的代碼,所以無法跨日追蹤任何人,也無法從代碼反推到某個人。",
+				p3: "我們感興趣的是訪客作為一個群體所描繪的圖像——哪些發現被閱讀、哪些地圖被打開、哪些選區引起關注。我們對你個人並不感興趣,而測量的設計使得「你個人」不是這些資料能夠表達的東西。"
+			},
+			measured: {
+				heading: "測量了什麼",
+				p1: "分析會記錄匯總的匿名事件,例如:",
+				li1: "頁面瀏覽",
+				li2: "人們把頁面向下捲動多遠,按粗略區間計算(25%、50%、75%、100%)",
+				li3: "頁面在螢幕上處於使用中狀態的大約時間,按粗略時間區間計算",
+				li4: "人們閱讀時有哪些發現段落進入畫面",
+				li5: "在地圖瀏覽器中打開了哪些地圖,以及選擇了哪些選區",
+				li6: "開啟或關閉了哪些地圖圖層,以及人們大約放大到什麼程度",
+				li7: "打開了哪些興趣點或報告連結",
+				li8: "關於你使用環境的粗略圖像——螢幕尺寸區間(例如手機、平板或桌面電腦)、裝置類型,以及瀏覽器系列(例如 Chrome、Safari 或 Firefox)。我們從不儲存你確切的螢幕尺寸或完整的瀏覽器識別字串。",
+				li9: "地圖瀏覽器首次繪製時表現的一次性快照——例如按粗略區間計算的載入時間,以及一個經四捨五入的記憶體數字。這有助我們判斷瀏覽器在真實裝置上是否夠快。這些數字刻意按區間劃分,而不是精確數值,所以它們描述的是一類裝置,而不是一部裝置。",
+				p2: "以上每一項都只以匯總形式儲存。沒有個人檔案,沒有工作階段重播,也沒有任何個人在網站上瀏覽路徑的紀錄。我們看到的是總數和分布,而不是人。"
+			},
+			never_collected: {
+				heading: "從不收集什麼",
+				p1: "不收集姓名。不收集電郵。不收集帳戶。不收集廣告識別碼。不儲存 IP 位址——你的網絡位址會連同每天輪換的密鑰經過雜湊處理,然後立即丟棄;只保留短暫的每日代碼。不收集原始瀏覽器指紋。不收集任何跨日或跨網站的識別碼。不收集精確位置。沒有任何為分析目的而把你標記為回訪者的 cookie 或瀏覽器儲存識別碼。"
+			},
+			github_pages_collects: {
+				heading: "GitHub Pages 收集什麼",
+				p1: "本網站託管於 GitHub Pages。任何頁面載入時,GitHub 的伺服器都會自動記錄基本的請求細節——你的 IP 位址、瀏覽器類型、來源頁面和時間戳記。我們不會收到也無法控制這些紀錄;它們受 <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub 的私隱聲明</a>規管。除託管之外,我們與 GitHub 沒有任何關係。上述分析是獨立運作的,從不會收到你的 IP 位址。"
+			},
+			share_codes: {
+				heading: "分享代碼",
+				p1: "地圖瀏覽器有一個分享功能。它把你目前的地圖檢視——啟用了哪張地圖、開啟了哪些疊加層和圖層、你的視窗大約位於哪裡——轉換成一個簡短的三字代碼,讓你可以複製並傳送給別人。有效代碼剛好有 19,200 個,因為一個代碼代表的是一種地圖設定,而不是一個人。兩個人各自獨立到達同一個檢視,會得到同一個代碼;這是預期之中的,而且不會在他們之間建立任何聯繫。",
+				p2: "分享代碼只會顯示在螢幕上,並且只有在你點擊「複製」時才會進入你的剪貼簿。它們從不嵌入網址,所以不會出現在瀏覽器紀錄、伺服器紀錄或來源標頭中。要打開別人分享的檢視,接收者需直接在網站上輸入代碼。",
+				p3: "當你產生一個分享代碼時,它所編碼的地圖設定會儲存到我們的資料庫中,讓連結能持續有效。這筆儲存的紀錄是一個地圖狀態——不是一個人,不是一條路徑,也不與分析資料連結。它不包含任何關於你的識別碼。"
+			},
+			cookies_browser_storage: {
+				heading: "Cookie 與瀏覽器儲存",
+				p1: "分析不使用任何 cookie,也不使用任何瀏覽器儲存識別碼。測量中沒有任何東西會把你標記為回訪者。",
+				p2: "本網站確實會設定一個小型的<strong>功能性</strong> cookie,用來在不同次到訪之間記住你自己的偏好設定。它不用於分析或追蹤,也從不以可讀的形式離開你的瀏覽器。它儲存:",
+				li1: "<strong>色彩主題</strong>——深色或淺色,如果你更改過的話",
+				li2: "<strong>已關閉介紹</strong>——讓地圖介紹不會重複出現",
+				li3: "<strong>目前的地圖檢視</strong>——讓你下次到訪時恢復上一次的檢視",
+				li4: "<strong>瀏覽器語言</strong>——讓網站能顯示你偏好的語言",
+				p3: "這個 cookie 只保存上述偏好設定——沒有任何個人或可識別身分的資料。它的內容會用一把隨頁面一起發送的密鑰打亂,所以儲存的值不是人類可讀的;由於那把密鑰是公開的,請把這視為防篡改,而不是真正的保密。它只透過 HTTPS 傳送,從不與其他網站分享,而你可以隨時清除 cookie 來移除它。本網站以靜態檔案提供,所以伺服器端沒有任何東西會讀取它。你的色彩主題也會同步存入瀏覽器的本機儲存空間,好讓正確的主題在載入時立即套用,避免畫面閃爍;那個值同樣純屬功能性,從不會被傳送到任何地方。"
+			},
+			data_retention: {
+				heading: "資料保留",
+				p1: "分析紀錄在設計上就是匯總且匿名的,沒有任何識別碼可供保留。它們儲存在託管於加拿大的基礎設施上(ca-central-1),並作為研究資料保存。如果我們發現某筆紀錄含有可識別身分的資料——而這套設計正是為了防止這種情況——我們會在 30 天內刪除它。"
+			},
+			your_choices: {
+				heading: "你的選擇",
+				p1: "由於不收集任何個人資料,所以沒有需要選擇退出的東西,也沒有需要管理的同意提示。如果你仍然希望完全不發送任何分析事件,一個內容攔截器或一個會攔截發往計數服務之請求的瀏覽器就能阻止它們,而網站的運作會完全一樣。你也可以隨時透過瀏覽器清除那個功能性偏好 cookie。"
+			},
+			contact: {
+				heading: "聯絡",
+				p1: "Will Conner——獨立研究,不隸屬於任何機構,也未獲任何機構認可。",
+				p2: "問題、更正及刪除要求:請使用<a href=\"__BASE__/feedback\">意見回饋表格</a>。要求會在 10 個工作天內回覆。"
+			},
+			policy_updates: {
+				heading: "政策更新",
+				p1: "本政策變更時,頂部的生效日期會更新,而變更會提交到<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">公開的 git 儲存庫</a>。提交紀錄就是變更日誌。任何擴大收集範圍的變更,都會在提交訊息中註明。"
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.(阿爾伯塔選舉邊界委員會 2025–26 年最終報告,含多數派與少數派報告。)",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1).(用來產生 1,010,000 張地圖集合的 ReCom 演算法。)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274.(關於選舉邊界的加拿大憲法框架。)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900.(本報告通篇使用之效率差距量度的出處。)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158.(加拿大最高法院關於劃定選舉邊界之憲法標準的主要權威判例。)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679.(聯邦法院;在選舉邊界爭議中關於利益共同體證據的主要加拿大權威判例。)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019).(美國最高法院;確立黨派選區操控訴求在聯邦法院不可審理——作為說明加拿大第 3 條有效代表權標準為何不同的背景。)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}

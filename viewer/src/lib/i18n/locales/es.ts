@@ -997,7 +997,7 @@ export default {
 			act3_h: "Acto III: Lo que hizo la gente",
 			act3_intro: "Los Actos I y II midieron papel. El Acto III lee la conducta: lo que las personas dentro y alrededor del proceso escribieron, afirmaron y eligieron. En un tribunal, la conducta suele ser donde se responden las preguntas sobre la intención. Observe lo que le pasa aquí.",
 			c11_title: "Casquillo 11 — Cinco de seis razones no sobreviven la verificación",
-			c11_found: "Los comisionados de la minoría publicaron razones para sus retrazados disputados. Cinco de las seis fallan una verificación independiente. (Un séptimo retrazado que habíamos incluido antes resultó apoyarse en una afirmación sobre límites federales que no se encuentra en el informe minoritario; lo eliminamos en lugar de dejarlo en pie como una afirmación débil.) El punto no es que el razonamiento del minoritario sea inventado. En la mayoría de estos casos la afirmación general es cierta, y se podría haber trazado un límite que la respetara. Lo que los datos no alcanzan es la línea particular que el minoritario realmente trazó. Defiende Calgary-Nolan Hill–Cochrane con la idea de que los residentes de Cochrane “se mueven con fluidez” hacia Calgary. Los datos de desplazamiento al trabajo de 2021 de Statistics Canada muestran que cerca de un tercio de los trabajadores de Cochrane se desplazan a algún lugar de Calgary, mientras que aproximadamente la mitad trabaja dentro de Cochrane: un lazo real de ciudad a ciudad, pero uno que no dice nada sobre el vecindario de Nolan Hill al que realmente llega el corredor. El desplazamiento de Airdrie hacia Calgary (cerca del 76 por ciento de quienes salen a trabajar fuera) y su rápido crecimiento son ambos reales, y podrían haber respaldado un nuevo escaño en la zona de Airdrie. Ninguno exige dividir la ciudad en cuatro. Chestermere envía el 86 por ciento de quienes salen a trabajar fuera a Calgary, pero no comparte ninguna división escolar ni sistema de transporte con el distrito específico de Calgary en el que el minoritario mete una parte de ella. Y el argumento de las “escuelas compartidas” del minoritario para unir Red Deer con Sylvan Lake no se sostiene. Sylvan Lake está en la Chinook’s Edge School Division; la ciudad de Red Deer está en Red Deer Public.",
+			c11_found: "Los comisionados de la minoría publicaron razones para sus retrazados disputados. Cinco de las seis fallan una verificación independiente. El punto no es que el razonamiento del minoritario sea inventado. En la mayoría de estos casos la afirmación general es cierta, y se podría haber trazado un límite que la respetara. Lo que los datos no alcanzan es la línea particular que el minoritario realmente trazó. Defiende Calgary-Nolan Hill–Cochrane con la idea de que los residentes de Cochrane “se mueven con fluidez” hacia Calgary. Los datos de desplazamiento al trabajo de 2021 de Statistics Canada muestran que cerca de un tercio de los trabajadores de Cochrane se desplazan a algún lugar de Calgary, mientras que aproximadamente la mitad trabaja dentro de Cochrane: un lazo real de ciudad a ciudad, pero uno que no dice nada sobre el vecindario de Nolan Hill al que realmente llega el corredor. El desplazamiento de Airdrie hacia Calgary (cerca del 76 por ciento de quienes salen a trabajar fuera) y su rápido crecimiento son ambos reales, y podrían haber respaldado un nuevo escaño en la zona de Airdrie. Ninguno exige dividir la ciudad en cuatro. Chestermere envía el 86 por ciento de quienes salen a trabajar fuera a Calgary, pero no comparte ninguna división escolar ni sistema de transporte con el distrito específico de Calgary en el que el minoritario mete una parte de ella. Y el argumento de las “escuelas compartidas” del minoritario para unir Red Deer con Sylvan Lake no se sostiene. Sylvan Lake está en la Chinook’s Edge School Division; la ciudad de Red Deer está en Red Deer Public.",
 			c11_note: "Verificado solo frente al minoritario, porque el minoritario es el mapa cuyos retrazados disputados son públicos. La mayoría no publicó una lista de razones para retrazados disputados, así que la verificación no puede aplicarse a ambos lados por igual; se reporta como un señalamiento único.",
 			c11_show: "Las razones que no sobreviven la verificación parecen racionalizaciones: razones encontradas después de la línea, no antes. En cada caso la evidencia apuntaba a un límite que el minoritario podría haber trazado. La línea que trazó es otra.",
 			c11_experts: "Poner una razón declarada junto a lo que respalda la evidencia es un análisis de pretexto, una prueba de si la razón es una tapadera. Es exactamente como los tribunales de EE. UU. indagan la intención en los casos de gerrymandering que sí escuchan. Las razones que fallan con datos públicos son el indicio estándar.",
@@ -1490,7 +1490,7 @@ export default {
 			back: "← Volver a la auditoría",
 			site_label: "Auditoría de los límites electorales de Alberta",
 			h1: "Las catorce explicaciones",
-			meta: "Apéndices A–N · un concepto cada uno · solo en inglés por ahora",
+			meta: "Apéndices A–N · un concepto cada uno",
 			standfirst: "Cada casquillo de la auditoría enlaza a un apéndice de aquí, y cada apéndice se ocupa de exactamente un concepto. Empieza por la confusión honesta. Construye la idea con un ejemplo concreto. Lo devuelve a usted a la cifra del casquillo, capaz de leerla sin ayuda. Y termina con lo que el concepto <em>no puede</em> decirle. Léalos en cualquier orden.",
 			appendix_a: {
 				heading: "Apéndice A — Lo que la \"fragmentación\" le hace realmente a un voto",
@@ -1604,7 +1604,7 @@ export default {
 				limit: "<em>El límite:</em> \"no exigible\" es una afirmación sobre los tribunales, no sobre las consecuencias. Las convenciones se hacen cumplir en las elecciones, por personas que saben lo que se hizo. Informes como este existen para que lo sepan.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Volver al hallazgo 14</a>"
 			},
-			footer_note: "El contenido reproduce los apéndices del <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">informe público completo</a>. Solo en inglés por ahora, a la espera de la revisión del autor antes de traducirse."
+			footer_note: "El contenido reproduce los apéndices del <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">informe público completo</a>."
 		},
 		methods: {
 			head_title: "Cómo se pusieron a prueba los mapas · Auditoría de los límites electorales de Alberta",
@@ -1612,7 +1612,7 @@ export default {
 			back: "← Volver a la auditoría",
 			site_label: "Auditoría de los límites electorales de Alberta",
 			h1: "Cómo se pusieron a prueba los mapas",
-			meta: "Cada prueba y cada estadística, en lenguaje sencillo · Solo en inglés por ahora · Cada cifra es reproducible desde el repositorio público",
+			meta: "Cada prueba y cada estadística, en lenguaje sencillo · Cada cifra es reproducible desde el repositorio público",
 			standfirst: "Toda la auditoría descansa en una idea sencilla. ¿Quiere saber si un mapa es inusual? Trace un millón de mapas que no podrían estar sesgados. Una computadora los traza, y nunca ve un solo voto. Luego verifique dónde caen los mapas reales entre ellos. Esta página recorre esa idea y cada prueba construida sobre ella. Sin fórmulas. Si usted puede leer un pronóstico del tiempo, puede leer esto.",
 			toc: {
 				aria: "Contenido de la página",
@@ -1698,7 +1698,7 @@ export default {
 			back: "← Volver a la auditoría",
 			site_label: "Auditoría de los límites electorales de Alberta",
 			h1: "Lo que las normas le piden a un mapa electoral",
-			meta: "Complemento en lenguaje sencillo · Solo en inglés por ahora · No es un veredicto sobre nadie",
+			meta: "Complemento en lenguaje sencillo · No es un veredicto sobre nadie",
 			standfirst: "Este episodio tiene tres lentes. La <a href=\"__BASE__/law\">ley</a> pregunta qué es legal. La <a href=\"__BASE__/methods\">estadística</a> pregunta qué es inusual. El tercer lente pregunta qué es costumbre, y la costumbre es el terreno en disputa. \"El gobierno rompió una norma de sesenta años\" no es una medición neutral. Es el corazón de la acusación de la oposición. Por eso esta página no se limita a recitar las normas. Las somete a interrogatorio: de dónde vinieron, para qué sirven, cuáles son en realidad los argumentos para dejarlas de lado, y qué queda una vez despejada la retórica de ambos lados.",
 			the_norm: {
 				heading: "La norma, dicha llanamente",
@@ -1820,7 +1820,7 @@ export default {
 			back: "← Volver a la auditoría",
 			site_label: "Auditoría de los límites electorales de Alberta",
 			h1: "Lo que la ley le pide a un mapa electoral",
-			meta: "Complemento en lenguaje sencillo · Solo en inglés por ahora · No es asesoría legal",
+			meta: "Complemento en lenguaje sencillo · No es asesoría legal",
 			standfirst: "Esta auditoría mide mapas. Los tribunales los juzgan. Los dos trabajos están relacionados, pero no son lo mismo, y esta página recorre la diferencia: qué le pide realmente el derecho canadiense a un límite electoral, qué preguntas le corresponden a un tribunal y no a un estadístico, y dónde encaja la evidencia de la auditoría. La auditoría en sí no toma posición sobre ninguna conclusión legal. Reporta lo que muestran los datos, y se detiene ahí.",
 			why_not_gerrymander: {
 				heading: "Por qué esta auditoría nunca dictamina \"gerrymander\"",
@@ -1869,7 +1869,7 @@ export default {
 			meta: "Vigente desde: 2026-06-24 · Mantenida por Will Conner",
 			overview: {
 				heading: "Resumen",
-				p1: "Esta herramienta es una auditoría de interés público del proceso de la comisión de límites electorales de Alberta de 2023. No es un producto comercial y no muestra anuncios. Esta página explica qué se mide, qué nunca se recopila, y por qué nada de ello puede vincularse con usted.",
+				p1: "Esta herramienta es una auditoría de interés público del proceso de la comisión de límites electorales de Alberta de 2025–26. No es un producto comercial y no muestra anuncios. Esta página explica qué se mide, qué nunca se recopila, y por qué nada de ello puede vincularse con usted.",
 				p2: "La versión corta: el sitio usa analítica agregada sin cookies. No hay ninguna cookie de seguimiento, ninguna publicidad, ningún perfilado entre sitios, y ningún identificador que lo siga a usted. Como no se almacena nada personal, no hay ningún aviso de consentimiento que aceptar — la protección de la privacidad está incorporada en cómo funciona la medición, no añadida después como un aviso."
 			},
 			how_analytics_work: {
