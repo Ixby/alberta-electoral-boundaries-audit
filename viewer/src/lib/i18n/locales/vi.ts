@@ -1477,5 +1477,60 @@ export default {
 		privacy_link_text: "chính sách quyền riêng tư",
 		back_to_report: "Quay lại báo cáo",
 		back_to_map: "Quay lại trình khám phá bản đồ"
+	},
+	pages: {
+		explainers: {
+			head_title: "Mười bốn bài giải thích · Kiểm toán Ranh giới Bầu cử Alberta",
+			head_description: "Mười bốn bài giải thích ngắn — mỗi bài cho một phát hiện trong Kiểm toán Ranh giới Bầu cử Alberta: phá vỡ, nhồi nhét, tập hợp bản đồ trung lập, ngụy biện của công tố viên, quy ước so với luật, và nhiều hơn nữa.",
+			back: "← Quay lại cuộc kiểm toán",
+			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
+			h1: "Mười bốn bài giải thích",
+			meta: "Phụ lục A–N · mỗi bài một khái niệm · hiện chỉ có bằng tiếng Anh",
+			standfirst: "Mỗi vỏ đạn trong cuộc kiểm toán liên kết đến một phụ lục ở đây, và mỗi phụ lục đảm nhận đúng một khái niệm. Nó bắt đầu từ chính sự bối rối thật lòng. Nó xây dựng ý tưởng bằng một ví dụ cụ thể. Nó đưa bạn trở lại con số của vỏ đạn với khả năng tự đọc hiểu. Và nó kết thúc bằng điều mà khái niệm đó <em>không thể</em> cho bạn biết. Hãy đọc theo bất kỳ thứ tự nào.",
+			appendix_a: {
+				heading: "Phụ lục A — \"Phá vỡ\" thực sự làm gì với một lá phiếu",
+				confusion: "<em>Sự bối rối:</em> \"Cử tri Airdrie vẫn bỏ phiếu. Không ai lấy lá phiếu của họ. Vẽ đường ranh giới thì 'làm loãng' cái gì được?\"",
+				p1: "Hãy tưởng tượng một thị trấn 40.000 người phần lớn bỏ phiếu cho phe Cam, nằm trong một vùng phần lớn bỏ phiếu cho phe Lam. Cho thị trấn một khu vực bầu cử riêng, một khu vực có ghế riêng trong Cơ quan Lập pháp, và nó bầu ra một MLA phe Cam: 40.000 người, một ghế, một tiếng nói. Giờ hãy cắt thị trấn thành bốn mảnh và ghim mỗi mảnh vào một khối vùng quê phe Lam. Trong mỗi khu vực mới, 10.000 cử tri của thị trấn đối mặt với 30.000 cử tri nông thôn. Phe Cam thua cả bốn. Cùng cử tri, cùng lá phiếu, không ghế nào. Không có gì bị lấy cắp khỏi bất kỳ cử tri đơn lẻ nào. Thứ bị lấy đi là khả năng bầu ra bất kỳ ai của <em>cộng đồng</em>. Đó là phá vỡ. Động tác phản chiếu của nó là nhồi nhét (Phụ lục C): dồn một nhóm vào càng ít khu vực càng tốt, để nhóm đó thắng áp đảo ở những khu vực ấy và không thắng gì khác.",
+				p2: "Giờ hãy đọc lại phát hiện 1: 85.805 người, bốn khu vực bầu cử, là thiểu số ở ba trong số đó. Bản dự thảo còn lại của cùng ủy ban cho thấy hai khu vực là đủ để đáp ứng luật.",
+				limit: "<em>Giới hạn:</em> phá vỡ mô tả một tác động, không phải một động cơ. Một sự chia cắt có thể xảy ra vì ai đó muốn làm loãng. Nó cũng có thể xảy ra vì các ràng buộc khác làm chật bản đồ. Riêng hình học không thể nói là trường hợp nào.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Quay lại phát hiện 1</a>"
+			},
+			appendix_b: {
+				heading: "Phụ lục B — Phân tích hình dạng, và sự bảo vệ theo s.15(2) dùng để làm gì",
+				confusion: "<em>Sự bối rối:</em> \"Khu vực bầu cử nào trông cũng kỳ lạ. Tại sao ba hình dạng này lại quan trọng?\"",
+				p1: "Các khu vực đi theo địa lý, nên lồi lõm là bình thường. Phân tích hình dạng tìm kiếm <em>sự can thiệp</em>: một ranh giới đang làm điều mà không ràng buộc thông thường nào giải thích được. Một hành lang quăng thòng lọng một khu phố vào một khu vực xa xôi. Một cánh tay vươn vào rìa một thành phố. Một đường kẻ kéo dài qua vùng đất không ai sống. Luật Alberta có một điều khoản đặc biệt, điều 15(2), cho phép tối đa bốn khu vực có dân số thấp hơn mức sàn thông thường. Nó được viết cho các khu vực xa xôi có mối gắn kết cộng đồng mạnh, như các khu vực bầu cử phía bắc phục vụ các cộng đồng Bản địa trải trên những khoảng cách mênh mông. Kéo dài một ranh giới qua công viên quốc gia không người ở để một khu vực đủ điều kiện hưởng sự bảo vệ đó là điều mà chính chủ tịch của ủy ban gọi là \"một nỗ lực thiếu thiện chí\": một quy tắc viết cho những người sống cách xa nhau, bị dùng để bảo vệ một đường kẻ ở nơi không có ai sống cả.",
+				p2: "Giờ hãy đọc lại phát hiện 2: ba hình dạng, bị chính chủ tịch của quy trình gắn cờ, được xác nhận độc lập bởi các bài kiểm tra không có quyền lợi gì trong cuộc tranh cãi của ông.",
+				limit: "<em>Giới hạn:</em> một hình dạng kỳ lạ là một câu hỏi, không phải một câu trả lời. Một trong các hình dạng này có một logic thực sự, đáng ghi nhận bên dưới: việc đặt thị trấn Banff cùng Canmore. Dù vậy, phản đối của chủ tịch vẫn đứng vững. Nó nhắm vào phần mở rộng vào vùng công viên trống, và việc đặt thị trấn không chạm tới phần đó.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Quay lại phát hiện 2</a>"
+			},
+			appendix_c: {
+				heading: "Phụ lục C — Nhồi nhét, trong một ví dụ mô phỏng ba khu vực",
+				confusion: "<em>Sự bối rối:</em> \"Khu vực lớn hơn thì có nhiều cử tri hơn. Thì sao? Ai cũng vẫn có một phiếu.\"",
+				p1: "Lấy 12.000 cử tri, 7.000 phe Cam và 5.000 phe Lam, chia thành ba khu vực mỗi khu vực 4.000 người. Vẽ chúng đồng đều và phe Cam thắng cả ba. Giờ vẽ lại. Nhồi 4.000 cử tri phe Cam vào một khu vực (phe Cam thắng 100–0). Rải 3.000 cử tri phe Cam còn lại qua hai khu vực 4.000 người, nơi 5.000 cử tri phe Lam giành lợi thế ở cả hai. Cùng 12.000 cử tri, cùng đa số 7.000 phe Cam. Giờ phe Cam giữ một ghế và phe Lam giữ hai. Đó là nhồi nhét: phiếu của đối thủ bị dồn vào kho ở nơi chúng chất đống thành phần dư, bị lãng phí vào những cách biệt không cần thiết. Dấu hiệu là <em>quy mô và mức độ tập trung</em> của khu vực. Khu vực của đối thủ lớn và đặc. Khu vực của bạn gọn và hiệu quả.",
+				p2: "Giờ hãy đọc lại phát hiện 3: ở vùng duy nhất của Calgary nơi 13 trong 17 khu vực bỏ phiếu cho NDP, các khu vực của phe thiểu số cao hơn mức trung bình của tỉnh 11,5%. Của phe đa số, được vẽ trong cùng căn phòng, là 2,8%.",
+				limit: "<em>Giới hạn:</em> các khu vực quá khổ cũng có thể đến từ những dự đoán trung thực về tăng trưởng, hoặc từ việc giữ một cộng đồng nguyên vẹn. Sự bất đối xứng về quy mô là dấu hiệu mà nhồi nhét để lại. Nhiều lựa chọn vô tội cũng để lại nó.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Quay lại phát hiện 3</a>"
+			},
+			appendix_d: {
+				heading: "Phụ lục D — MAD đo gì, và vì sao có biên độ",
+				confusion: "<em>Sự bối rối:</em> \"Độ lệch tuyệt đối trung bình của dân số — đây có phải chỉ là thống kê để nói 'các khu vực không giống hệt nhau'?\"",
+				p1: "Gần như vậy. Các khu vực không thể có chính xác cùng số người; các cộng đồng có quy mô lộn xộn. MAD đặt một câu hỏi đơn giản: trung bình, mỗi khu vực lệch khỏi phần lý tưởng bao xa? MAD 3.180 nghĩa là các khu vực lệch khỏi mức lý tưởng trung bình khoảng 3.180 người. MAD 4.707 nghĩa là mức lệch trung bình lớn hơn một nửa. Luật chấp nhận sự lệch, trong một biên độ (Alberta cho phép ±25%), vì tôn trọng các cộng đồng thực xứng đáng với một chút bất bình đẳng. Đó là sự đánh đổi. Độ lệch là đồng tiền, và bạn tiêu nó để mua những thứ như thị trấn nguyên vẹn và ranh giới hợp lý. Đó là điều làm cho phát hiện 4 có ý nghĩa: bản đồ thiểu số tiêu nhiều hơn 48% đồng tiền đó so với bản đồ đa số. Và phát hiện 1 cho thấy nó <em>không</em> dùng số tiền đó để mua sự nguyên vẹn cho Airdrie.",
+				p2: "Giờ hãy đọc lại phát hiện 4: độ phân tán rộng hơn 99 trong mỗi 100 bản đồ trung lập (các bản đồ mà máy tính vẽ mà không nhìn thấy một lá phiếu nào; Phụ lục F), trên giá trị duy nhất mà luật thực sự định lượng.",
+				limit: "<em>Giới hạn:</em> luật không xếp hạng gì trong biên độ. \"Tiêu nhiều độ lệch hơn\" là một nhận xét về thứ tự ưu tiên, không phải một vi phạm. Mọi khu vực trên cả hai bản đồ đều hợp pháp.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Quay lại phát hiện 4</a>"
+			},
+			appendix_e: {
+				heading: "Phụ lục E — Neo bám theo ranh giới đô thị đo gì, và điều nó không thể cho thấy",
+				confusion: "<em>Sự bối rối:</em> \"Tại sao phải đếm xem một ranh giới bám theo đường ranh giới thành phố hay thị trấn thường xuyên đến mức nào?\"",
+				p1: "Vì đó là nơi người dân vốn đã biết mình sống ở đâu. Khi một ranh giới khu vực chạy dọc ranh giới đô thị, ranh giới thuế tài sản, ranh giới khu học chánh, ranh giới phường địa phương và ranh giới bầu cử cấp tỉnh trùng nhau. Cử tri có thể biết mình ở khu vực nào mà không cần bản đồ. Bài kiểm tra đo xem bao nhiêu phần chiều dài ranh giới khu vực của mỗi bản đồ chạy trong phạm vi 500 mét của một ranh giới đô thị theo Statistics Canada. Các ủy ban Canada đạt từ 70% đến 85% trên phép đo đó (Quebec 78%, Ontario 82%, BC 71%). Bản đồ đa số đạt 80%. Bản đồ thiểu số đạt 72%. Cả hai đều nằm trong tiêu chuẩn, nên xét tỷ lệ tổng thể, bài kiểm tra không tách bạch được chúng.",
+				p2: "Giờ hãy đọc lại phát hiện 5: tỷ lệ tổng thể là bình thường trên cả hai bản đồ. Điều nổi bật là những lần rời bỏ của phe thiểu số rơi vào đâu: ở những rìa mà chủ tịch đã gắn cờ.",
+				limit: "<em>Giới hạn:</em> tỷ lệ neo bám là một chuẩn mực, không phải một quy tắc. Luật không đặt ngưỡng nào. Và một lần rời bỏ có thể có lý do chính đáng, như một vùng ngoại ô đã phát triển vượt qua giới hạn thành phố.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Quay lại phát hiện 5</a>"
+			},
+			appendix_f: {
+				heading: "Phụ lục F — Cỗ máy giả định, và cách đọc một phân vị",
+				confusion: "<em>Sự bối rối:</em> \"Một triệu bản đồ máy tính? Phân vị của một mô phỏng? Điều đó rốt cuộc có nghĩa là gì?\""
+			}
+		}
 	}
 } as const;
