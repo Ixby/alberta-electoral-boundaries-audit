@@ -84,7 +84,7 @@ export default {
 		gerrymander_lead: "Ang mapa ba ng minorya ay isang gerrymander?",
 		gerrymander_body: "Sa pinagsamang partisan-bias score ng audit, ang mapa ng minorya ng komisyon ay nasa matinding dulo ng 1,010,000 neutral na comparison map na iginuhit ng algoritmo — humigit-kumulang 69 sa mga ito ang umaabot sa bahagi nito ng upuan kapag tabla ang boto, at ang posibilidad ng pinagsamang profile nito sa ilalim ng neutral na pagguhit ay hindi hihigit sa humigit-kumulang 1&nbsp;sa&nbsp;568,000. Ang mapa ng mayorya ay maayos na nasa loob ng normal na saklaw.",
 		tldr_label: "TL;DR",
-		tldr_p1: "Naghati ang komisyon sa muling pamamahagi ng Alberta nang 3&ndash;2 noong 2026 at nagprodyus ng dalawang magkaibang iminungkahing mapa. Isinantabi ng gobyerno ang dalawa at itinalaga ang muling pamamahagi sa isang anim na miyembrong komite ng mga MLA (ang Lunty committee), na inaasahang mag-uulat sa Nobyembre 2026. Walang batas ang alinmang mapa ng komisyon.",
+		tldr_p1: "Naghati ang komisyon ng Alberta, kinuha ng gobyerno ang panulat, at mag-uulat sa Nobyembre 2026 ang isang anim-na-MLA na komite (ang Lunty committee). Hindi batas ang alinman sa mga mapa ng komisyon.",
 		tldr_p2: "Sinubok ng audit na ito ang dalawang mapa ng komisyon sa parehong paraan, laban sa 1,010,000 neutral na mapang iginuhit ng kompyuter mula sa opisyal na mga file ng Elections Alberta. Ang panukala ng mayorya ay mukhang tulad ng mga mapang karaniwang nalilikha ng neutral na pagguhit — pumapasa ito sa bawat pre-registered na pagsusulit. Ang panukala ng minorya ay lumalagpas sa apat sa limang istrukturang pagsusulit, at sa tablang 50/50 na boto, humigit-kumulang 69 lamang sa 1,010,000 neutral na mapa ang nagbibigay ng kasindaming upuan. Ang posibilidad na makalikha ang isang neutral na proseso ng pangkalahatang fairness profile nito ay humigit-kumulang 1 sa 568,000 — at ang bilang na iyon ay sadyang maingat na kisame, hindi eksaktong tantya. Isang sukat, ang efficiency gap, ang bumagsak nang bahagya sa ibaba ng itinakdang linya ng audit; iniuulat ito bilang hindi umabot.",
 		tldr_p3: "Sinusukat ng audit ang mga resulta, hindi ang intensyon. Kapag inilabas ng Lunty committee ang mapa nito, ilalapat ng audit na ito ang parehong mga pagsusulit dito.",
 		tldr_footer: "Ang mga pre-registered na kondisyon ng falsification at mga pangako ng retraction ay nasa %s.",
@@ -264,7 +264,7 @@ export default {
 		},
 		anchoring: {
 			term: "Anchoring",
-			definition: "Kung gaano katibay sumusunod ang mga iminungkahing hangganan sa umiiral na mga linya ng munisipyo, gaya ng mga hangganan ng lungsod at bayan. Ang isang mataas na anchored na mapa ay halos iginagalang ang mga linyang iyon. Ang isang maluwag na anchored na mapa ay madalas lumilihis sa mga ito, lalo na sa mga lugar na may kahulugang pampulitika, at iyon ay isang istrukturang senyas ng babala."
+			definition: "Kung gaano katibay sumusunod ang mga iminungkahing hangganan sa umiiral na mga linya ng munisipyo, gaya ng mga hangganan ng lungsod at bayan. Ang isang mataas na anchored na mapa ay kadalasang gumagalang sa mga linyang iyon. Ang isang maluwag na anchored na mapa ay madalas lumilihis sa mga ito, lalo na sa mga lugar na may kahulugang pampulitika, at iyon ay isang istrukturang senyas ng babala."
 		},
 		"charter-s3": {
 			term: "Seksyon 3 ng Charter",
@@ -492,7 +492,7 @@ export default {
 			table2_h3: "Ano ang natuklasan ko",
 			table2_r1c1: "Heometrikong anomalous ang tatlo sa mga hangganan ng minorya",
 			table2_r1c2: "Ang tagapangulo (ulat ng mayorya)",
-			table2_r1c3: "Halos nakumpirma: hiwalay na kinumpirma ng aking mga bulag na pagsusulit ang tatlo sa apat na heometrikong bandila ng tagapangulo; ang ikaapat ay bumagsak sa ilalim ng threshold",
+			table2_r1c3: "Nakumpirma sa malaking bahagi: hiwalay na kinumpirma ng aking mga bulag na pagsusulit ang tatlo sa apat na heometrikong bandila ng tagapangulo; ang ikaapat ay bumagsak sa ilalim ng threshold",
 			table2_r2c1: "Ang mga pagbabago ng minorya sa limang lugar ay \"walang suporta ng publiko\"",
 			table2_r2c2: "Ang mayorya (huling ulat, pp. 59, 62)",
 			table2_r2c3: "Masyadong malawak: tama sa tatlo sa lima, mali sa isa, bahagyang mali sa isa",
