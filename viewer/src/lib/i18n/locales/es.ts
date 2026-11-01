@@ -1765,8 +1765,70 @@ export default {
 						feature: "Borrador publicado para impugnación",
 						commission: "Sí — propuesta provisional revisada en público",
 						committee: "No — ninguno anunciado"
+					},
+					new_public_submissions: {
+						feature: "Se aceptan nuevas presentaciones del público",
+						commission: "Sí — se recibieron 1,345",
+						committee: "No — reutiliza el archivo de la comisión"
+					},
+					demonstrated_responsiveness: {
+						feature: "Capacidad de respuesta demostrada",
+						commission: "Sí — se corrigió con base en más de 80 presentaciones",
+						committee: "Pendiente"
+					},
+					neutral_chair_deciding: {
+						feature: "Presidencia neutral del órgano que decide",
+						commission: "Sí — un juez, nombrado por el gabinete",
+						committee: "No — preside un MLA del gobierno; el juez jubilado preside solo el nivel asesor"
+					},
+					opposition_deciding_body: {
+						feature: "Oposición en el órgano que decide",
+						commission: "Sí — dos de cinco",
+						committee: "Sí — dos de seis"
+					},
+					published_reasons_contested: {
+						feature: "Razones publicadas para las decisiones disputadas",
+						commission: "Sí — ambos informes",
+						committee: "Pendiente"
+					},
+					precedent_conformity: {
+						feature: "Conformidad con el precedente",
+						commission: "Sí",
+						committee: "No — se hizo por última vez en Alberta en 1992, y el Tribunal de Apelación lo reprochó en 1994"
+					},
+					count: {
+						feature: "Conteo",
+						commission: "9 de 9",
+						committee: "1 Sí · 1 Parcial · 5 No · 2 Pendientes"
 					}
-				}
+				},
+				p2: "Una forma más de ver este marcador: es el <em>tercer eje</em>. El gráfico de la auditoría ubica cada mapa en dos dimensiones: estructura y estadística. Los tres mapas ubicados hasta ahora los trazaron procesos de comisión que obtienen nueve de nueve aquí, así que el tercer eje no ha tenido nada que separar. El mapa de noviembre será el primer punto en la historia de la auditoría con una puntuación de proceso distinta detrás.",
+				p3: "Lea la tabla con honestidad, en ambas direcciones. La comisión obtiene nueve de nueve <em>por construcción</em>. Los criterios describen la institución que construyó la norma, y la comisión era esa institución. La parte informativa mira hacia adelante. Cuatro de las casillas No y Pendiente del comité son rasgos que todavía puede añadir de aquí a noviembre: audiencias, un borrador publicado, nuevas presentaciones, y la capacidad de respuesta que estas hacen posible. Si los añade, el hallazgo de la auditoría sobre la desviación del proceso queda atenuado de forma sustancial, y la auditoría se ha comprometido por escrito a decirlo.",
+				draft_note: "El estatus importa aquí: los criterios, las fuentes y las direcciones previstas de este marcador están <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">registrados en el OSF (u47bq, 14 de julio de 2026)</a> — congelados meses antes de que informe el comité, para que nada pueda reformularse discretamente cuando llegue la respuesta. Lo escribió a mitad del episodio un autor cuyos hallazgos anteriores usted acaba de leer — un riesgo de sesgo que el <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">documento registrado</a> revela en lugar de ocultar. Aplicado hacia atrás a la comisión, es descripción, no predicción. Cuando llegue el mapa del comité, las mismas pruebas fijadas del mapa se ejecutan sin cambios — y esta lista de verificación califica el proceso que lo produjo. En ese momento el debate sobre las normas deja de ser una pelea a gritos sobre la tradición y se convierte en una comparación calificada: ¿se comportó el comité como la institución que reemplazó?"
+			},
+			audits_standing_rule: {
+				heading: "La regla permanente de la auditoría",
+				p1: "La misma regla que en todo el resto de este sitio. La auditoría documenta qué pasó, qué tan raro es y quién afirmó qué. Si la norma merecía sobrevivir al estancamiento — y lo que su abandono debería costar en las urnas, si es que algo — les corresponde a los lectores y a los votantes. No a una auditoría estadística.",
+				cross_ref: "Páginas complementarias: <a href=\"__BASE__/law\">Lo que la ley le pide a un mapa electoral</a> · <a href=\"__BASE__/methods\">Cómo se pusieron a prueba los mapas</a>",
+				disclaimer: "Esta página es un complemento en lenguaje sencillo de la auditoría, escrito para orientar. No es asesoría legal, ni es un veredicto sobre ninguna persona o partido."
+			}
+		},
+		law: {
+			head_title: "Lo que pide la ley · Auditoría de los límites electorales de Alberta",
+			head_description: "Cómo evalúa el derecho canadiense un mapa electoral: la representación efectiva del art. 3 de la Carta, la Saskatchewan Reference y la Electoral Boundaries Commission Act de Alberta — y cómo se relaciona la evidencia de esta auditoría con esas pruebas.",
+			back: "← Volver a la auditoría",
+			site_label: "Auditoría de los límites electorales de Alberta",
+			h1: "Lo que la ley le pide a un mapa electoral",
+			meta: "Complemento en lenguaje sencillo · Solo en inglés por ahora · No es asesoría legal",
+			standfirst: "Esta auditoría mide mapas. Los tribunales los juzgan. Los dos trabajos están relacionados, pero no son lo mismo, y esta página recorre la diferencia: qué le pide realmente el derecho canadiense a un límite electoral, qué preguntas le corresponden a un tribunal y no a un estadístico, y dónde encaja la evidencia de la auditoría. La auditoría en sí no toma posición sobre ninguna conclusión legal. Reporta lo que muestran los datos, y se detiene ahí.",
+			why_not_gerrymander: {
+				heading: "Por qué esta auditoría nunca dictamina \"gerrymander\"",
+				p1: "La auditoría usa \"gerrymandering\" a lo largo de todo el texto en su sentido político cotidiano: manipular los límites electorales para obtener ventaja partidista. Pero en el derecho canadiense la palabra no tiene definición legal. No hay ninguna ley que se viole al hacer \"gerrymandering\" ni ninguna prueba judicial con ese nombre. Un mapa no puede ser declarado culpable de una categoría que no existe. Esa es una razón por la que la auditoría se niega a emitir ese veredicto, digan lo que digan las cifras.",
+				p2: "Vale la pena detenerse en el contraste con Estados Unidos, porque la mayoría de las herramientas estadísticas de esta auditoría — la brecha de eficiencia, los conjuntos de mapas neutrales (grandes colecciones de mapas trazados por computadora) — se inventaron para las peleas estadounidenses. En EE. UU., el gerrymandering partidista es al menos una demanda con nombre. Pero la Corte Suprema de EE. UU. cerró la puerta de los tribunales federales en <em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019), al sostener que los tribunales federales carecen de \"estándares judicialmente discernibles y manejables\" para juzgar tales demandas. Las mismas métricas siguen vigentes en algunos tribunales estatales de EE. UU., sobre todo en <em>League of Women Voters v. Commonwealth</em>, 178 A.3d 737 (Pa. 2018).",
+				p3: "Canadá tomó otro camino. En lugar de una prueba de gerrymandering, el derecho canadiense hace dos preguntas que pueden responderse. ¿Ofrece el mapa una <a href=\"#effective-representation\">representación efectiva</a> según el artículo 3 de la <em>Carta</em>? ¿Y cumplió la comisión <a href=\"#ebca\">la ley que la rige</a>? Los hallazgos de la auditoría son evidencia que un tribunal podría ponderar dentro de esas dos indagaciones. Insumos, no un veredicto sobre ninguna de las dos. Y la estadística no puede leer mentes: la geometría de los límites puede mostrar lo que un mapa <em>hace</em>, nunca lo que sus redactores <em>pretendían</em>."
+			},
+			effective_representation: {
+				heading: "La prueba constitucional: la representación efectiva"
 			}
 		}
 	}

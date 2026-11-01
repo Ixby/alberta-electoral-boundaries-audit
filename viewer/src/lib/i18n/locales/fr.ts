@@ -1602,6 +1602,91 @@ export default {
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Retour au constat 14</a>"
 			},
 			footer_note: "Le contenu reprend les annexes du <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">rapport public complet</a>. En anglais seulement pour l'instant, en attendant la révision de l'auteur avant traduction."
+		},
+		methods: {
+			head_title: "Comment les cartes ont été testées · Audit des limites électorales de l'Alberta",
+			head_description: "Chaque test et chaque statistique de l'audit, expliqués en langage clair : la machine à hypothèses au million de cartes, les cinq tests structurels, les quatre mesures d'équité, les valeurs p, et les tests qui sont tombés.",
+			back: "← Retour à l'audit",
+			site_label: "Audit des limites électorales de l'Alberta",
+			h1: "Comment les cartes ont été testées",
+			meta: "Chaque test et chaque statistique, en langage clair · En anglais seulement pour l'instant · Chaque chiffre reproductible à partir du dépôt public",
+			standfirst: "Tout l'audit repose sur une idée simple. Vous voulez savoir si une carte est inhabituelle ? Tracez un million de cartes qui ne pourraient pas être biaisées. Un ordinateur les trace, et il ne voit jamais un seul vote. Ensuite, regardez où les vraies cartes se situent parmi elles. Cette page parcourt cette idée et chaque test qui en découle. Aucune formule. Si vous savez lire une prévision météo, vous savez lire ceci.",
+			toc: {
+				aria: "Contenu de la page",
+				what_if: "La machine à hypothèses",
+				percentile: "Comment lire un centile",
+				structural: "Les cinq tests structurels",
+				fairness: "Les quatre mesures d'équité",
+				odds: "Ce que veulent dire les probabilités",
+				died: "Les tests qui sont tombés",
+				break: "Essayer de casser notre propre résultat",
+				prereg: "Des promesses faites à l'avance",
+				reproduce: "Faites-le vous-même"
+			},
+			what_if: {
+				heading: "La machine à hypothèses : 1 010 000 cartes neutres",
+				p1: "Un ordinateur a tracé <strong>1 010 000 cartes légales de l'Alberta</strong>. Chacune suit les deux mêmes règles strictes que la vraie commission a suivies : chaque circonscription compte à peu près le même nombre de personnes (à 25 % ou moins de la moyenne), et chaque circonscription est d'un seul tenant.",
+				p2: "Comment un ordinateur trace-t-il une carte ? Un petit pas à la fois. Prenez deux circonscriptions qui partagent une frontière. Fusionnez-les en une seule masse. Redivisez cette masse en deux nouvelles circonscriptions légales, au hasard. Recommencez, 1 010 000 fois, en sauvegardant la carte après chaque étape. La méthode s'appelle ReCom, et c'est l'outil standard dans ce domaine.",
+				p3: "Le fait essentiel : <strong>l'ordinateur ne voit jamais un seul vote.</strong> Il ne sait pas où vivent les électeurs du NDP ou du UCP. Donc, si une carte neutre penche tout de même d'un côté, ce penchant vient de la seule géographie de l'Alberta. Et si une vraie carte penche beaucoup plus loin que presque toutes les cartes neutres, la géographie ne peut plus être l'explication.",
+				p4: "Quatre points d'honnêteté au sujet de la machine :",
+				li1: "<strong>Les dés ont été lancés en public.</strong> La graine aléatoire (le nombre de départ derrière chaque choix aléatoire) n'a pas été choisie par l'auteur. Elle provient d'une balise publique d'aléa (« drand », exploitée par la League of Entropy, un groupe qui comprend Cloudflare), comme un tirage de loterie diffusé en direct. Elle a été verrouillée avant que les fichiers officiels des cartes existent. N'importe qui peut la recalculer.",
+				li2: "<strong>Quatre exécutions distinctes concordent.</strong> Le million de cartes provient de quatre exécutions indépendantes, chacune partant d'un point différent. Les quatre ont abouti à la même image. Les vérifications standard à cet effet (utilisées dans tout le domaine) sont réussies avec de la marge.",
+				li3: "<strong>Une note sur le nombre de sièges.</strong> Les cartes de la commission de 2026 comptent 89 circonscriptions chacune. La simulation tourne sur la carte de 2019 à 87 circonscriptions, la dernière adoptée légalement, parce que l'algorithme a besoin d'une vraie carte comme point de départ. Le comité de novembre en produira 91. Chaque pourcentage de ce site est une <em>part</em> de sièges ; les chiffres se comparent donc proprement entre les trois tailles.",
+				li4: "<strong>La machine n'est pas un arbitre parfait.</strong> Elle suit les deux règles strictes, mais pas toutes les règles souples que respectent les vraies commissions, comme garder les communautés ensemble. Les vraies cartes de commission sont en fait plus régulières que la plupart des cartes neutres. L'audit le dit clairement partout où apparaissent les chiffres de la machine."
+			},
+			percentile: {
+				heading: "Comment lire un centile",
+				p1: "Alignez les 1 010 000 cartes neutres, de la moins favorable au UCP à la plus favorable au UCP. Placez maintenant une vraie carte dans la file. Son <strong>centile</strong>, c'est simplement sa position : « 78e centile » veut dire qu'elle penche plus loin que 78 cartes neutres sur 100. Rien de remarquable : un peu au-dessus du milieu du peloton.",
+				p2: "« 99,99e centile », c'est différent. Cela veut dire que la carte penche plus que pratiquement toutes les cartes neutres de la file — dans cet audit, toutes sauf <strong>69 sur 1 010 000</strong>. La taille fonctionne de la même façon. Un homme au 78e centile est un peu grand. Un homme au 99,99e centile mesure environ sept pieds."
+			},
+			structural: {
+				heading: "Les cinq tests structurels (aucun vote nécessaire)",
+				p1: "Avant toute simulation, l'audit a mesuré les lignes tracées elles-mêmes. Cinq tests, tous verrouillés avant que les résultats soient connus. Chacun compare directement les deux cartes de la commission.",
+				li1: "<strong>1. L'écart de population.</strong> À quelle distance les circonscriptions s'éloignent-elles de la taille idéale ? Selon les propres tableaux de la commission, l'écart typique de la carte majoritaire est de 3 180 personnes. Celui de la carte minoritaire est de 4 707, environ moitié plus large. Un écart plus large veut dire que les votes comptent de façon moins égale.",
+				li2: "<strong>2. L'encombrement à Calgary.</strong> Dans le nord-est et le centre de Calgary, les circonscriptions de la carte minoritaire sont 11,5 % plus grandes que la moyenne provinciale. Celles de la majoritaire, 2,8 % plus grandes. Des circonscriptions plus grandes veulent dire que chaque vote qui s'y trouve pèse moins. Et cette zone vote massivement NDP. Ce schéma s'appelle l'<em>entassement</em>.",
+				li3: "<strong>3. La division d'Airdrie.</strong> La loi oblige à répartir Airdrie dans au moins deux circonscriptions. La carte majoritaire en utilise deux. La carte minoritaire découpe la ville en quatre morceaux (dont trois regroupent au moins 2 % de ses habitants), chacun rattaché à un territoire extérieur différent. Diviser finement une communauté s'appelle le <em>fractionnement</em>.",
+				li4: "<strong>4. Les signalements du président.</strong> Le propre président de la commission a signalé publiquement des limites comme géographiquement étranges. Quatre de ses signalements portent sur la carte minoritaire, et la propre vérification géométrique de l'audit en a confirmé trois. Aucun ne porte sur la carte majoritaire.",
+				li5: "<strong>5. Suivre les limites municipales (le test qui est tombé).</strong> Les premières données laissaient croire que la carte minoritaire ignorait les limites municipales. Les fichiers officiels des cartes ont fait tomber ce constat : les deux cartes suivent les limites municipales à des taux canadiens normaux (80 % et 72 %). L'audit garde le test tombé en évidence au lieu de l'effacer.",
+				p2: "Résultat : la carte minoritaire franchit les quatre seuils encore actifs. La carte majoritaire n'en franchit aucun."
+			},
+			fairness: {
+				heading: "Les quatre mesures d'équité (votes ajoutés)",
+				p1: "Ajoutez maintenant les votes de 2023 et demandez : comment chaque carte transforme-t-elle les votes en sièges ? Quatre mesures standard, chacune comparée au million de cartes neutres.",
+				li1: "<strong>1. Les sièges à égalité des voix.</strong> Le test le plus intuitif. Faites comme si la province votait exactement à 50/50 et comptez les sièges de chaque camp. Avec la géographie de l'Alberta, une carte neutre typique donne au UCP environ 44,8 % des sièges à égalité. Les votes NDP des villes sont utilisés un peu plus efficacement ; une égalité favorise donc naturellement un peu le NDP. La carte majoritaire donne au UCP 46,1 % : 78e centile, ordinaire. La carte minoritaire donne au UCP <strong>51,7 %</strong>, une majorité des sièges à égalité des voix. Seules 69 des 1 010 000 cartes neutres font mieux pour le UCP. Pour donner une échelle, une procédure chargée de maximiser <em>délibérément</em> les sièges du UCP a atteint 52,9 %. La carte minoritaire est plus proche de ce plafond fabriqué que du milieu neutre.",
+				li2: "<strong>2. L'écart d'efficacité.</strong> Chaque vote est soit nécessaire pour gagner un siège, soit « gaspillé » — exprimé pour un perdant, ou empilé sur un gagnant au-delà de ce qu'exigeait la victoire. Cette mesure compare la vitesse à laquelle les votes de chaque parti sont gaspillés. La carte majoritaire obtient +0,1 % : pratiquement rien. La minoritaire obtient +4,0 % en faveur du UCP, le 94,5e centile, juste <em>sous</em> la ligne d'alarme fixée d'avance par l'audit au 95e. C'est la seule mesure qui ne s'est pas déclenchée. L'audit la rapporte comme un échec.",
+				li3: "<strong>3. L'écart moyenne-médiane.</strong> Comparez le résultat moyen d'un parti par circonscription avec son résultat dans la circonscription du milieu. Quand les deux s'éloignent l'un de l'autre, des votes sont regroupés quelque part dans des victoires écrasantes. L'écart de la carte minoritaire favorise le UCP plus que 99,9 % des cartes neutres. Celui de la majoritaire penche dans l'autre sens — légèrement efficace pour le NDP —, ce qui correspond au comportement des cartes de commission régulières sur la géographie de l'Alberta.",
+				li4: "<strong>4. La déclinaison.</strong> Une lecture géométrique des marges de victoire : la carte traite-t-elle les victoires des deux partis de la même façon, ou se plie-t-elle à la ligne des 50 % ? La carte minoritaire se plie davantage en faveur du UCP qu'environ 98,8 % des cartes neutres. La carte majoritaire paraît normale. (Une première version de cette mesure avait son signe inversé à cause d'une erreur de programmation ; la correction est documentée, pas effacée.)",
+				p2: "Résultat : trois sur quatre se déclenchent sur la carte minoritaire, toutes dans la même direction. La quatrième tombe juste sous la ligne, pointant dans le même sens. La carte majoritaire est ordinaire sur les quatre."
+			},
+			odds: {
+				heading: "Ce que veut dire « 1 sur 568 000 » — et pourquoi l'audit a doublé sa marge",
+				p1: "Combinez les quatre mesures d'équité en un seul score et demandez : à quelle fréquence le tracé neutre produit-il un profil aussi extrême que celui de la carte minoritaire ? La réponse est environ <strong>1 sur 1,1 million</strong>. Mais l'audit ne cite pas ce chiffre. Il cite <strong>1 sur 568 000</strong> — exactement deux fois moins impressionnant. Voici pourquoi.",
+				p2: "L'audit a cherché un signal à deux endroits différents : ce score combiné, et un second test sur les choix précis de limites. Chercher à deux endroits donne deux chances au hasard. Pensez aux billets de loterie : achetez-en deux, et vos chances de détenir un gagnant doublent. Avant de citer la probabilité, l'audit la double donc contre lui-même. Ainsi, « vous avez eu deux essais » est déjà payé.",
+				p4: "Une mise en garde que l'audit répète partout : ces probabilités mesurent à quel point la <em>carte</em> est inhabituelle. Ce ne sont pas les probabilités que quelqu'un ait agi avec intention. Une carte rare pourrait tout de même, en principe, être un travail honnête. Les probabilités disent seulement ceci : le tracé ordinaire ne produit pas cette carte."
+			},
+			died: {
+				heading: "Les tests qui sont tombés",
+				p1: "Deux constats n'ont pas survécu, et les deux restent publiés. C'est voulu : un audit qui ne vous montre que ses victoires fait de la publicité.",
+				li1: "<strong>Le test des limites municipales</strong> n'a rien trouvé qui distingue les cartes : les deux suivent les limites municipales dans la norme canadienne (majoritaire 80 %, minoritaire 72 %).",
+				li2: "<strong>Le test des choix de limites (SZAT)</strong> semblait significatif jusqu'à ce que l'audit le corrige pour tenir compte d'un fait simple : des endroits voisins votent de façon semblable. Traiter des voisins comme indépendants flatte le résultat. Après la correction, le test n'a rien montré. Il a été retiré."
+			},
+			break: {
+				heading: "Essayer de casser notre propre résultat",
+				p1: "Avant de se fier au constat phare, l'audit l'a attaqué de trois façons.",
+				li1: "<strong>Changer de moteur.</strong> Tout relancer avec un algorithme de tracé de cartes complètement différent (une méthode par forêts couvrantes, promise publiquement avant l'exécution). Chaque résultat a bougé de moins d'un point de centile. Le constat a survécu.",
+				li2: "<strong>Changer de logiciel.</strong> Une implémentation indépendante dans un autre langage de programmation ne trouve elle non plus aucune carte atteignant la valeur de la carte minoritaire.",
+				li3: "<strong>Tester le mécanisme — et échouer.</strong> L'audit a supposé que les formes étranges relevées par les tests structurels étaient la cause directe de l'avantage en sièges. Cette supposition a échoué à son test. Les formes et le penchant en sièges pointent vers la même carte, mais les formes ne sont pas le moteur. L'audit le dit."
+			},
+			prereg: {
+				heading: "Des promesses faites à l'avance",
+				p1: "La meilleure défense contre le risque de se leurrer soi-même, c'est d'écrire ses prédictions avant de regarder. L'audit a verrouillé ses tests, ses seuils et les directions prévues dans des enregistrements publics et horodatés sur l'Open Science Framework. Il a verrouillé ses graines aléatoires sur une balise publique. Les deux ont eu lieu avant la publication des fichiers officiels des cartes. Quand une prédiction verrouillée a échoué, elle est restée un échec. Les mêmes tests verrouillés seront appliqués, sans changement, à la nouvelle carte du comité quand elle arrivera en novembre 2026. L'audit indique aussi lesquels de ses résultats sont <em>exploratoires</em> (graines verrouillées, mais combinaison exacte de tests choisie plus tard) et lesquels sont entièrement pré-enregistrés. La probabilité phare est exploratoire. La grille d'évaluation de novembre est le test entièrement pré-enregistré."
+			},
+			reproduce: {
+				heading: "Faites-le vous-même",
+				p1: "Chaque chiffre de ce site provient d'un script du dépôt public exécuté sur des données versionnées. La recette complète se trouve dans <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a> ; en version courte :",
+				p2: "Une version carnet hébergée s'exécute dans le navigateur grâce à <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. La méthodologie complète — y compris chaque correction en cours de route — se trouve dans la <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">monographie technique</a>.",
+				cross_ref: "Pages complémentaires : <a href=\"__BASE__/law\">Ce que le droit demande d'une carte électorale</a> · <a href=\"__BASE__/norms\">Ce que demandent les normes</a> · <a href=\"__BASE__/explainers\">Les quatorze fiches explicatives (annexes A à N)</a>, une pour chaque douille du rapport principal."
+			}
 		}
 	}
 } as const;
