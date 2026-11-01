@@ -1580,7 +1580,57 @@ export default {
 			},
 			appendix_l: {
 				heading: "Apendiks L — Paano hinihirang ang mga komisyonado, at ano ang ipinahihiwatig ng paghirang",
-				confusion: "<em>Ang pagkalito:</em> \"Ang mga komisyonadong hinirang ng gobyerno ang gumuhit ng mapang pabor sa gobyerno. Sarado na ang kaso, hindi ba?\""
+				confusion: "<em>Ang pagkalito:</em> \"Ang mga komisyonadong hinirang ng gobyerno ang gumuhit ng mapang pabor sa gobyerno. Sarado na ang kaso, hindi ba?\"",
+				p1: "Binubuo ang komisyon ng Alberta mula sa mga paghirang: isang tagapangulo, kasama ang mga komisyonadong hinirang mula sa panig ng gobyerno at ng oposisyon. Ipinagpapalagay ng disenyo ang mga partisan na pananaw at binabalanse ang mga ito. Pumupusta ito na ang isang halong silid ay magkakaisa sa iisang maipagtatanggol na mapa. Sa loob ng mga dekada, nagbunga ang pusta: lumagda ang mga komisyon sa mga ulat na may pagkakaisa. Sa siklong ito, nahati ang silid ayon sa mga linya ng paghirang nito, at ang mga hinirang ng gobyerno ang gumawa ng estadistikong outlier. Totoo ang ugnayang iyon at sulit itala. Iyon din mismo ang lugar kung saan dapat huminto ang hinuha. Hindi ahente ang mga hinirang na komisyonado. Walang ebidensya sa rekord ng audit na ito na nagpapakitang inutusan, nakipag-ugnayan sa, o kahit alam ng gobyerno ang hugis ng mapa ng mga hinirang nito bago ito isumite. Puno ang kasaysayan ng mga hinirang na bumigo sa humirang sa kanila. Inaanyayahan ng ugnayan ang isang tanong. Hindi nito ito masasagot. At tumagpas din ang mga instrumento ng audit laban sa panig ng tagapangulo nang doon pumunta ang datos. Iyan ang ibig sabihin ng simetrikong pagsukat.",
+				p2: "Ngayon, basahin muli ang natuklasan 12: ang paghahati ang anomalya; ang pinagmulan, kung sino ang humirang kanino, ay ang tandang pananong, hindi ang sagot.",
+				limit: "<em>Ang limitasyon:</em> konteksto ang pinagmulan ng paghirang, hindi kailanman patunay. Ang pagtrato rito bilang patunay ay ang parehong fallacy ng Apendiks H, nakasuot ng pampulitikang amerikana.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-12\">↩ Bumalik sa natuklasan 12</a>"
+			},
+			appendix_m: {
+				heading: "Apendiks M — Ang proseso ng Act, mula komisyon hanggang komite, mula simula hanggang dulo",
+				confusion: "<em>Ang pagkalito:</em> \"Paano basta… maaagaw ng lehislatura ang redistricting? Hindi ba ang mapa ng komisyon ang mapa?\"",
+				p1: "Hindi. Ito ang sorpresang nagdadala ng bigat ng buong yugto. Sa ilalim ng <em>Electoral Boundaries Commission Act</em> ng Alberta, nagmumungkahi ang komisyon; ang Legislative Assembly lamang ang nagpapasya. Ang huling ulat ng komisyon — kasama ang mga pagdinig, submission, rebisyon at lahat — ay payo. Wala itong legal na bisa hanggang magsabatas ang Assembly ng isang mapa. At walang inilalagay na limitasyon ang Act sa kung ano ang gagawin ng Assembly sa halip: walang minimum na debate, walang panahon ng abiso, walang obligasyong unahin ang trabaho ng komisyon, walang kinakailangang pagdinig para sa anumang prosesong susunod. Walang anuman sa Act na pumipigil sa Assembly na ipadala ang trabaho sa ibang lugar. Iyan ang ginawa ng Government Motion 37, na ipinadala ito sa isang select committee. Binubuo ng mga MLA ang mga select committee ng Assembly, kaya ang pagpili mismo ng sasakyan ang nag-alis sa pagiging independiyente. Nang legal. Sa bawat siklo mula nang amyendahan ang Act noong 1995, ang pagpipigil ng Assembly, hindi ang batas, ang naglayo sa kamay ng mga pulitiko sa panulat. Noong 1992, hindi. Isang komite ng mga MLA ang gumuhit ng mapa, at noong 1994 ay sinisi ng Court of Appeal ang komiteng iyon dahil hindi nito maipaliwanag ang ilan sa mga hangganan nito.",
+				p2: "Ngayon, basahin muli ang natuklasan 13: ang mga pagdinig sa labing-anim na komunidad ay pinalitan ng isang katawang hindi obligadong magdaos ng kahit isa. Lahat ng ito ay nasa loob ng Act.",
+				limit: "<em>Ang limitasyon:</em> ipinaliliwanag ng apendiks na ito kung ano ang pinahihintulutan ng batas. Kung ang pinahihintulutan ng batas ay dapat tanggapin ng mga taga-Alberta ay isang pampulitikang tanong — ang tanong na binuo ang mga pagsusulit sa Nobyembre upang bigyang-impormasyon.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-13\">↩ Bumalik sa natuklasan 13</a>"
+			},
+			appendix_n: {
+				heading: "Apendiks N — Mga kumbensyon laban sa batas, at kung paano naaagnas ang mga pamantayan",
+				confusion: "<em>Ang pagkalito:</em> \"Kung lumalabag sa pinakamalalim nating pamantayan sa halalan ang pagguhit ng mga pulitiko sa sarili nilang mga distrito, paano ito naging legal?\"",
+				p1: "Dahil tumatakbo ang konstitusyon ng Canada sa dalawang operating system. Ang isa ay batas: nakasulat, justiciable (maaaring magpasya rito ang korte), ipinatutupad ng mga korte. Ang isa pa ay kumbensyon: hindi nakasulat na mga tuntunin ng pampulitikang asal, tumatali sa praktika, hindi nakikita ng korte. Inilarawan ng Korte Suprema ang hating ito sa Patriation Reference noong 1981. Maaaring <em>kilalanin</em> ng mga korte ang isang kumbensyon at tatanggi pa ring <em>ipatupad</em> ito, dahil pampulitika ang pagbabantay sa mga kumbensyon — ng oposisyon, ng pamamahayag, at ng mga botante — hindi panghukuman. Nasa panig ng kumbensyon ang mga independiyenteng boundary commission. Animnapung taon ng praktika, sa bawat probinsya at sa pederal, ang bumuo sa tuntuning hindi iginuguhit ng mga pulitiko ang sarili nilang mga riding. Walang batas saanman na ginagawang sapilitan ang tuntuning iyon. Kaya ang buong lakas ng pananggalang ay ang patuloy na pagpili ng mga gobyerno na igalang ito. Ang pamantayang nilabag nang isang beses, nang walang kahihinatnan, ay mas mahina para sa bawat gobyernong susunod. Ng anumang partido.",
+				p2: "Ngayon, basahin muli ang natuklasan 14: tunay na paglabag, ganap na dokumentado, walang kaugnayan sa korte — lahat ng tatlo nang sabay.",
+				limit: "<em>Ang limitasyon:</em> ang \"hindi maipatutupad\" ay pahayag tungkol sa mga korte, hindi tungkol sa mga kahihinatnan. Ipinatutupad ang mga kumbensyon sa mga halalan, ng mga taong nakaaalam kung ano ang ginawa. Umiiral ang mga ulat na tulad nito para malaman nila.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Bumalik sa natuklasan 14</a>"
+			},
+			footer_note: "Sinasalamin ng nilalaman ang mga apendiks ng <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">buong pampublikong ulat</a>. Sa Ingles lamang sa ngayon, habang hinihintay ang pagsusuri ng may-akda bago isalin."
+		},
+		methods: {
+			head_title: "Paano Sinubok ang mga Mapa · Pag-audit ng Hangganan ng Halalan sa Alberta",
+			head_description: "Ang bawat pagsusulit at estadistika sa audit, ipinaliwanag sa simpleng wika: ang makinang paano-kung na may milyong mapa, ang limang istrukturang pagsusulit, ang apat na sukat ng patas, mga p-value, at ang mga pagsusulit na namatay.",
+			back: "← Bumalik sa audit",
+			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
+			h1: "Paano Sinubok ang mga Mapa",
+			meta: "Ang bawat pagsusulit at bawat estadistika, sa simpleng wika · Sa Ingles lamang sa ngayon · Ang bawat numero ay mauulit mula sa pampublikong repository",
+			standfirst: "Nakasalalay ang buong audit sa isang simpleng ideya. Gusto ninyong malaman kung kakaiba ang isang mapa? Gumuhit ng isang milyong mapang hindi maaaring may kiling. Isang kompyuter ang gumuguhit sa mga ito, at hindi ito nakakakita ng kahit isang boto. Pagkatapos, tingnan kung saan bumabagsak ang mga tunay na mapa sa gitna nila. Nilalakad ng pahinang ito ang ideyang iyon at ang bawat pagsusulit na nakatayo rito. Walang pormula. Kung kaya ninyong basahin ang ulat ng panahon, kaya ninyong basahin ito.",
+			toc: {
+				aria: "Nilalaman ng pahina",
+				what_if: "Ang makinang paano-kung",
+				percentile: "Paano basahin ang isang persentil",
+				structural: "Ang limang istrukturang pagsusulit",
+				fairness: "Ang apat na sukat ng patas",
+				odds: "Ano ang ibig sabihin ng tsansa",
+				died: "Ang mga pagsusulit na namatay",
+				break: "Pagsubok na sirain ang sarili naming resulta",
+				prereg: "Mga pangakong ginawa nang maaga",
+				reproduce: "Patakbuhin ito mismo"
+			},
+			what_if: {
+				heading: "Ang makinang paano-kung: 1,010,000 neutral na mapa",
+				p1: "Gumuhit ang isang kompyuter ng <strong>1,010,000 legal na mapa ng Alberta</strong>. Sumusunod ang bawat isa sa parehong dalawang mahigpit na tuntuning sinunod ng tunay na komisyon: ang bawat distrito ay may halos parehong bilang ng tao (sa loob ng 25% ng karaniwan), at ang bawat distrito ay iisang magkakadugtong na piraso.",
+				p2: "Paano gumuguhit ng mapa ang isang kompyuter? Isang maliit na hakbang sa bawat pagkakataon. Kumuha ng dalawang distritong magkahangganan. Pagsamahin sila sa iisang tipak. Hatiin muli ang tipak sa dalawang bagong legal na distrito, nang random. Ulitin, 1,010,000 beses, at itago ang mapa pagkatapos ng bawat hakbang. Tinatawag na ReCom ang pamamaraan, at ito ang karaniwang kasangkapan sa larangang ito.",
+				p3: "Ang susing katotohanan: <strong>hindi kailanman nakakakita ng boto ang kompyuter.</strong> Hindi nito alam kung saan nakatira ang mga botante ng NDP o UCP. Kaya kung kumikiling pa rin sa isang direksyon ang isang neutral na mapa, ang kiling na iyon ay nagmumula lamang sa heograpiya ng Alberta. At kung kumikiling ang isang tunay na mapa nang mas malayo kaysa sa halos lahat ng neutral, hindi na maaaring heograpiya ang paliwanag.",
+				p4: "Apat na punto ng katapatan tungkol sa makina:",
+				li1: "<strong>Pinagulong ang dais sa publiko.</strong> Hindi pinili ng may-akda ang random seed (ang panimulang numero sa likod ng bawat random na pagpili). Nagmumula ito sa isang pampublikong randomness beacon (\"drand\", pinatatakbo ng League of Entropy, isang grupong kabilang ang Cloudflare), gaya ng bunutan ng lotto na isinasahimpapawid nang live. Ikinandado ito bago pa umiral ang opisyal na mga file ng mapa. Maaari itong kalkulahing muli ng sinuman."
 			}
 		}
 	}
