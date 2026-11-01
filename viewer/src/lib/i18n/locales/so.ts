@@ -153,7 +153,7 @@ export default {
 		cover_note_2:
 			'Muuqaalka xidh oo khariidadaha kala beddel. Daawo xuduud dhaqaaqaysa, iyadoo codbixiyayaasha hoosteeda ku jira ay meeshooda joogaan. Su\'aasha oo dhan, hal dhaqdhaqaaq.',
 		cover_note_3:
-			'Markaad dhammayso baadhista, hoos u dhaadhac si aad u aragto soo koobidda. Falanqaynta farsameed ee dhammaystiran waxay ku jirtaa qaybta Khayraadka. Dhammaan xogtu waxay ka timid faylasha khariidadaha (shapefiles) rasmiga ah ee Elections Alberta iyo diiwaanno kale oo dawladeed iyo kuwo il-furan ah.',
+			'Markaad dhammayso baadhista, hoos u dhaadhac si aad u aragto soo koobidda. Falanqaynta farsameed ee dhammaystiran waxay ku jirtaa qaybta Lifaaqa Farsamada. Dhammaan xogtu waxay ka timid faylasha khariidadaha (shapefiles) rasmiga ah ee Elections Alberta iyo diiwaanno kale oo dawladeed iyo kuwo il-furan ah.',
 		image_alt:
 			'Khariidadda degmooyinka doorashada Alberta — soo jeedinta inta yar ee guddida, oo lagu midabeeyay codkii 2023',
 		map_hint: 'Guji si aad si is dhexgal ah u baadho',
