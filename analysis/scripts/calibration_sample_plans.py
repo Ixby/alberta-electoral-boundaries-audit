@@ -13,7 +13,7 @@ loaded with only its repository path changed. After BURN steps it writes the
 chain's assignment every SPACE steps, NPLANS plans in all, beside the chain's
 CSV of per-step metrics.
 
-  kernel s152       set D: s.15(2) mode with the Amendment 23 criteria table
+  kernel s152       set D: s.15(2) mode with the Amendment 5, Part 15 criteria table
                     (production set-D options)
   kernel canonical  the registered ensemble's kernel: half-band proposal, no
                     s.15(2) mode

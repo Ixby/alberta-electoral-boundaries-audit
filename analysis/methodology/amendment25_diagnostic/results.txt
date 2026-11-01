@@ -1,4 +1,4 @@
-Amendment 25 pre-signing diagnostic, 2026-10-31 (Alberta time). Validation counts only; no outcome statistic.
+Pre-signing diagnostic for the withdrawn draft on reading s.15(2)(c) by legal town status (not carried into Amendment 5), 2026-10-31 (Alberta time). Validation counts only; no outcome statistic.
 Harness: close_seats_ensemble.py at amendment17-local-runs@2994113c (session copy, repository path only changed), set D options
 (proposal epsilon 0.5, s.15(2) mode), table data/outputs/s15_2_va_criteria_status.csv. 5,000 burn-in steps, then one plan every 500 steps, 61 plans per chain.
 Index 396 failed to seed; 397 replaced it.

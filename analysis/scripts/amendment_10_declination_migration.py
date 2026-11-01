@@ -1,7 +1,8 @@
 """
 amendment_10_declination_migration.py — Authoritative migration script for
-the Amendment 10 declination sign-correction (T1.7 referee #5; Warrington 2018
-sign convention restored at analysis/scripts/mcmc_ensemble.py:215).
+the declination sign-correction recorded in Amendment 5, Part 9 (T1.7
+referee #5; Warrington 2018 sign convention restored at
+analysis/scripts/mcmc_ensemble.py:215).
 
 Round 2 (T1.7 R2 Refs #2, #4, #15) caught three failures in the original
 in-session migration at commit c9a9fbd:
@@ -62,7 +63,7 @@ CHAIN_CSVS = [
 POOLED_CSV = Path("data/outputs/simulated_ensemble_raw_samples_canonical.csv")
 REAL_MAP_JSON = Path("data/outputs/simulation_real_map_scores_canonical.json")
 
-PRE_FLIP_COMMIT = "fc5aae1"  # c9a9fbd^, the last pre-Amendment-10 commit
+PRE_FLIP_COMMIT = "fc5aae1"  # c9a9fbd^, the last commit before the sign fix (Amendment 5, Part 9)
 
 MANIFEST_PATH = ROOT / "findings" / "amendment_10_migration_manifest.json"
 

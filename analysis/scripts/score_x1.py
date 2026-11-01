@@ -4,7 +4,7 @@
 score_x1.py
 -----------
 
-Test X1 (Recommendation 5) for a proposed map, per Amendments 16 and 17.
+Test X1 (Recommendation 5) for a proposed map, per Amendment 5, Part 13.
 
   (a), (b)  every majority division named in the condition
             (viewer/static/mapdata/lunty_bounds.json) is unchanged: one district

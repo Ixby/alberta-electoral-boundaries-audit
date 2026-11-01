@@ -22,9 +22,9 @@ Facts come from airdrie_split_shares.py's method (2021 census DAs over the
 official boundaries; DA in the community when its representative point lies
 in the community's 2021 CSD; cut DAs shared by area), run for each community.
   N (by territory)  districts holding any of the community's residents
-  N (by people)     districts holding >= 2% of them (Amendment 17 piece rule)
+  N (by people)     districts holding >= 2% of them (Amendment 5, Part 17 piece rule)
   minimum           ceil(population / (1.25 x average)), the population-
-                    dictated minimum (Amendment 17); 2 for Airdrie, as the
+                    dictated minimum (Amendment 5, Part 17); 2 for Airdrie, as the
                     report's "centre-of-gravity minimum"
   C2 is tested on every district with residents and, separately, on the
                     pieces holding >= 2%; both are reported.
