@@ -767,7 +767,7 @@ export default {
 			table_r6_b: "<strong>0 sa 5 tumama</strong>",
 			table_r6_c: "<strong>4 sa 5 tumama</strong> (neutral ang anchoring test — parehong mapa nasa loob ng pamantayang Canadian; ang natitirang 4 na pagsusulit ay lahat tumatama)",
 			table_r6_d: "<strong>UCP</strong>",
-			rationales_p: "Isang hiwalay na natuklasan, para sa minorya lamang: <strong>lima sa anim na inilathalang rasyonal ng mga komisyonado ng minorya ang nabibigo sa ilalim ng independiyenteng pagsusuri</strong>. Tumatakbo lamang ang pagsusulit laban sa minorya dahil walang inilathalang listahan ng rasyonal ang mayorya para sa mga kontrobersyal na muling-pagguhit. Hindi ito mailalapat ng audit sa parehong mapa nang pantay, kaya iniuulat ito rito bilang iisang bandila, hindi bilang karagdagang hilera sa bilang ng istrukturang iregularidad. (Minsang naglista ang audit ng ikapitong muling-pagguhit. Napag-alamang nakasalalay ito sa isang federal-boundary claim na hindi matunton sa ulat ng minorya, kaya inalis ito sa halip na iwanang nakatayo bilang mahinang claim.)",
+			rationales_p: "Isang hiwalay na natuklasan, para sa minorya lamang: <strong>lima sa anim na inilathalang katwiran ng mga komisyonado ng minorya ang nabibigo sa isang independiyenteng pagsusuri</strong>. Tumatakbo ang pagsusulit laban sa minorya lamang dahil walang inilathalang listahan ng mga katwiran ang mayorya para sa pinagtatalunang muling pagguhit. Hindi ito mailalapat ng audit sa dalawang mapa nang pareho, kaya iniuulat ito rito bilang iisang bandila, hindi bilang karagdagang mga hanay sa bilang ng mga istrukturang iregularidad.",
 			chair_appendix_p: "Sinubukan din ng audit ang isang hiwalay at blanket na asersyon sa ulat ng mayorya, na pinirmahan ng tagapangulo: na ang mga pagbabago ng minorya sa limang lugar (Airdrie, Cochrane, Chestermere, Red Deer at St. Albert) ay <strong>walang pampublikong suporta</strong> sa 1,345 na pampublikong submission (huling ulat, pp. 59 at 62). Ang isang keyword search sa buong submission archive (93.4% machine-parsed, 6.6% image-only at hindi kasama; metodolohiya at per-configuration na ebidensya sa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>) ay nagpakita ng mas masalimuot na larawan kaysa sa blanket na claim ng mayorya o sa blanket na pagtanggi rito. Tama ang mayorya sa tatlo sa lima: ang 4-way na paghahati ng Airdrie, ang Calgary–Nolan-Hill–Cochrane na hybrid at ang St. Albert na alternatibo ng minorya ay bawat isa ay walang anumang dokumentadong suporta. Mali ito sa Chestermere, na nakatanggap ng maraming submission na tumututol sa pagsasanib sa Calgary, na materyal na nakahanay sa intensyon ng minorya. At bahagyang mali ito sa Red Deer: ang mga Red Deer hybrid ay nakatanggap ng peri-Red-Deer na hybrid na panukala mula sa isang nakaupong konsehal ng Red Deer, nakahanay sa direksyon ngunit hindi sa eksaktong configuration. Dalawang configuration na inatake ng mayorya sa ibang batayan ang nakatanggap din ng suporta: ang Rocky Mountain House–Banff Park ay nakatanggap ng tahasan at detalyadong panukala mula sa hindi bababa sa isang submission mula sa Clearwater area, kasama ang ilang nakahanay, at sinuportahan ng mga residente ng Beiseker ang Olds–Three-Hills–Didsbury sa pagsulat. Kaya ang \"walang pampublikong suporta\" na sweep ng mayorya ay naipakitang labis na malawak, ngunit hindi ito inimbento mula sa wala, dahil tatlo sa lima ang tumatayo. <strong>Ang natuklasang ito ay sumasalungat sa mayorya, hindi sa minorya.</strong>",
 			summary_p: "<strong>Sa Lane 2, ang mayorya ay lumalagpas sa zero na istrukturang threshold. Ang minorya ay lumalagpas sa apat sa lima, nang malaki ang lamang.</strong> Ang bilang ay isang hilaw na tally. Hindi ito isang calibrated na family-wise na posibilidad. Ang bigat nito ay nagmumula sa direksyonal na pagkakaisa — bawat pagsusulit na tumatama ay tumuturo sa parehong direksyon — hindi mula sa isang joint null-distribution na kalkulasyon. Ang estadistikong lane (§3) ang nagbibigay ng pinagsamang posibilidad, sa pamamagitan ng ibang instrumento."
 		},
@@ -995,7 +995,7 @@ export default {
 			act3_h: "Yugto III: Ano ang Ginawa ng mga Tao",
 			act3_intro: "Papel ang sinukat ng Yugto I at II. Asal ang binabasa ng Yugto III: kung ano ang isinulat, inangkin at pinili ng mga taong nasa loob at paligid ng proseso. Sa korte, ang asal ang kadalasang sumasagot sa mga tanong tungkol sa intensyon. Pagmasdan kung ano ang nangyayari dito sa pagkakataong ito.",
 			c11_title: "Casing 11 — Lima sa anim na dahilan ang hindi nakaliligtas sa pagsusuri",
-			c11_found: "Naglathala ang mga komisyonado ng minorya ng mga dahilan para sa kanilang pinagtatalunang muling pagguhit. Lima sa anim ang nabibigo sa isang independiyenteng pagsusuri. (Ang ikapitong muling pagguhit na inilista namin dati ay lumabas na nakasalalay sa isang pahayag tungkol sa pederal na hangganan na hindi matagpuan sa ulat ng minorya; inalis namin ito sa halip na hayaang manatili bilang mahinang pahayag.) Ang punto ay hindi na imbento ang pangangatwiran ng minorya. Sa karamihan ng mga kasong ito, totoo ang pangkalahatang pahayag, at maaaring nakaguhit ng hangganang gumagalang dito. Ang hindi naaabot ng datos ay ang partikular na linyang aktwal na iginuhit ng minorya. Ipinagtatanggol nito ang Calgary-Nolan Hill–Cochrane batay sa ideyang ang mga residente ng Cochrane ay “malayang gumagalaw” papasok sa Calgary. Ipinapakita ng datos ng journey-to-work ng Statistics Canada noong 2021 na humigit-kumulang isang-katlo ng mga manggagawa ng Cochrane ang bumibiyahe papunta sa kung saan sa Calgary, habang humigit-kumulang kalahati ang nagtatrabaho sa loob ng Cochrane: isang tunay na ugnayang lungsod-sa-lungsod, ngunit walang sinasabi tungkol sa kapitbahayan ng Nolan Hill na aktwal na inaabot ng koridor. Totoo ang pagbiyahe ng Airdrie papuntang Calgary (humigit-kumulang 76 porsyento ng mga bumibiyahe palabas nito) at ang mabilis nitong paglago, at maaaring sumuporta sa isang bagong upuan sa lugar ng Airdrie. Wala sa dalawa ang nangangailangan ng paghahati sa lungsod sa apat. Ipinapadala ng Chestermere ang 86 porsyento ng mga bumibiyahe palabas nito sa Calgary, ngunit wala itong kahating school division o sistema ng transit sa partikular na distrito ng Calgary na pinagsasamahan ng minorya sa isang bahagi nito. At hindi nanindigan ang argumentong “magkaparehong mga paaralan” ng minorya para sa pagpapares sa Red Deer at Sylvan Lake. Ang Sylvan Lake ay nasa Chinook’s Edge School Division; ang City of Red Deer ay nasa Red Deer Public.",
+			c11_found: "Naglathala ang mga komisyonado ng minorya ng mga dahilan para sa kanilang pinagtatalunang muling pagguhit. Lima sa anim ang nabibigo sa isang independiyenteng pagsusuri. Ang punto ay hindi na imbento ang pangangatwiran ng minorya. Sa karamihan ng mga kasong ito, totoo ang pangkalahatang pahayag, at maaaring nakaguhit ng hangganang gumagalang dito. Ang hindi naaabot ng datos ay ang partikular na linyang aktwal na iginuhit ng minorya. Ipinagtatanggol nito ang Calgary-Nolan Hill–Cochrane batay sa ideyang ang mga residente ng Cochrane ay “malayang gumagalaw” papasok sa Calgary. Ipinapakita ng datos ng journey-to-work ng Statistics Canada noong 2021 na humigit-kumulang isang-katlo ng mga manggagawa ng Cochrane ang bumibiyahe papunta sa kung saan sa Calgary, habang humigit-kumulang kalahati ang nagtatrabaho sa loob ng Cochrane: isang tunay na ugnayang lungsod-sa-lungsod, ngunit walang sinasabi tungkol sa kapitbahayan ng Nolan Hill na aktwal na inaabot ng koridor. Totoo ang pagbiyahe ng Airdrie papuntang Calgary (humigit-kumulang 76 porsyento ng mga bumibiyahe palabas nito) at ang mabilis nitong paglago, at maaaring sumuporta sa isang bagong upuan sa lugar ng Airdrie. Wala sa dalawa ang nangangailangan ng paghahati sa lungsod sa apat. Ipinapadala ng Chestermere ang 86 porsyento ng mga bumibiyahe palabas nito sa Calgary, ngunit wala itong kahating school division o sistema ng transit sa partikular na distrito ng Calgary na pinagsasamahan ng minorya sa isang bahagi nito. At hindi nanindigan ang argumentong “magkaparehong mga paaralan” ng minorya para sa pagpapares sa Red Deer at Sylvan Lake. Ang Sylvan Lake ay nasa Chinook’s Edge School Division; ang City of Red Deer ay nasa Red Deer Public.",
 			c11_note: "Sinuri lamang laban sa minorya, dahil ang minorya ang mapang pampubliko ang pinagtatalunang muling pagguhit. Hindi naglathala ang mayorya ng listahan ng mga dahilan para sa pinagtatalunang muling pagguhit, kaya hindi mailalapat ang pagsusuri sa dalawang panig nang pareho; iniuulat ito bilang iisang bandila.",
 			c11_show: "Ang mga dahilang hindi nakaliligtas sa pagsusuri ay mukhang mga pagdadahilan: mga dahilang natagpuan pagkatapos ng linya, hindi bago. Sa bawat kaso, tumuturo ang ebidensya sa isang hangganang maaari sanang iginuhit ng minorya. Iba ang linyang iginuhit nito.",
 			c11_experts: "Ang paglalagay sa isang nakasaad na dahilan sa tabi ng sinusuportahan ng ebidensya ay pretext analysis, isang pagsusulit kung pantakip lamang ang dahilan. Ganito mismo sinisiyasat ng mga korte sa US ang intensyon sa mga kaso ng gerrymandering na dinidinig nila. Ang mga dahilang nabibigo sa pampublikong datos ang karaniwang palatandaan.",
@@ -1488,7 +1488,7 @@ export default {
 			back: "← Bumalik sa audit",
 			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
 			h1: "Ang Labing-apat na Paliwanag",
-			meta: "Mga Apendiks A–N · isang konsepto bawat isa · sa Ingles lamang sa ngayon",
+			meta: "Mga Apendiks A–N · isang konsepto bawat isa",
 			standfirst: "Ang bawat casing sa audit ay may link sa isang apendiks dito, at bawat apendiks ay may hawak na eksaktong isang konsepto. Nagsisimula ito sa tapat na pagkalito. Binubuo nito ang ideya gamit ang isang kongkretong halimbawa. Ibinabalik kayo nito sa numero ng casing na kaya na itong basahin nang walang tulong. At nagtatapos ito sa kung ano ang <em>hindi</em> masasabi sa inyo ng konsepto. Basahin ang mga ito sa anumang pagkakasunod.",
 			appendix_a: {
 				heading: "Apendiks A — Ano talaga ang ginagawa ng \"cracking\" sa isang boto",
@@ -1602,7 +1602,7 @@ export default {
 				limit: "<em>Ang limitasyon:</em> ang \"hindi maipatutupad\" ay pahayag tungkol sa mga korte, hindi tungkol sa mga kahihinatnan. Ipinatutupad ang mga kumbensyon sa mga halalan, ng mga taong nakaaalam kung ano ang ginawa. Umiiral ang mga ulat na tulad nito para malaman nila.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Bumalik sa natuklasan 14</a>"
 			},
-			footer_note: "Sinasalamin ng nilalaman ang mga apendiks ng <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">buong pampublikong ulat</a>. Sa Ingles lamang sa ngayon, habang hinihintay ang pagsusuri ng may-akda bago isalin."
+			footer_note: "Sinasalamin ng nilalaman ang mga apendiks ng <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">buong pampublikong ulat</a>."
 		},
 		methods: {
 			head_title: "Paano Sinubok ang mga Mapa · Pag-audit ng Hangganan ng Halalan sa Alberta",
@@ -1610,7 +1610,7 @@ export default {
 			back: "← Bumalik sa audit",
 			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
 			h1: "Paano Sinubok ang mga Mapa",
-			meta: "Ang bawat pagsusulit at bawat estadistika, sa simpleng wika · Sa Ingles lamang sa ngayon · Ang bawat numero ay mauulit mula sa pampublikong repository",
+			meta: "Ang bawat pagsusulit at bawat estadistika, sa simpleng wika · Ang bawat numero ay mauulit mula sa pampublikong repository",
 			standfirst: "Nakasalalay ang buong audit sa isang simpleng ideya. Gusto ninyong malaman kung kakaiba ang isang mapa? Gumuhit ng isang milyong mapang hindi maaaring may kiling. Isang kompyuter ang gumuguhit sa mga ito, at hindi ito nakakakita ng kahit isang boto. Pagkatapos, tingnan kung saan bumabagsak ang mga tunay na mapa sa gitna nila. Nilalakad ng pahinang ito ang ideyang iyon at ang bawat pagsusulit na nakatayo rito. Walang pormula. Kung kaya ninyong basahin ang ulat ng panahon, kaya ninyong basahin ito.",
 			toc: {
 				aria: "Nilalaman ng pahina",
@@ -1663,6 +1663,7 @@ export default {
 				heading: "Ano ang ibig sabihin ng \"1 sa 568,000\" — at bakit dinoble ng audit ang palugit nito",
 				p1: "Pagsamahin ang apat na sukat ng patas sa iisang score at itanong: gaano kadalas nagagawa ng neutral na pagguhit ang profile na kasintindi ng sa mapa ng minorya? Ang sagot ay humigit-kumulang <strong>1 sa 1.1 milyon</strong>. Ngunit hindi binabanggit ng audit ang numerong iyon. Binabanggit nito ang <strong>1 sa 568,000</strong> — eksaktong kalahati ang pagkakahanga. Ito ang dahilan.",
 				p2: "Naghanap ang audit ng senyales sa dalawang magkaibang lugar: ang pinagsamang score na ito, at isang ikalawang pagsusulit sa mga tiyak na pagpili ng hangganan. Ang paghahanap sa dalawang lugar ay nagbibigay sa suwerte ng dalawang pagkakataon. Isipin ang mga tiket sa lotto: bumili ng dalawa, at doble ang tsansa ninyong may hawak na panalo. Kaya bago banggitin ang tsansa, dinodoble ito ng audit laban sa sarili. Sa ganoong paraan, bayad na ang \"dalawang beses kayong sumubok.\"",
+				p3: "May isa pang kabutihan ang pagdodoble: hindi ito nangangailangan ng mga palagay. Totoo ito magkaugnay man o hindi ang dalawang pagsusulit, kaya ito ang numerong hindi maibababa ng isang mapanghamong estadistisyan.",
 				p4: "Isang babalang inuulit ng audit saanman: sinusukat ng tsansang ito kung gaano kakaiba ang <em>mapa</em>. Hindi ito ang tsansa na may sinumang kumilos nang may intensyon. Ang isang bihirang mapa ay maaari pa ring, sa prinsipyo, maging tapat na gawa. Ito lamang ang sinasabi ng tsansa: hindi nagagawa ng karaniwang pagbalangkas ang mapang ito."
 			},
 			died: {
@@ -1695,7 +1696,7 @@ export default {
 			back: "← Bumalik sa audit",
 			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
 			h1: "Ano ang Hinihingi ng mga Pamantayan sa isang Mapa ng Halalan",
-			meta: "Kasama sa simpleng wika · Sa Ingles lamang sa ngayon · Hindi hatol sa sinuman",
+			meta: "Kasama sa simpleng wika · Hindi hatol sa sinuman",
 			standfirst: "May tatlong lente ang yugtong ito. Itinatanong ng <a href=\"__BASE__/law\">batas</a> kung ano ang legal. Itinatanong ng <a href=\"__BASE__/methods\">estadistika</a> kung ano ang kakaiba. Itinatanong ng ikatlong lente kung ano ang nakaugalian, at ang kaugalian ang pinagtatalunang lupa. Ang \"Nilabag ng gobyerno ang animnapung-taong pamantayan\" ay hindi neutral na sukat. Ito ang puso ng akusasyon ng oposisyon. Kaya hindi lamang binibigkas ng pahinang ito ang mga pamantayan. Kinukuwestiyon nito ang mga ito: saan sila nagmula, para saan sila, ano talaga ang kaso para isantabi sila, at ano ang natitira kapag naalis ang retorika ng dalawang panig.",
 			the_norm: {
 				heading: "Ang pamantayan, sinabi nang tuwiran",
@@ -1817,7 +1818,7 @@ export default {
 			back: "← Bumalik sa audit",
 			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
 			h1: "Ano ang Hinihingi ng Batas sa isang Mapa ng Halalan",
-			meta: "Kasama sa simpleng wika · Sa Ingles lamang sa ngayon · Hindi legal na payo",
+			meta: "Kasama sa simpleng wika · Hindi legal na payo",
 			standfirst: "Sinusukat ng audit na ito ang mga mapa. Hinahatulan ng mga korte ang mga ito. Magkaugnay ang dalawang trabaho, ngunit hindi magkapareho, at nilalakad ng pahinang ito ang pagkakaiba: ano talaga ang hinihingi ng batas ng Canada sa isang hangganan ng halalan, aling mga tanong ang para sa korte sa halip na sa estadistisyan, at saan nababagay ang ebidensya ng audit. Walang posisyon ang audit mismo sa anumang legal na konklusyon. Iniuulat nito ang ipinapakita ng datos, at doon ito humihinto.",
 			why_not_gerrymander: {
 				heading: "Bakit hindi kailanman nagpapasya ang audit na ito ng \"gerrymander\"",
@@ -1866,7 +1867,7 @@ export default {
 			meta: "Epektibo: 2026-06-24 · Pinananatili ni Will Conner",
 			overview: {
 				heading: "Pangkalahatang-tanaw",
-				p1: "Ang kasangkapang ito ay isang audit para sa interes ng publiko sa proseso ng electoral boundary commission ng Alberta noong 2023. Hindi ito komersyal na produkto at walang ipinapakitang patalastas. Ipinaliliwanag ng pahinang ito kung ano ang sinusukat, kung ano ang hindi kailanman kinokolekta, at kung bakit wala sa mga ito ang maiuugnay pabalik sa inyo.",
+				p1: "Ang kasangkapang ito ay isang audit para sa interes ng publiko sa proseso ng electoral boundary commission ng Alberta noong 2025–26. Hindi ito komersyal na produkto at walang ipinapakitang patalastas. Ipinaliliwanag ng pahinang ito kung ano ang sinusukat, kung ano ang hindi kailanman kinokolekta, at kung bakit wala sa mga ito ang maiuugnay pabalik sa inyo.",
 				p2: "Ang maikling bersyon: gumagamit ang site ng analytics na walang cookie at pinagsama-sama (aggregate). Walang tracking cookie, walang patalastas, walang cross-site profiling, at walang identifier na sumusunod sa inyo. Dahil walang personal na impormasyong iniimbak, walang consent banner na kailangang i-click — ang proteksyon sa privacy ay nakapaloob sa paraan ng pagsukat, hindi idinikit bilang isang prompt."
 			},
 			how_analytics_work: {
@@ -1886,7 +1887,71 @@ export default {
 				li6: "Aling mga layer ng mapa ang binubuksan o isinasara, at humigit-kumulang gaano kalapit nag-zo-zoom ang mga tao",
 				li7: "Aling mga points of interest o link sa ulat ang binubuksan",
 				li8: "Isang pangkalahatang larawan ng inyong setup — saklaw ng laki ng screen (gaya ng phone, tablet, o desktop), form factor, at pamilya ng browser (gaya ng Chrome, Safari, o Firefox). Hindi namin kailanman iniimbak ang eksaktong sukat ng inyong screen o ang buong string ng pagkakakilanlan ng browser.",
-				li9: "Isang minsanang snapshot ng pagganap ng map explorer nang una itong gumuhit — halimbawa, ang oras ng pag-load sa pangkalahatang mga saklaw at isang binilog na numero ng memorya. Tinutulungan kami nitong malaman kung sapat ang bilis ng explorer sa mga tunay na device. Sadyang naka-saklaw ang mga numero, hindi eksakto, kaya naglalarawan sila ng isang klase ng device sa halip na isang device."
+				li9: "Isang minsanang snapshot ng pagganap ng map explorer nang una itong gumuhit — halimbawa, ang oras ng pag-load sa pangkalahatang mga saklaw at isang binilog na numero ng memorya. Tinutulungan kami nitong malaman kung sapat ang bilis ng explorer sa mga tunay na device. Sadyang naka-saklaw ang mga numero, hindi eksakto, kaya naglalarawan sila ng isang klase ng device sa halip na isang device.",
+				p2: "Ang bawat isa rito ay iniimbak lamang nang pinagsama-sama. Walang profile bawat tao, walang session replay, at walang rekord ng landas ng isang indibidwal sa site. Mga kabuuan at distribusyon ang nakikita namin, hindi mga tao."
+			},
+			never_collected: {
+				heading: "Ano ang hindi kailanman kinokolekta",
+				p1: "Walang pangalan. Walang email. Walang account. Walang advertising identifier. Walang iniimbak na IP address — hina-hash ang inyong network address gamit ang isang lihim na umiikot araw-araw at agad itong itinatapon; ang panandaliang pang-araw-araw na code lamang ang itinatago. Walang hilaw na browser fingerprint. Walang identifier na tumatawid sa mga araw o sa mga site. Walang eksaktong lokasyon. Walang cookie o identifier sa browser storage na nagmamarka sa inyo bilang bumabalik na bisita para sa layunin ng analytics."
+			},
+			github_pages_collects: {
+				heading: "Ano ang kinokolekta ng GitHub Pages",
+				p1: "Naka-host ang site na ito sa GitHub Pages. Awtomatikong itinatala ng mga server ng GitHub ang mga pangunahing detalye ng request kapag nag-load ang anumang pahina — ang inyong IP address, uri ng browser, pahinang nag-refer, at timestamp. Hindi namin natatanggap o kinokontrol ang mga log na ito; pinamamahalaan ang mga ito ng <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy Statement ng GitHub</a>. Wala kaming ugnayan sa GitHub maliban sa pagho-host. Ang analytics na inilarawan sa itaas ay hiwalay na tumatakbo at hindi kailanman natatanggap ang inyong IP address."
+			},
+			share_codes: {
+				heading: "Mga share code",
+				p1: "May tampok na Share ang map explorer. Ginagawa nito ang kasalukuyan ninyong tanaw sa mapa — kung aling mapa ang aktibo, aling mga overlay at layer ang nakabukas, humigit-kumulang kung nasaan ang inyong viewport — na isang maikling code na may tatlong salita na maaari ninyong kopyahin at ipadala sa iba. May eksaktong 19,200 wastong code, dahil kumakatawan ang isang code sa isang kaayusan ng mapa, hindi sa isang tao. Ang dalawang taong hiwalay na nakarating sa parehong tanaw ay makakakuha ng parehong code; inaasahan iyon at walang dalang ugnayan sa pagitan nila.",
+				p2: "Lumilitaw sa screen ang mga share code at napupunta sa inyong clipboard lamang kapag nag-click kayo ng Copy. Hindi kailanman isinasama ang mga ito sa isang URL, kaya hindi sila lumilitaw sa kasaysayan ng browser, mga log ng server, o mga referrer header. Upang buksan ang ibinahaging tanaw ng iba, direktang tina-type ng tatanggap ang code sa site.",
+				p3: "Kapag gumawa kayo ng share code, ang kaayusan ng mapa na kinakatawan nito ay sine-save sa aming database upang patuloy na gumana ang link. Ang naka-save na rekord na iyon ay isang estado ng mapa — hindi isang tao, hindi isang landas, at hindi pinagsasama sa analytics. Wala itong lamang na identifier para sa inyo."
+			},
+			cookies_browser_storage: {
+				heading: "Mga cookie at browser storage",
+				p1: "Walang cookie at walang identifier sa browser storage ang ginagamit ng analytics. Walang anuman sa pagsukat ang nagmamarka sa inyo bilang bumabalik na bisita.",
+				p2: "Naglalagay ang site ng isang maliit na <strong>functional</strong> na cookie upang tandaan ang sarili ninyong mga kagustuhan sa pagitan ng mga pagbisita. Hindi ito ginagamit para sa analytics o pagsubaybay, at hindi ito kailanman umaalis sa inyong browser sa nababasang anyo. Iniimbak nito ang:",
+				li1: "<strong>Tema ng kulay</strong> — madilim o maliwanag, kung binago ninyo ito",
+				li2: "<strong>Isinara ang intro</strong> — upang hindi na maulit ang panimula sa mapa",
+				li3: "<strong>Kasalukuyang tanaw sa mapa</strong> — upang maibalik ang huli ninyong tanaw sa susunod ninyong pagbisita",
+				li4: "<strong>Wika ng browser</strong> — upang maipakita ng site ang wikang gusto ninyo",
+				p3: "Ang cookie na ito ay naglalaman lamang ng mga kagustuhan sa itaas — walang personal o nagpapakilalang impormasyon. Ginugulo ang nilalaman nito gamit ang isang susi na kasama sa loob ng pahina, kaya hindi nababasa ng tao ang nakaimbak na halaga; dahil pampubliko ang susing iyon, ituring ito bilang proteksyon laban sa pakikialam sa halip na tunay na paglilihim. Ipinapadala lamang ito sa HTTPS, hindi kailanman ibinabahagi sa ibang mga site, at maaari ninyo itong alisin anumang oras sa pamamagitan ng pag-clear ng inyong mga cookie. Inihahain ang site bilang mga static na file, kaya walang anuman sa panig ng server ang nagbabasa nito. Kinokopya rin ang inyong tema ng kulay sa local storage ng inyong browser upang agad mailapat ang tamang tema pagka-load, bago may kumislap; ang halagang iyon ay puro functional din at hindi kailanman ipinapadala saanman."
+			},
+			data_retention: {
+				heading: "Pagpapanatili ng datos",
+				p1: "Ang mga rekord ng analytics ay pinagsama-sama at anonymous ayon sa pagkakabuo, at walang identifier na pananatilihin. Iniimbak ang mga ito sa imprastrakturang naka-host sa Canada (ca-central-1) at itinatago bilang datos ng pananaliksik. Kung sakaling matuklasan naming may rekord na naglalaman ng nagpapakilalang impormasyon — na binuo ang disenyo upang pigilan — buburahin namin ito sa loob ng 30 araw."
+			},
+			your_choices: {
+				heading: "Ang inyong mga pagpipilian",
+				p1: "Dahil walang personal na impormasyong kinokolekta, walang kailangang i-opt out at walang consent prompt na kailangang pamahalaan. Kung mas gusto pa rin ninyong walang ipadalang anumang analytics event, mapipigilan ang mga ito ng isang content blocker o ng browser na humaharang sa request sa serbisyo sa pagbilang, at gagana ang site nang eksaktong pareho. Maaari rin ninyong i-clear ang functional na cookie ng mga kagustuhan anumang oras sa pamamagitan ng inyong browser."
+			},
+			contact: {
+				heading: "Makipag-ugnayan",
+				p1: "Will Conner — independiyenteng pananaliksik, hindi kaanib o inendorso ng anumang institusyon.",
+				p2: "Mga tanong, pagwawasto, at kahilingan sa pagbura: pakigamit ang <a href=\"__BASE__/feedback\">feedback form</a>. Sinasagot ang mga kahilingan sa loob ng 10 araw ng trabaho."
+			},
+			policy_updates: {
+				heading: "Mga pagbabago sa patakaran",
+				p1: "Kapag nagbago ang patakarang ito, ina-update ang petsa ng pagkabisa sa itaas at kinokomit ang pagbabago sa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">pampublikong git repository</a>. Ang kasaysayan ng commit ang changelog. Ang anumang pagbabagong nagpapalawak sa kinokolekta ay binabanggit sa mensahe ng commit."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (Ang algoritmong ReCom na ginamit upang buuin ang ensemble na may 1,010,000 mapa.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274. (Konstitusyonal na balangkas ng Canada para sa mga hangganan ng halalan.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900. (Pinagmulan ng sukat na efficiency gap na ginamit sa kabuuan.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Ang nangungunang awtoridad ng Korte Suprema ng Canada sa konstitusyonal na pamantayan para sa pagguhit ng hangganan ng halalan.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Federal Court; nangungunang awtoridad sa Canada sa ebidensya ng community of interest sa mga alitan sa hangganan ng halalan.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Korte Suprema ng U.S.; itinatatag na hindi justiciable ang mga paghahabol ng partisan gerrymandering sa mga pederal na korte — konteksto kung bakit naiiba ang pamantayan ng epektibong representasyon sa ilalim ng s.3 ng Canada.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}
