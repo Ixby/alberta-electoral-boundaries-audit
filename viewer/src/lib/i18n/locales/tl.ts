@@ -1713,7 +1713,7 @@ export default {
 			},
 			steel_man: {
 				heading: "Ang kaso para isantabi ang pamantayan — sineryoso",
-				p1: "Ang audit na inuulit lamang ang galit ng isang panig ay walang sinusuri. Kaya kunin ang panig ng gobyerno sa buong lakas nito. Buuin ang pinakamatibay nitong kaso, ang steel-man, bago ito subukin:",
+				p1: "Ang audit na inuulit lamang ang galit ng isang panig ay walang sinusuri. Kaya kunin ang panig ng gobyerno sa buong lakas nito. Buuin ang pinakamatibay na bersyon ng argumento nito — ang pinakamahusay na kaso na kayang ihain para dito, kahit ng hindi sumasang-ayon — bago ito subukin:",
 				li1: "<strong>Nabigo ang komisyon sa nag-iisang trabaho nito.</strong> Nangangako ang modelo ng komisyon ng iisang sagot na malayo sa gobyerno. Naghatid ang komisyong ito ng dalawang hindi magkatugmang mapa at isang tagapangulong pampublikong nag-aakusa sa mga kasamahan ng masamang hangarin. Kapag naipit ang independiyenteng ruta, may kailangang magpasya. Sinasabi ng batas kung sino.",
 				li2: "<strong>Sadyang ibinibigay ng batas sa lehislatura ang panulat.</strong> Sa ilalim ng Act ng Alberta, walang legal na bisa ang ulat ng komisyon. Nagbabago lamang ang mga hangganan kapag nagpasa ang Assembly ng isang Electoral Divisions Act. Gumamit ang Government Motion 37 ng pintong sadyang itinayo ng batas. Walang ipinuslit.",
 				li3: "<strong>Sumasagot sa mga botante ang mga halal na miyembro; walang sinasagot ang mga komisyonado.</strong> Ang pinakamatandang argumento para sa kontrol ng lehislatura ay ang pananagutan. Ang MLA na gumuhit ng makasariling mapa ay maaaring matalo sa halalan. Ang komisyonado ay hindi.",
@@ -1721,7 +1721,7 @@ export default {
 				li5: "<strong>Binanggit ng gobyerno ang sariling rekomendasyon ng tagapangulo.</strong> Ang nakasaad nitong katwiran para sa 91-upuang mandato ay ang Rekomendasyon 5, na isinulat mismo ng tagapangulo ng komisyon. At iyon mismo ang sinabi nito sa Kapulungan: “Tinatanggap namin ang mga rekomendasyon mula sa ulat.”"
 			},
 			where_it_bends: {
-				heading: "Kung saan bumabaluktot ang steel-man",
+				heading: "Kung saan bumabaluktot ang pinakamatibay na argumento",
 				p1: "Totoo ang bawat isa sa mga puntong iyon. Ngunit tumutulak din pabalik sa bawat isa ang dokumentadong rekord:",
 				li1: "Ipinaliliwanag ng pagkakaipit ang <em>pagpapalit</em> sa mga mapa. Hindi nito ipinaliliwanag ang <em>pag-aalis sa publiko</em>. Sasagutin din sana ang pagkakaipit ng isang kinakailangang pagdinig, isang inilathalang draft, o isang panel na may tumatali na pasya. Isinusuko ng piniling sasakyan ang bawat katangian ng transparency na itinuturing ng comparative na literatura na nagpoprotekta. Wala sa mga pagsukong iyon ang ipinilit ng pagkakaipit.",
 				li2: "Ang \"Pinahihintulutan ito ng batas\" ay ang lente ng batas, at nasagot na ito roon: legal ang bawat hakbang. Iba ang tanong ng mga pamantayan. Sa ilang hurisdiksyon, nagkakabisa ang mapa ng komisyon <em>maliban kung</em> pawalang-bisa ito ng lehislatura. Ang baligtad na default ng Alberta ay nangangahulugang palaging kontrolado ng naghaharing partido kung magiging batas ang anumang mapa ng komisyon. Magkaibang tanong ang legal at ang nakaugalian.",
@@ -1793,8 +1793,50 @@ export default {
 						feature: "Pagsunod sa precedent",
 						commission: "Oo",
 						committee: "Hindi — huling ginawa sa Alberta noong 1992, at sinisi ng Court of Appeal noong 1994"
+					},
+					count: {
+						feature: "Bilang",
+						commission: "9 sa 9",
+						committee: "1 Oo · 1 Bahagya · 5 Hindi · 2 Nakabinbin"
 					}
-				}
+				},
+				p2: "Isa pang paraan para tingnan ang scorecard na ito: ito ang <em>ikatlong axis</em>. Inilalagay ng tsart ng audit ang bawat mapa sa dalawang dimensyon: istruktura at estadistika. Ang lahat ng tatlong mapang nailagay na ay iginuhit ng mga proseso ng komisyon na may siyam sa siyam dito, kaya walang napaghiwalay ang ikatlong axis. Ang mapa sa Nobyembre ang magiging unang punto sa kasaysayan ng audit na may ibang score ng proseso sa likod nito.",
+				p3: "Basahin nang tapat ang talaan, sa dalawang direksyon. Siyam sa siyam ang komisyon <em>dahil sa pagkakabuo</em>. Inilalarawan ng mga pamantayan ang institusyong binuo ng pamantayan, at ang komisyon ang institusyong iyon. Ang may naibibigay na impormasyon ay ang nakatingin sa hinaharap. Apat sa mga cell ng komite na Hindi at Nakabinbin ay mga katangiang maaari pa nitong idagdag mula ngayon hanggang Nobyembre: mga pagdinig, isang inilathalang draft, mga bagong submission, at ang pagtugong ginagawa nilang posible. Kung idaragdag nito ang mga iyon, makabuluhang mapagagaan ang natuklasan ng audit tungkol sa paglihis ng proseso, at nangako ang audit nang nakasulat na sasabihin iyon.",
+				draft_note: "Mahalaga ang katayuan dito: ang mga pamantayan, pinagmulan, at hinulaang direksyon ng scorecard na ito ay <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">nakarehistro sa OSF (u47bq, Hulyo 14, 2026)</a> — nakapirmi ilang buwan bago mag-ulat ang komite, kaya walang anumang tahimik na mababago ang pananalita pagdating ng sagot. Isinulat ito sa gitna ng yugto ng isang may-akdang ang mga naunang natuklasan ay kababasa pa lamang ninyo — isang panganib ng kiling na ibinubunyag sa halip na itinatago ng <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">nakarehistrong dokumento</a>. Kapag inilapat pabalik sa komisyon, paglalarawan ito, hindi hula. Kapag dumating ang mapa ng komite, tatakbo nang walang pagbabago ang parehong nakakandadong mga pagsusulit sa mapa — at susukatin ng checklist na ito ang prosesong gumawa nito. Sa puntong iyon, titigil ang debate tungkol sa mga pamantayan sa pagiging sigawan tungkol sa tradisyon at magiging isang paghahambing na may score: kumilos ba ang komite tulad ng institusyong pinalitan nito?"
+			},
+			audits_standing_rule: {
+				heading: "Ang palagiang tuntunin ng audit",
+				p1: "Parehong tuntunin gaya saanman sa site na ito. Idinodokumento ng audit kung ano ang nangyari, gaano ito kabihira, at sino ang nag-angkin ng ano. Kung nararapat bang makaligtas ang pamantayan sa pagkakaipit — at kung ano ang dapat maging halaga ng pagsasantabi rito sa balota, kung mayroon man — ay nasa mga mambabasa at botante. Hindi sa isang estadistikong audit.",
+				cross_ref: "Mga kasamang pahina: <a href=\"__BASE__/law\">Ano ang hinihingi ng batas sa isang mapa ng halalan</a> · <a href=\"__BASE__/methods\">Paano sinubok ang mga mapa</a>",
+				disclaimer: "Ang pahinang ito ay isang kasama sa simpleng wika ng audit, isinulat para sa oryentasyon. Hindi ito legal na payo, at hindi ito hatol sa sinumang tao o partido."
+			}
+		},
+		law: {
+			head_title: "Ano ang Hinihingi ng Batas · Pag-audit ng Hangganan ng Halalan sa Alberta",
+			head_description: "Paano sinusuri ng batas ng Canada ang isang mapa ng halalan: ang epektibong representasyon sa ilalim ng Charter s.3, ang Saskatchewan Reference, at ang Electoral Boundaries Commission Act ng Alberta — at kung paano nauugnay ang ebidensya ng audit na ito sa mga pagsusulit na iyon.",
+			back: "← Bumalik sa audit",
+			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
+			h1: "Ano ang Hinihingi ng Batas sa isang Mapa ng Halalan",
+			meta: "Kasama sa simpleng wika · Sa Ingles lamang sa ngayon · Hindi legal na payo",
+			standfirst: "Sinusukat ng audit na ito ang mga mapa. Hinahatulan ng mga korte ang mga ito. Magkaugnay ang dalawang trabaho, ngunit hindi magkapareho, at nilalakad ng pahinang ito ang pagkakaiba: ano talaga ang hinihingi ng batas ng Canada sa isang hangganan ng halalan, aling mga tanong ang para sa korte sa halip na sa estadistisyan, at saan nababagay ang ebidensya ng audit. Walang posisyon ang audit mismo sa anumang legal na konklusyon. Iniuulat nito ang ipinapakita ng datos, at doon ito humihinto.",
+			why_not_gerrymander: {
+				heading: "Bakit hindi kailanman nagpapasya ang audit na ito ng \"gerrymander\"",
+				p1: "Ginagamit ng audit ang \"gerrymandering\" sa kabuuan nito sa pang-araw-araw na pampulitikang kahulugan nito: pagmamanipula sa mga hangganan ng halalan para sa partisan na kalamangan. Ngunit sa batas ng Canada, walang legal na kahulugan ang salita. Walang batas na malalabag sa pamamagitan ng \"gerrymandering\" at walang pagsusulit ng korte na may ganoong pangalan. Hindi mapapatunayang nagkasala ang isang mapa sa isang kategoryang hindi umiiral. Iyon ang isang dahilan kung bakit tumatanggi ang audit na ibigay ang hatol na iyon, anuman ang sabihin ng mga numero.",
+				p2: "Sulit ang sandali sa paghahambing sa Amerika, dahil ang karamihan sa mga estadistikong kasangkapan ng audit na ito — ang efficiency gap, mga neutral na ensemble ng mapa (malalaking hanay ng mga mapang iginuhit ng kompyuter) — ay inimbento para sa mga laban sa Amerika. Sa US, ang partisan gerrymandering ay kahit papaano isang pinangalanang paghahabol. Ngunit isinara ng Korte Suprema ng US ang pinto ng pederal na korte sa <em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019), na ipinasyang walang \"mga pamantayang mahihiwatigan at mapamamahalaan ng hukuman\" (\"judicially discernible and manageable standards\") ang mga pederal na korte upang hatulan ang ganitong mga paghahabol. Buhay pa ang parehong mga metric sa ilang korte ng estado sa US, pinakakilala sa <em>League of Women Voters v. Commonwealth</em>, 178 A.3d 737 (Pa. 2018).",
+				p3: "Ibang landas ang tinahak ng Canada. Sa halip na pagsusulit sa gerrymandering, dalawang masasagot na tanong ang itinatanong ng batas ng Canada. Naghahatid ba ang mapa ng <a href=\"#effective-representation\">epektibong representasyon</a> sa ilalim ng seksyon 3 ng <em>Charter</em>? At sumunod ba ang komisyon sa <a href=\"#ebca\">batas na namamahala rito</a>? Ang mga natuklasan ng audit ay ebidensyang maaaring timbangin ng isang korte sa loob ng dalawang pagsisiyasat na iyon. Mga input, hindi hatol sa alinman. At hindi nakababasa ng isip ang estadistika: maipapakita ng heometriya ng hangganan kung ano ang <em>ginagawa</em> ng isang mapa, hindi kailanman kung ano ang <em>nilayon</em> ng mga bumalangkas nito."
+			},
+			effective_representation: {
+				heading: "Ang konstitusyonal na pagsusulit: epektibong representasyon",
+				p1: "Ginagarantiya ng Seksyon 3 ng <em>Charter of Rights and Freedoms</em> sa mga mamamayan ang karapatang bumoto. Sa <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158 — tinatawag ito ng audit na <em>Saskatchewan Reference</em> — ipinasya ng Korte Suprema ng Canada na ang pinoprotektahan ng s.3 sa pagguhit ng hangganan ay hindi ang aritmetika ng isang-tao-isang-boto kundi ang <strong>epektibong representasyon</strong>.",
+				p2: "Sa pagsulat para sa mayorya, ipinaliwanag ni McLachlin J. na ang \"relatibong pagkakapantay ng kapangyarihan ng boto\" (\"relative parity of voting power\") ang panimulang punto. Ngunit dapat itong timbangin laban sa pinahihintulutang mga paglihis dahil sa heograpiya, kasaysayan ng komunidad, interes ng komunidad at representasyon ng minorya. Sadyang hindi nagtakda ang Korte ng tiyak na hangganan ng pagpapahintulot, walang nakapirming numero kung gaano kalayo maaaring lumihis ang isang distrito. Ang paglihis sa mahigpit na pagkakapantay ng populasyon ay konstitusyonal na maipagtatanggol <em>kung binibigyang-katwiran ito ng mga salik na hindi numero</em>.",
+				p3: "Dalawang kahihinatnan ang sumusunod, at pareho silang laban sa labis na pagbasa sa mga numero ng audit na ito:",
+				li1: "<strong>Hindi ginagawang labag sa konstitusyon ng partisan na asimetriya lamang ang isang mapa.</strong> Sa ilalim ng mga kasong sinuri sa monograp, ang estadistikong kiling ay dapat ipares sa isang bagay pa — mga paglihis sa populasyon na hindi binibigyang-katwiran ng heograpiya o community of interest, o ebidensyang ginamit ang mga neutral na salik upang bigyang-katwiran ang isang partisan na resulta sa halip na tuparin ang kanilang layunin sa batas. Umiiral ang mga istrukturang pagsusulit ng audit (pagkalat ng populasyon, paghahati sa lungsod, mga hangganang binandilaan ng tagapangulo) mismo dahil itinatanong ng batas ang tungkol sa pagpapares na iyon.",
+				li2: "<strong>Gumagalang ang mga korte sa mga komisyon.</strong> Ang pamantayan ay isang mapaggalang na pagsusuring \"makatwirang komisyon\", hindi paghahanap sa pinakamahusay na posibleng mapa. Sa <em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679 — ang pinakamalapit sa mga sinuring kaso sa isang hamon sa hangganan batay sa community of interest — <em>walang</em> nakitang paglabag sa Charter s.3 ang Federal Court. Statutory ang mga paglabag na nakita nito (ang tungkulin sa community of interest ng pederal na batas sa hangganan), at ang lunas ay ibalik ito sa komisyon, hindi pawalang-bisa ang mga hangganan. Isa itong desisyon sa antas ng paglilitis sa pederal na batas: mapanghikayat, hindi nagtatali, para sa anumang hamon sa Alberta.",
+				p4: "Saan nakaupo ang audit sa balangkas na iyon? Ang mga sukat nito ay mga input na maaaring timbangin ng korte sa pagsusuri sa epektibong representasyon: gaano kalayo ang mga partisan na metric ng bawat mapa sa isang milyong neutral na alternatibo, paano ipinamamahagi ang pagkakaiba-iba ng populasyon, saan lumilihis ang mga hangganan sa mga linya ng munisipyo. Walang metric, at walang kombinasyon ng mga metric, ang kapalit ng resulta ng pagsusulit. Kapag iniulat ng audit na tumuturo sa iisang direksyon ang ilang tagapagpahiwatig, iyon ay pahayag tungkol sa isang empirikal na pattern. Hindi ito legal na konklusyon."
+			},
+			ebca: {
+				heading: "Ang batas: ang Electoral Boundaries Commission Act ng Alberta",
+				p1: "Pinamamahalaan ang mga komisyon ng Alberta ng <em>Electoral Boundaries Commission Act</em>, RSA 2000, c. E-3 (ang EBCA). Tatlo sa mga tuntunin nito ang pinakamahalaga sa pagbasa sa audit na ito."
 			}
 		}
 	}
