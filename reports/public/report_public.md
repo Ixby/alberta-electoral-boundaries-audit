@@ -132,19 +132,15 @@ Act I walks the lines themselves. No election results, no simulation: just geome
 
 *Three casings now, still no gun.* — [Know more: Appendix D, what MAD measures and why the band exists](#appendix-d)
 
-### Casing 5 — The casing that dissolved when we picked it up {#casing-5}
+### Casing 5 — Municipal anchoring: both maps inside the norm {#casing-5}
 
-**What we found.** *Anchoring* is the fraction of an electoral border that lies on a pre-existing administrative line: a city limit, a school-division boundary, a Statistics Canada census line. Early analysis showed the minority map anchoring to municipal boundaries only 15% of the time, 4.9× below the Canadian norm of 70–85%. On official Elections Alberta shapefiles the figure died: the majority anchors at 80%, the minority at 72%, both inside the norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). The 15% figure was an artefact of the audit's early, provisional rebuilds of the boundaries, traced from images in the commission's PDFs before official map files existed. The full entry lives in the academic report's corrections ledger. What survives is narrower: where the minority *does* leave pre-existing civic lines, the departures cluster at the exact urban-edge zones the chair flagged: Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie, the places where pairing urban and rural voters most directly affects which party wins the seat.
+**What we found.** *Anchoring* is the fraction of an electoral border that lies on a pre-existing administrative line: a city limit, a school-division boundary, a Statistics Canada census line. Both maps anchor at rates inside the Canadian norm of 70–85%: the majority at 80%, the minority at 72% (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). On overall rates, this test does not separate the two maps. An earlier draft figure, computed on provisional boundary rebuilds, is recorded in the academic report's corrections ledger. What stands out is narrower: where the minority *does* leave pre-existing civic lines, the departures cluster at the exact urban-edge zones the chair flagged: Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie, the places where pairing urban and rural voters most directly affects which party wins the seat.
 
-**What it could show.** The original figure suggested a map that abandoned familiar civic geography across the board. The official shapefiles killed that story.
-
-**What the experts say.** This is what an artifact looks like, a result made by the method and not by the map: rough tracings manufactured a signal that the real map files erased. That lesson is why this audit re-ran everything on the official shapefiles the day Elections Alberta released them.
+**What it could show.** When a district boundary follows a city or town line, the property-tax line, the school-division line and the provincial-election line all match, and voters can tell where their district begins and ends. On that measure the two maps look alike overall. The difference is where the minority's departures fall.
 
 **What Canadian practice expects.** Nothing. No Canadian statute or practice guide requires any particular anchoring rate. The 70–85% norm describes what commissions do; it does not prescribe it.
 
-**Why it isn't a smoking gun.** It isn't even evidence. It is the audit's own error, kept on display, because only a report that shows you its dead casings has earned your trust in the live ones. *(Epistemic lesson: the null can win — and when it does, the report says so.)*
-
-*Not even a casing. We logged it anyway.* — [Know more: Appendix E, how a data artifact fooled us and how it was caught](#appendix-e)
+**Why it isn't a smoking gun.** Not on its own. Both maps sit inside the Canadian norm, and the Act sets no anchoring threshold. Where the minority's departures fall matters only alongside the chair's flags and the geometry tests elsewhere in this report.
 
 ### Act I in one picture
 
@@ -512,16 +508,6 @@ Almost. Districts can't all hold exactly the same number of people; communities 
 Now re-read Casing 4: 48% more deviation than the majority on the commission's own tables, on the one value the statute actually puts a number on. The "99 of every 100 neutral maps" figure holds only against neutral maps held to ±12.5%.
 
 *The limit:* the law ranks nothing inside the band. "Spent more deviation" is an observation about priorities, not a violation; every district on both maps is legal. [Back to Casing 4](#casing-4)
-
-### Appendix E — How a data artifact fooled us, and how it was caught {#appendix-e}
-
-*The confusion:* "An early draft said 15%; the report says 72%. Why should I trust any of your other numbers?"
-
-Because of *why* the number changed. Early in the audit, no official digital boundaries existed for the proposed maps, only PDF images in the commission's reports. The audit traced those images into rough digital boundaries. Tracing loses detail: a boundary that really runs along a city limit can end up drawn a few hundred metres off, and a metric that asks "does this border follow the municipal line?" then answers *no* for borders that really do. Multiply that across a whole map and you manufacture a dramatic, false signal. The day Elections Alberta released official shapefiles, the audit re-ran everything. Most findings survived. This one died, and was removed from the draft; the academic report's corrections ledger preserves it permanently.
-
-Now re-read Casing 5: the correction is not a stain on the method. It *is* the method: the same recomputation that killed this finding is what makes the surviving ones credible.
-
-*The limit:* one honest correction doesn't certify everything else. Reproducibility does. Every surviving number can be regenerated from public data and public code, and that is the only guarantee worth having. [Back to Casing 5](#casing-5)
 
 ### Appendix F — The what-if machine, and how to read a percentile {#appendix-f}
 

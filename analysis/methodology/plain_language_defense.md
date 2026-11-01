@@ -268,12 +268,6 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** [RETIRED 2026-07-12, C11] Direction consistency: 90.5% of samples show minority more UCP-favorable. Classical 95% significance is not defensible.
-**Why?** This was a Monte Carlo check over a vote-attribution model (blend of urban/rural weights) that the audit itself replaced with an exact computation. What replaced it, and does the audit still avoid claiming 95% significance?
-**Answer:** The 90.5%-of-samples figure came from varying a *model's* free parameters (urban weight, rural baseline, per-hybrid jitter). It checked whether the finding survived guesses about how to estimate vote attribution. In May 2026 that model, and the guesswork it needed, was replaced by Phase 4C: an exact spatial computation of which voters fall in which district, with no parameters to guess. So the question changed. It used to be "does the finding survive parameter uncertainty?" Now it is "does the finding survive attribution-*method* uncertainty?" And it does. The audit's own method and the most rigorous independent check agree to within 0.1 percentage points; a third, area-weighted check gives a smaller gap, which the audit traces to an artifact of crediting empty land with votes. The audit still does not claim classical statistical significance, but not because a confidence interval crosses zero. Phase 4C's number isn't a sampling estimate with a confidence interval at all. It's an exact count from the actual votes. The honest caveat that remains is that the finding depends on the 2023 electoral context. Under 2019 vote data the minority is still the more UCP-favorable map, but by much less, and its efficiency gap falls inside the normal range (see the cross-election question below).
-
----
-
 **Assertion:** Declination metric disagrees with the efficiency gap: by declination, the minority is the least pro-UCP of the three maps.
 **Why?** Why would two different fairness measures point in opposite directions?
 
@@ -576,12 +570,6 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 ---
 
 ### §5.2.3 — Falsifiability gate: asymmetry direction
-
----
-
-**Assertion:** [RETIRED 2026-07-12, C11] 90.5% of 2,000 Monte Carlo samples show the minority EG more UCP-favorable than the majority; the 95% interval [−3.04, +0.76] pp crosses zero.
-**Why?** This was a check over a superseded model's parameters. What replaced it, and can the direction still be called confirmed?
-**Answer:** The 90.5%-of-samples and crosses-zero figures came from the retired blend model's parameter uncertainty (urban weight, rural baseline). Phase 4C replaced that model with an exact computation: +3.92 pp, not an estimate with a confidence interval. The robustness check that applies now is attribution-method agreement. Centroid, area-weighted and population-weighted MAUP agree to within 0.1 pp. The honest summary: the minority is more UCP-favorable under every attribution method tested, and the finding depends on electoral context, not on modeling-parameter uncertainty. The structural signals in §5.1 and §5.8 use no vote data. Neither contingency applies to them.
 
 ---
 
@@ -1551,12 +1539,6 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 **Assertion:** Across eight sub-sections of §5, the minority 2026 proposal shows wider distribution, higher packing and cracking signals, more anomalies, and a more government-controlled procedural path than the majority.
 **Why?** Does consistently finding the same direction across eight sub-sections constitute one finding or eight?
 **Answer:** Each of the eight sub-sections tests a different measurable property, with different data, different methods and different mathematical tools. They are not the same test repeated eight times. Consistent direction across eight independent tests, each with its own methodology, is much stronger evidence than one strong result on one test. The audit's structure is designed to force that breadth: each sub-section runs independently, from its own script, against its own data source.
-
----
-
-**Assertion:** [RETIRED 2026-07-12, C11] The direction holds at approximately 90% confidence under Monte Carlo over modelling choices across 2020s-era voter distributions.
-**Why?** What does "2020s-era voter distributions" mean here?
-**Answer:** It means recent vote distributions: the 2023 actual results, and recent polling (April 2026 338Canada estimates). Both reflect the current political alignment of Alberta's communities. The audit checks whether the directional finding holds not just for one specific election but across the range of plausible current voter distributions. The 90% figure came from a Monte Carlo check of the retired blend model: across 2,000 combinations of that model's assumptions, about 9 in 10 pointed to the minority as more UCP-favorable than the majority. The check can no longer be run, and it tested a model the audit no longer uses, so it is retired (DOCUMENTED CORRECTIONS C11). What replaced it is attribution-method agreement on the exact 2023 count: the audit's own method and the most rigorous independent check agree to within 0.1 percentage points.
 
 ---
 
