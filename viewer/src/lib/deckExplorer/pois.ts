@@ -36,7 +36,7 @@ export const FLAGS: Flag[] = [
 		x: 50734.9,
 		y: -361975.1,
 		title: 'Airdrie — split four ways',
-		body: "Airdrie's growth and its commute to Calgary (about 76% of out-commuters) could have anchored a single new Airdrie-area seat — the kind the data supports. The minority instead splits the city across four ridings; the population math doesn't require it, and no submission proposed it. On the audit's cracking-signature test this four-way split meets every criterion — Airdrie's residents end up a minority in all four ridings, with no seat the city controls — where the majority's two-way split shows none. This is a community split, invisible to the partisan-fairness tests; the audit measures the structural effect, not intent. (Academic §5.3.2.)"
+		body: "Airdrie's growth and its commute to Calgary (about 76% of out-commuters) could have anchored a single new Airdrie-area seat — the kind the data supports. The minority instead splits the city across four ridings; the population math doesn't require it, and no submission proposed it. On the audit's cracking-signature test this four-way split meets every criterion — outside Airdrie East, which holds more than half the city, Airdrie's residents end up a minority — where the majority's two-way split shows none. This is a community split, invisible to the partisan-fairness tests; the audit measures the structural effect, not intent. (Academic §5.3.2.)"
 	},
 	{
 		id: 'nolan-hill-cochrane',
@@ -50,7 +50,7 @@ export const FLAGS: Flag[] = [
 		x: 50979.2,
 		y: -359414.6,
 		title: 'Olds–Three Hills–Didsbury — the Airdrie reach',
-		body: "A rural riding keeping the Highway 2 towns — Olds, Didsbury, Three Hills — together is well supported; Beiseker-area residents wrote in favour of it. It could have stayed within those communities. The minority's version instead reaches south into the northern edge of Airdrie, an extension the population math doesn't require. The reach is part of how the four-way Airdrie split works — each piece of Airdrie absorbed into a larger rural seat — which the audit reads as part of the cracking pattern. (Academic §5.3.2.)"
+		body: "A rural riding keeping the Highway 2 towns — Olds, Didsbury, Three Hills — together is well supported; Beiseker-area residents wrote in favour of it. It could have stayed within those communities. The minority's version instead reaches south into the northern edge of Airdrie, an extension the population math doesn't require. The reach is part of how the four-way Airdrie split works — a thinly settled strip of the city, about 350 people, absorbed into a larger rural seat — which the audit reads as part of the cracking pattern. (Academic §5.3.2.)"
 	},
 	{
 		id: 'chestermere',
