@@ -126,7 +126,7 @@ The table below records which findings have been recomputed on official EA shape
 | Chair-anomaly analysis (§C3) | 5.3 | Canonical + commission text | **[C]** 3 minority anomalies, 0 majority |
 | Sentiment analysis §5.9 | 5.9 | Commission submission text | Independent of shapefile geometry |
 
-**DPG-era results** for B1–B4 are preserved in §5.4.1–§5.4.8 and superseded by the canonical Phase 4C values above. Per pre-registration obligation, no DPG finding is silently removed; retracted values are noted in the DOCUMENTED CORRECTIONS block.
+**DPG-era results** for B1–B4 are preserved in §5.4.1–§5.4.8 and superseded by the canonical Phase 4C values above. Per pre-registration obligation, no DPG finding is silently removed; superseded values are noted in the DOCUMENTED CORRECTIONS block.
 
 ---
 

@@ -40,7 +40,7 @@ The labels have been checked in two ways. Their row counts were reconciled again
 
 ### 6. "You hid a finding that didn't work out."
 
-The opposite happened. Municipal-boundary anchoring was one of five tests announced in advance on the public registry. Early analysis, done before Elections Alberta released its official boundary files, showed a large gap between the two maps. Then the official files arrived. The test was rerun on them, and both maps turned out to respect city and town boundaries at rates that are normal for Canadian redistricting (72% and 80%, inside the typical 70–85% range). The finding collapsed. The paper reports it openly, under a "RETRACTED FINDING" label. It appears in no headline result. The audit's other findings do not depend on it.
+The opposite happened. Municipal-boundary anchoring was one of five tests announced in advance on the public registry. Early analysis, done before Elections Alberta released its official boundary files, showed a large gap between the two maps. Then the official files arrived. The test was rerun on them, and both maps turned out to respect city and town boundaries at rates that are normal for Canadian redistricting (72% and 80%, inside the typical 70–85% range). The finding collapsed. The paper reports it openly in its corrections ledger. It appears in no headline result. The audit's other findings do not depend on it.
 
 ---
 
@@ -83,7 +83,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 ---
 
 **Assertion:** A fifth pre-registered dimension — municipal-boundary anchoring — did not survive canonical recomputation; both maps fall within the 70–85% Canadian comparator norm.
-**Why?** What happened here — why is a finding being withdrawn?
+**Why?** What happened here — why did a finding drop out?
 **Answer:** Early in the audit, before Elections Alberta released its official map files, I worked from approximate boundary tracings made from PDF images. Those rough lines suggested the minority map ignored city and town edges far more than the majority did. Then the official files arrived. I reran the same measurement on those exact files, and both maps turned out to respect municipal boundaries at rates (72% and 80%) that are normal for Canadian redistricting. The earlier finding was a measurement artifact of the approximate files. Not a real difference between the maps. The audit says so openly instead of hiding it.
 
 ---
@@ -663,9 +663,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The SZAT uses election-day votes only throughout. An earlier version of the §5.2.10 paragraph incorrectly described a substrate change to "full advance-vote" votes; that description has been retracted.
+**Assertion:** The SZAT uses election-day votes only throughout. An earlier version of the §5.2.10 paragraph incorrectly described a substrate change to "full advance-vote" votes; that description was wrong and has been replaced.
 **Why?** Why does it matter which votes are included — election-day only versus full advance-vote?
-**Answer:** Elections Alberta assigns election-day votes spatially at the Voting Area level, so each VA's geographic location is known. Advance-poll, mail-in and special ballots are not spatially assigned at the VA level, so they cannot be attributed to specific VAs. Including them would require an apportionment model, and that model brings in assumptions the election-day-only approach avoids. The SZAT registration, filed after the results were known, specified election-day votes. The initial run used election-day votes. So did the definitive run. The retracted paragraph incorrectly claimed otherwise. The p change from 0.0044 to 0.0024 came from a VA file switch that moved 2 VA centroid assignments, not from any substrate change. A separate sensitivity that adds apportioned advance, mobile and special ballots (unregistered; Vote Anywhere ballots still left out) yields p < 0.0001. It is reported as a supplementary sensitivity check only.
+**Answer:** Elections Alberta assigns election-day votes spatially at the Voting Area level, so each VA's geographic location is known. Advance-poll, mail-in and special ballots are not spatially assigned at the VA level, so they cannot be attributed to specific VAs. Including them would require an apportionment model, and that model brings in assumptions the election-day-only approach avoids. The SZAT registration, filed after the results were known, specified election-day votes. The initial run used election-day votes. So did the definitive run. The earlier paragraph incorrectly claimed otherwise. The p change from 0.0044 to 0.0024 came from a VA file switch that moved 2 VA centroid assignments, not from any substrate change. A separate sensitivity that adds apportioned advance, mobile and special ballots (unregistered; Vote Anywhere ballots still left out) yields p < 0.0001. It is reported as a supplementary sensitivity check only.
 
 ---
 
@@ -971,13 +971,13 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §5.8.5 — Municipal Anchoring (RETRACTED finding)
+### §5.8.5 — Municipal Anchoring (does not separate the maps)
 
 ---
 
 **Assertion:** The earlier DPG-derived 14.5% / 71.0% / 4.9× figures did not carry forward to recomputation against official shapefiles. Both maps fall within the 70–85% Canadian comparator norm (minority 72%, majority 80%).
-**Why?** What exactly is being retracted and does this weaken the overall audit?
-**Answer:** The retracted finding said only 14.5% of the minority map's boundaries were anchored on municipal edges, against the majority's 71%: a 4.9-times gap. It was computed from approximate boundary tracings made before the official shapefiles arrived. Rerun on the official files, both maps showed municipal anchoring rates in the 70–85% range that is normal for Canadian provinces. The gap was gone. The retraction does weaken the fifth structural signal, which no longer tells the two maps apart. The four remaining structural signals are unaffected by it. And the retraction itself shows what we do with a finding that fails: we report it, and we don't hide it.
+**Why?** What exactly changed, and does this weaken the overall audit?
+**Answer:** The earlier draft finding said only 14.5% of the minority map's boundaries were anchored on municipal edges, against the majority's 71%: a 4.9-times gap. It was computed from approximate boundary tracings made before the official shapefiles arrived. Rerun on the official files, both maps showed municipal anchoring rates in the 70–85% range that is normal for Canadian provinces. The gap was gone. The change does weaken the fifth structural signal, which no longer tells the two maps apart. The four remaining structural signals are unaffected by it. And the correction itself shows what we do with a finding that fails: we report it, and we don't hide it.
 
 ---
 
@@ -1139,7 +1139,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Claim 7 (St. Albert-Sturgeon) is relabeled as Claim 6 in the current count (after Claim 5 Lethbridge was withdrawn) and is assessed as Stands, not Fail. The verdict rests on a convergence test: both majority and minority independently produced the same two-district St. Albert structure, suggesting constraint-force rather than design. The earlier "no other configuration" counterfactual framing has been retired.
+**Assertion:** Claim 7 (St. Albert-Sturgeon) is relabeled as Claim 6 in the current count (after Claim 5 Lethbridge was dropped from the draft) and is assessed as Stands, not Fail. The verdict rests on a convergence test: both majority and minority independently produced the same two-district St. Albert structure, suggesting constraint-force rather than design. The earlier "no other configuration" counterfactual framing has been retired.
 **Why?** Why does the convergence of both teams reaching the same answer indicate constraint-force rather than shared partisan intent?
 **Answer:** The majority and minority commissioners were on opposite sides of every contested boundary decision examined elsewhere in the audit: Airdrie (2-way vs. 4-way), Cochrane (intact vs. merged), Red Deer (2-way vs. 4-way hybrids), the Calgary hybrids. For those two groups to arrive independently at the same St. Albert-Sturgeon structure is not plausibly explained by shared intent. They had opposite incentives. The simpler explanation is that the population arithmetic and geographic constraints left only one or two legally compliant configurations for St. Albert, and both teams found the same one. The convergence can be seen directly in the §5.6 cross-map structural comparison. It replaces the earlier counterfactual claim ("no other configuration satisfies both community-of-interest and ±25% rule"), which was stronger than the evidence could support.
 
@@ -1203,7 +1203,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The directional pattern across structural and statistical dimensions is the finding; the audit records what the data show.
 **Why?** If the finding is a "pattern" rather than a single decisive number, can it be dismissed as cherry-picking?
-**Answer:** Cherry-picking means keeping the results that support your conclusion and hiding the rest. This audit is built to prevent it. Pre-registration locked the test definitions before anything ran. The symmetry counter-test confirmed the majority map does not trip the same flags. The retracted municipal anchoring finding is documented in the open. And the declination metric was kept, not dropped, even while a code error made it seem to disagree with the other three; with the error fixed, it agrees (Amendment 10). The pattern argument is not "these four things all happen to show the same result"; it is "the pre-specified tests, applied symmetrically to both maps, consistently differentiate them."
+**Answer:** Cherry-picking means keeping the results that support your conclusion and hiding the rest. This audit is built to prevent it. Pre-registration locked the test definitions before anything ran. The symmetry counter-test confirmed the majority map does not trip the same flags. The municipal anchoring finding that did not hold is documented in the open. And the declination metric was kept, not dropped, even while a code error made it seem to disagree with the other three; with the error fixed, it agrees (Amendment 10). The pattern argument is not "these four things all happen to show the same result"; it is "the pre-specified tests, applied symmetrically to both maps, consistently differentiate them."
 
 ---
 
@@ -1309,7 +1309,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Pre-registered structural-irregularity count: minority meets the ≥4 of 5 outlier threshold; majority meets 0 of 5.
 **Why?** What is this scoring and what are the five pre-registered tests?
-**Answer:** Before looking at the data, we committed to scoring both maps on five structural dimensions: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and chair-flagged anomalies. The pre-registration set the bar: a map scoring as an outlier on four or more of these five would cross the threshold. The minority map scores as an outlier on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, was retracted after canonical recomputation.) The majority map scores as an outlier on zero.
+**Answer:** Before looking at the data, we committed to scoring both maps on five structural dimensions: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and chair-flagged anomalies. The pre-registration set the bar: a map scoring as an outlier on four or more of these five would cross the threshold. The minority map scores as an outlier on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, does not separate the maps after canonical recomputation.) The majority map scores as an outlier on zero.
 
 ---
 
