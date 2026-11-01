@@ -160,7 +160,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: the partisan-bias asymmetry reverses sign under 2019 vote input; the commission chair's "no public support" claim is upheld on three of seven configurations, not all seven; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables.
+**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: under 2019 vote input the minority's efficiency gap falls inside the neutral range, although the minority remains the more UCP-favourable map; the majority report's "no public support" claim holds for three of the five places it names; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables.
 **Why?** Why does it matter that some findings went against the researcher's expectations?
 **Answer:** A biased research process would quietly drop inconvenient results. These three contra-prior findings were retained precisely to show that the methodology is not rigged. If every single finding had confirmed the researcher's starting suspicion, that would be a red flag. Results that cut against the prior — and are reported anyway — provide evidence that the method is operating independently of the researcher's preferences.
 

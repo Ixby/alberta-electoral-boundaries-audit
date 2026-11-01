@@ -48,6 +48,7 @@ type: project
 | 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
 | 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
 | 2026-10-31 | Amendment 25 (withdrawn, unsigned) | s.15(2)(c) read both ways | Not adopted; Amendment 21's reading stands, following commission practice; the legal-status argument and a diagnostic are recorded |
+| 2026-11-01 | Amendment 27 (proposed) | Errata | Retraction condition 4.3 B's inference direction; committee and source facts in the registered process scorecard |
 
 ---
 
@@ -1306,4 +1307,25 @@ and finds no special district that fails both readings.
   from one, has been seen.
 
 **Signed:** not signed (withdrawn 2026-10-31 12:05 MDT)
+
+---
+
+### Amendment 27 — Errata: a retraction condition's direction, and facts in the registered process scorecard (2026-11-01)
+
+> **Status: proposed, not signed.** Drafted 2026-11-01 MDT on the author's direction to ground the open items ("Ground them all"). It takes effect when the author signs it. Amendment 26 (size-matched sets for a map of any seat count) is signed on branch `size-matched-candidate`; this one is numbered 27 to avoid a clash. The committee's map is due November 2, 2026, and has not been published.
+
+**1. Retraction condition 4.3 B is inverted against its own reasoning** (`preregistration/retraction_conditions.md`, the "Trade-off Frontier" condition; filed as Issue #14). Its reasoning sentence says a "Symmetric-Airdrie" counter-map, with equal community-of-interest preservation and majority-symmetric anchoring, would show that the minority's 14.5% anchoring "is no longer defensible as the only map that achieves the COI preservation it claims". That is evidence for the anchoring finding, not against it. Its last sentence then says the finding "stands against the null alternative (no counter-map exists) and would be retracted against a successful alternative", which reverses the inference. The academic report's §6.2.6 item 1 and the plain-language defense's §6.2.6 repeat the reversed form.
+
+The test stays the same: the Issue #14 counter-map challenge, judged by the same COI and anchoring criteria. The erratum corrects only the direction of the inference, to the one the condition's own reasoning gives. A successful Symmetric-Airdrie counter-map strengthens the finding that the minority's low anchoring was not required by its stated reasons. The finding would be weakened, and retracted if the evidence is decisive, by a demonstration that no constraint-legal map achieves the minority's claimed COI preservation with majority-comparable anchoring, that is, that the constraint space forces the trade-off. After signing, academic §6.2.6 item 1 and the defense's §6.2.6 are corrected to match, with ledger entries.
+
+**2. Facts in the registered process scorecard** (`preregistration/lane3_process_scorecard_draft.md`, OSF `u47bq`). The OSF copy stays frozen; these errata govern how it is read and scored.
+- P1 and P7 describe the committee as five MLAs (3–2 government; "two opposition MLAs of five"). It has six, four UCP and two NDP (correction C37; `evidence/legislature/assembly_committee_page_ceb_2026-10-31.html`). Both cells' verdicts are unchanged: P1 stays Partial, P7 stays Yes.
+- P4 gives the commission's written submissions as 1,147. That was the second round only; the commission received 1,345 (198 before the interim report, 1,147 after; final report p. 14). The verdict is unchanged: Yes.
+- P6 says the Chief Justice of Alberta names the commission's chair (citing "EBCA s.4"), and cites "Motion 19" for the committee. The Act says the Lieutenant Governor in Council appoints the chair (s.2(1)(a); `evidence/legislation/`), and the committee was created by Government Motion 37 (C37). The commission's verdict is unchanged, Yes, because the cell tests whether the chair is unaffiliated with a contesting party, not who appointed them.
+- The Count row gives the committee "1 Yes, 2 Partial, 4 No, 2 Pending". P6's definition scores the body whose vote settles the map, which is the committee, chaired by a government MLA: No. Counted by the cells as defined, the committee's row is 1 Yes, 1 Partial, 5 No, 2 Pending, which is how the site's norms page now reports it (C40).
+- Not changed: P9 says the committee process is "without precedent among the reviewed cycles". Alberta's 1992 committee is the precedent the site now acknowledges (C38). P9 is scoped to the cycles the scorecard reviewed, so it stays as registered; the report notes the 1992 case beside it.
+
+**Disclosure.** These errata were found while checking the voice pass (2026-10-31) and grounding its open items (2026-11-01). No committee map or result exists. Item 1 changes no registered outcome so far, because no counter-map has been filed. Item 2 changes one tally and no verdict.
+
+**Signed:** pending
 
