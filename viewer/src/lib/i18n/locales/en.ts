@@ -428,7 +428,7 @@ export default {
 			p6: "Equal district populations are the one value Alberta's law puts a number on. By the commission's own population tables, the minority map's districts miss the ideal size by 4,707 people on average. On the majority map, 3,180. The minority's spread is 48% wider. On 2021 census numbers the gap narrows: the two maps' average deviations are almost the same, though the minority's typical district is still further from equal (3,938 against 2,827). The usual defence of odd lines is that they were needed to balance populations. On the numbers the commission itself used, that defence doesn't work here.",
 			h3_4: "Rural tails on urban districts",
 			p7: "I'm not saying rural Alberta has too many seats. The Act lets district populations vary by up to 25%, so one rural MLA doesn't have to cover an area the size of southern France. Both maps use that room.",
-			p8: "But in several places the minority map ties rural communities to a district whose population centre is in a city. Three of Airdrie's four pieces run out into a different stretch of countryside, and in each the district's population centre falls in the urban part. The minority map does this in places where the majority doesn't.",
+			p8: "But in several places the minority map ties rural communities to a district whose population centre is in a city.",
 			h3_5: "Three boundaries the chair called out",
 			p9: "The commission's chair flagged four of the minority's boundaries as geographically anomalous, among them these three:",
 			li1: "the Rocky Mountain House–Banff Park extension into uninhabited national-park land;",
