@@ -989,9 +989,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Five-member commission constituted under EBCA §3–5: chair nominated by the Chief Justice of Alberta, two government-nominated commissioners, two opposition-nominated commissioners. Unanimous interim report October 2025; divided final report (3–2) March 23, 2026. The three-member majority is chair plus the two opposition-nominated commissioners.
+**Assertion:** Five-member commission constituted under EBCA §2: chair appointed by the Lieutenant Governor in Council, two government-nominated commissioners, two opposition-nominated commissioners. Unanimous interim report October 2025; divided final report (3–2) March 23, 2026. The three-member majority is chair plus the two opposition-nominated commissioners.
 **Why?** Why does it matter which commissioners were nominated by which party?
-**Answer:** Because the structure is designed so that no single party controls the outcome. The chair is independent, nominated by the judiciary, and the commissioners come from both the government side and the opposition side. When the final vote went 3–2, the three-person majority was the independent chair plus the two commissioners nominated by the NDP opposition, not by the governing UCP. So the minority map was the one produced by the two government-nominated commissioners alone. You need that composition in view to weigh the procedural story around the April 16 motion and the framing of Recommendation 5.
+**Answer:** Because the structure is designed so that no single party controls the outcome. The chair is independent, a judge appointed by cabinet under the Act, and the commissioners come from both the government side and the opposition side. When the final vote went 3–2, the three-person majority was the independent chair plus the two commissioners nominated by the NDP opposition, not by the governing UCP. So the minority map was the one produced by the two government-nominated commissioners alone. You need that composition in view to weigh the procedural story around the April 16 motion and the framing of Recommendation 5.
 
 ---
 
@@ -1365,9 +1365,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The strongest single falsifier is: an independent reviewer produces a constraint-legal Alberta map that satisfies the minority's stated community-of-interest rationales and also matches majority-comparable municipal anchoring.
-**Why?** Why would a counter-map by an independent reviewer change the verdict?
-**Answer:** Because the rationale-failure finding rests on a claim that can be tested: that simpler, cleaner alternatives exist which would have satisfied the minority's stated community-of-interest reasons for their boundary choices. If an independent reviewer, someone with no stake in the outcome, constructs such a map, and it genuinely satisfies the minority's stated criteria while looking more like the majority, that would demonstrate the minority's choices were not forced by their own rationales. That would shift the interpretation from "the rationale is a pretext" to "the constraint space is genuinely tight and the minority made defensible trade-offs." We have invited this check through the project's public GitHub repository.
+**Assertion:** The strongest single falsifier is: a demonstration that no constraint-legal Alberta map satisfies the minority's stated community-of-interest rationales and also matches majority-comparable municipal anchoring. A counter-map by an independent reviewer that does both would strengthen the finding (Amendment 27).
+**Why?** Why would a counter-map by an independent reviewer strengthen the finding rather than weaken it?
+**Answer:** Because the rationale-failure finding rests on a claim that can be tested: that simpler, cleaner alternatives exist which would have satisfied the minority's stated community-of-interest reasons for their boundary choices. If an independent reviewer, someone with no stake in the outcome, constructs such a map, and it genuinely satisfies the minority's stated criteria while looking more like the majority, that would demonstrate the minority's choices were not forced by their own rationales. The finding gets stronger. What would weaken it, or retract it if the evidence is decisive, is the opposite: a showing that no legal map can do both. That would shift the interpretation from "the rationale is a pretext" to "the constraint space is genuinely tight and the minority made defensible trade-offs." We have invited this check through the project's public GitHub repository. An earlier version of this entry had the direction backwards; Amendment 27 corrected it.
 
 ---
 
