@@ -246,9 +246,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority's own 25 published rationales are, on five of six contested configurations, options the minority did not take when cleaner statutory-compliant alternatives were available.
+**Assertion:** The minority's own 25 published rationales are, on two of six contested configurations, options the minority did not take when cleaner statutory-compliant alternatives were available.
 **Why?** What does "cleaner statutory-compliant alternatives" mean?
-**Answer:** When a commission draws a boundary that looks unusual, it is expected to explain why, in writing. The minority commissioners published rationales for their boundary choices. For five of the six configurations examined, the audit finds a simpler boundary option, one that would also satisfy the law, that the minority could have chosen and did not. "Cleaner" here means fewer geographic contortions and a more direct fit with city or town edges. So the minority's stated reasons didn't require those lines. That doesn't tell us why the lines were drawn.
+**Answer:** When a commission draws a boundary that looks unusual, it is expected to explain why, in writing. The minority commissioners published rationales for their boundary choices. For two of the six configurations examined (the four-way Airdrie split and the Olds–Three Hills–Didsbury reach into Airdrie), the audit finds a simpler boundary option, one that would also satisfy the law, that the minority could have chosen and did not. Two more hold in part (the Cochrane commuter tie; the Red Deer–Sylvan Lake work and school ties). One was not tested on the grounds the minority gave (Rocky Mountain House–Banff Park), and one is withdrawn (St. Albert–Sturgeon). "Cleaner" here means fewer geographic contortions and a more direct fit with city or town edges. So the minority's stated reasons didn't require those lines. That doesn't tell us why the lines were drawn.
 
 ---
 
@@ -1019,9 +1019,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority's 25 published rationales fail falsifiability checks on five of six contested configurations.
+**Assertion:** The minority's 25 published rationales fail falsifiability checks on two of six contested configurations.
 **Why?** How do you test whether a written rationale for a boundary choice is defensible?
-**Answer:** You look for a simpler line. For each configuration, the audit finds the simplest alternative boundary that would also satisfy every statutory requirement and the community-of-interest criteria the minority said it was following. If a simpler line meets the same stated reasons, those reasons didn't require the line the minority drew. That doesn't tell us why it was drawn. For five of the six configurations examined, a cleaner statutory alternative exists, and the minority passed it over. The sixth, St. Albert-Sturgeon, is judged likely constraint-forced rather than a free choice, so it is not counted as a rationale failure.
+**Answer:** You look for a simpler line. For each configuration, the audit finds the simplest alternative boundary that would also satisfy every statutory requirement and the community-of-interest criteria the minority said it was following. If a simpler line meets the same stated reasons, those reasons didn't require the line the minority drew. That doesn't tell us why it was drawn. For two of the six configurations examined, a cleaner statutory alternative exists, and the minority passed it over. Two more hold in part, and one was not tested on the grounds the minority gave. The sixth, St. Albert-Sturgeon, is withdrawn: the two maps do not converge there (the majority splits St. Albert in two, the minority in three), and the minority gives no per-district rationale to test.
 
 ---
 

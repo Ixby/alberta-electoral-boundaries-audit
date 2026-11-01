@@ -270,7 +270,7 @@ Acts I and II measured paper. Act III reads conduct: what the people in and arou
 
 [^asym]: The majority did not publish a list of reasons for contested redraws, so the six-rationale audit cannot be applied to both sides alike. It is reported as a single flag, not as extra rows in the structural-irregularity count.
 
-**What it could show.** Reasons that do not survive checking look like rationalizations: reasons found after the line, not before. In each case the evidence pointed to a boundary the minority could have drawn. The line it drew is a different one.
+**What it could show.** Reasons that do not survive checking look like rationalizations: reasons found after the line, not before. In the two that fail, the population arithmetic pointed to a boundary the minority could have drawn. The line it drew is a different one.
 
 **What the experts say.** Setting a stated reason against what the evidence supports is called pretext analysis, exactly how US courts probe intent in the gerrymandering cases they do hear. Reasons that fail on public data are the standard tell.
 
