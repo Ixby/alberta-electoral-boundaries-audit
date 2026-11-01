@@ -1726,7 +1726,75 @@ export default {
 				li1: "Ipinaliliwanag ng pagkakaipit ang <em>pagpapalit</em> sa mga mapa. Hindi nito ipinaliliwanag ang <em>pag-aalis sa publiko</em>. Sasagutin din sana ang pagkakaipit ng isang kinakailangang pagdinig, isang inilathalang draft, o isang panel na may tumatali na pasya. Isinusuko ng piniling sasakyan ang bawat katangian ng transparency na itinuturing ng comparative na literatura na nagpoprotekta. Wala sa mga pagsukong iyon ang ipinilit ng pagkakaipit.",
 				li2: "Ang \"Pinahihintulutan ito ng batas\" ay ang lente ng batas, at nasagot na ito roon: legal ang bawat hakbang. Iba ang tanong ng mga pamantayan. Sa ilang hurisdiksyon, nagkakabisa ang mapa ng komisyon <em>maliban kung</em> pawalang-bisa ito ng lehislatura. Ang baligtad na default ng Alberta ay nangangahulugang palaging kontrolado ng naghaharing partido kung magiging batas ang anumang mapa ng komisyon. Magkaibang tanong ang legal at ang nakaugalian.",
 				li3: "Masyadong marami ang napatutunayan ng argumento ng pananagutan. Tinututulan nito ang mga boundary commission saanman. Ngunit ang bawat hurisdiksyon sa Canada — at ang UK, at Australia — ay kumilos sa kabilang direksyon, mismo dahil mahinang proteksyon ang pananagutan sa halalan laban sa isang mapang idinisenyo upang hubugin ang mismong mga halalang iyon.",
-				li4: "Nagpapayo ang panel; ang mga boto ng mga MLA ang nagpapasya. Ang bipartisan na payo na may desisyong kontrolado ng gobyerno ay ibang institusyon kaysa sa isang independiyenteng komisyon. Ang pagkakaibang iyon mismo ang pamantayang pinag-uusapan."
+				li4: "Nagpapayo ang panel; ang mga boto ng mga MLA ang nagpapasya. Ang bipartisan na payo na may desisyong kontrolado ng gobyerno ay ibang institusyon kaysa sa isang independiyenteng komisyon. Ang pagkakaibang iyon mismo ang pamantayang pinag-uusapan.",
+				li5: "Isinulat ng may-akda ng Rekomendasyon 5 ito upang pigilan ang lehislatura sa pagtanggap sa mapa ng minorya, at hindi ito sinuportahan ng kanyang mga kasamahan sa mayorya. Tiyak din ito. Hinahayaan nito ang Airdrie, Calgary at lahat ng nasa timog nila nang eksakto gaya ng pagkakaguhit ng mayorya, ang mismong mga linyang pinaghatian ng komisyon, at walang anuman sa mandato ng komite ang nagtatali rito roon. Ang pagbanggit sa isang rekomendasyon laban sa nakasaad na layunin ng may-akda nito ay isang dokumentadong tensyon, hindi isang nalutas.",
+				li6: "Ang isa pang dokumentong binasa sa sahig ng Kapulungan — pahina 58 ng ulat ng mayorya — ay nananaghoy sa limitasyong dalawang upuan. Ngunit ang lunas na nakakabit dito ay ibigay ng Lehislatura sa <em>mga komisyon sa hinaharap</em> ang kapangyarihang magtakda ng bilang ng upuan. Kinuha ng mosyon ang luwag na iyon ngayon, para sa isang komite ng mga MLA, habang tinatanggihan ang operatibong kahilingan ng ulat: tanggapin ang 89-upuang mapa."
+			},
+			whose_accusation: {
+				heading: "Kaninong akusasyon ito?",
+				p1: "Narito ang paghihiwalay na siyang dahilan ng pahinang ito. Ang mga sumusunod ay dokumentadong katotohanan. Nangyari ang paglihis, sa unang pagkakataon mula sa sariling komite ng Alberta noong 1992. Isinuko ang mga katangian ng transparency. Tinawag ng tagapangulo ng komisyon ang isang hangganan ng minorya na \"isang pagsisikap na may masamang hangarin\" sa isang pampubliko at statutory na dokumento. Pampublikong <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">itinaas ng Canadian Civil Liberties Association ang alalahanin sa pamumulitika</a>. Bumoto ang oposisyon laban sa mosyon. At dalawang direksyon tumatakbo ang mga akusasyon. Pinaparatangan ng ulat ng minorya ang mayorya ng “hilig na burahin o sirain ang mga rural na electoral division at, sa epekto, bawasan ang epektibong rural na representasyon” — ang rural na representasyon, sa sariling salita ng minorya, ay “hindi lamang usapin ng bilang; usapin ito ng akses, boses, at praktikal na kakayahang pamahalaan” (p. 356). Sinubok ng audit ang paratang na iyon sa mismong araw na lumitaw ito (exploratory; inilathala kasama ng natuklasan ang hyphen-robust na classifier at ang bawat inuring pangalan). Bumabaligtad ang direksyon. Mas kaunti ang rural-anchored na dibisyong pinananatili ng mapa ng minorya kaysa sa mayorya (23 laban sa 28, kumpara sa 31 ng 2019) at mas marami sa mga rural na dibisyon ng 2019 ang isinasama nito sa mga distritong may pangalan ng lungsod (pito laban sa tatlo). Parehong pinanipis ng dalawang mapa ang rural na representasyon kumpara sa 2019, kaya totoo ang ubod na obserbasyon ng paratang. Ngunit sa sukat na pinangangalanan ng akusasyon, bumabagsak ito sa may-akda nito. Ang kasama nitong paratang, na tumanggi ang mayorya na gamitin ang ±25% na luwag ng Act para sa rural na Alberta, ay sinubok sa parehong araw at nanindigan. Iginuhit ng mayorya ang mga rural na dibisyon nito malapit sa pagkakapantay ng populasyon; iginuhit ng minorya ang mga ito nang magaan. Isang paratang ang bumaligtad, isa ang sinusuportahan, parehong inilathala. Ang parehong bawas dahil sa isang-panig na pinagmulan na inilapat sa mga bandila ng tagapangulo ay inilalapat din dito, sa dalawang direksyon.",
+				p2: "Ang sumusunod ay <em>hindi</em> dokumentadong katotohanan. Isa itong pampulitikang paghuhusga: na hindi lehitimo ang paglihis. Nakasalalay ang paghuhusgang iyon sa kung gaano kalaking paggalang ang nararapat sa pamantayan sa harap ng isang naipit na komisyon, at magkakaiba ang pagtimbang dito ng mga makatwirang tao. Idinodokumento ng audit ang paglihis at ang mga gastos nito. Hindi nito dinadala ang konklusyon ng oposisyon, at walang anuman sa estadistika ng audit ang makapagdadala rin nito. Masasabi ng isang numero na bihira ang isang mapa. Hindi nito masasabi na mali ang isang proseso."
+			},
+			norms_vs_law: {
+				heading: "Hindi batas ang mga pamantayan — at may isang lugar na ginawang batas ang pamantayan",
+				p1: "Ang mga konstitusyonal na kumbensyon, ang hindi nakasulat na mga tuntunin ng pampulitikang asal, ay tumatali nang pampulitika, hindi panghukuman. Sinabi iyon ng Korte Suprema sa Patriation Reference noong 1981, at pinanindigan iyon ng mga korte mula noon: maaaring pangalanan ng korte ang isang kumbensyon at tatanggi pa ring ipatupad ito. Ang puwang na iyon, sa pagitan ng nakaugalian at ng maipipilit, ang kinalalagyan ng buong yugtong ito.",
+				p2: "Ipinapakita ng Quebec ang itsura ng ibang pagpili. Permanente at independiyente ang boundary commission nito, at sa mapa mismo, karaniwang ang komisyon ang may huling salita. Nang subukan ng gobyerno ng Quebec na ipahinto ang komisyon nito sa pamamagitan ng batas, <em>kumilos</em> ang mga korte, dahil may batas nang nakataya. Noong Abril 22, 2026, pinanigan ng Korte Suprema ng Canada, 7–2 at mula sa upuan, ang pasyang nilabag ng pagpapahinto ang garantiya ng Charter sa demokratikong representasyon. Sumunod ang mga dahilan nito noong Mayo 1 (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Kung saan isinulat sa batas ang pamantayan, naging maipatutupad ito. Hindi kailanman isinulat ang pamantayan ng Alberta, kaya hindi ito maipatupad. Gayunman, dalawang direksyon ang tinatagpas ng paghahambing. Noong Hunyo 12, 2026, ipinasa ng National Assembly ng Quebec ang sarili nitong 127-upuang mapa."
+			},
+			measurable: {
+				heading: "Ang scorecard ng proseso: ginagawang masusukat ang tanong ng mga pamantayan",
+				p1: "Mura ang retorika tungkol sa mga pamantayan sa dalawang direksyon. Ang sagot ng audit ay isang ikatlong scorecard, kasama ng mga istrukturang pagsusulit at ng estadistika. Sinusukat nito ang <em>proseso</em> sa siyam na nagpoprotektang katangiang ginarantiya ng animnapung-taong praktika. Ang bawat isa ay tanong na oo-o-hindi na masasagot mula sa mga pampublikong dokumento, at ang parehong siyam ang sumusukat sa bawat prosesong sinusuri ng audit na ito.",
+				table: {
+					head: {
+						feature: "Nagpoprotektang katangian",
+						commission: "Proseso ng komisyon",
+						committee: "Proseso ng komite (gaya ng pagkakabuo)"
+					},
+					arms_length_drafting: {
+						feature: "Pagbalangkas nang malayo sa gobyerno",
+						commission: "Oo",
+						committee: "Bahagya — ang panel ang bumabalangkas; ang anim na MLA ng komite (apat sa gobyerno) ang nagpapasya"
+					},
+					public_hearings_before: {
+						feature: "Mga pampublikong pagdinig bago ang pagtanggap",
+						commission: "Oo — labing-anim na komunidad",
+						committee: "Hindi — walang nakaplano tungkol sa mapang gagawin"
+					},
+					draft_published_challenge: {
+						feature: "Draft na inilathala para sa paghamon",
+						commission: "Oo — binago sa publiko ang pansamantalang panukala",
+						committee: "Hindi — walang inianunsyo"
+					},
+					new_public_submissions: {
+						feature: "Tumatanggap ng bagong pampublikong submission",
+						commission: "Oo — 1,345 ang natanggap",
+						committee: "Hindi — muling ginagamit ang arkibo ng komisyon"
+					},
+					demonstrated_responsiveness: {
+						feature: "Napatunayang pagtugon",
+						commission: "Oo — binaligtad ang sarili dahil sa 80+ submission",
+						committee: "Nakabinbin"
+					},
+					neutral_chair_deciding: {
+						feature: "Neutral na tagapangulo ng katawang nagpapasya",
+						commission: "Oo — isang huwes, hinirang ng gabinete",
+						committee: "Hindi — isang MLA ng gobyerno ang tagapangulo; ang retiradong huwes ay tagapangulo lamang ng advisory na layer"
+					},
+					opposition_deciding_body: {
+						feature: "Oposisyon sa katawang nagpapasya",
+						commission: "Oo — dalawa sa lima",
+						committee: "Oo — dalawa sa anim"
+					},
+					published_reasons_contested: {
+						feature: "Inilathalang mga dahilan para sa pinagtatalunang mga pagpili",
+						commission: "Oo — ang dalawang ulat",
+						committee: "Nakabinbin"
+					},
+					precedent_conformity: {
+						feature: "Pagsunod sa precedent",
+						commission: "Oo",
+						committee: "Hindi — huling ginawa sa Alberta noong 1992, at sinisi ng Court of Appeal noong 1994"
+					}
+				}
 			}
 		}
 	}
