@@ -308,7 +308,7 @@ Canadian provincial and federal electoral commissions are constitutionally disti
 
 **Terminology.** "Gerrymandering" as used throughout this paper is a political and analytical term with no equivalent legal category in Canadian law. In contrast to US jurisprudence — where partisan gerrymandering is at least a named (if non-justiciable) claim after *Rucho* — Canadian law defines no gerrymandering standard. The applicable legal framework is effective representation under *Charter* s.3, as articulated in the *Saskatchewan Reference*, and statutory compliance with the EBCA. This audit's findings are evidentiary inputs to those constitutional and statutory questions, not to any gerrymandering-specific legal test.
 
-**Partisan-bias measurement.** Stephanopoulos and McGhee (2014, 2015, 2018) introduced the efficiency gap (EG) as a single-number measure of wasted-vote asymmetry and proposed a 7% threshold for investigable bias. McDonald and Best (2015) advanced the mean-median gap as a complementary measure of distributional skew. Gelman and King (1994) formalised seat-vote-curve symmetry as a Bayesian estimator, building on Grofman (1983) and King and Browning (1987). Warrington (2018, 2019) introduced declination and documented EG and declination can disagree on a non-trivial fraction of US-state plans; the Alberta disagreement once reported in [§5.2.4](#sec-5-2-4) turned out to be a sign error (Amendment 5, Part 9). Katz, King, and Rosenblatt (2020) argue that any valid measure of partisan bias must satisfy symmetry and critique single asymmetric metrics as inadequate; the audit's ensemble measures departure from neutral plans, not from symmetry, and does not claim to meet their criterion. The 7 % threshold is academic-literature authority only — never judicially adopted (see [§5.2.8](#sec-5-2-8)).
+**Partisan-bias measurement.** Stephanopoulos and McGhee (2015, 2018) introduced the efficiency gap (EG) as a single-number measure of wasted-vote asymmetry and proposed a 7% threshold for investigable bias. McDonald and Best (2015) advanced the mean-median gap as a complementary measure of distributional skew. Gelman and King (1994) formalised seat-vote-curve symmetry as a Bayesian estimator, building on Grofman (1983) and King and Browning (1987). Warrington (2018, 2019) introduced declination and documented EG and declination can disagree on a non-trivial fraction of US-state plans; the Alberta disagreement once reported in [§5.2.4](#sec-5-2-4) turned out to be a sign error (Amendment 5, Part 9). Katz, King, and Rosenblatt (2020) argue that any valid measure of partisan bias must satisfy symmetry and critique single asymmetric metrics as inadequate; the audit's ensemble measures departure from neutral plans, not from symmetry, and does not claim to meet their criterion. The 7 % threshold is academic-literature authority only — never judicially adopted (see [§5.2.8](#sec-5-2-8)).
 
 **Natural packing vs engineered packing.** Chen and Rodden (2013) argue urban-concentrated parties are systematically disadvantaged by neutrally-drawn maps through packing of their voters into city cores. [§5.2.5](#sec-5-2-5) of this audit applies the Chen-Rodden framework to Alberta and finds the *direction* prediction transfers but the *mechanism* does not: Alberta's UCP-favourable baseline comes from dispersed rural UCP-winning margins, not from NDP urban packing. This matters for what any 2026 map's partisan bias can legitimately be attributed to.
 
@@ -839,7 +839,7 @@ Scripts: `analysis/scripts/packing_cracking_analysis.py` (symmetric three-map co
 | **B4** NDP seats at 50/50 uniform swing | 47 | 48 | 43 |
 | Asymmetry at 50/50 (|NDP − UCP|) | 7 | 7 | 3 |
 
-*B4 — seat-vote framework of Gelman and King (1994), applied under the standard uniform-swing assumption (Butler 1951). Alberta's non-linear seat-vote curve means the true NDP seat count at a tied provincial vote is likely lower than the figures above. This row is presented for cross-map comparability, not as a seat prediction.*
+*B4 — seat-vote framework of Gelman and King (1994), applied under the standard uniform-swing assumption. Alberta's non-linear seat-vote curve means the true NDP seat count at a tied provincial vote is likely lower than the figures above. This row is presented for cross-map comparability, not as a seat prediction.*
 
 *† Provincial two-party NDP% for 2026 maps uses va_ndp/va_ucp integer columns (province-wide sum 893,018 total, 42.56% NDP) — the same substrate as the MCMC canonical ensemble. In the 2019 column, the NDP%, standard EG and mean-median cells use the 2023 election CSV (1,706,304 vote total, 45.56% NDP). The 2019 seat rows and B4 use the election-day substrate, as the 2026 columns do. The integer columns preserve intra-ED partisan ratios at a different scale than the CSV. **Invariance caveat (added 2026-06-12 per T1.7 Referee #6):** the audit's own sensitivity checks show the metrics move when the advance ballots (47.45 % of two-party votes) are restored: on the canonical substrate (`data/outputs/attribution_sensitivity_check.json`) the majority's EG goes from +0.10 % to +0.52 % (p16.5 to p24.2) and the minority's from +4.02 % to +5.79 % (p94.5 to p99.8); the sign flip once reported here (+0.0144 → −0.0149) came from the v0_9 DPG substrate (`findings/advance_vote_sensitivity.md`). This contradicts an earlier framing that called bias metrics "invariant to this difference." The metrics are *ratio* statistics, but the *relative weighting of districts* depends on turnout, so they are not invariant to which ballot universe is used. The §5.2.1 table therefore mixes substrates across columns in those 2019 cells (full CSV against election-day-only). This mixture is documented as an honest substrate disclosure rather than as a methodological defence; the Phase 4C canonical values for 2026 use election-day-only because that is the substrate the MCMC ensemble uses, and the comparison with the 2019 full-CSV value is offered as a coarse-grained cross-vintage check, not a like-for-like one. A full-vote re-attribution of 2026 EG values (using the `va_ucp_full` / `va_ndp_full` columns) is queued as T1.4-full-vote. ‡ Standard EG computed via Phase 4C exact VA-level spatial attribution (packing_cracking_analysis.py v0.3, 2026-05-18), consistent with mcmc_ensemble_canonical.py to within 0.06 pp.*
 
@@ -2189,7 +2189,7 @@ Both pipelines resume from a progress file and are fully reproducible. Output: `
 
 *Note: LLM intensity scoring completed across 452 rows in `data/outputs/sentiment_intensity_scores.csv` (corrected 2026-06-13 per T1.7 R2 S22): 263 full-corpus AO/AS rows (from the 1,252 written submissions — 271 in the raw results CSV, 8 excluded in the deduplication/scoring pass); 85 Hansard-r1 turns; 103 Hansard-r2 turns; 1 blank/unscored row. N/C and Unrelated rows not scored. Earlier draft cited 271/85/96 = 452 — the 271 was the pre-dedup full-corpus count and the 96 for hansard_r2 was wrong; canonical values above are from `sentiment_intensity_scores.csv` directly. Two configurations show pronounced channel divergence: Red Deer and Rocky Mountain House–Banff Park both exhibit strong opposition in written submissions but net support in Hansard hearings, consistent with differential-mobilization and participation-cost explanations discussed below.*
 
-**The channel-divergence hypothesis.** The divergence between written and in-person channels on RMH–Banff Park and Red Deer hybrids warrants a methodological note. One credible explanation is differential mobilization: written submissions are submitted asynchronously and may over-represent organized opposition groups or residents with strong objections, while in-person public hearings attract a broader cross-section including residents who favor local representation arguments but lack the organizational impetus to submit formally. This pattern — where written channels show stronger opposition than in-person channels on the same question — is documented in planning and zoning literature (Fischel 2001; Davis 2016) though not specifically in electoral redistricting contexts.
+**The channel-divergence hypothesis.** The divergence between written and in-person channels on RMH–Banff Park and Red Deer hybrids warrants a methodological note. One credible explanation is differential mobilization: written submissions are submitted asynchronously and may over-represent organized opposition groups or residents with strong objections, while in-person public hearings attract a broader cross-section including residents who favor local representation arguments but lack the organizational impetus to submit formally. This pattern — where written channels show stronger opposition than in-person channels on the same question — is documented in planning and zoning literature (Fischel 2001) though not specifically in electoral redistricting contexts.
 
 A second explanation specific to the RMH–Banff Park configuration is geography: citizens from Nordegg, Rocky Mountain House, and the Jasper/Banff corridor who would benefit from a unified mountain constituency may be more likely to attend regional in-person hearings (which were held in part in those communities) than to submit written comments. This is not a partisan-sorting argument but a participation-cost argument — travel to a hearing is a sunk cost filtering for engagement intensity, not partisan direction.
 
@@ -2284,7 +2284,7 @@ A general note on the strength bands used below. **Strongly supported** means th
 
 - *Source the minority cites in their published rationale:* Appendix E, p. 352 (R12). The minority invokes the s.15(2) exception for the Banff National Park extension on four grounds: north-south economic corridor along Highway 22; Rocky Mountain House as a hub for Clearwater County; division of regional Indian reserves from the nearest economic hub; and historical precedent of Banff NP portions in a west-central electoral division. For the s.15(2) exemption itself it cites the district's "geographic size, location on a provincial border, and small communities" (pp. 351–352). The phrase "ranching community of interest", attributed to the minority in earlier drafts, is the audit's own gloss (`banff_extension_population_check.md`); the minority does not use it.
 - *Evidence the audit checked it against:* `findings/justification_tests_findings.md` Test 2 (area arithmetic), [§5.1.4](#sec-5-1-4) + [§5.3.3](#sec-5-3-3) of this report (engineered-boundary signature E1–E3), and `analysis/methodology/reference/banff_extension_population_check.md` (polygon-clipped DA population pull on the Banff extension portion). The 2019 predecessor area (Bill 33 shapefile attribute `Km2`) is 24,468 km², already 22 % above the s.15(2)(a) 20,000 km² threshold without the NP extension. The minority's own population figure for the extended district is 38,298 (−30.3 %), still outside the ±25 % band even with the extension.
-- *What the data shows:* The NP extension is **not load-bearing for either area or population qualification** under s.15(2). On the population side, the polygon-clipped 2021-Census-DA pull at `analysis/methodology/reference/banff_extension_population_check.md` finds **approximately 491 area-weighted residents** inside the extension polygon (not zero) — concentrated in the Lake Louise / Saskatchewan River Crossing / Nordegg corridor visitors-services area-weighted aggregation. The earlier "zero year-round residents" framing was an oversimplification of an inhabited-but-very-sparse polygon. On the agricultural side, the *Canada National Parks Act* (R.S.C. 1985, c. N-14) statutorily prohibits agricultural tenure on national-park land, so a "no working ranches inside the park-land slice" finding is statutorily entailed for the in-park portion but **not separately verified** for adjacent Crown-land grazing-lease territory the extended district also touches. A ranching community of interest (the audit's gloss) would therefore have no agricultural land base *inside the park slice*, but the audit does not file a check on grazing-lease territory adjacent to it.
+- *What the data shows:* The NP extension is **not load-bearing for either area or population qualification** under s.15(2). On the population side, the polygon-clipped 2021-Census-DA pull at `analysis/methodology/reference/banff_extension_population_check.md` finds **approximately 491 area-weighted residents** inside the extension polygon (not zero) — concentrated in the Lake Louise / Saskatchewan River Crossing / Nordegg corridor visitors-services area-weighted aggregation. The earlier "zero year-round residents" framing was an oversimplification of an inhabited-but-very-sparse polygon. On the agricultural side, the *Canada National Parks Act* (S.C. 2000, c. 32) statutorily prohibits agricultural tenure on national-park land, so a "no working ranches inside the park-land slice" finding is statutorily entailed for the in-park portion but **not separately verified** for adjacent Crown-land grazing-lease territory the extended district also touches. A ranching community of interest (the audit's gloss) would therefore have no agricultural land base *inside the park slice*, but the audit does not file a check on grazing-lease territory adjacent to it.
 - *Verdict:* **Not tested on its stated grounds; not counted as a fail.** The extension is not needed for s.15(2) qualification on area (documented): the district meets four of five criteria without it. The minority does not claim the extension is needed, and its four stated grounds (Highway 22 corridor, Rocky Mountain House as a hub, keeping reserves with their economic hub, historical precedent) were not tested against data. The "ranching community of interest" verdict in earlier drafts tested the audit's own phrase and is withdrawn. The previous public-facing precision ("zero residents, zero ranches") was overstated and has been corrected in `report_public.md`.
 - *Documentation file:* `findings/justification_tests_findings.md` (Test 2); [§5.1.4](#sec-5-1-4), [§5.3.3](#sec-5-3-3) of this report; `analysis/methodology/reference/minority_rationales_validation.md` §R12; `analysis/methodology/reference/banff_extension_population_check.md`.
 - *Reproducibility:* The area arithmetic is reproducible from the 2019 Bill 33 shapefile (`data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`). The polygon-clipped population pull (~491 area-weighted residents) is reproducible from the methodology file's documented DA-intersection pipeline. The grazing-lease check on adjacent Crown land remains future work.
@@ -2837,9 +2837,15 @@ American Statistical Association. 2019. "Moving to a World Beyond 'p < 0.05'." *
 
 Barnes, Richard, and Justin Solomon. 2021. "Gerrymandering and Compactness: Implementation Flexibility and Abuse." *Political Analysis* 29(4): 448–466.
 
+Benjamini, Yoav, and Yosef Hochberg. 1995. "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing." *Journal of the Royal Statistical Society: Series B* 57(1): 289–300.
+
+Benjamini, Yoav, and Daniel Yekutieli. 2001. "The Control of the False Discovery Rate in Multiple Testing under Dependency." *Annals of Statistics* 29(4): 1165–1188.
+
 Best, Robin E., Shawn J. Donahue, Jonathan Krasno, Daniel P. Magleby, and Michael D. McDonald. 2018. "Considering the Prospects for Establishing a Packing Gerrymandering Standard." *Election Law Journal* 17(1): 1–20. **CITATION PENDING VERIFICATION 2026-06-13** — introduced per T1.7 R2 Referee #9 as the appropriate authority for "operationalization choices driving packing/cracking verdicts"; full title, authors, and page range above are from memory and must be verified against the primary source before any pincite is added.
 
 Bratt, Duane, Keith Brownsey, Richard Sutherland, and David Taras, eds. 2019. *Orange Chinook: Politics in the New Alberta*. Calgary: University of Calgary Press.
+
+Brown, Morton B. 1975. "A Method for Combining Non-Independent, One-Sided Tests of Significance." *Biometrics* 31(4): 987–992.
 
 Cannon, Sarah, Ari Goldbloom-Helzner, Varun Gupta, JN Matthews, and Bhushan Suwal. 2023. "Voting Rights, Markov Chains, and Optimization by Short Bursts." *Methodology and Computing in Applied Probability* 25(36). (arXiv preprint 2022:2011.02288 cited in some §5.4.8 references.)
 
@@ -2855,9 +2861,15 @@ DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021. "Recombination: A Family o
 
 Driedger, Elmer A. 1983. *Construction of Statutes* (2nd ed.). Toronto: Butterworths.
 
+Fischel, William A. 2001. *The Homevoter Hypothesis: How Home Values Influence Local Government Taxation, School Finance, and Land-Use Policies*. Cambridge, MA: Harvard University Press.
+
 Fifield, Benjamin, Kosuke Imai, Jun Kawahara, and Christopher T. Kenny. 2020. "The Essential Role of Empirical Validation in Legislative Redistricting Simulation." *Statistics and Public Policy* 7(1): 52–68.
 
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. *Bayesian Data Analysis*. 3rd ed. Boca Raton, FL: CRC Press.
+
 Gelman, Andrew, and Gary King. 1994. "A Unified Method of Evaluating Electoral Systems and Redistricting Plans." *American Journal of Political Science* 38(2): 514–554.
+
+Gelman, Andrew, and Donald B. Rubin. 1992. "Inference from Iterative Simulation Using Multiple Sequences." *Statistical Science* 7(4): 457–472.
 
 Grofman, Bernard. 1983. "Measures of Bias and Proportionality in Seats-Votes Relationships." *Political Methodology* 9(3): 295–327.
 
@@ -2865,7 +2877,13 @@ Herschlag, Gregory, Robert Ravier, and Jonathan C. Mattingly. 2020. "Quantifying
 
 Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020. "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies." *American Political Science Review* 114(1): 164–178.
 
+King, Gary. 1989. "Representation Through Legislative Redistricting: A Stochastic Model." *American Journal of Political Science* 33(4): 787–824.
+
 King, Gary, and Robert X. Browning. 1987. "Democratic Representation and Partisan Bias in Congressional Elections." *American Political Science Review* 81(4): 1251–1273.
+
+Liu, Yaowu, and Jun Xie. 2020. "Cauchy Combination Test: A Powerful Test with Analytic p-Value Calculation under Arbitrary Dependency Structures." *Journal of the American Statistical Association* 115(529): 393–402.
+
+Mayo, Deborah G. 2018. *Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars*. Cambridge: Cambridge University Press.
 
 McCartan, Cory, and Kosuke Imai. 2023. "Sequential Monte Carlo for Sampling Balanced and Compact Redistricting Plans." *Annals of Applied Statistics* 17(4): 3300–3323. (Underlying method for the R `redist` package's `redist_smc()` sampler used in this audit's `analysis/scripts/redist_crossvalidation.R` for algorithm-independent corroboration.)
 
@@ -2873,21 +2891,27 @@ McDonald, Michael D., and Robin E. Best. 2015. "Unfair Partisan Gerrymanders in 
 
 Munafò, Marcus R., Brian A. Nosek, Dorothy V. M. Bishop, Katherine S. Button, Christopher D. Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, J. J. Ware, and John P. A. Ioannidis. 2017. "A Manifesto for Reproducible Science." *Nature Human Behaviour* 1(0021).
 
+Niemi, Richard G., Bernard Grofman, Carl Carlucci, and Thomas Hofeller. 1990. "Measuring Compactness and the Role of a Compactness Standard in a Test for Partisan and Racial Gerrymandering." *Journal of Politics* 52(4): 1155–1181.
+
 Nosek, Brian A., Charles R. Ebersole, Alexander C. DeHaven, and David T. Mellor. 2018. "The Preregistration Revolution." *Proceedings of the National Academy of Sciences* 115(11): 2600–2606.
 
 Pal, Michael. 2015. "The Fractured Right to Vote." *McGill Law Journal* 61(2): 231–274.
 
-Pal, Michael, and Sujit Choudhry. 2011. "Democratic Accountability and Judicial Role in Canada's Electoral System." In *Democratizing the Constitution: The Role of the People and Social Movements in Constitutional Reform*, eds. Sujit Choudhry, 95–127. Oxford: Oxford University Press.
-
-Pal, Michael, and Sujit Choudhry. 2014. "Towards a Normative Account of the Right to Vote." *Canadian Political Science Review* 8(1): 52–76.
+Pal, Michael, and Sujit Choudhry. 2014. "Still Not Equal? Visible Minority Vote Dilution in Canada." *Canadian Political Science Review* 8(1): 85–101.
 
 Polsby, Daniel D., and Robert D. Popper. 1991. "The Third Criterion: Compactness as a Procedural Safeguard Against Partisan Gerrymandering." *Yale Law & Policy Review* 9(2): 301–353.
 
 Reock, Ernest C. 1961. "Measuring Compactness as a Requirement of Legislative Apportionment." *Midwest Journal of Political Science* 5(1): 70–74.
 
+Saalfeld, Alan. 1988. "Conflation: Automated Map Compilation." *International Journal of Geographical Information Systems* 2(3): 217–228.
+
+Sester, Monika. 2000. "Generalization Based on Least Squares Adjustment." *International Archives of Photogrammetry and Remote Sensing* 33(B4).
+
 Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015. "Partisan Gerrymandering and the Efficiency Gap." *University of Chicago Law Review* 82(2): 831–900.
 
 Stephanopoulos, Nicholas O., and Eric M. McGhee. 2018. "The Measure of a Metric: The Debate Over Quantifying Partisan Gerrymandering." *Stanford Law Review* 70(5): 1503–1568.
+
+Vehtari, Aki, Andrew Gelman, Daniel Simpson, Bob Carpenter, and Paul-Christian Bürkner. 2021. "Rank-Normalization, Folding, and Localization: An Improved R̂ for Assessing Convergence of MCMC." *Bayesian Analysis* 16(2): 667–718.
 
 Wang, Samuel S.-H. 2014. "Three Practical Tests for Gerrymandering." Working paper, Princeton Election Consortium. (Precursor to Wang 2016; cited as the source of the partisan-symmetry test discussed and excluded in `analysis/methodology/test_selection_rationale.md`.)
 
@@ -2899,6 +2923,12 @@ Warrington, Gregory S. 2019. "A Comparison of Partisan Gerrymandering Measures."
 
 ### Court cases
 
+*Canada (Minister of Citizenship and Immigration) v. Vavilov*, 2019 SCC 65.
+
+*Dixon v. British Columbia (Attorney General)* (1989), 59 DLR (4th) 247 (BCSC).
+
+*Dunsmuir v. New Brunswick*, 2008 SCC 9.
+
 *Figueroa v. Canada (Attorney General)*, [2003] 1 SCR 912.
 
 *Frank v. Canada (Attorney General)*, [2019] 1 SCR 3.
@@ -2907,19 +2937,45 @@ Warrington, Gregory S. 2019. "A Comparison of Partisan Gerrymandering Measures."
 
 *Grant v. Torstar Corp.*, 2009 SCC 61.
 
+*Haida Nation v. British Columbia (Minister of Forests)*, 2004 SCC 73.
+
+*League of Women Voters v. Commonwealth*, 178 A.3d 737 (Pa. 2018).
+
+*Quebec (Attorney General) v. Lalande*, 2026 SCC 13 (summarised from secondary sources; not read in full for this report).
+
+*R. v. Mohan*, [1994] 2 SCR 9.
+
 *Raîche v. Canada (Attorney General)*, 2004 FC 679.
 
 *Reference re Electoral Divisions Statutes Amendment Act, 1993*, 1994 ABCA 342 (Alta CA), as cited by ABlawg (April 13, 2026) and the 2026 commission report; the judgment itself was not read.
 
 *Reference re Provincial Electoral Boundaries (Saskatchewan)*, [1991] 2 SCR 158.
 
+*Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 SCR 27.
+
 *Rucho v. Common Cause*, 588 U.S. 684, 139 S. Ct. 2484 (2019).
+
+*Taku River Tlingit First Nation v. British Columbia (Project Assessment Director)*, 2004 SCC 74.
 
 *WIC Radio Ltd. v. Simpson*, 2008 SCC 40.
 
+*White Burgess Langille Inman v. Abbott and Haliburton Co.*, 2015 SCC 23.
+
 ### Statutes
 
+*Canada National Parks Act*, SC 2000, c 32.
+
+*Constitution Act, 1982*, being Schedule B to the *Canada Act 1982* (UK), 1982, c 11, s 35.
+
+*Election Act*, RSA 2000, c E-1.
+
 *Electoral Boundaries Commission Act*, RSA 2000, c E-3.
+
+*Electoral Boundaries Readjustment Act*, RSC 1985, c E-3.
+
+*Statistics Act*, RSC 1985, c S-19.
+
+*United Nations Declaration on the Rights of Indigenous Peoples Act*, SC 2021, c 14.
 
 ### Data sources
 
@@ -2978,16 +3034,16 @@ Each script prints a gate PASS/FAIL line. Numbers in [§5.1](#sec-5-1) and [§5.
 - [Design critique](../../analysis/review/design_critique.md) — hostile stress-test pass
 - [Methodological defenses](../../analysis/methodology/methodological_defenses.md) — pre-emptive adversarial review: attacks on substrate, MCMC baseline, and partisan metrics with per-attack empirical responses
 - [Test apparatus defense](../../analysis/methodology/methodological_defenses.md#test-apparatus-defense) — per-test criticism and response; addresses "are you making up metrics to have metrics?"
-- [Fisher combination defense](../../analysis/methodology/fisher_combination_defense.md) — statistical rationale for combining Ch1 and Ch2 via Fisher's method
-- [Fisher independence defense](../../analysis/methodology/fisher_independence_defense.md) — argument the two channels are sufficiently independent for Fisher combination
-- [Warrington declination defense](../../analysis/methodology/methodological_defenses.md#warrington-declination-defense) — declination metric applicability and its direction-disagreement with EG
+- [Fisher combination defense](../../analysis/methodology/fisher_combination_defense.md) — statistical rationale for combining Ch1 and Ch2 via Fisher's method (retired: the Fisher combination is no longer used)
+- [Fisher independence defense](../../analysis/methodology/fisher_independence_defense.md) — argument the two channels are sufficiently independent for Fisher combination (retired)
+- [Warrington declination defense](../../analysis/methodology/methodological_defenses.md#warrington-declination-defense) — declination metric applicability (its direction-disagreement with EG was a sign error and is retired; Amendment 5, Part 9)
 - [Urban weight defense](../../analysis/methodology/methodological_defenses.md#urban-weight-defense) — blend model urban-weight parameter justification
 - [Uncertainty analysis](../../analysis/methodology/shapefile_uncertainty_analysis.md)
 - [Academic literature review](../../analysis/methodology/reference/academic_literature_review.md)
 - [Submission search findings](../../findings/submission_search_findings.md) — [§5.9.4](#sec-5-9-4) evidence base
 - [Chair's Recommendation 5 analysis](../../findings/chair_recommendation_5_analysis.md) — [§5.9.2](#sec-5-9-2) evidence base
 - [Track C checklist baseline scoring](../../findings/checklist_baseline_scoring.md) — [§5.5](#sec-5-5) full scorecard and comparison template for the November map
-- [MCMC ensemble baseline](../../analysis/methodology/mcmc_ensemble.md) — [§5.4](#sec-5-4) method, 10k-sample ReCom chain against 2019 baseline, per-metric percentile tables
+- [MCMC ensemble baseline](../../analysis/methodology/mcmc_ensemble.md) — [§5.4](#sec-5-4) method, 10k-sample DPG-era ReCom chain (started from a neutral seed, not the 2019 map; C20), per-metric percentile tables
 - Plan B compliance + contested-config cross-check — (standalone document not produced; see §3.3 disclosure)
 - [Cycle-lag analysis](../../findings/cycle_lag_analysis.md) — province-wide ED drift under mid-2025 populations
 - [Proposed Act §12 amendment](../../docs/act_amendment_proposal.md) — legislative reform proposal addressing the census / cycle-lag tension
@@ -3007,7 +3063,7 @@ Each script prints a gate PASS/FAIL line. Numbers in [§5.1](#sec-5-1) and [§5.
 - [Cochrane journey-to-work](../../analysis/methodology/reference/cochrane_journey_to_work.md) — [§5.8.4](#sec-5-8-4) StatsCan 98-10-0459 pull
 - [CSD-level community splits](../../analysis/methodology/reference/csd_community_splits.md) — [§5.8.4](#sec-5-8-4) robustness check
 - [338Canada riding-level cross-validation](../../analysis/methodology/reference/polling_data_338canada_riding_level.md) — [§5.2.3](#sec-5-2-3) independent cross-check
-- Submission OCR log preserved at `historical/v0_1_submission_ocr_log.md` — [§5.9.4](#sec-5-9-4) partial extension of the 88 non-text-layer submissions
+- Submission OCR log preserved at `historical/v0_1_submission_ocr_log.md` — [§5.9.4](#sec-5-9-4) partial extension of the roughly 93 non-text-layer submissions
 
 
 ## Appendix C — 2021-census legal-baseline A1 for the three maps
@@ -3049,9 +3105,9 @@ $$\text{EG} = \frac{W_A - W_B}{N}$$
 EG = (W_A - W_B) / N
 ```
 
-Wasted votes $W_X$ for party $X$ are defined as losing-district votes plus winning-district votes above the victory threshold $\lceil N_d/2 \rceil + 1$, summed across districts. The 7 % threshold is academic-literature authority only — never judicially adopted (see [§5.2.8](#sec-5-2-8)).
+Wasted votes $W_X$ for party $X$ are defined as losing-district votes plus winning-district votes above the victory threshold $\lfloor N_d/2 \rfloor + 1$, summed across districts. The 7 % threshold is academic-literature authority only — never judicially adopted (see [§5.2.8](#sec-5-2-8)).
 
-**Sign-convention reconciliation.** When party A is indexed first, Stephanopoulos-McGhee canonical EG uses a 2:1 slope baseline (positive EG = party A disadvantaged, i.e., party B has seat-advantage). This paper reports EG under the 1:1 proportional-seat baseline; in Alberta's rural-UCP-blowout context, this produces negative EG values whose magnitude correlates with UCP outcome advantage through seat count, despite UCP also being the more-wasteful party by the wasted-vote measure. The two conventions give the same ordinal ranking of Alberta's three maps (2019 / Majority 2026 / Minority 2026) and therefore the same minority-vs-majority direction. Full derivation and verification at `analysis/methodology/sign_convention_resolution.md`.
+**Sign-convention reconciliation.** When party A is indexed first, Stephanopoulos-McGhee canonical EG uses a 2:1 slope baseline (positive EG = party A disadvantaged, i.e., party B has seat-advantage). This paper uses one convention throughout ([§4.3](#sec-4-3)): with A = NDP and B = UCP, positive EG means the NDP wastes more votes, which is a UCP advantage. (An earlier version of this paragraph described a 1:1-baseline reading in which negative EG tracked UCP advantage; that reasoning was retired by C13.) `analysis/methodology/sign_convention_resolution.md` carries a superseded banner.
 
 ### D.2 Mean-Median Gap (McDonald and Best 2015)
 
@@ -3162,7 +3218,7 @@ The subsections below document the historical geometric-data paths evaluated in 
 ### E.6 Technical Data Statement
 
 - **Source data for [§5.1](#sec-5-1) and [§5.2](#sec-5-2):** CSV files in `data/` (populations for both 2026 maps; per-ED 2023 and 2019 vote totals); raw Statement of Vote in `data/raw/2023_results.xlsx`.
-- **Source data for [§5.8](#sec-5-8):** JPG map images from the commission's final report (majority Calgary only; full coverage for minority).
+- **Source data for [§5.8](#sec-5-8):** JPG map images from the commission's final report (all eight majority Appendix A panels; full coverage for minority).
 - **Source data for [§5.9](#sec-5-9):** Electoral Boundaries Commission Act, commission report via prompt context, comparator-case general knowledge.
 - **Geometric reconstruction:** Superseded. The audit operates entirely on the canonical shapefiles.
 - **Coordinate system / resolution / aggregation:** EPSG:3401 (NAD83 / Alberta 10-TM).
@@ -3179,11 +3235,11 @@ The subsections below document the historical geometric-data paths evaluated in 
 ## Appendix F — Legal Interpretive Note
 
 
-This audit does not offer a legal conclusion. It provides the evidentiary basis on which a legal challenge under *Saskatchewan Reference* [1991] 2 SCR 158's "effective representation" standard could be constructed. The question whether the minority proposal, as potentially modified by the November 2, 2026 MLA-committee process, would satisfy the effective-representation requirement is for counsel and the courts to assess. The audit's core contribution is documenting :
+This audit does not offer a legal conclusion. It provides the evidentiary basis on which a legal challenge under *Saskatchewan Reference* [1991] 2 SCR 158's "effective representation" standard could be constructed. The question whether the minority proposal, or the advisory panel's map that the committee had to table by November 2, 2026, would satisfy the effective-representation requirement is for counsel and the courts to assess. The audit's core contribution is documenting :
 
 1. The two commission proposals diverge systematically on six measurable dimensions.
-2. The direction of divergence consistently favors the governing party.
-3. The process being used to promote the more-favorable proposal departs from comparator Canadian practice in specific ways.
+2. The direction of divergence favours the governing party under the available vote inputs (one crosswalk probe excepted).
+3. The process that set both proposals aside departs from comparator Canadian practice in specific ways.
 
 These facts are reproducible from public data using checked-in code. They do not prove intent, and they do not by themselves establish a constitutional violation.
 
@@ -3191,8 +3247,8 @@ These facts are reproducible from public data using checked-in code. They do not
 
 Admissibility of any expert evidence built on this audit's data is for counsel and a court to assess against the *R v Mohan* [1994] 2 SCR 9 / *White Burgess Langille Inman v Abbott and Haliburton Co.* [2015] 2 SCR 182 framework. The audit does not pre-adjudicate that question. The author's posture is the following:
 
-- **The data and code are public and reproducible.** Every number in this monograph is recoverable by an independent analyst running the publicly committed scripts against the publicly available Elections Alberta inputs. A skeptical analyst can assess methodological choices directly without depending on the author's interpretation.
-- **Pre-registration of structural tests is documented at OSF** (registrations w2s8k, r3zm7, qsgy8, 6pt83; drand-pinned timestamps); the audit's own §4.3.3 disclosure distinguishes the prospectively pre-registered structural battery from the exploratory partisan-bias channels.
+- **The data and code are public and reproducible.** Except where noted (RT1, the §5.9.6 sub-claims, the submission archive), every number in this monograph is recoverable by an independent analyst running the publicly committed scripts against the publicly available Elections Alberta inputs. A skeptical analyst can assess methodological choices directly without depending on the author's interpretation.
+- **The registration record is on OSF** (nine registrations: w2s8k, r3zm7, qsgy8, 6pt83, 9wp5y, yvc7g, s58a6, he53s, u47bq), with OSF's own timestamps; drand rounds only seeded the random number generators. [§4.3.3](#sec-4-3-3) sets out which tests came before their results: the commission-map results are exploratory, and the tests for the November map were written down before that map existed.
 - **Conflict-of-interest disclosure is on file in the cover-page CoI block** and in `analysis/methodology/reference/conflict_of_interest.md`. The disclosure records the author's voting and donation history across parties, the author's election-day work as a contract election officer for Elections Alberta, the absence of any consulting relationship with the commission or any political party, and the self-funded nature of the research.
 - **The author makes no representation regarding personal qualification as an expert witness.** If this audit's evidence becomes relevant to a constitutional proceeding, qualified counsel can engage independent experts in redistricting science, GIS, and electoral statistics to assess and present it.
 
@@ -3200,15 +3256,15 @@ Admissibility of any expert evidence built on this audit's data is for counsel a
 
 The standard has been applied in *Raîche v. Canada (Attorney General)*, 2004 FC 679, which examined the federal Electoral Boundaries Commission for New Brunswick's redrawing of Acadian boundaries. The Federal Court found **statutory** violations (ss. 15(1)(b) and 15(2) of the EBRA; Part VII of the Official Languages Act) and referred the boundaries back to the Commission. The Court did *not* find a Charter s.3 violation: applying the deference standard from *Reference re Prov. Electoral Boundaries (Sask.)*, [1991] 2 SCR 158 (the "*Carter*" standard, named for counsel Roger Carter QC — style of cause corrected 2026-06-12 per T1.7 R2 Ref #8; round-1 of the Raîche correction styled this as "*Carter v. Saskatchewan* [1991] 2 SCR 158," which is not the case's actual reporter caption), the boundary transfer survived the constitutional challenge. Earlier drafts of this report cited Raîche as a "s.3 strike-down" attributed to "Heneghan J." — both attributions were corrected 2026-06-12 per T1.7 Referee #8. Under the corrected Raîche reading: partisan asymmetry, standing alone, does not trigger either a Charter s.3 violation or an EBRA s.15(1)(b) statutory violation. Asymmetry becomes constitutionally or statutorily material only when paired with either (a) unjustified deviations from population parity unattributable to geography, community boundaries, or other statutory constraints, or (b) evidence permissible factors (geography, community of interest) have been distorted *in service of* partisan outcomes rather than applied in service of the statute's non-partisan purposes. This is a *narrower* and more defensible doctrinal foundation than the prior framing claimed; it strengthens commission deference under *Carter* and places the analytical burden squarely on the audit's two-lane evidence rather than on the constitutional precedent.
 
-Under Pal's (2015) analysis, which refines the Saskatchewan Reference framework, commission outputs are reviewable under the post-*Vavilov* reasonableness standard (*Canada (Minister of Citizenship and Immigration) v. Vavilov*, 2019 SCC 65, collapsing the pre-Vavilov patently/manifestly-unreasonable distinction into a unified reasonableness standard — wording corrected 2026-06-12 per T1.7 R2 Ref #12; earlier drafts here used the pre-Vavilov "manifest unreasonableness" vocabulary). Commissioners operate within a broad "discretion space" including legitimate design preferences. The boundary between justified discretion and reviewable partiality turns on factual evidence about whether the stated non-partisan constraints genuinely drove the choices or were invoked post-hoc to rationalize a predetermined partisan outcome. The audit's findings — directional partisan asymmetry coupled with population-variance distortions not explained by geography or municipal boundaries, coupled with procedural departure from the pattern established by the majority under identical statutory constraints — are the kinds of evidence a court applying the effective-representation standard, refined through Pal's reasonableness lens, would weigh in assessing whether a commission's output exceeded justified margins of discretion. Whether the weighing produces a constitutional violation is for a court, not this audit, to determine.
+Since *Canada (Minister of Citizenship and Immigration) v. Vavilov*, 2019 SCC 65, review of statutory interpretation is for reasonableness; *Dunsmuir v. New Brunswick*, 2008 SCC 9, had already collapsed the patently/manifestly-unreasonable distinction into a single reasonableness standard (wording corrected 2026-06-12 per T1.7 R2 Ref #12; earlier drafts here used the "manifest unreasonableness" vocabulary). Pal (2015) argues commission discretion is reviewable only at its outer margins. Commissioners operate within a broad "discretion space" including legitimate design preferences. The boundary between justified discretion and reviewable partiality turns on factual evidence about whether the stated non-partisan constraints genuinely drove the choices or were invoked post-hoc to rationalize a predetermined partisan outcome. The audit's findings — directional partisan asymmetry coupled with population-variance differences on the commission's 2024 tables (which almost disappear on the 2021 census, Appendix C), coupled with procedural departure from the pattern established by the majority under identical statutory constraints — are the kinds of evidence a court applying the effective-representation standard might weigh in assessing whether a commission's output exceeded justified margins of discretion. Whether the weighing produces a constitutional violation is for a court, not this audit, to determine.
 
 **Voter-impact translation of structural findings.** The *Saskatchewan Reference* standard asks whether voters can exercise "effective representation," which requires districts enable rather than structurally impede the translation of votes into legislative representation. This paragraph translates the audit's structural findings into the specific voter-impact terms effective-representation analysis requires.
 
 *Population dispersion.* The minority map's MAD of 4,707 persons (48% wider than the majority's 3,180) understates the individual voter effect. The minority's maximum positive deviation is +24.06%, corresponding to a district population of approximately 68,100 against the provincial mean of 54,929. A resident of the district commands 54,929 / 68,100 = 80.7% of the representative weight of a voter in a mean-population district — a dilution of roughly 19 percentage points. Three minority districts exceed +20% deviation ([§5.1.1](#sec-5-1-1)); none in the majority does. The majority's worst positive deviation is +14.28%, conferring 87.5% effective weight. Neither map breaches the ±25% statutory floor, and the *Saskatchewan Reference* standard explicitly permits deviation where justified by the enumerated factors. The question a court would weigh is whether the allocation of underweighted districts is spatially random (consistent with geographic necessity) or patterned (consistent with systematic placement). The audit's finding the minority's inflated districts concentrate in the Calgary Zone A geography (see below) is the evidence going to the patterning question.
 
-*Calgary zone asymmetry.* Under the minority map, Zone A (NE / central Calgary — the NDP-competitive zone) averages 61,225 residents per district against Zone B (SW / S Calgary) at 54,569 — a 12.2% intra-city gap. A resident of a Zone A district has 54,569 / 61,225 = 89.1% of the representative weight of a Zone B resident. Across 17 Zone A districts, this dilution structurally affects approximately 1,040,000 Calgary residents concentrated in the northeastern and central city. The majority produces no comparable patterned dilution (Zone A–Zone B gap 0.4%, or 205 persons). The intra-city pattern is not explained by geographic factors — both zones are suburban and urban in character, served by comparable highway access, and draw from the same municipal services. The deviation is therefore facially inconsistent with the factors *Saskatchewan Reference* identifies as justifying population variance.
+*Calgary zone asymmetry.* Under the minority map, Zone A (NE / central Calgary — the NDP-competitive zone) averages 61,225 residents per district against Zone B (SW / S Calgary) at 54,569 — a 12.2% intra-city gap. A resident of a Zone A district has 54,569 / 61,225 = 89.1% of the representative weight of a Zone B resident. Across 17 Zone A districts, this dilution structurally affects approximately 1,040,000 Calgary residents concentrated in the northeastern and central city. The majority produces no comparable patterned dilution (Zone A–Zone B gap 0.4%, or 205 persons). The minority gave a reason: it weighed electors as well as population in north-east Calgary (final report p. 310, "Electors as well as Population"). The commission majority rebutted that as "an extraneous consideration under the Act" (p. 63). Whether the reason justifies the variance is for a court. The gap is measured on the commission's 2024 tables; on the 2021 census the two maps' overall dispersion is almost level (Appendix C).
 
-*Airdrie community fragmentation.* The minority map distributes the Airdrie region across four electoral districts. Airdrie (85,805 at the July 2024 municipal census per City of Airdrie 2024; 74,100 at the 2021 Census; 90,044 at the April 2025 municipal census — see §5.3.2 C1 footnote for full vintage reconciliation) is a single incorporated municipality with integrated planning jurisdiction, municipal services, and a distinct local economy. The minority's split leaves Airdrie one representative for whom it is the primary constituency (Airdrie-East) and sends about 45% of its residents to districts where Calgary residents outnumber them. The majority's 2-way split concentrates Airdrie's representation in two districts. The 2022 federal redistribution sub-commission for Alberta applied a 2-way split, establishing comparator precedent consistent with the majority approach. Under *Saskatchewan Reference*, community of interest is a recognized justification for deviating from exact population parity; a configuration fragmenting a single community across four districts works against effective representation rather than in its service.
+*Airdrie community fragmentation.* The minority map distributes the Airdrie region across four electoral districts (three by people). Airdrie (85,805 at the July 2024 municipal census per City of Airdrie 2024; 74,100 at the 2021 Census; 90,044 at the April 2025 municipal census — see §5.3.2 C1 footnote for full vintage reconciliation) is a single incorporated municipality with integrated planning jurisdiction, municipal services, and a distinct local economy. The minority's split leaves Airdrie one representative for whom it is the primary constituency (Airdrie-East) and sends about 45% of its residents to districts where Calgary residents outnumber them. The majority's 2-way split concentrates Airdrie's representation in two districts. Federally, Airdrie sits within one riding at a quota about twice the provincial one; that is context, not a benchmark ([§5.9.3](#sec-5-9-3)). Under *Saskatchewan Reference*, community of interest is a recognized justification for deviating from exact population parity; a configuration fragmenting a single community across four districts works against effective representation rather than in its service.
 
 **Conduct posture toward named-individual characterisations.** This audit characterises the conduct of named public officials — Commission Chair Dallas K. Miller, Premier Danielle Smith, and the commissioners (Greg Clark, Susan Samson, John D. Evans KC and Dr. Julian Martin) — solely on the basis of those individuals' on-record statements in their public-official capacity, with each characterisation anchored to (a) a direct quotation of the public statement, (b) a primary-source citation, and (c) the audit's reasoning. Every characterisation appears alongside the underlying evidence so a reader can form an independent judgment. The audit does not investigate confidential deliberations, attribute motive without evidence, or characterise individuals in their private capacity. Whether any specific characterisation gives rise to a cause of action — under *Grant v. Torstar Corp.*, 2009 SCC 61, *WIC Radio Ltd. v. Simpson*, 2008 SCC 40, or otherwise — is for counsel and a court to assess on the actual record. The author does not pre-adjudicate that question and does not assert any defence in this monograph.
 
@@ -3217,7 +3273,7 @@ Under Pal's (2015) analysis, which refines the Saskatchewan Reference framework,
 
 ## Appendix G — Mahalanobis D² Distribution: QQ-Diagnostic Against χ²(4)
 
-The Channel 1 Mahalanobis p-value (8.80×10⁻⁷) is computed as `scipy.stats.chi2.sf(D², df=4)`, which assumes the ensemble's four-metric joint distribution is multivariate Gaussian, making D² approximately χ²(4)-distributed. One metric (seats@50/50) is discrete, so multivariate normality is approximate. This appendix documents a post-hoc empirical check of that approximation.
+The Channel 1 Mahalanobis p-value (8.80×10⁻⁷) is computed as `scipy.stats.chi2.sf(D², df=4)`, which assumes the ensemble's four-metric joint distribution is multivariate Gaussian, making D² approximately χ²(4)-distributed. One metric (seats@50/50) is discrete, so multivariate normality is approximate. This appendix documents a post-hoc empirical check of that approximation. The ensemble's plans have 87 districts and the scored maps 89, so the p-value is a cross-size comparison; a size-matched joint test is pending ([§5.4.9](#sec-5-4-9)).
 
 **Method.** The same covariance matrix used by `joint_outlier_score_canonical.py` (sample mean, `np.cov(rowvar=False)`, `np.linalg.pinv`) was applied to all 1,010,000 canonical ensemble plans to compute a D² for each. A QQ-plot of the empirical D² quantile distribution against theoretical χ²(4) quantiles is shown at `data/maps/mcmc/qqplot_mahalanobis_vs_chi2_4.svg` (generated by `analysis/scripts/mahalanobis_qqplot.py`). Quantiles were evaluated at 5,000 evenly spaced probability levels across [0.0001, 0.9999].
 
