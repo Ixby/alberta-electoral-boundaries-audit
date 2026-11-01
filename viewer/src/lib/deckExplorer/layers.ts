@@ -9,7 +9,7 @@
 // injection. The Svelte component imports deck.gl dynamically (browser-only) and
 // passes the classes in.
 //
-// Ported from the validated prototype (viewer/static/spike/index.html). The only
+// Ported from the validated prototype (viewer/static/spike/index.html, removed 2026-10-31; see git history). The only
 // piece worth unit-testing is `groupsFor`: the agreement logic (which subset of
 // active maps each boundary segment is shared by) that broke and was fixed this
 // session. The layer builders are faithful ports of the prototype's emit code.
