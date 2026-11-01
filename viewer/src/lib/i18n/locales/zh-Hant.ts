@@ -1490,7 +1490,7 @@ export default {
 			back: "← 返回審計",
 			site_label: "阿爾伯塔選舉邊界審計",
 			h1: "十四篇解說",
-			meta: "附錄 A–N · 每篇一個概念 · 目前僅有英文版",
+			meta: "附錄 A–N · 每篇一個概念",
 			standfirst: "審計中的每一枚彈殼都連結到這裡的一篇附錄,而每篇附錄只負責一個概念。它從真實的困惑出發。它用一個具體例子把概念建立起來。它讓你回到那枚彈殼的數字時,能夠獨立讀懂它。最後,它說明這個概念<em>無法</em>告訴你什麼。你可以按任何順序閱讀。",
 			appendix_a: {
 				heading: "附錄 A——「分散」實際上對一張選票做了什麼",
@@ -1604,7 +1604,7 @@ export default {
 				limit: "<em>局限:</em>「無法強制執行」是關於法院的陳述,而不是關於後果的陳述。慣例在選舉中由知道發生了什麼的人來執行。像這樣的報告之所以存在,就是為了讓他們知道。",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ 返回發現 14</a>"
 			},
-			footer_note: "內容與<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">完整公開報告</a>的附錄相同。目前僅有英文版,待作者審閱後再翻譯。"
+			footer_note: "內容與<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">完整公開報告</a>的附錄相同。"
 		},
 		methods: {
 			head_title: "地圖是如何檢驗的 · 阿爾伯塔選舉邊界審計",
@@ -1612,7 +1612,7 @@ export default {
 			back: "← 返回審計",
 			site_label: "阿爾伯塔選舉邊界審計",
 			h1: "地圖是如何檢驗的",
-			meta: "每一項檢驗和每一項統計,以淺白語言說明 · 目前僅有英文版 · 每一個數字都可以從公開儲存庫重現",
+			meta: "每一項檢驗和每一項統計,以淺白語言說明 · 每一個數字都可以從公開儲存庫重現",
 			standfirst: "整份審計建立在一個簡單的概念上。想知道一張地圖是否不尋常?畫一百萬張不可能有偏向的地圖。由電腦來畫,它從頭到尾看不到任何一張選票。然後看看真實的地圖落在它們之中的哪裡。本頁逐步講解這個概念,以及建立在它之上的每一項檢驗。沒有公式。看得懂天氣預報,就看得懂這一頁。",
 			toc: {
 				aria: "頁面內容",
@@ -1698,7 +1698,7 @@ export default {
 			back: "← 返回審計",
 			site_label: "阿爾伯塔選舉邊界審計",
 			h1: "規範對選舉地圖有什麼要求",
-			meta: "淺白語言配套頁 · 目前僅有英文版 · 不是對任何人的裁決",
+			meta: "淺白語言配套頁 · 不是對任何人的裁決",
 			standfirst: "這件事有三個視角。<a href=\"__BASE__/law\">法律</a>問的是什麼合法。<a href=\"__BASE__/methods\">統計</a>問的是什麼不尋常。第三個視角問的是什麼合乎慣例,而慣例正是爭議所在。「政府打破了一項六十年的規範」不是一項中立的測量。它是反對黨指控的核心。所以這一頁不只是複述規範。它盤問它們:它們從何而來、目的是什麼、擱置它們的理由實際上是什麼,以及把雙方的言辭清除之後還剩下什麼。",
 			the_norm: {
 				heading: "直白地說,這項規範是什麼",
@@ -1820,7 +1820,7 @@ export default {
 			back: "← 返回審計",
 			site_label: "阿爾伯塔選舉邊界審計",
 			h1: "法律對選舉地圖有什麼要求",
-			meta: "淺白語言配套頁 · 目前僅有英文版 · 不是法律意見",
+			meta: "淺白語言配套頁 · 不是法律意見",
 			standfirst: "本次審計測量地圖。法院評判地圖。這兩項工作相關,但並不相同,而本頁逐步說明其中的分別:加拿大法律實際上對選舉邊界有什麼要求、哪些問題屬於法院而不是統計學家,以及審計的證據放在哪裡。審計本身對任何法律結論都不持立場。它報告資料顯示了什麼,就此打住。",
 			why_not_gerrymander: {
 				heading: "為什麼本次審計從不裁定「選區操控」",
@@ -1869,7 +1869,7 @@ export default {
 			meta: "生效日期:2026-06-24 · 由 Will Conner 維護",
 			overview: {
 				heading: "概覽",
-				p1: "本工具是一項關於阿爾伯塔 2023 年選舉邊界委員會程序的公益審計。它不是商業產品,也不播放任何廣告。本頁說明測量了什麼、從不收集什麼,以及為什麼這些都無法追溯到你。",
+				p1: "本工具是一項關於阿爾伯塔 2025–26 年選舉邊界委員會程序的公益審計。它不是商業產品,也不播放任何廣告。本頁說明測量了什麼、從不收集什麼,以及為什麼這些都無法追溯到你。",
 				p2: "簡短版本:本網站使用不依賴 cookie 的匯總分析。沒有追蹤 cookie,沒有廣告,沒有跨網站的個人檔案建立,也沒有任何會跟隨你的識別碼。由於不儲存任何個人資料,所以沒有需要點擊同意的橫幅——私隱保護是內建在測量方式之中的,而不是事後附加的提示。"
 			},
 			how_analytics_work: {
@@ -1937,7 +1937,7 @@ export default {
 		home: {
 			references: {
 				academic: {
-					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.(阿爾伯塔選舉邊界委員會 2025–26 年最終報告,含多數派與少數派報告。)",
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
 					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
 					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
 					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1).(用來產生 1,010,000 張地圖集合的 ReCom 演算法。)",

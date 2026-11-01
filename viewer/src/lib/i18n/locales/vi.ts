@@ -1676,7 +1676,55 @@ export default {
 				li3: "<strong>Kiểm tra cơ chế — và thất bại.</strong> Cuộc kiểm toán đoán rằng những hình dạng kỳ lạ từ các bài kiểm tra cấu trúc là nguyên nhân trực tiếp của lợi thế về ghế. Phỏng đoán đó đã thất bại trong bài kiểm tra của nó. Các hình dạng và độ nghiêng về ghế cùng chỉ vào một bản đồ, nhưng các hình dạng không phải là động cơ. Cuộc kiểm toán nói rõ như vậy."
 			},
 			prereg: {
-				heading: "Những lời hứa được đưa ra từ trước"
+				heading: "Những lời hứa được đưa ra từ trước",
+				p1: "Cách phòng thủ mạnh nhất chống lại việc tự lừa mình là viết ra các dự đoán trước khi nhìn. Cuộc kiểm toán đã khóa các bài kiểm tra, các ngưỡng và hướng dự đoán vào các bản đăng ký công khai, có dấu thời gian trên Open Science Framework. Nó đã khóa các hạt giống ngẫu nhiên vào một nguồn phát tín hiệu công khai. Cả hai việc đều diễn ra trước khi các tập tin bản đồ chính thức được công bố. Khi một dự đoán đã khóa không đạt, nó vẫn là không đạt. Cùng các bài kiểm tra đã khóa đó sẽ được chạy, không thay đổi, trên bản đồ mới của ủy ban khi nó ra mắt vào tháng Mười Một năm 2026. Cuộc kiểm toán cũng nêu rõ kết quả nào của nó là <em>thăm dò</em> (hạt giống đã khóa, nhưng tổ hợp kiểm tra cụ thể được chọn sau) và kết quả nào được đăng ký trước hoàn toàn. Xác suất trong kết luận chính là thăm dò. Bảng điểm tháng Mười Một là bài kiểm tra được đăng ký trước hoàn toàn."
+			},
+			reproduce: {
+				heading: "Tự mình chạy thử",
+				p1: "Mọi con số trên trang web này đều đến từ một đoạn mã trong kho mã nguồn công khai, chạy trên dữ liệu đã được cam kết. Công thức đầy đủ có trong <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; phiên bản ngắn gọn:",
+				p2: "Một phiên bản sổ tay trực tuyến chạy trong trình duyệt qua <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Toàn bộ phương pháp — bao gồm mọi đính chính trên đường đi — có trong <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">chuyên khảo học thuật</a>.",
+				cross_ref: "Các trang đồng hành: <a href=\"__BASE__/law\">Luật đòi hỏi gì ở một bản đồ bầu cử</a> · <a href=\"__BASE__/norms\">Các chuẩn mực đòi hỏi gì</a> · <a href=\"__BASE__/explainers\">Mười bốn bài giải thích (Phụ lục A–N)</a>, mỗi bài cho một vỏ đạn trong báo cáo chính."
+			}
+		},
+		norms: {
+			head_title: "Các chuẩn mực đòi hỏi gì · Kiểm toán Ranh giới Bầu cử Alberta",
+			head_description: "Lăng kính thứ ba về câu chuyện ranh giới năm 2026 của Alberta: chuẩn mực chính trị gia không tự vẽ khu vực của mình đến từ đâu, nó mang lại gì, lập luận cho việc gạt nó sang một bên, và ai thực sự đang cáo buộc ai về điều gì.",
+			back: "← Quay lại cuộc kiểm toán",
+			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
+			h1: "Các chuẩn mực đòi hỏi gì ở một bản đồ bầu cử",
+			meta: "Bản đồng hành bằng ngôn ngữ đơn giản · Hiện chỉ có bằng tiếng Anh · Không phải phán quyết về bất kỳ ai",
+			standfirst: "Câu chuyện này có ba lăng kính. <a href=\"__BASE__/law\">Luật pháp</a> hỏi điều gì là hợp pháp. <a href=\"__BASE__/methods\">Thống kê</a> hỏi điều gì là bất thường. Lăng kính thứ ba hỏi điều gì là thông lệ, và thông lệ là vùng đất tranh chấp. \"Chính phủ đã phá vỡ một chuẩn mực sáu mươi năm\" không phải là một phép đo trung lập. Đó là trái tim của lời cáo buộc từ phe đối lập. Vì vậy trang này không chỉ thuật lại các chuẩn mực. Nó chất vấn chúng: chúng đến từ đâu, chúng dùng để làm gì, lập luận cho việc gạt chúng sang một bên thực sự là gì, và còn lại gì khi đã dẹp bỏ lời lẽ hùng biện của cả hai phía.",
+			the_norm: {
+				heading: "Chuẩn mực, nói một cách đơn giản",
+				p1: "Các chính trị gia không tự vẽ khu vực của chính mình. Canada đã mất khoảng sáu mươi năm để xây dựng quy tắc đó, không phải như một đạo luật mà như một thông lệ. Từ thời kỳ cải cách liên bang những năm 1960, mọi tỉnh và tiến trình liên bang đều dùng các ủy ban ranh giới độc lập. Người sẽ tranh cử ở một khu vực không cầm cây bút vẽ ra khu vực đó.",
+				p2: "Chuẩn mực này tồn tại vì những gì đã có trước nó. Các đảng cầm quyền từng thường xuyên tự vẽ khu vực bầu cử của mình, và xung đột lợi ích ở đây không hề tinh tế. Một người vẽ bản đồ phải thắng cử trên chính bản đồ đó có mọi lý do để vẽ nó theo hướng có lợi cho mình, và không ai đứng xem có thể phân biệt một đường kẻ trung thực với một đường kẻ tư lợi. Mô hình ủy ban không làm cho bản đồ hoàn hảo. Nó tách lợi ích của người vẽ ra khỏi kết quả. Đó là điều cho phép mọi người khác tin vào kết quả."
+			},
+			what_it_bought: {
+				heading: "Chuẩn mực đã mang lại gì, ngay trong chu kỳ này",
+				p1: "Ủy ban 2025–26 chính là minh chứng tốt nhất cho chính nó. Nó đã tổ chức điều trần ở mười sáu cộng đồng. Nó nhận được 1.345 bài nộp bằng văn bản. Nó công bố một đề xuất tạm thời, đón nhận chỉ trích, và tự đảo ngược dựa trên hơn tám mươi bài nộp. Đó là hệ thống phản hồi rõ ràng với ý kiến của công chúng. Dù ủy ban có thất bại ở điều gì khác, quy trình xung quanh nó đã vận hành đúng như thiết kế: công khai, có hồ sơ, và phải trả lời trước những gì công dân nói."
+			},
+			the_departure: {
+				heading: "Sự rời bỏ",
+				p1: "Vào tháng Tư năm 2026, vài tuần sau khi ủy ban chia rẽ nộp hai bản đồ không tương thích, Hội đồng Lập pháp đã gạt cả hai sang một bên. Motion 37 của Chính phủ, thông qua ngày 21 tháng Tư, đã trao công việc cho một ủy ban gồm sáu MLA, bốn người từ đảng cầm quyền, do một thành viên chính phủ làm chủ tịch. Ủy ban không bắt buộc phải tổ chức điều trần công khai. Theo tin tức của CBC, nó sẽ không tổ chức điều trần về bản đồ mà nó tạo ra. Không có bản dự thảo nào được công bố để công chúng phản biện trước khi bản đồ được chốt.",
+				p2: "Vào tháng Năm, Duane Bratt, Giáo sư Khoa học Chính trị tại Đại học Mount Royal, mô tả với tác giả rằng việc này chưa có tiền lệ ở Canada. Khẳng định đó sai. Năm 1992, Alberta đã gạt công việc của một ủy ban bế tắc sang một bên và giao bản đồ cho một ủy ban gồm các MLA; phe Đối lập từ chối tham gia, và năm 1994 Tòa Phúc thẩm để bản đồ giữ nguyên nhưng chỉ trích ủy ban vì không thể giải thích một số ranh giới của nó. Luật đã được sửa đổi năm 1995. Điều mới mẻ vào năm 2026 hẹp hơn: một đa số trong ủy ban đã ký một báo cáo, thứ mà Luật coi là báo cáo của ủy ban, và nó vẫn bị gạt sang một bên. Điều đó <em>có nghĩa</em> là gì là nơi cuộc tranh luận bắt đầu."
+			},
+			steel_man: {
+				heading: "Lập luận cho việc gạt bỏ chuẩn mực — được xem xét nghiêm túc",
+				p1: "Một cuộc kiểm toán chỉ diễn lại sự phẫn nộ của một phía thì không phải đang kiểm tra gì cả. Vì vậy hãy xét quan điểm của chính phủ ở mức mạnh nhất. Hãy xây dựng lập luận mạnh nhất của nó, phiên bản mạnh nhất (steel-man), trước khi kiểm tra nó:",
+				li1: "<strong>Ủy ban đã thất bại ở công việc duy nhất của nó.</strong> Mô hình ủy ban hứa hẹn một câu trả lời độc lập duy nhất. Ủy ban này đưa ra hai bản đồ không tương thích và một chủ tịch công khai cáo buộc đồng nghiệp thiếu thiện chí. Khi con đường độc lập bế tắc, phải có ai đó quyết định. Luật nói đó là ai.",
+				li2: "<strong>Luật trao cây bút cho cơ quan lập pháp theo thiết kế.</strong> Theo Luật của Alberta, một báo cáo của ủy ban không có hiệu lực pháp lý. Ranh giới chỉ thay đổi khi Hội đồng thông qua một Electoral Divisions Act. Motion 37 của Chính phủ đã dùng một cánh cửa mà luật cố ý xây dựng. Không có gì bị lén lút đưa vào.",
+				li3: "<strong>Thành viên được bầu phải trả lời trước cử tri; ủy viên không phải trả lời trước ai.</strong> Lập luận lâu đời nhất cho quyền kiểm soát của cơ quan lập pháp là trách nhiệm giải trình. Một MLA vẽ bản đồ tư lợi có thể bị bỏ phiếu loại. Một ủy viên thì không.",
+				li4: "<strong>Ủy ban không phải là một công cụ thuần túy đảng phái.</strong> Hai trong sáu thành viên của nó là MLA phe đối lập. Ban cố vấn soạn đề xuất có hai người do phe đối lập đề cử và do một cựu thẩm phán Tòa Phúc thẩm đã nghỉ hưu làm chủ tịch.",
+				li5: "<strong>Chính phủ đã viện dẫn chính khuyến nghị của chủ tịch.</strong> Lý do được nêu cho nhiệm vụ 91 ghế là Khuyến nghị 5, do chính chủ tịch ủy ban viết. Và chính phủ đã nói đúng điều đó trước Nghị viện: “Chúng tôi đang thông qua các khuyến nghị từ báo cáo.”"
+			},
+			where_it_bends: {
+				heading: "Phiên bản mạnh nhất đó oằn đi ở đâu",
+				p1: "Mỗi điểm trên đều có thật. Hồ sơ được ghi nhận cũng phản bác từng điểm:",
+				li1: "Sự bế tắc giải thích việc <em>thay thế</em> các bản đồ. Nó không giải thích việc <em>loại bỏ công chúng</em>. Một yêu cầu điều trần, một bản dự thảo được công bố, hay một ban cố vấn có quyết định ràng buộc cũng đã có thể giải quyết sự bế tắc. Phương tiện được chọn từ bỏ từng đặc điểm minh bạch mà tài liệu so sánh coi là có tính bảo vệ. Sự bế tắc không buộc phải từ bỏ điều nào trong số đó.",
+				li2: "\"Luật cho phép điều đó\" là lăng kính pháp luật, và nó đã được trả lời ở đó: mọi bước đều hợp pháp. Câu hỏi về chuẩn mực thì khác. Một số khu vực tài phán cho bản đồ của ủy ban có hiệu lực <em>trừ khi</em> cơ quan lập pháp bác bỏ nó. Mặc định đảo ngược của Alberta có nghĩa là đảng cầm quyền luôn kiểm soát việc bản đồ nào của ủy ban trở thành luật. Hợp pháp và đúng thông lệ là hai câu hỏi khác nhau.",
+				li3: "Lập luận về trách nhiệm giải trình chứng minh quá nhiều. Nó lập luận chống lại các ủy ban ranh giới ở mọi nơi. Thế nhưng mọi khu vực tài phán của Canada — cùng Vương quốc Anh và Úc — đã đi theo hướng ngược lại, chính vì trách nhiệm giải trình vào lúc bầu cử là sự bảo vệ yếu ớt trước một bản đồ được thiết kế để định hình chính những cuộc bầu cử đó.",
+				li4: "Ban cố vấn tư vấn; lá phiếu của các MLA quyết định. Lời khuyên từ cả hai đảng đi kèm một quyết định do chính phủ kiểm soát là một thể chế khác với một ủy ban độc lập. Sự khác biệt đó chính là chuẩn mực đang bàn.",
+				li5: "Tác giả của Khuyến nghị 5 viết nó để can ngăn cơ quan lập pháp thông qua bản đồ thiểu số, và các đồng nghiệp đa số của ông không tán thành nó. Nó cũng cụ thể. Nó để Airdrie, Calgary và mọi thứ ở phía nam chúng y nguyên như phe đa số đã vẽ, chính những đường ranh giới mà ủy ban đã chia rẽ vì chúng, và không có gì trong nhiệm vụ của ủy ban lập pháp buộc nó phải tuân theo điều đó. Viện dẫn một khuyến nghị đi ngược lại mục đích mà chính tác giả đã nêu là một mâu thuẫn được ghi nhận, chưa phải đã được giải quyết."
 			}
 		}
 	}
