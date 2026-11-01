@@ -1759,9 +1759,79 @@ export default {
 						committee: "Teilweise — das Gremium entwirft; die sechs MLAs des Komitees (vier von der Regierung) entscheiden"
 					},
 					public_hearings_before: {
-						feature: "Öffentliche Anhörungen vor der Annahme"
+						feature: "Öffentliche Anhörungen vor der Annahme",
+						commission: "Ja — sechzehn Gemeinden",
+						committee: "Nein — keine zur vorgelegten Karte geplant"
+					},
+					draft_published_challenge: {
+						feature: "Entwurf zur Anfechtung veröffentlicht",
+						commission: "Ja — Zwischenvorschlag öffentlich überarbeitet",
+						committee: "Nein — keiner angekündigt"
+					},
+					new_public_submissions: {
+						feature: "Neue öffentliche Eingaben angenommen",
+						commission: "Ja — 1.345 eingegangen",
+						committee: "Nein — nutzt das Archiv der Kommission weiter"
+					},
+					demonstrated_responsiveness: {
+						feature: "Nachgewiesene Reaktionsfähigkeit",
+						commission: "Ja — hat sich aufgrund von mehr als 80 Eingaben korrigiert",
+						committee: "Ausstehend"
+					},
+					neutral_chair_deciding: {
+						feature: "Neutraler Vorsitz des entscheidenden Gremiums",
+						commission: "Ja — ein Richter, vom Kabinett ernannt",
+						committee: "Nein — ein MLA der Regierung führt den Vorsitz; der pensionierte Richter leitet nur die beratende Ebene"
+					},
+					opposition_deciding_body: {
+						feature: "Opposition im entscheidenden Gremium",
+						commission: "Ja — zwei von fünf",
+						committee: "Ja — zwei von sechs"
+					},
+					published_reasons_contested: {
+						feature: "Veröffentlichte Begründungen für umstrittene Entscheidungen",
+						commission: "Ja — beide Berichte",
+						committee: "Ausstehend"
+					},
+					precedent_conformity: {
+						feature: "Übereinstimmung mit dem Präzedenzfall",
+						commission: "Ja",
+						committee: "Nein — in Alberta zuletzt 1992 so gemacht und 1994 vom Court of Appeal bemängelt"
+					},
+					count: {
+						feature: "Zählung",
+						commission: "9 von 9",
+						committee: "1 Ja · 1 Teilweise · 5 Nein · 2 Ausstehend"
 					}
-				}
+				},
+				p2: "Noch eine Art, diese Bewertung zu sehen: Sie ist die <em>dritte Achse</em>. Das Diagramm des Audits trägt jede Karte in zwei Dimensionen ein: Struktur und Statistik. Alle drei bisher eingetragenen Karten wurden von Kommissionsverfahren gezeichnet, die hier neun von neun erreichen, die dritte Achse hatte also nichts zu unterscheiden. Die Karte vom November wird der erste Punkt in der Geschichte des Audits sein, hinter dem eine andere Bewertung des Verfahrens steht.",
+				p3: "Lesen Sie die Tabelle ehrlich, in beide Richtungen. Die Kommission erreicht neun von neun <em>schon aufgrund der Konstruktion</em>. Die Kriterien beschreiben die Institution, die die Norm aufgebaut hat, und die Kommission war diese Institution. Der aufschlussreiche Teil blickt nach vorn. Vier der Nein- und Ausstehend-Felder des Komitees sind Merkmale, die es zwischen jetzt und November noch ergänzen kann: Anhörungen, ein veröffentlichter Entwurf, neue Eingaben und die Reaktionsfähigkeit, die sie ermöglichen. Ergänzt es sie, wird der Befund des Audits zur Abkehr vom Verfahren wesentlich abgeschwächt, und das Audit hat sich schriftlich verpflichtet, das zu sagen.",
+				draft_note: "Der Status ist hier wichtig: Die Kriterien, Quellen und vorhergesagten Richtungen dieser Bewertung sind <a href=\"https://osf.io/u47bq/\" rel=\"noopener\">beim OSF registriert (u47bq, 14. Juli 2026)</a> — Monate bevor das Komitee berichtet festgeschrieben, sodass nichts stillschweigend umformuliert werden kann, wenn die Antwort eintrifft. Sie wurde mitten in der Episode von einem Autor geschrieben, dessen frühere Befunde Sie gerade gelesen haben — ein Risiko der Voreingenommenheit, das das <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md\" rel=\"noopener\">registrierte Dokument</a> offenlegt statt versteckt. Rückwirkend auf die Kommission angewandt, ist sie Beschreibung, keine Vorhersage. Wenn die Karte des Komitees erscheint, laufen dieselben festgeschriebenen Kartentests unverändert — und diese Prüfliste bewertet das Verfahren, das sie hervorgebracht hat. Ab diesem Punkt hört die Debatte über Normen auf, ein Schreiwettbewerb über Tradition zu sein, und wird zu einem bewerteten Vergleich: Hat sich das Komitee verhalten wie die Institution, die es ersetzt hat?"
+			},
+			audits_standing_rule: {
+				heading: "Die feste Regel des Audits",
+				p1: "Dieselbe Regel wie überall sonst auf dieser Website. Das Audit dokumentiert, was geschehen ist, wie selten es ist und wer was behauptet hat. Ob die Norm es verdient hätte, den Stillstand zu überleben — und was ihre Beiseitelegung an der Wahlurne kosten sollte, wenn überhaupt etwas —, ist Sache der Leserinnen und Leser und der Wählerschaft. Nicht Sache eines statistischen Audits.",
+				cross_ref: "Begleitseiten: <a href=\"__BASE__/law\">Was das Recht von einer Wahlkarte verlangt</a> · <a href=\"__BASE__/methods\">Wie die Karten getestet wurden</a>",
+				disclaimer: "Diese Seite ist ein Begleittext in einfacher Sprache zum Audit, geschrieben zur Orientierung. Sie ist keine Rechtsberatung und kein Urteil über eine Person oder Partei."
+			}
+		},
+		law: {
+			head_title: "Was das Recht verlangt · Audit der Wahlkreisgrenzen Albertas",
+			head_description: "Wie das kanadische Recht eine Wahlkarte beurteilt: wirksame Vertretung nach Abschnitt 3 der Charter, die Saskatchewan Reference und Albertas Electoral Boundaries Commission Act — und wie sich die Belege dieses Audits zu diesen Maßstäben verhalten.",
+			back: "← Zurück zum Audit",
+			site_label: "Audit der Wahlkreisgrenzen Albertas",
+			h1: "Was das Recht von einer Wahlkarte verlangt",
+			meta: "Begleittext in einfacher Sprache · vorerst nur auf Englisch · Keine Rechtsberatung",
+			standfirst: "Dieses Audit misst Karten. Gerichte beurteilen sie. Die beiden Aufgaben hängen zusammen, sind aber nicht dieselbe, und diese Seite geht den Unterschied durch: was das kanadische Recht tatsächlich von einer Wahlkreisgrenze verlangt, welche Fragen einem Gericht statt einem Statistiker zustehen und wo die Belege des Audits hineinpassen. Das Audit selbst bezieht zu keiner rechtlichen Schlussfolgerung Stellung. Es berichtet, was die Daten zeigen, und hört dort auf.",
+			why_not_gerrymander: {
+				heading: "Warum dieses Audit nie auf „Gerrymander“ erkennt",
+				p1: "Das Audit verwendet „Gerrymandering“ durchgehend im alltäglichen politischen Sinn: die Manipulation von Wahlkreisgrenzen zum Vorteil einer Partei. Im kanadischen Recht hat das Wort aber keine rechtliche Definition. Es gibt kein Gesetz, gegen das man durch „Gerrymandering“ verstoßen könnte, und keinen gerichtlichen Maßstab dieses Namens. Eine Karte kann nicht in einer Kategorie schuldig gesprochen werden, die es nicht gibt. Das ist ein Grund, warum das Audit sich weigert, dieses Urteil zu fällen, ganz gleich, was die Zahlen sagen.",
+				p2: "Der Vergleich mit den USA lohnt einen Moment, weil die meisten statistischen Werkzeuge dieses Audits — die Effizienzlücke, neutrale Karten-Ensembles (große Mengen vom Computer gezeichneter Karten) — für amerikanische Auseinandersetzungen erfunden wurden. In den USA ist parteiliches Gerrymandering zumindest ein benannter Anspruch. Aber der US Supreme Court hat in <em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019), die Tür der Bundesgerichte geschlossen und entschieden, dass Bundesgerichten „gerichtlich erkennbare und handhabbare Maßstäbe“ fehlen, um solche Ansprüche zu beurteilen. Dieselben Maße sind an manchen Gerichten der Bundesstaaten weiterhin im Spiel, am prominentesten in <em>League of Women Voters v. Commonwealth</em>, 178 A.3d 737 (Pa. 2018).",
+				p3: "Kanada ist einen anderen Weg gegangen. Statt eines Gerrymandering-Maßstabs stellt das kanadische Recht zwei beantwortbare Fragen. Gewährleistet die Karte eine <a href=\"#effective-representation\">wirksame Vertretung</a> nach Abschnitt 3 der <em>Charter</em>? Und hat die Kommission <a href=\"#ebca\">ihr maßgebliches Gesetz</a> eingehalten? Die Befunde des Audits sind Belege, die ein Gericht innerhalb dieser beiden Prüfungen abwägen könnte. Beiträge, kein Urteil zu einer der beiden. Und Statistik kann keine Gedanken lesen: Grenzgeometrie kann zeigen, was eine Karte <em>bewirkt</em>, niemals, was ihre Verfasser <em>beabsichtigt</em> haben."
+			},
+			effective_representation: {
+				heading: "Der verfassungsrechtliche Maßstab: wirksame Vertretung",
+				p1: "Abschnitt 3 der <em>Charter of Rights and Freedoms</em> garantiert den Bürgerinnen und Bürgern das Wahlrecht. In <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158 — das Audit nennt sie die <em>Saskatchewan Reference</em> — entschied der Supreme Court of Canada, dass Abschnitt 3 bei der Grenzziehung nicht die Arithmetik von „eine Person, eine Stimme“ schützt, sondern <strong>wirksame Vertretung</strong>."
 			}
 		}
 	}

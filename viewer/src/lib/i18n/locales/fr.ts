@@ -1487,7 +1487,7 @@ export default {
 			back: "← Retour à l'audit",
 			site_label: "Audit des limites électorales de l'Alberta",
 			h1: "Les quatorze fiches explicatives",
-			meta: "Annexes A à N · un concept chacune · en anglais seulement pour l'instant",
+			meta: "Annexes A à N · un concept chacune",
 			standfirst: "Chaque douille de l'audit renvoie à une annexe ici, et chaque annexe porte sur un seul concept. Elle part de la confusion honnête. Elle construit l'idée avec un exemple concret. Elle vous renvoie au chiffre de la douille, capable de le lire sans aide. Et elle se termine par ce que le concept <em>ne peut pas</em> vous dire. Lisez-les dans l'ordre que vous voulez.",
 			appendix_a: {
 				heading: "Annexe A — Ce que le « fractionnement » fait réellement à un vote",
@@ -1601,7 +1601,7 @@ export default {
 				limit: "<em>La limite :</em> « impossible à faire respecter » est un énoncé sur les tribunaux, pas sur les conséquences. Les conventions se font respecter aux élections, par des gens qui savent ce qui a été fait. Des rapports comme celui-ci existent pour qu'ils le sachent.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Retour au constat 14</a>"
 			},
-			footer_note: "Le contenu reprend les annexes du <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">rapport public complet</a>. En anglais seulement pour l'instant, en attendant la révision de l'auteur avant traduction."
+			footer_note: "Le contenu reprend les annexes du <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">rapport public complet</a>."
 		},
 		methods: {
 			head_title: "Comment les cartes ont été testées · Audit des limites électorales de l'Alberta",
@@ -1609,7 +1609,7 @@ export default {
 			back: "← Retour à l'audit",
 			site_label: "Audit des limites électorales de l'Alberta",
 			h1: "Comment les cartes ont été testées",
-			meta: "Chaque test et chaque statistique, en langage clair · En anglais seulement pour l'instant · Chaque chiffre reproductible à partir du dépôt public",
+			meta: "Chaque test et chaque statistique, en langage clair · Chaque chiffre reproductible à partir du dépôt public",
 			standfirst: "Tout l'audit repose sur une idée simple. Vous voulez savoir si une carte est inhabituelle ? Tracez un million de cartes qui ne pourraient pas être biaisées. Un ordinateur les trace, et il ne voit jamais un seul vote. Ensuite, regardez où les vraies cartes se situent parmi elles. Cette page parcourt cette idée et chaque test qui en découle. Aucune formule. Si vous savez lire une prévision météo, vous savez lire ceci.",
 			toc: {
 				aria: "Contenu de la page",
@@ -1662,6 +1662,7 @@ export default {
 				heading: "Ce que veut dire « 1 sur 568 000 » — et pourquoi l'audit a doublé sa marge",
 				p1: "Combinez les quatre mesures d'équité en un seul score et demandez : à quelle fréquence le tracé neutre produit-il un profil aussi extrême que celui de la carte minoritaire ? La réponse est environ <strong>1 sur 1,1 million</strong>. Mais l'audit ne cite pas ce chiffre. Il cite <strong>1 sur 568 000</strong> — exactement deux fois moins impressionnant. Voici pourquoi.",
 				p2: "L'audit a cherché un signal à deux endroits différents : ce score combiné, et un second test sur les choix précis de limites. Chercher à deux endroits donne deux chances au hasard. Pensez aux billets de loterie : achetez-en deux, et vos chances de détenir un gagnant doublent. Avant de citer la probabilité, l'audit la double donc contre lui-même. Ainsi, « vous avez eu deux essais » est déjà payé.",
+				p3: "Le doublement a une autre vertu : il ne demande aucune hypothèse. Il tient que les deux tests soient liés ou non ; c'est donc le chiffre qu'un statisticien hostile ne pourrait pas faire baisser.",
 				p4: "Une mise en garde que l'audit répète partout : ces probabilités mesurent à quel point la <em>carte</em> est inhabituelle. Ce ne sont pas les probabilités que quelqu'un ait agi avec intention. Une carte rare pourrait tout de même, en principe, être un travail honnête. Les probabilités disent seulement ceci : le tracé ordinaire ne produit pas cette carte."
 			},
 			died: {
@@ -1694,7 +1695,7 @@ export default {
 			back: "← Retour à l'audit",
 			site_label: "Audit des limites électorales de l'Alberta",
 			h1: "Ce que les normes demandent d'une carte électorale",
-			meta: "Complément en langage clair · En anglais seulement pour l'instant · Pas un verdict sur qui que ce soit",
+			meta: "Complément en langage clair · Pas un verdict sur qui que ce soit",
 			standfirst: "Cet épisode a trois angles. Le <a href=\"__BASE__/law\">droit</a> demande ce qui est légal. Les <a href=\"__BASE__/methods\">statistiques</a> demandent ce qui est inhabituel. Le troisième angle demande ce qui est coutumier, et la coutume est le terrain disputé. « Le gouvernement a rompu une norme vieille de soixante ans » n'est pas une mesure neutre. C'est le cœur de l'accusation de l'opposition. Cette page ne se contente donc pas de réciter les normes. Elle les contre-interroge : d'où elles viennent, à quoi elles servent, quels sont réellement les arguments pour les écarter, et ce qui reste une fois la rhétorique des deux camps balayée.",
 			the_norm: {
 				heading: "La norme, énoncée simplement",
@@ -1816,7 +1817,7 @@ export default {
 			back: "← Retour à l'audit",
 			site_label: "Audit des limites électorales de l'Alberta",
 			h1: "Ce que le droit demande d'une carte électorale",
-			meta: "Complément en langage clair · En anglais seulement pour l'instant · Pas un avis juridique",
+			meta: "Complément en langage clair · Pas un avis juridique",
 			standfirst: "Cet audit mesure des cartes. Les tribunaux les jugent. Les deux tâches sont liées, mais elles ne sont pas identiques, et cette page parcourt la différence : ce que le droit canadien demande réellement d'une limite électorale, quelles questions relèvent d'un tribunal plutôt que d'un statisticien, et où s'insèrent les preuves de l'audit. L'audit lui-même ne prend position sur aucune conclusion juridique. Il rapporte ce que montrent les données, et il s'arrête là.",
 			why_not_gerrymander: {
 				heading: "Pourquoi cet audit ne conclut jamais au « découpage partisan »",
@@ -1854,6 +1855,102 @@ export default {
 				p1: "Chaque version de cet audit obéit à la même discipline. Il peut rapporter ce que montrent les tests. Il peut dire à quel point une carte est inhabituelle par rapport à un point de repère neutre. Mais il ne déclare aucune carte coupable de découpage partisan, ne déduit pas l'intention de la géométrie et ne se prononce pas sur la conformité constitutionnelle ou législative. Ce sont des questions pour les tribunaux, les commissions et les lecteurs, avec les preuves de l'audit sur la table.",
 				cross_ref: "Pages complémentaires : <a href=\"__BASE__/methods\">Comment les cartes ont été testées</a> — chaque test et chaque statistique en langage clair — et <a href=\"__BASE__/norms\">Ce que demandent les normes</a> — le troisième angle, sur la coutume et son contre-interrogatoire.",
 				disclaimer: "Cette page est un complément en langage clair à l'audit, rédigé pour aider à s'orienter. Ce n'est pas un avis juridique, et rien ici ne doit être considéré comme une opinion juridique."
+			}
+		},
+		privacy_policy: {
+			head_title: "Politique de confidentialité · Audit des limites électorales de l'Alberta",
+			head_description: "Politique de confidentialité et de conservation des données de l'Audit des limites électorales de l'Alberta.",
+			back: "← Retour à l'audit",
+			site_label: "Audit des limites électorales de l'Alberta",
+			h1: "Politique de confidentialité et de conservation des données",
+			meta: "En vigueur : 2026-06-24 · Tenue à jour par Will Conner",
+			overview: {
+				heading: "Aperçu",
+				p1: "Cet outil est un audit d'intérêt public du processus de la commission de délimitation des circonscriptions électorales de l'Alberta de 2025–26. Ce n'est pas un produit commercial et il ne diffuse aucune publicité. Cette page explique ce qui est mesuré, ce qui n'est jamais recueilli, et pourquoi rien de tout cela ne peut être relié à vous.",
+				p2: "En version courte : le site utilise des statistiques d'audience agrégées, sans témoins (cookies). Il n'y a aucun témoin de pistage, aucune publicité, aucun profilage intersites, et aucun identifiant qui vous suit. Comme rien de personnel n'est conservé, il n'y a aucune bannière de consentement à cliquer — la protection de la vie privée est intégrée à la façon dont la mesure fonctionne, et non ajoutée après coup sous forme d'invite."
+			},
+			how_analytics_work: {
+				heading: "Comment fonctionnent les statistiques d'audience",
+				p1: "Quand une page se charge ou que vous interagissez avec la carte, le site envoie un petit événement anonyme à un service de comptage que nous exploitons. Chaque événement n'est que le nom de ce qui s'est produit — par exemple, « page consultée » ou « circonscription sélectionnée » — plus quelques détails approximatifs sur l'action. L'événement ne contient aucun nom, aucun courriel, aucun compte et aucun identifiant stocké sur votre appareil.",
+				p2: "Pour compter combien de personnes distinctes ont visité le site un jour donné sans identifier qui que ce soit, le service de comptage combine votre adresse réseau et votre type de navigateur et les fait passer par un hachage cryptographique à sens unique avec un secret qui change chaque jour. Le résultat est un code court qui nous permet de distinguer deux visites <em>au cours</em> d'une même journée, et rien de plus. L'adresse d'origine n'est jamais conservée — seul le hachage l'est. Comme le secret change chaque jour, le même visiteur produit un code différent le lendemain ; il n'y a donc aucun moyen de suivre quelqu'un d'un jour à l'autre ni de remonter d'un code à une personne.",
+				p3: "Ce qui nous intéresse, c'est l'image que dessinent les visiteurs en tant que groupe — quels constats sont lus, quelles cartes sont ouvertes, quelles circonscriptions attirent l'attention. Vous, en particulier, ne nous intéressez pas, et la mesure est conçue de façon que « vous, en particulier » ne soit pas quelque chose que les données puissent exprimer."
+			},
+			measured: {
+				heading: "Ce qui est mesuré",
+				p1: "Les statistiques d'audience enregistrent des événements agrégés et anonymes, comme :",
+				li1: "Les pages consultées",
+				li2: "Jusqu'où les gens font défiler une page, par tranches approximatives (25 %, 50 %, 75 %, 100 %)",
+				li3: "La durée approximative pendant laquelle la page était réellement à l'écran, par tranches de temps approximatives",
+				li4: "Les sections de constats qui apparaissent à l'écran pendant la lecture",
+				li5: "Les cartes ouvertes dans l'explorateur, et les circonscriptions sélectionnées",
+				li6: "Les couches de carte activées ou désactivées, et le niveau approximatif de zoom",
+				li7: "Les points d'intérêt ou les liens vers des rapports qui sont ouverts",
+				li8: "Une image approximative de votre configuration — tranche de taille d'écran (comme téléphone, tablette ou ordinateur de bureau), format d'appareil et famille de navigateur (comme Chrome, Safari ou Firefox). Nous ne conservons jamais les dimensions exactes de votre écran ni la chaîne d'identification complète de votre navigateur.",
+				li9: "Un instantané unique de la performance de l'explorateur de carte lors de son premier affichage — par exemple, le temps de chargement par tranches approximatives et un chiffre de mémoire arrondi. Cela nous aide à savoir si l'explorateur est assez rapide sur de vrais appareils. Les chiffres sont volontairement regroupés en tranches, et non exacts ; ils décrivent donc une catégorie d'appareils plutôt qu'un appareil.",
+				p2: "Chacun de ces éléments n'est conservé que sous forme agrégée. Il n'y a aucun profil par personne, aucune relecture de session et aucun enregistrement du parcours d'une personne sur le site. Nous voyons des totaux et des distributions, pas des personnes."
+			},
+			never_collected: {
+				heading: "Ce qui n'est jamais recueilli",
+				p1: "Aucun nom. Aucun courriel. Aucun compte. Aucun identifiant publicitaire. Aucune adresse IP conservée — votre adresse réseau est hachée avec un secret qui change chaque jour, puis immédiatement supprimée ; seul le code quotidien de courte durée est gardé. Aucune empreinte brute du navigateur. Aucun identifiant d'un jour à l'autre ou intersites. Aucune localisation précise. Aucun témoin ni identifiant de stockage du navigateur qui vous marque comme visiteur récurrent aux fins des statistiques d'audience."
+			},
+			github_pages_collects: {
+				heading: "Ce que GitHub Pages recueille",
+				p1: "Ce site est hébergé sur GitHub Pages. Les serveurs de GitHub consignent automatiquement des détails de base sur les requêtes chaque fois qu'une page se charge — votre adresse IP, votre type de navigateur, la page de provenance et l'horodatage. Nous ne recevons pas ces journaux et ne les contrôlons pas ; ils sont régis par la <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">déclaration de confidentialité de GitHub</a>. Nous n'avons aucune relation avec GitHub au-delà de l'hébergement. Les statistiques d'audience décrites ci-dessus fonctionnent séparément et ne reçoivent jamais votre adresse IP."
+			},
+			share_codes: {
+				heading: "Codes de partage",
+				p1: "L'explorateur de carte comporte une fonction Partager. Elle transforme votre vue actuelle de la carte — quelle carte est active, quelles superpositions et couches sont activées, l'emplacement approximatif de votre fenêtre d'affichage — en un court code de trois mots que vous pouvez copier et envoyer à quelqu'un. Il existe exactement 19 200 codes valides, parce qu'un code représente une configuration de carte, pas une personne. Deux personnes qui arrivent indépendamment à la même vue obtiennent le même code ; c'est normal et cela n'établit aucun lien entre elles.",
+				p2: "Les codes de partage s'affichent à l'écran et ne vont dans votre presse-papiers que lorsque vous cliquez sur Copier. Ils ne sont jamais intégrés à une URL ; ils n'apparaissent donc ni dans l'historique du navigateur, ni dans les journaux du serveur, ni dans les en-têtes de provenance. Pour ouvrir la vue partagée par quelqu'un, le destinataire tape le code directement dans le site.",
+				p3: "Quand vous générez un code de partage, la configuration de carte qu'il encode est enregistrée dans notre base de données pour que le lien continue de fonctionner. Cet enregistrement est un état de carte — pas une personne, pas un parcours, et il n'est pas relié aux statistiques d'audience. Il ne contient aucun identifiant vous concernant."
+			},
+			cookies_browser_storage: {
+				heading: "Témoins et stockage du navigateur",
+				p1: "Les statistiques d'audience n'utilisent aucun témoin ni aucun identifiant de stockage du navigateur. Rien dans la mesure ne vous marque comme visiteur récurrent.",
+				p2: "Le site dépose un petit témoin <strong>fonctionnel</strong> pour mémoriser vos propres préférences d'une visite à l'autre. Il n'est pas utilisé pour les statistiques d'audience ni pour le pistage, et il ne quitte jamais votre navigateur sous une forme lisible. Il conserve :",
+				li1: "<strong>Thème de couleur</strong> — sombre ou clair, si vous l'avez changé",
+				li2: "<strong>Introduction fermée</strong> — pour que l'introduction de la carte ne se répète pas",
+				li3: "<strong>Vue actuelle de la carte</strong> — pour que votre dernière vue soit rétablie à votre prochaine visite",
+				li4: "<strong>Langue du navigateur</strong> — pour que le site puisse afficher votre langue préférée",
+				p3: "Ce témoin ne contient que les préférences ci-dessus — aucun renseignement personnel ou identificatoire. Son contenu est brouillé avec une clé fournie dans la page, de sorte que la valeur stockée n'est pas lisible par un humain ; comme cette clé est publique, considérez cela comme une protection contre la falsification plutôt que comme une véritable confidentialité. Il n'est envoyé que par HTTPS, n'est jamais partagé avec d'autres sites, et vous pouvez le supprimer en tout temps en effaçant vos témoins. Le site est servi sous forme de fichiers statiques ; rien du côté du serveur ne le lit donc. Votre thème de couleur est aussi copié dans le stockage local de votre navigateur pour que le bon thème puisse s'appliquer instantanément au chargement, avant tout scintillement ; cette valeur est elle aussi purement fonctionnelle et n'est jamais envoyée nulle part."
+			},
+			data_retention: {
+				heading: "Conservation des données",
+				p1: "Les enregistrements des statistiques d'audience sont agrégés et anonymes par construction, sans aucun identifiant à conserver. Ils sont stockés sur une infrastructure hébergée au Canada (ca-central-1) et conservés comme données de recherche. Si nous constations un jour qu'un enregistrement contenait des renseignements identificatoires — ce que la conception vise à empêcher —, nous le supprimerions dans les 30 jours."
+			},
+			your_choices: {
+				heading: "Vos choix",
+				p1: "Comme rien de personnel n'est recueilli, il n'y a rien à refuser et aucune invite de consentement à gérer. Si vous préférez tout de même n'envoyer aucun événement de statistiques d'audience, un bloqueur de contenu ou un navigateur qui bloque la requête vers le service de comptage les arrêtera, et le site fonctionnera exactement de la même façon. Vous pouvez aussi effacer en tout temps le témoin fonctionnel de préférences au moyen de votre navigateur."
+			},
+			contact: {
+				heading: "Nous joindre",
+				p1: "Will Conner — recherche indépendante, non affiliée à une institution ni appuyée par une institution.",
+				p2: "Questions, corrections et demandes de suppression : veuillez utiliser le <a href=\"__BASE__/feedback\">formulaire de commentaires</a>. Les demandes reçoivent une réponse dans un délai de 10 jours ouvrables."
+			},
+			policy_updates: {
+				heading: "Mises à jour de la politique",
+				p1: "Quand cette politique change, la date d'entrée en vigueur en haut de la page est mise à jour et la modification est versée dans le <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">dépôt git public</a>. L'historique des versions tient lieu de journal des modifications. Tout changement qui élargit ce qui est recueilli est signalé dans le message de version."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Gouvernement de l'Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, et Jonathan Rodden. 2013.</strong> « Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. » <em>Quarterly Journal of Political Science</em> 8(3) : 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montréal et Kingston : McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin et Justin Solomon. 2021.</strong> « Recombination: A Family of Markov Chains for Redistricting. » <em>Harvard Data Science Review</em> 3(1). (L'algorithme ReCom utilisé pour générer l'ensemble de 1 010 000 cartes.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, et Gary King. 1994.</strong> « A Unified Method of Evaluating Electoral Systems and Redistricting Plans. » <em>American Journal of Political Science</em> 38(2) : 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King et Elizabeth Rosenblatt. 2020.</strong> « Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies. » <em>American Political Science Review</em> 114(1) : 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> « The Fractured Right to Vote. » <em>McGill Law Journal</em> 61(2) : 231–274. (Cadre constitutionnel canadien des limites électorales.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., et Eric M. McGhee. 2015.</strong> « Partisan Gerrymandering and the Efficiency Gap. » <em>University of Chicago Law Review</em> 82(2) : 831–900. (Source de la mesure de l'écart d'efficacité utilisée tout au long du rapport.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Renvoi : Circonscriptions électorales provinciales (Saskatchewan)</em>, [1991] 2 RCS 158. (L'arrêt de référence de la Cour suprême du Canada sur la norme constitutionnelle applicable à la délimitation des circonscriptions électorales.)",
+					raiche: "<em>Raîche c. Canada (Procureur général)</em>, 2004 CF 679. (Cour fédérale ; décision canadienne de référence sur la preuve relative à la communauté d'intérêts dans les litiges de délimitation électorale.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Cour suprême des États-Unis ; établit que les recours pour découpage partisan ne sont pas justiciables devant les tribunaux fédéraux — contexte expliquant en quoi la norme canadienne de représentation effective de l'article 3 diffère.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}
