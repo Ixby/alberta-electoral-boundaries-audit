@@ -764,7 +764,7 @@ export default {
 			table_r6_b: "<strong>0 von 5 jefleijt</strong>",
 			table_r6_c: "<strong>4 von 5 jefleijt</strong> (Vaunkjanksproow neutral — beide Koate innen Kanadijcher Norm; verbleiwende 4 Proowe aule fleijent)",
 			table_r6_d: "<strong>UCP</strong>",
-			rationales_p: "En aparte Aunfindunk, blooss fa dee Minorität: <strong>fief von ses veaeffentlichte Bejrindunge von dee Minoritäts-Kommissjoonsmitjlieda hoole en onaufjenkliche Nokontrol nich ut</strong>. Dee Proow jeit blooss jäajen dee Minorität, wiel dee Mehrheit kjeene List von Bejrindunge fa ömstreedne Nijteidchnunge veaeffentlicht haft. Dee Pruewunk kjann see nich opp beide Koate jlikj aunwende, doaromm wead see hia aus eent Flemmteekje berecht, nich aus extra Riee en dee Tal von strukturelle Onrejelmäsichkjeite. (Dee Pruewunk haud eemol en säwende Nijteidchnunk opjelist. Daut stald sikj rut, daut dee opp en Behauptunk äwa en Bundesgrenz stunt, dee sikj em Minoritätsbericht nich nowiese lat, doaromm wort see rutjenome, aunstaut aus schwake Behauptunk stone to bliewe.)",
+			rationales_p: "En aparte Aunfindunk, bloos fa dee Minorität: <strong>fief von ses veäffentlijchte Bejrindunge von dee Minoritäts-Kommissjoonsmitjlieda faule bie en onaufhenjije Kontroll dorch</strong>. Dee Proow jeit bloos jäajen dee Minorität, wiel dee Mehrheit kjeene List von Bejrindunge fa umstreedne Nijteidchnunge veäffentlicht haft. Dee Pruewunk kjann dee nich opp beide Koate jlikj aunwende, doaromm woat see hia aus een eenjet Flemmteekje berecht, nich aus extra Reaj en dee Tal von strukturelle Onrejelmäsichkjeite.",
 			chair_appendix_p: "Dee Pruewunk haft uk en aparte, pauschale Behauptunk em Mehrheitsbericht jeproowt, dän dee Vorsetza unjaschräwe haft: daut dee Minorität ähre Endrunge aun fief Stalle (Airdrie, Cochrane, Chestermere, Red Deer un St. Albert) <strong>kjeene öffentliche Unjastetzunk</strong> en dee 1.345 öffentliche Enjoawe haude (Schlussbericht, S. 59 un 62). En Stekjwuatsieekj äwa daut gaunze Enjoawearchiv (93,4% met Maschien jeläse, 6,6% blooss Bilda un utjeschlote; Methode un Bewiese pro Konfiguratsjoon bie <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>) brocht en feinret Bilt aus dee Mehrheit ähre pauschale Behauptunk oda en pauschalet Ofwiese doavon. Dee Mehrheit haud rajcht bie dree von dee fief: dee Airdrie 4-fache Spaltunk, dee Calgary–Nolan-Hill–Cochrane-Hybrid un dee St. Albert Minoritäts-Aulternative ha kjeene dokumenteade Unjastetzunk. See haud onrajcht bie Chestermere, wua mehrere Enjoawe sikj jäajen en Toopschluss met Calgary utsproake, waut wesentlich met dee Minorität ähre Obsecht äwaeenstemmt. Un see haud deelwies onrajcht bie Red Deer: dee Red-Deer-Hybride kjreaje en Hybrid-Vüaschlag fa daut Jebiet rom Red Deer von en aktiven Red-Deer-Stautrot, en dee Richtunk äwaeenstemmend, oba nich en dee jenaue Konfiguratsjoon. Twee Konfiguratsjoone, dee dee Mehrheit ut aundre Grind aunjreep, kjreaje uk Unjastetzunk: Rocky Mountain House–Banff Park kjreajch en kloaren, utfierlijchen Vüaschlag ut weinjstens eene Enjoaw ut dee Clearwater-Jäajent, un doatoo mehrere, dee dee Richtunk deele, un Inwona von Beiseker ha schriftlich fa Olds–Three-Hills–Didsbury jesproake. Doaromm es dee Mehrheit ähr pauschalet \"kjeene öffentliche Unjastetzunk\" nowiesboa to breet, oba daut es nich ut dee Loft jejreepe, wiel dree von dee fief stemme. <strong>Dise Aunfindunk jeit jäajen dee Mehrheit, nich jäajen dee Minorität.</strong>",
 			summary_p: "<strong>Bie Spur 2 äwaschrit dee Mehrheit nul strukturelle Schwalle. Dee Minorität äwaschrit vea von dee fief, met grootem Ofstaunt.</strong> Dee Tal es en rooe Strejchtal. See es kjeene kalibreade familieewiede Woarschienlichkjeit. Ähr Jewejcht kjemt von dee Eenstemmichkjeit en dee Richtunk — jieda Proow, dee aunschleit, wiest en dieselwe Richtunk — nich von en jemeensome Null-Vadeelungsräakjnunk. Dee statistische Spur (§3) brinjt dee jemeensome Woarschienlichkjeit, derjch en aundret Instrument."
 		},
@@ -992,7 +992,7 @@ export default {
 			act3_h: "Akt III: Waut Mensche deede",
 			act3_intro: "Akt I un II ha Papea jemäte. Akt III läst Vehoole: waut dee Mensche en un rom dän Prozäss jeschräwe, behaupt un jewält ha. Em Jerecht woare Froage no Afsecht meist bie't Vehoole beäntwuat. Kjikjt, waut doamet hia passeat.",
 			c11_title: "Hilse 11 — Fief von ses Grind äwalaewe dee Kontroll nich",
-			c11_found: "Dee Minoritäts-Kommissjoonsmitjlieda ha Grind fa äare umstreedne Nijteidchnunge veäffentlicht. Fief von dee ses faule bie en onaufhenjije Kontroll dorch. (En säwende Nijteidchnunk, dee wie fräa opjelist hade, stund opp en Behauptunk äwa Bundesgrenze, dee sikj em Minoritätsbericht nich finje lat; wie ha dee rutjenome, aunstaut dee aus schwacke Behauptunk stone to lote.) Dee Punkt es nich, daut dee Minorität äa Denkje utjedocht es. En dee meeste Fäl es dee aulgemeene Behauptunk woa, un en Grenz, dee dee ährt, hade jeteidchent woare kunnt. Waut dee Doten nich erreekje, es dee bestemde Linie, dee dee Minorität wirkjlich jeteidchent haft. See vedeedicht Calgary-Nolan Hill–Cochrane met dee Idee, daut Cochrane-Enwona „flissich“ no Calgary „triee“. Statistics Canada siene Doten äwa dän Wäaj no dee Oabeit von 2021 wiese, daut omtrent en Dreddel von Cochrane siene Oabeida irjentwua no Calgary pendle, waarend omtrent dee Hälft bennen Cochrane oabeit: en echta Baund von Staut to Staut, oba eena, dee nuscht äwa dee Nolan Hill-Noowaschaft sajcht, no dee dee Gang wirkjlich rekjt. Airdrie sien Pendle no Calgary (omtrent 76 Prozent von siene Ruttpendla) un sien schnallet Wauße senn beides echt, un hade en nie Sitz em Airdrie-Jebiet stette kunnt. Kjeent von beide valangt, dee Staut en vea to spalte. Chestermere schekjt 86 Prozent von siene Ruttpendla no Calgary, un trotsdäm deelt daut kjeene Schooldivisjoon un kjeen Transitsistem met dän bestemde Calgary-Wahlkraus, en dän dee Minorität en Deel doavon schnit. Un dee Minorität äa Argument met „jemeensome Schoole“, om Red Deer met Sylvan Lake toop to stale, hoolt nich. Sylvan Lake es en Chinook's Edge School Division; dee Staut Red Deer es en Red Deer Public.",
+			c11_found: "Dee Minoritäts-Kommissjoonsmitjlieda ha Grind fa äare umstreedne Nijteidchnunge veäffentlicht. Fief von dee ses faule bie en onaufhenjije Kontroll dorch. Dee Punkt es nich, daut dee Minorität äa Denkje utjedocht es. En dee meeste Fäl es dee aulgemeene Behauptunk woa, un en Grenz, dee dee ährt, hade jeteidchent woare kunnt. Waut dee Doten nich erreekje, es dee bestemde Linie, dee dee Minorität wirkjlich jeteidchent haft. See vedeedicht Calgary-Nolan Hill–Cochrane met dee Idee, daut Cochrane-Enwona „flissich“ no Calgary „triee“. Statistics Canada siene Doten äwa dän Wäaj no dee Oabeit von 2021 wiese, daut omtrent en Dreddel von Cochrane siene Oabeida irjentwua no Calgary pendle, waarend omtrent dee Hälft bennen Cochrane oabeit: en echta Baund von Staut to Staut, oba eena, dee nuscht äwa dee Nolan Hill-Noowaschaft sajcht, no dee dee Gang wirkjlich rekjt. Airdrie sien Pendle no Calgary (omtrent 76 Prozent von siene Ruttpendla) un sien schnallet Wauße senn beides echt, un hade en nie Sitz em Airdrie-Jebiet stette kunnt. Kjeent von beide valangt, dee Staut en vea to spalte. Chestermere schekjt 86 Prozent von siene Ruttpendla no Calgary, un trotsdäm deelt daut kjeene Schooldivisjoon un kjeen Transitsistem met dän bestemde Calgary-Wahlkraus, en dän dee Minorität en Deel doavon schnit. Un dee Minorität äa Argument met „jemeensome Schoole“, om Red Deer met Sylvan Lake toop to stale, hoolt nich. Sylvan Lake es en Chinook's Edge School Division; dee Staut Red Deer es en Red Deer Public.",
 			c11_note: "Bloos jäajen dee Minorität jeproowt, wiel dee Minorität dee Koat es, wua dee umstreedne Nijteidchnunge öffentlich senn. Dee Mehrheit haft kjeene List von Grind fa umstreedne Nijteidchnunge veäffentlicht, doaromm kjann dee Kontroll nich opp beide Sieden jlikj aunjewendt woare; see woat aus een eenjet Flemmteekje berecht.",
 			c11_show: "Grind, dee dee Kontroll nich äwalaewe, sitte ut aus Utreed: Grind, dee no dee Linie jefunje wudde, nich dofäa. En jiedem Faul wiesd dee Bewies opp en Grenz, dee dee Minorität hade teidchne kunnt. Dee Linie, dee see teidchend, es en aundre.",
 			c11_experts: "En jenanten Grunt nääwa daut to stale, waut dee Bewies stett, es Väawandanalüs, en Proow, aub dee Grunt bloos en Deckmaunt es. Daut es jenau, woo US-Jerechte Afsecht preewe en dee Gerrymandering-Fäl, dee see aunheere. Grind, dee met öffentlijche Doten dorchfaule, senn daut jewehnlije Teekje.",
@@ -1485,7 +1485,7 @@ export default {
 			back: "← Trigj to dee Pruewunk",
 			site_label: "Alberta Electoral Boundary Audit",
 			h1: "Dee vieetieen Erkloarunge",
-			meta: "Aunhäng A–N · jiedet een Bejreff · fa nu bloos opp Enjlisch",
+			meta: "Aunhäng A–N · jiedet een Bejreff",
 			standfirst: "Jiede Hilse en dee Pruewunk vabint no eenen Aunhank hia, un jieda Aunhank haft jenau eenen Bejreff. Hee fangt bie dee ährlije Vewirrunk aun. Hee buut dee Idee met eenem konkreete Biespell op. Hee schekjt jüch trigj to dee Hilse äare Tal, soo daut jie dee aleen läse kjenne. Un hee enjt met daut, waut dee Bejreff <em>nich</em> saje kjann. Läst dee en irjent eena Reaj.",
 			appendix_a: {
 				heading: "Aunhank A — Waut „Opsprenjunk“ wirkjlich met en Stemm moakt",
@@ -1599,7 +1599,7 @@ export default {
 				limit: "<em>Dee Grenz:</em> „nich dorchsatsboa“ es en Aussoag äwa Jerechte, nich äwa Foljes. Brukj woat bie Wahle dorchjesat, von Mensche, dee weete, waut jedonn wort. Berichte soo aus dissa senn doa, soo daut see daut weete.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Trigj to Aunfindunk 14</a>"
 			},
-			footer_note: "Dee Inhoolt spajchelt dee Aunhäng von dän <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">gaunze öffentlijche Bericht</a>. Fa nu bloos opp Enjlisch, bat dee Schriewa daut äwapreeft haft, ear daut äwasat woat."
+			footer_note: "Dee Inhoolt spajchelt dee Aunhäng von dän <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">gaunze öffentlijche Bericht</a>."
 		},
 		methods: {
 			head_title: "Woo dee Koate jeproowt wudde · Alberta Electoral Boundary Audit",
@@ -1607,7 +1607,7 @@ export default {
 			back: "← Trigj to dee Pruewunk",
 			site_label: "Alberta Electoral Boundary Audit",
 			h1: "Woo dee Koate jeproowt wudde",
-			meta: "Jiedre Proow un jiedre Statistik, en eenfache Sproak · fa nu bloos opp Enjlisch · Jiedre Tal lat sikj ut dän öffentlijche Repository nomoake",
+			meta: "Jiedre Proow un jiedre Statistik, en eenfache Sproak · Jiedre Tal lat sikj ut dän öffentlijche Repository nomoake",
 			standfirst: "Dee gaunze Pruewunk steit opp eene eenfache Idee. Jie welle weete, aub en Koat onjewehnlich es? Teidchent en Milljoon Koate, dee nich parteiisch senne kjenne. En Computer teidchent dee, un hee sitt nie eene eenje Stemm. Dan kjikjt, wua dee wirkjlije Koate mank dee lande. Dise Sied jeit dee Idee dorch un jiedre Proow, dee doaropp jebut es. Kjeene Formle. Wan jie en Wadavähasaach läse kjenne, kjenne jie dit läse.",
 			toc: {
 				aria: "Sied-Inhoolt",
@@ -1693,7 +1693,7 @@ export default {
 			back: "← Trigj to dee Pruewunk",
 			site_label: "Alberta Electoral Boundary Audit",
 			h1: "Waut dee Norme von en Wahlkoat valange",
-			meta: "Bejleida en eenfache Sproak · fa nu bloos opp Enjlisch · Kjeen Urteel äwa irjentwäm",
+			meta: "Bejleida en eenfache Sproak · Kjeen Urteel äwa irjentwäm",
 			standfirst: "Disa Faul haft dree Brele. Daut <a href=\"__BASE__/law\">Jesats</a> froagt, waut jesatslich es. Dee <a href=\"__BASE__/methods\">Statistik</a> froagt, waut onjewehnlich es. Dee dreddje Brell froagt, waut Brukj es, un Brukj es dee umstreedne Bodem. „Dee Rajeerunk haft en sästich Joa oole Norm jebroake“ es kjeene neutrale Mätunk. Daut es daut Haat von dee Oppositsjoon äare Aunkloag. Doaromm sajcht dise Sied dee Norme nich bloos op. See vehieet dee: wua see harkjeeme, wofäa see doa senn, waut dee Saak fa daut Biesiedlajje wirkjlich es, un waut äwabliwt, wan dee Rheetorik von beide Sieden wajchjeroomt es.",
 			the_norm: {
 				heading: "Dee Norm, eenfach jesajcht",
@@ -1711,7 +1711,7 @@ export default {
 			},
 			steel_man: {
 				heading: "Dee Saak fa daut Biesiedlajje von dee Norm — iernst jenome",
-				p1: "En Pruewunk, dee bloos eene Sied äare Empeerunk wadahoolt, preeft nuscht. Doaromm nämt dee Rajeerunk äare Sied met voll Krauft. Buut äare stoakjste Saak, dän Stoolmaun, ear jie dee preewt:",
+				p1: "En Pruewunk, dee bloos eene Sied äare Empeerunk wadahoolt, preeft nuscht. Doaromm nämt dee Rajeerunk äare Sied met voll Krauft. Buut äare stoakjste Saak, dee bäste Fassunk von äa Argument, ear jie dee preewt:",
 				li1: "<strong>Dee Kommissjon es bie äare eene Oppgoaw dorchjefolle.</strong> Daut Kommissjoonsmodell vesprakjt eene Äntwuat oone Enfluss von buta. Dise Kommissjon lewad twee onvereenboare Koate un en Vorsetza, dee Kollege öffentlich von schlajchtem Gloowe beschuldicht. Wan dee onaufhenjije Wäaj fastfoat, mott irjentwäa entscheede. Daut Jesats sajcht, wäa.",
 				li2: "<strong>Daut Jesats jeft dän Laanddach met Afsecht dee Fäda.</strong> Unja Albertas Jesats haft en Kommissjoonsbericht kjeene jesatslije Krauft. Grenze endre sikj bloos, wan dee Varsaumlunk en Electoral Divisions Act aunnämt. Rajeerungsmotsjoon 37 brukt en Däa, dee daut Jesats met Afsecht jebut haft. Nuscht wort enjeschmoggelt.",
 				li3: "<strong>Jewälde Mitjlieda senn dee Wähla vauntwuatlich; Kommissjoonsmitjlieda kjeenem.</strong> Daut ooltste Argument fa Kontroll dorch dän Laanddach es Vauntwuatunk. En MLA, dee en eajnnetzje Koat teidchent, kjann ofjewält woare. En Kommissjoonsmitjliet nich.",
@@ -1719,7 +1719,7 @@ export default {
 				li5: "<strong>Dee Rajeerunk haft dän Vorsetza siene eajne Empfälunk aunjeführt.</strong> Äare jenande Berajchtijunk fa dän Opdrach met 91 Sitze wea Empfälunk 5, jeschräwe vom Kommissjoonsvorsetza selfst. Un see sad daut dän Hus jenau soo: „Wie näme dee Empfälunge ut dän Bericht aun.“"
 			},
 			where_it_bends: {
-				heading: "Wua dee Stoolmaun sikj bucht",
+				heading: "Wua dee stoakjste Saak noajeft",
 				p1: "Jieda von dise Punkte es echt. Daut belajchte Protokoll drekjt uk jäajen jiedren trigj:",
 				li1: "Daut Fastfoare erkloat, wurom dee Koate <em>aflööst</em> wudde. Daut erkloat nich, wurom <em>daut Publikum rutjenome</em> wort. En Aunheerungsplejcht, en veäffentlijchta Entworf, oda en bindendet Panel hade daut Fastfoare uk beäntwuat. Daut utjesochte Fäatieech jeft jiedet Transparenzmearkmol op, daut dee vejlikjende Literatua aus schitzend aunsitt. Daut Fastfoare haft kjeent von dee Opjäwe jedwunge.",
 				li2: "„Daut Jesats lat daut too“ es dee Jesatsbrell, un doa woat daut beäntwuat: jieda Schrett wea jesatslich. Dee Norme-Froag es aundasch. Eenje Jebeedscha moake en Kommissjoonskoat jeltend, <em>utsenomme</em> dee Laanddach äwastemt dee. Albertas omjedreide Standard meent, daut dee rejierende Partei emma bestemt, aub irjent eene Kommissjoonskoat Jesats woat. Jesatslich un jebrukjlich senn vescheedne Froage.",
@@ -1815,7 +1815,7 @@ export default {
 			back: "← Trigj to dee Pruewunk",
 			site_label: "Alberta Electoral Boundary Audit",
 			h1: "Waut daut Jesats von en Wahlkoat valangt",
-			meta: "Bejleida en eenfache Sproak · fa nu bloos opp Enjlisch · Kjeen Rajchtsroot",
+			meta: "Bejleida en eenfache Sproak · Kjeen Rajchtsroot",
 			standfirst: "Dise Pruewunk mät Koate. Jerechte beurteele dee. Dee twee Oabeide hänje toop, oba see senn nich datselwe, un dise Sied jeit dän Unjascheet dorch: waut kanadischet Jesats wirkjlich von en Wahlgrenz valangt, wäakje Froage to en Jerecht jehiere un nich to en Statistikja, un wua dee Pruewunk äa Bewies henpaust. Dee Pruewunk selfst nämt kjeene Stalunk to irjent eenem jesatslije Schluss. See berecht, waut dee Doten wiese, un doa heat see op.",
 			why_not_gerrymander: {
 				heading: "Wurom dise Pruewunk nie „Gerrymander“ urteelt",
@@ -1864,7 +1864,7 @@ export default {
 			meta: "Jeltich aub: 24. Juni 2026 · Jeflääjt von Will Conner",
 			overview: {
 				heading: "Äwablekj",
-				p1: "Dit Werkjtieech es en Pruewunk em öffentlije Intress von Albertas Prozäss von dee Wahlgrenzkommissjon von 2023. Daut es kjeen kommerziellet Produkt un wiest kjeene Räklaum. Dise Sied erkloat, waut jemäte woat, waut nie jesaumelt woat, un wurom nuscht doavon met jüch vabunge woare kjann.",
+				p1: "Dit Werkjtieech es en Pruewunk em öffentlije Intress von Albertas Prozäss von dee Wahlgrenzkommissjon von 2025–26. Daut es kjeen kommerziellet Produkt un wiest kjeene Räklaum. Dise Sied erkloat, waut jemäte woat, waut nie jesaumelt woat, un wurom nuscht doavon met jüch vabunge woare kjann.",
 				p2: "Dee kotte Versjoon: dee Sied brukt Analytik oone Cookies un bloos toopjetalt. Doa es kjeen Tracking-Cookie, kjeene Räklaum, kjeen Profiliere äwa Sieden rom, un kjeen Kjanteekje, daut jüch nojeit. Wiel nuscht Persönlijchet jespiekat woat, es doa kjeen Toostemmungsbanner to wajchklikje — dee Dotenschutz es en dee Aut, woo jemäte woat, enjebut, nich aus Froag hinjadoa aunjeschrowe."
 			},
 			how_analytics_work: {

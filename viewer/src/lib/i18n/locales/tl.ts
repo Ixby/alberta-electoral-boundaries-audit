@@ -1836,7 +1836,57 @@ export default {
 			},
 			ebca: {
 				heading: "Ang batas: ang Electoral Boundaries Commission Act ng Alberta",
-				p1: "Pinamamahalaan ang mga komisyon ng Alberta ng <em>Electoral Boundaries Commission Act</em>, RSA 2000, c. E-3 (ang EBCA). Tatlo sa mga tuntunin nito ang pinakamahalaga sa pagbasa sa audit na ito."
+				p1: "Pinamamahalaan ang mga komisyon ng Alberta ng <em>Electoral Boundaries Commission Act</em>, RSA 2000, c. E-3 (ang EBCA). Tatlo sa mga tuntunin nito ang pinakamahalaga sa pagbasa sa audit na ito.",
+				p2: "<strong>Ang saklaw ng populasyon.</strong> Bilang pangkalahatang tuntunin, ang bawat iminungkahing electoral division ay dapat manatili sa loob ng ±25% ng karaniwang populasyon ng probinsya. Sumusunod ang dalawang panukala ng 2026. Maliban sa tatlong dibisyong pinoprotektahan ng bawat mapa sa ilalim ng eksepsyon ng s.15(2) na inilalarawan sa susunod, ang bawat distrito ay nasa loob ng saklaw. Ang pinakamalaking paglihis sa mataas na panig (+24.06%, sa mapa ng minorya) ay umaabot sa loob ng isang punto ng limitasyon nang hindi ito nilalampasan. Sa loob ng maluwag na saklaw na iyon, malawak ang diskresyon ng komisyon, at ang mga natuklasan ng audit sa populasyon (ang 48% na mas malawak na pagkalat ng minorya, ang pagsisiksikan sa NE/gitnang Calgary) ay lahat naglalarawan ng mga pagpiling ginawa <em>sa loob</em> ng legal na saklaw. Magkaibang tanong ang legal at ang kakaiba.",
+				p3: "<strong>Ang eksepsyon ng s.15(2).</strong> Para sa hindi hihigit sa apat na dibisyon, maaaring bumaba ang populasyon nang hanggang 50% sa ilalim ng karaniwan — kung ang opinyon ng komisyon ay umiiral ang hindi bababa sa tatlo sa limang pamantayang ito:",
+				criterion1: "lawak na higit sa 20,000 km² (o kabuuang nasukat na lawak na higit sa 15,000 km²);",
+				criterion2: "higit sa 150 km mula sa Legislature Building hanggang sa pinakamalapit na hangganan ng dibisyon, sa pinakadirektang highway;",
+				criterion3: "walang bayan sa dibisyon na may higit sa 8,000 tao;",
+				criterion4: "may Indian reserve o Métis settlement sa dibisyon;",
+				criterion5: "tumatakbo ang bahagi ng hangganan sa kahabaan ng hangganan ng probinsya ng Alberta.",
+				p4: "Nagpapahintulot ang probisyon: ang pagtugon sa mga pamantayan ay ginagawang kwalipikado ang isang dibisyon, ngunit hindi kailanman nag-oobliga sa komisyon na gamitin ang palugit. Ginagamit ng dalawang mapa ng 2026 ang s.15(2) para sa tig-tatlong dibisyon. Muling sinuri ng audit ang lahat ng anim na paggamit sa ilalim ng itinamang mga threshold ng batas at natuklasang kwalipikado ang bawat isa. Ang kontrobersyang idinodokumento ng audit ay hindi ang pagiging kwalipikado. Isa itong pagpili sa pagguhit. Nakakukuha ang dibisyong Rocky Mountain House–Banff Park ng minorya ng isang kwalipikadong pamantayan, ang sa hangganan ng probinsya, sa pamamagitan lamang ng pagpapahaba sa walang-taong lupa ng pambansang parke. Tungkol sa pagpiling iyon, nagsasalita para sa sarili ang sariling huling ulat ng komisyon (Marso 23, 2026, p. 10). Isinulat ng mga komisyonado ng mayorya:",
+				quote: "\"Iminumungkahi nilang panatilihin ang isang electoral division na 'Rocky Mountain House-Banff Park' sa pamamagitan ng artipisyal na pagpapahaba sa hangganan nito hanggang sa kanlurang hangganan ng probinsya sa British Columbia (kinukuha ang bahagi ng Banff National Park, kung saan walang nakatira), na isang pagsisikap na may masamang hangarin upang matiyak na mapoprotektahan ito sa ilalim ng s. 15(2) ng Act.\"",
+				p5: "Ang paglalarawang iyon — kasama ang pariralang \"masamang hangarin\" (\"bad faith\") — ay sa tagapangulo ng komisyon, ginawa sa isang pampubliko at statutory na dokumento. Hindi ito sa audit. Natuklasan ng sariling pagsusuri ng audit na kwalipikado ang dibisyon sa ilalim ng s.15(2) kahit wala ang ekstensyon. Ang pagsipi sa tagapangulo ay nagtatala kung ano ang sinasabi ng pangunahing pinagmulan. Hindi nito itinatala kung ano ang nilayon ng sinumang komisyonado.",
+				p6: "<strong>Ano ang ulat ng komisyon — at ano ang hindi.</strong> Sa ilalim ng EBCA, walang legal na bisa nang mag-isa ang ulat ng komisyon. Nagbabago lamang ang mga hangganan kapag nagpasa ang Legislative Assembly ng isang hiwalay na Electoral Divisions Act. Sa ilang hurisdiksyon, nagkakabisa ang mapa ng komisyon maliban kung aktibo itong pawalang-bisa ng lehislatura. Baligtad ang default ng Alberta: kontrolado ng naghaharing partido kung magiging batas ang anumang mapa ng komisyon. Ang mga tuntunin ng Act tungkol sa mga pagdinig, deadline at ±25% na saklaw ay nakatuon sa komisyon. Walang anuman dito na namamahala sa kung ano ang gagawin ng Assembly sa halip, at wala itong itinatakdang minimum na panahon ng abiso o pampublikong komento. Ang Government Motion 37, na ipinasa noong Abril 21, 2026, ay nagsantabi sa dalawang mapa ng komisyon. Ibinigay nito ang trabaho sa isang komite ng anim na MLA, apat mula sa naghaharing partido, na dapat mag-ulat bago ang Nobyembre 2, 2026. Nagawa na ito ng Alberta minsan. Noong 1992, isang komite ng mga MLA ang gumuhit ng mapa matapos maipit ang isang komisyon, at noong 1994 ay pinanigan ng Court of Appeal ang mapang iyon habang sinisisi ang komite dahil hindi nito maipaliwanag ang ilan sa mga hangganan nito. Idinodokumento ng audit ang pagpiling iyon sa proseso bilang natuklasan tungkol sa pamamaraan, hiwalay at karagdagan sa anumang ipinapakita ng heometriya ng mga mapa.",
+				cross_ref: "Ang buong legal na pagsusuri — kasama ang pagsusuri sa mga kaso, ang literatura tungkol sa paggalang sa komisyon, at ang paghahambing ng pamamaraan sa ibang mga probinsya — ay nasa akademikong monograp, §2 at §5.9, sa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">repository ng audit</a>."
+			},
+			audits_standing_rule: {
+				heading: "Ang palagiang tuntunin ng audit",
+				p1: "Iisang disiplina ang dala ng bawat bersyon ng audit na ito. Maaari nitong iulat ang ipinapakita ng mga pagsusulit. Maaari nitong sabihin kung gaano kakaiba ang isang mapa laban sa isang neutral na batayan. Ngunit hindi nito idinedeklarang gerrymander ang anumang mapa, hindi ito naghihinuha ng intensyon mula sa heometriya, at hindi ito nagpapasya tungkol sa pagsunod sa konstitusyon o batas. Mga tanong iyon para sa mga korte, komisyon, at mambabasa, nang nasa mesa ang ebidensya ng audit.",
+				cross_ref: "Mga kasamang pahina: <a href=\"__BASE__/methods\">Paano sinubok ang mga mapa</a> — ang bawat pagsusulit at estadistika sa simpleng wika — at <a href=\"__BASE__/norms\">Ano ang hinihingi ng mga pamantayan</a> — ang ikatlong lente, tungkol sa kaugalian at sa pagkuwestiyon dito.",
+				disclaimer: "Ang pahinang ito ay isang kasama sa simpleng wika ng audit, isinulat para sa oryentasyon. Hindi ito legal na payo, at walang anuman dito ang dapat asahan bilang legal na opinyon."
+			}
+		},
+		privacy_policy: {
+			head_title: "Patakaran sa Privacy · Pag-audit ng Hangganan ng Halalan sa Alberta",
+			head_description: "Patakaran sa privacy at pagpapanatili ng datos para sa Pag-audit ng Hangganan ng Halalan sa Alberta.",
+			back: "← Bumalik sa audit",
+			site_label: "Pag-audit ng Hangganan ng Halalan sa Alberta",
+			h1: "Patakaran sa Privacy at Pagpapanatili ng Datos",
+			meta: "Epektibo: 2026-06-24 · Pinananatili ni Will Conner",
+			overview: {
+				heading: "Pangkalahatang-tanaw",
+				p1: "Ang kasangkapang ito ay isang audit para sa interes ng publiko sa proseso ng electoral boundary commission ng Alberta noong 2023. Hindi ito komersyal na produkto at walang ipinapakitang patalastas. Ipinaliliwanag ng pahinang ito kung ano ang sinusukat, kung ano ang hindi kailanman kinokolekta, at kung bakit wala sa mga ito ang maiuugnay pabalik sa inyo.",
+				p2: "Ang maikling bersyon: gumagamit ang site ng analytics na walang cookie at pinagsama-sama (aggregate). Walang tracking cookie, walang patalastas, walang cross-site profiling, at walang identifier na sumusunod sa inyo. Dahil walang personal na impormasyong iniimbak, walang consent banner na kailangang i-click — ang proteksyon sa privacy ay nakapaloob sa paraan ng pagsukat, hindi idinikit bilang isang prompt."
+			},
+			how_analytics_work: {
+				heading: "Paano gumagana ang analytics",
+				p1: "Kapag nag-load ang isang pahina o nakipag-ugnayan kayo sa mapa, nagpapadala ang site ng isang maliit at anonymous na event sa isang serbisyo sa pagbilang na pinatatakbo namin. Ang bawat event ay ang pangalan lamang ng nangyari — halimbawa, \"page viewed\" o \"district selected\" — kasama ang ilang pangkalahatang detalye tungkol sa aksyon. Walang dalang pangalan, email, account, o identifier na nakaimbak sa inyong device ang event.",
+				p2: "Upang mabilang kung ilang magkakaibang tao ang bumisita sa isang partikular na araw nang hindi kinikilala ang sinuman, pinagsasama ng serbisyo sa pagbilang ang inyong network address at uri ng browser at pinadadaan ang mga ito sa isang one-way na cryptographic hash kasama ang isang lihim na nagbabago araw-araw. Ang resulta ay isang maikling code na nagpapahintulot sa aming makilala ang pagkakaiba ng dalawang pagbisita <em>sa loob</em> ng iisang araw, at wala nang iba. Hindi kailanman iniimbak ang orihinal na address — ang hash lamang. Dahil umiikot araw-araw ang lihim, ibang code ang malilikha ng parehong bisita bukas, kaya walang paraan para sundan ang sinuman sa iba't ibang araw o para tuntunin pabalik mula sa code tungo sa isang tao.",
+				p3: "Interesado kami sa larawang ipinipinta ng mga bisita bilang isang grupo — aling mga natuklasan ang binabasa, aling mga mapa ang binubuksan, aling mga distrito ang nakakakuha ng pansin. Hindi kami interesado sa inyo nang partikular, at binuo ang pagsukat upang ang \"kayo nang partikular\" ay hindi isang bagay na kayang ipahayag ng datos."
+			},
+			measured: {
+				heading: "Ano ang sinusukat",
+				p1: "Itinatala ng analytics ang mga pinagsama-sama at anonymous na event gaya ng:",
+				li1: "Mga pagtingin sa pahina",
+				li2: "Gaano kalayo pababa ng pahina nag-i-scroll ang mga tao, sa pangkalahatang mga saklaw (25%, 50%, 75%, 100%)",
+				li3: "Humigit-kumulang gaano katagal aktibong nasa screen ang pahina, sa pangkalahatang mga saklaw ng oras",
+				li4: "Aling mga seksyon ng natuklasan ang lumilitaw habang nagbabasa ang mga tao",
+				li5: "Aling mga mapa ang binubuksan sa explorer, at aling mga distrito ang pinipili",
+				li6: "Aling mga layer ng mapa ang binubuksan o isinasara, at humigit-kumulang gaano kalapit nag-zo-zoom ang mga tao",
+				li7: "Aling mga points of interest o link sa ulat ang binubuksan",
+				li8: "Isang pangkalahatang larawan ng inyong setup — saklaw ng laki ng screen (gaya ng phone, tablet, o desktop), form factor, at pamilya ng browser (gaya ng Chrome, Safari, o Firefox). Hindi namin kailanman iniimbak ang eksaktong sukat ng inyong screen o ang buong string ng pagkakakilanlan ng browser.",
+				li9: "Isang minsanang snapshot ng pagganap ng map explorer nang una itong gumuhit — halimbawa, ang oras ng pag-load sa pangkalahatang mga saklaw at isang binilog na numero ng memorya. Tinutulungan kami nitong malaman kung sapat ang bilis ng explorer sa mga tunay na device. Sadyang naka-saklaw ang mga numero, hindi eksakto, kaya naglalarawan sila ng isang klase ng device sa halip na isang device."
 			}
 		}
 	}

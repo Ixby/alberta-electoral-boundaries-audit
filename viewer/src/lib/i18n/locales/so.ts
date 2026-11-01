@@ -1610,8 +1610,84 @@ export default {
 			meta: "Imtixaan kasta iyo tirakoob kasta, luqad fudud · hadda Ingiriisi oo keliya · Tiro kasta waxa dib looga soo saari karaa kaydka dadweynaha",
 			standfirst: "Hubinta oo dhan waxay ku dhisan tahay hal fikrad oo fudud. Ma doonaysaa inaad ogaato in khariidad caadi ka duwan tahay? Sawir malyuun khariidadood oo aan eex lahaan karin. Kombuyuutar ayaa sawira, weligiisna hal cod ma arko. Ka dib eeg halka khariidadaha dhabta ahi kaga dhacaan dhexdooda. Boggani wuxuu ku socodsiinayaa fikraddaas iyo imtixaan kasta oo lagu dhisay. Qaacido ma jirto. Haddii aad akhriyi karto saadaasha cimilada, tan waad akhriyi kartaa.",
 			toc: {
-				aria: "Waxa bogga ku jira"
+				aria: "Waxa bogga ku jira",
+				what_if: "Mashiinka haddii-maxaa",
+				percentile: "Sida boqolley loo akhriyo",
+				structural: "Shanta imtixaan ee qaab-dhismeedka",
+				fairness: "Afarta cabbir ee caddaaladda",
+				odds: "Waxa fursaduhu ka dhigan yihiin",
+				died: "Imtixaannada dhintay",
+				break: "Isku dayga jebinta natiijadeenna",
+				prereg: "Ballanqaadyo horay loo sameeyay",
+				reproduce: "Adigu socodsii"
+			},
+			what_if: {
+				heading: "Mashiinka haddii-maxaa: 1,010,000 khariidadood oo dhexdhexaad ah",
+				p1: "Kombuyuutar ayaa sawiray <strong>1,010,000 khariidadood oo Alberta ah oo sharci ah</strong>. Mid kastaa wuxuu raacaa isla labada xeer ee adag ee guddida dhabta ahi raacday: degmo kastaa waxay haysaa ku dhawaad isla tirada dadka (25% gudaheeda celceliska), degmo kastaana waa hal xabbo oo isku xidhan.",
+				p2: "Sidee ayuu kombuyuutar khariidad u sawiraa? Hal tallaabo oo yar mar kasta. Qaado laba degmo oo xad wadaaga. Isku dar oo ka dhig hal gabal. Gabalka dib ugu kala qaybi laba degmo oo cusub oo sharci ah, si bakhtiyaanasiib ah. Ku celi, 1,010,000 jeer, adigoo khariidadda kaydinaya tallaabo kasta ka dib. Habka waxa la yidhaahdaa ReCom, waana qalabka caadiga ah ee goobtan.",
+				p3: "Xaqiiqada muhiimka ah: <strong>kombuyuutarku weligii cod ma arko.</strong> Ma oga halka codbixiyayaasha NDP ama UCP ku nool yihiin. Sidaa darteed haddii khariidad dhexdhexaad ahi weli hal dhinac u janjeedho, janjeerkaasi wuxuu ka yimaadaa juquraafiga Alberta oo keliya. Haddii khariidad dhab ahi aad uga sii janjeedho ku dhawaad dhammaan kuwa dhexdhexaadka ah, juquraafigu mar dambe ma noqon karo sharraxaadda.",
+				p4: "Afar qodob oo daacadnimo ah oo ku saabsan mashiinka:",
+				li1: "<strong>Laadhuuda waxa lagu tuuray meel dadweyne.</strong> Abuurka bakhtiyaanasiibka (tirada bilowga ah ee ka dambaysa doorasho kasta oo bakhtiyaanasiib ah) qoraagu ma dooran. Wuxuu ka yimaadaa calaamad bakhtiyaanasiib dadweyne (\"drand\", oo ay maamusho League of Entropy, koox ay ku jirto Cloudflare), sida bakhtiyaanasiib si toos ah loo baahiyay. Waa la xidhay ka hor intaanay faylasha khariidadda rasmiga ahi jirin. Qof kastaa dib ayuu u xisaabin karaa.",
+				li2: "<strong>Afar socod oo kala gooni ah way isku raacsan yihiin.</strong> Malyuunka khariidadood waxay ka yimaadeen afar socod oo madax-bannaan, mid kastaa si kale u bilaabmay. Afartaba waxay degeen isla sawirka. Hubinnada caadiga ah ee arrintan (oo goobta oo dhan lagu isticmaalo) way gudbaan iyagoo bannaan haysta.",
+				li3: "<strong>Ogeysiis ku saabsan tirooyinka kursiyada.</strong> Khariidadaha guddida ee 2026 mid kastaa wuxuu leeyahay 89 degmo. Jilitaanku wuxuu ku socdaa khariidadda 87-degmo ee 2019, tii ugu dambaysay ee sharci ahaan la dhaqan geliyay, maxaa yeelay algorithm-ku wuxuu u baahan yahay khariidad dhab ah oo uu ka bilaabo socodka. Guddiga Noofembar wuxuu soo saari doonaa 91. Boqolley kasta oo goobtan ku jirtaa waa <em>saamiga</em> kursiyada, sidaa darteed tirooyinku si nadiif ah ayay isu barbar dhigaan saddexda cabbirba.",
+				li4: "<strong>Mashiinku ma aha garsoore kaamil ah.</strong> Wuxuu raacaa labada xeer ee adag, laakiin ma aha xeer kasta oo jilicsan oo guddiyada dhabta ahi ixtiraamaan, sida bulshooyinka oo la isku hayo. Khariidadaha guddiyada dhabta ahi run ahaantii way ka habaysan yihiin inta badan khariidadaha dhexdhexaadka ah. Hubintu taas si cad ayay u sheegtaa meel kasta oo tirooyinka mashiinku ka muuqdaan."
+			},
+			percentile: {
+				heading: "Sida boqolley loo akhriyo",
+				p1: "Saf u geli dhammaan 1,010,000-ka khariidadood ee dhexdhexaadka ah laga bilaabo kan ugu yar ee UCP u janjeedha ilaa kan ugu badan. Hadda khariidad dhab ah safka dhex dhig. <strong>Boqolleydeedu</strong> waa meesheeda oo keliya: \"boqolleyda 78aad\" waxay ka dhigan tahay inay ka sii janjeedho 78 ka mid ah 100 kasta oo khariidadood oo dhexdhexaad ah. Taasi waa wax aan la xusi karin: wax yar oo ka sarreeya badhtamaha safka.",
+				p2: "\"Boqolleyda 99.99aad\" way ka duwan tahay. Waxay ka dhigan tahay in khariidaddu ka sii janjeedho ku dhawaad khariidad kasta oo dhexdhexaad ah oo safka ku jirta — hubintan, dhammaan marka laga reebo <strong>69 ka mid ah 1,010,000</strong>. Dhererku isla sidaas ayuu u shaqeeyaa. Nin ku jira boqolleyda 78aad waa wax yar dheer yahay. Nin ku jira boqolleyda 99.99aad wuxuu taagan yahay qiyaastii toddoba fuudh."
+			},
+			structural: {
+				heading: "Shanta imtixaan ee qaab-dhismeedka (codad looma baahna)",
+				p1: "Jilitaan kasta ka hor, hubintu waxay cabbirtay khadadka la sawiray laftooda. Shan imtixaan, dhammaantood la xidhay ka hor intaan natiijooyinka la ogaan. Mid kastaa wuxuu si toos ah isu barbar dhigaa labada khariidadood ee guddida.",
+				li1: "<strong>1. Kala-fidka dadka.</strong> Intee ayay degmooyinku ka leexdaan cabbirka ku habboon? Shaxaha guddida laftigeeda, leexashada caadiga ah ee khariidadda inta badan waa 3,180 qof. Tan khariidadda inta yar waa 4,707, qiyaastii kala badh ka ballaadhan. Leexasho ballaadhan waxay ka dhigan tahay in codadku si ka sinnaan yar u tiriyaan.",
+				li2: "<strong>2. Ciriiriga Calgary.</strong> Waqooyi-bari iyo badhtamaha Calgary, degmooyinka khariidadda inta yar waxay ka weyn yihiin celceliska gobolka 11.5%. Kuwa inta badan 2.8%. Degmooyin waaweyn waxay ka dhigan tahay in cod kasta oo ku jira uu miisaan yar yahay. Aaggani si xoog leh ayuu NDP ugu codeeyaa. Qaabka waxa la yidhaahdaa <em>urursi</em>.",
+				li3: "<strong>3. Kala-qaybinta Airdrie.</strong> Sharcigu wuxuu Airdrie ku qasbaa ugu yaraan laba degmo. Khariidadda inta badan waxay isticmaashaa laba. Khariidadda inta yar waxay magaalada u jartaa afar qaybood (saddex ka mid ah ayaa haya ugu yaraan 2% dadkeeda), mid kastaa ku xidhan dhul dibadeed oo kala duwan. In bulsho si khafiif ah loo kala jeexo waxa la yidhaahdaa <em>jeexitaan</em>.",
+				li4: "<strong>4. Calaamadaha guddoomiyaha.</strong> Guddoomiyaha guddida laftiisu wuxuu si dadweyne u calaamadeeyay xudduudo juquraafi ahaan yaab leh. Afar ka mid ah calaamadihiisa waxay ku dhacaan khariidadda inta yar, hubinta joomatariga ee hubintu laftigeeduna waxay xaqiijisay saddex. Eber ayaa ku dhaca khariidadda inta badan.",
+				li5: "<strong>5. Raacidda xadka magaalooyinka (imtixaanka dhintay).</strong> Xogtii hore waxay soo jeedisay in khariidadda inta yar ay iska indha tirtay khadadka dawladda hoose. Faylasha khariidadda rasmiga ahi way dileen natiijadaas: labada khariidadoodba waxay xadka magaalooyinka u raacaan heerar caadi ah oo Kanadiyan ah (80% iyo 72%). Hubintu imtixaanka dhintay way muujinaysaa halkii ay tirtiri lahayd.",
+				p2: "Dhibcaha: khariidadda inta yar waxay dhaaftaa afarta xad ee nool oo dhan. Khariidadda inta badan midna ma dhaafto."
+			},
+			fairness: {
+				heading: "Afarta cabbir ee caddaaladda (codad lagu daray)",
+				p1: "Hadda ku dar codadka 2023 oo weydii: sidee ayay khariidad kastaa codadka ugu beddeshaa kursiyo? Afar cabbir oo caadi ah, mid kastaa lagu hubiyay malyuunka khariidadood ee dhexdhexaadka ah.",
+				li1: "<strong>1. Kursiyada marka codku siman yahay.</strong> Imtixaanka ugu fudud in la fahmo. Iska dhig in gobolku si sax ah u codeeyo 50/50 oo tiri kursiyada dhinac kasta. Juquraafiga Alberta, khariidad dhexdhexaad oo caadi ahi waxay UCP siisaa qiyaastii 44.8% kursiyada marka codku siman yahay. Codadka NDP ee magaalada waxa loo isticmaalaa si xoogaa waxtar badan, sidaa darteed codka simani si dabiici ah ayuu wax yar u doorbidaa NDP. Khariidadda inta badan waxay UCP siisaa 46.1%: boqolleyda 78aad, caadi. Khariidadda inta yar waxay UCP siisaa <strong>51.7%</strong>, aqlabiyadda kursiyada iyadoo codadku siman yihiin. 69 keliya oo ka mid ah 1,010,000-ka khariidadood ee dhexdhexaadka ah ayaa UCP uga fiican. Si loo qiyaaso, habraac lagu amray inuu <em>si ula kac ah</em> u kordhiyo kursiyada UCP wuxuu gaadhay 52.9%. Khariidadda inta yar waxay uga dhow tahay saqafkaas la qorsheeyay badhtamaha dhexdhexaadka ah.",
+				li2: "<strong>2. Farqiga waxtarka.</strong> Cod kastaa ama waa loo baahan yahay si kursi loogu guulaysto ama waa \"khasaare\" — oo loo dhiibay guuldarrayste, ama lagu dul tuulay guulayste wixii ka badan inta guushu u baahnayd. Cabbirkani wuxuu isu barbar dhigaa sida dhakhsaha ah ee codadka xisbi kastaa u khasaaraan. Khariidadda inta badan waxay heshaa +0.1%: asal ahaan waxba. Inta yar waxay heshaa +4.0% oo UCP u roon, boqolleyda 94.5aad, wax yar <em>ka hooseeya</em> xadka digniinta ee hubintu horay u dejisay ee boqolleyda 95aad. Kani waa cabbirka keliya ee aan dhicin. Hubintu waxay u soo sheegaysaa mid aan gaadhin.",
+				li3: "<strong>3. Farqiga dhexe-dhexdhexaadka.</strong> Isu barbar dhig natiijada celceliska degmooyinka xisbi iyo natiijada degmadiisa dhexe. Marka labadu kala fogaadaan, codad ayaa meel uun lagu urursanayaa guulo aad u ballaadhan. Farqiga khariidadda inta yar wuxuu UCP uga doorbidaa in ka badan 99.9% khariidadaha dhexdhexaadka ah. Farqiga inta badan wuxuu u janjeedhaa dhinaca kale — xoogaa waxtar NDP ah — taasoo la jaanqaadaysa sida khariidadaha guddiyada ee habaysan ugu dhaqmaan juquraafiga Alberta.",
+				li4: "<strong>4. Declination.</strong> Akhrin joomatari oo ah farqiyada guusha: khariidaddu ma u dhaqantaa guulaha labada xisbi si isku mid ah, mise way qalloocataa xadka 50%? Khariidadda inta yar waxay xagga UCP ugu sii qalloocataa qiyaastii 98.8% khariidadaha dhexdhexaadka ah. Khariidadda inta badan waxay akhrisaa caadi. (Nooc hore oo cabbirkan ah ayaa calaamaddiisu rogantay khalad koodh awgii; saxitaanka waa la diiwaangeliyay, lama tirtirin.)",
+				p2: "Dhibcaha: saddex ka mid ah afar ayaa ku dhaca khariidadda inta yar, dhammaantood isla jihada. Kan afraad wuxuu ku dhacaa wax yar ka hooseeya xadka, isagoo isla jihada u tilmaamaya. Khariidadda inta badan waa caadi afartaba."
+			},
+			odds: {
+				heading: "Waxa \"1 ka mid ah 568,000\" ka dhigan tahay — iyo sababta hubintu u labanlaabtay xadkeeda",
+				p1: "Afarta cabbir ee caddaaladda isku dar oo ka dhig hal dhibco oo weydii: intee jeer ayay sawirista dhexdhexaadka ahi soo saartaa muuqaal u xad-dhaafsan sida khariidadda inta yar? Jawaabtu waa qiyaastii <strong>1 ka mid ah 1.1 milyan</strong>. Laakiin hubintu ma soo qaadato tiradaas. Waxay soo qaadataa <strong>1 ka mid ah 568,000</strong> — si sax ah kala badh xoog ahaan. Waa kan sababtu.",
+				p2: "Hubintu waxay calaamad ka raadisay laba meelood oo kala duwan: dhibcahan isku-darka ah, iyo imtixaan labaad oo ku saabsan doorashooyinka xudduudaha gaarka ah. Eegidda laba meelood waxay nasiibka siisaa laba fursadood. Ka fikir tigidhada bakhtiyaanasiibka: iibso laba, fursaddaada ah inaad haysato mid guulaysta way labanlaabantaa. Sidaa darteed ka hor intaanay soo qaadan fursadda, hubintu way labanlaabtaa iyadoo ka dhan ah nafteeda. Sidaas, \"waxaad lahayd laba isku day\" horeba waa la bixiyay.",
+				p4: "Hal digniin oo hubintu meel kasta ku celiso: fursadahani waxay cabbiraan sida <em>khariidaddu</em> caadi uga duwan tahay. Ma aha fursadda in qof uun ula kacay. Khariidad naadir ahi weli, mabda' ahaan, waxay noqon kartaa shaqo daacad ah. Fursaduhu waxay sheegaan oo keliya tan: qoris caadi ahi ma soo saarto khariidaddan."
+			},
+			died: {
+				heading: "Imtixaannada dhintay",
+				p1: "Laba natiijo ma badbaadin, labaduba daabacaadda way ku sii jiraan. Taasi waa ula kac: hubin ku tusta guulaheeda oo keliya waa xayeysiis.",
+				li1: "<strong>Imtixaanka xadka magaalooyinka</strong> wax uu ku kala saaro khariidadaha ma helin: labaduba waxay raacaan khadadka dawladda hoose gudaha caadiga Kanada (inta badan 80%, inta yar 72%).",
+				li2: "<strong>Imtixaanka doorashooyinka xudduudaha (SZAT)</strong> wuxuu u muuqday muhiim ilaa hubintu u saxday xaqiiqo fudud: meelaha dariska ahi isku si ayay u codeeyaan. In dariska loola dhaqmo sidii madax-bannaan waxay natiijada ka dhigtaa mid ka qurux badan sideeda. Saxitaanka ka dib, imtixaanku waxba ma muujin. Hawlgab ayaa laga dhigay."
+			},
+			break: {
+				heading: "Isku dayga jebinta natiijadeenna",
+				p1: "Ka hor intaanay aaminin cinwaanka, hubintu waxay ku weerartay saddex siyaabood.",
+				li1: "<strong>Beddel mashiinka.</strong> Wax walba dib ugu socodsii algorithm khariidad-sawir oo gabi ahaanba ka duwan (hab spanning-forest ah, oo si dadweyne loo ballanqaaday ka hor socodsiinta). Natiijo kastaa waxay dhaqaaqday wax ka yar hal dhibic boqolley. Natiijadu way badbaadday.",
+				li2: "<strong>Beddel software-ka.</strong> Hirgelin madax-bannaan oo ku qoran luqad barnaamij oo kale ayaa iyaduna heshay inaanay jirin khariidado gaadha qiimaha khariidadda inta yar.",
+				li3: "<strong>Tijaabi farsamada — oo ku dhac.</strong> Hubintu waxay qiyaastay in qaababka yaabka leh ee imtixaannada qaab-dhismeedku ay ahaayeen sababta tooska ah ee faa'iidada kursiyada. Qiyaastaasi way ku dhacday imtixaankeedii. Qaababka iyo janjeerka kursiyadu isla khariidadda ayay tilmaamaan, laakiin qaababku ma aha mashiinka. Hubintu sidaas ayay sheegaysaa."
+			},
+			prereg: {
+				heading: "Ballanqaadyo horay loo sameeyay",
+				p1: "Difaaca ugu xoogga badan ee ka dhanka ah inaad naftaada khiyaanayso waa inaad saadaashaada qorto ka hor intaadan eegin. Hubintu waxay imtixaannadeeda, xadadkeeda, iyo jihooyinka la saadaaliyay ku xidhay diiwaangelinno dadweyne oo waqti lagu calaamadeeyay oo ku yaal Open Science Framework. Abuurradeeda bakhtiyaanasiibka waxay ku xidhay calaamad dadweyne. Labaduba waxay dhaceen ka hor intaan faylasha khariidadda rasmiga ah la sii deyn. Markii saadaal la xidhay aanay gaadhin, waxay sii ahaatay mid aan gaadhin. Isla imtixaannada la xidhay ayaa, iyagoon la beddelin, lagu socodsiin doonaa khariidadda cusub ee guddiga marka ay timaado Noofembar 2026. Hubintu waxay kaloo magacawdaa natiijooyinkeeda kuwa ah <em>sahamin</em> (abuurrada waa la xidhay, laakiin isku-darka imtixaanka saxda ah waxa la doortay markii dambe) iyo kuwa si buuxda horay loo diiwaangeliyay. Fursadaha cinwaanku waa sahamin. Kaarka dhibcaha Noofembar waa imtixaanka si buuxda horay loo diiwaangeliyay."
+			},
+			reproduce: {
+				heading: "Adigu socodsii",
+				p1: "Tiro kasta oo goobtan ku jirta waxay ka timaadaa qoraal (script) ku jira kaydka dadweynaha oo lagu socodsiiyay xog la xaqiijiyay. Habka oo dhan wuxuu ku jiraa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; nooca gaaban:",
+				p2: "Nooc buug-qoraal (notebook) ah oo la martigeliyay ayaa ku socda browser-ka iyadoo la marayo <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Habka oo dhammaystiran — oo ay ku jiraan saxitaan kasta oo jidka lagu sameeyay — wuxuu ku jiraa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">buugga cilmiyeed</a>.",
+				cross_ref: "Bogag wehel ah: <a href=\"__BASE__/law\">Waxa sharcigu ka weydiiyo khariidad doorasho</a> · <a href=\"__BASE__/norms\">Waxa caadooyinku weydiiyaan</a> · <a href=\"__BASE__/explainers\">Afar iyo tobanka sharraxaad (Lifaaqyada A–N)</a>, mid qolof kasta oo warbixinta weyn ku jirta."
 			}
+		},
+		norms: {
+			head_title: "Waxa Caadooyinku Weydiiyaan · Hubinta Xudduudaha Doorashada Alberta"
 		}
 	}
 } as const;
