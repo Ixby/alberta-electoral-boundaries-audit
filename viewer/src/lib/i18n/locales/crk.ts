@@ -67,7 +67,7 @@ export default {
 			body:
 				'"Gerrymander" — ᐃᐧᑎᒋᑫᐃᐧᐣ ᓇᒪᐃᐧᔭ ᐋᐸᒋᐦᑖᑲᐧᐤ ᐃᐢᐱ ᑭᒋᔫᐠ ᒪᒪᐃᐧᐦᑲᒪᑎᐃᐧᐣ ᓇᓂᐢᑖᐠ, ᐁᑲᐧ ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᓇᒪᐃᐧᔭ ᑎᐯᔨᒋᑫᐃᐧᐣ ᐃᔑ ᐋᐸᒋᐦᑖᐤ. ᑫᑯᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑲᑭ-ᐃᑌᐤ ᐊᐦᐊᐱᐢ ᐁᑲᐧ ᑖᐺᐃᐧᐣ ᐱᑯ: ᓀᐅᐧᐠ ᓂᔭᓄᐠ ᐊᐢᑭ-ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ ᑲᑭ-ᐱᐢᑭᔥᑲᑫᐠ ᐃᑎᐱᐢᑲᐧᐢᒋᑲᐧᐤ <em>ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᐅᔑᐦᑖᐃᐧᐣ (minority proposal)</em> ᐁᑲᐧ ᓇᒪᐃᐧᔭ ᐃᑎᐱᐢᑲᐧᐢᒋᑲᐧᐤ <em>ᒥᐦᒋᑌᐃᐧᐣ ᐅᔑᐦᑖᐃᐧᐣ (majority proposal)</em>; ᓂᔮᓀᐡᐠ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᐣ ᓇᐦᐃᔓᐦᑭᐢᑲᒻ ᓂᔣᒃ. ᑮᐢᐱᐣ ᐊᓂᒪ ᐃᔑᓇᑲᐧᐃᐧᐣ ᑌᐱᐸᔮᑲᐧᐣ ᑫᑯᐠ ᐊᐊᐧᔭᐠ ᐯᐦᑕᒧᐠ "gerrymander" ᐃᔑ, ᐊᓂᒪ ᑎᐯᔨᒋᑫᐃᐧᐣ ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐅᒪᔅᑭᓂᐦᐃᑫᐤ ᑲ-ᐊᔭᒥᐦᑖᐠ.',
 			footnote:
-				'ᐅᐦᐅ "ᒥᐦᒋᑌᐃᐧᐣ" ᐁᑲᐧ "ᐊᑎᐦᑌᑫᐧᐃᐧᐣ" ᐃᔑᓂᑲᓯᐃᐧᓇ ᐅᒋ-ᐊᐢᑌᐤ 3-2 ᑮ-ᒪᔥᑭᐢᑫᔨᐦᑕᒧᐠ ᐃᔥᐱᑊ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ (Electoral Boundaries Commission, ᑭᒋᔫᐠ ᑎᐯᐧᐃᐧᑭᒪᐤ Miller ᑲ-ᓂᑲᓂᔥᑫᐠ), ᑲᑭ-ᐅᔑᐦᑖᐠ ᓂᔓ ᐃᔑ-ᒬᔥᒋᐦᐃᑎᑲᐧᐤ ᐅᔑᐦᑖᐃᐧᓇ ᑲᐃᐧᔭᐢᐤ ᐯᔭᐠ ᑫᐧᐢᑕᐱᐃᐧᐣ. ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ (legislature) ᐊᓂᑭ ᐅᔑᐦᑖᐃᐧᓇ ᑮ-ᐋᑎᐅᐦᑎᓂᑲᐦᐃᑲᑌᐃᐧᓇ ᐁᑲᐧ ᑮ-ᒥᔭᑲᐧᐤ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᑎᔣᒃ MLAs ᒪᒪᐃᐧᐢᑌᐃᐧᐣ Brandon Lunty ᑲ-ᓂᑲᓂᔥᑫᐠ (UCP MLA); ᐅᒪ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐅᑎᐯᔨᒪᐤ ᐯᔭᐢ ᐱᔅᑭᔥᑲᓂᐠ ᓀᐅᐧᐠ-ᐃᔭᔨᐃᐧᐠ ᐯᔥᑌᐧᐦᑕᒬᐢᑕᒪᑫᐤ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ (Independent Advisory Panel) — ᓂᔓ kihci-okimâw ᑲᑮ-ᐅᔑᐦᑖᔭᐢ (Hon. Monte Solberg ᐁᑲᐧ Darwin Durnie), ᓂᔓ ᐅᑎᔥᐢᑲᓂᑫᐤ ᐅᑭᒪᐤ ᑲᑮ-ᐅᔑᐦᑖᔭᐢ (Dr. Gerard Kennedy ᐁᑲᐧ Brent Robinson) — ᐊᑎᐢᑫᐃᐧᐣ ᑭᒋ-ᐅᔑᐦᑖᐃᐧᐣ ᐅᔥᑭ 91-tehtapowin ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐅᔑᐦᑖᐃᐧᐣ ᐃᔥᐱᑦ ᐯᐦᐱᔓᐦᑭᑲᑌᑫ November 2026.'
+				'The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. The legislature has since set both aside and referred redistricting to a six-MLA committee chaired by Brandon Lunty (a UCP MLA); the committee oversees a separate four-person Independent Advisory Panel — two members nominated by the Premier (Hon. Monte Solberg and Darwin Durnie), two by the Leader of the Opposition (Dr. Gerard Kennedy and Brent Robinson) — tasked with producing a new 91-seat boundary proposal before the November 2026 deadline.'
 		},
 		q2: {
 			heading: 'ᑫᑯᐠ ᐃᐧᑎᒋᑫᐃᐧᐣ "gerrymander" ᐃᔭᔨᐃᐧᐠ ᑲᓇᑕᐃᐧ-ᒪᒪᐃᐧᐦᑲᒪᑎᐃᐧᓂᐦᐠ?',
@@ -99,12 +99,12 @@ export default {
 		tldr_p2: 'This audit tested both commission maps the same way, against 1,010,000 computer-drawn neutral maps built from official Elections Alberta files. The majority proposal looks like the maps neutral drawing routinely produces — it passes every pre-registered test. The minority proposal crosses four of five structural tests, and at a tied 50/50 vote only about 69 of the 1,010,000 neutral maps award as many seats as it does. The odds that a neutral process produces its overall fairness profile work out to about 1 in 568,000 — and that figure is a deliberately cautious ceiling, not a precise estimate. One measure, the efficiency gap, landed just under the audit’s pre-set line; it is reported as a miss.',
 		tldr_p3: 'ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑎᐯᔨᒋᑫᐤ ᐃᔑᓇᑲᐧᐣ, ᓇᒪᐃᐧᔭ ᑌᐦᐃᑫᐃᐧᐣ. ᐃᔥᐱ Lunty ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐅᔑᐦᑖᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑭ-ᐱᑭᔅᑫᔨᐦᑖᐠ, ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐊᔮᓂᒋᐦᑖᐤ ᐯᔭᑯᔥᑲᓄᐠ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ.',
 		tldr_footer: 'ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᐃᐧᔭᓯᐁᐧᐃᐧᓇ ᐁᑲᐧ ᐊᑭᐦᐢᑖᑲᐧᐦᐃᑫᐃᐧᓇ ᐊᐢᑌᐤ %s.',
-		tldr_footer_link: '§9'
+		tldr_footer_link: 'Retractions and Corrections'
 	},
 	head: {
-		title: 'ᐊᓚᐱᕐᑌᐃᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ (Alberta Electoral Boundary Audit)',
+		title: 'Alberta\'s Electoral Map, Audited',
 		meta_description:
-			'ᐊᐢᑭ-ᐊᔭᒪᐦᐃᑭᐃᐧᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐊᓚᐱᕐᑌᐃᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᒪᒪᐃᐧᐢᑌᐃᐧᓇ 2026 — 1,010,000 ᑲᐧᔭᐢᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ, ᐅᐦᑎᓂᐦᑲᑌᐃᐧᓇ Elections Alberta ᑮᔓᐦᐃᑫᐃᐧᓇ, ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ.'
+			'Alberta\'s 2026 boundary commission filed two maps. One looks normal; the other favours the UCP further than nearly every one of 1,010,000 neutral maps. The committee map that replaces both is scored here against tests locked in advance.'
 	},
 	nav: {
 		skip_to_content: 'ᐃᑎᐢᑲᐧ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ',
@@ -143,7 +143,7 @@ export default {
 		feedback: 'ᐃᑌᔨᐦᑕᒧᐃᐧᐣ ᐃᔑᑎᔕᐦᐊᒻ'
 	},
 	hero: {
-		h1: 'ᐊᓚᐱᕐᑌᐃᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ (Alberta Electoral Boundary Audit)',
+		h1: 'Laws, Norms, & Statistics: An Audit of the 2026 Alberta Electoral Boundaries Commission Reports',
 		subtitle:
 			'Alberta\'s commission produced two competing riding maps in 2026. I ran the same tests on both and asked one question: do they treat voters the same way?',
 		badge: 'Elections Alberta ᑲᔅᑭᔥᑌᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ — ᑮ-ᐱᑭᐢᑌᔨᐦᑖᑲᐧᐤ ᓂᐢᑭᓯᐃᐧᐱᓯᒻ 2026',
@@ -191,15 +191,15 @@ export default {
 	editorial_reflect: {
 		heading: 'ᐊᑎᐧᐱᒋᑲᐣ: ᑫᑯᐠ ᐅᒋ ᑭᔭ ᐁᑲᐧ ᑭ-ᐃᔭᔨᐃᐧᐣ',
 		intro_p1:
-			'ᐃᐧᔭᐢᐊᑦ, ᐊᐢᐱᐦᐃᔅ, ᐊᓂᒪ ᑫᐧᐢᑎᐤᐃᐧᐣ ᐊᐃᐧᑯ ᐱᔅᑭᔥᑲᓂ ᑲᐃᐧ ᑎᐯᔨᒪᑲᐃᐧᐣ ᐊᐧᐸᐦᑌᐤ ᐊᐦᐱᐦᑖᐤ ᑫᐧᐢᑕᐱᐃᐧᓇ. ᐅᑭᒪᐠ ᐁᑲᐧ ᐱᔅᑭᔥᑲᓄᐠ ᒥᐢᑲᐃᐧᐠ ᐅᒪ ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᐅᔮᐢᑫᐧᔪᑲᐧᐠ ᐅᔥᑭᑭᔥᑖᐤ ᒥᔅᑲᒪᑫᐃᐧᐣ, ᐁᑲᐧ ᐊᐢᑭ-ᐅᐦᒋ ᐊᓂᒪ ᐃᔑᓇᑲᐧᓂᐃᐧᐣ. ᒪᑲ ᐅᔮᐢᑫᐧᔪᑲᐧᐠ ᐅᐦᒋ ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᓇᒪᐃᐧᔭ ᐊᓂᑌ ᑭᐱᒪᑎᓯᐃᐧᐣ ᐅᐦᒋ ᐅᐦᐅ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ. ᑭᐱᒪᑎᓯᐃᐧᐣ ᐅᐦᒋ ᓂᔥᑐ ᑫᐧᐢᑎᐤᐃᐧᓇ ᑭ-ᐱᔅᑭᔥᑲᓂᐠ:',
+			'The log pauses here. Which party gains or loses seats is the legislature\'s problem — it is not where you experience these maps. You experience them through three concrete questions about your own district:',
 		intro_q1: 'ᑖᓂᑌ ᑭ-MLA ᐱᒪᑎᓯᐃᐧᐠ?',
 		intro_q2: 'ᐃᐧᒋᐦᐃᐁᐧᐤ ᐃᔮ ᑭ-ᐃᔭᔨᐃᐧᐠ?',
-		intro_q3: 'ᐊᔭᐧᔭᑭ ᐱᒋᔥᑲᓂᐠ ᐊᔭᔮᔥᑖᔥᑫᐤ ᐊᔭᐧᔭᑭ ᐊᔮᑎᐧᔭᔥᑖᔥᑫᐤ?',
+		intro_q3: 'Will the demands of the district\'s urban head dominate its rural tails?',
 		intro_p2:
 			'ᒥᓯᐁᐧ ᑯᑕᐠ ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ — ᐱᔅᑭᔥᑲᓂ ᒥᔥᑎᔥᑖᐃᐧᐣ, ᐊᐢᐱᐢᑲᐃᐧᑌᐃᐧᐣ, ᐊᐢᑭ-ᐊᔭᒪᐦᐃᑭᐃᐧᐣ ᑲᐃᐧ — ᑭᐁᐧᐃᐧᐣ ᑭ-ᓂᔥᑐ ᑫᐧᐢᑎᐤᐃᐧᓇ. ᐅᐦᐅ ᓂᔮᓀᓄᑫ ᐃᐢᑭᐧᔮᑭᑲᓇ ᐊᐢᑖᐃᐧᓇ ᐅᔥᑭᔥᑖᐤ ᑖᓂ ᒥᓯᐁᐧ ᐅᔑᐦᑖᐃᐧᐣ ᐅᑎᐦᐃᑌᐠ ᐊᓂᐦᐃ, ᓂᔮᓀᐡᐠ ᐃᔑᓇᑲᐧᐠ.',
 		you_h: 'ᑭᔭ.',
 		you_p:
-			'ᑭ-ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐅᑎᐯᔨᒪᐤ ᐊᐊᐧᓂᔭᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ. ᐊᓄᐦᒋ ᑭᐱᒪᑎᓯᐃᐧᐣ ᐯᔭᐠ ᐅᐦᒋ 87 ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ. ᐃᔥᐱᑊ ᓂᔓ ᐅᔑᐦᑖᐃᐧᓇ ᑭᑲᐱᒪᑎᓯᐃᐧᐣ ᐅᔥᑭ — ᐊᐢᐱᐦᐃᔅ ᐱᔅᑭᔥᑲᓂ MLA, ᐊᐢᐱᐦᐃᔅ ᐱᔅᑭᔥᑲᓂᐠ ᐊᔭᒪᑎᔅᑌᔪᑲᐧᐠ ᐃᔭᔨᐃᐧᐠ. ᑮᐢᐱᐣ ᓇᒪᐃᐧᔭ ᑭᑭᐢᑫᔨᐦᑌᐣ ᑲᐃᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑭ-ᐱᒪᑎᓯᐃᐧᐣ, ᐊᐃᐧᑯ ᑖᓂ ᑭ-MLA, ᓇᒪᐃᐧᔭ ᑭᐯᔭᑯᐢᑲᓂᐃᐧᐣ: ᒥᐦᒋᑦ ᐊᓚᐱᕐᑌᐃᐧᔭᐠ ᓇᒪᐃᐧᔭ ᑲᑫ-ᐃᐧᐦᑎᑲᐧᐤ ᐅ-MLA. ᒪᑲ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᓇᒪᐃᐧᔭ ᐱᑯ ᐃᑌᔨᐦᑖᑲᐧᓂᐦᐃ. ᑎᐯᔨᒪᐤ ᐊᐊᐧᓂᐦᐃ ᐅᑎᐯᐢᑌᐦᐃᑫᐃᐧᐣ ᑭᐯᔭᐢᑲᓂᐢᑫᐃᐧᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐅᐊᑎᐢᑫᐃᐧᑲᒥᐠ, ᐊᐊᐧᓂᐦᐃ ᐅᑎᔥᐢᑲᓂᐠ ᐊᔭᒥᐦᐃᑫᐃᐧᐣ ᑭ-ᐃᔑᓂᑲᓯᐃᐧᐣ ᑭ-ᐊᔭᔮᓂᐦᐠ, ᐊᐊᐧᓂᐦᐃ ᐃᑌᔨᐦᑕᒧᐃᐧᓇ ᑭ-MLA ᓀᐢᑖᒻ ᐯᐦᑕᒻ. ᐅᑦᔥᑲᓂᐠ-ᐊᑎᔥᐢᑲᐃᐧᐣ ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ ᐅᒪ ᒪᔅᑭᓯᓂᐦᐃᑲᓂᐠ ᐊᐧᐸᐦᑎᑲᐃᐧᐣ ᑲᐃᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑭ-ᐊᐢᑌᔪᑲᐧᐤ ᒥᓯᐁᐧ ᐅᔑᐦᑖᐃᐧᐣ. ᑮᐢᐱᐣ ᑭ-ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᔮᓂᒋᐦᑖᐤ, ᑭ-ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐊᔮᓂᒋᐦᑖᐤ — ᐁᑲᐧ ᑭ-ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐅᑎᐯᐢᑌᐦᐃᑫᐃᐧᐣ ᐅᐦᒋ ᑭ-ᐃᔭᔨᐃᐧᐣ ᐊᔮᓂᒋᐦᑖᐤ ᐊᓲᔭᐠ.',
+			'Your electoral district decides who represents you in the legislature. Right now you live in one of 87 districts. Under both proposed maps you may live in a different one — possibly with a different MLA, possibly anchored to different neighbouring communities. If you don\'t know what district you\'re in right now, or who your MLA is, you\'re not alone: most Albertans couldn\'t name their MLA. But the boundary lines are not abstract. They decide whose phone number is on your local representative\'s office wall, whose neighbourhood petition gets your name attached to it, whose concerns your MLA hears about first. The map explorer on this site — search for your community by name — shows which district you sit in under each proposal. If your district changes, your representative changes — and your representative\'s relationship to your community changes with it.',
 		community_h: 'ᑭ-ᐃᔭᔨᐃᐧᐣ.',
 		community_p:
 			'Communities are not abstract either. A high school\'s catchment area, a chamber of commerce, a faith community, a neighbourhood association — these are real groupings of people with shared local concerns. When a boundary line cuts through them, no single MLA is responsible for the whole. Casing 1 is the extreme case: Airdrie, one city in four pieces, no single representative accountable for it. The same dynamic plays out anywhere a town, neighbourhood, or recognised community of interest is split — the bigger the split, the weaker the representation. (On the broader measure of how faithfully each map follows municipal lines overall, both proposals sit inside the Canadian norm — Casing 5 records the finding that dissolved.)',
@@ -217,7 +217,7 @@ export default {
 			'ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᓇᒪᐃᐧᔭ ᐱᑯᔥᑖᐤ ᐅᐦᑎᓂᑲᑌᔪᑲᐧᐠ ᑫᐧᐢᑕᐱᐃᐧᓇ ᐊᔭᒥᐦᐃᐧᐦᐠ-ᐊᓚᐱᕐᑌᐃᐧᐠ ᐅᐦᒋ. ᑭ-ᑲᐧᑫᒋᒥᑲᐃᐧᐣ ᑮᐢᐱᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐃᔥᐱᔥᑌᔪᐠ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐃᔭᔨᐃᐧᐣ ᐊᓂᑭ ᑫᐧᐢᑕᐱᐃᐧᓇ ᑲᑭ-ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐠ, ᐃᐦᑎᑎᐢᑭᐢᐠ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐊᐢᑭ-ᐃᔥᐃᐧᐃᐧᐣ ᐋᐸᒋᐦᑖᑲᐧᐤ ᒪᒋᐊᐧᔅᐳᐢᑲᑫᐃᐧᐣ ᐅᑌᓈᐠ ᐊᐢᑎᐦᑫᐃᐧᓇᐠ ᐊᔭᔥᐱᔅᑫᐧᔪᑲᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᐊᔅᑌ-ᐊᐢᑭ ᐊᔮᔮᐠ. ᑮᐢᐱᐣ ᑭ-ᐱᒪᑎᓯᐃᐧᐣ ᐊᓂᐦᐃ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐊᔮᑎᐧᔭᔥᑖᔥᑫᐤ-ᐱᔅᑭᔥᑲᓂᑲᓇᐠ, ᐊᓂᒪ ᑫᐧᐢᑎᐤᐃᐧᐣ ᑲᐃᐧ ᐅᔑᐦᑖᐃᐧᐣ ᑎᐯᔨᒋᑫᐤ ᑮᐢᐱᐣ ᑭ-MLA ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐃᔭᔨᐃᐧᐣ ᑲ-ᐱᒪᑎᓯᔭᐠ, ᐊᐢᐱᐦᐃᔅ ᐅᑌᓈᐠ ᐱᔅᑭᔥᑲᓂᐦᑲᑌᐤ ᑫᐧᐢᑕᐱᐃᐧᐣ ᑖᓂᑌ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐱᑎᑲᑌᔪᐠ ᑭ-ᐊᐢᒋᐦᐠ.',
 		province_h: 'ᑭ-ᐊᐢᑭ-ᒪᓂᑐᐦᑭ.',
 		province_p:
-			'ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᐅᒪ ᑲᐃᐧ-ᐅᑎᐦᐃᐠ ᑲᐃᐧ-ᒪᒪᐃᐧᐦᑕᒪᐣ ᒥᓯᐁᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᓇᐢᑲᐧᒧᐃᐧᐣ ᓂᔥᑐ ᑫᐧᐢᑎᐤᐃᐧᓇ ᐃᔥᐱᒪᐢ. ᑮᐢᐱᐣ ᒥᐦᒋᑦ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᒪᒋᐊᐧᔅᐳᐢᑲᑫᐤ ᐃᔭᔨᐃᐧᓂᐦᐠ ᐊᓂᑭ MLAs ᐱᒪᑎᓯᔭᐠ ᐊᔅᒋᔥᑎᐢ, ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐊᓂᑭ ᐃᔭᔨᐃᐧᓇ. ᑮᐢᐱᐣ ᒥᐦᒋᑦ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐊᔮᑎᐧᔭᔥᑖᔥᑫᐤ ᐊᐧᔅᐳᐢᑲᑫᐤ ᐅᑌᓈᐠ ᐱᔅᑭᔥᑲᓂᐠ, ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐤ ᐱᔅᑭᔥᑲᓂᐠ — ᐁᑲᐧ ᐊᔭᒥᐦᐃᐧᐦᐠ ᐊᔮᑎᐧᔭᔥᑖᔥᑫᐤ ᐊᔭᔮᐠ ᑫᑯᐠ ᐃᔥᑲᐧᔭᐠ ᐊᑎᔣᒃ. ᐱᔅᑭᔥᑲᓂᐦᑲᑌᐤ ᑫᐧᐢᑎᐤᐃᐧᐣ — ᐯᔭᐠ ᐱᔅᑭᔥᑲᓂᐠ ᑲ-ᐃᔑ-ᒥᐦᒋᑌᐠ — ᐊᑎᐢᑎᐦᐃᑫᐤ ᐊᓂᒪ. ᐅᔮᐢᑫᐧᔪᑲᐧᐠ ᑫᐧᐢᑎᐤᐃᐧᐣ — ᑮᐢᐱᐣ ᐯᔭᐠ ᐱᔅᑭᔥᑲᓂ 60 ᐅᐦᒋ 89 ᑫᐧᐢᑕᐱᐃᐧᓇ ᐊᐢᐱᔅᑲᐃᐧᑌᐤ ᐁᑲᐧ ᐅᔥᑭᑭᔥᑖᐤ ᐱᒥᐊᑲᐢᒋᑫᐃᐧ-ᑭᐢᑫᔨᐦᑖᑫᐃᐧᓇ ᑖᐱᐢᑯᐣ ᐊᔭᒥᐦᐃᐧ-ᐱᐦᑌᔭᐃᐧᓇ ᑭᒋ-ᐃᔑᑌᐱᐢᑲᒪᐠ ᑲᑯ ᐃᐧᔭᓯᐁᐧᐃᐧ-ᐱᔅᑭᐢᑲᐃᐧᓇ ᒥᐦᒋᑦ ᐃᐧᔭᓯᐁᐧᐃᐧᓇ ᐯᔭᐠ ᑮᔑᑲᐤ ᐅᐦᒋ ᑭᒋ-ᐃᔑ-ᑲᐧᔭᐢᑭᐦᐃᑌᐠ — ᐊᑎᐢᑎᐦᐃᑫᐤ <em>ᐊᓂᒪ</em>. ᐊᔭᔥᐱᔅᑫᐧᐃᐧᐣ 50/50 ᐊᐢᑭ-ᒪᓂᑐᐦᑭ ᐃᔥᐃᐧᐃᐧᐣ, ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐅᑦ-ᑎᐯᔨᒋᑫᐃᐧᓇ ᐊᐢᑖᐃᐧᓇ ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᐅᔑᐦᑖᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑫᐢᑲᒻ ᑮᔥᑲᒋᔭᓯᓀᐦᐃᑫᐃᐧᓂᐦᐠ: ᓇᒬᔭ 100 ᐅᐦᒋ 1.01 ᒥᔭᔥᑲᒥᑲᓀ ᑲᐧᔭᐢᐠ ᐯᔭᑲᐧᐦᐊᑲᐃᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐅᔑᐦᑖᐤ ᐊᓂᒪ ᐃᔑ-ᑫᐧᐢᑕᐱᐃᐧᐣ-ᐱᐢᑭᔥᑲᓀᐢᑌᐃᐧᐣ. ᑮᐢᐱᐣ ᐊᓂᒪ ᐱᐢᑭᔥᑲᓀᐢᑌᐃᐧᐣ ᐊᐢᐱᔅᑲᐃᐧᑌᐤ ᐯᔭᐠ ᐱᔅᑭᔥᑲᓂ 60 ᑫᐧᐢᑕᐱᐃᐧᓇ ᐃᔥᐱᐦᑌᐢ ᐊᓚᐱᕐᑌᐃᐧᔭᐠ ᑖᐺᐃᐧ ᑲ-ᐅᔑᐦᑖᑲᐧᐠ ᑫᐧᐢᑕᐱᐃᐧᐣ-ᐊᑭᐦᑌᐃᐧᓇ ᐃᐢᐱᐦᑌ ᐊᓂᒪ ᑫᐧᐢᑎᐤᐃᐧᐣ ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᓇᒪᐃᐧ ᑭᒪᔥᑭ ᒬᔥᒋ ᑮ-ᑎᐯᔨᒋᑫᐤ; ᒪᒋ-ᑫᐧᐢᑎᐤᐃᐧᓇ ᐅᒪ ᒪᐢᑭᓯᓂᐦᐃᑲᐣ ᐃᔥᐱᒥᐦᐠ ᑖᐺᐃᐧ ᐊᒋᒨᔅᑌᐤ ᐊᓂᒪ ᐱᐦᑯᐦᐃᑎᐃᐧᐣ ᐅᐦᒋ. ᑮᐢᐱᐣ ᐊᓂᐦᐃ ᑫᐧᐢᑎᐤᐃᐧᓇ ᐊᔮᔥ ᑭᒋᔅᑌᔨᐦᑖᑲᐧᐤ ᑭᒋ-ᐊᑐᔥᑲᒪᐠ, ᒥᓇ, ᑭᔭ ᐅᒋ ᑫᐧᐢᑎᐤᐃᐧᐣ.'
+			'The legislature is what you get when you sum every district\'s answers to the three questions above. If most districts are anchored to communities whose MLAs actually live in them, the legislature represents those communities. If most districts have rural tails attached to urban heads, the legislature represents the heads — and the tails get whatever attention is left over. The partisan question — which party wins a majority — is downstream of that. The large-majority question — whether one party crosses 60 of 89 seats, a margin that makes a government effectively immune to floor-crossings and leaves an opposition too small to sustain scrutiny — is downstream of <em>that</em>. At a hypothetical 50/50 provincial split, the audit\'s measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. Whether that imbalance pushes a party past 60 seats at the vote shares Albertans actually deliver is a question this audit has not yet directly tested — an honest gap in the record. Whether the answer to any of these questions matters enough to act on is, again, a question for you.'
 	},
 	editorial_history: {
 		heading: 'ᐱᔅᑭᔥᑲᓂ: ᒨᔭ-ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᐣ ᐋᓂᑭᒋ-ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ',
@@ -367,12 +367,12 @@ export default {
 			legal_label: 'ᐃᐧᔭᓯᐤᐃᐧ-ᐃᐧᑎᒋᑫᐃᐧᐣ ᑲᐃᐧ-ᐊᔭᒥᐦᑌᑲᐧᐠ',
 			legal_body: '"Gerrymandering" ᓇᒪᐃᐧᔭ ᑲᓇᑕᐃᐧ-ᐃᐧᔭᓯᐤᐃᐧᐣ ᐅᒋ-ᐃᔑᓂᑲᑌᐤ. ᐃᐧᑎᒋᑫᐃᐧᐣ ᐅᒪ ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ ᐃᑎᐃᐧᔭᐧᐠ ᑲᐊᐧᐢ-ᐊᔭᒥᐦᑌᑲᐧᐠ — ᑲᑮᔭᐢ-ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐊᔭᔥᐱᔅᑫᐧᐃᐧᐣ ᐅᐦᒋ. ᑲᓇᑕᐃᐧ-ᐃᐧᔭᓯᐁᐧᐃᐧ-ᑲᐧᔭᐢᒋᑫᐃᐧᓇ ᑭᒋᑲᐃᐧᔭᐠ: <em>ᑮᐢᐱᔥᑭᔥᑲᒪᑲᐧᐃᐧᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ (effective representation)</em> s.3 <em>Charter of Rights and Freedoms</em> ᐅᒋ (ᐃᐧᔭᓯᐤᐃᐧᐣ ᑲᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᑮ-ᐅᔑᐦᑖᐠ 1991 <em>Saskatchewan Reference</em> ᐃᐧᔭᐠ), ᐁᑲᐧ ᑫᑯᐠ EBCA ᑲ-ᐃᔑᓇᑲᐧᐠ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᑮ-ᐱᒥᒋᐦᐃᑎᐠ. ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᒥᐢᑲᒪᑫᐃᐧᓇ ᐱᒥᔅᑭᔥᑲᓂᐦᐊᒨᔅᒋᑫᐤ ᐅᑕ ᐃᐧᔭᓯᐤᐃᐧᓇ — ᓇᒪᐃᐧᔭ ᑲᑮᔭᐢ ᑲᓇᑕᐃᐧ-ᒪᒋᔥᑖᐃᐧᐣ, ᓇᒪᐃᐧᔭ ᐅᒪ ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ ᑭ-ᐃᑌᐤ.',
 			intro_p1: 'ᑭᒋ-ᐯᔭᐠ ᑫᐧᐢᑎᐤᐃᐧᐣ ᑭᒋ-ᑲᐧᔭᐢᒋᑫᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑲᐃᐧ-ᑎᐯᔨᒪᑲᐃᐧᐣ: ᑮᐢᐱᐣ ᐊᐢᑭ-ᒪᓂᑐᐦᑭ ᐊᐢᑎᐦᑫᐃᐧᐣ ᐯᔭᐠ-ᑖᐱᐢᑯᐣ ᓂᔓ ᐱᔅᑭᔥᑲᓂᐠ ᐊᔭᔥᐱᔅᑫᐧᔪᑲᐧᐠ, ᑖᓂ ᑫᐧᐢᑕᐱᐃᐧᓇ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑭᑲ-ᐊᑎᔣᒃ? ᐅᒪ ᐊᔭᒥᐦᐃᑲᓄᐦᐠ ᑎᐯᐢᑌᐃᐧᓇ ᐃᐧᔭᔅᑎᑲᐣ ᐁᑲᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐯᔭᐠ ᑲ-ᑎᐯᔨᒪᑲᐃᐧᐣ ᑫᑯᐠ ᑭᐦᑎᐠ.',
-			intro_p2: 'ᑭᒋ-ᓇᐢᑲᐧᒪᑲᐃᐧᐣ, ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑮ-ᐅᔑᐦᑖᐤ 1,010,000 ᑲᐧᔭᐢᐠ-ᐃᔑᐊᔭᒪᐦᐃᑭᐃᐧᐣ (computer-simulated) ᐊᓚᐱᕐᑌᐃᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ. ᐊᔭᒪᐦᐃᑭᐃᐧᐣ ᑮ-ᐋᐸᒋᐦᑖᐤ Elections Alberta ᐅᑦ-ᑲᔅᑭᔥᑌᐃᐧ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐅᑦ-ᐊᐢᑭ ᐃᔥᐱᐦᑌ, ᒥᓯᐁᐧ ᐅᔑᐦᑖᐃᐧᐣ ᐱᒪᑎᓯᐃᐧ-ᑲᔅᑭᐦᑖᐃᐧᐣ (±25%) ᐁᑲᐧ ᐯᔭᑯᐢᑲᓂᐃᐧᐣ ᑲᐃᐧ-ᐊᑎᔥᑖᑲᐧᐠ ᑎᐱᒥᑕᒪᐠ — ᐊᓂᐦᐃ ᓂᔓ ᑮᐢᑲᓇᐦᑌᐃᐧᓇ ᐊᔮᓂᒋᐦᒋᑲᐣ ᑎᐢᑲᐧᐦᐊᒻ, ᓇᒪᐃᐧᔭ ᒥᓯᐁᐧ ᑮᐢᑲᓇᐦᑌᐃᐧ-ᐃᔑᓇᑲᐧᐃᐧᐣ (ᓇᒪᐃᐧᔭ, ᑖᐱᐢᑯᐣ, ᐃᔭᔨᐃᐧ-ᐃᑌᔨᐦᑕᒧᐃᐧᐣ ᑎᐢᑲᐧᐦᐊᒻ), ᐊᓂᒪ ᐅᒋ ᐯᔭᑲᐧᐦᐊᑲᐃᐧᐣ ᐱᒪᑎᓯᐃᐧ-ᑲᔅᑭᐦᑖᐃᐧᐣ-ᐁᑲᐧ-ᐯᔭᑯᐢᑲᓂᐃᐧᐣ-ᑲᐧᔭᐢᐠ ᐃᔑ-ᐊᔭᒥᐦᑖᑲᐧᐣ ᐊᐢᐱᔥ ᒥᓯᐁᐧ ᐃᐧᔭᓯᐤᐃᐧᐣ-ᓇᐦᐃᔓᐦᑭᐢᑲᒻ. ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᐁᑲᐧ ᒥᐦᒋᑌᐃᐧᐣ 2026 ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᑭᑮ-ᑎᔥᑕᐱᔣᑲᐧᐠ ᑲᐧᔭᐢᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᑭᒋ-ᐃᐧᐦᑎᑲᐧᐠ ᑖᓂ ᐊᔭᐢᒋᐁᐧᔮᑲᐧᐠ. ᐊᔭᒪᐦᐃᑭᐃᐧᐣ ᑮ-ᒪᒋᐊᐧᔅᒋᑫᐤ ᓀᐅᐧᐠ ᐯᔭᑯᔥᑲᓀᐢᑕᒪᑫᐃᐧ ᐊᐧᔅᑲᐧᔮᐃᐧᓇ ᑖᑐ 252,500 ᑲᑮᔭᐢᑫᐧᔪᑲᐧᐠ, ᒪᒋᐢᑌᐃᐧ-ᐯᔭᑯᔥᑲᓀᐢᑕᒪᑫᐃᐧ ᓇᐦᐃᔓᐦᑭᐢᑲᒻ Cloudflare drand ᐅᐦᒋ ᑮ-ᐋᐸᒋᐦᑖᐠ, ᐁᑲᐧ OSF ᐃᐧᑎᒋᑫᐃᐧᐣ ᑮ-ᑎᐸᔭᐢᑎᑲᐦᐃᑲᑌᐤ ᐱᐢᑯᐱᐢᑲᐃᐧᐠ.',
+			intro_p2: 'To answer this, the audit generated 1,010,000 computer-drawn, mathematically neutral Alberta maps. The simulation used the official Elections Alberta shapefiles on the commission\'s geography, holding every plan to the same population-balance (±25%) and contiguity requirements — the two criteria the algorithm enforces, not every statutory factor (it does not, for example, enforce communities of interest), so the comparison set is best read as population-and-contiguity-neutral rather than fully statute-compliant. The commission\'s two 2026 maps were then placed into that distribution to see how normal they are. The simulation ran four independent chains of 252,500 steps each, with the base seed drawn from the Cloudflare drand beacon and pre-registered at OSF before execution.',
 			howmcmc_label: 'ᑖᓂ ᑮ-ᐃᔑᐦᑎᐠ ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᐣ',
-			howmcmc_mcmc: '<strong>MCMC (Markov Chain Monte Carlo)</strong> ᐋᐸᒋᐦᒋᑲᐣ ᑭᒋ-ᑲᐧᐣᑕᐢᑭ-ᒬᔥᑎᓂᑲᐧᐠ ᑭᒋ-ᑭᐢᑭᓄᐦᐊᑲᐧᐠ ᑲᐧᔭᐢᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐊᓚᐱᕐᑌᐃᐧᐠ ᐅᐦᒋ. ᐯᔭᐠ-ᑯᐱᐠ ᑲᐧᔭᐢᐠ-ᐃᔑᓇᑲᐧᐣ ᓂᔓ ᑲ-ᒪᒋᐢᑌᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᑮ-ᑎᐯᔨᒋᑫᐤ. ᑮ-ᓂᑲᓂᔥᑕᐦᑭᐦᑌᐤ Cloudflare drand ᐅᐦᒋ ᑭᒋ-ᓇᒪᐃᐧᔭ ᐊᑎᔭᓯᓀᐦᑎᑲᐧᐠ ᒪᒋᑫᐃᐧᐣ.',
-			howmcmc_recom: '<strong>ReCom (Redistricting Compiler)</strong> ᐊᓂᒪ ᐃᔑ-ᐊᔮᓂᒋᐦᒋᑲᐣ ᑲ-ᐋᐸᒋᐦᑕᒪᐦᐠ. ᐯᔭᐠ-ᑯᐱᐠ ᓂᔓ ᑲ-ᒪᒋᐢᑌᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᑮ-ᑯᑕᓂᑲᐦᑭᑲᐧᐠ ᐁᑲᐧ ᐅᔥᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᑮ-ᐅᔑᐦᑖᑲᐧᐤ — ᑲᐧᔭᐢᐠ ᐁᑲᐧ ᐱᒪᑎᓯᐃᐧ-ᑲᔅᑭᐦᑖᐃᐧᐣ ᑮ-ᑎᐱᒥᑕᒪᐠ.',
+			howmcmc_mcmc: 'Merge two neighbouring districts, split the blob back into two new legal ones at random, repeat a million times, saving the map each step. That is the whole machine. The step-by-step walkthrough — and every other test on this page, in plain language — is on <a href="__BASE__/methods">the Methods page</a>.',
+			howmcmc_recom: 'The algorithm is called ReCom — the standard tool of the field — and it preserves the two hard legal rules (population balance, contiguity) by construction.',
 			prereg_label: 'ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᐱᐢᑯᐱᐢᑲᐃᐧᐠ',
-			prereg_body: 'ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᐱᐢᑯᐱᐢᑲᐃᐧᐠ ᑭᒋ-ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ ᑎᐯᔨᒋᑫᐃᐧᓇ ᐱᐢᑯᐱᐢ ᐊᑭ-ᒫᒥᑐᓂᑲᐧᐠ ᐊᑎᐢᑌᐃᐧᓇ. OSF (Open Science Framework) ᑲ-ᐃᐧᐦᑎᑲᐧᐤ ᑲᔥᑭᑖᐃᐧᑌ ᑲ-ᒪᔅᑭᓂᐦᐊᒨᔅᒋᑫᐃᐧᐣ ᑮᐱᑎᓯᐃᐧᓂᐦᐠ ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ. ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐅᑦ-ᐯᔭᑲᐧᐦᐊᑲᐃᐧ-ᒪᒋᑐᑕᒪᑫᐃᐧᓇ (random seeds) ᑮ-ᑎᐸᔭᐢᑎᑲᐦᐃᑲᑌᐤ ᑲᔥᑭᑖᐃᐧᑌ, ᐱᐢᑯᐱᐢ-ᐃᔑᓇᐦᐃᑫᐃᐧ ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ (Cloudflare drand) ᐃᐢᐱ Elections Alberta ᐅᑦ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐯᐦᑖᑲᐧ ᑮ-ᐅᔮᐢᑫᐧᔪᑲᐧᐠ, ᐁᑲᐧ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ ᓇᒪᐃᐧᔭ ᑭᑲᐧ-ᐊᔭᐢᑭ-ᑐᑕᐢᑫᔨᐦᑕᑲᐧᐠ ᐃᔑ ᐊᔮᔥᑫᐧᐃᐧᐣ ᑭᒋ-ᐅᑎᐦᐃᑌᐠ. neighbour-drain ᓂᓯᔥᑲᐢᒋᑫᐃᐧᐣ ᒥᓯᐁᐧ ᑮ-ᐱᐢᑯᐱᐢ-ᒪᒪᐃᐧᐢᑌᔨᐦᑕᑲᐧᐤ OSF ᐃᑕ — ᐅᑦ-ᑎᐱᔅᑲᐦᐃᑲᐣ ᐁᑲᐧ ᐅᑦ-ᐃᔑᓇᑲᐧᐃᐧᐣ ᐃᐢᐱ ᒫᒥᑐᓂᑲᐧᐠ ᑮ-ᑮᔥᑭᔥᑌᐤ. ᑯᑕᑲ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ exploratory ᑎᐸᒋᒨᔅᑌᐃᐧᓇᐠ: ᐅᑦ-ᒪᒋᑐᑕᒪᑫᐃᐧᓇ ᑮ-ᑎᐸᔭᐢᑎᑲᐦᐃᑲᑌᐤ, ᒪᑲ ᐅᑦ-ᐃᔑᓂᑲᓱᐃᐧᓇ ᐁᑲᐧ ᑲ-ᐃᔑ-ᒪᐊᐧᒋᐦᐃᑌᑭᐣ ᓇᒪᐃᐧᔭ ᑮ-ᐱᐢᑯᐱᐢ-ᒪᔅᑭᓂᐦᐃᑲᑌᐤ OSF ᐃᑕ ᐃᐢᐱ ᑲᑮ-ᒫᒋᑐᑕᑭᐣ.',
+			prereg_body: 'Pre-registration means writing the tests, thresholds, and predicted directions down in a public, time-stamped record before looking at the data — so a threshold cannot be quietly moved after the answer arrives. This audit\'s commitments are filed on the Open Science Framework, its random seeds were locked to a public beacon before the official map files existed, and each finding is labelled pre-registered or exploratory accordingly. The full accounting of which is which is on <a href=\'__BASE__/methods\'>the Methods page</a>.',
 			neutral_p: 'ᐊᓚᐱᕐᑌᐃᐧᐠ, ᑲᐧᔭᐢᐠ ᓇᐢᑲᐧᒧᐃᐧᐣ ᓇᒪᐃᐧᔭ 50/50. <em>1,010,000 ᑲᐧᔭᐢᐠ-ᐃᔑᐊᔭᒪᐦᐃᑭᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐃᐧᔭᐣ, ᑭᒋ-ᐊᐢᐱᔅᑫᐧᔪᑲᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ UCP ᐱᑯ 44.8% ᑫᐧᐢᑕᐱᐃᐧᓇ ᑮᔥᑲᒋᔭᓯᓀᐦᐃᑫᐃᐧᐣ 50/50 ᐊᐢᑎᐦᑫᐃᐧᐣ ᐃᐢᐱᐦᑌ</em> — NDP ᑲᐃᐧ-ᐃᐢᒋᐦᐃᑫᐠ ᑭᒋ-ᑮᔥᑭᔥᑌᔮᐠ ᑫᐧᐢᑕᐱᐃᐧᓇ ᑲᐧᔭᐢᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐃᐧᔭᐠ. ᐃᐧᑎᒋᑫᐃᐧᐣ ᑲᑲᐧᐊᑲᐧᑫᔨᒋᑲᐣ ᒪᑲ ᐃᑎᐢᑲᐧᐣ: UCP ᑲᐃᐧᐣ ᑮ-ᑮᔥᑲᒋᔭᓯᓂᒋᑫᐤ 60-40 ᐊᐢᑎᐦᑫᐃᐧᓇᐠ ᐅᐦᒋ, NDP ᑲᐃᐧᐣ ᑮ-ᑮᔥᑲᒋᔭᓯᓂᒋᑫᐤ 51-49 ᐊᐢᑎᐦᑫᐃᐧᓇᐠ ᐅᐦᒋ.',
 			full_dist: 'ᒥᓯᐁᐧ ᑲᐧᔭᐢᐠ ᐃᔑᓇᑲᐧᐣ 1,010,000 ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ ᐅᐦᒋ:',
 			t1_col_a: 'ᑖᓂᑌ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐊᔮᐤ',
@@ -398,7 +398,7 @@ export default {
 			t2_r1_b: '+0.1% (p16.5)',
 			t2_r1_c: '−3.6% (p1)',
 			t2_r1_d: '−0.027 (p21.8)',
-			t2_r1_e: '46.1% (p78)',
+			t2_r1_e: '46.1% (p78.5)',
 			t2_r2_a: 'ᐊᑎᐦᑌᑫᐧᐃᐧᐣ 2026',
 			t2_r2_b: '<strong>+4.0% (p94.5)</strong>',
 			t2_r2_c: '<strong>+1.0% (p99.97)</strong>',
@@ -432,7 +432,7 @@ export default {
 			super_lead: 'In an 89-seat legislature, a two-thirds supermajority requires exactly 60 seats. The minority proposal’s tied-vote seat share of 51.7% — a level only 69 of the 1,010,000 neutral maps reach — sits in the regime where a UCP supermajority becomes statistically reachable on Alberta’s 2023 geography. But the simulation does not enforce every statutory criterion the commission worked under, so this is a strong external check, not proof that no legally compliant Alberta map could reach this seat count. Act I’s structural evidence, which does not depend on the simulation at all, carries most of the weight; the tied-vote tail position is the supporting context.',
 			super_label: 'ᑖᓂ ᐅᒋ ᑭᒋᔅᑌᐃᐧᐢᑭ ᑭᒋ-ᒥᐦᒋᑌᐃᐧᐣ',
 			super_body: 'ᑲᓇᑕᐃᐧ Westminster ᐃᔑ-ᑎᐯᔨᒋᑫᐃᐧᐣ ᐃᐧᔭᐣ, ᐊᓚᐱᕐᑌᐃᐧᐠ ᐅᑦ-ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᓇᒪᐃᐧᔭ ᐊᔮᐤ two-thirds ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᑲ-ᐅᔥᑭᓂᐦᑕᒥᐦᐠ ᐱᔅᑭᔥᑲᓂ ᑲᔅᑭᐦᐅᐃᐧᓇ: ᐯᔭᐠ ᑎᐯᔨᒋᑫᐤ ᒥᐦᒋᑌᐃᐧᐣ — ᐋᑕ ᐃᔑ-ᒥᐦᒋᑌᐃᐧᐣ ᐱᑯ — ᐊᔅᒋ ᑲᔥᑭᐦᑖᐤ ᑭᒋ-ᐃᐧᔭᓯᐁᐧᐠ ᐁᑲᐧ ᓲᓂᔮᐃᐧ-ᑭᐢᑫᔨᐦᑖᑫᐃᐧᓇ ᑭᒋ-ᐅᔑᐦᑖᐠ, "closure" ᑭᒋ-ᐅᑎᓂᑲᐦᐊᒻ ᑭᒋ-ᑭᐱᐦᑎᐠ ᐊᔭᒥᐦᑎᑲᐧᐃᐧᐣ, ᑭᒋ-ᒪᔅᑭᓂᐦᐊᒻ ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᐅᑦ-ᐃᐧᔭᓯᐤᐃᐧᓇ, ᐁᑲᐧ ᑭᒋ-ᐅᔑᐦᑖᐠ ᒥᓯᐁᐧ ᐃᐧᔭᓯᐁᐧᐃᐧ-ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐅᑦ-ᐊᔮᔭᐠ. ᑫᑯᐠ ᑭᒋ-ᒥᐦᒋᑌᐃᐧᐣ ᐊᔮᓂᒋᐦᑖᐤ ᐊᓂᒪ ᒪᐧᔭᐢᒋᑫᐃᐧᐣ ᐁᑲᐧ ᑲᔭᔥ-ᐊᔮᔥᑫᐧᐃᐧᐣ, ᓇᒪᐃᐧᔭ ᑲᔅᑭᐦᐅᐃᐧᓇ ᑲ-ᐊᔮᔥᑖᑲᐧᐠ. ᒪᒪᐃᐧᐢᑌᐃᐧᐣ 60 ᐅᐦᒋ 89 ᑫᐧᐢᑕᐱᐃᐧᓇ ᑲ-ᐊᔮᐢᑫᐠ ᓇᒪᐃᐧᔭ ᑭᒋ-ᒬᔥᑎᓂᑲᐧᐠ ᐱᐦᑎᐠ-ᒪᒪᐃᐧᐢᑌᐃᐧ ᐊᔮᓂᒋᐦᑖᐃᐧᐣ — ᓂᑯᐢᑖᐠ ᐯᔥᑌᐦᑭᔥᑫᐤ-MLAs ᓇᒪᐃᐧᔭ ᑭᒋ-ᒬᔥᑎᓂᑲᐧᐠ — ᐁᑲᐧ ᐅᑎᔥᑲᓂᑫᐃᐧᐣ ᐊᐱᔅᑎᔅ ᓇᒪᐃᐧᔭ ᑭᒋ-ᑲᔥᑭᐦᑖᐤ ᑭᒋ-ᒪᔅᑭᓂᐦᐊᒨᔅᒋᑫᐠ ᑫᐧᐢᑕᐱᐃᐧ-ᐱᔅᑭᔥᑲᐃᐧᓇ ᑫᑲᐧᔾ ᑭᒋ-ᑲᓇᐧᐊᐸᐦᑕᒥᐦᐠ ᐃᐧᔭᓯᐁᐧᐃᐧ-ᒪᒪᐃᐧᐢᑌᐃᐧᓇ. ᐅᑕ ᑲ-ᑭᔅᑌᔨᐦᑕᒥᐦᐠ ᐊᓂᒪ ᑫᐧᐢᑕᐱᐃᐧᓇ ᒪᐊᐧᒋᐦᐃᑎᐠ ᐁᑲᐧ ᑮᐢᐱᔥᑭᔥᑲᒪᑲᐧᐃᐧ ᐅᑎᔥᑲᓂᑫᐃᐧᐣ ᑲ-ᐊᐦᑭᔭᐧᐠ, ᓇᒪᐃᐧᔭ ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᑲ-ᑮᔥᑭᔥᑲᒥᐦᐠ.',
-			super_close: 'Lane 2 ᐃᑕ ᑲᑮ-ᒥᐢᑲᒥᐠ ᐅᑌᓈᐠ-ᐊᐢᐱᔅᑫᐧᐃᐧ-ᐯᔭᑯᔥᑲᓀᐢᑕᒪᑫᐃᐧᐣ — ᐅᑌᓈᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᔭᐠ ᐊᔮᓀᔥᑲᒪᑲᐧᐤ ᒋᑭ ᐊᔭᒥᐦᐃᐧᐦᐠ-ᐃᔥᑲᐧᐃᐧ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇᐠ — ᐊᐃᐧᑯ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧ ᒨᔥᑎᓂᑫᐃᐧᐣ ᑌᐱᔥᑲᒪᑲᐧᐠ 60-ᑫᐧᐢᑕᐱᐃᐧᐣ ᐊᔮᔥᑫᐧᐃᐧᐣ. Lane 2 ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᒥᐢᑲᒪᑫᐃᐧᐣ ᐁᑲᐧ Lane 1 ᐊᐢᑎᐃᐧ ᒥᐢᑲᒪᑫᐃᐧᐣ ᐯᔭᐠ ᐅᔑᐦᑖᐃᐧᐣ, ᐯᔭᐠ ᐅᑎᐦᐃᑌᐠ, ᐁᑲᐧ ᐯᔭᐠ ᐃᔭᔨᐃᐧᓇ ᐃᑕ ᑎᔮᒥᐦᑖᑲᐧᐤ.',
+			super_close: 'The urban-hybridization pattern identified in Act I — urban voters distributed into surrounding rural-edge districts — is consistent with the 60-seat outcome, though the audit’s direct test of whether that geometry is the specific mechanism came back negative and is reported as a failure (Casing 9). The structural and statistical findings converge on the same proposal and the same communities — and they agree on who benefits.',
 			sub4_h: 'ᑎᐸᔭᔅᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑎᐯᔨᒋᑫᐃᐧᐣ ᐅᐦᒋ ᓇᐢᑲᐧᒧᐃᐧᐣ',
 			sub4_p: 'ᑭᒋ-ᐊᓂᒪ ᓇᒪᐃᐧᔭ ᑲᐧᔭᐢᐠ ᑲᐃᐧ-ᐊᑭᒥᐢᑫᐧᔪᑲᐧᐠ ᑎᐯᔨᒋᑫᐃᐧᓇ, ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑮ-ᒪᒋᐊᐧᔅᒋᑫᐤ hill-climbing ᑎᐯᔨᒋᑫᐃᐧᐣ (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022</a>) ᓂᔓ ᐅᑎᐦᐃᑌᐠ: UCP ᑫᐧᐢᑕᐱᐃᐧᓇ ᑭᒋ-ᑮᔥᑭᔥᑌᐠ ᐁᑲᐧ NDP ᑫᐧᐢᑕᐱᐃᐧᓇ ᑭᒋ-ᑮᔥᑭᔥᑌᐠ. 40,000 ᑲᑮᔭᐢᑫᐧᔪᑲᐧᐠ ᐯᔭᑲᐧᔣᐠ ᓂᔣᒃ ᐅᑎᐦᐃᑌᐠ.',
 			t4_col_a: 'ᑎᐯᔨᒋᑫᐃᐧᐣ',
@@ -471,8 +471,8 @@ export default {
 			stakes_fig_alt: 'Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region. The 2019 map is labelled 0 of 4 run: the Calgary zone test was never run on it.',
 			stakes_fig_caption: 'The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both (it fails none of the four tests run on it; the Calgary zone test was never run on it). The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on every test that distinguishes the two maps (4 of 5; the fifth, anchoring, is neutral for both); its efficiency gap (+4.0%) sits just below the Alberta threshold line.',
 			stakes_table_intro: 'ᐯᔭᑯᐠ ᒥᐢᑲᒪᑫᐃᐧᓇ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐃᐧᔭᐣ:',
-			t5_col_b: 'Lane 2: ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᐃᔑᓇᑲᐧᐠ (ᓇᒪᐃᐧᔭ ᐊᐢᑎᐦᑫᐃᐧᐣ)',
-			t5_col_c: 'Lane 1: ᐊᑎᐢᑌᐃᐧᓇ (ᐊᐢᑎᐦᑫᐃᐧᐣ ᑭ-ᐃᐢᒋᐦᐊᑲᐧᐠ)',
+			t5_col_b: 'Structure — Act I (geometry only, no votes; the academic report’s “Lane 2”)',
+			t5_col_c: 'Numbers — Act II (vote-dependent; “Lane 1”)',
 			t5_r1_a: '<strong>ᒥᐦᒋᑌᐃᐧᐣ 2026</strong>',
 			t5_r1_b: 'ᑲᐧᔭᐢᐠ — <em>ᓇᒪᐃᐧᔭ</em> ᐊᐢᑭ-ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᐊᐢᐱᔅᑲᐃᐧᑌᐤ',
 			t5_r1_c: 'inside the normal range on every measure (tied-vote seat share 46.1%, 78th percentile; efficiency gap +0.1%)',
@@ -600,16 +600,16 @@ export default {
 		},
 		commission_split: {
 			heading: '2: ᑖᓂ ᐃᔑ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᑮ-ᑎᐸᔮᐤ',
-			intro: 'Alberta ᑮᔓᐦᐃᑫᐃᐧᐣ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ March 23, 2026 ᑮ-ᑮᔥᑭᔥᑌᐤ ᐁᑲᐧ ᓇᒪᐃᐧᔭ ᑭᑲ-ᑮᔥᑲᐃᐧ-ᑲᐊᐧᐸᒪᑭᐣ. ᓂᔥᑐ ᒪᒪᐃᐧᐢᑌᐃᐧᑭᒪᐠ ᐯᔭᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑮ-ᐅᔑᐦᑖᐃᐧᓇᐠ; ᑯᑕᑲᐠ ᓂᔮᐣ ᑯᑕᑲᐣ ᐅᔑᐦᑖᐃᐧᐣ. ᑮᔓᐦᐃᑫᐃᐧᐣ ᑎᐯᐧᐃᐧᑭᒪᐤ Justice Dallas K. Miller ᐁᑲᐧ ᓂᔮᐣ opposition-ᑲᑮ-ᐊᔅᑐᐦᑕᑭᐣ ᒪᒪᐃᐧᐢᑌᐃᐧᑭᒪᐠ ᒥᐦᒋᑌᐃᐧᐣ-ᑎᐸᐦᐃᑲᐣ ᑮ-ᒪᐢᑭᓯᓂᐦᐊᒫᐣ; ᓂᔮᐣ ᑲᑮ-ᐃᑎᑫᐣ — Dr. Julian Martin ᐁᑲᐧ John D. Evans — ᐊᑎᐦᑌᑫᐧᐃᐧᐣ-ᑎᐸᐦᐃᑲᐣ ᑮ-ᒪᐢᑭᓯᓂᐦᐊᒫᐣ. ᑲᑭ-ᑎᐸᔮᑭᐣ ᑖᓂ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᑭᒋ-ᐃᔑᑲᐧᔭᐢᑭᐦᒋᑲᑌᑭᐣ ᑲᑭ-ᑭᒋᔅᑌᔨᐦᑕᑭᐣ ᐃᑫᐧᓂᑲᒥᑯᐦᐠ ᑲᑭ-ᑭᒋᔅᑌᔨᐦᑕᑭᐣ ᐃᑫᐧᓂᑲᒥᑯᐦᐠ ᑲ-ᑲᐧᔭᐢᑭ-ᐊᔅᒋᒧᐠ. ᒥᐦᒋᑌᐃᐧᐣ Airdrie ᓂᔮᐣ ᐊᐢᑎᐦᑫᐃᐧᓇ ᑮ-ᒥᔭᔅᑭᐣ; ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᓂᔣᑦ. ᒥᐦᒋᑌᐃᐧᐣ ᑰᑕᐃᐧ NE/central Calgary ᐊᔭᒥᐦᐁᐃᐧᓂᑲᒥᐦᐠ ᐃᔥᐱᒪᐢ ᑌᐸᐃᐧᐢᑕᑭᐣ; ᐊᑎᐦᑌᑫᐧᐃᐧᐣ 11.5% ᑭᒋ-ᑭᒋᔅᑌᔨᐦᑕᒻ ᑮ-ᐅᔑᐦᑖᐣ. ᓂᔮᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᑕᑐ ᑮᐢᑲᓇᐦᑌᐃᐧᐣ ᑕᐱᐢᑯᐣ. ᓂᔮᐣ ᑭᒋᐢᑯᑕᒣᐤ <em>Electoral Boundaries Commission Act</em> ᐃᑌᔭᐠ. ᑲᑭᒋᔅᑌᔨᐦᑕᑭᐣ ᑲᑮ-ᐊᑯᐢᑌᐃᐧᐠ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᑲᑮ-ᐃᔑ-ᑮᔥᑭᔥᑌᑭᐣ ᑭᒋ-ᒥᓯᓀᐦᐊᑲᐧᐠ ᐊᔭᒥᐦᐁᐃᐧᓇ. Alberta ᑲᑭᒋᔅᑌᔨᐦᑕᒥᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ-ᑕᑲᐦᐃᑲᐣ United Conservative Party (UCP); ᑰᑕᐃᐧ ᐊᑦ-ᑎᐯᔨᒋᑫᐣ New Democratic Party (NDP). ᐊᐱᐢᑖᐃᐧ ᐱᔅᑭᔥᑲᓄᐠ — Alberta Party, Liberal Party of Alberta, ᐁᑲᐧ ᑯᑕᑲᐠ — ᐊᓯᒋ ᑫᐧᐢᑕᐱᐃᐧᓇ ᓇᑕᐃᐧᐦᑕᒬᐠ, ᒪᑲ ᐅᑦ-ᒪᒪᐃᐧ-ᐊᐢᑭ-ᒪᓂᑐᐦᑭ ᑫᐧᐢᑕᐱᐃᐧᐣ-ᐊᑭᐦᑌᐃᐧᐣ ᐊᐱᐢᑌᐤ ᐅᔥᑭ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᓇ ᐃᑕ, ᐊᓂᒪ ᐅᒋ ᓇᒪᐃᐧᔭ ᑖᐺᐃᐧ ᐱᑯᐦᑖᐤ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᐅᑦ-ᐱᔅᑭᔥᑲᓂ-ᐊᔭᔥᐱᔅᑫᐧᐃᐧ ᐊᑭᐦᑖᑫᐃᐧᓇ, 2023 UCP–NDP ᐱᐢᑭᔥᑲᓀᐢᑌᐃᐧᓂᐦᐠ ᑲᑮ-ᐅᐦᒋᐢᑖᑲᐧᐠ. ᐅᒪ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᓂᔣᒃ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐯᔭᑲᐧᐦᐊᑲ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᓇ ᐅᐦᒋ ᑮ-ᑎᐯᔨᒋᑫᐤ, ᐯᔭᑲᐧᔣᐠ ᐋᐸᒋᐦᑖᑲᐧᐠ. ᓂᔥᑐ ᒥᐢᑲᒪᑫᐃᐧᓇ ᒨᐢᑭᓇᑲᐧᐤ.',
+			intro: 'Alberta\'s Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Commission Chair Justice Dallas K. Miller and two opposition-nominated commissioners wrote the majority report; two government-nominated commissioners — Dr. Julian Martin and John D. Evans — wrote the minority report. The split centred on how to draw boundaries in fast-growing urban-edge communities. The majority gave Airdrie two districts; the minority four. The majority drew north/east/central Calgary\'s divisions close to the provincial average; the minority drew them 11.5% above it. Both maps follow the same statute. Both are legal under the <em>Electoral Boundaries Commission Act</em>. The disagreement was about which specific geographic configurations best served the communities being drawn. Alberta\'s governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). Smaller parties — the Alberta Party, the Liberal Party of Alberta, and others — contest seats too, but their combined provincial vote share has been low enough in recent elections that it does not materially affect the audit\'s partisan-fairness calculations, which are grounded in the 2023 UCP–NDP split. This audit measured both maps using the same methods, applied identically. Four findings stand out.',
 			finding1: '<strong>ᓂᑯᑦ ᑫᑯᓇᐠ ᑭᑲ-ᒥᑕᑦ-ᓂᓯᔥᑲᐢᒋᑕᒥᐣ ᓇᒪᐃᐧᔭ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑭ-ᑲᓇᐧᐊᐸᐦᑕᒫᐣ:</strong> ᑖᓂ ᐃᔑ ᐃᔥᐱᒪᐢ ᑕᑐᐦᑕᑲᐧᑫᐧᐃᐧ-ᐃᐧᑯᐦᑎᑲᐧᐠ, ᑲᑮ-ᑲᐧᔭᐢᑭ-ᐊᑦ-ᐃᑎᑕᒥᑭᐣ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐠ, ᑖᓂ ᐃᔑ ᐃᑫᐧᓂᑲᒥᑯᐦᐠ ᑲᑭᒋᔅᑌᔨᐦᑕᒥᐠ ᑲ-ᓂᐸᐃᐧᑕᑲᐧᐠ, ᑖᓂ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐊᔭᒥᐦᐁᐃᐧᓂᑲᒥᑦ ᑕᐸᐦᑌᑕᒥᐠ, ᐃᔑᓇᑲᐧᐠ, ᐁᑲᐧ ᑖᓂ ᒥᑐᓀᔨᒋᑲᓇ ᑮᔓᐦᐃᑫᐃᐧᐣ ᑎᐯᐧᐃᐧᑭᒪᐤ Miller ᑭᔭ ᑭᒋᔅᑌᔨᐦᑕᒻ (§5.8.2 ᐁᑲᐧ Appendix C). ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᒥᑕᑐ-ᐯᔭᑯᐠ ᑮ-ᑲᐊᐧᔭᐢ.',
 			finding2: '<strong>ᒥᑕᑐ-ᐊᓯᑦ ᐃᑌᐃᐧᐣ ᑕᑐᑲᐃᐧᔭᐠ ᑲᐃᐧ-ᐃᑌᐃᐧᐣ.</strong> ᑭᑕ ᓂᔮᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐊᔅᒋᔮᐸᐦᐃᑌᐤ — NE/central Calgary, Airdrie, ᐃᑫᐧᓂᑲᒥᑯᐦᐠ — ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ NDP ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᓇ ᐃᔑ-ᐃᑌᐃᐧ ᐁᑲᐧ UCP ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᓇ ᑭᒋᔅᑌᔨᐦᑕᒻ. ᐅᒪ ᑲᔅᑭᐦᐅᐃᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ ᓇᒪᐃᐧᔭ ᑭᑲ-ᑭᔅᑫᔨᐦᑕᒻ ᑭᒋ-ᑕᑎᒥᑌᐠ. ᐃᔑᓇᑲᐧᐠ ᑭᑲ-ᓂᓯᔥᑲᐢᒋᑌᐣ.',
 			finding3: '<strong>The process that replaced the commission had one precedent among the Canadian redistribution cycles this audit reviewed: Alberta\'s own, in 1992.</strong> None of the reviewed provinces hands redistricting, partway through a cycle, to a committee the governing party controls. Most require the legislature to debate the commission\'s map first, or give that map automatic effect unless the legislature overrides it. Alberta does neither. A commission report here changes nothing until the legislature passes a separate <em>Electoral Divisions Act</em>, so the governing party decides whether any commission map becomes law. On April 21 the Assembly used that power: Government Motion 37, passed 44 to 36, set both commission maps aside and gave the work to an MLA committee with a UCP majority. The government\'s stated justification was the chair\'s Recommendation 5. What that recommendation actually asks is set out next.',
 			closing: '<strong>ᐃᔑ-ᑐᑕᒧᐃᐧᐣ ᐅᑦ-ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑭᒋᔅᑌᔨᒪᐤ, ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐃᑌᔭᐠ ᐃᐧᐦᑎᑲᐧᐤ.</strong>'
 		},
 		november: {
-			heading: '7: Lunty ᒪᐢᑭᓯᓂᐦᐃᑫᐃᐧᐣ',
+			heading: 'Lunty ᒪᐢᑭᓯᓂᐦᐃᑫᐃᐧᐣ',
 			context_label: 'ᑲᔅᑭᐦᑖᐃᐧᐣ',
-			context_body: ' — ᐅᒪ ᑭᒋ-ᑕᔭᒋᑲᐣ ᐃᔑ-ᒥᑐᓀᔨᒋᑫᐃᐧᐣ ᑲᑮ-ᒫᒋᐸᔭᐸᐦᑕᑭᐣ ᐊᑦ-ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐁᑲᐧ ᒪᒪᐃᐧᐢᑌᐃᐧ-ᑮᐢᑲᓇᐦᑌᐃᐧᐣ ᑲᐃᐧ ᑕᐸᔅᑌᔨᐦᑕᑲᐧᐤ. ᓇᒪᐃᐧᔭ ᐃᔑᓇᑲᐧᐤ ᐃᐢᐱᐦᑌᐃᐧ-ᒥᑐᓀᔨᒋᑲᐣ. ᒥᑐᓀᔨᒋᑲᓇ §3–§6 ᐃᑕᒫᐤ.',
+			context_body: ' — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in the fourteen casings above.',
 			intro: 'Neither commission map is in force. On April 21, 2026 the Legislative Assembly passed Government Motion 37, setting both aside and referring redistricting to a Select Special Committee of six MLAs — four UCP, two NDP — chaired by Brandon Lunty (UCP, Leduc-Beaumont). The committee itself does not draw the map. It oversees a separate Independent Advisory Panel, constituted under the same motion, tasked with producing a 91-seat boundary proposal.',
 			h_anomalous: 'ᑖᓂ ᐊᔨᑕᐸᔥᐃᑲᐧᐤ ᒪᐢᑭᓯᓂᐦᐃᑫᐃᐧᐣ',
 			anomalous_p1:
@@ -632,7 +632,7 @@ export default {
 				'ᑲᔅᑭᐦᐅᐃᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ ᑕᑐ ᓂᓯᔥᑲᐢᒋᑫᐃᐧᓇ ᑭᑲ-ᐊᐸᒋᐦᑕᐣ Lunty ᒪᐢᑭᓯᓂᐦᐃᑫᐃᐧᐣ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ ᑲᑦ-ᐱᑕᒪᐃᐧᑌᐠ. ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐁᑲᐧ ᑲᑮ-ᐊᑕᐧᑌᐠ ᐅᑕ ᐊᑯᑦ ᑲᑭ-ᒥᑐᓀᔨᒋᑲᓂᐦᐠ; ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ ᓇᒪᐃᐧᔭ ᑲᐊᐧᔭᐢᑭᐦᒋᑫᐤ.'
 		},
 		references: {
-			heading: '10: ᐅᐦᒋᔭᐢᑎᔭᓯᓀᐦᐃᑫᐃᐧᓇ ᐁᑲᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ',
+			heading: 'ᐅᐦᒋᔭᐢᑎᔭᓯᓀᐦᐃᑫᐃᐧᓇ ᐁᑲᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ',
 			heading_aria: 'ᐅᐦᒋᔭᐢᑎᔭᓯᓀᐦᐃᑫᐃᐧᓇ ᐊᐸᒋᐦᐃᑎᐸᐦᐃᐣ',
 			intro:
 				'The method draws on established literature in political science, statistics and law. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list is in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. The key sources are here.',
@@ -641,7 +641,7 @@ export default {
 			h_statutes: 'ᑮᐢᑲᓇᐦᑌᐃᐧᓇ'
 		},
 		resources: {
-			heading: '11: ᑲᔅᑭᐦᐅᐃᐧ ᐋᐸᒋᐦᐃᑎᔫᐦᐃᑲᓇ',
+			heading: 'Reports and code',
 			heading_aria: 'ᑲᔅᑭᐦᐅᐃᐧ ᐋᐸᒋᐦᐃᑎᔫᐦᐃᑲᓇ ᐊᐸᒋᐦᐃᑎᐸᐦᐃᐣ',
 			tag_plain: 'ᐊᐦᑭᔭ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ',
 			plain_label: 'ᒥᓯᐁᐧ ᑲᑭᐢᑭᓄᐦᐊᒪᑫᐃᐧ-ᑎᐸᐦᐃᑲᐣ',
@@ -660,12 +660,12 @@ export default {
 		about_me: {
 			heading: 'ᑖᓂᒪ ᐋ-ᐃᔑᔮᐣ',
 			p1: 'ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧ-ᑭᐢᑭᓄᐦᐊᒪᑫᐃᐧᐠ ᐅᑕ ᐃᑌᓂᒪᐠ Mount Royal University. ᐅᒪ ᑲᔅᑭᐦᐅᐃᐧ ᓂᑮ-ᐅᔑᐦᑖᐣ ᓂᑦ-ᐅᑦ-ᐃᔑᐦᒋᑫᐃᐧᓇᐦᐠ — ᓇᒪᐃᐧᔭ ᑭᐢᑭᓄᐦᐊᑫᐃᐧᐣ ᑮ-ᐃᔑᓇᑲᐧᐤ ᐁᑲᐧ ᓇᒪᐃᐧᔭ ᑲᔅᑭᐦᐅᐃᐧ-ᑕᑲᐦᐃᑲᐣ ᑮ-ᑎᐯᔨᒋᑫᐤ. ᓂᑦ-ᑌᐦᐃᑌᔨᐦᑕᒧᐃᐧᓇ ᓂᑦ-ᐅᑦ ᐁᑲᐧ ᓇᒪᐃᐧᔭ ᑲᔅᑭᐦᐅᐃᐧ-ᑕᑲᐦᐃᑲᐣ ᐁᔑ-ᑌᐦᐃᑌᔨᐦᑕᒥᐠ. I\'ve worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. I\'m not under contract now; I last worked at a recent election. I\'ve had no other employment with Elections Alberta and have no knowledge of its work beyond those tasks. Nothing in this audit comes from that work; every input is public. This research is my own, not Elections Alberta\'s, and does not speak for it. I have no connection to the commission. I\'ve voted for and donated to both conservative and progressive provincial parties in Alberta as an adult.',
-			p2: 'ᓂᑮ-ᐊᔭᒥᐦᐁᐢᑕᒻ ᑲ-ᐃᔭᔨᐃᐧᓇᐦᐠ ᑲᐃᐧᔭᔅᑭ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᓂᐦᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧ-ᑲᐧᔭᐢᑭ-ᐃᔑᓇᐦᐃᑫᐃᐧᐣ. ᓂᑦ-ᐃᑌᔨᐦᑖᑲᐧᐣ ᑖᓂᑭ ᓂ-ᑲᐧᔭᐢᑭ-ᐅᒥᔅᑲᒥᐣ ᐅᒪ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ. ᑮᐢᑯᑕᒧᐃᐧᐣ ᑭ-ᑮᐊᐧᓇᒥᐦᑖᑲᐧᐤ: ᓂᑮ-ᐃᔑ-ᑲᐧᔭᐢᑭᐦᑌᐣ ᓂᔓ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᑕᑐᐦᐊᑲᐧᐠ ᑲ-ᐃᔑᓂᑲᑌᑲᐧᐠ, ᓂᑮ-ᒪᐢᑭᓯᓂᐦᐃᑲᓇᐠ ᓂ-ᑮᐢᑯᑕᒧᐃᐧᐣ ᐁ-ᐊᐧᐸᒥᐣ, ᐁᑲᐧ ᒥᓯᐁᐧ ᑭᒋ-ᐊᐧᐸᐦᑎᑲᐃᐧᐣ ᑭᑕᑐᑎᐣ ᑭᒋ-ᑲᐧᔭᐢᑭ-ᑕᑌᔨᐦᑕᒫᐣ ᓂ-ᑎᐸᔭᐢᑎᑲᐦᐃᑫᐃᐧᓇ. ᓂ-ᑦ-ᑭᔮᐢᒋᐦᐊᑲᐣ ᐅᒪ ᑲᔅᑭᐦᐅᐃᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ. ᑮᐢᐱᐣ ᑭ-ᒥᐢᑲᐣ ᐃᐧᔭᓯᐃᐧᐣ ᑲᑮ-ᒥᐢᑲᐦᐊᒫᐣ, ᑲ-ᑦ-ᐃᑌᔨᐦᑕᒫᐣ ᑭᑲ-ᑮᐢᑲᓀᐣ.',
+			p2: 'My political history could affect how I look at this issue, and the main protection against that is the method. I tested both maps the same way, registered my tests in public, time-stamped records, labelled every finding pre-registered or exploratory, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I want to know.',
 			p3: 'ᐯᔭᑲᐧᐦᐊᑲᐃᐧ-ᒪᒋᑐᑕᒪᑫᐃᐧᐣ ᐁᑲᐧ ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᒪᐢᑭᓯᓂᐦᐃᑫᐃᐧᓇ: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451 — ᐅᑦ-ᐯᔭᑲᐧᐦᐊᑲᐃᐧ-ᒪᒋᑐᑕᒪᑫᐃᐧᓇ ᑮ-ᑎᐸᔭᐢᑎᑲᐦᐃᑲᑌᐤ ᑲᔥᑭᑖᐃᐧᑌ ᐯᐢᑌᐧᐦᐱᔮᑭᐦᐃᑫᐃᐧᐣ ᐃᐢᐱ ᐅᑦ-ᑮᔓᐦᐃᑫᐃᐧᓇ ᐯᐦᑖᑲᐧ ᑮ-ᐅᔮᐢᑫᐧᔪᑲᐧᐠ; neighbour-drain ᓂᓯᔥᑲᐢᒋᑫᐃᐧᐣ (#289,451) ᐃᐢᐱ ᒫᒥᑐᓂᑲᐧᐠ ᑮ-ᒪᒪᐃᐧᐢᑌᔨᐦᑕᑲᐧᐤ, ᑯᑕᑲ exploratory ᐊᔮᔭᓯᓀᐦᐃᑫᐃᐧᓂᐦᐠ ᑮ-ᐊᔅᑌᐤ.',
 			p4: 'ᐃᐧᑎᒋᑫᐃᐧᓇ ᑲᑯ ᐅᐦᑎᓂᑫᐃᐧᓇ: '
 		},
 		retractions: {
-			heading: '9: ᐅᐦᑎᓂᑫᐃᐧᓇ ᐁᑲᐧ ᐅᔑᐦᑖᐃᐧᓇ',
+			heading: 'ᐅᐦᑎᓂᑫᐃᐧᓇ ᐁᑲᐧ ᐅᔑᐦᑖᐃᐧᓇ',
 			heading_aria: 'ᐅᐦᑎᓂᑫᐃᐧᓇ ᐊᐸᒋᐦᐃᑎᐸᐦᐃᐣ',
 			conditions_label: 'ᐅᐦᑎᓂᑫᐃᐧᐣ ᑭᒋ-ᐃᔑᓇᑲᐧᐠ',
 			conditions_intro:
@@ -675,7 +675,7 @@ export default {
 			c1_cond:
 				'Condition: someone shows that no legal Alberta map can satisfy the minority\'s own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — while anchoring on municipal lines at majority-comparable rates. A counter-map that does both would strengthen the finding instead (Amendment 27). On the official boundaries this condition is moot: both maps already anchor on municipal lines above its 60% bar (minority 71.8%, majority 80.0%). Open challenge at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
 			c2_title: 'ᐃᔑᓇᑲᐧᐠ 2 — Neighbour-Drain ᑮ-ᐊᔅᑌᐣ ᑭᒋ-ᐊᔅᒋᔮᐸᐦᑖᑲᐧᐤ',
-			c2_what: '<em>ᑖᓂ ᑭᒋ-ᐅᐦᑎᓂᑲᑌᐤ:</em> §3 ᑕᑕᐢᑕᐧᐣ ᑭᒋ-ᑮᐢᑲᓀᐣ ᐊᑎᐦᑌᑫᐧᐃᐧᐣ ᑲᑮ-ᑕᔭᔅᐸᒋᑌᐠ neighbour-drain ᓂᓯᔥᑲᐢᒋᑫᐃᐧᐣ.',
+			c2_what: '<em>What gets retracted:</em> The Casing 10 entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.',
 			c2_cond:
 				'ᐃᔑᓇᑲᐧᐠ: v2 continuous drain score ᑭᒋ-ᑲᐧᔭᐢᑭ-ᑭᒋᔅᑌᐦᑕᒥᐠ (p &lt; 0.05) ᑲᑮ-ᑲᐧᔭᐢᑭ-ᐊᑦ-ᑕᐸᐦᐃᑌᑭᐣ ᑯᑕᑲᐠ ᐃᔑ-ᑎᐸᔭᒋᑲᓇᐠ, ᑭᒋ-ᑭᐢᑫᔨᐦᑕᒣᐠ ᑲᑮ-ᐱᑯ-ᐸᐦᑭᐢᑲᒥᐠ v1 ᐃᔑ-ᒥᑕᑦ-ᑎᐸᔭᐢᑎᑲᐦᐃᑫᐃᐧᐣ.',
 			c3_title: 'ᐃᔑᓇᑲᐧᐠ 3 — 2026 ᐁᑌᐢ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ-ᑎᐸᐦᐃᑲᐣ ᒥᑐᓀᔨᒋᑲᐣ ᒥᐢᑲᒪᑫᐃᐧᐣ',
@@ -697,8 +697,8 @@ export default {
 				'<strong>Municipal anchoring.</strong> Early draft analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction.'
 		},
 		suggestions: {
-			heading: '8: ᐃᔑ-ᐊᔮᓂᒋᐦᑖᐃᐧᓇ',
-			heading_aria: '§8 ᐊᐸᒋᐦᐃᑎᐸᐦᐃᐣ',
+			heading: 'ᐃᔑ-ᐊᔮᓂᒋᐦᑖᐃᐧᓇ',
+			heading_aria: 'Link to suggestions',
 			intro:
 				'ᐅᒪ ᑲᔅᑭᐦᐅᐃᐧ ᐃᔑ-ᑲᐧᔭᐢᑭᐦᒋᑫᐃᐧᐣ ᓂᔮᐣ ᑲᔅᑭᐦᐅᐃᐧ-ᐊᐢᑭ-ᐃᑐᐦᑖᑲᐧᐤ ᑲᑮ-ᒥᐢᑲᒻ ᑲᑮ-ᐃᑲᐧᐣ ᓇᒪᐃᐧᔭ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᑲᑮ-ᑐᑕᑭᐣ ᐅᑦ-ᐃᔑᑐᑕᒧᐃᐧᓂᐦᐠ — ᐊᓚᐱᕐᑌᐃᐧᐠ ᐊᔭᒥᐦᐁᐢᑕᒪᑫᐃᐧᐣ ᑲᑮ-ᐊᔅᑭᔥᑌᐠ ᐃᔑᓇᑲᐧᐠ ᑭᒋ-ᑮᔥᑭᔥᑌᐠ. ᓂᔮᐣ ᑭᒋ-ᒥᔭᐢᑭᐦᐃᑌᑭᐣ.',
 			advance_p1:
@@ -934,8 +934,8 @@ export default {
 			flag_link: 'ᐸᔅᑲᐤᐊᒻ ᑭᒋ-ᑭᒋᔅᑌᐦᑕᒻ'
 		},
 		miller: {
-			title: 'Miller — ᐃᔑ-ᑮᐢᑭᔥᑌᔨᐦᑕᒧᐃᐧᐣ ᐊᔭᒥᐦᐃᐧᐦᐠ ᑫᐧᐢᑕᐱᐃᐧᐣ',
-			body: 'ᐅᒪ ᐊᐢᑭ ᐅᑕ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᓂᐦᐠ ᐊᔭᔭᐤ ᐅᐦᒋ Justice Dallas Miller, ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐅᓂᑲᓂᔥᑫᐤ. ᒥᐦᒋᑌᐃᐧᐣ ᒪᔅᑭᓂᐦᐃᑫᐃᐧᐣ ᐊᑎᐧᐱᒋᑲᓂᐦᐠ, ᑮ-ᒪᔅᑭᓂᐦᐊᒻ ᑮᐢᐱᐣ ᑭᒋ-ᐃᐢᑲᐧᐃᐧᐃᐧᑲᒥᐠ ᓇᒪᐃᐧᔭ ᑭᒋ-ᐅᑎᓂᑲᐦᐊᒻ ᓂᔓ ᐊᔭᒥᐦᐃᐧᐦᐠ ᑫᐧᐢᑕᐱᐃᐧᓇ ᑭᒋ-ᑮᔥᑭᔥᑌᐠ, ᑭᒋ-ᐃᐧᔥᑖᑫᐤ ᓂᔓ ᑫᐧᐢᑕᐱᐃᐧᓇ — 89 ᐅᐦᒋ 91 ᐃᔑ — ᐁᑲᐧ ᑭᒋ-ᐊᔮᓂᒋᐦᑖᐠ. ᑮ-ᐃᑎᔥᑭᓄᒻ ᐅᒪ ᐊᐢᑭ, ᒋᑭ Clearwater ᐁᑲᐧ ᑮᔥᑖᐤᔥᑕᑲᐧᐠ Mountain View counties ᐊᐧᔥ Red Deer ᐅᒋ, ᑖᓂᑌ ᐯᔭᐠ ᐊᓂᑭ ᐊᔭᒥᐦᐃᐧᐦᐠ ᑫᐧᐢᑕᐱᐃᐧᓇ ᑭᒋ-ᐊᐢᑌᐠ. ᒪᔅᑭᓂᐦᐃᑲᑌᐤ county ᑮᔓᐦᐃᑫᐃᐧᓇ ᐅᐦᒋ ᑖᐱᐢᑯᐣ ᐃᔅᑲᐧᐦᐊᒪᑫᐃᐧᐣ, ᓇᒪᐃᐧᔭ ᑖᐺᐃᐧ ᑮᔓᐦᐃᑫᐃᐧᐣ, ᐃᔥᐱᑦ ᑯᑕᐠ ᒪᒪᐃᐧᐢᑌᐃᐧᐣ ᐊᔮᓂᒋᐦᑖᐤ ᐊᐢᑭ-ᑮᔓᐦᐃᑫᐃᐧᐣ.'
+			title: 'Recommendation 5(d): the rural seat to restore',
+			body: 'Justice Dallas Miller, the commission’s chair, wrote that if the Legislature would not accept losing two rural ridings, it should go from 89 seats to 91 and restore them. This is the one place he named for a restored seat: a riding made mostly of Clearwater County and western Mountain View County, with s. 15(2) status (the rule that lets a large, remote riding have far fewer people than average). He asked that it be considered, not required. The outline is approximate: Clearwater County plus the part of Mountain View County that sat in the 2019 Rimbey-Rocky Mountain House-Sundre riding. It lies wholly north of Airdrie and takes no land from any riding conditions (a) or (b) protect. He named no place for the second seat.'
 		},
 		flags: {
 			'banff-town': {
