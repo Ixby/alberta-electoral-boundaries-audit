@@ -1,0 +1,210 @@
+{
+ "_about": "The repo's statement of what is on the OSF (account kguxq, Will Conner). Edited by hand, in the same commit as the OSF write it records; analysis/scripts/osf_reconcile.py checks it both ways and never writes it. Times are UTC as the OSF reports them; Alberta time is UTC-6 (MDT) or UTC-7 (MST). First pinned 2026-11-01 from a read-only pass, every entry reviewed against the OSF.",
+ "account": "kguxq",
+ "registrations": {
+  "u47bq": {
+   "title": "Alberta Electoral Boundary Audit — Lane 3 Process Scorecard (prospective evaluation of the 2026 Lunty committee process)",
+   "registered_utc": "2026-07-14T08:09:31.051572",
+   "registered_from": "g3qj8",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "c4c719050f3aa2452422d0f32c49d3fdc375393946dfe35df07007cfa5c781ff",
+   "updates": [],
+   "files": {}
+  },
+  "he53s": {
+   "title": "Forest-ReCom Sampler Robustness Check — Alberta 2026 Electoral Boundary Audit Canonical Ensemble",
+   "registered_utc": "2026-07-10T05:42:52.489203",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "ccfac60ff406f03b3dc189b6af021a65626310b23de28fa1e5f4b9aca289c605",
+   "updates": [
+    {
+     "id": "6a508f72ebc6e52902a86033",
+     "state": "approved",
+     "submitted_utc": "2026-07-10T06:26:11.374753",
+     "justification_head": "EXECUTION LOG APPEND (pre-registration §8.4 — no change to any pre-committed hyp"
+    }
+   ],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "s58a6": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-10T13:18:24.105910",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "884201c07a4ddf955d4c79c8ae6ca8a3b5de061c6d73c9de1fdb46075ebd6d89",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "6pt83": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-07T03:25:02.228214",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "36ecfd153e17c3c02dd42912976831f6de35d0210bf5ead9b762fff8bf27b3bb",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "yvc7g": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-10T10:39:07.494409",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "7e9b68030f615b9ee77f3a307f04f707d34ea87fa3447cdb1ce63da04d50d5d3",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "r3zm7": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:25.093667",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "1d79bc6d4c14e3046ce01523d9351eb3e95a524b27120aab6668822eeb8b8aed",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "9wp5y": {
+   "title": "Alberta Electoral Boundaries Audit — November 2026 Pre-registered Signature-Detection Checklist",
+   "registered_utc": "2026-05-07T04:27:20.781012",
+   "registered_from": "2gue9",
+   "schema": "697b72f611a8e98484c6139b",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "3fd64920230d419eaa8892ba88828b6a93e669847c728e214506eee35bcbb757",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/v0_2_packing_cracking_analysis.py": "55d7f75e96efc0c504927e0748ac8eafd3762079e9e897c7748a1a98c80f583d",
+    "osfstorage:Archive of OSF Storage/electoral_forensics_population.py": "860e2aa7f346d0c2229cd271fdcc152e38148f1a7094d0176ac4ac90fbd9eb29",
+    "osfstorage:Archive of OSF Storage/v0_1_track_c_checklist_baseline_scoring.md": "700533e8d2f6c475fb6117bd5f5ed3b4f246e609fbf87d762d7d2f63d3a84b57",
+    "osfstorage:Archive of OSF Storage/v0_1_majority_hybrid_crosswalk.csv": "89f2a7651453e1a16b83694aa16c5c102d2425f1515e1c916b9ee5ab338f5702",
+    "osfstorage:Archive of OSF Storage/null_hypothesis_and_exoneration_criteria.md": "7355fc25e63899684e7a5b89049ac74e16dd81b8896c3173cc0edbfda69edcc4",
+    "osfstorage:Archive of OSF Storage/pre_registration_amendment_2026-04-27_final_hardening.md": "b023a0d43cf4fd056405f0fe7aa6d6dbb68b5a51c921b3101106b33f4e63c509",
+    "osfstorage:Archive of OSF Storage/drand_seed.py": "81091ee26aab80b172356fa70875dcf67ee3dd4c5f8b161a17a7635e9eeda082",
+    "osfstorage:Archive of OSF Storage/november_red_alert_scorecard.py": "04b726a081e89c7f8699e118375087545f903fb24b89d051a644bac1b2e658f9",
+    "osfstorage:Archive of OSF Storage/v0_1_pre_registration_draft.md": "4d1ad5aef23b1de77753d2ddb27cf8f6a9baf3512fa016667fe872c445e31b5c",
+    "osfstorage:Archive of OSF Storage/v0_3_monte_carlo_ci.py": "80f228922c5da008441a886c5a497522badec0ded3614981022a76c08fc84c8b",
+    "osfstorage:Archive of OSF Storage/v0_1_minority_hybrid_crosswalk.csv": "7b6041e3cb24c458f61950d36208d14a5728183f480aabe1bd078b21fb1bb2cf",
+    "osfstorage:Archive of OSF Storage/v0_1_pre_registration_amendment_2026-04-23.md": "2ba09d1bcab2a513802101a34ef160991e7fe40e808d6647ae9f7b79b762acbf"
+   }
+  },
+  "w2s8k": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:20.372421",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "c3fc9567292ad00fc40dcf3a7e73d4e3c3fd1f63ef5de276efb0f7190f90bf9b",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "qsgy8": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:30.261292",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "58868a6ac73a84f7e256373f1df1431f79f354c65ef9041efb74bf352d34f81c",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  }
+ },
+ "projects": {
+  "g3qj8": {
+   "title": "Alberta Electoral Boundary Audit — Lane 3 Process Scorecard (prospective evaluation of the 2026 Lunty committee process)",
+   "created_utc": "2026-07-14T08:09:03.880109",
+   "public": false,
+   "files": {}
+  },
+  "af2hn": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "created_utc": "2026-05-06T20:13:38.342054",
+   "public": false,
+   "files": {
+    "osfstorage:dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "2gue9": {
+   "title": "Alberta Electoral Boundaries Audit — November 2026 Pre-registered Signature-Detection Checklist",
+   "created_utc": "2026-04-24T00:19:10.089146",
+   "public": false,
+   "files": {
+    "osfstorage:v0_1_pre_registration_draft.md": "4d1ad5aef23b1de77753d2ddb27cf8f6a9baf3512fa016667fe872c445e31b5c",
+    "osfstorage:v0_2_packing_cracking_analysis.py": "55d7f75e96efc0c504927e0748ac8eafd3762079e9e897c7748a1a98c80f583d",
+    "osfstorage:v0_3_monte_carlo_ci.py": "80f228922c5da008441a886c5a497522badec0ded3614981022a76c08fc84c8b",
+    "osfstorage:electoral_forensics_population.py": "860e2aa7f346d0c2229cd271fdcc152e38148f1a7094d0176ac4ac90fbd9eb29",
+    "osfstorage:v0_1_track_c_checklist_baseline_scoring.md": "700533e8d2f6c475fb6117bd5f5ed3b4f246e609fbf87d762d7d2f63d3a84b57",
+    "osfstorage:v0_1_majority_hybrid_crosswalk.csv": "89f2a7651453e1a16b83694aa16c5c102d2425f1515e1c916b9ee5ab338f5702",
+    "osfstorage:v0_1_minority_hybrid_crosswalk.csv": "7b6041e3cb24c458f61950d36208d14a5728183f480aabe1bd078b21fb1bb2cf",
+    "osfstorage:v0_1_pre_registration_amendment_2026-04-23.md": "2ba09d1bcab2a513802101a34ef160991e7fe40e808d6647ae9f7b79b762acbf",
+    "osfstorage:null_hypothesis_and_exoneration_criteria.md": "7355fc25e63899684e7a5b89049ac74e16dd81b8896c3173cc0edbfda69edcc4",
+    "osfstorage:pre_registration_amendment_2026-04-27_final_hardening.md": "b023a0d43cf4fd056405f0fe7aa6d6dbb68b5a51c921b3101106b33f4e63c509",
+    "osfstorage:drand_seed.py": "81091ee26aab80b172356fa70875dcf67ee3dd4c5f8b161a17a7635e9eeda082",
+    "osfstorage:november_red_alert_scorecard.py": "04b726a081e89c7f8699e118375087545f903fb24b89d051a644bac1b2e658f9"
+   }
+  }
+ },
+ "amendments": {
+  "1": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "osfstorage:Archive of OSF Storage/v0_1_pre_registration_amendment_2026-04-23.md",
+   "note": "archived file, unnumbered on the OSF"
+  },
+  "4": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "osfstorage:Archive of OSF Storage/pre_registration_amendment_2026-04-27_final_hardening.md",
+   "note": "archived file, unnumbered on the OSF"
+  },
+  "5": {
+   "status": "unfiled",
+   "note": "route chosen 2026-11-01: text update on 9wp5y (field 344-86), plus pointer updates on qsgy8, u47bq, he53s"
+  }
+ },
+ "acknowledged": []
+}
