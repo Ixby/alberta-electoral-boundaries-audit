@@ -240,9 +240,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** One minority district ("Calgary-Foothills-Airdrie West") carries "Airdrie" in its name but has 0% anchoring on Airdrie's gazetted city limit.
-**Why?** What does it mean for a district boundary to have 0% anchoring on a city limit?
-**Answer:** A district boundary is "anchored" on a city limit when part of the district's edge runs along the official municipal boundary. A district named after a city, yet sharing none of its border with that city's official edge, is not drawn around the city. It can still take in part of it: about a fifth of Airdrie's residents live in Calgary-Foothills-Airdrie West, a third of the district's people.
+**Assertion:** One minority district ("Calgary-Foothills-Airdrie West") carries "Airdrie" in its name, and 10.8% of its boundary is anchored on Airdrie's gazetted city limit (reported as 0% from the early, traced boundaries).
+**Why?** What does it mean for a district boundary to be anchored on a city limit?
+**Answer:** A district boundary is "anchored" on a city limit when part of the district's edge runs along the official municipal boundary. On the official boundaries, 5.9 km of this district's 54.7 km edge runs within 500 metres of Airdrie's limit, the audit's anchoring tolerance, and about 4 km runs along the limit itself. So the district does share a border with the city. The 0% came from boundaries the audit traced from the commission's PDF maps before the official files arrived. The district is not drawn around the city, but it takes in part of it: about a fifth of Airdrie's residents live in Calgary-Foothills-Airdrie West, a third of the district's people.
 
 ---
 

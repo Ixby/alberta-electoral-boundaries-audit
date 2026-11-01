@@ -165,7 +165,7 @@ Both maps satisfy the law. The table below sets out the structural distance betw
 |---|---|---|---|
 | Population MAD (persons) | 3,180 | 4,707 | Minority 48% higher variance |
 | Calgary NE/central zone population excess | +2.8% above mean | +11.5% above mean | 8.7 pp gap; minority 2.3× the +5% threshold, majority below it |
-| Airdrie partition count | 2 EDs | 4 EDs | Minority 2× more fragments |
+| Airdrie partition count | 2 EDs | 4 EDs by territory; 3 by people (≥2%) | Minority 2× more fragments by territory, 1.5× by people |
 | Municipal-boundary anchoring *(retracted — canonical)* | 80.0% of perimeter | 71.8% of perimeter | Both within 70–85% Canadian norm; DPG-era values 71%/14.5%/4.9× did not survive shapefile recomputation |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
 | Efficiency gap (Phase 4C, canonical EA shapefiles) | +0.10% | +4.02% | Both below 7% reference; minority 40× more UCP-structural than majority (positive = UCP structural advantage) |
@@ -173,7 +173,7 @@ Both maps satisfy the law. The table below sets out the structural distance betw
 
 The first five rows do not use votes. They can be measured against public official records, and they do not move if the partisan substrate changes. The municipal-anchoring row is retracted on canonical geometry (both maps within norm). The last two rows depend on vote data. The sixth row's direction holds under all three spatial-attribution methods the audit tested. The seventh row is a finding in favour of the minority map.
 
-A map that splits a city of 85,805 into four divisions, each identified with a different surrounding community, puts a navigational cost on the people of that city. A two-division split does not. Three of the four boundaries the commission chair flagged in the official hearing record impose interpretive costs of the same kind: a corridor district whose narrow waist links Nolan Hill to Cochrane; an extension running through uninhabited Banff National Park; and a district named for three smaller towns, whose population is dwarfed by the fourth community the district captures. Neither cost is counted in dollars. Both are structural costs to effective representation as the *Saskatchewan Reference* [1991] sets it out. Effective representation is the standard Canadian courts apply to electoral boundaries.
+A map that splits a city of 85,805 into four divisions, three of them identified mainly with a community outside the city, puts a navigational cost on the people of that city. A two-division split does not. Three of the four boundaries the commission chair flagged in the official hearing record impose interpretive costs of the same kind: a corridor district whose narrow waist links Nolan Hill to Cochrane; an extension running through uninhabited Banff National Park; and a district named for three smaller towns, whose population is dwarfed by the fourth community the district captures. Neither cost is counted in dollars. Both are structural costs to effective representation as the *Saskatchewan Reference* [1991] sets it out. Effective representation is the standard Canadian courts apply to electoral boundaries.
 
 Not auditing has a cost too. The alternative is to accept or reject either recommendation on commentary and intuition instead of measurement.
 

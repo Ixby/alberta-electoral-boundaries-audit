@@ -147,8 +147,8 @@
         </li>
         <li>
           <strong>3. The Airdrie split.</strong> The law forces Airdrie into at least two
-          districts. The majority map uses two. The minority map cuts the city into four pieces,
-          each attached to different outside territory. Splitting a community thin is called
+          districts. The majority map uses two. The minority map cuts the city into four pieces
+          (three holding at least 2% of its people), each attached to different outside territory. Splitting a community thin is called
           <em>cracking</em>.
         </li>
         <li>

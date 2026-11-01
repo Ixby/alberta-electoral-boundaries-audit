@@ -36,14 +36,14 @@ export const FLAGS: Flag[] = [
 		x: 50734.9,
 		y: -361975.1,
 		title: 'Airdrie — split four ways',
-		body: "Airdrie's growth and its commute to Calgary (about 76% of out-commuters) could have anchored a single new Airdrie-area seat — the kind the data supports. The minority instead splits the city across four ridings; the population math doesn't require it, and no submission proposed it. On the audit's cracking-signature test this four-way split meets every criterion — outside Airdrie East, which holds more than half the city, Airdrie's residents end up a minority — where the majority's two-way split shows none. This is a community split, invisible to the partisan-fairness tests; the audit measures the structural effect, not intent. (Academic §5.3.2.)"
+		body: "Airdrie's growth and its commute to Calgary (about 76% of out-commuters) could have anchored a single new Airdrie-area seat — the kind the data supports. The minority instead splits the city across four ridings; the population math doesn't require it, and no submission proposed it. On the audit's cracking-signature test this four-way split stops short of a formal signature: outside Airdrie East, which holds more than half the city, Airdrie's residents end up a minority, but the test needs them outnumbered in every piece. This is a community split, invisible to the partisan-fairness tests; the audit measures the structural effect, not intent. (Academic §5.3.2.)"
 	},
 	{
 		id: 'nolan-hill-cochrane',
 		x: 19244.3,
 		y: -373751.5,
 		title: 'Calgary-Nolan Hill–Cochrane',
-		body: "Cochrane's commute to Calgary could have justified pairing it with the city — but the 2021 journey-to-work data spreads that flow city-wide (about a third of workers; half work within Cochrane) and doesn't point to Nolan Hill. The minority's narrow corridor to the Nolan Hill ward — the shape the chair called a lasso — reaches further than the data, and no submission proposed it. The audit reads this as cracking-adjacent: it thins Cochrane's voice, but Cochrane (about 34,000) is too small for a seat of its own, so it stops short of a formal cracking sign. (Academic §5.3.2.)"
+		body: "Cochrane's commute to Calgary could have justified pairing it with the city — but the 2021 journey-to-work data spreads that flow city-wide (about a third of workers; half work within Cochrane) and doesn't point to Nolan Hill. The minority's narrow corridor to the Nolan Hill ward — the shape the chair called a lasso — reaches further than the data, and no submission proposed it. The audit's cracking test does not flag it: Cochrane stays whole and makes up about two-thirds of the riding, and at about 34,000 it is too small for a seat of its own. (Academic §5.3.2.)"
 	},
 	{
 		id: 'olds-airdrie-reach',

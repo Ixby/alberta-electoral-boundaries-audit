@@ -52,6 +52,8 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 
 **Score.** Majority: strong signal NOT detected. Minority: strong signal detected (by definition — minority is where they were originally identified). Sources: `analysis/scripts/electoral_forensics_population.py` (Calgary zone gap); `findings/geographic_coherence.md` (Airdrie partition, RMH-Banff Park shape).
 
+*Note (2026-11-01, correction C46).* The S1 cracking cell counts Airdrie's districts (≥ 4 EDs). On the official boundaries the minority's split is four districts by territory and three holding at least 2 % of the city's residents (the audit's piece rule), so the cell reads "yes" only by territory. The formal C1–C3 cracking signature of academic report §5.3.2 is not detected on the official boundaries: C2 fails because the minority's Airdrie-East is 89.6 % Airdrie (`data/outputs/cracking_signature_rescore_2026-11-01.json`). The S1 scoring itself is unchanged here.
+
 ### S2. New signatures appear
 
 **Criterion.** A map introduces packing or cracking patterns beyond what the minority had — Edmonton NDP areas packed, new urban communities cracked, more engineered rural boundaries.
