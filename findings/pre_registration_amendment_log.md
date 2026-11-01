@@ -408,7 +408,9 @@ The only prior information about the advisory panel's draft was a meme posted on
 
 #### I. `preregistration/seed_commitments.md` and `preregistration/README.md`
 
-**Part 26 — Errata.** The canonical ensemble has 1,010,000 plans, not 100,000. `seed_issue14.md` is the seed commitment for the Issue #14 counter-map challenge (OSF submission pending), not the canonical ensemble's. `seed_commitments.md` also calls qsgy8 the "MCMC seed" registration and says the specification is "mirrored" in it. Neither holds: qsgy8 (2026-05-06) holds a Phase 2 comparison and the prospective plan in Part 6, with a bootstrap seed (drand round 5500000, salt `lunty-bootstrap`), and it predates the specification. Registrations w2s8k, r3zm7, qsgy8, 6pt83, yvc7g and s58a6 each carry the same two plan files; the checklist and Amendments 1 and 4 are in registration 9wp5y.
+**Part 26 — Errata.** The canonical ensemble has 1,010,000 plans, not 100,000. `seed_issue14.md` is the seed commitment for the Issue #14 counter-map challenge (OSF submission pending), not the canonical ensemble's. `seed_commitments.md` also calls qsgy8 the "MCMC seed" registration and says the specification is "mirrored" in it. Neither holds: qsgy8 (2026-05-06) holds a Phase 2 comparison and the prospective plan in Part 6, with a bootstrap seed (drand round 5500000, salt `lunty-bootstrap`), and it predates the specification. Registrations w2s8k, r3zm7, qsgy8, 6pt83, yvc7g, s58a6 and he53s each carry the same two plan files (he53s's own plan is in its form); the checklist and Amendments 1 and 4 are in registration 9wp5y.
+
+`README.md` says every document not marked DRAFT "was committed before the corresponding data was examined". Several were written after some of their data had been examined, and each says so: `t3_2_majority_rural_isolation_design.md`; the SZAT registration 6pt83 (`seed_commitments.md`); Section A of `seed_robustness_rerun.md`; `null_hypotheses.md` §2.5; the retrospective column of `lane3_process_scorecard_draft.md`; and `thresholds.md`'s P1 and P2 (Part 20). The README's table calls `retraction_conditions.md` "Named conditions (G0–G5)"; it is read as "Named retraction conditions by finding (§§1–7)". The table also leaves out `osf_forest_recom_robustness.md` (OSF he53s), `t3_2_majority_rural_isolation_design.md` and the `evidence/` folder.
 
 #### J. `preregistration/osf_forest_recom_robustness.md` (OSF he53s)
 
@@ -421,9 +423,18 @@ The only prior information about the advisory panel's draft was a meme posted on
 
 The hypotheses, the ±5-percentile-point decision rule, the run size, the seeds and the output paths were executed as registered. All four metrics are Robust.
 
+Errata in the filed text, read as follows:
+- §6.2's quota is 2021 population ÷ 87, not ÷ 89.
+- No s.15(2) exception applies. The canonical run applies none (Part 1), so §4's "three statutorily-protected s.15(2) districts" and §6.2's "same s.15(2) special-district exceptions as the canonical run" do not describe it.
+- The start map is redrawn by `recursive_tree_part` when the 2019 map breaks the band, as it does on 2021 population (Part 1); §6.2's "2019 enacted 87-district map" is the start only when it fits.
+- §6.3's rejection of round 5500000 for the November test is in the specification's pin row in `seed_commitments.md`, not in "Amendment A §1".
+- §6.4's target of 200 per chain is not "a quarter of the canonical run's per-chain n_eff"; that n_eff is about 355–380.
+
 #### K. `reports/academic/report_academic.md` §6.2.6 (pre-committed falsifiers)
 
 **Part 28 — The premise of item 2 is struck.** The item no longer opens with "The 2019 cross-election direction reversal extends to 338Canada April 2026 polling". On the official 2019 files there is no reversal: the minority remains the more UCP-favourable map (ledger C44). The test stands as written: if more recent polling shows the direction flipping under several 2020s-era voter distributions, the structural pattern becomes harder to read as engineering. (Item 1 follows Part 22.)
+
+The registered documents are read the same way. On the official files the minority's efficiency gap is the more UCP-favourable on 2015, 2019 and 2023 votes (`thresholds.md` B.2.1.C table: +10.54% against +7.58%, −0.49% against −1.32%, +4.02% against +0.10%). "Direction reverses (2019 = +0.75 pp, 2023 = −0.51 pp)" (`null_hypotheses.md` §1.2 B3), "2019 flips" (§7.1 rows B2 and B3; §7.4) and "a direction reversal" (`thresholds.md` B.5.6) refer to the retired blend model.
 
 #### What this amendment does not change
 
