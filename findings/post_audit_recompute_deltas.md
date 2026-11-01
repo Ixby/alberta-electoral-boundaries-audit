@@ -19,7 +19,7 @@ type: project
 > for the minority once the operand swap is corrected; the transient first-canonical
 > reading is closer to median than either.
 >
-> See `findings/pre_registration_amendment_log.md` Amendment 5, Part 9 for the full
+> See `findings/pre_registration_amendment_log.md` Amendment 5, Part 9 for the
 > correction record.
 
 > **Backward:**
