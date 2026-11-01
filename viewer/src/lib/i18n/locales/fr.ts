@@ -1130,7 +1130,7 @@ export default {
 			c1_what: "<em>Ce qui est rétracté :</em> le constat structurel selon lequel la division d'Airdrie en quatre et les trois limites signalées par le président ne peuvent être expliquées par le rationnel de communauté d'intérêts déclaré par la minorité.",
 			c1_cond: "Condition : quelqu'un démontre qu'aucune carte légale de l'Alberta ne peut satisfaire aux propres raisons déclarées de la minoritaire — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — tout en s'ancrant sur les lignes municipales à des taux comparables à ceux de la majoritaire. Une contre-carte qui ferait les deux renforcerait plutôt le constat (amendement 27). Sur les limites officielles, cette condition est sans objet : les deux cartes s'ancrent déjà sur les lignes municipales au-delà de son seuil de 60 % (minoritaire 71,8 %, majoritaire 80,0 %). Défi ouvert à <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">l'Issue #14</a>.",
 			c2_title: "Condition 2 — La RÉUSSITE pré-enregistrée du Neighbour-Drain est inversée",
-			c2_what: "<em>Ce qui est retiré :</em> l'entrée de « Douille 10 » qui consigne la carte minoritaire comme une RÉUSSITE pré-enregistrée au test d'adjacence de drainage de voisinage.",
+			c2_what: "<em>Ce qui est retiré :</em> l'entrée de la Douille 10 qui consigne la carte minoritaire comme une RÉUSSITE pré-enregistrée au test d'adjacence de drainage de voisinage.",
 			c2_cond: "Condition : le score continu de drainage v2 tombe dans la queue supérieure extrême (p &lt; 0,05) des permutations aléatoires à travers le graphe de contiguïté fixe, ce qui signifie que la réussite était un artéfact de mesure de la méthode de notation binaire v1 plutôt qu'un véritable résultat nul.",
 			c3_title: "Condition 3 — Un document de commission antérieur à 2026 fait surface",
 			c3_what: "<em>Ce qui est rétracté :</em> l'inférence selon laquelle les choix de limites de la minorité étaient des décisions de rédaction plutôt que des réponses à des soumissions communautaires documentées.",
@@ -1479,5 +1479,70 @@ export default {
 		privacy_link_text: "politique de confidentialité",
 		back_to_report: "Retour au rapport",
 		back_to_map: "Retour à l’explorateur de carte"
+	},
+	pages: {
+		explainers: {
+			head_title: "Les quatorze fiches explicatives · Audit des limites électorales de l'Alberta",
+			head_description: "Quatorze courtes fiches explicatives — une par constat de l'Audit des limites électorales de l'Alberta : le fractionnement, l'entassement, les ensembles neutres, le sophisme du procureur, les conventions par opposition au droit, et plus encore.",
+			back: "← Retour à l'audit",
+			site_label: "Audit des limites électorales de l'Alberta",
+			h1: "Les quatorze fiches explicatives",
+			meta: "Annexes A à N · un concept chacune · en anglais seulement pour l'instant",
+			standfirst: "Chaque douille de l'audit renvoie à une annexe ici, et chaque annexe porte sur un seul concept. Elle part de la confusion honnête. Elle construit l'idée avec un exemple concret. Elle vous renvoie au chiffre de la douille, capable de le lire sans aide. Et elle se termine par ce que le concept <em>ne peut pas</em> vous dire. Lisez-les dans l'ordre que vous voulez.",
+			appendix_a: {
+				heading: "Annexe A — Ce que le « fractionnement » fait réellement à un vote",
+				confusion: "<em>La confusion :</em> « Les électeurs d'Airdrie votent toujours. Personne n'a pris leurs bulletins. Comment le tracé de lignes peut-il “diluer” quoi que ce soit ? »",
+				p1: "Imaginez une ville de 40 000 habitants qui vote surtout Orange, située dans une région qui vote surtout Bleu. Donnez à la ville sa propre circonscription, avec son propre siège à l'assemblée législative, et elle élit un MLA Orange : 40 000 personnes, un siège, une voix. Maintenant, découpez la ville en quatre morceaux et agrafez chacun à un pan de campagne Bleue. Dans chaque nouvelle circonscription, les 10 000 électeurs de la ville font face à 30 000 électeurs ruraux. Orange perd les quatre. Mêmes électeurs, mêmes bulletins, zéro siège. Rien n'a été volé à un électeur en particulier. Ce qui a été enlevé, c'est la capacité de la <em>communauté</em> à élire qui que ce soit. C'est cela, le fractionnement. Son reflet est l'entassement (annexe C) : concentrer un groupe dans le moins de circonscriptions possible, pour qu'il les gagne par des raz-de-marée et rien d'autre.",
+				p2: "Relisez maintenant le constat 1 : 85 805 personnes, quatre circonscriptions, minoritaires dans trois d'entre elles. L'autre ébauche de la même commission montre que deux circonscriptions suffisaient pour respecter la loi.",
+				limit: "<em>La limite :</em> le fractionnement décrit un effet, pas un motif. Une division peut se produire parce que quelqu'un voulait diluer. Elle peut aussi se produire parce que d'autres contraintes encombraient la carte. La géométrie seule ne peut pas dire laquelle.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Retour au constat 1</a>"
+			},
+			appendix_b: {
+				heading: "Annexe B — L'analyse des formes, et à quoi sert la protection de l'art. 15(2)",
+				confusion: "<em>La confusion :</em> « Toutes les circonscriptions électorales ont l'air bizarres. Pourquoi ces trois formes comptent-elles ? »",
+				p1: "Les circonscriptions suivent la géographie ; des formes irrégulières sont donc normales. L'analyse des formes cherche un <em>travail</em> : une limite qui fait quelque chose qu'aucune contrainte ordinaire n'explique. Un corridor qui attrape au lasso un quartier pour le rattacher à une circonscription éloignée. Un bras qui s'avance dans la bordure d'une ville. Une ligne prolongée à travers un territoire où personne ne vit. La loi albertaine comporte une disposition spéciale, l'article 15(2), qui permet à jusqu'à quatre circonscriptions de descendre sous le plancher normal de population. Elle a été écrite pour des circonscriptions éloignées aux liens communautaires forts, comme les circonscriptions du Nord qui desservent des communautés autochtones sur de vastes distances. Prolonger une limite à travers un parc national inhabité pour qu'une circonscription se qualifie pour cette protection, c'est ce que le propre président de la commission a appelé « un effort de mauvaise foi » : une règle écrite pour des gens qui vivent loin les uns des autres, utilisée pour protéger une ligne là où personne ne vit.",
+				p2: "Relisez maintenant le constat 2 : trois formes, signalées par le propre président du processus, confirmées de façon indépendante par des tests qui n'avaient aucun intérêt dans son combat.",
+				limit: "<em>La limite :</em> une forme étrange est une question, pas une réponse. L'une de ces formes repose sur une logique réelle et crédible : le regroupement du lotissement urbain de Banff avec Canmore. L'objection du président y survit malgré tout. Elle visait le prolongement dans le parc vide, et ce regroupement n'y touche pas.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Retour au constat 2</a>"
+			},
+			appendix_c: {
+				heading: "Annexe C — L'entassement, dans un exemple-jouet à trois circonscriptions",
+				confusion: "<em>La confusion :</em> « Les grandes circonscriptions ont plus d'électeurs. Et alors ? Chacun a toujours un vote. »",
+				p1: "Prenez 12 000 électeurs, 7 000 Orange et 5 000 Bleus, répartis en trois circonscriptions de 4 000. Tracez-les de façon égale, et Orange gagne les trois. Maintenant, redessinez. Entassez 4 000 électeurs Orange dans une seule circonscription (Orange la gagne 100–0). Répartissez les 3 000 Orange restants entre deux circonscriptions de 4 000, où les 5 000 Bleus lui donnent l'avantage dans les deux. Mêmes 12 000 électeurs, même majorité Orange de 7 000. Orange détient maintenant un siège et Bleu en détient deux. C'est cela, l'entassement : les votes de vos adversaires sont entreposés là où ils s'accumulent en surplus, gaspillés dans des marges dont ils n'avaient pas besoin. L'indice, c'est la <em>taille et la concentration</em> des circonscriptions. Celles des adversaires sont grandes et profondes. Les vôtres sont légères et efficaces.",
+				p2: "Relisez maintenant le constat 3 : dans la seule zone de Calgary où 13 des 17 circonscriptions votent NDP, les circonscriptions de la minorité dépassent de 11,5 % la moyenne provinciale. Celles de la majorité, tracées dans la même salle, de 2,8 %.",
+				limit: "<em>La limite :</em> des circonscriptions surdimensionnées peuvent aussi venir d'estimations honnêtes de la croissance, ou de la volonté de garder une communauté entière. L'asymétrie de taille est la signature que laisse l'entassement. Plusieurs choix innocents la laissent aussi.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Retour au constat 3</a>"
+			},
+			appendix_d: {
+				heading: "Annexe D — Ce que mesure l'EAM, et pourquoi la bande existe",
+				confusion: "<em>La confusion :</em> « L'écart absolu moyen de la population — est-ce simplement une statistique pour dire que “les circonscriptions ne sont pas identiques” ? »",
+				p1: "Presque. Les circonscriptions ne peuvent pas toutes compter exactement le même nombre de personnes ; les communautés ont des tailles peu commodes. L'EAM pose une question simple : en moyenne, à quelle distance chaque circonscription s'éloigne-t-elle de la part idéale ? Un EAM de 3 180 signifie que les circonscriptions s'écartent de l'idéal d'environ 3 180 personnes en moyenne. Un EAM de 4 707 signifie que les écarts sont en moyenne moitié plus grands. La loi tolère ces écarts, à l'intérieur d'une bande (l'Alberta permet ±25 %), parce que respecter de vraies communautés vaut un peu d'inégalité. C'est le marché. L'écart est la monnaie, et on la dépense pour acheter des choses comme des villes entières et des limites sensées. C'est ce qui donne tout son sens au constat 4 : la carte minoritaire dépense 48 % de plus de cette monnaie que la majoritaire. Et le constat 1 montre qu'elle <em>n'a pas</em> acheté avec elle l'intégrité d'Airdrie.",
+				p2: "Relisez maintenant le constat 4 : un écart plus large que 99 cartes neutres sur 100 (des cartes qu'un ordinateur a tracées sans voir un seul vote ; annexe F), sur la seule valeur que la loi quantifie réellement.",
+				limit: "<em>La limite :</em> la loi ne classe rien à l'intérieur de la bande. « A dépensé plus d'écart » est une observation sur les priorités, pas une violation. Chaque circonscription des deux cartes est légale.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Retour au constat 4</a>"
+			},
+			appendix_e: {
+				heading: "Annexe E — Ce que mesure l'ancrage municipal, et ce qu'il ne peut pas montrer",
+				confusion: "<em>La confusion :</em> « Pourquoi compter à quelle fréquence une limite suit une limite de ville ou de municipalité ? »",
+				p1: "Parce que c'est là que les gens savent déjà où ils vivent. Quand une limite de circonscription longe une limite municipale, la ligne de l'impôt foncier, celle de la division scolaire, celle du quartier électoral municipal et celle de l'élection provinciale coïncident. Un électeur peut savoir dans quelle circonscription il se trouve sans carte. Le test mesure quelle part de la longueur des limites de circonscription de chaque carte passe à moins de 500 mètres d'une limite municipale de Statistique Canada. Les commissions canadiennes se situent entre 70 % et 85 % sur cette mesure (Québec 78 %, Ontario 82 %, C.-B. 71 %). La carte majoritaire obtient 80 %. La minoritaire obtient 72 %. Les deux se situent dans la norme ; sur les taux globaux, le test ne les distingue donc pas.",
+				p2: "Relisez maintenant le constat 5 : le taux global est ordinaire sur les deux cartes. Ce qui ressort, c'est l'endroit où tombent les écarts de la minorité : aux bordures que le président a signalées.",
+				limit: "<em>La limite :</em> le taux d'ancrage est une norme, pas une règle. La Loi ne fixe aucun seuil. Et un écart peut avoir une bonne raison, comme une banlieue qui s'est étendue au-delà d'une limite municipale.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Retour au constat 5</a>"
+			},
+			appendix_f: {
+				heading: "Annexe F — La machine à hypothèses, et comment lire un centile",
+				confusion: "<em>La confusion :</em> « Un million de cartes d'ordinateur ? Un centile d'une simulation ? Qu'est-ce que cela peut bien vouloir dire ? »",
+				p1: "On ne peut pas juger si une carte est inhabituelle sans savoir à quoi ressemble l'habituel. Pour les cartes électorales, personne ne voit les solutions de rechange. L'audit les a donc construites. Un algorithme part d'une carte légale et effectue une longue chaîne de modifications légales aléatoires. Fusionner deux circonscriptions voisines. Les rediviser d'une façon valide choisie au hasard. Recommencer : 252 500 fois, dans quatre chaînes indépendantes, 1 010 000 cartes en tout. Aucune donnée de vote n'est consultée pendant le tracé. La machine ne peut favoriser personne parce qu'elle ne voit personne, et c'est ce que « neutre » veut dire ici. Ensuite, on prend la vraie carte, on la mesure et on demande : sur le million de cartes neutres, combien obtiennent un score aussi élevé ? Si 500 000 le font, votre carte est ordinaire. Si 69 le font, votre carte est le genre de carte que le tracé neutre produit 69 fois en 1 010 000 essais.",
+				p2: "Relisez maintenant le constat 6 : la carte majoritaire au 78e centile — ordinaire. La minoritaire au 99,99e — 69 sur 1 010 000 obtiennent un score plus élevé.",
+				limit: "<em>La limite :</em> la machine respecte la population et la contiguïté (chaque circonscription d'un seul tenant), mais pas toutes les subtilités légales qu'une vraie commission prend en considération. Ses centiles mesurent donc la distance par rapport au <em>tracé neutre</em>, et non par rapport à <em>tout ce qu'une commission respectueuse de la loi pourrait faire</em>. Et un centile est une distance, pas un verdict.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-6\">↩ Retour au constat 6</a>"
+			},
+			appendix_g: {
+				heading: "Annexe G — L'écart d'efficacité, dans un exemple chiffré",
+				confusion: "<em>La confusion :</em> « Un seul chiffre qui saisit le découpage partisan ? Cela semble trop commode. »",
+				p1: "Ça l'est, un peu. C'est pourquoi il a un seuil, et un échec, dans ce rapport. L'idée : chaque vote qui n'aide pas à gagner un siège est « gaspillé ». Cela comprend tous les votes exprimés pour des perdants, plus les votes des gagnants au-delà des 50 % plus un dont ils avaient besoin. Dans une carte équitable, les deux partis gaspillent à peu près autant. L'écart d'efficacité est la différence de votes gaspillés, en proportion de tous les votes. Supposons qu'Orange gagne une circonscription de 100 votes par 90–10. Orange a gaspillé 39 votes, son surplus au-delà de 51. Bleu en a gaspillé 10, tous des votes pour le perdant. Les cartes entassées et fractionnées font gaspiller systématiquement plus à un parti. Selon la convention de signe de ce rapport, les écarts positifs favorisent les conservateurs. La ligne de calibrage de l'audit pour l'Alberta (~4,1 %) est le niveau que seules 5 % du million de cartes neutres franchissent.",
+				p2: "Relisez maintenant le constat 7 : la minorité à +4,0 %, 94,5e centile. C'est sous la ligne pré-enregistrée de l'audit, verrouillée publiquement à l'avance, et c'est rapporté comme l'échec que c'est."
+			}
+		}
 	}
 } as const;
