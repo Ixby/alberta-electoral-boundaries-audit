@@ -1736,5 +1736,482 @@ export default {
 		privacy_link_text: 'privacy policy',
 		back_to_report: 'Back to the report',
 		back_to_map: 'Back to the map explorer'
+	},
+	// Reader-facing prose of the standalone pages (explainers, methods, norms,
+	// law, privacy policy) and the main page's reference list. Strings that
+	// carry markup are rendered with {@html}; __BASE__ is replaced with the
+	// deploy base path at render time.
+	pages: {
+		explainers: {
+			head_title: 'The Fourteen Explainers · Alberta Electoral Boundary Audit',
+			head_description: "Fourteen short explainers — one per finding in the Alberta Electoral Boundary Audit: cracking, packing, neutral ensembles, the prosecutor's fallacy, conventions versus law, and more.",
+			back: '← Back to audit',
+			site_label: 'Alberta Electoral Boundary Audit',
+			h1: 'The Fourteen Explainers',
+			meta: 'Appendices A–N · one concept each · English only for now',
+			standfirst: "Each casing in the audit links to one appendix here, and each appendix owns exactly one concept. It starts from the honest confusion. It builds the idea with one concrete example. It sends you back to the casing's number able to read it unaided. And it ends with what the concept <em>cannot</em> tell you. Read them in any order.",
+			appendix_a: {
+				heading: 'Appendix A — What "cracking" actually does to a vote',
+				confusion: '<em>The confusion:</em> "Airdrie voters still vote. Nobody took their ballots. How does drawing lines \'dilute\' anything?"',
+				p1: "Imagine a town of 40,000 that mostly votes Orange, sitting in a region that mostly votes Blue. Give the town its own riding, a district with its own seat in the Legislature, and it elects an Orange MLA: 40,000 people, one seat, a voice. Now slice the town into four pieces and staple each piece to a chunk of Blue countryside. In each new riding the town's 10,000 voters face 30,000 rural voters. Orange loses all four. Same voters, same ballots, zero seats. Nothing was stolen from any single voter. What was taken is the <em>community's</em> ability to elect anyone. That is cracking. Its mirror move is packing (Appendix C): stuff a group into as few ridings as possible, so it wins those by landslides and nothing else.",
+				p2: "Now re-read finding 1: 85,805 people, four ridings, a minority in three of them. The same commission's other draft shows two ridings were enough to satisfy the law.",
+				limit: '<em>The limit:</em> cracking describes an effect, not a motive. A split can happen because someone wanted dilution. It can also happen because other constraints crowded the map. The geometry alone cannot say which.',
+				back_anchor: '<a href="__BASE__/evidence#casing-1">↩ Back to finding 1</a>'
+			},
+			appendix_b: {
+				heading: 'Appendix B — Shape analysis, and what s.15(2) protection is for',
+				confusion: '<em>The confusion:</em> "All electoral districts look weird. Why do these three shapes matter?"',
+				p1: 'Districts follow geography, so lumpy is normal. Shape analysis looks for <em>work</em>: a boundary doing something no ordinary constraint explains. A corridor that lassoes one neighbourhood into a distant district. An arm reaching into a city\'s edge. A line extended through land where nobody lives. Alberta\'s law has a special provision, section 15(2), that lets up to four districts fall below the normal population floor. It was written for remote districts with strong community ties, like northern ridings serving Indigenous communities across vast distances. Extending a boundary through uninhabited national park so a district qualifies for that protection is what the commission\'s own chair called "a bad faith effort": a rule written for people who live far apart, used to protect a line where no one lives at all.',
+				p2: "Now re-read finding 2: three shapes, flagged by the process's own chair, independently confirmed by tests that had no stake in his fight.",
+				limit: "<em>The limit:</em> a strange shape is a question, not an answer. One of these shapes has a real, creditable logic underneath: the Banff townsite's placement with Canmore. The chair's objection survives it anyway. It was aimed at the empty-park extension, and the placement does not touch that.",
+				back_anchor: '<a href="__BASE__/evidence#casing-2">↩ Back to finding 2</a>'
+			},
+			appendix_c: {
+				heading: 'Appendix C — Packing, in a three-district toy example',
+				confusion: '<em>The confusion:</em> "Bigger districts have more voters. So what? Everyone still gets one vote."',
+				p1: "Take 12,000 voters, 7,000 Orange and 5,000 Blue, split into three districts of 4,000. Draw them evenly and Orange wins all three. Now redraw. Cram 4,000 Orange voters into one district (Orange wins it 100–0). Spread the remaining 3,000 Orange across two districts of 4,000, where Blue's 5,000 give it the edge in both. Same 12,000 voters, same 7,000 Orange majority. Now Orange holds one seat and Blue holds two. That is packing: your opponents' votes get warehoused where they pile up as surplus, wasted on margins they didn't need. The tell is district <em>size and concentration</em>. Opponents' districts run big and deep. Yours run lean and efficient.",
+				p2: "Now re-read finding 3: in the one Calgary zone where 13 of 17 districts vote NDP, the minority's districts run 11.5% over the provincial average. The majority's, drawn in the same room, run 2.8%.",
+				limit: '<em>The limit:</em> oversized districts can also come from honest guesses about growth, or from keeping a community whole. Size asymmetry is the signature packing leaves. Several innocent choices leave it too.',
+				back_anchor: '<a href="__BASE__/evidence#casing-3">↩ Back to finding 3</a>'
+			},
+			appendix_d: {
+				heading: 'Appendix D — What MAD measures, and why the band exists',
+				confusion: '<em>The confusion:</em> "Population Mean Absolute Deviation — is this just statistics for \'the districts aren\'t identical\'?"',
+				p1: "Almost. Districts can't all hold exactly the same number of people; communities come in awkward sizes. MAD asks a plain question: on average, how far does each district stray from the ideal share? A MAD of 3,180 means districts miss the ideal by about 3,180 people on average. A MAD of 4,707 means the misses average half again larger. The law tolerates straying, inside a band (Alberta allows ±25%), because respecting real communities is worth some inequality. That's the bargain. Deviation is the currency, and you spend it to buy things like whole towns and sensible boundaries. That is what gives finding 4 its point: the minority map spends 48% more of that currency than the majority. And finding 1 shows it <em>didn't</em> buy Airdrie's wholeness with it.",
+				p2: 'Now re-read finding 4: wider spread than 99 of every 100 neutral maps (maps a computer drew without seeing a single vote; Appendix F), on the one value the statute actually quantifies.',
+				limit: '<em>The limit:</em> the law ranks nothing inside the band. "Spent more deviation" is an observation about priorities, not a violation. Every district on both maps is legal.',
+				back_anchor: '<a href="__BASE__/evidence#casing-4">↩ Back to finding 4</a>'
+			},
+			appendix_e: {
+				heading: "Appendix E — What municipal anchoring measures, and what it can't show",
+				confusion: '<em>The confusion:</em> "Why count how often a boundary follows a city or town line?"',
+				p1: "Because that is where people already know they live. When a district boundary runs along a municipal boundary, the property-tax line, the school-division line, the local ward line and the provincial-election line coincide. A voter can tell which district they are in without a map. The test measures how much of each map's district boundary length runs within 500 metres of a Statistics Canada municipal boundary. Canadian commissions land between 70% and 85% on that measure (Quebec 78%, Ontario 82%, BC 71%). The majority map scores 80%. The minority scores 72%. Both sit inside the norm, so on overall rates the test does not separate them.",
+				p2: "Now re-read finding 5: the overall rate is ordinary on both maps. What stands out is where the minority's departures fall: at the edges the chair flagged.",
+				limit: '<em>The limit:</em> the anchoring rate is a norm, not a rule. The Act sets no threshold. And a departure can have a good reason, such as a suburb that has grown across a city limit.',
+				back_anchor: '<a href="__BASE__/evidence#casing-5">↩ Back to finding 5</a>'
+			},
+			appendix_f: {
+				heading: 'Appendix F — The what-if machine, and how to read a percentile',
+				confusion: '<em>The confusion:</em> "A million computer maps? A percentile of a simulation? What does that even mean?"',
+				p1: 'You can\'t judge whether a map is unusual without knowing what usual looks like. For electoral maps, nobody gets to see the alternatives. So the audit built them. An algorithm starts from a legal map and makes a long chain of random legal edits. Merge two neighbouring districts. Re-split them a random valid way. Repeat: 252,500 times over, in four independent chains, 1,010,000 maps in all. No vote data is consulted while drawing. The machine cannot favour anyone because it cannot see anyone, and that is what "neutral" means here. Then you take the real map, measure it, and ask: out of the million neutral maps, how many score this high? If 500,000 do, your map is ordinary. If 69 do, your map is the kind of map neutral drawing produces 69 times in 1,010,000 tries.',
+				p2: 'Now re-read finding 6: the majority map at the 78th percentile — ordinary. The minority at the 99.99th — 69 in 1,010,000 score higher.',
+				limit: '<em>The limit:</em> the machine respects population and contiguity (each district a single connected piece), but not every statutory nicety a real commission weighs. So its percentiles measure distance from <em>neutral drawing</em>, not from <em>everything a lawful commission might do</em>. And a percentile is a distance, not a verdict.',
+				back_anchor: '<a href="__BASE__/evidence#casing-6">↩ Back to finding 6</a>'
+			},
+			appendix_g: {
+				heading: 'Appendix G — The efficiency gap, in one worked example',
+				confusion: '<em>The confusion:</em> "One number that captures gerrymandering? That sounds too convenient."',
+				p1: 'It is, slightly. That is why it gets a threshold, and a miss, in this report. The idea: every vote that doesn\'t help win a seat is "wasted." That means all votes cast for losers, plus winners\' votes beyond the 50%-plus-one they needed. In a fair map both parties waste about equally. The efficiency gap is the difference in wasted votes, as a share of all votes. Suppose Orange wins a 100-vote district 90–10. Orange wasted 39, its surplus beyond 51. Blue wasted 10, all of them votes for the loser. Packed and cracked maps make one party waste systematically more. In this report\'s sign convention, positive gaps favour conservatives. The audit\'s Alberta calibration line (~4.1%) is the level only 5% of the million neutral maps cross.',
+				p2: "Now re-read finding 7: minority at +4.0%, 94.5th percentile. That is below the audit's own pre-registered line, locked in public in advance, and it is reported as the miss it is.",
+				limit: "<em>The limit:</em> the efficiency gap compresses a whole map into one number, and one number can't tell a gerrymander from lumpy geography. That's why this audit uses four metrics and a locked threshold. And it keeps the miss on the books.",
+				back_anchor: '<a href="__BASE__/evidence#casing-7">↩ Back to finding 7</a>'
+			},
+			appendix_h: {
+				heading: "Appendix H — The prosecutor's fallacy, in plain language",
+				confusion: '<em>The confusion:</em> "One in 568,000 that this map is innocent. That\'s the finding, right?"',
+				p1: 'No, and the difference matters enough to have a name. The number says this: <em>if</em> a neutral process drew Alberta\'s map, the chance it would look like the minority map is at most one in 568,000. That is P(this evidence, given innocence). It is not P(innocence, given this evidence). Swapping them is the prosecutor\'s fallacy. The classic example: a suspect matches a DNA profile found at a scene, and the profile occurs in one in a million people. "One in a million chance he\'s innocent"? Wrong. In a city of ten million, about ten people match. On the DNA alone, the suspect is one of ten — a 90% chance <em>someone else</em> is the source. The rarity of the evidence under innocence is not the probability of innocence. You also need to know how many innocent ways the evidence could arise.',
+				p2: 'Now re-read finding 8: the audit states the number it can defend — the rarity of the map under neutral drawing — and refuses the swap that would turn it into a verdict.',
+				limit: '<em>The limit:</em> refusing the fallacy costs the audit its most quotable sentence, and that cost is deliberate. Rarity is evidence. It is not, and never becomes, proof of intent.',
+				back_anchor: '<a href="__BASE__/evidence#casing-8">↩ Back to finding 8</a>'
+			},
+			appendix_i: {
+				heading: 'Appendix I — What a sampler is, and why swapping it matters',
+				confusion: '<em>The confusion:</em> "You checked your simulation with… another simulation? How is that a check?"',
+				p1: "Because the two machines are built differently, and artifacts (results made by a machine's quirks rather than by the map) don't usually survive a change of machinery. Any map-drawing algorithm has quirks. The standard one, ReCom, has a documented lean toward compact, tidy districts, which could in principle exaggerate how extreme a sprawling real map looks. So the audit swapped the engine. The variant grows districts from random spanning <em>forests</em> instead of trees, with measurably different internal behaviour. It was registered publicly (OSF he53s) before a single map was drawn with it, and its seeds were derived from a public randomness beacon anyone can verify. If the minority's tail position were an artifact of the first engine's quirks, the second engine would move it. It moved less than one percentile point on every metric: a pre-registered ROBUST verdict. The audit also reports the check that <em>failed</em>. The claim that Act I's flagged geometry is the specific mechanism behind the seat numbers did not survive testing, and was dropped.",
+				p2: 'Now re-read finding 9: three attacks, two survived, one claim honestly lost.',
+				limit: '<em>The limit:</em> robustness rules out tooling artifacts. It cannot rule in design. A genuinely extreme map is genuinely extreme, whatever produced it.',
+				back_anchor: '<a href="__BASE__/evidence#casing-9">↩ Back to finding 9</a>'
+			},
+			appendix_j: {
+				heading: 'Appendix J — Why neighbours voting alike breaks naive statistics',
+				confusion: '<em>The confusion:</em> "A test gave p = 0.0024 and you threw it away? That looks like hiding a result."',
+				p1: "The opposite: it's correcting one. Many tests assume observations are independent, like separate coin flips. Voting areas aren't. Neighbouring areas share demographics, incomes, histories. They vote alike. Treating 100 clustered areas as 100 independent flips is really more like 20 informative observations wearing 100 coats, and it makes coincidences look impossible when they're merely uncommon. The fix is to build a null (a picture of what chance alone would produce) that preserves the clustering. Shuffle <em>blocks</em> of neighbouring areas together rather than each area separately, and ask the question again. The audit's swing-zone test looked significant under the naive null (p = 0.0024) and unremarkable under the corrected one (p ≈ 0.19). When the honest null disagrees with the flattering one, you keep the honest null. And you retire the result.",
+				p2: "Now re-read finding 10: two of the audit's own instruments retired, one pre-registered test the minority map outright passed.",
+				limit: "<em>The limit:</em> the correction shows the <em>boundary-choice</em> signal doesn't stand. It says nothing against the ensemble findings from the computer-drawn maps, which never assumed independence in the first place.",
+				back_anchor: '<a href="__BASE__/evidence#casing-10">↩ Back to finding 10</a>'
+			},
+			appendix_k: {
+				heading: 'Appendix K — How to check a stated reason against public data',
+				confusion: '<em>The confusion:</em> "Commissioners are the experts. Who is an audit to grade their reasons?"',
+				p1: 'Nobody special, and that\'s the point: the check requires no special access. The minority report says Cochrane residents "move fluidly" into Calgary. Statistics Canada\'s journey-to-work tables (free, public) show about a third of Cochrane\'s workers commute into Calgary, while roughly half work in Cochrane. A real tie, and one that says nothing about the specific Nolan Hill corridor drawn. The report implies shared schools link Red Deer and Sylvan Lake. The two towns\' school-division boundaries (also public) put them in different divisions. Each check follows the same recipe. Take the stated reason. Find the public dataset that would show it. See whether the <em>particular line drawn</em> is the line the data supports. Five of six checked rationales fail that last step. The tie is real; the line is not the one the tie points to.',
+				p2: "Now re-read finding 11. Notice that the audit dropped one of its own seven draft claims by the same standard, when the source couldn't be located.",
+				limit: "<em>The limit:</em> a rationale that fails checking proves the <em>stated</em> reason doesn't fit. It cannot reveal the real one. Sloppiness and pretext leave identical paperwork.",
+				back_anchor: '<a href="__BASE__/evidence#casing-11">↩ Back to finding 11</a>'
+			},
+			appendix_l: {
+				heading: 'Appendix L — How commissioners are appointed, and what nomination implies',
+				confusion: '<em>The confusion:</em> "Government-nominated commissioners drew the government-favouring map. Case closed, surely?"',
+				p1: "Alberta's commission is built from nominations: a chair, plus commissioners nominated from government and opposition sides. The design assumes partisan perspectives and balances them. It bets that a mixed room converges on one defensible map. For decades the bet paid: commissions signed consensus reports. This cycle the room split along its nomination lines, and the government's nominees produced the statistical outlier. That correlation is real and worth recording. It is also exactly where the inference must stop. Nominated commissioners are not agents. No evidence in this audit's record shows the government directed, coordinated with, or even knew the shape of its nominees' map before filing. History is full of nominees who disappointed their nominators. The correlation invites a question. It cannot answer it. And the audit's instruments cut against the chair's side too when the data went that way. That is what symmetric measurement means.",
+				p2: 'Now re-read finding 12: the split is the anomaly; the provenance, who nominated whom, is the question mark, not the answer.',
+				limit: '<em>The limit:</em> appointment provenance is context, never proof. Treating it as proof is the same fallacy as Appendix H, wearing a political coat.',
+				back_anchor: '<a href="__BASE__/evidence#casing-12">↩ Back to finding 12</a>'
+			},
+			appendix_m: {
+				heading: "Appendix M — The Act's process, commission to committee, end to end",
+				confusion: '<em>The confusion:</em> "How can the legislature just… take over redistricting? Isn\'t the commission\'s map the map?"',
+				p1: "No. This is the load-bearing surprise of the whole episode. Under Alberta's <em>Electoral Boundaries Commission Act</em>, the commission proposes; only the Legislative Assembly disposes. The commission's final report — hearings, submissions, revisions and all — is advice. It has no legal effect until the Assembly enacts a map. And the Act places no constraints on what the Assembly does instead: no minimum debate, no notice period, no obligation to prefer the commission's work, no hearing requirement for whatever process follows. Nothing in the Act stops the Assembly from sending the work elsewhere. That is what Government Motion 37 did, sending it to a select committee. Select committees of the Assembly are composed of MLAs, so the choice of vehicle itself excluded independence. Lawfully. In every cycle since the Act was amended in 1995, the Assembly's restraint, not the statute, was what kept politicians' hands off the pen. In 1992 it did not. A committee of MLAs drew the map, and in 1994 the Court of Appeal faulted that committee for being unable to explain several of its boundaries.",
+				p2: 'Now re-read finding 13: sixteen communities of hearings replaced by a body required to hold none. All of it inside the Act.',
+				limit: '<em>The limit:</em> this appendix explains what the law permits. Whether what the law permits is what Albertans should accept is a political question — the one the November tests are built to inform.',
+				back_anchor: '<a href="__BASE__/evidence#casing-13">↩ Back to finding 13</a>'
+			},
+			appendix_n: {
+				heading: 'Appendix N — Conventions versus law, and how norms erode',
+				confusion: '<em>The confusion:</em> "If politicians drawing their own districts violates our deepest electoral norm, how can it be legal?"',
+				p1: "Because Canada's constitution runs on two operating systems. One is law: written, justiciable (a court can rule on it), enforced by courts. The other is convention: unwritten rules of political behaviour, binding in practice, invisible to a courtroom. The Supreme Court described the divide in the 1981 Patriation Reference. Courts may <em>recognize</em> a convention and will still decline to <em>enforce</em> it, because conventions are policed politically — by opposition, press, and voters — not judicially. Independent boundary commissions live on the convention side. Sixty years of practice, in every province and federally, built the rule that politicians do not draw their own ridings. No statute anywhere makes that rule mandatory. So the guardrail's entire strength was that governments kept choosing to honour it. A norm violated once, without consequence, is weaker for every government that follows. Of any party.",
+				p2: 'Now re-read finding 14: real violation, fully documented, judicially irrelevant — all three at once.',
+				limit: '<em>The limit:</em> "unenforceable" is a statement about courts, not about consequences. Conventions are enforced at elections, by people who know what was done. Reports like this one exist so they know.',
+				back_anchor: '<a href="__BASE__/evidence#casing-14">↩ Back to finding 14</a>'
+			},
+			footer_note: 'Content mirrors the appendices of the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md" rel="noopener">full public report</a>. English only for now, pending author review before translation.'
+		},
+		methods: {
+			head_title: 'How the Maps Were Tested · Alberta Electoral Boundary Audit',
+			head_description: 'Every test and statistic in the audit, explained in plain language: the million-map what-if machine, the five structural tests, the four fairness measures, p-values, and the tests that died.',
+			back: '← Back to audit',
+			site_label: 'Alberta Electoral Boundary Audit',
+			h1: 'How the Maps Were Tested',
+			meta: 'Every test and every statistic, in plain language · English only for now · Every number reproducible from the public repository',
+			standfirst: 'The whole audit rests on one simple idea. Want to know whether a map is unusual? Draw a million maps that could not be biased. A computer draws them, and it never sees a single vote. Then check where the real maps land among them. This page walks through that idea and every test built on it. No formulas. If you can read a weather forecast, you can read this.',
+			toc: {
+				aria: 'Page contents',
+				what_if: 'The what-if machine',
+				percentile: 'How to read a percentile',
+				structural: 'The five structural tests',
+				fairness: 'The four fairness measures',
+				odds: 'What the odds mean',
+				died: 'The tests that died',
+				break: 'Trying to break our own result',
+				prereg: 'Promises made in advance',
+				reproduce: 'Run it yourself'
+			},
+			what_if: {
+				heading: 'The what-if machine: 1,010,000 neutral maps',
+				p1: 'A computer drew <strong>1,010,000 legal Alberta maps</strong>. Each one follows the same two hard rules the real commission followed: every district holds close to the same number of people (within 25% of the average), and every district is one connected piece.',
+				p2: 'How does a computer draw a map? One small step at a time. Take two districts that share a border. Merge them into one blob. Split the blob back into two new legal districts, at random. Repeat, 1,010,000 times, saving the map after each step. The method is called ReCom, and it is the standard tool in this field.',
+				p3: "The key fact: <strong>the computer never sees a vote.</strong> It does not know where NDP or UCP voters live. So if a neutral map still leans one way, that lean comes from Alberta's geography alone. And if a real map leans much further than nearly all the neutral ones, geography can no longer be the explanation.",
+				p4: 'Four honesty points about the machine:',
+				li1: '<strong>The dice were rolled in public.</strong> The random seed (the starting number behind every random choice) was not picked by the author. It comes from a public randomness beacon ("drand", run by the League of Entropy, a group that includes Cloudflare), like a lottery draw broadcast live. It was locked in before the official map files existed. Anyone can recompute it.',
+				li2: '<strong>Four separate runs agree.</strong> The million maps came from four independent runs, each starting differently. All four settled on the same picture. The standard checks for this (used across the field) pass with room to spare.',
+				li3: '<strong>A note on seat counts.</strong> The 2026 commission maps have 89 districts each. The simulation runs on the 87-district 2019 map, the last legally enacted one, because the algorithm needs a real map to start walking from. The November committee will produce 91. Every percentage on this site is a seat <em>share</em>, so the numbers compare cleanly across all three sizes.',
+				li4: "<strong>The machine is not a perfect referee.</strong> It follows the two hard rules, but not every soft rule real commissions honour, like keeping communities together. Real commission maps are actually tidier than most neutral maps. The audit says this plainly everywhere the machine's numbers appear."
+			},
+			percentile: {
+				heading: 'How to read a percentile',
+				p1: 'Line up all 1,010,000 neutral maps from least UCP-leaning to most UCP-leaning. Now place a real map in the line. Its <strong>percentile</strong> is just its position: "78th percentile" means it leans further than 78 out of every 100 neutral maps. That is unremarkable: a bit above the middle of the pack.',
+				p2: '"99.99th percentile" is different. It means the map out-leans virtually every neutral map in the line — in this audit, all but <strong>69 of the 1,010,000</strong>. Height works the same way. A man at the 78th percentile is a bit tall. A man at the 99.99th percentile stands about seven feet.'
+			},
+			structural: {
+				heading: 'The five structural tests (no votes needed)',
+				p1: 'Before any simulation, the audit measured the drawn lines themselves. Five tests, all locked in before the results were known. Each compares the two commission maps directly.',
+				li1: "<strong>1. Population spread.</strong> How far do districts drift from the ideal size? On the commission's own tables, the majority map's typical drift is 3,180 people. The minority map's is 4,707, about half again wider. Wider drift means votes count less equally.",
+				li2: "<strong>2. Calgary crowding.</strong> In north-east and central Calgary, the minority map's districts run 11.5% bigger than the provincial average. The majority's run 2.8% bigger. Bigger districts mean each vote inside them weighs less. And this zone votes heavily NDP. The pattern is called <em>packing</em>.",
+				li3: '<strong>3. The Airdrie split.</strong> The law forces Airdrie into at least two districts. The majority map uses two. The minority map cuts the city into four pieces (three holding at least 2% of its people), each attached to different outside territory. Splitting a community thin is called <em>cracking</em>.',
+				li4: "<strong>4. The chair's flags.</strong> The commission's own chair publicly flagged boundaries as geographically strange. Four of his flags land on the minority map, and the audit's own geometry check confirmed three. Zero land on the majority map.",
+				li5: '<strong>5. Following city limits (the test that died).</strong> Early data suggested the minority map ignored municipal lines. Official map files killed that finding: both maps follow city limits at normal Canadian rates (80% and 72%). The audit keeps the dead test on display instead of deleting it.',
+				p2: 'Score: the minority map crosses all four live thresholds. The majority map crosses none.'
+			},
+			fairness: {
+				heading: 'The four fairness measures (votes added)',
+				p1: 'Now add the 2023 votes and ask: how does each map turn votes into seats? Four standard measures, each checked against the million neutral maps.',
+				li1: "<strong>1. Seats at a tied vote.</strong> The most intuitive test. Pretend the province votes exactly 50/50 and count each side's seats. On Alberta's geography a typical neutral map gives the UCP about 44.8% of seats at a tie. City NDP votes are used a little more efficiently, so a tie naturally favours the NDP slightly. The majority map gives the UCP 46.1%: 78th percentile, ordinary. The minority map gives the UCP <strong>51.7%</strong>, a majority of seats while tied in votes. Only 69 of the 1,010,000 neutral maps do better for the UCP. For scale, a procedure told to <em>deliberately</em> maximize UCP seats reached 52.9%. The minority map sits closer to that engineered ceiling than to the neutral middle.",
+				li2: '<strong>2. The efficiency gap.</strong> Every vote is either needed to win a seat or "wasted" — cast for a loser, or piled onto a winner beyond what victory required. This measure compares how fast each party\'s votes are wasted. The majority map scores +0.1%: essentially nothing. The minority scores +4.0% in the UCP\'s favour, the 94.5th percentile, just <em>under</em> the audit\'s pre-set alarm line at the 95th. This is the one measure that did not fire. The audit reports it as a miss.',
+				li3: "<strong>3. The mean-median gap.</strong> Compare a party's average district result with its middle district result. When the two drift apart, votes are being bunched into blowouts somewhere. The minority map's gap favours the UCP more than 99.9% of neutral maps. The majority's gap leans the other way — mildly NDP-efficient — which matches how tidy commission maps behave on Alberta's geography.",
+				li4: "<strong>4. Declination.</strong> A geometry reading of win margins: does the map treat the two parties' wins alike, or does it bend at the 50% line? The minority map bends further in the UCP's favour than about 98.8% of neutral maps. The majority map reads normal. (An early version of this measure had its sign flipped by a coding error; the correction is documented, not erased.)",
+				p2: 'Score: three of four fire on the minority map, all in the same direction. The fourth lands just under the line, pointing the same way. The majority map is ordinary on all four.'
+			},
+			odds: {
+				heading: 'What "1 in 568,000" means — and why the audit doubled its margin',
+				p1: "Combine the four fairness measures into one score and ask: how often does neutral drawing produce a profile as extreme as the minority map's? The answer is about <strong>1 in 1.1 million</strong>. But the audit does not quote that number. It quotes <strong>1 in 568,000</strong> — exactly half as impressive. Here is why.",
+				p2: 'The audit looked for a signal in two different places: this combined score, and a second test on the specific boundary choices. Looking in two places gives luck two chances. Think of lottery tickets: buy two, and your odds of holding a winner double. So before quoting the odds, the audit doubles them against itself. That way, "you had two tries" is already paid for.',
+				p4: 'One caution the audit repeats everywhere: these odds measure how unusual the <em>map</em> is. They are not the odds that anyone acted with intent. A rare map could still, in principle, be honest work. The odds say only this: routine drafting does not produce this map.'
+			},
+			died: {
+				heading: 'The tests that died',
+				p1: 'Three findings did not survive, and all three stay in print. That is on purpose: an audit that only shows you its wins is advertising.',
+				li1: '<strong>The city-limits test</strong> found nothing to separate the maps: both follow municipal lines inside the Canadian norm (majority 80%, minority 72%).',
+				li2: '<strong>The boundary-choices test (SZAT)</strong> looked significant until the audit corrected it for a simple fact: neighbouring places vote alike. Treating neighbours as independent flatters the result. After the correction, the test showed nothing. It was retired.'
+			},
+			break: {
+				heading: 'Trying to break our own result',
+				p1: 'Before trusting the headline, the audit attacked it three ways.',
+				li1: '<strong>Swap the engine.</strong> Rerun everything with a completely different map-drawing algorithm (a spanning-forest method, promised in public before running). Every result moved by less than one percentile point. The finding survived.',
+				li2: "<strong>Swap the software.</strong> An independent implementation in a different programming language also finds no maps reaching the minority map's value.",
+				li3: '<strong>Test the mechanism — and fail.</strong> The audit guessed that the strange shapes from the structural tests were the direct cause of the seat advantage. That guess failed its test. The shapes and the seat lean point at the same map, but the shapes are not the engine. The audit says so.'
+			},
+			prereg: {
+				heading: 'Promises made in advance',
+				p1: "The strongest defence against fooling yourself is to write your predictions down before you look. The audit locked its tests, thresholds, and predicted directions into public, time-stamped registrations on the Open Science Framework. It locked its random seeds to a public beacon. Both happened before the official map files were released. When a locked prediction missed, it stayed a miss. The same locked tests will be run, unchanged, on the committee's new map when it lands in November 2026. The audit also names which of its results are <em>exploratory</em> (seeds locked, but the exact test combination chosen later) and which are fully pre-registered. The headline odds are exploratory. The November scorecard is the fully pre-registered test."
+			},
+			reproduce: {
+				heading: 'Run it yourself',
+				p1: 'Every number on this site comes from a script in the public repository run against committed data. The full recipe is in <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md" rel="noopener">REPRODUCING.md</a>; the short version:',
+				p2: 'A hosted notebook version runs in the browser via <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Google Colab</a>. The full methodology — including every correction along the way — is in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">academic monograph</a>.',
+				cross_ref: 'Companion pages: <a href="__BASE__/law">What the law asks of an electoral map</a> · <a href="__BASE__/norms">What the norms ask</a> · <a href="__BASE__/explainers">The fourteen explainers (Appendices A–N)</a>, one for each casing in the main report.'
+			}
+		},
+		norms: {
+			head_title: 'What the Norms Ask · Alberta Electoral Boundary Audit',
+			head_description: "The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what.",
+			back: '← Back to audit',
+			site_label: 'Alberta Electoral Boundary Audit',
+			h1: 'What the Norms Ask of an Electoral Map',
+			meta: 'Plain-language companion · English only for now · Not a verdict on anyone',
+			standfirst: 'This episode has three lenses. The <a href="__BASE__/law">law</a> asks what is legal. The <a href="__BASE__/methods">statistics</a> ask what is unusual. The third lens asks what is customary, and custom is the contested ground. "The government broke a sixty-year norm" is not a neutral measurement. It is the heart of the opposition\'s accusation. So this page does not just recite the norms. It cross-examines them: where they came from, what they are for, what the case for setting them aside actually is, and what remains once the rhetoric on both sides is cleared away.',
+			the_norm: {
+				heading: 'The norm, stated plainly',
+				p1: "Politicians do not draw their own districts. Canada spent roughly sixty years building that rule, not as a law but as a practice. Since the federal reform era of the 1960s, every province and the federal process have used arm's-length boundary commissions. The person who will run in a district does not hold the pen that draws it.",
+				p2: "The norm exists because of what came before it. Governing parties once routinely drew their own ridings, and the conflict of interest is not subtle. A map-drawer who must win under the map has every reason to draw it in his own favour, and no one watching can tell an honest line from a self-serving one. The commission model does not make maps perfect. It makes the drawer's interest separable from the outcome. That is what lets everyone else trust the result."
+			},
+			what_it_bought: {
+				heading: 'What the norm bought, in this very cycle',
+				p1: 'The 2025–26 commission is its own best exhibit. It held hearings in sixteen communities. It received 1,345 written submissions. It published an interim proposal, took criticism, and reversed itself on the strength of eighty-plus submissions. That is the system visibly responding to public input. Whatever else the commission failed at, the process around it worked exactly as designed: in public, on the record, and answerable to what citizens said.'
+			},
+			the_departure: {
+				heading: 'The departure',
+				p1: "In April 2026, weeks after the split commission filed two incompatible maps, the Legislative Assembly set both aside. Government Motion 37, passed April 21, handed the work to a committee of six MLAs, four from the governing party, chaired by a government member. The committee is not required to hold public hearings. Per CBC's reporting, it will not hold hearings on the map it produces. No draft will be released for public challenge before the map is final.",
+				p2: "In May, Duane Bratt, Professor of Political Science at Mount Royal University, described it to the author as without precedent in Canada. That claim is wrong. In 1992 Alberta set a deadlocked commission's work aside and gave the map to a committee of MLAs; the Opposition refused to take part, and in 1994 the Court of Appeal let the map stand while faulting the committee for being unable to explain several of its boundaries. The Act was amended in 1995. What is new in 2026 is narrower: a commission majority signed a report, which the Act treats as the commission's report, and it was set aside anyway. What it <em>means</em> is where the argument starts."
+			},
+			steel_man: {
+				heading: 'The case for setting the norm aside — taken seriously',
+				p1: "An audit that only rehearses one side's outrage is not checking anything. So take the government's side at full strength. Build its strongest case, the steel-man, before testing it:",
+				li1: "<strong>The commission failed at its one job.</strong> The commission model promises a single arm's-length answer. This commission delivered two incompatible maps and a chair publicly accusing colleagues of bad faith. When the independent route deadlocks, someone has to decide. The statute says who.",
+				li2: "<strong>The statute gives the legislature the pen by design.</strong> Under Alberta's Act, a commission report has no legal force. Boundaries change only when the Assembly passes an Electoral Divisions Act. Government Motion 37 used a door the law built on purpose. Nothing was smuggled.",
+				li3: '<strong>Elected members answer to voters; commissioners answer to no one.</strong> The oldest argument for legislative control is accountability. An MLA who draws a self-serving map can be voted out. A commissioner cannot.',
+				li4: '<strong>The committee is not a purely partisan instrument.</strong> Two of its six members are opposition MLAs. The advisory panel that drafts the proposal includes two opposition nominees and is chaired by a retired Court of Appeal justice.',
+				li5: "<strong>The government cited the chair's own recommendation.</strong> Its stated justification for the 91-seat mandate was Recommendation 5, written by the commission chair himself. And it told the House exactly that: “We are adopting the recommendations from the report.”"
+			},
+			where_it_bends: {
+				heading: 'Where the steel-man bends',
+				p1: 'Each of those points is real. The documented record also pushes back on each:',
+				li1: 'The deadlock explains <em>replacing</em> the maps. It does not explain <em>removing the public</em>. A hearing requirement, a published draft, or a binding panel would have answered the deadlock too. The chosen vehicle forfeits each transparency feature the comparative literature treats as protective. The deadlock forced none of those forfeits.',
+				li2: '"The statute allows it" is the law lens, and it is answered there: every step was lawful. The norms question is different. Some jurisdictions make a commission\'s map effective <em>unless</em> the legislature overrides it. Alberta\'s reversed default means the governing party always controls whether any commission map becomes law. Lawful and customary are different questions.',
+				li3: 'The accountability argument proves too much. It argues against boundary commissions everywhere. Yet every Canadian jurisdiction — and the UK, and Australia — moved the other way, precisely because election-time accountability is weak protection against a map designed to shape those same elections.',
+				li4: "The panel advises; the MLAs' votes decide. Bipartisan advice with a government-controlled decision is a different institution from an independent commission. The difference is exactly the norm at issue.",
+				li5: "Recommendation 5's author wrote it to dissuade the legislature from adopting the minority map, and his majority colleagues did not endorse it. It is also specific. It leaves Airdrie, Calgary and everything south of them exactly as the majority drew them, the very lines the commission split over, and nothing in the committee's mandate holds it to that. Citing a recommendation against its author's stated purpose is a documented tension, not a resolved one.",
+				li6: 'The other document read onto the floor — page 58 of the majority report — laments the two-seat cap. But the remedy attached to it is for the Legislature to give <em>future commissions</em> the power to set seat counts. The motion took that latitude now, for a committee of MLAs, while declining the report’s operative request: adopt the 89-seat map.'
+			},
+			whose_accusation: {
+				heading: 'Whose accusation is it?',
+				p1: 'Here is the separation this page exists to make. The following are documented facts. The departure happened, for the first time since Alberta\'s own 1992 committee. The transparency features were forfeited. The commission chair called one minority boundary a "bad faith effort" in a public statutory document. The Canadian Civil Liberties Association publicly <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>. The opposition voted against the motion. And the accusations run both ways. The minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” — rural representation being, in the minority\'s own words, “not merely a question of numbers; it is a question of access, voice, and practical governability” (p. 356). The audit tested that charge the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses. The minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019\'s 31) and absorbs more of 2019\'s rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019, so the charge\'s core observation is real. But on the measure the accusation names, it lands on its author. Its companion charge, that the majority declined to use the Act\'s ±25% flexibility for rural Alberta, was tested the same day and holds. The majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair\'s flags applies here too, in both directions.',
+				p2: "The following is <em>not</em> a documented fact. It is a political judgment: that the departure was illegitimate. That judgment depends on how much deference the norm deserved in the face of a deadlocked commission, and reasonable people weigh that differently. The audit documents the departure and its costs. It does not carry the opposition's conclusion, and nothing in the audit's statistics can carry it either. A number can say a map is rare. It cannot say a process was wrong."
+			},
+			norms_vs_law: {
+				heading: 'Norms are not law — and one place turned the norm into law',
+				p1: 'Constitutional conventions, the unwritten rules of political behaviour, bind politically, not judicially. The Supreme Court said so in the 1981 Patriation Reference, and courts have held that line since: a court may name a convention and will still decline to enforce it. That gap, between what is customary and what is compellable, is where this entire episode lives.',
+				p2: "Quebec shows what the other choice looks like. Its boundary commission is permanent and independent, and on the map itself the commission ordinarily has the last word. When Quebec's government tried to freeze its commission by legislation, the courts <em>did</em> act, because a law was now in play. On April 22, 2026, the Supreme Court of Canada upheld, 7–2 and from the bench, the ruling that the freeze violated the Charter's democratic-representation guarantee. Its reasons followed on May 1 (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Where the norm was written into law, it became enforceable. Alberta's norm never was, and so it wasn't. The contrast cuts both ways, though. On June 12, 2026, Quebec's National Assembly passed its own 127-seat map."
+			},
+			measurable: {
+				heading: 'The process scorecard: making the norms question measurable',
+				p1: "Rhetoric about norms is cheap in both directions. The audit's answer is a third scorecard, alongside the structural tests and the statistics. It scores the <em>process</em> on nine protective features the sixty-year practice guaranteed. Each is a yes-or-no question answerable from public documents, and the same nine score every process this audit examines.",
+				table: {
+					head: {
+						feature: 'Protective feature',
+						commission: 'Commission process',
+						committee: 'Committee process (as constituted)'
+					},
+					arms_length_drafting: {
+						feature: "Arm's-length drafting",
+						commission: 'Yes',
+						committee: "Partial — the panel drafts; the committee's six MLAs (four government) decide"
+					},
+					public_hearings_before: {
+						feature: 'Public hearings before adoption',
+						commission: 'Yes — sixteen communities',
+						committee: 'No — none planned on the map produced'
+					},
+					draft_published_challenge: {
+						feature: 'Draft published for challenge',
+						commission: 'Yes — interim proposal revised in public',
+						committee: 'No — none announced'
+					},
+					new_public_submissions: {
+						feature: 'New public submissions accepted',
+						commission: 'Yes — 1,345 received',
+						committee: "No — reuses the commission's archive"
+					},
+					demonstrated_responsiveness: {
+						feature: 'Demonstrated responsiveness',
+						commission: 'Yes — reversed itself on 80+ submissions',
+						committee: 'Pending'
+					},
+					neutral_chair_deciding: {
+						feature: 'Neutral chair of the deciding body',
+						commission: 'Yes — a judge, appointed by cabinet',
+						committee: 'No — a government MLA chairs; the retired judge chairs only the advisory layer'
+					},
+					opposition_deciding_body: {
+						feature: 'Opposition in the deciding body',
+						commission: 'Yes — two of five',
+						committee: 'Yes — two of six'
+					},
+					published_reasons_contested: {
+						feature: 'Published reasons for contested choices',
+						commission: 'Yes — both reports',
+						committee: 'Pending'
+					},
+					precedent_conformity: {
+						feature: 'Precedent conformity',
+						commission: 'Yes',
+						committee: 'No — last done in Alberta in 1992, and faulted by the Court of Appeal in 1994'
+					},
+					count: {
+						feature: 'Count',
+						commission: '9 of 9',
+						committee: '1 Yes · 1 Partial · 5 No · 2 Pending'
+					}
+				},
+				p2: "One more way to see this scorecard: it is the <em>third axis</em>. The audit's chart plots every map on two dimensions: structure and statistics. All three maps plotted so far were drawn by commission processes that score nine of nine here, so the third axis has had nothing to separate. The November map will be the first point in the audit's history with a different process score behind it.",
+				p3: "Read the table honestly, in both directions. The commission scores nine of nine <em>by construction</em>. The criteria describe the institution the norm built, and the commission was that institution. The informative part looks forward. Four of the committee's No and Pending cells are features it can still add between now and November: hearings, a published draft, new submissions, and the responsiveness they make possible. If it adds them, the audit's process-departure finding is materially mitigated, and the audit has committed in writing to saying so.",
+				draft_note: 'Status matters here: this scorecard\'s criteria, sources, and predicted directions are <a href="https://osf.io/u47bq/" rel="noopener">registered on the OSF (u47bq, July 14, 2026)</a> — frozen months before the committee reports, so nothing can be quietly reworded when the answer arrives. It was written mid-episode by an author whose earlier findings you have just read — a bias risk the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md" rel="noopener">registered document</a> discloses rather than hides. Applied backward to the commission, it is description, not prediction. When the committee\'s map lands, the same locked map tests run unchanged — and this checklist scores the process that produced it. At that point the norms debate stops being a shouting match about tradition and becomes a scored comparison: did the committee behave like the institution it replaced?'
+			},
+			audits_standing_rule: {
+				heading: "The audit's standing rule",
+				p1: 'Same rule as everywhere else on this site. The audit documents what happened, how rare it is, and who claimed what. Whether the norm deserved to survive the deadlock — and what its setting-aside should cost at the ballot box, if anything — belongs to readers and voters. Not to a statistical audit.',
+				cross_ref: 'Companion pages: <a href="__BASE__/law">What the law asks of an electoral map</a> · <a href="__BASE__/methods">How the maps were tested</a>',
+				disclaimer: 'This page is a plain-language companion to the audit, written for orientation. It is not legal advice, and it is not a verdict on any person or party.'
+			}
+		},
+		law: {
+			head_title: 'What the Law Asks · Alberta Electoral Boundary Audit',
+			head_description: "How Canadian law evaluates an electoral map: Charter s.3 effective representation, the Saskatchewan Reference, and Alberta's Electoral Boundaries Commission Act — and how this audit's evidence relates to those tests.",
+			back: '← Back to audit',
+			site_label: 'Alberta Electoral Boundary Audit',
+			h1: 'What the Law Asks of an Electoral Map',
+			meta: 'Plain-language companion · English only for now · Not legal advice',
+			standfirst: "This audit measures maps. Courts judge them. The two jobs are related, but they are not the same, and this page walks through the difference: what Canadian law actually asks of an electoral boundary, which questions belong to a court rather than to a statistician, and where the audit's evidence fits. The audit itself takes no position on any legal conclusion. It reports what the data show, and it stops there.",
+			why_not_gerrymander: {
+				heading: 'Why this audit never rules "gerrymander"',
+				p1: 'The audit uses "gerrymandering" throughout in its everyday political sense: manipulating electoral boundaries for partisan advantage. But in Canadian law the word has no legal definition. There is no statute to violate by "gerrymandering" and no court test with that name. A map cannot be found guilty of a category that does not exist. That is one reason the audit refuses to issue that verdict, no matter what the numbers say.',
+				p2: 'The American contrast is worth a moment, because most of this audit\'s statistical tools — the efficiency gap, neutral map ensembles (large sets of computer-drawn maps) — were invented for American fights. In the US, partisan gerrymandering is at least a named claim. But the US Supreme Court shut the federal courthouse door in <em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019), holding that federal courts lack "judicially discernible and manageable standards" to judge such claims. The same metrics remain live in some US state courts, most prominently in <em>League of Women Voters v. Commonwealth</em>, 178 A.3d 737 (Pa. 2018).',
+				p3: 'Canada took a different path. Instead of a gerrymandering test, Canadian law asks two answerable questions. Does the map deliver <a href="#effective-representation">effective representation</a> under section 3 of the <em>Charter</em>? And did the commission comply with <a href="#ebca">its governing statute</a>? The audit\'s findings are evidence a court could weigh inside those two inquiries. Inputs, not a verdict on either. And statistics cannot read minds: boundary geometry can show what a map <em>does</em>, never what its drafters <em>intended</em>.'
+			},
+			effective_representation: {
+				heading: 'The constitutional test: effective representation',
+				p1: 'Section 3 of the <em>Charter of Rights and Freedoms</em> guarantees citizens the right to vote. In <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158 — the audit calls it the <em>Saskatchewan Reference</em> — the Supreme Court of Canada held that what s.3 protects in boundary-drawing is not one-person-one-vote arithmetic but <strong>effective representation</strong>.',
+				p2: 'Writing for the majority, McLachlin J. explained that "relative parity of voting power" is the starting point. But it must be weighed against permissible deviations for geography, community history, community interests and minority representation. The Court deliberately set no bright-line tolerance, no fixed number for how far a district may stray. A deviation from strict population equality is constitutionally defensible <em>if the non-numeric factors justify it</em>.',
+				p3: "Two consequences follow, and both cut against overreading this audit's numbers:",
+				li1: "<strong>Partisan asymmetry alone does not make a map unconstitutional.</strong> Under the case law reviewed in the monograph, a statistical tilt must be paired with something more — population deviations not justified by geography or community of interest, or evidence the neutral factors were invoked to rationalize a partisan outcome rather than to serve their statutory purpose. The audit's structural tests (population spread, city splits, chair-flagged boundaries) exist precisely because the law asks about that pairing.",
+				li2: '<strong>Courts defer to commissions.</strong> The standard is a deferential "reasonable commission" review, not a search for the best possible map. In <em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679 — the closest reviewed case to a boundary challenge on community-of-interest grounds — the Federal Court found <em>no</em> Charter s.3 violation. The violations it did find were statutory (the federal boundary statute\'s community-of-interest duty), and the remedy was referral back to the commission, not boundaries struck down. It is a trial-level decision on the federal statute: persuasive, not binding, for any Alberta challenge.',
+				p4: "Where does the audit sit in that framework? Its measurements are inputs a court could weigh in the effective-representation analysis: how far each map's partisan metrics sit from a million neutral alternatives, how population variance is distributed, where boundaries depart from municipal lines. No metric, and no combination of metrics, is a proxy for the test's outcome. When the audit reports that several indicators point the same way, that is a statement about an empirical pattern. It is not a legal conclusion."
+			},
+			ebca: {
+				heading: "The statute: Alberta's Electoral Boundaries Commission Act",
+				p1: "Alberta's commissions are governed by the <em>Electoral Boundaries Commission Act</em>, RSA 2000, c. E-3 (the EBCA). Three of its rules matter most for reading this audit.",
+				p2: "<strong>The population band.</strong> As a general rule, each proposed electoral division must stay within ±25% of the provincial average population. Both 2026 proposals comply. Apart from the three divisions each map protects under the s.15(2) exception described next, every district sits inside the band. The largest deviation on the high side (+24.06%, in the minority map) comes within a point of the cap without crossing it. Inside that generous band the commission has wide discretion, and the audit's population findings (the minority's 48%-wider spread, the NE/central Calgary crowding) all describe choices made <em>within</em> the legal band. Legal and unusual are different questions.",
+				p3: '<strong>The s.15(2) exception.</strong> For at most four divisions, the population may fall as much as 50% below the average — if the commission is of the opinion that at least three of these five criteria exist:',
+				criterion1: 'area over 20,000 km² (or total surveyed area over 15,000 km²);',
+				criterion2: "more than 150 km from the Legislature Building to the division's nearest boundary, by the most direct highway;",
+				criterion3: 'no town in the division over 8,000 people;',
+				criterion4: 'the division contains an Indian reserve or a Métis settlement;',
+				criterion5: "part of the boundary runs along Alberta's provincial border.",
+				p4: "The provision is permissive: meeting the criteria makes a division eligible, but never obliges the commission to use the allowance. Both 2026 maps invoke s.15(2) for three divisions each. The audit re-checked all six invocations under the corrected statutory thresholds and found every one eligible. The controversy the audit documents is not eligibility. It is a drawing choice. The minority's Rocky Mountain House–Banff Park division picks up one qualifying criterion, the provincial-border one, only by extending through uninhabited national-park land. On that choice, the commission's own final report (March 23, 2026, p. 10) speaks for itself. The majority commissioners write:",
+				quote: '"They propose to retain an electoral division of \'Rocky Mountain House-Banff Park\' by artificially extending its boundary to the province\'s western border with British Columbia (taking part of Banff National Park, where no one lives), which is a bad faith effort to ensure it can be protected under s. 15(2) of the Act."',
+				p5: 'That characterization — including the phrase "bad faith" — is the commission chair\'s, made in a public statutory document. It is not the audit\'s. The audit\'s own analysis found the division qualifies under s.15(2) even without the extension. Quoting the chair records what the primary source says. It does not record what any commissioner intended.',
+				p6: "<strong>What a commission report is — and is not.</strong> Under the EBCA, the commission's report has no legal effect by itself. Boundaries change only when the Legislative Assembly passes a separate Electoral Divisions Act. Some jurisdictions make a commission's map effective unless the legislature actively overrides it. Alberta's default is reversed: the governing party controls whether any commission map becomes law. The Act's rules on hearings, deadlines and the ±25% band are addressed to the commission. Nothing in it governs what the Assembly does instead, and it sets no minimum notice or public-comment period. Government Motion 37, passed April 21, 2026, set both commission maps aside. It handed the work to a committee of six MLAs, four from the governing party, due to report by November 2, 2026. Alberta has done this once before. In 1992 a committee of MLAs drew the map after a deadlocked commission, and in 1994 the Court of Appeal upheld that map while faulting the committee for being unable to explain several of its boundaries. The audit documents that process choice as a finding about procedure, separate from and additional to anything the maps' geometry shows.",
+				cross_ref: 'The full legal analysis — including the case-law review, the commission-deference literature, and the procedural comparison with other provinces — is in the academic monograph, §2 and §5.9, at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">the audit repository</a>.'
+			},
+			audits_standing_rule: {
+				heading: "The audit's standing rule",
+				p1: "Every version of this audit carries the same discipline. It may report what the tests show. It may say how unusual a map is against a neutral baseline. But it does not declare any map a gerrymander, does not infer intent from geometry, and does not pronounce on constitutional or statutory compliance. Those are questions for courts, commissions, and readers, with the audit's evidence on the table.",
+				cross_ref: 'Companion pages: <a href="__BASE__/methods">How the maps were tested</a> — every test and statistic in plain language — and <a href="__BASE__/norms">What the norms ask</a> — the third lens, on custom and its cross-examination.',
+				disclaimer: 'This page is a plain-language companion to the audit, written for orientation. It is not legal advice, and nothing here should be relied on as a legal opinion.'
+			}
+		},
+		privacy_policy: {
+			head_title: 'Privacy Policy · Alberta Electoral Boundary Audit',
+			head_description: 'Privacy and data retention policy for the Alberta Electoral Boundary Audit.',
+			back: '← Back to audit',
+			site_label: 'Alberta Electoral Boundary Audit',
+			h1: 'Privacy & Data Retention Policy',
+			meta: 'Effective: 2026-06-24 · Maintained by Will Conner',
+			overview: {
+				heading: 'Overview',
+				p1: "This tool is a public-interest audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what is measured, what is never collected, and why none of it can be tied back to you.",
+				p2: 'The short version: the site uses cookieless, aggregate analytics. There is no tracking cookie, no advertising, no cross-site profiling, and no identifier that follows you. Because nothing personal is stored, there is no consent banner to click through — the privacy protection is built into how the measurement works, not bolted on as a prompt.'
+			},
+			how_analytics_work: {
+				heading: 'How the analytics work',
+				p1: 'When a page loads or you interact with the map, the site sends a small, anonymous event to a counting service we run. Each event is just the name of what happened — for example, "page viewed" or "district selected" — plus a few coarse details about the action. The event carries no name, no email, no account, and no identifier stored on your device.',
+				p2: 'To count how many distinct people visited on a given day without identifying anyone, the counting service combines your network address and browser type and runs them through a one-way cryptographic hash together with a secret that changes every day. The result is a short code that lets us tell two visits apart <em>within</em> a single day, and nothing more. The original address is never stored — only the hash is. Because the secret rotates daily, the same visitor produces a different code tomorrow, so there is no way to follow anyone across days or to work backwards from a code to a person.',
+				p3: 'We are interested in the picture that visitors paint as a group — which findings get read, which maps get opened, which districts draw attention. We are not interested in you specifically, and the measurement is built so that "you specifically" is not something the data can express.'
+			},
+			measured: {
+				heading: 'What is measured',
+				p1: 'The analytics record aggregate, anonymous events such as:',
+				li1: 'Page views',
+				li2: 'How far down a page people scroll, in coarse bands (25%, 50%, 75%, 100%)',
+				li3: 'Roughly how long the page was actively on screen, in coarse time buckets',
+				li4: 'Which finding sections come into view as people read',
+				li5: 'Which maps are opened in the explorer, and which districts are selected',
+				li6: 'Which map layers are turned on or off, and roughly how far in people zoom',
+				li7: 'Which points of interest or report links are opened',
+				li8: 'A coarse picture of your setup — screen-size band (such as phone, tablet, or desktop), form factor, and browser family (such as Chrome, Safari, or Firefox). We never store your exact screen dimensions or full browser identification string.',
+				li9: 'A one-time snapshot of how the map explorer performed when it first drew — for example, the load time in coarse bands and a rounded memory figure. This helps us tell whether the explorer is fast enough on real devices. The numbers are deliberately banded, not exact, so they describe a device class rather than a device.',
+				p2: "Every one of these is stored only in aggregate. There is no per-person profile, no session replay, and no record of an individual's path through the site. We see totals and distributions, not people."
+			},
+			never_collected: {
+				heading: 'What is never collected',
+				p1: 'No name. No email. No account. No advertising identifier. No stored IP address — your network address is hashed with a daily-rotating secret and immediately discarded; only the short-lived daily code is kept. No raw browser fingerprint. No cross-day or cross-site identifier. No precise location. No cookie or browser-storage identifier that marks you as a returning visitor for analytics purposes.'
+			},
+			github_pages_collects: {
+				heading: 'What GitHub Pages collects',
+				p1: 'This site is hosted on GitHub Pages. GitHub\'s servers automatically log basic request details when any page loads — your IP address, browser type, referring page, and timestamp. We do not receive or control these logs; they are governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub\'s Privacy Statement</a>. We have no relationship with GitHub beyond hosting. The analytics described above run separately and never receive your IP address.'
+			},
+			share_codes: {
+				heading: 'Share codes',
+				p1: 'The map explorer has a Share feature. It turns your current map view — which map is active, which overlays and layers are on, roughly where your viewport sits — into a short three-word code you can copy and send to someone. There are exactly 19,200 valid codes, because a code represents a map configuration, not a person. Two people who arrive at the same view independently get the same code; that is expected and carries no link between them.',
+				p2: "Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To open someone's shared view, the recipient types the code directly into the site.",
+				p3: 'When you generate a share code, the map configuration it encodes is saved to our database so the link keeps working. That saved record is a map state — not a person, not a path, and not joined to the analytics. It contains no identifier for you.'
+			},
+			cookies_browser_storage: {
+				heading: 'Cookies and browser storage',
+				p1: 'The analytics use no cookie and no browser-storage identifier. Nothing about the measurement marks you as a returning visitor.',
+				p2: 'The site does set one small <strong>functional</strong> cookie to remember your own preferences between visits. It is not used for analytics or tracking, and it never leaves your browser in readable form. It stores:',
+				li1: '<strong>Colour theme</strong> — dark or light, if you changed it',
+				li2: "<strong>Intro dismissed</strong> — so the map introduction doesn't repeat",
+				li3: '<strong>Current map view</strong> — so your last view is restored on your next visit',
+				li4: '<strong>Browser language</strong> — so the site can show your preferred language',
+				p3: "This cookie holds only the preferences above — no personal or identifying information. Its contents are scrambled with a key that ships inside the page, so the stored value is not human-readable; because that key is public, treat this as tamper-resistance rather than true secrecy. It is sent only over HTTPS, is never shared with other sites, and you can remove it at any time by clearing your cookies. The site is served as static files, so nothing on the server side reads it. Your colour theme is also mirrored to your browser's local storage so the correct theme can be applied instantly on load, before anything flickers; that value too is purely functional and never sent anywhere."
+			},
+			data_retention: {
+				heading: 'Data retention',
+				p1: 'The analytics records are aggregate and anonymous by construction, with no identifier to retain. They are stored on infrastructure hosted in Canada (ca-central-1) and kept as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.'
+			},
+			your_choices: {
+				heading: 'Your choices',
+				p1: 'Because nothing personal is collected, there is nothing to opt out of and no consent prompt to manage. If you would still prefer to send no analytics events at all, a content blocker or a browser that blocks the request to the counting service will stop them, and the site will work exactly the same. You can also clear the functional preferences cookie at any time through your browser.'
+			},
+			contact: {
+				heading: 'Contact',
+				p1: 'Will Conner — independent research, not affiliated with or endorsed by any institution.',
+				p2: 'Questions, corrections, and deletion requests: please use the <a href="__BASE__/feedback">feedback form</a>. Requests are answered within 10 business days.'
+			},
+			policy_updates: {
+				heading: 'Policy updates',
+				p1: 'When this policy changes, the effective date at the top is updated and the change is committed to the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" target="_blank" rel="noopener noreferrer">public git repository</a>. The commit history is the changelog. Any change that expands what is collected is noted in the commit message.'
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: '<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.',
+					chen_rodden_2013: '<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269.',
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: '<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> "Recombination: A Family of Markov Chains for Redistricting." <em>Harvard Data Science Review</em> 3(1). (The ReCom algorithm used to generate the 1,010,000-map ensemble.)',
+					gelman_king_1994: '<strong>Gelman, Andrew, and Gary King. 1994.</strong> "A Unified Method of Evaluating Electoral Systems and Redistricting Plans." <em>American Journal of Political Science</em> 38(2): 514–554.',
+					katz_king_rosenblatt_2020: '<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies." <em>American Political Science Review</em> 114(1): 164–178.',
+					pal_2015: '<strong>Pal, Michael. 2015.</strong> "The Fractured Right to Vote." <em>McGill Law Journal</em> 61(2): 231–274. (Canadian constitutional framework for electoral boundaries.)',
+					stephanopoulos_mcghee_2015: '<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> "Partisan Gerrymandering and the Efficiency Gap." <em>University of Chicago Law Review</em> 82(2): 831–900. (Source of the efficiency gap measure used throughout.)'
+				},
+				cases: {
+					saskatchewan_reference: '<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (The leading Supreme Court of Canada authority on the constitutional standard for electoral boundary drawing.)',
+					raiche: '<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Federal Court; leading Canadian authority on community-of-interest evidence in electoral boundary disputes.)',
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; establishes the non-justiciability of partisan gerrymandering claims in federal courts — context for why Canada's s.3 effective-representation standard differs.)"
+				},
+				statutes: {
+					ebca: '<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.'
+				}
+			}
+		}
 	}
 } as const;
