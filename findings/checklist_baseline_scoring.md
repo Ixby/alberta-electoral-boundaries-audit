@@ -47,12 +47,12 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 
 | Map | Packing (Calgary Zone A ≥ 10% gap) | Cracking (Airdrie ≥ 4 EDs) | Engineered s.15(2) boundary | Signatures present |
 |---|---|---|---|---|
-| Majority 2026 | 0.36% gap — no | 2 EDs — no | None — no | **0 / 3** |
-| Minority 2026 | 12.20% gap — yes | 4 EDs — yes | RMH-Banff Park — yes | **3 / 3** |
+| Majority 2026 | 0.36% gap — no | 2 pieces — no | None — no | **0 / 3** |
+| Minority 2026 | 12.20% gap — yes | 3 pieces by people (4 EDs by territory) — no | RMH-Banff Park — yes | **2 / 3** |
 
-**Score.** Majority: strong signal NOT detected. Minority: strong signal detected (by definition — minority is where they were originally identified). Sources: `analysis/scripts/electoral_forensics_population.py` (Calgary zone gap); `findings/geographic_coherence.md` (Airdrie partition, RMH-Banff Park shape).
+**Score.** Majority: strong signal NOT detected. Minority: strong signal NOT detected. It carries two of the three signatures; the Airdrie test fails because, counted by people, the minority splits Airdrie into three pieces, not four or more (see the note below). The signature set was first identified on the minority map, when Airdrie was counted by territory. Sources: `analysis/scripts/electoral_forensics_population.py` (Calgary zone gap); `findings/geographic_coherence.md` (Airdrie partition, RMH-Banff Park shape).
 
-*Note (2026-10-31, correction C46).* The S1 cracking cell counts Airdrie's districts (≥ 4 EDs). On the official boundaries the minority's split is four districts by territory and three holding at least 2 % of the city's residents (the audit's piece rule), so the cell reads "yes" only by territory. The formal C1–C3 cracking signature of academic report §5.3.2 is not detected on the official boundaries: C2 fails because the minority's Airdrie-East is 89.6 % Airdrie (`data/outputs/cracking_signature_rescore_2026-10-31.json`). The S1 scoring itself is unchanged here.
+*Note on the Airdrie test (2026-11-01).* The checklist's S1 Airdrie test ("a 4-way or greater Airdrie split") is scored here with pieces counted by people, using the audit's 2 % piece rule (Amendment 17, change 3: a piece is a district holding at least 2 % of the city's population). The checklist's wording is not changed; this note records how "4-way" is read. On the official boundaries the minority's split is four districts by territory but three pieces by people: Olds-Three Hills-Didsbury holds about 350 Airdrie residents, 0.5 % of the city (`data/outputs/airdrie_split_shares_2026-10-31.json`; Amendment 17's town-split baseline reads "Airdrie 3/2"). The majority's split is two pieces. The baseline above is scored on this reading. Separately, the formal C1–C3 cracking signature of academic report §5.3.2 is not detected on the official boundaries: C2 fails because the minority's Airdrie-East is 89.6 % Airdrie (correction C48; `data/outputs/cracking_signature_rescore_2026-10-31.json`).
 
 ### S2. New signatures appear
 
@@ -190,7 +190,7 @@ These gates were added to the evidence base after the original checklist was wri
 
 | Signal class | Majority 2026 | Minority 2026 |
 |---|---|---|
-| Strong signals present (S1, S2, S4, S6; S3 and S5 N/A or blocked) | 0 / 4 scorable | 1 / 4 scorable (S1 only; S2, S4, S6 not triggered) |
+| Strong signals present (S1, S2, S4, S6; S3 and S5 N/A or blocked) | 0 / 4 scorable | 0 / 4 scorable (S1 two of three signatures; S2, S4, S6 not triggered) |
 | Weak signals present (W2, W3; W1 N/A) | 0 / 2 | 2 / 2 (W2 zone gap, W3 Nolan-Hill-Cochrane) |
 | Process signals (P1–P5) | 0 / 5 | 0 / 5 |
 | Supplementary gates (X1 deferred; X2, X3 scorable) | X2 0 triggered, X3 confirms gap | X2 three triggered, X3 confirms gap |
@@ -200,7 +200,7 @@ These gates were added to the evidence base after the original checklist was wri
 Applied to the two 89-seat maps:
 
 - **Majority:** zero signatures, no new signatures, no inversion, no process concerns, no rationale contradictions. **Checklist classification: not a gerrymander.**
-- **Minority:** three signatures (by construction — source of the signature set), no new signatures beyond the set, partial rather than inversion on public support, no process concerns at the commission stage, three contradicted rationales, structural 1-seat UCP shift. **Checklist classification: concerning but does not meet the sure-sign bar.** The checklist's top threshold requires signatures-plus-new-signatures-plus (ensemble-outlier OR public-support-inversion). The minority meets the signature criterion but fails the others.
+- **Minority:** two of the three signatures (the Airdrie test fails when pieces are counted by people), no new signatures beyond the set, partial rather than inversion on public support, no process concerns at the commission stage, three contradicted rationales, structural 1-seat UCP shift. **Checklist classification: concerning but does not meet the sure-sign bar.** The checklist's top threshold requires signatures-plus-new-signatures-plus (ensemble-outlier OR public-support-inversion). The minority falls one signature short of the signature criterion and fails the others.
 
 This matches the public report's existing bottom line: the minority is measurably UCP-favourable but not a gerrymander at the US 7% threshold. The checklist is internally consistent with the audit's stated conclusions, which is a desirable property for a pre-registered test.
 
@@ -208,7 +208,7 @@ This matches the public report's existing bottom line: the minority is measurabl
 
 ## Self-calibration finding
 
-Running the checklist against the two maps whose content is already known confirms the checklist distinguishes them in the expected direction (majority clean, minority three signatures, neither crossing the sure-sign bar). The checklist is therefore well-calibrated for the November map: any November map that scores higher than the minority on the strong-signals count, or adds new signatures on top of the minority's three, is carrying a worse signature than the minority baseline.
+Running the checklist against the two maps whose content is already known confirms the checklist distinguishes them in the expected direction (majority clean, minority two of three signatures, neither crossing the sure-sign bar). The checklist is therefore well-calibrated for the November map: any November map that scores higher than the minority on the strong-signals count, or adds new signatures on top of the minority's, is carrying a worse signature than the minority baseline.
 
 The checklist's S5 (ensemble outlier) remains blocked on both 89-seat maps because no 2026 shapefiles have been released. That gate activates only when shapefiles arrive. The November 91-seat map will face the same blocker unless Elections Alberta or the committee itself releases shapefiles with the map.
 
@@ -220,7 +220,7 @@ When the MLA committee tables its 91-seat map, score the map on the same signals
 
 | Signal | Majority 2026 | Minority 2026 | November 91-seat (Pending shapefiles) |
 |---|---|---|---|
-| S1 three signatures preserved | 0 / 3 | 3 / 3 | — |
+| S1 three signatures preserved | 0 / 3 | 2 / 3 | — |
 | S2 new signatures | 0 | 0 | — |
 | S3 two rural seats engineered | N/A | N/A | — |
 | S4 EG crosses US 7% | No (−0.85%) | No (−1.36%) | — |
