@@ -1291,9 +1291,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Pre-registered structural-irregularity count: minority meets the ≥4 of 5 outlier threshold; majority meets 0 of 5.
-**Why?** What is this scoring and what are the five pre-registered tests?
-**Answer:** Before looking at the data, we committed to scoring both maps on five structural dimensions: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and chair-flagged anomalies. The pre-registration set the bar: a map scoring as an outlier on four or more of these five would cross the threshold. The minority map scores as an outlier on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, does not separate the maps after canonical recomputation.) The majority map scores as an outlier on zero.
+**Assertion:** Structural-irregularity count: minority meets the ≥4 of 5 outlier threshold; majority meets 0 of 5.
+**Why?** What is this scoring and what are the five tests?
+**Answer:** After both maps had been measured, the audit wrote down five structural dimensions to score them on: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and majority-flagged anomalies. It set the bar at four or more of the five. Because the dimensions and the bar were written down after the measurements, the count is exploratory. The minority map scores as an outlier on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, does not separate the maps after canonical recomputation.) The majority map scores as an outlier on zero.
 
 ---
 
@@ -1303,7 +1303,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The majority's Mahalanobis p = 0.102 on the 1M canonical run — inside the null band.
 **Why?** A p-value of 0.102 is close to 0.10. Isn't that "significant"?
-**Answer:** No. The smaller the p-value, the more extreme the result. A p-value of 0.102 means about 10% of randomly drawn neutral maps have a joint partisan-fairness score at least as extreme as the majority's: toward the edge, but within the normal range. Set that beside the minority's Mahalanobis p = 8.80×10⁻⁷, which means it is more extreme than 99.9999% of random maps. The 0.102 value sits short of the most extreme 5% of the distribution, the zone the audit treats as unusual.
+**Answer:** No. The smaller the p-value, the more extreme the result. A p-value of 0.102 means about 10% of randomly drawn neutral maps have a joint partisan-fairness score at least as extreme as the majority's: toward the edge, but within the normal range. Set that beside the minority: none of the 1,010,000 plans is as extreme as it is on the four measures together (model-based p = 8.80×10⁻⁷; counting directly, rarer than about 1 in 1,500). The 0.102 value sits short of the most extreme 5% of the distribution, the zone the audit treats as unusual.
 
 ---
 
@@ -1319,13 +1319,13 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The minority amplifies the 2019 enacted baseline's joint-space position (D² = 13.16 → 33.64).
 **Why?** What does it mean to "amplify" rather than "normalize"?
-**Answer:** The majority brought the Mahalanobis distance down, from 13.16 to 7.74, toward neutral. The minority moved it the opposite way, from 13.16 all the way to 33.64, further from neutral. The minority map is more than two and a half times as extreme as the 2019 map it was supposed to replace, and four times more extreme than the majority proposal. Rather than normalizing an aging boundary set, the minority concentrated its deviations further in one direction.
+**Answer:** The majority brought the Mahalanobis distance down, from 13.16 to 7.74, toward neutral. The minority moved it the opposite way, from 13.16 all the way to 33.64, further from neutral. Its distance from the centre is 5.8, against 3.6 for the 2019 map and 2.8 for the majority. (The D² figures above are those distances squared.) Rather than normalizing an aging boundary set, the minority concentrated its deviations further in one direction.
 
 ---
 
 **Assertion:** The honest summary: the minority maxes out the structural-irregularity scoring while staying inside the partisan-bias-magnitude band under Reading A.
 **Why?** How can a map max out structural irregularities but stay inside the partisan-bias band?
-**Answer:** The academic literature on gerrymandering separates "broad partisan distortion" from "surgical fortification." Broad distortion shows up in the overall efficiency gap: a high percentage of one party's votes wasted across the whole map. Surgical fortification concentrates its changes in a small number of marginal districts, the close races, to lock in a seat advantage without moving the efficiency gap much. The minority appears to have the second pattern. Its structural indicators (community splits, boundary anomalies, zone asymmetry) are extreme, while its efficiency-gap magnitude stays close enough to the threshold that Reading A does not trigger it.
+**Answer:** Because the two lanes measure different things. The structural indicators (community splits, boundary anomalies, zone asymmetry) describe boundary choices; the efficiency gap describes votes. A map can differ on one without the other. Reading A is the retired blend model, kept as a record. On the official files the minority's efficiency gap is +4.02%, just under the 4.10% line, while its mean-median, declination and seats at 50/50 are in the extreme tail.
 
 ---
 
@@ -1351,7 +1351,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The strongest single falsifier is: a demonstration that no constraint-legal Alberta map satisfies the minority's stated community-of-interest rationales and also matches majority-comparable municipal anchoring. A counter-map by an independent reviewer that does both would strengthen the finding (Amendment 5, Part 22). On the official boundaries the test is moot: both maps already clear its 60 % anchoring bar (minority 71.8 %, majority 80.0 %).
 **Why?** Why would a counter-map by an independent reviewer strengthen the finding rather than weaken it?
-**Answer:** Because the rationale-failure finding rests on a claim that can be tested: that simpler, cleaner alternatives exist which would have satisfied the minority's stated community-of-interest reasons for their boundary choices. If an independent reviewer, someone with no stake in the outcome, constructs such a map, and it genuinely satisfies the minority's stated criteria while looking more like the majority, that would demonstrate the minority's choices were not forced by their own rationales. The finding gets stronger. What would weaken it, or retract it if the evidence is decisive, is the opposite: a showing that no legal map can do both. That would shift the interpretation from "the rationale is a pretext" to "the constraint space is genuinely tight and the minority made defensible trade-offs." We have invited this check through the project's public GitHub repository. An earlier version of this entry had the direction backwards; Amendment 5, Part 22 corrected it.
+**Answer:** Because the rationale-failure finding rests on a claim that can be tested: that simpler, cleaner alternatives exist which would have satisfied the minority's stated community-of-interest reasons for their boundary choices. If an independent reviewer, someone with no stake in the outcome, constructs such a map, and it genuinely satisfies the minority's stated criteria while looking more like the majority, that would demonstrate the minority's choices were not forced by their own rationales. The finding gets stronger. What would weaken it, or retract it if the evidence is decisive, is the opposite: a showing that no legal map can do both. That would shift the interpretation from "the stated reasons didn't require these lines" to "the constraint space is genuinely tight and the minority made defensible trade-offs." We have invited this check through the project's public GitHub repository. An earlier version of this entry had the direction backwards; Amendment 5, Part 22 corrected it.
 
 ---
 
@@ -1371,7 +1371,10 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The minority map is the kind of map a non-neutral procedure produces under EBCA constraints; it is not the kind of map a neutral procedure produces.
 **Why?** How does the simulation establish what a "neutral procedure" produces?
-**Answer:** By drawing blind. The simulation runs GerryChain's ReCom algorithm, which makes random legal boundary changes without any information about how voters are distributed. It has no way to favor one party; it knows only population totals and contiguity rules. Over one million steps it explores the full space of maps that a genuinely neutral, apolitical process would produce. The minority map sits in the extreme tail of that space, in territory that random neutral drawing essentially cannot reach but targeted hill-climbing can (as the Cannon et al. short-bursts test in §5.4.8 confirmed). That contrast defines what "a non-neutral procedure" means here.
+
+**[Corrected 2026-11-01.** The "non-neutral procedure" reading rested on the traced-map 52.8% figure and the short-bursts run against it. On the official maps, neutral plans can reach the minority's position, rarely. The answer below replaces the earlier one.**]**
+
+**Answer:** The simulation uses no vote data. It runs GerryChain's ReCom algorithm, which makes random boundary changes knowing only population totals and contiguity rules, so it has no way to favor one party. Its plans have 87 districts, not 89, and none uses the s.15(2) exception. On the official maps the minority's tied-vote seat share is beyond 99.99% of neutral plans; 69 of 1,010,000 go further. So the minority map is very rare among neutral plans, but not out of their reach. The short-bursts test (§5.4.8) was run against an early traced-map figure (52.8%) that turned out to be an artefact.
 
 ---
 
@@ -1381,13 +1384,13 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Three modelling-uncertainty tests materially narrow the partisan-bias magnitude claim while leaving the structural findings intact.
 **Why?** If three tests narrow the magnitude claim, should the magnitude claim be dropped entirely?
-**Answer:** No. Phase 4C's magnitude (+3.92 pp) is an exact computation. The most rigorous independent attribution method reproduces it to within 0.1 pp; a third, area-weighted method gives +2.52 pp, a gap the audit traces to an artifact of crediting empty land with votes. That is a strong, reproducible signal, even though "classical 95% significance" doesn't directly apply to an exact count the way it would to a sampling estimate. The appropriate response is to report the finding with the dependence it actually has — on electoral context (2023 vs. 2019 votes), not on modeling-parameter guesswork — rather than either (a) asserting the finding is election-invariant or (b) dropping it entirely. The audit avoids both, reporting the exact figure and the electoral-context caveat together.
+**Answer:** No. Phase 4C's magnitude (+3.92 pp) is computed directly from 2023 election-day votes by voting area, each area placed by its centre point; it leaves out advance votes, nearly half of all ballots. The most rigorous independent attribution method reproduces it to within 0.1 pp; a third, area-weighted method gives +2.52 pp, a gap the audit traces to an artifact of crediting empty land with votes. That is a strong, reproducible signal, even though "classical 95% significance" doesn't directly apply to a direct count the way it would to a sampling estimate. The appropriate response is to report the finding with the dependence it actually has — on electoral context (2023 vs. 2019 votes), not on modeling-parameter guesswork — rather than either (a) asserting the finding is election-invariant or (b) dropping it entirely. The audit avoids both, reporting the exact figure and the electoral-context caveat together.
 
 ---
 
 **Assertion:** The statistical tests are exploratory, not confirmatory; they are reproducible and temporally anchored but require independent replication.
 **Why?** Why do reproducible results still require independent replication?
-**Answer:** Reproducibility means another researcher runs the same code on the same data and gets the same number. That is necessary for scientific confidence, but not sufficient. Independent replication asks more: a different researcher, using different code and possibly different methods, tests the same hypothesis on new data or from a different angle, and finds consistent results. Exploratory results can be reproducible and still reflect choices made after some data exploration, even unintentionally. The prospective confirmatory study pre-registered at OSF, for the November 2026 committee map, is designed to provide that independent check.
+**Answer:** Reproducibility means another researcher runs the same code on the same data and gets the same number. That is necessary for scientific confidence, but not sufficient. Independent replication asks more: a different researcher, using different code and possibly different methods, tests the same hypothesis on new data or from a different angle, and finds consistent results. Exploratory results can be reproducible and still reflect choices made after some data exploration, even unintentionally. The November 2026 test is designed as a held-out check. It follows a specification committed to git in June 2026 and pinned by hash. It is not on OSF; an earlier OSF plan (qsgy8) is scored beside it.
 
 ---
 
@@ -1395,9 +1398,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Hypothesis H1: re-seeding bug was found and corrected before main analysis.
+**Assertion:** Hypothesis H1: a re-seeding bug was found and corrected.
 **Why?** What was the re-seeding bug and why does disclosing it matter?
-**Answer:** A re-seeding bug would occur if the simulation restarted its random number generator partway through a run without meaning to. The maps generated after the restart would then be non-random in a subtle way. The audit found such a bug and corrected it before the main analysis was run. Disclosing it matters. It shows the audit's quality-control process caught a technical error before it could affect results. And failing to disclose a known bug would be a serious scientific ethics problem.
+**Answer:** A re-seeding bug occurs when the simulation restarts its random number generator partway through a run without meaning to. The maps generated after the restart are then not the random draws they claim to be. The audit found two. The first, in April 2026, restarted the 2,000,000-step traced-map chain from the 2019 map at every chunk boundary; its "no map in 2M reaches it" result was rejected (H1), and the 250,000-plan run was redone. The second was a resume bug that re-seeded one chain partway through the first canonical run. It was found July 9, 2026, after its results were in the draft, and the ensemble was rerun July 12; the headline figures moved slightly. Disclosing both matters. Failing to disclose a known bug would be a serious scientific ethics problem.
 
 ---
 
@@ -1453,13 +1456,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Phase 4C measured attribution — replacing the 70/30 blend with observed apportionment — would reduce the sensitivity range in §5.2.2 to a single refined value.
 **Why?** What is "Phase 4C" and what is the 70/30 blend it would replace?
-**Answer:** The 70/30 blend was a modeling assumption, used when precise vote attribution was not possible: 70% of a hybrid district's vote estimate came from applying the result to one zone, 30% from another. It was a placeholder for the measured value that would come from a complete geographic overlay of every polling station with the new district shapes. **Phase 4C — the canonical VA-polygon attribution step — has now been executed** (script: `analysis/scripts/phase4c_canonical_attribution.py`; output: `data/outputs/phase4c_canonical_results.json`). For canonical EA shapefiles and 2023 vote data, it produces: minority EG +4.02%, majority EG +0.10% (asymmetry +3.92pp); minority seats@50/50 = 0.5169 (UCP fraction; equivalently 0.4831 NDP fraction per Phase 4C's own convention note). These are the values the monograph and public report now cite as canonical. The earlier "uncertainty from modeling choice" framing was correct for the pre-canonical era and is now superseded. The Phase 4C measurement did not reduce the blend's range. It *converged* to a specific value. The Monte Carlo interval reported in §5.2.2 is a separate (correctly disclosed) source of uncertainty: the ensemble's distribution under different neutral-map draws, not the blend-substrate uncertainty. (Earlier draft of this entry contradicted the Appendix E Phase 4C entry on the same page; this revision aligns them.)
-
----
-
-**Assertion:** Multiple testing under Holm-Bonferroni correction for five tests at α = 0.10: the minority's seats@50/50 result (p = 0.0148) satisfies the corrected threshold (0.02).
-**Why?** What is Holm-Bonferroni and why does this matter?
-**Answer:** Run five tests and the chance that at least one appears significant just by coincidence is higher than if you run one test. Holm-Bonferroni lowers the threshold to account for that. Running five tests at 10% significance, the strictest threshold is 0.10 / 5 = 0.02. The minority's seats@50/50 result, p = 0.0148, is below that corrected threshold, so it would be considered statistically significant even under this conservative adjustment for multiple testing. The audit notes this to answer the objection that running multiple tests inflates the chance of a false positive.
+**Answer:** The 70/30 blend was a modeling assumption, used when precise vote attribution was not possible: 70% of a hybrid district's vote estimate came from applying the result to one zone, 30% from another. It was a placeholder for the measured value that would come from a complete geographic overlay of every polling station with the new district shapes. **Phase 4C — the canonical VA-polygon attribution step — has now been executed** (script: `analysis/scripts/phase4c_canonical_attribution.py`; output: `data/outputs/phase4c_canonical_results.json`). For canonical EA shapefiles and 2023 vote data, it produces: minority EG +4.02%, majority EG +0.10% (asymmetry +3.92pp); minority seats@50/50 = 0.5169 (UCP fraction; equivalently 0.4831 NDP fraction per Phase 4C's own convention note). These are the values the monograph and public report now cite as canonical. The earlier "uncertainty from modeling choice" framing was correct for the pre-canonical era and is now superseded. The Phase 4C measurement did not reduce the blend's range. It *converged* to a specific value. The Monte Carlo interval reported in §5.2.2 belongs to the retired blend model: it varied the blend's own parameters, and it is kept as a record. (Earlier draft of this entry contradicted the Appendix E Phase 4C entry on the same page; this revision aligns them.)
 
 ---
 
@@ -1503,7 +1500,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Model dependence: ReCom assumes contiguous, population-balanced districts as the primary constraints. If the commission weighted unmeasured criteria heavily, the neutral baseline may be misspecified.
 **Why?** What are "unmeasured criteria" and why might they affect the comparison?
-**Answer:** The EBCA requires the commission to consider community of interest, existing electoral boundaries, and other factors beyond population equality and geographic contiguity. The ReCom simulation does not fully model community-of-interest preservation. It cannot: "community of interest" is a qualitative judgment rather than a computable constraint. If the commission's choices were primarily driven by unusual community-of-interest determinations, the neutral ensemble would not properly capture the space of constraint-legal maps as the commission understood it. That is why the Lane 2 structural findings, which do not depend on the ensemble, carry independent weight.
+**Answer:** The Act requires the commission to consider effective representation, and lets it weigh communities of interest, geography, transport and other factors beyond population equality and geographic contiguity (s.14). The ReCom simulation does not fully model community-of-interest preservation. It cannot: "community of interest" is a qualitative judgment rather than a computable constraint. If the commission's choices were primarily driven by unusual community-of-interest determinations, the neutral ensemble would not properly capture the space of constraint-legal maps as the commission understood it. That is why the Lane 2 structural findings, which do not depend on the ensemble, carry independent weight.
 
 ---
 
@@ -1513,17 +1510,17 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
 **Why?** Is a directional finding strong enough to support any policy response?
-**Answer:** Four independent structural signals point the same way. Each comes from different data sources. Each survived stress-testing. Together, that directional consistency is stronger evidence than any single statistical test would be alone. The statistical tests add quantitative weight to the structural signals: the ensemble test Ch1, p = 8.80×10⁻⁷, about one in 1,140,000, with a combined upper bound that holds even if the tests are dependent, p ≤ 1.76×10⁻⁶, about one in 568,000. (The earlier Fisher figure, p = 4.61×10⁻⁸, was retired 2026-06-10.) Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether that is strong enough to require a legal remedy, an administrative revision, or simply public acknowledgment is a policy and legal judgment. The audit provides the empirical input for that judgment.
+**Answer:** Four structural signals point the same way. They aren't independent: two come from the same commission tables, and the anomaly checks were built from shapes already seen on the minority map. The statistical tests add quantitative weight to the structural signals: the ensemble test Ch1, p = 8.80×10⁻⁷, about one in 1,140,000, with a combined upper bound that holds even if the tests are dependent, p ≤ 1.76×10⁻⁶, about one in 568,000. Both are model-based estimates, not counts: no sampled plan is as extreme, and counting directly the result is rarer than about 1 in 1,500. (The earlier Fisher figure, p = 4.61×10⁻⁸, was retired 2026-06-10.) Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether that is strong enough to require a legal remedy, an administrative revision, or simply public acknowledgment is a policy and legal judgment. The audit provides the empirical input for that judgment.
 
 ---
 
 **Assertion:** The majority map is within the neutral null on three of four metrics and jointly (Mahalanobis p = 0.102); its mean-median is a 1st-percentile (p0.99) outlier leaning NDP, the wrong direction to help the UCP. The minority is not within the null. This is the headline.
 **Why?** What should a reader conclude from this if they are a policymaker, a court, or a journalist?
-**Answer:** A policymaker reviewing two competing redistricting proposals should understand that they are not equivalent options. One falls within the range that neutral independent processes produce. One does not. A court evaluating a Charter challenge to the redistricting process would have quantified outlier statistics and a pre-registered methodology to assess. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals, with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do. It provides the measurement.
+**Answer:** A policymaker reviewing two competing redistricting proposals should understand that they are not equivalent options. One falls within the range that neutral independent processes produce. One does not. A court evaluating a Charter challenge to the redistricting process would have quantified outlier statistics to assess, exploratory on these maps. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals, with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do. It provides the measurement.
 
 ---
 
-**Assertion:** The November 2026 confirmatory replication will apply Benjamini-Hochberg correction and is pre-registered at OSF.
+**Assertion:** The November 2026 test follows a specification committed to git in June 2026 and pinned by hash. It applies no Benjamini–Hochberg correction and is not on OSF; an earlier OSF plan (qsgy8) is scored beside it.
 **Why?** What happens if the November 2026 committee map falls within the neutral band?
 **Answer:** Then the confirmatory test returns a null result. If the new 91-seat committee map scores within the neutral ensemble band on all partisan-fairness metrics, the committee's map did not reproduce the partisan pattern found in the minority commission proposal. We would report that null result in full, in keeping with our commitment to report failures openly. It would not retroactively change the findings about the original minority proposal. It would indicate that the committee's process produced a different outcome.
 
@@ -1532,9 +1529,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Across eight sub-sections of §5, the minority 2026 proposal shows wider distribution, higher packing and cracking signals, more anomalies, and a more government-controlled procedural path than the majority.
+**Assertion:** Across eight sub-sections of §5, the minority 2026 proposal shows wider distribution and more anomalies than the majority. No formal signature is detected on the official maps (packing fails its margin test; cracking and the engineered-boundary signature are not detected). Separately, the process that replaced both maps is more government-controlled.
 **Why?** Does consistently finding the same direction across eight sub-sections constitute one finding or eight?
-**Answer:** Each of the eight sub-sections tests a different measurable property, with different data, different methods and different mathematical tools. They are not the same test repeated eight times. Consistent direction across eight independent tests, each with its own methodology, is much stronger evidence than one strong result on one test. The audit's structure is designed to force that breadth: each sub-section runs independently, from its own script, against its own data source.
+**Answer:** Each of the eight sub-sections tests a different measurable property. They are not the same test repeated eight times. But they aren't independent tests either: two signals come from the same commission tables, and the anomaly checks were built from shapes already seen on the minority map. Consistent direction across them says more than one result alone, but it can't be counted as eight separate confirmations.
 
 ---
 
