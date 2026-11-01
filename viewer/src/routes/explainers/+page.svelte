@@ -131,7 +131,6 @@
       <h2>{t(lang.current, 'pages.explainers.appendix_k.heading')}</h2>
       <p class="confusion">{@html t(lang.current, 'pages.explainers.appendix_k.confusion')}</p>
       <p>{@html t(lang.current, 'pages.explainers.appendix_k.p1')}</p>
-      <p>{t(lang.current, 'pages.explainers.appendix_k.p2')}</p>
       <p class="limit">{@html t(lang.current, 'pages.explainers.appendix_k.limit')}</p>
       <p class="back-anchor">{@html t(lang.current, 'pages.explainers.appendix_k.back_anchor').replaceAll('__BASE__', base)}</p>
     </section>

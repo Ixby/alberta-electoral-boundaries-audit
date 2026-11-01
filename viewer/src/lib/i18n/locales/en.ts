@@ -1834,7 +1834,6 @@ export default {
 				heading: 'Appendix K — How to check a stated reason against public data',
 				confusion: '<em>The confusion:</em> "Commissioners are the experts. Who is an audit to grade their reasons?"',
 				p1: 'Nobody special, and that\'s the point: the check requires no special access. The minority report says Cochrane residents "move fluidly" into Calgary. Statistics Canada\'s journey-to-work tables (free, public) show about a third of Cochrane\'s workers commute into Calgary, while roughly half work in Cochrane. A real tie, and one that says nothing about the specific Nolan Hill corridor drawn. The report implies shared schools link Red Deer and Sylvan Lake. The two towns\' school-division boundaries (also public) put them in different divisions. Each check follows the same recipe. Take the stated reason. Find the public dataset that would show it. See whether the <em>particular line drawn</em> is the line the data supports. Five of six checked rationales fail that last step. The tie is real; the line is not the one the tie points to.',
-				p2: "Now re-read finding 11. Notice that the audit dropped one of its own seven draft claims by the same standard, when the source couldn't be located.",
 				limit: "<em>The limit:</em> a rationale that fails checking proves the <em>stated</em> reason doesn't fit. It cannot reveal the real one. Sloppiness and pretext leave identical paperwork.",
 				back_anchor: '<a href="__BASE__/evidence#casing-11">↩ Back to finding 11</a>'
 			},
