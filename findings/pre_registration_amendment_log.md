@@ -28,7 +28,7 @@ type: project
 |---|---|---|---|
 | 2026-04-23 | Amendment 1 | Six corrections after initial upload | Urban-weight parameter corrections (C1–C4); AI toolstack disclosure (C5); DPG sunset clause (C6) |
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
-| 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 28 parts, grouped by registered document; mapping table at its end |
+| 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 39 parts, grouped by registered document; mapping table at its end |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -435,6 +435,51 @@ Errata in the filed text, read as follows:
 **Part 28 — The premise of item 2 is struck.** The item no longer opens with "The 2019 cross-election direction reversal extends to 338Canada April 2026 polling". On the official 2019 files there is no reversal: the minority remains the more UCP-favourable map (ledger C44). The test stands as written: if more recent polling shows the direction flipping under several 2020s-era voter distributions, the structural pattern becomes harder to read as engineering. (Item 1 follows Part 22.)
 
 The registered documents are read the same way. On the official files the minority's efficiency gap is the more UCP-favourable on 2015, 2019 and 2023 votes (`thresholds.md` B.2.1.C table: +10.54% against +7.58%, −0.49% against −1.32%, +4.02% against +0.10%). "Direction reverses (2019 = +0.75 pp, 2023 = −0.51 pp)" (`null_hypotheses.md` §1.2 B3), "2019 flips" (§7.1 rows B2 and B3; §7.4) and "a direction reversal" (`thresholds.md` B.5.6) refer to the retired blend model.
+
+#### L. Errata found in the corpus check of November 1, 2026 (registered documents)
+
+The registered documents are not edited. Each erratum below states what the registered text says and how it is now read. No test or threshold changes.
+
+**Part 29 — OSF identifiers in the registered documents.**
+- `thresholds.md` (header `osf_id: r3zm7`), `retraction_conditions.md` (`w2s8k`) and `terms_of_reference.md` ("OSF w2s8k (primary audit registration)") are not on OSF. The registrations their headers name hold only the two plan files (Part 26).
+- `null_hypotheses.md` names OSF 2gue9 as its "public pre-registration" and says its criteria are "verifiable at" that link. 2gue9 is a private project; readers cannot open it. An earlier version of the file (`null_hypothesis_and_exoneration_criteria.md`, uploaded 2026-04-27) is in 9wp5y, registered 2026-05-07.
+- Its "OSF Track W, filed 2026-04-23" is the checklist's first upload. The checklist was registered on 2026-05-07 (9wp5y).
+- Its §5 says an amendment "will be filed citing this document as Change 7". It never was.
+- `retraction_conditions.md` §0 and §6.1 speak of "the four OSF registrations" carrying the two plan files. Seven carry them (Part 26).
+
+**Part 30 — `seed_commitments.md`: what qsgy8 and 6pt83 hold.** Part 26 corrected the labels; this part corrects the substance.
+- qsgy8 was filed about six hours after the official shapefiles arrived: they came at 09:51 MDT on 2026-05-06, and qsgy8 was registered at 15:50. It names only the salt `lunty-bootstrap`. It does not hold `mcmc_ensemble_250k`. So the salt table's "OSF qsgy8 … Predates EA shapefiles", and the statement that the salt "was registered in … qsgy8 before any ensemble results were observed", do not hold.
+- 250,000-plan results existed by 2026-04-27 (Amendment 4), and Amendment 4, Change 7 records that the 250,000-plan run used fixed seeds (for example, seed 42).
+- 6pt83 is the SZAT registration, so the statement that none of the OSF registrations specifies the SZAT method is withdrawn. 6pt83 dates its seed commit to 2026-05-06 (`d2aea42`), and the copy of `drand_seed.py` uploaded to OSF on 2026-04-27 (in 9wp5y) holds no salts. The OSF record does not support the statement that `"szat-bootstrap"` was committed on 2026-04-27, nine days before the shapefiles.
+- The timeline table names an Elections Alberta staff member. It is read as "received from Elections Alberta (data request)".
+
+**Part 31 — Municipal anchoring: condition 4.3 A has been met.** On the official boundaries the minority's municipal anchoring is 71.8% and the majority's 80.0%, a ratio of 1.11× (`findings/structural_battery_result.json`; `findings/structural_battery_majority.json`). That is what `retraction_conditions.md` condition 4.3 A describes: the ratio "collapses toward 1×". Under its §0 the §5.8.5 anchoring finding is withdrawn. Part 22 changed only condition 4.3 B. In `null_hypotheses.md`, C5 (pass if the ratio is 2 or less) now passes. The §7.1 rows that call the anchoring figures and ratio "Structural-Robust-Durable", §7.2 item 4, §7.3 ("the audit's cleanest finding … this one survives") and the §7.8 row no longer hold. The traced figures they cite (71.0% and 14.5%; 4.9× to 5.1×) are superseded.
+
+**Part 32 — The §5.3 signatures on the official maps.** No formal signature is detected on the official maps (packing fails its margin test; cracking and the engineered-boundary signature are not detected).
+- *Packing (§5.3.1).* Not detected: P2 fails on the official attribution. The minority's Calgary Zone A has 8 of 17 districts won by the NDP. Their mean winning margin is 15.0 points against a provincial mean of 27.6, so 12.6 points below, where P2 needs 15 above (`data/outputs/packing_signature_rescore_2026-11-01.json`; `analysis/scripts/packing_signature_rescore.py`). The file §5.3.1 cites (`votes_2023_minority.csv`) gives 9 of 17, 12.3 points below. P1 still holds: Zone A districts average 11.5% above the provincial mean, against 2.8% on the majority map. That is a population-equality finding. The test was always exploratory (Part 20).
+- *Cracking (§5.3.2).* Not detected on the official boundaries (ledger C46).
+- *Engineered boundary (§5.3.3).* Rocky Mountain House–Banff Park is not detected under the registered reading (Reading A). It is detected only under a reading adopted after the fact.
+- *How the registered text is read.* `thresholds.md` C.2 gives the minority's Zone A as "13 of 17 NDP-won districts" with a margin of about +18 points above the mean. 13 of 17 is the majority map's count in the cited file, and P2 fails at each of C.2's settings (12, 15 and 18 points). C.1's "Packing signature detected" lines and C.4's P2 row are read the same way. In `null_hypotheses.md`, the §7.1 rows for the three signatures, §7.2 item 2 ("All three §5.3 signatures") and the §7.8 row no longer hold, and A3's "Current: 1 (RMH-Banff Park) vs 0" is read as not detected under the registered reading. `retraction_conditions.md` §3.1–§3.3 have no detected signature left to retract. The checklist's §2 (9wp5y) says the audit "detected three formal gerrymander signatures" under the minority map; on the official maps it detects none. The checklist's November criteria are unchanged.
+
+**Part 33 — Population spread (A1) is not Durable.** `null_hypotheses.md` §7.1 calls A1 "Plan-B invariant" and "Structural-Durable", §7.2 item 1 says the minority is "materially looser on every metric", and the §7.8 row tags A1 [SRD]. None of this holds across population bases. On the 2021 census the mean absolute deviation is 10.2% of quota for the minority and 10.1% for the majority (report Appendix C). The 48% gap (4,707 against 3,180) is on the commission's 2024 tables only. On median absolute deviation the minority is wider (3,938 against 2,827, p99.1 against the canonical ensemble), but against an ensemble drawn with the statute's ±25% proposal band it sits at p0.013, in the more-equal tail (report §5.4.9).
+
+**Part 34 — Where the minority falls in the ensemble's 5–95 band.** On the canonical ensemble the minority is outside the band on three measures, all on the UCP side: mean-median p99.97, declination p98.79 and seats at 50/50 p99.99. Only the efficiency gap, at p94.54, is inside.
+- `null_hypotheses.md` §2.5 (its table, "Three of four metrics fall inside", "isolated to seats-at-50/50"), §4 item 1, the §7.1 Chen-Rodden rows and the §7.2 list, and `retraction_conditions.md` §2.4 A and §7.2 ("3-of-4-in-band"), describe the traced v0_2 run. They are withdrawn. Seats at 50/50 counts UCP seats, so its upper tail favours the UCP, not the NDP. The minority's value is 0.5169, not 0.5057 (§2.4 B).
+- `null_hypotheses.md` §1.2 B5 ("all four are in the extreme tails") and `osf_forest_recom_robustness.md` §3 ("the extreme tail of every pre-registered partisan-fairness metric") are read as: three of four; the efficiency gap, at p94.54, is inside. B5 therefore does not pass. None of the four metrics was registered before the commission maps were scored.
+
+**Part 35 — Which ensemble the older references mean.** "The final 250,000-map ensemble" (`null_hypotheses.md`, note on timestamping) and "the canonical 250k ensemble" (`retraction_conditions.md` §2.6 B) mean the retired 250,000-plan ensemble of Amendment 4. The canonical ensemble has 1,010,000 plans (Part 1). `seed_robustness_rerun.md` Section B was computed on 2026-05-10, at the first canonical run's 250,000-plan state. Section C was checked against that run's 1,010,000 plans (completed 2026-05-12). That run was discarded on 2026-07-12 (Part 1), so Section C's "independently confirmed" refers to it, not to the rerun.
+
+**Part 36 — The "no public support" tally.** The majority's "no public support" claim names five places: Airdrie, Cochrane, Chestermere, Red Deer and St. Albert (final report pp. 59, 62). It holds for three (Airdrie, Cochrane and St. Albert) and is partly wrong for two (Chestermere and Red Deer). `null_hypotheses.md` §1.4 ("4 of 7 have documented support (Canmore-Banff, Chestermere, RMH-Rocky Gas Co-Op plus one)") and `retraction_conditions.md` §5.1 ("four or more of the contested configurations") are read on that basis. Support for Rocky Mountain House–Banff Park and Olds–Three Hills–Didsbury answers a claim the majority did not make, and Canmore-Banff is a majority district.
+
+**Part 37 — Blend-model figures in `thresholds.md`.** B.2.1, B.2.1.A, B.2.1.B, B.2.2, B.4.2, C.3 and Scenario E4 quote the retired blend model (Part 1): efficiency gaps of −0.40% and −1.81% (or −0.85% and −1.36%), mean-medians of −0.16 and −0.33 points, and its urban-weight grid. Part 19 flagged only rows #14 and #15. On the canonical figures the efficiency gap is +4.02% for the minority and +0.10% for the majority, and the mean-median +1.04 and −3.62 points. On those figures:
+- Option A's "Observed minority EG (−1.81 %) is now below the 2-seat floor" fails: +4.02% is above the 2.25% floor.
+- Option B's claim that "any fraction from one-tenth (2.5 %) to one-half" of the band gives the same result fails: +4.02% is above 2.5%. The minority is still under the 5% line.
+- B.2.2's "both well within the flag" fails for the majority: −3.62 points is beyond the 3-point mean-median flag, on the NDP side.
+- E4's "an order of magnitude below 7 %" fails: on 2015 votes both maps are over 7% (B.2.1.C's own table).
+
+**Part 38 — Threshold counts and dates in `thresholds.md`.** Part A's provenance column gives STAT 7, LIT 5, FP 10, FP/AUD 4, MOD 6, MOD/LIT 1 and AUD 5, plus one each of FP/STAT, FP/OBS, LIT/FP and OBS. The counts line under Part A ("STAT: 6 · LIT: 6 · FP: 16 · MOD: 7") and Part F's "Six are directly statutory" are read that way. Rows #39–#42 were added in May 2026, not in August as the closing note says.
+
+**Part 39 — Seats under s.13.** `terms_of_reference.md` §8 says "89 is a statutory input to the Commission (Act s.13, as amended by 2024 c17 s3)". 89 governed the 2025–26 commission; s.13 now reads 91 (2026 c7 s2).
 
 #### What this amendment does not change
 
