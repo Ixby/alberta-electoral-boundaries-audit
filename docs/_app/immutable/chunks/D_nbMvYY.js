@@ -1,0 +1,1 @@
+import{K as e}from"./DjneNb1u.js";import{n as t}from"./CpJaivts.js";function n(e){return typeof e==`string`?e.replace(/<[^>]+>/g,` `).replace(/&[a-z#0-9]+;/gi,` `).split(/\s+/).filter(Boolean).length:e&&typeof e==`object`?Object.values(e).reduce((e,t)=>e+n(t),0):0}var r=Math.round(n(t)/500)*500,i=e({sections:[],current:0});export{r as n,i as t};
