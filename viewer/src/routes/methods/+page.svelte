@@ -108,13 +108,7 @@
       <h2>{t(lang.current, 'pages.methods.odds.heading')}</h2>
       <p>{@html t(lang.current, 'pages.methods.odds.p1')}</p>
       <p>{t(lang.current, 'pages.methods.odds.p2')}</p>
-      <p>
-        The doubling has one more virtue: it needs no assumptions. It holds whether the two
-        tests are related or not. An earlier version of this audit combined the two tests with
-        a method that <em>assumed</em> they were unrelated, and got "1 in 15 million." The two
-        tests share the same vote data, so that assumption was wrong. The number was
-        retired. What is left is the number a hostile statistician could not beat down.
-      </p>
+      <p>{t(lang.current, 'pages.methods.odds.p3')}</p>
       <p>{@html t(lang.current, 'pages.methods.odds.p4')}</p>
     </section>
 
@@ -124,10 +118,6 @@
       <ul>
         <li>{@html t(lang.current, 'pages.methods.died.li1')}</li>
         <li>{@html t(lang.current, 'pages.methods.died.li2')}</li>
-        <li>
-          <strong>The "1 in 15 million" figure</strong> assumed two tests were unrelated when
-          they were not. Retired and replaced by the cautious 1 in 568,000.
-        </li>
       </ul>
     </section>
 

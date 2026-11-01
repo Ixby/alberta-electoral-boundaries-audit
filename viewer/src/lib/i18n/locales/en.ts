@@ -1923,11 +1923,12 @@ export default {
 				heading: 'What "1 in 568,000" means — and why the audit doubled its margin',
 				p1: "Combine the four fairness measures into one score and ask: how often does neutral drawing produce a profile as extreme as the minority map's? The answer is about <strong>1 in 1.1 million</strong>. But the audit does not quote that number. It quotes <strong>1 in 568,000</strong> — exactly half as impressive. Here is why.",
 				p2: 'The audit looked for a signal in two different places: this combined score, and a second test on the specific boundary choices. Looking in two places gives luck two chances. Think of lottery tickets: buy two, and your odds of holding a winner double. So before quoting the odds, the audit doubles them against itself. That way, "you had two tries" is already paid for.',
+				p3: 'The doubling has one more virtue: it needs no assumptions. It holds whether the two tests are related or not, so it is the number a hostile statistician could not beat down.',
 				p4: 'One caution the audit repeats everywhere: these odds measure how unusual the <em>map</em> is. They are not the odds that anyone acted with intent. A rare map could still, in principle, be honest work. The odds say only this: routine drafting does not produce this map.'
 			},
 			died: {
 				heading: 'The tests that died',
-				p1: 'Three findings did not survive, and all three stay in print. That is on purpose: an audit that only shows you its wins is advertising.',
+				p1: 'Two findings did not survive, and both stay in print. That is on purpose: an audit that only shows you its wins is advertising.',
 				li1: '<strong>The city-limits test</strong> found nothing to separate the maps: both follow municipal lines inside the Canadian norm (majority 80%, minority 72%).',
 				li2: '<strong>The boundary-choices test (SZAT)</strong> looked significant until the audit corrected it for a simple fact: neighbouring places vote alike. Treating neighbours as independent flatters the result. After the correction, the test showed nothing. It was retired.'
 			},
