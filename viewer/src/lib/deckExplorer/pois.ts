@@ -57,7 +57,7 @@ export const FLAGS: Flag[] = [
 		x: 64493.7,
 		y: -389679.5,
 		title: 'Chestermere — split between two ridings',
-		body: "Chestermere's heavy commute to Calgary (86% of out-commuters) could have supported keeping it whole and near the city — which residents who opposed a Calgary merger also wanted. The minority instead slices a southern piece into a specific Calgary district it shares no schools or transit with, and that slice fails the population test. The audit reads the bleed into a Calgary district as cracking-adjacent — a community-of-interest split that thins Chestermere's voice without rising to a formal cracking signature. (Academic §5.3.2, §5.8.4.)"
+		body: "Chestermere's heavy commute to Calgary (86% of out-commuters) could have supported keeping it whole and near the city — which residents who opposed a Calgary merger also wanted. The minority instead slices a southern piece into a specific Calgary district it shares no schools or transit with, and that slice fails the population test. The audit counts the bleed into a Calgary district as a community-of-interest split that thins Chestermere's voice; it did not score it on the cracking test. (Academic §5.8.4; justification tests, Test 5.)"
 	},
 	{
 		id: 'red-deer',
