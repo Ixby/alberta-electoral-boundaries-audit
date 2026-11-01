@@ -1657,6 +1657,7 @@ export default {
 				heading: "Co znaczy „1 na 568 000” — i dlaczego audyt podwoił swój margines",
 				p1: "Połącz cztery miary sprawiedliwości w jeden wynik i zapytaj: jak często neutralne rysowanie daje profil tak skrajny jak mapa mniejszościowa? Odpowiedź to około <strong>1 na 1,1 miliona</strong>. Ale audyt nie podaje tej liczby. Podaje <strong>1 na 568 000</strong> — dokładnie o połowę mniej imponującą. Oto dlaczego.",
 				p2: "Audyt szukał sygnału w dwóch różnych miejscach: w tym łącznym wyniku i w drugim teście, dotyczącym konkretnych wyborów granic. Szukanie w dwóch miejscach daje szczęściu dwie szanse. Pomyśl o losach na loterii: kup dwa, a twoje szanse na posiadanie wygrywającego się podwajają. Dlatego zanim audyt poda szanse, podwaja je na własną niekorzyść. W ten sposób „miałeś dwie próby” jest już opłacone.",
+				p3: "Podwojenie ma jeszcze jedną zaletę: nie wymaga żadnych założeń. Obowiązuje bez względu na to, czy oba testy są ze sobą powiązane, więc jest to liczba, której nieprzychylny statystyk nie zdołałby zbić.",
 				p4: "Jedno zastrzeżenie, które audyt powtarza wszędzie: te szanse mierzą, jak nietypowa jest <em>mapa</em>. Nie są szansami na to, że ktokolwiek działał z zamiarem. Rzadka mapa nadal mogłaby, co do zasady, być uczciwą pracą. Szanse mówią tylko tyle: rutynowe rysowanie nie daje tej mapy."
 			},
 			died: {
@@ -1847,6 +1848,102 @@ export default {
 				p1: "Każda wersja tego audytu stosuje tę samą dyscyplinę. Może podać, co pokazują testy. Może powiedzieć, jak nietypowa jest mapa na tle neutralnego punktu odniesienia. Ale nie ogłasza żadnej mapy gerrymanderingiem, nie wnioskuje o zamiarze z geometrii i nie wypowiada się o zgodności z konstytucją ani z ustawą. To pytania dla sądów, komisji i czytelników, z dowodami audytu na stole.",
 				cross_ref: "Strony towarzyszące: <a href=\"__BASE__/methods\">Jak testowano mapy</a> — każdy test i statystyka prostym językiem — oraz <a href=\"__BASE__/norms\">Czego wymagają normy</a> — trzecia soczewka, o zwyczaju i jego krzyżowym przesłuchaniu.",
 				disclaimer: "Ta strona jest przewodnikiem prostym językiem do audytu, napisanym dla orientacji. Nie jest poradą prawną i nic tutaj nie powinno być traktowane jako opinia prawna."
+			}
+		},
+		privacy_policy: {
+			head_title: "Polityka prywatności · Audyt Granic Okręgów Wyborczych Alberty",
+			head_description: "Polityka prywatności i przechowywania danych Audytu Granic Okręgów Wyborczych Alberty.",
+			back: "← Powrót do audytu",
+			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
+			h1: "Polityka prywatności i przechowywania danych",
+			meta: "Obowiązuje od: 2026-06-24 · Prowadzi: Will Conner",
+			overview: {
+				heading: "Przegląd",
+				p1: "To narzędzie jest audytem w interesie publicznym procesu komisji ds. granic wyborczych Alberty z 2023 roku. Nie jest produktem komercyjnym i nie wyświetla żadnych reklam. Ta strona wyjaśnia, co jest mierzone, czego nigdy się nie zbiera i dlaczego nic z tego nie da się powiązać z tobą.",
+				p2: "Krótka wersja: strona korzysta z analityki zbiorczej bez plików cookie. Nie ma śledzącego pliku cookie, reklam, profilowania między witrynami ani identyfikatora, który by za tobą podążał. Ponieważ nie przechowuje się niczego osobistego, nie ma baneru zgody do klikania — ochrona prywatności jest wbudowana w sposób działania pomiaru, a nie doklejona jako komunikat."
+			},
+			how_analytics_work: {
+				heading: "Jak działa analityka",
+				p1: "Gdy strona się ładuje lub wchodzisz w interakcję z mapą, strona wysyła małe, anonimowe zdarzenie do prowadzonej przez nas usługi zliczającej. Każde zdarzenie to tylko nazwa tego, co się stało — na przykład „wyświetlono stronę” lub „wybrano okręg” — plus kilka ogólnych szczegółów dotyczących działania. Zdarzenie nie zawiera imienia i nazwiska, adresu e-mail, konta ani identyfikatora przechowywanego na twoim urządzeniu.",
+				p2: "Aby policzyć, ile różnych osób odwiedziło stronę danego dnia, nikogo nie identyfikując, usługa zliczająca łączy twój adres sieciowy i typ przeglądarki i przepuszcza je przez jednokierunkową funkcję skrótu kryptograficznego razem z sekretem, który zmienia się codziennie. Wynikiem jest krótki kod, który pozwala nam odróżnić dwie wizyty <em>w obrębie</em> jednego dnia, i nic więcej. Oryginalny adres nigdy nie jest przechowywany — przechowywany jest tylko skrót. Ponieważ sekret zmienia się codziennie, ten sam odwiedzający jutro wygeneruje inny kod, więc nie ma sposobu, by śledzić kogokolwiek między dniami ani by od kodu dojść do osoby.",
+				p3: "Interesuje nas obraz, który odwiedzający malują jako grupa — które ustalenia są czytane, które mapy otwierane, które okręgi przyciągają uwagę. Nie interesujesz nas konkretnie ty, a pomiar jest zbudowany tak, że „konkretnie ty” nie jest czymś, co dane potrafią wyrazić."
+			},
+			measured: {
+				heading: "Co jest mierzone",
+				p1: "Analityka rejestruje zbiorcze, anonimowe zdarzenia, takie jak:",
+				li1: "Wyświetlenia stron",
+				li2: "Jak daleko ludzie przewijają stronę, w ogólnych przedziałach (25%, 50%, 75%, 100%)",
+				li3: "Mniej więcej jak długo strona była aktywnie na ekranie, w ogólnych przedziałach czasowych",
+				li4: "Które sekcje ustaleń pojawiają się w widoku podczas czytania",
+				li5: "Które mapy są otwierane w eksploratorze i które okręgi są wybierane",
+				li6: "Które warstwy mapy są włączane lub wyłączane i mniej więcej jak bardzo ludzie przybliżają",
+				li7: "Które punkty zainteresowania lub linki do raportów są otwierane",
+				li8: "Ogólny obraz twojego sprzętu — przedział rozmiaru ekranu (np. telefon, tablet lub komputer), rodzaj urządzenia i rodzina przeglądarki (np. Chrome, Safari lub Firefox). Nigdy nie przechowujemy dokładnych wymiarów twojego ekranu ani pełnego ciągu identyfikującego przeglądarkę.",
+				li9: "Jednorazowy obraz tego, jak eksplorator map działał przy pierwszym rysowaniu — na przykład czas ładowania w ogólnych przedziałach i zaokrąglona wartość pamięci. Pomaga nam to ocenić, czy eksplorator jest wystarczająco szybki na prawdziwych urządzeniach. Liczby są celowo ujęte w przedziały, a nie dokładne, więc opisują klasę urządzeń, a nie urządzenie.",
+				p2: "Każda z tych danych jest przechowywana wyłącznie w formie zbiorczej. Nie ma profilu poszczególnych osób, nagrywania sesji ani zapisu ścieżki danej osoby po stronie. Widzimy sumy i rozkłady, a nie ludzi."
+			},
+			never_collected: {
+				heading: "Czego nigdy się nie zbiera",
+				p1: "Żadnego imienia i nazwiska. Żadnego adresu e-mail. Żadnego konta. Żadnego identyfikatora reklamowego. Żadnego przechowywanego adresu IP — twój adres sieciowy jest poddawany funkcji skrótu z codziennie zmienianym sekretem i natychmiast odrzucany; zachowywany jest tylko krótkotrwały dzienny kod. Żadnego surowego odcisku przeglądarki. Żadnego identyfikatora łączącego dni ani witryny. Żadnej dokładnej lokalizacji. Żadnego pliku cookie ani identyfikatora w pamięci przeglądarki, który oznaczałby cię jako powracającego odwiedzającego do celów analitycznych."
+			},
+			github_pages_collects: {
+				heading: "Co zbiera GitHub Pages",
+				p1: "Ta strona jest hostowana w GitHub Pages. Serwery GitHub automatycznie rejestrują podstawowe dane żądania przy ładowaniu każdej strony — twój adres IP, typ przeglądarki, stronę odsyłającą i znacznik czasu. Nie otrzymujemy tych logów ani ich nie kontrolujemy; podlegają one <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Oświadczeniu o prywatności GitHub</a>. Nie łączy nas z GitHub żadna relacja poza hostingiem. Opisana wyżej analityka działa osobno i nigdy nie otrzymuje twojego adresu IP."
+			},
+			share_codes: {
+				heading: "Kody udostępniania",
+				p1: "Eksplorator map ma funkcję Udostępnij. Zamienia twój bieżący widok mapy — która mapa jest aktywna, które nakładki i warstwy są włączone, mniej więcej gdzie znajduje się widoczny obszar — w krótki trzywyrazowy kod, który możesz skopiować i komuś wysłać. Istnieje dokładnie 19 200 prawidłowych kodów, ponieważ kod reprezentuje konfigurację mapy, a nie osobę. Dwie osoby, które niezależnie dojdą do tego samego widoku, otrzymają ten sam kod; to oczekiwane i nie tworzy między nimi żadnego powiązania.",
+				p2: "Kody udostępniania pojawiają się na ekranie i trafiają do twojego schowka tylko wtedy, gdy klikniesz Kopiuj. Nigdy nie są umieszczane w adresie URL, więc nie pojawiają się w historii przeglądarki, logach serwera ani nagłówkach odsyłających. Aby otworzyć czyjś udostępniony widok, odbiorca wpisuje kod bezpośrednio na stronie.",
+				p3: "Gdy generujesz kod udostępniania, zakodowana w nim konfiguracja mapy jest zapisywana w naszej bazie danych, aby link nadal działał. Ten zapisany rekord to stan mapy — nie osoba, nie ścieżka i nie jest łączony z analityką. Nie zawiera żadnego identyfikatora dotyczącego ciebie."
+			},
+			cookies_browser_storage: {
+				heading: "Pliki cookie i pamięć przeglądarki",
+				p1: "Analityka nie używa żadnego pliku cookie ani identyfikatora w pamięci przeglądarki. Nic w pomiarze nie oznacza cię jako powracającego odwiedzającego.",
+				p2: "Strona ustawia jeden mały <strong>funkcjonalny</strong> plik cookie, aby zapamiętać twoje własne preferencje między wizytami. Nie jest używany do analityki ani śledzenia i nigdy nie opuszcza twojej przeglądarki w czytelnej postaci. Przechowuje:",
+				li1: "<strong>Motyw kolorystyczny</strong> — ciemny lub jasny, jeśli go zmieniłeś",
+				li2: "<strong>Zamknięcie wprowadzenia</strong> — aby wprowadzenie do mapy się nie powtarzało",
+				li3: "<strong>Bieżący widok mapy</strong> — aby twój ostatni widok został przywrócony przy następnej wizycie",
+				li4: "<strong>Język przeglądarki</strong> — aby strona mogła wyświetlić preferowany przez ciebie język",
+				p3: "Ten plik cookie przechowuje tylko powyższe preferencje — żadnych danych osobowych ani identyfikujących. Jego zawartość jest zaszyfrowana kluczem dostarczanym wewnątrz strony, więc przechowywana wartość nie jest czytelna dla człowieka; ponieważ ten klucz jest publiczny, traktuj to jako ochronę przed manipulacją, a nie prawdziwą tajność. Jest wysyłany tylko przez HTTPS, nigdy nie jest udostępniany innym stronom i możesz go w każdej chwili usunąć, czyszcząc pliki cookie. Strona jest serwowana jako pliki statyczne, więc nic po stronie serwera go nie odczytuje. Twój motyw kolorystyczny jest też powielany w lokalnej pamięci przeglądarki, aby właściwy motyw mógł zostać zastosowany natychmiast przy ładowaniu, zanim cokolwiek mignie; ta wartość również jest czysto funkcjonalna i nigdy nigdzie nie jest wysyłana."
+			},
+			data_retention: {
+				heading: "Przechowywanie danych",
+				p1: "Rekordy analityczne są z samej konstrukcji zbiorcze i anonimowe, bez żadnego identyfikatora do przechowywania. Są przechowywane na infrastrukturze hostowanej w Kanadzie (ca-central-1) i zachowywane jako dane badawcze. Gdybyśmy kiedykolwiek stwierdzili, że rekord zawiera informacje identyfikujące — czemu projekt ma zapobiegać — usunęlibyśmy go w ciągu 30 dni."
+			},
+			your_choices: {
+				heading: "Twoje wybory",
+				p1: "Ponieważ nie zbiera się niczego osobistego, nie ma z czego się wypisywać ani komunikatu o zgodzie do zarządzania. Jeśli mimo to wolisz nie wysyłać żadnych zdarzeń analitycznych, blokada treści lub przeglądarka blokująca żądanie do usługi zliczającej je powstrzyma, a strona będzie działać dokładnie tak samo. Możesz też w każdej chwili usunąć funkcjonalny plik cookie z preferencjami w ustawieniach przeglądarki."
+			},
+			contact: {
+				heading: "Kontakt",
+				p1: "Will Conner — niezależne badania, niepowiązane z żadną instytucją ani przez żadną nieaprobowane.",
+				p2: "Pytania, korekty i prośby o usunięcie danych: prosimy skorzystać z <a href=\"__BASE__/feedback\">formularza opinii</a>. Na prośby odpowiadamy w ciągu 10 dni roboczych."
+			},
+			policy_updates: {
+				heading: "Zmiany polityki",
+				p1: "Gdy ta polityka się zmienia, data obowiązywania na górze jest aktualizowana, a zmiana jest zatwierdzana w <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">publicznym repozytorium git</a>. Historia zatwierdzeń jest dziennikiem zmian. Każda zmiana, która rozszerza zakres zbieranych danych, jest odnotowywana w opisie zatwierdzenia."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> „Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures”. <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> „Recombination: A Family of Markov Chains for Redistricting”. <em>Harvard Data Science Review</em> 3(1). (Algorytm ReCom użyty do wygenerowania zespołu 1 010 000 map.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> „A Unified Method of Evaluating Electoral Systems and Redistricting Plans”. <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> „Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies”. <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> „The Fractured Right to Vote”. <em>McGill Law Journal</em> 61(2): 231–274. (Kanadyjskie ramy konstytucyjne dotyczące granic wyborczych.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> „Partisan Gerrymandering and the Efficiency Gap”. <em>University of Chicago Law Review</em> 82(2): 831–900. (Źródło miary luki efektywności używanej w całym tekście.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Wiodące orzeczenie Sądu Najwyższego Kanady w sprawie konstytucyjnego standardu wytyczania granic wyborczych.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Sąd Federalny; wiodące kanadyjskie orzeczenie dotyczące dowodów na istnienie społeczności interesu w sporach o granice wyborcze.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Sąd Najwyższy USA; ustala, że roszczenia dotyczące partyjnego gerrymanderingu nie podlegają rozpoznaniu przez sądy federalne — kontekst wyjaśniający, dlaczego kanadyjski standard skutecznej reprezentacji z art. 3 jest inny.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}
