@@ -219,7 +219,7 @@ export default {
 		p3: "<strong>Mareykanka</strong> wuxuu qaybsiga siyaasadeed ee xisbiyeed u arkaa dhibaato aanay maxkamadaha federaalku inta badan xallin karin. Kiiska <em>Rucho v. Common Cause</em> (2019), Maxkamadda Sare ee Mareykanku waxay xukuntay in qaybsiyada siyaasadeed ee xisbiyeed yihiin \"su'aalo siyaasadeed\" oo aan maxkamad lagu xukumi karin, oo maxkamadaha federaalku aanay xallin doonin. Gobollada qaar (California, Michigan) waxay ka jawaabeen iyagoo abuuray guddiyo madax-bannaan oo muwaadiniin ka kooban si ay khadadkooda u sawiraan; kuwo kale (Texas, North Carolina) waxay sii wadeen sawiridda khariidado si cad xisbi ugu eexda, waxayna ku difaaceen in <em>Rucho</em> uu taas oggol yahay.",
 		p4: "<strong>Boqortooyada Midowday</strong> waxay isticmaashaa afar Guddiyo Xudduudo oo joogto ah — mid kasta England, Scotland, Wales, iyo Northern Ireland — oo ka kooban garsoorayaal iyo shaqaalaha sare ee dawladda. Waxa ay dib u sawiraan khadadka qiyaastii sideed sano kasta iyaga oo ku saleysan shuruucda go'an (sinaanta dadka, isku xidhnaanta juquraafi, ixtiraamka xudduudaha dawladda hoose). Tan iyo Sharciga Degmooyinka Baarlamaanka 2020 (Parliamentary Constituencies Act 2020), talooyinkooda kama-dambaysta ah waxay si toos ah u dhaqan-galaan iyada oo loo marayo Amar Golaha (Order in Council), iyada oo aan loo baahnayn cod baarlamaaneed — awooddii hore ee Baarlamaanku ku diidi jiray waa la qaaday.",
 		p5: "<strong>Australiya</strong> shaqada waxay u wakiishaa Guddida Doorashada Australia, hay'ad federaal ah oo madax-bannaan oo awood buuxda u leh maamulka doorashooyinka iyo xudduudahaba. Dib-u-qaybintu si toos ah ayay u dhacdaa marka tirada kursiyada gobol isbeddesho ama toddoba sano laga joogo tii ugu dambeysay. Go'aannada la-taliyayaasha dib ayaa loo eegi karaa sababo habraaceed, laakiin sababo xisbiyeed lagama eegi karo. Sida Boqortooyada Midowday oo kale, qaybsiga siyaasadeed sida Mareykanku u yaqaan ku dhowaad lama maqal.",
-		p6: "Saddexdan kiis waxay calaamadeeyaan iskala-duwanaanshaha: maxkamadaha aan dhex galin (Mareykanka), guddiyo madax-bannaan oo leh ixtiraam baarlamaanka oo xooggan (Boqortooyada Midowday), iyo hay'ad madax-bannaan oo joogto ah oo leh awood buuxda (Australiya). Kanada waxay ku taallaa meel kale oo kala duwan — taas oo qaybta xigta wax ka qabaneyso."
+		p6: "Saddexdan kiis waxay xadeeyaan labada geesood ee kala-duwanaanshaha: maxkamado iska fogeeya (Mareykanka), guddiyo madax-bannaan oo baarlamaanku si xooggan ugu hoggaansamo (Boqortooyada Midowday), iyo hay'ad madax-bannaan oo joogto ah oo leh awood buuxda (Australiya). Kanada waxay ku taallaa meel kale oo ka duwan — taas oo qaybta xigta ay ka hadlayso."
 	},
 	glossary: {
 		more_link: "Wax dheeraad ah baro →",
@@ -285,7 +285,7 @@ export default {
 		},
 		ebca: {
 			term: "EBCA",
-			definition: "Alberta Electoral Boundaries Commission Act (Sharciga Guddida Xudduudaha Doorashada Alberta) — sharciga maamula sida xudduudaha doorashada loogu sawiro gobolka. Wuxuu dejiyaa guddida, habraaca dhageysiga dadweynaha, iyo shuruucda marka khariidad cusub ay shaqo galayso."
+			definition: "The Electoral Boundaries Commission Act (Sharciga Guddida Xudduudaha Doorashada) — sharciga Alberta ee dejiya xeerarka ay tahay inay khariidad cusub raacdo, oo ay ku jirto inta ay tirada dadka degmooyinku kala duwanaan karto."
 		},
 		ensemble: {
 			term: "Tijaabada 1.01-milyan-khariidadood",
@@ -332,7 +332,7 @@ export default {
 			box_h: "Waxa aan dhihi karo, iyo waxa aanan dhihi karin",
 			can1: "Khariidadda inta yar waxay ka baxsan tahay waxa 1.01 milyan oo khariidadood oo dhexdhexaad ah soo saaraan, xagga UCP.",
 			can2: "Afarta cabbir ee caddaaladda xisbiyeed oo dhammi isla jihada ayay u janjeedhaan.",
-			cant1: "In xubin guddi kasta ula jeeday inuu tan sameeyo. Imtixaannadaydu waxay cabbiraan waxa khariidaddu sameyso. Ma muujin karaan ujeeddo.",
+			cant1: "In mid ka mid ah xubnaha guddida uu ula jeeday inuu tan sameeyo. Imtixaannadaydu waxay cabbiraan waxa khariidaddu sameyso. Ma muujin karaan ujeeddo.",
 			cant2: "In dawladdu amartay xubnihii ay magacawday. Ma helin wax caddayn ah oo isku-dubbarid ah. Qof magacaabiddiisu caddayn uma aha.",
 			cant3: "In qaabkani mar kale dhici doono. Khariidadda leh weligeed sharci looma dhigin. Noofembar ayaa muujin doonta inuu soo noqdo iyo in kale.",
 			cant4: "Sida maxkamadi u xukumi lahayd, ama waxa guddigu dooran doono.",
@@ -365,7 +365,7 @@ export default {
 			li4: "khariidadda dhexdhexaadka ah ee dhexe (median) waxay siisaa 44.8%;",
 			li5: "khariidadda inta badan waxay siisaa 46.1%, boqolleyda 78aad;",
 			li6: "khariidadda inta yar waxay siisaa 51.7%, boqolleyda 99.99aad, waxaana ka badan 69 keliya oo ka mid ah 1,010,000 khariidadood oo dhexdhexaad ah.",
-			p13: "Khariidadda inta yar, UCP waxay haysanaysaa 45-ka kursi ee ay u baahan tahay aqlabiyad xitaa haddii saamiga codkeedu hoos ugu dhaco qiyaastii 49.7%. Khariidadda inta badan waxay u baahan lahayd inay codka dadweynaha ku guulaysato qiyaastii 4 dhibcood. Dib u ciyaar codkii maalinta doorashada 2023, khariidadda inta yar waxay siinaysaa 60 ka mid ah 89 kursi. Khariidadda inta badan, 55.",
+			p13: "Khariidadda inta yar, UCP waxay haysanaysaa 45-ka kursi ee ay aqlabiyadda u baahan tahay xitaa haddii saamiga codkeedu hoos ugu dhaco qiyaastii 49.7%. Khariidadda inta badan, UCP waxay u baahan lahayd inay codka dadweynaha ku guulaysato qiyaastii 4 dhibcood. Dib u ciyaar codkii maalinta doorashada 2023, khariidadda inta yar waxay UCP siinaysaa 60 ka mid ah 89 kursi. Khariidadda inta badan, 55.",
 			p14: "Lixdan kursi waa aqlabiyad saddex meelood laba meel ah. Alberta, taasi ma furto awood gaar ah. Aqlabiyad caadi ah ayaa horeba u meel marin karta sharciyo iyo miisaaniyado, xidhi karta doodda, beddeli karta xeerarka Golaha, oo dejin karta xubinnimada guddi kasta. Lixdan kursi waxay dawladda siin lahayd barkin. Dhowr xubnood oo dhinac u wareega ma khatarin karaan, mucaarad ka yarna waxay yeelan lahayd xubno ka yar oo sii wada kormeerka guddiyada.",
 			p15: "Doorashooyinkan midkoodna ma jebiyo sharciga Alberta. Sharcigu wuxuu oggol yahay kala-qaybinta magaalooyinka, degmo kasta oo labada khariidadood ku jirtana waxay ku dhex jirtaa xadka ±25%. Sharciga Kanada ma laha xeer ka dhan ah faa'iidada xisbiyeed iyadoo sidaas ah. Imtixaankiisu waa in codbixiyayaashu helaan matalaad waxtar leh."
 		},
@@ -373,7 +373,7 @@ export default {
 			h: "Waxa sharcigu dalbado, iyo waxa uusan dalban",
 			h3_1: "Dastuurka",
 			p1: "Qaybta 3 ee Axdiga waxay muwaadin kasta siisaa xaqa codbixinta. Maxkamadda Sare ee Kanada waxay u akhridaa xaq loo leeyahay matalaad waxtar leh. Awood cod oo qiyaas ahaan siman ayaa ah barta laga bilaabo, \"shuruudda koowaad\", laakiin sinnaan adag looma baahna. Degmo way ka weynaan kartaa ama ka yaraan kartaa sabab dhab ah awgeed, sida juquraafiga, taariikhda bulshada, danaha maxalliga ah ee la wadaago ama codka bulsho laga tiro badan yahay. Farqigu waa inuu leeyahay sabab lagu qanci karo.",
-			p2: "Maxkamaduhu halkan waxay golayaasha sharci-dejinta siiyaan bannaan badan. Waxay weydiiyaan in dad caqli leh, oo adeegsanaya mabaadi'daas, ay khadadka sidan u sawiri lahaayeen. Dawladna ma demin karto xaqan: qodobka notwithstanding kuma dhaqan galo qaybta 3.",
+			p2: "Maxkamaduhu halkan waxay golayaasha sharci-dejinta siiyaan bannaan badan. Waxay weydiiyaan in dad caqli leh, oo adeegsanaya mabaadi'daas, ay khadadka sidan u sawiri kari lahaayeen. Dawladna ma demin karto xaqan: qodobka notwithstanding kuma dhaqan galo qaybta 3.",
 			p3: "Maxkamaduhu waxay sidoo kale eegeen sida khariidad loo sameeyo. 2017, Maxkamadda Rafcaanka ee Nova Scotia waxay go'aamisay in khariidadda gobolku ay jebisay qaybta 3, maxaa yeelay dawladdu waxay guddideeda madax-bannaan ku amartay inay jihada beddesho, khariidaddii ugu dambaysayna ma muujinayn aragtida guddida laftigeeda. Maxkamaddu waxay ku dartay in gole sharci-dejin uu weli isagu khariidad sawiri karo.",
 			p4: "2026, Maxkamadda Sare ee Kanada waxay buriyay sharci Quebec ah oo hakiyay guddida Quebec si loo ilaaliyo riding-yada Gaspésie (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, 7–2, sababaha 1 Maajo). Quebec way ilaalin kartay iyaga si ka cidhiidhi badan. Cod loo dhan yahay ma badbaadin sharciga. 12 Juun 2026, Golaha Qaranka ee Quebec wuxuu meel mariyay khariidaddiisa 127-kursi ah.",
 			h3_2: "Sharciga Alberta",
