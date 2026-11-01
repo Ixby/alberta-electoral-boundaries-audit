@@ -331,7 +331,7 @@ python analysis/scripts/joint_outlier_score_canonical.py</code></pre>
       <p>
         A hosted notebook version runs in the browser via
         <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Google Colab</a>.
-        The full methodology — including every retraction and correction along the way — is in
+        The full methodology — including every correction along the way — is in
         the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">academic monograph</a>.
       </p>
       <p class="cross-ref">

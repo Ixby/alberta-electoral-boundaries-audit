@@ -38,7 +38,7 @@ So this report is built like an evidence log. Each casing faces the same five qu
 
 Each of the eight legal lessons is different. By the fourteenth casing you will have learned, one piece at a time, how Canadian boundary law really works. And why every casing in this log ends the same way.
 
-Two casings in the log point the wrong way for the audit's own story, and both are told in full: one test the audit had to retract when better data arrived, and one lane where the minority map beat the majority. A report that never loses an argument with itself isn't checking. Tests that failed, and tests that found nothing, are part of the record.
+Two casings in the log point the wrong way for the audit's own story, and both are told in full: one test that stopped telling the maps apart when better data arrived, and one lane where the minority map beat the majority. A report that never loses an argument with itself isn't checking. Tests that failed, and tests that found nothing, are part of the record.
 
 > **A NOTE ON LEGAL TERMINOLOGY**
 >
@@ -50,7 +50,7 @@ The audit measures the maps. It does not try to read the commissioners' minds, a
 
 ## The picture, before the proof
 
-![The two ways of measuring the maps, plotted together. Left to right: how skewed the map looks on the partisan-fairness number. The further right, the more it favours the UCP. Bottom to top: how many of four discriminating structural tests the map fails. The higher, the worse. (Municipal anchoring was the fifth pre-registered test; it was retracted, since both maps sit within the Canadian norm, and it is not counted.) The 2019 enacted map sits in the safe corner, low on both; it fails none of the tests run on it (the Calgary zone test was never run on the 2019 map). The majority 2026 map (teal) stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 map (purple) is a structural outlier on **four of four discriminating tests**; its efficiency gap (+4.0%) sits just below the audit's ~4.1% outlier line.](../../data/maps/article/stakes_quadrant.svg){: .verdict-hero }
+![The two ways of measuring the maps, plotted together. Left to right: how skewed the map looks on the partisan-fairness number. The further right, the more it favours the UCP. Bottom to top: how many of four discriminating structural tests the map fails. The higher, the worse. (Municipal anchoring was the fifth pre-registered test; both maps sit within the Canadian norm, so it is not counted.) The 2019 enacted map sits in the safe corner, low on both; it fails none of the tests run on it (the Calgary zone test was never run on the 2019 map). The majority 2026 map (teal) stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 map (purple) is a structural outlier on **four of four discriminating tests**; its efficiency gap (+4.0%) sits just below the audit's ~4.1% outlier line.](../../data/maps/article/stakes_quadrant.svg){: .verdict-hero }
 
 Three maps, two lanes of measurement. One dot is not like the others. This picture is the audit's whole case in one image, and right now you have no way to judge whether it means anything. The lines on it are not laws. The corner is not a courtroom. By the end of this report you will know exactly what this picture can prove, and exactly what it cannot. We come back to it there.
 
@@ -134,7 +134,7 @@ Act I walks the lines themselves. No election results, no simulation: just geome
 
 ### Casing 5 — The casing that dissolved when we picked it up {#casing-5}
 
-**What we found.** *Anchoring* is the fraction of an electoral border that lies on a pre-existing administrative line: a city limit, a school-division boundary, a Statistics Canada census line. Early analysis showed the minority map anchoring to municipal boundaries only 15% of the time, 4.9× below the Canadian norm of 70–85%. On official Elections Alberta shapefiles the figure died: the majority anchors at 80%, the minority at 72%, both inside the norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). The 15% figure was an artefact of the audit's early, provisional rebuilds of the boundaries, traced from images in the commission's PDFs before official map files existed. The retraction is permanent; the full entry lives in the academic report's corrections ledger. What survives is narrower: where the minority *does* leave pre-existing civic lines, the departures cluster at the exact urban-edge zones the chair flagged: Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie, the places where pairing urban and rural voters most directly affects which party wins the seat.
+**What we found.** *Anchoring* is the fraction of an electoral border that lies on a pre-existing administrative line: a city limit, a school-division boundary, a Statistics Canada census line. Early analysis showed the minority map anchoring to municipal boundaries only 15% of the time, 4.9× below the Canadian norm of 70–85%. On official Elections Alberta shapefiles the figure died: the majority anchors at 80%, the minority at 72%, both inside the norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). The 15% figure was an artefact of the audit's early, provisional rebuilds of the boundaries, traced from images in the commission's PDFs before official map files existed. The full entry lives in the academic report's corrections ledger. What survives is narrower: where the minority *does* leave pre-existing civic lines, the departures cluster at the exact urban-edge zones the chair flagged: Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie, the places where pairing urban and rural voters most directly affects which party wins the seat.
 
 **What it could show.** The original figure suggested a map that abandoned familiar civic geography across the board. The official shapefiles killed that story.
 
@@ -148,7 +148,7 @@ Act I walks the lines themselves. No election results, no simulation: just geome
 
 ### Act I in one picture
 
-![Four discriminating structural-fairness tests side by side, plus the summary score. (Five tests were pre-registered. The fifth, municipal anchoring, did not fire on the canonical shapefiles, since both maps sit within the Canadian norm; it was retracted 2026-05-18 and is not plotted.) Teal bars are the majority map; purple bars are the minority map. Where a test has a pre-registered failing line (the dashed red line), the purple bar crosses it and the teal bar stays inside. On every test the teal bar sits at zero or well inside the safe range.](../../data/maps/article/lane2_bars.svg)
+![Four discriminating structural-fairness tests side by side, plus the summary score. (Five tests were pre-registered. The fifth, municipal anchoring, did not fire on the canonical shapefiles, since both maps sit within the Canadian norm; it has been dropped from the draft since 2026-05-18 and is not plotted.) Teal bars are the majority map; purple bars are the minority map. Where a test has a pre-registered failing line (the dashed red line), the purple bar crosses it and the teal bar stays inside. On every test the teal bar sits at zero or well inside the safe range.](../../data/maps/article/lane2_bars.svg)
 
 *(Figure regenerated 2026-07-08 against canonical values; the prior version's five defects are itemized in the academic report's corrections ledger.)*
 
@@ -163,7 +163,7 @@ The same tests as a table, with the pre-registered summary in the bottom row:
 | Airdrie split (constraint minimum: 2) | 2 pieces | **4 by territory; 3 by people (≥2%)** | **UCP** (Cracks urban/suburban power) |
 | **Pre-registered summary** (≥ 4 of 5 = outlier) | **0 of 5 fired** | **4 of 5 fired** (anchoring test neutral — both maps within Canadian norm; remaining 4 tests all fire) | **UCP** |
 
-On Act I's tests, the majority crosses zero discriminating structural thresholds. The minority crosses every discriminating one: four of four, with the retracted fifth shown, not hidden. These measurements are geometric; they do not depend on any statistical sampler or on any vote attribution. The audit pre-registered all five on April 24, 2026, before the final simulation results were compiled.
+On Act I's tests, the majority crosses zero discriminating structural thresholds. The minority crosses every discriminating one: four of four, with the fifth, which does not tell the maps apart, shown, not hidden. These measurements are geometric; they do not depend on any statistical sampler or on any vote attribution. The audit pre-registered all five on April 24, 2026, before the final simulation results were compiled.
 
 ---
 
@@ -358,7 +358,7 @@ The horizontal axis is one of Act II's four fairness measures (the efficiency ga
 
 | What was measured | Majority map | Minority map |
 |---|:--|:--|
-| **Structural tests failed** (five pre-registered; the retracted fifth counts against neither map) | **0 of 5** | **4 of 5**, each by a wide margin |
+| **Structural tests failed** (five pre-registered; the fifth, anchoring, counts against neither map) | **0 of 5** | **4 of 5**, each by a wide margin |
 | **Seats at a tied 50/50 vote** | 46.1% of seats — the 78th percentile, inside the normal range | **51.7%** — only 69 of 1,010,000 neutral maps do better for the UCP |
 | **Mean-median gap** | An outlier at the 1st percentile — unusual, but leaning the *NDP's* way, the wrong direction to help the UCP | Deeper in the tail than **99.97%** of neutral maps, leaning the UCP's way |
 | **Declination** (a second lopsidedness measure) | 22nd percentile — inside the normal range | Deeper in the tail than **98.8%**, leaning the UCP's way |
@@ -369,7 +369,7 @@ Act I carries the case. Its five tests were pre-registered on April 24, 2026, be
 
 > **THE PLAIN READING.** Two electoral maps, drawn in the same room, by five commissioners working from the same rules and the same data. The majority map is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated fairness range.
 >
-> The minority map is something else. It crosses four of five structural tests: the chair-flagged corridors (3 confirmed of the 7 configurations he criticized), the four-way Airdrie split, the NE/central Calgary population excess (11.5% vs 2.8%), and the 48%-wider population spread. *(Municipal anchoring is the fifth test. It is retracted: both maps fall within the 70–85% Canadian norm on official shapefiles; the story is Casing 5.)* Set it against 1,010,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, and fewer than 100 match its seat share at a tied vote. Three of its four fairness measures land in the far tail; the fourth, the efficiency gap at the 94.5th percentile, leans the same way but stays below the line; all four agree on who they favour. The chance of that combined profile arising under a neutral drawing process is at most one in 568,000, a deliberately cautious ceiling.
+> The minority map is something else. It crosses four of five structural tests: the chair-flagged corridors (3 confirmed of the 7 configurations he criticized), the four-way Airdrie split, the NE/central Calgary population excess (11.5% vs 2.8%), and the 48%-wider population spread. *(Municipal anchoring is the fifth test. It does not separate the maps: both fall within the 70–85% Canadian norm on official shapefiles; the story is Casing 5.)* Set it against 1,010,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, and fewer than 100 match its seat share at a tied vote. Three of its four fairness measures land in the far tail; the fourth, the efficiency gap at the 94.5th percentile, leans the same way but stays below the line; all four agree on who they favour. The chance of that combined profile arising under a neutral drawing process is at most one in 568,000, a deliberately cautious ceiling.
 >
 > The audit tested whether the unusual geometry is the specific mechanism that produces the seat advantage. That claim did not survive, and the report says so. What does survive: same room, same rules, same data, two very different maps. And only one of them carries the pattern researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in your hands.
 >
@@ -377,7 +377,7 @@ Act I carries the case. Its five tests were pre-registered on April 24, 2026, be
 
 Now put the instrument itself through the same five questions, one last time.
 
-**What we found.** A scorecard: the best instrument the author could build to pull fourteen casings together into something that can be stated, checked, and shown wrong. Five pre-registered structural tests: the minority crosses every discriminating one, the majority none, the retracted fifth on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.
+**What we found.** A scorecard: the best instrument the author could build to pull fourteen casings together into something that can be stated, checked, and shown wrong. Five pre-registered structural tests: the minority crosses every discriminating one, the majority none, the fifth, which does not tell them apart, on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.
 
 **What it could show.** The closest thing to a gerrymandering *signal* that can exist under Alberta law and Canadian norms. A way of saying "this map is the kind of map that aiming produces," with every threshold set before any answer was known.
 
@@ -409,7 +409,7 @@ If the committee's map replicates the minority's signature (drawn by different p
 > 4. **The 2027 election result, fought on either of these maps, contradicts the percentile readings.** If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.
 > 5. **The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.** If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.
 
-> **CORRECTIONS.** This audit corrects in public and deletes nothing. The retracted structural test is told in full at Casing 5; the two retired statistical tests at Casings 8 and 10. The complete ledger of every correction — what changed, when, and why — is kept in the [academic report's DOCUMENTED CORRECTIONS section](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md).
+> **CORRECTIONS.** This audit corrects in public and deletes nothing. The structural test that changed on the official boundaries is told in full at Casing 5; the two statistical tests that did not hold up, at Casings 8 and 10. The complete ledger of every correction — what changed, when, and why — is kept in the [academic report's DOCUMENTED CORRECTIONS section](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md).
 
 ---
 
@@ -515,13 +515,13 @@ Now re-read Casing 4: 48% more deviation than the majority on the commission's o
 
 ### Appendix E — How a data artifact fooled us, and how it was caught {#appendix-e}
 
-*The confusion:* "You published 15%, then said 72%. Why should I trust any of your other numbers?"
+*The confusion:* "An early draft said 15%; the report says 72%. Why should I trust any of your other numbers?"
 
-Because of *why* the number changed. Early in the audit, no official digital boundaries existed for the proposed maps, only PDF images in the commission's reports. The audit traced those images into rough digital boundaries. Tracing loses detail: a boundary that really runs along a city limit can end up drawn a few hundred metres off, and a metric that asks "does this border follow the municipal line?" then answers *no* for borders that really do. Multiply that across a whole map and you manufacture a dramatic, false signal. The day Elections Alberta released official shapefiles, the audit re-ran everything. Most findings survived. This one died, and was retracted in place; the academic report's corrections ledger preserves it permanently.
+Because of *why* the number changed. Early in the audit, no official digital boundaries existed for the proposed maps, only PDF images in the commission's reports. The audit traced those images into rough digital boundaries. Tracing loses detail: a boundary that really runs along a city limit can end up drawn a few hundred metres off, and a metric that asks "does this border follow the municipal line?" then answers *no* for borders that really do. Multiply that across a whole map and you manufacture a dramatic, false signal. The day Elections Alberta released official shapefiles, the audit re-ran everything. Most findings survived. This one died, and was removed from the draft; the academic report's corrections ledger preserves it permanently.
 
-Now re-read Casing 5: the retraction is not a stain on the method. It *is* the method: the same recomputation that killed this finding is what makes the surviving ones credible.
+Now re-read Casing 5: the correction is not a stain on the method. It *is* the method: the same recomputation that killed this finding is what makes the surviving ones credible.
 
-*The limit:* one honest retraction doesn't certify everything else. Reproducibility does. Every surviving number can be regenerated from public data and public code, and that is the only guarantee worth having. [Back to Casing 5](#casing-5)
+*The limit:* one honest correction doesn't certify everything else. Reproducibility does. Every surviving number can be regenerated from public data and public code, and that is the only guarantee worth having. [Back to Casing 5](#casing-5)
 
 ### Appendix F — The what-if machine, and how to read a percentile {#appendix-f}
 
@@ -579,7 +579,7 @@ Now re-read Casing 10: two of the audit's own instruments retired, and one pre-r
 
 Nobody special, and that's the point: the check needs no special access. The minority report says Cochrane residents "move fluidly" into Calgary; Statistics Canada's journey-to-work tables (free, public) show about a third of Cochrane's workers commute into Calgary while roughly half work in Cochrane — a real tie, and one that says nothing about the specific Nolan Hill corridor drawn. The report implies shared schools link Red Deer and Sylvan Lake; the two towns' school-division boundaries (also public) put them in different divisions. Each check follows the same recipe: take the stated reason, find the public dataset that would show it, and see whether the *particular line drawn* is the line the data supports. Five of six checked rationales fail that last step. The tie is real. The line is not the one the tie points to.
 
-Now re-read Casing 11, and notice that the audit retracted one of its own seven claims by the same standard, when the source couldn't be located.
+Now re-read Casing 11, and notice that the audit dropped one of its own seven draft claims by the same standard, when the source couldn't be located.
 
 *The limit:* a rationale that fails checking proves the *stated* reason doesn't fit. It cannot reveal the real one: sloppiness and pretext leave identical paperwork. [Back to Casing 11](#casing-11)
 
