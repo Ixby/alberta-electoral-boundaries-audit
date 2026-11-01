@@ -147,7 +147,11 @@ def build_lane1_dotplot() -> Path:
     # p95 dashed reference line — plain-language label (readability pass 2026-07-08:
     # percentile codes like "p95" replaced with words on all public figures)
     ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
-    ax.text(p95_val + 0.40, 0.66, f"outlier line ~{p95_val:.1f}%\n(gerrymander threshold —\nonly 1 in 20 neutral maps\nlands past this)",
+    # 2026-11-01: was "(gerrymander threshold —". The line is the ensemble's
+    # 95th percentile, the audit's pre-registered outlier line, not a legal or
+    # definitional threshold (stakes_quadrant says so on its face; STYLE_GUIDE
+    # §4: no verdict on whether a map "is a gerrymander").
+    ax.text(p95_val + 0.40, 0.66, f"outlier line ~{p95_val:.1f}%\n(the audit's pre-set line —\nonly 1 in 20 neutral maps\nlands past this)",
             color=THRESHOLD_RED, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
@@ -165,8 +169,10 @@ def build_lane1_dotplot() -> Path:
     ax.text(enacted_eg, 0.97, f"2019 map (current):\n{enacted_eg:+.1f}%, inside the\nnormal range",
             color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
             ha="center", va="top", transform=bx)
+    # One decimal (2026-11-01): ":.0f" rounded p94.54 up to "95%", which put
+    # the minority past the p95 line it sits just short of (ledger C38: 94.5th).
     ax.text(minority_eg + 0.40, 0.97,
-            f"Minority 2026: {minority_eg:+.1f}%\nmore UCP-tilted than\n{minority_pctile:.0f}% of neutral maps",
+            f"Minority 2026: {minority_eg:+.1f}%\nmore UCP-tilted than\n{minority_pctile:.1f}% of neutral maps",
             color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
@@ -262,22 +268,30 @@ def build_lane2_bars() -> Path:
             "% above the provincial average district size",
             "{:g}%",
         ),
+        # Relabelled 2026-11-01 (ledger C38, C43): the chair flagged FOUR
+        # minority boundaries; the audit confirmed three. The bar is the
+        # confirmed count, so the title now says so.
         (
-            "Boundaries the commission's own chair\nflagged as geographically anomalous",
+            "Chair-flagged boundaries the audit confirmed\n(the chair flagged 4 on the minority map; 3 confirmed)",
             0,
             3,
             1,
             5,
-            "boundaries flagged",
+            "boundaries flagged and confirmed",
             "{:g}",
         ),
+        # Relabelled 2026-11-01 (ledger C45): four minority districts take in
+        # Airdrie land, but Olds-Three Hills-Didsbury holds about 350 of its
+        # people (data/outputs/airdrie_split_shares_2026-10-31.json); by the
+        # audit's 2% piece rule the split is three pieces to two. The value
+        # stays the district count the structural table reports (4 vs 2).
         (
-            "Extra pieces the City of Airdrie is cut into\n(every map must use at least 2)",
+            "Extra districts the City of Airdrie is split across\n(every map needs at least 2; one of the minority's 4 holds about 350 people)",
             0,
             2,
             None,
             3,
-            "extra pieces beyond the required 2",
+            "extra districts beyond the required 2",
             "{:g}",
         ),
         (
@@ -452,17 +466,23 @@ def build_bias_structure_matrix() -> Path:
     # maps; Appendix C), a 2-way Airdrie configuration, and zero chair flags. The
     # Calgary Zone A-Zone B gap was NOT run on 2019 (2019-era per-ED population
     # data absent from the working bundle; findings/population_equality.md §A1).
+    # Efficiency gaps and the p95 line are read from the canonical percentiles
+    # CSV (2026-11-01), as build_lane1_dotplot already does. The hardcoded p95
+    # (4.10, from a pre-C10 ensemble) had drifted from the CSV's 0.040838;
+    # the label "~4.1%" is unchanged.
+    import pandas as _pd
+    _pct = _pd.read_csv(ROOT / "data" / "outputs" / "simulated_ensemble_percentiles_canonical.csv")
+    _eg = _pct[_pct["metric"] == "efficiency_gap"].set_index("map")
+    eg_2019 = _eg.loc["2019 enacted", "value"] * 100
+    eg_maj = _eg.loc["majority 2026 canonical", "value"] * 100
+    eg_min = _eg.loc["minority 2026 canonical", "value"] * 100
     points = [
-        ("2019 enacted", 2.41, 0, NEUTRAL_2019),
-        ("Majority 2026", 0.10, 0, MAJORITY_TEAL),
-        ("Minority 2026", 4.02, 4, MINORITY_PURPLE),
+        ("2019 enacted", eg_2019, 0, NEUTRAL_2019),
+        ("Majority 2026", eg_maj, 0, MAJORITY_TEAL),
+        ("Minority 2026", eg_min, 4, MINORITY_PURPLE),
     ]
 
-    threshold_eg_alberta = (
-        # Corrected 2026-07-08: previously 4.11 citing "0.041086" — the committed
-        # simulated_ensemble_percentiles_canonical.csv ensemble_p95 is 0.041004 -> 4.10%.
-        4.10
-    )
+    threshold_eg_alberta = _eg.loc["minority 2026 canonical", "ensemble_p95"] * 100
     threshold_eg_us = 7.0
     threshold_struct = 4
 
@@ -480,7 +500,7 @@ def build_bias_structure_matrix() -> Path:
 
     ax.text(
         threshold_eg_alberta - 0.12, YMAX - 0.18,
-        "~4.1%: only 1 in 20 of the audit's\nneutral simulations tilts further\n(an audit calibration — not a legal line)",
+        f"~{threshold_eg_alberta:.1f}%: only 1 in 20 of the audit's\nneutral simulations tilts further\n(an audit calibration — not a legal line)",
         color="#555555", fontsize=7, fontstyle="italic",
         ha="right", va="top",
     )
@@ -508,8 +528,8 @@ def build_bias_structure_matrix() -> Path:
     # "5 of 5" and anchored at y=5.0, contradicting the corrected point data (4 of 5,
     # anchoring neutral).
     ax.annotate(
-        "Minority 2026\n+4.0% / 4 of 5",
-        xy=(4.02, 4.0), xytext=(2.2, 4.65),
+        f"Minority 2026\n{eg_min:+.1f}% / 4 of 5",
+        xy=(eg_min, 4.0), xytext=(2.2, 4.65),
         fontsize=8.5, fontweight="bold", color=MINORITY_PURPLE,
         ha="right", va="top",
         arrowprops=dict(arrowstyle="-", color=MINORITY_PURPLE, lw=0.9,
@@ -518,8 +538,8 @@ def build_bias_structure_matrix() -> Path:
     )
     # Majority 2026 at (0.10, 0): label slightly above-right, safe zone
     ax.annotate(
-        "Majority 2026\n+0.1% / 0 of 5",
-        xy=(0.10, 0.0), xytext=(0.5, 1.1),
+        f"Majority 2026\n{eg_maj:+.1f}% / 0 of 5",
+        xy=(eg_maj, 0.0), xytext=(0.5, 1.1),
         fontsize=8.5, fontweight="bold", color=MAJORITY_TEAL,
         ha="left", va="bottom",
         arrowprops=dict(arrowstyle="-", color=MAJORITY_TEAL, lw=0.9,
@@ -528,8 +548,8 @@ def build_bias_structure_matrix() -> Path:
     )
     # 2019 enacted at (2.41, 0): label slightly above-left, safe zone
     ax.annotate(
-        "2019 enacted\n+2.4% / 0 of 5",
-        xy=(2.41, 0.0), xytext=(2.8, 1.1),
+        f"2019 enacted\n{eg_2019:+.1f}% / 0 of 5",
+        xy=(eg_2019, 0.0), xytext=(2.8, 1.1),
         fontsize=8.5, fontweight="bold", color=NEUTRAL_2019,
         ha="left", va="bottom",
         arrowprops=dict(arrowstyle="-", color=NEUTRAL_2019, lw=0.9,
