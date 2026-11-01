@@ -20,7 +20,7 @@ type: project
 **First upload:** 2026-04-23, 6:22 PM MDT, to OSF project 2gue9, which is private. It was not a registration. The first registrations (w2s8k, r3zm7, qsgy8) were filed on 2026-05-06 at 3:50 PM MDT.  
 **Times:** Alberta time (MDT or MST) throughout, except inside the filed text of Amendments 1 and 4 and where marked UTC.  
 **On OSF:** the checklist with Amendments 1 (2026-04-23) and 4 (2026-04-27), as files in registration 9wp5y (registered 2026-05-06, 22:27 MDT).  
-**Amendment 5** (2026-11-01) consolidates every later change and is to be filed there.
+**Amendment 5** (2026-11-01) consolidates every later change. It was filed there on 2026-11-01 at 3:13 PM MST, as registration update 6ae7b85d4c54dce4aebde274, with a pointer to it added to qsgy8, u47bq and he53s.
 
 ---
 
