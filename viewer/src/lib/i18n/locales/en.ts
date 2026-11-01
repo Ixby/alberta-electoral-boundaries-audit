@@ -91,7 +91,7 @@ export default {
 		cta_methods: 'See how we tested →',
 		scorecard_h: 'The scorecard',
 		scorecard_fig_alt:
-			'Scatter plot: efficiency gap on the horizontal axis, count of structural tests failed on the vertical axis. The 2019 enacted map and the 2026 majority map cluster in the safe lower-left corner. The 2026 minority map appears alone in the upper-right outlier region.',
+			'Scatter plot: efficiency gap on the horizontal axis, count of structural tests failed on the vertical axis. The 2019 enacted map and the 2026 majority map cluster in the safe lower-left corner. The 2026 minority map sits alone at upper right, on the four-of-five structural line and just short of the dashed ~4.1% efficiency-gap line.',
 		scorecard_fig_caption:
 			'Both lanes on one picture. Horizontal: how skewed the partisan-fairness number is (right = more UCP-favoured). Vertical: how many of five structural-fairness tests the map fails. Bottom-left is the safe corner where neutral procedures routinely land; the upper-right is the outlier region. The 2019 enacted map and the 2026 majority sit in the safe corner. The 2026 minority sits alone in the outlier region.',
 		scorecard_intro:
@@ -200,7 +200,7 @@ export default {
 		cover_note_3:
 			"When you're done exploring, scroll down for the summary. The full technical analysis is in the Resources section. All of the data comes from official Elections Alberta shapefiles and other government and open-source records.",
 		image_alt:
-			'Alberta electoral district maps — minority commission proposal, coloured by 2023 vote',
+			'Alberta electoral district map — minority commission proposal, coloured by 2023 vote',
 		map_hint: 'Click to explore interactively',
 		btn_title: 'Click to open interactive map',
 		btn_aria: 'Click to explore interactively'
@@ -543,7 +543,7 @@ export default {
 			table1_r12c2: "n/a",
 			table1_r12c3: "at most about 1 in 568,000",
 			p4: "The structural tests use geometry only. All five were pre-registered on April 24, 2026, before the final simulation results were compiled. The 2019 enacted map sits beside the majority, at a 46.0% tied-vote seat share (78th percentile).",
-			fig_caption: "Partisan skew runs left to right; failed structural tests run bottom to top. The 2019 map and the 2026 majority map sit in the safe corner. The minority map sits alone, out in the outlier region.",
+			fig_caption: "Partisan skew runs left to right; failed structural tests run bottom to top. The 2019 map and the 2026 majority map sit in the safe corner. The minority map sits alone, on the structural outlier line and just short of the partisan one.",
 			h3_4: "What \"1 in 568,000\" means",
 			p5: "The chance that a neutral process produces the minority map's combined profile across the four fairness measures is at most about 1 in 568,000 (p ≤ 1.76×10⁻⁶, a Bonferroni-corrected, dependence-robust upper bound). I looked in two places, so I doubled the raw figure. The real chance is at most this, and probably smaller.",
 			p6: "That figure isn't the probability that the map is innocent. Treating it that way is the prosecutor's fallacy. A map this rare can still come from unusual but honest judgment. My claim is only that ordinary drafting variation isn't a plausible explanation.",
@@ -810,8 +810,8 @@ export default {
 			lanes_label: 'LANE 1 AND LANE 2',
 			lanes_body: '<strong>Lane 1 (numbers)</strong> uses election results to test whether the map turns votes into seats fairly: it asks how the map performs across different vote splits. <strong>Lane 2 (structure)</strong> looks only at the drawn lines — city splits, population spread, boundary shapes — and uses no election data at all. Each lane is independent: a map can fail one and pass the other. The minority proposal fails both. The majority passes both.',
 			intro: "Lane 1 depends on which election results you score the maps against. Lane 2 does not. Its structural evidence lives in the maps themselves: the drawn lines, the split cities, the places where boundaries follow, or don't follow, administrative lines that exist for other reasons. On these tests the two maps are not close.",
-			fig_alt: 'Bar chart comparing four pre-registered structural-fairness tests side by side, plus a summary score panel. The majority map bars sit at zero or well inside safe ranges. Three of the five panels have a pre-registered failing line (dashed red): NE/central Calgary crowding, chair-flagged boundaries, and the summary scorecard. On those three, the minority bar crosses the line and the majority bar stays inside it. The population-spread and Airdrie panels have no failing line; population spread shows the majority at 3,180 and the minority at 4,707 people from the ideal district size. The fifth pre-registered test, municipal anchoring, was neutral for both maps — both fell within the 70–85% Canadian norm — so it is not plotted; the summary panel scores the minority 4 of 5 with anchoring counted as neutral.',
-			fig_caption: 'The four pre-registered structural-fairness tests, side by side, plus a summary score panel. Teal bars are the majority map; purple bars are the minority map. A dashed line appears where a test has a pre-registered failing threshold: NE/central Calgary crowding, chair-flagged boundaries, and the summary scorecard. The minority bar crosses every failing line shown. The majority bar never does. The population-spread and Airdrie panels have no failing line — population spread shows the majority at 3,180 and the minority at 4,707 people from the ideal district size. The fifth pre-registered test, municipal anchoring, was neutral for both maps — both fell within the 70–85% Canadian norm — so it is not plotted here; the summary panel scores the minority 4 of 5 with anchoring counted as neutral.',
+			fig_alt: 'Bar chart comparing four pre-registered structural-fairness tests side by side, plus a summary score panel. The majority map bars sit at zero or well inside safe ranges. Three of the five panels have a pre-registered failing line (dashed red): NE/central Calgary crowding, the chair-flagged boundaries the audit confirmed (three of his four), and the summary scorecard. On those three, the minority bar crosses the line and the majority bar stays inside it. The population-spread and Airdrie panels have no failing line; population spread shows the majority at 3,180 and the minority at 4,707 people from the ideal district size. The fifth pre-registered test, municipal anchoring, was neutral for both maps — both fell within the 70–85% Canadian norm — so it is not plotted; the summary panel scores the minority 4 of 5 with anchoring counted as neutral.',
+			fig_caption: 'The four pre-registered structural-fairness tests, side by side, plus a summary score panel. Teal bars are the majority map; purple bars are the minority map. A dashed line appears where a test has a pre-registered failing threshold: NE/central Calgary crowding, the chair-flagged boundaries the audit confirmed (three of his four), and the summary scorecard. The minority bar crosses every failing line shown. The majority bar never does. The population-spread and Airdrie panels have no failing line — population spread shows the majority at 3,180 and the minority at 4,707 people from the ideal district size. The fifth pre-registered test, municipal anchoring, was neutral for both maps — both fell within the 70–85% Canadian norm — so it is not plotted here; the summary panel scores the minority 4 of 5 with anchoring counted as neutral.',
 			table_intro: "The same five tests as a table, each test's threshold set beside its result. The bottom row is the audit's <em>summary</em>: how many of the five tests each map fails.",
 			table_col_test: 'Test',
 			table_col_majority: 'Majority map',
@@ -831,7 +831,7 @@ export default {
 			table_r3_d: '<strong>UCP</strong> (Packs urban NDP votes)',
 			table_r4_a: "Boundaries flagged by the commission's own chair",
 			table_r4_b: '0',
-			table_r4_c: '3',
+			table_r4_c: '4 (3 confirmed by the audit)',
 			table_r4_d: 'N/A',
 			table_r5_a: 'Airdrie split (constraint minimum: 2)',
 			table_r5_b: '2 pieces',
@@ -852,8 +852,8 @@ export default {
 			vocab_cracking: "<strong>Cracking</strong> means splitting a community across several districts so it wins none of them outright. A city strong enough to carry two seats gets carved into four, and in three of them its people are outnumbered. Diluted votes. One seat where there could be two.",
 			vocab_draining: '<strong>Draining</strong> is the companion move, played out on the map: packed and cracked districts sit side by side, so over-concentrated supporters on one side "drain" voting power away from the contested districts next door. That adjacency, the way the districts touch, amplifies both effects. Packing and cracking reinforce each other across district lines.',
 			vocab_disclaimer: 'All three can happen without any explicit partisan intent. What the audit measures is whether the pattern, and its statistical size, is consistent with what a neutral map-drawing process produces. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md#5-results" rel="noopener">Full methodology at §5 of the technical report.</a>',
-			fig_alt: 'Map showing the division of Airdrie into four separate districts under the minority map',
-			fig_caption: 'The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.',
+			fig_alt: "Two bars showing how each map divides Airdrie's residents, drawn to scale. Majority: Airdrie-West holds 50.6% of the city and Airdrie-East 49.4%, and both divisions are mostly Airdrie. Minority: Airdrie East holds 54.7% of the city and is 89.6% Airdrie; Calgary-Airdrie holds 24.0% and Calgary-Foothills-Airdrie West 20.9%, and both are mostly Calgary; Olds-Three Hills-Didsbury takes about 350 people.",
+			fig_caption: "How each map divides Airdrie's people. The majority gives the city two divisions, both mostly Airdrie. The minority gives it one, Airdrie East, with 54.7% of the city, and puts most of the rest in two Calgary-majority divisions.",
 			intro: 'The five commissioners worked from the same statutory rules, the same provincial geography, the same archive of 1,345 public submissions, the same demographic data. Their two competing drafts agree on most of Alberta. Where the drafts part, they part on choices someone in the room had to make. Three of those choices are worth seeing as choices. Not numbers.',
 			airdrie_p: "<strong>It splits the City of Airdrie into four pieces.</strong> The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four: north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, centre-south to Calgary-Airdrie. Only Airdrie East is mostly Airdrie; each other piece is stapled to a Calgary-edge or rural district. An Airdrie resident with a question for her MLA has to know which part of the city she lives in before she can call the right office. Her neighbours two blocks over will give her three different answers. The PTA at her child's school cannot send a single delegation to one MLA on a school-funding question. It has to coordinate four delegations to four offices, and three of those MLAs answer first to voters outside Airdrie. The minor-hockey association, the food bank, the Chamber of Commerce: every organization that works citywide now works across four provincial ridings.",
 			airdrie_callout_label: 'WHY AIRDRIE MATTERS',
@@ -869,8 +869,8 @@ export default {
 		},
 		litmus: {
 			heading: '3: The 1,010,000-Map Litmus Test',
-			fig_alt: 'Histogram showing the distribution of efficiency gaps across 1,010,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94.5th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range.',
-			fig_caption: 'Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 1,010,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero. The shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94.5th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.',
+			fig_alt: 'Histogram showing the distribution of efficiency gaps across 1,010,000 neutral Alberta maps. Nine in ten fall between about −1% and +4%. The minority commission map (purple line) sits at the 94.5th percentile (+4.0%), just short of the dashed outlier line where the shaded right tail begins. The majority map (teal line) sits at +0.1%, well within the normal range.',
+			fig_caption: 'Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 1,010,000 neutral Alberta maps drawn from the same geography. Nine in ten neutral maps fall between about −1% and +4%. The shaded right tail marks the top 5%. The minority proposal&rsquo;s +4.0% sits at the 94.5th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.',
 			table_intro: "The table sets the two maps side by side. The first five rows use no election results; they are properties of the lines themselves. The last three depend on how votes were attributed to each district.",
 			table_col_measured: 'What was measured',
 			table_col_majority: 'Majority map',
@@ -1564,7 +1564,7 @@ export default {
 			// "Reading the lines" note (desktop + mobile info popover)
 			lines_note_title: 'Reading the lines',
 			lines_note_lead: 'Every odd shape or split line is a',
-			lines_note_emphasis: 'deliberate choice by the committee',
+			lines_note_emphasis: 'deliberate choice by a commission',
 			lines_note_tail:
 				'— not a data error. Lines follow the edges of polling areas; where two maps agree they sit on the same line, where they split apart the proposals genuinely disagree.'
 		},

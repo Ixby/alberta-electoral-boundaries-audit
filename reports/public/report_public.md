@@ -50,7 +50,7 @@ The audit measures the maps. It does not try to read the commissioners' minds, a
 
 ## The picture, before the proof
 
-![The two ways of measuring the maps, plotted together. Left to right: how skewed the map looks on the partisan-fairness number. The further right, the more it favours the UCP. Bottom to top: how many of four discriminating structural tests the map fails. The higher, the worse. (Municipal anchoring was the fifth pre-registered test; it was retracted, since both maps sit within the Canadian norm, and it is not counted.) The 2019 enacted map sits in the safe corner, low on both. The majority 2026 map (teal) stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 map (purple) is a structural outlier on **four of four discriminating tests**; its efficiency gap (+4.0%) sits just below the Alberta threshold line.](data/maps/article/stakes_quadrant.svg){: .verdict-hero }
+![The two ways of measuring the maps, plotted together. Left to right: how skewed the map looks on the partisan-fairness number. The further right, the more it favours the UCP. Bottom to top: how many of four discriminating structural tests the map fails. The higher, the worse. (Municipal anchoring was the fifth pre-registered test; it was retracted, since both maps sit within the Canadian norm, and it is not counted.) The 2019 enacted map sits in the safe corner, low on both. The majority 2026 map (teal) stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 map (purple) is a structural outlier on **four of four discriminating tests**; its efficiency gap (+4.0%) sits just below the audit's ~4.1% outlier line.](data/maps/article/stakes_quadrant.svg){: .verdict-hero }
 
 Three maps, two lanes of measurement. One dot is not like the others. This picture is the audit's whole case in one image, and right now you have no way to judge whether it means anything. The lines on it are not laws. The corner is not a courtroom. By the end of this report you will know exactly what this picture can prove, and exactly what it cannot. We come back to it there.
 
@@ -76,7 +76,7 @@ Act I walks the lines themselves. No election results, no simulation: just geome
 
 ### Casing 1 — A city of 85,805 with one seat of its own {#casing-1}
 
-![The division of Airdrie into four separate districts, diluting its urban voting power.](data/maps/article/figure_airdrie_v3.svg)
+![How each map divides Airdrie's people. The majority gives the city two divisions, both mostly Airdrie. The minority gives it one, Airdrie East, with 54.7% of the city, and puts most of the rest in two Calgary-majority divisions.](data/maps/article/figure_airdrie_v3.svg)
 
 **What we found.** The minority map splits the City of Airdrie into four pieces. Airdrie has 85,805 people (2024 municipal census), one council, one tax bill, one school division, and every civic system treats it as a unit. The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four: north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, centre-south to Calgary-Airdrie. Airdrie East takes more than half the city, and nine in ten of its people are Airdrie residents. Nearly all the rest of the city is stapled to two Calgary-edge districts, where Calgary residents outnumber Airdrie's. The north piece holds about 350 people. The split meets every criterion of the audit's pre-registered cracking test (academic report §5.3.2). The majority's two-way split meets none.
 
@@ -208,7 +208,7 @@ The minority map's 51.7% sits closer to the UCP ceiling that deliberate aiming r
 
 ### Casing 7 — The test that missed {#casing-7}
 
-![How skewed each map looks on the partisan-fairness number. The majority sits at +0.1% — inside the normal range. The minority sits at +4.0%, just below the Alberta line at ~4.1%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
+![How skewed each map looks on the partisan-fairness number. The majority sits at +0.1% — inside the normal range. The minority sits at +4.0%, just below the audit's outlier line at ~4.1%. The further right the line, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
 
 **What we found.** The fourth partisan-fairness metric is the *efficiency gap*, a single number for how lopsidedly a party's votes turn into seats. For the minority map it came in at +4.0%: the 94.5th percentile. The audit's pre-registered outlier line is the 95th percentile, about +4.1% on Alberta's simulated distribution. It missed. It leans the UCP's way, but it sits below the line, and every table in this report shows it that way. The majority map's efficiency gap is +0.1% (16th percentile).
 
