@@ -1482,5 +1482,87 @@ export default {
 		privacy_link_text: "política de privacidad",
 		back_to_report: "Volver al informe",
 		back_to_map: "Volver al explorador del mapa"
+	},
+	pages: {
+		explainers: {
+			head_title: "Las catorce explicaciones · Auditoría de los límites electorales de Alberta",
+			head_description: "Catorce explicaciones breves — una por cada hallazgo de la Auditoría de los límites electorales de Alberta: fragmentación, empaquetamiento, conjuntos neutrales, la falacia del fiscal, las convenciones frente a la ley, y más.",
+			back: "← Volver a la auditoría",
+			site_label: "Auditoría de los límites electorales de Alberta",
+			h1: "Las catorce explicaciones",
+			meta: "Apéndices A–N · un concepto cada uno · solo en inglés por ahora",
+			standfirst: "Cada casquillo de la auditoría enlaza a un apéndice de aquí, y cada apéndice se ocupa de exactamente un concepto. Empieza por la confusión honesta. Construye la idea con un ejemplo concreto. Lo devuelve a usted a la cifra del casquillo, capaz de leerla sin ayuda. Y termina con lo que el concepto <em>no puede</em> decirle. Léalos en cualquier orden.",
+			appendix_a: {
+				heading: "Apéndice A — Lo que la \"fragmentación\" le hace realmente a un voto",
+				confusion: "<em>La confusión:</em> \"Los votantes de Airdrie siguen votando. Nadie les quitó sus papeletas. ¿Cómo es que trazar líneas 'diluye' algo?\"",
+				p1: "Imagine un pueblo de 40,000 habitantes que vota mayormente Naranja, en una región que vota mayormente Azul. Dele al pueblo su propio distrito, con su propio escaño en la Legislatura, y elige a un MLA Naranja: 40,000 personas, un escaño, una voz. Ahora corte el pueblo en cuatro piezas y engrape cada pieza a un trozo de campo Azul. En cada nuevo distrito los 10,000 votantes del pueblo se enfrentan a 30,000 votantes rurales. Naranja pierde los cuatro. Los mismos votantes, las mismas papeletas, cero escaños. A ningún votante individual se le robó nada. Lo que se quitó es la capacidad de la <em>comunidad</em> de elegir a alguien. Eso es la fragmentación. Su movimiento reflejo es el empaquetamiento (Apéndice C): meter a un grupo en la menor cantidad posible de distritos, para que gane esos por aplastante mayoría y nada más.",
+				p2: "Ahora vuelva a leer el hallazgo 1: 85,805 personas, cuatro distritos, una minoría en tres de ellos. El otro borrador de la misma comisión muestra que dos distritos bastaban para cumplir la ley.",
+				limit: "<em>El límite:</em> la fragmentación describe un efecto, no un motivo. Una división puede ocurrir porque alguien quería diluir. También puede ocurrir porque otras restricciones apretaron el mapa. La geometría sola no puede decir cuál.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Volver al hallazgo 1</a>"
+			},
+			appendix_b: {
+				heading: "Apéndice B — El análisis de formas, y para qué sirve la protección del art. 15(2)",
+				confusion: "<em>La confusión:</em> \"Todos los distritos electorales se ven raros. ¿Por qué importan estas tres formas?\"",
+				p1: "Los distritos siguen la geografía, así que lo irregular es normal. El análisis de formas busca <em>trabajo</em>: un límite que hace algo que ninguna restricción ordinaria explica. Un corredor que enlaza como con un lazo un vecindario a un distrito lejano. Un brazo que se mete en el borde de una ciudad. Una línea extendida a través de tierra donde no vive nadie. La ley de Alberta tiene una disposición especial, el artículo 15(2), que permite que hasta cuatro distritos queden por debajo del piso normal de población. Se escribió para distritos remotos con fuertes lazos comunitarios, como los distritos del norte que atienden a comunidades indígenas a través de distancias enormes. Extender un límite a través de un parque nacional deshabitado para que un distrito califique para esa protección es lo que el propio presidente de la comisión llamó \"un esfuerzo de mala fe\": una regla escrita para personas que viven lejos unas de otras, usada para proteger una línea donde no vive nadie en absoluto.",
+				p2: "Ahora vuelva a leer el hallazgo 2: tres formas, señaladas por el propio presidente del proceso, confirmadas de forma independiente por pruebas que no tenían ningún interés en su pelea.",
+				limit: "<em>El límite:</em> una forma extraña es una pregunta, no una respuesta. Una de estas formas tiene debajo una lógica real y digna de crédito: la ubicación del núcleo urbano de Banff junto con Canmore. La objeción del presidente sobrevive de todos modos. Apuntaba a la extensión del parque vacío, y la ubicación no toca eso.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Volver al hallazgo 2</a>"
+			},
+			appendix_c: {
+				heading: "Apéndice C — El empaquetamiento, en un ejemplo de juguete de tres distritos",
+				confusion: "<em>La confusión:</em> \"Los distritos más grandes tienen más votantes. ¿Y qué? Todos siguen teniendo un voto.\"",
+				p1: "Tome 12,000 votantes, 7,000 Naranja y 5,000 Azul, divididos en tres distritos de 4,000. Trácelos de forma pareja y Naranja gana los tres. Ahora vuelva a trazarlos. Meta a 4,000 votantes Naranja en un distrito (Naranja lo gana 100–0). Reparta los 3,000 Naranja restantes en dos distritos de 4,000, donde los 5,000 de Azul le dan la ventaja en ambos. Los mismos 12,000 votantes, la misma mayoría Naranja de 7,000. Ahora Naranja tiene un escaño y Azul tiene dos. Eso es el empaquetamiento: los votos de sus oponentes quedan almacenados donde se acumulan como excedente, desperdiciados en márgenes que no necesitaban. El indicio es el <em>tamaño y la concentración</em> del distrito. Los distritos de los oponentes salen grandes y profundos. Los suyos, ajustados y eficientes.",
+				p2: "Ahora vuelva a leer el hallazgo 3: en la única zona de Calgary donde 13 de 17 distritos votan por el NDP, los distritos del minoritario quedan un 11.5% por encima del promedio provincial. Los del mayoritario, trazados en la misma sala, un 2.8%.",
+				limit: "<em>El límite:</em> los distritos sobredimensionados también pueden venir de estimaciones honestas sobre el crecimiento, o de mantener entera una comunidad. La asimetría de tamaño es la firma que deja el empaquetamiento. Varias decisiones inocentes también la dejan.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Volver al hallazgo 3</a>"
+			},
+			appendix_d: {
+				heading: "Apéndice D — Qué mide la MAD, y por qué existe la banda",
+				confusion: "<em>La confusión:</em> \"Desviación absoluta media de la población — ¿es solo estadística para decir 'los distritos no son idénticos'?\"",
+				p1: "Casi. No todos los distritos pueden tener exactamente el mismo número de personas; las comunidades vienen en tamaños incómodos. La MAD hace una pregunta sencilla: en promedio, ¿qué tan lejos se aparta cada distrito de la parte ideal? Una MAD de 3,180 significa que los distritos se apartan del ideal en unas 3,180 personas en promedio. Una MAD de 4,707 significa que los desvíos son en promedio la mitad más grandes. La ley tolera el desvío, dentro de una banda (Alberta permite ±25%), porque respetar comunidades reales vale algo de desigualdad. Ese es el trato. La desviación es la moneda, y se gasta para comprar cosas como pueblos enteros y límites sensatos. Eso es lo que da sentido al hallazgo 4: el mapa minoritario gasta un 48% más de esa moneda que el mayoritario. Y el hallazgo 1 muestra que <em>no</em> compró con ella que Airdrie quedara entera.",
+				p2: "Ahora vuelva a leer el hallazgo 4: una dispersión más amplia que 99 de cada 100 mapas neutrales (mapas que una computadora trazó sin ver un solo voto; Apéndice F), en el único valor que la ley realmente cuantifica.",
+				limit: "<em>El límite:</em> la ley no clasifica nada dentro de la banda. \"Gastó más desviación\" es una observación sobre prioridades, no una violación. Cada distrito de ambos mapas es legal.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Volver al hallazgo 4</a>"
+			},
+			appendix_e: {
+				heading: "Apéndice E — Qué mide el anclaje municipal, y qué no puede mostrar",
+				confusion: "<em>La confusión:</em> \"¿Por qué contar con qué frecuencia un límite sigue la línea de una ciudad o un pueblo?\"",
+				p1: "Porque ahí es donde la gente ya sabe que vive. Cuando el límite de un distrito corre a lo largo de un límite municipal, la línea del impuesto predial, la de la división escolar, la del distrito municipal local y la de la elección provincial coinciden. Un votante puede saber en qué distrito está sin un mapa. La prueba mide qué parte de la longitud de los límites de distrito de cada mapa corre a menos de 500 metros de un límite municipal de Statistics Canada. Las comisiones canadienses quedan entre el 70% y el 85% en esa medida (Quebec 78%, Ontario 82%, BC 71%). El mapa mayoritario obtiene un 80%. El minoritario, un 72%. Ambos están dentro de la norma, así que en las tasas generales la prueba no los separa.",
+				p2: "Ahora vuelva a leer el hallazgo 5: la tasa general es ordinaria en ambos mapas. Lo que destaca es dónde caen las desviaciones del minoritario: en los bordes que señaló el presidente.",
+				limit: "<em>El límite:</em> la tasa de anclaje es una norma, no una regla. La Ley no fija ningún umbral. Y una desviación puede tener una buena razón, como un suburbio que ha crecido más allá del límite de una ciudad.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Volver al hallazgo 5</a>"
+			},
+			appendix_f: {
+				heading: "Apéndice F — La máquina de qué pasaría si, y cómo leer un percentil",
+				confusion: "<em>La confusión:</em> \"¿Un millón de mapas de computadora? ¿Un percentil de una simulación? ¿Qué significa eso siquiera?\"",
+				p1: "No se puede juzgar si un mapa es inusual sin saber cómo se ve lo usual. En los mapas electorales, nadie llega a ver las alternativas. Así que la auditoría las construyó. Un algoritmo parte de un mapa legal y hace una larga cadena de ediciones legales al azar. Une dos distritos vecinos. Vuelve a dividirlos de una forma válida al azar. Repite: 252,500 veces, en cuatro cadenas independientes, 1,010,000 mapas en total. No se consulta ningún dato de votación durante el trazado. La máquina no puede favorecer a nadie porque no puede ver a nadie, y eso es lo que significa \"neutral\" aquí. Luego se toma el mapa real, se mide, y se pregunta: de los millones de mapas neutrales, ¿cuántos puntúan así de alto? Si lo hacen 500,000, su mapa es ordinario. Si lo hacen 69, su mapa es del tipo que el trazado neutral produce 69 veces en 1,010,000 intentos.",
+				p2: "Ahora vuelva a leer el hallazgo 6: el mapa mayoritario en el percentil 78 — ordinario. El minoritario en el percentil 99.99 — 69 de 1,010,000 puntúan más alto.",
+				limit: "<em>El límite:</em> la máquina respeta la población y la contigüidad (cada distrito, una sola pieza conectada), pero no cada detalle legal que pondera una comisión real. Así que sus percentiles miden la distancia respecto del <em>trazado neutral</em>, no respecto de <em>todo lo que una comisión legal podría hacer</em>. Y un percentil es una distancia, no un veredicto.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-6\">↩ Volver al hallazgo 6</a>"
+			},
+			appendix_g: {
+				heading: "Apéndice G — La brecha de eficiencia, en un ejemplo resuelto",
+				confusion: "<em>La confusión:</em> \"¿Una sola cifra que capta el gerrymandering? Suena demasiado conveniente.\"",
+				p1: "Lo es, un poco. Por eso recibe un umbral, y un no alcanzado, en este informe. La idea: cada voto que no ayuda a ganar un escaño está \"desperdiciado\". Eso significa todos los votos emitidos por perdedores, más los votos de los ganadores por encima del 50% más uno que necesitaban. En un mapa justo ambos partidos desperdician más o menos lo mismo. La brecha de eficiencia es la diferencia en votos desperdiciados, como proporción de todos los votos. Suponga que Naranja gana un distrito de 100 votos 90–10. Naranja desperdició 39, su excedente por encima de 51. Azul desperdició 10, todos ellos votos para el perdedor. Los mapas empaquetados y fragmentados hacen que un partido desperdicie sistemáticamente más. En la convención de signos de este informe, las brechas positivas favorecen a los conservadores. La línea de calibración de la auditoría para Alberta (~4.1%) es el nivel que solo cruza el 5% del millón de mapas neutrales.",
+				p2: "Ahora vuelva a leer el hallazgo 7: el minoritario en +4.0%, percentil 94.5. Eso está por debajo de la propia línea preregistrada de la auditoría, fijada en público de antemano, y se reporta como lo que es: no alcanzado.",
+				limit: "<em>El límite:</em> la brecha de eficiencia comprime todo un mapa en una sola cifra, y una sola cifra no puede distinguir un gerrymander de una geografía irregular. Por eso esta auditoría usa cuatro métricas y un umbral fijado. Y mantiene el no alcanzado en los libros.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-7\">↩ Volver al hallazgo 7</a>"
+			},
+			appendix_h: {
+				heading: "Apéndice H — La falacia del fiscal, en lenguaje sencillo",
+				confusion: "<em>La confusión:</em> \"Uno en 568,000 de que este mapa sea inocente. Ese es el hallazgo, ¿no?\"",
+				p1: "No, y la diferencia importa lo suficiente como para tener nombre. La cifra dice esto: <em>si</em> un proceso neutral trazara el mapa de Alberta, la probabilidad de que se pareciera al mapa minoritario es como máximo uno en 568,000. Eso es P(esta evidencia, dada la inocencia). No es P(inocencia, dada esta evidencia). Intercambiarlas es la falacia del fiscal. El ejemplo clásico: un sospechoso coincide con un perfil de ADN encontrado en una escena, y el perfil aparece en una de cada millón de personas. ¿\"Una probabilidad en un millón de que sea inocente\"? Incorrecto. En una ciudad de diez millones, unas diez personas coinciden. Solo con el ADN, el sospechoso es uno de diez — un 90% de probabilidad de que <em>otra persona</em> sea la fuente. Lo rara que es la evidencia bajo la inocencia no es la probabilidad de inocencia. También hay que saber de cuántas maneras inocentes podría surgir la evidencia.",
+				p2: "Ahora vuelva a leer el hallazgo 8: la auditoría enuncia la cifra que puede defender — lo raro que es el mapa bajo el trazado neutral — y se niega al intercambio que la convertiría en un veredicto.",
+				limit: "<em>El límite:</em> negarse a la falacia le cuesta a la auditoría su frase más citable, y ese costo es deliberado. La rareza es evidencia. No es, ni llega a ser nunca, prueba de intención.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-8\">↩ Volver al hallazgo 8</a>"
+			},
+			appendix_i: {
+				heading: "Apéndice I — Qué es un muestreador, y por qué importa cambiarlo",
+				confusion: "<em>La confusión:</em> \"¿Verificaron su simulación con… otra simulación? ¿Cómo es eso una verificación?\"",
+				p1: "Porque las dos máquinas están construidas de forma distinta, y los artefactos (resultados creados por las manías de una máquina y no por el mapa) no suelen sobrevivir a un cambio de maquinaria. Todo algoritmo de trazado de mapas tiene manías. El estándar, ReCom, tiene una inclinación documentada hacia distritos compactos y ordenados, lo que en principio podría exagerar qué tan extremo parece un mapa real desparramado. Así que la auditoría cambió el motor. La variante hace crecer los distritos a partir de <em>bosques</em> de expansión aleatorios en lugar de árboles, con un comportamiento interno mediblemente distinto. Se registró públicamente (OSF he53s) antes de trazar un solo mapa con ella, y sus semillas se derivaron de una baliza pública de aleatoriedad que cualquiera puede verificar. Si la posición del minoritario en la cola fuera un artefacto de las manías del primer motor, el segundo motor la movería. Se movió menos de un punto de percentil en cada métrica: un veredicto preregistrado de ROBUSTO. La auditoría también reporta la verificación que <em>falló</em>. La afirmación de que la geometría señalada del Acto I es el mecanismo específico detrás de las cifras de escaños no sobrevivió la prueba, y se descartó.",
+				p2: "Ahora vuelva a leer el hallazgo 9: tres ataques, dos sobrevivieron, una afirmación perdida con honestidad.",
+				limit: "<em>El límite:</em> la robustez descarta los artefactos de las herramientas. No puede confirmar un diseño. Un mapa genuinamente extremo es genuinamente extremo, lo haya producido lo que lo haya producido."
+			}
+		}
 	}
 } as const;
