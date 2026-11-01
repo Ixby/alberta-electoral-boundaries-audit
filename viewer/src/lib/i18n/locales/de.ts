@@ -1667,6 +1667,7 @@ export default {
 				heading: "Was „1 zu 568.000“ bedeutet — und warum das Audit seine Marge verdoppelt hat",
 				p1: "Fassen Sie die vier Fairnessmaße zu einem Wert zusammen und fragen Sie: Wie oft bringt neutrales Zeichnen ein so extremes Profil hervor wie das der Minderheitenkarte? Die Antwort lautet etwa <strong>1 zu 1,1 Millionen</strong>. Aber das Audit nennt diese Zahl nicht. Es nennt <strong>1 zu 568.000</strong> — genau halb so eindrucksvoll. Hier ist der Grund.",
 				p2: "Das Audit hat an zwei verschiedenen Stellen nach einem Signal gesucht: bei diesem kombinierten Wert und bei einem zweiten Test zu den konkreten Grenzentscheidungen. An zwei Stellen zu suchen, gibt dem Glück zwei Chancen. Denken Sie an Lose: Kaufen Sie zwei, und Ihre Chance, ein Gewinnlos zu haben, verdoppelt sich. Bevor das Audit die Wahrscheinlichkeit nennt, verdoppelt es sie deshalb gegen sich selbst. So ist „Sie hatten zwei Versuche“ bereits bezahlt.",
+				p3: "Die Verdopplung hat noch einen Vorzug: Sie braucht keine Annahmen. Sie gilt, ob die beiden Tests zusammenhängen oder nicht, und ist deshalb die Zahl, die eine feindselige Statistikerin nicht herunterhandeln könnte.",
 				p4: "Eine Warnung, die das Audit überall wiederholt: Diese Wahrscheinlichkeit misst, wie ungewöhnlich die <em>Karte</em> ist. Sie ist nicht die Wahrscheinlichkeit, dass jemand mit Absicht gehandelt hat. Eine seltene Karte könnte grundsätzlich trotzdem ehrliche Arbeit sein. Die Wahrscheinlichkeit sagt nur dies: Gewöhnliches Entwerfen bringt diese Karte nicht hervor."
 			},
 			died: {
@@ -1862,7 +1863,100 @@ export default {
 			}
 		},
 		privacy_policy: {
-			head_title: "Datenschutzerklärung · Audit der Wahlkreisgrenzen Albertas"
+			head_title: "Datenschutzerklärung · Audit der Wahlkreisgrenzen Albertas",
+			head_description: "Datenschutz- und Datenaufbewahrungsrichtlinie für das Audit der Wahlkreisgrenzen Albertas.",
+			back: "← Zurück zum Audit",
+			site_label: "Audit der Wahlkreisgrenzen Albertas",
+			h1: "Datenschutz- und Datenaufbewahrungsrichtlinie",
+			meta: "Gültig ab: 2026-06-24 · Gepflegt von Will Conner",
+			overview: {
+				heading: "Überblick",
+				p1: "Dieses Werkzeug ist ein Audit des Verfahrens der Wahlbezirkskommission Albertas von 2023 im öffentlichen Interesse. Es ist kein kommerzielles Produkt und zeigt keine Werbung. Diese Seite erklärt, was gemessen wird, was niemals erhoben wird und warum nichts davon mit Ihnen in Verbindung gebracht werden kann.",
+				p2: "Die Kurzfassung: Die Website verwendet cookielose, aggregierte Analysen. Es gibt kein Tracking-Cookie, keine Werbung, keine websiteübergreifende Profilbildung und keine Kennung, die Ihnen folgt. Weil nichts Persönliches gespeichert wird, gibt es kein Zustimmungsbanner zum Wegklicken — der Datenschutz ist in die Art eingebaut, wie die Messung funktioniert, nicht als Abfrage nachträglich angefügt."
+			},
+			how_analytics_work: {
+				heading: "Wie die Analysen funktionieren",
+				p1: "Wenn eine Seite lädt oder Sie mit der Karte interagieren, sendet die Website ein kleines, anonymes Ereignis an einen Zähldienst, den wir betreiben. Jedes Ereignis ist nur der Name dessen, was geschehen ist — zum Beispiel „Seite angesehen“ oder „Bezirk ausgewählt“ — plus einige grobe Angaben zur Aktion. Das Ereignis enthält keinen Namen, keine E-Mail-Adresse, kein Konto und keine auf Ihrem Gerät gespeicherte Kennung.",
+				p2: "Um zu zählen, wie viele verschiedene Menschen an einem bestimmten Tag die Website besucht haben, ohne jemanden zu identifizieren, kombiniert der Zähldienst Ihre Netzwerkadresse und Ihren Browsertyp und verarbeitet sie zusammen mit einem täglich wechselnden Geheimnis durch einen kryptographischen Einweg-Hash. Das Ergebnis ist ein kurzer Code, mit dem wir zwei Besuche <em>innerhalb</em> eines einzigen Tages unterscheiden können, und nicht mehr. Die ursprüngliche Adresse wird nie gespeichert — nur der Hash. Weil das Geheimnis täglich wechselt, erzeugt dieselbe Besucherin morgen einen anderen Code, sodass es keine Möglichkeit gibt, jemanden über mehrere Tage zu verfolgen oder von einem Code auf eine Person zurückzuschließen.",
+				p3: "Uns interessiert das Bild, das die Besucherinnen und Besucher als Gruppe ergeben — welche Befunde gelesen werden, welche Karten geöffnet werden, welche Bezirke Aufmerksamkeit auf sich ziehen. Uns interessieren nicht Sie persönlich, und die Messung ist so gebaut, dass „Sie persönlich“ nichts ist, was die Daten ausdrücken können."
+			},
+			measured: {
+				heading: "Was gemessen wird",
+				p1: "Die Analysen erfassen aggregierte, anonyme Ereignisse wie:",
+				li1: "Seitenaufrufe",
+				li2: "Wie weit Menschen auf einer Seite nach unten scrollen, in groben Stufen (25 %, 50 %, 75 %, 100 %)",
+				li3: "Ungefähr wie lange die Seite aktiv auf dem Bildschirm war, in groben Zeitstufen",
+				li4: "Welche Befundabschnitte beim Lesen ins Blickfeld kommen",
+				li5: "Welche Karten im Explorer geöffnet und welche Bezirke ausgewählt werden",
+				li6: "Welche Kartenebenen ein- oder ausgeschaltet werden und ungefähr wie weit Menschen hineinzoomen",
+				li7: "Welche Points of Interest oder Links zum Bericht geöffnet werden",
+				li8: "Ein grobes Bild Ihrer Ausstattung — Bildschirmgrößenstufe (etwa Telefon, Tablet oder Desktop), Geräteform und Browserfamilie (etwa Chrome, Safari oder Firefox). Wir speichern nie Ihre genauen Bildschirmabmessungen oder die vollständige Kennzeichnung Ihres Browsers.",
+				li9: "Eine einmalige Momentaufnahme davon, wie der Karten-Explorer beim ersten Zeichnen lief — zum Beispiel die Ladezeit in groben Stufen und ein gerundeter Speicherwert. Das hilft uns zu erkennen, ob der Explorer auf echten Geräten schnell genug ist. Die Zahlen sind bewusst in Stufen eingeteilt, nicht genau, sodass sie eine Geräteklasse beschreiben statt eines Geräts.",
+				p2: "Jede dieser Angaben wird nur aggregiert gespeichert. Es gibt kein Profil pro Person, keine Sitzungsaufzeichnung und keine Aufzeichnung des Wegs einer einzelnen Person durch die Website. Wir sehen Summen und Verteilungen, keine Menschen."
+			},
+			never_collected: {
+				heading: "Was niemals erhoben wird",
+				p1: "Kein Name. Keine E-Mail-Adresse. Kein Konto. Keine Werbekennung. Keine gespeicherte IP-Adresse — Ihre Netzwerkadresse wird mit einem täglich wechselnden Geheimnis gehasht und sofort verworfen; nur der kurzlebige Tagescode wird behalten. Kein unbearbeiteter Browser-Fingerabdruck. Keine tage- oder websiteübergreifende Kennung. Kein genauer Standort. Kein Cookie und keine Kennung im Browserspeicher, die Sie für Analysezwecke als wiederkehrende Besucherin oder wiederkehrenden Besucher markiert."
+			},
+			github_pages_collects: {
+				heading: "Was GitHub Pages erhebt",
+				p1: "Diese Website wird auf GitHub Pages gehostet. Die Server von GitHub protokollieren automatisch grundlegende Angaben zur Anfrage, wenn eine Seite lädt — Ihre IP-Adresse, den Browsertyp, die verweisende Seite und den Zeitstempel. Wir erhalten diese Protokolle nicht und kontrollieren sie nicht; für sie gilt die <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Datenschutzerklärung von GitHub</a>. Über das Hosting hinaus haben wir keine Beziehung zu GitHub. Die oben beschriebenen Analysen laufen getrennt und erhalten Ihre IP-Adresse nie."
+			},
+			share_codes: {
+				heading: "Teilen-Codes",
+				p1: "Der Karten-Explorer hat eine Teilen-Funktion. Sie verwandelt Ihre aktuelle Kartenansicht — welche Karte aktiv ist, welche Überlagerungen und Ebenen eingeschaltet sind, ungefähr wo Ihr Ausschnitt liegt — in einen kurzen Code aus drei Wörtern, den Sie kopieren und jemandem schicken können. Es gibt genau 19.200 gültige Codes, weil ein Code eine Kartenkonfiguration darstellt, keine Person. Zwei Menschen, die unabhängig voneinander zur selben Ansicht gelangen, erhalten denselben Code; das ist so vorgesehen und stellt keine Verbindung zwischen ihnen her.",
+				p2: "Teilen-Codes erscheinen auf dem Bildschirm und gelangen nur dann in Ihre Zwischenablage, wenn Sie auf Kopieren klicken. Sie werden nie in eine URL eingebettet, erscheinen also nicht im Browserverlauf, in Serverprotokollen oder in Referrer-Headern. Um die geteilte Ansicht einer anderen Person zu öffnen, gibt die Empfängerin oder der Empfänger den Code direkt auf der Website ein.",
+				p3: "Wenn Sie einen Teilen-Code erzeugen, wird die darin codierte Kartenkonfiguration in unserer Datenbank gespeichert, damit der Link weiter funktioniert. Dieser gespeicherte Datensatz ist ein Kartenzustand — keine Person, kein Weg und nicht mit den Analysen verknüpft. Er enthält keine Kennung für Sie."
+			},
+			cookies_browser_storage: {
+				heading: "Cookies und Browserspeicher",
+				p1: "Die Analysen verwenden kein Cookie und keine Kennung im Browserspeicher. Nichts an der Messung markiert Sie als wiederkehrende Besucherin oder wiederkehrenden Besucher.",
+				p2: "Die Website setzt ein kleines <strong>funktionales</strong> Cookie, um Ihre eigenen Einstellungen zwischen Besuchen zu speichern. Es wird nicht für Analysen oder Tracking verwendet, und es verlässt Ihren Browser nie in lesbarer Form. Es speichert:",
+				li1: "<strong>Farbschema</strong> — dunkel oder hell, falls Sie es geändert haben",
+				li2: "<strong>Einführung geschlossen</strong> — damit sich die Einführung zur Karte nicht wiederholt",
+				li3: "<strong>Aktuelle Kartenansicht</strong> — damit Ihre letzte Ansicht beim nächsten Besuch wiederhergestellt wird",
+				li4: "<strong>Browsersprache</strong> — damit die Website Ihre bevorzugte Sprache anzeigen kann",
+				p3: "Dieses Cookie enthält nur die oben genannten Einstellungen — keine persönlichen oder identifizierenden Informationen. Sein Inhalt wird mit einem Schlüssel verschleiert, der in der Seite mitgeliefert wird, sodass der gespeicherte Wert für Menschen nicht lesbar ist; weil dieser Schlüssel öffentlich ist, verstehen Sie dies als Schutz vor Manipulation, nicht als echte Geheimhaltung. Es wird nur über HTTPS gesendet, nie mit anderen Websites geteilt, und Sie können es jederzeit entfernen, indem Sie Ihre Cookies löschen. Die Website wird als statische Dateien ausgeliefert, deshalb liest auf der Serverseite nichts es aus. Ihr Farbschema wird außerdem im lokalen Speicher Ihres Browsers gespiegelt, damit das richtige Schema beim Laden sofort angewendet werden kann, bevor etwas flackert; auch dieser Wert ist rein funktional und wird nirgendwohin gesendet."
+			},
+			data_retention: {
+				heading: "Datenaufbewahrung",
+				p1: "Die Analysedatensätze sind konstruktionsbedingt aggregiert und anonym, ohne eine Kennung, die aufbewahrt werden könnte. Sie werden auf Infrastruktur gespeichert, die in Kanada gehostet wird (ca-central-1), und als Forschungsdaten aufbewahrt. Sollten wir jemals feststellen, dass ein Datensatz identifizierende Informationen enthält — was die Gestaltung verhindern soll —, würden wir ihn innerhalb von 30 Tagen löschen."
+			},
+			your_choices: {
+				heading: "Ihre Wahlmöglichkeiten",
+				p1: "Weil nichts Persönliches erhoben wird, gibt es nichts, dem Sie widersprechen müssten, und keine Zustimmungsabfrage zu verwalten. Wenn Sie trotzdem lieber überhaupt keine Analyseereignisse senden möchten, stoppt ein Inhaltsblocker oder ein Browser, der die Anfrage an den Zähldienst blockiert, sie, und die Website funktioniert genau gleich. Sie können das funktionale Einstellungs-Cookie außerdem jederzeit über Ihren Browser löschen."
+			},
+			contact: {
+				heading: "Kontakt",
+				p1: "Will Conner — unabhängige Forschung, mit keiner Institution verbunden und von keiner unterstützt.",
+				p2: "Fragen, Korrekturen und Löschanfragen: Bitte nutzen Sie das <a href=\"__BASE__/feedback\">Feedback-Formular</a>. Anfragen werden innerhalb von 10 Werktagen beantwortet."
+			},
+			policy_updates: {
+				heading: "Änderungen dieser Richtlinie",
+				p1: "Wenn sich diese Richtlinie ändert, wird das Gültigkeitsdatum oben aktualisiert und die Änderung in das <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">öffentliche Git-Repository</a> eingetragen. Der Commit-Verlauf ist das Änderungsprotokoll. Jede Änderung, die erweitert, was erhoben wird, wird in der Commit-Nachricht vermerkt."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, und Jonathan Rodden. 2013.</strong> „Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.“ <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal und Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin und Justin Solomon. 2021.</strong> „Recombination: A Family of Markov Chains for Redistricting.“ <em>Harvard Data Science Review</em> 3(1). (Der ReCom-Algorithmus, mit dem das Ensemble aus 1.010.000 Karten erzeugt wurde.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, und Gary King. 1994.</strong> „A Unified Method of Evaluating Electoral Systems and Redistricting Plans.“ <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King und Elizabeth Rosenblatt. 2020.</strong> „Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.“ <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> „The Fractured Right to Vote.“ <em>McGill Law Journal</em> 61(2): 231–274. (Kanadischer verfassungsrechtlicher Rahmen für Wahlkreisgrenzen.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., und Eric M. McGhee. 2015.</strong> „Partisan Gerrymandering and the Efficiency Gap.“ <em>University of Chicago Law Review</em> 82(2): 831–900. (Quelle des durchgehend verwendeten Maßes der Effizienzlücke.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Die maßgebliche Entscheidung des Supreme Court of Canada zum verfassungsrechtlichen Maßstab für die Ziehung von Wahlkreisgrenzen.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Federal Court; maßgebliche kanadische Entscheidung zu Belegen der Interessengemeinschaft in Streitigkeiten über Wahlkreisgrenzen.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; legt fest, dass Ansprüche wegen parteilichen Gerrymanderings vor Bundesgerichten nicht justiziabel sind — Kontext dafür, warum sich Kanadas Maßstab der wirksamen Vertretung nach Abschnitt 3 unterscheidet.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
+			}
 		}
 	}
 } as const;

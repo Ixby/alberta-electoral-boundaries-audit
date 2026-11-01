@@ -1932,7 +1932,7 @@ export default {
 		home: {
 			references: {
 				academic: {
-					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta. (التقرير النهائي للجنة الحدود الانتخابية 2025–26، تقريرا الأغلبية والأقلية.)",
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
 					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
 					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
 					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (خوارزمية ReCom المستخدمة لتوليد مجموعة الخرائط البالغة 1,010,000 خريطة.)",
