@@ -22,7 +22,7 @@ type: project
 
 ## Why this exists
 
-The Lunty committee reports by **2026-11-02**. The audit's pre-registered scorecard methodology (OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455) is locked. When the real map is released, the operational standard is to score it within **72 hours** (Amendment 2 Bucket C). If the scorecard crashes on a 91-district input — because the canonical infrastructure was developed for 87 districts (2019 enacted) and 89 districts (commission maps) — the 72-hour window is wasted debugging plumbing rather than producing the public scorecard.
+The Lunty committee reports by **2026-11-02**. The audit's pre-registered scorecard methodology (OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455) is locked. When the real map is released, the operational standard is to score it within **72 hours** (Amendment 5, Part 11). If the scorecard crashes on a 91-district input — because the canonical infrastructure was developed for 87 districts (2019 enacted) and 89 districts (commission maps) — the 72-hour window is wasted debugging plumbing rather than producing the public scorecard.
 
 This directory's purpose is to **find those bugs now, with synthetic inputs**, so the live Nov 2 run is methodology-only rather than methodology-plus-debugging.
 

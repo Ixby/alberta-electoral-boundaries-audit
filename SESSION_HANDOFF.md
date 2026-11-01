@@ -85,7 +85,7 @@ metrics = ['efficiency_gap','mean_median','declination','seats_at_50_50']
 X = df[metrics].values
 mu, cov = X.mean(axis=0), np.cov(X, rowvar=False)
 inv = np.linalg.pinv(cov)
-real_min = np.array([0.040194, 0.010402, 0.077003, 0.516854])  # declination sign corrected in Amendment 10
+real_min = np.array([0.040194, 0.010402, 0.077003, 0.516854])  # declination sign corrected (Amendment 5, Part 9)
 D2 = float((real_min - mu) @ inv @ (real_min - mu))
 n_extreme = int((np.einsum('ij,jk,ik->i', X-mu, inv, X-mu) >= D2).sum())
 bonf = 2 * min((n_extreme+1)/(len(df)+1), 0.0024)
