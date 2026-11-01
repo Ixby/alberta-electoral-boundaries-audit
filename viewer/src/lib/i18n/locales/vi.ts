@@ -992,7 +992,7 @@ export default {
 			act3_h: "Hồi III: Con người đã làm gì",
 			act3_intro: "Hồi I và II đo trên giấy. Hồi III đọc cách hành xử: những gì những người trong và quanh quy trình đã viết, đã khẳng định và đã chọn. Trước tòa, cách hành xử thường là nơi các câu hỏi về ý định được trả lời. Hãy xem điều gì xảy ra với nó ở đây.",
 			c11_title: "Vỏ đạn 11 — Năm trong sáu lý do không vượt qua được phép kiểm tra",
-			c11_found: "Các ủy viên thiểu số đã công bố lý do cho những lần vẽ lại gây tranh cãi của họ. Năm trong sáu lý do không vượt qua được một phép kiểm tra độc lập. (Một lần vẽ lại thứ bảy mà chúng tôi đã liệt kê trước đó hóa ra dựa trên một khẳng định về ranh giới liên bang không thể tìm thấy trong báo cáo thiểu số; chúng tôi đã gỡ nó ra thay vì để nó tồn tại như một khẳng định yếu.) Vấn đề không phải là lập luận của phe thiểu số là bịa đặt. Trong hầu hết các trường hợp này, khẳng định chung là đúng, và một ranh giới tôn trọng nó đã có thể được vẽ ra. Điều dữ liệu không vươn tới được là chính đường ranh giới cụ thể mà phe thiểu số đã vẽ. Họ bảo vệ Calgary-Nolan Hill–Cochrane dựa trên ý tưởng rằng cư dân Cochrane “di chuyển trôi chảy” vào Calgary. Dữ liệu đi lại đến nơi làm việc năm 2021 của Statistics Canada cho thấy khoảng một phần ba người lao động ở Cochrane đi làm ở đâu đó trong Calgary, trong khi khoảng một nửa làm việc trong Cochrane: một mối liên kết thực sự giữa hai thành phố, nhưng không nói gì về khu phố Nolan Hill mà hành lang thực sự vươn tới. Việc đi làm từ Airdrie vào Calgary (khoảng 76 phần trăm số người đi làm ra ngoài thành phố) và sự tăng trưởng nhanh chóng của Airdrie đều có thật, và đã có thể ủng hộ một ghế mới cho vùng Airdrie. Cả hai đều không đòi hỏi chia thành phố làm bốn. Chestermere gửi 86 phần trăm số người đi làm ra ngoài thành phố vào Calgary, nhưng không chung khu học chánh hay hệ thống giao thông công cộng nào với khu vực Calgary cụ thể mà phe thiểu số cắt một phần của nó vào. Và lập luận “trường học chung” của phe thiểu số để ghép Red Deer với Sylvan Lake không đứng vững. Sylvan Lake thuộc Chinook’s Edge School Division; Thành phố Red Deer thuộc Red Deer Public.",
+			c11_found: "Các ủy viên thiểu số đã công bố lý do cho những lần vẽ lại gây tranh cãi của họ. Năm trong sáu lý do không vượt qua được một phép kiểm tra độc lập. Vấn đề không phải là lập luận của phe thiểu số là bịa đặt. Trong hầu hết các trường hợp này, khẳng định chung là đúng, và một ranh giới tôn trọng nó đã có thể được vẽ ra. Điều dữ liệu không vươn tới được là chính đường ranh giới cụ thể mà phe thiểu số đã vẽ. Họ bảo vệ Calgary-Nolan Hill–Cochrane dựa trên ý tưởng rằng cư dân Cochrane “di chuyển trôi chảy” vào Calgary. Dữ liệu đi lại đến nơi làm việc năm 2021 của Statistics Canada cho thấy khoảng một phần ba người lao động ở Cochrane đi làm ở đâu đó trong Calgary, trong khi khoảng một nửa làm việc trong Cochrane: một mối liên kết thực sự giữa hai thành phố, nhưng không nói gì về khu phố Nolan Hill mà hành lang thực sự vươn tới. Việc đi làm từ Airdrie vào Calgary (khoảng 76 phần trăm số người đi làm ra ngoài thành phố) và sự tăng trưởng nhanh chóng của Airdrie đều có thật, và đã có thể ủng hộ một ghế mới cho vùng Airdrie. Cả hai đều không đòi hỏi chia thành phố làm bốn. Chestermere gửi 86 phần trăm số người đi làm ra ngoài thành phố vào Calgary, nhưng không chung khu học chánh hay hệ thống giao thông công cộng nào với khu vực Calgary cụ thể mà phe thiểu số cắt một phần của nó vào. Và lập luận “trường học chung” của phe thiểu số để ghép Red Deer với Sylvan Lake không đứng vững. Sylvan Lake thuộc Chinook’s Edge School Division; Thành phố Red Deer thuộc Red Deer Public.",
 			c11_note: "Chỉ kiểm tra đối với phe thiểu số, vì đó là bản đồ có các lần vẽ lại gây tranh cãi được công khai. Phe đa số không công bố danh sách lý do cho các lần vẽ lại gây tranh cãi, nên phép kiểm tra không thể áp dụng như nhau cho cả hai phía; nó được báo cáo như một cờ đơn lẻ.",
 			c11_show: "Những lý do không vượt qua được phép kiểm tra trông giống như sự hợp lý hóa: lý do được tìm ra sau khi đã có đường ranh giới, không phải trước đó. Trong mỗi trường hợp, bằng chứng chỉ về một ranh giới mà phe thiểu số đã có thể vẽ. Đường ranh giới họ đã vẽ là một đường khác.",
 			c11_experts: "Đặt một lý do được nêu cạnh những gì bằng chứng ủng hộ là phân tích cái cớ, một phép kiểm tra xem lý do đó có phải là bình phong hay không. Đó chính là cách các tòa án Hoa Kỳ thăm dò ý định trong những vụ phân chia thiên vị mà họ có xét xử. Những lý do thất bại trước dữ liệu công khai là dấu hiệu tiêu chuẩn.",
@@ -1485,7 +1485,7 @@ export default {
 			back: "← Quay lại cuộc kiểm toán",
 			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
 			h1: "Mười bốn bài giải thích",
-			meta: "Phụ lục A–N · mỗi bài một khái niệm · hiện chỉ có bằng tiếng Anh",
+			meta: "Phụ lục A–N · mỗi bài một khái niệm",
 			standfirst: "Mỗi vỏ đạn trong cuộc kiểm toán liên kết đến một phụ lục ở đây, và mỗi phụ lục đảm nhận đúng một khái niệm. Nó bắt đầu từ chính sự bối rối thật lòng. Nó xây dựng ý tưởng bằng một ví dụ cụ thể. Nó đưa bạn trở lại con số của vỏ đạn với khả năng tự đọc hiểu. Và nó kết thúc bằng điều mà khái niệm đó <em>không thể</em> cho bạn biết. Hãy đọc theo bất kỳ thứ tự nào.",
 			appendix_a: {
 				heading: "Phụ lục A — \"Phá vỡ\" thực sự làm gì với một lá phiếu",
@@ -1599,7 +1599,7 @@ export default {
 				limit: "<em>Giới hạn:</em> \"không thể thực thi\" là một nhận định về tòa án, không phải về hậu quả. Quy ước được thực thi tại các cuộc bầu cử, bởi những người biết điều gì đã được làm. Những báo cáo như báo cáo này tồn tại để họ biết.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Quay lại phát hiện 14</a>"
 			},
-			footer_note: "Nội dung phản ánh các phụ lục của <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">báo cáo công khai đầy đủ</a>. Hiện chỉ có bằng tiếng Anh, đang chờ tác giả xem xét trước khi dịch."
+			footer_note: "Nội dung phản ánh các phụ lục của <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">báo cáo công khai đầy đủ</a>."
 		},
 		methods: {
 			head_title: "Các bản đồ đã được kiểm tra ra sao · Kiểm toán Ranh giới Bầu cử Alberta",
@@ -1607,7 +1607,7 @@ export default {
 			back: "← Quay lại cuộc kiểm toán",
 			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
 			h1: "Các bản đồ đã được kiểm tra ra sao",
-			meta: "Mọi bài kiểm tra và mọi số liệu thống kê, bằng ngôn ngữ đơn giản · Hiện chỉ có bằng tiếng Anh · Mọi con số đều tái tạo được từ kho mã nguồn công khai",
+			meta: "Mọi bài kiểm tra và mọi số liệu thống kê, bằng ngôn ngữ đơn giản · Mọi con số đều tái tạo được từ kho mã nguồn công khai",
 			standfirst: "Toàn bộ cuộc kiểm toán dựa trên một ý tưởng đơn giản. Muốn biết một bản đồ có bất thường không? Hãy vẽ một triệu bản đồ không thể thiên vị. Một máy tính vẽ chúng, và nó không bao giờ nhìn thấy một lá phiếu nào. Rồi kiểm tra xem các bản đồ thực rơi vào đâu giữa chúng. Trang này đi qua ý tưởng đó và mọi bài kiểm tra được xây dựng trên nó. Không có công thức. Nếu bạn đọc được bản tin thời tiết, bạn đọc được trang này.",
 			toc: {
 				aria: "Nội dung trang",
@@ -1660,6 +1660,7 @@ export default {
 				heading: "\"1 trên 568.000\" có nghĩa là gì — và vì sao cuộc kiểm toán nhân đôi biên độ của mình",
 				p1: "Gộp bốn phép đo công bằng thành một điểm số và hỏi: việc vẽ trung lập tạo ra một hồ sơ cực đoan như của bản đồ thiểu số thường xuyên đến mức nào? Câu trả lời là khoảng <strong>1 trên 1,1 triệu</strong>. Nhưng cuộc kiểm toán không trích dẫn con số đó. Nó trích dẫn <strong>1 trên 568.000</strong> — ấn tượng đúng bằng một nửa. Đây là lý do.",
 				p2: "Cuộc kiểm toán đã tìm kiếm tín hiệu ở hai nơi khác nhau: điểm số kết hợp này, và một bài kiểm tra thứ hai về các lựa chọn ranh giới cụ thể. Tìm ở hai nơi cho sự may mắn hai cơ hội. Hãy nghĩ đến vé số: mua hai vé, và khả năng bạn cầm vé trúng tăng gấp đôi. Vì vậy trước khi trích dẫn xác suất, cuộc kiểm toán nhân đôi nó theo hướng bất lợi cho chính mình. Bằng cách đó, \"bạn đã có hai lần thử\" đã được trả giá từ trước.",
+				p3: "Việc nhân đôi còn một ưu điểm nữa: nó không cần giả định nào. Nó đứng vững dù hai bài kiểm tra có liên quan với nhau hay không, nên đó là con số mà một nhà thống kê thù địch cũng không thể đánh đổ.",
 				p4: "Một lời cảnh báo mà cuộc kiểm toán nhắc lại ở mọi nơi: những xác suất này đo mức độ bất thường của <em>bản đồ</em>. Chúng không phải là xác suất rằng ai đó đã hành động có chủ ý. Về nguyên tắc, một bản đồ hiếm gặp vẫn có thể là sản phẩm trung thực. Xác suất chỉ nói điều này: việc soạn thảo thông thường không tạo ra bản đồ này."
 			},
 			died: {
@@ -1692,7 +1693,7 @@ export default {
 			back: "← Quay lại cuộc kiểm toán",
 			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
 			h1: "Các chuẩn mực đòi hỏi gì ở một bản đồ bầu cử",
-			meta: "Bản đồng hành bằng ngôn ngữ đơn giản · Hiện chỉ có bằng tiếng Anh · Không phải phán quyết về bất kỳ ai",
+			meta: "Bản đồng hành bằng ngôn ngữ đơn giản · Không phải phán quyết về bất kỳ ai",
 			standfirst: "Câu chuyện này có ba lăng kính. <a href=\"__BASE__/law\">Luật pháp</a> hỏi điều gì là hợp pháp. <a href=\"__BASE__/methods\">Thống kê</a> hỏi điều gì là bất thường. Lăng kính thứ ba hỏi điều gì là thông lệ, và thông lệ là vùng đất tranh chấp. \"Chính phủ đã phá vỡ một chuẩn mực sáu mươi năm\" không phải là một phép đo trung lập. Đó là trái tim của lời cáo buộc từ phe đối lập. Vì vậy trang này không chỉ thuật lại các chuẩn mực. Nó chất vấn chúng: chúng đến từ đâu, chúng dùng để làm gì, lập luận cho việc gạt chúng sang một bên thực sự là gì, và còn lại gì khi đã dẹp bỏ lời lẽ hùng biện của cả hai phía.",
 			the_norm: {
 				heading: "Chuẩn mực, nói một cách đơn giản",
@@ -1814,7 +1815,7 @@ export default {
 			back: "← Quay lại cuộc kiểm toán",
 			site_label: "Kiểm toán Ranh giới Bầu cử Alberta",
 			h1: "Luật đòi hỏi gì ở một bản đồ bầu cử",
-			meta: "Bản đồng hành bằng ngôn ngữ đơn giản · Hiện chỉ có bằng tiếng Anh · Không phải tư vấn pháp lý",
+			meta: "Bản đồng hành bằng ngôn ngữ đơn giản · Không phải tư vấn pháp lý",
 			standfirst: "Cuộc kiểm toán này đo các bản đồ. Tòa án phán xét chúng. Hai công việc có liên quan nhưng không giống nhau, và trang này đi qua sự khác biệt đó: luật Canada thực sự đòi hỏi gì ở một ranh giới bầu cử, những câu hỏi nào thuộc về tòa án chứ không phải nhà thống kê, và bằng chứng của cuộc kiểm toán nằm ở đâu. Bản thân cuộc kiểm toán không đưa ra lập trường nào về bất kỳ kết luận pháp lý nào. Nó báo cáo những gì dữ liệu cho thấy, và dừng lại ở đó.",
 			why_not_gerrymander: {
 				heading: "Vì sao cuộc kiểm toán này không bao giờ kết luận \"gerrymander\"",
@@ -1863,7 +1864,7 @@ export default {
 			meta: "Có hiệu lực: 2026-06-24 · Do Will Conner duy trì",
 			overview: {
 				heading: "Tổng quan",
-				p1: "Công cụ này là một cuộc kiểm toán vì lợi ích công cộng về quy trình của ủy ban ranh giới bầu cử năm 2023 của Alberta. Nó không phải là sản phẩm thương mại và không chạy quảng cáo. Trang này giải thích những gì được đo lường, những gì không bao giờ được thu thập, và vì sao không dữ liệu nào trong số đó có thể được liên kết ngược lại với bạn.",
+				p1: "Công cụ này là một cuộc kiểm toán vì lợi ích công cộng về quy trình của ủy ban ranh giới bầu cử 2025–26 của Alberta. Nó không phải là sản phẩm thương mại và không chạy quảng cáo. Trang này giải thích những gì được đo lường, những gì không bao giờ được thu thập, và vì sao không dữ liệu nào trong số đó có thể được liên kết ngược lại với bạn.",
 				p2: "Phiên bản ngắn gọn: trang web dùng phân tích tổng hợp, không dùng cookie. Không có cookie theo dõi, không có quảng cáo, không có việc lập hồ sơ trên nhiều trang web, và không có mã định danh nào theo dấu bạn. Vì không có gì mang tính cá nhân được lưu trữ, nên không có biểu ngữ xin đồng ý nào để bạn bấm qua — sự bảo vệ quyền riêng tư được tích hợp vào chính cách thức đo lường hoạt động, chứ không phải gắn thêm vào dưới dạng một lời nhắc."
 			},
 			how_analytics_work: {
@@ -1901,7 +1902,53 @@ export default {
 				p3: "Khi bạn tạo một mã chia sẻ, cấu hình bản đồ mà mã đó mã hóa được lưu vào cơ sở dữ liệu của chúng tôi để liên kết tiếp tục hoạt động. Bản ghi được lưu đó là một trạng thái bản đồ — không phải một người, không phải một đường đi, và không được kết nối với dữ liệu phân tích. Nó không chứa mã định danh nào của bạn."
 			},
 			cookies_browser_storage: {
-				heading: "Cookie và bộ nhớ trình duyệt"
+				heading: "Cookie và bộ nhớ trình duyệt",
+				p1: "Phân tích không dùng cookie và không dùng mã định danh trong bộ nhớ trình duyệt. Không có gì trong cách đo lường đánh dấu bạn là người truy cập quay lại.",
+				p2: "Trang web có đặt một cookie <strong>chức năng</strong> nhỏ để ghi nhớ các tùy chọn của chính bạn giữa các lần truy cập. Nó không được dùng cho phân tích hay theo dõi, và nó không bao giờ rời khỏi trình duyệt của bạn ở dạng có thể đọc được. Nó lưu:",
+				li1: "<strong>Chủ đề màu</strong> — tối hoặc sáng, nếu bạn đã thay đổi",
+				li2: "<strong>Đã đóng phần giới thiệu</strong> — để phần giới thiệu bản đồ không lặp lại",
+				li3: "<strong>Chế độ xem bản đồ hiện tại</strong> — để chế độ xem gần nhất của bạn được khôi phục trong lần truy cập tiếp theo",
+				li4: "<strong>Ngôn ngữ trình duyệt</strong> — để trang web có thể hiển thị ngôn ngữ bạn ưa thích",
+				p3: "Cookie này chỉ chứa các tùy chọn ở trên — không có thông tin cá nhân hay thông tin nhận dạng nào. Nội dung của nó được xáo trộn bằng một khóa đi kèm bên trong trang, nên giá trị được lưu không thể đọc được bằng mắt thường; vì khóa đó là công khai, hãy coi đây là biện pháp chống sửa đổi chứ không phải bảo mật thực sự. Nó chỉ được gửi qua HTTPS, không bao giờ được chia sẻ với các trang web khác, và bạn có thể xóa nó bất cứ lúc nào bằng cách xóa cookie của mình. Trang web được phục vụ dưới dạng các tập tin tĩnh, nên không có gì ở phía máy chủ đọc nó. Chủ đề màu của bạn cũng được sao chép vào bộ nhớ cục bộ (local storage) của trình duyệt để chủ đề đúng có thể được áp dụng ngay khi tải, trước khi có bất kỳ hiện tượng nhấp nháy nào; giá trị đó cũng hoàn toàn mang tính chức năng và không bao giờ được gửi đi đâu."
+			},
+			data_retention: {
+				heading: "Lưu giữ dữ liệu",
+				p1: "Các bản ghi phân tích là tổng hợp và ẩn danh ngay từ cách xây dựng, không có mã định danh nào để lưu giữ. Chúng được lưu trên hạ tầng đặt tại Canada (ca-central-1) và được giữ làm dữ liệu nghiên cứu. Nếu chúng tôi phát hiện một bản ghi có chứa thông tin nhận dạng — điều mà thiết kế được xây dựng để ngăn chặn — chúng tôi sẽ xóa nó trong vòng 30 ngày."
+			},
+			your_choices: {
+				heading: "Lựa chọn của bạn",
+				p1: "Vì không có gì mang tính cá nhân được thu thập, nên không có gì để từ chối tham gia và không có lời nhắc xin đồng ý nào cần quản lý. Nếu bạn vẫn muốn không gửi bất kỳ sự kiện phân tích nào, một trình chặn nội dung hoặc một trình duyệt chặn yêu cầu đến dịch vụ đếm sẽ ngăn chúng, và trang web sẽ hoạt động y như cũ. Bạn cũng có thể xóa cookie tùy chọn chức năng bất cứ lúc nào qua trình duyệt của mình."
+			},
+			contact: {
+				heading: "Liên hệ",
+				p1: "Will Conner — nghiên cứu độc lập, không liên kết với hay được tán thành bởi bất kỳ tổ chức nào.",
+				p2: "Câu hỏi, đính chính và yêu cầu xóa dữ liệu: vui lòng dùng <a href=\"__BASE__/feedback\">biểu mẫu phản hồi</a>. Các yêu cầu được trả lời trong vòng 10 ngày làm việc."
+			},
+			policy_updates: {
+				heading: "Cập nhật chính sách",
+				p1: "Khi chính sách này thay đổi, ngày có hiệu lực ở đầu trang được cập nhật và thay đổi được commit vào <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">kho git công khai</a>. Lịch sử commit chính là nhật ký thay đổi. Mọi thay đổi mở rộng những gì được thu thập đều được ghi chú trong thông điệp commit."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Chính phủ Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, và Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal và Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, và Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (Thuật toán ReCom được dùng để tạo tập hợp 1.010.000 bản đồ.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, và Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, và Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274. (Khuôn khổ hiến pháp Canada về ranh giới bầu cử.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., và Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900. (Nguồn của phép đo khoảng cách hiệu quả được dùng xuyên suốt.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Án lệ hàng đầu của Tòa án Tối cao Canada về tiêu chuẩn hiến pháp cho việc vẽ ranh giới bầu cử.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Tòa án Liên bang; án lệ hàng đầu của Canada về bằng chứng cộng đồng lợi ích trong các tranh chấp ranh giới bầu cử.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Tòa án Tối cao Hoa Kỳ; xác lập rằng các khiếu kiện về phân chia thiên vị đảng phái không thể được xét xử tại các tòa án liên bang — bối cảnh để hiểu vì sao tiêu chuẩn đại diện hiệu quả theo điều 3 của Canada khác biệt.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}

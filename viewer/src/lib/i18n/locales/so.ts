@@ -1477,5 +1477,75 @@ export default {
 		privacy_link_text: "siyaasadda asturnaanta",
 		back_to_report: "Ku noqo warbixinta",
 		back_to_map: "Ku noqo baadhaha khariidadda"
+	},
+	pages: {
+		explainers: {
+			head_title: "Afar iyo Tobanka Sharraxaad · Hubinta Xudduudaha Doorashada Alberta",
+			head_description: "Afar iyo toban sharraxaad oo gaagaaban — mid natiijo kasta oo Hubinta Xudduudaha Doorashada Alberta: jeexitaan, urursi, ensemble-yo dhexdhexaad ah, khaladka xeer-ilaaliyaha, caadooyinka iyo sharciga, iyo wax kale.",
+			back: "← Ku noqo hubinta",
+			site_label: "Hubinta Xudduudaha Doorashada Alberta",
+			h1: "Afar iyo Tobanka Sharraxaad",
+			meta: "Lifaaqyada A–N · mid kastaa hal fikrad · hadda Ingiriisi oo keliya",
+			standfirst: "Qolof kasta oo hubinta ku jirta waxay ku xidhan tahay hal lifaaq oo halkan ku yaal, lifaaq kastaana wuxuu leeyahay si sax ah hal fikrad. Wuxuu ka bilaabmaa jahwareerka daacadda ah. Fikradda wuxuu ku dhisaa hal tusaale oo muuqda. Wuxuu kugu celiyaa lambarka qolofta adigoo awoodaya inaad keligaa akhrido. Wuxuuna ku dhammaadaa waxa aanay fikraddu <em>kuu sheegi karin</em>. U akhri si kasta oo aad doonto.",
+			appendix_a: {
+				heading: "Lifaaqa A — Waxa \"jeexitaanku\" dhab ahaan ku sameeyo cod",
+				confusion: "<em>Jahwareerka:</em> \"Codbixiyayaasha Airdrie weli way codeeyaan. Cidna codadkooda ma qaadan. Sidee ayay khadad sawiriddu wax u 'dhimaysaa'?\"",
+				p1: "Ka fikir magaalo 40,000 qof ah oo inteeda badan u codaysa Oranji, oo ku taal gobol inta badan u codeeya Buluug. Magaalada sii riding u gaar ah, degmo leh kursi u gaar ah Golaha Sharci-dejinta, waxayna dooranaysaa MLA Oranji ah: 40,000 qof, hal kursi, hal cod. Hadda magaalada u jar afar qaybood oo qayb kasta ku dheji gabal dhul miyi ah oo Buluug ah. Riding cusub kasta, 10,000-ka codbixiye ee magaaladu waxay wajahayaan 30,000 codbixiye oo miyi ah. Oranji afartaba way lumisaa. Isla codbixiyayaal, isla codad, eber kursi. Codbixiye keliya waxba lagama xadin. Waxa la qaaday waa awoodda <em>bulshada</em> ee ah inay cid uun doorato. Taasi waa jeexitaan. Dhaqaaqa muraayaddiisa ah waa urursi (Lifaaqa C): koox ku cidhiidhi riding-yo ugu yar intii suurtagal ah, si ay kuwaas ugu guulaysato farqi aad u ballaadhan oo aanay wax kale ku guulaysan.",
+				p2: "Hadda dib u akhri natiijada 1: 85,805 qof, afar riding, iyagoo laga badan yahay saddex ka mid ah. Qabyada kale ee isla guddidaas waxay muujinaysaa in laba riding ay ku filnaayeen in sharciga la buuxiyo.",
+				limit: "<em>Xadka:</em> jeexitaanku wuxuu qeexaa saamayn, ma aha ujeeddo. Kala-qaybin waxay dhici kartaa maxaa yeelay qof ayaa doonayay dhimis. Waxay kaloo dhici kartaa maxaa yeelay xaddidaado kale ayaa khariidadda ciriiriyay. Joomatariga keligiis ma sheegi karo kee.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Ku noqo natiijada 1</a>"
+			},
+			appendix_b: {
+				heading: "Lifaaqa B — Falanqaynta qaabka, iyo waxa ilaalinta s.15(2) loogu talagalay",
+				confusion: "<em>Jahwareerka:</em> \"Dhammaan degmooyinka doorashadu way yaab badan yihiin. Maxay saddexdan qaab muhiim u yihiin?\"",
+				p1: "Degmooyinku waxay raacaan juquraafiga, sidaa darteed qalloocnaantu waa caadi. Falanqaynta qaabku waxay raadisaa <em>shaqo</em>: xudduud samaynaysa wax aan xaddidaad caadi ahi sharrixin. Marin xadhig-qabad ugu xidha hal xaafad degmo fog. Gacan gaadhaysa cidhifka magaalo. Khad lagu fidiyay dhul aan cidi ku noolayn. Sharciga Alberta wuxuu leeyahay qodob gaar ah, qaybta 15(2), oo u oggolaanaya ilaa afar degmo inay ka hooseeyaan dabaqa dadka ee caadiga ah. Waxa loo qoray degmooyin fog oo leh xidhiidh bulsho oo adag, sida riding-yada waqooyiga ee u adeega bulshooyinka Asaliga ah masaafooyin ballaadhan. In xudduud lagu fidiyo beer qaran oo aan cidi ku noolayn si degmo ugu qalanto ilaalintaas waa waxa guddoomiyaha guddida laftiisu ugu yeedhay \"isku day niyad xun\": xeer loo qoray dad kala fog, oo loo adeegsaday ilaalinta khad meel aan cidiba ku noolayn.",
+				p2: "Hadda dib u akhri natiijada 2: saddex qaab, oo uu calaamadeeyay guddoomiyaha habraaca laftiisa, oo si madax-bannaan u xaqiijiyeen imtixaanno aan dan ku lahayn dagaalkiisa.",
+				limit: "<em>Xadka:</em> qaab yaab leh waa su'aal, ma aha jawaab. Mid ka mid ah qaababkan wuxuu leeyahay macquul dhab ah oo la ammaani karo oo ka hooseeya: meesha magaalada Banff lala dhigay Canmore. Diidmada guddoomiyuhu si kastaba way ka badbaadaysaa. Waxay ku socotay fidinta beerta madhan, meeshaas la dhigayna taas ma taabato.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Ku noqo natiijada 2</a>"
+			},
+			appendix_c: {
+				heading: "Lifaaqa C — Urursi, oo lagu sharraxay tusaale saddex degmo ah",
+				confusion: "<em>Jahwareerka:</em> \"Degmooyinka waaweyn codbixiyayaal badan ayay leeyihiin. Maxaa ka dhashay? Qof kastaa weli hal cod ayuu helaa.\"",
+				p1: "Qaado 12,000 codbixiye, 7,000 Oranji iyo 5,000 Buluug, oo loo qaybiyay saddex degmo oo 4,000 ah. Si siman u sawir, Oranji saddexdaba way ku guulaysanaysaa. Hadda dib u sawir. 4,000 codbixiye oo Oranji ah ku cidhiidhi hal degmo (Oranji waxay ku guulaysanaysaa 100–0). 3,000-ka Oranji ee hadhay ku kala firdhi laba degmo oo 4,000 ah, halkaas oo 5,000-ka Buluug ay labadaba ku siinayaan horumar. Isla 12,000 codbixiye, isla aqlabiyadda 7,000 ee Oranji. Hadda Oranji waxay haysaa hal kursi, Buluugna laba. Taasi waa urursi: codadka kuwa kaa soo horjeeda waxa lagu kaydiyaa meel ay ku urursadaan sidii dheeraad, oo lagu khasaariyo farqi aanay u baahnayn. Calaamaddu waa <em>cabbirka iyo urursanaanta</em> degmada. Degmooyinka kuwa kaa soo horjeedaa waa waaweyn yihiin oo qoto dheer yihiin. Kuwaagu waa khafiif oo waxtar leh.",
+				p2: "Hadda dib u akhri natiijada 3: aagga keliya ee Calgary ee 13 ka mid ah 17 degmo ay u codeeyaan NDP, degmooyinka inta yar waxay ka sarreeyaan celceliska gobolka 11.5%. Kuwa inta badan, oo isla qolka lagu sawiray, 2.8%.",
+				limit: "<em>Xadka:</em> degmooyin aad u waaweyn waxay kaloo ka iman karaan qiyaaso daacad ah oo ku saabsan koritaanka, ama ilaalinta bulsho oo dhan. Cabbir aan sinnayn waa calaamadda urursigu ka tago. Doorashooyin dhowr ah oo dambi la'aan ahina way ka tagaan.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Ku noqo natiijada 3</a>"
+			},
+			appendix_d: {
+				heading: "Lifaaqa D — Waxa MAD cabbiro, iyo sababta xadku u jiro",
+				confusion: "<em>Jahwareerka:</em> \"Population Mean Absolute Deviation — kani ma tirakoob uun baa oo loogu talagalay 'degmooyinku isku mid ma aha'?\"",
+				p1: "Ku dhawaad. Degmooyinka oo dhammi ma hayn karaan si sax ah tiro isku mid ah oo dad ah; bulshooyinku waxay yimaadaan cabbirro aan habboonayn. MAD waxay weydiisaa su'aal fudud: celcelis ahaan, intee ayay degmo kastaa ka leexataa saamiga ku habboon? MAD 3,180 ah waxay ka dhigan tahay in degmooyinku celcelis ahaan ka leexdaan qiimaha ku habboon qiyaastii 3,180 qof. MAD 4,707 ah waxay ka dhigan tahay in leexashooyinku celcelis ahaan yihiin kala badh ka weyn. Sharcigu wuu u dulqaataa leexashada, gudaha xad (Alberta waxay oggol tahay ±25%), maxaa yeelay ixtiraamka bulshooyinka dhabta ahi wuxuu mudan yahay xoogaa sinnaan la'aan ah. Taasi waa heshiiska. Leexashadu waa lacagta, waxaadna ku bixisaa si aad u iibsato waxyaabo sida magaalooyin dhan iyo xudduudo macquul ah. Taasi waa waxa natiijada 4 siiya ujeeddadeeda: khariidadda inta yar waxay ku bixisaa 48% ka badan lacagtaas marka loo eego inta badan. Natiijada 1-na waxay muujinaysaa inaanay ku <em>iibsan</em> Airdrie oo dhan.",
+				p2: "Hadda dib u akhri natiijada 4: kala-fid ka ballaadhan 99 ka mid ah 100 kasta oo khariidadood oo dhexdhexaad ah (khariidado kombuyuutar sawiray isagoon arkin hal cod; Lifaaqa F), qiimaha keliya ee sharcigu dhab ahaan tiro u dhigo.",
+				limit: "<em>Xadka:</em> sharcigu waxba kuma kala sarreysiiyo gudaha xadka. \"Wuxuu ku bixiyay leexasho badan\" waa indho-indhayn ku saabsan mudnaanta, ma aha jebin. Degmo kasta oo labada khariidadood ku taal waa sharci.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Ku noqo natiijada 4</a>"
+			},
+			appendix_e: {
+				heading: "Lifaaqa E — Waxa xajinta dawladda hoose cabbirto, iyo waxa aanay muujin karin",
+				confusion: "<em>Jahwareerka:</em> \"Maxaa loo tiriyaa inta jeer ee xudduud raacdo khad magaalo ama tuulo?\"",
+				p1: "Maxaa yeelay taasi waa halka dadku horeba u og yihiin inay ku nool yihiin. Marka xudduudda degmadu raacdo xudduud dawladeed oo hoose, khadka canshuurta hantida, khadka qaybta dugsiyada, khadka waaxda maxalliga ah iyo khadka doorashada gobolka way isku beegmaan. Codbixiye wuu garan karaa degmada uu ku jiro isagoon khariidad haysan. Imtixaanku wuxuu cabbiraa inta dhererka xudduudda degmooyinka khariidad kasta ah ee ku jirta 500 mitir gudahood xudduud dawladeed oo hoose oo Statistics Canada ah. Guddiyada Kanada waxay cabbirkaas ku dhacaan 70% iyo 85% dhexdooda (Quebec 78%, Ontario 82%, BC 71%). Khariidadda inta badan waxay heshaa 80%. Inta yar waxay heshaa 72%. Labaduba waxay ku jiraan caadiga, sidaa darteed heerarka guud imtixaanku ma kala saaro.",
+				p2: "Hadda dib u akhri natiijada 5: heerka guud waa caadi labada khariidadoodba. Waxa muuqda waa halka ka-leexashooyinka inta yar ku dhacaan: cidhifyada uu guddoomiyuhu calaamadeeyay.",
+				limit: "<em>Xadka:</em> heerka xajintu waa caado, ma aha xeer. Sharcigu ma dejiyo xad. Ka-leexashona waxay yeelan kartaa sabab wanaagsan, sida xaafad dibadeed oo ka gudubtay xadka magaalo.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Ku noqo natiijada 5</a>"
+			},
+			appendix_f: {
+				heading: "Lifaaqa F — Mashiinka haddii-maxaa, iyo sida boqolley loo akhriyo",
+				confusion: "<em>Jahwareerka:</em> \"Malyuun khariidadood oo kombuyuutar ah? Boqolleyda jilitaan? Taasi maxay xitaa ka dhigan tahay?\"",
+				p1: "Ma xukumi kartid in khariidad caadi ka duwan tahay adigoon ogeyn sida caadigu u eg yahay. Khariidadaha doorashada, cidna uma helo inay aragto beddelaadyada. Sidaa darteed hubintu way dhistay. Algorithm ayaa ka bilaabma khariidad sharci ah oo sameeya silsilad dheer oo wax-ka-beddel bakhtiyaanasiib ah oo sharci ah. Isku dar laba degmo oo dariska ah. Dib u kala qaybi si bakhtiyaanasiib ah oo sax ah. Ku celi: 252,500 jeer, afar silsiladood oo madax-bannaan, 1,010,000 khariidadood guud ahaan. Xog cod lama eego inta la sawirayo. Mashiinku cidna ma doorbidi karo maxaa yeelay cidna ma arki karo, taasina waa waxa \"dhexdhexaad\" halkan ka dhigan yahay. Ka dib waxaad qaadataa khariidadda dhabta ah, waad cabbirtaa, oo waxaad weydiisaa: malyuunka khariidadood ee dhexdhexaadka ah, immisa ayaa intan le'eg hela? Haddii 500,000 helaan, khariidaddaadu waa caadi. Haddii 69 helaan, khariidaddaadu waa nooca khariidad ee sawirista dhexdhexaadka ahi soo saarto 69 jeer 1,010,000 isku day.",
+				p2: "Hadda dib u akhri natiijada 6: khariidadda inta badan waxay joogtaa boqolleyda 78aad — caadi. Inta yar boqolleyda 99.99aad — 69 ka mid ah 1,010,000 ayaa ka dhibco sarreeya.",
+				limit: "<em>Xadka:</em> mashiinku wuxuu ixtiraamaa dadka iyo isku-xidhnaanta (degmo kastaa waa hal xabbo oo isku xidhan), laakiin ma aha faahfaahin kasta oo sharci ah oo guddi dhab ahi miisaamo. Sidaa darteed boqolleyadiisu waxay cabbiraan masaafada laga jiro <em>sawirista dhexdhexaadka ah</em>, ma aha <em>wax kasta oo guddi sharci ahi samayn karto</em>. Boqolleyduna waa masaafo, ma aha xukun.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-6\">↩ Ku noqo natiijada 6</a>"
+			},
+			appendix_g: {
+				heading: "Lifaaqa G — Farqiga waxtarka, oo lagu sharraxay hal tusaale oo xisaabsan",
+				confusion: "<em>Jahwareerka:</em> \"Hal tiro oo qabanaysa gerrymandering? Taasi waxay u egtahay mid aad u fudud.\"",
+				p1: "Waa, xoogaa. Taasi waa sababta ay warbixintan ugu leedahay xad, iyo mid aan gaadhin. Fikraddu: cod kasta oo aan ka caawin ku guulaysiga kursi waa \"khasaare.\" Taasi waxay ka dhigan tahay dhammaan codadka loo dhiibay guuldarraystayaasha, iyo codadka guulaystayaasha ee ka badan 50%-ka iyo hal ee ay u baahnaayeen. Khariidad caddaalad ah, labada xisbiba qiyaas ahaan si siman ayay u khasaariyaan. Farqiga waxtarku waa farqiga codadka khasaaray, oo ah saami ka mid ah dhammaan codadka. Ka soo qaad in Oranji ay ku guulaysato degmo 100 cod ah 90–10. Oranji waxay khasaarisay 39, dheeraadkeeda ka badan 51. Buluug waxay khasaarisay 10, dhammaantood codad loo dhiibay guuldarraystaha. Khariidadaha la urursaday iyo kuwa la jeexay waxay hal xisbi ka dhigaan mid si joogto ah u khasaariya wax ka badan. Heshiiska calaamadaha ee warbixintan, farqiyada togani waxay doorbidaan muxaafidka. Xadka hagaajinta Alberta ee hubinta (~4.1%) waa heerka ay dhaafaan 5% oo keliya malyuunka khariidadood ee dhexdhexaadka ah.",
+				p2: "Hadda dib u akhri natiijada 7: inta yar +4.0%, boqolleyda 94.5aad. Taasi waxay ka hooseysaa xadka hubinta laftigeeda ee horay loo diiwaangeliyay, oo si dadweyne horay loogu xidhay, waxaana loo soo sheegay sidii ay tahay: mid aan gaadhin.",
+				limit: "<em>Xadka:</em> farqiga waxtarku khariidad dhan wuxuu ku cidhiidhiyaa hal tiro, hal tirona ma kala saari karto gerrymander iyo juquraafi qallooc ah. Taasi waa sababta hubintani u isticmaasho afar cabbir iyo xad la xidhay. Midka aan gaadhinna buugaagta ayay ku haysaa.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-7\">↩ Ku noqo natiijada 7</a>"
+			},
+			appendix_h: {
+				heading: "Lifaaqa H — Khaladka xeer-ilaaliyaha, oo luqad fudud ah"
+			}
+		}
 	}
 } as const;
