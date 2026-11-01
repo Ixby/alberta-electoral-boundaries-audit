@@ -1661,6 +1661,71 @@ export default {
 				p1: "Nämt dee vea Jerajchtichkjeitsmote to eene Wäatunk toop un froagt: woo oft brinjt neutralet Teidchne en Profil soo extrem aus dee Minoritätskoat äat väa? Dee Äntwuat es omtrent <strong>1 von 1,1 Milljoon</strong>. Oba dee Pruewunk nant dee Tal nich. See nant <strong>1 von 568.000</strong> — jenau hauft so beendrukjend. Hia es, wurom.",
 				p2: "Dee Pruewunk haft aun twee vescheedne Stalle no en Teekje jesocht: dise toopjenomne Wäatunk, un en tweede Proow aun dee bestemde Grenzwale. Aun twee Stalle to sieekje jeft dän Jlekj twee Chauncen. Denkjt aun Lotteriezaddels: kjeapt twee, un jüare Chaunce, en Jewenna to habe, vadoppelt sikj. Doaromm vadoppelt dee Pruewunk dee Chaunce jäajen sikj selfst, ear see dee nant. Soo es „jie hade twee Väasieekje“ aul betolt.",
 				p4: "Eene Woarnunk, dee dee Pruewunk äwaraul wadahoolt: dise Chauncen mäte, woo onjewehnlich dee <em>Koat</em> es. See senn nich dee Chaunce, daut irjentwäa met Afsecht jehanelt haft. En rare Koat kunn emma noch, em Prinzip, ährlije Oabeit senne. Dee Chauncen saje bloos dit: jewehnlijet Entwoafe brinjt dise Koat nich väa."
+			},
+			died: {
+				heading: "Dee Proowe, dee jestorwe senn",
+				p1: "Twee Aunfindunge ha nich äwalaeft, un beide bliewe jedrekjt. Daut es met Afsecht: en Pruewunk, dee jüch bloos äare Sieeje wiest, es Räklaum.",
+				li1: "<strong>Dee Stautgrenze-Proow</strong> fung nuscht, waut dee Koate unjascheet: beide folje städtische Linie bennen dee kanadische Norm (Mehrheit 80%, Minorität 72%).",
+				li2: "<strong>Dee Grenzwal-Proow (SZAT)</strong> sach signifikant ut, bat dee Pruewunk dee fa en eenfachet Fakt korrigeade: Nobaplätze stemme äänlich. Nobasch aus onaufhenjich to behaundle schmeichelt daut Resultot. No dee Korrektua wiesd dee Proow nuscht. See wort trigjjetrocke."
+			},
+			break: {
+				heading: "Versieekje, onset eajnet Resultot to brakje",
+				p1: "Ear see dee Äwaschrefft trud, haft dee Pruewunk dee opp dree Wiese aunjejreepe.",
+				li1: "<strong>Dee Moschien uttuusche.</strong> Aules noch eemol met en gaunz aundren Koateteidchen-Algorithmus loope lote (en Spanning-Forest-Method, öffentlich vesproake, ear see leep). Jiedet Resultot haft sikj om wieniga aus eenen Prezentielpunkt bewäajt. Dee Aunfindunk haft äwalaeft.",
+				li2: "<strong>Dee Softwoa uttuusche.</strong> En onaufhenjije Implementearunk en en aundre Programmearsproak fingt uk kjeene Koate, dee dee Minoritätskoat äaren Wäat erreekje.",
+				li3: "<strong>Dän Mechanismus preewe — un dorchfaule.</strong> Dee Pruewunk vemuet, daut dee komische Fuarme ut dee strukturelle Proowe dee direkte Uasoak fa dän Sitzväadeel wiere. Dee Vemuedunk es bie äare Proow dorchjefolle. Dee Fuarme un dee Sitzneijunk wiese opp dieselwe Koat, oba dee Fuarme senn nich dee Moschien. Dee Pruewunk sajcht daut."
+			},
+			prereg: {
+				heading: "Vesprakje, em väa jejäwe",
+				p1: "Dee stoakjste Vedeedjunk doajäajen, sikj selfst to bedreeje, es, siene Väasaachunge optoschriewe, ear eena kjikjt. Dee Pruewunk haft äare Proowe, Schwalle un väajesajchte Richtunge en öffentlijche Rejistrearunge met Tietstämpel opp dän Open Science Framework fastjelajcht. See haft äare Toofallsseeds aun en öffentlijchen Beacon jebunge. Beides passead, ear dee offizielle Koatendoten freijejäwe wudde. Wan en fastjelajchte Väasaachunk nich jetroffe haft, bleef daut en Fehlschoss. Dieselwe fastjelajchte Proowe woare, onjeendat, opp daut Komitee siene nie Koat loope, wan dee em Novemba 2026 landt. Dee Pruewunk nant uk, wäakje von äare Resultote <em>vesieekjend</em> senn (Seeds fastjelajcht, oba dee jenaue Proowkombinatsjoon lata utjesocht) un wäakje gaunz voarrejistreat senn. Dee Chauncen en dee Äwaschrefft senn vesieekjend. Dee Novemba-Wäatungstoowel es dee gaunz voarrejistreade Proow."
+			},
+			reproduce: {
+				heading: "Lot daut selfst loope",
+				p1: "Jiedre Tal opp dise Sied kjemt von en Skript em öffentlijche Repository, daut opp fastjelajchte Doten leept. Daut gaunze Rezept steit en <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; dee kotte Versjoon:",
+				p2: "En Notebook-Versjoon leept em Browser äwa <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. Dee gaunze Methodik — met jiedre Korrektua ongawäajes — steit en dee <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">akademische Monografie</a>.",
+				cross_ref: "Bejleitsieden: <a href=\"__BASE__/law\">Waut daut Jesats von en Wahlkoat valangt</a> · <a href=\"__BASE__/norms\">Waut dee Norme valange</a> · <a href=\"__BASE__/explainers\">Dee vieetieen Erkloarunge (Aunhäng A–N)</a>, eene fa jiede Hilse em Hauptbericht."
+			}
+		},
+		norms: {
+			head_title: "Waut dee Norme valange · Alberta Electoral Boundary Audit",
+			head_description: "Dee dreddje Brell opp Albertas Grenzfaul 2026: wua dee Norm, daut Politika äare eajne Wahlkreise nich teidchne, harkjeem, waut see jekjeapt haft, waut fa daut Biesiedlajje sprakjt, un wäa eajentlich wäm waut väawoaft.",
+			back: "← Trigj to dee Pruewunk",
+			site_label: "Alberta Electoral Boundary Audit",
+			h1: "Waut dee Norme von en Wahlkoat valange",
+			meta: "Bejleida en eenfache Sproak · fa nu bloos opp Enjlisch · Kjeen Urteel äwa irjentwäm",
+			standfirst: "Disa Faul haft dree Brele. Daut <a href=\"__BASE__/law\">Jesats</a> froagt, waut jesatslich es. Dee <a href=\"__BASE__/methods\">Statistik</a> froagt, waut onjewehnlich es. Dee dreddje Brell froagt, waut Brukj es, un Brukj es dee umstreedne Bodem. „Dee Rajeerunk haft en sästich Joa oole Norm jebroake“ es kjeene neutrale Mätunk. Daut es daut Haat von dee Oppositsjoon äare Aunkloag. Doaromm sajcht dise Sied dee Norme nich bloos op. See vehieet dee: wua see harkjeeme, wofäa see doa senn, waut dee Saak fa daut Biesiedlajje wirkjlich es, un waut äwabliwt, wan dee Rheetorik von beide Sieden wajchjeroomt es.",
+			the_norm: {
+				heading: "Dee Norm, eenfach jesajcht",
+				p1: "Politika teidchne nich äare eajne Wahlkreise. Kanada haft omtrent sästich Joa jebrukt, om dee Rejel opptobue, nich aus Jesats, oba aus Praxis. Siet dee Tiet von dee Bundesreform en dee 1960a ha jieda Provinz un daut Bundesvefoare Grenzkommissjoone oone Enfluss von buta jebrukt. Dee Persoon, dee en en Wahlkraus kandideare woat, hoolt nich dee Fäda, dee dän teidchent.",
+				p2: "Dee Norm es doa wäajen daut, waut dofäa kjeem. Rejierende Parteie teidchende eemol jewehnlich äare eajne Wahlkreise, un dee Intressekonflikt es nich fien. En Koateteidchna, dee unja dee Koat jewenne mott, haft jiedren Grunt, dee to siene eajne Gunst to teidchne, un kjeena, dee tookjikjt, kjann en ährlije Linie von en eajnnetzje unjascheede. Daut Kommissjoonsmodell mookt Koate nich perfekt. Daut trant dän Teidchna sien Intress von daut Resultot. Daut es, waut aule aundre dee Resultot troue lat."
+			},
+			what_it_bought: {
+				heading: "Waut dee Norm jekjeapt haft, en jrod disse Rund",
+				p1: "Dee Kommissjon von 2025–26 es äa eajnet bestet Biespell. See heeld Aunheerunge en sästieen Jemeende. See kjrieeg 1.345 schriftlije Enjoowe. See veäffentlicht en Zwesche-Väaschlach, nohm Kritik aun, un dreid sikj om opp meea aus achtich Enjoowe hen. Daut es daut Sistem, daut sechtboa opp öffentlije Meenunk äntwuat. Ooltoo, waut dee Kommissjon sost nich jeschaft haft, dee Prozäss rom äa oabeid jenau soo, aus jedocht: öffentlich, em Protokoll, un vauntwuatlich fa daut, waut Bierja sade."
+			},
+			the_departure: {
+				heading: "Daut Afwiekje",
+				p1: "Em April 2026, Wäakje, no daut dee jespaldne Kommissjon twee onvereenboare Koate enjereikjt haud, leed dee Varsaumlunk beide biesied. Rajeerungsmotsjoon 37, aunjenome dän 21. April, jeef dee Oabeit aun en Komitee von ses MLAs, vea von dee rejierende Partei, veasaut von en Rajeerungsmitjliet. Daut Komitee mott kjeene öffentlijche Aunheerunge hoole. No CBC siene Berichte woat daut kjeene Aunheerunge äwa dee Koat hoole, dee daut moakt. Kjeen Entworf woat fa öffentlijchen Enwand freijejäwe, ear dee Koat fast es.",
+				p2: "Em Mei haft Duane Bratt, Professor fa Politikwessenschoft aun dee Mount Royal University, daut dän Schriewa aus oone Väabilt en Kanada beschräwe. Dee Behauptunk es foolsch. 1992 leed Alberta en fastjefoarne Kommissjon äare Oabeit biesied un jeef dee Koat aun en Komitee von MLAs; dee Oppositsjoon wäajad sikj mettomoake, un 1994 leet daut Appellatsjoonsjerecht dee Koat stone, kritiseat oba daut Komitee, wiel daut mehrere von äare Grenze nich erkloare kunn. Daut Jesats wort 1995 jeendat. Waut 2026 nie es, es enja: en Kommissjoonsmehrheit haft en Bericht unjaschräwe, dän daut Jesats aus dee Kommissjon äaren Bericht behaundelt, un dee wort trotsdäm biesied jelajcht. Waut daut <em>bedit</em>, es, wua daut Argument aunfangt."
+			},
+			steel_man: {
+				heading: "Dee Saak fa daut Biesiedlajje von dee Norm — iernst jenome",
+				p1: "En Pruewunk, dee bloos eene Sied äare Empeerunk wadahoolt, preeft nuscht. Doaromm nämt dee Rajeerunk äare Sied met voll Krauft. Buut äare stoakjste Saak, dän Stoolmaun, ear jie dee preewt:",
+				li1: "<strong>Dee Kommissjon es bie äare eene Oppgoaw dorchjefolle.</strong> Daut Kommissjoonsmodell vesprakjt eene Äntwuat oone Enfluss von buta. Dise Kommissjon lewad twee onvereenboare Koate un en Vorsetza, dee Kollege öffentlich von schlajchtem Gloowe beschuldicht. Wan dee onaufhenjije Wäaj fastfoat, mott irjentwäa entscheede. Daut Jesats sajcht, wäa.",
+				li2: "<strong>Daut Jesats jeft dän Laanddach met Afsecht dee Fäda.</strong> Unja Albertas Jesats haft en Kommissjoonsbericht kjeene jesatslije Krauft. Grenze endre sikj bloos, wan dee Varsaumlunk en Electoral Divisions Act aunnämt. Rajeerungsmotsjoon 37 brukt en Däa, dee daut Jesats met Afsecht jebut haft. Nuscht wort enjeschmoggelt.",
+				li3: "<strong>Jewälde Mitjlieda senn dee Wähla vauntwuatlich; Kommissjoonsmitjlieda kjeenem.</strong> Daut ooltste Argument fa Kontroll dorch dän Laanddach es Vauntwuatunk. En MLA, dee en eajnnetzje Koat teidchent, kjann ofjewält woare. En Kommissjoonsmitjliet nich.",
+				li4: "<strong>Daut Komitee es kjeen rein partajischet Instrument.</strong> Twee von siene ses Mitjlieda senn Oppositsjoons-MLAs. Daut Beroodungspanel, daut dän Väaschlach entwoaft, haft twee Oppositsjoonskandidote un es veasaut von en pensioneaden Appellatsjoonsrechta.",
+				li5: "<strong>Dee Rajeerunk haft dän Vorsetza siene eajne Empfälunk aunjeführt.</strong> Äare jenande Berajchtijunk fa dän Opdrach met 91 Sitze wea Empfälunk 5, jeschräwe vom Kommissjoonsvorsetza selfst. Un see sad daut dän Hus jenau soo: „Wie näme dee Empfälunge ut dän Bericht aun.“"
+			},
+			where_it_bends: {
+				heading: "Wua dee Stoolmaun sikj bucht",
+				p1: "Jieda von dise Punkte es echt. Daut belajchte Protokoll drekjt uk jäajen jiedren trigj:",
+				li1: "Daut Fastfoare erkloat, wurom dee Koate <em>aflööst</em> wudde. Daut erkloat nich, wurom <em>daut Publikum rutjenome</em> wort. En Aunheerungsplejcht, en veäffentlijchta Entworf, oda en bindendet Panel hade daut Fastfoare uk beäntwuat. Daut utjesochte Fäatieech jeft jiedet Transparenzmearkmol op, daut dee vejlikjende Literatua aus schitzend aunsitt. Daut Fastfoare haft kjeent von dee Opjäwe jedwunge.",
+				li2: "„Daut Jesats lat daut too“ es dee Jesatsbrell, un doa woat daut beäntwuat: jieda Schrett wea jesatslich. Dee Norme-Froag es aundasch. Eenje Jebeedscha moake en Kommissjoonskoat jeltend, <em>utsenomme</em> dee Laanddach äwastemt dee. Albertas omjedreide Standard meent, daut dee rejierende Partei emma bestemt, aub irjent eene Kommissjoonskoat Jesats woat. Jesatslich un jebrukjlich senn vescheedne Froage.",
+				li3: "Daut Vauntwuatungsargument bewiest to väl. Daut sprakjt äwaraul jäajen Grenzkommissjoone. Un trotsdäm es jiedet kanadische Jebiet — un Grootbritannien, un Australien — dän aundren Wäaj jejone, jrod wiel Vauntwuatunk bie Wahle en schwacka Schutz jäajen en Koat es, dee jemoakt es, om jrod dee Wahle to forme.",
+				li4: "Daut Panel räd; dee MLAs äare Stemme entscheede. Root von beide Sieden met en Entscheidunk, dee dee Rajeerunk bestemt, es en aundre Institutsjoon aus en onaufhenjije Kommissjon. Dee Unjascheet es jenau dee Norm, om dee daut jeit.",
+				li5: "Empfälunk 5 äa Schriewa haft dee jeschräwe, om dän Laanddach doavon aftobrinje, dee Minoritätskoat aunto näme, un siene Mehrheitskollege ha dee nich unjastett. See es uk jenau. See lat Airdrie, Calgary un aules südlich doavon jenau soo, aus dee Mehrheit dee jeteidchent haft, jrod dee Linie, äwa dee sikj dee Kommissjon jespalt haft, un nuscht en daut Komitee sienen Opdrach hoolt daut doaraun. En Empfälunk jäajen äaren Schriewa sienen jenanten Zwakj aunto feare es en belajchte Spaunnunk, kjeene jelöste.",
+				li6: "Daut aundre Dokument, daut em Laanddach väajeläst wort — Sied 58 vom Mehrheitsbericht — beklajcht dän Deckel von twee Sitze. Oba dee Lösunk, dee doatoo jehiat, es, daut dee Laanddach <em>kjinftje Kommissjoone</em> dee Macht jäwe sull, Sitztale to sate. Dee Motsjoon nohm dän Spältrum nu, fa en Komitee von MLAs, un leehnd dän Bericht siene eajentlije Bed af: dee Koat met 89 Sitze aunnäme."
 			}
 		}
 	}
