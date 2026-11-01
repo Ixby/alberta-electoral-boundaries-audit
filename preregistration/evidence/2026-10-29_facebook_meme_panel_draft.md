@@ -14,7 +14,8 @@
   - the **city-versus-rest test** (Calgary and Edmonton ridings averaging 7,000 more
     residents per MLA, a 14% difference).
   
-  Both tests were fixed before any panel or committee map existed, and they apply the same
+  Both tests were fixed before any panel or committee map was published or seen (the panel
+  reported to the committee on October 22; its report was not public), and they apply the same
   way to whatever the published map contains.
 
 ## Transcription

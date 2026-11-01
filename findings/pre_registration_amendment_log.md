@@ -1,12 +1,13 @@
 ---
 name: Pre-registration amendment log (consolidated)
-description: Complete dated chain of all amendments to the audit's pre-registered signature-detection checklist, from initial upload through final hardening. Four source files merged 2026-05-12.
+description: The amendments to the audit's pre-registered signature-detection checklist. Amendments 1 and 4 as filed on OSF (registration 9wp5y), and Amendment 5, which consolidates every later change.
 type: project
 ---
 
 > **Backward:**
-> - `analysis/reports/pre_registration_draft.md` — the document being amended
-> - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` and the other dated amendment files merged here
+> - `v0_1_pre_registration_draft.md`, OSF registration 9wp5y — the document being amended (not in this repository)
+> - `v0_1_pre_registration_amendment_2026-04-23.md` and `pre_registration_amendment_2026-04-27_final_hardening.md`, OSF registration 9wp5y — Amendments 1 and 4 as filed
+> - the dated amendment files merged into this log on 2026-05-12, and the unfiled entries Amendment 5 replaces — in the repository's history
 >
 > **Forward:**
 > - `findings/README.md` — indexes this finding
@@ -16,8 +17,9 @@ type: project
 
 **Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
-**Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**On OSF:** the checklist with Amendments 1 (2026-04-23) and 4 (2026-04-27), as files in registration 9wp5y (registered 2026-05-07).  
+**First upload:** 2026-04-23, 6:22 PM MDT, to OSF project 2gue9, which is private. It was not a registration. The first registrations (w2s8k, r3zm7, qsgy8) were filed on 2026-05-06 at 3:50 PM MDT.  
+**Times:** Alberta time (MDT or MST) throughout, except inside the filed text of Amendments 1 and 4 and where marked UTC.  
+**On OSF:** the checklist with Amendments 1 (2026-04-23) and 4 (2026-04-27), as files in registration 9wp5y (registered 2026-05-06, 22:27 MDT).  
 **Amendment 5** (2026-11-01) consolidates every later change and is to be filed there.
 
 ---
@@ -26,9 +28,9 @@ type: project
 
 | Date | File | Trigger | Key changes |
 |---|---|---|---|
-| 2026-04-23 | Amendment 1 | Six corrections after initial upload | Urban-weight parameter corrections (C1–C4); AI toolstack disclosure (C5); DPG sunset clause (C6) |
+| 2026-04-23 | Amendment 1 | Five corrections after initial upload | Urban-weight parameter corrections (C1–C4); AI toolstack disclosure (C5) |
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
-| 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 39 parts, grouped by registered document; mapping table at its end |
+| 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 40 parts, grouped by registered document; mapping table at its end |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -36,8 +38,13 @@ type: project
 
 ## Amendment 1 — 2026-04-23
 
-**Filed:** 2026-04-23.  
-**Reason:** Six corrections and additions identified after initial upload. No thresholds or hypotheses altered. Changes 1–4 correct stale weight parameters not updated when the central urban-weight estimate was revised from 0.70 to 0.85 earlier in the analysis session. Change 5 adds a toolstack disclosure. Change 6 adds a DPG disclosure and 48-hour sunset-clause commitment.
+*As filed on OSF: `v0_1_pre_registration_amendment_2026-04-23.md` in registration 9wp5y, SHA-256 `2ba09d1bcab2a513802101a34ef160991e7fe40e808d6647ae9f7b79b762acbf` (<https://osf.io/download/69fc2ccfee9a223c53f1ff9e>). The text below is the filed text; the file's front matter and title are replaced by this heading, and its headings sit one level lower.*
+
+**Registration:** Pre-registered signature-detection checklist for the Alberta MLA Special Select Committee's 91-seat electoral boundary map.  
+**Author:** Will Conner.  
+**Original upload:** 2026-04-23, 06:22 PM MT.  
+**This amendment filed:** 2026-04-23.  
+**Reason for amendment:** Five corrections and additions identified after initial upload. No thresholds or hypotheses were altered. Changes 1–4 correct stale weight parameters that were not updated when the central urban-weight estimate was revised from 0.70 to 0.85 earlier in the analysis session. Change 5 adds a toolstack disclosure that should have been present at initial submission.
 
 ---
 
@@ -51,55 +58,64 @@ type: project
 **After:**
 > For hybrid EDs, vote totals are estimated by blending the urban-core and rural-absorption portions at the specified urban weight (central estimate 0.85; sensitivity range 0.60–0.90).
 
-**Reason:** Central estimate updated from 0.70 to 0.85 based on Calgary DA-level population density analysis conducted prior to registration. Sensitivity range extended from 0.60–0.80 to 0.60–0.90 to cover the full parameter space tested in the analysis scripts.
+**Reason:** The central urban-weight estimate was updated from 0.70 to 0.85 based on Calgary DA-level population density analysis conducted prior to registration. The sensitivity range was extended from 0.60–0.80 to 0.60–0.90 to cover the full parameter space tested in the analysis scripts. The initial upload retained the old values. This correction brings the pre-registration into alignment with the actual parameters used in `analysis/v0_2_packing_cracking_analysis.py` and reported in both audit reports.
 
 ---
 
 ### Change 2 — §9 Manipulated variables: sensitivity sweep values
 
-**Before:** Tested at 0.60, 0.70, and 0.80.  
-**After:** Tested at 0.60, 0.70, 0.80, 0.85, and 0.90.  
-**Reason:** Same as Change 1. Three-value list was from an earlier draft; actual analysis tests five values.
+**Location:** §9 Manipulated variables, second paragraph.
+
+**Before:**
+> The urban-weight parameter used in hybrid-district vote attribution (tested at 0.60, 0.70, and 0.80) is a modelling sensitivity parameter...
+
+**After:**
+> The urban-weight parameter used in hybrid-district vote attribution (tested at 0.60, 0.70, 0.80, 0.85, and 0.90) is a modelling sensitivity parameter...
+
+**Reason:** Same as Change 1. The three-value list was carried forward from an earlier draft; the actual analysis tests five values. Corrected to match the scripts.
 
 ---
 
 ### Change 3 — §2 Study design, Component 2: parameter count and values
 
-**Before:** "Sensitivity is tested across three urban-weight parameters (0.60, 0.70, 0.80)..."  
-**After:** "Sensitivity is tested across five urban-weight parameters (0.60, 0.70, 0.80, 0.85, 0.90)..."  
-**Reason:** Same as Changes 1–2.
+**Location:** §2 Study type, causal interpretation, and design — Component 2 paragraph.
+
+**Before:**
+> Sensitivity is tested across three urban-weight parameters (0.60, 0.70, 0.80) and three election cycles...
+
+**After:**
+> Sensitivity is tested across five urban-weight parameters (0.60, 0.70, 0.80, 0.85, 0.90) and three election cycles...
+
+**Reason:** Same as Changes 1–2. Corrected to match actual analysis.
 
 ---
 
 ### Change 4 — §3 Pre-registered tests, S4: sensitivity range
 
-**Before:** "...sensitivity range 0.60–0.80 also reported..."  
-**After:** "...sensitivity range 0.60–0.90 also reported..."  
-**Reason:** Must match the range in the Indices section (Change 1).
+**Location:** §3 Pre-registered tests, S4 — Efficiency gap crosses the US 7% threshold, threshold description.
+
+**Before:**
+> ...using the audit's pre-existing 85/15 urban/rural weighting (w=0.85, the central blending convention applied identically to both 2026 commission maps; sensitivity range 0.60–0.80 also reported)...
+
+**After:**
+> ...using the audit's pre-existing 85/15 urban/rural weighting (w=0.85, the central blending convention applied identically to both 2026 commission maps; sensitivity range 0.60–0.90 also reported)...
+
+**Reason:** The sensitivity range stated here must match the range stated in the Indices section (Change 1). Corrected from 0.60–0.80 to 0.60–0.90 for consistency.
 
 ---
 
 ### Change 5 — §15 Context: declared toolstack added
 
+**Location:** §15 Context and additional information — new paragraph appended after the Timeline entry.
+
 **Added:**
 > **Declared toolstack.** This audit was produced using the following tools: Python 3.11 (pandas, numpy, geopandas/pyogrio, shapely, pyproj, GerryChain 0.3.2, textstat, pdfplumber, rapidfuzz, osmnx); Elections Alberta GIS data; Statistics Canada DA shapefiles; pdfplumber for commission report extraction; and Claude (Anthropic), a large language model used as an analytical and writing assistant throughout the project. Claude's role included: drafting and revising report text, proposing analysis structure and section outlines, identifying consistency gaps between documents, and surfacing edge cases in the methodology (e.g., the Vote Anywhere apportionment issue and the pre-registration disclosure requirement). All substantive analytical claims — metric values, thresholds, data provenance, and code outputs — were verified against primary sources and script outputs by the author. Claude did not execute code or access external data independently; all script runs were performed by the author in a local Python environment. The use of an AI assistant is disclosed here and in both the public and academic reports in accordance with emerging norms for AI-assisted research.
 
-**Reason:** AI use disclosure omitted from initial upload.
+**Reason:** AI use disclosure was omitted from the initial upload. Emerging norms for research involving large language model assistance (see e.g. Nature portfolio policies, 2023; ICMJE recommendations update, 2023) require disclosure of AI tools used in analysis and writing. The disclosure is additive — it documents what tools were used; it does not change any finding, threshold, or hypothesis.
 
 ---
 
-### Change 6 — Derived Provisional Geometries (DPG) disclosure and sunset clause
-
-**Location:** New Appendix A to the pre-registered protocol, and a corresponding disclosure in `report_academic.md` §4.1.4.
-
-**Added:**
-> **Derived Provisional Geometries (DPG).** All 2026 ED boundary geometries referenced in this pre-registration are DPG, reconstructed from the commission's 600-DPI PNG extractions via affine transformation, OpenStreetMap feature-class snapping, and population-calibrated parametric sweep. Two error modes are distinguished: (1) perimeter-mode uncertainty (±500 m typical) affects Polsby-Popper and Reock compactness scores; (2) area-mode uncertainty (Tier-dependent) can exceed 100% on individual Tier-C hybrid EDs. Full error-mode breakdown at `data/INTEGRITY_STATUS.md`.
->
-> **Sunset clause.** All DPG-dependent metrics — Polsby-Popper band thresholds (C1), Reock band thresholds (C2), Phase 4C per-ED measured vote totals, MCMC real-map percentile placements, and any claim depending on spatial attribution of 2023 Voting Areas to 2026 ED polygons — are **provisional** until Elections Alberta publishes official 2026 topological shapefiles. The audit commits to: (1) re-running all DPG-dependent analyses against the official shapefiles within 48 hours of public release *(subsequently relaxed to two weeks — see Amendment 2, Change 11)*; (2) publicly disclosing any sign-flip or material magnitude change; (3) treating the official-shapefile recomputation as the **authoritative** result for every DPG-dependent metric.
-
----
-
-### Summary — Amendment 1
+### Summary
 
 | # | Section | Nature | Effect on findings |
 |---|---|---|---|
@@ -108,88 +124,74 @@ type: project
 | 3 | §2 Study design | Correction — parameter count and list | None; aligns text with scripts |
 | 4 | §3 S4 threshold | Correction — sensitivity range | None; aligns text with §11 |
 | 5 | §15 Toolstack | Addition — AI use disclosure | None; additive disclosure only |
-| 6 | App. A | Addition — DPG disclosure + sunset clause | None immediate; binds future recomputation |
+
+No hypotheses, thresholds, research questions, scoring rules, or data inclusion/exclusion criteria were changed. The pre-registered 7% EG threshold (S4), the 10% zone-gap threshold (S1/RQ1), the four-division Airdrie threshold (S1/RQ2), and the p95 ensemble threshold (RQ5) are unchanged.
 
 ---
 
 ## Amendment 4 — 2026-04-27 (final hardening)
 
-**Filed:** 2026-04-27.  
-**Trigger:** Final parameter locking and methodological hardening prior to publication of final academic and public reports. All prior parameters superseded by this amendment for published headline findings.
+*As filed on OSF: `pre_registration_amendment_2026-04-27_final_hardening.md` in registration 9wp5y, SHA-256 `b023a0d43cf4fd056405f0fe7aa6d6dbb68b5a51c921b3101106b33f4e63c509` (uploaded 2026-04-27). The text below is the filed text; the file's title is replaced by this heading, and its headings sit one level lower.*
 
----
+This document formally amends the audit's pre-registration. It records the final parameter locking and methodological hardening executed prior to the publication of the final academic and public reports.
 
-### Change 1 — MCMC ensemble locked at 250,000 maps
+### Summary of Final Procedural Updates
+Following the initial post-audit review (April 26), three major structural refinements were applied to the audit pipeline to ensure maximum legal defensibility and mathematical rigour. These changes supersede all prior parameters for the published headline findings.
 
-**Final state:** Four parallel chains × 62,500 maps = **250,000 total maps**.  
-**Rationale:** The exact scale progression (10k→100k→250k) is logged to pre-empt p-hacking accusations. After v0_9 resolved topological contradictions, statistical diagnostics confirmed convergence at 250k. No further scaling required.
+#### Change 1 — Finalization of MCMC Ensemble Sample Size: 250,000 Maps
+**Before:** The audit explored ensemble sizes of 100k, 250k, 1M, and 2M. An earlier amendment reverted the authoritative baseline to the 100,000-map ReCom standard following convergence diagnostics.
+**After:** The final, authoritative legal standard is permanently locked to **250,000 maps** (run as four parallel chains of 62,500 maps each). 
+**Rationale:** To proactively stave off accusations of "p-hacking" (adjusting parameters until a desired result is found), the exact scale progression must be formally logged. The ensemble size was initially scaled from 250,000 to 1,000,000 to 2,000,000 to investigate contradictory diagnostic signals in the tail probabilities. This extreme scale-up revealed that the contradictions were not a product of insufficient chain mixing, but rather a structural imprecision in the underlying map geometry (the `v0_8` topological gaps). While the initial methodology was theoretically sound, the boundary implementation was flawed and required a complete re-write. Once the `v0_9` topological substrate successfully snapped the data to precise boundaries, the inputs became clean and the statistical contradictions resolved instantly. At that point, the audit executed standard procedure: 10,000 maps to check the logic, 100,000 to validate the distributions, and 250,000 to hit the required legal and constitutional standard. Seeing perfect consistency across all metrics at 250k, the scaling stopped, establishing the final, rigorously defensible baseline without arbitrary parameter hunting.
 
----
+#### Change 2 — Hardening to `v0_9` Topological Substrate
+**Before:** Spatial attribution and ensemble scoring relied on a `v0_7` and `v0_8` geographic substrate that had known topological imperfections (leaving trace gaps where municipal boundaries aligned imperfectly with Statistics Canada dissemination blocks). The resulting inheritance-fill approach achieved only partial (83-of-89) pure geometric coverage.
+**After:** All quantitative metrics and ensemble scoring have been fully migrated to the **`v0_9` canonical topological substrate**. 
+**Rationale:** The `v0_9` substrate forces absolute topological validity and applies a robust area-proportional logic to edge-cases. This achieves **100% geometric coverage (89-of-89 districts)**, eliminating all attribution artifacts.
 
-### Change 2 — Hardening to v0_9 topological substrate
+#### Change 3 — Final Headline `seats@50/50` Outlier Percentile
+**Before:** Prior un-hardened metrics estimated the 2026 minority map's `seats@50/50` UCP advantage at 52.8% (p98.6).
+**After:** Using the fully-hardened `v0_9` topological substrate against the official 250,000-map legal ensemble, the minority map's true value is **48.31%**. This places it at exactly the **98.5th percentile** of the neutral simulation (the top 1.5%).
+**Rationale:** The 52.8% figure was an attribution artefact caused by the 83-of-89 geometric dropouts. The 48.31% metric is structurally and mathematically absolute. The core qualitative finding remains completely unchanged: the minority map remains an extreme statistical outlier (only 3,750 of 250,000 neutral procedures reach this advantage) and crosses all 5 pre-registered structural irregularity tests.
 
-**Final state:** All quantitative metrics and ensemble scoring use **v0_9 canonical topological substrate**, achieving **100% geometric coverage (89-of-89 districts)** with zero attribution artefacts.
+#### Change 4 — Pre-Registration of November 91-Seat Map Tripwire
+**Context:** To preemptively evaluate the forthcoming November 91-seat committee map without retroactively fitting tests to its outcomes, the audit hereby pre-registers the exact structural red flag ("tripwire") that will trigger a formal fail condition in automated scoring scripts.
+**Registered Tripwire:** The Drain Pattern (Mid-Sized City Integrity). The audit flags an extreme structural anomaly if mid-sized cities (Airdrie, Red Deer, Lethbridge, St. Albert) are split into more than their population-dictated expected seats with >2% area overlap each. This is structurally unjustified by their populations and mirrors the engineered fractionation detected in the 2026 minority recommendation. 
+**Discarded Tripwire:** The Lasso Pattern (Polsby-Popper Compactness). This test was removed from the automated tripwires. As documented in prior retractions, Polsby-Popper discrepancies evaporated under the mathematically-strict `v0_9` substrate. Using a known-brittle metric as a tripwire is scientifically dishonest and has been struck from the evaluation pipeline.
 
----
+#### Change 5 — Clarification on Qualitative Outliers (The "Absolute Magnitude Fallacy")
+**Context:** Critics may falsely claim that updating the minority map's `seats@50/50` metric from 52.8% to 48.31% represents a "shift toward neutrality" or a reversal of the packing finding since it drops below 50%.
+**Defense:** This is the Absolute Magnitude Fallacy. Under the strict statutory constraints of Alberta's mapping rules and the 2023 vote distributions, a perfectly neutral (median) map yields only **46.1%**. Therefore, 48.31% is not "neutral"—it remains an extreme top-1.5% structural outlier (p98.5). The qualitative finding of severe geometric fortification remains absolutely unchanged.
 
-### Change 3 — Final headline `seats@50/50`
+#### Change 6 — Effective Sample Size (ESS) vs Autocorrelation
+**Context:** The audit officially reports an Effective Sample Size (ESS) of roughly 375 independent draws extracted from the 250,000 total maps.
+**Defense:** ReCom Markov chains operating on highly-constrained 89-node graphs inherently possess massive autocorrelation (integrated autocorrelation time τ > 300). The audit explicitly recognizes this mathematical reality. This high autocorrelation is precisely *why* the chain was scaled to 250,000 steps instead of the academic standard of 10,000. Extracting 375 perfectly independent draws from 250,000 highly-correlated steps provides statistically robust resolution for the 95th percentile.
 
-**Before (v0_8 DPG):** 52.8% at p98.6 (published pre-hardening).  
-**After (v0_9 canonical):** **48.31% at p98.5** (top 1.5%).  
-**Rationale:** 52.8% was an attribution artefact from the 83-of-89 geometric dropouts. 48.31% is the structurally and mathematically absolute value under the fully-hardened substrate. The core finding is unchanged: the minority map remains an extreme statistical outlier (only ~3,750 of 250,000 neutral procedures reach this value), crossing all pre-registered structural irregularity tests.
+#### Change 7 — Cryptographic Seeding for Future November Testing
+**Context:** The script `drand_seed.py` was locked to round 6062459 (April 27, 2026).
+**Defense:** This drand seed is exclusively bound to the *future* randomized testing of the forthcoming November 91-seat map. It is explicitly locked on April 27 to pre-commit randomness six months *before* the November data exists. The historical 250k simulation uses deterministic, hardcoded seeds (e.g., Seed 42) to ensure anyone can download the repository and achieve bit-identical mathematical reproduction of the published distributions.
 
-*Note: Amendment 4 predates the final canonical 1,010,000-plan ensemble run on official EA shapefiles (completed 2026-05-12). See `data/simulation_convergence_diagnostics_canonical.json` and `findings/joint_outlier_score.json` for the authoritative canonical numbers.*
+### Archival and Namespace Clean-Up
+To ensure procedural transparency, all historical code and data artifacts (v0.1 through v0.8) have been preserved in `historical/` subdirectories. The active project namespace has been completely de-versioned. All references to scripts (e.g. `v0_9_cross_election.py` → `cross_election.py`) have been streamlined to maintain a pristine, current-state working directory for independent auditors.
 
----
-
-### Change 4 — Pre-registration of November 91-seat map tripwire
-
-**Registered tripwire:** The Drain Pattern (mid-sized city integrity) — flags an extreme structural anomaly if Airdrie, Red Deer, Lethbridge, or St. Albert are split into more than their population-dictated seats with >2% area overlap each.  
-**Discarded tripwire:** The Lasso Pattern (Polsby-Popper compactness) — removed. Polsby-Popper discrepancies evaporated under the v0_9 substrate. Using a known-brittle metric as a tripwire was struck from the evaluation pipeline.
-
----
-
-### Change 5 — Absolute magnitude fallacy disclosure
-
-Critics claiming that updating minority `seats@50/50` from 52.8% to 48.31% represents "a shift toward neutrality" commit the Absolute Magnitude Fallacy. Under Alberta's statutory constraints and 2023 vote distributions, a perfectly neutral (median) map yields only **46.1%**. Therefore 48.31% remains a top-1.5% structural outlier. Qualitative finding unchanged.
-
----
-
-### Change 6 — ESS and autocorrelation disclosure
-
-Official reported ESS: ~375 independent draws from 250,000 total maps. ReCom chains on highly-constrained 89-node graphs have high autocorrelation (integrated autocorrelation time τ > 300), which is why the chain was scaled to 250k instead of the academic standard of 10k.
-
----
-
-### Change 7 — Cryptographic seeding for November testing
-
-`drand_seed.py` locked to round 6062459 (2026-04-27). This seed is exclusively bound to future randomised testing of the November 91-seat map, pre-committed six months before the November data exists. The historical 250k simulation uses deterministic hardcoded seeds (e.g., seed 42) for bit-identical reproduction.
-
----
-
-### Archival and namespace clean-up
-
-Historical v0.1–v0.8 code and data artefacts preserved in `historical/` subdirectories. Active project namespace de-versioned. All script references streamlined for independent auditors.
-
-**Signed:** Will Conner, Project Author  
-**Date:** 2026-04-27
+**Signed:** Will Conner, Project Author
+**Date:** April 27, 2026
 
 ---
 
 ## Amendment 5 — Consolidated record of the changes made after Amendment 4
 
-> **Status: in force.** Signed 2026-11-01 (Alberta time) on the author's direction in session ("Squash all unfiled amendments into one, even if already signed, check for accuracy, reset amendment number to reflect the next slot on osf"), with the author's decisions on how registration qsgy8 relates to the specification (Part 6) and on S6's pattern P4 (Part 24). No committee map, and no result from one, had been seen in session at signing.
+> **Status: in force.** Signed 2026-11-01 (Alberta time) on the author's direction in session ("Squash all unfiled amendments into one, even if already signed, check for accuracy, reset amendment number to reflect the next slot on osf"), with the author's decisions on how registration qsgy8 relates to the specification (Part 6) and on S6's pattern P4 (Part 24). No committee map, and no result from one, had been seen in session at signing. The committee's October 28 transcript had been read (archived 2026-11-01, 03:02 MDT, at `evidence/legislature/ceb_transcript_2026-10-28.pdf`). In it, members describe the advisory panel's proposals in words: Lethbridge divided among four ridings, three rural seats reinserted, Lethbridge lending population to Cardston. It holds no map or district list, and nothing in it was scored.
 
-Parts 29–39 added 2026-11-01 after the corpus check, on the author's direction ('Apply all as proposed').
+Parts 29–39 added 2026-11-01 after the corpus check, on the author's direction ('Apply all as proposed'). Part 40, and corrections to the header and to Parts 1, 2, 5, 14, 17, 18, 20, 22, 26, 27, 29 and 30, added the same day after this amendment was checked against OSF and the repository's history, on the author's direction to make sure OSF is up to date and the amendments are accurate.
 
-**What this amendment is.** Amendments 1 and 4 are the only amendments filed on OSF; they are files in registration 9wp5y, registered 2026-05-07. The audit's in-repository log (`findings/pre_registration_amendment_log.md`) also holds entries numbered 2, 3, 8–25, 27 and 28, dated 2026-04-26 to 2026-11-01. None of them was filed. This amendment replaces all of them and states only the changes still in force, grouped by the document each one changes. Numbers 5 to 7 were never used, and this amendment takes number 5. The entries it replaces are removed from this log; their full text, as signed, is in the repository's history (commit `ca539bc4` holds the last version). Numbers 6 and 7 stay unused. Amendment 26 (size-matched sets for a map of any seat count, signed on branch `size-matched-candidate`) is not part of this amendment and is not on OSF.
+**What this amendment is.** Amendments 1 and 4 are the only amendments filed on OSF; they are files in registration 9wp5y, registered 2026-05-06 at 22:27 MDT. This log now reproduces them as filed (Part 40). The audit's in-repository log (`findings/pre_registration_amendment_log.md`) also holds entries numbered 2, 3, 8–25, 27 and 28, dated 2026-04-26 to 2026-11-01. None of them was filed. This amendment replaces all of them and states only the changes still in force, grouped by the document each one changes. Numbers 5 to 7 were never used, and this amendment takes number 5. The entries it replaces are removed from this log; their full text, as signed, is in the repository's history (commit `ca539bc4` holds the last version). Numbers 6 and 7 stay unused. Amendment 26 (size-matched sets for a map of any seat count, signed on branch `size-matched-candidate`) is not part of this amendment and is not on OSF.
 
 **Publication status.** The audit is unpublished until November 3, 2026. Where earlier entries say a claim was "published", "retracted" or "withdrawn", they mean a draft was revised. The same applies to the registered documents in `preregistration/`: where they speak of findings already published (for example "an author who has already published findings" in `lane3_process_scorecard_draft.md`, and "the audit's published headline" in `t3_2_majority_rural_isolation_design.md`), they mean the draft.
 
 #### A. The pre-registered checklist (OSF 9wp5y; Amendments 1 and 4)
 
 **Part 1 — Official boundaries and the canonical ensemble replace the provisional geometry and the 250,000-plan ensemble.**
-- *Boundaries.* Elections Alberta's official 2026 shapefiles were received on 2026-05-06. Under the sunset clause (Amendment 1, Change 6), every metric that depended on the derived provisional geometries (v0_7 to v0_9) was recomputed on them.
+- *Boundaries.* Elections Alberta's official 2026 shapefiles were received on 2026-05-06. Under the sunset clause, an in-repository commitment that was never filed on OSF (`preregistration/retraction_conditions.md` §6.1; Part 40), every metric that depended on the derived provisional geometries (v0_7 to v0_9) was recomputed on them.
 - *Blend model.* The urban–rural blend model that Amendment 1, Changes 1–4 adjust was retired on 2026-05-18. Exact voting-area attribution on the official boundaries (Phase 4C) replaced it. Its urban weight no longer enters any result.
 - *Ensemble.* The 250,000-plan ensemble locked in Amendment 4, Change 1 is replaced by the canonical ensemble:
   - 1,010,000 plans: 4 chains of 252,500 steps;
@@ -205,7 +207,7 @@ Parts 29–39 added 2026-11-01 after the corpus check, on the author's direction
   These figures place 89-district maps against 87-district plans.
 
 **Part 2 — The sunset-clause window is two weeks, not 48 hours.**
-On 2026-04-26, before the shapefiles were released, the window in Amendment 1, Change 6 was relaxed from 48 hours to two weeks. The duty to recompute, to disclose any change of sign, and to apply the clause to both maps did not change. The shapefiles arrived on 2026-05-06. The headline recompute closed on 2026-05-18 (day 12). Full integration, including the re-run of the drain test, closed on 2026-05-23 (day 17, three days past the window) (`preregistration/retraction_conditions.md` §6.1). The same two-week window applies to the November map if it is first released only as PDF or image files (scoring specification, §2).
+On 2026-04-26, before the shapefiles were released, the sunset clause's window was relaxed from 48 hours to two weeks. Neither window was filed on OSF (Part 40). The duty to recompute, to disclose any change of sign, and to apply the clause to both maps did not change. The shapefiles arrived on 2026-05-06. The headline recompute closed on 2026-05-18 (day 12). Full integration, including the re-run of the drain test, closed on 2026-05-23 (day 17, three days past the window) (`preregistration/retraction_conditions.md` §6.1). The same two-week window applies to the November map if it is first released only as PDF or image files (scoring specification, §2).
 
 **Part 3 — The Alberta-calibrated efficiency-gap line.**
 The efficiency gap is reported against the US 7% line and an Alberta-calibrated line. The Alberta line is Threshold #42 in `preregistration/thresholds.md` (Option D): +4.10%, the canonical ensemble's 95th percentile when it was registered. The 2026-07-12 rerun gives +4.08% (0.04084); the threshold stays at +4.10%. This replaces the "about 5%" line (4.37%) of 2026-04-26. The same +4.10% is the November test's P1 threshold.
@@ -214,7 +216,7 @@ The efficiency gap is reported against the US 7% line and an Alberta-calibrated 
 `analysis/scripts/drand_seed.py` uses drand round 5500000 (October 2025), not round 6062459. Round 5500000 was public before the salts were fixed, so it cannot anchor the November test. The November round is to be a round at or after the first publication of the committee's final map. At the time of this amendment no round has been pinned (`preregistration/seed_commitments.md`, entry `november_2026_scoring_spec`).
 
 **Part 5 — Declared toolstack (Amendment 1, Change 5).**
-Two more tools were used: Gemini (Google), for adversarial review of the code, and Codex (OpenAI), for scripting and data processing. Claude also worked as a coding agent (Claude Code): on the author's direction, its sessions ran scripts and committed changes, including ensemble runs, scoring and site builds. Each such change is in the repository's history.
+Two more tools were used. Gemini (Google) reviewed the code adversarially, in five passes (unfiled entry 3, 2026-04-26). Codex (OpenAI) helped with scripting and data processing, and checked the literature review's citations (`analysis/methodology/reference/citation_verification.md`, 2026-05-06). `CONTRIBUTING.md` calls Gemini's commentary "collaborative" and Codex's "adversarial"; this part follows the records cited. Claude also worked as a coding agent (Claude Code): on the author's direction, its sessions ran scripts and committed changes, including ensemble runs, scoring and site builds. Each such change is in the repository's history.
 
 #### B. The November 2026 scoring specification (`preregistration/november_2026_scoring_spec.md`, version 1.2)
 
@@ -262,7 +264,7 @@ The same sign applies in the registered documents. With it, the minority's decli
 
 **Part 11 — Publication step.** In §7, step 5, `python analysis/scripts/build_html_reports.py` is withdrawn; the script no longer exists. The step is `cd viewer && npm run build`, plus the commit of the markdown reports. The 72-hour commitment is unchanged. §7 also says `run_structural_battery.py` and `verdict_synthesis.py` do not exist yet; both now exist in `analysis/scripts/`.
 
-**Part 12 — The committee's name.** The specification calls it the "Special Select Committee". It is the Select Special Committee on Electoral Boundaries, created by Government Motion 37, passed on 2026-04-21. The pinned file is not edited.
+**Part 12 — The committee's name.** The specification calls it the "Special Select Committee". It is the Select Special Committee on Electoral Boundaries, created by Government Motion 37, passed on 2026-04-21. This amendment does not edit the file.
 
 #### C. Test X1 (Recommendation 5), scored beside the specification
 
@@ -295,7 +297,7 @@ The same sign applies in the registered documents. With it, the minority's decli
   - **C.** Set B plus GerryChain's region-aware ReCom, with a soft surcharge W = 0.5 on 2021 census subdivisions. W is anchored to the 2019 enacted map: the share of 169 CSDs split beyond need, R = 0.166 (28 of 169), falls at W ≈ 0.51 (91 districts) and W ≈ 0.54 (89). W = 1.0 is not used. C is a sensitivity reading, not a test. Indices 241, 243, 244 and 245, and 140 and 141; a further failure takes the next free index in the block.
   - **D.** The statute's band plus the s.15(2) exception, using the split rule in Part 15. Indices 251–254 and 150–151; index 250 is retired because it does not seed. Chains run on the superseded s.15(2) table are not reported.
 - *Which set is primary.* **Set D is the primary size-matched comparison.** Sets A, B and C are reported beside it, each labelled, and every set appears in one table for every measure.
-- *Harness fixes.* The fast-fail for infeasible pairs, the checkpoint and resume, the rebuilt partitions, and the correction of the unreachable s.15(2) branch in `mcmc_ensemble.py` all preserve the distribution. They are at commit `01095181` (patch SHA-256 `84f85728…3a35`). Chains 201 and 100 ran before these fixes and later chains after; both are valid draws from the same distribution.
+- *Harness fixes.* The fast-fail for infeasible pairs, the checkpoint and resume, the rebuilt partitions, and the correction of the unreachable s.15(2) branch in `mcmc_ensemble.py` all preserve the distribution. They are at commit `01095181`. Chains 201 and 100 ran before these fixes and later chains after; both are valid draws from the same distribution.
 
 **Part 15 — The s.15(2) criteria (set D and real maps).**
 - *Source.* `analysis/scripts/s15_2_criteria.py` computes the criteria from one per-voting-area table, the same for neutral and real maps: `data/outputs/s15_2_va_criteria.csv`, SHA-256 `48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc`. The statute's text is in `preregistration/terms_of_reference.md` §3d–3e.
@@ -329,6 +331,7 @@ A result is final when its measure's effective sample size, summed over chains b
 - **Competitive seats.**
   - *Rule.* Districts whose UCP–NDP two-party gap on 2023 election-day votes is within 4 points, flagged at or below the 5th percentile.
   - *Baselines.* Majority 13; minority 4; 2019 map 10.
+- *What was known when they were set.* The three tests were signed on 2026-10-29 at 18:20 MDT. At 17:52 MDT that day the author had uploaded to the session a Facebook meme about the advisory panel's draft (`preregistration/evidence/2026-10-29_facebook_meme_panel_draft.md`; who posted it is unknown, and its claims are unverified). Two of the tests address its claims: the town-split test (Lethbridge split into four ridings; Okotoks split) and the city-versus-rest test (Calgary and Edmonton ridings averaging 7,000 more residents per MLA). No panel or committee map had been published or seen.
 
 **Part 18 — What was known before set D was made primary.**
 Before set D was made primary (2026-10-31, 00:00 MDT), the flags for the two commission maps against the 89-district sets had been computed and committed (commit `2ecd7931`, 2026-10-30 19:07 MDT; `findings/size_matched_results_2026-10-30.md`, provisional). By the author's account, those flags had not been looked at.
@@ -342,7 +345,7 @@ Before set D was made primary (2026-10-31, 00:00 MDT), the flags for the two com
 
 Choosing set D removes the minority map's city-versus-rest flag from the primary comparison. It is still reported under set A.
 
-The only prior information about the advisory panel's draft was a meme posted on Facebook, archived at `preregistration/evidence/2026-10-29_facebook_meme_panel_draft.md`.
+The only information the audit then had about the advisory panel's draft was the Facebook meme described in Part 17.
 
 #### E. `preregistration/thresholds.md`
 
@@ -357,7 +360,12 @@ The only prior information about the advisory panel's draft was a meme posted on
 - B.1.5 gives Canmore-Banff 1 of the 5 criteria and Rocky Mountain House–Banff Park 2. Computed on the official boundaries, they meet 3 and 5 (`data/outputs/s15_2_real_maps.json`).
 - Rows #14 and #15 still hold the urban weight before Amendment 1 (0.70; range 0.60–0.80). Amendment 1 set 0.85 and 0.60–0.90, and Part 1 retired the model.
 
-**Part 20 — Scenario E1.** The P1 and P2 thresholds were committed in the same commit as the detection run (`282bc6d`), so the packing test is exploratory. The claim that P1 "predates detection by 2 hours 24 minutes" was removed from the draft. D.2 items 1 and 2 cite "pre-registration" for P1 and P2; that is withdrawn for both.
+**Part 20 — When the packing thresholds were set.** The P1 and P2 thresholds first appear in commit `282bc6d` (2026-04-22, 10:56 MDT), the commit that records the detection run, so the packing test is exploratory. The earlier commit `5b0bc06` (08:32 MDT the same day) adds the v1.2 prompt and the analysis script without either threshold. These statements in `thresholds.md` are withdrawn:
+- B.3.2: the additive choice "was set before detection (git commit `5b0bc06`, 2026-04-22 08:32:20 −06:00, two hours before the detection run `282bc6d` at 10:56:11)";
+- D.2 item 1: "pre-registration (git commit `5b0bc06`)" for P1;
+- D.2 item 2: "pre-registration" for P2.
+
+Scenario E1's response already says the choice was made in the detection commit. The claim that P1 "predates detection by 2 hours 24 minutes" was removed from the draft earlier.
 
 #### F. `preregistration/retraction_conditions.md`
 
@@ -372,6 +380,7 @@ The only prior information about the advisory panel's draft was a meme posted on
 - *What weakens or retracts the finding.* A demonstration that no constraint-legal map achieves the minority's claimed community-of-interest preservation with anchoring comparable to the majority's. Decisive evidence of that retracts the finding.
 - No counter-map has been filed. The §8 table row "4 Statutory Silence" is read the same way.
 - `seed_issue14.md`'s success row ("Best plan anchoring ≥60% … §5.8.5 retracted under condition B") is read the same way. Its 60% bar is met by both official maps (minority 71.8%, majority 80.0%), so the test no longer separates them.
+- Part 31 withdraws the §5.8.5 anchoring finding under condition 4.3 A, so condition 4.3 B has no finding left to act on. This part records how 4.3 B reads, for the record and for any later use of the challenge.
 
 **Part 23 — Condition 4.1, "Visible anomalies (3 chair-flagged)".**
 - *The reading.* The final report puts these objections in the majority's own section, written as "we":
@@ -408,13 +417,13 @@ The only prior information about the advisory panel's draft was a meme posted on
 
 #### I. `preregistration/seed_commitments.md` and `preregistration/README.md`
 
-**Part 26 — Errata.** The canonical ensemble has 1,010,000 plans, not 100,000. `seed_issue14.md` is the seed commitment for the Issue #14 counter-map challenge (OSF submission pending), not the canonical ensemble's. `seed_commitments.md` also calls qsgy8 the "MCMC seed" registration and says the specification is "mirrored" in it. Neither holds: qsgy8 (2026-05-06) holds a Phase 2 comparison and the prospective plan in Part 6, with a bootstrap seed (drand round 5500000, salt `lunty-bootstrap`), and it predates the specification. Registrations w2s8k, r3zm7, qsgy8, 6pt83, yvc7g, s58a6 and he53s each carry the same two plan files (he53s's own plan is in its form); the checklist and Amendments 1 and 4 are in registration 9wp5y.
+**Part 26 — Errata.** The canonical ensemble has 1,010,000 plans, not 100,000. `seed_issue14.md` is the seed commitment for the Issue #14 counter-map challenge, not the canonical ensemble's; it was never filed on OSF (its "OSF submission pending" is read that way, Part 29). `seed_commitments.md` also calls qsgy8 the "MCMC seed" registration and lists it as the specification's "OSF mirror". Neither holds: qsgy8 (2026-05-06) holds a Phase 2 comparison and the prospective plan in Part 6, with a bootstrap seed (drand round 5500000, salt `lunty-bootstrap`), and it predates the specification. Registrations w2s8k, r3zm7, qsgy8, 6pt83, yvc7g, s58a6 and he53s each carry the same two plan files beside their own form (he53s's own plan is in its form); the checklist and Amendments 1 and 4 are in registration 9wp5y.
 
 `README.md` says every document not marked DRAFT "was committed before the corresponding data was examined". Several were written after some of their data had been examined, and each says so: `t3_2_majority_rural_isolation_design.md`; the SZAT registration 6pt83 (`seed_commitments.md`); Section A of `seed_robustness_rerun.md`; `null_hypotheses.md` §2.5; the retrospective column of `lane3_process_scorecard_draft.md`; and `thresholds.md`'s P1 and P2 (Part 20). The README's table calls `retraction_conditions.md` "Named conditions (G0–G5)"; it is read as "Named retraction conditions by finding (§§1–7)". The table also leaves out `osf_forest_recom_robustness.md` (OSF he53s), `t3_2_majority_rural_isolation_design.md` and the `evidence/` folder.
 
 #### J. `preregistration/osf_forest_recom_robustness.md` (OSF he53s)
 
-**Part 27 — Changes made after filing.** Registration he53s was filed publicly on 2026-07-10, before any Forest-ReCom sample existed. Afterwards:
+**Part 27 — Changes made after filing.** Registration he53s was filed publicly on 2026-07-09 at 23:42 MDT, before any Forest-ReCom sample existed. Afterwards:
 1. The execution harness was wired (chain salts and burn-in per §6.4), and `run_ensemble` gained a `proposal_method` parameter, which leaves the default path unchanged.
 2. A crash at chain-0 seeding (a missing import) was fixed. It happened before any proposal was drawn.
 3. The executed code was committed after the run, not before it.
@@ -438,19 +447,21 @@ The registered documents are read the same way. On the official files the minori
 
 #### L. Errata found in the corpus check of November 1, 2026 (registered documents)
 
-The registered documents are not edited. Each erratum below states what the registered text says and how it is now read. No test or threshold changes.
+Each erratum below states what the registered text says and how it is now read; the errata are not written into the files. No test or threshold changes. The files in `preregistration/` have been edited in place before, and the repository's history records each edit: for example, the errata of the unfiled entry 18 (commit `2c06ba32`, 2026-10-29) and the repointing of their amendment references to this amendment (commits `189a4ea5` and `578f4f49`, 2026-11-01). The copies on OSF stay as filed.
 
 **Part 29 — OSF identifiers in the registered documents.**
-- `thresholds.md` (header `osf_id: r3zm7`), `retraction_conditions.md` (`w2s8k`) and `terms_of_reference.md` ("OSF w2s8k (primary audit registration)") are not on OSF. The registrations their headers name hold only the two plan files (Part 26).
-- `null_hypotheses.md` names OSF 2gue9 as its "public pre-registration" and says its criteria are "verifiable at" that link. 2gue9 is a private project; readers cannot open it. An earlier version of the file (`null_hypothesis_and_exoneration_criteria.md`, uploaded 2026-04-27) is in 9wp5y, registered 2026-05-07.
-- Its "OSF Track W, filed 2026-04-23" is the checklist's first upload. The checklist was registered on 2026-05-07 (9wp5y).
+- `thresholds.md` (header `osf_id: r3zm7`), `retraction_conditions.md` (`w2s8k`) and `terms_of_reference.md` ("OSF w2s8k (primary audit registration)") are not on OSF. The registrations their headers name hold the two plan files (Part 26) and their own forms: w2s8k registers the DPG v11 geometry validation, r3zm7 the neighbour-drain label-shuffle null.
+- `null_hypotheses.md` names OSF 2gue9 as its "public pre-registration" and says its criteria are "verifiable at" that link. 2gue9 is a private project; readers cannot open it. An earlier version of the file (`null_hypothesis_and_exoneration_criteria.md`, uploaded 2026-04-27) is in 9wp5y, registered 2026-05-06 at 22:27 MDT.
+- Its "OSF Track W, filed 2026-04-23" is the checklist's first upload. The checklist was registered on 2026-05-06 at 22:27 MDT (9wp5y).
 - Its §5 says an amendment "will be filed citing this document as Change 7". It never was.
-- `retraction_conditions.md` §0 and §6.1 speak of "the four OSF registrations" carrying the two plan files. Seven carry them (Part 26).
+- `retraction_conditions.md` §0 and §6.1 speak of "the four OSF registrations" carrying the two plan files. Seven carry them (Part 26). OSF holds nine registrations in all: w2s8k, r3zm7, qsgy8, 6pt83, 9wp5y, yvc7g, s58a6, he53s and u47bq.
+- Status lines that say a filing is still to come are read as follows. `lane3_process_scorecard_draft.md` ("OSF registration — pending") is registration u47bq, registered 2026-07-14 at 2:09 AM MDT. `osf_forest_recom_robustness.md` ("form to be filed") is registration he53s, registered 2026-07-09 at 11:42 PM MDT. `seed_issue14.md` and `preregistration/README.md` ("OSF submission pending") describe a filing that was never made; no OSF record matches it.
 
 **Part 30 — `seed_commitments.md`: what qsgy8 and 6pt83 hold.** Part 26 corrected the labels; this part corrects the substance.
 - qsgy8 was filed about six hours after the official shapefiles arrived: they came at 09:51 MDT on 2026-05-06, and qsgy8 was registered at 15:50. It names only the salt `lunty-bootstrap`. It does not hold `mcmc_ensemble_250k`. So the salt table's "OSF qsgy8 … Predates EA shapefiles", and the statement that the salt "was registered in … qsgy8 before any ensemble results were observed", do not hold.
 - 250,000-plan results existed by 2026-04-27 (Amendment 4), and Amendment 4, Change 7 records that the 250,000-plan run used fixed seeds (for example, seed 42).
-- 6pt83 is the SZAT registration, so the statement that none of the OSF registrations specifies the SZAT method is withdrawn. 6pt83 dates its seed commit to 2026-05-06 (`d2aea42`), and the copy of `drand_seed.py` uploaded to OSF on 2026-04-27 (in 9wp5y) holds no salts. The OSF record does not support the statement that `"szat-bootstrap"` was committed on 2026-04-27, nine days before the shapefiles.
+- 6pt83 is the SZAT registration, so the statement that none of the OSF registrations specifies the SZAT method is withdrawn.
+- The OSF records disagree on when the seed commit `d2aea42` was made: 6pt83, w2s8k and r3zm7 give 2026-05-06, and s58a6 gives 2026-04-27. The commit itself (`d2aea425f379f4d60cb37883b13fcf33d9cd9d55`, on GitHub) is dated 2026-05-06 at 15:44 MDT, about six hours after the shapefiles arrived. s58a6's date is wrong. The copy of `drand_seed.py` uploaded to OSF on 2026-04-27 (in 9wp5y) holds no salts. So the statement that `"szat-bootstrap"` was committed on 2026-04-27, nine days before the shapefiles, does not hold.
 - The timeline table names an Elections Alberta staff member. It is read as "received from Elections Alberta (data request)".
 
 **Part 31 — Municipal anchoring: condition 4.3 A has been met.** On the official boundaries the minority's municipal anchoring is 71.8% and the majority's 80.0%, a ratio of 1.11× (`findings/structural_battery_result.json`; `findings/structural_battery_majority.json`). That is what `retraction_conditions.md` condition 4.3 A describes: the ratio "collapses toward 1×". Under its §0 the §5.8.5 anchoring finding is withdrawn. Part 22 changed only condition 4.3 B. In `null_hypotheses.md`, C5 (pass if the ratio is 2 or less) now passes. The §7.1 rows that call the anchoring figures and ratio "Structural-Robust-Durable", §7.2 item 4, §7.3 ("the audit's cleanest finding … this one survives") and the §7.8 row no longer hold. The traced figures they cite (71.0% and 14.5%; 4.9× to 5.1×) are superseded.
@@ -481,27 +492,43 @@ The registered documents are not edited. Each erratum below states what the regi
 
 **Part 39 — Seats under s.13.** `terms_of_reference.md` §8 says "89 is a statutory input to the Commission (Act s.13, as amended by 2024 c17 s3)". 89 governed the 2025–26 commission; s.13 now reads 91 (2026 c7 s2).
 
+#### M. This log
+
+**Part 40 — This log's copies of Amendments 1 and 4.** Earlier versions of this log did not reproduce the filed text of either amendment. Both now appear above as filed.
+- *Amendment 1.* The filed amendment (9wp5y, SHA-256 `2ba09d1b…`) has five changes. The log's copy listed six. Its Change 6, a "Derived Provisional Geometries" disclosure and a 48-hour sunset clause, is not in the filed file. The copy also shortened the filed text and renamed the committee.
+- *Amendment 4.* The log's copy paraphrased the filed text (9wp5y, SHA-256 `b023a0d4…`). It gave the scale progression as "10k→100k→250k"; the filed text says the ensemble was first scaled from 250,000 to 1,000,000 and 2,000,000, then run at 10,000, 100,000 and 250,000. It wrote "~3,750" for "3,750", cut "crosses all 5 pre-registered structural irregularity tests" to "all", and added a note on the 1,010,000-plan ensemble that the filed text does not have.
+- *The sunset clause.* The DPG disclosure and the sunset clause are in-repository commitments. `preregistration/retraction_conditions.md` §6.1 states the clause and calls its window "in-repo discipline, not externally pre-registered". No OSF document registers the clause or either window. Parts 1 and 2 cite it on that basis.
+- The earlier copies are in the repository's history (commit `ca539bc4` and before).
+
 #### What this amendment does not change
 
-The November scoring specification itself is not edited, so its SHA-256 pin still holds; its references to Amendments 8, 9, 11 and 12 are translated by the table below. The 2 × 2 verdict surface, the partisan-lane rule (at least 2 of P1–P4), every threshold value above, and the 72-hour commitment are unchanged.
+This amendment does not edit the November scoring specification. The file's SHA-256 is `2110548c…`, the value `seed_commitments.md` records after the specification's one later edit (Part 6); the 2026-06-12 pin, `e3546346…`, no longer matches it. The specification's references to Amendments 8, 9, 11 and 12 are translated by the table below. Unchanged: the 2 × 2 verdict surface, the partisan-lane rule (at least 2 of P1–P4), the thresholds for P1–P4 (P1 at +4.10%), and the 72-hour commitment.
 
-The registered rules that did change are:
-- the structural-lane rule (Part 7, June 2026);
-- the municipality weight W (Part 14);
-- the s.15(2)(b) measurement (Part 15);
-- the choice of set D as primary (Part 14);
-- the stricter rule on when a result is final (Part 16).
+Rules that changed, against what was filed or first committed:
+- the sunset-clause window: 48 hours to two weeks (Part 2);
+- the Alberta efficiency-gap line: about 5% (4.37%) to +4.10% (Part 3);
+- the November drand round: round 6062459 withdrawn; a round at or after the map's publication, not yet pinned (Part 4);
+- the structural lane: the 1.5-times rule replaced by the midpoint rule (Part 7);
+- how X1 is scored (Part 13);
+- the size-matched sets: W = 0.5 in place of 1.0, and set D primary (Part 14);
+- the s.15(2) criteria: (b) by highway route from the Legislature, urban service areas counted as towns under (c), and Metis settlements counted with reserves under (d) (Part 15);
+- when a result is final: an effective sample size of 400 in place of 20,000 plans (Part 16);
+- three added tests (Part 17);
+- the direction of condition 4.3 B (Part 22);
+- how the scorecard's P1 and P6 cells are read, and the committee process's count (Part 25).
 
-The amendment entries that made these changes all record that they were signed before the committee's map was due on November 2, 2026, and before any committee map had been published.
+Registered findings withdrawn or read differently: the declination statements (Part 9), the packing thresholds' timing (Part 20), municipal anchoring (Part 31), the §5.3 signatures (Part 32), population spread A1 (Part 33) and the 5–95 band (Part 34).
+
+The entries that made these changes all record that they were signed before the committee's map was due on November 2, 2026, and before any committee map had been published.
 
 #### Where the earlier entries went
 
 | Old | New part(s) | Not carried (reason) |
 |---|---|---|
-| 1 | Updated by Parts 1, 2 and 5 | Filed; stays as filed |
+| 1 | Updated by Parts 1 and 5 | Filed; reproduced as filed. The unfiled Change 6 of earlier copies is not carried (Part 40) |
 | 2 | C10 → 3; C11 → 2 | C1 (2M; reversed by 3 and 4), C2–C3 (supplementary analyses), C4–C5 (superseded by Amendment 4, then Part 1), C6–C9 (result revisions, not rules; superseded by the official-boundary recompute), Bucket C (superseded by Parts 6–13) |
 | 3 | 5 | Bug record, interim claims and 2M postscript (superseded by Amendment 4, which is filed, and by Part 1) |
-| 4 | Updated by Parts 1 and 4; C4 extended by Part 17 | Filed; stays as filed |
+| 4 | Updated by Parts 1 and 4; C4 extended by Part 17 | Filed; reproduced as filed (Part 40) |
 | 5–7 | 1 | Placeholder; number 5 is reused |
 | 8 | 7 ("≥ 2 EDs") | The 1.5× rule and "canonical: 8" (superseded by Amendment 9) |
 | 9 | 7 | — |
