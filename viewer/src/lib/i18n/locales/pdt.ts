@@ -1660,6 +1660,7 @@ export default {
 				heading: "Waut „1 von 568.000“ meent — un wurom dee Pruewunk äaren Ofstaunt vadoppelt haft",
 				p1: "Nämt dee vea Jerajchtichkjeitsmote to eene Wäatunk toop un froagt: woo oft brinjt neutralet Teidchne en Profil soo extrem aus dee Minoritätskoat äat väa? Dee Äntwuat es omtrent <strong>1 von 1,1 Milljoon</strong>. Oba dee Pruewunk nant dee Tal nich. See nant <strong>1 von 568.000</strong> — jenau hauft so beendrukjend. Hia es, wurom.",
 				p2: "Dee Pruewunk haft aun twee vescheedne Stalle no en Teekje jesocht: dise toopjenomne Wäatunk, un en tweede Proow aun dee bestemde Grenzwale. Aun twee Stalle to sieekje jeft dän Jlekj twee Chauncen. Denkjt aun Lotteriezaddels: kjeapt twee, un jüare Chaunce, en Jewenna to habe, vadoppelt sikj. Doaromm vadoppelt dee Pruewunk dee Chaunce jäajen sikj selfst, ear see dee nant. Soo es „jie hade twee Väasieekje“ aul betolt.",
+				p3: "Daut Vadoppeln haft noch eenen Väadeel: daut brukt kjeene Aunnoame. Daut jeltet, ooltoo aub dee twee Proowe toophänje oda nich, also es daut dee Tal, dee uk en fientlicha Statistikja nich runadrekje kunn.",
 				p4: "Eene Woarnunk, dee dee Pruewunk äwaraul wadahoolt: dise Chauncen mäte, woo onjewehnlich dee <em>Koat</em> es. See senn nich dee Chaunce, daut irjentwäa met Afsecht jehanelt haft. En rare Koat kunn emma noch, em Prinzip, ährlije Oabeit senne. Dee Chauncen saje bloos dit: jewehnlijet Entwoafe brinjt dise Koat nich väa."
 			},
 			died: {
@@ -1855,7 +1856,100 @@ export default {
 			}
 		},
 		privacy_policy: {
-			head_title: "Dotenschutzerkloarunk · Alberta Electoral Boundary Audit"
+			head_title: "Dotenschutzerkloarunk · Alberta Electoral Boundary Audit",
+			head_description: "Dotenschutz- un Dotenopbewoarungsrejle fa dee Alberta Electoral Boundary Audit.",
+			back: "← Trigj to dee Pruewunk",
+			site_label: "Alberta Electoral Boundary Audit",
+			h1: "Dotenschutz- & Dotenopbewoarungsrejle",
+			meta: "Jeltich aub: 24. Juni 2026 · Jeflääjt von Will Conner",
+			overview: {
+				heading: "Äwablekj",
+				p1: "Dit Werkjtieech es en Pruewunk em öffentlije Intress von Albertas Prozäss von dee Wahlgrenzkommissjon von 2023. Daut es kjeen kommerziellet Produkt un wiest kjeene Räklaum. Dise Sied erkloat, waut jemäte woat, waut nie jesaumelt woat, un wurom nuscht doavon met jüch vabunge woare kjann.",
+				p2: "Dee kotte Versjoon: dee Sied brukt Analytik oone Cookies un bloos toopjetalt. Doa es kjeen Tracking-Cookie, kjeene Räklaum, kjeen Profiliere äwa Sieden rom, un kjeen Kjanteekje, daut jüch nojeit. Wiel nuscht Persönlijchet jespiekat woat, es doa kjeen Toostemmungsbanner to wajchklikje — dee Dotenschutz es en dee Aut, woo jemäte woat, enjebut, nich aus Froag hinjadoa aunjeschrowe."
+			},
+			how_analytics_work: {
+				heading: "Woo dee Analytik oabeit",
+				p1: "Wan en Sied loodt oda jie met dee Koat oabeide, schekjt dee Sied en kjlienet, anonymet Ereignis aun en Taldeenst, dän wie bedriewe. Jiedet Ereignis es bloos dee Nome von daut, waut jeschach — toom Biespell „Sied aunjekjikjt“ oda „Wahlkraus utjesocht“ — met en poa growe Eenselheite äwa dee Aktsjoon. Daut Ereignis droajcht kjeenen Nome, kjeene E-Mail, kjeen Konto, un kjeen Kjanteekje, daut opp jüarem Jeräät jespiekat es.",
+				p2: "Om to tale, woo väle vescheedne Mensche aun en bestemde Dach jekome senn, oone irjentwäm to erkjanne, nämt dee Taldeenst jüare Netzwoakjadress un jüarem Browsatip toop un schekjt dee dorch en eensiedje kryptografische Hash-Funktsjoon, toop met en Jeheimnis, daut sikj jieden Dach endat. Daut Resultot es en kotta Code, met dän wie twee Besieekje <em>bennen</em> eenem Dach ut'nauda hoole kjenne, un nuscht meea. Dee oorschpringlije Adress woat nie jespiekat — bloos dee Hash. Wiel daut Jeheimnis sikj jieden Dach endat, mookt datselwe Besieekja morje en aundren Code, also es doa kjeen Wäaj, irjentwäm äwa Dach to folje oda von en Code trigj opp en Persoon to kome.",
+				p3: "Ons intresseat daut Bilt, daut Besieekja aus Grupp moole — wäakje Aunfindunge jeläst woare, wäakje Koate opjemoakt woare, wäakje Wahlkreise Opmearksomkjeit kjriee. Ons intresseare nich jie persönlich, un dee Mätunk es soo jebut, daut „jie persönlich“ nuscht es, waut dee Doten utdrekje kjenne."
+			},
+			measured: {
+				heading: "Waut jemäte woat",
+				p1: "Dee Analytik schrift toopjetalde, anonyme Ereignisse op, soo aus:",
+				li1: "Siedenaunsechte",
+				li2: "Woo wiet runa Mensche opp en Sied scrolle, en growe Stuuwe (25%, 50%, 75%, 100%)",
+				li3: "Omtrent woo lang dee Sied aktiew opp'm Schirm wea, en growe Tietstuuwe",
+				li4: "Wäakje Aunfindungsaufsatse en't Bilt kome, waarend Mensche läse",
+				li5: "Wäakje Koate em Undasieekja opjemoakt woare, un wäakje Wahlkreise utjesocht woare",
+				li6: "Wäakje Koateschichte aun- oda utjeschalt woare, un omtrent woo wiet Mensche rantoome",
+				li7: "Wäakje Intressepunkte oda Berichtlinks opjemoakt woare",
+				li8: "En growet Bilt von jüare Utrestunk — Schirmjreetstuuf (soo aus Telefoon, Tablet oda Desktop), Bufuarm, un Browsafamilie (soo aus Chrome, Safari oda Firefox). Wie spiekre nie jüare jenaue Schirmmote oda dän gaunze Browsa-Kjanteekjestrank.",
+				li9: "En eenmoljet Momentbilt doavon, woo dee Koatenundasieekja leep, aus hee toeascht teidchend — toom Biespell dee Loodtiet en growe Stuuwe un en jerundte Spiekatal. Daut helpt ons to saje, aub dee Undasieekja opp wirkjlije Jeräte schnall jenuach es. Dee Tale senn met Afsecht en Stuuwe enjedeelt, nich jenau, soo daut see en Jerätsklass beschriewe un nich en Jeräät.",
+				p2: "Jiedet von dee woat bloos toopjetalt jespiekat. Doa es kjeen Profil pro Persoon, kjeene Sitzungswadajoaw, un kjeen Opschriew von en eenselne Persoon äaren Wäaj dorch dee Sied. Wie seene Summe un Vadeelunge, kjeene Mensche."
+			},
+			never_collected: {
+				heading: "Waut nie jesaumelt woat",
+				p1: "Kjeen Nome. Kjeene E-Mail. Kjeen Konto. Kjeen Räklaum-Kjanteekje. Kjeene jespiekade IP-Adress — jüare Netzwoakjadress woat met en Jeheimnis, daut sikj jieden Dach endat, jehasht un sofoat wajchjeschmete; bloos dee kottläwje Dachescode woat behoole. Kjeen rohe Browsa-Finjaafdrukj. Kjeen Kjanteekje äwa Dach oda äwa Sieden rom. Kjeen jenaua Oat. Kjeen Cookie- oda Browsaspiekakjanteekje, daut jüch fa Analytikzwakje aus wadakome Besieekja markeat."
+			},
+			github_pages_collects: {
+				heading: "Waut GitHub Pages saumelt",
+				p1: "Dise Sied woat opp GitHub Pages jehost. GitHub siene Serva schriewe automatisch grundlejende Aunfroageenselheite op, wan irjent eene Sied loodt — jüare IP-Adress, Browsatip, verwiesende Sied un Tietstämpel. Wie kjriee dise Protokolle nich un kontrolleare dee nich; see senn unja <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub siene Dotenschutzerkloarunk</a>. Wie ha kjeene Bezieunk to GitHub äwa daut Hoste rut. Dee Analytik, dee bowe beschräwe es, leept aparte un kjricht nie jüare IP-Adress."
+			},
+			share_codes: {
+				heading: "Deelcodes",
+				p1: "Dee Koatenundasieekja haft en Deel-Funktsjoon. See mookt jüare jetsieje Koatenaunsecht — wäakje Koat aktiew es, wäakje Äwalajen un Schichte aun senn, omtrent wua jüa Bildutschnett litt — to en kotten Code ut dree Wead, dän jie kopeare un aun irjentwäm schekje kjenne. Doa senn jenau 19.200 jeltje Codes, wiel en Code en Koatenenstalunk vadreet, kjeene Persoon. Twee Mensche, dee onaufhenjich bie dieselwe Aunsecht aunkome, kjriee dänselwje Code; daut es so väajesehne un mookt kjeene Vabinjunk tweschen dee.",
+				p2: "Deelcodes duuke opp'm Schirm op un kome bloos dan en jüare Twescheaflaj, wan jie opp Kopeare klikje. See senn nie en en URL enjebunge, also duuke see nich en dee Browsajeschicht, Servaprotokolle oda Referrer-Header op. Om en jedeelde Aunsecht optomoake, tipt dee Empfanga dän Code direkt en dee Sied en.",
+				p3: "Wan jie en Deelcode moake, woat dee Koatenenstalunk, dee hee enthelt, en onse Dotenbank jespiekat, soo daut dee Link wieda oabeit. Dee jespiekade Opschriew es en Koatenstaund — kjeene Persoon, kjeen Wäaj, un nich met dee Analytik vabunge. Hee haft kjeen Kjanteekje fa jüch."
+			},
+			cookies_browser_storage: {
+				heading: "Cookies un Browsaspieka",
+				p1: "Dee Analytik brukt kjeen Cookie un kjeen Browsaspiekakjanteekje. Nuscht aun dee Mätunk markeat jüch aus wadakome Besieekja.",
+				p2: "Dee Sied sat oba een kjlienet <strong>funktsjonellet</strong> Cookie, om jüare eajne Enstalunge tweschen Besieekje to marke. Daut woat nich fa Analytik oda Tracking jebrukt, un daut vaslat nie jüarem Browsa en läsboare Fuarm. Daut spiekat:",
+				li1: "<strong>Foawtheema</strong> — donkjel oda hall, wan jie daut jeendat ha",
+				li2: "<strong>Enleidunk wajchjeklikjt</strong> — soo daut dee Koatenenleidunk sikj nich wadahoolt",
+				li3: "<strong>Jetsieje Koatenaunsecht</strong> — soo daut jüare latste Aunsecht bie't näakjste Besieekj wadahajestalt woat",
+				li4: "<strong>Browsasproak</strong> — soo daut dee Sied jüare Leewlingssproak wiese kjann",
+				p3: "Daut Cookie hoolt bloos dee Enstalunge bowe — kjeene persönlijche oda identifizeerende Informatsjoon. Sien Inhoolt es met en Schlätel vemescht, dee en dee Sied metjelewat woat, also es dee jespiekade Wäat fa Mensche nich läsboa; wiel dee Schlätel öffentlich es, sull jie daut aus Schutz jäajen Manipulatsjoon aunseene, nich aus echte Jeheimhooldunk. Daut woat bloos äwa HTTPS jeschekjt, woat nie met aundre Sieden jedeelt, un jie kjenne daut toojieda Tiet wajchmoake, indäm jie jüare Cookies leddich moake. Dee Sied woat aus statische Dotieen utjelewat, also läst nuscht opp dee Servasied daut. Jüa Foawtheema woat uk em lokale Spieka von jüarem Browsa jespeajelt, soo daut daut rajchte Theema sofoat bie't Loode aunjewendt woare kjann, ear irjentwaut flakjat; uk dee Wäat es rein funktsjonell un woat nie irjentwua hen jeschekjt."
+			},
+			data_retention: {
+				heading: "Dotenopbewoarunk",
+				p1: "Dee Analytik-Opschriewe senn toopjetalt un anonym dorch äaren Opbu, oone Kjanteekje, daut behoole woare kunn. See woare opp Infrastruktua jespiekat, dee en Kanada jehost es (ca-central-1), un aus Forschungsdoten behoole. Wan wie je funge, daut en Opschriew identifizeerende Informatsjoon enthelt — waut daut Design vehinjre sull — wudde wie dän bennen 30 Dach struike."
+			},
+			your_choices: {
+				heading: "Jüare Wale",
+				p1: "Wiel nuscht Persönlijchet jesaumelt woat, es doa nuscht, wua jie jüch utmelde mott, un kjeene Toostemmungsfroag to vewaolde. Wan jie trotsdäm leewa goa kjeene Analytik-Ereignisse schekje welle, woat en Inhooltsblockiera oda en Browsa, dee dee Aunfroag aun dän Taldeenst blockeat, dee stoppe, un dee Sied woat jenau soo oabeide. Jie kjenne uk daut funktsjonelle Enstalungscookie toojieda Tiet äwa jüarem Browsa leddich moake."
+			},
+			contact: {
+				heading: "Kontakt",
+				p1: "Will Conner — onaufhenjije Forschunk, met kjeene Institutsjoon vabunge oda von ea unjastett.",
+				p2: "Froage, Korrektuare un Struikungsaunfroage: brukt bitte daut <a href=\"__BASE__/feedback\">Feedback-Formular</a>. Aunfroage woare bennen 10 Oabeitsdach beäntwuat."
+			},
+			policy_updates: {
+				heading: "Endrunge von dise Rejle",
+				p1: "Wan sikj dise Rejle endre, woat daut Jeltichkjeitsdotum bowe aunjepaust un dee Endrunk em <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">öffentlijche Git-Repository</a> fastjelajcht. Dee Commit-Jeschicht es daut Endrungsprotokoll. Jiedre Endrunk, dee utwiet, waut jesaumelt woat, woat en dee Commit-Notiz vemoakt."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, un Jonathan Rodden. 2013.</strong> „Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.“ <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal un Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, un Justin Solomon. 2021.</strong> „Recombination: A Family of Markov Chains for Redistricting.“ <em>Harvard Data Science Review</em> 3(1). (Dee ReCom-Algorithmus, met dän daut Ensemble von 1.010.000 Koate jemoakt wort.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, un Gary King. 1994.</strong> „A Unified Method of Evaluating Electoral Systems and Redistricting Plans.“ <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, un Elizabeth Rosenblatt. 2020.</strong> „Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.“ <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> „The Fractured Right to Vote.“ <em>McGill Law Journal</em> 61(2): 231–274. (Kanadischa väafoatungsmässja Rohme fa Wahlgrenze.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., un Eric M. McGhee. 2015.</strong> „Partisan Gerrymandering and the Efficiency Gap.“ <em>University of Chicago Law Review</em> 82(2): 831–900. (Quell von dee efficiency gap, dee äwaraul jebrukt woat.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Dee leidende Entscheidunk vom Uawaste Jerecht von Kanada äwa dän väafoatungsmässje Mootstok fa daut Teidchne von Wahlgrenze.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Bundesjerecht; leidende kanadische Entscheidunk äwa Bewies to Jemeenschaft met jemeensome Intresse en Strite äwa Wahlgrenze.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (US-Uawaste Jerecht; stalt fast, daut Aunsprech wäajen partajischem Gerrymandering vä Bundesjerechte nich justiziabel senn — Hinjajrund fa daut, wurom Kanada sien s.3-Mootstok von effektiewe Vadreetunk aundasch es.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
+			}
 		}
 	}
 } as const;
