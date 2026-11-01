@@ -64,13 +64,15 @@ PIECE = 0.02  # Amendment 17's piece rule
 DEFAULT_OUT = REPO / "data/outputs/airdrie_split_shares_2026-10-31.json"
 
 
-def load_das(crs):
+def load_das(crs, csduid=AIRDRIE_CSDUID):
+    """csduid: the community to follow (default Airdrie; cracking_signature_rescore.py
+    passes Cochrane and Chestermere). The column keeps the name "airdrie"."""
     da = gpd.read_file(REPO / "data/shapefiles/reference/alberta_2021_das.gpkg").to_crs(crs)
     pops = pd.read_csv(REPO / "data/reference/alberta_2021_da_populations.csv").set_index("DGUID")
     da["pop"] = da["DGUID"].map(pops["population_2021"]).fillna(0.0)
     csd = gpd.read_file(REPO / "data/shapefiles/reference/alberta_2021_csds.gpkg").to_crs(crs)
-    airdrie = csd[csd["CSDUID"].astype(str) == AIRDRIE_CSDUID]
-    assert len(airdrie) == 1, "Airdrie CSD not found"
+    airdrie = csd[csd["CSDUID"].astype(str) == csduid]
+    assert len(airdrie) == 1, f"CSD {csduid} not found"
     pt = da[["DGUID", "geometry"]].copy()
     pt["geometry"] = da.geometry.representative_point()
     inside = gpd.sjoin(pt, airdrie[["geometry"]], how="inner", predicate="within")["DGUID"]
