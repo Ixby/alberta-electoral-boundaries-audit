@@ -83,7 +83,7 @@ export default {
 		cta_methods: 'Zobacz, jak testowaliśmy →',
 		scorecard_h: 'Tabela wyników',
 		scorecard_fig_alt:
-			'Wykres punktowy: luka efektywności na osi poziomej, liczba niezdanych testów strukturalnych na osi pionowej. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku skupiają się w bezpiecznym lewym dolnym rogu. Mapa mniejszościowa z 2026 roku stoi samotnie w prawym górnym rogu, na linii czterech z pięciu testów strukturalnych i tuż przed przerywaną linią luki efektywności ~4,1%.',
+			'Wykres punktowy: luka efektywności na osi poziomej, liczba niezdanych testów strukturalnych na osi pionowej. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku skupiają się w bezpiecznym lewym dolnym rogu. Mapa mniejszościowa z 2026 roku stoi samotnie w prawym górnym rogu, na linii czterech z pięciu testów strukturalnych i tuż przed przerywaną linią luki efektywności ~4,1%. Mapa z 2019 r. ma etykietę 0 z 4 przeprowadzonych testów: test stref Calgary nigdy nie został na niej przeprowadzony.',
 		scorecard_fig_caption:
 			'Oba tory na jednym obrazie. Poziomo: jak skośna jest liczba sprawiedliwości partyjnej (w prawo = bardziej na korzyść UCP). Pionowo: ile z pięciu testów sprawiedliwości strukturalnej mapa oblewa. Lewy dolny róg to bezpieczny obszar, w którym rutynowo lądują neutralne procedury; prawy górny to obszar odstający. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku leżą w bezpiecznym rogu (mapę z 2019 roku oceniono w czterech testach; testu strefy Calgary nigdy na niej nie przeprowadzono). Mapa mniejszościowa z 2026 roku stoi samotnie w obszarze odstającym.',
 		scorecard_intro:
@@ -676,7 +676,7 @@ export default {
 			c1_title: 'Warunek 1 — Wykazanie, że kompromis jest wymuszony',
 			c1_what: '<em>Co zostaje wycofane:</em> Strukturalne ustalenie, że czterostronnego podziału Airdrie i trzech granic zaznaczonych przez przewodniczącego nie da się wyjaśnić podanym przez mniejszość uzasadnieniem społeczności interesu.',
 			c1_cond:
-				'Warunek: ktoś wykaże, że żadna legalna mapa Alberty nie może spełnić własnych powodów podanych przez mniejszość — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — przy jednoczesnym zakotwiczeniu na liniach miejskich w stopniu porównywalnym z mapą większościową. Kontrmapa, która osiąga oba cele, wzmocniłaby natomiast to ustalenie (Poprawka 27). Otwarte wyzwanie: <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
+				'Warunek: ktoś wykaże, że żadna legalna mapa Alberty nie może spełnić własnych powodów podanych przez mniejszość — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — przy jednoczesnym zakotwiczeniu na liniach miejskich w stopniu porównywalnym z mapą większościową. Kontrmapa, która osiąga oba cele, wzmocniłaby natomiast to ustalenie (Poprawka 27). Na oficjalnych granicach ten warunek jest bezprzedmiotowy: obie mapy już opierają się na granicach gmin powyżej jego progu 60% (mniejszość 71,8%, większość 80,0%). Otwarte wyzwanie: <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
 			c2_title: 'Warunek 2 — Pre-rejestrowany wynik pozytywny Drenażu Sąsiada jest odwrócony',
 			c2_what: '<em>Co zostaje wycofane:</em> Wpis w Casing 10, który odnotowuje mapę mniejszościową jako wstępnie zarejestrowane ZALICZENIE w teście sąsiedztwa drenażu sąsiedzkiego.',
 			c2_cond:
