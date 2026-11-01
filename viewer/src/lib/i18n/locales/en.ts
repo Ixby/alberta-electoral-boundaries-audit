@@ -1312,10 +1312,10 @@ export default {
 			conditions_label: 'RETRACTION CONDITIONS',
 			conditions_intro:
 				'Every finding is pre-committed to a specific falsification condition. If any condition below materialises, the finding it names is retracted publicly within 30 days. The overall directional conclusion — that the minority map sits outside the neutral range on multiple independent tests — is retracted under the methodology\'s pre-committed compound condition: at least three of the six independent structural dimensions reversing direction.',
-			c1_title: 'Condition 1 — A counter-map exists',
+			c1_title: 'Condition 1 — The trade-off is shown to be forced',
 			c1_what: "<em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.",
 			c1_cond:
-				"Condition: someone produces a legal Alberta map satisfying the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — and anchors on municipal lines at majority-comparable rates. Open challenge at <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+				"Condition: someone shows that no legal Alberta map can satisfy the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — while anchoring on municipal lines at majority-comparable rates. A counter-map that does both would strengthen the finding instead (Amendment 27). Open challenge at <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			c2_title: 'Condition 2 — The Neighbour-Drain pre-registered pass is reversed',
 			c2_what: '<em>What gets retracted:</em> The Casing 10 entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.',
 			c2_cond:
