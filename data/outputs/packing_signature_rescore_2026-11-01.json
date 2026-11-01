@@ -1,0 +1,57 @@
+{
+  "test": "Packing signature P2 (winning margin >= provincial mean + 15 pp), Calgary Zone A",
+  "rule": "Signature detected only if P1, P2 and P3 all pass (academic report \u00a75.3.1)",
+  "canonical": {
+    "minority": {
+      "source": "data/outputs/phase4c_per_ed_votes_minority.csv",
+      "districts_scored": 89,
+      "zone_a_districts": 17,
+      "zone_a_ndp_won": 8,
+      "zone_a_ucp_won": 9,
+      "provincial_mean_winning_margin_pp": 27.56,
+      "zone_a_ndp_won_mean_margin_pp": 14.95,
+      "excess_over_provincial_pp": -12.61,
+      "p2_threshold_pp": 15.0,
+      "p2_pass": false
+    },
+    "majority": {
+      "source": "data/outputs/phase4c_per_ed_votes_majority.csv",
+      "districts_scored": 89,
+      "zone_a_districts": 17,
+      "zone_a_ndp_won": 9,
+      "zone_a_ucp_won": 8,
+      "provincial_mean_winning_margin_pp": 26.67,
+      "zone_a_ndp_won_mean_margin_pp": 14.61,
+      "excess_over_provincial_pp": -12.07,
+      "p2_threshold_pp": 15.0,
+      "p2_pass": false
+    }
+  },
+  "cross_check_file_cited_in_5_3_1": {
+    "minority": {
+      "source": "data/outputs/votes_2023_minority.csv",
+      "districts_scored": 87,
+      "zone_a_districts": 17,
+      "zone_a_ndp_won": 9,
+      "zone_a_ucp_won": 8,
+      "provincial_mean_winning_margin_pp": 24.85,
+      "zone_a_ndp_won_mean_margin_pp": 12.57,
+      "excess_over_provincial_pp": -12.29,
+      "p2_threshold_pp": 15.0,
+      "p2_pass": false
+    },
+    "majority": {
+      "source": "data/outputs/votes_2023_majority.csv",
+      "districts_scored": 88,
+      "zone_a_districts": 17,
+      "zone_a_ndp_won": 13,
+      "zone_a_ucp_won": 4,
+      "provincial_mean_winning_margin_pp": 26.14,
+      "zone_a_ndp_won_mean_margin_pp": 12.28,
+      "excess_over_provincial_pp": -13.86,
+      "p2_threshold_pp": 15.0,
+      "p2_pass": false
+    }
+  },
+  "verdict_minority": "Not detected: P2 fails on the official attribution (8 of 17 Zone A districts NDP-won; their mean margin is -12.6 pp against the provincial mean, where P2 needs +15 pp). P1 (Zone A districts 11.5% above the provincial mean) still passes."
+}
