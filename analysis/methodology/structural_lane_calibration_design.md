@@ -46,7 +46,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 | Size | What it calibrates | Kernel | Chains | Plans | Status |
 |---|---|---|---|---|---|
 | 91 | The November map | Set D: s.15(2), Amendment 23 rule | 290, 291, 293, 295 (292 and 294 failed to seed) | 200 | Complete |
-| 89 | The two 2026 commission maps | Set D | 190–193 | 200 | Sampling since 09:25 MDT |
+| 89 | The two 2026 commission maps | Set D | 190–193 | 200 | Complete |
 | 87 | The registered headline's null, and the 2019 map | Canonical: ±12.5% proposal band, no s.15(2) mode | 300 and up | 200 | Queued after the 89 run |
 
 - **Kernels.** Set D is the primary size-matched set (Amendment 24), so it is used at 89 and 91. At 87 the canonical kernel is used because it is the null the registered partisan comparison uses. The two kernels differ, and their results are reported side by side, not pooled.
@@ -139,7 +139,8 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
   Earlier in this session (09:48 MDT) the same count was made at voting-area resolution. It gave the majority a false split (Strathmore: 0.4% of its people) and the minority a false one (Stony Plain: 1.6%), and missed Bowden and Devon. It was replaced at 10:03 MDT. Municipal limits are 2021 census limits; annexations since then are not reflected. Script `analysis/scripts/calibration_unneeded_splits.py`; output `data/outputs/calibration_unneeded_splits_91_2026-10-31.json`.
 
   Two cautions: set D allows the Act's widest population range, so its spread is wide partly by design, and set A would be tighter; and computer maps are built from voting-area blocks, which may hold down their share of boundary on town and county lines. The second has not been tested.
-- **89 districts, and the 87-district structural lane:** pending. This file and the findings file will be updated when they land.
+- **89 districts** (`findings/structural_lane_calibration_89_2026-10-31.md`; 200 plans, chains 190–193, set D): structural "replicated" 95.5% (registered battery), 100% with the S6 stand-in; partisan "present" 9.0%; both lanes 8.5%. Per flag: S1 100%, S2 90.5%, S3 100%, S4 0%, S5 47.5%, S6 0% (stand-in 88%). Scored in this session through repeated machine restarts, resumed each time from the plans already scored.
+- **87-district structural lane:** moved to the author's PC because the cloud machine kept restarting; pending.
 
 ## 6. Limits
 
