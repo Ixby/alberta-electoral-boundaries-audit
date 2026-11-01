@@ -170,7 +170,7 @@ The author has no funding, advisory, or political-staff relationship to any part
 - Post-registration code changes (harness wiring, one crash fix between
   execution attempts, Wilson-vs-Aldous-Broder naming resolution, ESS-target
   disclosure semantics) are documented in
-  `findings/pre_registration_amendment_log.md` **Amendment 13**. No sample
+  `findings/pre_registration_amendment_log.md` **Amendment 5, Part 27**. No sample
   existed before the registration or before the harness was finalised; the
   hypotheses, decision rule, run size, seeds, and output paths executed
   exactly as written above.

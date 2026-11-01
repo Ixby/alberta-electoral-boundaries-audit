@@ -44,9 +44,9 @@ The §4.1.4 sunset clause was triggered on receipt and resolved in two stages:
 - **2026-05-18 (day 12, inside the two-week window).** Headline-recompute obligation closed with the Phase 4C canonical re-run (`packing_cracking_analysis.py` against the canonical EA shapefiles).
 - **2026-05-23 (day 17, three days over the two-week window).** Full canonical integration closed: R `redist` SMC canonical cross-check (2026-05-18), §5.3.5 neighbour-drain canonical re-run (2026-05-23), DPG-mess pruning (DPG-era findings moved to `archive/dpg_era/`), scripts purged of DPG-era constants, repo-wide `Backward:`/`Forward:` dependency-declaration convention added. The three-day overshoot is disclosed in `findings/methods_paper_draft.md` §6 + §7.1 Stage 12 and in `findings/pre_registration_amendment_log.md`.
 
-The sunset-clause window itself was originally posted as 48 hours and relaxed to two weeks in Amendment 2 Change 11 (2026-04-26); see `findings/pre_registration_amendment_log.md` Change 11 for the disclosed reason (solo researcher without monitoring automation). The clause is **in-repo discipline, not externally pre-registered** — the four OSF dossiers contain `dpg2_experiment_plan.md` + `drain_v2_plan.md`; neither specifies a timeline.
+The sunset-clause window itself was originally posted as 48 hours and relaxed to two weeks on 2026-04-26 (recorded in Amendment 5, Part 2); the disclosed reason (solo researcher without monitoring automation) is in the replaced entry's text at commit `ca539bc4` of `findings/pre_registration_amendment_log.md`. The clause is **in-repo discipline, not externally pre-registered** — the four OSF dossiers contain `dpg2_experiment_plan.md` + `drain_v2_plan.md`; neither specifies a timeline.
 
-The November 2026 committee-map trigger remains open pending the report of the Select Special Committee on Electoral Boundaries (the Lunty committee). Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release per Amendment 2 Bucket C.
+The November 2026 committee-map trigger remains open pending the report of the Select Special Committee on Electoral Boundaries (the Lunty committee). Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release (the earlier Bucket C wording is superseded; see Amendment 5, Part 11).
 
 ---
 
@@ -110,7 +110,7 @@ The table below records which findings have been recomputed on official EA shape
 |---|---|---|---|
 | Efficiency gap (B1) | 5.2 | Phase 4C canonical | **[C]** majority +0.10%, minority +4.02% |
 | Mean-median (B2) | 5.2 | Phase 4C canonical | **[C]** majority −3.62 pp, minority +1.04 pp |
-| Declination (B3) | 5.2 | Phase 4C canonical | **[C]** majority +0.027, minority −0.077 *(pre-Amendment-10 swapped-operand signs as logged at the time; corrected convention per Amendment 10, 2026-06-12: majority −0.027, minority +0.077 — see report §5.4.9)* |
+| Declination (B3) | 5.2 | Phase 4C canonical | **[C]** majority +0.027, minority −0.077 *(swapped-operand signs from before Amendment 5, Part 9, as logged at the time; corrected convention per Amendment 5, Part 9 (sign fixed 2026-06-12): majority −0.027, minority +0.077 — see report §5.4.9)* |
 | Seats@50/50 (B4) | 5.2 | Phase 4C canonical | **[C]** majority 48 NDP, minority 43 NDP |
 | Population MAD (A1) | 5.1 | Commission per-ED tables | **[C]** independent of shapefile geometry |
 | NE/central Calgary zone asymmetry (A2) *(zone label corrected 2026-07-08; previously logged as "NW" — the classified zone is NE/central per `findings/population_equality.md` §A2)* | 5.1 | Canonical EA shapefiles | **[C]** majority +2.8%, minority +11.5% |
