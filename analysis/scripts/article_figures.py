@@ -147,7 +147,7 @@ def build_lane1_dotplot() -> Path:
     # p95 dashed reference line — plain-language label (readability pass 2026-07-08:
     # percentile codes like "p95" replaced with words on all public figures)
     ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
-    # 2026-11-01: was "(gerrymander threshold —". The line is the ensemble's
+    # 2026-10-31: was "(gerrymander threshold —". The line is the ensemble's
     # 95th percentile, the audit's pre-registered outlier line, not a legal or
     # definitional threshold (stakes_quadrant says so on its face; STYLE_GUIDE
     # §4: no verdict on whether a map "is a gerrymander").
@@ -169,7 +169,7 @@ def build_lane1_dotplot() -> Path:
     ax.text(enacted_eg, 0.97, f"2019 map (current):\n{enacted_eg:+.1f}%, inside the\nnormal range",
             color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
             ha="center", va="top", transform=bx)
-    # One decimal (2026-11-01): ":.0f" rounded p94.54 up to "95%", which put
+    # One decimal (2026-10-31): ":.0f" rounded p94.54 up to "95%", which put
     # the minority past the p95 line it sits just short of (ledger C38: 94.5th).
     ax.text(minority_eg + 0.40, 0.97,
             f"Minority 2026: {minority_eg:+.1f}%\nmore UCP-tilted than\n{minority_pctile:.1f}% of neutral maps",
@@ -268,7 +268,7 @@ def build_lane2_bars() -> Path:
             "% above the provincial average district size",
             "{:g}%",
         ),
-        # Relabelled 2026-11-01 (ledger C38, C43): the chair flagged FOUR
+        # Relabelled 2026-10-31 (ledger C38, C43): the chair flagged FOUR
         # minority boundaries; the audit confirmed three. The bar is the
         # confirmed count, so the title now says so.
         (
@@ -280,7 +280,7 @@ def build_lane2_bars() -> Path:
             "boundaries flagged and confirmed",
             "{:g}",
         ),
-        # Relabelled 2026-11-01 (ledger C45): four minority districts take in
+        # Relabelled 2026-10-31 (ledger C45): four minority districts take in
         # Airdrie land, but Olds-Three Hills-Didsbury holds about 350 of its
         # people (data/outputs/airdrie_split_shares_2026-10-31.json); by the
         # audit's 2% piece rule the split is three pieces to two. The value
@@ -467,7 +467,7 @@ def build_bias_structure_matrix() -> Path:
     # Calgary Zone A-Zone B gap was NOT run on 2019 (2019-era per-ED population
     # data absent from the working bundle; findings/population_equality.md §A1).
     # Efficiency gaps and the p95 line are read from the canonical percentiles
-    # CSV (2026-11-01), as build_lane1_dotplot already does. The hardcoded p95
+    # CSV (2026-10-31), as build_lane1_dotplot already does. The hardcoded p95
     # (4.10, from a pre-C10 ensemble) had drifted from the CSV's 0.040838;
     # the label "~4.1%" is unchanged.
     import pandas as _pd

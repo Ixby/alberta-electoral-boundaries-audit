@@ -44,7 +44,7 @@ Backward: analysis/scripts/airdrie_split_shares.py (method and functions),
   data/shapefiles/canonical/ea_{majority,minority}_2026_eds.gpkg,
   data/shapefiles/reference/alberta_2021_{das,csds}.gpkg,
   data/reference/alberta_2021_{da,csd}_populations.csv
-Forward: data/outputs/cracking_signature_rescore_2026-11-01.json
+Forward: data/outputs/cracking_signature_rescore_2026-10-31.json
 
 Usage
   python analysis/scripts/cracking_signature_rescore.py [--out PATH]
@@ -71,7 +71,7 @@ SCORED_IN_REPORT = {("Airdrie", "minority"), ("Airdrie", "majority"),
                     ("Chestermere", "majority")}
 # Later vintages cited in §5.3.2 (Airdrie municipal censuses, July 2024 and April 2025)
 OTHER_VINTAGES = {"Airdrie": {"2024_municipal": 85805, "2025_municipal": 90044}}
-DEFAULT_OUT = REPO / "data/outputs/cracking_signature_rescore_2026-11-01.json"
+DEFAULT_OUT = REPO / "data/outputs/cracking_signature_rescore_2026-10-31.json"
 
 
 def score(name, plan, m, pop, official):

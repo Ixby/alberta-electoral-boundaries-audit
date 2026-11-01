@@ -290,7 +290,7 @@ def draw_bar(
             if sub_w_in > seg_width_in - 0.05:
                 sub_fs = max(sub_fs - 1.0, 5.5)
             n_sub_lines = seg.sublabel.count("\n") + 1
-        # A multi-line sublabel (2026-11-01, Airdrie shares): centre the
+        # A multi-line sublabel (2026-10-31, Airdrie shares): centre the
         # label + sublabel stack in the bar so neither runs off its edge.
         # The axes spans the whole figure, so 1 pt = 1 / (FIG_H_IN * 72).
         sub_y_stacked = None
@@ -882,7 +882,7 @@ def draw_calgary(fig_path: Path) -> dict:
 def build_airdrie():
     """How each map divides Airdrie's people, drawn to scale.
 
-    Rebuilt 2026-11-01 (DOCUMENTED CORRECTIONS C45). The earlier version drew
+    Rebuilt 2026-10-31 (DOCUMENTED CORRECTIONS C45). The earlier version drew
     four equal minority segments ("one per compass direction ... each attached
     to a different surrounding district"), which read as four equal quarters
     of the city. Counted by people, the minority's Airdrie East holds 54.7% of

@@ -40,7 +40,7 @@ Backward: data/shapefiles/canonical/ea_{majority,minority}_2026_eds.gpkg,
   data/osm/alberta_osm_highways.gpkg,
   data/outputs/airdrie_split_shares_2026-10-31.json,
   analysis/scripts/score_anchoring.py (Method B rule)
-Forward: data/outputs/airdrie_city_limit_anchoring_2026-11-01.csv
+Forward: data/outputs/airdrie_city_limit_anchoring_2026-10-31.csv
 
 Usage
   python analysis/scripts/airdrie_city_limit_anchoring.py [--out PATH]
@@ -73,7 +73,7 @@ VERTEX_DENSIFY_M = 50.0  # v0.9 run and score_anchoring.py
 MIN_RUN_M = 1000.0       # score_anchoring.py run filter (Method B)
 SHARED_TOL_M = 20.0      # Method C
 STUDY_BUFFER_M = 20_000.0  # v0.9: 15 km study box plus 5 km highway buffer
-DEFAULT_OUT = REPO / "data/outputs/airdrie_city_limit_anchoring_2026-11-01.csv"
+DEFAULT_OUT = REPO / "data/outputs/airdrie_city_limit_anchoring_2026-10-31.csv"
 
 
 def lines_of(geom):
