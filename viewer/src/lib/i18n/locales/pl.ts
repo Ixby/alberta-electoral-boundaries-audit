@@ -85,7 +85,7 @@ export default {
 		scorecard_fig_alt:
 			'Wykres punktowy: luka efektywności na osi poziomej, liczba niezdanych testów strukturalnych na osi pionowej. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku skupiają się w bezpiecznym lewym dolnym rogu. Mapa mniejszościowa z 2026 roku stoi samotnie w prawym górnym rogu, na linii czterech z pięciu testów strukturalnych i tuż przed przerywaną linią luki efektywności ~4,1%.',
 		scorecard_fig_caption:
-			'Oba tory na jednym obrazie. Poziomo: jak skośna jest liczba sprawiedliwości partyjnej (prawo = bardziej korzystne dla UCP). Pionowo: ile z pięciu testów sprawiedliwości strukturalnej mapa nie zdaje. Dolny lewy róg to bezpieczny obszar, w którym rutynowo lądują neutralne procedury; prawy górny to obszar odstający. Mapa uchwalona w 2019 roku i większościowa z 2026 roku siedzą w bezpiecznym rogu. Mniejszościowa z 2026 roku siedzi samotnie w obszarze odstającym.',
+			'Oba tory na jednym obrazie. Poziomo: jak skośna jest liczba sprawiedliwości partyjnej (w prawo = bardziej na korzyść UCP). Pionowo: ile z pięciu testów sprawiedliwości strukturalnej mapa oblewa. Lewy dolny róg to bezpieczny obszar, w którym rutynowo lądują neutralne procedury; prawy górny to obszar odstający. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku leżą w bezpiecznym rogu (mapę z 2019 roku oceniono w czterech testach; testu strefy Calgary nigdy na niej nie przeprowadzono). Mapa mniejszościowa z 2026 roku stoi samotnie w obszarze odstającym.',
 		scorecard_intro:
 			'Dwa niezależne pomiary zastosowane do obu map przy tych samych progach pre-rejestrowanych. Struktura wykorzystuje tylko kształt linii — żadnych wyników wyborów. Liczby testują, jak linie przekładają głosy na mandaty. Oba tory prowadzą do tego samego wniosku.',
 		scorecard_close:
@@ -99,12 +99,12 @@ export default {
 		tldr_p2: 'Ten audyt przetestował obie mapy komisji w ten sam sposób, porównując je z 1 010 000 neutralnych map narysowanych przez komputer na podstawie oficjalnych plików Elections Alberta. Propozycja większościowa wygląda jak mapy, które neutralne rysowanie rutynowo daje — zdaje każdy wstępnie zarejestrowany test. Propozycja mniejszościowa przekracza cztery z pięciu testów strukturalnych, a przy remisie 50/50 tylko około 69 z 1 010 000 neutralnych map daje tyle mandatów co ona. Szansa, że neutralny proces da jej łączny profil sprawiedliwości, wynosi około 1 na 568 000 — i jest to celowo ostrożny pułap, a nie dokładne oszacowanie. Jedna miara, luka efektywności, wypadła tuż poniżej wyznaczonej z góry linii audytu; podajemy ją jako chybienie.',
 		tldr_p3: 'Audyt mierzy wyniki, nie intencje. Gdy komitet Lunty\'ego opublikuje swoją mapę, ten audyt zastosuje do niej te same testy.',
 		tldr_footer: 'Pre-rejestrowane warunki falsyfikacji i zobowiązania do wycofania znajdują się w %s.',
-		tldr_footer_link: '§9'
+		tldr_footer_link: 'Wycofania i korekty'
 	},
 	head: {
-		title: 'Audyt Granic Okręgów Wyborczych Alberty',
+		title: 'Mapa wyborcza Alberty pod lupą audytu',
 		meta_description:
-			'Audyt statystyczny komisji ds. granic okręgów wyborczych Alberty z 2026 roku — 1 010 000 neutralnych map, oficjalne pliki shapefile Elections Alberta, pre-rejestrowane testy.'
+			'Komisja ds. granic Alberty złożyła w 2026 roku dwie mapy. Jedna wygląda normalnie; druga sprzyja UCP bardziej niż niemal każda z 1 010 000 neutralnych map. Mapa komitetu, która zastępuje obie, jest tu oceniana testami ustalonymi z góry.'
 	},
 	nav: {
 		skip_to_content: 'Przejdź do treści',
@@ -146,7 +146,7 @@ export default {
 		feedback: 'Wyślij opinię'
 	},
 	hero: {
-		h1: 'Audyt Granic Okręgów Wyborczych Alberty',
+		h1: 'Prawo, normy i statystyka: audyt raportów Komisji ds. Granic Wyborczych Alberty z 2026 roku',
 		subtitle:
 			'Komisja Alberty przygotowała w 2026 roku dwie konkurencyjne mapy okręgów. Przeprowadziłem na obu te same testy i zadałem jedno pytanie: czy traktują wyborców tak samo?',
 		badge: 'Oficjalne mapy Elections Alberta — opublikowane w maju 2026 roku',
@@ -194,15 +194,15 @@ export default {
 	editorial_reflect: {
 		heading: 'Interludium: Co to oznacza dla Ciebie i Twojej społeczności',
 		intro_p1:
-			'Odłóżmy na chwilę kwestię tego, która partia zyskuje lub traci mandaty. Politycy i partie zwykle ujmują to jako walkę o koncentrację władzy w legislaturze, i na skalę legislatury tak jest. Ale koncentracja władzy w legislaturze to nie miejsce, w którym doświadczasz tych map. Doświadczasz ich poprzez trzy konkretne pytania o swój własny okręg:',
+			'Tu dziennik robi przerwę. To, która partia zyskuje lub traci mandaty, jest problemem legislatury — nie tam doświadczasz tych map. Doświadczasz ich przez trzy konkretne pytania o własny okręg:',
 		intro_q1: 'Gdzie mieszka Twój MLA?',
 		intro_q2: 'Czy są zaangażowani w Twoją społeczność?',
-		intro_q3: 'Czy żądania głowy zdominują żądania ogonów?',
+		intro_q3: 'Czy potrzeby miejskiej głowy okręgu zdominują jego wiejskie ogony?',
 		intro_p2:
 			'Każda inna perspektywa — przewaga partyjna, próg supermajorities, statystyczna skrajność — ostatecznie wskazuje z powrotem na te trzy. Pięć poniższych szczebli przechodzi przez to, jak każda proponowana mapa odpowiada na nie, w pięciu skalach.',
 		you_h: 'Ty.',
 		you_p:
-			'Twój okręg wyborczy decyduje, kto reprezentuje Cię w legislaturze. W tej chwili mieszkasz w jednym z 87 okręgów. Pod oboma proponowanymi mapami możesz mieszkać w innym — być może z innym MLA, być może zakotwiczonym do innych sąsiednich społeczności. Jeśli nie wiesz, w jakim okręgu jesteś teraz lub kim jest Twój MLA, nie jesteś sam: większość mieszkańców Alberty nie potrafi wymienić swojego MLA. Ale linie graniczne nie są abstrakcyjne. Decydują, czyj numer telefonu wisi na ścianie biura Twojego lokalnego przedstawiciela, do czyjej dzielnicowej petycji zostanie dołączone Twoje nazwisko, czyje obawy Twój MLA usłyszy jako pierwsze. Wyszukiwarka kodu pocztowego na tej stronie pokazuje, w którym okręgu zasiadasz pod każdą propozycją. Jeśli Twój okręg się zmieni, zmieni się Twój przedstawiciel — a wraz z nim zmieni się jego stosunek do Twojej społeczności.',
+			'Twój okręg wyborczy decyduje, kto reprezentuje Cię w legislaturze. Teraz mieszkasz w jednym z 87 okręgów. Na obu proponowanych mapach możesz trafić do innego — być może z innym MLA, być może zakotwiczonego przy innych sąsiednich społecznościach. Jeśli nie wiesz, w jakim okręgu jesteś teraz ani kto jest Twoim MLA, nie jesteś sam: większość mieszkańców Alberty nie potrafi wymienić swojego MLA. Ale linie graniczne nie są abstrakcyjne. Decydują, czyj numer telefonu wisi na ścianie biura Twojego lokalnego przedstawiciela, pod czyją petycją sąsiedzką znajdzie się Twoje nazwisko, czyje sprawy Twój MLA usłyszy jako pierwsze. Eksplorator map na tej stronie — wyszukaj swoją społeczność po nazwie — pokazuje, w którym okręgu jesteś według każdej propozycji. Jeśli zmieni się Twój okręg, zmieni się Twój przedstawiciel — a wraz z nim jego relacja z Twoją społecznością.',
 		community_h: 'Twoja społeczność.',
 		community_p:
 			'Społeczności też nie są abstrakcyjne. Rejon szkoły średniej, izba handlowa, wspólnota wyznaniowa, stowarzyszenie sąsiedzkie — to prawdziwe grupy ludzi ze wspólnymi lokalnymi sprawami. Gdy linia graniczna przez nie przebiega, żaden pojedynczy MLA nie odpowiada za całość. Skrajnym przypadkiem jest Casing 1: Airdrie, jedno miasto w czterech kawałkach, bez jednego przedstawiciela, który by za nie odpowiadał. Ta sama dynamika rozgrywa się wszędzie tam, gdzie dzieli się miasteczko, dzielnicę lub uznaną wspólnotę interesów — im większy podział, tym słabsza reprezentacja. (W szerszej mierze tego, jak wiernie każda mapa trzyma się ogólnie linii miejskich, obie propozycje mieszczą się w kanadyjskiej normie — Casing 5 opisuje ustalenie, które się rozwiało).',
@@ -220,7 +220,7 @@ export default {
 			'Audyt nie proponuje odebrania mandatów wiejskiej Albercie. Pyta, czy linie szanują wiejskie społeczności, które te mandaty mają reprezentować, czy też wiejska geografia jest używana jako balast, aby wchłonąć miejskie głosy do okręgów, których centrum znajduje się gdzie indziej. Jeśli mieszkasz w jednym z tych wiejskich ogonów, kwestia tego, która mapa zostanie uchwalona, decyduje o tym, czy Twój MLA reprezentuje wiejską społeczność, w której rzeczywiście mieszkasz, czy też miejski okręg, którego linie przypadkiem obejmują Twoją ziemię.',
 		province_h: 'Twoja prowincja.',
 		province_p:
-			'Legislatura to to, co otrzymujesz, gdy zsumujesz odpowiedzi każdego okręgu na powyższe trzy pytania. Jeśli większość okręgów jest zakotwiczona w społecznościach, w których ich MLA rzeczywiście mieszkają, legislatura reprezentuje te społeczności. Jeśli większość okręgów ma wiejskie ogony dołączone do miejskich głów, legislatura reprezentuje głowy — a ogony otrzymują tę uwagę, jaka pozostanie. Pytanie partyjne — która partia wygrywa większość — jest podrzędne wobec tego. Pytanie o supermajority — czy jedna partia przekracza 60 z 89 mandatów i odblokowuje skróty proceduralne, takie jak uchylanie terminów zawiadomień lub przyspieszanie projektów ustaw przez wiele etapów w ciągu jednego dnia — jest podrzędne wobec <em>tego</em>. Przy hipotetycznym prowincjonalnym podziale 50/50 pomiary audytu plasują propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje tego samego rodzaju nierównowagę mandatów. Czy ta nierównowaga popycha partię poza 60 mandatów przy udziałach głosów, które mieszkańcy Alberty faktycznie dostarczą, to pytanie, którego ten audyt jeszcze bezpośrednio nie zbadał; pytania otwierające na górze tej strony są szczere co do tej luki. Czy odpowiedź na którekolwiek z tych pytań ma znaczenie wystarczające, by działać, to znów pytanie do Ciebie.'
+			'Legislatura to suma odpowiedzi wszystkich okręgów na trzy powyższe pytania. Jeśli większość okręgów jest zakotwiczona w społecznościach, w których ich MLA naprawdę mieszkają, legislatura reprezentuje te społeczności. Jeśli większość okręgów ma wiejskie ogony doczepione do miejskich głów, legislatura reprezentuje głowy — a ogony dostają tyle uwagi, ile zostanie. Pytanie partyjne — która partia zdobywa większość — wynika z tego. Pytanie o bardzo dużą większość — czy jedna partia przekroczy 60 z 89 mandatów, czyli przewagę, która czyni rząd praktycznie odpornym na przejścia posłów na drugą stronę i zostawia opozycję zbyt małą, by prowadzić skuteczną kontrolę — wynika z <em>tamtego</em>. Przy hipotetycznym podziale 50/50 w prowincji pomiary audytu umieszczają propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje taki sam rodzaj nierównowagi mandatów. Czy ta nierównowaga wypycha partię ponad 60 mandatów przy udziałach głosów, jakie mieszkańcy Alberty faktycznie oddają, to pytanie, którego ten audyt jeszcze bezpośrednio nie sprawdził — uczciwa luka w zapisie. Czy odpowiedź na którekolwiek z tych pytań ma dość znaczenia, by działać, to znowu pytanie do Ciebie.'
 	},
 	editorial_history: {
 		heading: 'Kontekst: Krótka historia gerrymanderingu',
@@ -370,10 +370,10 @@ export default {
 			intro_p1: 'Najczystsze pojedyncze pytanie, jakie można zadać każdej mapie wyborczej, jest takie: gdyby głosowanie prowincjonalne podzieliło się dokładnie po równo między dwie główne partie, jaki podział mandatów dałaby mapa? To utrzymuje elektorat stały i pyta samą mapę, co ona robi.',
 			intro_p2: 'Aby na to odpowiedzieć, audyt wygenerował 1 010 000 symulowanych komputerowo, matematycznie neutralnych map Alberty. Symulacja użyła oficjalnych plików shapefile Elections Alberta na geografii komisji, poddając każdy plan tym samym wymogom równowagi populacji (±25%) i spójności — dwóm kryteriom, które algorytm egzekwuje, a nie każdemu czynnikowi ustawowemu (nie egzekwuje na przykład społeczności interesu), więc zbiór porównawczy najlepiej rozumieć jako neutralny pod względem populacji i spójności, a nie w pełni zgodny z ustawą. Dwie mapy komisji z 2026 roku zostały następnie umieszczone w tym rozkładzie, aby zobaczyć, jak są normalne. Symulacja przeprowadziła cztery niezależne łańcuchy po 252 500 kroków każdy, z bazowym ziarnem pobranym z latarni drand Cloudflare i pre-rejestrowanym w OSF przed wykonaniem.',
 			howmcmc_label: 'JAK DZIAŁA SYMULACJA',
-			howmcmc_mcmc: '<strong>MCMC (Łańcuch Markowa Monte Carlo)</strong> to metoda eksploracji dużej przestrzeni — tutaj przestrzeni wszystkich legalnych map Alberty — poprzez wykonywanie losowych kroków od punktu początkowego. Każdy krok proponuje małą zamianę między sąsiednimi okręgami; jeśli wynik pozostaje w granicach zasad ustawowych, staje się nowym punktem początkowym. Po wystarczającej liczbie kroków odwiedzone mapy tworzą reprezentatywną próbkę legalnych planów. Symulacja jest zasiana z publicznej latarni losowości drand Cloudflare, aby zapobiec selektywnemu doborowi warunków początkowych.',
-			howmcmc_recom: '<strong>ReCom (Redistricting Compiler)</strong> to konkretny algorytm używany tutaj. Każdy krok łączy dwa sąsiednie okręgi w jeden region i ponownie dzieli go losowo na dwa nowe ważne okręgi, zachowując ciągłość i równowagę populacji z konstrukcji — więc algorytm nigdy nie musi odrzucać nieprawidłowej propozycji.',
+			howmcmc_mcmc: 'Połącz dwa sąsiednie okręgi, podziel powstały obszar losowo z powrotem na dwa nowe legalne okręgi, powtórz to milion razy, zapisując mapę na każdym kroku. To cała maszyna. Opis krok po kroku — i każdy inny test z tej strony, prostym językiem — znajdziesz na <a href="__BASE__/methods">stronie Metody</a>.',
+			howmcmc_recom: 'Algorytm nazywa się ReCom — to standardowe narzędzie w tej dziedzinie — i z samej konstrukcji zachowuje dwie twarde zasady prawne (równowagę liczby ludności i spójność).',
 			prereg_label: 'PRE-REJESTRACJA',
-			prereg_body: 'Pre-rejestracja oznacza spisanie dokładnych testów, progów i przewidywanych kierunków przed obejrzeniem jakichkolwiek danych oraz zablokowanie tych zobowiązań w publicznym, oznaczonym czasowo zapisie. Open Science Framework (OSF) to publiczne repozytorium, w którym składane są zobowiązania tego audytu. Zapobiega to dopasowywaniu post hoc: jeśli wynik nie wyłoni się czysto, progu nie można zmienić po fakcie, a następnie przedstawić go jako zawsze będący testem. Losowe ziarna audytu zostały zatwierdzone w publicznym, oznaczonym czasowo beaconie (drand firmy Cloudflare) przed udostępnieniem oficjalnych plików shapefile Elections Alberta, więc symulacji nie można było ponownie uruchomić w kierunku wybranego wyniku. Test drenażu sąsiada został w pełni pre-rejestrowany w OSF — jego próg i przewidywany kierunek ustalono przed pomiarem. Pozostałe testy są raportowane jako eksploracyjne: ich ziarna zostały wcześniej zatwierdzone, ale konkretne nazwy testów i metoda ich łączenia nie zostały zarejestrowane w OSF przed ich uruchomieniem, a raport odpowiednio oznacza każde z ustaleń.',
+			prereg_body: 'Wstępna rejestracja oznacza spisanie testów, progów i przewidywanych kierunków w publicznym zapisie opatrzonym datą i godziną, zanim spojrzy się na dane — tak aby progu nie dało się po cichu przesunąć, gdy przyjdzie odpowiedź. Zobowiązania tego audytu są złożone w Open Science Framework, jego losowe ziarna zablokowano w publicznym beaconie, zanim istniały oficjalne pliki map, a każde ustalenie jest odpowiednio oznaczone jako wstępnie zarejestrowane albo eksploracyjne. Pełne zestawienie, które jest które, znajduje się na <a href="__BASE__/methods">stronie Metody</a>.',
 			neutral_p: 'W Albercie neutralna odpowiedź nie wynosi 50/50. <em>W 1 010 000 symulowanych komputerowo legalnych map Alberty mediana mapy daje UCP tylko 44,8% mandatów przy głosach 50/50</em> — typowa mapa Alberty pod neutralnymi głosami przekazuje NDP niewielką większość mandatów. Jest to sprzeczne z intuicją, ale mechaniczne: wiejscy wyborcy UCP wygrywają swoje okręgi z marginesem 60-40 (marnując wiele „dodatkowych" głosów UCP), podczas gdy miejscy wyborcy NDP wygrywają swoje okręgi z bardziej napiętym marginesem 51-49 (marnując mniej głosów NDP na wygraną). W stanie neutralnym NDP wychodzi na prowadzenie pod względem efektywności mandatów.',
 			full_dist: 'Pełny rozkład z kanonicznej symulacji 1 010 000 map:',
 			t1_col_a: 'Gdzie znajduje się mapa',
@@ -399,7 +399,7 @@ export default {
 			t2_r1_b: '+0,1% (p16,5)',
 			t2_r1_c: '−3,6% (p1)',
 			t2_r1_d: '−0,027 (p21,8)',
-			t2_r1_e: '46,1% (p78)',
+			t2_r1_e: '46,1% (p78,5)',
 			t2_r2_a: 'Mniejszościowa 2026',
 			t2_r2_b: '<strong>+4,0% (p94,5)</strong>',
 			t2_r2_c: '<strong>+1,0% (p99,97)</strong>',
@@ -433,7 +433,7 @@ export default {
 			super_lead: 'W legislaturze liczącej 89 mandatów większość dwóch trzecich wymaga dokładnie 60 mandatów. Udział propozycji mniejszościowej w mandatach przy remisie w głosach, 51,7% — poziom, który osiąga tylko 69 z 1 010 000 neutralnych map — leży w obszarze, w którym superwiększość UCP staje się statystycznie osiągalna na geografii Alberty z 2023 roku. Symulacja nie egzekwuje jednak każdego kryterium ustawowego, według którego pracowała komisja, więc jest to mocna weryfikacja zewnętrzna, a nie dowód, że żadna zgodna z prawem mapa Alberty nie mogłaby osiągnąć tej liczby mandatów. Większość ciężaru niosą dowody strukturalne z części Act I, które w ogóle nie zależą od symulacji; pozycja w ogonie przy remisie w głosach stanowi kontekst pomocniczy.',
 			super_label: 'DLACZEGO DUŻA WIĘKSZOŚĆ MA ZNACZENIE',
 			super_body: 'W kanadyjskim systemie westminsterskim Zgromadzenie Alberty nie ma progu dwóch trzecich, który odblokowywałby specjalne uprawnienia: rządząca większość — nawet minimalna — może już uchwalać ustawy i budżety, zastosować „zamknięcie" w celu zakończenia debaty, zmieniać zasady Izby oraz ustalać skład każdej komisji. To, co zmienia bardzo duża większość, to margines i trwałość, a nie zakres uprawnień. Rząd dysponujący 60 z 89 mandatów jest praktycznie odporny na wewnętrzny sprzeciw — garstka przejść na drugą stronę nie może mu zagrozić — i ma do czynienia z opozycją zbyt małą, by wymusić głosowania imienne lub utrzymać nadzór komisyjny. Obawą jest tutaj koncentracja mandatów i przerzedzenie skutecznej opozycji, a nie przekroczenie progu proceduralnego.',
-			super_close: 'Wzorzec hybrydyzacji miejskiej zidentyfikowany w Torze 2 — miejscy wyborcy rozprowadzeni do otaczających okręgów wiejsko-skrajnych — jest strukturalnym mechanizmem zgodnym z wynikiem 60 mandatów. Ustalenie strukturalne Toru 2 i ustalenie statystyczne Toru 1 zbiegają się na tej samej propozycji, w tym samym kierunku i w tych samych społecznościach.',
+			super_close: 'Wzorzec hybrydyzacji miejskiej wskazany w Act I — wyborcy miejscy rozprowadzeni do otaczających okręgów na styku miasta i wsi — jest zgodny z wynikiem 60 mandatów, choć bezpośredni test audytu, czy ta geometria jest konkretnym mechanizmem, dał wynik negatywny i jest podany jako porażka (Casing 9). Ustalenia strukturalne i statystyczne zbiegają się na tej samej propozycji i tych samych społecznościach — i zgadzają się co do tego, kto zyskuje.',
 			sub4_h: 'Potwierdzenie z testu procedury ukierunkowanej',
 			sub4_p: 'Aby upewnić się, że nie jest to dziwactwo znanej preferencji zwartości neutralnej symulacji, audyt przeprowadził ukierunkowaną procedurę wspinaczki górskiej (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — cytowani i opisani w raporcie technicznym</a>) w obu kierunkach: maksymalizując mandaty UCP i maksymalizując mandaty NDP. Ta sama liczba kroków (40 000) w każdym kierunku, te same ograniczenia ustawowe, ta sama geometria prowincjonalna.',
 			t4_col_a: 'Procedura',
@@ -469,18 +469,18 @@ export default {
 			sub7_h: 'Wniosek',
 			sub7_p1: 'Centralne ustalenie audytu jest geometryczne. <strong>Tor 2 — tablica wyników nieregularności strukturalnej — jest fundamentem; Tor 1 jest dowodem, że geometria wykonuje pracę partyjną.</strong>',
 			sub7_p2: 'Poniższy wykres umieszcza oba tory na jednym obrazie. Oś pozioma to Tor 1 (luka efektywności sprawiedliwości partyjnej, gdzie dalej w prawo oznacza bardziej korzystne dla UCP); oś pionowa to Tor 2 (liczba testów sprawiedliwości strukturalnej, jakich propozycja nie zdaje, z pięciu, gdzie wyżej oznacza więcej problemów strukturalnych).',
-			stakes_fig_alt: 'Wykres punktowy z luką efektywności na osi poziomej i liczbą niezdanych testów strukturalnych na osi pionowej. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku skupiają się w bezpiecznym dolnym lewym rogu. Mapa mniejszościowa z 2026 roku pojawia się w obszarze odstającym w prawym górnym rogu.',
-			stakes_fig_caption: 'Dwa sposoby pomiaru dwóch propozycji komisji, zestawione razem. Lewo-prawo: jak skośna wygląda propozycja na liczbie sprawiedliwości partyjnej — im dalej w prawo, tym bardziej sprzyja UCP. Dół-góra: ile z pięciu testów sprawiedliwości strukturalnej propozycja nie zdaje — im wyżej, tym gorzej. Mapa uchwalona w 2019 roku siedzi w bezpiecznym rogu: nisko na obu. Propozycja większościowa z 2026 roku pozostaje płaska na zero problemów strukturalnych i przy zerowym skosie partyjnym (+0,1%). Propozycja mniejszościowa z 2026 roku jest strukturalnym odstępstwem na każdym teście, który rozróżnia obie mapy (4 z 5; piąty, zakotwiczenie, jest neutralny dla obu); jej luka efektywności (+4,0%) siedzi tuż poniżej linii progowej Alberty.',
+			stakes_fig_alt: 'Wykres punktowy z luką efektywności na osi poziomej i liczbą niezdanych testów strukturalnych na osi pionowej. Mapa uchwalona w 2019 roku i mapa większościowa z 2026 roku skupiają się w bezpiecznym lewym dolnym rogu. Mapa mniejszościowa z 2026 roku pojawia się w obszarze odstającym w prawym górnym rogu. Mapa z 2019 roku ma etykietę 0 z 4 przeprowadzonych: testu strefy Calgary nigdy na niej nie przeprowadzono.',
+			stakes_fig_caption: 'Dwa sposoby mierzenia dwóch propozycji komisji na jednym wykresie. Od lewej do prawej: jak skośna wydaje się propozycja w liczbie sprawiedliwości partyjnej — im dalej w prawo, tym bardziej sprzyja UCP. Od dołu do góry: ile z pięciu testów sprawiedliwości strukturalnej propozycja oblewa — im wyżej, tym gorzej. Mapa uchwalona w 2019 roku leży w bezpiecznym rogu: nisko na obu osiach (nie oblewa żadnego z czterech przeprowadzonych na niej testów; testu strefy Calgary nigdy na niej nie przeprowadzono). Propozycja większościowa z 2026 roku pozostaje płasko na zerze problemów strukturalnych i przy niemal zerowym skrzywieniu partyjnym (+0,1%). Propozycja mniejszościowa z 2026 roku odstaje strukturalnie w każdym teście, który rozróżnia obie mapy (4 z 5; piąty, zakotwiczenie, jest neutralny dla obu); jej luka efektywności (+4,0%) leży tuż poniżej linii progu dla Alberty.',
 			stakes_table_intro: 'Te same ustalenia w prostej formie podsumowującej, prowadząc z ustaleniem strukturalnym, ponieważ dowody walidowane krzyżowo wspierają je najsilniej:',
-			t5_col_b: 'Tor 2: Struktura (tylko geometria, bez głosów)',
-			t5_col_c: 'Tor 1: Liczby (zależne od głosów)',
+			t5_col_b: 'Struktura — Act I (tylko geometria, bez głosów; „Tor 2” w raporcie akademickim)',
+			t5_col_c: 'Liczby — Act II (zależne od głosów; „Tor 1”)',
 			t5_r1_a: '<strong>Większościowa 2026</strong>',
 			t5_r1_b: 'czysta — nie przekracza <em>żadnego</em> progu strukturalnego',
 			t5_r1_c: 'w normalnym zakresie w każdej mierze (udział w mandatach przy remisie 46,1%, 78. percentyl; luka efektywności +0,1%)',
 			t5_r2_a: '<strong>Mniejszościowa 2026</strong>',
 			t5_r2_b: '<strong>przekracza 4 z 5 progów strukturalnych</strong> szerokim marginesem (zakotwiczenie neutralne — obie mapy w kanadyjskiej normie)',
 			t5_r2_c: 'skrajny ogon w trzech z czterech miar sprawiedliwości — udział w mandatach przy remisie 51,7% (osiąga go tylko 69 z 1 010 000 neutralnych map); dwie kolejne miary powyżej 98,8. i 99,9. percentyla; luka efektywności +4,0% (<em>blisko, ale poniżej</em> wyznaczonej z góry linii — podane chybienie); łączna szansa przy neutralnym rysowaniu około 1 na 568 000',
-			details2_summary: 'Dlaczego Tor 2 niesie sprawę — szczegóły techniczne',
+			details2_summary: 'Dlaczego sprawę niesie część strukturalna — szczegóły techniczne',
 			details2_p: 'Audyt wstępnie zarejestrował pięć testów nieprawidłowości strukturalnych 24 kwietnia 2026 roku, zanim zebrano ostateczne wyniki symulacji. Zakotwiczenie jest neutralne dla obu map; z pozostałych czterech mniejszość przekracza każdy, a większość żadnego. Te pomiary są geometryczne — bez statystycznego próbnika, bez danych o głosach. <strong>To jest główne ustalenie.</strong> Symulacja je potwierdza: mniejszość leży w skrajnym ogonie w trzech z czterech miar sprawiedliwości, czwarta (luka efektywności) wypada tuż poniżej wyznaczonej z góry linii, na 94,5. percentylu, a łączna szansa przy neutralnym rysowaniu wynosi około 1 na 568 000 — to celowo ostrożny pułap wyjaśniony w Casing 8. W dowodach są dwie uwagi o uczciwości: same wskazane kształty granic <em>nie</em> są bezpośrednim mechanizmem przesunięcia mandatów — to twierdzenie nie przeszło testu, a porażkę zgłoszono (Casing 9; pełny opis w <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>) — a Test Alokacji Strefy Wahań nie przetrwał skorygowanej hipotezy zerowej i ma charakter wyłącznie eksploracyjny (Casing 10). Sprawę niesie część strukturalna; liczby ją potwierdzają, ale jej nie niosą.',
 		},
 		impact: {
@@ -596,16 +596,16 @@ export default {
 		},
 		commission_split: {
 			heading: '2: Jak Komisja Się Podzieliła',
-			intro: 'Komisja ds. Granic Wyborczych Alberty zakończyła swoją pracę 23 marca 2026 roku i nie mogła dojść do porozumienia. Trzech komisarzy wyprodukowało jedną mapę; pozostali dwaj wyprodukowali inną. Przewodniczący Komisji Sędzia Dallas K. Miller i dwóch komisarzy nominowanych przez opozycję napisali raport większościowy; dwóch komisarzy nominowanych przez rząd — Dr Julian Martin i John D. Evans — napisali raport mniejszościowy. Podział skupił się na tym, jak wytyczyć granice w szybko rosnących społecznościach miejsko-skrajnych. Większość dała Airdrie dwa okręgi; mniejszość cztery. Większość narysowała okręgi północnej, wschodniej i centralnej części Calgary blisko średniej prowincjonalnej; mniejszość narysowała je 11,5% powyżej. Obie mapy podążają za tym samym statutem. Obie są legalne na mocy <em>Electoral Boundaries Commission Act</em>. Nieporozumienie dotyczyło tego, które konkretne konfiguracje geograficzne najlepiej służyły rysowanym społecznościom. Rządząca partia Alberty to United Conservative Party (UCP); jej główną opozycją jest New Democratic Party (NDP). Mniejsze partie — Alberta Party, Liberal Party of Alberta i inne — również biorą udział w wyborach o mandaty, ale ich łączny prowincjonalny udział głosów był w ostatnich wyborach na tyle niski, że materialnie nie wpływa na obliczenia sprawiedliwości partyjnej audytu, które są oparte na podziale UCP–NDP z 2023 roku. Ten audyt zmierzył obie mapy przy użyciu tych samych metod, stosowanych identycznie. Trzy ustalenia się wyróżniają.',
+			intro: 'Komisja ds. Granic Wyborczych Alberty zakończyła pracę 23 marca 2026 roku i nie zdołała dojść do porozumienia. Trzech komisarzy przygotowało jedną mapę, a pozostałych dwóch inną. Przewodniczący Komisji Sędzia Dallas K. Miller i dwóch komisarzy nominowanych przez opozycję napisali raport większościowy; dwóch komisarzy nominowanych przez rząd — dr Julian Martin i John D. Evans — napisało raport mniejszościowy. Spór dotyczył tego, jak wytyczyć granice w szybko rosnących społecznościach na obrzeżach miast. Większość dała Airdrie dwa okręgi, mniejszość cztery. Większość wytyczyła okręgi północnego, wschodniego i centralnego Calgary blisko średniej prowincjonalnej, mniejszość — o 11,5% powyżej niej. Obie mapy opierają się na tej samej ustawie. Obie są legalne na mocy <em>Electoral Boundaries Commission Act</em>. Spór dotyczył tego, które konkretne układy geograficzne najlepiej służą społecznościom, wokół których rysowano granice. Rządzącą partią Alberty jest United Conservative Party (UCP); jej główną opozycją jest New Democratic Party (NDP). Mniejsze partie — Alberta Party, Liberal Party of Alberta i inne — też walczą o mandaty, ale ich łączny udział w głosach w prowincji był w ostatnich wyborach na tyle niski, że nie wpływa istotnie na obliczenia sprawiedliwości partyjnej audytu, oparte na podziale głosów UCP–NDP z 2023 roku. Ten audyt zmierzył obie mapy tymi samymi metodami, stosowanymi identycznie. Wyróżniają się cztery ustalenia.',
 			finding1: '<strong>Dwie mapy różnią się w sześciu rzeczach, które można zmierzyć bez patrzenia na jakiekolwiek wyniki wyborów:</strong> jak równo ludzie są rozprowadzeni między okręgami, czy wyborcy są skoncentrowani, jak źle miasta są pocięte, czy granice podążają za limitami miast, kształt okręgów i ile granic sam Przewodniczący Komisji Sędzia Miller zaznaczył jako anomalne na piśmie (§5.8.2 raportu większościowego i Załącznik C). Mapa mniejszościowa różni się od większości w każdym z nich.',
-			finding2: '<strong>Każda zmierzona różnica porusza się w tym samym kierunku.</strong> Wszędzie tam, gdzie dwie mapy się rozchodzą — północno-wschodnie Calgary, Airdrie, obszary miejskie z wyraźnymi limitami miast — mapa mniejszościowa rysuje granice, które rozprowadzają głosy NDP cieniej i pozwalają głosom UCP liczyć się wydajniej. Społeczności najbardziej przekształcone przez mapę mniejszościową to te same społeczności, w których NDP jest najsilniejsza. Audyt nie może określić intencji. Może zmierzyć efekt.',
+			finding2: '<strong>Każda zmierzona różnica sprzyja tej samej partii.</strong> Wszędzie tam, gdzie obie mapy się rozchodzą — północne i wschodnie Calgary, Airdrie, obszary miejskie z wyraźnymi granicami miast — mapa mniejszościowa rysuje granice, które cieniej rozprowadzają głosy NDP i pozwalają głosom UCP liczyć się wydajniej. Społeczności najbardziej przekształcone przez mapę mniejszościową to te same społeczności, w których NDP jest najsilniejsza. Audyt nie może ustalić intencji. Może zmierzyć skutek.',
 			finding3: '<strong>Proces, który zastąpił komisję, miał jeden precedens wśród kanadyjskich cykli redystrybucji zbadanych przez ten audyt: w samej Albercie, w 1992 roku.</strong> Żadna z analizowanych prowincji nie przekazuje wytyczania okręgów w połowie cyklu komitetowi kontrolowanemu przez partię rządzącą. Większość wymaga, by legislatura najpierw przedebatowała mapę komisji, albo nadaje tej mapie automatyczną moc, chyba że legislatura ją uchyli. Alberta nie robi ani jednego, ani drugiego. Raport komisji niczego tu nie zmienia, dopóki legislatura nie uchwali odrębnej <em>Electoral Divisions Act</em>, więc to partia rządząca decyduje, czy jakakolwiek mapa komisji stanie się prawem. 21 kwietnia Zgromadzenie użyło tej władzy: Wniosek Rządowy 37, przyjęty stosunkiem głosów 44 do 36, odłożył obie mapy komisji na bok i przekazał pracę komitetowi MLA z większością UCP. Rząd uzasadniał to Rekomendacją 5 przewodniczącego. Czego ta rekomendacja naprawdę dotyczy, opisujemy dalej.',
 			closing: '<strong>Proces jest własnym ustaleniem, oddzielnym od map.</strong>'
 		},
 		november: {
-			heading: '7: Komitet Lunty\'ego',
+			heading: 'Komitet Lunty\'ego',
 			context_label: 'KONTEKST',
-			context_body: ' — Ta sekcja opisuje proces, który zastąpił komisję, i ramy prawne, które go dotyczą. Nie jest częścią ustaleń statystycznych. Ustalenia znajdują się w §3–§6 powyżej.',
+			context_body: ' — Ta sekcja opisuje proces, który zastąpił komisję, i ramy prawne, które go dotyczą. Nie jest częścią ustaleń statystycznych. Ustalenia znajdują się powyżej, w czternastu dowodach („casings”).',
 			intro: 'Żadna z map komisji nie jest w mocy. 21 kwietnia 2026 roku Zgromadzenie Ustawodawcze przyjęło Wniosek Rządowy 37, odkładając obie na bok i przekazując redystrybucję okręgów Specjalnemu Komitetowi Wyborczemu sześciu MLA — czterech UCP, dwóch NDP — pod przewodnictwem Brandona Lunty\'ego (UCP, Leduc-Beaumont). Sam komitet nie rysuje mapy. Nadzoruje odrębny Niezależny Panel Doradczy, ustanowiony w ramach tego samego wniosku, którego zadaniem jest opracowanie propozycji granic 91 mandatów. Wniosek 37 przewidywał pięciu członków panelu — sędziego pełniącego funkcję lub emerytowanego jako przewodniczącego, dwóch członków nominowanych przez Premiera i dwóch przez Lidera Opozycji — ale pełniący obowiązki głównego sędziego Alberty odmówił nominacji sędziego na stanowisko przewodniczącego, a panel obecnie działa z czterema osobami wyznaczonymi przez komitet: Hon. Monte Solbergiem i Darwinem Durniem (nominacje Premiera) oraz Drem Gerardem Kennedym i Brentem Robinsonem (nominacje Opozycji). Komitet musi dostarczyć swój raport Legislaturze do 2 listopada 2026 roku. W przeciwieństwie do pierwotnej komisji ani komitet, ani panel nie są zobowiązani do przeprowadzenia przesłuchań publicznych; panel czerpie ze zgłoszeń zebranych przez pierwotną komisję. Gdy mapa komitetu zostanie ujawniona, ten audyt zastosuje tę samą metodologię do jej oceny.',
 			h_anomalous: 'Dlaczego Komitet Jest Anomalią',
 			anomalous_p1:
@@ -628,7 +628,7 @@ export default {
 				'Audyt zastosuje te same testy do mapy komitetu Lunty\'ego, gdy zostanie ujawniona. Powyższe konstytucyjne i porównawcze obserwacje są kontekstowe; metodologia się nie zmienia.'
 		},
 		references: {
-			heading: '10: Źródła i Metodologia',
+			heading: 'Źródła i metodologia',
 			heading_aria: 'Link do źródeł',
 			intro:
 				'Metoda opiera się na ugruntowanej literaturze z zakresu nauk politycznych, statystyki i prawa. Pełne cytowania są zgodne ze stylem American Political Science Association (APSA); sprawy sądowe cytowane są zgodnie z kanadyjską konwencją prawniczą. Pełna lista źródeł znajduje się w <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">raporcie technicznym</a>. Najważniejsze źródła są tutaj.',
@@ -637,7 +637,7 @@ export default {
 			h_statutes: 'Ustawy'
 		},
 		resources: {
-			heading: '11: Załącznik Techniczny',
+			heading: 'Raporty i kod',
 			heading_aria: 'Link do technicznego',
 			tag_plain: 'Prosty język',
 			plain_label: 'Pełny raport publiczny',
@@ -656,7 +656,7 @@ export default {
 		about_me: {
 			heading: 'O mnie',
 			p1: 'Jestem studentem Mount Royal University. Przeprowadziłem te badania samodzielnie — nie zostały one przydzielone jako praca kursowa, a uniwersytet nie zlecił ich wykonania. Moje poglądy są moje własne i nie reprezentują uniwersytetu. Przez około 27 lat, od wyborów do wyborów, pracowałem na podstawie umowy jako pracownik wyborczy dla Elections Alberta, obsługując głosowanie w dniu wyborów. Obecnie nie jestem związany umową; ostatnio pracowałem przy niedawnych wyborach. Poza tym nigdy nie byłem zatrudniony przez Elections Alberta i nie mam wiedzy o pracy tej instytucji wykraczającej poza te zadania. Nic w tym audycie nie pochodzi z tej pracy; wszystkie dane wejściowe są publiczne. Te badania są moje własne, a nie Elections Alberta, i nie wypowiadają się w imieniu tej instytucji. Nie mam żadnych powiązań z komisją. Jako dorosły głosowałem zarówno na konserwatywne, jak i postępowe partie prowincjonalne w Albercie, a także przekazywałem im darowizny.',
-			p2: 'Głosowałem na różne partie w różnych wyborach, na całym spektrum politycznym. Mówię to, ponieważ moja historia polityczna może wpłynąć na to, jak patrzę na tę kwestię. Główną ochroną przed tym jest metoda: przetestowałem obie mapy w ten sam sposób, spisałem swoje przewidywania przed obejrzeniem wyników i umieściłem wszystko online, aby każdy mógł sprawdzić moją pracę. Sam zapłaciłem za te badania. Jeśli znajdziesz coś, co się myliłem, naprawdę chcę o tym wiedzieć.',
+			p2: 'Moja historia polityczna może wpływać na to, jak patrzę na tę kwestię, a główną ochroną przed tym jest metoda. Przetestowałem obie mapy w ten sam sposób, zarejestrowałem swoje testy publicznie, w zapisach opatrzonych datą i godziną, oznaczyłem każde ustalenie jako wstępnie zarejestrowane albo eksploracyjne i umieściłem wszystko w sieci, żeby każdy mógł sprawdzić moją pracę. Sam zapłaciłem za te badania. Jeśli znajdziesz coś, w czym się pomyliłem, chcę o tym wiedzieć.',
 			p3: 'Zapisy zatwierdzenia ziaren i pre-rejestracji: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451 — losowe ziarna zostały oznaczone czasowo w publicznym beaconie przed udostępnieniem oficjalnych plików shapefile; test drenażu sąsiada (#289,451) został zarejestrowany przed pomiarem, pozostałe złożone wraz z analizą eksploracyjną.',
 			p4: 'Pytania lub korekty: '
 		},
@@ -668,7 +668,7 @@ export default {
 			p3_link: 'skontaktować się'
 		},
 		retractions: {
-			heading: '9: Wycofania i Korekty',
+			heading: 'Wycofania i korekty',
 			heading_aria: 'Link do wycofań',
 			conditions_label: 'WARUNKI WYCOFANIA',
 			conditions_intro:
@@ -678,7 +678,7 @@ export default {
 			c1_cond:
 				'Warunek: ktoś wykaże, że żadna legalna mapa Alberty nie może spełnić własnych powodów podanych przez mniejszość — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — przy jednoczesnym zakotwiczeniu na liniach miejskich w stopniu porównywalnym z mapą większościową. Kontrmapa, która osiąga oba cele, wzmocniłaby natomiast to ustalenie (Poprawka 27). Otwarte wyzwanie: <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
 			c2_title: 'Warunek 2 — Pre-rejestrowany wynik pozytywny Drenażu Sąsiada jest odwrócony',
-			c2_what: '<em>Co zostaje wycofane:</em> Wpis w tabeli Sekcji 3 odnotowujący mapę mniejszościową jako pre-rejestrowany WYNIK POZYTYWNY w teście sąsiedztwa drenażu sąsiada.',
+			c2_what: '<em>Co zostaje wycofane:</em> Wpis w Casing 10, który odnotowuje mapę mniejszościową jako wstępnie zarejestrowane ZALICZENIE w teście sąsiedztwa drenażu sąsiedzkiego.',
 			c2_cond:
 				'Warunek: ciągły wynik drenażu v2 wpada w skrajny górny ogon (p &lt; 0,05) losowych permutacji na stałym grafie ciągłości, co oznacza, że wynik pozytywny był artefaktem pomiarowym binarnej metody punktowania v1, a nie prawdziwym wynikiem zerowym.',
 			c3_title: 'Warunek 3 — Wypływa dokument komisji sprzed 2026 roku',
@@ -688,7 +688,7 @@ export default {
 			c4_title: 'Warunek 4 — Wynik wyborów 2027 zaprzecza symulacji',
 			c4_what: '<em>Co zostaje wycofane:</em> Ustalenie z symulacji — że przy remisie w głosach mapa mniejszościowa daje udział w mandatach, który przekracza tylko 69 z 1 010 000 neutralnych losowań.',
 			c4_cond:
-				'Warunek: jeśli wybory prowincjonalne w 2027 roku zostaną rozegrane na jednej z map komisji, a rzeczywisty podział mandatów partyjnych zaprzecza projekcji kierunkowej z głosów 2023 roku, ustalenia percentyla Toru 1 są ponownie rozpatrywane wobec rzeczywistych wyników.',
+				'Warunek: jeśli wybory prowincjonalne w 2027 roku odbędą się na którejkolwiek z map komisji, a rzeczywisty partyjny podział mandatów zaprzeczy kierunkowej projekcji opartej na głosach z 2023 roku, ustalenia percentylowe symulacji zostaną ponownie zestawione z rzeczywistymi wynikami.',
 			c5_title: 'Warunek 5 — Sąd Alberty odróżnia wyrok SCC Quebec',
 			c5_what: '<em>Co zostaje wycofane:</em> Argument proceduralny Sekcji 7, że Wniosek Rządowy 37, który zastąpił komisję komitetem Lunty\'ego, siedzi w tej samej klasie konstytucyjnej, co zamrożenie redystrybucji okręgów Quebec z 2024 roku.',
 			c5_cond:
@@ -700,8 +700,8 @@ export default {
 				'<strong>Zakotwiczenie miejskie.</strong> Wczesna robocza analiza na prowizorycznych granicach map pokazała, że mapa mniejszościowa trzyma się linii miejskich tylko w 15% przypadków — 4,9&times; poniżej kanadyjskiej normy 70–85%. Ta liczba była artefaktem prowizorycznych rekonstrukcji granic (z ery DPG). Na oficjalnych, kanonicznych plikach shapefile Elections Alberta obie mapy mieszczą się w kanadyjskiej normie: większościowa 80%, mniejszościowa 72%. <em>Rozbieżność</em> w zakotwiczeniu miejskim między obiema mapami nie jest sygnałem, który przetrwał kanoniczne ponowne obliczenie. Trzy anomalie granic wskazane przez przewodniczącego komisji (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) pozostają i ta korekta ich nie dotyczy.'
 		},
 		suggestions: {
-			heading: '8: Sugestie',
-			heading_aria: 'Link do sekcji 8',
+			heading: 'Sugestie',
+			heading_aria: 'Link do sugestii',
 			intro:
 				'Ten audyt natknął się na dwa problemy z danymi, które nie mają nic wspólnego z pracą komisji i wszystko wspólnego z tym, jak zaprojektowany jest system wyborczy Alberty. Oba są możliwe do naprawienia.',
 			advance_p1:
@@ -954,8 +954,8 @@ export default {
 			flag_link: 'Kliknij, aby powiększyć'
 		},
 		miller: {
-			title: 'Miller — przywrócony mandat wiejski',
-			body: 'Ten obszar znajduje się na mapie dzięki Sędziemu Dallasowi Millerowi, przewodniczącemu komisji. W aneksie do końcowego raportu napisał, że jeśli Legislatura nie zgodzi się na likwidację dwóch wiejskich okręgów, powinna zamiast tego dodać dwa mandaty — z 89 do 91 — i je przywrócić. Wskazał na to miejsce, w okolicach hrabstw Clearwater i zachodniego Mountain View na zachód od Red Deer, jako miejsce, w którym powinien znaleźć się jeden z tych wiejskich mandatów. Jest naszkicowany z linii hrabstw jako element zastępczy, a nie oficjalna granica, dopóki następna komisja nie przerysuje mapy.'
+			title: 'Rekomendacja 5(d): wiejski mandat do przywrócenia',
+			body: 'Sędzia Dallas Miller, przewodniczący komisji, napisał, że jeśli Legislatura nie zgodzi się na utratę dwóch wiejskich okręgów, powinna zwiększyć liczbę mandatów z 89 do 91 i je przywrócić. To jedyne miejsce, które wskazał dla przywróconego mandatu: okręg złożony głównie z hrabstwa Clearwater i zachodniej części hrabstwa Mountain View, ze statusem z art. 15(2) (przepis pozwalający, by duży, odległy okręg miał znacznie mniej mieszkańców niż średnia). Prosił o rozważenie tego, a nie o obowiązek. Zarys jest przybliżony: hrabstwo Clearwater plus ta część hrabstwa Mountain View, która w 2019 roku należała do okręgu Rimbey-Rocky Mountain House-Sundre. Leży w całości na północ od Airdrie i nie zabiera terenu żadnemu okręgowi chronionemu przez warunki (a) lub (b). Dla drugiego mandatu nie wskazał żadnego miejsca.'
 		},
 		flags: {
 			'banff-town': {
