@@ -1325,7 +1325,9 @@ The test stays the same: the Issue #14 counter-map challenge, judged by the same
 - The Count row gives the committee "1 Yes, 2 Partial, 4 No, 2 Pending". P6's definition scores the body whose vote settles the map, which is the committee, chaired by a government MLA: No. Counted by the cells as defined, the committee's row is 1 Yes, 1 Partial, 5 No, 2 Pending, which is how the site's norms page now reports it (C40).
 - Not changed: P9 says the committee process is "without precedent among the reviewed cycles". Alberta's 1992 committee is the precedent the site now acknowledges (C38). P9 is scoped to the cycles the scorecard reviewed, so it stays as registered; the report notes the 1992 case beside it.
 
-**Disclosure.** These errata were found while checking the voice pass (2026-10-31) and grounding its open items (2026-11-01). No committee map or result exists. Item 1 changes no registered outcome so far, because no counter-map has been filed. Item 2 changes one tally and no verdict.
+**3. A falsifier's premise** (academic report §6.2.6 item 2). It opens "The 2019 cross-election direction reversal extends to 338Canada April 2026 polling". On the official 2019 files there is no reversal: the minority stays the more UCP-favourable map (C44). The premise is struck. The operative test is the one its second sentence states and stays as written: if more recent polling shows the direction flipping under several 2020s-era voter distributions, the structural pattern becomes harder to read as engineering.
+
+**Disclosure.** These errata were found while checking the voice pass (2026-10-31) and grounding its open items (2026-11-01). No committee map or result exists. Item 1 changes no registered outcome so far, because no counter-map has been filed. Item 2 changes one tally and no verdict. Item 3 changes no test.
 
 **Signed:** pending
 
