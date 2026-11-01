@@ -35,7 +35,7 @@ SAMPLER_SHA = "2e75ca758a3071bf713084912d93188b48b89ef6d667476d4a4a84ec2a014316"
 
 
 def load_sampler(path):
-    src = Path(path).read_text()
+    src = Path(path).read_text(encoding="utf-8")
     if hashlib.sha256(src.encode()).hexdigest() != SAMPLER_SHA:
         print(f"note: {path} is not close_seats_ensemble.py@2994113c", flush=True)
     src = src.replace("REPO = Path(__file__).resolve().parents[2]", f"REPO = Path({str(REPO)!r})", 1)
@@ -63,7 +63,7 @@ def main(a):
         orig(ckpt, payload)
         done = payload["done"]
         if done >= a.burn and (done - a.burn) % a.space == 0:
-            (out / f"plan_{a.idx}_{done}.json").write_text(json.dumps(payload["assignment"]))
+            (out / f"plan_{a.idx}_{done}.json").write_text(json.dumps(payload["assignment"]), encoding="utf-8")
 
     cse._write_ckpt = hook
     cse.run("nk", a.idx, a.burn + a.space * (a.nplans - 1), 500, out / f"chain{a.idx}.csv", "", a.k)
