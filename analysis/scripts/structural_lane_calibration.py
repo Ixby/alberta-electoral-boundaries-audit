@@ -5,13 +5,14 @@ structural_lane_calibration.py
 ------------------------------
 
 How often the November spec's two lanes fire on neutral maps. Calibration
-only; it changes no registered rule (Amendment 24 keeps the 2x2 verdict).
+only; it changes no registered rule (Amendment 5, Part 14 keeps the 2x2
+verdict).
 
 Neutral maps, sampled with close_seats_ensemble.py at
 amendment17-local-runs@2994113c, 10,000 burn-in steps, then one plan every
 2,500 steps:
-  91 districts  set D (s.15(2), Amendment 23 rule), chains 290-293, production
-                set-D options
+  91 districts  set D (s.15(2), Amendment 5, Part 15 rule), chains 290-293,
+                production set-D options
   87 districts  canonical kernel, chains 300-303 (run on the PC)
 The script scores whatever plans --plans holds; label each run's output by
 the chains that made it.

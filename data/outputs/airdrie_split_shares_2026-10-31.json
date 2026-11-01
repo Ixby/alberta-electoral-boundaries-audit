@@ -1,6 +1,6 @@
 {
   "script": "analysis/scripts/airdrie_split_shares.py",
-  "method": "2021 census DAs over Elections Alberta's official 2026 boundaries; a DA is in Airdrie when its representative point lies in CSD 4806021; DAs cut by a district line shared out by area; a DA is whole when one district holds >= 99% of its area; piece rule = >= 2% of Airdrie's people (Amendment 17).",
+  "method": "2021 census DAs over Elections Alberta's official 2026 boundaries; a DA is in Airdrie when its representative point lies in CSD 4806021; DAs cut by a district line shared out by area; a DA is whole when one district holds >= 99% of its area; piece rule = >= 2% of Airdrie's people (Amendment 5, Part 17).",
   "airdrie_2021_census_csd": 74100,
   "maps": {
     "majority": {

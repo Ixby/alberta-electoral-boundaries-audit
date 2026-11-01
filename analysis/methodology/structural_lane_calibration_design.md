@@ -1,6 +1,6 @@
 > **Backward:**
 > - `preregistration/november_2026_scoring_spec.md` §3 — the two lanes and the 2×2 verdict
-> - `findings/pre_registration_amendment_log.md` — Amendments 9 (structural midpoints), 17, 20, 21, 23 and 24
+> - `findings/pre_registration_amendment_log.md` — Amendment 5, Parts 7 (structural midpoints), 14, 15 and 17
 > - `analysis/scripts/calibration_sample_plans.py` — samples the neutral plans
 > - `analysis/scripts/structural_lane_calibration.py` — scores them
 >
@@ -10,7 +10,7 @@
 
 # Calibrating the November verdict on neutral maps: design, method, rationale, timeline
 
-**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:50 MDT; splits recounted by dissemination area 10:03 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. Amendment 24's 2×2 stands as registered.
+**Written:** 2026-10-31, about 09:30 MDT (Alberta time); plain terms and placements added 09:36 MDT; words, cities-as-towns and unneeded splits added 09:50 MDT; splits recounted by dissemination area 10:03 MDT. **Status:** calibration, not a registered test. It changes no rule, threshold or verdict. The 2×2 stands as registered (see Amendment 5, Part 14).
 
 ## Plain terms
 
@@ -20,19 +20,19 @@
 - **Why computer maps fire.** The computer only follows its rulebook. It does not weigh what s.14 lets a commission weigh, such as municipalities (s.14(b)) and clear boundaries (s.14(e)). Both commission maps have more equal populations and more boundary on town and county lines than every computer-drawn map. The halfway line sits between two maps that are both outside the computer's range, so computer maps land on the minority's side of it. They fire because they sit further out than both commission maps, not because they resemble the minority.
 - **Words used.** Equal populations: how close districts are to the same size. Unneeded splits: a municipality split when its population did not require it. That is a cracking signal, since cracking divides a community's voters among districts. Boundaries on municipal lines: how much of a map's boundary follows town, city and county limits. Packing, crowding one side's voters into a few lopsided districts, shows in vote shares, so the partisan lane measures it (efficiency gap, declination). None of the structural measures says whether a map favours a party; they show where a map did what a gerrymander would need to do.
 - **Cities counted as towns.** The audit counts cities as towns in two places. Neither changes how the three real maps (2019, majority, minority) compare:
-  - **s.15(2)(c)** (Amendment 21). Read by legal status alone, "town" would make two Medicine Hat districts on each map, and one Tsuut'ina Calgary district on each 2026 map, eligible to sit 50% under. All of them sit above the average population (+1.4% to +18.5% on 2021 census figures), so none uses the allowance. The districts more than 25% under that meet three criteria hold no city. Two majority districts, Calgary-North East and Calgary-South East, are also more than 25% under on 2021 figures (growth areas the census predates), but they meet one criterion under the audit's reading and two under the legal-status reading, so they are not eligible either way. The reading only stops set D's computer from shrinking a city district to half size, which no Alberta commission has done.
-  - **S2** (Amendment 9) counts every split city, town and specialized municipality. That includes the 10 too big for one legal district: Airdrie, Calgary, Edmonton, Grande Prairie, Lethbridge, Medicine Hat, Red Deer, St. Albert, Strathcona County and Wood Buffalo. Every map, real or computer-drawn, splits all 10, so they add the same count to each.
+  - **s.15(2)(c)** (Amendment 5, Part 15). Read by legal status alone, "town" would make two Medicine Hat districts on each map, and one Tsuut'ina Calgary district on each 2026 map, eligible to sit 50% under. All of them sit above the average population (+1.4% to +18.5% on 2021 census figures), so none uses the allowance. The districts more than 25% under that meet three criteria hold no city. Two majority districts, Calgary-North East and Calgary-South East, are also more than 25% under on 2021 figures (growth areas the census predates), but they meet one criterion under the audit's reading and two under the legal-status reading, so they are not eligible either way. The reading only stops set D's computer from shrinking a city district to half size, which no Alberta commission has done.
+  - **S2** (Amendment 5, Part 7) counts every split city, town and specialized municipality. That includes the 10 too big for one legal district: Airdrie, Calgary, Edmonton, Grande Prairie, Lethbridge, Medicine Hat, Red Deer, St. Albert, Strathcona County and Wood Buffalo. Every map, real or computer-drawn, splits all 10, so they add the same count to each.
 
 ## 1. Rationale
 
 The November verdict combines two lanes (spec §3):
 
-- **Structural lane.** Five discriminating flags (S1–S3, S5, S6), each with a threshold set midway between the majority and minority commission maps (Amendment 9). "Replicated" means three or more fire.
+- **Structural lane.** Five discriminating flags (S1–S3, S5, S6), each with a threshold set midway between the majority and minority commission maps (Amendment 5, Part 7). "Replicated" means three or more fire.
 - **Partisan lane.** P1–P4 placed against the 1,010,000-plan, 87-district canonical ensemble. "Present" means two or more fire in the UCP direction.
 
 Neither lane's rate on neutral maps had been measured, so there was no way to weigh a "replicated" or "present" result. Three things raised the question:
 
-- Amendment 9 records S1 firing on 25.7% of neutral plans by itself.
+- The midpoint rule's 2026-06-12 addendum recorded S1 firing on 25.7% of neutral plans by itself (before the ensemble rerun; Amendment 5, Part 7 now gives 25.34%).
 - A dry run on a synthetic 91-district plan tripped both lanes. That plan was later shown not to be a neutral draw.
 - The partisan lane measured 4.8–8.3% on the size-matched neutral sets (`findings/size_matched_results_2026-10-30.md`).
 
@@ -45,12 +45,12 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
 | Size | What it calibrates | Kernel | Chains | Plans | Status |
 |---|---|---|---|---|---|
-| 91 | The November map | Set D: s.15(2), Amendment 23 rule | 290, 291, 293, 295 (292 and 294 failed to seed) | 200 | Complete |
+| 91 | The November map | Set D: s.15(2), Amendment 5, Part 15 rule | 290, 291, 293, 295 (292 and 294 failed to seed) | 200 | Complete |
 | 89 | The two 2026 commission maps | Set D | 190–193 | 200 | Complete |
 | 87 | The registered headline's null, and the 2019 map | Canonical: ±12.5% proposal band, no s.15(2) mode | 300 and up | 200 | Queued after the 89 run |
 
-- **Kernels.** Set D is the primary size-matched set (Amendment 24), so it is used at 89 and 91. At 87 the canonical kernel is used because it is the null the registered partisan comparison uses. The two kernels differ, and their results are reported side by side, not pooled.
-- **Sampling.** Each chain starts from a `recursive_tree_part` seed. Seeds use the Amendment 17 formula: (base seed × 100,000 + index × 1,000) mod 2³². After 10,000 burn-in steps, the chain keeps one plan every 2,500 steps, 50 plans per chain. A chain that fails to seed is replaced by the next index, which has happened before for indices 220, 240, 242 and 250.
+- **Kernels.** Set D is the primary size-matched set (Amendment 5, Part 14), so it is used at 89 and 91. At 87 the canonical kernel is used because it is the null the registered partisan comparison uses. The two kernels differ, and their results are reported side by side, not pooled.
+- **Sampling.** Each chain starts from a `recursive_tree_part` seed. Seeds use the Amendment 5, Part 14 formula: (base seed × 100,000 + index × 1,000) mod 2³². After 10,000 burn-in steps, the chain keeps one plan every 2,500 steps, 50 plans per chain. A chain that fails to seed is replaced by the next index, which has happened before for indices 220, 240, 242 and 250.
 - **Spacing.** On the size-matched sets, most measures decorrelate over a few hundred to a few thousand steps. Spacing plans 2,500 steps apart reduces that dependence but does not remove it.
 - **Separate indices.** Calibration indices (190s, 290s, 300s) sit outside every registered block (A 220s/120s, B 230s/130s, C 240s/140s, D 250s/150s), so calibration output can't be mistaken for registered output.
 
@@ -58,7 +58,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
 **Sampler.** `close_seats_ensemble.py` at `amendment17-local-runs@2994113c` (SHA-256 `2e75ca758a3071bf713084912d93188b48b89ef6d667476d4a4a84ec2a014316`). This is the code the size-matched sets ran. `calibration_sample_plans.py` loads it with only its repository path changed and saves each kept plan's assignment. The runs themselves used a session copy with the same one-line change; checked at 09:32 MDT, the committed script reproduced the first 1,000 steps of live chain 190 row for row.
 
-- At 89 and 91 it runs with the production set-D options: s.15(2) mode on the Amendment 23 table (SHA-256 `48c928b8…2fafc`).
+- At 89 and 91 it runs with the production set-D options: s.15(2) mode on the Amendment 5, Part 15 table (SHA-256 `48c928b8…2fafc`).
 - At 87 it runs with the canonical options.
 - Each chain also writes its usual per-step CSV, which supplies the partisan lane.
 
@@ -66,7 +66,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
 - **S6 limit.** S6 reads district names, such as "Airdrie" in three or more districts, or "Cochrane" together with "Calgary". It cannot fire on unnamed plans, so the registered count is a lower bound.
 - **Geometric stand-in for S6.** Reported beside the registered count, it replaces names with where each place's people fall:
-  - P1 and P5: Airdrie or Red Deer is split into three or more districts. A district counts when it holds at least 2% of the city's people, the piece rule from Amendment 17.
+  - P1 and P5: Airdrie or Red Deer is split into three or more districts. A district counts when it holds at least 2% of the city's people, the piece rule from Amendment 5, Part 17.
   - P2–P4: a district has at least 10% of its people in Calgary and at least 10% in Cochrane, Chestermere or Rocky View County. The 10% cut is this calibration's choice.
   - It flags at three or more hits, the registered S6 rule.
 - **Validation of the stand-in.** On the commission maps it agrees with the registered S6: the majority gets 0 hits and no flag; the minority gets 4 hits and a flag (the registered S6 counts 5, so the stand-in misses the Chestermere–Calgary hybrid).
@@ -117,7 +117,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
 
   S6 reads district names and cannot be placed.
 
-  The registered S2 counts land: any 5 hectares of a municipality in a second district is a split. Counted by people instead, leaving out the 10 municipalities that must be split, the picture changes for the minority. A split here needs a second district holding at least 2% of the municipality's people (Amendment 17's piece rule). People are 2021 census dissemination areas laid over each map's official boundaries.
+  The registered S2 counts land: any 5 hectares of a municipality in a second district is a split. Counted by people instead, leaving out the 10 municipalities that must be split, the picture changes for the minority. A split here needs a second district holding at least 2% of the municipality's people (the piece rule of Amendment 5, Part 17). People are 2021 census dissemination areas laid over each map's official boundaries.
 
   | Map | Unneeded splits (people in the second district) |
   |---|---|
@@ -125,7 +125,7 @@ Neither lane's rate on neutral maps had been measured, so there was no way to we
   | Majority (89) | 0 |
   | Minority (89) | 8: Blackfalds (43%), Sylvan Lake (20%), Bowden (16%), Coaldale (14%), Okotoks (9%), Chestermere (9%), Devon (5%), Lac la Biche County (4%). Blackfalds, Sylvan Lake and Chestermere are firm. Bowden, Coaldale, Okotoks, Devon and Lac la Biche County rest only on census areas the line cuts, so they are unresolved (`findings/minority_unneeded_splits_stated_reasons.md`) |
 
-  The registered size-matched town-split measure (Amendment 17: cities and towns of 20,000–150,000 split into more pieces than their population requires) places the two maps against all four rulebooks at 89 districts (`findings/size_matched_results_2026-10-30.md`, provisional):
+  The registered size-matched town-split measure (Amendment 5, Part 17: cities and towns of 20,000–150,000 split into more pieces than their population requires) places the two maps against all four rulebooks at 89 districts (`findings/size_matched_results_2026-10-30.md`, provisional):
 
   | Rulebook | Computer maps: 5th – median – 95th | Majority (0) | Minority (6) |
   |---|---|---|---|

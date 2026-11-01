@@ -4,22 +4,23 @@
 size_matched_results.py
 -----------------------
 
-Distributions of the Amendment 17/20/21/23 neutral-map sets, their effective
+Distributions of the Amendment 5, Part 14 neutral-map sets, their effective
 sample sizes, and the two 2026 commission maps placed against the 89-district
 sets.
 
-  Sets      A  ±12.5% proposal band (Amendment 17); B  statute band (Amendment 20,
-            set 1); C  municipality-aware, W = 0.5 (Amendment 20 set 2, Amendment
-            21); D  s.15(2), Amendment 23 rule (Amendment 20 set 3). The first
-            set D run (Amendment 21 table) is superseded and not read.
+  Sets      A  ±12.5% proposal band (Amendment 5, Part 14); B  statute band
+            (Amendment 5, Part 14); C  municipality-aware, W = 0.5 (Amendment 5,
+            Part 14); D  s.15(2), Amendment 5, Part 15 rule (Part 14). The first
+            set D run (earlier s.15(2) table, not carried into Amendment 5) is
+            superseded and not read.
   n_eff     Geyer initial positive sequence, per chain, by the canonical
             estimator (simulation_multichain_ensemble.autocorrelation_ess),
             summed over chains. A result is final when pooled n_eff >= 400 and
-            no chain's lag cap bound (Amendment 21 item 2(a)); otherwise it is
+            no chain's lag cap bound (Amendment 5, Part 16); otherwise it is
             provisional and n_eff is an upper bound where the cap bound.
-  Flags     Amendment 17: towns split and the city-versus-rest gap flag at or
-            above the set's 95th percentile; competitive seats (close4) flag at
-            or below its 5th percentile.
+  Flags     Amendment 5, Part 17: towns split and the city-versus-rest gap flag
+            at or above the set's 95th percentile; competitive seats (close4)
+            flag at or below its 5th percentile.
   Placement midrank percentile, as mcmc_ensemble.pct_rank.
 
 The commission maps have 89 districts, so they are placed against the k = 89
@@ -56,10 +57,10 @@ exec(_src[_src.index("def autocorrelation_ess"):_src.index("\ndef ", _src.index(
 autocorrelation_ess = _ns["autocorrelation_ess"]
 
 SETS = {
-    "A": ("", "±12.5% proposal band (Amendment 17)"),
-    "B": ("_eps25", "statute band, ±25% (Amendment 20, set 1)"),
-    "C": ("_muni", "municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21)"),
-    "D": ("_s152a23", "s.15(2), Amendment 23 rule (Amendment 20 set 3)"),
+    "A": ("", "±12.5% proposal band (Amendment 5, Part 14)"),
+    "B": ("_eps25", "statute band, ±25% (Amendment 5, Part 14)"),
+    "C": ("_muni", "municipality-aware, W = 0.5 (Amendment 5, Part 14)"),
+    "D": ("_s152a23", "s.15(2), Amendment 5, Part 15 rule (Part 14)"),
 }
 REGISTERED = {"towns_flagged": "upper", "city_gap_pct": "upper", "close4": "lower"}
 REPORTED = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50", "population_mad", "ucp_seats"]

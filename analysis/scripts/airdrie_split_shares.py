@@ -27,7 +27,7 @@ Per district holding any Airdrie residents it reports:
   rests_only_on_cut_das     true when airdrie_from_whole_das is 0, i.e. the
                             district's Airdrie count is area sharing alone
   piece_2pct                true when the district holds >= 2% of Airdrie's
-                            people (Amendment 17's piece rule)
+                            people (the piece rule in Amendment 5, Part 17)
   airdrie_land_km2          square kilometres of Airdrie (2021 CSD limits) in the district
   residents_by_csd_top3     the district's three largest 2021 CSDs by residents
                             (who outnumbers whom)
@@ -60,7 +60,7 @@ MAPS = {
 NAME = "EDName2025"
 AIRDRIE_CSDUID = "4806021"
 WHOLE = 0.99  # a DA is whole when one district holds at least this share of its area
-PIECE = 0.02  # Amendment 17's piece rule
+PIECE = 0.02  # the piece rule in Amendment 5, Part 17
 DEFAULT_OUT = REPO / "data/outputs/airdrie_split_shares_2026-10-31.json"
 
 
@@ -154,7 +154,7 @@ def main(out):
                    "Airdrie when its representative point lies in CSD 4806021; DAs cut by a "
                    "district line shared out by area; a DA is whole when one district holds "
                    f">= {WHOLE:.0%} of its area; piece rule = >= {PIECE:.0%} of Airdrie's people "
-                   "(Amendment 17)."),
+                   "(Amendment 5, Part 17)."),
         "airdrie_2021_census_csd": int(pd.read_csv(REPO / "data/reference/alberta_2021_csd_populations.csv")
                                        .set_index("ALT_GEO_CODE").loc[int(AIRDRIE_CSDUID), "population_2021"]),
         "maps": {},

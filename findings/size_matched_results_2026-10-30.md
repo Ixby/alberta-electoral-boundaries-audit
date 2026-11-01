@@ -1,7 +1,7 @@
 > **Backward:**
 > - `analysis/scripts/size_matched_results.py` — produces every number here
 > - `data/outputs/size_matched_results_2026-10-30.json` — the same results, machine-readable
-> - `findings/pre_registration_amendment_log.md` — Amendments 17, 20, 21 and 23 define the sets and the rules
+> - `findings/pre_registration_amendment_log.md` — Amendment 5, Parts 14–17, defines the sets and the rules
 > - `analysis/methodology/amendment17_chain_runs/README.md` (branch `amendment17-local-runs`) — how each chain ran
 >
 > **Forward:**
@@ -9,24 +9,24 @@
 
 # Size-matched neutral maps: first results
 
-**Date:** 2026-10-30 19:10 MDT (Alberta time). **Status:** provisional under Amendment 21's rule, as explained below.
+**Date:** 2026-10-30 19:10 MDT (Alberta time). **Status:** provisional under the rule in Amendment 5, Part 16, as explained below.
 
 ## What was run
 
 Four sets of neutral maps, each at 89 and 91 districts, drawn by the canonical ReCom harness:
 
-- **A.** ±12.5% proposal band (Amendment 17).
-- **B.** The statute's ±25% band (Amendment 20, set 1).
-- **C.** Statute band, municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21).
-- **D.** Statute band plus the s.15(2) exception, Amendment 23 rule (Amendment 20 set 3). The first set D run is superseded and not used.
+- **A.** ±12.5% proposal band (Amendment 5, Part 14).
+- **B.** The statute's ±25% band (Amendment 5, Part 14).
+- **C.** Statute band, municipality-aware, W = 0.5 (Amendment 5, Part 14).
+- **D.** Statute band plus the s.15(2) exception, Amendment 5, Part 15 rule (Part 14). The first set D run is superseded and not used.
 
-Each set has 505,000 to 2,020,000 plans. Set A includes chains 201 and 100, run before the harness fixes. Amendment 20 counts them as valid draws from the same distribution.
+Each set has 505,000 to 2,020,000 plans. Set A includes chains 201 and 100, run before the harness fixes. Amendment 5, Part 14, counts them as valid draws from the same distribution.
 
 The two 2026 commission maps have 89 districts, so they are placed only against the 89-district sets. These placements are baselines. The registered test is the November map's, which will be placed against the sets with its own number of districts.
 
 ## How sure the numbers are
 
-Amendment 21 makes a result final only when its pooled effective sample size is at least 400 and the canonical estimator's 2,000-lag cap did not bind on any chain. The cap binds on at least one chain for almost every measure, so almost everything here is **provisional**, and those effective sample sizes are upper bounds. The rule stands as registered.
+Amendment 5, Part 16, makes a result final only when its pooled effective sample size is at least 400 and the canonical estimator's 2,000-lag cap did not bind on any chain. The cap binds on at least one chain for almost every measure, so almost everything here is **provisional**, and those effective sample sizes are upper bounds. The rule stands as registered.
 
 As a diagnostic only, the same estimator with no lag cap gives these figures at 89 districts:
 
@@ -67,13 +67,13 @@ The November spec scores the committee's map against the 87-district canonical e
 | C | 6.6% | 5.5% |
 | D | 8.2% | 8.3% |
 
-The partisan lane's false-positive rate stays near the nominal 5%. It is a little higher in the statute-band sets because P4 (seats at 50/50) fires on 7% to 15% of their plans. The structural lane's rate on neutral maps has not been measured (Amendment 9 records S1 alone firing on 25.7%), so a both-lanes headline is bounded by the partisan figures above.
+The partisan lane's false-positive rate stays near the nominal 5%. It is a little higher in the statute-band sets because P4 (seats at 50/50) fires on 7% to 15% of their plans. The structural lane's rate on neutral maps has not been measured (S1 alone fired on 25.7% by a superseded count; Amendment 5, Part 7 gives 25.34%), so a both-lanes headline is bounded by the partisan figures above.
 
 ## Tables
 
-Percentiles are midrank, as in the canonical harness. "(cap)" marks an effective sample size where the lag cap bound, which makes it an upper bound. **flag** marks a registered Amendment 17 flag: towns split and city gap at or above the set's 95th percentile, competitive seats at or below its 5th.
+Percentiles are midrank, as in the canonical harness. "(cap)" marks an effective sample size where the lag cap bound, which makes it an upper bound. **flag** marks a registered Amendment 5, Part 17 flag: towns split and city gap at or above the set's 95th percentile, competitive seats at or below its 5th.
 
-### Set A, 89 districts: ±12.5% proposal band (Amendment 17)
+### Set A, 89 districts: ±12.5% proposal band (Amendment 5, Part 14)
 
 Chains 100, 120, 121.
 
@@ -89,7 +89,7 @@ Chains 100, 120, 121.
 | population_mad | 541,500 | 3,244 (cap) | provisional | 3,241 | 2,551 | 3,083 | 3,605 | 2,827 (p21.2) | 3,938 (p99.7) |
 | ucp_seats | 541,500 | 778 (cap) | provisional | 699 | 54 | 57 | 59 | 55 (p13.0) | 60 (p99.1) |
 
-### Set A, 91 districts: ±12.5% proposal band (Amendment 17)
+### Set A, 91 districts: ±12.5% proposal band (Amendment 5, Part 14)
 
 Chains 201, 221, 222, 223, 224.
 
@@ -105,7 +105,7 @@ Chains 201, 221, 222, 223, 224.
 | population_mad | 1,057,500 | 5,465 | final | 5,465 | 2,497 | 3,008 | 3,521 |
 | ucp_seats | 1,057,500 | 1,560 (cap) | provisional | 1,334 | 56 | 58 | 60 |
 
-### Set B, 89 districts: statute band, ±25% (Amendment 20, set 1)
+### Set B, 89 districts: statute band, ±25% (Amendment 5, Part 14)
 
 Chains 130, 131, 132, 133.
 
@@ -121,7 +121,7 @@ Chains 130, 131, 132, 133.
 | population_mad | 1,010,000 | 5,482 | final | 5,482 | 5,166 | 6,249 | 7,309 | 2,827 (p0.0) | 3,938 (p0.0) |
 | ucp_seats | 1,010,000 | 1,698 (cap) | provisional | 1,425 | 54 | 57 | 59 | 55 (p16.0) | 60 (p98.7) |
 
-### Set B, 91 districts: statute band, ±25% (Amendment 20, set 1)
+### Set B, 91 districts: statute band, ±25% (Amendment 5, Part 14)
 
 Chains 230, 231, 232, 233, 236, 237, 238, 239.
 
@@ -137,7 +137,7 @@ Chains 230, 231, 232, 233, 236, 237, 238, 239.
 | population_mad | 2,020,000 | 12,124 | final | 12,124 | 5,077 | 6,117 | 7,139 |
 | ucp_seats | 2,020,000 | 3,055 (cap) | provisional | 2,356 | 56 | 58 | 60 |
 
-### Set C, 89 districts: municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21)
+### Set C, 89 districts: municipality-aware, W = 0.5 (Amendment 5, Part 14)
 
 Chains 140, 141.
 
@@ -153,7 +153,7 @@ Chains 140, 141.
 | population_mad | 505,000 | 1,773 | final | 1,773 | 5,237 | 6,328 | 7,410 | 2,827 (p0.0) | 3,938 (p0.0) |
 | ucp_seats | 505,000 | 543 (cap) | provisional | 293 | 54 | 57 | 59 | 55 (p15.4) | 60 (p99.0) |
 
-### Set C, 91 districts: municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21)
+### Set C, 91 districts: municipality-aware, W = 0.5 (Amendment 5, Part 14)
 
 Chains 241, 243, 244, 245.
 
@@ -169,7 +169,7 @@ Chains 241, 243, 244, 245.
 | population_mad | 1,010,000 | 3,878 (cap) | provisional | 3,693 | 5,172 | 6,226 | 7,255 |
 | ucp_seats | 1,010,000 | 1,284 (cap) | provisional | 775 | 55 | 58 | 60 |
 
-### Set D, 89 districts: s.15(2), Amendment 23 rule (Amendment 20 set 3)
+### Set D, 89 districts: s.15(2), Amendment 5, Part 15 rule (Part 14)
 
 Chains 150, 151.
 
@@ -185,7 +185,7 @@ Chains 150, 151.
 | population_mad | 505,000 | 3,594 | final | 3,594 | 5,314 | 6,415 | 7,498 | 2,827 (p0.0) | 3,938 (p0.0) |
 | ucp_seats | 505,000 | 726 (cap) | provisional | 571 | 55 | 57 | 59 | 55 (p10.4) | 60 (p97.6) |
 
-### Set D, 91 districts: s.15(2), Amendment 23 rule (Amendment 20 set 3)
+### Set D, 91 districts: s.15(2), Amendment 5, Part 15 rule (Part 14)
 
 Chains 251, 252, 253, 254.
 

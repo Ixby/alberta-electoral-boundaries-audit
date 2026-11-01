@@ -106,7 +106,7 @@ Each entry gives the ID, severity, location, what is wrong, which pass found it,
 - **MC-C2** · `report_academic.md:2421` (also 1720) · The 2019 "MAD from avg" of 2,010 is a median. The other cells are means; the mean for 2019 is 2,886, as Appendix C uses. **Decision C2.**
 - **MC-C3** · `plain_language_defense.md:474` · Defines the 3,180 / 4,707 figure as a median. It is a mean (the medians are 2,015 / 3,153). **Decision C3.**
 - **MC-C6** · `report_academic.md:2975` (also 2962) · Appendix C compares mean deviations across different quotas and bases. Its reason for not using the 2026 maps (shapefiles unreleased) is stale. **Decision C6.**
-- **MC-P1** · `report_academic.md:1617` · The monograph never mentions Amendments 17, 20 or 21. Line 1617 says a constraint-enforcing re-run "was not completed", which contradicts §5.4.1 (:1330). **Decision P1.**
+- **MC-P1** · `report_academic.md:1617` · The monograph never mentions Amendment 5, Parts 14–17. Line 1617 says a constraint-enforcing re-run "was not completed", which contradicts §5.4.1 (:1330). **Decision P1.**
 
 **Supporting documents**
 - **DS-01** · `data_supplement.md:238` (also 113, 247) · The §D6 R̂ table is the 2026-05-10 run (4 × 62,500), labelled as 4 × 252,500. The clean-rerun values are 1.00011 / 1.00205 / 1.00016 / 1.00149, all passing. **Held** (changes numbers).
@@ -115,7 +115,7 @@ Each entry gives the ID, severity, location, what is wrong, which pass found it,
 - **DS-06** · `data_supplement.md:277` (also 278) · drand record rows. Row 277 lists the 6pt83 seed under an s58a6 salt. Row 278's salt was wrong. **Applied in part**: the row 278 salt is now `alberta-audit-mcmc-rerun-base`, which reproduces its seed. Row 277 is **held** (it changes the listed seed).
 - **PLD-08** · `plain_language_defense.md:257` (also 520, 558–560, 564, 1464, 1549–1551) · The retired blend-model Monte Carlo is still defended as current. Line 1464 misdescribes what the interval measured. **Not applied.**
 - **PLD-09** · `plain_language_defense.md:536` (also 502, 538, 548, 614, 632, 634, 832) · Stale §5.2.1 values (B3, B4 45/46, EG p94.4, 4.10% as the canonical p95). **Held** (numbers).
-- **PLD-10** · `plain_language_defense.md:1689` · Pre-Amendment-10 declination values with no banner. **Held** (numbers).
+- **PLD-10** · `plain_language_defense.md:1689` · Declination values from before Amendment 5, Part 9, with no banner. **Held** (numbers).
 - **PLD-11** · `plain_language_defense.md:410` (also 1276, 1282, 1288, 1677) · Uses the retired "negative = UCP" sign convention, and misreads Reading B as NDP-favourable. **Not applied.**
 - **PLD-12** · `plain_language_defense.md:1274` (also 1334, 1344–1346) · Presents the retired Readings A and B as the verdict basis. "52.8% → 48.3%" mixes UCP and NDP fractions. **Not applied.**
 - **PLD-13** · `plain_language_defense.md:1406` (also 792–800, 1344, 1412–1432) · Misstates hypotheses H1–H4 and keeps the retired "lawsuit-grade" 2M-draw ceiling. **Not applied.**
@@ -228,10 +228,10 @@ Parts of upheld findings the verifier rejected or corrected:
 - **A5** (MC-A5, high). Drop "ceiling figures survive" at :1593. Say the minority (46/89 = 51.69%) lies just below the 87-district maximum (45/87 = 51.72%, 69 plans). Change "reach this value" to "exceed it (all at 45/87)" at :1691, :2550 and :2589. Give hill-climb and minority results as seat counts on their own denominators. *Recommend: accept. p99.99 still stands as a percentile.*
 - **A6** (MC-A6). Recompute the 2019 seats@50/50 percentile with a tolerance (about p65.4) at :1642, :1711 and :1718. Describe the majority's p78.54 as the upper edge of the 40/87 block, and cite the 89-district values (p51–57). *Recommend: change the text now. Make `pct_rank` tie-tolerant only through an amendment, because the scoring spec pins the code.*
 - **A7** (MC-A7). Add one sentence in §5.4.9: chains start from a recursive_tree_part 87-part seed, because 2019 breaks ±25% on 2021 population. Adjust :1415, the plot title in `mcmc_ensemble.py:752` (a code change), and `findings/simulation_short_bursts.md:4`. *Recommend: accept. ":2741 2019 substrate" can stay.*
-- **A8** (MC-A8). At :2741, say 89- and 91-seat maps are placed against the 87-district set as a cross-size headline, with the Amendment 17/20/21 size-matched sets beside it. *Recommend: accept.*
-- **A9** (MC-A9). At :1791, say S5 uses the fixed 87-district canonical ensemble as the headline, with the Amendment 17 and 20 sets beside it, final at n_eff ≥ 400 (Amendment 21). *Recommend: accept.*
+- **A8** (MC-A8). At :2741, say 89- and 91-seat maps are placed against the 87-district set as a cross-size headline, with the Amendment 5, Part 14 size-matched sets beside it. *Recommend: accept.*
+- **A9** (MC-A9). At :1791, say S5 uses the fixed 87-district canonical ensemble as the headline, with the Amendment 5, Part 14 sets beside it, final at n_eff ≥ 400 (Amendment 5, Part 16). *Recommend: accept.*
 - **A10** (MC-A10). Either report MAD as a percentage of quota, or say the cross-size comparison understates both maps' percentiles by a few points. *Recommend: note it, and handle it together with C4. The effect strengthens the minority flag, so it is a disclosure issue.*
-- **A11** (MC-A11). Add a sentence beside the headline: the joint p is against 87-district plans; per-metric tails hold on the 89-district constrained null (:1330); a size-matched D² will follow from the Amendment 17/20 chains once n_eff ≥ 400. *Recommend: add the sentence. Compute the size-matched D² before November if time allows.*
+- **A11** (MC-A11). Add a sentence beside the headline: the joint p is against 87-district plans; per-metric tails hold on the 89-district constrained null (:1330); a size-matched D² will follow from the Amendment 5, Part 14 chains once n_eff ≥ 400. *Recommend: add the sentence. Compute the size-matched D² before November if time allows.*
 - **B1** (MC-B1, high). Relabel the :829 row as UCP seats on the 2023 election-day substrate (UCP 57.4%). Put 2019 on the same substrate (30 / 57), and add the real 2023 result (38 / 49) as its own row. Optionally add a 54.4% row (46 / 44 / 53). Same change at `partisan_bias_summary.md:220`. *Recommend: accept.*
 - **B2** (MC-B2). Use the substrate value for 2019 in B4 (47 NDP / 40 UCP; asymmetry 7), or footnote B4 and the asymmetry row as mixed-substrate. *Recommend: use the substrate value.*
 - **B3** (MC-B3). At `methodological_defenses.md:55`, say "election-day votes (896,644 of 1,706,304 two-party; UCP 57.4% against 54.4%)". *Recommend: accept (low stakes; the same file already says so at §1.1).*
@@ -241,9 +241,9 @@ Parts of upheld findings the verifier rejected or corrected:
 - **C1** (MC-C1, high). Keep "MAD" for one statistic and rename the other everywhere. Add a sentence in §5.1.1 and §5.4.9 saying the p99.1 placement uses a different statistic and base from the 48% headline. *Recommend: accept. Decide this first, because C2, C3, C4 and A10 depend on it.*
 - **C2** (MC-C2). At :2421, use 2,886 (mean, as in Appendix C). At :1720, compare like statistics or say the three figures use three statistics. *Recommend: accept after C1.*
 - **C3** (MC-C3). At PLD :474, define it as the mean absolute deviation, and retitle :472. *Recommend: accept.*
-- **C4** (MC-C4, high). Label every ensemble-MAD placement as conditional on the ±12.5% proposal band. Report the statute-band placement (p0.0 / p0.013) beside it. Restate "fifth flag" and "confirms" as conditional, citing Amendment 20 set 1. *Recommend: accept. The 48% commission-table comparison can stay as the population headline.*
+- **C4** (MC-C4, high). Label every ensemble-MAD placement as conditional on the ±12.5% proposal band. Report the statute-band placement (p0.0 / p0.013) beside it. Restate "fifth flag" and "confirms" as conditional, citing Amendment 5, Part 14, set B. *Recommend: accept. The 48% commission-table comparison can stay as the population headline.*
 - **C6** (MC-C6). Compute all three maps on the same 2021 VA overlay, give each as a percentage of its quota, and replace the stale shapefile sentence at :2962. Expect 2019 9.7%, majority 10.1%, minority 10.2%. *Recommend: accept, and rewrite the Interpretation paragraph. The majority's tighter spread then appears only on the 2024-estimate tables. Add the cycle-lag caveat.*
-- **P1** (MC-P1). Add a short paragraph in §5.4.9 or §5.4.10 on the Amendment 17/20/21 sets (size-matched 89/91, statute band, municipality-aware, s.15(2); final at n_eff ≥ 400). Fix :1617, which contradicts :1330. *Recommend: accept. This also gives A8, A9 and A11 somewhere to point.*
+- **P1** (MC-P1). Add a short paragraph in §5.4.9 or §5.4.10 on the Amendment 5, Parts 14–16 sets (size-matched 89/91, statute band, municipality-aware, s.15(2); final at n_eff ≥ 400). Fix :1617, which contradicts :1330. *Recommend: accept. This also gives A8, A9 and A11 somewhere to point.*
 
 ### 4.2 Open questions (3 items)
 
@@ -263,7 +263,7 @@ These are ready to apply as written in each finding. They wait only because they
 
 **PDF pass.** The current markdown was rebuilt into a scratch PDF without touching the repo (229 pages vs 215 committed). Checks: link annotations, named destinations, fonts, images, a sentence-level text diff, layout overflow at A5 width, and rendered pages. The monograph has no embedded images.
 
-**Methodology pass.** All four canonical chain CSVs (1,010,000 rows) were checked, along with the real-map scores, the percentile CSVs, the commission population tables (all three MAD definitions recomputed), the VA gpkg, uniform swing to 54.44%, Amendments 17–21, and the scoring spec. The exploratory 89-district chain 100 was used only for its own distribution.
+**Methodology pass.** All four canonical chain CSVs (1,010,000 rows) were checked, along with the real-map scores, the percentile CSVs, the commission population tables (all three MAD definitions recomputed), the VA gpkg, uniform swing to 54.44%, Amendment 5, Parts 12–17, 19–21 and 26, and the scoring spec. The exploratory 89-district chain 100 was used only for its own distribution.
 
 **Supporting pass.** `data_supplement.md` and `plain_language_defense.md` were read in full and checked against the monograph, data, code and drand derivations.
 
@@ -277,7 +277,7 @@ These are ready to apply as written in each finding. They wait only because they
 
 **Audits and updates (the user asked that these not be forgotten).**
 - `analysis/review/swarm_audit_2026-10-29.md` was used to avoid overlap, and was not edited. Its 164 lines citing C16 / :2714 now point at removed text (Q2). Swarm items that touch this pass and are still open: `pre_registration_draft.md` at §5.5 and §8.1, the OSF dates in data-supplement §D7, and the disclosure questions #454, #487, #488 and #616 (Q1).
-- `findings/pre_registration_amendment_log.md` and `preregistration/november_2026_scoring_spec.md` were not edited (by rule). Amendments 17, 20 and 21 exist, but the monograph never mentions them (P1).
+- `findings/pre_registration_amendment_log.md` and `preregistration/november_2026_scoring_spec.md` were not edited (by rule). Amendment 5, Parts 14–17 exist, but the monograph never mentions them (P1).
 - The site update in `390afa8d` (disclosure wording) has not reached the monograph, the public report or two methodology files (Q1).
 - `proposals/site_rewrite_2026-10-29/rewrite_draft.md:222` still cites "academic report C17" (Q2).
 - The other review records in `analysis/review/` (truth_audit_2026-06-26, project_assessment_2026-06-27, report_skeptic_review_2026-06-27, the legal, science and peer reviews, the external audits, and others) were not re-read in this pass.

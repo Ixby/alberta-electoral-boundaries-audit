@@ -1,4 +1,4 @@
-# Amendment 17 chain runs — local machine run log (2026-10-29 →)
+# Amendment 5, Part 14 chain runs — local machine run log (2026-10-29 →)
 
 Exploratory unless named in the amendment log. Nothing here compares an ensemble with a real map.
 Living document: append, never rewrite history. Times are America/Edmonton (MT).
@@ -6,7 +6,7 @@ Living document: append, never rewrite history. Times are America/Edmonton (MT).
 ## 1. Who asked, and the rulings (verbatim)
 
 - Request: the cloud "Audit" session (session_018fR2piQUSLgKm3yG7SKLG7), on Wuff's behalf, asked
-  this machine to run size-matched ReCom chains for Amendment 17 (91- and 89-district `nk` mode of
+  this machine to run size-matched ReCom chains for Amendment 5, Part 14 (91- and 89-district `nk` mode of
   `analysis/scripts/close_seats_ensemble.py`), indices 220–223 (k=91) and 120–121 (k=89).
 - Owner (Wuff) words that set the design, in order:
   - "do whateve it tells you to" — approve the Audit session's run instructions.
@@ -190,12 +190,12 @@ Official Government of Alberta "Metis Settlement" polygons, all 8 settlements, r
   ≥ 100 m shared. Remaining mismatch, a **lead not a conclusion**: Lesser Slave Lake (b) — re-audit P
   (commission p. 248, "Slave Lake ~250 km"), but the ED's nearest boundary (VA 1383, 99.99% inside LSL)
   is 113.1 km straight-line / 134 km by OSM road from the Legislature; LSL still 3/5.
-- ~20:45 Audit (Amendment 20 registers W = 1.0; owner told Audit "faithful as possible to the legislation
+- ~20:45 Audit (the sets entry then registered W = 1.0, not carried; Amendment 5, Part 14 uses 0.5; owner told Audit "faithful as possible to the legislation
   and the norm, we're not chasing goalposts") asked to HOLD the municipality-aware launch pending
-  Amendment 21 and to calibrate on 2019 + majority only (target 0.1391). Held; conflict put to owner.
+  the weight entry (now Amendment 5, Part 14) and to calibrate on 2019 + majority only (target 0.1391). Held; conflict put to owner.
   No W = 1.0 / 0.5 production output exists. Calibration W = 0.6, 0.7 (k=91) running.
 - ~21:00 Audit: patch applied cleanly (patch SHA-256 84F85728…3A35 matches) and landing on branch
-  `ccr-7082dbd7-sqy3h2` (Amendment 20 commit ce05ddf1 fetched). Audit's independent s.15(2) build
+  `ccr-7082dbd7-sqy3h2` (commit ce05ddf1 of the sets entry, now Amendment 5, Part 14, fetched). Audit's independent s.15(2) build
   (`s15_2_criteria.py`, to come) confirms LSL (b) 133.9 km → registered as a disclosed difference
   (literal wording stricter than the commission's count; eligibility unchanged). Audit now recommends
   anchoring W on the 2019 enacted map alone (R = 0.1657 → W ≈ 0.5; minority under test; majority

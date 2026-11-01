@@ -6,8 +6,8 @@ calibration_unneeded_splits.py
 
 Municipal splits counted by people, for the lane calibration
 (analysis/methodology/structural_lane_calibration_design.md). Calibration
-only; the registered S2 (Amendment 9) and the registered town-split measure
-(Amendment 17) are unchanged.
+only; the registered S2 (Amendment 5, Part 7) and the registered town-split
+measure (Amendment 5, Part 17) are unchanged.
 
 Municipalities are 2021 CSDs of type CY, T or SM. People are 2021 census
 dissemination areas (DAs), which nest in CSDs. A DA cut by a district line
@@ -16,7 +16,7 @@ computer-drawn plans, which are unions of voting areas (VAs), through a
 DA-by-VA overlay.
 
   pieces          districts holding >= 2% of the municipality's people
-                  (Amendment 17's piece rule)
+                  (the piece rule in Amendment 5, Part 17)
   need            ceil(pop / (1.25 x average district population)): the fewest
                   districts the Act's ±25% band allows
   must_split      need >= 2

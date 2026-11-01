@@ -5,7 +5,7 @@ s15_2_criteria.py
 -----------------
 
 EBCA s.15(2) criteria (a)-(e) for any district plan built from VAs, per
-Amendment 21. The same per-VA table drives the s.15(2) neutral-map set and
+Amendment 5, Part 15. The same per-VA table drives the s.15(2) neutral-map set and
 the scoring of real maps.
 
   (a) area       sum of the district's VA areas (equal-area projection)
@@ -15,15 +15,15 @@ the scoring of real maps.
                  primary, secondary) from the node nearest the Legislature
                  Building to the nearest point where a highway reaches the
                  district's boundary (or a highway node inside it) > 150 km.
-                 A district no highway reaches meets (b). Amendment 23.
+                 A district no highway reaches meets (b). Amendment 5, Part 15.
   (c) town       no "town" over 8,000 people (2021 census) holds >= 2% of its
                  population in the district. Towns: CSD types CY and T, and
                  each specialized municipality's urban service area (its DAs
                  at >= 400 people per km2), except Crowsnest Pass (s.15(3)).
                  --town-reading status: towns are CSD type T only, the legal
                  town status; cities and urban service areas do not count.
-                 Diagnostic only (Amendment 25, withdrawn); not a registered
-                 reading.
+                 Diagnostic only (withdrawn draft, not carried into
+                 Amendment 5); not a registered reading.
   (d) reserve    the district holds >= 10% of the area of an Indian reserve
                  (NRCan Aboriginal Lands, legal boundaries) or a Metis
                  settlement (Government of Alberta layer).
@@ -108,8 +108,8 @@ def road_km(vas):
 
 def towns(vas, pts, reading="purposive"):
     """Per VA: the town it belongs to (by representative point), and each town's 2021 population.
-    reading "purposive" (Amendment 21): cities, towns and urban service areas; "status"
-    (diagnostic only; Amendment 25 withdrawn): towns by legal status (CSD type T) only."""
+    reading "purposive" (Amendment 5, Part 15): cities, towns and urban service areas; "status"
+    (diagnostic only; withdrawn draft, not carried into Amendment 5): towns by legal status (CSD type T) only."""
     csd = gpd.read_file(CSD).to_crs(WORK)
     pop = pd.read_csv(CSD_POP).set_index("DGUID")["population_2021"]
     csd["pop"] = csd["DGUID"].map(pop)
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     ap.add_argument("--score", action="store_true", help="score the 2019, majority and minority maps")
     ap.add_argument("--out")
     ap.add_argument("--town-reading", choices=["purposive", "status"], default="purposive",
-                    help="s.15(2)(c): purposive = cities count as towns (Amendment 21); status = legal towns only (diagnostic; Amendment 25 withdrawn)")
+                    help="s.15(2)(c): purposive = cities count as towns (Amendment 5, Part 15); status = legal towns only (diagnostic; withdrawn draft, not carried into Amendment 5)")
     a = ap.parse_args()
     tab, town_pop, res_area, va = va_table(a.town_reading)
     print(f"{len(town_pop)} towns over 8,000: " + ", ".join(f"{t} {p:,.0f}" for t, p in sorted(town_pop.items(), key=lambda x: -x[1])))

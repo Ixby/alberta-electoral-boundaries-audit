@@ -59,10 +59,10 @@ Reproduction
     --shapefile data/shapefiles/canonical/ea_minority_2026_eds.gpkg \\
     --output findings/structural_minority_recheck.json
 
-Verdict rule (Amendment 9, frozen 2026-06-11): ≥ 3 of the 5 discriminating
-metrics (S1, S2, S3, S5, S6) on the minority side of the midpoint =
-"replicated"; 0–2 = "not_replicated". S4 is measured but excluded as
-non-discriminating.
+Verdict rule (recorded in Amendment 5, Part 7; frozen 2026-06-11): ≥ 3 of
+the 5 discriminating metrics (S1, S2, S3, S5, S6) on the minority side of the
+midpoint = "replicated"; 0–2 = "not_replicated". S4 is measured but excluded
+as non-discriminating.
 
 Backward:
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg  (reference baseline)
@@ -94,7 +94,7 @@ sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 
 # ----- Pre-committed thresholds (preregistration/november_2026_scoring_spec.md §3) -----
 
-# ── Midpoint-anchored thresholds (Amendment 9, 2026-06-11) ──────────────────
+# ── Midpoint-anchored thresholds (Amendment 5, Part 7) ──────────────────────
 #
 # Design: for each discriminating metric, the flag fires iff the candidate map
 # lands on the MINORITY's side of the midpoint between the two commission maps'
@@ -157,7 +157,7 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
     placeable against the canonical chain ensemble percentiles. Uses the
     cached VA→pop_2021 overlay (`data/va_pop_from_das.csv`).
 
-    Flag (Amendment 9): candidate MAD above the majority/minority midpoint.
+    Flag (Amendment 5, Part 7): candidate MAD above the majority/minority midpoint.
     """
     try:
         import geopandas as gpd
@@ -322,7 +322,7 @@ def compute_S5_drain(shapefile: Path, votes_path: Path,
         ed_lookup = ed_df.set_index("ed").to_dict("index")
         score = float(drain_score(pair_df, ed_lookup))
 
-        # Midpoint rule (Amendment 9): minority side is LOW drain — the
+        # Midpoint rule (Amendment 5, Part 7): minority side is LOW drain — the
         # minority's signature is hybridization, not adjacency drain (§5.3.5).
         # The label-shuffle null no longer gates the flag; the machinery
         # remains available via drain_label_shuffle_null.py for a
@@ -455,7 +455,7 @@ def main(argv=None) -> int:
     }
 
     # Count flags only across the DISCRIMINATING metrics (S4 is reported but
-    # excluded per Amendment 9 — see preamble for the rationale).
+    # excluded per Amendment 5, Part 7 — see preamble for the rationale).
     DISCRIMINATING = ("S1_population_mad", "S2_municipal_split_count",
                       "S3_anchoring_score", "S5_drain_score",
                       "S6_chair_flag_replication")
