@@ -171,26 +171,6 @@
   });
 </script>
 
-<!-- Lane 1 (statistical / neutral-ensemble) sections — §3 (litmus) and §6 (clean
-     gerrymanders) — are shown in full but framed as preliminary pending an
-     independent expert review. The banner frames review *status* only; it makes
-     no claim about the findings and is distinct from the hero's draft notice. -->
-{#snippet preliminaryBanner()}
-  <aside class="prelim-banner" role="note" aria-label={t(lang.current, 'body.preliminary.heading')}>
-    <svg class="prelim-ico" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="10.5" cy="10.5" r="6.4" />
-      <line x1="15.2" y1="15.2" x2="20.5" y2="20.5" />
-      <polyline points="7.8,10.6 9.7,12.5 13.4,8.4" />
-    </svg>
-    <div class="prelim-text">
-      <span class="prelim-badge">{t(lang.current, 'body.preliminary.badge')}</span>
-      <p class="prelim-heading">{t(lang.current, 'body.preliminary.heading')}</p>
-      <p class="prelim-body">{t(lang.current, 'body.preliminary.body')}</p>
-    </div>
-  </aside>
-{/snippet}
-
-
 <div class="hero">
   <div class="header-inner">
     <div class="header-text">

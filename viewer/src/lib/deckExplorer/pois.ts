@@ -29,7 +29,7 @@ export const FLAGS: Flag[] = [
 		x: -55271.8,
 		y: -369910.0,
 		title: 'North of Banff — “Rocky Mountain House–Banff Park”',
-		body: "“Rocky Mountain House–Banff Park” is one of the minority's proposed ridings, made up largely of uninhabited national park; the town of Banff sits in a neighbouring riding to the south. The minority applied the Electoral Boundaries Commission Act's smaller-population provision to this riding — a choice the commission's majority called \"a bad faith effort\" in the final report."
+		body: "“Rocky Mountain House–Banff Park” is one of the minority's proposed ridings, made up largely of uninhabited national park; the town of Banff sits in a neighbouring riding to the south. The minority applied the Electoral Boundaries Commission Act's smaller-population provision to this riding — a choice the commission's majority called \"a bad faith effort\" in the final report. The audit's check undercuts that charge: the riding qualifies for the provision even without the park extension."
 	},
 	{
 		id: 'airdrie-split',
@@ -64,7 +64,7 @@ export const FLAGS: Flag[] = [
 		x: 63114.3,
 		y: -253265.0,
 		title: 'Red Deer — the hybrid ridings',
-		body: "Red Deer's regional ties to Blackfalds, Sylvan Lake, Lacombe and Innisfail could have grouped those towns together — a city councillor and residents proposed similar hybrids. The minority's version instead folds parts of the city itself into town-led ridings, thinning urban Red Deer's vote; its “shared schools” rationale also doesn't hold (different school divisions). Folding a city into town-led ridings is the pattern the audit calls hybridization — consistent with cracking, achieving the partisan effect inside the hybrid ridings rather than across them. (Academic §5.3.5.)"
+		body: "Red Deer's regional ties to Blackfalds, Sylvan Lake, Lacombe and Innisfail could have grouped those towns together — a city councillor and residents proposed similar hybrids. The minority's version instead folds parts of the city itself into town-led ridings, thinning urban Red Deer's vote. Folding a city into town-led ridings is the pattern the audit calls hybridization — consistent with cracking, achieving the partisan effect inside the hybrid ridings rather than across them. (Academic §5.3.5.)"
 	},
 	{
 		id: 'st-albert',
@@ -77,7 +77,7 @@ export const FLAGS: Flag[] = [
 		id: 'calgary-zone-a-packing',
 		x: 45500.0,
 		y: -380000.0,
-		title: 'Calgary north & east — a packing signature',
-		body: "The commission's majority didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
+		title: 'Calgary north & east — larger districts, no packing signature',
+		body: "The commission's majority didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map, so each ballot there weighs a little less. That is a population-equality finding. It is not a packing signature: on 2023's votes the NDP would win 8 of the zone's 17 districts, by margins below the provincial average, and the audit's packing test needs margins well above it. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
 	}
 ];
