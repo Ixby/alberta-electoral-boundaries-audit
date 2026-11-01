@@ -1615,8 +1615,88 @@ export default {
 			meta: "Cada prueba y cada estadística, en lenguaje sencillo · Solo en inglés por ahora · Cada cifra es reproducible desde el repositorio público",
 			standfirst: "Toda la auditoría descansa en una idea sencilla. ¿Quiere saber si un mapa es inusual? Trace un millón de mapas que no podrían estar sesgados. Una computadora los traza, y nunca ve un solo voto. Luego verifique dónde caen los mapas reales entre ellos. Esta página recorre esa idea y cada prueba construida sobre ella. Sin fórmulas. Si usted puede leer un pronóstico del tiempo, puede leer esto.",
 			toc: {
-				aria: "Contenido de la página"
+				aria: "Contenido de la página",
+				what_if: "La máquina de qué pasaría si",
+				percentile: "Cómo leer un percentil",
+				structural: "Las cinco pruebas estructurales",
+				fairness: "Las cuatro medidas de equidad",
+				odds: "Qué significan las probabilidades",
+				died: "Las pruebas que murieron",
+				break: "Intentar romper nuestro propio resultado",
+				prereg: "Promesas hechas de antemano",
+				reproduce: "Ejecútelo usted mismo"
+			},
+			what_if: {
+				heading: "La máquina de qué pasaría si: 1,010,000 mapas neutrales",
+				p1: "Una computadora trazó <strong>1,010,000 mapas legales de Alberta</strong>. Cada uno sigue las mismas dos reglas estrictas que siguió la comisión real: cada distrito tiene casi el mismo número de personas (dentro del 25% del promedio), y cada distrito es una sola pieza conectada.",
+				p2: "¿Cómo traza un mapa una computadora? Un pequeño paso a la vez. Tome dos distritos que comparten una frontera. Únalos en una sola mancha. Vuelva a dividir la mancha en dos nuevos distritos legales, al azar. Repita, 1,010,000 veces, guardando el mapa después de cada paso. El método se llama ReCom, y es la herramienta estándar en este campo.",
+				p3: "El dato clave: <strong>la computadora nunca ve un voto.</strong> No sabe dónde viven los votantes del NDP o del UCP. Así que si un mapa neutral aun así se inclina hacia un lado, esa inclinación viene solo de la geografía de Alberta. Y si un mapa real se inclina mucho más que casi todos los neutrales, la geografía ya no puede ser la explicación.",
+				p4: "Cuatro aclaraciones honestas sobre la máquina:",
+				li1: "<strong>Los dados se lanzaron en público.</strong> La semilla aleatoria (el número de partida detrás de cada elección al azar) no la eligió el autor. Viene de una baliza pública de aleatoriedad (\"drand\", operada por la League of Entropy, un grupo que incluye a Cloudflare), como un sorteo de lotería transmitido en vivo. Quedó fijada antes de que existieran los archivos oficiales de los mapas. Cualquiera puede recalcularla.",
+				li2: "<strong>Cuatro corridas separadas coinciden.</strong> El millón de mapas salió de cuatro corridas independientes, cada una con un inicio distinto. Las cuatro llegaron a la misma imagen. Las verificaciones estándar para esto (usadas en todo el campo) se aprueban con margen de sobra.",
+				li3: "<strong>Una nota sobre el número de escaños.</strong> Los mapas de la comisión de 2026 tienen 89 distritos cada uno. La simulación corre sobre el mapa de 2019 de 87 distritos, el último promulgado legalmente, porque el algoritmo necesita un mapa real desde el cual empezar a caminar. El comité de noviembre producirá 91. Cada porcentaje de este sitio es una <em>proporción</em> de escaños, así que las cifras se comparan limpiamente entre los tres tamaños.",
+				li4: "<strong>La máquina no es un árbitro perfecto.</strong> Sigue las dos reglas estrictas, pero no todas las reglas flexibles que respetan las comisiones reales, como mantener juntas a las comunidades. Los mapas reales de las comisiones son de hecho más ordenados que la mayoría de los mapas neutrales. La auditoría lo dice claramente en cada lugar donde aparecen las cifras de la máquina."
+			},
+			percentile: {
+				heading: "Cómo leer un percentil",
+				p1: "Ponga en fila los 1,010,000 mapas neutrales, del menos inclinado al UCP al más inclinado al UCP. Ahora coloque un mapa real en la fila. Su <strong>percentil</strong> es simplemente su posición: \"percentil 78\" significa que se inclina más que 78 de cada 100 mapas neutrales. Eso no tiene nada de notable: un poco por encima de la mitad del grupo.",
+				p2: "\"Percentil 99.99\" es distinto. Significa que el mapa se inclina más que prácticamente todos los mapas neutrales de la fila — en esta auditoría, todos menos <strong>69 de los 1,010,000</strong>. La estatura funciona igual. Un hombre en el percentil 78 es un poco alto. Un hombre en el percentil 99.99 mide unos siete pies."
+			},
+			structural: {
+				heading: "Las cinco pruebas estructurales (no se necesitan votos)",
+				p1: "Antes de cualquier simulación, la auditoría midió las propias líneas trazadas. Cinco pruebas, todas fijadas antes de conocer los resultados. Cada una compara directamente los dos mapas de la comisión.",
+				li1: "<strong>1. Dispersión de población.</strong> ¿Qué tan lejos se apartan los distritos del tamaño ideal? Según las propias tablas de la comisión, el desvío típico del mapa mayoritario es de 3,180 personas. El del mapa minoritario es de 4,707, cerca de la mitad más amplio. Un desvío más amplio significa que los votos cuentan de forma menos igual.",
+				li2: "<strong>2. Apiñamiento en Calgary.</strong> En el noreste y el centro de Calgary, los distritos del mapa minoritario quedan un 11.5% más grandes que el promedio provincial. Los del mayoritario, un 2.8% más grandes. Distritos más grandes significan que cada voto dentro de ellos pesa menos. Y esta zona vota mayoritariamente por el NDP. El patrón se llama <em>empaquetamiento</em>.",
+				li3: "<strong>3. La división de Airdrie.</strong> La ley obliga a que Airdrie tenga al menos dos distritos. El mapa mayoritario usa dos. El mapa minoritario corta la ciudad en cuatro piezas (tres con al menos el 2% de su población), cada una unida a un territorio exterior distinto. Dividir una comunidad finamente se llama <em>fragmentación</em>.",
+				li4: "<strong>4. Los señalamientos del presidente.</strong> El propio presidente de la comisión señaló públicamente límites geográficamente extraños. Cuatro de sus señalamientos caen en el mapa minoritario, y la propia verificación geométrica de la auditoría confirmó tres. Ninguno cae en el mapa mayoritario.",
+				li5: "<strong>5. Seguir los límites municipales (la prueba que murió).</strong> Los primeros datos sugerían que el mapa minoritario ignoraba las líneas municipales. Los archivos oficiales de los mapas acabaron con ese hallazgo: ambos mapas siguen los límites municipales a tasas canadienses normales (80% y 72%). La auditoría mantiene la prueba muerta a la vista en lugar de borrarla.",
+				p2: "Resultado: el mapa minoritario cruza los cuatro umbrales vigentes. El mapa mayoritario no cruza ninguno."
+			},
+			fairness: {
+				heading: "Las cuatro medidas de equidad (con votos)",
+				p1: "Ahora añada los votos de 2023 y pregunte: ¿cómo convierte cada mapa los votos en escaños? Cuatro medidas estándar, cada una verificada frente al millón de mapas neutrales.",
+				li1: "<strong>1. Escaños con voto empatado.</strong> La prueba más intuitiva. Suponga que la provincia vota exactamente 50/50 y cuente los escaños de cada lado. Con la geografía de Alberta, un mapa neutral típico le da al UCP cerca del 44.8% de los escaños en un empate. Los votos urbanos del NDP se aprovechan un poco mejor, así que un empate favorece levemente al NDP de forma natural. El mapa mayoritario le da al UCP el 46.1%: percentil 78, ordinario. El mapa minoritario le da al UCP el <strong>51.7%</strong>, una mayoría de escaños con un empate en votos. Solo 69 de los 1,010,000 mapas neutrales le dan más al UCP. Como referencia, un procedimiento al que se le ordenó maximizar <em>deliberadamente</em> los escaños del UCP llegó al 52.9%. El mapa minoritario queda más cerca de ese techo fabricado que de la mitad neutral.",
+				li2: "<strong>2. La brecha de eficiencia.</strong> Cada voto o se necesita para ganar un escaño o se \"desperdicia\" — emitido por un perdedor, o acumulado sobre un ganador más allá de lo que requería la victoria. Esta medida compara qué tan rápido se desperdician los votos de cada partido. El mapa mayoritario obtiene +0.1%: prácticamente nada. El minoritario obtiene +4.0% a favor del UCP, el percentil 94.5, justo <em>por debajo</em> de la línea de alarma fijada de antemano por la auditoría en el percentil 95. Es la única medida que no se activó. La auditoría la reporta como no alcanzada.",
+				li3: "<strong>3. La brecha media-mediana.</strong> Compare el resultado promedio de un partido en sus distritos con el resultado de su distrito del medio. Cuando ambos se separan, los votos se están amontonando en victorias aplastantes en algún lugar. La brecha del mapa minoritario favorece al UCP más que el 99.9% de los mapas neutrales. La del mayoritario se inclina hacia el otro lado — levemente eficiente para el NDP — lo que coincide con cómo se comportan los mapas ordenados de las comisiones con la geografía de Alberta.",
+				li4: "<strong>4. Declinación.</strong> Una lectura geométrica de los márgenes de victoria: ¿trata el mapa por igual las victorias de los dos partidos, o se dobla en la línea del 50%? El mapa minoritario se dobla más a favor del UCP que cerca del 98.8% de los mapas neutrales. El mapa mayoritario se lee normal. (Una primera versión de esta medida tenía el signo invertido por un error de programación; la corrección está documentada, no borrada.)",
+				p2: "Resultado: tres de cuatro se activan en el mapa minoritario, todas en la misma dirección. La cuarta queda justo por debajo de la línea, apuntando en el mismo sentido. El mapa mayoritario es ordinario en las cuatro."
+			},
+			odds: {
+				heading: "Qué significa \"1 en 568,000\" — y por qué la auditoría duplicó su margen",
+				p1: "Combine las cuatro medidas de equidad en una sola puntuación y pregunte: ¿con qué frecuencia produce el trazado neutral un perfil tan extremo como el del mapa minoritario? La respuesta es cerca de <strong>1 en 1.1 millones</strong>. Pero la auditoría no cita esa cifra. Cita <strong>1 en 568,000</strong> — exactamente la mitad de impresionante. Esta es la razón.",
+				p2: "La auditoría buscó una señal en dos lugares distintos: esta puntuación combinada, y una segunda prueba sobre las decisiones específicas de límites. Buscar en dos lugares le da a la suerte dos oportunidades. Piense en boletos de lotería: compre dos, y su probabilidad de tener uno ganador se duplica. Así que antes de citar la probabilidad, la auditoría la duplica en su propia contra. De esa forma, \"tuvo dos intentos\" ya está pagado.",
+				p4: "Una advertencia que la auditoría repite en todas partes: estas probabilidades miden qué tan inusual es el <em>mapa</em>. No son la probabilidad de que alguien haya actuado con intención. Un mapa raro todavía podría, en principio, ser un trabajo honesto. Las probabilidades dicen solo esto: la redacción rutinaria no produce este mapa."
+			},
+			died: {
+				heading: "Las pruebas que murieron",
+				p1: "Dos hallazgos no sobrevivieron, y ambos siguen impresos. Es a propósito: una auditoría que solo le muestra sus victorias es publicidad.",
+				li1: "<strong>La prueba de los límites municipales</strong> no encontró nada que separara a los mapas: ambos siguen las líneas municipales dentro de la norma canadiense (mayoritario 80%, minoritario 72%).",
+				li2: "<strong>La prueba de decisiones de límites (SZAT)</strong> parecía significativa hasta que la auditoría la corrigió por un hecho sencillo: los lugares vecinos votan de forma parecida. Tratar a los vecinos como independientes halaga el resultado. Tras la corrección, la prueba no mostró nada. Se retiró."
+			},
+			break: {
+				heading: "Intentar romper nuestro propio resultado",
+				p1: "Antes de confiar en el titular, la auditoría lo atacó de tres maneras.",
+				li1: "<strong>Cambiar el motor.</strong> Volver a ejecutar todo con un algoritmo de trazado completamente distinto (un método de bosques de expansión, prometido en público antes de ejecutarlo). Cada resultado se movió menos de un punto de percentil. El hallazgo sobrevivió.",
+				li2: "<strong>Cambiar el software.</strong> Una implementación independiente en otro lenguaje de programación tampoco encuentra ningún mapa que alcance el valor del mapa minoritario.",
+				li3: "<strong>Poner a prueba el mecanismo — y fallar.</strong> La auditoría supuso que las formas extrañas de las pruebas estructurales eran la causa directa de la ventaja en escaños. Esa suposición falló su prueba. Las formas y la inclinación en escaños apuntan al mismo mapa, pero las formas no son el motor. La auditoría lo dice."
+			},
+			prereg: {
+				heading: "Promesas hechas de antemano",
+				p1: "La mejor defensa contra engañarse a uno mismo es escribir las predicciones antes de mirar. La auditoría fijó sus pruebas, umbrales y direcciones previstas en registros públicos con marca de tiempo en el Open Science Framework. Fijó sus semillas aleatorias a una baliza pública. Ambas cosas ocurrieron antes de que se publicaran los archivos oficiales de los mapas. Cuando una predicción fijada no se cumplió, quedó como no cumplida. Las mismas pruebas fijadas se aplicarán, sin cambios, al nuevo mapa del comité cuando llegue en noviembre de 2026. La auditoría también indica cuáles de sus resultados son <em>exploratorios</em> (semillas fijadas, pero la combinación exacta de pruebas elegida después) y cuáles están completamente preregistrados. La probabilidad del titular es exploratoria. El marcador de noviembre es la prueba completamente preregistrada."
+			},
+			reproduce: {
+				heading: "Ejecútelo usted mismo",
+				p1: "Cada cifra de este sitio viene de un script del repositorio público ejecutado sobre datos comprometidos en él. La receta completa está en <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/REPRODUCING.md\" rel=\"noopener\">REPRODUCING.md</a>; la versión corta:",
+				p2: "Una versión en cuaderno alojado se ejecuta en el navegador mediante <a href=\"https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb\" rel=\"noopener\">Google Colab</a>. La metodología completa — incluida cada corrección en el camino — está en la <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">monografía académica</a>.",
+				cross_ref: "Páginas complementarias: <a href=\"__BASE__/law\">Lo que la ley le pide a un mapa electoral</a> · <a href=\"__BASE__/norms\">Lo que piden las normas</a> · <a href=\"__BASE__/explainers\">Las catorce explicaciones (Apéndices A–N)</a>, una por cada casquillo del informe principal."
 			}
+		},
+		norms: {
+			head_title: "Lo que piden las normas · Auditoría de los límites electorales de Alberta",
+			head_description: "El tercer lente sobre el episodio de límites de Alberta en 2026: de dónde vino la norma de que los políticos no trazan sus propios distritos, qué compró, los argumentos para dejarla de lado, y quién acusa realmente a quién de qué.",
+			back: "← Volver a la auditoría",
+			site_label: "Auditoría de los límites electorales de Alberta",
+			h1: "Lo que las normas le piden a un mapa electoral"
 		}
 	}
 } as const;

@@ -1477,5 +1477,55 @@ export default {
 		privacy_link_text: "polityce prywatności",
 		back_to_report: "Powrót do raportu",
 		back_to_map: "Powrót do eksploratora mapy"
+	},
+	pages: {
+		explainers: {
+			head_title: "Czternaście objaśnień · Audyt Granic Okręgów Wyborczych Alberty",
+			head_description: "Czternaście krótkich objaśnień — po jednym na każde ustalenie Audytu Granic Okręgów Wyborczych Alberty: rozdrabnianie, upychanie, neutralne zespoły map, błąd prokuratora, konwenanse a prawo i inne.",
+			back: "← Powrót do audytu",
+			site_label: "Audyt Granic Okręgów Wyborczych Alberty",
+			h1: "Czternaście objaśnień",
+			standfirst: "Każda łuska w audycie prowadzi do jednego dodatku na tej stronie, a każdy dodatek dotyczy dokładnie jednego pojęcia. Zaczyna od szczerego zagubienia. Buduje pojęcie na jednym konkretnym przykładzie. Odsyła cię z powrotem do liczby z łuski, tak abyś umiał ją odczytać bez pomocy. I kończy na tym, czego to pojęcie <em>nie może</em> ci powiedzieć. Czytaj je w dowolnej kolejności.",
+			appendix_a: {
+				heading: "Dodatek A — Co „rozdrabnianie” faktycznie robi z głosem",
+				confusion: "<em>Zagubienie:</em> „Wyborcy z Airdrie nadal głosują. Nikt nie zabrał im kart. Jak rysowanie linii może cokolwiek »rozcieńczać«?”",
+				p1: "Wyobraź sobie miasteczko liczące 40 000 mieszkańców, które głosuje głównie na Pomarańczowych, położone w regionie, który głosuje głównie na Niebieskich. Daj miasteczku własny okręg, z własnym mandatem w legislaturze, a wybierze MLA z Pomarańczowych: 40 000 osób, jeden mandat, jeden głos. Teraz pokrój miasteczko na cztery kawałki i przypnij każdy kawałek do fragmentu niebieskiej wsi. W każdym nowym okręgu 10 000 wyborców z miasteczka staje naprzeciw 30 000 wyborców wiejskich. Pomarańczowi przegrywają wszystkie cztery. Ci sami wyborcy, te same karty, zero mandatów. Żadnemu pojedynczemu wyborcy niczego nie ukradziono. Odebrano zdolność <em>społeczności</em> do wybrania kogokolwiek. To jest rozdrabnianie. Jego lustrzanym ruchem jest upychanie (Dodatek C): wciśnij grupę do jak najmniejszej liczby okręgów, tak by wygrywała tylko tam, i to miażdżąco.",
+				p2: "Teraz przeczytaj ponownie ustalenie 1: 85 805 osób, cztery okręgi, mniejszość w trzech z nich. Drugi projekt tej samej komisji pokazuje, że do spełnienia wymogów prawa wystarczyły dwa okręgi.",
+				limit: "<em>Granica:</em> rozdrabnianie opisuje skutek, nie motyw. Podział może się zdarzyć, bo ktoś chciał rozcieńczenia. Może się też zdarzyć, bo inne ograniczenia stłoczyły mapę. Sama geometria nie powie, które z nich.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Powrót do ustalenia 1</a>"
+			},
+			appendix_b: {
+				heading: "Dodatek B — Analiza kształtu i do czego służy ochrona z art. 15(2)",
+				confusion: "<em>Zagubienie:</em> „Wszystkie okręgi wyborcze wyglądają dziwnie. Dlaczego te trzy kształty mają znaczenie?”",
+				p1: "Okręgi podążają za geografią, więc nieregularność jest normalna. Analiza kształtu szuka <em>pracy</em>: granicy, która robi coś, czego nie wyjaśnia żadne zwykłe ograniczenie. Korytarza, który jak lasso wciąga jedno osiedle do odległego okręgu. Ramienia sięgającego w skraj miasta. Linii przedłużonej przez teren, na którym nikt nie mieszka. Prawo Alberty ma szczególny przepis, artykuł 15(2), który pozwala, by do czterech okręgów zeszło poniżej normalnego minimum liczby ludności. Napisano go dla odległych okręgów o silnych więziach społecznych, takich jak północne okręgi obsługujące społeczności rdzenne rozrzucone na ogromnych odległościach. Przedłużenie granicy przez niezamieszkany park narodowy, tak by okręg zakwalifikował się do tej ochrony, własny przewodniczący komisji nazwał „działaniem w złej wierze”: zasada napisana dla ludzi, którzy mieszkają daleko od siebie, użyta do ochrony linii tam, gdzie nikt w ogóle nie mieszka.",
+				p2: "Teraz przeczytaj ponownie ustalenie 2: trzy kształty, oznaczone przez własnego przewodniczącego procesu, niezależnie potwierdzone przez testy, które nie miały żadnego interesu w jego sporze.",
+				limit: "<em>Granica:</em> dziwny kształt to pytanie, nie odpowiedź. Jeden z tych kształtów ma pod spodem prawdziwą, wiarygodną logikę: połączenie miasteczka Banff z Canmore. Zastrzeżenie przewodniczącego i tak się utrzymuje. Dotyczyło przedłużenia w pusty park, a tego to połączenie nie dotyka.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Powrót do ustalenia 2</a>"
+			},
+			appendix_c: {
+				heading: "Dodatek C — Upychanie na przykładzie trzech okręgów",
+				confusion: "<em>Zagubienie:</em> „Większe okręgi mają więcej wyborców. No i co? Każdy wciąż ma jeden głos.”",
+				p1: "Weź 12 000 wyborców, 7 000 Pomarańczowych i 5 000 Niebieskich, podzielonych na trzy okręgi po 4 000. Narysuj je równo, a Pomarańczowi wygrają wszystkie trzy. Teraz narysuj je od nowa. Wciśnij 4 000 Pomarańczowych wyborców do jednego okręgu (Pomarańczowi wygrywają go 100 do 0). Rozłóż pozostałych 3 000 Pomarańczowych na dwa okręgi po 4 000, gdzie 5 000 Niebieskich daje Niebieskim przewagę w obu. Tych samych 12 000 wyborców, ta sama większość 7 000 Pomarańczowych. Teraz Pomarańczowi mają jeden mandat, a Niebiescy dwa. To jest upychanie: głosy przeciwników trafiają do magazynu, gdzie piętrzą się jako nadwyżka, zmarnowana na przewagę, której nie potrzebowali. Znakiem rozpoznawczym jest <em>wielkość i koncentracja</em> okręgów. Okręgi przeciwników są duże i głębokie. Twoje — szczupłe i wydajne.",
+				p2: "Teraz przeczytaj ponownie ustalenie 3: w jedynej strefie Calgary, w której 13 z 17 okręgów głosuje na NDP, okręgi mapy mniejszościowej są o 11,5% większe od średniej prowincjonalnej. Okręgi mapy większościowej, narysowane w tym samym pokoju — o 2,8%.",
+				limit: "<em>Granica:</em> zbyt duże okręgi mogą też wynikać z uczciwych prognoz wzrostu albo z utrzymania społeczności w całości. Asymetria wielkości to sygnatura, którą zostawia upychanie. Zostawia ją też kilka niewinnych wyborów.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Powrót do ustalenia 3</a>"
+			},
+			appendix_d: {
+				heading: "Dodatek D — Co mierzy MAD i po co istnieje przedział",
+				confusion: "<em>Zagubienie:</em> „Średnie odchylenie bezwzględne liczby ludności — czy to po prostu statystyka na »okręgi nie są identyczne«?”",
+				p1: "Prawie. Okręgi nie mogą wszystkie mieć dokładnie tej samej liczby mieszkańców; społeczności mają niewygodne rozmiary. MAD zadaje proste pytanie: o ile średnio każdy okręg odbiega od idealnego udziału? MAD równe 3 180 oznacza, że okręgi mijają się z ideałem średnio o około 3 180 osób. MAD równe 4 707 oznacza, że te odchylenia są średnio o połowę większe. Prawo toleruje odchylenia, w ramach przedziału (Alberta pozwala na ±25%), bo poszanowanie prawdziwych społeczności jest warte pewnej nierówności. Taka jest umowa. Odchylenie jest walutą, a wydaje się ją, by kupić takie rzeczy jak całe miasta i rozsądne granice. To nadaje sens ustaleniu 4: mapa mniejszościowa wydaje o 48% więcej tej waluty niż większościowa. A ustalenie 1 pokazuje, że <em>nie</em> kupiła za nią integralności Airdrie.",
+				p2: "Teraz przeczytaj ponownie ustalenie 4: rozrzut szerszy niż w 99 na każde 100 neutralnych map (map narysowanych przez komputer bez wglądu w jakikolwiek głos; Dodatek F), w jedynej wartości, którą ustawa faktycznie wyraża liczbowo.",
+				limit: "<em>Granica:</em> wewnątrz przedziału prawo niczego nie szereguje. „Wydano więcej odchylenia” to obserwacja o priorytetach, a nie naruszenie. Każdy okręg na obu mapach jest legalny.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Powrót do ustalenia 4</a>"
+			},
+			appendix_e: {
+				heading: "Dodatek E — Co mierzy zakotwiczenie miejskie i czego nie może pokazać",
+				confusion: "<em>Zagubienie:</em> „Po co liczyć, jak często granica biegnie wzdłuż linii miasta lub miasteczka?”",
+				p1: "Bo tam ludzie już wiedzą, gdzie mieszkają. Gdy granica okręgu biegnie wzdłuż granicy gminy, linia podatku od nieruchomości, linia okręgu szkolnego, linia lokalnego okręgu radnych i linia wyborów prowincjonalnych się pokrywają. Wyborca wie, w którym okręgu jest, bez mapy. Test mierzy, jaka część długości granic okręgów każdej mapy biegnie w odległości do 500 metrów od granicy gminy według Statistics Canada. Kanadyjskie komisje uzyskują w tej mierze od 70% do 85% (Quebec 78%, Ontario 82%, BC 71%). Mapa większościowa uzyskuje 80%. Mapa mniejszościowa — 72%. Obie mieszczą się w normie, więc pod względem ogólnych wskaźników test ich nie rozróżnia.",
+				p2: "Teraz przeczytaj ponownie ustalenie 5: ogólny wskaźnik jest zwyczajny na obu mapach. Wyróżnia się to, gdzie wypadają odejścia mapy mniejszościowej: na skrajach, które oznaczył przewodniczący.",
+				limit: "<em>Granica:</em> wskaźnik zakotwiczenia to norma, a nie reguła. Ustawa nie ustala żadnego progu. A odejście może mieć dobry powód, na przykład przedmieście, które rozrosło się poza granicę miasta.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Powrót do ustalenia 5</a>"
+			}
+		}
 	}
 } as const;
