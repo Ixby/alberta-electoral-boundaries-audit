@@ -8,1051 +8,1054 @@
 // University student speaking directly, not a government office.
 export default {
 	selector: {
-		label: 'Sprache wählen'
+		label: "Sprache wählen"
 	},
 	verdict: {
-		headline: 'Alberta zeichnet seine Wahlkarte neu.',
-		p_what: 'Von Zeit zu Zeit zeichnet die Provinz ihre Ridings neu — die lokalen Gebiete, die jeweils einen MLA wählen. Wo die Linien fallen, entscheidet, mit wem Sie wählen und wer Sie in der Legislative vertritt.',
-		p_split: 'Diesmal hat sich das Gremium, das die Neuzeichnung vornahm, gespalten. Es hat zwei konkurrierende Karten hervorgebracht — und dieses Audit prüft beide.',
-		p_question: 'Wir haben beide Karten auf eine Frage hin getestet: Ist eine von ihnen so geformt, dass sie eine Partei begünstigt — selbst wenn niemand das beabsichtigt hat?',
-		p_answer: 'Eine der beiden ist es. Die andere wirkt normal.',
-		p_howfar: 'Ein Computer hat 1,01 Millionen legale Versionen der Karte zufällig gezeichnet. Eine der beiden realen Karten ist einseitiger als alle bis auf etwa 1 von 568.000 davon, zugunsten der UCP. Die andere liegt im normalen Bereich.',
-		aside_pre: 'Eine so geformte Karte könnte man ',
-		aside_post: ' nennen. Dieses Wort hat in Kanada keine rechtliche Bedeutung, daher verwenden wir es nicht als Urteil. Wir zeigen Ihnen, was die Karte bewirkt; Sie urteilen. Für die tieferen Ebenen — was das Gesetz tatsächlich verlangt und wie genau wir den Test durchgeführt haben — siehe ',
-		box_heading: 'Was wir sagen können und was nicht',
-		box_can_1: 'Die Minderheitenkarte liegt außerhalb dessen, was 1,01 Millionen neutrale Karten hervorbringen, in UCP-begünstigender Richtung.',
-		box_can_2: 'Alle vier Maße der Parteifairness weisen in dieselbe Richtung.',
-		box_cant_1: 'Dass irgendein Kommissionsmitglied dies beabsichtigt hätte — das Audit liest Ergebnisse, nicht Motive.',
-		box_cant_2: 'Dass die Karte ein Gerrymander „ist" — das ist keine Kategorie, die das kanadische Recht anerkennt.',
-		box_cant_3: 'Wie ein Gericht entscheiden würde oder was das Komitee wählen wird.',
-		law_link: 'Recht',
-		methods_link: 'Methoden'
+		headline: "Alberta zeichnet seine Wahlkarte neu.",
+		p_what: "Von Zeit zu Zeit zeichnet die Provinz ihre Ridings neu — die lokalen Gebiete, die jeweils einen MLA wählen. Wo die Linien fallen, entscheidet, mit wem Sie wählen und wer Sie in der Legislative vertritt.",
+		p_split: "Diesmal hat sich das Gremium, das die Neuzeichnung vornahm, gespalten. Es hat zwei konkurrierende Karten hervorgebracht — und dieses Audit prüft beide.",
+		p_question: "Wir haben beide Karten auf eine Frage hin getestet: Ist eine von ihnen so geformt, dass sie eine Partei begünstigt — selbst wenn niemand das beabsichtigt hat?",
+		p_answer: "Eine der beiden ist es. Die andere wirkt normal.",
+		p_howfar: "Ein Computer hat 1,01 Millionen legale Versionen der Karte zufällig gezeichnet. Eine der beiden realen Karten ist einseitiger als alle bis auf etwa 1 von 568.000 davon, zugunsten der UCP. Die andere liegt im normalen Bereich.",
+		aside_pre: "Eine so geformte Karte könnte man ",
+		aside_post: " nennen. Dieses Wort hat in Kanada keine rechtliche Bedeutung, daher verwenden wir es nicht als Urteil. Wir zeigen Ihnen, was die Karte bewirkt; Sie urteilen. Für die tieferen Ebenen — was das Gesetz tatsächlich verlangt und wie genau wir den Test durchgeführt haben — siehe ",
+		box_heading: "Was wir sagen können und was nicht",
+		box_can_1: "Die Minderheitenkarte liegt außerhalb dessen, was 1,01 Millionen neutrale Karten hervorbringen, in UCP-begünstigender Richtung.",
+		box_can_2: "Alle vier Maße der Parteifairness weisen in dieselbe Richtung.",
+		box_cant_1: "Dass irgendein Kommissionsmitglied dies beabsichtigt hätte — das Audit liest Ergebnisse, nicht Motive.",
+		box_cant_2: "Dass die Karte ein Gerrymander „ist\" — das ist keine Kategorie, die das kanadische Recht anerkennt.",
+		box_cant_3: "Wie ein Gericht entscheiden würde oder was das Komitee wählen wird.",
+		law_link: "Recht",
+		methods_link: "Methoden"
 	},
 	why_redrawn: {
-		heading: 'Warum das geschieht — und warum es Sie betrifft',
-		p1: 'Alberta ist in 87 Ridings aufgeteilt. Jedes wählt einen einzelnen MLA in die Legislative. Ihr Riding entscheidet, wer diese Person ist, welche Stadtviertel mit Ihrem zusammengefasst werden und wessen Anliegen Ihr MLA zuerst hört.',
-		p2: 'Die Linien bleiben nicht starr. Da Menschen umziehen und Städte wachsen, haben manche Ridings am Ende weit mehr Wählerinnen und Wähler als andere, weshalb die Provinz die Karte alle paar Jahre neu zeichnet, um sie ungefähr gleich zu halten. Ein Gremium aus Kommissaren übernimmt das Zeichnen und arbeitet nach gesetzlich festgelegten Regeln: Bezirke müssen in der Bevölkerung nahe beieinander liegen, an einem Stück bleiben und reale Gemeinschaften zusammenhalten, wo sie können.',
-		p3: 'Das ist das normale Verfahren. Diesmal ist es zusammengebrochen. Die Kommissare konnten sich nicht einigen und spalteten sich in zwei Lager, jedes mit seiner eigenen Karte. Dann hat ein Komitee aus MLAs beide Karten beiseitegelegt und begonnen, seine eigene, größere zu zeichnen. Dass ein Legislativkomitee die Kommission auf diese Weise übergeht, ist selten.',
-		p4: 'Eine Linie auf einer Karte entscheidet, wessen Stimme wofür zählt. Sie kann die Wählerinnen und Wähler einer Gemeinschaft zusammenhalten oder sie über mehrere Bezirke verstreuen, wo ihre Zahl nicht mehr ins Gewicht fällt. Sie kann manche Rennen knapp halten und andere unerreichbar machen. Nichts davon zeigt sich an der Oberfläche; es wird dadurch bestimmt, wo die Grenzen fallen.'
+		heading: "Warum das geschieht — und warum es Sie betrifft",
+		p1: "Alberta ist in 87 Ridings aufgeteilt. Jedes wählt einen einzelnen MLA in die Legislative. Ihr Riding entscheidet, wer diese Person ist, welche Stadtviertel mit Ihrem zusammengefasst werden und wessen Anliegen Ihr MLA zuerst hört.",
+		p2: "Die Linien bleiben nicht starr. Da Menschen umziehen und Städte wachsen, haben manche Ridings am Ende weit mehr Wählerinnen und Wähler als andere, weshalb die Provinz die Karte alle paar Jahre neu zeichnet, um sie ungefähr gleich zu halten. Ein Gremium aus Kommissaren übernimmt das Zeichnen und arbeitet nach gesetzlich festgelegten Regeln: Bezirke müssen in der Bevölkerung nahe beieinander liegen, an einem Stück bleiben und reale Gemeinschaften zusammenhalten, wo sie können.",
+		p3: "Das ist das normale Verfahren. Diesmal ist es zusammengebrochen. Die Kommissare konnten sich nicht einigen und spalteten sich in zwei Lager, jedes mit seiner eigenen Karte. Dann hat ein Komitee aus MLAs beide Karten beiseitegelegt und begonnen, seine eigene, größere zu zeichnen. Dass ein Legislativkomitee die Kommission auf diese Weise übergeht, ist selten.",
+		p4: "Eine Linie auf einer Karte entscheidet, wessen Stimme wofür zählt. Sie kann die Wählerinnen und Wähler einer Gemeinschaft zusammenhalten oder sie über mehrere Bezirke verstreuen, wo ihre Zahl nicht mehr ins Gewicht fällt. Sie kann manche Rennen knapp halten und andere unerreichbar machen. Nichts davon zeigt sich an der Oberfläche; es wird dadurch bestimmt, wo die Grenzen fallen."
 	},
 	two_maps: {
-		heading: 'Zwei Karten — und wer sie gezeichnet hat',
-		p1: 'Als sich die Kommission spaltete, brachte sie nicht eine Karte mit angehängtem Sondervotum hervor. Sie brachte zwei vollständige, konkurrierende Karten hervor. Beide sind legal. Sie ziehen die Linien nur unterschiedlich.',
-		p2: 'Eine Wahlbezirkskommission hat fünf Mitglieder. Der Chief Justice of Alberta benennt den Vorsitz — den neutralen Sitz, hier von Dallas K. Miller besetzt, einem ehemaligen Richter am Court of King\'s Bench. Die Regierungspartei benennt zwei Mitglieder; die Opposition benennt zwei.',
-		p3: 'Diese Kommission teilte sich drei zu zwei. Der Vorsitz und die beiden von der Opposition ernannten Mitglieder trugen eine Karte — den Mehrheitsbericht, weil die Mehrheit der Kommission ihn unterzeichnete. Die beiden von der Regierung ernannten Mitglieder trugen die andere — den Minderheitenbericht.',
-		p4: 'Die Karte, die das Audit als die einseitigere kennzeichnet, ist der Minderheitenbericht — derjenige, den die beiden von der Regierung ernannten Mitglieder gezeichnet haben. Das Audit kann nicht zeigen, ob sie es beabsichtigten, und versucht es nicht. Es zeigt, was die Karte bewirkt.',
-		p5: 'Die Titelkarte am Anfang dieser Seite lässt Sie sie selbst vergleichen. Wechseln Sie zwischen den beiden Vorschlägen und der heutigen Karte, finden Sie Ihr eigenes Riding und beobachten Sie, welche Stadtviertel zusammengefasst oder getrennt werden.',
-		p6: 'Ein Komitee aus MLAs hat seither beide Karten beiseitegelegt, um seine eigene zu zeichnen, die später im Jahr 2026 erwartet wird — ein Schritt, den diese Website auf der Recht-Seite betrachtet. Diese beiden bleiben der klarste Testfall des Audits, und dieselben Tests werden für alles gelten, was das Komitee hervorbringt.'
+		heading: "Zwei Karten — und wer sie gezeichnet hat",
+		p1: "Als sich die Kommission spaltete, brachte sie nicht eine Karte mit angehängtem Sondervotum hervor. Sie brachte zwei vollständige, konkurrierende Karten hervor. Beide sind legal. Sie ziehen die Linien nur unterschiedlich.",
+		p2: "Eine Wahlbezirkskommission hat fünf Mitglieder. Der Chief Justice of Alberta benennt den Vorsitz — den neutralen Sitz, hier von Dallas K. Miller besetzt, einem ehemaligen Richter am Court of King's Bench. Die Regierungspartei benennt zwei Mitglieder; die Opposition benennt zwei.",
+		p3: "Diese Kommission teilte sich drei zu zwei. Der Vorsitz und die beiden von der Opposition ernannten Mitglieder trugen eine Karte — den Mehrheitsbericht, weil die Mehrheit der Kommission ihn unterzeichnete. Die beiden von der Regierung ernannten Mitglieder trugen die andere — den Minderheitenbericht.",
+		p4: "Die Karte, die das Audit als die einseitigere kennzeichnet, ist der Minderheitenbericht — derjenige, den die beiden von der Regierung ernannten Mitglieder gezeichnet haben. Das Audit kann nicht zeigen, ob sie es beabsichtigten, und versucht es nicht. Es zeigt, was die Karte bewirkt.",
+		p5: "Die Titelkarte am Anfang dieser Seite lässt Sie sie selbst vergleichen. Wechseln Sie zwischen den beiden Vorschlägen und der heutigen Karte, finden Sie Ihr eigenes Riding und beobachten Sie, welche Stadtviertel zusammengefasst oder getrennt werden.",
+		p6: "Ein Komitee aus MLAs hat seither beide Karten beiseitegelegt, um seine eigene zu zeichnen, die später im Jahr 2026 erwartet wird — ein Schritt, den diese Website auf der Recht-Seite betrachtet. Diese beiden bleiben der klarste Testfall des Audits, und dieselben Tests werden für alles gelten, was das Komitee hervorbringt."
 	},
 	disclaimer: {
-		text:
-			'Diese Website wurde von einer KI übersetzt. Manches kann noch auf Englisch erscheinen, solange die Übersetzungen laufen. Wenn Ihnen Fehler auffallen oder Sie beim Übersetzen dieses Projekts helfen möchten, %s.',
-		link_label: 'kontaktieren Sie uns bitte',
-		word_count: 'Zur Einordnung: Der englische Text umfasst etwa {count} Wörter. Sie können gern alles übernehmen oder nur einen Teil. In den meisten Fällen besteht die Arbeit darin, kleine Fehler der Maschine zu korrigieren, nicht darin, von Grund auf zu übersetzen.'
+		text: "Diese Website wurde von einer KI übersetzt. Manches kann noch auf Englisch erscheinen, solange die Übersetzungen laufen. Wenn Ihnen Fehler auffallen oder Sie beim Übersetzen dieses Projekts helfen möchten, %s.",
+		link_label: "kontaktieren Sie uns bitte",
+		word_count: "Zur Einordnung: Der englische Text umfasst etwa {count} Wörter. Sie können gern alles übernehmen oder nur einen Teil. In den meisten Fällen besteht die Arbeit darin, kleine Fehler der Maschine zu korrigieren, nicht darin, von Grund auf zu übersetzen."
 	},
 	epigraph: {
-		heading: 'Zum Lesen dieser Karte',
-		reader:
-			"Land wählt nicht. Die Karte auf diese Weise einzufärben, lässt das ländliche Alberta nur größer erscheinen, als es ist. Lassen Sie das leere Land leer.",
-		reader_label: 'eine Leserin',
-		author_p1:
-			"Berechtigt — und genau das tut die Karte. Sie ist aus der Geometrie und den Zählungen von Elections Alberta selbst aufgebaut, in der einzigen Auflösung, die sie führen: wie viele Menschen in jedem Wahlgebiet abgestimmt haben und wie. Die Farbe verläuft auf einem Spektrum zwischen den beiden Parteien, und ihre Tiefe folgt der Bevölkerung — weshalb die Städte leuchten und das offene Land blass bleibt.",
-		author_p2:
-			"Das Land westlich von Ponoka ist reines Weiß: kein Wahllokal, niemand, der dort lebend oder wählend erfasst ist. Es ist genau deshalb leer, weil Land nicht wählt. Das Ziel ist nicht, die Daten zu deuten, sondern sie nur in der Körnung sprechen zu lassen, in der sie erfasst wurden — und Sie ein wenig klüger zurückzulassen, als Sie gekommen sind.",
-		author_label: 'der Autor',
-		ethic:
-			'Das ist die Verpflichtung hinter dem gesamten Audit: das System abbilden und die Daten für sich selbst sprechen lassen — nicht mehr, als sie zulassen.'
+		heading: "Zum Lesen dieser Karte",
+		reader: "Land wählt nicht. Die Karte auf diese Weise einzufärben, lässt das ländliche Alberta nur größer erscheinen, als es ist. Lassen Sie das leere Land leer.",
+		reader_label: "eine Leserin",
+		author_p1: "Berechtigt — und genau das tut die Karte. Sie ist aus der Geometrie und den Zählungen von Elections Alberta selbst aufgebaut, in der einzigen Auflösung, die sie führen: wie viele Menschen in jedem Wahlgebiet abgestimmt haben und wie. Die Farbe verläuft auf einem Spektrum zwischen den beiden Parteien, und ihre Tiefe folgt der Bevölkerung — weshalb die Städte leuchten und das offene Land blass bleibt.",
+		author_p2: "Das Land westlich von Ponoka ist reines Weiß: kein Wahllokal, niemand, der dort lebend oder wählend erfasst ist. Es ist genau deshalb leer, weil Land nicht wählt. Das Ziel ist nicht, die Daten zu deuten, sondern sie nur in der Körnung sprechen zu lassen, in der sie erfasst wurden — und Sie ein wenig klüger zurückzulassen, als Sie gekommen sind.",
+		author_label: "der Autor",
+		ethic: "Das ist die Verpflichtung hinter dem gesamten Audit: das System abbilden und die Daten für sich selbst sprechen lassen — nicht mehr, als sie zulassen."
 	},
 	opener: {
-		heading: 'Für wen ist das gedacht?',
-		body:
-			'Für uns. Für uns alle. Ob ländlich, städtisch, neugierig, politikbegeistert, Journalistin, Anwalt, Wissenschaftlerin, Politiker — für uns alle. Weil es uns alle betrifft. Ob Ihnen die Regierungspartei nun gefällt oder nicht, was die gespaltene Kommission hervorgebracht hat, gab es so noch nie. Und damit haben wir die Gelegenheit, der Maschinerie auf eine Weise hinter die Kulissen zu schauen, wie es uns zuvor nie möglich war. Jetzt können wir einen Bezugspunkt schaffen — eine Reihe von Tests, und alles, was danach kommt, lässt sich daran messen. Lassen Sie mich Ihnen zeigen, was ich gefunden habe.'
+		heading: "Für wen ist das gedacht?",
+		body: "Für uns. Für uns alle. Ob ländlich, städtisch, neugierig, politikbegeistert, Journalistin, Anwalt, Wissenschaftlerin, Politiker — für uns alle. Weil es uns alle betrifft. Ob Ihnen die Regierungspartei nun gefällt oder nicht, was die gespaltene Kommission hervorgebracht hat, gab es so noch nie. Und damit haben wir die Gelegenheit, der Maschinerie auf eine Weise hinter die Kulissen zu schauen, wie es uns zuvor nie möglich war. Jetzt können wir einen Bezugspunkt schaffen — eine Reihe von Tests, und alles, was danach kommt, lässt sich daran messen. Lassen Sie mich Ihnen zeigen, was ich gefunden habe."
 	},
 	stakes: {
 		q1: {
-			heading: 'Ist die vorgeschlagene Karte ein Gerrymander?',
-			body:
-				'„Gerrymander" ist kein Begriff, den kanadische Gerichte verwenden, und dieses Audit wendet ihn nicht als Urteil an. Was das Audit sagen kann, ist enger gefasst und faktisch: Vier der fünf strukturellen Tests, die es durchführt, schlagen beim <em>Minderheitenvorschlag</em> Alarm, und keiner schlägt bei der Alternative (dem <em>Mehrheitsvorschlag</em>) Alarm; der fünfte Test ist für beide neutral. Ob dieses Muster dem entspricht, was Menschen umgangssprachlich mit einem „Gerrymander" meinen, ist ein Urteil, das dieses Audit der Leserin und dem Leser überlässt.',
-			footnote:
-				'Die Bezeichnungen „Mehrheit" und „Minderheit" gehen auf eine 3-zu-2-Spaltung innerhalb der Wahlbezirkskommission (Electoral Boundaries Commission, Vorsitz: Richter Miller) zurück, die zwei konkurrierende Vorschläge statt einer einzigen Empfehlung hervorbrachte. Die Legislativversammlung hat beide seitdem zurückgestellt und das Redistricting an ein sechsköpfiges MLA-Komitee verwiesen, das von Brandon Lunty (einem UCP-MLA) geleitet wird; das Komitee beaufsichtigt ein separates vierköpfiges Unabhängiges Beratungsgremium (Independent Advisory Panel) — zwei Mitglieder vom Premierminister nominiert (Hon. Monte Solberg und Darwin Durnie), zwei vom Oppositionsführer (Dr. Gerard Kennedy und Brent Robinson) — mit dem Auftrag, vor der Frist im November 2026 einen neuen Grenzziehungsvorschlag mit 91 Sitzen vorzulegen.'
+			heading: "Ist die vorgeschlagene Karte ein Gerrymander?",
+			body: "„Gerrymander\" ist kein Begriff, den kanadische Gerichte verwenden, und dieses Audit wendet ihn nicht als Urteil an. Was das Audit sagen kann, ist enger gefasst und faktisch: Vier der fünf strukturellen Tests, die es durchführt, schlagen beim <em>Minderheitenvorschlag</em> Alarm, und keiner schlägt bei der Alternative (dem <em>Mehrheitsvorschlag</em>) Alarm; der fünfte Test ist für beide neutral. Ob dieses Muster dem entspricht, was Menschen umgangssprachlich mit einem „Gerrymander\" meinen, ist ein Urteil, das dieses Audit der Leserin und dem Leser überlässt.",
+			footnote: "Die Bezeichnungen „Mehrheit\" und „Minderheit\" gehen auf eine 3-zu-2-Spaltung innerhalb der Wahlbezirkskommission (Electoral Boundaries Commission, Vorsitz: Richter Miller) zurück, die zwei konkurrierende Vorschläge statt einer einzigen Empfehlung hervorbrachte. Die Legislativversammlung hat beide seitdem zurückgestellt und das Redistricting an ein sechsköpfiges MLA-Komitee verwiesen, das von Brandon Lunty (einem UCP-MLA) geleitet wird; das Komitee beaufsichtigt ein separates vierköpfiges Unabhängiges Beratungsgremium (Independent Advisory Panel) — zwei Mitglieder vom Premierminister nominiert (Hon. Monte Solberg und Darwin Durnie), zwei vom Oppositionsführer (Dr. Gerard Kennedy und Brent Robinson) — mit dem Auftrag, vor der Frist im November 2026 einen neuen Grenzziehungsvorschlag mit 91 Sitzen vorzulegen."
 		},
 		q2: {
-			heading: 'Was bedeutet „Gerrymander" im kanadischen Recht?',
-			body:
-				'Nichts. Der kanadische Maßstab ist ein anderer: Ob die Grenzen den Wählerinnen und Wählern eine <em>wirksame Vertretung</em> (effective representation) nach Abschnitt 3 der Charter gewährleisten. Der Minderheitenvorschlag wirft im Hinblick auf den Standard der wirksamen Vertretung ernsthafte Fragen auf; nur ein Gericht kann sie endgültig beantworten, und niemand hat ein Gericht bislang darum ersucht.'
+			heading: "Was bedeutet „Gerrymander\" im kanadischen Recht?",
+			body: "Nichts. Der kanadische Maßstab ist ein anderer: Ob die Grenzen den Wählerinnen und Wählern eine <em>wirksame Vertretung</em> (effective representation) nach Abschnitt 3 der Charter gewährleisten. Der Minderheitenvorschlag wirft im Hinblick auf den Standard der wirksamen Vertretung ernsthafte Fragen auf; nur ein Gericht kann sie endgültig beantworten, und niemand hat ein Gericht bislang darum ersucht."
 		},
 		q3: {
-			heading: 'Was steht für Albertanerinnen und Albertaner auf dem Spiel?',
-			body:
-				'Bei einem provinzweiten 50/50-Vote platzieren die Messungen des Audits den Minderheitenvorschlag in einem strukturellen Extrem: Weniger als 100 der 1,01 Millionen neutralen Vergleichskarten erzeugen die gleiche Art von Sitzungleichgewicht. Dieses Ungleichgewicht ist deshalb von Bedeutung, weil eine Mehrheit von 60 der 89 Sitze nur eine symbolische Opposition übrig lässt und gegen internen Widerspruch praktisch immun ist — nicht weil sie irgendeine besondere Schwelle überschreitet (Albertas Legislativversammlung kennt keine Zweidrittelregel; dieselben Verfahrensbefugnisse stehen auch einer hauchdünnen Mehrheit zur Verfügung). Ob die Neigung des Minderheitenvorschlags groß genug ist, um eine Partei bei <em>anderen</em> Stimmverhältnissen als 50/50 über die 60-Sitz-Schwelle zu heben, ist eine Frage, die dieses Audit noch nicht geprüft hat. Ob dieses Ungleichgewicht akzeptabel ist, ist eine Frage für die Albertaner, nicht für dieses Audit.'
+			heading: "Was steht für Albertanerinnen und Albertaner auf dem Spiel?",
+			body: "Bei einem provinzweiten 50/50-Vote platzieren die Messungen des Audits den Minderheitenvorschlag in einem strukturellen Extrem: Weniger als 100 der 1,01 Millionen neutralen Vergleichskarten erzeugen die gleiche Art von Sitzungleichgewicht. Dieses Ungleichgewicht ist deshalb von Bedeutung, weil eine Mehrheit von 60 der 89 Sitze nur eine symbolische Opposition übrig lässt und gegen internen Widerspruch praktisch immun ist — nicht weil sie irgendeine besondere Schwelle überschreitet (Albertas Legislativversammlung kennt keine Zweidrittelregel; dieselben Verfahrensbefugnisse stehen auch einer hauchdünnen Mehrheit zur Verfügung). Ob die Neigung des Minderheitenvorschlags groß genug ist, um eine Partei bei <em>anderen</em> Stimmverhältnissen als 50/50 über die 60-Sitz-Schwelle zu heben, ist eine Frage, die dieses Audit noch nicht geprüft hat. Ob dieses Ungleichgewicht akzeptabel ist, ist eine Frage für die Albertaner, nicht für dieses Audit."
 		},
-		cta_law: 'Den rechtlichen Kontext lesen →',
-		cta_methods: 'Sehen, wie wir getestet haben →',
-		scorecard_h: 'Das Bewertungsblatt',
-		scorecard_fig_alt:
-			'Streudiagramm: Effizienzlücke auf der horizontalen Achse, Anzahl der nicht bestandenen strukturellen Tests auf der vertikalen Achse. Die 2019 erlassene Karte und die Mehrheitskarte 2026 gruppieren sich in der sicheren unteren linken Ecke. Die Minderheitenkarte 2026 steht allein oben rechts, auf der Linie für vier von fünf strukturellen Tests und knapp vor der gestrichelten Effizienzlücken-Linie bei ~4,1 %. Die Karte von 2019 trägt die Beschriftung 0 von 4 durchgeführten Tests: Der Calgary-Zonentest wurde an ihr nie durchgeführt.',
-		scorecard_fig_caption:
-			'Beide Spuren in einem Bild. Horizontal: wie stark die Zahl zur Parteifairness verzerrt ist (rechts = stärker UCP-begünstigt). Vertikal: wie viele von fünf strukturellen Fairnesstests die Karte nicht besteht. Unten links ist die sichere Ecke, in der neutrale Verfahren routinemäßig landen; oben rechts ist der Ausreißerbereich. Die 2019 erlassene Karte und die Mehrheitskarte 2026 liegen in der sicheren Ecke (die Karte von 2019 wurde in vier der Tests bewertet; der Calgary-Zonen-Test wurde auf sie nie angewandt). Die Minderheitenkarte 2026 liegt allein im Ausreißerbereich.',
-		scorecard_intro:
-			'Zwei unabhängige Messungen, angewandt auf beide Karten unter denselben vorab registrierten Schwellenwerten. „Struktur" verwendet nur die Form der Linien — keine Wahlergebnisse. „Zahlen" prüft, wie die Linien Stimmen in Sitze umwandeln. Beide Spuren kommen zu demselben Schluss.',
-		scorecard_close:
-			'Zwei unabhängige Messungen, eine Antwort. Diese Konvergenz ist das stärkste Einzelsignal des Audits.'
+		cta_law: "Den rechtlichen Kontext lesen →",
+		cta_methods: "Sehen, wie wir getestet haben →",
+		scorecard_h: "Das Bewertungsblatt",
+		scorecard_fig_alt: "Streudiagramm: Effizienzlücke auf der horizontalen Achse, Anzahl der nicht bestandenen strukturellen Tests auf der vertikalen Achse. Die 2019 erlassene Karte und die Mehrheitskarte 2026 gruppieren sich in der sicheren unteren linken Ecke. Die Minderheitenkarte 2026 steht allein oben rechts, auf der Linie für vier von fünf strukturellen Tests und knapp vor der gestrichelten Effizienzlücken-Linie bei ~4,1 %. Die Karte von 2019 trägt die Beschriftung 0 von 4 durchgeführten Tests: Der Calgary-Zonentest wurde an ihr nie durchgeführt.",
+		scorecard_fig_caption: "Beide Spuren in einem Bild. Horizontal: wie stark die Zahl zur Parteifairness verzerrt ist (rechts = stärker UCP-begünstigt). Vertikal: wie viele von fünf strukturellen Fairnesstests die Karte nicht besteht. Unten links ist die sichere Ecke, in der neutrale Verfahren routinemäßig landen; oben rechts ist der Ausreißerbereich. Die 2019 erlassene Karte und die Mehrheitskarte 2026 liegen in der sicheren Ecke (die Karte von 2019 wurde in vier der Tests bewertet; der Calgary-Zonen-Test wurde auf sie nie angewandt). Die Minderheitenkarte 2026 liegt allein im Ausreißerbereich.",
+		scorecard_intro: "Zwei unabhängige Messungen, angewandt auf beide Karten unter denselben vorab registrierten Schwellenwerten. „Struktur\" verwendet nur die Form der Linien — keine Wahlergebnisse. „Zahlen\" prüft, wie die Linien Stimmen in Sitze umwandeln. Beide Spuren kommen zu demselben Schluss.",
+		scorecard_close: "Zwei unabhängige Messungen, eine Antwort. Diese Konvergenz ist das stärkste Einzelsignal des Audits."
 	},
 	top_callouts: {
-		gerrymander_lead: 'Ist die Minderheitenkarte ein Gerrymander?',
-		gerrymander_body: 'Beim gemeinsamen Parteilichkeitswert des Audits liegt die Minderheitenkarte der Kommission im extremen Schwanz von 1.010.000 algorithmisch gezeichneten neutralen Vergleichskarten: Etwa 69 davon erreichen ihren Sitzanteil bei Stimmengleichheit, und die Wahrscheinlichkeit ihres Gesamtprofils bei neutraler Zeichnung liegt höchstens bei rund 1&nbsp;zu&nbsp;568.000. Die Mehrheitskarte liegt gut im normalen Bereich.',
-		tldr_label: 'Kurzfassung',
-		tldr_p1: 'Albertas Wahlbezirkskommission spaltete sich 2026 mit 3&ndash;2 und produzierte zwei unterschiedliche vorgeschlagene Karten. Die Regierung legte beide beiseite und übertrug die Neueinteilung einem Ausschuss von sechs MLAs (dem Lunty-Ausschuss), der bis November 2026 berichten soll. Keine der Kommissionskarten ist Gesetz.',
-		tldr_p2: 'Dieses Audit hat beide Kommissionskarten auf dieselbe Weise getestet, gegen 1.010.000 vom Computer gezeichnete neutrale Karten, die aus den offiziellen Dateien von Elections Alberta erstellt wurden. Der Mehrheitsvorschlag sieht aus wie die Karten, die neutrale Zeichnung routinemäßig hervorbringt: Er besteht jeden vorab registrierten Test. Der Minderheitenvorschlag überschreitet vier von fünf strukturellen Tests, und bei Stimmengleichheit (50/50) vergeben nur etwa 69 der 1.010.000 neutralen Karten so viele Sitze wie er. Die Wahrscheinlichkeit, dass ein neutrales Verfahren sein gesamtes Fairnessprofil hervorbringt, liegt bei etwa 1 zu 568.000 — und diese Zahl ist eine bewusst vorsichtige Obergrenze, keine genaue Schätzung. Ein Maß, die Effizienzlücke, landete knapp unter der vorab festgelegten Linie des Audits; es wird als verfehlt berichtet.',
-		tldr_p3: 'Die Prüfung misst Ergebnisse, nicht Absicht. Wenn der Lunty-Ausschuss seine Karte veröffentlicht, wird diese Prüfung dieselben Tests darauf anwenden.',
-		tldr_footer: 'Vorregistrierte Falsifikationsbedingungen und Rücknahmeverpflichtungen finden sich in %s.',
-		tldr_footer_link: 'Widerrufe und Korrekturen'
+		gerrymander_lead: "Ist die Minderheitenkarte ein Gerrymander?",
+		gerrymander_body: "Beim gemeinsamen Parteilichkeitswert des Audits liegt die Minderheitenkarte der Kommission im extremen Schwanz von 1.010.000 algorithmisch gezeichneten neutralen Vergleichskarten: Etwa 69 davon erreichen ihren Sitzanteil bei Stimmengleichheit, und die Wahrscheinlichkeit ihres Gesamtprofils bei neutraler Zeichnung liegt höchstens bei rund 1&nbsp;zu&nbsp;568.000. Die Mehrheitskarte liegt gut im normalen Bereich.",
+		tldr_label: "Kurzfassung",
+		tldr_p1: "Albertas Wahlbezirkskommission spaltete sich 2026 mit 3&ndash;2 und produzierte zwei unterschiedliche vorgeschlagene Karten. Die Regierung legte beide beiseite und übertrug die Neueinteilung einem Ausschuss von sechs MLAs (dem Lunty-Ausschuss), der bis November 2026 berichten soll. Keine der Kommissionskarten ist Gesetz.",
+		tldr_p2: "Dieses Audit hat beide Kommissionskarten auf dieselbe Weise getestet, gegen 1.010.000 vom Computer gezeichnete neutrale Karten, die aus den offiziellen Dateien von Elections Alberta erstellt wurden. Der Mehrheitsvorschlag sieht aus wie die Karten, die neutrale Zeichnung routinemäßig hervorbringt: Er besteht jeden vorab registrierten Test. Der Minderheitenvorschlag überschreitet vier von fünf strukturellen Tests, und bei Stimmengleichheit (50/50) vergeben nur etwa 69 der 1.010.000 neutralen Karten so viele Sitze wie er. Die Wahrscheinlichkeit, dass ein neutrales Verfahren sein gesamtes Fairnessprofil hervorbringt, liegt bei etwa 1 zu 568.000 — und diese Zahl ist eine bewusst vorsichtige Obergrenze, keine genaue Schätzung. Ein Maß, die Effizienzlücke, landete knapp unter der vorab festgelegten Linie des Audits; es wird als verfehlt berichtet.",
+		tldr_p3: "Die Prüfung misst Ergebnisse, nicht Absicht. Wenn der Lunty-Ausschuss seine Karte veröffentlicht, wird diese Prüfung dieselben Tests darauf anwenden.",
+		tldr_footer: "Vorregistrierte Falsifikationsbedingungen und Rücknahmeverpflichtungen finden sich in %s.",
+		tldr_footer_link: "Widerrufe und Korrekturen"
+	},
+	picture: {
+		heading: "Das Bild, vor dem Beweis",
+		lead: "Drei Karten, zwei Arten zu messen. Ein Punkt ist anders als die anderen. Dieses Bild ist die ganze Beweisführung des Audits in einem einzigen Bild — und im Moment haben Sie keine Möglichkeit zu beurteilen, ob es etwas bedeutet. Die Linien darauf sind keine Gesetze. Die Ecke ist kein Gerichtssaal. Am Ende dieser Seite werden Sie genau wissen, was dieses Bild beweisen kann und was nicht. Das Protokoll kommt am Ende darauf zurück."
 	},
 	head: {
-		title: 'Albertas Wahlkarte, geprüft',
-		meta_description:
-			'Albertas Wahlbezirkskommission legte 2026 zwei Karten vor. Eine wirkt normal; die andere begünstigt die UCP stärker als fast jede von 1.010.000 neutralen Karten. Die Komitee-Karte, die beide ersetzt, wird hier an vorab festgelegten Tests gemessen.'
+		title: "Albertas Wahlkarte, geprüft",
+		meta_description: "Albertas Wahlbezirkskommission legte 2026 zwei Karten vor. Eine wirkt normal; die andere begünstigt die UCP stärker als fast jede von 1.010.000 neutralen Karten. Die Komitee-Karte, die beide ersetzt, wird hier an vorab festgelegten Tests gemessen."
 	},
 	nav: {
-		skip_to_content: 'Zum Inhalt springen',
-		home_aria: 'Zurück nach oben',
-		theme_aria: 'Dunkel-/Hellmodus umschalten',
-		theme_title: 'Dunkelmodus umschalten',
-		nav_aria: 'Inhaltsverzeichnis öffnen',
-		drawer_top: '↑ Anfang',
-		route_story: 'Geschichte',
-		route_law: 'Recht',
-		route_methods: 'Methoden',
-		// Compact landmarks shown on the sticky bar
-		stakes: 'Einsatz',
-		findings: 'Ergebnisse',
-		history: 'Geschichte',
-		reform: 'Reform',
-		// Drawer group headings
-		group_overview: 'Überblick',
-		group_audit: 'Das Audit',
-		group_context: 'Kontext',
-		group_forward: 'Ausblick',
-		group_apparatus: 'Apparat',
-		// Drawer entries
-		why: 'Warum ist das wichtig?',
-		map: 'Die Karte auf einen Blick',
-		split: 'Wie die Kommission zerbrach',
-		litmus: '1.010.000-Karten-Lackmustest',
-		crack_pack: 'Cracking, Packing, Draining',
-		for_you: 'Was das für Sie bedeutet',
-		impact: 'Auswirkungen vor Ort',
-		gerrymanders: 'Saubere Gerrymander',
-		history_full: 'Eine Geschichte des Gerrymanderings',
-		canada: 'Kanada ist anders',
-		lunty: 'Lunty',
-		suggestions: 'Reformvorschläge',
-		retractions: 'Widerrufe',
-		references: 'Quellen',
-		technical: 'Technische Ressourcen',
-		feedback: 'Feedback senden'
+		skip_to_content: "Zum Inhalt springen",
+		home_aria: "Zurück nach oben",
+		theme_aria: "Dunkel-/Hellmodus umschalten",
+		theme_title: "Dunkelmodus umschalten",
+		nav_aria: "Inhaltsverzeichnis öffnen",
+		drawer_top: "↑ Anfang",
+		route_story: "Geschichte",
+		route_law: "Recht",
+		route_methods: "Methoden",
+		stakes: "Einsatz",
+		findings: "Ergebnisse",
+		history: "Geschichte",
+		reform: "Reform",
+		group_overview: "Überblick",
+		group_audit: "Das Audit",
+		group_context: "Kontext",
+		group_forward: "Ausblick",
+		group_apparatus: "Apparat",
+		why: "Warum ist das wichtig?",
+		map: "Die Karte auf einen Blick",
+		split: "Wie die Kommission zerbrach",
+		litmus: "1.010.000-Karten-Lackmustest",
+		crack_pack: "Cracking, Packing, Draining",
+		for_you: "Was das für Sie bedeutet",
+		impact: "Auswirkungen vor Ort",
+		gerrymanders: "Saubere Gerrymander",
+		history_full: "Eine Geschichte des Gerrymanderings",
+		canada: "Kanada ist anders",
+		lunty: "Lunty",
+		suggestions: "Reformvorschläge",
+		smoking_gun: "Der rauchende Colt",
+		picture: "Das Bild",
+		act1: "Akt I: Die Karte",
+		act2: "Akt II: Die Simulation",
+		act3: "Akt III: Das Vorgehen",
+		revisited: "Die Bilanz, noch einmal",
+		explainers: "Erklärstücke A–N",
+		retractions: "Widerrufe",
+		authors_view: "Die Sicht des Autors",
+		references: "Quellen",
+		technical: "Technische Ressourcen",
+		feedback: "Feedback senden",
+		happened: "Was geschehen ist",
+		does: "Was die Karte bewirkt",
+		law: "Was das Gesetz verlangt",
+		system: "Wie das Komitee den Auftrag bekam",
+		know: "Woher wir es wissen",
+		test: "Der Test im November",
+		mind: "Was meine Meinung ändern würde",
+		evidence: "Das vollständige Protokoll",
+		fixes: "Lehren für das nächste Mal",
+		bar_aria: "Website",
+		bar_home: "Hauptseite",
+		bar_evidence: "Vollständiges Protokoll",
+		bar_explorer: "Karten-Explorer",
+		bar_norms: "Normen",
+		bar_explainers: "Erklärstücke",
+		bar_fixes: "Lehren",
+		bar_feedback: "Feedback",
+		group_this_page: "Auf dieser Seite",
+		group_pages: "Seiten"
 	},
 	hero: {
-		h1: 'Gesetze, Normen und Statistik: ein Audit der Berichte der Wahlbezirkskommission Albertas 2026',
-		subtitle:
-			'Albertas Kommission hat 2026 zwei konkurrierende Wahlbezirkskarten vorgelegt. Ich habe auf beide dieselben Tests angewandt und eine einzige Frage gestellt: Behandeln sie die Wählerinnen und Wähler gleich?',
-		badge: 'Offizielle Karten von Elections Alberta — veröffentlicht im Mai 2026',
-		cover_note: 'Klicken Sie zum Hineinzoomen und erkunden Sie alle drei Grenzkarten auf einmal. Fixieren Sie den Ausschnitt und wechseln Sie zwischen den Karten. Die Grenzen verschieben sich; die Wählerinnen und Wähler bleiben, wo sie sind. Scrollen Sie nach unten zur Analyse.',
-		cover_note_1:
-			'Diese Karte ist der beste Einstieg. Klicken Sie darauf, um hineinzuzoomen und sie zu erkunden. Mit den Schaltflächen oben wechseln Sie zwischen der Minderheitenkarte, der Mehrheitskarte und den 2019 erlassenen Grenzen, oder Sie legen alle drei übereinander, um genau zu sehen, wo sie auseinandergehen. <strong>Detail</strong> färbt jedes Wahlgebiet danach, wie die Menschen 2023 gewählt haben. <strong>Trend</strong> ergänzt eine Parteischattierung pro Bezirk (blau UCP, orange NDP). <strong>Lines</strong> blendet Grenzen ein und aus. <strong>Find</strong> springt per Name zu jedem Riding.',
-		cover_note_2:
-			'Fixieren Sie den Ausschnitt und wechseln Sie zwischen den Karten. Sehen Sie zu, wie sich eine Grenze bewegt, während die Wählerinnen und Wähler darunter stillstehen. Die ganze Frage, in einer einzigen Geste.',
-		cover_note_3:
-			'Wenn Sie mit dem Erkunden fertig sind, scrollen Sie nach unten zur Zusammenfassung. Die vollständige technische Analyse finden Sie im Abschnitt Ressourcen. Alle Daten stammen aus den offiziellen Shapefiles von Elections Alberta sowie aus anderen behördlichen und Open-Source-Unterlagen.',
-		image_alt:
-			'Karte der Wahlbezirke Albertas — Minderheitenvorschlag der Kommission, eingefärbt nach den Stimmen von 2023',
-		map_hint: 'Klicken Sie, um interaktiv zu erkunden',
-		btn_title: 'Klicken, um die interaktive Karte zu öffnen',
-		btn_aria: 'Klicken, um interaktiv zu erkunden'
+		h1: "Gesetze, Normen und Statistik: ein Audit der Berichte der Wahlbezirkskommission Albertas 2026",
+		subtitle: "Albertas Kommission hat 2026 zwei konkurrierende Wahlbezirkskarten vorgelegt. Ich habe auf beide dieselben Tests angewandt und eine einzige Frage gestellt: Behandeln sie die Wählerinnen und Wähler gleich?",
+		badge: "Offizielle Karten von Elections Alberta — veröffentlicht im Mai 2026",
+		cover_note: "Klicken Sie zum Hineinzoomen und erkunden Sie alle drei Grenzkarten auf einmal. Fixieren Sie den Ausschnitt und wechseln Sie zwischen den Karten. Die Grenzen verschieben sich; die Wählerinnen und Wähler bleiben, wo sie sind. Scrollen Sie nach unten zur Analyse.",
+		cover_note_1: "Diese Karte ist der beste Einstieg. Klicken Sie darauf, um hineinzuzoomen und sie zu erkunden. Mit den Schaltflächen oben wechseln Sie zwischen der Minderheitenkarte, der Mehrheitskarte und den 2019 erlassenen Grenzen, oder Sie legen alle drei übereinander, um genau zu sehen, wo sie auseinandergehen. <strong>Detail</strong> färbt jedes Wahlgebiet danach, wie die Menschen 2023 gewählt haben. <strong>Trend</strong> ergänzt eine Parteischattierung pro Bezirk (blau UCP, orange NDP). <strong>Lines</strong> blendet Grenzen ein und aus. <strong>Find</strong> springt per Name zu jedem Riding.",
+		cover_note_2: "Fixieren Sie den Ausschnitt und wechseln Sie zwischen den Karten. Sehen Sie zu, wie sich eine Grenze bewegt, während die Wählerinnen und Wähler darunter stillstehen. Die ganze Frage, in einer einzigen Geste.",
+		cover_note_3: "Wenn Sie mit dem Erkunden fertig sind, scrollen Sie nach unten zur Zusammenfassung. Die vollständige technische Analyse finden Sie im Abschnitt Ressourcen. Alle Daten stammen aus den offiziellen Shapefiles von Elections Alberta sowie aus anderen behördlichen und Open-Source-Unterlagen.",
+		image_alt: "Karte der Wahlbezirke Albertas — Minderheitenvorschlag der Kommission, eingefärbt nach den Stimmen von 2023",
+		map_hint: "Klicken Sie, um interaktiv zu erkunden",
+		btn_title: "Klicken, um die interaktive Karte zu öffnen",
+		btn_aria: "Klicken, um interaktiv zu erkunden"
 	},
 	boundary: {
-		heading: 'Was dieses Audit Ihnen sagen kann und was nicht',
-		can_1:
-			'Die Geometrie der Minderheitenkarte überschreitet 4 von 5 vorab registrierten strukturellen Schwellen <em>ganz ohne den Einsatz von Wahldaten</em>. Der fünfte Test (Anchoring) ist neutral. Die Mehrheitskarte überschreitet 0 der 4 ausgelösten Schwellen. Diese Tests messen Eigenschaften der Grenzlinien selbst — Bezirksform, kommunale Verankerung, Bevölkerungsstreuung — und kommen zu ihrem Schluss, bevor eine einzige Stimme gezählt ist.',
-		can_2:
-			'Unabhängig davon liegt die Minderheitenkarte, sobald Wahldaten hinzukommen, am 99,99. Perzentil von 1,01 Millionen algorithmisch gezeichneten Vergleichskarten, die in Bevölkerungsausgleich und Zusammenhang übereinstimmen (das Ensemble erzwingt diese beiden Anforderungen, nicht jedes gesetzliche Kriterium wie Interessengemeinschaften). Rund 69 dieser 1,01 Millionen neutralen Karten erreichen bei Stimmengleichheit denselben Sitzanteil. Zählt man beide Analysekanäle, liegt die Wahrscheinlichkeit dieses Profils bei neutraler Zeichnung höchstens bei etwa 1 zu 568.000. Zwei Analyseinstrumente — geometrisch und statistisch — kommen zum selben Ergebnis, zugunsten derselben Partei; die gemeinsame Schranke ist die abhängigkeitsbewusste Zusammenfassung dieser Konvergenz, nicht vier unabhängige Tests, die übereinstimmen.',
-		can_3:
-			'Drei der Konfigurationen, die der Minderheitenvorschlag enthält, hat Kommissionsvorsitzender Richter Miller in der Antwort des Mehrheitsberichts auf die Minderheit schriftlich beanstandet (Abschlussbericht, S. 62–63). Die Tests des Audits wurden ohne Kenntnis seiner Beanstandungen durchgeführt und finden dieselben Regionen. Weil Richter Miller die Kommission leitete und den Mehrheitsbericht unterzeichnete, sind dies die eigenen Kritikpunkte des Vorsitzenden — eine Bestätigung, kein vollständig unabhängiges drittes Instrument —, aber dass die Blindtests des Audits auf dieselben Regionen stoßen, ist dennoch bemerkenswert.',
-		cant_1:
-			'Das Audit weist <strong>nicht</strong> nach, dass irgendein Kommissionsmitglied die parteilichen Wirkungen, die es misst, beabsichtigt hätte. Grenzgeometrie kann keine Absicht offenbaren.',
-		cant_2:
-			'Das Audit sagt <strong>nicht</strong> voraus, was das Lunty-Komitee wählen wird, wie der Urnengang im November 2026 ausgeht oder wie die Albertaner darauf reagieren werden.',
-		cant_3:
-			'Das Audit sagt <strong>nicht</strong> voraus, wie ein Gericht entscheiden würde, falls gegen einen der beiden Vorschläge eine Charter-Klage erhoben würde.',
-		cant_4:
-			'Das Audit behauptet <strong>nicht</strong>, die abhängigkeitsrobuste Schranke von etwa 1 zu 568.000 (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>) sei die Wahrscheinlichkeit, dass ein Gerrymander stattgefunden hat. Diese Zahl ist die Randwahrscheinlichkeit der Geometrie der Minderheit unter einer neutralen algorithmischen Nullhypothese. Sie ist ein Beleg dafür, dass die neutrale Nullhypothese unplausibel ist. Sie ist keine A-posteriori-Wahrscheinlichkeit parteilicher Absicht — diese Frage erfordert Belege, die die Geometrie nicht liefern kann.',
-		cant_5:
-			'Das Audit sagt <strong>keinem</strong> einzelnen Wähler, welche Position er einnehmen oder was er mit diesen Informationen tun soll. Die Wahl liegt bei Ihnen.'
+		heading: "Was dieses Audit Ihnen sagen kann und was nicht",
+		can_1: "Die Geometrie der Minderheitenkarte überschreitet 4 von 5 vorab registrierten strukturellen Schwellen <em>ganz ohne den Einsatz von Wahldaten</em>. Der fünfte Test (Anchoring) ist neutral. Die Mehrheitskarte überschreitet 0 der 4 ausgelösten Schwellen. Diese Tests messen Eigenschaften der Grenzlinien selbst — Bezirksform, kommunale Verankerung, Bevölkerungsstreuung — und kommen zu ihrem Schluss, bevor eine einzige Stimme gezählt ist.",
+		can_2: "Unabhängig davon liegt die Minderheitenkarte, sobald Wahldaten hinzukommen, am 99,99. Perzentil von 1,01 Millionen algorithmisch gezeichneten Vergleichskarten, die in Bevölkerungsausgleich und Zusammenhang übereinstimmen (das Ensemble erzwingt diese beiden Anforderungen, nicht jedes gesetzliche Kriterium wie Interessengemeinschaften). Rund 69 dieser 1,01 Millionen neutralen Karten erreichen bei Stimmengleichheit denselben Sitzanteil. Zählt man beide Analysekanäle, liegt die Wahrscheinlichkeit dieses Profils bei neutraler Zeichnung höchstens bei etwa 1 zu 568.000. Zwei Analyseinstrumente — geometrisch und statistisch — kommen zum selben Ergebnis, zugunsten derselben Partei; die gemeinsame Schranke ist die abhängigkeitsbewusste Zusammenfassung dieser Konvergenz, nicht vier unabhängige Tests, die übereinstimmen.",
+		can_3: "Drei der Konfigurationen, die der Minderheitenvorschlag enthält, hat Kommissionsvorsitzender Richter Miller in der Antwort des Mehrheitsberichts auf die Minderheit schriftlich beanstandet (Abschlussbericht, S. 62–63). Die Tests des Audits wurden ohne Kenntnis seiner Beanstandungen durchgeführt und finden dieselben Regionen. Weil Richter Miller die Kommission leitete und den Mehrheitsbericht unterzeichnete, sind dies die eigenen Kritikpunkte des Vorsitzenden — eine Bestätigung, kein vollständig unabhängiges drittes Instrument —, aber dass die Blindtests des Audits auf dieselben Regionen stoßen, ist dennoch bemerkenswert.",
+		cant_1: "Das Audit weist <strong>nicht</strong> nach, dass irgendein Kommissionsmitglied die parteilichen Wirkungen, die es misst, beabsichtigt hätte. Grenzgeometrie kann keine Absicht offenbaren.",
+		cant_2: "Das Audit sagt <strong>nicht</strong> voraus, was das Lunty-Komitee wählen wird, wie der Urnengang im November 2026 ausgeht oder wie die Albertaner darauf reagieren werden.",
+		cant_3: "Das Audit sagt <strong>nicht</strong> voraus, wie ein Gericht entscheiden würde, falls gegen einen der beiden Vorschläge eine Charter-Klage erhoben würde.",
+		cant_4: "Das Audit behauptet <strong>nicht</strong>, die abhängigkeitsrobuste Schranke von etwa 1 zu 568.000 (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>) sei die Wahrscheinlichkeit, dass ein Gerrymander stattgefunden hat. Diese Zahl ist die Randwahrscheinlichkeit der Geometrie der Minderheit unter einer neutralen algorithmischen Nullhypothese. Sie ist ein Beleg dafür, dass die neutrale Nullhypothese unplausibel ist. Sie ist keine A-posteriori-Wahrscheinlichkeit parteilicher Absicht — diese Frage erfordert Belege, die die Geometrie nicht liefern kann.",
+		cant_5: "Das Audit sagt <strong>keinem</strong> einzelnen Wähler, welche Position er einnehmen oder was er mit diesen Informationen tun soll. Die Wahl liegt bei Ihnen."
 	},
 	editorial_intro: {
-		heading: 'Was ist Redistricting, und warum es wichtig ist',
-		p1: 'Jeder Wähler in Alberta lebt in einem <em>Wahlbezirk</em> (electoral district) — einem Ausschnitt der Provinz, der eine Person in die Legislativversammlung wählt. Es gibt 87 Wahlbezirke. Jeder Wahlbezirk wählt einen MLA. Wenn Sie bei einer Provinzwahl Ihre Stimme abgeben, wählen Sie den MLA des Bezirks, in dem Sie wohnen. Für die meisten Albertaner ist das die gesamte Verbindung zur Legislative: ein MLA, ein Bezirk, eine Stimme.',
-		p2: 'Diese Bezirksgrenzen sind nicht für die Ewigkeit gemacht. Menschen ziehen um, Stadtviertel wachsen, ländliche Gegenden dünnen aus, Städte breiten sich aus. Alle acht bis zehn Jahre soll Alberta die Linien neu ziehen, damit jeder Bezirk in etwa die richtige Größe hat und widerspiegelt, wie die Albertaner heute tatsächlich leben. Das Gremium, das neu zeichnet, ist die <em>Wahlbezirkskommission</em> (Electoral Boundaries Commission) — eine unabhängige Kommission aus Richtern, Anwälten und öffentlichen Mitgliedern, nicht aus Politikern.',
-		p3: 'Das ist das Standardverfahren. Diesmal hat das Standardverfahren etwas Ungewöhnliches hervorgebracht. Die fünf Mitglieder der Kommission haben sich 3 zu 2 darüber gespalten, wie die Karte aussehen soll, und statt sich auf eine Empfehlung zu einigen, haben sie zwei vorgelegt: einen <em>Mehrheitsvorschlag</em> (von drei Kommissaren getragen) und einen <em>Minderheitenvorschlag</em> (von zwei). Beide liegen auf dem Tisch. Am 21. April 2026 verabschiedete die Legislativversammlung Regierungsantrag 37, der beide zurückstellte und das Redistricting an einen sechsköpfigen Sonderausschuss aus MLAs (Select Special Committee) unter Vorsitz von Brandon Lunty (einem UCP-MLA) verwies. Das Komitee beaufsichtigt ein separates vierköpfiges Unabhängiges Beratungsgremium, das unter demselben Antrag eingesetzt wurde und den Auftrag hat, eine neue Karte mit 91 Sitzen zu erstellen; das Komitee muss seinen Bericht bis zum 2. November 2026 der Legislative vorlegen.',
-		p4: 'Warum es für Sie wichtig ist: Die Linien entscheiden, wer Ihr MLA ist. Sie entscheiden, welche Stadtviertel, Orte und Anliegen gemeinsam vertreten werden. Wenn Ihre Stadt auf vier MLAs verteilt ist statt auf einen, ist kein einzelner Abgeordneter für die Stadt als Ganzes verantwortlich. Wenn Ihre Interessengemeinschaft — eine Kleinstadt, eine ländliche Region, eine Innenstadt — auf mehrere Bezirke verteilt ist, wird Ihre Stimme bei provinziellen Entscheidungen verwässert. Die Karte prägt außerdem, welche Partei eine Regierung bilden kann und mit welcher Mehrheit. Der spezifische Befund des Audits (dass der Minderheitenvorschlag in einem strukturellen Extrem liegt) ist der Grund, warum Sie diese Seite lesen, aber die übergeordnete Frage ist älter und gilt für jeden Redistricting-Zyklus: Spiegeln die Linien wider, wie die Albertaner leben, oder formen sie die Politik dabei?',
-		p5: 'Der Rest dieser Seite zeigt, was die beiden vorgeschlagenen Karten tatsächlich machen.',
-		key_terms_lead: 'Schlüsselbegriffe in diesem Abschnitt — klicken Sie zum Lesen:'
+		heading: "Was ist Redistricting, und warum es wichtig ist",
+		p1: "Jeder Wähler in Alberta lebt in einem <em>Wahlbezirk</em> (electoral district) — einem Ausschnitt der Provinz, der eine Person in die Legislativversammlung wählt. Es gibt 87 Wahlbezirke. Jeder Wahlbezirk wählt einen MLA. Wenn Sie bei einer Provinzwahl Ihre Stimme abgeben, wählen Sie den MLA des Bezirks, in dem Sie wohnen. Für die meisten Albertaner ist das die gesamte Verbindung zur Legislative: ein MLA, ein Bezirk, eine Stimme.",
+		p2: "Diese Bezirksgrenzen sind nicht für die Ewigkeit gemacht. Menschen ziehen um, Stadtviertel wachsen, ländliche Gegenden dünnen aus, Städte breiten sich aus. Alle acht bis zehn Jahre soll Alberta die Linien neu ziehen, damit jeder Bezirk in etwa die richtige Größe hat und widerspiegelt, wie die Albertaner heute tatsächlich leben. Das Gremium, das neu zeichnet, ist die <em>Wahlbezirkskommission</em> (Electoral Boundaries Commission) — eine unabhängige Kommission aus Richtern, Anwälten und öffentlichen Mitgliedern, nicht aus Politikern.",
+		p3: "Das ist das Standardverfahren. Diesmal hat das Standardverfahren etwas Ungewöhnliches hervorgebracht. Die fünf Mitglieder der Kommission haben sich 3 zu 2 darüber gespalten, wie die Karte aussehen soll, und statt sich auf eine Empfehlung zu einigen, haben sie zwei vorgelegt: einen <em>Mehrheitsvorschlag</em> (von drei Kommissaren getragen) und einen <em>Minderheitenvorschlag</em> (von zwei). Beide liegen auf dem Tisch. Am 21. April 2026 verabschiedete die Legislativversammlung Regierungsantrag 37, der beide zurückstellte und das Redistricting an einen sechsköpfigen Sonderausschuss aus MLAs (Select Special Committee) unter Vorsitz von Brandon Lunty (einem UCP-MLA) verwies. Das Komitee beaufsichtigt ein separates vierköpfiges Unabhängiges Beratungsgremium, das unter demselben Antrag eingesetzt wurde und den Auftrag hat, eine neue Karte mit 91 Sitzen zu erstellen; das Komitee muss seinen Bericht bis zum 2. November 2026 der Legislative vorlegen.",
+		p4: "Warum es für Sie wichtig ist: Die Linien entscheiden, wer Ihr MLA ist. Sie entscheiden, welche Stadtviertel, Orte und Anliegen gemeinsam vertreten werden. Wenn Ihre Stadt auf vier MLAs verteilt ist statt auf einen, ist kein einzelner Abgeordneter für die Stadt als Ganzes verantwortlich. Wenn Ihre Interessengemeinschaft — eine Kleinstadt, eine ländliche Region, eine Innenstadt — auf mehrere Bezirke verteilt ist, wird Ihre Stimme bei provinziellen Entscheidungen verwässert. Die Karte prägt außerdem, welche Partei eine Regierung bilden kann und mit welcher Mehrheit. Der spezifische Befund des Audits (dass der Minderheitenvorschlag in einem strukturellen Extrem liegt) ist der Grund, warum Sie diese Seite lesen, aber die übergeordnete Frage ist älter und gilt für jeden Redistricting-Zyklus: Spiegeln die Linien wider, wie die Albertaner leben, oder formen sie die Politik dabei?",
+		p5: "Der Rest dieser Seite zeigt, was die beiden vorgeschlagenen Karten tatsächlich machen.",
+		key_terms_lead: "Schlüsselbegriffe in diesem Abschnitt — klicken Sie zum Lesen:"
 	},
 	editorial_reflect: {
-		heading: 'Zwischenbetrachtung: Was das für Sie und Ihre Gemeinschaft bedeutet',
-		intro_p1:
-			'Hier hält das Protokoll inne. Welche Partei Sitze gewinnt oder verliert, ist Sache der Legislative — dort erleben Sie diese Karten nicht. Sie erleben sie über drei konkrete Fragen zu Ihrem eigenen Bezirk:',
-		intro_q1: 'Wo wohnt Ihr MLA?',
-		intro_q2: 'Engagiert er oder sie sich für Ihre Gemeinschaft?',
-		intro_q3: 'Werden die Anliegen des städtischen Kopfes des Bezirks seine ländlichen Anhängsel dominieren?',
-		intro_p2:
-			'Jede andere Rahmung — parteilicher Vorteil, Supermajoritätsschwelle, statistisches Extrem — verweist letztlich auf diese drei zurück. Die fünf Sprossen weiter unten zeigen, wie jede vorgeschlagene Karte sie auf fünf Maßstäben beantwortet.',
-		you_h: 'Sie.',
-		you_p:
-			'Ihr Wahlbezirk entscheidet, wer Sie in der Legislative vertritt. Derzeit leben Sie in einem von 87 Bezirken. Mit jeder der beiden vorgeschlagenen Karten könnten Sie in einem anderen landen — vielleicht mit einem anderen MLA, vielleicht an andere Nachbargemeinden angebunden. Wenn Sie nicht wissen, in welchem Bezirk Sie gerade sind oder wer Ihr MLA ist, sind Sie nicht allein: Die meisten Menschen in Alberta könnten ihren MLA nicht nennen. Aber die Grenzlinien sind nicht abstrakt. Sie entscheiden, wessen Telefonnummer an der Wand im Büro Ihrer örtlichen Vertretung hängt, unter wessen Nachbarschaftspetition Ihr Name steht, wessen Anliegen Ihr MLA zuerst hört. Der Karten-Explorer auf dieser Website — suchen Sie Ihre Gemeinde per Name — zeigt, in welchem Bezirk Sie nach jedem Vorschlag liegen. Ändert sich Ihr Bezirk, ändert sich Ihre Vertretung — und mit ihr die Beziehung Ihrer Vertretung zu Ihrer Gemeinde.',
-		community_h: 'Ihre Gemeinschaft.',
-		community_p:
-			'Auch Gemeinschaften sind nicht abstrakt. Der Einzugsbereich einer Highschool, eine Handelskammer, eine Glaubensgemeinschaft, eine Nachbarschaftsvereinigung: Das sind reale Gruppierungen von Menschen mit gemeinsamen lokalen Anliegen. Wenn eine Grenzlinie quer durch sie verläuft, ist kein einzelner MLA für das Ganze zuständig. „Casing 1“ ist der Extremfall: Airdrie, eine Stadt in vier Stücken, ohne einen einzelnen Vertreter, der für sie verantwortlich ist. Dieselbe Dynamik zeigt sich überall dort, wo ein Ort, ein Viertel oder eine anerkannte Interessengemeinschaft geteilt wird: Je größer die Teilung, desto schwächer die Vertretung. (Beim umfassenderen Maß dafür, wie treu jede Karte insgesamt den Gemeindegrenzen folgt, liegen beide Vorschläge innerhalb der kanadischen Norm — „Casing 5“ dokumentiert den Befund, der sich aufgelöst hat.)',
-		municipality_h: 'Ihre Gemeinde.',
-		municipality_p:
-			'Wenn eine Stadt auf viele Vertreter zersplittert wird, schwächt das ihre Verhandlungsmacht bei provinziellen Entscheidungen. Ein Stadtrat, der um Nahverkehrsmittel bittet, eine Schulbehörde, die eine neue Schule aushandelt, ein Bürgermeister, der sich für Autobahnausbauten einsetzt — all das gelingt besser, wenn die Stadt auf wenige MLAs verweisen kann, die der Stadt als Ganzes Rechenschaft schulden. Der Minderheitenvorschlag spaltet den Norden, Osten und die Mitte Calgarys auf mehrere Bezirke auf, deren Stimmverteilungsmuster auf <em>Packing</em> (die Konzentration der Wählerschaft einer Partei in wenige Sitze mit hohem Vorsprung) zusätzlich zum <em>Cracking</em> (die Aufteilung der Wählerschaft der anderen Partei auf viele knappe Sitze) hindeuten. Ob das Muster beabsichtigt ist, ist eine Frage, die das Audit nicht beantworten kann — Grenzgeometrie zeigt keine Absicht. Sagen lässt sich aber, dass die vier statistischen Maße dieselben Bezirke markieren wie die strukturellen Tests, und dass der Alternativvorschlag nicht denselben Fingerabdruck erzeugt.',
-		region_h: 'Ihre Region.',
-		region_p1:
-			'Wenn Sie außerhalb der Städte Albertas leben, haben Sie wahrscheinlich bemerkt, dass politische Gespräche über Grenzen immer die Städte in den Mittelpunkt rücken. Das ist ein berechtigter Einwand, also seien wir konkret darüber, was dieses Audit über das ländliche Alberta sagt und was nicht.',
-		region_p2:
-			'Was es <strong>nicht</strong> sagt: Das ländliche Alberta habe zu viele Sitze. Der EBCA erlaubt, dass die Bezirksbevölkerungen um bis zu 25 % schwanken, damit ein ländlicher MLA nicht ein Gebiet von der Größe Süddeutschlands oder Frankreichs vertreten muss. Kanadische Gerichte halten diese Abweichung für legitim. Beide vorgeschlagenen Karten behalten sie bei. Nichts in diesem Audit ändert daran etwas.',
-		region_p3:
-			'Was es <strong>sehr wohl</strong> sagt: An mehreren Stellen des Minderheitenvorschlags werden ländliche Gemeinden als <em>Anhängsel</em> eines Bezirks angefügt, dessen Bevölkerungszentrum in einer Stadt liegt. Sehen Sie sich die Airdrie-Aufteilung aus „Casing 1“ noch einmal an, diesmal von der ländlichen Seite: Drei ihrer vier Bezirke reichen jeweils in einen anderen Streifen ländlicher Umgebung hinaus, und in jedem ist das Bevölkerungszentrum der städtische Teil, nicht das ländliche Anhängsel. Ein MLA, der in einem solchen Bezirk gewählt wird, wird höchstwahrscheinlich dort wohnen, Wahlkampf führen und Prioritäten setzen, wo die Stimmen sind — was bedeutet, dass ländliche Gemeinden, die zuvor von einem eigenen ländlichen MLA vertreten wurden, zur hinteren Hälfte eines stadtgeführten Sitzes werden. Dieses Muster wiederholt sich beim Minderheitenvorschlag in einer Weise, wie es beim Mehrheitsvorschlag nicht der Fall ist.',
-		region_p4:
-			'Das Audit schlägt nicht vor, dem ländlichen Alberta Sitze wegzunehmen. Es fragt, ob die Linien die ländlichen Gemeinden respektieren, die diese Sitze vertreten sollen, oder ob ländliche Geographie als Ballast benutzt wird, um städtische Stimmen in Bezirke aufzunehmen, deren Schwerpunkt anderswo liegt. Wenn Sie in einem dieser ländlichen Anhängsel leben, entscheidet die Frage, welche Karte erlassen wird, darüber, ob Ihr MLA die ländliche Gemeinschaft vertritt, in der Sie tatsächlich leben, oder einen städtischen Bezirk, dessen Grenzen Ihr Land zufällig einschließen.',
-		province_h: 'Ihre Provinz.',
-		province_p:
-			'Die Legislative ist das, was herauskommt, wenn man die Antworten aller Bezirke auf die drei Fragen oben zusammenzählt. Sind die meisten Bezirke in Gemeinden verankert, in denen ihre MLAs tatsächlich leben, vertritt die Legislative diese Gemeinden. Haben die meisten Bezirke ländliche Anhängsel an städtischen Köpfen, vertritt die Legislative die Köpfe — und die Anhängsel bekommen die Aufmerksamkeit, die übrig bleibt. Die parteipolitische Frage — welche Partei eine Mehrheit gewinnt — folgt daraus. Die Frage der großen Mehrheit — ob eine Partei 60 von 89 Sitzen überschreitet, ein Vorsprung, der eine Regierung praktisch immun gegen Fraktionswechsel macht und eine Opposition zurücklässt, die zu klein für eine nachhaltige Kontrolle ist — folgt wiederum <em>daraus</em>. Bei einer hypothetischen 50/50-Verteilung in der Provinz verorten die Messungen des Audits den Minderheitenvorschlag an einem strukturellen Extrem: Weniger als 100 der 1,01 Millionen neutralen Vergleichskarten erzeugen dieselbe Art von Sitzungleichgewicht. Ob dieses Ungleichgewicht eine Partei bei den Stimmenanteilen, die die Menschen in Alberta tatsächlich abgeben, über 60 Sitze hebt, hat dieses Audit noch nicht direkt getestet — eine offen benannte Lücke. Ob die Antwort auf eine dieser Fragen wichtig genug ist, um zu handeln, ist wiederum eine Frage an Sie.'
+		heading: "Zwischenbetrachtung: Was das für Sie und Ihre Gemeinschaft bedeutet",
+		intro_p1: "Hier hält das Protokoll inne. Welche Partei Sitze gewinnt oder verliert, ist Sache der Legislative — dort erleben Sie diese Karten nicht. Sie erleben sie über drei konkrete Fragen zu Ihrem eigenen Bezirk:",
+		intro_q1: "Wo wohnt Ihr MLA?",
+		intro_q2: "Engagiert er oder sie sich für Ihre Gemeinschaft?",
+		intro_q3: "Werden die Anliegen des städtischen Kopfes des Bezirks seine ländlichen Anhängsel dominieren?",
+		intro_p2: "Jede andere Rahmung — parteilicher Vorteil, Supermajoritätsschwelle, statistisches Extrem — verweist letztlich auf diese drei zurück. Die fünf Sprossen weiter unten zeigen, wie jede vorgeschlagene Karte sie auf fünf Maßstäben beantwortet.",
+		you_h: "Sie.",
+		you_p: "Ihr Wahlbezirk entscheidet, wer Sie in der Legislative vertritt. Derzeit leben Sie in einem von 87 Bezirken. Mit jeder der beiden vorgeschlagenen Karten könnten Sie in einem anderen landen — vielleicht mit einem anderen MLA, vielleicht an andere Nachbargemeinden angebunden. Wenn Sie nicht wissen, in welchem Bezirk Sie gerade sind oder wer Ihr MLA ist, sind Sie nicht allein: Die meisten Menschen in Alberta könnten ihren MLA nicht nennen. Aber die Grenzlinien sind nicht abstrakt. Sie entscheiden, wessen Telefonnummer an der Wand im Büro Ihrer örtlichen Vertretung hängt, unter wessen Nachbarschaftspetition Ihr Name steht, wessen Anliegen Ihr MLA zuerst hört. Der Karten-Explorer auf dieser Website — suchen Sie Ihre Gemeinde per Name — zeigt, in welchem Bezirk Sie nach jedem Vorschlag liegen. Ändert sich Ihr Bezirk, ändert sich Ihre Vertretung — und mit ihr die Beziehung Ihrer Vertretung zu Ihrer Gemeinde.",
+		community_h: "Ihre Gemeinschaft.",
+		community_p: "Auch Gemeinschaften sind nicht abstrakt. Der Einzugsbereich einer Highschool, eine Handelskammer, eine Glaubensgemeinschaft, eine Nachbarschaftsvereinigung: Das sind reale Gruppierungen von Menschen mit gemeinsamen lokalen Anliegen. Wenn eine Grenzlinie quer durch sie verläuft, ist kein einzelner MLA für das Ganze zuständig. „Casing 1“ ist der Extremfall: Airdrie, eine Stadt in vier Stücken, ohne einen einzelnen Vertreter, der für sie verantwortlich ist. Dieselbe Dynamik zeigt sich überall dort, wo ein Ort, ein Viertel oder eine anerkannte Interessengemeinschaft geteilt wird: Je größer die Teilung, desto schwächer die Vertretung. (Beim umfassenderen Maß dafür, wie treu jede Karte insgesamt den Gemeindegrenzen folgt, liegen beide Vorschläge innerhalb der kanadischen Norm — „Casing 5“ dokumentiert den Befund, der sich aufgelöst hat.)",
+		municipality_h: "Ihre Gemeinde.",
+		municipality_p: "Wenn eine Stadt auf viele Vertreter zersplittert wird, schwächt das ihre Verhandlungsmacht bei provinziellen Entscheidungen. Ein Stadtrat, der um Nahverkehrsmittel bittet, eine Schulbehörde, die eine neue Schule aushandelt, ein Bürgermeister, der sich für Autobahnausbauten einsetzt — all das gelingt besser, wenn die Stadt auf wenige MLAs verweisen kann, die der Stadt als Ganzes Rechenschaft schulden. Der Minderheitenvorschlag spaltet den Norden, Osten und die Mitte Calgarys auf mehrere Bezirke auf, deren Stimmverteilungsmuster auf <em>Packing</em> (die Konzentration der Wählerschaft einer Partei in wenige Sitze mit hohem Vorsprung) zusätzlich zum <em>Cracking</em> (die Aufteilung der Wählerschaft der anderen Partei auf viele knappe Sitze) hindeuten. Ob das Muster beabsichtigt ist, ist eine Frage, die das Audit nicht beantworten kann — Grenzgeometrie zeigt keine Absicht. Sagen lässt sich aber, dass die vier statistischen Maße dieselben Bezirke markieren wie die strukturellen Tests, und dass der Alternativvorschlag nicht denselben Fingerabdruck erzeugt.",
+		region_h: "Ihre Region.",
+		region_p1: "Wenn Sie außerhalb der Städte Albertas leben, haben Sie wahrscheinlich bemerkt, dass politische Gespräche über Grenzen immer die Städte in den Mittelpunkt rücken. Das ist ein berechtigter Einwand, also seien wir konkret darüber, was dieses Audit über das ländliche Alberta sagt und was nicht.",
+		region_p2: "Was es <strong>nicht</strong> sagt: Das ländliche Alberta habe zu viele Sitze. Der EBCA erlaubt, dass die Bezirksbevölkerungen um bis zu 25 % schwanken, damit ein ländlicher MLA nicht ein Gebiet von der Größe Süddeutschlands oder Frankreichs vertreten muss. Kanadische Gerichte halten diese Abweichung für legitim. Beide vorgeschlagenen Karten behalten sie bei. Nichts in diesem Audit ändert daran etwas.",
+		region_p3: "Was es <strong>sehr wohl</strong> sagt: An mehreren Stellen des Minderheitenvorschlags werden ländliche Gemeinden als <em>Anhängsel</em> eines Bezirks angefügt, dessen Bevölkerungszentrum in einer Stadt liegt. Sehen Sie sich die Airdrie-Aufteilung aus „Casing 1“ noch einmal an, diesmal von der ländlichen Seite: Drei ihrer vier Bezirke reichen jeweils in einen anderen Streifen ländlicher Umgebung hinaus, und in jedem ist das Bevölkerungszentrum der städtische Teil, nicht das ländliche Anhängsel. Ein MLA, der in einem solchen Bezirk gewählt wird, wird höchstwahrscheinlich dort wohnen, Wahlkampf führen und Prioritäten setzen, wo die Stimmen sind — was bedeutet, dass ländliche Gemeinden, die zuvor von einem eigenen ländlichen MLA vertreten wurden, zur hinteren Hälfte eines stadtgeführten Sitzes werden. Dieses Muster wiederholt sich beim Minderheitenvorschlag in einer Weise, wie es beim Mehrheitsvorschlag nicht der Fall ist.",
+		region_p4: "Das Audit schlägt nicht vor, dem ländlichen Alberta Sitze wegzunehmen. Es fragt, ob die Linien die ländlichen Gemeinden respektieren, die diese Sitze vertreten sollen, oder ob ländliche Geographie als Ballast benutzt wird, um städtische Stimmen in Bezirke aufzunehmen, deren Schwerpunkt anderswo liegt. Wenn Sie in einem dieser ländlichen Anhängsel leben, entscheidet die Frage, welche Karte erlassen wird, darüber, ob Ihr MLA die ländliche Gemeinschaft vertritt, in der Sie tatsächlich leben, oder einen städtischen Bezirk, dessen Grenzen Ihr Land zufällig einschließen.",
+		province_h: "Ihre Provinz.",
+		province_p: "Die Legislative ist das, was herauskommt, wenn man die Antworten aller Bezirke auf die drei Fragen oben zusammenzählt. Sind die meisten Bezirke in Gemeinden verankert, in denen ihre MLAs tatsächlich leben, vertritt die Legislative diese Gemeinden. Haben die meisten Bezirke ländliche Anhängsel an städtischen Köpfen, vertritt die Legislative die Köpfe — und die Anhängsel bekommen die Aufmerksamkeit, die übrig bleibt. Die parteipolitische Frage — welche Partei eine Mehrheit gewinnt — folgt daraus. Die Frage der großen Mehrheit — ob eine Partei 60 von 89 Sitzen überschreitet, ein Vorsprung, der eine Regierung praktisch immun gegen Fraktionswechsel macht und eine Opposition zurücklässt, die zu klein für eine nachhaltige Kontrolle ist — folgt wiederum <em>daraus</em>. Bei einer hypothetischen 50/50-Verteilung in der Provinz verorten die Messungen des Audits den Minderheitenvorschlag an einem strukturellen Extrem: Weniger als 100 der 1,01 Millionen neutralen Vergleichskarten erzeugen dieselbe Art von Sitzungleichgewicht. Ob dieses Ungleichgewicht eine Partei bei den Stimmenanteilen, die die Menschen in Alberta tatsächlich abgeben, über 60 Sitze hebt, hat dieses Audit noch nicht direkt getestet — eine offen benannte Lücke. Ob die Antwort auf eine dieser Fragen wichtig genug ist, um zu handeln, ist wiederum eine Frage an Sie."
 	},
 	editorial_history: {
-		heading: 'Kontext: Eine kurze Geschichte des Gerrymanderings',
-		p1: 'Das Wort stammt aus dem Jahr 1812. Der Gouverneur von Massachusetts, Elbridge Gerry, billigte eine Karte für den Staatssenat, deren Bezirke zugunsten seiner Partei so verzerrt waren, dass ein Karikaturist aus Boston einen davon als Salamander zeichnete — mit Flügeln, Klauen und gespaltener Zunge. Das Wortspiel des Karikaturisten, <em>Gerry-mander</em>, blieb hängen. Die Form blieb es auch: Zwei Jahrhunderte später bedeutet das Wort immer noch, Wahlkreisgrenzen so zu ziehen, dass ein parteiliches Ergebnis herauskommt.',
-		p2: 'Der Begriff hält sich, weil das Problem sich hält. Überall dort, wo Wählerinnen und Wähler ihre Vertreter aus geographischen Bezirken wählen, muss jemand die Linien ziehen, und die Linien lassen sich auf viele Weisen ziehen. Verschiedene Länder sind zu unterschiedlichen Antworten auf die Frage gekommen, wer die Linien ziehen soll und was sie binden soll.',
-		p3: '<strong>Die Vereinigten Staaten</strong> behandeln parteiliches Gerrymandering als ein Problem, das die Bundesgerichte größtenteils nicht beheben können. In <em>Rucho v. Common Cause</em> (2019) entschied der U.S. Supreme Court, dass parteiliche Gerrymander nicht justiziable „politische Fragen" seien, die die Bundesgerichte nicht entscheiden werden. Einige Bundesstaaten (Kalifornien, Michigan) haben darauf reagiert, indem sie unabhängige Bürgerkommissionen geschaffen haben, die ihre eigenen Linien zeichnen; andere (Texas, North Carolina) haben weiterhin offen parteiliche Karten gezeichnet und sie damit verteidigt, dass <em>Rucho</em> dies erlaube.',
-		p4: '<strong>Das Vereinigte Königreich</strong> verwendet vier ständige Boundary Commissions — je eine für England, Schottland, Wales und Nordirland — die mit Richtern und hohen Beamten besetzt sind. Sie zeichnen die Linien etwa alle acht Jahre nach festen Regeln neu (Bevölkerungsgleichheit, geographische Kohärenz, Beachtung kommunaler Grenzen). Seit dem Parliamentary Constituencies Act 2020 treten ihre endgültigen Empfehlungen automatisch durch Order in Council in Kraft, ohne dass eine Abstimmung im Parlament erforderlich ist — die frühere Befugnis des Parlaments, sie abzulehnen, wurde aufgehoben.',
-		p5: '<strong>Australien</strong> überträgt die Arbeit der Australian Electoral Commission, einer unabhängigen Bundesbehörde mit voller Befugnis sowohl für die Wahlverwaltung als auch für die Grenzen. Neuverteilungen erfolgen automatisch, wenn sich die Sitzzahl eines Bundesstaates ändert oder seit der letzten sieben Jahre vergangen sind. Die Entscheidungen der Kommissare sind aus verfahrensrechtlichen, nicht aber aus parteilichen Gründen überprüfbar. Wie im Vereinigten Königreich ist Gerrymandering, wie es die Amerikaner kennen, praktisch unbekannt.',
-		p6: 'Diese drei Fälle umrahmen das Spektrum: Gerichte halten sich heraus (USA), unabhängige Kommissionen mit starker parlamentarischer Zurückhaltung (UK), und eine ständige unabhängige Behörde mit voller Befugnis (Australien). Kanada steht wieder an einer anderen Stelle — was der nächste Abschnitt aufgreift.'
+		heading: "Kontext: Eine kurze Geschichte des Gerrymanderings",
+		p1: "Das Wort stammt aus dem Jahr 1812. Der Gouverneur von Massachusetts, Elbridge Gerry, billigte eine Karte für den Staatssenat, deren Bezirke zugunsten seiner Partei so verzerrt waren, dass ein Karikaturist aus Boston einen davon als Salamander zeichnete — mit Flügeln, Klauen und gespaltener Zunge. Das Wortspiel des Karikaturisten, <em>Gerry-mander</em>, blieb hängen. Die Form blieb es auch: Zwei Jahrhunderte später bedeutet das Wort immer noch, Wahlkreisgrenzen so zu ziehen, dass ein parteiliches Ergebnis herauskommt.",
+		p2: "Der Begriff hält sich, weil das Problem sich hält. Überall dort, wo Wählerinnen und Wähler ihre Vertreter aus geographischen Bezirken wählen, muss jemand die Linien ziehen, und die Linien lassen sich auf viele Weisen ziehen. Verschiedene Länder sind zu unterschiedlichen Antworten auf die Frage gekommen, wer die Linien ziehen soll und was sie binden soll.",
+		p3: "<strong>Die Vereinigten Staaten</strong> behandeln parteiliches Gerrymandering als ein Problem, das die Bundesgerichte größtenteils nicht beheben können. In <em>Rucho v. Common Cause</em> (2019) entschied der U.S. Supreme Court, dass parteiliche Gerrymander nicht justiziable „politische Fragen\" seien, die die Bundesgerichte nicht entscheiden werden. Einige Bundesstaaten (Kalifornien, Michigan) haben darauf reagiert, indem sie unabhängige Bürgerkommissionen geschaffen haben, die ihre eigenen Linien zeichnen; andere (Texas, North Carolina) haben weiterhin offen parteiliche Karten gezeichnet und sie damit verteidigt, dass <em>Rucho</em> dies erlaube.",
+		p4: "<strong>Das Vereinigte Königreich</strong> verwendet vier ständige Boundary Commissions — je eine für England, Schottland, Wales und Nordirland — die mit Richtern und hohen Beamten besetzt sind. Sie zeichnen die Linien etwa alle acht Jahre nach festen Regeln neu (Bevölkerungsgleichheit, geographische Kohärenz, Beachtung kommunaler Grenzen). Seit dem Parliamentary Constituencies Act 2020 treten ihre endgültigen Empfehlungen automatisch durch Order in Council in Kraft, ohne dass eine Abstimmung im Parlament erforderlich ist — die frühere Befugnis des Parlaments, sie abzulehnen, wurde aufgehoben.",
+		p5: "<strong>Australien</strong> überträgt die Arbeit der Australian Electoral Commission, einer unabhängigen Bundesbehörde mit voller Befugnis sowohl für die Wahlverwaltung als auch für die Grenzen. Neuverteilungen erfolgen automatisch, wenn sich die Sitzzahl eines Bundesstaates ändert oder seit der letzten sieben Jahre vergangen sind. Die Entscheidungen der Kommissare sind aus verfahrensrechtlichen, nicht aber aus parteilichen Gründen überprüfbar. Wie im Vereinigten Königreich ist Gerrymandering, wie es die Amerikaner kennen, praktisch unbekannt.",
+		p6: "Diese drei Fälle umrahmen das Spektrum: Gerichte halten sich heraus (USA), unabhängige Kommissionen mit starker parlamentarischer Zurückhaltung (UK), und eine ständige unabhängige Behörde mit voller Befugnis (Australien). Kanada steht wieder an einer anderen Stelle — was der nächste Abschnitt aufgreift."
 	},
 	glossary: {
-		more_link: 'Mehr erfahren →',
-		'electoral-district': {
-			term: 'Wahlbezirk (electoral district, ED)',
-			definition:
-				'Das geographische Gebiet, das ein Mitglied in die Provinz-Legislative wählt; nach der ersten Erwähnung oft als „ED“ abgekürzt. Jeder ED hat einen MLA. (Das Wort „Riding“ bezieht sich gewöhnlich auf Bundeswahlbezirke. Albertas Gesetze nennen einen provinziellen Wahlbezirk „electoral division“.)'
+		more_link: "Mehr erfahren →",
+		"electoral-district": {
+			term: "Wahlbezirk (electoral district, ED)",
+			definition: "Das geographische Gebiet, das ein Mitglied in die Provinz-Legislative wählt; nach der ersten Erwähnung oft als „ED“ abgekürzt. Jeder ED hat einen MLA. (Das Wort „Riding“ bezieht sich gewöhnlich auf Bundeswahlbezirke. Albertas Gesetze nennen einen provinziellen Wahlbezirk „electoral division“.)"
 		},
 		riding: {
-			term: 'Riding',
-			definition:
-				'In Kanada bezeichnet das Wort meist einen Bundeswahlbezirk. Albertas Gesetze nennen das provinzielle Gegenstück „electoral division“. Diese Website verwendet „Riding“, „Bezirk“ und „Wahlbezirk“ gleichbedeutend.'
+			term: "Riding",
+			definition: "In Kanada bezeichnet das Wort meist einen Bundeswahlbezirk. Albertas Gesetze nennen das provinzielle Gegenstück „electoral division“. Diese Website verwendet „Riding“, „Bezirk“ und „Wahlbezirk“ gleichbedeutend."
 		},
 		mla: {
-			term: 'MLA',
-			definition:
-				'Member of the Legislative Assembly (Mitglied der Legislativversammlung): die Person, die ein Wahlbezirk wählt, um ihn in der Legislative Albertas zu vertreten.'
+			term: "MLA",
+			definition: "Member of the Legislative Assembly (Mitglied der Legislativversammlung): die Person, die ein Wahlbezirk wählt, um ihn in der Legislative Albertas zu vertreten."
 		},
 		ucp: {
-			term: 'UCP',
-			definition:
-				'United Conservative Party („Vereinigte Konservative Partei“), heute Albertas regierende Provinzpartei. Sie entstand 2017 aus der Fusion der Progressive Conservatives und der Wildrose Party und stellt seit 2019 die Regierung.'
+			term: "UCP",
+			definition: "United Conservative Party („Vereinigte Konservative Partei“), heute Albertas regierende Provinzpartei. Sie entstand 2017 aus der Fusion der Progressive Conservatives und der Wildrose Party und stellt seit 2019 die Regierung."
 		},
 		ndp: {
-			term: 'NDP',
-			definition:
-				'New Democratic Party („Neue Demokratische Partei“, Alberta NDP), heute Albertas offizielle Opposition. Sie stellte von 2015 bis 2019 die Regierung.'
+			term: "NDP",
+			definition: "New Democratic Party („Neue Demokratische Partei“, Alberta NDP), heute Albertas offizielle Opposition. Sie stellte von 2015 bis 2019 die Regierung."
 		},
 		gerrymander: {
-			term: 'Gerrymander',
-			definition:
-				'Wahlkreisgrenzen so zeichnen, dass eine Partei einen Vorteil erhält. Das Wort geht auf eine Karte aus Massachusetts von 1812 zurück. Das kanadische Recht kennt keinen Tatbestand dieses Namens. Das begrenzt, wie ein Gericht es nennen wird, nicht, ob es vorkommt. Der nächstliegende rechtliche Maßstab ist die effektive Repräsentation nach Abschnitt 3 der Charta.'
+			term: "Gerrymander",
+			definition: "Wahlkreisgrenzen so zeichnen, dass eine Partei einen Vorteil erhält. Das Wort geht auf eine Karte aus Massachusetts von 1812 zurück. Das kanadische Recht kennt keinen Tatbestand dieses Namens. Das begrenzt, wie ein Gericht es nennen wird, nicht, ob es vorkommt. Der nächstliegende rechtliche Maßstab ist die effektive Repräsentation nach Abschnitt 3 der Charta."
 		},
 		cracking: {
-			term: 'Cracking',
-			definition:
-				'Eine Gerrymandering-Technik: einen Wählerblock auf viele Bezirke verteilen, sodass er in keinem einzigen eine Mehrheit erreicht. Teilen Sie zum Beispiel eine Stadt auf vier Ridings auf, und ihre Wählerinnen und Wähler sind in jedem in der Minderheit.'
+			term: "Cracking",
+			definition: "Eine Gerrymandering-Technik: einen Wählerblock auf viele Bezirke verteilen, sodass er in keinem einzigen eine Mehrheit erreicht. Teilen Sie zum Beispiel eine Stadt auf vier Ridings auf, und ihre Wählerinnen und Wähler sind in jedem in der Minderheit."
 		},
 		packing: {
-			term: 'Packing',
-			definition:
-				'Eine Gerrymandering-Technik: die Wählerinnen und Wähler einer Partei in wenigen Bezirken zusammendrängen. Die Partei gewinnt diese Bezirke überwältigend, „verschwendet“ aber viele Stimmen, und ihr bleiben weniger Wähler, um in anderen Bezirken anzutreten.'
+			term: "Packing",
+			definition: "Eine Gerrymandering-Technik: die Wählerinnen und Wähler einer Partei in wenigen Bezirken zusammendrängen. Die Partei gewinnt diese Bezirke überwältigend, „verschwendet“ aber viele Stimmen, und ihr bleiben weniger Wähler, um in anderen Bezirken anzutreten."
 		},
 		draining: {
-			term: 'Draining',
-			definition:
-				'Der Begriff dieses Audits für einen Folgeeffekt von Cracking und Packing. Die verschwendeten Stimmen, die diese Techniken erzeugen, werden an strategisch gewählte Orte verschoben, wo sie den politischen Charakter benachbarter Wahlbezirke verändern. Die Einordnung stammt vom Audit selbst und ist kein etabliertes Konzept der Redistricting-Literatur. Das Audit prüft den Effekt und findet damit vereinbare Ergebnisse, behandelt ihn aber als explorativ, nicht als gesicherte Methodik.'
+			term: "Draining",
+			definition: "Der Begriff dieses Audits für einen Folgeeffekt von Cracking und Packing. Die verschwendeten Stimmen, die diese Techniken erzeugen, werden an strategisch gewählte Orte verschoben, wo sie den politischen Charakter benachbarter Wahlbezirke verändern. Die Einordnung stammt vom Audit selbst und ist kein etabliertes Konzept der Redistricting-Literatur. Das Audit prüft den Effekt und findet damit vereinbare Ergebnisse, behandelt ihn aber als explorativ, nicht als gesicherte Methodik."
 		},
 		anchoring: {
-			term: 'Anchoring (Verankerung)',
-			definition:
-				'Wie konsequent die vorgeschlagenen Grenzen bestehenden kommunalen Linien folgen, etwa Stadt- und Ortsgrenzen. Eine stark verankerte Karte respektiert diese Linien weitgehend. Eine lose verankerte Karte weicht oft von ihnen ab, besonders an politisch bedeutsamen Stellen, und das ist ein strukturelles Warnsignal.'
+			term: "Anchoring (Verankerung)",
+			definition: "Wie konsequent die vorgeschlagenen Grenzen bestehenden kommunalen Linien folgen, etwa Stadt- und Ortsgrenzen. Eine stark verankerte Karte respektiert diese Linien weitgehend. Eine lose verankerte Karte weicht oft von ihnen ab, besonders an politisch bedeutsamen Stellen, und das ist ein strukturelles Warnsignal."
 		},
-		'charter-s3': {
-			term: 'Abschnitt 3 der Charter',
-			definition:
-				'Der Abschnitt der Kanadischen Charta der Rechte und Freiheiten, der den Bürgerinnen und Bürgern das Wahlrecht garantiert. Kanadische Gerichte lesen ihn nicht als strikte Regel „eine Person, eine Stimme“, sondern als Recht auf „effektive Repräsentation“.'
+		"charter-s3": {
+			term: "Abschnitt 3 der Charter",
+			definition: "Der Abschnitt der Kanadischen Charta der Rechte und Freiheiten, der den Bürgerinnen und Bürgern das Wahlrecht garantiert. Kanadische Gerichte lesen ihn nicht als strikte Regel „eine Person, eine Stimme“, sondern als Recht auf „effektive Repräsentation“."
 		},
-		'effective-representation': {
-			term: 'Wirksame Vertretung (effective representation)',
-			definition:
-				'Der Maßstab, den kanadische Gerichte anlegen, wenn sie Wahlkreisgrenzen beurteilen. Er bedeutet, dass Wählerinnen und Wähler eine wirksame Stimme haben sollen. Gleich große Ridings gehören dazu, ebenso aber die Anerkennung gemeinschaftlicher Bindungen, der Geographie und der Vertretung von Minderheiten. Die maßgebliche Formulierung stammt aus der Saskatchewan Reference des Obersten Gerichtshofs Kanadas von 1991.'
+		"effective-representation": {
+			term: "Wirksame Vertretung (effective representation)",
+			definition: "Der Maßstab, den kanadische Gerichte anlegen, wenn sie Wahlkreisgrenzen beurteilen. Er bedeutet, dass Wählerinnen und Wähler eine wirksame Stimme haben sollen. Gleich große Ridings gehören dazu, ebenso aber die Anerkennung gemeinschaftlicher Bindungen, der Geographie und der Vertretung von Minderheiten. Die maßgebliche Formulierung stammt aus der Saskatchewan Reference des Obersten Gerichtshofs Kanadas von 1991."
 		},
 		ebc: {
-			term: 'Wahlbezirkskommission (Electoral Boundaries Commission, EBC)',
-			definition:
-				'Das Gremium, das nach dem EBCA Albertas provinzielle Wahlkreisgrenzen zeichnet. Richter Miller leitete die Kommission von 2026. Ihre Mitglieder spalteten sich 3 zu 2 und legten statt einer einzigen Empfehlung zwei konkurrierende Vorschläge vor, den Mehrheits- und den Minderheitenvorschlag.'
+			term: "Wahlbezirkskommission (Electoral Boundaries Commission, EBC)",
+			definition: "Das Gremium, das nach dem EBCA Albertas provinzielle Wahlkreisgrenzen zeichnet. Richter Miller leitete die Kommission von 2026. Ihre Mitglieder spalteten sich 3 zu 2 und legten statt einer einzigen Empfehlung zwei konkurrierende Vorschläge vor, den Mehrheits- und den Minderheitenvorschlag."
 		},
-		'lunty-committee': {
-			term: 'Lunty-Komitee',
-			definition:
-				'Das Sonderkomitee zu den Wahlkreisgrenzen (Select Special Committee on Electoral Boundaries): sechs MLAs, vier von der UCP und zwei von der NDP, unter Vorsitz des UCP-MLA Brandon Lunty. Regierungsantrag 37 (eingebracht am 16. April, verabschiedet am 21. April 2026) setzte es ein, nachdem die Versammlung beide Kommissionskarten beiseitegelegt hatte. Es beaufsichtigt ein Unabhängiges Beratungsgremium, das einen Vorschlag mit 91 Sitzen erarbeitet, und muss der Legislative bis zum 2. November 2026 berichten. Es steht außerhalb des regulären Kommissionsverfahrens. Kein Gesetz verpflichtet es, öffentliche Anhörungen abzuhalten.'
+		"lunty-committee": {
+			term: "Lunty-Komitee",
+			definition: "Das Sonderkomitee zu den Wahlkreisgrenzen (Select Special Committee on Electoral Boundaries): sechs MLAs, vier von der UCP und zwei von der NDP, unter Vorsitz des UCP-MLA Brandon Lunty. Regierungsantrag 37 (eingebracht am 16. April, verabschiedet am 21. April 2026) setzte es ein, nachdem die Versammlung beide Kommissionskarten beiseitegelegt hatte. Es beaufsichtigt ein Unabhängiges Beratungsgremium, das einen Vorschlag mit 91 Sitzen erarbeitet, und muss der Legislative bis zum 2. November 2026 berichten. Es steht außerhalb des regulären Kommissionsverfahrens. Kein Gesetz verpflichtet es, öffentliche Anhörungen abzuhalten."
 		},
-		'advisory-panel': {
-			term: 'Unabhängiges Beratungsgremium (Independent Advisory Panel)',
-			definition:
-				'Das Gremium, das das Lunty-Komitee nach Regierungsantrag 37 beauftragt hat, einen Vorschlag mit 91 Sitzen zu zeichnen. Der Premierminister nominierte Hon. Monte Solberg und Darwin Durnie. Der Oppositionsführer nominierte Dr. Gerard Kennedy und Brent Robinson. Albertas amtierender Chief Justice lehnte es ab, bei der Suche nach einem Richter für den Vorsitz zu helfen; später wurde der pensionierte Berufungsrichter Brian O\'Ferrall zum Vorsitzenden ernannt. Das Gremium berät. Die MLAs des Komitees entscheiden.'
+		"advisory-panel": {
+			term: "Unabhängiges Beratungsgremium (Independent Advisory Panel)",
+			definition: "Das Gremium, das das Lunty-Komitee nach Regierungsantrag 37 beauftragt hat, einen Vorschlag mit 91 Sitzen zu zeichnen. Der Premierminister nominierte Hon. Monte Solberg und Darwin Durnie. Der Oppositionsführer nominierte Dr. Gerard Kennedy und Brent Robinson. Albertas amtierender Chief Justice lehnte es ab, bei der Suche nach einem Richter für den Vorsitz zu helfen; später wurde der pensionierte Berufungsrichter Brian O'Ferrall zum Vorsitzenden ernannt. Das Gremium berät. Die MLAs des Komitees entscheiden."
 		},
 		ebca: {
-			term: 'EBCA',
-			definition:
-				'Der Alberta Electoral Boundaries Commission Act (Gesetz über die Wahlbezirkskommission Albertas) — das Gesetz, das regelt, wie die Wahlbezirksgrenzen in der Provinz gezogen werden. Es schafft die Kommission, das öffentliche Anhörungsverfahren und die Regeln dafür, wann eine neue Karte in Kraft tritt.'
+			term: "EBCA",
+			definition: "Der Alberta Electoral Boundaries Commission Act (Gesetz über die Wahlbezirkskommission Albertas) — das Gesetz, das regelt, wie die Wahlbezirksgrenzen in der Provinz gezogen werden. Es schafft die Kommission, das öffentliche Anhörungsverfahren und die Regeln dafür, wann eine neue Karte in Kraft tritt."
 		},
 		ensemble: {
-			term: 'Der 1,01-Millionen-Karten-Test',
-			definition:
-				'Ein Computer hat 1,01 Millionen legale Alberta-Karten zufällig gezeichnet. Alle folgen denselben Regeln, und der Computer sieht nie eine einzige Stimme; genau das macht sie neutral. Eine reale Karte gilt als ungewöhnlich, wenn sie außerhalb dessen liegt, was fast alle dieser Karten hervorbringen.'
+			term: "Der 1,01-Millionen-Karten-Test",
+			definition: "Ein Computer hat 1,01 Millionen legale Alberta-Karten zufällig gezeichnet. Alle folgen denselben Regeln, und der Computer sieht nie eine einzige Stimme; genau das macht sie neutral. Eine reale Karte gilt als ungewöhnlich, wenn sie außerhalb dessen liegt, was fast alle dieser Karten hervorbringen."
 		},
 		efficiency_gap: {
-			term: 'Effizienzlücke',
-			definition:
-				'Ein Maß für „verschwendete“ Stimmen, verglichen zwischen den beiden Parteien. Eine Stimme ist verschwendet, wenn sie an einen Verlierer geht oder an einen Sieger über das hinaus, was der Sieg erforderte. Eine große Lücke deutet auf eine einseitige Karte hin.'
+			term: "Effizienzlücke",
+			definition: "Ein Maß für „verschwendete“ Stimmen, verglichen zwischen den beiden Parteien. Eine Stimme ist verschwendet, wenn sie an einen Verlierer geht oder an einen Sieger über das hinaus, was der Sieg erforderte. Eine große Lücke deutet auf eine einseitige Karte hin."
 		},
 		mean_median: {
-			term: 'Mittel-Median-Lücke',
-			definition:
-				'Nehmen Sie den Stimmenanteil einer Partei in jedem Bezirk. Die Mittel-Median-Lücke ist der Abstand zwischen dem Durchschnitt dieser Anteile und dem mittleren (Median-)Anteil. Eine große Lücke legt nahe, dass ihre Wählerinnen und Wähler so verteilt sind, dass Stimmen verschwendet werden.'
+			term: "Mittel-Median-Lücke",
+			definition: "Nehmen Sie den Stimmenanteil einer Partei in jedem Bezirk. Die Mittel-Median-Lücke ist der Abstand zwischen dem Durchschnitt dieser Anteile und dem mittleren (Median-)Anteil. Eine große Lücke legt nahe, dass ihre Wählerinnen und Wähler so verteilt sind, dass Stimmen verschwendet werden."
 		},
 		declination: {
-			term: 'Declination',
-			definition:
-				'Ein Maß dafür, wie einseitig jede Partei ihre Sitze gewinnt: durch Erdrutschsiege oder durch Zitterpartien. Nach einer Vorzeichenkorrektur im Juni 2026 weist es auf der Minderheitenkarte in dieselbe Richtung wie die anderen Maße, zugunsten der Regierungspartei.'
+			term: "Declination",
+			definition: "Ein Maß dafür, wie einseitig jede Partei ihre Sitze gewinnt: durch Erdrutschsiege oder durch Zitterpartien. Nach einer Vorzeichenkorrektur im Juni 2026 weist es auf der Minderheitenkarte in dieselbe Richtung wie die anderen Maße, zugunsten der Regierungspartei."
 		},
 		seats_5050: {
-			term: 'Sitze bei einem Unentschieden',
-			definition:
-				'Wie viele Sitze jede Partei gewinnen würde, wenn die Provinz ihre Stimmen exakt 50-50 aufteilte. Es blendet aus, wer tatsächlich gewonnen hat, und prüft die eingebaute Neigung der Karte.'
+			term: "Sitze bei einem Unentschieden",
+			definition: "Wie viele Sitze jede Partei gewinnen würde, wenn die Provinz ihre Stimmen exakt 50-50 aufteilte. Es blendet aus, wer tatsächlich gewonnen hat, und prüft die eingebaute Neigung der Karte."
 		},
 		fsa: {
-			term: 'Forward Sortation Area (FSA)',
-			definition:
-				'Die ersten drei Zeichen einer kanadischen Postleitzahl (der Buchstabe-Ziffer-Buchstabe-Teil). Etwa 270 FSAs decken Alberta ab. Die meisten liegen vollständig innerhalb eines einzelnen Wahlbezirks.'
+			term: "Forward Sortation Area (FSA)",
+			definition: "Die ersten drei Zeichen einer kanadischen Postleitzahl (der Buchstabe-Ziffer-Buchstabe-Teil). Etwa 270 FSAs decken Alberta ab. Die meisten liegen vollständig innerhalb eines einzelnen Wahlbezirks."
+		}
+	},
+	home: {
+		hero: {
+			h1: "Albertas Wahlkarte, geprüft",
+			subtitle: "Albertas Wahlbezirkskommission hat sich 2026 gespalten und zwei Karten vorgelegt. Ich habe beide neben 1,01 Millionen Karten gestellt, die ein Computer gezeichnet hat, dem es egal ist, wer gewinnt. Die Karte der Mehrheit liegt mitten unter ihnen. Die Karte der Minderheit neigt sich weiter zur UCP als fast jede von ihnen.",
+			status: "Die Karte des Komitees, die beide ersetzt, ist für Montag, den 2. November 2026, angekündigt. Innerhalb von 72 Stunden wird diese Seite sie bewerten.",
+			week: "<strong>Diese Woche.</strong> Ich habe die Tests für November registriert, bevor die Karte des Komitees existierte (OSF-Registrierung qsgy8). Ich veröffentliche die Ergebnisse, in welche Richtung sie auch zeigen. Die erste Prüfung ist die, die die Regierung selbst gewählt hat: <a href=\"#recommendation-5\">Empfehlung 5</a>."
+		},
+		happened: {
+			h: "Was geschehen ist",
+			p1: "Von Zeit zu Zeit zeichnet Alberta seine Ridings neu, die Bezirke, die jeweils einen MLA in die Legislative entsenden. Wo die Linien fallen, kann entscheiden, wer gewinnt.",
+			p2: "Am 23. März 2026 hat sich die unabhängige Kommission, die die Neuzeichnung vornahm, drei zu zwei gespalten und zwei Karten vorgelegt. Beide sind nach dem Gesetz zulässig. Der Vorsitzende und die beiden von der Opposition benannten Kommissionsmitglieder haben die Mehrheitskarte verfasst. Die beiden von der Regierung benannten Kommissionsmitglieder haben die Minderheitenkarte verfasst. Dieselben Regeln, dieselben Daten, dieselben 1.345 öffentlichen Eingaben. Zwei Karten.",
+			p3: "Die Mehrheitskarte sieht aus wie das, was ein neutrales Verfahren zeichnet. Die Minderheitenkarte nicht:",
+			li1: "Sie teilt Airdrie, eine Stadt mit 85.805 Einwohnern, auf vier Bezirke auf. Außerhalb von Airdrie East, das mehr als die Hälfte der Stadt umfasst, sind die Einwohner Airdries in der Minderheit.",
+			li2: "Im Nordosten und im Zentrum Calgarys, wo die NDP 2023 dreizehn von siebzehn Sitzen gewann, liegen ihre Bezirke 11,5 % über dem Provinzdurchschnitt.",
+			li3: "Teilt man die Stimmen exakt gleich auf, gibt sie der UCP 51,7 % der Sitze. Nur 69 von 1.010.000 vom Computer gezeichneten Karten geben mehr.",
+			li4: "Spielt man die Stimmen vom Wahltag 2023 erneut durch, holt die UCP 60 von 89 Sitzen. Auf der Mehrheitskarte sind es 55.",
+			p4: "Die Legislative hat keine der beiden Karten übernommen. Am 21. April verabschiedete sie Regierungsantrag 37, der die Aufgabe dem Sonderkomitee zu den Wahlkreisgrenzen (Select Special Committee on Electoral Boundaries) übertrug: sechs MLAs, vier von der UCP und zwei von der NDP, unter Vorsitz des UCP-Abgeordneten Brandon Lunty. Die Karte des Komitees mit 91 Sitzen ist für den 2. November angekündigt. Laut CBC wird es dazu keine öffentlichen Anhörungen geben und auch keinen Entwurf, den die Öffentlichkeit vorher kommentieren könnte.",
+			box_h: "Was ich sagen kann und was nicht",
+			can1: "Die Minderheitenkarte liegt außerhalb dessen, was 1,01 Millionen neutrale Karten hervorbringen, zugunsten der UCP.",
+			can2: "Alle vier Maße der Parteifairness neigen sich in dieselbe Richtung.",
+			cant1: "Dass irgendein Kommissionsmitglied dies beabsichtigt hat. Meine Tests messen, was eine Karte bewirkt. Ein Motiv können sie nicht zeigen.",
+			cant2: "Dass die Regierung ihre benannten Mitglieder gelenkt hat. Ich habe keine Hinweise auf Absprachen gefunden. Dass jemand ernannt wurde, ist kein Beleg dafür.",
+			cant3: "Dass sich das Muster wiederholen wird. Die Karte, die es zeigt, wurde nie in Kraft gesetzt. Der November wird zeigen, ob es zurückkehrt.",
+			cant4: "Wie ein Gericht entscheiden würde oder was das Komitee wählen wird.",
+			p5: "<strong>Zum Wort.</strong> Gerrymandering heißt, Linien so zu ziehen, dass eine Partei einen Vorteil erhält. Man erkennt es daran, was eine Karte bewirkt, und an dem, was darüber bekannt ist, wie sie gezeichnet wurde. Das kanadische Recht kennt keinen Tatbestand dieses Namens, ein Gericht wird also nicht über Gerrymandering als solches entscheiden. Das heißt nicht, dass es hier nicht vorkommen kann. Der nächstliegende rechtliche Maßstab ist die wirksame Vertretung nach Abschnitt 3 der Charter, die weiter unten behandelt wird.",
+			p6: "<strong>Zum Lesen der Titelkarte.</strong> Die Titelkarte färbt Albertas 4.765 Wahlgebiete danach ein, wie die Menschen in jedem von ihnen 2023 gewählt haben: orange, wo sich NDP-Stimmen konzentrieren, blau, wo es UCP-Stimmen sind. Die Farbe wird nur dort kräftiger, wo viele Menschen leben, deshalb bleibt ein Wahlgebiet, das sich über Hunderte Quadratkilometer Parklandschaft erstreckt, blass. Westlich von Ponoka ist das Land reines Weiß, weil es dort kein Wahllokal gibt und niemand als dort lebend oder wählend erfasst wurde. Die Linien darüber sind die 89 vorgeschlagenen Bezirke der Minderheitenkarte. <a href=\"__BASE__/explorer\">Öffnen Sie den Karten-Explorer</a>, um zwischen allen drei Karten zu wechseln."
+		},
+		does: {
+			h: "Was die Minderheitenkarte bewirkt",
+			p1: "Die beiden Karten stimmen für den größten Teil Albertas überein. Wo sie sich unterscheiden, sehen Sie hier, was die Minderheitenkarte gewählt hat und was jede dieser Entscheidungen bewirkt.",
+			h3_1: "Eine Stadt, vier Bezirke",
+			p2: "Airdrie hat 85.805 Einwohner (kommunale Volkszählung 2024), einen Stadtrat und einen Schulbezirk. Das Gesetz begrenzt jeden Bezirk auf das Eineinviertelfache des Provinzdurchschnitts, Airdrie braucht also mindestens zwei Bezirke. Die Mehrheitskarte gibt der Stadt zwei.",
+			p3: "Die Minderheitenkarte gibt ihr vier: nach Norden zu Olds-Three Hills-Didsbury, nach Osten zu Airdrie East, nach Westen zu Calgary-Foothills-Airdrie West und in der Mitte und im Süden zu Calgary-Airdrie. Airdrie East umfasst mehr als die Hälfte der Stadt, und neun von zehn seiner Bewohner leben in Airdrie. Fast der ganze Rest der Stadt geht an die beiden Bezirke am Rand Calgarys, wo die Einwohner Calgarys zahlreicher sind als die Airdries. Das nördliche Stück umfasst etwa 350 Menschen. Die Aufteilung überspringt die erste Hürde meines vorab registrierten Cracking-Tests: mehr Stücke, als die Größe der Stadt erfordert. Die zweite verfehlt sie, nämlich dass die Einwohner Airdries in jedem Stück in der Minderheit sind, und zwar wegen Airdrie East. Nach der eigenen Regel des Tests ist das keine Cracking-Signatur. Die Zweiteilung der Mehrheit verfehlt beide Hürden.",
+			p4: "Eine Gemeinschaft so dünn aufzuteilen, dass sie über keinen ihrer Sitze entscheiden kann, nennt man Cracking. Genau das geschieht mit dem Teil Airdries außerhalb von Airdrie East. Airdrie hätte vier MLAs. Die meisten Wählerinnen und Wähler, die drei von ihnen wählen, leben außerhalb Airdries.",
+			h3_2: "Größere Bezirke, wo die NDP am stärksten ist",
+			p5: "In den Bezirken im Nordosten und im Zentrum Calgarys, wo die NDP 2023 dreizehn von siebzehn Sitzen gewann, liegen die Bezirke der Minderheitenkarte im Schnitt 11,5 % über der durchschnittlichen Bevölkerung der Provinz. Die der Mehrheit liegen im Schnitt 2,8 % darüber. Ein größerer Bezirk bedeutet, dass jede Stimme darin weniger zählt. Die Wählerinnen und Wähler einer Partei in weniger, größere Bezirke zu stecken, nennt man Packing. Dieses Muster erfüllt meinen vorab registrierten Packing-Test.",
+			h3_3: "Ungleiche Bezirksgrößen",
+			p6: "Gleiche Bevölkerungszahlen in den Bezirken sind der eine Wert, für den Albertas Gesetz eine Zahl festlegt. Nach den eigenen Bevölkerungstabellen der Kommission verfehlen die Bezirke der Minderheitenkarte die ideale Größe im Schnitt um 4.707 Menschen. Auf der Mehrheitskarte sind es 3.180. Die Streuung der Minderheit ist 48 % breiter. Mit den Zahlen der Volkszählung 2021 wird der Abstand kleiner: Die durchschnittlichen Abweichungen der beiden Karten sind fast gleich, doch der typische Bezirk der Minderheit liegt immer noch weiter von der Gleichheit entfernt (3.938 gegenüber 2.827). Die übliche Verteidigung seltsamer Linien lautet, sie seien nötig gewesen, um die Bevölkerungszahlen auszugleichen. Mit den Zahlen, die die Kommission selbst verwendet hat, trägt diese Verteidigung hier nicht.",
+			h3_4: "Ländliche Anhängsel an städtischen Bezirken",
+			p7: "Ich sage nicht, dass das ländliche Alberta zu viele Sitze hat. Das Gesetz erlaubt, dass die Bevölkerung der Bezirke um bis zu 25 % schwankt, damit ein ländlicher MLA nicht ein Gebiet von der Größe Südfrankreichs abdecken muss. Beide Karten nutzen diesen Spielraum.",
+			p8: "Aber an mehreren Stellen bindet die Minderheitenkarte ländliche Gemeinden an einen Bezirk, dessen Bevölkerungszentrum in einer Stadt liegt.",
+			h3_5: "Drei Grenzen, die der Vorsitzende beanstandet hat",
+			p9: "Der Vorsitzende der Kommission hat vier Grenzen der Minderheit als geographisch anormal gekennzeichnet, darunter diese drei:",
+			li1: "die Ausdehnung von Rocky Mountain House–Banff Park in unbewohntes Nationalparkgebiet;",
+			li2: "der lassoförmige Korridor von Calgary-Nolan Hill–Cochrane;",
+			li3: "der Ausgriff von Olds–Three Hills–Didsbury in den Norden Airdries.",
+			p10: "Der Vorsitzende hat den Mehrheitsbericht unterzeichnet, man würde also erwarten, dass er nur die Minderheit kritisiert. Aber ich habe meine Geometrietests durchgeführt, ohne zu wissen, welche Grenzen er gekennzeichnet hatte, und sie haben drei seiner vier geometrischen Beanstandungen unabhängig bestätigt.",
+			p11: "Er nannte die Ausdehnung in den Park „einen bösgläubigen Versuch“, einen Bevölkerungsschutz in Anspruch zu nehmen, Abschnitt 15(2), der für abgelegene Gemeinden geschrieben ist, in denen tatsächlich Menschen leben. Meine Prüfung schwächt diesen Vorwurf: Der Bezirk erfüllt die Bedingungen von Abschnitt 15(2) auch ohne die Ausdehnung. Den Ort Banff mit Canmore zusammenzulegen ist als Interessengemeinschaft sinnvoll, weil der Ort in einem Nationalpark liegt, in den er nicht hineinwachsen kann. Sein Einwand gegen die Ausdehnung in den leeren Park bleibt bestehen. Die Zuordnung des Ortes berührt ihn nicht.",
+			h3_6: "Der Sitzvorteil",
+			p12: "Teilt man die provinzweiten Stimmen exakt gleich auf, ist dies der Sitzanteil der UCP auf jeder Karte:",
+			li4: "die mittlere neutrale Karte (Median) gibt 44,8 %;",
+			li5: "die Mehrheitskarte gibt 46,1 %, das 78. Perzentil;",
+			li6: "die Minderheitenkarte gibt 51,7 %, das 99,99. Perzentil, und nur 69 von 1.010.000 neutralen Karten übertreffen sie.",
+			p13: "Auf der Minderheitenkarte behält die UCP die 45 Sitze, die sie für eine Mehrheit braucht, selbst wenn ihr Stimmenanteil auf etwa 49,7 % fällt. Auf der Mehrheitskarte müsste sie die Gesamtstimmen mit etwa 4 Punkten Vorsprung gewinnen. Spielt man die Stimmen vom Wahltag 2023 erneut durch, gibt ihr die Minderheitenkarte 60 von 89 Sitzen. Auf der Mehrheitskarte sind es 55.",
+			p14: "Sechzig Sitze sind eine Zweidrittelmehrheit. In Alberta schaltet das keine besondere Befugnis frei. Eine einfache Mehrheit kann bereits Gesetze und Haushalte verabschieden, die Debatte beenden, die Geschäftsordnung der Legislative ändern und die Besetzung jedes Komitees bestimmen. Sechzig Sitze gäben der Regierung ein Polster. Einige Fraktionswechsel könnten sie nicht gefährden, und eine kleinere Opposition hätte weniger Mitglieder, um die Kontrolle in den Komitees aufrechtzuerhalten.",
+			p15: "Keine dieser Entscheidungen bricht Albertas Recht. Das Gesetz erlaubt es, Städte aufzuteilen, und jeder Bezirk auf beiden Karten liegt innerhalb der Spanne von ±25 %. Das kanadische Recht kennt keine Regel gegen Parteivorteile als solche. Sein Maßstab ist, ob die Wählerinnen und Wähler eine wirksame Vertretung erhalten."
+		},
+		law: {
+			h: "Was das Gesetz verlangt und was nicht",
+			h3_1: "Die Verfassung",
+			p1: "Abschnitt 3 der Charter gibt jeder Bürgerin und jedem Bürger das Wahlrecht. Der Supreme Court of Canada liest ihn als Recht auf wirksame Vertretung. Annähernd gleiches Stimmgewicht ist der Ausgangspunkt, eine „vorrangige Bedingung“ (prime condition), aber strikte Gleichheit ist nicht verlangt. Ein Bezirk kann aus einem echten Grund größer oder kleiner sein, etwa wegen der Geographie, der Geschichte einer Gemeinschaft, gemeinsamer lokaler Interessen oder der Stimme einer Minderheitengemeinschaft. Der Unterschied muss begründet sein.",
+			p2: "Die Gerichte lassen den Legislativen hier viel Spielraum. Sie fragen, ob vernünftige Menschen, die diese Grundsätze anwenden, die Linien so hätten ziehen können. Und keine Regierung kann das Recht abschalten: Die Notwithstanding-Klausel gilt nicht für Abschnitt 3.",
+			p3: "Die Gerichte haben auch darauf geschaut, wie eine Karte entsteht. 2017 befand der Court of Appeal von Nova Scotia, dass die Karte der Provinz Abschnitt 3 verletzte, weil die Regierung ihre unabhängige Kommission angewiesen hatte, den Kurs zu ändern, und die endgültige Karte nicht die eigene Auffassung der Kommission widerspiegelte. Das Gericht fügte hinzu, dass eine Legislative eine Karte trotzdem selbst zeichnen darf.",
+			p4: "2026 hob der Supreme Court of Canada ein Gesetz Quebecs auf, das die Kommission Quebecs angehalten hatte, um Ridings in der Gaspésie zu schützen (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, 7–2, Begründung vom 1. Mai). Quebec hätte sie enger begrenzt schützen können. Eine einstimmige Abstimmung rettete das Gesetz nicht. Am 12. Juni 2026 verabschiedete die Nationalversammlung Quebecs ihre eigene Karte mit 127 Sitzen.",
+			h3_2: "Albertas Gesetz",
+			p5: "Der <em>Electoral Boundaries Commission Act</em> legt die Regeln der Kommission fest:",
+			li1: "<strong>Wer darin sitzt.</strong> Ein Vorsitz, vom Kabinett aus berechtigten Ämtern ernannt, zu denen Richter gehören. Vier Mitglieder, die keine MLAs sind, zwei vom Premierminister und zwei von der Opposition benannt, ernannt vom Speaker.",
+			li2: "<strong>Anhörungen.</strong> Öffentliche Anhörungen vor und nach dem Kartenentwurf.",
+			li3: "<strong>Fristen.</strong> Ein Entwurf innerhalb von sieben Monaten und ein Schlussbericht innerhalb von fünf weiteren Monaten.",
+			li4: "<strong>Sitze.</strong> 91. Das Gesetz sah 89 vor, als die Kommission ihre Karten zeichnete. Bill 32, eingebracht am 23. April 2026, hob die Zahl auf 91 an.",
+			li5: "<strong>Bevölkerung.</strong> Jeder Bezirk innerhalb von 25 % des Durchschnitts. Bis zu vier abgelegene Bezirke dürfen bis zu 50 % darunter liegen, wenn die Kommission feststellt, dass mindestens drei von fünf Kriterien erfüllt sind.",
+			li6: "<strong>Faktoren.</strong> Die Kommission muss die wirksame Vertretung berücksichtigen und darf Wachstum, Interessengemeinschaften, Geographie und andere Faktoren abwägen.",
+			p6: "Beide Kommissionskarten passen in diese Regeln.",
+			h3_3: "Was das Gesetz nicht verlangt",
+			p7: "Der größte Teil dieses Regelwerks richtet sich an „die Kommission“. Schlicht gelesen bindet es weder die Legislative noch ein Komitee aus MLAs, es sei denn, der Antrag, der das Komitee einsetzt, übernimmt es. Ob Regierungsantrag 37 das tut, ist nicht öffentlich.",
+			li7: "Die Legislative muss die Karte einer Kommission nicht übernehmen. Ein Bericht wird nur dann Gesetz, wenn die MLAs ein entsprechendes Gesetz verabschieden.",
+			li8: "Ich habe keine Bestimmung gefunden, die ein Komitee aus MLAs verpflichtet, Anhörungen abzuhalten, unabhängig zu sein, einen Entwurf zu veröffentlichen oder seine Entscheidungen zu begründen. Regierungsantrag 37 besagt Berichten zufolge, dass die Überprüfung beschleunigt erfolgt und keine öffentlichen Anhörungen erfordert.",
+			li9: "Empfehlung 5, auf die sich die Regierung berief, bindet niemanden.",
+			li10: "Elections Alberta sagt, es brauche mindestens anderthalb Jahre, um neue Ridings vorzubereiten. Das ist ein Planungsbedarf. Kein Gesetz macht daraus eine Frist.",
+			li11: "Gerichte prüfen ein Gesetz nicht, während es entsteht. Eine Klage ist erst möglich, nachdem ein Gesetz über die Grenzen verabschiedet wurde.",
+			h3_4: "Es ist hier schon einmal geschehen",
+			p8: "1992 konnte sich Albertas Kommission nicht einigen. Ihr Schlussbericht bestand aus fünf getrennten Berichten, einem von jedem Kommissionsmitglied. Am 2. Juli 1992 verabschiedete die Legislative Antrag 24 und übertrug die Arbeit einem Sonderkomitee aus MLAs unter Vorsitz von Bob Bogle. Die Opposition weigerte sich, Mitglieder zu benennen, also zeichneten vier progressiv-konservative MLAs die Karte. Alberta wählte bei der Wahl 1993 auf ihrer Grundlage.",
+			p9: "1994 ließ der Court of Appeal diese Karte bestehen, kritisierte aber, wie sie entstanden war. Die Mitglieder des Komitees konnten mehrere ihrer Grenzen und Bezirksbevölkerungen nicht erklären. Einer der kleinsten Bezirke war Bogles eigener. Das Gericht erklärte, vor dem Ende der Legislaturperiode sei eine ordentliche Überprüfung nötig. 1995 änderte die Legislative das Gesetz und die Art, wie Kommissionen ernannt werden. Alberta nutzte dieses Verfahren von da an bis 2026.",
+			h3_5: "Was das für November bedeutet",
+			p10: "Die Karte des Komitees kann weiterhin vor Gericht angefochten werden. Sie muss denselben Maßstab bestehen wie jede Karte: wirksame Vertretung, wobei jeder Bevölkerungsunterschied begründet sein muss. Begründungen zählen. Albertas Court of Appeal hat die letzte von einem Komitee gezeichnete Karte dafür kritisiert, dass sie keine lieferte. Ich bewerte die Karte und das Verfahren. Ob sie verfassungsgemäß ist, hat ein Gericht zu sagen."
 		}
 	},
 	body: {
-		section_link_aria: 'Link zum Abschnitt',
+		section_link_aria: "Link zum Abschnitt",
 		the_map: {
-			heading: '1: Die Karte',
-			p1: 'Die Titelkarte ist das beste Einzelbild in diesem Audit. So lesen Sie sie.',
-			p2: 'Alberta ist in 4.765 Voting Areas eingeteilt — kleine geographische Zonen, die Elections Alberta zur Auszählung der Wahllokal-Stimmzettel verwendet. Jede einzelne ist nach dem tatsächlichen Wahlverhalten der Menschen 2023 eingefärbt: orange dort, wo NDP-Stimmen konzentriert sind, blau dort, wo UCP-Stimmen konzentriert sind. Aber die Farbe wird nur dort dunkel und gesättigt, wo viele Menschen wohnen. Eine Voting Area, die Hunderte von Quadratkilometern Parkland oder Ackerland abdeckt, bleibt blass — nahezu unsichtbar. Die Karte leuchtet dort auf, wo Menschen sind, und verblasst dort, wo sie es nicht sind.',
-			p3: 'Das unterscheidet sich stark von dem Alberta, das Sie am Wahlabend sehen. Die meisten Wahlkarten färben ganze Ridings nach Wahlsieg solid blau oder orange. Ländliche Ridings sind geographisch groß, und die UCP gewinnt die meisten von ihnen, sodass das Wahlabend-Alberta wie eine Wand aus Blau mit kleinen orangen Inseln in Edmonton und Calgary aussieht. Die Titelkarte verwendet dieselben Stimmen und dieselbe Geographie — zeigt sie aber gewichtet danach, wo Menschen tatsächlich leben. Was erscheint, ist eine Provinz, in der der Großteil der Bevölkerung in einem dichten Bogen aus Städten konzentriert ist, und diese Städte wählen ganz anders als die ländliche Karte, die sie normalerweise abbildet.',
-			p4: 'Die Grenzlinien, die über die Farbe gelegt sind, sind die 89 vorgeschlagenen Wahlbezirke der Minderheitenkommission — die Karte, die dieses Audit am Ende kritisiert. Die Aufgabe des Audits besteht darin zu fragen, was diese Linien mit den Menschen darunter machen.',
-			p5: 'Dieses Bild macht die Tragweite deutlich. Eine Provinz, die auf einer Standardkarte aussieht, als wähle sie auf eine bestimmte Weise, ist tatsächlich eine Provinz, in der die meisten Menschen in Gebieten leben, die anders wählen. Sobald die Bevölkerung unter den Grenzentscheidungen sichtbar wird, sehen diese Entscheidungen nicht mehr zufällig aus.'
+			heading: "1: Die Karte",
+			p1: "Die Titelkarte ist das beste Einzelbild in diesem Audit. So lesen Sie sie.",
+			p2: "Alberta ist in 4.765 Voting Areas eingeteilt — kleine geographische Zonen, die Elections Alberta zur Auszählung der Wahllokal-Stimmzettel verwendet. Jede einzelne ist nach dem tatsächlichen Wahlverhalten der Menschen 2023 eingefärbt: orange dort, wo NDP-Stimmen konzentriert sind, blau dort, wo UCP-Stimmen konzentriert sind. Aber die Farbe wird nur dort dunkel und gesättigt, wo viele Menschen wohnen. Eine Voting Area, die Hunderte von Quadratkilometern Parkland oder Ackerland abdeckt, bleibt blass — nahezu unsichtbar. Die Karte leuchtet dort auf, wo Menschen sind, und verblasst dort, wo sie es nicht sind.",
+			p3: "Das unterscheidet sich stark von dem Alberta, das Sie am Wahlabend sehen. Die meisten Wahlkarten färben ganze Ridings nach Wahlsieg solid blau oder orange. Ländliche Ridings sind geographisch groß, und die UCP gewinnt die meisten von ihnen, sodass das Wahlabend-Alberta wie eine Wand aus Blau mit kleinen orangen Inseln in Edmonton und Calgary aussieht. Die Titelkarte verwendet dieselben Stimmen und dieselbe Geographie — zeigt sie aber gewichtet danach, wo Menschen tatsächlich leben. Was erscheint, ist eine Provinz, in der der Großteil der Bevölkerung in einem dichten Bogen aus Städten konzentriert ist, und diese Städte wählen ganz anders als die ländliche Karte, die sie normalerweise abbildet.",
+			p4: "Die Grenzlinien, die über die Farbe gelegt sind, sind die 89 vorgeschlagenen Wahlbezirke der Minderheitenkommission — die Karte, die dieses Audit am Ende kritisiert. Die Aufgabe des Audits besteht darin zu fragen, was diese Linien mit den Menschen darunter machen.",
+			p5: "Dieses Bild macht die Tragweite deutlich. Eine Provinz, die auf einer Standardkarte aussieht, als wähle sie auf eine bestimmte Weise, ist tatsächlich eine Provinz, in der die meisten Menschen in Gebieten leben, die anders wählen. Sobald die Bevölkerung unter den Grenzentscheidungen sichtbar wird, sehen diese Entscheidungen nicht mehr zufällig aus."
 		},
 		preliminary: {
-			badge: 'VORLÄUFIG',
-			heading: 'Vorläufige Ergebnisse — unabhängige Fachprüfung ausstehend',
-			body: 'Unabhängige Fachleute prüfen die statistischen Tests dieses Abschnitts vor der endgültigen Veröffentlichung. Die vollständigen Ergebnisse stehen unten und sind dieser Prüfung zugänglich.'
+			badge: "VORLÄUFIG",
+			heading: "Vorläufige Ergebnisse — unabhängige Fachprüfung ausstehend",
+			body: "Unabhängige Fachleute prüfen die statistischen Tests dieses Abschnitts vor der endgültigen Veröffentlichung. Die vollständigen Ergebnisse stehen unten und sind dieser Prüfung zugänglich."
 		},
 		structural_results: {
-			heading: 'Ergebnisse des strukturellen Audits — vor jeder Statistik:',
-			body: 'Die Mehrheitskarte überschreitet <strong>null von fünf</strong> vorab registrierten strukturellen Schwellen. Die Minderheitenkarte überschreitet <strong>vier von fünf</strong>; der fünfte Test (Verankerung) ist neutral — beide Karten liegen innerhalb der kanadischen Norm von 70–85 %. Das sind geometrische Messungen — Bevölkerungsstreuung, <button class="vocab-term" data-def="wie eng die Grenzen eines Bezirks den bereits bestehenden Stadt- und Gemeindegrenzen folgen, anstatt sie zu durchschneiden" aria-expanded="false">kommunale Verankerung</button>, Anzahl der Airdrie-Teile, Bevölkerungsüberhang im Nordosten/Zentrum Calgarys und die sieben Grenzkonfigurationen, die Kommissionsvorsitzender Richter Miller selbst schriftlich beanstandet hat (Mehrheitsbericht, S. 59 und 62–63) —, die keinerlei Wahldaten und keinen statistischen Sampler erfordern. Der nächste Abschnitt testet beide Karten gegen 1.010.000 vom Computer gezeichnete neutrale Karten und kommt mit einem völlig anderen Instrument zum selben Ergebnis. Zwei unabhängige Instrumente — geometrisch und statistisch — konvergieren, und beide landen bei den Regionen, die der Kommissionsvorsitzende schriftlich kritisiert hat.'
+			heading: "Ergebnisse des strukturellen Audits — vor jeder Statistik:",
+			body: "Die Mehrheitskarte überschreitet <strong>null von fünf</strong> vorab registrierten strukturellen Schwellen. Die Minderheitenkarte überschreitet <strong>vier von fünf</strong>; der fünfte Test (Verankerung) ist neutral — beide Karten liegen innerhalb der kanadischen Norm von 70–85 %. Das sind geometrische Messungen — Bevölkerungsstreuung, <button class=\"vocab-term\" data-def=\"wie eng die Grenzen eines Bezirks den bereits bestehenden Stadt- und Gemeindegrenzen folgen, anstatt sie zu durchschneiden\" aria-expanded=\"false\">kommunale Verankerung</button>, Anzahl der Airdrie-Teile, Bevölkerungsüberhang im Nordosten/Zentrum Calgarys und die sieben Grenzkonfigurationen, die Kommissionsvorsitzender Richter Miller selbst schriftlich beanstandet hat (Mehrheitsbericht, S. 59 und 62–63) —, die keinerlei Wahldaten und keinen statistischen Sampler erfordern. Der nächste Abschnitt testet beide Karten gegen 1.010.000 vom Computer gezeichnete neutrale Karten und kommt mit einem völlig anderen Instrument zum selben Ergebnis. Zwei unabhängige Instrumente — geometrisch und statistisch — konvergieren, und beide landen bei den Regionen, die der Kommissionsvorsitzende schriftlich kritisiert hat."
 		},
 		clean: {
-			heading: '6: Wenn eine fair aussehende Karte es nicht ist',
-			legal_label: 'EIN HINWEIS ZUR JURISTISCHEN TERMINOLOGIE',
-			legal_body: '„Gerrymandering" hat im kanadischen Recht keine rechtliche Definition. Das Wort wird in diesem Bericht durchgehend im alltäglichen politischen Sinn verwendet — Manipulation von Wahlbezirksgrenzen zugunsten einer Partei. Die in Kanada tatsächlich anwendbaren rechtlichen Prüfungen sind andere: ob die Grenzen eine „wirksame Vertretung" nach Abschnitt 3 der <em>Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten") gewährleisten — der verfassungsrechtliche Standard, den der Supreme Court of Canada im <em>Saskatchewan Reference</em> 1991 festgelegt hat — und ob die Kommission die Regeln des Albertas <em>Electoral Boundaries Commission Act</em> („Gesetz über die Wahlbezirkskommission") befolgt hat. Die Befunde des Audits sind Beweismaterial mit Bezug zu diesen Rechtsfragen. Sie sind kein Beweis für ein rechtlich definiertes Unrecht, und dieser Bericht beschreibt sie nicht in solchen Begriffen.',
-			intro_p1: 'Die sauberste Einzelfrage, die man jeder Wahlkarte stellen kann, lautet: Wenn die Stimmenaufteilung der Provinz sich exakt gleichmäßig zwischen den beiden Hauptparteien aufteilte, welche Sitzzahl würde die Karte hervorbringen? Das hält die Wählerschaft konstant und fragt allein die Karte, was sie bewirkt.',
-			intro_p2: 'Um diese Frage zu beantworten, hat das Audit 1.010.000 computersimulierte, mathematisch neutrale Alberta-Karten erzeugt. Die Simulation verwendete die offiziellen Shapefiles von Elections Alberta auf der Geographie der Kommission und hielt jeden Plan an dieselben Anforderungen an Bevölkerungsbalance (±25 %) und Zusammenhang — die beiden Kriterien, die der Algorithmus erzwingt, nicht jeden gesetzlichen Faktor (er erzwingt etwa keine Interessengemeinschaften), sodass die Vergleichsmenge am besten als bevölkerungs- und zusammenhangsneutral und nicht als vollständig gesetzeskonform zu verstehen ist. Die beiden Karten der Kommission von 2026 wurden dann in diese Verteilung gestellt, um zu sehen, wie normal sie sind. Die Simulation lief in vier unabhängigen Ketten von je 252.500 Schritten, wobei der Basis-Seed aus dem Cloudflare-drand-Zufallszahlenbeacon gezogen und vor der Ausführung auf OSF vorab registriert wurde.',
-			howmcmc_label: 'WIE DIE SIMULATION FUNKTIONIERT',
-			howmcmc_mcmc: 'Zwei benachbarte Bezirke zusammenlegen, den entstandenen Block zufällig wieder in zwei neue legale Bezirke teilen, das eine Million Mal wiederholen und bei jedem Schritt die Karte speichern. Das ist die ganze Maschine. Die Schritt-für-Schritt-Erklärung — und jeder andere Test auf dieser Seite, in einfacher Sprache — steht auf <a href="__BASE__/methods">der Seite Methoden</a>.',
-			howmcmc_recom: 'Der Algorithmus heißt ReCom — das Standardwerkzeug des Fachs — und er hält die beiden harten gesetzlichen Regeln (Bevölkerungsausgleich, Zusammenhang) schon durch seine Bauweise ein.',
-			prereg_label: 'VORAB-REGISTRIERUNG',
-			prereg_body: 'Vorab-Registrierung heißt, die Tests, Schwellen und vorhergesagten Richtungen in einer öffentlichen, zeitgestempelten Aufzeichnung festzuhalten, bevor man die Daten ansieht — damit eine Schwelle nicht still verschoben werden kann, wenn die Antwort vorliegt. Die Festlegungen dieses Audits sind beim Open Science Framework hinterlegt, seine Zufalls-Seeds wurden an ein öffentliches Beacon gebunden, bevor es die offiziellen Kartendateien gab, und jeder Befund ist entsprechend als vorab registriert oder explorativ gekennzeichnet. Die vollständige Aufstellung, was was ist, steht auf <a href=\'__BASE__/methods\'>der Seite Methoden</a>.',
-			neutral_p: 'In Alberta ist die neutrale Antwort nicht 50/50. <em>Über 1.010.000 computersimulierte legale Alberta-Karten hinweg gibt die Median-Karte der UCP bei 50/50-Stimmen nur 44,8 % der Sitze</em> — eine typische Alberta-Karte unter neutralen Stimmen verschafft der NDP eine knappe Sitzmehrheit. Das ist kontraintuitiv, aber mechanisch erklärbar: Ländliche UCP-Wählerinnen und -Wähler gewinnen ihre Ridings mit 60-zu-40-Marge (und verschwenden so viele „zusätzliche" UCP-Stimmen), während städtische NDP-Wählerinnen und -Wähler ihre Ridings mit knapperen 51-zu-49-Margen gewinnen (und so weniger NDP-Stimmen pro Sieg verschwenden). Bei Neutralität liegt die NDP bei der Sitz-Effizienz vorne.',
-			full_dist: 'Die vollständige Verteilung aus der kanonischen 1.010.000-Karten-Simulation:',
-			t1_col_a: 'Wo die Karte liegt',
-			t1_col_b: 'UCP-Sitze bei 50/50-Stimmen',
-			t1_r1_a: 'Median-Alberta-Karte',
-			t1_r1_b: '44,8 % — leichte NDP-Sitzmehrheit',
-			t1_r2_a: 'Karte am 95. Perzentil',
-			t1_r2_b: '47,1 %',
-			t1_r3_a: 'Karte am 99. Perzentil',
-			t1_r3_b: '48,4 %',
-			t1_r4_a: '<strong>Maximum über 1.010.000 Karten</strong>',
-			t1_r4_b: '<strong>51,72 % (69 von 1.010.000 Plänen übersteigen die 51,69 % der Minderheit)</strong>',
-			seat_count_note: 'Eine Anmerkung zu den Sitzzahlen. Die beiden Kommissionskarten von 2026 haben jeweils <strong>89</strong> Bezirke; die Computersimulation des Audits läuft auf der <strong>87</strong>-Bezirks-Karte von 2019 (ihrem Startsubstrat); das Lunty-Komitee im November wird <strong>91</strong> hervorbringen. Alle Prozentsätze sind Sitz<em>anteile</em>, vergleichbar über diese Nenner hinweg. Die Simulation verwendet die Karte von 2019 als Startpunkt, weil der ReCom-Algorithmus eine gesetzlich erlassene Karte braucht, von der aus er Tausche vorschlagen kann — die Karte von 2019 ist die zuletzt erlassene Wahlkarte Albertas. Einen der beiden Kommissionsvorschläge als Substrat zu verwenden, wäre zirkulär: Wir würden messen, ob eine Karte im Vergleich zu Karten, die von ihr selbst abgeleitet sind, extrem ist.',
-			pattern_intro: 'Die Ergebnisse — die Platzierung der drei realen Karten in dieser Verteilung — weisen auf ein spezifisches, chirurgisches Muster der Grenzziehung hin.',
-			sub1_h: 'Alle vier statistischen Maße schlagen gleichzeitig an',
-			sub1_p: 'Wenn die offiziellen Shapefiles von Elections Alberta verwendet werden, ist die Minderheitenkarte bei jeder einzelnen Parteifairness-Metrik ein statistischer Ausreißer — nicht nur bei der Tipping-Point-Metrik.',
-			t2_col_a: 'Karte',
-			t2_col_b: 'Effizienzlücke',
-			t2_col_c: 'Mittel-Median',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Die Declination misst die Winkeldifferenz zwischen den Sitz-Stimmen-Kurven der Parteien. Negative Werte begünstigen die NDP; positive begünstigen die UCP.">Declination</a>',
-			t2_col_e: 'Sitze bei 50/50',
-			t2_r1_a: 'Mehrheit 2026',
-			t2_r1_b: '+0,1 % (p16,5)',
-			t2_r1_c: '−3,6 % (p1)',
-			t2_r1_d: '−0,027 (p21,8)',
-			t2_r1_e: '46,1 % (p78,5)',
-			t2_r2_a: 'Minderheit 2026',
-			t2_r2_b: '<strong>+4,0 % (p94,5)</strong>',
-			t2_r2_c: '<strong>+1,0 % (p99,97)</strong>',
-			t2_r2_d: '<strong>+0,077 (p98.8)</strong>',
-			t2_r2_e: '<strong>51,7 % (p99.99)</strong>',
-			sub1_close: 'Die Mehrheitskarte liegt bei drei von vier Maßen bequem im normalen Bereich. Ihre Mittel-Median-Differenz liegt bei p1 (= p0,99) in NDP-freundlicher Richtung — ein ungewöhnliches Ergebnis, das aber in die falsche Richtung weist, um der UCP zu helfen. Die enge Orientierung der Mehrheitskarte an Gemeindegrenzen legt NDP-starke Stadtkerne in eigene kompakte Bezirke, wo die NDP mit effizienten Abständen gewinnt, während ländliche UCP-Siege meist mit größerem Abstand ausfallen; dieser leichte strukturelle Effizienzvorteil der NDP zeigt sich im Mittel-Median-Maß. Die Minderheitenkarte liegt bei allen vier im Schwanz, und jedes weist in dieselbe parteiliche Richtung.',
-			sub2_h: 'Der 50/50-Tipping-Point: Weniger als 100 von 1.010.000 neutralen Karten erreichen ihn',
-			sub2_p: 'Die oben eingeführte Tipping-Point-Metrik — UCP-Sitze bei einer provinzweiten 50/50-Abstimmung — ist die intuitivste Möglichkeit, die drei Karten zu vergleichen.',
-			t3_col_a: 'Karte',
-			t3_col_b: 'UCP-Sitze bei 50/50-Stimmen',
-			t3_col_c: 'Wo sie sitzt',
-			t3_r1_a: '2019 erlassen',
-			t3_r1_b: '46,0 %',
-			t3_r1_c: '78. Perzentil — innerhalb des normalen Bereichs',
-			t3_r2_a: '<strong>Mehrheit 2026</strong>',
-			t3_r2_b: '<strong>46,1 %</strong>',
-			t3_r2_c: '<strong>78. Perzentil — deutlich im Rahmen</strong>',
-			t3_r3_a: '<strong>Minderheit 2026</strong>',
-			t3_r3_b: '<strong>51,7 % (46 Sitze)</strong>',
-			t3_r3_c: '<strong>99,99. Perzentil — weniger als 100 von 1.010.000 neutralen Ziehungen erreichen dies</strong>',
-			sub2_close: 'Weniger als 100 von 1.010.000 computersimulierten neutralen Alberta-Karten erzeugten einen <code>seats@50/50</code>-Wert so hoch wie den des Minderheitenvorschlags. Auf Basis aktueller tatsächlicher Wahlmuster würde er der UCP 60 Sitze einbringen (im Vergleich zu 55 beim Mehrheitsvorschlag). Der Mehrheitsvorschlag ist die Art Karte, die ein neutrales Verfahren routinemäßig erzeugt. Der Minderheitenvorschlag ist die Art Karte, die man gezielt zeichnen muss.',
-			sub3_h: 'Was das im Klartext bedeutet',
-			sub3_p: 'Der Minderheitenvorschlag liegt bei drei der vier Parteifairness-Maße im extremen Schwanz des Ensembles aus 1.010.000 Plänen; das vierte (Effizienzlücke, +4,0 %) liegt am 94,5. Perzentil — <em>nahe, aber unterhalb</em> der vorab registrierten, auf Alberta kalibrierten Schwelle des Audits am 95. Perzentil. Die beiden gemeinsamen Testkanäle teilen zugrunde liegende Effizienzlücken-Daten und sind statistisch nicht unabhängig; ihre p-Werte mit Fishers Methode zu kombinieren, überschätzt daher die Signifikanz. Die vertretbare obere Schranke aus einer abhängigkeitsrobusten Kombination liegt bei rund <strong>eins zu 568.000</strong> (Bonferroni; p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>). Das bleibt ein extremes Ergebnis, weit jenseits konventioneller Signifikanzschwellen — aber es wird als Schranke berichtet, nicht als vier unabhängige Instrumente, die übereinstimmend ausschlagen.',
-			details_summary: 'Was dieser p-Wert bedeutet — und was nicht',
-			details_p1: 'Ein p-Wert beantwortet eine Frage: Wäre die Karte von einem neutralen Verfahren gezeichnet worden, wie oft sähen wir ein so extremes oder noch extremeres Ergebnis? Bei der abhängigkeitsrobusten Schranke p&nbsp;≤&nbsp;1,76×10<sup>−6</sup> lautet die Antwort: höchstens etwa einmal in 568.000 Versuchen.',
-			details_p2: 'Das ist ein frequentistischer Hypothesentest, keine Messung von Absicht. Er sagt nicht, dass die Kommission gerrymandern wollte, und er quantifiziert nicht, wie unfair die Karte in praktischer Hinsicht ist. Er sagt: Das Grenzmuster ist statistisch unvereinbar mit der ReCom-Referenzverteilung neutraler Zeichnung — eine starke externe Prüfung, aber keine perfekte (sie erzwingt nicht jedes gesetzliche Kriterium, unter dem die Kommission arbeitete, z. B. §15(2)-Stufen und Interessengemeinschafts-Einschränkungen).',
-			details_p3: 'Die Batterie der strukturellen Tests (Bevölkerung, Teilungen, Verankerung, Kompaktheit, Signaturen) wurde mit Zeitstempeln vor der kanonischen Neuberechnung registriert (<a href="https://osf.io/w2s8k" rel="noopener">OSF-Registrierung w2s8k</a>). Die Parteilichkeits-Kanäle (gemeinsamer Mahalanobis, SZAT, Fisher/Bonferroni-Kombination) sind im Sinne von §4.3.1 des Audits als „exploratorisch" eingestuft: im Repository dokumentiert, aber nicht vor den Daten. Das Audit berichtet jeden Kanal getrennt und kombiniert sie unter der abhängigkeitsrobusten Schranke, statt sie als vollständig unabhängige bestätigende Tests darzustellen.',
-			szat_label: 'SWING-ZONE-ZUWEISUNGSTEST (SZAT)',
-			szat_body: 'SZAT wurde als zweiter Analysekanal konzipiert: Statt zu fragen „ist diese Karte insgesamt extrem?“, fragt er „sind die konkreten Linienentscheidungen parteilich neutral?“. Er funktioniert, indem er nur die Voting Areas isoliert, in denen sich die Karte der Minderheit von der der Mehrheit unterscheidet — die umstrittenen Neuziehungen — und prüft, ob diese bestimmten Entscheidungen, zusammengenommen, die Stimmeffizienz in die Richtung einer Partei verschieben. Weil er nur die Abweichungspunkte vergleicht, kontrolliert er automatisch für alles, was beide Karten teilen: dieselbe Geographie, Bevölkerungsziele und gesetzlichen Regeln. Unter einem Standard-Permutationstest ergab SZAT p=0,0024; unter einer Block-Permutations-Nullhypothese, die für räumliche Autokorrelation über benachbarte Voting Areas korrigiert, ergab er p≈0,19 — nicht signifikant. SZAT wird als explorativer Kontext beibehalten, hält aber als bestätigender Kanal nicht stand. Die Schlagzeile beruht allein auf der Simulation. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Technische Details →</a>',
-			two_q: '<strong>Das SZAT-Ergebnis.</strong> Die Simulation mit 1.010.000 Karten fragt: <em>Ist diese Karte extrem im Vergleich zu neutralen Karten, die auf derselben Geographie Albertas gezeichnet wurden?</em> Ein zweiter Test — der <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Swing-Zone Allocation Test</a> — stellte eine andere Frage: <em>Sind die konkreten Linien der Karte parteilich neutral?</em> Er betrachtet nur die Voting Areas, in denen die Minderheit anders gezeichnet hat als die Mehrheit, und fragt, ob diese besonderen Entscheidungen zusammengenommen die Stimmeneffizienz in die Richtung einer Partei verschoben haben. Bei Standardpermutation ergab er p=0,0024. Unter einer Blockpermutations-Nullhypothese — die die räumliche Autokorrelation zwischen benachbarten Voting Areas korrigiert — ergab er p≈0,19. Das Ergebnis der Blockpermutation erreicht keine Signifikanz. Das Audit berichtet daher allein das Simulationsergebnis als Hauptbefund: eine abhängigkeitsrobuste obere Schranke von <strong>1 zu 568.000</strong> (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>), keine Fisher-Kombination zweier unabhängiger Kanäle.',
-			super_lead: 'In einer Legislative mit 89 Sitzen erfordert eine Zweidrittel-Supermehrheit genau 60 Sitze. Der Sitzanteil des Minderheitenvorschlags bei Stimmengleichheit von 51,7 % — ein Wert, den nur 69 der 1.010.000 neutralen Karten erreichen — liegt in dem Bereich, in dem eine UCP-Supermehrheit auf Albertas Geographie von 2023 statistisch erreichbar wird. Die Simulation erzwingt aber nicht jedes gesetzliche Kriterium, unter dem die Kommission arbeitete; sie ist also eine starke externe Prüfung, kein Beweis, dass keine gesetzeskonforme Alberta-Karte diese Sitzzahl erreichen könnte. Die strukturellen Belege aus „Act I“, die überhaupt nicht von der Simulation abhängen, tragen den größten Teil des Gewichts; die Randlage bei Stimmengleichheit ist der stützende Kontext.',
-			super_label: 'WARUM EINE GROSSE MEHRHEIT WICHTIG IST',
-			super_body: 'Unter Kanadas Westminster-System kennt Albertas Legislativversammlung keine Zweidrittelschwelle, die Sonderbefugnisse freischaltet: Eine Regierungsmehrheit — selbst eine hauchdünne — kann bereits Gesetze und Haushalte verabschieden, „Closure" beantragen, um die Debatte zu beenden, die Regeln des Hauses ändern und die Zusammensetzung jedes Ausschusses festlegen. Was eine sehr große Mehrheit verändert, ist der Abstand und die Beständigkeit, nicht das Repertoire an Befugnissen. Eine Regierung mit 60 von 89 Sitzen ist gegen internen Widerspruch praktisch immun — eine Handvoll Seitenwechsel kann sie nicht gefährden — und steht einer Opposition gegenüber, die zu klein ist, um namentliche Abstimmungen zu erzwingen oder eine Ausschusskontrolle aufrechtzuerhalten. Die Sorge gilt hier der Konzentration von Sitzen und der Ausdünnung einer wirksamen Opposition, nicht dem Überschreiten einer Verfahrensschwelle.',
-			super_close: 'Das in „Act I“ festgestellte Muster der städtischen Hybridisierung — städtische Wählerinnen und Wähler, die auf umliegende Bezirke am ländlichen Rand verteilt werden — ist mit dem Ergebnis von 60 Sitzen vereinbar, auch wenn der direkte Test des Audits, ob diese Geometrie der konkrete Mechanismus ist, negativ ausfiel und als Fehlschlag berichtet wird („Casing 9“). Die strukturellen und statistischen Befunde laufen auf denselben Vorschlag und dieselben Gemeinden hinaus — und sie stimmen darin überein, wer profitiert.',
-			sub4_h: 'Bestätigung durch den Test mit gezieltem Verfahren',
-			sub4_p: 'Um sicherzugehen, dass dies kein Artefakt der bekannten Kompaktheitspräferenz der neutralen Simulation ist, hat das Audit ein gezieltes Hill-Climbing-Verfahren (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon u. a. 2022 — im technischen Bericht zitiert und beschrieben</a>) in beide Richtungen laufen lassen: maximale UCP-Sitze und maximale NDP-Sitze. Gleiche Schrittzahl (40.000) in beide Richtungen, gleiche gesetzliche Einschränkungen, gleiche provinzielle Geometrie.',
-			t4_col_a: 'Verfahren',
-			t4_col_b: 'Erreichter Extremwert',
-			t4_col_c: 'Was es uns sagt',
-			t4_r1_a: 'Neutrales MCMC, max. erzeugt',
-			t4_r1_b: '51,72 % UCP-Sitze @ 50/50 (69 von 1.010.000 Plänen übersteigen die 51,69 % der Minderheit)',
-			t4_r1_c: 'Die natürliche Obergrenze unter neutraler Zeichnung',
-			t4_r2_a: 'Neutrales MCMC, min. erzeugt',
-			t4_r2_b: '~39 % UCP-Sitze @ 50/50',
-			t4_r2_c: 'Die natürliche Untergrenze unter neutraler Zeichnung',
-			t4_r3_a: 'Gezieltes Hill-Climb, UCP-maximierend',
-			t4_r3_b: '<strong>52,9 %</strong>',
-			t4_r3_c: 'Was ein Verfahren, das bewusst auf UCP-Vorteil zielt, erreichen kann',
-			t4_r4_a: 'Gezieltes Hill-Climb, NDP-maximierend',
-			t4_r4_b: '<strong>37,9 %</strong>',
-			t4_r4_c: 'Was ein Verfahren, das bewusst auf NDP-Vorteil zielt, erreichen kann (unter der neutralen Untergrenze)',
-			sub4_close: 'Die 51,7 % der Minderheitenkarte liegen näher an der gezielten UCP-Obergrenze (52,9 %) als am neutralen Median (44,8 %). Die 46,1 % der Mehrheitskarte liegen viel näher am neutralen Median, am 78. Perzentil. Sowohl die 2019 erlassene Karte als auch die Mehrheitskarte 2026 fallen bequem in das, was ein neutrales Verfahren routinemäßig hervorbringt — unterschiedliche Stimmenanteile, dieselbe Zone unauffälliger Ergebnisse. Die Mehrheit setzt die Praxis Albertas von 2019 auf der Achse der Parteifairness genauso fort, wie sie die Praxis von 2019 bei der kommunalen Verankerung fortsetzt (80,0 % gegenüber 75,1 % im Jahr 2019). Zwei Karten, gezeichnet nach denselben Regeln Albertas, von denselben fünf Kommissionsmitgliedern, im selben Raum: Die eine landet dort, wo neutrale Verfahren routinemäßig landen, die andere dort, wo man gezielt hinzielen muss, um zu landen.',
-			sub4_quote: '<em>So</em> sieht der Befund aus, und so wäre auch der Rahmen, den ein Gericht tatsächlich anwenden würde.',
-			sub5_h: 'Alternative Erklärungen ausschließen',
-			sub5_p: 'Angesichts eines statistischen Ausreißers dieser Größenordnung muss ein gründliches Audit die üblichen harmlosen Erklärungen prüfen, bevor es das Muster als ungeklärt behandelt. Die strukturellen Daten (Spur 2) sprechen gegen jede der üblichen alternativen Erklärungen:',
-			defense1: '<strong>Die Verteidigung mit „natürlicher politischer Geographie":</strong> <em>(„Die städtischen Wählerinnen und Wähler sind natürlicherweise konzentriert; die Karte spiegelt einfach Albertas Geographie wider.")</em> Die 1.010.000 Simulationen berücksichtigen Albertas natürliche Geographie bereits. Die Geographie verschafft der UCP tatsächlich einen Grundlinien-Effizienzvorteil — aber die beiden echten Vergleichskarten zeigen, wo dieser Vorteil natürlich seine Obergrenze findet: Sowohl die 2019 erlassene Karte als auch die Mehrheitskarte 2026 liegen beim 78. Perzentil auf der Kippunkt-Kennzahl, und die höchste Position der 2019er-Karte bei jeder Parteilichkeitskennzahl liegt in den niedrigen 90ern (Declination, 91. Perzentil). Die Minderheitenkarte sitzt beim 99,99. Perzentil — ein extremer Ausreißer <em>selbst im Vergleich zu Albertas natürlich verzerrter Grundlinie</em>.',
-			defense2: '<strong>Die Verteidigung mit „Interessengemeinschaften":</strong> <em>(„Die seltsamen Formen wurden gezeichnet, um bestimmte Gemeinschaften zusammenzuhalten.")</em> Wenn Sie versuchen, Gemeinschaften zusammenzuhalten, folgen Sie kommunalen Grenzen. Die Mehrheitskarte folgte bestehenden Stadtgrenzen zu 80 %. Die Minderheitenkarte folgte ihnen zu 72 % — beide innerhalb der kanadischen Norm von 70–85 %. Was die Minderheitenkarte allerdings tut: Sie spaltet die einheitliche Stadt Airdrie aktiv in vier separate Stücke und platziert drei ihrer Grenzentscheidungen genau in den Stadtrand-Zonen, die der Kommissionsvorsitzende als geometrisch anormal beanstandet hat — Entscheidungen, die sich mit der Logik der Interessengemeinschaft nicht erklären lassen.',
-			defense3: '<strong>Die Verteidigung mit „Bevölkerungsgleichheit":</strong> <em>(„Sie mussten seltsame Grenzen ziehen, um sicherzustellen, dass jeder Bezirk genau dieselbe Bevölkerung hat.")</em> Nach den eigenen Bevölkerungstabellen der Kommission ist die Minderheitenkarte bei der Bevölkerungsgleichheit <em>schlechter</em>: Ihre Population Mean Absolute Deviation (MAD) lag bei 4.707, 48 % größer als die 3.180 der Mehrheitskarte. Nach den Zensuszahlen von 2021 sind die mittleren Abweichungen beider Karten nahezu gleich, und die Median-Abweichung der Minderheitenkarte ist größer (3.938 gegenüber 2.827). Diese Median-Streuung liegt beim 99. Perzentil neutraler Karten, deren Bezirke bis auf ±12,5 % ausgeglichen sind, aber am unteren Ende der Spanne, wenn neutrale Karten den vollen gesetzlichen Spielraum von ±25 % nutzen dürfen.',
-			defense4: '<strong>Die Verteidigung mit „Inkompetenz oder Pech“:</strong> <em>(„Sie haben einfach eine schlampige Karte gezeichnet und mit den Zahlen Pech gehabt.“)</em> Eine Konfiguration für eine Supermehrheit von 60 Sitzen zu treffen und gleichzeitig Airdrie in vier Stücke zu teilen und drei Grenzen genau in die Zonen zu legen, die der Kommissionsvorsitzende selbst als anormal beanstandet hat, erfordert Präzision. Die gemeinsame abhängigkeitsrobuste obere Schranke für die Wahrscheinlichkeit, unter der neutralen ReCom-Referenzverteilung zufällig eine auf beiden Analysekanälen derart extreme Karte zu zeichnen, liegt bei rund <strong>1 zu 568.000</strong> (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>). Diese Schranke ist immer noch extrem — weit jenseits konventioneller Signifikanz —, wird aber als Schranke berichtet, nicht als genaue Einzelwahrscheinlichkeit.',
-			sub5_close: 'Was die Daten zeigen, ist, dass der Minderheitenvorschlag sowohl die Bevölkerungsparität als auch die Gemeindekohäsion gegenüber dem verschlechterte, was dieselben fünf Kommissare gleichzeitig unter identischen gesetzlichen Regeln hervorbrachten. Das Audit stellt nicht fest, was die Minderheitskommissare beabsichtigten — Grenzgeometrie kann keine Absicht offenbaren —, aber die strukturelle Abweichung sowohl vom neutralen Ensemble als auch vom Ergebnis des Mehrheitsvorschlags steht unabhängig von der Absicht fest.',
-			sub6_h: 'Eine Anmerkung zur R-Kreuzvalidierung',
-			sub6_p1: 'Eine frühere Version dieses Audits (das angenäherte statt offizielle Shapefiles verwendete) hat das Python-ReCom-Ensemble gegen den Sequential-Monte-Carlo-Sampler des R-Pakets <code>redist</code> kreuzvalidiert. Die Gegenprüfung lieferte instabile Ergebnisse: Über drei Läufe mit demselben nominalen Seed lag der Anteil der Pläne, die den alten Minderheitenwert (48,3 % auf der angenäherten Geometrie) erreichten, bei 5,6 %, dann 28 %, dann 58 % — ein Sampler-Konvergenzversagen, kein Befund. Die vollständige Aufarbeitung findet sich unter <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
-			sub6_p2: 'Mit offiziellen Shapefiles von Elections Alberta steigt der <code>seats@50/50</code>-Wert der Minderheitenkarte auf 51,7 % — einen Wert, den weniger als 100 von 1.010.000 neutralen Plänen erreichen. Die Frage der R-Kreuzvalidierung wird damit gegenstandslos: null Pläne aus beiden Samplern erreichen den kanonischen Wert bei vergleichbaren Stichprobengrößen.',
-			sub6_asymm: '<strong>Die Asymmetrie um 50/50 ist aufschlussreicher als die Inversion selbst.</strong> Ein Präzisionsscan der Sitz-Stimmen-Kurve mit einer Auflösung von 0,01 Prozentpunkten findet, dass die Minderheitenkarte die UCP bis zu einem provinziellen UCP-Stimmenanteil von etwa <strong>49,7 %</strong> auf oder über der gesetzlichen Mehrheitsschwelle von 45 Sitzen hält. Das ist technisch gesehen eine Stimm-Sitz-Inversion — die UCP würde mit der Minderheitenkarte die Regierung bilden, während sie die Volksstimme um 0,3 Prozentpunkte verlöre —, aber 0,3 Punkte liegen gut im üblichen Umfrage-Rauschen, sodass dies für sich genommen kein dramatischer Befund ist. Was <em>dramatisch</em> ist, ist der Kontrast: Auf der <strong>Mehrheitskarte</strong> müsste die UCP die Volksstimme mit etwa 4 Prozentpunkten <em>gewinnen</em>, um dieselbe 45-Sitze-Schwelle zu erreichen. Beide Karten stehen vor derselben Alberta-Geographie und denselben gesetzlichen Regeln; der Abstand zwischen ihnen — 0,3 Punkte vs. +4 Punkte — ist struktureller Unterschied, nicht Rauschen.',
-			sub6_close: 'Dies ist der strukturelle Verzerrungsbefund, den das Audit mit Zuversicht vertritt. Er ist rein geometrisch; er hängt von keinem Wahlergebnis ab; er bewegt sich nicht, wenn sich Umfragen bewegen.',
-			sub6_caveat: '<strong>Einen Vorbehalt nimmt das Audit ernst.</strong> Eine reale Wählerschaft ist nicht gleichmäßig 50/50. Wählerinnen und Wähler können die strukturelle Neigung jeder Karte mit ausreichender Schwankung übertrumpfen — eine besonders verärgerte oder inspirierte Wählerschaft wird das Ergebnis unabhängig vom Verlauf der Grenzen kippen. Der 50/50-Test isoliert <em>den Beitrag der Karte zum Ergebnis</em>, nicht das Ergebnis selbst. Er zeigt, was die Karte tut, wenn die Wählerschaft nicht für sie entscheidet.',
-			sub7_h: 'Die Quintessenz',
-			sub7_p1: 'Der zentrale Befund des Audits ist geometrisch. <strong>Spur 2 — das Bewertungsblatt zur strukturellen Unregelmäßigkeit — ist das Fundament; Spur 1 ist der Nachweis, dass die Geometrie parteiliche Arbeit leistet.</strong>',
-			sub7_p2: 'Das nachfolgende Diagramm bringt beide Spuren in ein einziges Bild. Die horizontale Achse ist Spur 1 (die Parteifairness-Effizienzlücke, wobei weiter rechts stärker UCP-begünstigt bedeutet); die vertikale Achse ist Spur 2 (die Anzahl der nicht bestandenen strukturellen Fairness-Tests des Vorschlags, von fünf, wobei höher mehr strukturelle Probleme bedeutet).',
-			stakes_fig_alt: 'Streudiagramm mit der Effizienzlücke auf der horizontalen Achse und der Anzahl nicht bestandener struktureller Tests auf der vertikalen Achse. Die 2019 erlassene Karte und die Mehrheitskarte 2026 gruppieren sich in der sicheren unteren linken Ecke. Die Minderheitenkarte 2026 erscheint im Ausreißerbereich oben rechts. Die Karte von 2019 ist mit 0 von 4 durchgeführten beschriftet: Der Calgary-Zonen-Test wurde auf sie nie angewandt.',
-			stakes_fig_caption: 'Die beiden Arten, die zwei Kommissionsvorschläge zu messen, in einem Bild. Von links nach rechts: wie verzerrt der Vorschlag bei der Zahl zur Parteifairness aussieht — je weiter rechts, desto stärker begünstigt er die UCP. Von unten nach oben: wie viele von fünf Tests der strukturellen Fairness der Vorschlag nicht besteht — je höher, desto schlechter. Die 2019 erlassene Karte liegt in der sicheren Ecke: niedrig auf beiden Achsen (sie besteht alle vier auf sie angewandten Tests; der Calgary-Zonen-Test wurde auf sie nie angewandt). Der Mehrheitsvorschlag 2026 bleibt bei null strukturellen Problemen und nahezu null parteilicher Verzerrung (+0,1 %). Der Minderheitenvorschlag 2026 ist bei jedem Test, der die beiden Karten unterscheidet, ein struktureller Ausreißer (4 von 5; der fünfte, die Verankerung, ist für beide neutral); seine Effizienzlücke (+4,0 %) liegt knapp unter der Alberta-Schwellenlinie.',
-			stakes_table_intro: 'Dieselben Befunde in klarer Übersichtsform, mit dem strukturellen Befund vorangestellt, weil die kreuzvalidierte Evidenz ihn am stärksten stützt:',
-			t5_col_b: 'Struktur — „Act I“ (nur Geometrie, keine Stimmen; „Spur 2“ im akademischen Bericht)',
-			t5_col_c: 'Zahlen — „Act II“ (stimmenabhängig; „Spur 1“)',
-			t5_r1_a: '<strong>Mehrheit 2026</strong>',
-			t5_r1_b: 'sauber — überschreitet <em>keine</em> strukturelle Schwelle',
-			t5_r1_c: 'bei jedem Maß im normalen Bereich (Sitzanteil bei Stimmengleichheit 46,1 %, 78. Perzentil; Effizienzlücke +0,1 %)',
-			t5_r2_a: '<strong>Minderheit 2026</strong>',
-			t5_r2_b: '<strong>überschreitet 4 von 5 strukturellen Schwellen</strong> mit großem Abstand (Anchoring neutral — beide Karten innerhalb der kanadischen Norm)',
-			t5_r2_c: 'extremer Schwanz bei drei von vier Fairnessmaßen — Sitzanteil bei Stimmengleichheit 51,7 % (nur 69 von 1.010.000 neutralen Karten erreichen ihn); zwei weitere Maße jenseits des 98,8. und 99,9. Perzentils; Effizienzlücke +4,0 % (<em>nahe, aber unterhalb</em> der vorab festgelegten Linie — eine berichtete Verfehlung); Gesamtwahrscheinlichkeit bei neutraler Zeichnung etwa 1 zu 568.000',
-			details2_summary: 'Warum der strukturelle Teil den Fall trägt — technische Details',
-			details2_p: 'Das Audit hat am 24. April 2026, bevor die endgültigen Simulationsergebnisse zusammengestellt waren, fünf Tests auf strukturelle Unregelmäßigkeiten vorab registriert. Die Verankerung ist für beide Karten neutral; von den übrigen vier überschreitet die Minderheit jeden und die Mehrheit keinen. Diese Messungen sind geometrisch — kein statistischer Sampler, keine Stimmdaten. <strong>Das ist der zentrale Befund.</strong> Die Simulation bestätigt ihn: Die Minderheit liegt bei drei von vier Fairnessmaßen im extremen Schwanz, das vierte (die Effizienzlücke) liegt knapp unter der vorab festgelegten Linie am 94,5. Perzentil, und die Gesamtwahrscheinlichkeit bei neutraler Zeichnung beträgt etwa 1 zu 568.000 — die bewusst vorsichtige Obergrenze, die in „Casing 8“ erklärt wird. Zwei Hinweise zur Ehrlichkeit stehen in den „Casings“: Die beanstandeten Grenzformen selbst sind <em>nicht</em> der direkte Mechanismus der Sitzverschiebung — diese Behauptung hat ihren Test nicht bestanden, und das Scheitern wird berichtet („Casing 9“; vollständige Darstellung unter <a href=\'https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md\' rel=\'noopener\'>findings/redist_python_comparison.md</a>) —, und der Swing-Zone Allocation Test hat seine korrigierte Nullhypothese nicht überstanden und ist nur explorativ („Casing 10“). Der strukturelle Teil trägt den Fall; die Zahlen bestätigen, ohne zu tragen.'
+			heading: "6: Wenn eine fair aussehende Karte es nicht ist",
+			legal_label: "EIN HINWEIS ZUR JURISTISCHEN TERMINOLOGIE",
+			legal_body: "„Gerrymandering\" hat im kanadischen Recht keine rechtliche Definition. Das Wort wird in diesem Bericht durchgehend im alltäglichen politischen Sinn verwendet — Manipulation von Wahlbezirksgrenzen zugunsten einer Partei. Die in Kanada tatsächlich anwendbaren rechtlichen Prüfungen sind andere: ob die Grenzen eine „wirksame Vertretung\" nach Abschnitt 3 der <em>Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten\") gewährleisten — der verfassungsrechtliche Standard, den der Supreme Court of Canada im <em>Saskatchewan Reference</em> 1991 festgelegt hat — und ob die Kommission die Regeln des Albertas <em>Electoral Boundaries Commission Act</em> („Gesetz über die Wahlbezirkskommission\") befolgt hat. Die Befunde des Audits sind Beweismaterial mit Bezug zu diesen Rechtsfragen. Sie sind kein Beweis für ein rechtlich definiertes Unrecht, und dieser Bericht beschreibt sie nicht in solchen Begriffen.",
+			intro_p1: "Die sauberste Einzelfrage, die man jeder Wahlkarte stellen kann, lautet: Wenn die Stimmenaufteilung der Provinz sich exakt gleichmäßig zwischen den beiden Hauptparteien aufteilte, welche Sitzzahl würde die Karte hervorbringen? Das hält die Wählerschaft konstant und fragt allein die Karte, was sie bewirkt.",
+			intro_p2: "Um diese Frage zu beantworten, hat das Audit 1.010.000 computersimulierte, mathematisch neutrale Alberta-Karten erzeugt. Die Simulation verwendete die offiziellen Shapefiles von Elections Alberta auf der Geographie der Kommission und hielt jeden Plan an dieselben Anforderungen an Bevölkerungsbalance (±25 %) und Zusammenhang — die beiden Kriterien, die der Algorithmus erzwingt, nicht jeden gesetzlichen Faktor (er erzwingt etwa keine Interessengemeinschaften), sodass die Vergleichsmenge am besten als bevölkerungs- und zusammenhangsneutral und nicht als vollständig gesetzeskonform zu verstehen ist. Die beiden Karten der Kommission von 2026 wurden dann in diese Verteilung gestellt, um zu sehen, wie normal sie sind. Die Simulation lief in vier unabhängigen Ketten von je 252.500 Schritten, wobei der Basis-Seed aus dem Cloudflare-drand-Zufallszahlenbeacon gezogen und vor der Ausführung auf OSF vorab registriert wurde.",
+			howmcmc_label: "WIE DIE SIMULATION FUNKTIONIERT",
+			howmcmc_mcmc: "Zwei benachbarte Bezirke zusammenlegen, den entstandenen Block zufällig wieder in zwei neue legale Bezirke teilen, das eine Million Mal wiederholen und bei jedem Schritt die Karte speichern. Das ist die ganze Maschine. Die Schritt-für-Schritt-Erklärung — und jeder andere Test auf dieser Seite, in einfacher Sprache — steht auf <a href=\"__BASE__/methods\">der Seite Methoden</a>.",
+			howmcmc_recom: "Der Algorithmus heißt ReCom — das Standardwerkzeug des Fachs — und er hält die beiden harten gesetzlichen Regeln (Bevölkerungsausgleich, Zusammenhang) schon durch seine Bauweise ein.",
+			prereg_label: "VORAB-REGISTRIERUNG",
+			prereg_body: "Vorab-Registrierung heißt, die Tests, Schwellen und vorhergesagten Richtungen in einer öffentlichen, zeitgestempelten Aufzeichnung festzuhalten, bevor man die Daten ansieht — damit eine Schwelle nicht still verschoben werden kann, wenn die Antwort vorliegt. Die Festlegungen dieses Audits sind beim Open Science Framework hinterlegt, seine Zufalls-Seeds wurden an ein öffentliches Beacon gebunden, bevor es die offiziellen Kartendateien gab, und jeder Befund ist entsprechend als vorab registriert oder explorativ gekennzeichnet. Die vollständige Aufstellung, was was ist, steht auf <a href='__BASE__/methods'>der Seite Methoden</a>.",
+			neutral_p: "In Alberta ist die neutrale Antwort nicht 50/50. <em>Über 1.010.000 computersimulierte legale Alberta-Karten hinweg gibt die Median-Karte der UCP bei 50/50-Stimmen nur 44,8 % der Sitze</em> — eine typische Alberta-Karte unter neutralen Stimmen verschafft der NDP eine knappe Sitzmehrheit. Das ist kontraintuitiv, aber mechanisch erklärbar: Ländliche UCP-Wählerinnen und -Wähler gewinnen ihre Ridings mit 60-zu-40-Marge (und verschwenden so viele „zusätzliche\" UCP-Stimmen), während städtische NDP-Wählerinnen und -Wähler ihre Ridings mit knapperen 51-zu-49-Margen gewinnen (und so weniger NDP-Stimmen pro Sieg verschwenden). Bei Neutralität liegt die NDP bei der Sitz-Effizienz vorne.",
+			full_dist: "Die vollständige Verteilung aus der kanonischen 1.010.000-Karten-Simulation:",
+			t1_col_a: "Wo die Karte liegt",
+			t1_col_b: "UCP-Sitze bei 50/50-Stimmen",
+			t1_r1_a: "Median-Alberta-Karte",
+			t1_r1_b: "44,8 % — leichte NDP-Sitzmehrheit",
+			t1_r2_a: "Karte am 95. Perzentil",
+			t1_r2_b: "47,1 %",
+			t1_r3_a: "Karte am 99. Perzentil",
+			t1_r3_b: "48,4 %",
+			t1_r4_a: "<strong>Maximum über 1.010.000 Karten</strong>",
+			t1_r4_b: "<strong>51,72 % (69 von 1.010.000 Plänen übersteigen die 51,69 % der Minderheit)</strong>",
+			seat_count_note: "Eine Anmerkung zu den Sitzzahlen. Die beiden Kommissionskarten von 2026 haben jeweils <strong>89</strong> Bezirke; die Computersimulation des Audits läuft auf der <strong>87</strong>-Bezirks-Karte von 2019 (ihrem Startsubstrat); das Lunty-Komitee im November wird <strong>91</strong> hervorbringen. Alle Prozentsätze sind Sitz<em>anteile</em>, vergleichbar über diese Nenner hinweg. Die Simulation verwendet die Karte von 2019 als Startpunkt, weil der ReCom-Algorithmus eine gesetzlich erlassene Karte braucht, von der aus er Tausche vorschlagen kann — die Karte von 2019 ist die zuletzt erlassene Wahlkarte Albertas. Einen der beiden Kommissionsvorschläge als Substrat zu verwenden, wäre zirkulär: Wir würden messen, ob eine Karte im Vergleich zu Karten, die von ihr selbst abgeleitet sind, extrem ist.",
+			pattern_intro: "Die Ergebnisse — die Platzierung der drei realen Karten in dieser Verteilung — weisen auf ein spezifisches, chirurgisches Muster der Grenzziehung hin.",
+			sub1_h: "Alle vier statistischen Maße schlagen gleichzeitig an",
+			sub1_p: "Wenn die offiziellen Shapefiles von Elections Alberta verwendet werden, ist die Minderheitenkarte bei jeder einzelnen Parteifairness-Metrik ein statistischer Ausreißer — nicht nur bei der Tipping-Point-Metrik.",
+			t2_col_a: "Karte",
+			t2_col_b: "Effizienzlücke",
+			t2_col_c: "Mittel-Median",
+			t2_col_d: "<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\" title=\"Die Declination misst die Winkeldifferenz zwischen den Sitz-Stimmen-Kurven der Parteien. Negative Werte begünstigen die NDP; positive begünstigen die UCP.\">Declination</a>",
+			t2_col_e: "Sitze bei 50/50",
+			t2_r1_a: "Mehrheit 2026",
+			t2_r1_b: "+0,1 % (p16,5)",
+			t2_r1_c: "−3,6 % (p1)",
+			t2_r1_d: "−0,027 (p21,8)",
+			t2_r1_e: "46,1 % (p78,5)",
+			t2_r2_a: "Minderheit 2026",
+			t2_r2_b: "<strong>+4,0 % (p94,5)</strong>",
+			t2_r2_c: "<strong>+1,0 % (p99,97)</strong>",
+			t2_r2_d: "<strong>+0,077 (p98.8)</strong>",
+			t2_r2_e: "<strong>51,7 % (p99.99)</strong>",
+			sub1_close: "Die Mehrheitskarte liegt bei drei von vier Maßen bequem im normalen Bereich. Ihre Mittel-Median-Differenz liegt bei p1 (= p0,99) in NDP-freundlicher Richtung — ein ungewöhnliches Ergebnis, das aber in die falsche Richtung weist, um der UCP zu helfen. Die enge Orientierung der Mehrheitskarte an Gemeindegrenzen legt NDP-starke Stadtkerne in eigene kompakte Bezirke, wo die NDP mit effizienten Abständen gewinnt, während ländliche UCP-Siege meist mit größerem Abstand ausfallen; dieser leichte strukturelle Effizienzvorteil der NDP zeigt sich im Mittel-Median-Maß. Die Minderheitenkarte liegt bei allen vier im Schwanz, und jedes weist in dieselbe parteiliche Richtung.",
+			sub2_h: "Der 50/50-Tipping-Point: Weniger als 100 von 1.010.000 neutralen Karten erreichen ihn",
+			sub2_p: "Die oben eingeführte Tipping-Point-Metrik — UCP-Sitze bei einer provinzweiten 50/50-Abstimmung — ist die intuitivste Möglichkeit, die drei Karten zu vergleichen.",
+			t3_col_a: "Karte",
+			t3_col_b: "UCP-Sitze bei 50/50-Stimmen",
+			t3_col_c: "Wo sie sitzt",
+			t3_r1_a: "2019 erlassen",
+			t3_r1_b: "46,0 %",
+			t3_r1_c: "78. Perzentil — innerhalb des normalen Bereichs",
+			t3_r2_a: "<strong>Mehrheit 2026</strong>",
+			t3_r2_b: "<strong>46,1 %</strong>",
+			t3_r2_c: "<strong>78. Perzentil — deutlich im Rahmen</strong>",
+			t3_r3_a: "<strong>Minderheit 2026</strong>",
+			t3_r3_b: "<strong>51,7 % (46 Sitze)</strong>",
+			t3_r3_c: "<strong>99,99. Perzentil — weniger als 100 von 1.010.000 neutralen Ziehungen erreichen dies</strong>",
+			sub2_close: "Weniger als 100 von 1.010.000 computersimulierten neutralen Alberta-Karten erzeugten einen <code>seats@50/50</code>-Wert so hoch wie den des Minderheitenvorschlags. Auf Basis aktueller tatsächlicher Wahlmuster würde er der UCP 60 Sitze einbringen (im Vergleich zu 55 beim Mehrheitsvorschlag). Der Mehrheitsvorschlag ist die Art Karte, die ein neutrales Verfahren routinemäßig erzeugt. Der Minderheitenvorschlag ist die Art Karte, die man gezielt zeichnen muss.",
+			sub3_h: "Was das im Klartext bedeutet",
+			sub3_p: "Der Minderheitenvorschlag liegt bei drei der vier Parteifairness-Maße im extremen Schwanz des Ensembles aus 1.010.000 Plänen; das vierte (Effizienzlücke, +4,0 %) liegt am 94,5. Perzentil — <em>nahe, aber unterhalb</em> der vorab registrierten, auf Alberta kalibrierten Schwelle des Audits am 95. Perzentil. Die beiden gemeinsamen Testkanäle teilen zugrunde liegende Effizienzlücken-Daten und sind statistisch nicht unabhängig; ihre p-Werte mit Fishers Methode zu kombinieren, überschätzt daher die Signifikanz. Die vertretbare obere Schranke aus einer abhängigkeitsrobusten Kombination liegt bei rund <strong>eins zu 568.000</strong> (Bonferroni; p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>). Das bleibt ein extremes Ergebnis, weit jenseits konventioneller Signifikanzschwellen — aber es wird als Schranke berichtet, nicht als vier unabhängige Instrumente, die übereinstimmend ausschlagen.",
+			details_summary: "Was dieser p-Wert bedeutet — und was nicht",
+			details_p1: "Ein p-Wert beantwortet eine Frage: Wäre die Karte von einem neutralen Verfahren gezeichnet worden, wie oft sähen wir ein so extremes oder noch extremeres Ergebnis? Bei der abhängigkeitsrobusten Schranke p&nbsp;≤&nbsp;1,76×10<sup>−6</sup> lautet die Antwort: höchstens etwa einmal in 568.000 Versuchen.",
+			details_p2: "Das ist ein frequentistischer Hypothesentest, keine Messung von Absicht. Er sagt nicht, dass die Kommission gerrymandern wollte, und er quantifiziert nicht, wie unfair die Karte in praktischer Hinsicht ist. Er sagt: Das Grenzmuster ist statistisch unvereinbar mit der ReCom-Referenzverteilung neutraler Zeichnung — eine starke externe Prüfung, aber keine perfekte (sie erzwingt nicht jedes gesetzliche Kriterium, unter dem die Kommission arbeitete, z. B. §15(2)-Stufen und Interessengemeinschafts-Einschränkungen).",
+			details_p3: "Die Batterie der strukturellen Tests (Bevölkerung, Teilungen, Verankerung, Kompaktheit, Signaturen) wurde mit Zeitstempeln vor der kanonischen Neuberechnung registriert (<a href=\"https://osf.io/w2s8k\" rel=\"noopener\">OSF-Registrierung w2s8k</a>). Die Parteilichkeits-Kanäle (gemeinsamer Mahalanobis, SZAT, Fisher/Bonferroni-Kombination) sind im Sinne von §4.3.1 des Audits als „exploratorisch\" eingestuft: im Repository dokumentiert, aber nicht vor den Daten. Das Audit berichtet jeden Kanal getrennt und kombiniert sie unter der abhängigkeitsrobusten Schranke, statt sie als vollständig unabhängige bestätigende Tests darzustellen.",
+			szat_label: "SWING-ZONE-ZUWEISUNGSTEST (SZAT)",
+			szat_body: "SZAT wurde als zweiter Analysekanal konzipiert: Statt zu fragen „ist diese Karte insgesamt extrem?“, fragt er „sind die konkreten Linienentscheidungen parteilich neutral?“. Er funktioniert, indem er nur die Voting Areas isoliert, in denen sich die Karte der Minderheit von der der Mehrheit unterscheidet — die umstrittenen Neuziehungen — und prüft, ob diese bestimmten Entscheidungen, zusammengenommen, die Stimmeffizienz in die Richtung einer Partei verschieben. Weil er nur die Abweichungspunkte vergleicht, kontrolliert er automatisch für alles, was beide Karten teilen: dieselbe Geographie, Bevölkerungsziele und gesetzlichen Regeln. Unter einem Standard-Permutationstest ergab SZAT p=0,0024; unter einer Block-Permutations-Nullhypothese, die für räumliche Autokorrelation über benachbarte Voting Areas korrigiert, ergab er p≈0,19 — nicht signifikant. SZAT wird als explorativer Kontext beibehalten, hält aber als bestätigender Kanal nicht stand. Die Schlagzeile beruht allein auf der Simulation. <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json\" rel=\"noopener\">Technische Details →</a>",
+			two_q: "<strong>Das SZAT-Ergebnis.</strong> Die Simulation mit 1.010.000 Karten fragt: <em>Ist diese Karte extrem im Vergleich zu neutralen Karten, die auf derselben Geographie Albertas gezeichnet wurden?</em> Ein zweiter Test — der <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json\" rel=\"noopener\">Swing-Zone Allocation Test</a> — stellte eine andere Frage: <em>Sind die konkreten Linien der Karte parteilich neutral?</em> Er betrachtet nur die Voting Areas, in denen die Minderheit anders gezeichnet hat als die Mehrheit, und fragt, ob diese besonderen Entscheidungen zusammengenommen die Stimmeneffizienz in die Richtung einer Partei verschoben haben. Bei Standardpermutation ergab er p=0,0024. Unter einer Blockpermutations-Nullhypothese — die die räumliche Autokorrelation zwischen benachbarten Voting Areas korrigiert — ergab er p≈0,19. Das Ergebnis der Blockpermutation erreicht keine Signifikanz. Das Audit berichtet daher allein das Simulationsergebnis als Hauptbefund: eine abhängigkeitsrobuste obere Schranke von <strong>1 zu 568.000</strong> (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>), keine Fisher-Kombination zweier unabhängiger Kanäle.",
+			super_lead: "In einer Legislative mit 89 Sitzen erfordert eine Zweidrittel-Supermehrheit genau 60 Sitze. Der Sitzanteil des Minderheitenvorschlags bei Stimmengleichheit von 51,7 % — ein Wert, den nur 69 der 1.010.000 neutralen Karten erreichen — liegt in dem Bereich, in dem eine UCP-Supermehrheit auf Albertas Geographie von 2023 statistisch erreichbar wird. Die Simulation erzwingt aber nicht jedes gesetzliche Kriterium, unter dem die Kommission arbeitete; sie ist also eine starke externe Prüfung, kein Beweis, dass keine gesetzeskonforme Alberta-Karte diese Sitzzahl erreichen könnte. Die strukturellen Belege aus „Act I“, die überhaupt nicht von der Simulation abhängen, tragen den größten Teil des Gewichts; die Randlage bei Stimmengleichheit ist der stützende Kontext.",
+			super_label: "WARUM EINE GROSSE MEHRHEIT WICHTIG IST",
+			super_body: "Unter Kanadas Westminster-System kennt Albertas Legislativversammlung keine Zweidrittelschwelle, die Sonderbefugnisse freischaltet: Eine Regierungsmehrheit — selbst eine hauchdünne — kann bereits Gesetze und Haushalte verabschieden, „Closure\" beantragen, um die Debatte zu beenden, die Regeln des Hauses ändern und die Zusammensetzung jedes Ausschusses festlegen. Was eine sehr große Mehrheit verändert, ist der Abstand und die Beständigkeit, nicht das Repertoire an Befugnissen. Eine Regierung mit 60 von 89 Sitzen ist gegen internen Widerspruch praktisch immun — eine Handvoll Seitenwechsel kann sie nicht gefährden — und steht einer Opposition gegenüber, die zu klein ist, um namentliche Abstimmungen zu erzwingen oder eine Ausschusskontrolle aufrechtzuerhalten. Die Sorge gilt hier der Konzentration von Sitzen und der Ausdünnung einer wirksamen Opposition, nicht dem Überschreiten einer Verfahrensschwelle.",
+			super_close: "Das in „Act I“ festgestellte Muster der städtischen Hybridisierung — städtische Wählerinnen und Wähler, die auf umliegende Bezirke am ländlichen Rand verteilt werden — ist mit dem Ergebnis von 60 Sitzen vereinbar, auch wenn der direkte Test des Audits, ob diese Geometrie der konkrete Mechanismus ist, negativ ausfiel und als Fehlschlag berichtet wird („Casing 9“). Die strukturellen und statistischen Befunde laufen auf denselben Vorschlag und dieselben Gemeinden hinaus — und sie stimmen darin überein, wer profitiert.",
+			sub4_h: "Bestätigung durch den Test mit gezieltem Verfahren",
+			sub4_p: "Um sicherzugehen, dass dies kein Artefakt der bekannten Kompaktheitspräferenz der neutralen Simulation ist, hat das Audit ein gezieltes Hill-Climbing-Verfahren (<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">Cannon u. a. 2022 — im technischen Bericht zitiert und beschrieben</a>) in beide Richtungen laufen lassen: maximale UCP-Sitze und maximale NDP-Sitze. Gleiche Schrittzahl (40.000) in beide Richtungen, gleiche gesetzliche Einschränkungen, gleiche provinzielle Geometrie.",
+			t4_col_a: "Verfahren",
+			t4_col_b: "Erreichter Extremwert",
+			t4_col_c: "Was es uns sagt",
+			t4_r1_a: "Neutrales MCMC, max. erzeugt",
+			t4_r1_b: "51,72 % UCP-Sitze @ 50/50 (69 von 1.010.000 Plänen übersteigen die 51,69 % der Minderheit)",
+			t4_r1_c: "Die natürliche Obergrenze unter neutraler Zeichnung",
+			t4_r2_a: "Neutrales MCMC, min. erzeugt",
+			t4_r2_b: "~39 % UCP-Sitze @ 50/50",
+			t4_r2_c: "Die natürliche Untergrenze unter neutraler Zeichnung",
+			t4_r3_a: "Gezieltes Hill-Climb, UCP-maximierend",
+			t4_r3_b: "<strong>52,9 %</strong>",
+			t4_r3_c: "Was ein Verfahren, das bewusst auf UCP-Vorteil zielt, erreichen kann",
+			t4_r4_a: "Gezieltes Hill-Climb, NDP-maximierend",
+			t4_r4_b: "<strong>37,9 %</strong>",
+			t4_r4_c: "Was ein Verfahren, das bewusst auf NDP-Vorteil zielt, erreichen kann (unter der neutralen Untergrenze)",
+			sub4_close: "Die 51,7 % der Minderheitenkarte liegen näher an der gezielten UCP-Obergrenze (52,9 %) als am neutralen Median (44,8 %). Die 46,1 % der Mehrheitskarte liegen viel näher am neutralen Median, am 78. Perzentil. Sowohl die 2019 erlassene Karte als auch die Mehrheitskarte 2026 fallen bequem in das, was ein neutrales Verfahren routinemäßig hervorbringt — unterschiedliche Stimmenanteile, dieselbe Zone unauffälliger Ergebnisse. Die Mehrheit setzt die Praxis Albertas von 2019 auf der Achse der Parteifairness genauso fort, wie sie die Praxis von 2019 bei der kommunalen Verankerung fortsetzt (80,0 % gegenüber 75,1 % im Jahr 2019). Zwei Karten, gezeichnet nach denselben Regeln Albertas, von denselben fünf Kommissionsmitgliedern, im selben Raum: Die eine landet dort, wo neutrale Verfahren routinemäßig landen, die andere dort, wo man gezielt hinzielen muss, um zu landen.",
+			sub4_quote: "<em>So</em> sieht der Befund aus, und so wäre auch der Rahmen, den ein Gericht tatsächlich anwenden würde.",
+			sub5_h: "Alternative Erklärungen ausschließen",
+			sub5_p: "Angesichts eines statistischen Ausreißers dieser Größenordnung muss ein gründliches Audit die üblichen harmlosen Erklärungen prüfen, bevor es das Muster als ungeklärt behandelt. Die strukturellen Daten (Spur 2) sprechen gegen jede der üblichen alternativen Erklärungen:",
+			defense1: "<strong>Die Verteidigung mit „natürlicher politischer Geographie\":</strong> <em>(„Die städtischen Wählerinnen und Wähler sind natürlicherweise konzentriert; die Karte spiegelt einfach Albertas Geographie wider.\")</em> Die 1.010.000 Simulationen berücksichtigen Albertas natürliche Geographie bereits. Die Geographie verschafft der UCP tatsächlich einen Grundlinien-Effizienzvorteil — aber die beiden echten Vergleichskarten zeigen, wo dieser Vorteil natürlich seine Obergrenze findet: Sowohl die 2019 erlassene Karte als auch die Mehrheitskarte 2026 liegen beim 78. Perzentil auf der Kippunkt-Kennzahl, und die höchste Position der 2019er-Karte bei jeder Parteilichkeitskennzahl liegt in den niedrigen 90ern (Declination, 91. Perzentil). Die Minderheitenkarte sitzt beim 99,99. Perzentil — ein extremer Ausreißer <em>selbst im Vergleich zu Albertas natürlich verzerrter Grundlinie</em>.",
+			defense2: "<strong>Die Verteidigung mit „Interessengemeinschaften\":</strong> <em>(„Die seltsamen Formen wurden gezeichnet, um bestimmte Gemeinschaften zusammenzuhalten.\")</em> Wenn Sie versuchen, Gemeinschaften zusammenzuhalten, folgen Sie kommunalen Grenzen. Die Mehrheitskarte folgte bestehenden Stadtgrenzen zu 80 %. Die Minderheitenkarte folgte ihnen zu 72 % — beide innerhalb der kanadischen Norm von 70–85 %. Was die Minderheitenkarte allerdings tut: Sie spaltet die einheitliche Stadt Airdrie aktiv in vier separate Stücke und platziert drei ihrer Grenzentscheidungen genau in den Stadtrand-Zonen, die der Kommissionsvorsitzende als geometrisch anormal beanstandet hat — Entscheidungen, die sich mit der Logik der Interessengemeinschaft nicht erklären lassen.",
+			defense3: "<strong>Die Verteidigung mit „Bevölkerungsgleichheit\":</strong> <em>(„Sie mussten seltsame Grenzen ziehen, um sicherzustellen, dass jeder Bezirk genau dieselbe Bevölkerung hat.\")</em> Nach den eigenen Bevölkerungstabellen der Kommission ist die Minderheitenkarte bei der Bevölkerungsgleichheit <em>schlechter</em>: Ihre Population Mean Absolute Deviation (MAD) lag bei 4.707, 48 % größer als die 3.180 der Mehrheitskarte. Nach den Zensuszahlen von 2021 sind die mittleren Abweichungen beider Karten nahezu gleich, und die Median-Abweichung der Minderheitenkarte ist größer (3.938 gegenüber 2.827). Diese Median-Streuung liegt beim 99. Perzentil neutraler Karten, deren Bezirke bis auf ±12,5 % ausgeglichen sind, aber am unteren Ende der Spanne, wenn neutrale Karten den vollen gesetzlichen Spielraum von ±25 % nutzen dürfen.",
+			defense4: "<strong>Die Verteidigung mit „Inkompetenz oder Pech“:</strong> <em>(„Sie haben einfach eine schlampige Karte gezeichnet und mit den Zahlen Pech gehabt.“)</em> Eine Konfiguration für eine Supermehrheit von 60 Sitzen zu treffen und gleichzeitig Airdrie in vier Stücke zu teilen und drei Grenzen genau in die Zonen zu legen, die der Kommissionsvorsitzende selbst als anormal beanstandet hat, erfordert Präzision. Die gemeinsame abhängigkeitsrobuste obere Schranke für die Wahrscheinlichkeit, unter der neutralen ReCom-Referenzverteilung zufällig eine auf beiden Analysekanälen derart extreme Karte zu zeichnen, liegt bei rund <strong>1 zu 568.000</strong> (p&nbsp;≤&nbsp;1,76×10<sup>−6</sup>). Diese Schranke ist immer noch extrem — weit jenseits konventioneller Signifikanz —, wird aber als Schranke berichtet, nicht als genaue Einzelwahrscheinlichkeit.",
+			sub5_close: "Was die Daten zeigen, ist, dass der Minderheitenvorschlag sowohl die Bevölkerungsparität als auch die Gemeindekohäsion gegenüber dem verschlechterte, was dieselben fünf Kommissare gleichzeitig unter identischen gesetzlichen Regeln hervorbrachten. Das Audit stellt nicht fest, was die Minderheitskommissare beabsichtigten — Grenzgeometrie kann keine Absicht offenbaren —, aber die strukturelle Abweichung sowohl vom neutralen Ensemble als auch vom Ergebnis des Mehrheitsvorschlags steht unabhängig von der Absicht fest.",
+			sub6_h: "Eine Anmerkung zur R-Kreuzvalidierung",
+			sub6_p1: "Eine frühere Version dieses Audits (das angenäherte statt offizielle Shapefiles verwendete) hat das Python-ReCom-Ensemble gegen den Sequential-Monte-Carlo-Sampler des R-Pakets <code>redist</code> kreuzvalidiert. Die Gegenprüfung lieferte instabile Ergebnisse: Über drei Läufe mit demselben nominalen Seed lag der Anteil der Pläne, die den alten Minderheitenwert (48,3 % auf der angenäherten Geometrie) erreichten, bei 5,6 %, dann 28 %, dann 58 % — ein Sampler-Konvergenzversagen, kein Befund. Die vollständige Aufarbeitung findet sich unter <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md\" rel=\"noopener\">findings/redist_python_comparison.md</a>.",
+			sub6_p2: "Mit offiziellen Shapefiles von Elections Alberta steigt der <code>seats@50/50</code>-Wert der Minderheitenkarte auf 51,7 % — einen Wert, den weniger als 100 von 1.010.000 neutralen Plänen erreichen. Die Frage der R-Kreuzvalidierung wird damit gegenstandslos: null Pläne aus beiden Samplern erreichen den kanonischen Wert bei vergleichbaren Stichprobengrößen.",
+			sub6_asymm: "<strong>Die Asymmetrie um 50/50 ist aufschlussreicher als die Inversion selbst.</strong> Ein Präzisionsscan der Sitz-Stimmen-Kurve mit einer Auflösung von 0,01 Prozentpunkten findet, dass die Minderheitenkarte die UCP bis zu einem provinziellen UCP-Stimmenanteil von etwa <strong>49,7 %</strong> auf oder über der gesetzlichen Mehrheitsschwelle von 45 Sitzen hält. Das ist technisch gesehen eine Stimm-Sitz-Inversion — die UCP würde mit der Minderheitenkarte die Regierung bilden, während sie die Volksstimme um 0,3 Prozentpunkte verlöre —, aber 0,3 Punkte liegen gut im üblichen Umfrage-Rauschen, sodass dies für sich genommen kein dramatischer Befund ist. Was <em>dramatisch</em> ist, ist der Kontrast: Auf der <strong>Mehrheitskarte</strong> müsste die UCP die Volksstimme mit etwa 4 Prozentpunkten <em>gewinnen</em>, um dieselbe 45-Sitze-Schwelle zu erreichen. Beide Karten stehen vor derselben Alberta-Geographie und denselben gesetzlichen Regeln; der Abstand zwischen ihnen — 0,3 Punkte vs. +4 Punkte — ist struktureller Unterschied, nicht Rauschen.",
+			sub6_close: "Dies ist der strukturelle Verzerrungsbefund, den das Audit mit Zuversicht vertritt. Er ist rein geometrisch; er hängt von keinem Wahlergebnis ab; er bewegt sich nicht, wenn sich Umfragen bewegen.",
+			sub6_caveat: "<strong>Einen Vorbehalt nimmt das Audit ernst.</strong> Eine reale Wählerschaft ist nicht gleichmäßig 50/50. Wählerinnen und Wähler können die strukturelle Neigung jeder Karte mit ausreichender Schwankung übertrumpfen — eine besonders verärgerte oder inspirierte Wählerschaft wird das Ergebnis unabhängig vom Verlauf der Grenzen kippen. Der 50/50-Test isoliert <em>den Beitrag der Karte zum Ergebnis</em>, nicht das Ergebnis selbst. Er zeigt, was die Karte tut, wenn die Wählerschaft nicht für sie entscheidet.",
+			sub7_h: "Die Quintessenz",
+			sub7_p1: "Der zentrale Befund des Audits ist geometrisch. <strong>Spur 2 — das Bewertungsblatt zur strukturellen Unregelmäßigkeit — ist das Fundament; Spur 1 ist der Nachweis, dass die Geometrie parteiliche Arbeit leistet.</strong>",
+			sub7_p2: "Das nachfolgende Diagramm bringt beide Spuren in ein einziges Bild. Die horizontale Achse ist Spur 1 (die Parteifairness-Effizienzlücke, wobei weiter rechts stärker UCP-begünstigt bedeutet); die vertikale Achse ist Spur 2 (die Anzahl der nicht bestandenen strukturellen Fairness-Tests des Vorschlags, von fünf, wobei höher mehr strukturelle Probleme bedeutet).",
+			stakes_fig_alt: "Streudiagramm mit der Effizienzlücke auf der horizontalen Achse und der Anzahl nicht bestandener struktureller Tests auf der vertikalen Achse. Die 2019 erlassene Karte und die Mehrheitskarte 2026 gruppieren sich in der sicheren unteren linken Ecke. Die Minderheitenkarte 2026 erscheint im Ausreißerbereich oben rechts. Die Karte von 2019 ist mit 0 von 4 durchgeführten beschriftet: Der Calgary-Zonen-Test wurde auf sie nie angewandt.",
+			stakes_fig_caption: "Die beiden Arten, die zwei Kommissionsvorschläge zu messen, in einem Bild. Von links nach rechts: wie verzerrt der Vorschlag bei der Zahl zur Parteifairness aussieht — je weiter rechts, desto stärker begünstigt er die UCP. Von unten nach oben: wie viele von fünf Tests der strukturellen Fairness der Vorschlag nicht besteht — je höher, desto schlechter. Die 2019 erlassene Karte liegt in der sicheren Ecke: niedrig auf beiden Achsen (sie besteht alle vier auf sie angewandten Tests; der Calgary-Zonen-Test wurde auf sie nie angewandt). Der Mehrheitsvorschlag 2026 bleibt bei null strukturellen Problemen und nahezu null parteilicher Verzerrung (+0,1 %). Der Minderheitenvorschlag 2026 ist bei jedem Test, der die beiden Karten unterscheidet, ein struktureller Ausreißer (4 von 5; der fünfte, die Verankerung, ist für beide neutral); seine Effizienzlücke (+4,0 %) liegt knapp unter der Alberta-Schwellenlinie.",
+			stakes_table_intro: "Dieselben Befunde in klarer Übersichtsform, mit dem strukturellen Befund vorangestellt, weil die kreuzvalidierte Evidenz ihn am stärksten stützt:",
+			t5_col_b: "Struktur — „Act I“ (nur Geometrie, keine Stimmen; „Spur 2“ im akademischen Bericht)",
+			t5_col_c: "Zahlen — „Act II“ (stimmenabhängig; „Spur 1“)",
+			t5_r1_a: "<strong>Mehrheit 2026</strong>",
+			t5_r1_b: "sauber — überschreitet <em>keine</em> strukturelle Schwelle",
+			t5_r1_c: "bei jedem Maß im normalen Bereich (Sitzanteil bei Stimmengleichheit 46,1 %, 78. Perzentil; Effizienzlücke +0,1 %)",
+			t5_r2_a: "<strong>Minderheit 2026</strong>",
+			t5_r2_b: "<strong>überschreitet 4 von 5 strukturellen Schwellen</strong> mit großem Abstand (Anchoring neutral — beide Karten innerhalb der kanadischen Norm)",
+			t5_r2_c: "extremer Schwanz bei drei von vier Fairnessmaßen — Sitzanteil bei Stimmengleichheit 51,7 % (nur 69 von 1.010.000 neutralen Karten erreichen ihn); zwei weitere Maße jenseits des 98,8. und 99,9. Perzentils; Effizienzlücke +4,0 % (<em>nahe, aber unterhalb</em> der vorab festgelegten Linie — eine berichtete Verfehlung); Gesamtwahrscheinlichkeit bei neutraler Zeichnung etwa 1 zu 568.000",
+			details2_summary: "Warum der strukturelle Teil den Fall trägt — technische Details",
+			details2_p: "Das Audit hat am 24. April 2026, bevor die endgültigen Simulationsergebnisse zusammengestellt waren, fünf Tests auf strukturelle Unregelmäßigkeiten vorab registriert. Die Verankerung ist für beide Karten neutral; von den übrigen vier überschreitet die Minderheit jeden und die Mehrheit keinen. Diese Messungen sind geometrisch — kein statistischer Sampler, keine Stimmdaten. <strong>Das ist der zentrale Befund.</strong> Die Simulation bestätigt ihn: Die Minderheit liegt bei drei von vier Fairnessmaßen im extremen Schwanz, das vierte (die Effizienzlücke) liegt knapp unter der vorab festgelegten Linie am 94,5. Perzentil, und die Gesamtwahrscheinlichkeit bei neutraler Zeichnung beträgt etwa 1 zu 568.000 — die bewusst vorsichtige Obergrenze, die in „Casing 8“ erklärt wird. Zwei Hinweise zur Ehrlichkeit stehen in den „Casings“: Die beanstandeten Grenzformen selbst sind <em>nicht</em> der direkte Mechanismus der Sitzverschiebung — diese Behauptung hat ihren Test nicht bestanden, und das Scheitern wird berichtet („Casing 9“; vollständige Darstellung unter <a href='https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md' rel='noopener'>findings/redist_python_comparison.md</a>) —, und der Swing-Zone Allocation Test hat seine korrigierte Nullhypothese nicht überstanden und ist nur explorativ („Casing 10“). Der strukturelle Teil trägt den Fall; die Zahlen bestätigen, ohne zu tragen."
 		},
 		impact: {
-			heading: '5: Auswirkungen auf die Repräsentation',
-			lanes_label: 'SPUR 1 UND SPUR 2',
-			lanes_body: '<strong>Spur 1 (Zahlen)</strong> verwendet Wahlergebnisse, um zu prüfen, ob die Karte Stimmen fair in Sitze umwandelt: Sie fragt, wie sich die Karte bei unterschiedlichen Stimmverteilungen verhält. <strong>Spur 2 (Struktur)</strong> betrachtet nur die gezogenen Linien — Stadtteilungen, Bevölkerungsstreuung, Grenzformen — und verwendet überhaupt keine Wahldaten. Jede Spur ist unabhängig: Eine Karte kann die eine nicht bestehen und die andere bestehen. Der Minderheitenvorschlag besteht beide nicht. Der Mehrheitsvorschlag besteht beide.',
-			intro: 'Spur 1 hängt davon ab, an welchen Wahlergebnissen Sie die Karten messen. Spur 2 nicht. Ihre strukturelle Evidenz steckt in den Karten selbst: in den gezogenen Linien, den geteilten Städten, den Stellen, an denen Grenzen Verwaltungslinien folgen, die aus anderen Gründen existieren, oder eben nicht folgen. Bei diesen Tests liegen die beiden Karten weit auseinander.',
-			fig_alt: 'Balkendiagramm, das vier vorab registrierte Tests der strukturellen Fairness nebeneinander vergleicht, dazu ein Feld mit einer Gesamtwertung. Die Balken der Mehrheitskarte stehen bei null oder deutlich innerhalb der sicheren Bereiche. Drei der fünf Felder haben eine vorab registrierte Durchfall-Linie (gestrichelt, rot): die Überfüllung im Nordosten/Zentrum Calgarys, die vom Vorsitzenden beanstandeten Grenzen, die das Audit bestätigt hat (drei seiner vier), und die Gesamtwertung. Bei diesen dreien überschreitet der Minderheitsbalken die Linie, und der Mehrheitsbalken bleibt darunter. Die Felder zur Bevölkerungsstreuung und zu Airdrie haben keine Durchfall-Linie; die Bevölkerungsstreuung zeigt die Mehrheit bei 3.180 und die Minderheit bei 4.707 Personen Abstand zur idealen Bezirksgröße. Der fünfte vorab registrierte Test, die kommunale Verankerung, war für beide Karten neutral — beide lagen innerhalb der kanadischen Norm von 70–85 % —, daher ist er nicht dargestellt; das Gesamtfeld bewertet die Minderheit mit 4 von 5, wobei die Verankerung als neutral zählt.',
-			fig_caption: 'Die vier vorab registrierten Tests der strukturellen Fairness nebeneinander, dazu ein Feld mit einer Gesamtwertung. Türkise Balken stehen für die Mehrheitskarte, violette Balken für die Minderheitenkarte. Eine gestrichelte Linie erscheint dort, wo ein Test eine vorab registrierte Durchfall-Schwelle hat: die Überfüllung im Nordosten/Zentrum Calgarys, die vom Vorsitzenden beanstandeten Grenzen, die das Audit bestätigt hat (drei seiner vier), und die Gesamtwertung. Der Minderheitsbalken überschreitet jede gezeigte Durchfall-Linie. Der Mehrheitsbalken nie. Die Felder zur Bevölkerungsstreuung und zu Airdrie haben keine Durchfall-Linie — die Bevölkerungsstreuung zeigt die Mehrheit bei 3.180 und die Minderheit bei 4.707 Personen Abstand zur idealen Bezirksgröße. Der fünfte vorab registrierte Test, die kommunale Verankerung, war für beide Karten neutral — beide lagen innerhalb der kanadischen Norm von 70–85 % —, daher ist er hier nicht dargestellt; das Gesamtfeld bewertet die Minderheit mit 4 von 5, wobei die Verankerung als neutral zählt.',
-			table_intro: 'Dieselben fünf Tests als Tabelle, die Schwelle jedes Tests neben seinem Ergebnis. Die unterste Zeile ist die <em>Zusammenfassung</em> des Audits: wie viele der fünf Tests jede Karte nicht besteht.',
-			table_col_test: 'Test',
-			table_col_majority: 'Mehrheitskarte',
-			table_col_minority: 'Minderheitenkarte',
-			table_col_direction: 'Richtung / Begünstigter',
-			table_r1_a: 'Grenze folgt bestehenden kommunalen Linien (kanadische Norm 70–85 %)',
-			table_r1_b: '80 % — im Rahmen der Norm',
-			table_r1_c: '72 % — im Rahmen der Norm',
-			table_r1_d: 'N/Z — beide innerhalb der kanadischen Norm',
-			table_r2_a: 'Bevölkerungsstreuung (enger ist besser)',
-			table_r2_b: '3.180',
-			table_r2_c: '4.707 — 48 % weiter',
-			table_r2_d: 'Strukturell (Reduziert Wahlgleichheit)',
-			table_r3_a: 'Bevölkerungsüberhang NO-/Zentral-Calgary über dem Durchschnitt',
-			table_r3_b: '2,8 %',
-			table_r3_c: '11,5 %',
-			table_r3_d: '<strong>UCP</strong> (Packt städtische NDP-Stimmen)',
-			table_r4_a: 'Vom Kommissionsvorsitzenden selbst beanstandete Grenzen',
-			table_r4_b: '0',
-			table_r4_c: '4 (3 vom Audit bestätigt)',
-			table_r4_d: 'N/Z',
-			table_r5_a: 'Airdrie-Aufteilung (gesetzliches Minimum: 2)',
-			table_r5_b: '2 Stücke',
-			table_r5_c: '4 nach Fläche; 3 nach Einwohnern (≥2 %)',
-			table_r5_d: '<strong>UCP</strong> (Cracking der städtischen/vorstädtischen Macht)',
-			table_r6_a: '<strong>Vorab registrierte Zusammenfassung</strong> (&ge; 4 von 5 = Ausreißer)',
-			table_r6_b: '<strong>0 von 5 ausgelöst</strong>',
-			table_r6_c: '<strong>4 von 5 ausgelöst</strong> (Anchoring-Test neutral — beide Karten innerhalb der kanadischen Norm; übrige 4 Tests alle ausgelöst)',
-			table_r6_d: '<strong>UCP</strong>',
-			rationales_p: 'Ein gesonderter Befund, nur für die Minderheit: <strong>Fünf von sechs der veröffentlichten Begründungen der Minderheitskommissare halten einer unabhängigen Prüfung nicht stand</strong>. Der Test läuft nur gegen die Minderheit, weil die Mehrheit keine Liste von Begründungen für umstrittene Neuziehungen veröffentlicht hat. Das Audit kann ihn nicht auf beide Karten gleich anwenden, deshalb wird er hier als einzelne Markierung berichtet, nicht als zusätzliche Zeilen in der Zählung struktureller Unregelmäßigkeiten. (Das Audit führte einmal eine siebte Neuziehung auf. Sie beruhte, wie sich herausstellte, auf einer Bundesgrenzen-Behauptung, die im Minderheitenbericht nicht nachvollziehbar ist; deshalb wurde sie entfernt, statt als schwache Behauptung stehen zu bleiben.)',
-			chair_appendix_p: 'Das Audit prüfte auch eine gesonderte, pauschale Behauptung im Mehrheitsbericht, den der Vorsitzende unterzeichnet hat: dass die Änderungen der Minderheit an fünf Stellen (Airdrie, Cochrane, Chestermere, Red Deer und St. Albert) in den 1.345 öffentlichen Eingaben <strong>keinerlei öffentliche Unterstützung</strong> hatten (Abschlussbericht, S. 59 und 62). Eine Stichwortsuche im vollständigen Eingabenarchiv (93,4 % maschinell ausgewertet, 6,6 % nur als Bild vorhanden und ausgeschlossen; Methodik und Belege pro Konfiguration unter <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md" rel="noopener">findings/submission_search_findings.md</a>) ergab ein differenzierteres Bild als die pauschale Behauptung der Mehrheit oder deren pauschale Zurückweisung. Die Mehrheit hatte bei drei der fünf recht: Der 4-fachen Aufteilung Airdries, dem Hybrid Calgary–Nolan-Hill–Cochrane und der Minderheitsalternative für St. Albert fehlt jeweils jede dokumentierte Unterstützung. Sie lag falsch bei Chestermere, zu dem mehrere Eingaben gegen eine Fusion mit Calgary eingingen, die sich inhaltlich mit der Absicht der Minderheit decken. Und sie lag teilweise falsch bei Red Deer: Zu den Red-Deer-Hybriden ging von einem amtierenden Stadtrat aus Red Deer ein Vorschlag für einen Hybrid rund um Red Deer ein, der in der Richtung übereinstimmt, aber nicht in der genauen Konfiguration. Zwei Konfigurationen, die die Mehrheit aus anderen Gründen angriff, fanden ebenfalls Unterstützung: Zu Rocky Mountain House–Banff Park ging ein ausdrücklicher, detaillierter Vorschlag aus mindestens einer Eingabe aus der Gegend von Clearwater ein, dazu mehrere gleichgerichtete, und Einwohner von Beiseker unterstützten Olds–Three-Hills–Didsbury schriftlich. Der Rundumschlag „keine öffentliche Unterstützung“ der Mehrheit ist also nachweislich zu weit gefasst, aber nicht aus der Luft gegriffen, denn drei der fünf halten tatsächlich stand. <strong>Dieser Befund spricht gegen die Mehrheit, nicht gegen die Minderheit.</strong>',
-			summary_p: '<strong>In Spur 2 überschreitet die Mehrheit null strukturelle Schwellen. Die Minderheit überschreitet vier von fünf, mit großem Abstand.</strong> Die Zählung ist eine rohe Aufsummierung. Sie ist keine kalibrierte familienweise Wahrscheinlichkeit. Ihr Gewicht stammt aus der Richtungseinhelligkeit — jeder ausgelöste Test weist in dieselbe Richtung —, nicht aus einer Berechnung der gemeinsamen Nullverteilung. Die statistische Spur (§3) liefert die gemeinsame Wahrscheinlichkeit, über ein anderes Instrument.'
+			heading: "5: Auswirkungen auf die Repräsentation",
+			lanes_label: "SPUR 1 UND SPUR 2",
+			lanes_body: "<strong>Spur 1 (Zahlen)</strong> verwendet Wahlergebnisse, um zu prüfen, ob die Karte Stimmen fair in Sitze umwandelt: Sie fragt, wie sich die Karte bei unterschiedlichen Stimmverteilungen verhält. <strong>Spur 2 (Struktur)</strong> betrachtet nur die gezogenen Linien — Stadtteilungen, Bevölkerungsstreuung, Grenzformen — und verwendet überhaupt keine Wahldaten. Jede Spur ist unabhängig: Eine Karte kann die eine nicht bestehen und die andere bestehen. Der Minderheitenvorschlag besteht beide nicht. Der Mehrheitsvorschlag besteht beide.",
+			intro: "Spur 1 hängt davon ab, an welchen Wahlergebnissen Sie die Karten messen. Spur 2 nicht. Ihre strukturelle Evidenz steckt in den Karten selbst: in den gezogenen Linien, den geteilten Städten, den Stellen, an denen Grenzen Verwaltungslinien folgen, die aus anderen Gründen existieren, oder eben nicht folgen. Bei diesen Tests liegen die beiden Karten weit auseinander.",
+			fig_alt: "Balkendiagramm, das vier vorab registrierte Tests der strukturellen Fairness nebeneinander vergleicht, dazu ein Feld mit einer Gesamtwertung. Die Balken der Mehrheitskarte stehen bei null oder deutlich innerhalb der sicheren Bereiche. Drei der fünf Felder haben eine vorab registrierte Durchfall-Linie (gestrichelt, rot): die Überfüllung im Nordosten/Zentrum Calgarys, die vom Vorsitzenden beanstandeten Grenzen, die das Audit bestätigt hat (drei seiner vier), und die Gesamtwertung. Bei diesen dreien überschreitet der Minderheitsbalken die Linie, und der Mehrheitsbalken bleibt darunter. Die Felder zur Bevölkerungsstreuung und zu Airdrie haben keine Durchfall-Linie; die Bevölkerungsstreuung zeigt die Mehrheit bei 3.180 und die Minderheit bei 4.707 Personen Abstand zur idealen Bezirksgröße. Der fünfte vorab registrierte Test, die kommunale Verankerung, war für beide Karten neutral — beide lagen innerhalb der kanadischen Norm von 70–85 % —, daher ist er nicht dargestellt; das Gesamtfeld bewertet die Minderheit mit 4 von 5, wobei die Verankerung als neutral zählt.",
+			fig_caption: "Die vier vorab registrierten Tests der strukturellen Fairness nebeneinander, dazu ein Feld mit einer Gesamtwertung. Türkise Balken stehen für die Mehrheitskarte, violette Balken für die Minderheitenkarte. Eine gestrichelte Linie erscheint dort, wo ein Test eine vorab registrierte Durchfall-Schwelle hat: die Überfüllung im Nordosten/Zentrum Calgarys, die vom Vorsitzenden beanstandeten Grenzen, die das Audit bestätigt hat (drei seiner vier), und die Gesamtwertung. Der Minderheitsbalken überschreitet jede gezeigte Durchfall-Linie. Der Mehrheitsbalken nie. Die Felder zur Bevölkerungsstreuung und zu Airdrie haben keine Durchfall-Linie — die Bevölkerungsstreuung zeigt die Mehrheit bei 3.180 und die Minderheit bei 4.707 Personen Abstand zur idealen Bezirksgröße. Der fünfte vorab registrierte Test, die kommunale Verankerung, war für beide Karten neutral — beide lagen innerhalb der kanadischen Norm von 70–85 % —, daher ist er hier nicht dargestellt; das Gesamtfeld bewertet die Minderheit mit 4 von 5, wobei die Verankerung als neutral zählt.",
+			table_intro: "Dieselben fünf Tests als Tabelle, die Schwelle jedes Tests neben seinem Ergebnis. Die unterste Zeile ist die <em>Zusammenfassung</em> des Audits: wie viele der fünf Tests jede Karte nicht besteht.",
+			table_col_test: "Test",
+			table_col_majority: "Mehrheitskarte",
+			table_col_minority: "Minderheitenkarte",
+			table_col_direction: "Richtung / Begünstigter",
+			table_r1_a: "Grenze folgt bestehenden kommunalen Linien (kanadische Norm 70–85 %)",
+			table_r1_b: "80 % — im Rahmen der Norm",
+			table_r1_c: "72 % — im Rahmen der Norm",
+			table_r1_d: "N/Z — beide innerhalb der kanadischen Norm",
+			table_r2_a: "Bevölkerungsstreuung (enger ist besser)",
+			table_r2_b: "3.180",
+			table_r2_c: "4.707 — 48 % weiter",
+			table_r2_d: "Strukturell (Reduziert Wahlgleichheit)",
+			table_r3_a: "Bevölkerungsüberhang NO-/Zentral-Calgary über dem Durchschnitt",
+			table_r3_b: "2,8 %",
+			table_r3_c: "11,5 %",
+			table_r3_d: "<strong>UCP</strong> (Packt städtische NDP-Stimmen)",
+			table_r4_a: "Vom Kommissionsvorsitzenden selbst beanstandete Grenzen",
+			table_r4_b: "0",
+			table_r4_c: "4 (3 vom Audit bestätigt)",
+			table_r4_d: "N/Z",
+			table_r5_a: "Airdrie-Aufteilung (gesetzliches Minimum: 2)",
+			table_r5_b: "2 Stücke",
+			table_r5_c: "4 nach Fläche; 3 nach Einwohnern (≥2 %)",
+			table_r5_d: "<strong>UCP</strong> (Cracking der städtischen/vorstädtischen Macht)",
+			table_r6_a: "<strong>Vorab registrierte Zusammenfassung</strong> (&ge; 4 von 5 = Ausreißer)",
+			table_r6_b: "<strong>0 von 5 ausgelöst</strong>",
+			table_r6_c: "<strong>4 von 5 ausgelöst</strong> (Anchoring-Test neutral — beide Karten innerhalb der kanadischen Norm; übrige 4 Tests alle ausgelöst)",
+			table_r6_d: "<strong>UCP</strong>",
+			rationales_p: "Ein gesonderter Befund, nur für die Minderheit: <strong>Fünf von sechs der veröffentlichten Begründungen der Minderheitskommissare halten einer unabhängigen Prüfung nicht stand</strong>. Der Test läuft nur gegen die Minderheit, weil die Mehrheit keine Liste von Begründungen für umstrittene Neuziehungen veröffentlicht hat. Das Audit kann ihn nicht auf beide Karten gleich anwenden, deshalb wird er hier als einzelne Markierung berichtet, nicht als zusätzliche Zeilen in der Zählung struktureller Unregelmäßigkeiten. (Das Audit führte einmal eine siebte Neuziehung auf. Sie beruhte, wie sich herausstellte, auf einer Bundesgrenzen-Behauptung, die im Minderheitenbericht nicht nachvollziehbar ist; deshalb wurde sie entfernt, statt als schwache Behauptung stehen zu bleiben.)",
+			chair_appendix_p: "Das Audit prüfte auch eine gesonderte, pauschale Behauptung im Mehrheitsbericht, den der Vorsitzende unterzeichnet hat: dass die Änderungen der Minderheit an fünf Stellen (Airdrie, Cochrane, Chestermere, Red Deer und St. Albert) in den 1.345 öffentlichen Eingaben <strong>keinerlei öffentliche Unterstützung</strong> hatten (Abschlussbericht, S. 59 und 62). Eine Stichwortsuche im vollständigen Eingabenarchiv (93,4 % maschinell ausgewertet, 6,6 % nur als Bild vorhanden und ausgeschlossen; Methodik und Belege pro Konfiguration unter <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>) ergab ein differenzierteres Bild als die pauschale Behauptung der Mehrheit oder deren pauschale Zurückweisung. Die Mehrheit hatte bei drei der fünf recht: Der 4-fachen Aufteilung Airdries, dem Hybrid Calgary–Nolan-Hill–Cochrane und der Minderheitsalternative für St. Albert fehlt jeweils jede dokumentierte Unterstützung. Sie lag falsch bei Chestermere, zu dem mehrere Eingaben gegen eine Fusion mit Calgary eingingen, die sich inhaltlich mit der Absicht der Minderheit decken. Und sie lag teilweise falsch bei Red Deer: Zu den Red-Deer-Hybriden ging von einem amtierenden Stadtrat aus Red Deer ein Vorschlag für einen Hybrid rund um Red Deer ein, der in der Richtung übereinstimmt, aber nicht in der genauen Konfiguration. Zwei Konfigurationen, die die Mehrheit aus anderen Gründen angriff, fanden ebenfalls Unterstützung: Zu Rocky Mountain House–Banff Park ging ein ausdrücklicher, detaillierter Vorschlag aus mindestens einer Eingabe aus der Gegend von Clearwater ein, dazu mehrere gleichgerichtete, und Einwohner von Beiseker unterstützten Olds–Three-Hills–Didsbury schriftlich. Der Rundumschlag „keine öffentliche Unterstützung“ der Mehrheit ist also nachweislich zu weit gefasst, aber nicht aus der Luft gegriffen, denn drei der fünf halten tatsächlich stand. <strong>Dieser Befund spricht gegen die Mehrheit, nicht gegen die Minderheit.</strong>",
+			summary_p: "<strong>In Spur 2 überschreitet die Mehrheit null strukturelle Schwellen. Die Minderheit überschreitet vier von fünf, mit großem Abstand.</strong> Die Zählung ist eine rohe Aufsummierung. Sie ist keine kalibrierte familienweise Wahrscheinlichkeit. Ihr Gewicht stammt aus der Richtungseinhelligkeit — jeder ausgelöste Test weist in dieselbe Richtung —, nicht aus einer Berechnung der gemeinsamen Nullverteilung. Die statistische Spur (§3) liefert die gemeinsame Wahrscheinlichkeit, über ein anderes Instrument."
 		},
 		cpd: {
-			heading: '4: Cracking, Packing und Draining',
-			vocab_label: 'Drei Züge, ein Spielbuch',
-			vocab_packing: '<strong>Packing</strong> bedeutet, die Wählerinnen und Wähler einer Partei in Bezirke zu pferchen, die die Partei mit Erdrutschmehrheit gewinnt. Jeder gepackte Stimmzettel zählt weiterhin, aber sobald der Sitz gewonnen ist, trägt er nichts mehr bei. Große, einseitige Siege. Verschwendete Stimmen.',
-			vocab_cracking: '<strong>Cracking</strong> bedeutet, eine Gemeinschaft auf mehrere Bezirke zu zersplittern, sodass sie keinen davon aus eigener Kraft gewinnt. Eine Stadt, die stark genug für zwei Sitze wäre, wird in vier zerschnitten, und in drei davon sind ihre Menschen in der Minderheit. Verdünnte Stimmen. Ein Sitz, wo es zwei sein könnten.',
-			vocab_draining: '<strong>Draining</strong> ist der ergänzende Zug, ausgespielt auf der Karte: Gepackte und gecrackte Bezirke liegen nebeneinander, sodass überkonzentrierte Anhängerinnen und Anhänger auf der einen Seite den umkämpften Nachbarbezirken Wahlmacht „abziehen“. Diese Nachbarschaft, die Art, wie die Bezirke aneinandergrenzen, verstärkt beide Effekte. Packing und Cracking verstärken sich gegenseitig über Bezirksgrenzen hinweg.',
-			vocab_disclaimer: 'Alle drei können ohne jede ausdrückliche parteiliche Absicht geschehen. Was das Audit misst, ist, ob das Muster und seine statistische Größe mit dem vereinbar sind, was ein neutrales Verfahren zum Zeichnen von Karten hervorbringt. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md#5-results" rel="noopener">Vollständige Methodik in §5 des technischen Berichts.</a>',
-			fig_alt: 'Zwei maßstabsgetreue Balken, die zeigen, wie jede Karte die Einwohner Airdries aufteilt. Mehrheit: Airdrie-West umfasst 50,6 % der Stadt und Airdrie-East 49,4 %, und beide Wahlbezirke bestehen überwiegend aus Airdrie. Minderheit: Airdrie East umfasst 54,7 % der Stadt und besteht zu 89,6 % aus Airdrie; Calgary-Airdrie umfasst 24,0 % und Calgary-Foothills-Airdrie West 20,9 %, und beide bestehen überwiegend aus Calgary; Olds-Three Hills-Didsbury erhält etwa 350 Personen.',
-			fig_caption: 'Wie jede Karte die Menschen in Airdrie aufteilt. Die Mehrheit gibt der Stadt zwei Wahlbezirke, beide überwiegend Airdrie. Die Minderheit gibt ihr einen, Airdrie East, mit 54,7 % der Stadt, und legt den größten Teil des Rests in zwei Wahlbezirke mit Calgary-Mehrheit.',
-			intro: 'Die fünf Kommissionsmitglieder arbeiteten mit denselben gesetzlichen Regeln, derselben Geographie der Provinz, demselben Archiv von 1.345 öffentlichen Eingaben und denselben demographischen Daten. Ihre beiden konkurrierenden Entwürfe stimmen für den größten Teil Albertas überein. Wo die Entwürfe auseinandergehen, gehen sie bei Entscheidungen auseinander, die jemand im Raum treffen musste. Drei dieser Entscheidungen lohnt es sich als Entscheidungen anzusehen. Nicht als Zahlen.',
-			airdrie_p: '<strong>Sie teilt die Stadt Airdrie in vier Stücke.</strong> Das Gesetz deckelt jeden Wahlbezirk auf das Eineinviertelfache des Provinzdurchschnitts, sodass Airdrie mindestens zwei Wahlbezirke braucht. Die Mehrheitskarte gibt ihr zwei. Die Minderheit gibt ihr vier: nach Norden zu Olds-Three Hills-Didsbury, nach Osten zu Airdrie East, nach Westen zu Calgary-Foothills-Airdrie West, in der Mitte und im Süden zu Calgary-Airdrie. Das nördliche Stück umfasst etwa 350 Personen, sodass drei der vier mindestens 2 % der Stadt umfassen. Nur Airdrie East besteht überwiegend aus Airdrie; jedes andere Stück ist an einen Calgary-nahen oder ländlichen Bezirk angeklammert. Eine Einwohnerin Airdries mit einer Frage an ihren MLA muss wissen, in welchem Teil der Stadt sie wohnt, bevor sie das richtige Büro anrufen kann. Ihre Nachbarn zwei Blocks weiter werden ihr drei verschiedene Antworten geben. Die Eltern-Lehrer-Vereinigung an der Schule ihres Kindes kann nicht eine einzige Delegation zu einem einzigen MLA schicken, wenn es um Schulfinanzierung geht. Sie muss vier Delegationen in vier Büros koordinieren, und drei dieser MLAs sind zuerst Wählerinnen und Wählern außerhalb Airdries verpflichtet. Der Eishockey-Nachwuchsverband, die Tafel, die Handelskammer: Jede Organisation, die stadtweit arbeitet, arbeitet nun über vier provinzielle Ridings hinweg.',
-			airdrie_callout_label: 'WARUM AIRDRIE WICHTIG IST',
-			airdrie_callout_p1: 'Airdrie hat 85.805 Einwohner (kommunale Zählung 2024). Ein Stadtrat, ein Steuerbescheid, ein Schulbezirk: Jedes städtische System behandelt die Stadt als Einheit.',
-			airdrie_callout_p2: 'Teilt man sie auf vier provinzielle Wahlbezirke auf — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Olds-Three Hills-Didsbury und Airdrie East —, dann werden drei davon hauptsächlich mit einer benachbarten Gebietskörperschaft identifiziert. Die Stadt hat 85.805 Einwohner und einen einzigen Sitz in der Legislative, in dem die Mehrheit der Wählerinnen und Wähler dort zu Hause ist. Die Mehrheitskarte gibt ihr zwei.',
-			airdrie_callout_p3: 'Eine Vierer-Aufteilung ist für jeden Parteifairness-Test unsichtbar — außer für den, der fragt: Kann eine Wählerin ihren MLA finden?',
-			airdrie_callout_summary: 'Beide Karten sind legal. Die Vierer-Aufteilung ist eine Wahl.',
-			airdrie_btn: 'Beanstandete Bezirke auf der Karte zeigen',
-			anchoring_p: '<strong>Wo sie von kommunalen Linien abweicht, weicht sie an strategisch wichtigen Stellen ab.</strong> Wenn eine Wahlkarte dem Rand einer Stadt oder eines Orts folgt, können Wählerinnen und Wähler erkennen, wo ihr Wahlbezirk beginnt und endet: Die Grundsteuerlinie, die Schulbezirkslinie, die Linie der Kommunalwahlbezirke und die Linie der Provinzwahl fallen alle an dieselbe Stelle. Statistics Canada veröffentlicht diese Grenzen kostenlos. Auf den offiziellen Shapefiles von Elections Alberta folgen beide Karten kommunalen Linien zu vergleichbaren Gesamtraten — die Mehrheit zu 80 %, die Minderheit zu 72 % — und beide liegen innerhalb der kanadischen Norm von 70–85 % (Quebec: 78 %, Ontario: 82 %, BC: 71 %; Vergleichskommissionen in der Monographie dokumentiert). (Die erste, vorläufige Analyse des Audits zeigte die Verankerung der Minderheit bei nur 15 %; diese Zahl überstand die Neuberechnung auf den offiziellen Shapefiles nicht — siehe Korrekturhinweis unten.) Auffällig ist nicht die Gesamtrate. Auffällig ist, wo sich die Abweichungen der Minderheit häufen. Die drei Grenzen, die der Kommissionsvorsitzende selbst als anormal beanstandet hat — die Verlängerung von Rocky Mountain House–Banff Park <button class="ed-trigger" data-ed-name="Rocky Mountain House-Banff Park">zeigen ↗</button> in unbewohntes Nationalparkland, der Lasso-Korridor Nolan Hill–Cochrane <button class="ed-trigger" data-ed-name="Calgary-Nolan Hill-Cochrane">zeigen ↗</button> und die Olds–Nord-Airdrie-Erweiterung <button class="ed-trigger" data-ed-name="Olds-Three Hills-Didsbury">zeigen ↗</button> — brechen jeweils mit der bestehenden kommunalen Geographie, und zwar genau in den Stadtrandzonen, in denen die Paarung städtischer und ländlicher Wählerinnen und Wähler am unmittelbarsten beeinflusst, welche Partei den Sitz gewinnt.',
-			anchoring_followup: 'Die Minderheitskommissare gaben für jede der drei beanstandeten Grenzen Gründe an. Für Rocky Mountain House–Banff Park nannten sie die geographische Größe, den Highway-22-Korridor und die Nähe von First-Nations-Reservaten zu Rocky Mountain House. Der Kommissionsvorsitzende nannte die Verlängerung in unbewohntes Nationalparkland „einen Versuch in bösem Glauben“, das Flächenkriterium zu erfüllen, und die Formulierung steht im offiziellen Abschlussbericht der Kommission. Für Nolan Hill–Cochrane verwiesen sie auf gemeinsame Verkehrs- und Beschäftigungsverbindungen zwischen Nordwest-Calgary und Cochrane. Pendeldaten von Statistics Canada zeigen, dass nur 35,8 % der Arbeitenden in Cochrane überhaupt nach Calgary fahren; die meisten arbeiten in Cochrane selbst. Für die Olds–Nord-Airdrie-Erweiterung verwiesen sie auf die Kontinuität des Highway-2-Korridors. Das Audit stellte fest, dass die konkrete Erweiterung nach Airdrie aus Bevölkerungsgründen scheitert. Unabhängig an Primärdaten geprüft, halten fünf der sechs veröffentlichten Unterbegründungen der Minderheit nicht oder nur teilweise stand.',
-			packing_p: '<strong>Ein Gebiet Calgarys wird so zerschnitten, dass NDP-Wählerinnen und -Wähler in überdurchschnittlich großen Wahlbezirken konzentriert werden.</strong> In den Bezirken im Norden, Osten und Zentrum Calgarys <button class="ed-trigger" data-ed-name="Calgary-North West-Bearspaw">zeigen ↗</button> liegen die Wahlbezirke der Minderheitenkarte im Schnitt 11,5 % über dem Provinzdurchschnitt. Bei der Mehrheit sind es 2,8 %. Dasselbe geographische Gebiet, von derselben Kommission unter denselben Vorgaben gezeichnet, ergibt auf der einen Karte Bezirke, die etwa 8,5 % größer sind als auf der anderen. Das passt zur strukturellen Signatur von <em>Packing</em>: die Wählerinnen und Wähler einer Partei in weniger, größere Bezirke zusammendrängen, sodass jeder ihrer Stimmzettel weniger wiegt. Packing und <em>Cracking</em> (die Wählerschaft einer Partei dünn auf Bezirke verteilen, die sie knapp verliert) sind die beiden klassischen Gerrymandering-Züge. Beide drücken die Sitzzahl einer Partei unter ihren Stimmenanteil.',
-			chair_p: 'Der Kommissionsvorsitzende — nach demselben Gesetz ernannt und auf Grundlage derselben Eingaben arbeitend — beanstandete vier Grenzen auf der Minderheitenkarte als geographisch anormal, darunter diese drei: die Verlängerung von Rocky Mountain House–Banff Park in unbewohntes Nationalparkland; den lassoförmigen Korridor Calgary-Nolan Hill–Cochrane; die Erweiterung von Olds–Three Hills–Didsbury in den Norden Airdries. Derselbe Vorsitzende beanstandete bei der Mehrheit nichts dergleichen. (Insgesamt umfasst die veröffentlichte Kritik des Vorsitzenden sieben Grenzkonfigurationen: die vier geometrischen Beanstandungen sowie drei Orte, die nur in der Behauptung des Mehrheitsberichts genannt werden, den Änderungen der Minderheit fehle öffentliche Unterstützung. Dieses Audit hat anormale Geometrie für drei der vier geometrischen Beanstandungen unabhängig bestätigt. Die vierte, Calgary-Foothills-Airdrie West <button class="ed-trigger" data-ed-name="Calgary-Foothills-Airdrie West">zeigen ↗</button>, erfüllte die Bestätigungsschwelle des Audits nicht.) Über die Geometrie-Beanstandungen des Vorsitzenden hinaus markiert der eigene Cracking-Signaturtest des Audits (akademisch §5.3.2) die Vierfach-Aufteilung Airdries nicht. Sie ist eine Gemeindeteilung, die die Einwohner Airdries in drei der vier Ridings zur Minderheit macht, die zusammen fast die Hälfte der Stadt umfassen; der Test verlangt aber, dass sie in allen vier in der Minderheit sind, und Airdrie East besteht überwiegend aus Airdrie. Chestermere erweist sich als cracking-nah; Cochrane, ungeteilt und etwa zwei Drittel seines Ridings, nicht. Manches von dem, was die Mathematik des Audits markiert, hat der Vorsitzende nicht beanstandet. Das Audit misst die strukturelle Wirkung. Nicht die Absicht.'
+			heading: "4: Cracking, Packing und Draining",
+			vocab_label: "Drei Züge, ein Spielbuch",
+			vocab_packing: "<strong>Packing</strong> bedeutet, die Wählerinnen und Wähler einer Partei in Bezirke zu pferchen, die die Partei mit Erdrutschmehrheit gewinnt. Jeder gepackte Stimmzettel zählt weiterhin, aber sobald der Sitz gewonnen ist, trägt er nichts mehr bei. Große, einseitige Siege. Verschwendete Stimmen.",
+			vocab_cracking: "<strong>Cracking</strong> bedeutet, eine Gemeinschaft auf mehrere Bezirke zu zersplittern, sodass sie keinen davon aus eigener Kraft gewinnt. Eine Stadt, die stark genug für zwei Sitze wäre, wird in vier zerschnitten, und in drei davon sind ihre Menschen in der Minderheit. Verdünnte Stimmen. Ein Sitz, wo es zwei sein könnten.",
+			vocab_draining: "<strong>Draining</strong> ist der ergänzende Zug, ausgespielt auf der Karte: Gepackte und gecrackte Bezirke liegen nebeneinander, sodass überkonzentrierte Anhängerinnen und Anhänger auf der einen Seite den umkämpften Nachbarbezirken Wahlmacht „abziehen“. Diese Nachbarschaft, die Art, wie die Bezirke aneinandergrenzen, verstärkt beide Effekte. Packing und Cracking verstärken sich gegenseitig über Bezirksgrenzen hinweg.",
+			vocab_disclaimer: "Alle drei können ohne jede ausdrückliche parteiliche Absicht geschehen. Was das Audit misst, ist, ob das Muster und seine statistische Größe mit dem vereinbar sind, was ein neutrales Verfahren zum Zeichnen von Karten hervorbringt. <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md#5-results\" rel=\"noopener\">Vollständige Methodik in §5 des technischen Berichts.</a>",
+			fig_alt: "Zwei maßstabsgetreue Balken, die zeigen, wie jede Karte die Einwohner Airdries aufteilt. Mehrheit: Airdrie-West umfasst 50,6 % der Stadt und Airdrie-East 49,4 %, und beide Wahlbezirke bestehen überwiegend aus Airdrie. Minderheit: Airdrie East umfasst 54,7 % der Stadt und besteht zu 89,6 % aus Airdrie; Calgary-Airdrie umfasst 24,0 % und Calgary-Foothills-Airdrie West 20,9 %, und beide bestehen überwiegend aus Calgary; Olds-Three Hills-Didsbury erhält etwa 350 Personen.",
+			fig_caption: "Wie jede Karte die Menschen in Airdrie aufteilt. Die Mehrheit gibt der Stadt zwei Wahlbezirke, beide überwiegend Airdrie. Die Minderheit gibt ihr einen, Airdrie East, mit 54,7 % der Stadt, und legt den größten Teil des Rests in zwei Wahlbezirke mit Calgary-Mehrheit.",
+			intro: "Die fünf Kommissionsmitglieder arbeiteten mit denselben gesetzlichen Regeln, derselben Geographie der Provinz, demselben Archiv von 1.345 öffentlichen Eingaben und denselben demographischen Daten. Ihre beiden konkurrierenden Entwürfe stimmen für den größten Teil Albertas überein. Wo die Entwürfe auseinandergehen, gehen sie bei Entscheidungen auseinander, die jemand im Raum treffen musste. Drei dieser Entscheidungen lohnt es sich als Entscheidungen anzusehen. Nicht als Zahlen.",
+			airdrie_p: "<strong>Sie teilt die Stadt Airdrie in vier Stücke.</strong> Das Gesetz deckelt jeden Wahlbezirk auf das Eineinviertelfache des Provinzdurchschnitts, sodass Airdrie mindestens zwei Wahlbezirke braucht. Die Mehrheitskarte gibt ihr zwei. Die Minderheit gibt ihr vier: nach Norden zu Olds-Three Hills-Didsbury, nach Osten zu Airdrie East, nach Westen zu Calgary-Foothills-Airdrie West, in der Mitte und im Süden zu Calgary-Airdrie. Das nördliche Stück umfasst etwa 350 Personen, sodass drei der vier mindestens 2 % der Stadt umfassen. Nur Airdrie East besteht überwiegend aus Airdrie; jedes andere Stück ist an einen Calgary-nahen oder ländlichen Bezirk angeklammert. Eine Einwohnerin Airdries mit einer Frage an ihren MLA muss wissen, in welchem Teil der Stadt sie wohnt, bevor sie das richtige Büro anrufen kann. Ihre Nachbarn zwei Blocks weiter werden ihr drei verschiedene Antworten geben. Die Eltern-Lehrer-Vereinigung an der Schule ihres Kindes kann nicht eine einzige Delegation zu einem einzigen MLA schicken, wenn es um Schulfinanzierung geht. Sie muss vier Delegationen in vier Büros koordinieren, und drei dieser MLAs sind zuerst Wählerinnen und Wählern außerhalb Airdries verpflichtet. Der Eishockey-Nachwuchsverband, die Tafel, die Handelskammer: Jede Organisation, die stadtweit arbeitet, arbeitet nun über vier provinzielle Ridings hinweg.",
+			airdrie_callout_label: "WARUM AIRDRIE WICHTIG IST",
+			airdrie_callout_p1: "Airdrie hat 85.805 Einwohner (kommunale Zählung 2024). Ein Stadtrat, ein Steuerbescheid, ein Schulbezirk: Jedes städtische System behandelt die Stadt als Einheit.",
+			airdrie_callout_p2: "Teilt man sie auf vier provinzielle Wahlbezirke auf — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Olds-Three Hills-Didsbury und Airdrie East —, dann werden drei davon hauptsächlich mit einer benachbarten Gebietskörperschaft identifiziert. Die Stadt hat 85.805 Einwohner und einen einzigen Sitz in der Legislative, in dem die Mehrheit der Wählerinnen und Wähler dort zu Hause ist. Die Mehrheitskarte gibt ihr zwei.",
+			airdrie_callout_p3: "Eine Vierer-Aufteilung ist für jeden Parteifairness-Test unsichtbar — außer für den, der fragt: Kann eine Wählerin ihren MLA finden?",
+			airdrie_callout_summary: "Beide Karten sind legal. Die Vierer-Aufteilung ist eine Wahl.",
+			airdrie_btn: "Beanstandete Bezirke auf der Karte zeigen",
+			anchoring_p: "<strong>Wo sie von kommunalen Linien abweicht, weicht sie an strategisch wichtigen Stellen ab.</strong> Wenn eine Wahlkarte dem Rand einer Stadt oder eines Orts folgt, können Wählerinnen und Wähler erkennen, wo ihr Wahlbezirk beginnt und endet: Die Grundsteuerlinie, die Schulbezirkslinie, die Linie der Kommunalwahlbezirke und die Linie der Provinzwahl fallen alle an dieselbe Stelle. Statistics Canada veröffentlicht diese Grenzen kostenlos. Auf den offiziellen Shapefiles von Elections Alberta folgen beide Karten kommunalen Linien zu vergleichbaren Gesamtraten — die Mehrheit zu 80 %, die Minderheit zu 72 % — und beide liegen innerhalb der kanadischen Norm von 70–85 % (Quebec: 78 %, Ontario: 82 %, BC: 71 %; Vergleichskommissionen in der Monographie dokumentiert). (Die erste, vorläufige Analyse des Audits zeigte die Verankerung der Minderheit bei nur 15 %; diese Zahl überstand die Neuberechnung auf den offiziellen Shapefiles nicht — siehe Korrekturhinweis unten.) Auffällig ist nicht die Gesamtrate. Auffällig ist, wo sich die Abweichungen der Minderheit häufen. Die drei Grenzen, die der Kommissionsvorsitzende selbst als anormal beanstandet hat — die Verlängerung von Rocky Mountain House–Banff Park <button class=\"ed-trigger\" data-ed-name=\"Rocky Mountain House-Banff Park\">zeigen ↗</button> in unbewohntes Nationalparkland, der Lasso-Korridor Nolan Hill–Cochrane <button class=\"ed-trigger\" data-ed-name=\"Calgary-Nolan Hill-Cochrane\">zeigen ↗</button> und die Olds–Nord-Airdrie-Erweiterung <button class=\"ed-trigger\" data-ed-name=\"Olds-Three Hills-Didsbury\">zeigen ↗</button> — brechen jeweils mit der bestehenden kommunalen Geographie, und zwar genau in den Stadtrandzonen, in denen die Paarung städtischer und ländlicher Wählerinnen und Wähler am unmittelbarsten beeinflusst, welche Partei den Sitz gewinnt.",
+			anchoring_followup: "Die Minderheitskommissare gaben für jede der drei beanstandeten Grenzen Gründe an. Für Rocky Mountain House–Banff Park nannten sie die geographische Größe, den Highway-22-Korridor und die Nähe von First-Nations-Reservaten zu Rocky Mountain House. Der Kommissionsvorsitzende nannte die Verlängerung in unbewohntes Nationalparkland „einen Versuch in bösem Glauben“, das Flächenkriterium zu erfüllen, und die Formulierung steht im offiziellen Abschlussbericht der Kommission. Für Nolan Hill–Cochrane verwiesen sie auf gemeinsame Verkehrs- und Beschäftigungsverbindungen zwischen Nordwest-Calgary und Cochrane. Pendeldaten von Statistics Canada zeigen, dass nur 35,8 % der Arbeitenden in Cochrane überhaupt nach Calgary fahren; die meisten arbeiten in Cochrane selbst. Für die Olds–Nord-Airdrie-Erweiterung verwiesen sie auf die Kontinuität des Highway-2-Korridors. Das Audit stellte fest, dass die konkrete Erweiterung nach Airdrie aus Bevölkerungsgründen scheitert. Unabhängig an Primärdaten geprüft, halten fünf der sechs veröffentlichten Unterbegründungen der Minderheit nicht oder nur teilweise stand.",
+			packing_p: "<strong>Ein Gebiet Calgarys wird so zerschnitten, dass NDP-Wählerinnen und -Wähler in überdurchschnittlich großen Wahlbezirken konzentriert werden.</strong> In den Bezirken im Norden, Osten und Zentrum Calgarys <button class=\"ed-trigger\" data-ed-name=\"Calgary-North West-Bearspaw\">zeigen ↗</button> liegen die Wahlbezirke der Minderheitenkarte im Schnitt 11,5 % über dem Provinzdurchschnitt. Bei der Mehrheit sind es 2,8 %. Dasselbe geographische Gebiet, von derselben Kommission unter denselben Vorgaben gezeichnet, ergibt auf der einen Karte Bezirke, die etwa 8,5 % größer sind als auf der anderen. Das passt zur strukturellen Signatur von <em>Packing</em>: die Wählerinnen und Wähler einer Partei in weniger, größere Bezirke zusammendrängen, sodass jeder ihrer Stimmzettel weniger wiegt. Packing und <em>Cracking</em> (die Wählerschaft einer Partei dünn auf Bezirke verteilen, die sie knapp verliert) sind die beiden klassischen Gerrymandering-Züge. Beide drücken die Sitzzahl einer Partei unter ihren Stimmenanteil.",
+			chair_p: "Der Kommissionsvorsitzende — nach demselben Gesetz ernannt und auf Grundlage derselben Eingaben arbeitend — beanstandete vier Grenzen auf der Minderheitenkarte als geographisch anormal, darunter diese drei: die Verlängerung von Rocky Mountain House–Banff Park in unbewohntes Nationalparkland; den lassoförmigen Korridor Calgary-Nolan Hill–Cochrane; die Erweiterung von Olds–Three Hills–Didsbury in den Norden Airdries. Derselbe Vorsitzende beanstandete bei der Mehrheit nichts dergleichen. (Insgesamt umfasst die veröffentlichte Kritik des Vorsitzenden sieben Grenzkonfigurationen: die vier geometrischen Beanstandungen sowie drei Orte, die nur in der Behauptung des Mehrheitsberichts genannt werden, den Änderungen der Minderheit fehle öffentliche Unterstützung. Dieses Audit hat anormale Geometrie für drei der vier geometrischen Beanstandungen unabhängig bestätigt. Die vierte, Calgary-Foothills-Airdrie West <button class=\"ed-trigger\" data-ed-name=\"Calgary-Foothills-Airdrie West\">zeigen ↗</button>, erfüllte die Bestätigungsschwelle des Audits nicht.) Über die Geometrie-Beanstandungen des Vorsitzenden hinaus markiert der eigene Cracking-Signaturtest des Audits (akademisch §5.3.2) die Vierfach-Aufteilung Airdries nicht. Sie ist eine Gemeindeteilung, die die Einwohner Airdries in drei der vier Ridings zur Minderheit macht, die zusammen fast die Hälfte der Stadt umfassen; der Test verlangt aber, dass sie in allen vier in der Minderheit sind, und Airdrie East besteht überwiegend aus Airdrie. Chestermere erweist sich als cracking-nah; Cochrane, ungeteilt und etwa zwei Drittel seines Ridings, nicht. Manches von dem, was die Mathematik des Audits markiert, hat der Vorsitzende nicht beanstandet. Das Audit misst die strukturelle Wirkung. Nicht die Absicht."
 		},
 		litmus: {
-			heading: '3: Der 1.010.000-Karten-Lackmustest',
-			fig_alt: 'Histogramm der Verteilung der Effizienzlücken über 1.010.000 neutrale Alberta-Karten. Neun von zehn liegen zwischen etwa −1 % und +4 %. Die Karte der Kommissionsminderheit (violette Linie) liegt am 94,5. Perzentil (+4,0 %), knapp vor der gestrichelten Ausreißerlinie, an der der schattierte rechte Schwanz beginnt. Die Mehrheitskarte (türkise Linie) liegt bei +0,1 %, gut innerhalb des normalen Bereichs.',
-			fig_caption: 'Verteilung der <button class="vocab-term" data-def="ein Maß dafür, wie einseitig Stimmen in Sitze umgewandelt werden — positive Werte begünstigen die UCP, negative die NDP" aria-expanded="false">Effizienzlücken</button> über 1.010.000 neutrale Alberta-Karten, gezeichnet auf derselben Geographie. Neun von zehn neutralen Karten liegen zwischen etwa −1 % und +4 %. Der schattierte rechte Schwanz markiert die obersten 5 %. Die +4,0 % des Minderheitenvorschlags liegen am 94,5. <button class="vocab-term" data-def="der Prozentsatz der Karten mit niedrigerem Wert — p94 bedeutet, dass 94 von 100 neutralen Karten weniger parteilich waren als diese" aria-expanded="false">Perzentil</button> — einem Bereich, den weniger als 6 von 100 neutralen Karten je erreichen. Die +0,1 % des Mehrheitsvorschlags sind nicht von dem zu unterscheiden, was ein neutrales Verfahren typischerweise hervorbringt.',
-			table_intro: 'Die Tabelle stellt die beiden Karten nebeneinander. Die ersten fünf Zeilen verwenden keine Wahlergebnisse; sie sind Eigenschaften der Linien selbst. Die letzten drei hängen davon ab, wie die Stimmen den einzelnen Bezirken zugeordnet wurden.',
-			table_col_measured: 'Was gemessen wurde',
-			table_col_majority: 'Mehrheitskarte',
-			table_col_minority: 'Minderheitenkarte',
-			table_col_direction: 'Richtung / Begünstigter',
-			table_r1_a: 'Bevölkerungsstreuung über Bezirke (enger ist besser)',
-			table_r1_b: '3.180',
-			table_r1_c: '4.707 — 48 % weiter',
-			table_r1_d: 'Strukturell (Reduziert Wahlgleichheit)',
-			table_r2_a: 'Bevölkerungsüberhang NO-/Zentral-Calgary über dem Durchschnitt',
-			table_r2_b: '2,8 %',
-			table_r2_c: '11,5 %',
-			table_r2_d: '<strong>UCP</strong> (Packt städtische NDP-Stimmen)',
-			table_r3_a: 'Airdrie-Aufteilung',
-			table_r3_b: '2 Bezirke',
-			table_r3_c: '4 nach Fläche; 3 nach Einwohnern (≥2 %)',
-			table_r3_d: '<strong>UCP</strong> (Cracking der städtischen/vorstädtischen Macht)',
-			table_r4_a: 'Grenzen, die bestehenden kommunalen Linien folgen',
-			table_r4_b: '80 % — im Rahmen der Norm',
-			table_r4_c: '72 % — im Rahmen der Norm',
-			table_r4_d: 'N/Z — beide innerhalb der kanadischen Norm (70–85 %)',
-			table_r5_a: 'Vom Kommissionsvorsitzenden beanstandete Grenzen',
-			table_r5_b: '0',
-			table_r5_c: '3',
-			table_r5_d: 'N/Z',
-			table_r6_a: 'Sitze bei 50/50-Stimmen (Perzentil in der 1.010.000-Karten-Simulation)',
-			table_r6_b: '46,1 % — p78 (normaler Bereich)',
-			table_r6_c: '51,7 % — p99.99 (weniger als 100 von 1.010.000 erreichen das)',
-			table_r6_d: '<strong>UCP</strong>',
-			table_r7_a: 'Effizienzlücke (Perzentil in der 1.010.000-Karten-Simulation)',
-			table_r7_b: '+0,1 % — p16,5 (normaler Bereich)',
-			table_r7_c: '+4,0 % — p94,5',
-			table_r7_d: '<strong>UCP</strong>',
-			table_r8_a: 'Packing-Cracking-Nachbarschaftsmuster',
-			table_r8_b: '2 gekoppelte Kettensignale',
-			table_r8_c: '1 (vorab registrierter BESTEHT)',
-			table_r8_d: 'Neutral — Minderheit erreicht parteiliche Wirkung durch Hybridisierung, nicht durch Nachbarschafts-Drain (§5.3.5)',
-			vocab_label: 'GLOSSAR',
-			vocab_eg: '<strong>Effizienzlücke (Efficiency Gap).</strong> Eine einzelne Zahl dafür, wie einseitig die Stimmen einer Partei in Sitze übersetzt werden. Positive Zahlen begünstigen die UCP, negative die NDP. Das Audit setzt Albertas Ausreißerlinie bei ~4,1 % an: dem Wert, den nur 5 % der 1.010.000 neutralen, Alberta-spezifischen Simulationen übersteigen. Diese Schwelle ist nicht aus US- oder allgemeiner Literatur übernommen. Eine auf eine andere Gerichtsbarkeit kalibrierte Schwelle wäre hier falsch, weil Albertas natürliche Geographie einen anderen neutralen Bereich erzeugt.',
-			vocab_mm: '<strong>Mittel-Median-Differenz.</strong> Die Lücke zwischen dem Median-Stimmenanteil einer Partei in den Bezirken und ihrem mittleren Stimmenanteil in den Bezirken. Wenn eine Partei viele knappe Rennen gewinnt, liegt der Median über dem Mittelwert: Diese Stimmen sind effizient verteilt. Wenn eine Partei viele Rennen mit großem Vorsprung gewinnt, liegt der Mittelwert über dem Median: Stimmen werden verschwendet. Eine große Mittel-Median-Lücke in eine Richtung zeigt eine strukturelle Ineffizienz darin an, wie die Stimmen der einen Seite über die Bezirke verteilt sind.',
-			vocab_percentile: '<strong>Perzentilrang.</strong> In diesem Audit ist ein „Perzentil“ ein Rang innerhalb der 1.010.000 neutralen simulierten Karten. „p94“ bedeutet, dass 94 % der neutralen Karten niedriger abschneiden: Die reale Karte ist extremer als 94 % der neutralen Ziehungen. „p99,99“ bedeutet, dass weniger als 1 von 10.000 neutralen Karten diesen Wert erreicht.',
-			vocab_anchoring: '<strong>Anchoring (Verankerung).</strong> Der Anteil einer Wahlgrenze, der auf einer bereits bestehenden Verwaltungslinie liegt — einer Stadtgrenze, einer Schulbezirksgrenze, einer Statistics-Canada-Zensuslinie.',
-			closing_p1: 'Die unteren Zeilen hängen von Wahlergebnissen ab. Der Test <em>seats@50/50</em> hält die Wählerschaft auf perfekter Parität — UCP und NDP gewinnen provinzweit jeweils genau die Hälfte der Stimmen — und fragt, wie viele Sitze die Karte der UCP zuteilt. Neutrale Alberta-Karten erzeugen einen Median von etwa 44,8 % UCP-Sitzen. Albertas Geographie, mit NDP-Wählerinnen und -Wählern konzentriert in den Stadtkernen und UCP-Wählerinnen und -Wählern verteilt über ländliche Ridings, verschafft der NDP bei Neutralität einen kleinen Effizienzvorteil. Die Mehrheitskarte liegt mit 46,1 % am 78. Perzentil der Simulation mit 1.010.000 Karten: gut innerhalb des normalen Bereichs. Die Minderheitenkarte liegt mit 51,7 % am 99,99. Perzentil. Weniger als 100 von 1.010.000 neutralen Ziehungen erreichen diesen Wert. Die <em>Effizienzlücke</em> misst, wie einseitig die Stimmen jeder Partei in Sitze übersetzt werden. Auf den offiziellen Shapefiles von Elections Alberta beträgt die Effizienzlücke der Minderheit +4,0 %, am 94,5. Perzentil: knapp unter der Ausreißerlinie des Audits beim 95. Perzentil. Die Eröffnungsfragen oben auf dieser Seite legen die Folgen dar.',
-			closing_p2: 'Die letzte Zeile weist in die andere Richtung. Beim Nachbarschafts-Drain-Test hat die Minderheitenkarte weniger gekoppelte Kettensignale als die Mehrheit: 1 gegenüber den 2 der Mehrheit (und den 5 der 2019 erlassenen Karte). Das Audit hat diesen Test vor der Messung vorab registriert, und die niedrigere Zahl der Minderheit ist ein echtes vorab registriertes BESTEHEN. Die Minderheit zeigt nicht das klassische Pack-und-Drain-Nachbarschaftsmuster. Es ist der einzige Test, in dem die Minderheit die Mehrheit numerisch übertrifft. §5.3.5 des akademischen Berichts erklärt, warum. Die Minderheit erzielt ihre parteiliche Wirkung durch Hybridisierung — Stadtteilung, die Packing und Cracking innerhalb einzelner Wahlbezirke (EDs) internalisiert —, und ein Nachbarschaftsketten-Test, der nur misst, wie sich gepackte Bezirke neben gecrackten gruppieren, kann sie nicht sehen.'
+			heading: "3: Der 1.010.000-Karten-Lackmustest",
+			fig_alt: "Histogramm der Verteilung der Effizienzlücken über 1.010.000 neutrale Alberta-Karten. Neun von zehn liegen zwischen etwa −1 % und +4 %. Die Karte der Kommissionsminderheit (violette Linie) liegt am 94,5. Perzentil (+4,0 %), knapp vor der gestrichelten Ausreißerlinie, an der der schattierte rechte Schwanz beginnt. Die Mehrheitskarte (türkise Linie) liegt bei +0,1 %, gut innerhalb des normalen Bereichs.",
+			fig_caption: "Verteilung der <button class=\"vocab-term\" data-def=\"ein Maß dafür, wie einseitig Stimmen in Sitze umgewandelt werden — positive Werte begünstigen die UCP, negative die NDP\" aria-expanded=\"false\">Effizienzlücken</button> über 1.010.000 neutrale Alberta-Karten, gezeichnet auf derselben Geographie. Neun von zehn neutralen Karten liegen zwischen etwa −1 % und +4 %. Der schattierte rechte Schwanz markiert die obersten 5 %. Die +4,0 % des Minderheitenvorschlags liegen am 94,5. <button class=\"vocab-term\" data-def=\"der Prozentsatz der Karten mit niedrigerem Wert — p94 bedeutet, dass 94 von 100 neutralen Karten weniger parteilich waren als diese\" aria-expanded=\"false\">Perzentil</button> — einem Bereich, den weniger als 6 von 100 neutralen Karten je erreichen. Die +0,1 % des Mehrheitsvorschlags sind nicht von dem zu unterscheiden, was ein neutrales Verfahren typischerweise hervorbringt.",
+			table_intro: "Die Tabelle stellt die beiden Karten nebeneinander. Die ersten fünf Zeilen verwenden keine Wahlergebnisse; sie sind Eigenschaften der Linien selbst. Die letzten drei hängen davon ab, wie die Stimmen den einzelnen Bezirken zugeordnet wurden.",
+			table_col_measured: "Was gemessen wurde",
+			table_col_majority: "Mehrheitskarte",
+			table_col_minority: "Minderheitenkarte",
+			table_col_direction: "Richtung / Begünstigter",
+			table_r1_a: "Bevölkerungsstreuung über Bezirke (enger ist besser)",
+			table_r1_b: "3.180",
+			table_r1_c: "4.707 — 48 % weiter",
+			table_r1_d: "Strukturell (Reduziert Wahlgleichheit)",
+			table_r2_a: "Bevölkerungsüberhang NO-/Zentral-Calgary über dem Durchschnitt",
+			table_r2_b: "2,8 %",
+			table_r2_c: "11,5 %",
+			table_r2_d: "<strong>UCP</strong> (Packt städtische NDP-Stimmen)",
+			table_r3_a: "Airdrie-Aufteilung",
+			table_r3_b: "2 Bezirke",
+			table_r3_c: "4 nach Fläche; 3 nach Einwohnern (≥2 %)",
+			table_r3_d: "<strong>UCP</strong> (Cracking der städtischen/vorstädtischen Macht)",
+			table_r4_a: "Grenzen, die bestehenden kommunalen Linien folgen",
+			table_r4_b: "80 % — im Rahmen der Norm",
+			table_r4_c: "72 % — im Rahmen der Norm",
+			table_r4_d: "N/Z — beide innerhalb der kanadischen Norm (70–85 %)",
+			table_r5_a: "Vom Kommissionsvorsitzenden beanstandete Grenzen",
+			table_r5_b: "0",
+			table_r5_c: "3",
+			table_r5_d: "N/Z",
+			table_r6_a: "Sitze bei 50/50-Stimmen (Perzentil in der 1.010.000-Karten-Simulation)",
+			table_r6_b: "46,1 % — p78 (normaler Bereich)",
+			table_r6_c: "51,7 % — p99.99 (weniger als 100 von 1.010.000 erreichen das)",
+			table_r6_d: "<strong>UCP</strong>",
+			table_r7_a: "Effizienzlücke (Perzentil in der 1.010.000-Karten-Simulation)",
+			table_r7_b: "+0,1 % — p16,5 (normaler Bereich)",
+			table_r7_c: "+4,0 % — p94,5",
+			table_r7_d: "<strong>UCP</strong>",
+			table_r8_a: "Packing-Cracking-Nachbarschaftsmuster",
+			table_r8_b: "2 gekoppelte Kettensignale",
+			table_r8_c: "1 (vorab registrierter BESTEHT)",
+			table_r8_d: "Neutral — Minderheit erreicht parteiliche Wirkung durch Hybridisierung, nicht durch Nachbarschafts-Drain (§5.3.5)",
+			vocab_label: "GLOSSAR",
+			vocab_eg: "<strong>Effizienzlücke (Efficiency Gap).</strong> Eine einzelne Zahl dafür, wie einseitig die Stimmen einer Partei in Sitze übersetzt werden. Positive Zahlen begünstigen die UCP, negative die NDP. Das Audit setzt Albertas Ausreißerlinie bei ~4,1 % an: dem Wert, den nur 5 % der 1.010.000 neutralen, Alberta-spezifischen Simulationen übersteigen. Diese Schwelle ist nicht aus US- oder allgemeiner Literatur übernommen. Eine auf eine andere Gerichtsbarkeit kalibrierte Schwelle wäre hier falsch, weil Albertas natürliche Geographie einen anderen neutralen Bereich erzeugt.",
+			vocab_mm: "<strong>Mittel-Median-Differenz.</strong> Die Lücke zwischen dem Median-Stimmenanteil einer Partei in den Bezirken und ihrem mittleren Stimmenanteil in den Bezirken. Wenn eine Partei viele knappe Rennen gewinnt, liegt der Median über dem Mittelwert: Diese Stimmen sind effizient verteilt. Wenn eine Partei viele Rennen mit großem Vorsprung gewinnt, liegt der Mittelwert über dem Median: Stimmen werden verschwendet. Eine große Mittel-Median-Lücke in eine Richtung zeigt eine strukturelle Ineffizienz darin an, wie die Stimmen der einen Seite über die Bezirke verteilt sind.",
+			vocab_percentile: "<strong>Perzentilrang.</strong> In diesem Audit ist ein „Perzentil“ ein Rang innerhalb der 1.010.000 neutralen simulierten Karten. „p94“ bedeutet, dass 94 % der neutralen Karten niedriger abschneiden: Die reale Karte ist extremer als 94 % der neutralen Ziehungen. „p99,99“ bedeutet, dass weniger als 1 von 10.000 neutralen Karten diesen Wert erreicht.",
+			vocab_anchoring: "<strong>Anchoring (Verankerung).</strong> Der Anteil einer Wahlgrenze, der auf einer bereits bestehenden Verwaltungslinie liegt — einer Stadtgrenze, einer Schulbezirksgrenze, einer Statistics-Canada-Zensuslinie.",
+			closing_p1: "Die unteren Zeilen hängen von Wahlergebnissen ab. Der Test <em>seats@50/50</em> hält die Wählerschaft auf perfekter Parität — UCP und NDP gewinnen provinzweit jeweils genau die Hälfte der Stimmen — und fragt, wie viele Sitze die Karte der UCP zuteilt. Neutrale Alberta-Karten erzeugen einen Median von etwa 44,8 % UCP-Sitzen. Albertas Geographie, mit NDP-Wählerinnen und -Wählern konzentriert in den Stadtkernen und UCP-Wählerinnen und -Wählern verteilt über ländliche Ridings, verschafft der NDP bei Neutralität einen kleinen Effizienzvorteil. Die Mehrheitskarte liegt mit 46,1 % am 78. Perzentil der Simulation mit 1.010.000 Karten: gut innerhalb des normalen Bereichs. Die Minderheitenkarte liegt mit 51,7 % am 99,99. Perzentil. Weniger als 100 von 1.010.000 neutralen Ziehungen erreichen diesen Wert. Die <em>Effizienzlücke</em> misst, wie einseitig die Stimmen jeder Partei in Sitze übersetzt werden. Auf den offiziellen Shapefiles von Elections Alberta beträgt die Effizienzlücke der Minderheit +4,0 %, am 94,5. Perzentil: knapp unter der Ausreißerlinie des Audits beim 95. Perzentil. Die Eröffnungsfragen oben auf dieser Seite legen die Folgen dar.",
+			closing_p2: "Die letzte Zeile weist in die andere Richtung. Beim Nachbarschafts-Drain-Test hat die Minderheitenkarte weniger gekoppelte Kettensignale als die Mehrheit: 1 gegenüber den 2 der Mehrheit (und den 5 der 2019 erlassenen Karte). Das Audit hat diesen Test vor der Messung vorab registriert, und die niedrigere Zahl der Minderheit ist ein echtes vorab registriertes BESTEHEN. Die Minderheit zeigt nicht das klassische Pack-und-Drain-Nachbarschaftsmuster. Es ist der einzige Test, in dem die Minderheit die Mehrheit numerisch übertrifft. §5.3.5 des akademischen Berichts erklärt, warum. Die Minderheit erzielt ihre parteiliche Wirkung durch Hybridisierung — Stadtteilung, die Packing und Cracking innerhalb einzelner Wahlbezirke (EDs) internalisiert —, und ein Nachbarschaftsketten-Test, der nur misst, wie sich gepackte Bezirke neben gecrackten gruppieren, kann sie nicht sehen."
 		},
 		commission_split: {
-			heading: '2: Wie die Kommission sich spaltete',
-			intro: 'Albertas Wahlbezirkskommission schloss ihre Arbeit am 23. März 2026 ab und konnte sich nicht einigen. Drei Kommissionsmitglieder legten eine Karte vor; die anderen zwei eine andere. Kommissionsvorsitzender Richter Dallas K. Miller und zwei von der Opposition nominierte Mitglieder verfassten den Mehrheitsbericht; zwei von der Regierung nominierte Mitglieder — Dr. Julian Martin und John D. Evans — verfassten den Minderheitenbericht. Die Spaltung drehte sich darum, wie Grenzen in schnell wachsenden Gemeinden am Stadtrand zu ziehen sind. Die Mehrheit gab Airdrie zwei Bezirke, die Minderheit vier. Die Mehrheit zog die Wahlbezirke im Norden, Osten und Zentrum Calgarys nahe am Provinzdurchschnitt; die Minderheit zog sie 11,5 % darüber. Beide Karten folgen demselben Gesetz. Beide sind nach dem <em>Electoral Boundaries Commission Act</em> legal. Der Streit ging darum, welche konkreten geographischen Konfigurationen den betroffenen Gemeinden am besten dienten. Albertas Regierungspartei ist die United Conservative Party (UCP); ihre wichtigste Opposition ist die New Democratic Party (NDP). Kleinere Parteien — die Alberta Party, die Liberal Party of Alberta und andere — treten ebenfalls an, aber ihr gemeinsamer Stimmenanteil in der Provinz war bei den letzten Wahlen so gering, dass er die Parteifairness-Berechnungen des Audits, die auf der UCP-NDP-Verteilung von 2023 beruhen, nicht wesentlich beeinflusst. Dieses Audit hat beide Karten mit denselben Methoden gemessen, identisch angewandt. Vier Befunde stechen hervor.',
-			finding1: '<strong>Die beiden Karten unterscheiden sich bei sechs Dingen, die man ohne Blick auf Wahlergebnisse messen kann:</strong> wie gleichmäßig die Bevölkerung über die Bezirke verteilt ist, ob die Wählerinnen und Wähler konzentriert sind, wie schlimm Städte zerschnitten werden, ob die Grenzen Stadtgrenzen folgen, der Form der Bezirke und wie viele Grenzen der Kommissionsvorsitzende Richter Miller selbst schriftlich als anormal beanstandet hat (§5.8.2 des Mehrheitsberichts und Anhang C). Die Minderheitenkarte unterscheidet sich von der Mehrheit in jedem einzelnen dieser Punkte.',
-			finding2: '<strong>Jeder gemessene Unterschied begünstigt dieselbe Partei.</strong> Überall, wo die beiden Karten auseinandergehen — im Norden und Osten Calgarys, in Airdrie, in Stadtgebieten mit klaren Stadtgrenzen —, zieht die Minderheitenkarte Grenzen, die NDP-Stimmen dünner verteilen und UCP-Stimmen effizienter zählen lassen. Die Gemeinden, die die Minderheitenkarte am stärksten umgestaltet, sind dieselben, in denen die NDP am stärksten ist. Das Audit kann keine Absicht feststellen. Es kann die Wirkung messen.',
-			finding3: '<strong>Das Verfahren, das die Kommission ersetzt hat, hatte unter den von diesem Audit untersuchten kanadischen Redistribution-Zyklen ein einziges Vorbild: das von Alberta selbst, 1992.</strong> Keine der untersuchten Provinzen übergibt das Redistricting mitten im Zyklus an ein Komitee, das die Regierungspartei kontrolliert. Die meisten verlangen, dass die Legislative zuerst über die Karte der Kommission debattiert, oder verleihen dieser Karte automatische Geltung, sofern die Legislative sie nicht aufhebt. Alberta tut weder das eine noch das andere. Hier ändert ein Kommissionsbericht nichts, bis die Legislative ein gesondertes <em>Electoral Divisions Act</em> verabschiedet; daher entscheidet die Regierungspartei, ob eine Kommissionskarte Gesetz wird. Am 21. April nutzte die Versammlung diese Macht: Regierungsantrag 37, mit 44 zu 36 Stimmen angenommen, legte beide Kommissionskarten beiseite und übertrug die Arbeit einem MLA-Komitee mit UCP-Mehrheit. Die erklärte Begründung der Regierung war die Empfehlung 5 des Vorsitzenden. Was diese Empfehlung tatsächlich verlangt, wird als Nächstes dargelegt.',
-			closing: '<strong>Das Verfahren ist ein eigener Befund, getrennt von den Karten.</strong>'
+			heading: "2: Wie die Kommission sich spaltete",
+			intro: "Albertas Wahlbezirkskommission schloss ihre Arbeit am 23. März 2026 ab und konnte sich nicht einigen. Drei Kommissionsmitglieder legten eine Karte vor; die anderen zwei eine andere. Kommissionsvorsitzender Richter Dallas K. Miller und zwei von der Opposition nominierte Mitglieder verfassten den Mehrheitsbericht; zwei von der Regierung nominierte Mitglieder — Dr. Julian Martin und John D. Evans — verfassten den Minderheitenbericht. Die Spaltung drehte sich darum, wie Grenzen in schnell wachsenden Gemeinden am Stadtrand zu ziehen sind. Die Mehrheit gab Airdrie zwei Bezirke, die Minderheit vier. Die Mehrheit zog die Wahlbezirke im Norden, Osten und Zentrum Calgarys nahe am Provinzdurchschnitt; die Minderheit zog sie 11,5 % darüber. Beide Karten folgen demselben Gesetz. Beide sind nach dem <em>Electoral Boundaries Commission Act</em> legal. Der Streit ging darum, welche konkreten geographischen Konfigurationen den betroffenen Gemeinden am besten dienten. Albertas Regierungspartei ist die United Conservative Party (UCP); ihre wichtigste Opposition ist die New Democratic Party (NDP). Kleinere Parteien — die Alberta Party, die Liberal Party of Alberta und andere — treten ebenfalls an, aber ihr gemeinsamer Stimmenanteil in der Provinz war bei den letzten Wahlen so gering, dass er die Parteifairness-Berechnungen des Audits, die auf der UCP-NDP-Verteilung von 2023 beruhen, nicht wesentlich beeinflusst. Dieses Audit hat beide Karten mit denselben Methoden gemessen, identisch angewandt. Vier Befunde stechen hervor.",
+			finding1: "<strong>Die beiden Karten unterscheiden sich bei sechs Dingen, die man ohne Blick auf Wahlergebnisse messen kann:</strong> wie gleichmäßig die Bevölkerung über die Bezirke verteilt ist, ob die Wählerinnen und Wähler konzentriert sind, wie schlimm Städte zerschnitten werden, ob die Grenzen Stadtgrenzen folgen, der Form der Bezirke und wie viele Grenzen der Kommissionsvorsitzende Richter Miller selbst schriftlich als anormal beanstandet hat (§5.8.2 des Mehrheitsberichts und Anhang C). Die Minderheitenkarte unterscheidet sich von der Mehrheit in jedem einzelnen dieser Punkte.",
+			finding2: "<strong>Jeder gemessene Unterschied begünstigt dieselbe Partei.</strong> Überall, wo die beiden Karten auseinandergehen — im Norden und Osten Calgarys, in Airdrie, in Stadtgebieten mit klaren Stadtgrenzen —, zieht die Minderheitenkarte Grenzen, die NDP-Stimmen dünner verteilen und UCP-Stimmen effizienter zählen lassen. Die Gemeinden, die die Minderheitenkarte am stärksten umgestaltet, sind dieselben, in denen die NDP am stärksten ist. Das Audit kann keine Absicht feststellen. Es kann die Wirkung messen.",
+			finding3: "<strong>Das Verfahren, das die Kommission ersetzt hat, hatte unter den von diesem Audit untersuchten kanadischen Redistribution-Zyklen ein einziges Vorbild: das von Alberta selbst, 1992.</strong> Keine der untersuchten Provinzen übergibt das Redistricting mitten im Zyklus an ein Komitee, das die Regierungspartei kontrolliert. Die meisten verlangen, dass die Legislative zuerst über die Karte der Kommission debattiert, oder verleihen dieser Karte automatische Geltung, sofern die Legislative sie nicht aufhebt. Alberta tut weder das eine noch das andere. Hier ändert ein Kommissionsbericht nichts, bis die Legislative ein gesondertes <em>Electoral Divisions Act</em> verabschiedet; daher entscheidet die Regierungspartei, ob eine Kommissionskarte Gesetz wird. Am 21. April nutzte die Versammlung diese Macht: Regierungsantrag 37, mit 44 zu 36 Stimmen angenommen, legte beide Kommissionskarten beiseite und übertrug die Arbeit einem MLA-Komitee mit UCP-Mehrheit. Die erklärte Begründung der Regierung war die Empfehlung 5 des Vorsitzenden. Was diese Empfehlung tatsächlich verlangt, wird als Nächstes dargelegt.",
+			closing: "<strong>Das Verfahren ist ein eigener Befund, getrennt von den Karten.</strong>"
 		},
 		november: {
-			heading: 'Das Lunty-Komitee',
-			context_label: 'KONTEXT',
-			context_body: ' — Dieser Abschnitt beschreibt das Verfahren, das die Kommission ersetzt hat, und den rechtlichen Rahmen, der dafür gilt. Er gehört nicht zu den statistischen Befunden. Die Befunde stehen in den vierzehn „Casings“ oben.',
-			intro: 'Keine der Kommissionskarten ist in Kraft. Am 21. April 2026 verabschiedete die Legislativversammlung Regierungsantrag 37, der beide beiseitelegte und das Redistricting an einen Sonderausschuss aus sechs MLAs verwies — vier UCP, zwei NDP —, der von Brandon Lunty (UCP, Leduc-Beaumont) geleitet wird. Das Komitee selbst zeichnet nicht die Karte. Es beaufsichtigt ein separates Unabhängiges Beratungsgremium, das unter demselben Antrag eingesetzt wurde und mit der Erstellung eines Grenzvorschlags mit 91 Sitzen beauftragt ist. Antrag 37 sah fünf Gremiumsmitglieder vor — einen amtierenden oder pensionierten Richter als Vorsitz, zwei vom Premierminister nominierte Mitglieder und zwei vom Oppositionsführer —, aber Albertas amtierender Chief Justice lehnte es ab, einen Richter zum Vorsitz zu nominieren, und das Gremium arbeitet jetzt mit den vier vom Komitee bestätigten Ernannten: Hon. Monte Solberg und Darwin Durnie (Nominierte des Premierministers) sowie Dr. Gerard Kennedy und Brent Robinson (Nominierte der Opposition). Das Komitee muss seinen Bericht der Legislative bis zum 2. November 2026 vorlegen. Anders als die ursprüngliche Kommission ist weder das Komitee noch das Gremium zur Abhaltung öffentlicher Anhörungen verpflichtet; das Gremium stützt sich auf Eingaben, die die ursprüngliche Kommission gesammelt hat. Wenn die Karte des Komitees veröffentlicht wird, wird dieses Audit dieselbe Methodik anwenden, um sie zu bewerten.',
-			h_anomalous: 'Warum das Komitee anomal ist',
-			anomalous_p1:
-				'Die kanadische Redistricting-Praxis hat sich seit den 1960er-Jahren auf ein einziges Modell festgelegt: Eine unabhängige Kommission, abgeschirmt von Weisungen der Regierung, erarbeitet Grenzempfehlungen; die Legislative kann darüber debattieren, sie aber ohne förmliche Abstimmung nicht ohne Weiteres übergehen. Albertas gesetzliches Verfahren nach dem <em>Electoral Boundaries Commission Act</em> folgt diesem Muster — allerdings mit einem strukturellen Unterschied zu einigen anderen Gerichtsbarkeiten: Albertas Kommissionsbericht hat keine automatische Rechtswirkung. Nach dem Gesetz muss die Legislative ein gesondertes Electoral Divisions Act verabschieden, um einer Kommissionskarte Gesetzeskraft zu verleihen. Das bedeutet, dass die jeweilige Regierung nicht nur kontrolliert, ob über die Kommissionskarte debattiert wird, sondern ob sie überhaupt jemals Gesetz wird. Andere kanadische Gerichtsbarkeiten haben die umgekehrte Standardregel: Die Empfehlungen der Kommission treten in Kraft, sofern die Legislative nicht ausdrücklich dafür stimmt, sie aufzuheben.',
-			anomalous_p2:
-				'Was die Regierung im April 2026 tat, hatte ein Vorbild in Alberta selbst: 1992 ging die Arbeit einer festgefahrenen Kommission an ein Komitee aus MLAs. Diesmal ließ sie ein abgeschlossenes, veröffentlichtes Kommissionsverfahren zu Ende gehen — Mehrheits- und Minderheitenbericht wurden beide vorgelegt — und verwies die Redistricting-Aufgabe dann an ein sechsköpfiges Komitee aus MLAs, in dem die Regierungspartei die Mehrheit (vier von sechs) hält, ohne einen der beiden Kommissionsberichte zur Abstimmung zu stellen. Das Lunty-Komitee ist keine Kommission. Es hat keine gesetzliche Unabhängigkeit gegenüber der legislativen Steuerung durch die Regierung. Seine vierköpfige UCP-Mehrheit spiegelt die Kontrolle der Regierung über die Legislative. Keine andere kanadische Provinz hat die Redistricting-Befugnis mitten im Zyklus an ein von der Regierung kontrolliertes Legislativkomitee übertragen, nachdem eine unabhängige Kommission ihre Arbeit abgeschlossen hatte.',
-			h_framework: 'Der verfassungsrechtliche Rahmen',
-			framework_p1:
-				'Abschnitt 3 der <em>Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten") — „Jeder Bürger Kanadas hat das Recht, bei einer Wahl der Mitglieder des House of Commons oder einer Legislativversammlung zu wählen" — ist vom Supreme Court of Canada so ausgelegt worden, dass er nicht bloß den Akt der Stimmabgabe garantiert, sondern <em>wirksame Vertretung</em>. Die maßgebliche Autorität ist <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em> [1991] 2 SCR 158, in der McLachlin J. (wie sie damals hieß) für die Mehrheit schrieb, der Zweck von s.3 „sei nicht die Gleichheit der Stimmkraft an sich, sondern das Recht auf wirksame Vertretung". Die Bevölkerungsparität ist die primäre Erwägung; Abweichungen sind zulässig, wenn sie durch Interessengemeinschaft, Geographie, Geschichte oder Minderheitenrepräsentation gerechtfertigt sind.',
-			framework_p2:
-				'Der Saskatchewan-Rahmen verbietet parteiliche Erwägungen im Redistricting nicht kategorisch. Er stellt vielmehr fest, dass Grenzkarten insgesamt eine wirksame Vertretung der Wählerinnen und Wähler gewähren müssen — und dass die systematische Beeinträchtigung der Fähigkeit einer identifizierbaren Gruppe, eine angemessene Vertretung zu wählen, das Muster ist, auf das s.3-Klagen abzielen. Die statistischen und strukturellen Befunde des Audits — die Position der Minderheitenkarte am 99,99. Perzentil von 1.010.000 neutralen Ziehungen, ihre Überschreitung von vier der fünf strukturellen Schwellen (der fünfte, Anchoring, ist für beide Karten neutral), die identifizierten betroffenen Gemeinden — sind das Beweismaterial, das eine s.3-Klägerin zusammenstellen müsste. Auf der Seite der Interessengemeinschaft dieses Beweismaterials ist die Entscheidung des Federal Court in <em>Raîche v. Canada</em> (2004 FC 679) die maßgebliche kanadische Autorität: Das Gericht verpflichtete dort die föderale Electoral Boundaries Commission, Grenzen erneut zu überprüfen, die die akadische Interessengemeinschaft in New Brunswick ignoriert hatten. Die Messungen der kommunalen Verankerung des Audits und seine spezifischen Gemeindebefunde — Airdrie in vier Bezirke aufgeteilt, die vom Vorsitzenden beanstandeten Stadtrand-Anomalien im Nordwesten Calgarys — sind dieselbe Art von Beweismaterial, die der Federal Court als rechtlich anerkennbar behandelt hat. Ob dieses Material die verfassungsrechtliche Schwelle erreicht, ist eine Rechtsfrage, die dieses Audit nicht entscheidet; das Audit berichtet die Messung.',
-			framework_p3:
-				'Die Rechtmäßigkeit des Komitees als Verfahren ist eine separate Frage. Albertas <em>Electoral Boundaries Commission Act</em> verbietet der Legislative nicht ausdrücklich, ein paralleles Redistricting-Gremium einzusetzen, weil das Gesetz ohnehin vorsieht, dass die Legislative die endgültigen Grenzen durch ordentliche Gesetzgebung erlässt. Ob das Komiteeverfahren, falls es eine Karte mit dem strukturellen und statistischen Profil des Minderheitenvorschlags hervorbringt, eine s.3-Charter-Klage überstehen könnte, hängt davon ab, ob unter den resultierenden Grenzen eine wirksame Vertretung erreichbar ist — derselbe Maßstab, der auf jede von einer Kommission erzeugte Karte angewandt würde.',
-			h_quebec: 'Der Quebec-Kontrast',
-			quebec_p1:
-				'Quebec bietet den für Albertas Situation relevantesten Vergleich. Quebecs Commission de la représentation électorale (CRE) ist ein permanentes, unabhängiges Wahlbezirksgremium, keine Ad-hoc-Kommission, die pro Redistribution-Zyklus eingesetzt wird. Die CRE arbeitet kontinuierlich und kann durch Kabinettsbeschluss weder aufgelöst noch umgangen werden. Nach Quebecs <em>Loi électorale</em> legt die CRE die endgültige Wahlkarte selbst fest: Die Nationalversammlung debattiert den Bericht der Kommission und hört Stellungnahmen an, stimmt aber nicht darüber ab, ihn anzunehmen oder aufzuheben — innerhalb von zehn Tagen nach dieser Debatte legt die Kommission die Grenzen fest, die im Gazette officielle veröffentlicht werden. Die praktische Wirkung ist, dass eine Regierungspartei nicht allein mit eigener Mehrheit ihre bevorzugte Karte an die Stelle der Kommissionskarte setzen kann; bei der Grenzziehung selbst hat das unabhängige Gremium das letzte Wort.',
-			quebec_p2:
-				'Quebecs Modell ist teilweise aus Lehren darüber entstanden, was geschieht, wenn Redistricting nicht von parteilicher Kontrolle abgeschirmt ist. Der Kontrast zu Albertas aktuellem Verfahren — bei dem ein mehrheitlich kontrolliertes Komitee die Arbeit der Kommission ersetzt hat, bevor die Legislative über einen der Kommissionsberichte abgestimmt hat — illustriert den strukturellen Unterschied zwischen Redistricting-Systemen, die parteilichen Druck voraussetzen und sich dagegen wappnen, und Systemen, in denen dieser Druck einen klareren Weg zum Ergebnis hat.',
-			closing:
-				'Das Audit wird dieselben Tests auf die Karte des Lunty-Komitees anwenden, wenn sie veröffentlicht wird. Die verfassungsrechtlichen und vergleichenden Beobachtungen oben sind kontextuell; die Methodik ändert sich nicht.'
+			heading: "Das Lunty-Komitee",
+			context_label: "KONTEXT",
+			context_body: " — Dieser Abschnitt beschreibt das Verfahren, das die Kommission ersetzt hat, und den rechtlichen Rahmen, der dafür gilt. Er gehört nicht zu den statistischen Befunden. Die Befunde stehen in den vierzehn „Casings“ oben.",
+			intro: "Keine der Kommissionskarten ist in Kraft. Am 21. April 2026 verabschiedete die Legislativversammlung Regierungsantrag 37, der beide beiseitelegte und das Redistricting an einen Sonderausschuss aus sechs MLAs verwies — vier UCP, zwei NDP —, der von Brandon Lunty (UCP, Leduc-Beaumont) geleitet wird. Das Komitee selbst zeichnet nicht die Karte. Es beaufsichtigt ein separates Unabhängiges Beratungsgremium, das unter demselben Antrag eingesetzt wurde und mit der Erstellung eines Grenzvorschlags mit 91 Sitzen beauftragt ist. Antrag 37 sah fünf Gremiumsmitglieder vor — einen amtierenden oder pensionierten Richter als Vorsitz, zwei vom Premierminister nominierte Mitglieder und zwei vom Oppositionsführer —, aber Albertas amtierender Chief Justice lehnte es ab, einen Richter zum Vorsitz zu nominieren, und das Gremium arbeitet jetzt mit den vier vom Komitee bestätigten Ernannten: Hon. Monte Solberg und Darwin Durnie (Nominierte des Premierministers) sowie Dr. Gerard Kennedy und Brent Robinson (Nominierte der Opposition). Das Komitee muss seinen Bericht der Legislative bis zum 2. November 2026 vorlegen. Anders als die ursprüngliche Kommission ist weder das Komitee noch das Gremium zur Abhaltung öffentlicher Anhörungen verpflichtet; das Gremium stützt sich auf Eingaben, die die ursprüngliche Kommission gesammelt hat. Wenn die Karte des Komitees veröffentlicht wird, wird dieses Audit dieselbe Methodik anwenden, um sie zu bewerten.",
+			h_anomalous: "Warum das Komitee anomal ist",
+			anomalous_p1: "Die kanadische Redistricting-Praxis hat sich seit den 1960er-Jahren auf ein einziges Modell festgelegt: Eine unabhängige Kommission, abgeschirmt von Weisungen der Regierung, erarbeitet Grenzempfehlungen; die Legislative kann darüber debattieren, sie aber ohne förmliche Abstimmung nicht ohne Weiteres übergehen. Albertas gesetzliches Verfahren nach dem <em>Electoral Boundaries Commission Act</em> folgt diesem Muster — allerdings mit einem strukturellen Unterschied zu einigen anderen Gerichtsbarkeiten: Albertas Kommissionsbericht hat keine automatische Rechtswirkung. Nach dem Gesetz muss die Legislative ein gesondertes Electoral Divisions Act verabschieden, um einer Kommissionskarte Gesetzeskraft zu verleihen. Das bedeutet, dass die jeweilige Regierung nicht nur kontrolliert, ob über die Kommissionskarte debattiert wird, sondern ob sie überhaupt jemals Gesetz wird. Andere kanadische Gerichtsbarkeiten haben die umgekehrte Standardregel: Die Empfehlungen der Kommission treten in Kraft, sofern die Legislative nicht ausdrücklich dafür stimmt, sie aufzuheben.",
+			anomalous_p2: "Was die Regierung im April 2026 tat, hatte ein Vorbild in Alberta selbst: 1992 ging die Arbeit einer festgefahrenen Kommission an ein Komitee aus MLAs. Diesmal ließ sie ein abgeschlossenes, veröffentlichtes Kommissionsverfahren zu Ende gehen — Mehrheits- und Minderheitenbericht wurden beide vorgelegt — und verwies die Redistricting-Aufgabe dann an ein sechsköpfiges Komitee aus MLAs, in dem die Regierungspartei die Mehrheit (vier von sechs) hält, ohne einen der beiden Kommissionsberichte zur Abstimmung zu stellen. Das Lunty-Komitee ist keine Kommission. Es hat keine gesetzliche Unabhängigkeit gegenüber der legislativen Steuerung durch die Regierung. Seine vierköpfige UCP-Mehrheit spiegelt die Kontrolle der Regierung über die Legislative. Keine andere kanadische Provinz hat die Redistricting-Befugnis mitten im Zyklus an ein von der Regierung kontrolliertes Legislativkomitee übertragen, nachdem eine unabhängige Kommission ihre Arbeit abgeschlossen hatte.",
+			h_framework: "Der verfassungsrechtliche Rahmen",
+			framework_p1: "Abschnitt 3 der <em>Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten\") — „Jeder Bürger Kanadas hat das Recht, bei einer Wahl der Mitglieder des House of Commons oder einer Legislativversammlung zu wählen\" — ist vom Supreme Court of Canada so ausgelegt worden, dass er nicht bloß den Akt der Stimmabgabe garantiert, sondern <em>wirksame Vertretung</em>. Die maßgebliche Autorität ist <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em> [1991] 2 SCR 158, in der McLachlin J. (wie sie damals hieß) für die Mehrheit schrieb, der Zweck von s.3 „sei nicht die Gleichheit der Stimmkraft an sich, sondern das Recht auf wirksame Vertretung\". Die Bevölkerungsparität ist die primäre Erwägung; Abweichungen sind zulässig, wenn sie durch Interessengemeinschaft, Geographie, Geschichte oder Minderheitenrepräsentation gerechtfertigt sind.",
+			framework_p2: "Der Saskatchewan-Rahmen verbietet parteiliche Erwägungen im Redistricting nicht kategorisch. Er stellt vielmehr fest, dass Grenzkarten insgesamt eine wirksame Vertretung der Wählerinnen und Wähler gewähren müssen — und dass die systematische Beeinträchtigung der Fähigkeit einer identifizierbaren Gruppe, eine angemessene Vertretung zu wählen, das Muster ist, auf das s.3-Klagen abzielen. Die statistischen und strukturellen Befunde des Audits — die Position der Minderheitenkarte am 99,99. Perzentil von 1.010.000 neutralen Ziehungen, ihre Überschreitung von vier der fünf strukturellen Schwellen (der fünfte, Anchoring, ist für beide Karten neutral), die identifizierten betroffenen Gemeinden — sind das Beweismaterial, das eine s.3-Klägerin zusammenstellen müsste. Auf der Seite der Interessengemeinschaft dieses Beweismaterials ist die Entscheidung des Federal Court in <em>Raîche v. Canada</em> (2004 FC 679) die maßgebliche kanadische Autorität: Das Gericht verpflichtete dort die föderale Electoral Boundaries Commission, Grenzen erneut zu überprüfen, die die akadische Interessengemeinschaft in New Brunswick ignoriert hatten. Die Messungen der kommunalen Verankerung des Audits und seine spezifischen Gemeindebefunde — Airdrie in vier Bezirke aufgeteilt, die vom Vorsitzenden beanstandeten Stadtrand-Anomalien im Nordwesten Calgarys — sind dieselbe Art von Beweismaterial, die der Federal Court als rechtlich anerkennbar behandelt hat. Ob dieses Material die verfassungsrechtliche Schwelle erreicht, ist eine Rechtsfrage, die dieses Audit nicht entscheidet; das Audit berichtet die Messung.",
+			framework_p3: "Die Rechtmäßigkeit des Komitees als Verfahren ist eine separate Frage. Albertas <em>Electoral Boundaries Commission Act</em> verbietet der Legislative nicht ausdrücklich, ein paralleles Redistricting-Gremium einzusetzen, weil das Gesetz ohnehin vorsieht, dass die Legislative die endgültigen Grenzen durch ordentliche Gesetzgebung erlässt. Ob das Komiteeverfahren, falls es eine Karte mit dem strukturellen und statistischen Profil des Minderheitenvorschlags hervorbringt, eine s.3-Charter-Klage überstehen könnte, hängt davon ab, ob unter den resultierenden Grenzen eine wirksame Vertretung erreichbar ist — derselbe Maßstab, der auf jede von einer Kommission erzeugte Karte angewandt würde.",
+			h_quebec: "Der Quebec-Kontrast",
+			quebec_p1: "Quebec bietet den für Albertas Situation relevantesten Vergleich. Quebecs Commission de la représentation électorale (CRE) ist ein permanentes, unabhängiges Wahlbezirksgremium, keine Ad-hoc-Kommission, die pro Redistribution-Zyklus eingesetzt wird. Die CRE arbeitet kontinuierlich und kann durch Kabinettsbeschluss weder aufgelöst noch umgangen werden. Nach Quebecs <em>Loi électorale</em> legt die CRE die endgültige Wahlkarte selbst fest: Die Nationalversammlung debattiert den Bericht der Kommission und hört Stellungnahmen an, stimmt aber nicht darüber ab, ihn anzunehmen oder aufzuheben — innerhalb von zehn Tagen nach dieser Debatte legt die Kommission die Grenzen fest, die im Gazette officielle veröffentlicht werden. Die praktische Wirkung ist, dass eine Regierungspartei nicht allein mit eigener Mehrheit ihre bevorzugte Karte an die Stelle der Kommissionskarte setzen kann; bei der Grenzziehung selbst hat das unabhängige Gremium das letzte Wort.",
+			quebec_p2: "Quebecs Modell ist teilweise aus Lehren darüber entstanden, was geschieht, wenn Redistricting nicht von parteilicher Kontrolle abgeschirmt ist. Der Kontrast zu Albertas aktuellem Verfahren — bei dem ein mehrheitlich kontrolliertes Komitee die Arbeit der Kommission ersetzt hat, bevor die Legislative über einen der Kommissionsberichte abgestimmt hat — illustriert den strukturellen Unterschied zwischen Redistricting-Systemen, die parteilichen Druck voraussetzen und sich dagegen wappnen, und Systemen, in denen dieser Druck einen klareren Weg zum Ergebnis hat.",
+			closing: "Das Audit wird dieselben Tests auf die Karte des Lunty-Komitees anwenden, wenn sie veröffentlicht wird. Die verfassungsrechtlichen und vergleichenden Beobachtungen oben sind kontextuell; die Methodik ändert sich nicht."
 		},
 		references: {
-			heading: 'Quellen und Methodik',
-			heading_aria: 'Link zu Quellen',
-			intro:
-				'Die Methode stützt sich auf etablierte Literatur aus Politikwissenschaft, Statistik und Recht. Vollständige Zitate folgen dem Stil der American Political Science Association (APSA); Gerichtsfälle folgen der kanadischen juristischen Konvention. Die vollständige Literaturliste steht im <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technischen Bericht</a>. Die wichtigsten Quellen finden Sie hier.',
-			h_academic: 'Wissenschaftliche Literatur',
-			h_cases: 'Gerichtsentscheidungen',
-			h_statutes: 'Gesetze'
+			heading: "Quellen und Methodik",
+			heading_aria: "Link zu Quellen",
+			intro: "Die Methode stützt sich auf etablierte Literatur aus Politikwissenschaft, Statistik und Recht. Vollständige Zitate folgen dem Stil der American Political Science Association (APSA); Gerichtsfälle folgen der kanadischen juristischen Konvention. Die vollständige Literaturliste steht im <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">technischen Bericht</a>. Die wichtigsten Quellen finden Sie hier.",
+			h_academic: "Wissenschaftliche Literatur",
+			h_cases: "Gerichtsentscheidungen",
+			h_statutes: "Gesetze"
 		},
 		resources: {
-			heading: 'Berichte und Code',
-			heading_aria: 'Link zur technischen Sektion',
-			tag_plain: 'Allgemeinverständlich',
-			plain_label: 'Vollständiger öffentlicher Bericht',
-			plain_desc: 'Langform mit Karten, für ein allgemeines Publikum',
-			tag_summary: 'Zusammenfassung',
-			summary_label: 'Zusammenfassung der Befunde',
-			summary_desc: 'Überblick in einfacher Sprache, der jedes Konzept von Grund auf erklärt',
-			tag_academic: 'Akademisch',
-			academic_label: 'Technischer Bericht',
-			academic_desc: 'Vollständige Methoden und Zitate für Forschende',
-			tag_notebook: 'Notebook',
-			notebook_label: 'Interaktives Notebook',
-			notebook_desc: 'Erstellen Sie die Diagramme selbst, in Ihrem Browser, ohne etwas zu installieren',
-			tag_code: 'Code'
-		},
-		translation_about: {
-			heading: 'Über diese Übersetzung',
-			p1: 'Sie lesen eine KI-Übersetzung. Sie wurde vom Modell Fable 5 von Anthropic erstellt und wartet noch auf die Prüfung durch Muttersprachler. Die englische Fassung ist der maßgebliche Text: Falls etwas in dieser Übersetzung unklar ist oder falsch erscheint, gilt das englische Original.',
-			p2: 'Übersetzungsqualität ist hier in einer Weise wichtig, wie sie es auf den meisten Websites nicht ist. Dieses Audit macht statistische Aussagen über Wahlgerechtigkeit, und eine falsch übersetzte Zahl oder ein falsch abgeschwächter Satz führt auf eine Weise in die Irre, die für Leserinnen und Leser schwer zu erkennen ist. Maschinelle Übersetzung zivil-statistischer Prosa ist wirklich schwierig. Fehler sind wahrscheinlich.',
-			p3: 'Wenn Sie Muttersprachlerin oder Muttersprachler sind und einen Fehler entdecken \u2014 oder einen Abschnitt ordentlich prüfen möchten \u2014, dann %s bitte. Zur Einordnung: Der englische Text umfasst etwa {count} Wörter. Sie können gern alles übernehmen oder nur einen Teil. In den meisten Fällen besteht die Arbeit darin, kleinere Fehler der Maschine zu korrigieren, nicht darin, von Grund auf zu übersetzen, und schon die Prüfung eines einzigen Abschnitts hilft.',
-			p3_link: 'melden Sie sich'
+			heading: "Berichte und Code",
+			heading_aria: "Link zur technischen Sektion",
+			tag_plain: "Allgemeinverständlich",
+			plain_label: "Vollständiger öffentlicher Bericht",
+			plain_desc: "Langform mit Karten, für ein allgemeines Publikum",
+			tag_summary: "Zusammenfassung",
+			summary_label: "Zusammenfassung der Befunde",
+			summary_desc: "Überblick in einfacher Sprache, der jedes Konzept von Grund auf erklärt",
+			tag_academic: "Akademisch",
+			academic_label: "Technischer Bericht",
+			academic_desc: "Vollständige Methoden und Zitate für Forschende",
+			tag_notebook: "Notebook",
+			notebook_label: "Interaktives Notebook",
+			notebook_desc: "Erstellen Sie die Diagramme selbst, in Ihrem Browser, ohne etwas zu installieren",
+			tag_code: "Code"
 		},
 		about_me: {
-			heading: 'Über mich',
-			p1: 'Ich bin Student an der Mount Royal University. Ich habe diese Forschung auf eigene Initiative betrieben — sie war nicht als Kursarbeit zugewiesen, und die Universität hat sie nicht in Auftrag gegeben. Meine Ansichten sind meine eigenen und repräsentieren nicht die Universität. Ich habe über etwa 27 Jahre hinweg, von Wahl zu Wahl, auf Vertragsbasis als Wahlmitarbeiter für Elections Alberta gearbeitet und am Wahltag die Stimmabgabe betreut. Derzeit stehe ich nicht unter Vertrag; zuletzt habe ich bei einer kürzlich zurückliegenden Wahl gearbeitet. Eine andere Anstellung bei Elections Alberta hatte ich nie, und über diese Aufgaben hinaus habe ich keine Kenntnis von der Arbeit der Behörde. Nichts in dieser Prüfung stammt aus jener Tätigkeit; alle Eingangsdaten sind öffentlich. Diese Forschung ist meine eigene, nicht die von Elections Alberta, und spricht nicht im Namen der Behörde. Ich habe keine Verbindung zur Kommission. Als Erwachsener habe ich sowohl konservative als auch progressive Provinzparteien in Alberta gewählt und an sie gespendet.',
-			p2: 'Meine politische Vorgeschichte könnte beeinflussen, wie ich dieses Thema sehe, und der wichtigste Schutz dagegen ist die Methode. Ich habe beide Karten auf dieselbe Weise getestet, meine Tests öffentlich in zeitgestempelten Aufzeichnungen registriert, jeden Befund als vorab registriert oder explorativ gekennzeichnet und alles online gestellt, damit jeder meine Arbeit überprüfen kann. Ich habe diese Forschung selbst bezahlt. Wenn Sie etwas finden, das ich falsch gemacht habe, möchte ich es wissen.',
-			p3: 'Seed-Festschreibungs- und Vorab-Registrierungsunterlagen: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451 — die Zufallsseeds wurden vor der Veröffentlichung der offiziellen Shapefiles mit einem Zeitstempel an einen öffentlichen Beacon festgeschrieben; der Nachbarschafts-Drain-Test (#289,451) wurde vor der Messung registriert, die übrigen wurden zusammen mit der explorativen Analyse eingereicht.',
-			p4: 'Fragen oder Korrekturen: '
+			heading: "Über mich",
+			p1: "Ich bin Student an der Mount Royal University. Ich habe diese Forschung auf eigene Initiative betrieben — sie war nicht als Kursarbeit zugewiesen, und die Universität hat sie nicht in Auftrag gegeben. Meine Ansichten sind meine eigenen und repräsentieren nicht die Universität. Ich habe über etwa 27 Jahre hinweg, von Wahl zu Wahl, auf Vertragsbasis als Wahlmitarbeiter für Elections Alberta gearbeitet und am Wahltag die Stimmabgabe betreut. Derzeit stehe ich nicht unter Vertrag; zuletzt habe ich bei einer kürzlich zurückliegenden Wahl gearbeitet. Eine andere Anstellung bei Elections Alberta hatte ich nie, und über diese Aufgaben hinaus habe ich keine Kenntnis von der Arbeit der Behörde. Nichts in dieser Prüfung stammt aus jener Tätigkeit; alle Eingangsdaten sind öffentlich. Diese Forschung ist meine eigene, nicht die von Elections Alberta, und spricht nicht im Namen der Behörde. Ich habe keine Verbindung zur Kommission. Als Erwachsener habe ich sowohl konservative als auch progressive Provinzparteien in Alberta gewählt und an sie gespendet.",
+			p2: "Meine politische Vorgeschichte könnte beeinflussen, wie ich dieses Thema sehe, und der wichtigste Schutz dagegen ist die Methode. Ich habe beide Karten auf dieselbe Weise getestet, meine Tests öffentlich in zeitgestempelten Aufzeichnungen registriert, jeden Befund als vorab registriert oder explorativ gekennzeichnet und alles online gestellt, damit jeder meine Arbeit überprüfen kann. Ich habe diese Forschung selbst bezahlt. Wenn Sie etwas finden, das ich falsch gemacht habe, möchte ich es wissen.",
+			p3: "Seed-Festschreibungs- und Vorab-Registrierungsunterlagen: <a href=\"https://osf.io/6pt83\" rel=\"noopener\">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451 — die Zufallsseeds wurden vor der Veröffentlichung der offiziellen Shapefiles mit einem Zeitstempel an einen öffentlichen Beacon festgeschrieben; der Nachbarschafts-Drain-Test (#289,451) wurde vor der Messung registriert, die übrigen wurden zusammen mit der explorativen Analyse eingereicht.",
+			p4: "Fragen oder Korrekturen: "
+		},
+		translation_about: {
+			heading: "Über diese Übersetzung",
+			p1: "Sie lesen eine KI-Übersetzung. Sie wurde vom Modell Fable 5 von Anthropic erstellt und wartet noch auf die Prüfung durch Muttersprachler. Die englische Fassung ist der maßgebliche Text: Falls etwas in dieser Übersetzung unklar ist oder falsch erscheint, gilt das englische Original.",
+			p2: "Übersetzungsqualität ist hier in einer Weise wichtig, wie sie es auf den meisten Websites nicht ist. Dieses Audit macht statistische Aussagen über Wahlgerechtigkeit, und eine falsch übersetzte Zahl oder ein falsch abgeschwächter Satz führt auf eine Weise in die Irre, die für Leserinnen und Leser schwer zu erkennen ist. Maschinelle Übersetzung zivil-statistischer Prosa ist wirklich schwierig. Fehler sind wahrscheinlich.",
+			p3: "Wenn Sie Muttersprachlerin oder Muttersprachler sind und einen Fehler entdecken — oder einen Abschnitt ordentlich prüfen möchten —, dann %s bitte. Zur Einordnung: Der englische Text umfasst etwa {count} Wörter. Sie können gern alles übernehmen oder nur einen Teil. In den meisten Fällen besteht die Arbeit darin, kleinere Fehler der Maschine zu korrigieren, nicht darin, von Grund auf zu übersetzen, und schon die Prüfung eines einzigen Abschnitts hilft.",
+			p3_link: "melden Sie sich"
 		},
 		retractions: {
-			heading: 'Widerrufe und Korrekturen',
-			heading_aria: 'Link zu Widerrufen',
-			conditions_label: 'WIDERRUFSBEDINGUNGEN',
-			conditions_intro:
-				'Jeder Befund ist im Voraus an eine bestimmte Falsifizierungsbedingung gebunden. Falls eine der unten genannten Bedingungen eintritt, wird der benannte Befund innerhalb von 30 Tagen öffentlich widerrufen. Die übergeordnete Richtungsschlussfolgerung — dass die Minderheitenkarte bei mehreren unabhängigen Tests außerhalb des neutralen Bereichs liegt — wird unter der vorab festgelegten zusammengesetzten Bedingung der Methodik widerrufen: wenn mindestens drei der sechs unabhängigen strukturellen Dimensionen ihre Richtung umkehren.',
-			c1_title: 'Bedingung 1 — Der Zielkonflikt erweist sich als unvermeidlich',
-			c1_what: '<em>Was widerrufen wird:</em> Der strukturelle Befund, dass die Vierfach-Aufteilung Airdries und die drei vom Vorsitzenden beanstandeten Grenzen nicht durch die von der Minderheit selbst angegebene Begründung der Interessengemeinschaft erklärt werden können.',
-			c1_cond:
-				'Bedingung: Jemand zeigt, dass keine legale Alberta-Karte die von der Minderheit selbst genannten Gründe erfüllen kann — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — und sich zugleich zu mit der Mehrheit vergleichbaren Raten an kommunalen Linien verankert. Eine Gegenkarte, die beides leistet, würde den Befund stattdessen stärken (Änderung 27). Auf den amtlichen Grenzen ist diese Bedingung gegenstandslos: Beide Karten verankern sich bereits oberhalb ihrer Schwelle von 60 % an kommunalen Linien (Minderheit 71,8 %, Mehrheit 80,0 %). Offene Herausforderung unter <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
-			c2_title: 'Bedingung 2 — Das vorab registrierte BESTEHEN des Nachbar-Drain wird umgekehrt',
-			c2_what: '<em>Was widerrufen wird:</em> Der Eintrag in „Casing 10“, der die Minderheitenkarte beim Nachbar-Drain-Adjazenztest als vorab registriertes BESTEHEN aufführt.',
-			c2_cond:
-				'Bedingung: Der kontinuierliche v2-Drain-Score fällt in den extremen oberen Schwanz (p &lt; 0,05) zufälliger Permutationen über den festen Kontiguitätsgraphen, was bedeutet, dass das BESTEHEN ein Messartefakt der binären v1-Bewertungsmethode war und kein echtes Nullresultat.',
-			c3_title: 'Bedingung 3 — Ein Kommissionsdokument von vor 2026 taucht auf',
-			c3_what: '<em>Was widerrufen wird:</em> Die Schlussfolgerung, dass die Grenzentscheidungen der Minderheit Entwurfsentscheidungen waren und keine Reaktionen auf dokumentierte Eingaben aus den Gemeinden.',
-			c3_cond:
-				'Bedingung: Ein internes Kommissionsdokument vor den endgültigen Grenzentscheidungen der Minderheit zeigt, dass diese Entscheidungen ausdrücklich von Gemeindeeingaben angetrieben waren, die das Audit nicht gesehen hat — und nicht von den sechs veröffentlichten Unterbegründungen, die das Audit geprüft hat.',
-			c4_title: 'Bedingung 4 — Das Wahlergebnis von 2027 widerspricht der Simulation',
-			c4_what: '<em>Was widerrufen wird:</em> Der Simulationsbefund — dass die Minderheitenkarte bei Stimmengleichheit einen Sitzanteil vergibt, den nur 69 von 1.010.000 neutralen Ziehungen übertreffen.',
-			c4_cond:
-				'Bedingung: Wird die Provinzwahl 2027 auf einer der beiden Kommissionskarten ausgetragen und widerspricht die tatsächliche parteiliche Sitzverteilung der Richtungsprojektion aus den Stimmen von 2023, werden die Perzentilbefunde der Simulation anhand der tatsächlichen Ergebnisse erneut geprüft.',
-			c5_title: 'Bedingung 5 — Ein Alberta-Gericht unterscheidet sich vom SCC-Urteil zu Quebec',
-			c5_what: '<em>Was widerrufen wird:</em> Das Verfahrensargument in Abschnitt 7, dass Regierungsantrag 37, mit dem die Kommission durch das Lunty-Komitee ersetzt wurde, in dieselbe verfassungsrechtliche Klasse fällt wie Quebecs Redistricting-Aufschub 2024.',
-			c5_cond:
-				'Hintergrund: Am 22. April 2026 — einen Tag, nachdem Alberta Regierungsantrag 37 verabschiedet hatte — bestätigte der Supreme Court of Canada 7-zu-2 und aus dem Stand ein Urteil des Quebec Court of Appeal, dass die Legislativ-Aussetzung der Redistricting-Kommission durch die Regierung Legault die in s.3 der Charter garantierte demokratische Repräsentation verletzt. Bedingung: Ein Gericht, das den Alberta-Antrag überprüft, befindet ihn verfassungsrechtlich für unterscheidbar — zum Beispiel, weil die Übertragung der Arbeit an ein MLA-Komitee sich strukturell von einer Legislativ-Aussetzung unterscheidet, oder weil Albertas Analyse der wirksamen Vertretung unter s.3 anders ausgeht als die Quebecs.',
-			corr_label: 'DOKUMENTIERTE KORREKTUREN (kanonische Neuberechnung, 11.05.2026)',
-			corr_intro:
-				'Der folgende frühe Befund hielt der erneuten Analyse gegen die offiziellen Shapefiles von Elections Alberta (erhalten am 06.05.2026) nicht stand. Er wird hier gemäß der vorab festgelegten Audit-Politik, gescheiterte Befunde nie zu löschen, beibehalten.',
-			corr_municipal:
-				'<strong>Kommunale Verankerung.</strong> Eine frühe Entwurfsanalyse mit vorläufigen Kartengrenzen zeigte, dass die Minderheitenkarte nur zu 15 % an kommunalen Linien verankert war — 4,9&times; unter der kanadischen Norm von 70–85 %. Diese Zahl war ein Artefakt der vorläufigen Grenzrekonstruktionen (aus der DPG-Ära). Auf den offiziellen kanonischen Shapefiles von Elections Alberta verankern sich beide Karten innerhalb der kanadischen Norm: Mehrheit 80 %, Minderheit 72 %. Die <em>Divergenz</em> der kommunalen Verankerung zwischen den beiden Karten ist kein Signal, das die kanonische Neuberechnung übersteht. Die drei vom Kommissionsvorsitzenden beanstandeten Grenzanomalien (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) bleiben bestehen und sind von dieser Korrektur nicht betroffen.'
+			heading: "Widerrufe und Korrekturen",
+			heading_aria: "Link zu Widerrufen",
+			conditions_label: "WIDERRUFSBEDINGUNGEN",
+			conditions_intro: "Jeder Befund ist im Voraus an eine bestimmte Falsifizierungsbedingung gebunden. Falls eine der unten genannten Bedingungen eintritt, wird der benannte Befund innerhalb von 30 Tagen öffentlich widerrufen. Die übergeordnete Richtungsschlussfolgerung — dass die Minderheitenkarte bei mehreren unabhängigen Tests außerhalb des neutralen Bereichs liegt — wird unter der vorab festgelegten zusammengesetzten Bedingung der Methodik widerrufen: wenn mindestens drei der sechs unabhängigen strukturellen Dimensionen ihre Richtung umkehren.",
+			c1_title: "Bedingung 1 — Der Zielkonflikt erweist sich als unvermeidlich",
+			c1_what: "<em>Was widerrufen wird:</em> Der strukturelle Befund, dass die Vierfach-Aufteilung Airdries und die drei vom Vorsitzenden beanstandeten Grenzen nicht durch die von der Minderheit selbst angegebene Begründung der Interessengemeinschaft erklärt werden können.",
+			c1_cond: "Bedingung: Jemand zeigt, dass keine legale Alberta-Karte die von der Minderheit selbst genannten Gründe erfüllen kann — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — und sich zugleich zu mit der Mehrheit vergleichbaren Raten an kommunalen Linien verankert. Eine Gegenkarte, die beides leistet, würde den Befund stattdessen stärken (Änderung 27). Auf den amtlichen Grenzen ist diese Bedingung gegenstandslos: Beide Karten verankern sich bereits oberhalb ihrer Schwelle von 60 % an kommunalen Linien (Minderheit 71,8 %, Mehrheit 80,0 %). Offene Herausforderung unter <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+			c2_title: "Bedingung 2 — Das vorab registrierte BESTEHEN des Nachbar-Drain wird umgekehrt",
+			c2_what: "<em>Was widerrufen wird:</em> Der Eintrag in „Casing 10“, der die Minderheitenkarte beim Nachbar-Drain-Adjazenztest als vorab registriertes BESTEHEN aufführt.",
+			c2_cond: "Bedingung: Der kontinuierliche v2-Drain-Score fällt in den extremen oberen Schwanz (p &lt; 0,05) zufälliger Permutationen über den festen Kontiguitätsgraphen, was bedeutet, dass das BESTEHEN ein Messartefakt der binären v1-Bewertungsmethode war und kein echtes Nullresultat.",
+			c3_title: "Bedingung 3 — Ein Kommissionsdokument von vor 2026 taucht auf",
+			c3_what: "<em>Was widerrufen wird:</em> Die Schlussfolgerung, dass die Grenzentscheidungen der Minderheit Entwurfsentscheidungen waren und keine Reaktionen auf dokumentierte Eingaben aus den Gemeinden.",
+			c3_cond: "Bedingung: Ein internes Kommissionsdokument vor den endgültigen Grenzentscheidungen der Minderheit zeigt, dass diese Entscheidungen ausdrücklich von Gemeindeeingaben angetrieben waren, die das Audit nicht gesehen hat — und nicht von den sechs veröffentlichten Unterbegründungen, die das Audit geprüft hat.",
+			c4_title: "Bedingung 4 — Das Wahlergebnis von 2027 widerspricht der Simulation",
+			c4_what: "<em>Was widerrufen wird:</em> Der Simulationsbefund — dass die Minderheitenkarte bei Stimmengleichheit einen Sitzanteil vergibt, den nur 69 von 1.010.000 neutralen Ziehungen übertreffen.",
+			c4_cond: "Bedingung: Wird die Provinzwahl 2027 auf einer der beiden Kommissionskarten ausgetragen und widerspricht die tatsächliche parteiliche Sitzverteilung der Richtungsprojektion aus den Stimmen von 2023, werden die Perzentilbefunde der Simulation anhand der tatsächlichen Ergebnisse erneut geprüft.",
+			c5_title: "Bedingung 5 — Ein Alberta-Gericht unterscheidet sich vom SCC-Urteil zu Quebec",
+			c5_what: "<em>Was widerrufen wird:</em> Das Verfahrensargument in Abschnitt 7, dass Regierungsantrag 37, mit dem die Kommission durch das Lunty-Komitee ersetzt wurde, in dieselbe verfassungsrechtliche Klasse fällt wie Quebecs Redistricting-Aufschub 2024.",
+			c5_cond: "Hintergrund: Am 22. April 2026 — einen Tag, nachdem Alberta Regierungsantrag 37 verabschiedet hatte — bestätigte der Supreme Court of Canada 7-zu-2 und aus dem Stand ein Urteil des Quebec Court of Appeal, dass die Legislativ-Aussetzung der Redistricting-Kommission durch die Regierung Legault die in s.3 der Charter garantierte demokratische Repräsentation verletzt. Bedingung: Ein Gericht, das den Alberta-Antrag überprüft, befindet ihn verfassungsrechtlich für unterscheidbar — zum Beispiel, weil die Übertragung der Arbeit an ein MLA-Komitee sich strukturell von einer Legislativ-Aussetzung unterscheidet, oder weil Albertas Analyse der wirksamen Vertretung unter s.3 anders ausgeht als die Quebecs.",
+			corr_label: "DOKUMENTIERTE KORREKTUREN (kanonische Neuberechnung, 11.05.2026)",
+			corr_intro: "Der folgende frühe Befund hielt der erneuten Analyse gegen die offiziellen Shapefiles von Elections Alberta (erhalten am 06.05.2026) nicht stand. Er wird hier gemäß der vorab festgelegten Audit-Politik, gescheiterte Befunde nie zu löschen, beibehalten.",
+			corr_municipal: "<strong>Kommunale Verankerung.</strong> Eine frühe Entwurfsanalyse mit vorläufigen Kartengrenzen zeigte, dass die Minderheitenkarte nur zu 15 % an kommunalen Linien verankert war — 4,9&times; unter der kanadischen Norm von 70–85 %. Diese Zahl war ein Artefakt der vorläufigen Grenzrekonstruktionen (aus der DPG-Ära). Auf den offiziellen kanonischen Shapefiles von Elections Alberta verankern sich beide Karten innerhalb der kanadischen Norm: Mehrheit 80 %, Minderheit 72 %. Die <em>Divergenz</em> der kommunalen Verankerung zwischen den beiden Karten ist kein Signal, das die kanonische Neuberechnung übersteht. Die drei vom Kommissionsvorsitzenden beanstandeten Grenzanomalien (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) bleiben bestehen und sind von dieser Korrektur nicht betroffen."
 		},
 		suggestions: {
-			heading: 'Vorschläge',
-			heading_aria: 'Link zu den Vorschlägen',
-			intro:
-				'Dieses Audit ist auf zwei Datenprobleme gestoßen, die nichts mit der Arbeit der Kommission zu tun haben, sondern alles damit, wie Albertas Wahlsystem aufgebaut ist. Beide sind behebbar.',
-			advance_p1:
-				'<strong>Ungefähr die Hälfte aller Stimmen in Alberta kommt mittlerweile vor dem Wahltag an</strong>: Vorabwahllokale, mobile Wahllokale, Sonderstimmzettel. Elections Alberta meldet diese Ergebnisse als Summen pro Wahlbezirk, nicht pro einzelner Voting Area. Deshalb können rund 395.000 NDP- und UCP-Stimmen, die 2023 abgegeben wurden, keinem Stadtviertel auf einer Karte zugeordnet werden. Sie werden gezählt. Sie lassen sich nur nicht verorten. Jede Vorabwählerin und jeder Vorabwähler wird vor Ausgabe eines Stimmzettels anhand eines Wählerverzeichnisses geprüft, und dieses Verzeichnis ordnet jede wählende Person einer bestimmten Voting Area zu. Die Vorabstimmen nach Voting Area zu veröffentlichen, würde keinerlei Änderung am Wahlverfahren erfordern. Nur an dem, was Elections Alberta meldet.',
-			advance_p2:
-				'Das betrifft auch die Kommissionsmitglieder, nicht nur externe Analysten. Wenn eine Kommission entscheidet, ob Airdrie ganz bleibt oder geteilt wird, ob ein Korridor zwischen zwei Gemeinden sinnvoll ist, ob eine vorgeschlagene Grenze eine natürliche Wählerschaft teilt, trifft sie Urteile, die davon abhängen, zu wissen, wo die Wählerinnen und Wähler leben. Die Kommissionsmitglieder arbeiten mit demselben veröffentlichten Datensatz wie alle anderen. Auch ihnen fehlt die Hälfte des geographischen Signals, und zwar ausgerechnet über die Gemeinden, um die herum sie Grenzen ziehen.',
-			lesser_slave_p1:
-				'In mindestens einer Gemeinde im Norden Albertas ist diese Lücke vollständig. Im nördlichen Teil des Wahlbezirks Lesser Slave Lake <button class="ed-trigger" data-ed-name="Lesser Slave Lake">zeigen ↗</button> liegt eine Voting Area mit 4.832 km&#178; — mehr als vier Fünftel der Größe von Prince Edward Island —, in der 2023 jede einzelne Stimme über das mobile Wahlteam von Elections Alberta abgegeben wurde. Die Entscheidungen dieser 844 Einwohner werden in der Summe des Wahlbezirks gezählt, lassen sich aber keinem Ort auf einer Karte zuordnen. In den veröffentlichten Wahlergebnissen ist die Gemeinde völlig unsichtbar.',
-			lesser_slave_p2:
-				'Als die Kommission zunächst erwog, den Wahlbezirk Lesser Slave Lake abzuschaffen und in ein größeres Riding einzugliedern, arbeitete sie ohne geographische Stimmdaten aus diesen Gemeinden. Am Ende erhielt sie den Wahlbezirk. Das geschah nach mehr als 80 öffentlichen Eingaben, viele davon aus den indigenen Gemeinden im nördlichen Teil des Ridings, und sie berief sich auf § 15(2) des <em>Electoral Boundaries Commission Act</em> — die Bestimmung, nach der bis zu vier abgelegene Ridings, die mindestens drei von fünf Kriterien wie Größe, Entfernung und das Vorhandensein eines First-Nations-Reservats oder einer M&#233;tis-Siedlung erfüllen, eine bis zu 50 % unter dem Provinzdurchschnitt liegende Bevölkerung haben dürfen. Sie kamen ans Ziel. Aber die Daten, die ihnen vorlagen, zeigten nicht, wer in den Gemeinden wählte, die sie zu schützen beschlossen.',
-			ebca_label: 'ABSCHNITT 15(2) EBCA',
-			ebca_body:
-				'Abschnitt 15(2) von Albertas <em>Electoral Boundaries Commission Act</em> ist eine Ermessensvorschrift, die es Kommissionen erlaubt, unterdurchschnittlich große Ridings zu schützen — solche, die mehr als 25 % unter dem provinziellen Bevölkerungsdurchschnitt liegen —, wenn das Riding mindestens drei von fünf bestimmten Kriterien erfüllt: (a) eine geographische Fläche von mehr als 20.000 km², (b) eine Entfernung von mehr als 150 km vom Legislative Building auf der direktesten Highway-Route, (c) das Fehlen einer Stadt mit mehr als 8.000 Einwohnern, (d) das Vorhandensein eines Indian Reserve oder einer Métis-Siedlung, und (e) ob das Riding mit einer Grenze der Provinz Alberta deckungsgleich ist. Die Vorschrift gilt nicht automatisch; die Kommission muss beurteilen, ob die Kriterien erfüllt sind. Lesser Slave Lake erfüllt unabhängig vier der fünf.',
-			rationale_p1:
-				'Die vorläufige Begründung für die Abschaffung des Ridings war die Bevölkerungszahl. Mit rund 27.000 Einwohnern liegt Lesser Slave Lake etwa 45 % unter dem Provinzdurchschnitt, nahe an der gesetzlichen Untergrenze. Das liest sich wie eine schlichte Anwendung der Regeln. Das ist es nicht. Albertas Gesetz räumt Kommissionen ausdrücklich Ermessen ein, unterbesetzte Ridings zu schützen, wenn mindestens drei von fünf bestimmten Kriterien zutreffen, und Lesser Slave Lake erfüllt vier davon unabhängig voneinander. Seine Fläche beträgt 69.566 km² (Kriterium a, Schwelle 20.000 km²). Seine nächstgelegene Grenze liegt auf der Straße mehr als 150 km von der Legislative entfernt (Kriterium b). Kein Ort im Riding hat mehr als 8.000 Einwohner (Kriterium c). Und das Riding umfasst vierzehn Indian Reserves und M&#233;tis-Siedlungen, deren Gemeinden eine gemeinsame nördliche Geographie teilen, eine gemeinsame Abhängigkeit von mobilen Wahllokalen, um überhaupt wählen zu können, und ein kollektives Interesse an einer Vertretung, die in erster Linie dem Norden Albertas verantwortlich ist (Kriterium d).',
-			rationale_p2:
-				'Bei der vorgeschlagenen Fusion mit Mackenzie wäre diese kollektive Stimme dauerhaft in einem Riding aufgegangen, in dem die andere Partei mit mehr als zwei zu eins gewinnt. Nicht weil sich diese Gemeinden verändert hätten. Weil sich die Linien um sie herum verändert hätten. Jedes dieser vier Kriterien ist eine objektive Tatsache über die Geographie des Ridings, keine Ermessensfrage. Zusammen beschreiben sie eine Wählerschaft, zu deren Schutz die Bestimmung geschrieben wurde: abgelegen, groß, dünn besiedelt und Heimat von Gemeinden, deren Interesse an Vertretung sich nicht aus rohen Bevölkerungszahlen ablesen lässt. Drei braucht man, um sich zu qualifizieren. Lesser Slave Lake hat vier. Das Bevölkerungsdefizit so zu behandeln, als erzwinge es die Abschaffung, verkennt das Gesetz. Die Kehrtwende der Kommission war die korrekte Anwendung des Gesetzes, kein Zugeständnis an politischen Druck.',
-			banff_p:
-				'Hier ist die andere Seite der Geschichte. Während die indigenen Gemeinden in Lesser Slave Lake darum kämpften, gezählt zu werden, schlugen die abweichenden Kommissionsmitglieder vor, ein anderes Riding zu schützen, indem sie es in den unbewohnten Teil des Banff National Park ausdehnten. Der Kommissionsvorsitzende selbst nannte das „einen Versuch in bösem Glauben“, den gesetzlichen Schutz zu beanspruchen; die Formulierung steht im offiziellen Abschlussbericht der Kommission. Die Prüfung des Audits schwächt diesen Vorwurf ab: Der Wahlbezirk qualifiziert sich nach §&#x2009;15(2) auch ohne die Ausdehnung. Dennoch wurde in der Karte der Minderheit ein Schutz, der für abgelegene Gemeinden geschrieben wurde, in denen Menschen leben, über leeres Parkland gespannt. Die Gemeinden, denen er helfen sollte, mussten ihn sich durch öffentliche Eingaben erkämpfen. Das Lunty-Komitee wird im November vor derselben §&#x2009;15(2)-Entscheidung stehen, ohne gesetzliche Pflicht, öffentliche Anhörungen abzuhalten, und ohne Garantie, dass die 80 Eingaben, die die vorläufige Position der Kommission umgekehrt haben, ein zweites Mal dasselbe Gewicht haben.',
-			census_p1:
-				'<strong>Alberta sollte die Volkszählung 2026 abwarten, bevor es die nächste Karte zeichnet.</strong> Kanada zählt seine Bevölkerung alle fünf Jahre. Die Volkszählung 2026 fand im Mai 2026 statt, und ihre ersten Ergebnisse werden im Februar 2027 erwartet. Die Kommission, die die in diesem Audit bewerteten Karten zeichnete, musste von der Volkszählung 2021 ausgehen, fortgeschrieben auf eine Provinzschätzung vom Juli 2024: eine Zählung, die schon vier Jahre alt war, als die Karten gezeichnet wurden, und die bis zum Auslaufen dieser Grenzen womöglich vierzehn Jahre alt sein wird. Schnell wachsende Städte wie Airdrie und Chestermere werden sich in diesem Zeitraum um 40 % oder mehr verändern. Ländliche Gemeinden werden schrumpfen. Die Karte wird vom ersten Tag ihrer Verwendung an falsch sein. Eine einfache Änderung des <em>Electoral Boundaries Commission Act</em> könnte vorschreiben, dass eine neue Kommission erst ernannt wird, nachdem Statistics Canada die aktuellsten Daten auf Ebene der Dissemination Areas aus der vorangegangenen Volkszählung veröffentlicht hat. Das Ergebnis: Karten, die zeigen, wo die Menschen in Alberta tatsächlich leben. Nicht, wo sie vor einem Jahrzehnt lebten.',
-			census_p2:
-				'Das Lunty-Komitee arbeitet nach dem bestehenden Gesetz, das keine Vorgabe zum Zeitpunkt der Volkszählung macht, und es kann seine Frist im November 2026 nicht eigenmächtig hinausschieben. Diese Empfehlung gilt für eine künftige Änderung des <em>Electoral Boundaries Commission Act</em>, nicht für das laufende Verfahren. Die Spannung ist real. Ein Komitee, das bis November eine Karte liefern muss, arbeitet mit einer Volkszählung, die dann schon fünf Jahre alt ist. Die Einschränkung zu benennen, ist nützlicher, als so zu tun, als gäbe es sie nicht.',
-			closing:
-				'Keiner dieser Punkte ist ein Befund über die Karten der jetzigen Kommission. Es sind Beobachtungen über ein System, das genaue Wahlanalysen schwerer macht als nötig, hier als praktische Vorschläge angeboten, nicht als Schlussfolgerungen. Beide lassen sich tatsächlich beheben. Sie zu beheben, würde jede künftige Kommission und jedes künftige Audit auf festeren Boden stellen.'
+			heading: "Vorschläge",
+			heading_aria: "Link zu den Vorschlägen",
+			intro: "Dieses Audit ist auf zwei Datenprobleme gestoßen, die nichts mit der Arbeit der Kommission zu tun haben, sondern alles damit, wie Albertas Wahlsystem aufgebaut ist. Beide sind behebbar.",
+			advance_p1: "<strong>Ungefähr die Hälfte aller Stimmen in Alberta kommt mittlerweile vor dem Wahltag an</strong>: Vorabwahllokale, mobile Wahllokale, Sonderstimmzettel. Elections Alberta meldet diese Ergebnisse als Summen pro Wahlbezirk, nicht pro einzelner Voting Area. Deshalb können rund 395.000 NDP- und UCP-Stimmen, die 2023 abgegeben wurden, keinem Stadtviertel auf einer Karte zugeordnet werden. Sie werden gezählt. Sie lassen sich nur nicht verorten. Jede Vorabwählerin und jeder Vorabwähler wird vor Ausgabe eines Stimmzettels anhand eines Wählerverzeichnisses geprüft, und dieses Verzeichnis ordnet jede wählende Person einer bestimmten Voting Area zu. Die Vorabstimmen nach Voting Area zu veröffentlichen, würde keinerlei Änderung am Wahlverfahren erfordern. Nur an dem, was Elections Alberta meldet.",
+			advance_p2: "Das betrifft auch die Kommissionsmitglieder, nicht nur externe Analysten. Wenn eine Kommission entscheidet, ob Airdrie ganz bleibt oder geteilt wird, ob ein Korridor zwischen zwei Gemeinden sinnvoll ist, ob eine vorgeschlagene Grenze eine natürliche Wählerschaft teilt, trifft sie Urteile, die davon abhängen, zu wissen, wo die Wählerinnen und Wähler leben. Die Kommissionsmitglieder arbeiten mit demselben veröffentlichten Datensatz wie alle anderen. Auch ihnen fehlt die Hälfte des geographischen Signals, und zwar ausgerechnet über die Gemeinden, um die herum sie Grenzen ziehen.",
+			lesser_slave_p1: "In mindestens einer Gemeinde im Norden Albertas ist diese Lücke vollständig. Im nördlichen Teil des Wahlbezirks Lesser Slave Lake <button class=\"ed-trigger\" data-ed-name=\"Lesser Slave Lake\">zeigen ↗</button> liegt eine Voting Area mit 4.832 km&#178; — mehr als vier Fünftel der Größe von Prince Edward Island —, in der 2023 jede einzelne Stimme über das mobile Wahlteam von Elections Alberta abgegeben wurde. Die Entscheidungen dieser 844 Einwohner werden in der Summe des Wahlbezirks gezählt, lassen sich aber keinem Ort auf einer Karte zuordnen. In den veröffentlichten Wahlergebnissen ist die Gemeinde völlig unsichtbar.",
+			lesser_slave_p2: "Als die Kommission zunächst erwog, den Wahlbezirk Lesser Slave Lake abzuschaffen und in ein größeres Riding einzugliedern, arbeitete sie ohne geographische Stimmdaten aus diesen Gemeinden. Am Ende erhielt sie den Wahlbezirk. Das geschah nach mehr als 80 öffentlichen Eingaben, viele davon aus den indigenen Gemeinden im nördlichen Teil des Ridings, und sie berief sich auf § 15(2) des <em>Electoral Boundaries Commission Act</em> — die Bestimmung, nach der bis zu vier abgelegene Ridings, die mindestens drei von fünf Kriterien wie Größe, Entfernung und das Vorhandensein eines First-Nations-Reservats oder einer M&#233;tis-Siedlung erfüllen, eine bis zu 50 % unter dem Provinzdurchschnitt liegende Bevölkerung haben dürfen. Sie kamen ans Ziel. Aber die Daten, die ihnen vorlagen, zeigten nicht, wer in den Gemeinden wählte, die sie zu schützen beschlossen.",
+			ebca_label: "ABSCHNITT 15(2) EBCA",
+			ebca_body: "Abschnitt 15(2) von Albertas <em>Electoral Boundaries Commission Act</em> ist eine Ermessensvorschrift, die es Kommissionen erlaubt, unterdurchschnittlich große Ridings zu schützen — solche, die mehr als 25 % unter dem provinziellen Bevölkerungsdurchschnitt liegen —, wenn das Riding mindestens drei von fünf bestimmten Kriterien erfüllt: (a) eine geographische Fläche von mehr als 20.000 km², (b) eine Entfernung von mehr als 150 km vom Legislative Building auf der direktesten Highway-Route, (c) das Fehlen einer Stadt mit mehr als 8.000 Einwohnern, (d) das Vorhandensein eines Indian Reserve oder einer Métis-Siedlung, und (e) ob das Riding mit einer Grenze der Provinz Alberta deckungsgleich ist. Die Vorschrift gilt nicht automatisch; die Kommission muss beurteilen, ob die Kriterien erfüllt sind. Lesser Slave Lake erfüllt unabhängig vier der fünf.",
+			rationale_p1: "Die vorläufige Begründung für die Abschaffung des Ridings war die Bevölkerungszahl. Mit rund 27.000 Einwohnern liegt Lesser Slave Lake etwa 45 % unter dem Provinzdurchschnitt, nahe an der gesetzlichen Untergrenze. Das liest sich wie eine schlichte Anwendung der Regeln. Das ist es nicht. Albertas Gesetz räumt Kommissionen ausdrücklich Ermessen ein, unterbesetzte Ridings zu schützen, wenn mindestens drei von fünf bestimmten Kriterien zutreffen, und Lesser Slave Lake erfüllt vier davon unabhängig voneinander. Seine Fläche beträgt 69.566 km² (Kriterium a, Schwelle 20.000 km²). Seine nächstgelegene Grenze liegt auf der Straße mehr als 150 km von der Legislative entfernt (Kriterium b). Kein Ort im Riding hat mehr als 8.000 Einwohner (Kriterium c). Und das Riding umfasst vierzehn Indian Reserves und M&#233;tis-Siedlungen, deren Gemeinden eine gemeinsame nördliche Geographie teilen, eine gemeinsame Abhängigkeit von mobilen Wahllokalen, um überhaupt wählen zu können, und ein kollektives Interesse an einer Vertretung, die in erster Linie dem Norden Albertas verantwortlich ist (Kriterium d).",
+			rationale_p2: "Bei der vorgeschlagenen Fusion mit Mackenzie wäre diese kollektive Stimme dauerhaft in einem Riding aufgegangen, in dem die andere Partei mit mehr als zwei zu eins gewinnt. Nicht weil sich diese Gemeinden verändert hätten. Weil sich die Linien um sie herum verändert hätten. Jedes dieser vier Kriterien ist eine objektive Tatsache über die Geographie des Ridings, keine Ermessensfrage. Zusammen beschreiben sie eine Wählerschaft, zu deren Schutz die Bestimmung geschrieben wurde: abgelegen, groß, dünn besiedelt und Heimat von Gemeinden, deren Interesse an Vertretung sich nicht aus rohen Bevölkerungszahlen ablesen lässt. Drei braucht man, um sich zu qualifizieren. Lesser Slave Lake hat vier. Das Bevölkerungsdefizit so zu behandeln, als erzwinge es die Abschaffung, verkennt das Gesetz. Die Kehrtwende der Kommission war die korrekte Anwendung des Gesetzes, kein Zugeständnis an politischen Druck.",
+			banff_p: "Hier ist die andere Seite der Geschichte. Während die indigenen Gemeinden in Lesser Slave Lake darum kämpften, gezählt zu werden, schlugen die abweichenden Kommissionsmitglieder vor, ein anderes Riding zu schützen, indem sie es in den unbewohnten Teil des Banff National Park ausdehnten. Der Kommissionsvorsitzende selbst nannte das „einen Versuch in bösem Glauben“, den gesetzlichen Schutz zu beanspruchen; die Formulierung steht im offiziellen Abschlussbericht der Kommission. Die Prüfung des Audits schwächt diesen Vorwurf ab: Der Wahlbezirk qualifiziert sich nach §&#x2009;15(2) auch ohne die Ausdehnung. Dennoch wurde in der Karte der Minderheit ein Schutz, der für abgelegene Gemeinden geschrieben wurde, in denen Menschen leben, über leeres Parkland gespannt. Die Gemeinden, denen er helfen sollte, mussten ihn sich durch öffentliche Eingaben erkämpfen. Das Lunty-Komitee wird im November vor derselben §&#x2009;15(2)-Entscheidung stehen, ohne gesetzliche Pflicht, öffentliche Anhörungen abzuhalten, und ohne Garantie, dass die 80 Eingaben, die die vorläufige Position der Kommission umgekehrt haben, ein zweites Mal dasselbe Gewicht haben.",
+			census_p1: "<strong>Alberta sollte die Volkszählung 2026 abwarten, bevor es die nächste Karte zeichnet.</strong> Kanada zählt seine Bevölkerung alle fünf Jahre. Die Volkszählung 2026 fand im Mai 2026 statt, und ihre ersten Ergebnisse werden im Februar 2027 erwartet. Die Kommission, die die in diesem Audit bewerteten Karten zeichnete, musste von der Volkszählung 2021 ausgehen, fortgeschrieben auf eine Provinzschätzung vom Juli 2024: eine Zählung, die schon vier Jahre alt war, als die Karten gezeichnet wurden, und die bis zum Auslaufen dieser Grenzen womöglich vierzehn Jahre alt sein wird. Schnell wachsende Städte wie Airdrie und Chestermere werden sich in diesem Zeitraum um 40 % oder mehr verändern. Ländliche Gemeinden werden schrumpfen. Die Karte wird vom ersten Tag ihrer Verwendung an falsch sein. Eine einfache Änderung des <em>Electoral Boundaries Commission Act</em> könnte vorschreiben, dass eine neue Kommission erst ernannt wird, nachdem Statistics Canada die aktuellsten Daten auf Ebene der Dissemination Areas aus der vorangegangenen Volkszählung veröffentlicht hat. Das Ergebnis: Karten, die zeigen, wo die Menschen in Alberta tatsächlich leben. Nicht, wo sie vor einem Jahrzehnt lebten.",
+			census_p2: "Das Lunty-Komitee arbeitet nach dem bestehenden Gesetz, das keine Vorgabe zum Zeitpunkt der Volkszählung macht, und es kann seine Frist im November 2026 nicht eigenmächtig hinausschieben. Diese Empfehlung gilt für eine künftige Änderung des <em>Electoral Boundaries Commission Act</em>, nicht für das laufende Verfahren. Die Spannung ist real. Ein Komitee, das bis November eine Karte liefern muss, arbeitet mit einer Volkszählung, die dann schon fünf Jahre alt ist. Die Einschränkung zu benennen, ist nützlicher, als so zu tun, als gäbe es sie nicht.",
+			closing: "Keiner dieser Punkte ist ein Befund über die Karten der jetzigen Kommission. Es sind Beobachtungen über ein System, das genaue Wahlanalysen schwerer macht als nötig, hier als praktische Vorschläge angeboten, nicht als Schlussfolgerungen. Beide lassen sich tatsächlich beheben. Sie zu beheben, würde jede künftige Kommission und jedes künftige Audit auf festeren Boden stellen."
 		}
 	},
 	editorial_canada: {
-		heading: 'Kontext: Kanada ist anders — und ähnlich',
-		p1: 'Kanada gehört zur selben Familie wie die USA, das Vereinigte Königreich und Australien. Wir wählen einzelne Vertreter aus geographischen Bezirken nach dem Mehrheitswahlrecht (first-past-the-post). Wir ziehen die Linien regelmäßig neu — auf Bundesebene nach jeder zehnjährigen Volkszählung, auf Provinzebene nach gestaffelten Zeitplänen. Wir haben die grundlegende Mechanik aus denselben Westminster-Wurzeln geerbt. So weit, so wenig überraschend.',
-		p2: 'Was Kanada unterscheidet, ist der Maßstab, dem die Linien standhalten müssen.',
-		p3: 'Im amerikanischen Verfassungsrecht lautet die bindende Regel <em>eine Person, eine Stimme</em> — die Bezirke müssen so gleiche Bevölkerungen haben, wie praktikabel, und große Abweichungen erfordern eine strenge Rechtfertigung. Im kanadischen Verfassungsrecht lautet die bindende Regel anders. Abschnitt 3 der <em>Canadian Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten") garantiert jedem Bürger das Wahlrecht. In <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — dem Saskatchewan Reference von 1991, dem Leitfall — hat der Supreme Court of Canada das Recht als Recht auf <em>wirksame Vertretung</em> ausgelegt, nicht als Recht auf mathematische Gleichheit der Bezirksbevölkerungen.',
-		p4: 'Diese Unterscheidung ist wichtig. Wirksame Vertretung erlaubt, dass Bezirksbevölkerungen variieren — manchmal erheblich —, wenn es gute Gründe dafür gibt: ausgedehnte ländliche Gegenden, die ein MLA bei standardmäßiger Bevölkerungsdichte nicht angemessen versorgen kann, Interessengemeinschaften, die zusammengehalten werden sollen, Minderheitenvertretung, die mathematische Gleichheit verwässern würde. Das Saskatchewan Reference machte diese Flexibilität verfassungsrechtlich. Die 25-Prozent-Bevölkerungsabweichung des EBCA — die Regel, die die Sitze des ländlichen Alberta schützt — fließt direkt daraus.',
-		p5: 'Der Haken ist, dass Flexibilität in beide Richtungen schneidet. Wenn eine Kommission aus den richtigen Gründen rechtmäßig von der Bevölkerungsgleichheit abweichen kann, kann sie auch aus den falschen Gründen abweichen. Das kanadische Recht hat keine mathematische Untergrenze im US-Stil, auf die es zurückgreifen kann. Es hat den Test der wirksamen Vertretung, von Richtern angewandt, nachträglich, im Streitverfahren. Die meisten Gerichtsbarkeiten wappnen sich gegen die falschen Gründe mit strukturellen Schutzmaßnahmen: Auf Bundesebene sind die Neuverteilungskommissionen gesetzlich abgeschirmt, und ihre Grenzen treten durch eine Repräsentationsverordnung (representation order) in Kraft, ohne dass das Parlament über ihre Annahme abstimmt. Quebec geht am weitesten — seine ständige unabhängige Kommission legt die endgültige Karte selbst fest, ohne dass die Versammlung über deren Annahme oder Aufhebung abstimmt. Selbst British Columbia, dessen Legislativversammlung über die Genehmigung der Kommissionsvorschläge abstimmt und sie per Gesetz erlässt, behandelt die Übernahme der Arbeit der unabhängigen Kommission als Norm, statt eine eigene Karte an deren Stelle zu setzen.',
-		p6: 'Alberta ist die Ausnahme. Nach dem <em>Electoral Boundaries Commission Act</em> ist der Kommissionsbericht nur eine Empfehlung — die Legislative muss abstimmen, um ihn zu erlassen. Die Zustimmung ist normalerweise eine Formalität. Im Zyklus 2026 spaltete sich die Kommission 3 zu 2 und brachte zwei konkurrierende Vorschläge hervor; die Legislative hat ein separates MLA-Komitee, vorgesessen von einem UCP-MLA, geschaffen, um zwischen ihnen zu wählen. Nichts im kanadischen Verfassungsrecht verlangte die Existenz dieses Komitees. Nichts verlangt, dass seine Wahl dem Verfahren der Kommission folgt. Das ist die strukturelle Lücke, die dieses Audit untersucht.',
-		p7: 'Wenn also kanadische Gerichte sagen, „Gerrymander" gehöre nicht zu ihrem juristischen Vokabular, sagen sie nicht, dass das zugrundeliegende Konzept hier nicht zutrifft. Sie sagen, dass der Maßstab ein anderer ist — wirksame Vertretung, nicht mathematische Gleichheit. Ob der Minderheitenvorschlag diesen Maßstab erfüllt, ist genau die Frage, gegen die dieses Audit die Geometrie gemessen hat, und genau die Frage, die nur ein Richter endgültig beantworten kann. Die vollständige Begründung des <em>Saskatchewan Reference</em>, der Kontrast zu anderen Provinzen, die Frage der Klagebefugnis und die verfügbaren Reformwege werden in <a href="#references">dem Quellenabschnitt unten</a> behandelt.'
+		heading: "Kontext: Kanada ist anders — und ähnlich",
+		p1: "Kanada gehört zur selben Familie wie die USA, das Vereinigte Königreich und Australien. Wir wählen einzelne Vertreter aus geographischen Bezirken nach dem Mehrheitswahlrecht (first-past-the-post). Wir ziehen die Linien regelmäßig neu — auf Bundesebene nach jeder zehnjährigen Volkszählung, auf Provinzebene nach gestaffelten Zeitplänen. Wir haben die grundlegende Mechanik aus denselben Westminster-Wurzeln geerbt. So weit, so wenig überraschend.",
+		p2: "Was Kanada unterscheidet, ist der Maßstab, dem die Linien standhalten müssen.",
+		p3: "Im amerikanischen Verfassungsrecht lautet die bindende Regel <em>eine Person, eine Stimme</em> — die Bezirke müssen so gleiche Bevölkerungen haben, wie praktikabel, und große Abweichungen erfordern eine strenge Rechtfertigung. Im kanadischen Verfassungsrecht lautet die bindende Regel anders. Abschnitt 3 der <em>Canadian Charter of Rights and Freedoms</em> („Kanadische Charta der Rechte und Freiheiten\") garantiert jedem Bürger das Wahlrecht. In <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — dem Saskatchewan Reference von 1991, dem Leitfall — hat der Supreme Court of Canada das Recht als Recht auf <em>wirksame Vertretung</em> ausgelegt, nicht als Recht auf mathematische Gleichheit der Bezirksbevölkerungen.",
+		p4: "Diese Unterscheidung ist wichtig. Wirksame Vertretung erlaubt, dass Bezirksbevölkerungen variieren — manchmal erheblich —, wenn es gute Gründe dafür gibt: ausgedehnte ländliche Gegenden, die ein MLA bei standardmäßiger Bevölkerungsdichte nicht angemessen versorgen kann, Interessengemeinschaften, die zusammengehalten werden sollen, Minderheitenvertretung, die mathematische Gleichheit verwässern würde. Das Saskatchewan Reference machte diese Flexibilität verfassungsrechtlich. Die 25-Prozent-Bevölkerungsabweichung des EBCA — die Regel, die die Sitze des ländlichen Alberta schützt — fließt direkt daraus.",
+		p5: "Der Haken ist, dass Flexibilität in beide Richtungen schneidet. Wenn eine Kommission aus den richtigen Gründen rechtmäßig von der Bevölkerungsgleichheit abweichen kann, kann sie auch aus den falschen Gründen abweichen. Das kanadische Recht hat keine mathematische Untergrenze im US-Stil, auf die es zurückgreifen kann. Es hat den Test der wirksamen Vertretung, von Richtern angewandt, nachträglich, im Streitverfahren. Die meisten Gerichtsbarkeiten wappnen sich gegen die falschen Gründe mit strukturellen Schutzmaßnahmen: Auf Bundesebene sind die Neuverteilungskommissionen gesetzlich abgeschirmt, und ihre Grenzen treten durch eine Repräsentationsverordnung (representation order) in Kraft, ohne dass das Parlament über ihre Annahme abstimmt. Quebec geht am weitesten — seine ständige unabhängige Kommission legt die endgültige Karte selbst fest, ohne dass die Versammlung über deren Annahme oder Aufhebung abstimmt. Selbst British Columbia, dessen Legislativversammlung über die Genehmigung der Kommissionsvorschläge abstimmt und sie per Gesetz erlässt, behandelt die Übernahme der Arbeit der unabhängigen Kommission als Norm, statt eine eigene Karte an deren Stelle zu setzen.",
+		p6: "Alberta ist die Ausnahme. Nach dem <em>Electoral Boundaries Commission Act</em> ist der Kommissionsbericht nur eine Empfehlung — die Legislative muss abstimmen, um ihn zu erlassen. Die Zustimmung ist normalerweise eine Formalität. Im Zyklus 2026 spaltete sich die Kommission 3 zu 2 und brachte zwei konkurrierende Vorschläge hervor; die Legislative hat ein separates MLA-Komitee, vorgesessen von einem UCP-MLA, geschaffen, um zwischen ihnen zu wählen. Nichts im kanadischen Verfassungsrecht verlangte die Existenz dieses Komitees. Nichts verlangt, dass seine Wahl dem Verfahren der Kommission folgt. Das ist die strukturelle Lücke, die dieses Audit untersucht.",
+		p7: "Wenn also kanadische Gerichte sagen, „Gerrymander\" gehöre nicht zu ihrem juristischen Vokabular, sagen sie nicht, dass das zugrundeliegende Konzept hier nicht zutrifft. Sie sagen, dass der Maßstab ein anderer ist — wirksame Vertretung, nicht mathematische Gleichheit. Ob der Minderheitenvorschlag diesen Maßstab erfüllt, ist genau die Frage, gegen die dieses Audit die Geometrie gemessen hat, und genau die Frage, die nur ein Richter endgültig beantworten kann. Die vollständige Begründung des <em>Saskatchewan Reference</em>, der Kontrast zu anderen Provinzen, die Frage der Klagebefugnis und die verfügbaren Reformwege werden in <a href=\"#references\">dem Quellenabschnitt unten</a> behandelt."
 	},
 	chrome: {
-		back_to_top: 'Zurück nach oben',
-		license_title: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0',
-		license_alt: 'CC BY-NC-SA 4.0',
-		license_aria: 'Creative Commons BY-NC-SA 4.0',
-		back_to_stakes: '↑ Zurück zum Einsatz',
+		back_to_top: "Zurück nach oben",
+		license_title: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0",
+		license_alt: "CC BY-NC-SA 4.0",
+		license_aria: "Creative Commons BY-NC-SA 4.0",
+		back_to_stakes: "↑ Zurück zum Einsatz",
 		lightbox: {
-			fig_aria: 'Vergrößerte Ansicht der Abbildung',
-			fig_close_aria: 'Vergrößerte Abbildung schließen (Esc)',
-			map_aria: 'Kartenzoom-Anzeige',
-			map_close_aria: 'Kartenanzeige schließen',
-			close_title: 'Schließen (Esc)'
+			fig_aria: "Vergrößerte Ansicht der Abbildung",
+			fig_close_aria: "Vergrößerte Abbildung schließen (Esc)",
+			map_aria: "Kartenzoom-Anzeige",
+			map_close_aria: "Kartenanzeige schließen",
+			close_title: "Schließen (Esc)"
 		},
 		participation: {
-			heading: 'Helfen Sie uns, MapExplorer zu verbessern',
-			body:
-				'Während Sie erkunden, erfassen wir, welche Karten und Bezirke Sie besuchen, und senden die Daten gelegentlich an unsere Forschungsdatenbank. Beim Teilen einer Ansicht wird ebenfalls gespeichert, wo Sie gelandet sind. Ziel: zu verstehen, was nützlich ist, und das Werkzeug zu verbessern.',
-			no_collect:
-				'Wir erfassen niemals Ihren Namen, Ihre IP-Adresse oder Ihren genauen Standort. Alles wird in Ihrem Browser anonymisiert, bevor es ihn verlässt. Wir könnten Sie selbst auf gerichtliche Anordnung hin aus den Daten nicht identifizieren.',
-			dnt:
-				'Ihr Browser hat Do Not Track aktiviert. „Nein" ist für Sie voreingestellt. Sie können trotzdem „Ja" wählen.',
-			no_thanks: 'Nein danke',
-			yes_help: 'Ja, ich helfe',
-			privacy_policy: 'Datenschutzerklärung'
+			heading: "Helfen Sie uns, MapExplorer zu verbessern",
+			body: "Während Sie erkunden, erfassen wir, welche Karten und Bezirke Sie besuchen, und senden die Daten gelegentlich an unsere Forschungsdatenbank. Beim Teilen einer Ansicht wird ebenfalls gespeichert, wo Sie gelandet sind. Ziel: zu verstehen, was nützlich ist, und das Werkzeug zu verbessern.",
+			no_collect: "Wir erfassen niemals Ihren Namen, Ihre IP-Adresse oder Ihren genauen Standort. Alles wird in Ihrem Browser anonymisiert, bevor es ihn verlässt. Wir könnten Sie selbst auf gerichtliche Anordnung hin aus den Daten nicht identifizieren.",
+			dnt: "Ihr Browser hat Do Not Track aktiviert. „Nein\" ist für Sie voreingestellt. Sie können trotzdem „Ja\" wählen.",
+			no_thanks: "Nein danke",
+			yes_help: "Ja, ich helfe",
+			privacy_policy: "Datenschutzerklärung"
 		},
 		share: {
-			button: 'Teilen',
-			button_title: 'Eine Kartenkonfiguration teilen oder laden',
-			dialog_aria: 'Kartenkonfiguration teilen',
-			close_aria: 'Teilen-Bereich schließen',
-			share_label: 'Diese Konfiguration teilen',
-			share_hint:
-				'Geben Sie diesen Code in einem beliebigen Browser ein, der das Audit ausführt, um diese Konfiguration zu laden. Der Code wird nie in eine URL geschrieben.',
-			load_label: 'Eine Konfiguration laden',
-			load_btn: 'Laden',
-			load_placeholder: 'alpine-eagle-banff',
-			copy: 'Kopieren',
-			copied: 'Kopiert!',
-			copy_failed: 'Fehlgeschlagen',
-			unrecognised: 'Code nicht erkannt — bitte die Schreibweise prüfen.'
+			button: "Teilen",
+			button_title: "Eine Kartenkonfiguration teilen oder laden",
+			dialog_aria: "Kartenkonfiguration teilen",
+			close_aria: "Teilen-Bereich schließen",
+			share_label: "Diese Konfiguration teilen",
+			share_hint: "Geben Sie diesen Code in einem beliebigen Browser ein, der das Audit ausführt, um diese Konfiguration zu laden. Der Code wird nie in eine URL geschrieben.",
+			load_label: "Eine Konfiguration laden",
+			load_btn: "Laden",
+			load_placeholder: "alpine-eagle-banff",
+			copy: "Kopieren",
+			copied: "Kopiert!",
+			copy_failed: "Fehlgeschlagen",
+			unrecognised: "Code nicht erkannt — bitte die Schreibweise prüfen."
 		},
 		map: {
-			minority: 'Minderheit',
-			majority: 'Mehrheit',
-			current: 'Aktuell',
-			wasted: 'Verschwendet',
-			wasted_title: 'Beitrag zur Effizienzlücke pro Bezirk',
-			partisan: 'Parteilich',
-			partisan_title:
-				'Jeden Bezirk nach parteilichem Ergebnis einfärben (UCP blau / NDP orange)',
-			borders: 'Grenzen',
-			flagged: 'Beanstandet',
-			flagged_title:
-				'Alle 7 Konfigurationen, die vom Kommissionsvorsitzenden Richter Miller beanstandet wurden — wechselt automatisch zur Minderheitenkarte',
-			help_aria: 'Kartenhilfe',
-			help_title: 'So benutzen Sie die Karte',
-			pin_aria: 'Karte fixieren',
-			pin_title: 'Karte fixieren — kein automatisches Schwenken beim Klick auf einen Bezirk',
-			search_placeholder: 'Bezirk finden…',
-			zoom_aria: 'Kartenzoom',
-			clear_aria: 'Bezirksauswahl aufheben',
-			clear_title: 'Auswahl aufheben',
-			va_hint: 'Klicken Sie innerhalb dieses Bezirks, um Wahllokal-Ergebnisse zu sehen',
-			va_close_aria: 'Wahllokal-Detail schließen',
-			va_close_title: 'Schließen',
-			object_title: 'Wahlbezirkskarte Albertas — volle Auflösung',
-			ea_credit: 'Kartendaten:',
-			cc_title: 'Textinhalt: CC BY-NC-SA 4.0',
-			cc_alt: 'Creative Commons BY-NC-SA 4.0',
-			search_aria: 'Einen Wahlbezirk finden',
-			votes_suffix: 'Stimmen',
-			total_votes_suffix: 'Stimmen insgesamt',
-			pop_prefix: 'Bev.',
-			voting_areas_suffix: 'Voting Areas',
-			other_maps: 'Andere Karten',
-			unique_boundary: 'Grenze nur auf dieser Karte',
-			in_person_votes: 'Präsenzstimmen (ohne Vote Anywhere)',
-			load_error_generic: 'Die Grenzkarte konnte nicht geladen werden. Versuchen Sie, die Seite neu zu laden.',
-			load_error_map: 'Die Karte {key} konnte nicht geladen werden — prüfen Sie Ihre Verbindung.',
-			context_minority: 'Minderheitenvorschlag 2026 · Wahlergebnisse 2023',
-			context_majority: 'Mehrheitsvorschlag 2026 · Wahlergebnisse 2023',
-			context_2019: '2019 erlassene Grenzen · Wahlergebnisse 2023',
-			tag_min: 'Min',
-			tag_maj: 'Mehr',
-			tag_2019: '2019',
-			dev_notice:
-				'Map Explorer befindet sich in kontinuierlicher Live-Entwicklung und kann manchmal nicht funktionieren. Wenn etwas falsch aussieht, schauen Sie in ein paar Tagen wieder vorbei — das Problem ist dann wahrscheinlich behoben. Vorschläge sind willkommen: %s.',
-			dev_notice_email_label: 'schreiben Sie mir',
-			dev_notice_dismiss: 'Entwicklungshinweis ausblenden',
-			skel_1: 'Map Explorer wird geladen…',
-			skel_2: 'Alberta wird gezeichnet…',
-			skel_3: 'die Zahlen werden verarbeitet…',
-			skel_4: 'jede Stimme wird gezählt…',
-			skel_5: 'die Grenzen werden eingezeichnet…',
-			skel_6: 'fast geschafft…'
+			minority: "Minderheit",
+			majority: "Mehrheit",
+			current: "Aktuell",
+			wasted: "Verschwendet",
+			wasted_title: "Beitrag zur Effizienzlücke pro Bezirk",
+			partisan: "Parteilich",
+			partisan_title: "Jeden Bezirk nach parteilichem Ergebnis einfärben (UCP blau / NDP orange)",
+			borders: "Grenzen",
+			flagged: "Beanstandet",
+			flagged_title: "Alle 7 Konfigurationen, die vom Kommissionsvorsitzenden Richter Miller beanstandet wurden — wechselt automatisch zur Minderheitenkarte",
+			help_aria: "Kartenhilfe",
+			help_title: "So benutzen Sie die Karte",
+			pin_aria: "Karte fixieren",
+			pin_title: "Karte fixieren — kein automatisches Schwenken beim Klick auf einen Bezirk",
+			search_aria: "Einen Wahlbezirk finden",
+			search_placeholder: "Bezirk finden…",
+			zoom_aria: "Kartenzoom",
+			clear_aria: "Bezirksauswahl aufheben",
+			clear_title: "Auswahl aufheben",
+			va_hint: "Klicken Sie innerhalb dieses Bezirks, um Wahllokal-Ergebnisse zu sehen",
+			va_close_aria: "Wahllokal-Detail schließen",
+			va_close_title: "Schließen",
+			object_title: "Wahlbezirkskarte Albertas — volle Auflösung",
+			ea_credit: "Kartendaten:",
+			cc_title: "Textinhalt: CC BY-NC-SA 4.0",
+			cc_alt: "Creative Commons BY-NC-SA 4.0",
+			votes_suffix: "Stimmen",
+			total_votes_suffix: "Stimmen insgesamt",
+			pop_prefix: "Bev.",
+			voting_areas_suffix: "Voting Areas",
+			other_maps: "Andere Karten",
+			unique_boundary: "Grenze nur auf dieser Karte",
+			in_person_votes: "Präsenzstimmen (ohne Vote Anywhere)",
+			load_error_generic: "Die Grenzkarte konnte nicht geladen werden. Versuchen Sie, die Seite neu zu laden.",
+			load_error_map: "Die Karte {key} konnte nicht geladen werden — prüfen Sie Ihre Verbindung.",
+			context_minority: "Minderheitenvorschlag 2026 · Wahlergebnisse 2023",
+			context_majority: "Mehrheitsvorschlag 2026 · Wahlergebnisse 2023",
+			context_2019: "2019 erlassene Grenzen · Wahlergebnisse 2023",
+			tag_min: "Min",
+			tag_maj: "Mehr",
+			tag_2019: "2019",
+			dev_notice: "Map Explorer befindet sich in kontinuierlicher Live-Entwicklung und kann manchmal nicht funktionieren. Wenn etwas falsch aussieht, schauen Sie in ein paar Tagen wieder vorbei — das Problem ist dann wahrscheinlich behoben. Vorschläge sind willkommen: %s.",
+			dev_notice_email_label: "schreiben Sie mir",
+			dev_notice_dismiss: "Entwicklungshinweis ausblenden",
+			skel_1: "Map Explorer wird geladen…",
+			skel_2: "Alberta wird gezeichnet…",
+			skel_3: "die Zahlen werden verarbeitet…",
+			skel_4: "jede Stimme wird gezählt…",
+			skel_5: "die Grenzen werden eingezeichnet…",
+			skel_6: "fast geschafft…"
 		},
 		map_intro: {
-			heading: 'So benutzen Sie die Karte',
-			click_district: 'Auf einen Bezirk klicken',
-			click_district_desc: 'Wahlergebnisse 2023 anzeigen und einrasten',
-			click_within: 'Innerhalb eines ausgewählten Bezirks klicken',
-			click_within_desc:
-				'einzelne Wahllokal-Ergebnisse anzeigen (Farbe = Stimmenaufteilung)',
-			dblclick: 'Doppelklick auf einen Bezirk',
-			dblclick_desc:
-				'auf Bildschirmgröße zoomen; Doppelklick auf leere Fläche zoomt heraus',
-			layers_primary: 'Minderheit / Mehrheit / Aktuell',
-			layers_primary_desc: 'aktive Grenzkarte wechseln',
-			layers_data: 'Parteilich / Verschwendet / Grenzen',
-			layers_data_desc: 'Datenebenen umschalten',
-			search: 'Bezirk finden',
-			search_desc: 'per Namen springen; Pfeiltasten schwenken, + / − zoomen',
-			escape: 'Escape',
-			escape_desc: 'diesen Viewer schließen',
-			s4_tip:
-				'In §4 auf <em>Beanstandete Bezirke auf der Karte zeigen</em> klicken, um die Airdrie-Aufteilung und die NO-/Zentral-Calgary-Zone hervorzuheben.',
-			got_it: 'Verstanden'
+			heading: "So benutzen Sie die Karte",
+			click_district: "Auf einen Bezirk klicken",
+			click_district_desc: "Wahlergebnisse 2023 anzeigen und einrasten",
+			click_within: "Innerhalb eines ausgewählten Bezirks klicken",
+			click_within_desc: "einzelne Wahllokal-Ergebnisse anzeigen (Farbe = Stimmenaufteilung)",
+			dblclick: "Doppelklick auf einen Bezirk",
+			dblclick_desc: "auf Bildschirmgröße zoomen; Doppelklick auf leere Fläche zoomt heraus",
+			layers_primary: "Minderheit / Mehrheit / Aktuell",
+			layers_primary_desc: "aktive Grenzkarte wechseln",
+			layers_data: "Parteilich / Verschwendet / Grenzen",
+			layers_data_desc: "Datenebenen umschalten",
+			search: "Bezirk finden",
+			search_desc: "per Namen springen; Pfeiltasten schwenken, + / − zoomen",
+			escape: "Escape",
+			escape_desc: "diesen Viewer schließen",
+			s4_tip: "In §4 auf <em>Beanstandete Bezirke auf der Karte zeigen</em> klicken, um die Airdrie-Aufteilung und die NO-/Zentral-Calgary-Zone hervorzuheben.",
+			got_it: "Verstanden"
 		},
 		footer: {
-			title: 'Audit der Wahlbezirksgrenzen Albertas — Mai 2026',
-			copyright: '© Will Conner 2026 —',
-			text_label: 'Text:',
-			code_label: 'Code:',
-			translation_label: 'Übersetzungen:',
-			translation_credit: 'Anthropic Fable 5 (KI) — Prüfung durch Muttersprachler ausstehend',
-			data_credit:
-				'Kartendaten: sekundäre Highways aus dem National Road Network, © Statistics Canada (Open Government Licence – Canada); andere Straßen & Gewässer © OpenStreetMap contributors (ODbL); Grenzen & Ergebnisse © Elections Alberta.'
+			title: "Audit der Wahlbezirksgrenzen Albertas — Mai 2026",
+			copyright: "© Will Conner 2026 —",
+			text_label: "Text:",
+			code_label: "Code:",
+			translation_label: "Übersetzungen:",
+			translation_credit: "Anthropic Fable 5 (KI) — Prüfung durch Muttersprachler ausstehend",
+			data_credit: "Kartendaten: sekundäre Highways aus dem National Road Network, © Statistics Canada (Open Government Licence – Canada); andere Straßen & Gewässer © OpenStreetMap contributors (ODbL); Grenzen & Ergebnisse © Elections Alberta."
 		}
 	},
 	explorer: {
 		controls: {
-			panel_title: 'Kartensteuerung',
-			close_aria: 'Karte schließen',
-			map_version_hdr: 'Kartenversion',
-			map_version_hint: '· zum Umschalten klicken',
-			map_toggle_title: 'Diese Karte ein-/ausschalten',
-			map_minority: 'Minderheit',
-			map_majority: 'Mehrheit',
-			map_2019: 'Offiziell',
-			map_minority_short: 'Min',
-			map_majority_short: 'Mehr',
-			map_2019_short: 'Offiz.',
-			search_placeholder: 'Einen Bezirk suchen…',
-			search_aria: 'Bezirke suchen',
-			search_clear_aria: 'Suche löschen',
-			search_in: 'in {ed}',
-			zoom_aria: 'Zoom',
-			res_prefix: '1 Pixel ≈',
-			zoom_official: '(Offiziell)',
-			zoom_computed: '(Berechnet)',
-			overlays_hdr: 'Overlays zu Interessengemeinschaften',
-			layer_highways: 'Highways',
-			layer_water: 'Flüsse & Seen',
-			layer_annotations: 'EBC-’26-Annotationen',
-			mobile_map_version_aria: 'Kartenversion',
-			mobile_search_aria: 'Bezirke suchen',
-			mobile_layers_aria: 'Kartenebenen',
-			mobile_info_aria: 'Über die Grenzlinien',
-			mobile_share_aria: 'Diese Ansicht teilen',
-			mobile_close_aria: 'Karte schließen',
-			lang_aria: 'Sprache ändern',
-			lang_hdr: 'Sprache',
-			lines_note_title: 'Die Linien lesen',
-			lines_note_lead: 'Jede ungewöhnliche Form oder Trennlinie ist eine',
-			lines_note_emphasis: 'bewusste Entscheidung einer Kommission',
-			lines_note_tail:
-				'— kein Datenfehler. Linien folgen den Rändern der Voting Areas; wo zwei Karten übereinstimmen, liegen sie auf derselben Linie, wo sie auseinandergehen, sind sich die Vorschläge tatsächlich uneinig.'
+			panel_title: "Kartensteuerung",
+			close_aria: "Karte schließen",
+			map_version_hdr: "Kartenversion",
+			map_version_hint: "· zum Umschalten klicken",
+			map_toggle_title: "Diese Karte ein-/ausschalten",
+			map_minority: "Minderheit",
+			map_majority: "Mehrheit",
+			map_2019: "Offiziell",
+			map_minority_short: "Min",
+			map_majority_short: "Mehr",
+			map_2019_short: "Offiz.",
+			search_placeholder: "Einen Bezirk suchen…",
+			search_aria: "Bezirke suchen",
+			search_clear_aria: "Suche löschen",
+			search_in: "in {ed}",
+			zoom_aria: "Zoom",
+			res_prefix: "1 Pixel ≈",
+			zoom_official: "(Offiziell)",
+			zoom_computed: "(Berechnet)",
+			overlays_hdr: "Overlays zu Interessengemeinschaften",
+			layer_highways: "Highways",
+			layer_water: "Flüsse & Seen",
+			layer_annotations: "EBC-’26-Annotationen",
+			mobile_map_version_aria: "Kartenversion",
+			mobile_search_aria: "Bezirke suchen",
+			mobile_layers_aria: "Kartenebenen",
+			mobile_info_aria: "Über die Grenzlinien",
+			mobile_share_aria: "Diese Ansicht teilen",
+			mobile_close_aria: "Karte schließen",
+			lang_aria: "Sprache ändern",
+			lang_hdr: "Sprache",
+			lines_note_title: "Die Linien lesen",
+			lines_note_lead: "Jede ungewöhnliche Form oder Trennlinie ist eine",
+			lines_note_emphasis: "bewusste Entscheidung einer Kommission",
+			lines_note_tail: "— kein Datenfehler. Linien folgen den Rändern der Voting Areas; wo zwei Karten übereinstimmen, liegen sie auf derselben Linie, wo sie auseinandergehen, sind sich die Vorschläge tatsächlich uneinig."
 		},
 		share: {
-			button: 'Diese Ansicht teilen',
-			heading: 'Diese Ansicht teilen',
-			copy: 'Link kopieren',
-			copied: 'Kopiert',
-			help: 'Dieser Link erfasst Ihre aktuelle Karte, Overlays und Ansicht.',
-			open_heading: 'Einen geteilten Link öffnen',
-			open_placeholder: 'Einen Teilen-Link einfügen…',
-			open_btn: 'Öffnen',
-			err_empty: 'Fügen Sie einen Teilen-Link ein',
-			err_invalid: 'Kein gültiger Teilen-Link'
+			button: "Diese Ansicht teilen",
+			heading: "Diese Ansicht teilen",
+			copy: "Link kopieren",
+			copied: "Kopiert",
+			help: "Dieser Link erfasst Ihre aktuelle Karte, Overlays und Ansicht.",
+			open_heading: "Einen geteilten Link öffnen",
+			open_placeholder: "Einen Teilen-Link einfügen…",
+			open_btn: "Öffnen",
+			err_empty: "Fügen Sie einen Teilen-Link ein",
+			err_invalid: "Kein gültiger Teilen-Link"
 		},
 		tip: {
-			total_votes: 'Stimmen insgesamt',
-			inperson_votes: 'Präsenzstimmen',
-			ed_total: 'Bezirk insgesamt: {n} Stimmen',
-			ed_total_eday: 'Bezirk insgesamt: {n} (Wahltag)',
-			poll: 'Wahllokal #{id} · Präsenzstimmen',
-			ucp_pct: 'UCP {u} %',
-			ndp_pct: 'NDP {n} %',
-			unassigned: '(nicht zugeordnet)',
-			where_in: 'in {community}',
-			where_near: 'nahe {community}',
-			note_sparse:
-				'Ein dünn besiedeltes Gebiet — da hier wenige Stimmen abgegeben wurden, bleibt die Farbe nahe an der neutralen Grundlinie der Karte.',
-			note_no_votes:
-				'Hier wurden keine Stimmen erfasst, daher zeigt dieses Gebiet den neutralen Grundton der Karte.',
-			no_one_title: 'Hier wählt niemand',
-			no_one_body:
-				'Kein Wahlbezirk deckt diese Stelle ab — niemand ist hier als wohnhaft oder wählend erfasst, daher bleibt sie im neutralen Ton der Karte.',
-			flag_link: 'Zum Hineinzoomen klicken'
+			total_votes: "Stimmen insgesamt",
+			inperson_votes: "Präsenzstimmen",
+			ed_total: "Bezirk insgesamt: {n} Stimmen",
+			ed_total_eday: "Bezirk insgesamt: {n} (Wahltag)",
+			poll: "Wahllokal #{id} · Präsenzstimmen",
+			ucp_pct: "UCP {u} %",
+			ndp_pct: "NDP {n} %",
+			unassigned: "(nicht zugeordnet)",
+			where_in: "in {community}",
+			where_near: "nahe {community}",
+			note_sparse: "Ein dünn besiedeltes Gebiet — da hier wenige Stimmen abgegeben wurden, bleibt die Farbe nahe an der neutralen Grundlinie der Karte.",
+			note_no_votes: "Hier wurden keine Stimmen erfasst, daher zeigt dieses Gebiet den neutralen Grundton der Karte.",
+			no_one_title: "Hier wählt niemand",
+			no_one_body: "Kein Wahlbezirk deckt diese Stelle ab — niemand ist hier als wohnhaft oder wählend erfasst, daher bleibt sie im neutralen Ton der Karte.",
+			flag_link: "Zum Hineinzoomen klicken"
 		},
 		miller: {
-			title: 'Empfehlung 5(d): der wiederherzustellende ländliche Sitz',
-			body: 'Richter Dallas Miller, der Vorsitzende der Kommission, schrieb, die Legislative solle, falls sie den Verlust zweier ländlicher Ridings nicht hinnehme, von 89 auf 91 Sitze gehen und sie wiederherstellen. Dies ist der einzige Ort, den er für einen wiederhergestellten Sitz nannte: ein Riding, das überwiegend aus dem Clearwater County und dem westlichen Mountain View County besteht, mit Status nach s. 15(2) (der Regel, nach der ein großes, abgelegenes Riding weit weniger Einwohner als der Durchschnitt haben darf). Er bat darum, es zu erwägen, nicht darum, es vorzuschreiben. Der Umriss ist ungefähr: das Clearwater County plus der Teil des Mountain View County, der 2019 im Riding Rimbey-Rocky Mountain House-Sundre lag. Er liegt vollständig nördlich von Airdrie und nimmt keinem durch die Bedingungen (a) oder (b) geschützten Riding Land weg. Für den zweiten Sitz nannte er keinen Ort.'
+			title: "Empfehlung 5(d): der wiederherzustellende ländliche Sitz",
+			body: "Richter Dallas Miller, der Vorsitzende der Kommission, schrieb, die Legislative solle, falls sie den Verlust zweier ländlicher Ridings nicht hinnehme, von 89 auf 91 Sitze gehen und sie wiederherstellen. Dies ist der einzige Ort, den er für einen wiederhergestellten Sitz nannte: ein Riding, das überwiegend aus dem Clearwater County und dem westlichen Mountain View County besteht, mit Status nach s. 15(2) (der Regel, nach der ein großes, abgelegenes Riding weit weniger Einwohner als der Durchschnitt haben darf). Er bat darum, es zu erwägen, nicht darum, es vorzuschreiben. Der Umriss ist ungefähr: das Clearwater County plus der Teil des Mountain View County, der 2019 im Riding Rimbey-Rocky Mountain House-Sundre lag. Er liegt vollständig nördlich von Airdrie und nimmt keinem durch die Bedingungen (a) oder (b) geschützten Riding Land weg. Für den zweiten Sitz nannte er keinen Ort."
 		},
 		flags: {
-			'banff-town': {
-				title: 'Banff — die aus dem Park herausgeschnittene Stadt',
-				body: 'Banff liegt innerhalb eines föderalen Nationalparks, als kleine kommunale Insel. Die Minderheit fasst den Ortskern mit Canmore — dem nächsten Ort weiter unten im Bow Valley — in „Canmore-Kananaskis“ zusammen und belässt den unbewohnten Park als das Riding, das Banffs Namen trägt. Die Grenze schmiegt sich an die Stadt, weil sie meilenweit der einzige bewohnte Punkt ist. Es sieht aus wie ein Fehler, folgt aber realer Geographie.'
+			"banff-town": {
+				title: "Banff — die aus dem Park herausgeschnittene Stadt",
+				body: "Banff liegt innerhalb eines föderalen Nationalparks, als kleine kommunale Insel. Die Minderheit fasst den Ortskern mit Canmore — dem nächsten Ort weiter unten im Bow Valley — in „Canmore-Kananaskis“ zusammen und belässt den unbewohnten Park als das Riding, das Banffs Namen trägt. Die Grenze schmiegt sich an die Stadt, weil sie meilenweit der einzige bewohnte Punkt ist. Es sieht aus wie ein Fehler, folgt aber realer Geographie."
 			},
-			'banff-park': {
-				title: 'Nördlich von Banff — „Rocky Mountain House–Banff Park“',
-				body: '„Rocky Mountain House–Banff Park“ ist eines der von der Minderheit vorgeschlagenen Ridings, das größtenteils aus unbewohntem Nationalpark besteht; die Stadt Banff liegt in einem benachbarten Riding im Süden. Die Minderheit wandte die Vorschrift über geringere Bevölkerung aus dem Electoral Boundaries Commission Act auf dieses Riding an — eine Wahl, mit der sich der Kommissionsvorsitzende im Abschlussbericht befasste.'
+			"banff-park": {
+				title: "Nördlich von Banff — „Rocky Mountain House–Banff Park“",
+				body: "„Rocky Mountain House–Banff Park“ ist eines der von der Minderheit vorgeschlagenen Ridings, das größtenteils aus unbewohntem Nationalpark besteht; die Stadt Banff liegt in einem benachbarten Riding im Süden. Die Minderheit wandte die Vorschrift über geringere Bevölkerung aus dem Electoral Boundaries Commission Act auf dieses Riding an — eine Wahl, mit der sich der Kommissionsvorsitzende im Abschlussbericht befasste."
 			},
-			'airdrie-split': {
-				title: 'Airdrie — vierfach geteilt',
-				body: 'Airdries Wachstum und sein Pendlerverkehr nach Calgary (etwa 76 % der Auspendler) hätten einen einzelnen neuen Sitz im Raum Airdrie verankern können — die Art, die die Daten stützen. Die Minderheit teilt die Stadt stattdessen auf vier Ridings auf; die Bevölkerungsmathematik verlangt es nicht, und keine Eingabe schlug es vor. Beim Cracking-Signaturtest des Audits bleibt diese Vierfach-Aufteilung knapp unter einer formalen Signatur: Außerhalb von Airdrie East, das mehr als die Hälfte der Stadt umfasst, sind die Einwohner Airdries in der Minderheit, aber der Test verlangt, dass sie in jedem Stück in der Minderheit sind. Dies ist eine Gemeindeteilung, unsichtbar für die Parteifairness-Tests; das Audit misst die strukturelle Wirkung, nicht die Absicht. (Akademisch §5.3.2.)'
+			"airdrie-split": {
+				title: "Airdrie — vierfach geteilt",
+				body: "Airdries Wachstum und sein Pendlerverkehr nach Calgary (etwa 76 % der Auspendler) hätten einen einzelnen neuen Sitz im Raum Airdrie verankern können — die Art, die die Daten stützen. Die Minderheit teilt die Stadt stattdessen auf vier Ridings auf; die Bevölkerungsmathematik verlangt es nicht, und keine Eingabe schlug es vor. Beim Cracking-Signaturtest des Audits bleibt diese Vierfach-Aufteilung knapp unter einer formalen Signatur: Außerhalb von Airdrie East, das mehr als die Hälfte der Stadt umfasst, sind die Einwohner Airdries in der Minderheit, aber der Test verlangt, dass sie in jedem Stück in der Minderheit sind. Dies ist eine Gemeindeteilung, unsichtbar für die Parteifairness-Tests; das Audit misst die strukturelle Wirkung, nicht die Absicht. (Akademisch §5.3.2.)"
 			},
-			'nolan-hill-cochrane': {
-				title: 'Calgary-Nolan Hill–Cochrane',
-				body: 'Cochranes Pendlerverkehr nach Calgary hätte eine Paarung mit der Stadt rechtfertigen können — aber die Pendeldaten von 2021 verteilen diesen Strom stadtweit (etwa ein Drittel der Arbeitenden; die Hälfte arbeitet innerhalb Cochranes) und weisen nicht auf Nolan Hill. Der schmale Korridor der Minderheit zum Stadtteil Nolan Hill — die Form, die der Vorsitzende ein Lasso nannte — reicht weiter als die Daten, und keine Eingabe schlug ihn vor. Der Cracking-Test des Audits markiert ihn nicht: Cochrane bleibt ungeteilt und macht etwa zwei Drittel des Ridings aus, und mit rund 34.000 Einwohnern ist es zu klein für einen eigenen Sitz. (Akademisch §5.3.2.)'
+			"nolan-hill-cochrane": {
+				title: "Calgary-Nolan Hill–Cochrane",
+				body: "Cochranes Pendlerverkehr nach Calgary hätte eine Paarung mit der Stadt rechtfertigen können — aber die Pendeldaten von 2021 verteilen diesen Strom stadtweit (etwa ein Drittel der Arbeitenden; die Hälfte arbeitet innerhalb Cochranes) und weisen nicht auf Nolan Hill. Der schmale Korridor der Minderheit zum Stadtteil Nolan Hill — die Form, die der Vorsitzende ein Lasso nannte — reicht weiter als die Daten, und keine Eingabe schlug ihn vor. Der Cracking-Test des Audits markiert ihn nicht: Cochrane bleibt ungeteilt und macht etwa zwei Drittel des Ridings aus, und mit rund 34.000 Einwohnern ist es zu klein für einen eigenen Sitz. (Akademisch §5.3.2.)"
 			},
-			'olds-airdrie-reach': {
-				title: 'Olds–Three Hills–Didsbury — die Airdrie-Erweiterung',
-				body: 'Ein ländliches Riding, das die Highway-2-Orte — Olds, Didsbury, Three Hills — zusammenhält, ist gut gestützt; Einwohner aus der Region Beiseker sprachen sich schriftlich dafür aus. Es hätte innerhalb dieser Gemeinden bleiben können. Die Version der Minderheit reicht stattdessen nach Süden in den nördlichen Rand Airdries hinein, eine Erweiterung, die die Bevölkerungsmathematik nicht verlangt. Die Erweiterung ist Teil davon, wie die Vierfach-Aufteilung Airdries funktioniert — ein dünn besiedelter Streifen der Stadt, etwa 350 Personen, aufgesogen in einen größeren ländlichen Sitz —, was das Audit als Teil des Cracking-Musters liest. (Akademisch §5.3.2.)'
+			"olds-airdrie-reach": {
+				title: "Olds–Three Hills–Didsbury — die Airdrie-Erweiterung",
+				body: "Ein ländliches Riding, das die Highway-2-Orte — Olds, Didsbury, Three Hills — zusammenhält, ist gut gestützt; Einwohner aus der Region Beiseker sprachen sich schriftlich dafür aus. Es hätte innerhalb dieser Gemeinden bleiben können. Die Version der Minderheit reicht stattdessen nach Süden in den nördlichen Rand Airdries hinein, eine Erweiterung, die die Bevölkerungsmathematik nicht verlangt. Die Erweiterung ist Teil davon, wie die Vierfach-Aufteilung Airdries funktioniert — ein dünn besiedelter Streifen der Stadt, etwa 350 Personen, aufgesogen in einen größeren ländlichen Sitz —, was das Audit als Teil des Cracking-Musters liest. (Akademisch §5.3.2.)"
 			},
 			chestermere: {
-				title: 'Chestermere — zwischen zwei Ridings geteilt',
-				body: 'Chestermeres starker Pendlerverkehr nach Calgary (86 % der Auspendler) hätte dafür sprechen können, es ganz und nahe der Stadt zu halten — was auch die Einwohner wollten, die einer Fusion mit Calgary widersprachen. Die Minderheit schneidet stattdessen ein südliches Stück in einen bestimmten Calgary-Bezirk, mit dem es keine Schulen oder Nahverkehr teilt, und dieses Stück besteht den Bevölkerungstest nicht. Das Audit zählt das Hineinbluten in einen Calgary-Bezirk als Teilung einer Interessengemeinschaft, die Chestermeres Stimme verdünnt; mit dem Cracking-Test hat es den Fall nicht bewertet. (Akademisch §5.8.4; Begründungstests, Test 5.)'
+				title: "Chestermere — zwischen zwei Ridings geteilt",
+				body: "Chestermeres starker Pendlerverkehr nach Calgary (86 % der Auspendler) hätte dafür sprechen können, es ganz und nahe der Stadt zu halten — was auch die Einwohner wollten, die einer Fusion mit Calgary widersprachen. Die Minderheit schneidet stattdessen ein südliches Stück in einen bestimmten Calgary-Bezirk, mit dem es keine Schulen oder Nahverkehr teilt, und dieses Stück besteht den Bevölkerungstest nicht. Das Audit zählt das Hineinbluten in einen Calgary-Bezirk als Teilung einer Interessengemeinschaft, die Chestermeres Stimme verdünnt; mit dem Cracking-Test hat es den Fall nicht bewertet. (Akademisch §5.8.4; Begründungstests, Test 5.)"
 			},
-			'red-deer': {
-				title: 'Red Deer — die Hybrid-Ridings',
-				body: 'Red Deers regionale Verbindungen zu Blackfalds, Sylvan Lake, Lacombe und Innisfail hätten diese Orte zusammenfassen können — ein Stadtrat und Einwohner schlugen ähnliche Hybride vor. Die Version der Minderheit faltet stattdessen Teile der Stadt selbst in von Orten geführte Ridings und verdünnt so die Stimme des städtischen Red Deer; ihre Begründung mit „gemeinsamen Schulen“ hält ebenfalls nicht stand (verschiedene Schulbezirke). Eine Stadt in von Orten geführte Ridings zu falten ist das Muster, das das Audit Hybridisierung nennt — vereinbar mit Cracking, das die parteiliche Wirkung innerhalb der Hybrid-Ridings erzielt, nicht über sie hinweg. (Akademisch §5.3.5.)'
+			"red-deer": {
+				title: "Red Deer — die Hybrid-Ridings",
+				body: "Red Deers regionale Verbindungen zu Blackfalds, Sylvan Lake, Lacombe und Innisfail hätten diese Orte zusammenfassen können — ein Stadtrat und Einwohner schlugen ähnliche Hybride vor. Die Version der Minderheit faltet stattdessen Teile der Stadt selbst in von Orten geführte Ridings und verdünnt so die Stimme des städtischen Red Deer; ihre Begründung mit „gemeinsamen Schulen“ hält ebenfalls nicht stand (verschiedene Schulbezirke). Eine Stadt in von Orten geführte Ridings zu falten ist das Muster, das das Audit Hybridisierung nennt — vereinbar mit Cracking, das die parteiliche Wirkung innerhalb der Hybrid-Ridings erzielt, nicht über sie hinweg. (Akademisch §5.3.5.)"
 			},
-			'st-albert': {
-				title: 'St. Albert — konkurrierende Konfigurationen',
-				body: 'Beide Kartenversionen von St. Albert könnten auf einer vernünftigen Grundlage beruhen. Das Audit fand schlicht keine Eingabe, die die spezifische Alternative der Minderheit stützt — und da Bürgerinnen und Bürger selten die genauen Grenzen einer Kommission benennen, behandelt es die Belege hier als dünn, weder klar dafür noch dagegen.'
+			"st-albert": {
+				title: "St. Albert — konkurrierende Konfigurationen",
+				body: "Beide Kartenversionen von St. Albert könnten auf einer vernünftigen Grundlage beruhen. Das Audit fand schlicht keine Eingabe, die die spezifische Alternative der Minderheit stützt — und da Bürgerinnen und Bürger selten die genauen Grenzen einer Kommission benennen, behandelt es die Belege hier als dünn, weder klar dafür noch dagegen."
 			},
-			'calgary-zone-a-packing': {
-				title: 'Calgary Nord & Ost — eine Packing-Signatur',
-				body: 'Diese Konfiguration hat der Kommissionsvorsitzende nicht beanstandet — die eigene Mathematik des Audits tut es. Über Calgarys Norden und Osten (die „Zone A“ des Audits, nördlich und östlich des Bow River) verlaufen die Bezirke der Minderheitenkarte etwa 11,5 % größer als der provinzielle Durchschnitt, gegenüber 2,8 % auf der Mehrheitskarte. Packing bedeutet, die Wählerinnen und Wähler einer Seite in weniger, größere Bezirke zu konzentrieren, sodass jeder ihrer Stimmzettel ein wenig weniger wiegt; Zone A ist NDP-kompetitiv, und 13 ihrer 17 Bezirke wurden 2023 von der NDP gewonnen. Das Audit misst die strukturelle Wirkung, nicht die Absicht. (Akademisch §5.3.1.)'
+			"calgary-zone-a-packing": {
+				title: "Calgary Nord & Ost — eine Packing-Signatur",
+				body: "Diese Konfiguration hat der Kommissionsvorsitzende nicht beanstandet — die eigene Mathematik des Audits tut es. Über Calgarys Norden und Osten (die „Zone A“ des Audits, nördlich und östlich des Bow River) verlaufen die Bezirke der Minderheitenkarte etwa 11,5 % größer als der provinzielle Durchschnitt, gegenüber 2,8 % auf der Mehrheitskarte. Packing bedeutet, die Wählerinnen und Wähler einer Seite in weniger, größere Bezirke zu konzentrieren, sodass jeder ihrer Stimmzettel ein wenig weniger wiegt; Zone A ist NDP-kompetitiv, und 13 ihrer 17 Bezirke wurden 2023 von der NDP gewonnen. Das Audit misst die strukturelle Wirkung, nicht die Absicht. (Akademisch §5.3.1.)"
 			}
 		},
 		text: {
-			page_title: 'Textversion — Karte des Audits der Wahlkreisgrenzen Albertas',
-			intro:
-				'Dies ist die Textversion der interaktiven Karte des Audits. Sie enthält dieselben Informationen wie die visuelle Karte, ausgeschrieben, damit sie mit einem Screenreader gelesen werden kann. Sie beginnt mit den vom Audit markierten Grenzen und führt dann jeden Wahlkreis auf sowie welche der drei Karten ihn umfasst.',
-			link_map: 'Die interaktive Karte öffnen',
-			link_report: 'Den vollständigen Bericht lesen',
-			link_to_text: 'Die barrierefreie Textversion dieser Karte öffnen',
-			toc_heading: 'Auf dieser Seite',
-			toc_summary: 'Kurzzusammenfassung',
-			toc_flagged: 'Markierte Grenzen',
-			toc_directory: 'Wahlkreisverzeichnis',
-			summary_heading: 'Kurzzusammenfassung',
-			summary_p1:
-				'Das Audit vergleicht drei Karten der Wahlkreise Albertas: den Minderheitenvorschlag der Kommission, ihren Mehrheitsvorschlag und die 2019 erlassene Karte, die heute in Kraft ist.',
-			summary_p2:
-				'Bei den präregistrierten strukturellen Tests des Audits, die allein auf der Geometrie beruhen, überschreitet die Mehrheitenkarte keine der fünf Schwellen und die Minderheitenkarte überschreitet vier der fünf. Die gesonderten statistischen Ergebnisse, die jede Karte mit einer großen Menge computergezeichneter neutraler Karten vergleichen, sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.',
-			summary_p3:
-				'Die folgenden Abschnitte erläutern neun bestimmte vom Audit markierte Grenzen und führen dann jeden Wahlkreis auf. Diese Seite beschreibt allein die statistische und strukturelle Position. Sie zieht keinen rechtlichen Schluss über irgendeine Karte.',
-			flagged_heading: 'Markierte Grenzen',
-			flagged_lead:
-				'Das Audit hat neun Grenzen markiert. Einige wirken ungewöhnlich, folgen aber getreu der realen Geographie; andere entsprechen einem Packing- oder Cracking-Muster in den eigenen Messungen des Audits. Jede wird unten erläutert, mit einem Abschnittsverweis auf den akademischen Bericht, wo zutreffend.',
-			directory_heading: 'Wahlkreisverzeichnis',
-			directory_lead:
-				'Diese Tabelle führt in alphabetischer Reihenfolge jeden Wahlkreisnamen auf, der auf einer der drei Karten erscheint. Für jeden Namen zeigt sie, ob dieser Name Teil des Minderheitenvorschlags, des Mehrheitsvorschlags und der 2019 erlassenen Karte ist. Die Wahlkreisnamen unterscheiden sich zwischen den Karten, sodass manche Zeilen nur auf einer oder zwei von ihnen erscheinen. Die Tabelle enthält nur Namen und Kartenzugehörigkeit — für Stimmensummen, Bevölkerungszahlen und Testergebnisse siehe den vollständigen Bericht.',
-			directory_totals_note:
-				'Jede Zahl ist die Präsenzstimmensumme (Wahltag) des Wahlkreises auf dieser Karte — die Summe seiner Wahllokale. Brief- und Sonderstimmen werden nicht pro Voting Area zugeordnet und sind daher hier nicht enthalten; vollständige Ergebnisse siehe Bericht. Ein Gedankenstrich (—) bedeutet, dass der Wahlkreisname auf dieser Karte nicht vorkommt.',
-			col_district: 'Wahlkreis',
-			col_minority: 'Minderheitenvorschlag',
-			col_majority: 'Mehrheitsvorschlag',
-			col_2019: 'Offizielle Karte',
-			present_yes: 'Ja',
-			present_no: 'Nein',
-			methodology_note:
-				'Diese Seite ist ein statisches, reines Textäquivalent der interaktiven Karte. Sie ist aus denselben Wahlkreisdaten und denselben Grenzannotationen aufgebaut. Die hier genannten statistischen Ergebnisse (neutrales Ensemble) sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.',
-			skip_to_main: 'Zum Hauptinhalt springen',
-			back_to_map: 'Zurück zur interaktiven Karte'
+			page_title: "Textversion — Karte des Audits der Wahlkreisgrenzen Albertas",
+			intro: "Dies ist die Textversion der interaktiven Karte des Audits. Sie enthält dieselben Informationen wie die visuelle Karte, ausgeschrieben, damit sie mit einem Screenreader gelesen werden kann. Sie beginnt mit den vom Audit markierten Grenzen und führt dann jeden Wahlkreis auf sowie welche der drei Karten ihn umfasst.",
+			link_map: "Die interaktive Karte öffnen",
+			link_report: "Den vollständigen Bericht lesen",
+			link_to_text: "Die barrierefreie Textversion dieser Karte öffnen",
+			toc_heading: "Auf dieser Seite",
+			toc_summary: "Kurzzusammenfassung",
+			toc_flagged: "Markierte Grenzen",
+			toc_directory: "Wahlkreisverzeichnis",
+			summary_heading: "Kurzzusammenfassung",
+			summary_p1: "Das Audit vergleicht drei Karten der Wahlkreise Albertas: den Minderheitenvorschlag der Kommission, ihren Mehrheitsvorschlag und die 2019 erlassene Karte, die heute in Kraft ist.",
+			summary_p2: "Bei den präregistrierten strukturellen Tests des Audits, die allein auf der Geometrie beruhen, überschreitet die Mehrheitenkarte keine der fünf Schwellen und die Minderheitenkarte überschreitet vier der fünf. Die gesonderten statistischen Ergebnisse, die jede Karte mit einer großen Menge computergezeichneter neutraler Karten vergleichen, sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.",
+			summary_p3: "Die folgenden Abschnitte erläutern neun bestimmte vom Audit markierte Grenzen und führen dann jeden Wahlkreis auf. Diese Seite beschreibt allein die statistische und strukturelle Position. Sie zieht keinen rechtlichen Schluss über irgendeine Karte.",
+			flagged_heading: "Markierte Grenzen",
+			flagged_lead: "Das Audit hat neun Grenzen markiert. Einige wirken ungewöhnlich, folgen aber getreu der realen Geographie; andere entsprechen einem Packing- oder Cracking-Muster in den eigenen Messungen des Audits. Jede wird unten erläutert, mit einem Abschnittsverweis auf den akademischen Bericht, wo zutreffend.",
+			directory_heading: "Wahlkreisverzeichnis",
+			directory_lead: "Diese Tabelle führt in alphabetischer Reihenfolge jeden Wahlkreisnamen auf, der auf einer der drei Karten erscheint. Für jeden Namen zeigt sie, ob dieser Name Teil des Minderheitenvorschlags, des Mehrheitsvorschlags und der 2019 erlassenen Karte ist. Die Wahlkreisnamen unterscheiden sich zwischen den Karten, sodass manche Zeilen nur auf einer oder zwei von ihnen erscheinen. Die Tabelle enthält nur Namen und Kartenzugehörigkeit — für Stimmensummen, Bevölkerungszahlen und Testergebnisse siehe den vollständigen Bericht.",
+			directory_totals_note: "Jede Zahl ist die Präsenzstimmensumme (Wahltag) des Wahlkreises auf dieser Karte — die Summe seiner Wahllokale. Brief- und Sonderstimmen werden nicht pro Voting Area zugeordnet und sind daher hier nicht enthalten; vollständige Ergebnisse siehe Bericht. Ein Gedankenstrich (—) bedeutet, dass der Wahlkreisname auf dieser Karte nicht vorkommt.",
+			col_district: "Wahlkreis",
+			col_minority: "Minderheitenvorschlag",
+			col_majority: "Mehrheitsvorschlag",
+			col_2019: "Offizielle Karte",
+			present_yes: "Ja",
+			present_no: "Nein",
+			methodology_note: "Diese Seite ist ein statisches, reines Textäquivalent der interaktiven Karte. Sie ist aus denselben Wahlkreisdaten und denselben Grenzannotationen aufgebaut. Die hier genannten statistischen Ergebnisse (neutrales Ensemble) sind vorläufig und stehen noch unter unabhängiger fachlicher Prüfung.",
+			skip_to_main: "Zum Hauptinhalt springen",
+			back_to_map: "Zurück zur interaktiven Karte"
 		}
 	},
 	feedback: {
-		nav_link: 'Feedback senden',
-		page_title: 'Feedback senden',
-		meta_description: 'Teilen Sie eine Korrektur, Frage oder Anregung zum Alberta Electoral Boundary Audit mit.',
-		heading: 'Feedback senden',
-		intro: 'Einen Fehler entdeckt, eine Frage oder einen Verbesserungsvorschlag? Das geht direkt an den Autor. Name und E-Mail sind optional — geben Sie eine E-Mail nur an, wenn Sie eine Antwort wünschen.',
-		name_label: 'Name',
-		name_optional: 'optional',
-		name_placeholder: 'Ihr Name',
-		email_label: 'E-Mail',
-		email_optional: 'optional',
-		email_placeholder: 'you@example.com',
-		email_hint: 'Wird nur verwendet, um Ihnen zu antworten. Niemals weitergegeben, niemals einer Liste hinzugefügt.',
-		message_label: 'Nachricht',
-		message_required: 'erforderlich',
-		message_placeholder: 'Was möchten Sie uns mitteilen?',
-		submit: 'Feedback senden',
-		submitting: 'Wird gesendet…',
-		success_title: 'Vielen Dank',
-		success_body: 'Ihr Feedback ist eingegangen. Wenn Sie eine E-Mail-Adresse hinterlassen haben und Ihre Nachricht eine Antwort erfordert, werden Sie von uns hören.',
-		send_another: 'Weiteres senden',
-		error_empty: 'Bitte geben Sie vor dem Senden eine Nachricht ein.',
-		error_rate: 'Sie haben in letzter Zeit mehrere Nachrichten gesendet. Bitte versuchen Sie es in Kürze erneut.',
-		error_generic: 'Beim Senden Ihres Feedbacks ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.',
-		privacy_note: 'Ihre Nachricht wird sicher in Canada gespeichert und nur zur Verbesserung dieses Audits verwendet. Einzelheiten finden Sie in der {privacy}.',
-		privacy_link_text: 'Datenschutzerklärung',
-		back_to_report: 'Zurück zum Bericht',
-		back_to_map: 'Zurück zum Karten-Explorer'
+		nav_link: "Feedback senden",
+		page_title: "Feedback senden",
+		meta_description: "Teilen Sie eine Korrektur, Frage oder Anregung zum Alberta Electoral Boundary Audit mit.",
+		heading: "Feedback senden",
+		intro: "Einen Fehler entdeckt, eine Frage oder einen Verbesserungsvorschlag? Das geht direkt an den Autor. Name und E-Mail sind optional — geben Sie eine E-Mail nur an, wenn Sie eine Antwort wünschen.",
+		name_label: "Name",
+		name_optional: "optional",
+		name_placeholder: "Ihr Name",
+		email_label: "E-Mail",
+		email_optional: "optional",
+		email_placeholder: "you@example.com",
+		email_hint: "Wird nur verwendet, um Ihnen zu antworten. Niemals weitergegeben, niemals einer Liste hinzugefügt.",
+		message_label: "Nachricht",
+		message_required: "erforderlich",
+		message_placeholder: "Was möchten Sie uns mitteilen?",
+		submit: "Feedback senden",
+		submitting: "Wird gesendet…",
+		success_title: "Vielen Dank",
+		success_body: "Ihr Feedback ist eingegangen. Wenn Sie eine E-Mail-Adresse hinterlassen haben und Ihre Nachricht eine Antwort erfordert, werden Sie von uns hören.",
+		send_another: "Weiteres senden",
+		error_empty: "Bitte geben Sie vor dem Senden eine Nachricht ein.",
+		error_rate: "Sie haben in letzter Zeit mehrere Nachrichten gesendet. Bitte versuchen Sie es in Kürze erneut.",
+		error_generic: "Beim Senden Ihres Feedbacks ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.",
+		privacy_note: "Ihre Nachricht wird sicher in Canada gespeichert und nur zur Verbesserung dieses Audits verwendet. Einzelheiten finden Sie in der {privacy}.",
+		privacy_link_text: "Datenschutzerklärung",
+		back_to_report: "Zurück zum Bericht",
+		back_to_map: "Zurück zum Karten-Explorer"
 	}
 } as const;
