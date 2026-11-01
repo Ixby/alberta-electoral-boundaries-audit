@@ -1544,7 +1544,73 @@ export default {
 				back_anchor: "<a href=\"__BASE__/evidence#casing-7\">↩ Ku noqo natiijada 7</a>"
 			},
 			appendix_h: {
-				heading: "Lifaaqa H — Khaladka xeer-ilaaliyaha, oo luqad fudud ah"
+				heading: "Lifaaqa H — Khaladka xeer-ilaaliyaha, oo luqad fudud ah",
+				confusion: "<em>Jahwareerka:</em> \"Hal ka mid ah 568,000 in khariidaddani dambi la'aan tahay. Taasi waa natiijada, sax?\"",
+				p1: "Maya, farqiguna wuu ku filan yahay muhiimad inuu magac yeesho. Tiradu waxay leedahay tan: <em>haddii</em> habraac dhexdhexaad ahi sawiray khariidadda Alberta, fursadda ay ugu ekaan lahayd khariidadda inta yar waa ugu badnaan hal ka mid ah 568,000. Taasi waa P(caddayntan, haddii dambi la'aan la yahay). Ma aha P(dambi la'aan, haddii caddayntani jirto). Isku beddelkoodu waa khaladka xeer-ilaaliyaha. Tusaalaha caadiga ah: tuhunsane ayaa la mid ah muuqaal DNA oo laga helay goob, muuqaalkaasina wuxuu ku dhacaa hal ka mid ah malyuun qof. \"Hal fursad malyuun ka mid ah inuu dambi la'aan yahay\"? Khalad. Magaalo toban milyan qof ah, qiyaastii toban qof ayaa la mid ah. DNA-da keligeed, tuhunsanuhu waa mid ka mid ah toban — 90% fursad ah in <em>qof kale</em> yahay isha. Naadirnimada caddaynta marka dambi la'aan la yahay ma aha suurtagalnimada dambi la'aanta. Waxaad kaloo u baahan tahay inaad ogaato immisa siyaabood oo dambi la'aan ah ay caddayntu ku iman karto.",
+				p2: "Hadda dib u akhri natiijada 8: hubintu waxay sheegaysaa tirada ay difaaci karto — naadirnimada khariidadda marka si dhexdhexaad ah loo sawiro — wayna diidaysaa isku beddelka ka dhigi lahaa xukun.",
+				limit: "<em>Xadka:</em> diidmada khaladku waxay hubinta ka qaadaysaa weedheeda ugu la soo xigan karo, kharashkaasina waa ula kac. Naadirnimadu waa caddayn. Ma aha, weligeedna ma noqoto, xaqiijin ujeeddo.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-8\">↩ Ku noqo natiijada 8</a>"
+			},
+			appendix_i: {
+				heading: "Lifaaqa I — Waxa muunad-qaaduhu yahay, iyo sababta beddelkiisu muhiim u yahay",
+				confusion: "<em>Jahwareerka:</em> \"Jilitaankaagii waxaad ku hubisay… jilitaan kale? Sidee taasi hubin u tahay?\"",
+				p1: "Maxaa yeelay labada mashiin si kala duwan ayaa loo dhisay, waxyaabaha farsamada ka dhashaana (natiijooyin ay sameeyeen dabeecadaha gaarka ah ee mashiin halkii ay khariidaddu samayn lahayd) badanaa kama badbaadaan beddelka qalabka. Algorithm kasta oo khariidad sawira wuxuu leeyahay dabeecado gaar ah. Kan caadiga ah, ReCom, wuxuu leeyahay janjeer la diiwaangeliyay oo xagga degmooyin isku-urursan oo habaysan, kaas oo mabda' ahaan buunbuunin kara sida khariidad dhab ah oo kala fidsan ay xad-dhaaf ugu muuqato. Sidaa darteed hubintu way beddeshay mashiinka. Nooca kale wuxuu degmooyinka ka koriyaa <em>kayn</em> spanning ah oo bakhtiyaanasiib ah halkii uu ka korin lahaa geedo, isagoo leh dabeecad gudaha ah oo si la cabbiri karo u kala duwan. Waxa si dadweyne loo diiwaangeliyay (OSF he53s) ka hor intaan hal khariidad lagu sawirin, abuurradiisana waxa laga soo saaray calaamad bakhtiyaanasiib dadweyne oo qof kastaa xaqiijin karo. Haddii meesha dabada ee inta yar ay ahayd wax ka dhashay dabeecadaha mashiinka koowaad, mashiinka labaad wuu dhaqaajin lahaa. Wuxuu dhaqaaqay wax ka yar hal dhibic boqolley cabbir kasta: xukun ROBUST ah oo horay loo diiwaangeliyay. Hubintu waxay kaloo soo sheegaysaa hubinta <em>dhacday</em>. Sheegashada ah in joomatariga la calaamadeeyay ee Fasalka I uu yahay farsamada gaarka ah ee ka dambaysa tirooyinka kursiyada kama badbaadin tijaabinta, waana laga tagay.",
+				p2: "Hadda dib u akhri natiijada 9: saddex weerar, laba way ka badbaadeen, hal sheegasho si daacad ah ayaa loo waayay.",
+				limit: "<em>Xadka:</em> adkaysigu meesha ka saaraa waxyaabaha qalabka ka dhasha. Ma caddayn karo naqshad. Khariidad run ahaan xad-dhaaf ah run ahaan way xad-dhaaf tahay, wax kastaa ha soo saaree.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-9\">↩ Ku noqo natiijada 9</a>"
+			},
+			appendix_j: {
+				heading: "Lifaaqa J — Sababta dariska isku si u codeeyaa u jebiyo tirakoobka fudud",
+				confusion: "<em>Jahwareerka:</em> \"Imtixaan ayaa bixiyay p = 0.0024 oo waad iska tuurtay? Taasi waxay u egtahay qarin natiijo.\"",
+				p1: "Lidkeeda: waa sixid mid. Imtixaanno badan waxay u qaataan in indho-indhaynadu madax-bannaan yihiin, sida tuurista lacag kala gooni ah. Aagagga codbixintu ma aha. Aagagga dariska ahi waxay wadaagaan dadka, dakhliga, taariikhda. Isku si ayay u codeeyaan. In 100 aag oo urursan loola dhaqmo sidii 100 tuuris oo madax-bannaan run ahaantii waxay u eg tahay 20 indho-indhayn oo xog leh oo xidhan 100 jaakadood, waxayna ka dhigtaa isku-beegmooyinka kuwo u muuqda aan suurtagal ahayn halka ay yihiin kuwo aan caadi ahayn oo keliya. Hagaajintu waa in la dhiso null (sawir waxa fursadda keligeed soo saari lahayd) oo ilaaliya urursanaanta. Isku qas <em>qaybo</em> aagag dariska ah oo wadajir ah halkii aag kasta gooni loo qasi lahaa, oo mar kale su'aasha weydii. Imtixaanka aagga isbeddelka ee hubintu wuxuu u muuqday muhiim null-ka fudud hoostiisa (p = 0.0024) oo aan la xusi karin kan la saxay hoostiisa (p ≈ 0.19). Marka null-ka daacadda ahi khilaafo kan ammaanta badan, waxaad haysataa null-ka daacadda ah. Natiijadana hawlgab ayaad ka dhigtaa.",
+				p2: "Hadda dib u akhri natiijada 10: laba ka mid ah qalabka hubinta laftigeeda oo hawlgab laga dhigay, hal imtixaan oo horay loo diiwaangeliyay oo khariidadda inta yar si toos ah u gudubtay.",
+				limit: "<em>Xadka:</em> saxitaanku wuxuu muujinayaa in calaamadda <em>doorashada xudduudda</em> aanay taagnayn. Waxba kama sheegayso natiijooyinka ensemble-ka ee khariidadaha kombuyuutarku sawiray, kuwaas oo aan marna u qaadan madax-bannaani.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-10\">↩ Ku noqo natiijada 10</a>"
+			},
+			appendix_k: {
+				heading: "Lifaaqa K — Sida sabab la sheegay loogu hubiyo xogta dadweynaha",
+				confusion: "<em>Jahwareerka:</em> \"Xubnaha guddidu waa khubarada. Hubin ayaa tahay cid qiimeysa sababahooda?\"",
+				p1: "Cid gaar ah ma aha, taasina waa ujeeddada: hubintu uma baahna helitaan gaar ah. Warbixinta inta yar waxay leedahay dadka Cochrane \"si dabacsan ugu dhex socdaan\" Calgary. Shaxaha safarka shaqada ee Statistics Canada (bilaash, dadweyne) waxay muujinayaan in qiyaastii saddex meelood meel shaqaalaha Cochrane ay u safraan Calgary, halka qiyaastii kala badh ay ka shaqeeyaan Cochrane. Xidhiidh dhab ah, oo aan waxba ka sheegin marinka gaarka ah ee Nolan Hill ee la sawiray. Warbixintu waxay tilmaamaysaa in dugsiyo la wadaago ay isku xidhaan Red Deer iyo Sylvan Lake. Xudduudaha qaybaha dugsiyada ee labada magaalo (sidoo kale dadweyne) waxay geliyaan qaybo kala duwan. Hubin kastaa waxay raacdaa isla habka. Qaado sababta la sheegay. Hel xogta dadweyne ee muujin lahayd. Eeg in <em>khadka gaarka ah ee la sawiray</em> uu yahay khadka xogtu taageerto. Shan ka mid ah lix sababood oo la hubiyay way ku dhacaan tallaabadaas ugu dambaysa. Xidhiidhku waa dhab; khadku ma aha kan xidhiidhku tilmaamo.",
+				p2: "Hadda dib u akhri natiijada 11. U fiirso in hubintu ka tagtay mid ka mid ah toddobadeedii sheegasho qabyo ah isla heerkaas, markii isha la heli waayay.",
+				limit: "<em>Xadka:</em> sabab ku dhacda hubinta waxay caddaynaysaa in sababta <em>la sheegay</em> aanay ku habboonayn. Ma muujin karto tan dhabta ah. Dayacaadda iyo cudurdaarku waxay ka tagaan waraaqo isku mid ah.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-11\">↩ Ku noqo natiijada 11</a>"
+			},
+			appendix_l: {
+				heading: "Lifaaqa L — Sida xubnaha guddida loo magacaabo, iyo waxa soo jeedintu tilmaanto",
+				confusion: "<em>Jahwareerka:</em> \"Xubno guddi oo dawladdu soo jeedisay ayaa sawiray khariidadda dawladda u roon. Kiisku waa xidhan yahay, sax?\"",
+				p1: "Guddida Alberta waxa laga dhisaa soo jeedinno: guddoomiye, iyo xubno guddi oo laga soo jeediyay dhinacyada dawladda iyo mucaaradka. Naqshaddu waxay u qaadataa aragtiyo xisbiyeed waana dheellitirtaa. Waxay ku khamaartaa in qol isku dhafan uu isugu yimaado hal khariidad oo la difaaci karo. Tobanaan sano khamaarku wuu shaqeeyay: guddiyadu waxay saxeexeen warbixinno la isku raacsan yahay. Wareeggan qolku wuxuu u kala qaybsamay khadadkii soo jeedinta, kuwii dawladdu soo jeedisayna waxay soo saareen qiimaha tirakoob ee ka baxsan. Xidhiidhkaasi waa dhab, waana mudan yahay in la diiwaangeliyo. Waa sidoo kale meesha saxda ah ee istidlaalku ku joogsado. Xubno guddi oo la soo jeediyay ma aha wakiillo. Ma jirto caddayn diiwaanka hubintan ku jirta oo muujinaysa in dawladdu amartay, la isku dubbariday, ama xitaa ogeyd qaabka khariidadda kuwii ay soo jeedisay ka hor soo gudbinta. Taariikhdu waxay ka buuxdaa kuwo la soo jeediyay oo niyad jabiyay kuwii soo jeediyay. Xidhiidhku wuxuu ku casuumaa su'aal. Kama jawaabi karo. Qalabka hubintuna wuxuu ka dhan noqday dhinaca guddoomiyaha markii xogtu sidaas u socotay. Taasi waa waxa cabbir isku dheellitiran ka dhigan yahay.",
+				p2: "Hadda dib u akhri natiijada 12: kala-qaybsanaantu waa waxa aan caadiga ahayn; asalka, cidda cidda soo jeedisay, waa calaamad su'aal, ma aha jawaab.",
+				limit: "<em>Xadka:</em> asalka magacaabiddu waa macne, weligiis ma aha caddayn. In loola dhaqmo caddayn waa isla khaladka Lifaaqa H, oo xidhan jaakad siyaasadeed.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-12\">↩ Ku noqo natiijada 12</a>"
+			},
+			appendix_m: {
+				heading: "Lifaaqa M — Habraaca Sharciga, guddida ilaa guddiga, bilow ilaa dhammaad",
+				confusion: "<em>Jahwareerka:</em> \"Sidee ayuu golaha sharci-dejintu u… la wareegi karaa dib-u-qaybinta? Khariidadda guddidu sow ma aha khariidadda?\"",
+				p1: "Maya. Tani waa yaabka culayska qaada ee dhacdada oo dhan. <em>Electoral Boundaries Commission Act</em> ee Alberta hoostiisa, guddidu way soo jeedisaa; Golaha Sharci-dejinta oo keliya ayaa go'aamiya. Warbixinta kama dambaysta ah ee guddida — dhageysiyo, soo gudbinno, dib-u-eegisyo iyo wax kasta — waa talo. Saamayn sharci ma laha ilaa Goluhu khariidad sharci ka dhigo. Sharciguna ma saarayo wax xaddidaad ah waxa Goluhu sameeyo halkii: dood ugu yar ma jirto, muddo ogeysiis ma jirto, waajib ah inuu doorbido shaqada guddida ma jiro, shuruud dhageysi ma jirto habraac kasta oo xiga. Waxba oo Sharciga ku jira kama joojinayaan Golaha inuu shaqada meel kale u diro. Taasi waa waxa Mooshinka Dawladda 37 sameeyay, isagoo u diray guddi xulan. Guddiyada xulan ee Goluhu waxay ka kooban yihiin MLA-yo, sidaa darteed doorashada gaadiidka laftigeedu waxay meesha ka saartay madax-bannaanida. Si sharci ah. Wareeg kasta tan iyo markii Sharciga wax laga beddelay 1995, is-celinta Golaha, ma aha sharciga, ayaa ahayd waxa gacmaha siyaasiyiinta ka ilaaliyay qalinka. 1992 ma ilaalin. Guddi MLA-yo ah ayaa sawiray khariidadda, 1994-na Maxkamadda Rafcaanku waxay guddigaas ku eedaysay inuu sharrixi kari waayay dhowr ka mid ah xudduudihiisa.",
+				p2: "Hadda dib u akhri natiijada 13: dhageysiyo lix iyo toban bulshood ah oo lagu beddelay hay'ad aan laga dalbanayn inay midna qabato. Dhammaanteed gudaha Sharciga.",
+				limit: "<em>Xadka:</em> lifaaqani wuxuu sharraxayaa waxa sharcigu oggol yahay. In waxa sharcigu oggol yahay ay tahay waxa ay tahay in dadka Alberta aqbalaan waa su'aal siyaasadeed — tan imtixaannada Noofembar loo dhisay inay xog u siiyaan.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-13\">↩ Ku noqo natiijada 13</a>"
+			},
+			appendix_n: {
+				heading: "Lifaaqa N — Caadooyinka iyo sharciga, iyo sida caadooyinku u nabaad-guuraan",
+				confusion: "<em>Jahwareerka:</em> \"Haddii siyaasiyiinta oo sawira degmooyinkooda ay jebinayso caadadeenna doorasho ee ugu qoto dheer, sidee ayay sharci u noqon kartaa?\"",
+				p1: "Maxaa yeelay dastuurka Kanada wuxuu ku shaqeeyaa laba nidaam. Mid waa sharci: qoran, maxkamad lagu go'aamin karo (maxkamadi way ka xukumi kartaa), oo maxkamaduhu dhaqan geliyaan. Ka kale waa caado: xeerar aan qornayn oo dhaqanka siyaasadeed ah, dhaqan ahaan xidha, oo aan maxkamadi arki karin. Maxkamadda Sare waxay kala qaybintaas ku qeexday Patriation Reference-kii 1981. Maxkamaduhu way <em>aqoonsan</em> karaan caado haddana way diidi doonaan inay <em>dhaqan geliyaan</em>, maxaa yeelay caadooyinka waxa ilaaliya siyaasad ahaan — mucaarad, saxaafad, iyo codbixiyayaal — ma aha garsoor. Guddiyada xudduudaha madax-bannaani waxay ku nool yihiin dhinaca caadada. Lixdan sano oo dhaqan ah, gobol kasta iyo heer federaal, ayaa dhisay xeerka ah in siyaasiyiintu aanay sawirin riding-yadooda. Ma jiro sharci meel kasta oo ka dhigaya xeerkaas qasab. Sidaa darteed xoogga ilaaliyaha oo dhan wuxuu ahaa in dawladuhu sii doortaan inay ixtiraamaan. Caado hal mar la jebiyay, iyadoon cawaaqib lahayn, way u daciiftaa dawlad kasta oo xigta. Xisbi kasta.",
+				p2: "Hadda dib u akhri natiijada 14: jebin dhab ah, si buuxda loo diiwaangeliyay, oo garsoor ahaan aan khusayn — saddexdaba hal mar.",
+				limit: "<em>Xadka:</em> \"aan la dhaqan gelin karin\" waa bayaan ku saabsan maxkamadaha, ma aha cawaaqibta. Caadooyinka waxa lagu dhaqan geliyaa doorashooyinka, dad og waxa la sameeyay. Warbixinnada sidan oo kale ah waxay u jiraan si ay u ogaadaan.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Ku noqo natiijada 14</a>"
+			},
+			footer_note: "Waxa ku jira waxay ka turjumaan lifaaqyada <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">warbixinta dadweyne ee dhammaystiran</a>. Hadda Ingiriisi oo keliya, iyadoo la sugayo dib-u-eegista qoraaga ka hor turjumaadda."
+		},
+		methods: {
+			head_title: "Sida Khariidadaha Loo Tijaabiyay · Hubinta Xudduudaha Doorashada Alberta",
+			head_description: "Imtixaan kasta iyo tirakoob kasta oo hubinta ku jira, oo luqad fudud lagu sharraxay: mashiinka haddii-maxaa ee malyuunka khariidadood, shanta imtixaan ee qaab-dhismeedka, afarta cabbir ee caddaaladda, qiimayaasha p, iyo imtixaannada dhintay.",
+			back: "← Ku noqo hubinta",
+			site_label: "Hubinta Xudduudaha Doorashada Alberta",
+			h1: "Sida Khariidadaha Loo Tijaabiyay",
+			meta: "Imtixaan kasta iyo tirakoob kasta, luqad fudud · hadda Ingiriisi oo keliya · Tiro kasta waxa dib looga soo saari karaa kaydka dadweynaha",
+			standfirst: "Hubinta oo dhan waxay ku dhisan tahay hal fikrad oo fudud. Ma doonaysaa inaad ogaato in khariidad caadi ka duwan tahay? Sawir malyuun khariidadood oo aan eex lahaan karin. Kombuyuutar ayaa sawira, weligiisna hal cod ma arko. Ka dib eeg halka khariidadaha dhabta ahi kaga dhacaan dhexdooda. Boggani wuxuu ku socodsiinayaa fikraddaas iyo imtixaan kasta oo lagu dhisay. Qaacido ma jirto. Haddii aad akhriyi karto saadaasha cimilada, tan waad akhriyi kartaa.",
+			toc: {
+				aria: "Waxa bogga ku jira"
 			}
 		}
 	}
