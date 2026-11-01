@@ -1142,12 +1142,15 @@ export default {
 			c5_what: "<em>Ce qui est rétracté :</em> l'argument procédural de la section 7 selon lequel la Motion gouvernementale 37, qui a remplacé la commission par le comité Lunty, se situe dans la même classe constitutionnelle que le gel de redécoupage du Québec en 2024.",
 			c5_cond: "Contexte : le 22 avril 2026 — le lendemain de l'adoption par l'Alberta de la Motion gouvernementale 37 — la Cour suprême du Canada a confirmé, 7 contre 2 et séance tenante, un arrêt de la Cour d'appel du Québec selon lequel le gel législatif imposé par le gouvernement Legault à sa commission de redécoupage violait la garantie de représentation démocratique de l'article 3 de la Charte. Condition : un tribunal qui examine la motion albertaine la trouve constitutionnellement distincte — par exemple, parce que la réattribution du travail à un comité de MLA diffère structurellement d'un gel législatif, ou parce que l'analyse de représentation effective de l'Alberta en vertu de l'article 3 aboutit à un résultat différent de celui du Québec.",
 			corr_label: "CORRECTIONS DOCUMENTÉES (recalcul canonique, 2026-05-11)",
+			corr_light_label: "CORRECTIONS",
+			corr_light_intro: "Cet audit corrige en public et n'efface rien. Le test structurel qui a changé avec les limites officielles est raconté en entier à la Douille 5 ; les deux tests statistiques qui n'ont pas tenu, aux Douilles 8 et 10. Le registre complet de chaque correction — ce qui a changé, quand et pourquoi — se trouve dans la <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">section DOCUMENTED CORRECTIONS du rapport technique</a>.",
 			corr_intro: "Le constat préliminaire suivant n'a pas survécu à la réanalyse contre les fichiers de formes officiels d'Elections Alberta (reçus le 6 mai 2026). Il est conservé ici conformément à la politique de pré-engagement de l'audit de ne jamais supprimer les constats échoués.",
 			corr_municipal: "<strong>Ancrage municipal.</strong> Une première analyse provisoire, fondée sur des limites de carte provisoires, montrait que la carte minoritaire s'ancrait aux lignes municipales seulement 15 % du temps — 4,9&times; sous la norme canadienne de 70 à 85 %. Ce chiffre était un artéfact des reconstructions provisoires des limites (de l'ère DPG). Sur les fichiers de formes canoniques officiels d'Elections Alberta, les deux cartes s'ancrent dans la norme canadienne : majoritaire 80 %, minoritaire 72 %. La <em>divergence</em> d'ancrage municipal entre les deux cartes n'est pas un signal qui survit au recalcul canonique. Les trois anomalies de limites signalées par le président de la commission (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) demeurent et ne sont pas touchées par cette correction."
 		},
 		suggestions: {
 			heading: "Suggestions",
 			heading_aria: "Lien vers les suggestions",
+			resume: "L'opinion est terminée ; le registre reprend. Il reste trois points d'intendance : ce qui faciliterait le prochain audit, les conditions dans lesquelles celui-ci se rétracte, et la piste documentaire.",
 			intro: "Cet audit s'est heurté à deux problèmes de données qui n'ont rien à voir avec le travail de la commission et tout à voir avec la façon dont le système électoral de l'Alberta est conçu. Les deux sont corrigeables.",
 			advance_p1: "<strong>Environ la moitié de tous les votes albertains arrivent maintenant avant le jour du scrutin</strong> : vote par anticipation, bureaux mobiles, bulletins spéciaux. Elections Alberta rapporte ces résultats sous forme de totaux pour chaque division électorale, et non par zone de vote précise. Ainsi, environ 395 000 votes NDP et UCP exprimés en 2023 ne peuvent être rattachés à aucun quartier sur une carte. Ils sont comptés. Ils ne peuvent simplement pas être localisés. Chaque électeur par anticipation est vérifié sur une liste électorale avant de recevoir un bulletin, et cette liste relie chaque électeur à une zone de vote précise. Publier les totaux du vote par anticipation par zone de vote n'exigerait aucun changement au processus de vote. Seulement à ce qu'Elections Alberta rapporte.",
 			advance_p2: "Cela touche aussi les commissaires, pas seulement les analystes externes. Quand une commission décide de garder Airdrie entière ou de la diviser, si un corridor entre deux communautés a du sens, si une limite proposée divise une circonscription naturelle, elle porte des jugements qui dépendent de savoir où vivent les électeurs. Les commissaires travaillent à partir du même ensemble de données publiées que tout le monde. Il leur manque, à eux aussi, la moitié du signal géographique sur les communautés mêmes dont ils tracent les limites.",
@@ -1179,6 +1182,7 @@ export default {
 		license_alt: "CC BY-NC-SA 4.0",
 		license_aria: "Creative Commons BY-NC-SA 4.0",
 		back_to_stakes: "↑ Retour aux enjeux",
+		back_to_picture: "↑ Retour à l'image",
 		lightbox: {
 			fig_aria: "Vue agrandie de la figure",
 			fig_close_aria: "Fermer la figure agrandie (Esc)",
@@ -1359,8 +1363,21 @@ export default {
 			flag_link: "Cliquez pour zoomer"
 		},
 		miller: {
+			locked_hint: "Rien à l'intérieur de ce contour ne bouge en vertu de la Recommandation 5.",
 			title: "Recommandation 5(d) : le siège rural à rétablir",
-			body: "Le juge Dallas Miller, président de la commission, a écrit que si l’Assemblée législative n’acceptait pas de perdre deux circonscriptions rurales, elle devrait passer de 89 à 91 sièges et les rétablir. C’est le seul endroit qu’il a désigné pour un siège rétabli : une circonscription formée surtout du comté de Clearwater et de l’ouest du comté de Mountain View, avec le statut de l’art. 15(2) (la règle qui permet à une circonscription vaste et éloignée de compter beaucoup moins d’habitants que la moyenne). Il a demandé qu’elle soit envisagée, non imposée. Le tracé est approximatif : le comté de Clearwater plus la partie du comté de Mountain View qui faisait partie de la circonscription de Rimbey-Rocky Mountain House-Sundre en 2019. Il se trouve entièrement au nord d’Airdrie et ne prend aucun territoire à une circonscription protégée par les conditions (a) ou (b). Il n’a désigné aucun endroit pour le second siège."
+			body: "Le juge Dallas Miller, président de la commission, a écrit que si l’Assemblée législative n’acceptait pas de perdre deux circonscriptions rurales, elle devrait passer de 89 à 91 sièges et les rétablir. C’est le seul endroit qu’il a désigné pour un siège rétabli : une circonscription formée surtout du comté de Clearwater et de l’ouest du comté de Mountain View, avec le statut de l’art. 15(2) (la règle qui permet à une circonscription vaste et éloignée de compter beaucoup moins d’habitants que la moyenne). Il a demandé qu’elle soit envisagée, non imposée. Le tracé est approximatif : le comté de Clearwater plus la partie du comté de Mountain View qui faisait partie de la circonscription de Rimbey-Rocky Mountain House-Sundre en 2019. Il se trouve entièrement au nord d’Airdrie et ne prend aucun territoire à une circonscription protégée par les conditions (a) ou (b). Il n’a désigné aucun endroit pour le second siège.",
+			a: {
+				title: "Recommandation 5(a) : aucun changement d'Airdrie vers le sud",
+				body: "La Recommandation 5 du président dit que le rétablissement des deux sièges ruraux ne devrait toucher à aucune circonscription d'Airdrie, ni à aucune circonscription comprenant du territoire au sud de la limite municipale sud d'Airdrie, sauf Drumheller-Stettler. Cela représente {n} circonscriptions, dont tous les sièges de Calgary, qui devraient correspondre ligne pour ligne à la carte majoritaire. Airdrie et Calgary sont les endroits où la commission s'est divisée le plus nettement ; cette condition les garde telles que la majorité les a tracées."
+			},
+			b: {
+				title: "Recommandation 5(b) : aucun changement dans le nord d'Edmonton",
+				body: "La Recommandation 5 dit que le rétablissement des deux sièges ruraux ne devrait toucher à aucune circonscription d'Edmonton au nord de la rivière Saskatchewan Nord. Cela représente {n} circonscriptions qui devraient correspondre à la carte majoritaire. Beverly-Clareview traverse la rivière ; environ les deux tiers de son territoire sont sur la rive nord, elle est donc comptée ici."
+			},
+			c: {
+				title: "Recommandation 5(c) : le sud d'Edmonton revient à l'ébauche",
+				body: "La Recommandation 5 dit que chaque circonscription d'Edmonton au sud de la rivière Saskatchewan Nord devrait revenir à la carte provisoire d'octobre 2025 de la commission, l'ébauche qu'elle a publiée pour commentaires avant la division finale. Une option est permise : ajouter Nisku à Edmonton-South East, pour réunir Leduc et Beaumont dans une seule circonscription. Ce contour marque les {n} circonscriptions de la carte majoritaire qui changeraient. Il ne montre pas les lignes provisoires elles-mêmes."
+			}
 		},
 		flags: {
 			"banff-town": {
@@ -1409,6 +1426,7 @@ export default {
 			toc_heading: "Sur cette page",
 			toc_summary: "Résumé",
 			toc_flagged: "Limites signalées",
+			toc_r5: "Secteurs de la Recommandation 5",
 			toc_directory: "Répertoire des circonscriptions",
 			summary_heading: "Résumé",
 			summary_p1: "L’audit compare trois cartes des circonscriptions électorales de l’Alberta : la proposition minoritaire de la commission, sa proposition majoritaire et la carte adoptée en 2019, en vigueur aujourd’hui.",
@@ -1416,6 +1434,9 @@ export default {
 			summary_p3: "Les sections ci-dessous expliquent neuf limites précises signalées par l’audit, puis énumèrent chaque circonscription. Cette page décrit uniquement la position statistique et structurelle. Elle ne tire aucune conclusion juridique au sujet d’une carte.",
 			flagged_heading: "Limites signalées",
 			flagged_lead: "L’audit a signalé neuf limites. Certaines paraissent inhabituelles mais suivent fidèlement la géographie réelle ; d’autres correspondent à un schéma de concentration ou de dispersion dans les mesures de l’audit lui-même. Chacune est expliquée ci-dessous, avec une référence de section au rapport universitaire le cas échéant.",
+			r5_heading: "Secteurs de la Recommandation 5",
+			r5_lead: "Le gouvernement a invoqué la Recommandation 5 du président de la commission quand il a confié la carte à un comité de MLA. La recommandation fixe quatre conditions pour une carte à 91 sièges, dont trois sont liées à des circonscriptions de la carte majoritaire. Chaque secteur que trace la carte est décrit ci-dessous, avec les circonscriptions de la carte majoritaire qu'il couvre.",
+			r5_districts: "Circonscriptions de la carte majoritaire dans ce secteur :",
 			directory_heading: "Répertoire des circonscriptions",
 			directory_lead: "Ce tableau énumère, par ordre alphabétique, chaque nom de circonscription figurant sur l’une des trois cartes. Pour chaque nom, il indique s’il fait partie de la proposition minoritaire, de la proposition majoritaire et de la carte adoptée en 2019. Les noms de circonscription diffèrent d’une carte à l’autre ; certaines lignes ne figurent donc que sur une ou deux d’entre elles. Le tableau ne contient que les noms et leur appartenance aux cartes — pour les totaux de votes, les chiffres de population et les résultats des tests, consultez le rapport complet.",
 			directory_totals_note: "Chaque chiffre est le total des votes en personne (jour du scrutin) de la circonscription sur cette carte — la somme de ses bureaux. Les votes par anticipation et spéciaux ne sont pas attribués par section de vote et ne sont donc pas inclus ici; pour les résultats complets, voir le rapport. Un tiret (—) signifie que le nom de la circonscription n’apparaît pas sur cette carte.",
