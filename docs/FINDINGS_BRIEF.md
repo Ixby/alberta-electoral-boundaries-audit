@@ -11,7 +11,7 @@
 
 # Alberta's Two Electoral Maps: A Summary of Findings
 
-**June 2026**
+**November 2026**
 
 ---
 
@@ -19,7 +19,7 @@
 
 When you vote in an Alberta election, you vote in your **riding**: the patch of the province you share with your MLA (Member of the Legislative Assembly). Your riding might cover your neighbourhood, your town, or a chunk of a city. Every riding elects exactly one person.
 
-Whichever party wins the most ridings runs the government. 89 ridings in all. Win 45 and you control the legislature. Win 44 and you don't.
+Whichever party wins the most ridings runs the government. On the two commission maps, 89 ridings in all. Win 45 and you control the legislature. Win 44 and you don't. (The Act now sets 91 divisions for the next map: it was changed in 2026.)
 
 Here is the part that matters: **somebody has to decide where the riding lines go.** Move a line a few streets over and thousands of voters shift from one riding to another. That can change who wins the riding, without a single person changing their vote. Move enough lines the right way and you can change the outcome of a whole election.
 
@@ -29,7 +29,7 @@ So riding boundaries are not just a technical detail. They are, in effect, choic
 
 ## What happened
 
-To keep the government from drawing its own riding lines (which would be like letting one team write the rules of its own game), Alberta uses an independent commission: five people who are supposed to draw the lines fairly. In 2025–26, that commission could not agree. Three members produced one map. Two produced a different one.
+To keep the government from drawing its own riding lines (which would be like letting one team write the rules of its own game), Alberta uses an independent commission: five people who are supposed to draw the lines fairly. In 2025–26, that commission could not agree. Three members produced one map, which under the Act counts as the commission's report. Two produced a different one.
 
 In April 2026 (Government Motion 37, introduced April 16 and passed April 21), the Legislative Assembly threw out both commission maps and gave the job to a six-person committee of MLAs. Four of the six come from the governing United Conservative Party (UCP). The other two come from the main opposition, the New Democratic Party (NDP).
 
@@ -43,7 +43,7 @@ You cannot just look at two maps and say which one is fair. Maps are complicated
 
 **First:** it measured six specific things about each map, things like how evenly people are spread across the ridings and how many pieces cities are cut into.
 
-**Second:** it had a computer program draw 1 million random Alberta maps, each following the same rules the commission had to follow. Then it asked: where do the two commission maps fall among all those random maps? Normal, or extreme?
+**Second:** it had a computer program draw 1 million random Alberta maps, each keeping every riding in one piece and within the Act's population limits. (The random maps have 87 ridings, the old map's count; the commission's have 89.) Then it asked: where do the two commission maps fall among all those random maps? Normal, or extreme?
 
 Think of a height chart at a school. Measure a thousand students and find most stand between 150 cm and 180 cm, and a student at 210 cm is unusual. Not because being tall is wrong. Because it is rare. This audit does the same thing with riding maps.
 
@@ -57,7 +57,7 @@ Under the **majority map**, the average riding is off from the ideal size by abo
 
 Under the **minority map**, the same gap is **4,707 people — 48% worse**.
 
-Neither map is perfect. But the minority map's riding sizes are a good deal more unequal.
+Neither map is perfect. But on the commission's own population figures, the minority map's riding sizes are a good deal more unequal. (Counted on 2021 census figures instead, the two maps come out almost level.)
 
 ---
 
@@ -104,10 +104,10 @@ In every election, some votes do nothing to help their party win more seats. A v
 
 A riding map can be drawn, on purpose or not, so that one party's supporters end up either packed into a few ridings they win by enormous margins (lots of wasted surplus votes) or spread across ridings where they keep losing narrowly (lots of wasted losing votes). The first is called packing; the second, cracking. Either way, that party needs more votes in total to win the same number of seats.
 
-Here is how the two maps compare, across 896,644 votes cast for the two main parties:
+Here is how the two maps compare, across the 896,644 election-day votes cast for the two main parties (advance and special ballots can't be placed on a map):
 
-- Under the **majority map**: NDP voters wasted roughly **881 more votes** than UCP voters. That is about 0.1% of all ballots. Nearly equal.
-- Under the **minority map**: NDP voters wasted roughly **36,000 more votes** than UCP voters. That is about 4% of all ballots.
+- Under the **majority map**: NDP voters wasted roughly **881 more votes** than UCP voters. That is about 0.1% of those ballots. Nearly equal.
+- Under the **minority map**: NDP voters wasted roughly **36,000 more votes** than UCP voters. That is about 4% of those ballots.
 
 The minority map's gap is about **41 times larger** than the majority map's. Both gaps favour the UCP.
 
@@ -123,11 +123,11 @@ The minority map's gap is about **41 times larger** than the majority map's. Bot
 
 Past the 45-seat threshold for a majority government sits a higher threshold: **60 seats out of 89** is a two-thirds supermajority. In Alberta that unlocks no special power. Any majority can already pass legislation without the opposition, including legislation that changes electoral and voting rules. What a supermajority adds is a cushion: a few floor-crossings cannot threaten the government, and a smaller opposition has fewer members to keep up scrutiny.
 
-The minority map's structural tilt turns modest UCP vote advantages into very large seat leads. Under a realistic UCP vote advantage, the minority map produces seat totals in the range where a supermajority comes within reach. The majority map does not show the same amplification.
+The minority map's structural tilt turns modest UCP vote advantages into very large seat leads. Replayed on the 2023 election-day vote (57.4% UCP in two-party terms, more UCP than the full count), the minority map gives the UCP 60 seats, the supermajority line; the majority map gives 55. The majority map does not show the same amplification.
 
 ### Lesser Slave Lake: both sides, and what comes next
 
-Lesser Slave Lake covers a region with significant First Nations populations on reserve. Its geography and the make-up of its communities qualify it for a statutory exception under the Electoral Boundaries Commission Act (§15(2)), which lets the district hold fewer people than a standard riding. That reflects a deliberate legislative protection for Indigenous communities.
+Lesser Slave Lake covers a region with significant First Nations populations on reserve. Its geography and the make-up of its communities qualify it for a statutory exception under the Electoral Boundaries Commission Act (§15(2)), which lets the district hold fewer people than a standard riding. The protection is written for large, remote districts: a district needs three of five criteria, and containing a reserve or Métis settlement is one of them.
 
 After the commission's public hearing process, both the majority and minority maps preserve Lesser Slave Lake. The concern is what happens next. The government-appointed MLA committee has not committed to preserving this district's status. The commission held extensive public hearings and received organized Indigenous submissions; the committee works to a shorter timeline, with less public input. The statutory protection exists. Using it is discretionary.
 
@@ -139,7 +139,7 @@ Airdrie is a city of about 85,000 people. It has one city hall, one tax bill, on
 
 The majority map puts Airdrie in two ridings. The minority map splits it into **four**, three of them holding at least 2% of its people. Airdrie East keeps more than half the city; nearly all the rest is attached to two Calgary-edge ridings where Calgary residents outnumber Airdrie's. Four different MLAs. A citywide problem (a road, a school, a hospital) has to be carried to four different offices, three of which mostly represent somewhere else.
 
-The commission chair called the four-way split "not something that I can condone." Zero public submissions asked for it.
+In an addendum he wrote alone, the commission chair said the minority's hybrid districts in Airdrie and five other places were "not something that I can condone." None of the 1,252 public submissions the audit could search asked for the four-way split.
 
 ### Northeast and central Calgary: packing NDP votes
 
@@ -149,27 +149,28 @@ The majority map has northeast and central Calgary only **2.8% above average**, 
 
 ### Cochrane and Rocky Mountain House–Banff
 
-The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, about 21 km from Nolan Hill. No evidence of commuter flows or a community of interest supports this join at the level of the census sub-division. The commission chair specifically flagged this configuration.
+The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, about 21 km from Nolan Hill. Commuting data show a real tie between Cochrane and Calgary as a whole: about a third of Cochrane's workers commute into the city, while about half work in Cochrane. But the census reports Calgary as one unit, so nothing in it ties Cochrane to Nolan Hill in particular. The commission chair specifically flagged this configuration.
 
 The minority also invokes the statutory §15(2) exception to stretch Rocky Mountain House–Banff Park into Banff National Park: a boundary that runs through territory with no permanent residents and no agricultural land base. The majority map uses its matching statutory exception for the Canmore-Banff area, a configuration with a clearer community-of-interest footing.
 
-### What the commission's own chair said about the minority map
+### What the commission's chair and majority said about the minority map
 
-The commission chair flagged more than 3 minority configurations as problems, naming concerns with boundaries in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert. He called the minority report "substantively unreasonable" and said it was "likely to offend s. 3 of the Charter," the section that guarantees the right to vote. He wrote these words in a public statutory document.
+In his addendum the chair named the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer and St. Albert. The majority report, which he signed with two other commissioners, called the minority's maps "substantively unreasonable" and "likely to offend s. 3 of the Charter," the section that guarantees the right to vote (final report, pp. 10 and 62). These words are in a public statutory document.
 
-This audit checked the public submission record against each of the chair's 7 flagged configurations, to test his blanket "no public support" claim. Of the 7:
+The majority report (the chair and two other commissioners) wrote that the minority's changes in five places (Airdrie, Cochrane, Chestermere, Red Deer and St. Albert) had "no public support" (final report, pp. 59 and 62). This audit checked that claim against the public submission record. Of the 5:
 
-- **3** had clear public support in the submission record (citizens asked for them — chair was wrong on these)
-- **3** had clear public opposition (citizens argued against them — chair was right on these)
-- **1** had a neutral or split record (chair's claim is partially wrong here)
+- **3** had no clear public support (Airdrie, Cochrane, St. Albert — the majority was right on these)
+- **2** had a split record (Chestermere and Red Deer — the majority was partly wrong)
 
-**This finding cuts against the chair's sweeping statement, not against the minority.** The chair was right on 3 of 7, wrong on 3, and partially wrong on 1. The minority configurations did not uniformly lack public support. The chair's substantive concern about partisan asymmetry in the minority map is supported separately by the Lane 1 and Lane 2 results. But his specific "no public support" rationale is not borne out by the submission record on a majority of the configurations he flagged.
+Two configurations the majority criticised on other grounds, Rocky Mountain House–Banff Park and Olds–Three Hills–Didsbury, also had documented public support.
+
+**This finding cuts against the majority's blanket statement, not against the minority.** The claim held in three of the five places and partly failed in two. The minority configurations did not uniformly lack public support. The majority's concern about unequal populations in Calgary is supported separately by the structural results in Finding 4. But its blanket "no public support" claim is overbroad.
 
 ### Other oddities
 
-Several other minority configurations stood out during the audit without rising to the level of a formal finding. Chestermere, a lakeside city east of Calgary, is partly split in the minority map, in a way that places part of the city with rural territory it shares no infrastructure or community connection with. The chair flagged the Red Deer and St. Albert configurations as unreasonable; the audit confirmed that the rationale given for each does not match the geographic or population data.
+Several other minority configurations stood out during the audit without rising to the level of a formal finding. Chestermere, a lakeside city east of Calgary, is partly split in the minority map, in a way that places part of the city in a south-east Calgary district (Calgary-Peigan-Chestermere) it shares no school division or transit system with. The majority report and the chair's addendum both object to the Red Deer and St. Albert configurations. The audit found the Red Deer rationale does not match the data: Sylvan Lake and Red Deer are in different school divisions. St. Albert is different: both maps drew the same two-district structure there, and the audit treats it as forced by the rules.
 
-The pattern across these smaller anomalies is consistent with the larger findings. They appear predominantly on the minority map, and predominantly in configurations that advantage the UCP.
+The pattern across these smaller anomalies is consistent with the larger findings. They appear predominantly on the minority map. Whether these choices are what produce the minority map's seat advantage was tested, and that claim did not hold up (public report, Casing 9).
 
 ---
 
@@ -179,17 +180,17 @@ The pattern across these smaller anomalies is consistent with the larger finding
 
 **It does not say anyone drew the minority map to cheat.** Statistics can show what a map does. They cannot show what anyone intended. The same outcome could come from deliberate choices, from geography, from habit, or from coincidence. This audit measures the effect, not the motive.
 
-**It already accounts for the fact that NDP voters are concentrated in cities.** City voters tend to live close together, so their votes naturally get bundled into fewer ridings. That gives them a slight built-in disadvantage on any neutral map. The 1 million random maps in the simulation were all drawn on real Alberta geography, so this is factored in. Against those neutral draws, the minority map is still unusual.
+**It already accounts for the fact that NDP voters are concentrated in cities.** City voters tend to live close together, so their votes naturally get bundled into fewer ridings. In Alberta that effect is outweighed: rural UCP ridings are won by wider margins, so at a tied vote the typical neutral map gives the NDP more seats (see the table in Finding 2). The 1 million random maps in the simulation were all drawn on real Alberta geography, so this is factored in. Against those neutral draws, the minority map is still unusual.
 
 ---
 
 ## How the analysis was done
 
-All results use the official Elections Alberta riding maps, received May 6, 2026. The 2023 election results were matched to each riding by finding which riding each polling station fell inside.
+All results use the official Elections Alberta riding maps, received May 6, 2026. The 2023 election-day results were matched to each riding through the Voting Area each polling station serves. Advance and special ballots carry no Voting Area, so they could not be placed.
 
-A standard redistricting research tool (GerryChain) generated the 1 million random maps. Each random map follows the same population rules the commission had to follow.
+A standard redistricting research tool (GerryChain) generated the 1 million random maps. Each random map follows the Act's ±25% population band, with 87 ridings (the 2019 map's count) on 2021 census figures; the special-district exception and community of interest are not built in.
 
-**Pre-registration scope (honest version).** Pre-registration means fixing a test in a time-stamped public record before looking at the results. The structural test battery (population deviation, municipal split count, anchoring, compactness, and the boundary-signature checks) was registered with timestamps before canonical recomputation. The partisan-bias channels (the Mahalanobis joint score, SZAT, and their combination) are labelled "exploratory" in the audit's own §4.3.1 sense: they are documented in this repository, but their specific form was not fixed before the data were examined. The registration records that *are* prospective are filed at OSF:r3zm7 / AsPredicted #289,451 (Ch3) and OSF:qsgy8 / AsPredicted #289,455 (November scorecard). OSF:6pt83 / AsPredicted #289,469 (SZAT) was filed after its results were known. Pre-registration stops a researcher from running many tests and reporting only the ones that look good. But it only does that for the tests that were pre-registered. The exploratory channels are reported as exploratory.
+**Pre-registration scope (honest version).** Pre-registration means fixing a test in a time-stamped public record before looking at the results. The structural test battery (population deviation, municipal split count, anchoring, compactness, and the boundary-signature checks) was registered with timestamps before canonical recomputation. The partisan-bias channels (the Mahalanobis joint score, SZAT, and their combination) are labelled "exploratory" in the audit's own §4.3.1 sense: they are documented in this repository, but their specific form was not fixed before the data were examined. The registration records that *are* prospective are filed at OSF:r3zm7 / AsPredicted #289,451 (Ch3) and OSF:qsgy8 / AsPredicted #289,455 (filed with the ensemble's random seed; the November scoring rules themselves are dated in this repository, `preregistration/november_2026_scoring_spec.md`). OSF:6pt83 / AsPredicted #289,469 (SZAT) was filed after its results were known. Pre-registration stops a researcher from running many tests and reporting only the ones that look good. But it only does that for the tests that were pre-registered. The exploratory channels are reported as exploratory.
 
 ---
 

@@ -17,7 +17,7 @@ type: project
 **Registration:** Pre-registered signature-detection checklist for the Select Special Committee on Electoral Boundaries' map.  
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).  
-**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30 · 2026-10-31.
+**Amendments filed:** 2026-04-23 · 2026-04-26 (morning) · 2026-04-26 (evening) · 2026-04-27 · 2026-06-10 · 2026-06-11 · 2026-06-12 · 2026-07-10 · 2026-07-11 · 2026-07-12 · 2026-10-29 · 2026-10-30 · 2026-10-31 · 2026-11-01.
 
 ---
 
@@ -49,6 +49,7 @@ type: project
 | 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
 | 2026-10-31 | Amendment 25 (withdrawn, unsigned) | s.15(2)(c) read both ways | Not adopted; Amendment 21's reading stands, following commission practice; the legal-status argument and a diagnostic are recorded |
 | 2026-10-31 | Amendment 27 | Errata | Retraction condition 4.3 B's inference direction; committee and source facts in the registered process scorecard |
+| 2026-11-01 | Amendment 28 | Erratum (reading note) | "Chair-flagged" anomalies and the "no public support" claim are read as the majority's; S6 (the chair's addendum) unaffected; names and tests unchanged |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -1334,3 +1335,19 @@ The test stays the same: the Issue #14 counter-map challenge, judged by the same
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-10-31 20:15 MDT
 
+---
+
+### Amendment 28 — Erratum: "chair-flagged" anomalies were flagged by the majority (2026-11-01)
+
+> **Status: in force.** Signed 2026-11-01 on the author's direction in session ("Fix everywhere, keep test names"), before the committee's map is due (November 2, 2026). No committee map, and no result from one, has been seen in session.
+
+Two registered documents credit the chair with flags that the final report puts in the majority's own section, written as "we": §4.1 of `preregistration/retraction_conditions.md` ("Visible anomalies (3 chair-flagged)") and `preregistration/null_hypotheses.md` (the §5.8.2 rows, "chair-flagged visible anomalies", and item 5, the "chair's 'no public support' claim"). The geometric objections are on pp. 62–63 of the final report, the "bad faith effort" phrase on p. 10, and the "no public support" statements on pp. 59 and 62. The chair is one of the three commissioners who signed that section, so these flags are the majority's, not his alone.
+
+The registered names stay as written, so each condition can still be found under the name it was registered with. They are read as "flagged by the commission's majority, the chair among them". Every test, threshold and rule is unchanged. Reader-facing text (the site, the public report, the README and the findings brief) now says "the majority" (academic report C49).
+
+**Not covered:** S6 in `preregistration/november_2026_scoring_spec.md` ("Chair-flagged hybrid patterns"). Its predicates come from the chair's addendum, which he wrote alone and in which he names the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer and St. Albert (final report, p. 66). "Chair" is accurate there.
+
+**Also noted, not changed:** §4.1 lists its three anomalies as Rocky Mountain House–Banff Park, the Nolan Hill–Cochrane corridor and an "Edmonton-Windermere stepped boundary". The final report's objections do not mention Edmonton-Windermere. The audit's confirmed three are Rocky Mountain House–Banff Park, Calgary-Nolan Hill–Cochrane and the Olds–Three Hills–Didsbury reach into Airdrie (academic report §5.8.2). The condition's wording is left as registered.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-11-01 (Alberta time)

@@ -29,7 +29,7 @@ export const FLAGS: Flag[] = [
 		x: -55271.8,
 		y: -369910.0,
 		title: 'North of Banff — “Rocky Mountain House–Banff Park”',
-		body: "“Rocky Mountain House–Banff Park” is one of the minority's proposed ridings, made up largely of uninhabited national park; the town of Banff sits in a neighbouring riding to the south. The minority applied the Electoral Boundaries Commission Act's smaller-population provision to this riding — a choice the commission's chair addressed in the final report."
+		body: "“Rocky Mountain House–Banff Park” is one of the minority's proposed ridings, made up largely of uninhabited national park; the town of Banff sits in a neighbouring riding to the south. The minority applied the Electoral Boundaries Commission Act's smaller-population provision to this riding — a choice the commission's majority called \"a bad faith effort\" in the final report."
 	},
 	{
 		id: 'airdrie-split',
@@ -43,7 +43,7 @@ export const FLAGS: Flag[] = [
 		x: 19244.3,
 		y: -373751.5,
 		title: 'Calgary-Nolan Hill–Cochrane',
-		body: "Cochrane's commute to Calgary could have justified pairing it with the city — but the 2021 journey-to-work data spreads that flow city-wide (about a third of workers; half work within Cochrane) and doesn't point to Nolan Hill. The minority's narrow corridor to the Nolan Hill ward — the shape the chair called a lasso — reaches further than the data, and no submission proposed it. The audit's cracking test does not flag it: Cochrane stays whole and makes up about two-thirds of the riding, and at about 34,000 it is too small for a seat of its own. (Academic §5.3.2.)"
+		body: "Cochrane's commute to Calgary could have justified pairing it with the city — but the 2021 journey-to-work data spreads that flow city-wide (about a third of workers; half work within Cochrane) and doesn't point to Nolan Hill. The minority's narrow corridor to the Nolan Hill ward — in one of two districts the commission's majority said \"look strange\" — reaches further than the data, and no submission proposed it. The audit's cracking test does not flag it: Cochrane stays whole and makes up about two-thirds of the riding, and at about 34,000 it is too small for a seat of its own. (Academic §5.3.2.)"
 	},
 	{
 		id: 'olds-airdrie-reach',
@@ -78,6 +78,6 @@ export const FLAGS: Flag[] = [
 		x: 45500.0,
 		y: -380000.0,
 		title: 'Calgary north & east — a packing signature',
-		body: "The commission chair didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
+		body: "The commission's majority didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
 	}
 ];
