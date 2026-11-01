@@ -1769,7 +1769,7 @@ export default {
 						committee: "ਨਹੀਂ — ਕਮਿਸ਼ਨ ਦਾ ਪੁਰਾਲੇਖ ਦੁਬਾਰਾ ਵਰਤਦੀ ਹੈ"
 					},
 					demonstrated_responsiveness: {
-						feature: "ਦਿਖਾਈ ਗਈ ਜਵਾਬਦੇਹੀ",
+						feature: "ਜਨਤਕ ਰਾਏ ਨੂੰ ਦਿਖਾਇਆ ਹੁੰਗਾਰਾ",
 						commission: "ਹਾਂ — 80+ ਜਮ੍ਹਾਂਕਰਨਾਂ ਉੱਤੇ ਆਪਣੇ ਆਪ ਨੂੰ ਪਲਟਿਆ",
 						committee: "ਬਾਕੀ"
 					},
