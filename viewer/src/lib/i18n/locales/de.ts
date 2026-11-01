@@ -1484,5 +1484,69 @@ export default {
 		privacy_link_text: "Datenschutzerklärung",
 		back_to_report: "Zurück zum Bericht",
 		back_to_map: "Zurück zum Karten-Explorer"
+	},
+	pages: {
+		explainers: {
+			head_title: "Die vierzehn Erklärstücke · Audit der Wahlkreisgrenzen Albertas",
+			head_description: "Vierzehn kurze Erklärstücke — eines pro Befund im Audit der Wahlkreisgrenzen Albertas: Cracking, Packing, neutrale Ensembles, der Fehlschluss des Anklägers, Konventionen gegenüber Recht und mehr.",
+			back: "← Zurück zum Audit",
+			site_label: "Audit der Wahlkreisgrenzen Albertas",
+			h1: "Die vierzehn Erklärstücke",
+			meta: "Anhänge A–N · je ein Begriff · vorerst nur auf Englisch",
+			standfirst: "Jede Hülse im Audit verweist auf einen Anhang hier, und jeder Anhang gehört genau einem Begriff. Er beginnt bei der ehrlichen Verwirrung. Er baut die Idee an einem konkreten Beispiel auf. Er schickt Sie zur Nummer der Hülse zurück, sodass Sie sie ohne Hilfe lesen können. Und er endet mit dem, was der Begriff Ihnen <em>nicht</em> sagen kann. Lesen Sie sie in beliebiger Reihenfolge.",
+			appendix_a: {
+				heading: "Anhang A — Was „Cracking“ mit einer Stimme tatsächlich macht",
+				confusion: "<em>Die Verwirrung:</em> „Die Wählerinnen und Wähler in Airdrie wählen doch weiterhin. Niemand hat ihnen die Stimmzettel weggenommen. Wie soll das Ziehen von Linien irgendetwas ‚verwässern‘?“",
+				p1: "Stellen Sie sich eine Stadt mit 40.000 Einwohnern vor, die überwiegend Orange wählt und in einer Region liegt, die überwiegend Blau wählt. Geben Sie der Stadt ihr eigenes Riding, einen Bezirk mit eigenem Sitz in der Legislative, und sie wählt einen orangen MLA: 40.000 Menschen, ein Sitz, eine Stimme. Schneiden Sie die Stadt jetzt in vier Stücke und heften Sie jedes Stück an ein Stück blaues Umland. In jedem neuen Riding stehen den 10.000 Wählerinnen und Wählern der Stadt 30.000 ländliche gegenüber. Orange verliert alle vier. Dieselben Wählerinnen und Wähler, dieselben Stimmzettel, null Sitze. Keinem einzelnen Wähler wurde etwas gestohlen. Genommen wurde die Fähigkeit der <em>Gemeinschaft</em>, überhaupt jemanden zu wählen. Das ist Cracking. Sein Spiegelbild ist Packing (Anhang C): eine Gruppe in so wenige Ridings wie möglich zu stopfen, sodass sie diese mit Erdrutschsiegen gewinnt und sonst nichts.",
+				p2: "Lesen Sie jetzt Befund 1 noch einmal: 85.805 Menschen, vier Ridings, in dreien davon eine Minderheit. Der andere Entwurf derselben Kommission zeigt, dass zwei Ridings genügten, um das Gesetz zu erfüllen.",
+				limit: "<em>Die Grenze:</em> Cracking beschreibt eine Wirkung, kein Motiv. Eine Aufteilung kann vorkommen, weil jemand verwässern wollte. Sie kann auch vorkommen, weil andere Vorgaben die Karte eingeengt haben. Die Geometrie allein kann nicht sagen, was davon zutrifft.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-1\">↩ Zurück zu Befund 1</a>"
+			},
+			appendix_b: {
+				heading: "Anhang B — Formanalyse, und wozu der Schutz nach Abschnitt 15(2) da ist",
+				confusion: "<em>Die Verwirrung:</em> „Alle Wahlbezirke sehen seltsam aus. Warum sind diese drei Formen wichtig?“",
+				p1: "Bezirke folgen der Geographie, unförmig ist also normal. Die Formanalyse sucht nach <em>Arbeit</em>: einer Grenze, die etwas tut, das keine gewöhnliche Vorgabe erklärt. Ein Korridor, der ein Viertel wie mit einem Lasso in einen entfernten Bezirk zieht. Ein Arm, der in den Rand einer Stadt greift. Eine Linie, die durch Land verlängert wird, in dem niemand lebt. Albertas Gesetz hat eine Sonderbestimmung, Abschnitt 15(2), die bis zu vier Bezirken erlaubt, unter die normale Bevölkerungsuntergrenze zu fallen. Sie wurde für abgelegene Bezirke mit starken Gemeinschaftsbindungen geschrieben, etwa für nördliche Ridings, die indigene Gemeinschaften über weite Entfernungen hinweg vertreten. Eine Grenze durch unbewohnten Nationalpark zu verlängern, damit ein Bezirk diesen Schutz erhält, ist das, was der eigene Vorsitzende der Kommission „einen bösgläubigen Versuch“ nannte: eine Regel, die für Menschen geschrieben wurde, die weit auseinander leben, benutzt, um eine Linie zu schützen, wo überhaupt niemand lebt.",
+				p2: "Lesen Sie jetzt Befund 2 noch einmal: drei Formen, beanstandet vom eigenen Vorsitzenden des Verfahrens, unabhängig bestätigt durch Tests, die an seinem Streit keinen Anteil hatten.",
+				limit: "<em>Die Grenze:</em> Eine seltsame Form ist eine Frage, keine Antwort. Eine dieser Formen hat darunter eine echte, anerkennenswerte Logik: die Zuordnung des Ortes Banff zu Canmore. Der Einwand des Vorsitzenden übersteht das trotzdem. Er richtete sich gegen die Ausdehnung in den leeren Park, und die Zuordnung berührt diese nicht.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-2\">↩ Zurück zu Befund 2</a>"
+			},
+			appendix_c: {
+				heading: "Anhang C — Packing an einem Spielbeispiel mit drei Bezirken",
+				confusion: "<em>Die Verwirrung:</em> „Größere Bezirke haben mehr Wählerinnen und Wähler. Na und? Jeder hat immer noch eine Stimme.“",
+				p1: "Nehmen Sie 12.000 Wählerinnen und Wähler, 7.000 Orange und 5.000 Blau, aufgeteilt auf drei Bezirke zu je 4.000. Zeichnen Sie sie gleichmäßig, und Orange gewinnt alle drei. Zeichnen Sie jetzt neu. Stopfen Sie 4.000 orange Wählerinnen und Wähler in einen Bezirk (Orange gewinnt ihn 100 zu 0). Verteilen Sie die übrigen 3.000 Orange auf zwei Bezirke zu je 4.000, in denen die 5.000 Blauen in beiden den Ausschlag geben. Dieselben 12.000 Wählerinnen und Wähler, dieselbe orange Mehrheit von 7.000. Jetzt hält Orange einen Sitz und Blau zwei. Das ist Packing: Die Stimmen Ihrer Gegner werden eingelagert, wo sie sich als Überschuss stapeln, verschwendet für Vorsprünge, die sie nicht brauchten. Das verräterische Zeichen ist die <em>Größe und Konzentration</em> der Bezirke. Die Bezirke der Gegner sind groß und tief. Ihre eigenen sind schlank und effizient.",
+				p2: "Lesen Sie jetzt Befund 3 noch einmal: In der einen Zone Calgarys, in der 13 von 17 Bezirken NDP wählen, liegen die Bezirke der Minderheit 11,5 % über dem Provinzdurchschnitt. Die der Mehrheit, im selben Raum gezeichnet, liegen 2,8 % darüber.",
+				limit: "<em>Die Grenze:</em> Übergroße Bezirke können auch aus ehrlichen Schätzungen des Wachstums entstehen oder daraus, eine Gemeinschaft zusammenzuhalten. Ungleiche Größe ist die Signatur, die Packing hinterlässt. Mehrere harmlose Entscheidungen hinterlassen sie ebenfalls.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-3\">↩ Zurück zu Befund 3</a>"
+			},
+			appendix_d: {
+				heading: "Anhang D — Was die MAD misst und warum es die Spanne gibt",
+				confusion: "<em>Die Verwirrung:</em> „Mittlere absolute Abweichung der Bevölkerung — ist das nur Statistik für ‚die Bezirke sind nicht identisch‘?“",
+				p1: "Fast. Bezirke können nicht alle genau gleich viele Menschen umfassen; Gemeinschaften kommen in unpraktischen Größen. Die MAD stellt eine schlichte Frage: Wie weit weicht jeder Bezirk im Schnitt vom idealen Anteil ab? Eine MAD von 3.180 bedeutet, dass die Bezirke das Ideal im Schnitt um etwa 3.180 Menschen verfehlen. Eine MAD von 4.707 bedeutet, dass die Abweichungen im Schnitt um die Hälfte größer sind. Das Gesetz duldet Abweichungen innerhalb einer Spanne (Alberta erlaubt ±25 %), weil es etwas Ungleichheit wert ist, reale Gemeinschaften zu respektieren. Das ist der Handel. Abweichung ist die Währung, und man gibt sie aus, um Dinge wie ganze Orte und vernünftige Grenzen zu kaufen. Das gibt Befund 4 seinen Sinn: Die Minderheitenkarte gibt 48 % mehr dieser Währung aus als die Mehrheit. Und Befund 1 zeigt, dass sie damit <em>nicht</em> die Unversehrtheit Airdries gekauft hat.",
+				p2: "Lesen Sie jetzt Befund 4 noch einmal: breitere Streuung als 99 von 100 neutralen Karten (Karten, die ein Computer gezeichnet hat, ohne eine einzige Stimme zu sehen; Anhang F), bei dem einen Wert, den das Gesetz tatsächlich beziffert.",
+				limit: "<em>Die Grenze:</em> Innerhalb der Spanne ordnet das Recht nichts nach Rang. „Mehr Abweichung ausgegeben“ ist eine Beobachtung über Prioritäten, kein Verstoß. Jeder Bezirk auf beiden Karten ist legal.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-4\">↩ Zurück zu Befund 4</a>"
+			},
+			appendix_e: {
+				heading: "Anhang E — Was die Verankerung an Gemeindegrenzen misst und was sie nicht zeigen kann",
+				confusion: "<em>Die Verwirrung:</em> „Warum zählt man, wie oft eine Grenze einer Stadt- oder Ortsgrenze folgt?“",
+				p1: "Weil die Menschen dort schon wissen, wo sie wohnen. Wenn eine Bezirksgrenze entlang einer Gemeindegrenze verläuft, fallen die Grenze der Grundsteuer, die Grenze des Schulbezirks, die Grenze des örtlichen Wahlbezirks und die Grenze für die Provinzwahl zusammen. Eine Wählerin kann ohne Karte sagen, in welchem Bezirk sie ist. Der Test misst, wie viel der Länge der Bezirksgrenzen jeder Karte innerhalb von 500 Metern einer Gemeindegrenze von Statistics Canada verläuft. Kanadische Kommissionen landen bei diesem Maß zwischen 70 % und 85 % (Quebec 78 %, Ontario 82 %, BC 71 %). Die Mehrheitskarte kommt auf 80 %. Die Minderheit auf 72 %. Beide liegen innerhalb der Norm, bei den Gesamtraten unterscheidet der Test sie also nicht.",
+				p2: "Lesen Sie jetzt Befund 5 noch einmal: Die Gesamtrate ist auf beiden Karten gewöhnlich. Was auffällt, ist, wo die Abweichungen der Minderheit liegen: an den Rändern, die der Vorsitzende beanstandet hat.",
+				limit: "<em>Die Grenze:</em> Die Verankerungsrate ist eine Norm, keine Regel. Das Gesetz legt keine Schwelle fest. Und eine Abweichung kann einen guten Grund haben, etwa einen Vorort, der über eine Stadtgrenze hinausgewachsen ist.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-5\">↩ Zurück zu Befund 5</a>"
+			},
+			appendix_f: {
+				heading: "Anhang F — Die Was-wäre-wenn-Maschine, und wie man ein Perzentil liest",
+				confusion: "<em>Die Verwirrung:</em> „Eine Million Computerkarten? Ein Perzentil einer Simulation? Was soll das überhaupt heißen?“",
+				p1: "Man kann nicht beurteilen, ob eine Karte ungewöhnlich ist, ohne zu wissen, wie gewöhnlich aussieht. Bei Wahlkarten bekommt niemand die Alternativen zu sehen. Also hat das Audit sie gebaut. Ein Algorithmus beginnt mit einer legalen Karte und nimmt eine lange Kette zufälliger legaler Änderungen vor. Zwei benachbarte Bezirke verschmelzen. Sie auf eine zufällige gültige Weise neu teilen. Wiederholen: 252.500 Mal, in vier unabhängigen Ketten, insgesamt 1.010.000 Karten. Beim Zeichnen werden keine Wahldaten herangezogen. Die Maschine kann niemanden begünstigen, weil sie niemanden sehen kann, und genau das bedeutet „neutral“ hier. Dann nimmt man die reale Karte, misst sie und fragt: Wie viele der Million neutraler Karten erreichen einen so hohen Wert? Wenn es 500.000 sind, ist Ihre Karte gewöhnlich. Wenn es 69 sind, ist Ihre Karte die Art von Karte, die neutrales Zeichnen 69 Mal in 1.010.000 Versuchen hervorbringt.",
+				p2: "Lesen Sie jetzt Befund 6 noch einmal: die Mehrheitskarte am 78. Perzentil — gewöhnlich. Die Minderheit am 99,99. — 69 von 1.010.000 erreichen einen höheren Wert.",
+				limit: "<em>Die Grenze:</em> Die Maschine beachtet Bevölkerung und Zusammenhang (jeder Bezirk ein einziges zusammenhängendes Stück), aber nicht jede gesetzliche Feinheit, die eine reale Kommission abwägt. Ihre Perzentile messen also den Abstand vom <em>neutralen Zeichnen</em>, nicht von <em>allem, was eine rechtmäßige Kommission tun könnte</em>. Und ein Perzentil ist ein Abstand, kein Urteil.",
+				back_anchor: "<a href=\"__BASE__/evidence#casing-6\">↩ Zurück zu Befund 6</a>"
+			},
+			appendix_g: {
+				heading: "Anhang G — Die Effizienzlücke an einem durchgerechneten Beispiel",
+				confusion: "<em>Die Verwirrung:</em> „Eine einzige Zahl, die Gerrymandering erfasst? Das klingt zu bequem.“",
+				p1: "Ist es auch, ein wenig. Deshalb bekommt sie in diesem Bericht eine Schwelle, und einen Fehlschuss. Die Idee: Jede Stimme, die nicht hilft, einen Sitz zu gewinnen, ist „verschwendet“. Das sind alle Stimmen für Verlierer plus die Stimmen der Sieger über die nötigen 50 % plus eins hinaus. Bei einer fairen Karte verschwenden beide Parteien etwa gleich viel. Die Effizienzlücke ist die Differenz der verschwendeten Stimmen, als Anteil an allen Stimmen. Angenommen, Orange gewinnt einen Bezirk mit 100 Stimmen mit 90 zu 10. Orange hat 39 verschwendet, seinen Überschuss über 51. Blau hat 10 verschwendet, alles Stimmen für den Verlierer. Gepackte und gecrackte Karten lassen eine Partei systematisch mehr verschwenden. In der Vorzeichenkonvention dieses Berichts begünstigen positive Lücken die Konservativen. Die Kalibrierungslinie des Audits für Alberta (~4,1 %) ist der Wert, den nur 5 % der Million neutraler Karten überschreiten."
+			}
+		}
 	}
 } as const;

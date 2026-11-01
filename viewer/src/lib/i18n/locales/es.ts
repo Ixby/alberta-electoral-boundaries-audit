@@ -1696,7 +1696,78 @@ export default {
 			head_description: "El tercer lente sobre el episodio de límites de Alberta en 2026: de dónde vino la norma de que los políticos no trazan sus propios distritos, qué compró, los argumentos para dejarla de lado, y quién acusa realmente a quién de qué.",
 			back: "← Volver a la auditoría",
 			site_label: "Auditoría de los límites electorales de Alberta",
-			h1: "Lo que las normas le piden a un mapa electoral"
+			h1: "Lo que las normas le piden a un mapa electoral",
+			meta: "Complemento en lenguaje sencillo · Solo en inglés por ahora · No es un veredicto sobre nadie",
+			standfirst: "Este episodio tiene tres lentes. La <a href=\"__BASE__/law\">ley</a> pregunta qué es legal. La <a href=\"__BASE__/methods\">estadística</a> pregunta qué es inusual. El tercer lente pregunta qué es costumbre, y la costumbre es el terreno en disputa. \"El gobierno rompió una norma de sesenta años\" no es una medición neutral. Es el corazón de la acusación de la oposición. Por eso esta página no se limita a recitar las normas. Las somete a interrogatorio: de dónde vinieron, para qué sirven, cuáles son en realidad los argumentos para dejarlas de lado, y qué queda una vez despejada la retórica de ambos lados.",
+			the_norm: {
+				heading: "La norma, dicha llanamente",
+				p1: "Los políticos no trazan sus propios distritos. Canadá pasó unos sesenta años construyendo esa regla, no como ley sino como práctica. Desde la época de reformas federales de la década de 1960, cada provincia y el proceso federal han usado comisiones de límites independientes. La persona que se presentará en un distrito no sostiene la pluma que lo traza.",
+				p2: "La norma existe por lo que hubo antes de ella. Los partidos gobernantes trazaban antes de forma rutinaria sus propios distritos, y el conflicto de interés no es sutil. Quien traza un mapa y debe ganar con ese mapa tiene todas las razones para trazarlo a su favor, y nadie que observe puede distinguir una línea honesta de una interesada. El modelo de comisión no hace perfectos los mapas. Hace que el interés de quien traza pueda separarse del resultado. Eso es lo que permite que todos los demás confíen en el resultado."
+			},
+			what_it_bought: {
+				heading: "Lo que compró la norma, en este mismo ciclo",
+				p1: "La comisión de 2025–26 es su propia mejor prueba. Celebró audiencias en dieciséis comunidades. Recibió 1,345 presentaciones por escrito. Publicó una propuesta provisional, recibió críticas y se corrigió con base en más de ochenta presentaciones. Ese es el sistema respondiendo visiblemente a lo que aporta el público. Fallara en lo que fallara la comisión, el proceso a su alrededor funcionó exactamente como se diseñó: en público, en el expediente, y obligado a responder a lo que decían los ciudadanos."
+			},
+			the_departure: {
+				heading: "La desviación",
+				p1: "En abril de 2026, semanas después de que la comisión dividida presentara dos mapas incompatibles, la Asamblea Legislativa dejó ambos de lado. La Moción Gubernamental 37, aprobada el 21 de abril, entregó el trabajo a un comité de seis MLA, cuatro del partido gobernante, presidido por un miembro del gobierno. El comité no está obligado a celebrar audiencias públicas. Según la cobertura de CBC, no celebrará audiencias sobre el mapa que produzca. No se publicará ningún borrador para que el público lo impugne antes de que el mapa sea definitivo.",
+				p2: "En mayo, Duane Bratt, profesor de Ciencia Política en la Universidad Mount Royal, se lo describió al autor como sin precedentes en Canadá. Esa afirmación es incorrecta. En 1992 Alberta dejó de lado el trabajo de una comisión estancada y entregó el mapa a un comité de MLA; la Oposición se negó a participar, y en 1994 el Tribunal de Apelación dejó en pie el mapa mientras reprochaba al comité no poder explicar varios de sus límites. La Ley se reformó en 1995. Lo nuevo en 2026 es más acotado: una mayoría de la comisión firmó un informe, que la Ley trata como el informe de la comisión, y fue dejado de lado de todos modos. Lo que eso <em>significa</em> es donde empieza la discusión."
+			},
+			steel_man: {
+				heading: "Los argumentos para dejar de lado la norma — tomados en serio",
+				p1: "Una auditoría que solo repite la indignación de un lado no está verificando nada. Así que tome el lado del gobierno con toda su fuerza. Construya su argumento más fuerte, la versión más sólida (el steel-man), antes de ponerlo a prueba:",
+				li1: "<strong>La comisión falló en su único trabajo.</strong> El modelo de comisión promete una sola respuesta independiente. Esta comisión entregó dos mapas incompatibles y un presidente que acusaba públicamente a sus colegas de mala fe. Cuando la vía independiente se estanca, alguien tiene que decidir. La ley dice quién.",
+				li2: "<strong>La ley le da la pluma a la legislatura por diseño.</strong> Según la Ley de Alberta, un informe de la comisión no tiene fuerza legal. Los límites cambian solo cuando la Asamblea aprueba una Electoral Divisions Act. La Moción Gubernamental 37 usó una puerta que la ley construyó a propósito. No se coló nada.",
+				li3: "<strong>Los miembros electos responden ante los votantes; los comisionados no responden ante nadie.</strong> El argumento más antiguo a favor del control legislativo es la rendición de cuentas. Un MLA que traza un mapa interesado puede perder su escaño en las urnas. Un comisionado no.",
+				li4: "<strong>El comité no es un instrumento puramente partidista.</strong> Dos de sus seis miembros son MLA de la oposición. El panel asesor que redacta la propuesta incluye a dos nominados de la oposición y lo preside un juez jubilado del Tribunal de Apelación.",
+				li5: "<strong>El gobierno citó la propia recomendación del presidente.</strong> Su justificación declarada para el mandato de 91 escaños fue la Recomendación 5, escrita por el propio presidente de la comisión. Y se lo dijo así a la Cámara: “Estamos adoptando las recomendaciones del informe.”"
+			},
+			where_it_bends: {
+				heading: "Dónde se dobla el argumento",
+				p1: "Cada uno de esos puntos es real. El expediente documentado también responde a cada uno:",
+				li1: "El estancamiento explica <em>reemplazar</em> los mapas. No explica <em>quitar al público</em>. Un requisito de audiencias, un borrador publicado o un panel vinculante también habrían respondido al estancamiento. El vehículo elegido renuncia a cada rasgo de transparencia que la literatura comparada considera protector. El estancamiento no obligó a ninguna de esas renuncias.",
+				li2: "\"La ley lo permite\" es el lente de la ley, y allí se responde: cada paso fue legal. La pregunta de las normas es distinta. Algunas jurisdicciones hacen que el mapa de una comisión entre en vigor <em>a menos que</em> la legislatura lo anule. La regla por defecto invertida de Alberta significa que el partido gobernante siempre controla si un mapa de la comisión se convierte en ley. Lo legal y lo acostumbrado son preguntas distintas.",
+				li3: "El argumento de la rendición de cuentas prueba demasiado. Argumenta en contra de las comisiones de límites en todas partes. Sin embargo, cada jurisdicción canadiense — y el Reino Unido, y Australia — se movió en la dirección contraria, precisamente porque la rendición de cuentas en las elecciones es una protección débil contra un mapa diseñado para moldear esas mismas elecciones.",
+				li4: "El panel asesora; los votos de los MLA deciden. Un consejo bipartidista con una decisión controlada por el gobierno es una institución distinta de una comisión independiente. La diferencia es exactamente la norma en cuestión.",
+				li5: "El autor de la Recomendación 5 la escribió para disuadir a la legislatura de adoptar el mapa minoritario, y sus colegas de la mayoría no la respaldaron. También es específica. Deja Airdrie, Calgary y todo lo que está al sur de ellas exactamente como lo trazó la mayoría, las mismas líneas sobre las que se dividió la comisión, y nada en el mandato del comité lo obliga a eso. Citar una recomendación en contra del propósito declarado por su autor es una tensión documentada, no resuelta.",
+				li6: "El otro documento leído en el pleno — la página 58 del informe mayoritario — lamenta el tope de dos escaños. Pero el remedio que lo acompaña es que la Legislatura dé a las <em>comisiones futuras</em> el poder de fijar el número de escaños. La moción tomó ese margen ahora, para un comité de MLA, mientras rechazaba la petición operativa del informe: adoptar el mapa de 89 escaños."
+			},
+			whose_accusation: {
+				heading: "¿De quién es la acusación?",
+				p1: "Esta es la separación que esta página existe para hacer. Los siguientes son hechos documentados. La desviación ocurrió, por primera vez desde el propio comité de Alberta de 1992. Se renunció a los rasgos de transparencia. El presidente de la comisión calificó un límite del minoritario de \"esfuerzo de mala fe\" en un documento legal público. La Asociación Canadiense de Libertades Civiles <a href=\"https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/\" rel=\"noopener\">planteó públicamente la preocupación por la politización</a>. La oposición votó en contra de la moción. Y las acusaciones van en ambos sentidos. El informe minoritario acusa a la mayoría de “una inclinación a eliminar o destrozar las divisiones electorales rurales y, en efecto, reducir la representación rural efectiva” — siendo la representación rural, en palabras de la propia minoría, “no solo una cuestión de números; es una cuestión de acceso, voz y gobernabilidad práctica” (p. 356). La auditoría puso a prueba esa acusación el mismo día en que la sacó a la luz (exploratorio; el clasificador robusto a los guiones y cada nombre clasificado se publican con el hallazgo). La dirección se invierte. El mapa minoritario conserva menos divisiones de ancla rural que el mayoritario (23 frente a 28, contra 31 en 2019) y absorbe más de las divisiones rurales de 2019 en distritos con nombre de ciudad (siete frente a tres). Ambos mapas reducen la representación rural respecto de 2019, así que la observación central de la acusación es real. Pero en la medida que nombra la acusación, cae sobre su autor. Su acusación compañera, que la mayoría se negó a usar la flexibilidad de ±25% de la Ley para la Alberta rural, se puso a prueba el mismo día y se sostiene. La mayoría trazó sus divisiones rurales cerca de la paridad de población; la minoría las trazó ligeras. Una acusación invertida, una respaldada, ambas publicadas. El mismo descuento por procedencia unilateral que se aplica a los señalamientos del presidente se aplica aquí también, en ambas direcciones.",
+				p2: "Lo siguiente <em>no</em> es un hecho documentado. Es un juicio político: que la desviación fue ilegítima. Ese juicio depende de cuánta deferencia merecía la norma frente a una comisión estancada, y personas razonables lo ponderan de forma distinta. La auditoría documenta la desviación y sus costos. No lleva la conclusión de la oposición, y nada en la estadística de la auditoría puede llevarla tampoco. Una cifra puede decir que un mapa es raro. No puede decir que un proceso estuvo mal."
+			},
+			norms_vs_law: {
+				heading: "Las normas no son ley — y un lugar convirtió la norma en ley",
+				p1: "Las convenciones constitucionales, las reglas no escritas del comportamiento político, obligan políticamente, no judicialmente. La Corte Suprema lo dijo en la Patriation Reference de 1981, y los tribunales han mantenido esa línea desde entonces: un tribunal puede nombrar una convención y aun así se negará a hacerla cumplir. Esa brecha, entre lo que es costumbre y lo que es exigible, es donde vive todo este episodio.",
+				p2: "Quebec muestra cómo se ve la otra opción. Su comisión de límites es permanente e independiente, y sobre el mapa en sí la comisión normalmente tiene la última palabra. Cuando el gobierno de Quebec intentó congelar su comisión por ley, los tribunales <em>sí</em> actuaron, porque ahora había una ley en juego. El 22 de abril de 2026, la Corte Suprema de Canadá confirmó, por 7–2 y desde el estrado, el fallo de que la congelación violaba la garantía de representación democrática de la Carta. Sus motivos siguieron el 1 de mayo (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Donde la norma se escribió en la ley, se volvió exigible. La norma de Alberta nunca lo fue, y por eso no lo era. El contraste corta en ambos sentidos, sin embargo. El 12 de junio de 2026, la Asamblea Nacional de Quebec aprobó su propio mapa de 127 escaños."
+			},
+			measurable: {
+				heading: "El marcador del proceso: hacer medible la pregunta de las normas",
+				p1: "La retórica sobre las normas es barata en ambas direcciones. La respuesta de la auditoría es un tercer marcador, junto a las pruebas estructurales y la estadística. Califica el <em>proceso</em> en nueve rasgos protectores que garantizaba la práctica de sesenta años. Cada uno es una pregunta de sí o no que puede responderse con documentos públicos, y los mismos nueve califican cada proceso que examina esta auditoría.",
+				table: {
+					head: {
+						feature: "Rasgo protector",
+						commission: "Proceso de la comisión",
+						committee: "Proceso del comité (tal como está constituido)"
+					},
+					arms_length_drafting: {
+						feature: "Redacción independiente",
+						commission: "Sí",
+						committee: "Parcial — el panel redacta; los seis MLA del comité (cuatro del gobierno) deciden"
+					},
+					public_hearings_before: {
+						feature: "Audiencias públicas antes de la adopción",
+						commission: "Sí — dieciséis comunidades",
+						committee: "No — ninguna prevista sobre el mapa producido"
+					},
+					draft_published_challenge: {
+						feature: "Borrador publicado para impugnación",
+						commission: "Sí — propuesta provisional revisada en público",
+						committee: "No — ninguno anunciado"
+					}
+				}
+			}
 		}
 	}
 } as const;
