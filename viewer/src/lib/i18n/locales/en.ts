@@ -1315,7 +1315,7 @@ export default {
 			c1_title: 'Condition 1 — The trade-off is shown to be forced',
 			c1_what: "<em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.",
 			c1_cond:
-				"Condition: someone shows that no legal Alberta map can satisfy the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — while anchoring on municipal lines at majority-comparable rates. A counter-map that does both would strengthen the finding instead (Amendment 27). Open challenge at <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+				"Condition: someone shows that no legal Alberta map can satisfy the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — while anchoring on municipal lines at majority-comparable rates. A counter-map that does both would strengthen the finding instead (Amendment 27). On the official boundaries this condition is moot: both maps already anchor on municipal lines above its 60% bar (minority 71.8%, majority 80.0%). Open challenge at <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			c2_title: 'Condition 2 — The Neighbour-Drain pre-registered pass is reversed',
 			c2_what: '<em>What gets retracted:</em> The Casing 10 entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.',
 			c2_cond:
