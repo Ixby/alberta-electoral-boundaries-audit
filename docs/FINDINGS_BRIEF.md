@@ -31,7 +31,7 @@ So riding boundaries are not just a technical detail. They are, in effect, choic
 
 To keep the government from drawing its own riding lines (which would be like letting one team write the rules of its own game), Alberta uses an independent commission: five people who are supposed to draw the lines fairly. In 2025–26, that commission could not agree. Three members produced one map, which under the Act counts as the commission's report. Two produced a different one.
 
-In April 2026 (Government Motion 37, introduced April 16 and passed April 21), the Legislative Assembly threw out both commission maps and gave the job to a six-person committee of MLAs. Four of the six come from the governing United Conservative Party (UCP). The other two come from the main opposition, the New Democratic Party (NDP).
+In April 2026 (Government Motion 37, introduced April 16 and passed April 21), the Legislative Assembly threw out both commission maps and gave the job to a six-person committee of MLAs. Four of the six come from the governing United Conservative Party (UCP). The other two come from the main opposition, the New Democratic Party (NDP). An independent advisory panel working for the committee drew a new 91-riding map and handed it over on October 22. On October 28 the committee voted 3–2 to end its review without adding observations. The panel's report was due before the Legislative Assembly by November 2.
 
 This audit compared the two commission maps and asked: do they treat both parties' voters the same way?
 
@@ -41,7 +41,7 @@ This audit compared the two commission maps and asked: do they treat both partie
 
 You cannot just look at two maps and say which one is fair. Maps are complicated. So this audit came at the question two ways:
 
-**First:** it measured six specific things about each map, things like how evenly people are spread across the ridings and how many pieces cities are cut into.
+**First:** it measured five specific things about each map, things like how evenly people are spread across the ridings and how many pieces cities are cut into.
 
 **Second:** it had a computer program draw 1 million random Alberta maps, each keeping every riding in one piece and within the Act's population limits. (The random maps have 87 ridings, the old map's count; the commission's have 89.) Then it asked: where do the two commission maps fall among all those random maps? Normal, or extreme?
 
@@ -109,11 +109,11 @@ Here is how the two maps compare, across the 896,644 election-day votes cast for
 - Under the **majority map**: NDP voters wasted roughly **881 more votes** than UCP voters. That is about 0.1% of those ballots. Nearly equal.
 - Under the **minority map**: NDP voters wasted roughly **36,000 more votes** than UCP voters. That is about 4% of those ballots.
 
-The minority map's gap is about **41 times larger** than the majority map's. Both gaps favour the UCP.
+The minority map's gap is about **3.9 percentage points larger** than the majority map's (about 4% of ballots against 0.1%). Both gaps favour the UCP.
 
 **What this means in plain terms:** Under the minority map, NDP voters as a group have to cast significantly more votes to win the same number of seats.
 
-**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric. It was registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes (on the current run that percentile is 4.08%), and it was not imported from US case law. The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold. On canonical geometry, the official Elections Alberta maps, it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps: not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 2 (the structural and procedural pattern in Findings 1 and 4) does the work. Lane 1 is the supporting context.
+**The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric. It was registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes (on the current run that percentile is 4.08%), and it was not imported from US case law. The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold. On canonical geometry, the official Elections Alberta maps, it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps: not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 1 (the partisan measures in Findings 2 and 3) carries the evidence that the minority departs from neutral; Lane 2 (the structural and procedural pattern in Findings 1 and 4) shows how it differs from the majority.
 
 ---
 
@@ -129,29 +129,31 @@ The minority map's structural tilt turns modest UCP vote advantages into very la
 
 Lesser Slave Lake covers a region with significant First Nations populations on reserve. Its geography and the make-up of its communities qualify it for a statutory exception under the Electoral Boundaries Commission Act (§15(2)), which lets the district hold fewer people than a standard riding. The protection is written for large, remote districts: a district needs three of five criteria, and containing a reserve or Métis settlement is one of them.
 
-After the commission's public hearing process, both the majority and minority maps preserve Lesser Slave Lake. The concern is what happens next. The government-appointed MLA committee has not committed to preserving this district's status. The commission held extensive public hearings and received organized Indigenous submissions; the committee works to a shorter timeline, with less public input. The statutory protection exists. Using it is discretionary.
+After the commission's public hearing process, both the majority and minority maps preserve Lesser Slave Lake. The concern is what happens next. The advisory panel's map is not yet public, so whether it keeps this district's status is not known. The commission held extensive public hearings and received organized Indigenous submissions; the panel worked to a shorter timeline, with less public input. The statutory protection exists. Using it is discretionary.
 
-There is a structural problem too. Statistics Canada's census chronically undercounts on-reserve populations, by 3–10%. That undercount gets built into the boundaries and stays for the full lifetime of the map, which could run until 2035.
+There is a structural problem too. The census can undercount on-reserve populations. Any undercount gets built into the boundaries and stays for the full lifetime of the map, which could run until 2035.
 
 ### Airdrie: four pieces instead of two
 
-Airdrie is a city of about 85,000 people. It has one city hall, one tax bill, one school board.
+Airdrie is a city of about 85,000 people. It has one city hall, one council, one tax bill.
 
 The majority map puts Airdrie in two ridings. The minority map splits it into **four**, three of them holding at least 2% of its people. Airdrie East keeps more than half the city; nearly all the rest is attached to two Calgary-edge ridings where Calgary residents outnumber Airdrie's. Four different MLAs. A citywide problem (a road, a school, a hospital) has to be carried to four different offices, three of which mostly represent somewhere else.
 
 In an addendum he wrote alone, the commission chair said the minority's hybrid districts in Airdrie and five other places were "not something that I can condone." None of the 1,252 public submissions the audit could search asked for the four-way split.
 
-### Northeast and central Calgary: packing NDP votes
+### Northeast and central Calgary: bigger ridings
 
-Northeast and central Calgary votes mostly NDP. The minority map packs **11.5% more people than average** into northeast and central Calgary ridings. So large numbers of NDP votes pile up in ridings the NDP already wins easily: votes past the winning threshold that do nothing. Meanwhile, voters in other parts of Calgary have more say per person.
+The minority map puts **11.5% more people than average** into 17 north, east and central Calgary ridings (including the Airdrie and Cochrane hybrids). Each vote there weighs less than a vote in an average riding. Meanwhile, voters in other parts of Calgary have more say per person.
+
+The audit also tested whether this is packing: NDP votes piled up in ridings the NDP wins by huge margins. It is not. On the official boundaries, replaying the 2023 election-day vote, the NDP wins 8 of the 17, by an average of 15.0 points against a provincial average of 27.6. So no packing signature is detected; what stands is a difference in riding size.
 
 The majority map has northeast and central Calgary only **2.8% above average**, well within the normal range. The 11.5% vs 2.8% gap is one of the clearest structural differences between the two maps.
 
 ### Cochrane and Rocky Mountain House–Banff
 
-The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, about 21 km from Nolan Hill. Commuting data show a real tie between Cochrane and Calgary as a whole: about a third of Cochrane's workers commute into the city, while about half work in Cochrane. But the census reports Calgary as one unit, so nothing in it ties Cochrane to Nolan Hill in particular. The commission chair specifically flagged this configuration.
+The minority map draws Calgary's Nolan Hill riding as a long corridor that reaches northwest out of the city to take in Cochrane, a town with its own distinct character, about 21 km from Nolan Hill. Commuting data show a real tie between Cochrane and Calgary as a whole: about a third of Cochrane's workers commute into the city, while about half work in Cochrane. But the census reports Calgary as one unit, so nothing in it ties Cochrane to Nolan Hill in particular. The commission's majority specifically flagged this configuration.
 
-The minority also invokes the statutory §15(2) exception to stretch Rocky Mountain House–Banff Park into Banff National Park: a boundary that runs through territory with no permanent residents and no agricultural land base. The majority map uses its matching statutory exception for the Canmore-Banff area, a configuration with a clearer community-of-interest footing.
+The minority also invokes the statutory §15(2) exception to stretch Rocky Mountain House–Banff Park into Banff National Park: a boundary that runs through territory the majority described as a place "where no one lives" (the audit's estimate: a few hundred residents), with no agricultural land base. The majority map uses its matching statutory exception for the Canmore-Banff area, a configuration with a clearer community-of-interest footing.
 
 ### What the commission's chair and majority said about the minority map
 
@@ -168,7 +170,7 @@ Two configurations the majority criticised on other grounds, Rocky Mountain Hous
 
 ### Other oddities
 
-Several other minority configurations stood out during the audit without rising to the level of a formal finding. Chestermere, a lakeside city east of Calgary, is partly split in the minority map, in a way that places part of the city in a south-east Calgary district (Calgary-Peigan-Chestermere) it shares no school division or transit system with. The majority report and the chair's addendum both object to the Red Deer and St. Albert configurations. The audit found the Red Deer rationale does not match the data: Sylvan Lake and Red Deer are in different school divisions. St. Albert is different: both maps drew the same two-district structure there, and the audit treats it as forced by the rules.
+Several other minority configurations stood out during the audit without rising to the level of a formal finding. Chestermere, a lakeside city east of Calgary, is partly split in the minority map, in a way that places part of the city in a south-east Calgary district (Calgary-Peigan-Chestermere) it shares no transit system with. The majority report and the chair's addendum both object to the Red Deer and St. Albert configurations. The minority said rural residents near Red Deer "go to school" in the city. Public schools are separate (Sylvan Lake is in Chinook's Edge, Red Deer in Red Deer Public), but Red Deer Catholic Regional serves both, so the school tie is partial, not absent. St. Albert is different: both maps drew the same two-district structure there, and the audit treats it as forced by the rules.
 
 The pattern across these smaller anomalies is consistent with the larger findings. They appear predominantly on the minority map. Whether these choices are what produce the minority map's seat advantage was tested, and that claim did not hold up (public report, Casing 9).
 
@@ -188,9 +190,9 @@ The pattern across these smaller anomalies is consistent with the larger finding
 
 All results use the official Elections Alberta riding maps, received May 6, 2026. The 2023 election-day results were matched to each riding through the Voting Area each polling station serves. Advance and special ballots carry no Voting Area, so they could not be placed.
 
-A standard redistricting research tool (GerryChain) generated the 1 million random maps. Each random map follows the Act's ±25% population band, with 87 ridings (the 2019 map's count) on 2021 census figures; the special-district exception and community of interest are not built in.
+A standard redistricting research tool (GerryChain) generated the 1 million random maps. Each random map keeps each new riding within ±12.5% of equal (the Act allows ±25%), with 87 ridings (the 2019 map's count) on 2021 census figures; the special-district exception and community of interest are not built in.
 
-**Pre-registration scope (honest version).** Pre-registration means fixing a test in a time-stamped public record before looking at the results. The structural test battery (population deviation, municipal split count, anchoring, compactness, and the boundary-signature checks) was registered with timestamps before canonical recomputation. The partisan-bias channels (the Mahalanobis joint score, SZAT, and their combination) are labelled "exploratory" in the audit's own §4.3.1 sense: they are documented in this repository, but their specific form was not fixed before the data were examined. The registration records that *are* prospective are filed at OSF:r3zm7 / AsPredicted #289,451 (Ch3) and OSF:qsgy8 / AsPredicted #289,455 (a Phase 2 comparison and a first, prospective scorecard for the committee's 91-seat map, registered May 6, 2026; the fuller November scoring rules came later and are dated in this repository, `preregistration/november_2026_scoring_spec.md`). OSF:6pt83 / AsPredicted #289,469 (SZAT) was filed after its results were known. Pre-registration stops a researcher from running many tests and reporting only the ones that look good. But it only does that for the tests that were pre-registered. The exploratory channels are reported as exploratory.
+**Pre-registration scope (honest version).** Pre-registration means fixing a test in a time-stamped public record before looking at the results. The structural test battery (population deviation, municipal split count, anchoring, compactness, and the boundary-signature checks) was written down on April 24, 2026, after the audit had measured both maps on provisional boundaries; it is dated in this repository, not registered at OSF. The packing and cracking checks were written in the same commit as their first run, so they are exploratory. The partisan-bias channels (the Mahalanobis joint score, SZAT, and their combination) are labelled "exploratory" in the audit's own §4.3.1 sense: they are documented in this repository, but their specific form was not fixed before the data were examined. The registration records that *are* prospective are filed at OSF:r3zm7 / AsPredicted #289,451 (Ch3) and OSF:qsgy8 / AsPredicted #289,455 (a Phase 2 comparison and a first, prospective scorecard for the committee's 91-seat map, registered May 6, 2026; the fuller November scoring rules came later and are dated in this repository, `preregistration/november_2026_scoring_spec.md`). OSF:6pt83 / AsPredicted #289,469 (SZAT) was filed after its results were known. Pre-registration stops a researcher from running many tests and reporting only the ones that look good. But it only does that for the tests that were pre-registered. The exploratory channels are reported as exploratory.
 
 ---
 
@@ -198,7 +200,7 @@ A standard redistricting research tool (GerryChain) generated the 1 million rand
 
 I'm a student at Mount Royal University. I did this research on my own: it was not assigned as coursework, and the university did not commission it. My views are my own and do not represent the university. I've worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. I'm not under contract now; I last worked at a recent election. I've had no other employment with Elections Alberta and have no knowledge of its work beyond those tasks. Nothing in this audit comes from that work; every input is public. This research is my own, not Elections Alberta's, and does not speak for it. I have no connection to the commission. I've voted for and donated to both conservative and progressive provincial parties in Alberta as an adult.
 
-My political history could affect how I look at this issue, and the main protection against that is the method. I tested both maps the same way, registered my tests in public, time-stamped records, labelled every finding pre-registered or exploratory, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I want to know.
+My political history could affect how I look at this issue, and the main protection against that is the method. I tested both maps the same way, dated every test in a public record, registered some of them at OSF, labelled each finding pre-registered or exploratory, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I want to know.
 
 ---
 
