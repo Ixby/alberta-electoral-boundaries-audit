@@ -546,9 +546,12 @@ def build_bias_structure_matrix() -> Path:
                         shrinkA=0, shrinkB=7),
         zorder=5,
     )
-    # 2019 enacted at (2.41, 0): label slightly above-left, safe zone
+    # 2019 enacted at (2.41, 0): label slightly above-left, safe zone.
+    # "0 of 4 run" (2026-11-01): the Calgary zone test was never run on the
+    # 2019 map (see the grounding note above), so its count is out of the four
+    # tests run, not five.
     ax.annotate(
-        f"2019 enacted\n{eg_2019:+.1f}% / 0 of 5",
+        f"2019 enacted\n{eg_2019:+.1f}% / 0 of 4 run",
         xy=(eg_2019, 0.0), xytext=(2.8, 1.1),
         fontsize=8.5, fontweight="bold", color=NEUTRAL_2019,
         ha="left", va="bottom",
