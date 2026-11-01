@@ -764,7 +764,7 @@ export default {
 			table_r6_b: "<strong>0 ka mid ah 5 oo dhacay</strong>",
 			table_r6_c: "<strong>4 ka mid ah 5 oo dhacay</strong> (imtixaanka xajintu dhexdhexaad — labada khariidadood ku jira caadiga Kanada; 4-ta imtixaan ee hadhay way wada dhaceen)",
 			table_r6_d: "<strong>UCP</strong>",
-			rationales_p: "Natiijo gaar ah, oo inta yar keliya ku saabsan: <strong>lixda sababood ee ay xubnaha inta yar ee guddidu daabaceen, shan ka mid ah way ku dhacaan hubin madax-bannaan</strong>. Imtixaanku wuxuu ku socdaa inta yar oo keliya, sababtoo ah inta badan ma daabicin liis sababo ah oo ku saabsan dib-u-sawiridda lagu murmay. Hubintu si siman uguma dabaqi karto labada khariidadood, sidaa darteed halkan waxa lagu soo sheegay sidii hal calaamad, ma aha safaf dheeraad ah oo lagu daro tirinta waxyaabaha qaab-dhismeedka ee aan caadiga ahayn. (Hubintu mar waxay taxday dib-u-sawirid toddobaad. Waxa soo baxday inay ku dhisan tahay sheegasho ku saabsan xudduud federaal oo aan laga raadin karin warbixinta inta yar, sidaa darteed waa laga saaray, halkii loo dhaafi lahaa sidii sheegasho daciif ah.)",
+			rationales_p: "Natiijo gaar ah, oo inta yar keliya ku saabsan: <strong>lixda sababood ee ay xubnaha inta yar ee guddidu daabaceen, shan ka mid ah way ku dhacaan hubin madax-bannaan</strong>. Imtixaanku wuxuu ku socdaa inta yar oo keliya, sababtoo ah inta badan ma daabicin liis sababo ah oo ku saabsan dib-u-sawiridda lagu murmay. Hubintu si siman uguma dabaqi karto labada khariidadood, sidaa darteed halkan waxa lagu soo sheegay sidii hal calaamad, ma aha safaf dheeraad ah oo lagu daro tirinta waxyaabaha qaab-dhismeedka ee aan caadiga ahayn.",
 			chair_appendix_p: "Hubintu waxay sidoo kale tijaabisay sheegasho guud oo gaar ah oo ku jirta warbixinta inta badan, oo guddoomiyuhu saxeexay: in isbeddellada inta yar ee shan meelood (Airdrie, Cochrane, Chestermere, Red Deer iyo St. Albert) aanay helin <strong>taageero dadweyne</strong> 1,345-ka soo gudbin dadweyne (warbixinta kama dambaysta ah, bogagga 59 iyo 62). Raadin erey-fure ah oo lagu sameeyay kaydka soo gudbinnada oo dhan (93.4% mashiin ayaa akhriyay, 6.6% sawir keliya ah oo laga reebay; habka iyo caddaynta qaab kasta waxay ku jiraan <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md\" rel=\"noopener\">findings/submission_search_findings.md</a>) waxay soo saartay sawir ka faahfaahsan sheegashada guud ee inta badan iyo diidmo guud oo lagu sameeyo labadaba. Inta badan way saxnayd saddex ka mid ah shanta: kala-qaybinta 4-geesoodka ah ee Airdrie, isku-darka Calgary–Nolan-Hill–Cochrane iyo beddelka inta yar ee St. Albert midkoodna ma laha taageero la diiwaangeliyay. Way khaldanayd Chestermere, oo heshay soo gudbinno badan oo diidan in lagu daro Calgary, kuwaas oo si la taaban karo ula jaanqaadaya ujeeddada inta yar. Qayb ahaanna way khaldanayd Red Deer: isku-darrada Red Deer waxay heleen soo jeedin isku-dar ah oo ku saabsan agagaarka Red Deer, oo ka timid xildhibaan golaha magaalada Red Deer hadda ka fadhiya, oo jihada la jaanqaadaya laakiin aan qaabka saxda ah la mid ahayn. Laba qaab oo inta badan ay sababo kale ku weerartay ayaa sidoo kale helay taageero: Rocky Mountain House–Banff Park waxay heshay soo jeedin cad oo faahfaahsan oo ka timid ugu yaraan hal soo gudbin oo aagga Clearwater ah, iyo dhowr kale oo la jaanqaadaya, dadka Beiseker-na qoraal ayay ku taageereen Olds–Three-Hills–Didsbury. Sidaa darteed sheegashada guud ee inta badan ee ah \"taageero dadweyne ma jirto\" si cad ayay u ballaadhan tahay, laakiin meel bannaan lagama soo saarin, maadaama saddex ka mid ah shanta ay run yihiin. <strong>Natiijadani waxay ka hor imanaysaa inta badan, ma aha inta yar.</strong>",
 			summary_p: "<strong>Waddada 2, khariidadda inta badan waxay dhaaftaa eber xad qaab-dhismeed. Inta yar waxay dhaaftaa afar ka mid ah shanta, farqi weyn.</strong> Tiradu waa tirin cayriin ah. Ma aha suurtagalnimo qoys-dhan ah oo la habeeyay. Miisaankeedu wuxuu ka yimaadaa isku-raacnaanta jihada — imtixaan kasta oo dhaca wuxuu u jeedaa isla jihada — ma aha xisaab qaybin-null wadajir ah. Waddada tirakoobka (§3) ayaa bixisa suurtagalnimada wadajirka ah, iyadoo adeegsanaysa qalab kale."
 		},
@@ -992,7 +992,7 @@ export default {
 			act3_h: "Fasalka III: Waxa Dadku Sameeyeen",
 			act3_intro: "Fasallada I iyo II waxay cabbireen warqad. Fasalka III wuxuu akhriyaa dhaqanka: waxa dadka habraaca ku dhex jiray iyo kuwa ku xeernaa qoreen, sheegteen oo doorteen. Maxkamad dhexdeed, dhaqanku badanaa waa halka su'aalaha ujeeddada looga jawaabo. Daawo waxa halkan ku dhaca.",
 			c11_title: "Qolofta 11 — Shan ka mid ah lix sababood kama badbaadaan hubinta",
-			c11_found: "Xubnaha guddida inta yar waxay daabaceen sababaha dib-u-sawiridahooda lagu murmay. Shan ka mid ah lixda way ku dhacaan hubin madax-bannaan. (Dib-u-sawirid toddobaad oo aan hore u taxnay waxay noqotay mid ku tiirsan sheegasho xudduud federaal ah oo aan laga heli karin warbixinta inta yar; waan ka saarnay halkii aan uga tagi lahayn sidii sheegasho daciif ah.) Ujeeddadu ma aha in sababaynta inta yar la hindisay. Inta badan kiisaskan sheegashada guud waa run, xudduud ixtiraamaysana waa la sawiri karay. Waxa xogtu gaadhin waa khadka gaarka ah ee inta yar dhab ahaan sawirtay. Waxay ku difaacdaa Calgary-Nolan Hill–Cochrane fikradda ah in dadka Cochrane “si dabacsan ugu dhex socdaan” Calgary. Xogta safarka shaqada ee 2021 ee Statistics Canada waxay muujinaysaa in qiyaastii saddex meelood meel shaqaalaha Cochrane ay u safraan meel ka mid ah Calgary, halka qiyaastii kala badh ay ka shaqeeyaan gudaha Cochrane: xidhiidh dhab ah oo magaalo iyo magaalo ah, laakiin mid aan waxba ka sheegin xaafadda Nolan Hill ee marinku dhab ahaan gaadho. Safarka Airdrie ee Calgary (qiyaastii 76 boqolkiiba kuwa dibadda u safra) iyo koritaankeeda degdegga ahi labaduba waa dhab, waxayna taageeri lahaayeen kursi cusub oo aagga Airdrie ah. Midkoodna uma baahna in magaalada afar loo kala qaybiyo. Chestermere waxay u dirtaa 86 boqolkiiba kuwa dibadda u safra Calgary, haddana lama wadaagto qaybta dugsiyada ama nidaam gaadiid degmada gaarka ah ee Calgary ee inta yar qayb ka mid ah ku jarto. Doodda “dugsiyada la wadaago” ee inta yar ee ah in Red Deer lala lammaaneeyo Sylvan Lake ma adkaysato. Sylvan Lake waxay ku jirtaa Chinook’s Edge School Division; Magaalada Red Deer waxay ku jirtaa Red Deer Public.",
+			c11_found: "Xubnaha guddida inta yar waxay daabaceen sababaha dib-u-sawiridahooda lagu murmay. Shan ka mid ah lixda way ku dhacaan hubin madax-bannaan. Ujeeddadu ma aha in sababaynta inta yar la hindisay. Inta badan kiisaskan sheegashada guud waa run, xudduud ixtiraamaysana waa la sawiri karay. Waxa xogtu gaadhin waa khadka gaarka ah ee inta yar dhab ahaan sawirtay. Waxay ku difaacdaa Calgary-Nolan Hill–Cochrane fikradda ah in dadka Cochrane “si dabacsan ugu dhex socdaan” Calgary. Xogta safarka shaqada ee 2021 ee Statistics Canada waxay muujinaysaa in qiyaastii saddex meelood meel shaqaalaha Cochrane ay u safraan meel ka mid ah Calgary, halka qiyaastii kala badh ay ka shaqeeyaan gudaha Cochrane: xidhiidh dhab ah oo magaalo iyo magaalo ah, laakiin mid aan waxba ka sheegin xaafadda Nolan Hill ee marinku dhab ahaan gaadho. Safarka Airdrie ee Calgary (qiyaastii 76 boqolkiiba kuwa dibadda u safra) iyo koritaankeeda degdegga ahi labaduba waa dhab, waxayna taageeri lahaayeen kursi cusub oo aagga Airdrie ah. Midkoodna uma baahna in magaalada afar loo kala qaybiyo. Chestermere waxay u dirtaa 86 boqolkiiba kuwa dibadda u safra Calgary, haddana lama wadaagto qaybta dugsiyada ama nidaam gaadiid degmada gaarka ah ee Calgary ee inta yar qayb ka mid ah ku jarto. Doodda “dugsiyada la wadaago” ee inta yar ee ah in Red Deer lala lammaaneeyo Sylvan Lake ma adkaysato. Sylvan Lake waxay ku jirtaa Chinook’s Edge School Division; Magaalada Red Deer waxay ku jirtaa Red Deer Public.",
 			c11_note: "Waxa lagu hubiyay oo keliya inta yar, maxaa yeelay inta yar waa khariidadda dib-u-sawiridaheeda lagu murmay ay dadweyne yihiin. Inta badan ma daabicin liis sababo ah oo dib-u-sawiridaha lagu murmay, sidaa darteed hubinta laguma dabaqi karo labada dhinac si isku mid ah; waxa loo soo sheegay sidii calaamad keliya.",
 			c11_show: "Sababaha aan ka badbaadin hubinta waxay u eg yihiin cudurdaarro: sababo la helay khadka ka dib, ma aha ka hor. Kiis kasta caddayntu waxay tilmaamaysay xudduud ay inta yar sawiri kartay. Khadka ay sawirtay waa mid kale.",
 			c11_experts: "In sabab la sheegay la dhinac dhigo waxa caddayntu taageerto waa falanqaynta cudurdaarka, imtixaan lagu ogaado in sababtu daboolid tahay. Si sax ah ayay sidaas u tahay sida maxkamadaha Maraykanku u baadhaan ujeeddada kiisaska gerrymandering ee ay dhageystaan. Sababaha ku dhaca xogta dadweynaha waa calaamadda caadiga ah.",
@@ -1485,7 +1485,7 @@ export default {
 			back: "← Ku noqo hubinta",
 			site_label: "Hubinta Xudduudaha Doorashada Alberta",
 			h1: "Afar iyo Tobanka Sharraxaad",
-			meta: "Lifaaqyada A–N · mid kastaa hal fikrad · hadda Ingiriisi oo keliya",
+			meta: "Lifaaqyada A–N · mid kastaa hal fikrad",
 			standfirst: "Qolof kasta oo hubinta ku jirta waxay ku xidhan tahay hal lifaaq oo halkan ku yaal, lifaaq kastaana wuxuu leeyahay si sax ah hal fikrad. Wuxuu ka bilaabmaa jahwareerka daacadda ah. Fikradda wuxuu ku dhisaa hal tusaale oo muuqda. Wuxuu kugu celiyaa lambarka qolofta adigoo awoodaya inaad keligaa akhrido. Wuxuuna ku dhammaadaa waxa aanay fikraddu <em>kuu sheegi karin</em>. U akhri si kasta oo aad doonto.",
 			appendix_a: {
 				heading: "Lifaaqa A — Waxa \"jeexitaanku\" dhab ahaan ku sameeyo cod",
@@ -1599,7 +1599,7 @@ export default {
 				limit: "<em>Xadka:</em> \"aan la dhaqan gelin karin\" waa bayaan ku saabsan maxkamadaha, ma aha cawaaqibta. Caadooyinka waxa lagu dhaqan geliyaa doorashooyinka, dad og waxa la sameeyay. Warbixinnada sidan oo kale ah waxay u jiraan si ay u ogaadaan.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-14\">↩ Ku noqo natiijada 14</a>"
 			},
-			footer_note: "Waxa ku jira waxay ka turjumaan lifaaqyada <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">warbixinta dadweyne ee dhammaystiran</a>. Hadda Ingiriisi oo keliya, iyadoo la sugayo dib-u-eegista qoraaga ka hor turjumaadda."
+			footer_note: "Waxa ku jira waxay ka turjumaan lifaaqyada <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md\" rel=\"noopener\">warbixinta dadweyne ee dhammaystiran</a>."
 		},
 		methods: {
 			head_title: "Sida Khariidadaha Loo Tijaabiyay · Hubinta Xudduudaha Doorashada Alberta",
@@ -1607,7 +1607,7 @@ export default {
 			back: "← Ku noqo hubinta",
 			site_label: "Hubinta Xudduudaha Doorashada Alberta",
 			h1: "Sida Khariidadaha Loo Tijaabiyay",
-			meta: "Imtixaan kasta iyo tirakoob kasta, luqad fudud · hadda Ingiriisi oo keliya · Tiro kasta waxa dib looga soo saari karaa kaydka dadweynaha",
+			meta: "Imtixaan kasta iyo tirakoob kasta, luqad fudud · Tiro kasta waxa dib looga soo saari karaa kaydka dadweynaha",
 			standfirst: "Hubinta oo dhan waxay ku dhisan tahay hal fikrad oo fudud. Ma doonaysaa inaad ogaato in khariidad caadi ka duwan tahay? Sawir malyuun khariidadood oo aan eex lahaan karin. Kombuyuutar ayaa sawira, weligiisna hal cod ma arko. Ka dib eeg halka khariidadaha dhabta ahi kaga dhacaan dhexdooda. Boggani wuxuu ku socodsiinayaa fikraddaas iyo imtixaan kasta oo lagu dhisay. Qaacido ma jirto. Haddii aad akhriyi karto saadaasha cimilada, tan waad akhriyi kartaa.",
 			toc: {
 				aria: "Waxa bogga ku jira",
@@ -1660,6 +1660,7 @@ export default {
 				heading: "Waxa \"1 ka mid ah 568,000\" ka dhigan tahay — iyo sababta hubintu u labanlaabtay xadkeeda",
 				p1: "Afarta cabbir ee caddaaladda isku dar oo ka dhig hal dhibco oo weydii: intee jeer ayay sawirista dhexdhexaadka ahi soo saartaa muuqaal u xad-dhaafsan sida khariidadda inta yar? Jawaabtu waa qiyaastii <strong>1 ka mid ah 1.1 milyan</strong>. Laakiin hubintu ma soo qaadato tiradaas. Waxay soo qaadataa <strong>1 ka mid ah 568,000</strong> — si sax ah kala badh xoog ahaan. Waa kan sababtu.",
 				p2: "Hubintu waxay calaamad ka raadisay laba meelood oo kala duwan: dhibcahan isku-darka ah, iyo imtixaan labaad oo ku saabsan doorashooyinka xudduudaha gaarka ah. Eegidda laba meelood waxay nasiibka siisaa laba fursadood. Ka fikir tigidhada bakhtiyaanasiibka: iibso laba, fursaddaada ah inaad haysato mid guulaysta way labanlaabantaa. Sidaa darteed ka hor intaanay soo qaadan fursadda, hubintu way labanlaabtaa iyadoo ka dhan ah nafteeda. Sidaas, \"waxaad lahayd laba isku day\" horeba waa la bixiyay.",
+				p3: "Labanlaabku wuxuu leeyahay faa'iido kale: uma baahna wax mala-awaal ah. Wuu shaqeeyaa haddii labada imtixaan ay xidhiidhaan iyo haddii kale, sidaa darteed waa tirada aanu tirakoobe cadow ahi hoos u dhigi karin.",
 				p4: "Hal digniin oo hubintu meel kasta ku celiso: fursadahani waxay cabbiraan sida <em>khariidaddu</em> caadi uga duwan tahay. Ma aha fursadda in qof uun ula kacay. Khariidad naadir ahi weli, mabda' ahaan, waxay noqon kartaa shaqo daacad ah. Fursaduhu waxay sheegaan oo keliya tan: qoris caadi ahi ma soo saarto khariidaddan."
 			},
 			died: {
@@ -1692,7 +1693,7 @@ export default {
 			back: "← Ku noqo hubinta",
 			site_label: "Hubinta Xudduudaha Doorashada Alberta",
 			h1: "Waxa Caadooyinku ka Weydiiyaan Khariidad Doorasho",
-			meta: "Wehel luqad fudud · hadda Ingiriisi oo keliya · Xukun laguma ridayo cidna",
+			meta: "Wehel luqad fudud · Xukun laguma ridayo cidna",
 			standfirst: "Dhacdadan waxay leedahay saddex muraayadood. <a href=\"__BASE__/law\">Sharcigu</a> wuxuu weydiiyaa waxa sharci ah. <a href=\"__BASE__/methods\">Tirakoobku</a> wuxuu weydiiyaa waxa caadi ka duwan. Muraayadda saddexaad waxay weydiisaa waxa caado ah, caadaduna waa dhulka lagu murmo. \"Dawladdu waxay jebisay caado lixdan sano jirtay\" ma aha cabbir dhexdhexaad ah. Waa wadnaha eedeynta mucaaradka. Sidaa darteed boggani caadooyinka uma akhrinayo uun. Wuu su'aalayaa: halka ay ka yimaadeen, waxa loogu talagalay, waxa kiiska dhab ahaan dhinac looga dhigayo yahay, iyo waxa hadha marka hadallada labada dhinac meesha laga saaro.",
 			the_norm: {
 				heading: "Caadada, oo si fudud loo sheegay",
@@ -1814,7 +1815,7 @@ export default {
 			back: "← Ku noqo hubinta",
 			site_label: "Hubinta Xudduudaha Doorashada Alberta",
 			h1: "Waxa Sharcigu ka Weydiiyo Khariidad Doorasho",
-			meta: "Wehel luqad fudud · hadda Ingiriisi oo keliya · Ma aha talo sharci",
+			meta: "Wehel luqad fudud · Ma aha talo sharci",
 			standfirst: "Hubintani waxay cabbirtaa khariidado. Maxkamaduhu way xukumaan. Labada shaqo way xidhiidhaan, laakiin isku mid ma aha, boggannu wuxuu ku socodsiinayaa farqiga: waxa sharciga Kanada dhab ahaan ka weydiiyo xudduud doorasho, su'aalaha ay leedahay maxkamad halkii ay lahaan lahayd tirakoobe, iyo halka caddaynta hubintu ku habboon tahay. Hubintu laftigeedu mowqif kama qaadato gunaanad sharci kasta. Waxay soo sheegtaa waxa xogtu muujiso, halkaasna way ku joogsataa.",
 			why_not_gerrymander: {
 				heading: "Sababta aanay hubintani weligeed ugu xukumin \"gerrymander\"",
@@ -1863,7 +1864,7 @@ export default {
 			meta: "Dhaqan gal: 2026-06-24 · Waxa haya Will Conner",
 			overview: {
 				heading: "Guudmar",
-				p1: "Qalabkani waa hubin dan guud oo ku saabsan habraaca guddida xudduudaha doorashada Alberta ee 2023. Ma aha alaab ganacsi, mana socodsiiyo xayeysiis. Boggani wuxuu sharraxayaa waxa la cabbiro, waxa aan weligood la ururin, iyo sababta midkoodna aan dib loogugu xidhi karin adiga.",
+				p1: "Qalabkani waa hubin dan guud oo ku saabsan habraaca guddida xudduudaha doorashada Alberta ee 2025–26. Ma aha alaab ganacsi, mana socodsiiyo xayeysiis. Boggani wuxuu sharraxayaa waxa la cabbiro, waxa aan weligood la ururin, iyo sababta midkoodna aan dib loogugu xidhi karin adiga.",
 				p2: "Nooca gaaban: goobtu waxay isticmaashaa falanqayn guud oo aan cookie lahayn. Ma jiro cookie raad-raac ah, xayeysiis ma jiro, sawir-qaadis goobo kala duwan ah ma jirto, mana jiro aqoonsi ku raaca. Maadaama aan wax shakhsi ah la kaydin, ma jiro calan oggolaansho oo aad gujiso — ilaalinta arrimaha gaarka ahi waxay ku dhisan tahay sida cabbirku u shaqeeyo, looma dhejin sidii codsi."
 			},
 			how_analytics_work: {
@@ -1871,6 +1872,83 @@ export default {
 				p1: "Marka bog soo dego ama aad la falgasho khariidadda, goobtu waxay u dirtaa dhacdo yar oo qarsoon adeeg tirin ah oo aan maamulno. Dhacdo kastaa waa magaca waxa dhacay oo keliya — tusaale ahaan, \"bog la daawaday\" ama \"degmo la doortay\" — iyo dhowr faahfaahin oo guud oo ku saabsan ficilka. Dhacdadu ma sido magac, iimayl, akoon, ama aqoonsi lagu kaydiyay qalabkaaga.",
 				p2: "Si loo tiriyo immisa qof oo kala duwan ayaa booqday maalin gaar ah iyadoon cidna la aqoonsan, adeegga tirintu wuxuu isku daraa cinwaanka shabakaddaada iyo nooca browser-kaaga wuxuuna mariyaa hash qarsoodi ah oo hal jiho ah oo lala socodsiiyo sir isbeddesha maalin kasta. Natiijadu waa koodh gaaban oo noo oggolaanaya inaan kala garanno laba booqasho <em>gudaha</em> hal maalin, waxna ka badan. Cinwaanka asalka ah weligii lama kaydiyo — hash-ka oo keliya ayaa la kaydiyaa. Maadaama sirtu ay maalin kasta wareegto, isla booqdahu wuxuu berri soo saaraa koodh kale, sidaa darteed ma jirto si qof loola socdo maalmo kala duwan ama looga shaqeeyo gadaal laga bilaabo koodh ilaa qof.",
 				p3: "Waxaan xiiseyneynaa sawirka ay booqdayaashu kooxda ahaan sawiraan — natiijooyinka la akhriyo, khariidadaha la furo, degmooyinka dareenka soo jiita. Kuma xiiseyno adiga gaar ahaan, cabbirkana waxa loo dhisay in \"adiga gaar ahaan\" aanay ahayn wax xogtu muujin karto."
+			},
+			measured: {
+				heading: "Waxa la cabbiro",
+				p1: "Falanqayntu waxay diiwaangelisaa dhacdooyin guud oo qarsoon, sida:",
+				li1: "Daawashada bogagga",
+				li2: "Inta ay dadku bog hoos ugu dhaadhacaan, xadad guud ah (25%, 50%, 75%, 100%)",
+				li3: "Qiyaas ahaan inta waqti ee boggu si firfircoon shaashadda ugu jiray, qaybo waqti oo guud ah",
+				li4: "Qaybaha natiijooyinka ee muuqda marka dadku akhrinayaan",
+				li5: "Khariidadaha laga furo baadhaha, iyo degmooyinka la doorto",
+				li6: "Lakabyada khariidadda ee la shido ama la damiyo, iyo qiyaas ahaan inta ay dadku soo dhoweeyaan",
+				li7: "Barahyada xiisaha leh ama xidhiidhiyeyaasha warbixinta ee la furo",
+				li8: "Sawir guud oo ku saabsan qalabkaaga — xadka cabbirka shaashadda (sida taleefan, tablet, ama kombuyuutar miis), qaabka qalabka, iyo qoyska browser-ka (sida Chrome, Safari, ama Firefox). Weligeen ma kaydinno cabbirka saxda ah ee shaashaddaada ama xadhigga aqoonsiga browser-ka oo dhammaystiran.",
+				li9: "Sawir hal mar ah oo ku saabsan sida baadhaha khariidaddu u shaqeeyay markii ugu horreysay ee uu sawiray — tusaale ahaan, waqtiga soo degidda oo xadad guud ah iyo tiro xusuuseed oo la soo koobay. Tani waxay naga caawisaa inaan ogaanno in baadhuhu ku dhakhso badan yahay qalab dhab ah. Tirooyinka si ula kac ah ayaa loo xadeeyay, ma aha kuwo sax ah, si ay u qeexaan nooc qalab halkii ay ka qeexi lahaayeen qalab gaar ah.",
+				p2: "Mid kasta oo kuwan ka mid ah waxa lagu kaydiyaa oo keliya si guud. Ma jiro muuqaal qof kasta, ma jiro dib-u-ciyaarid fadhi, mana jiro diiwaan ah jidka qof keliya ee goobta dhexdeeda. Waxaan aragnaa wadarro iyo qaybin, ma aha dad."
+			},
+			never_collected: {
+				heading: "Waxa aan weligood la ururin",
+				p1: "Magac ma jiro. Iimayl ma jiro. Akoon ma jiro. Aqoonsi xayeysiis ma jiro. Cinwaan IP oo la kaydiyay ma jiro — cinwaanka shabakaddaada waxa lagu hash-gareeyaa sir maalin kasta wareegta waxaana isla markiiba la tuuraa; koodhka maalinlaha ah ee gaaban oo keliya ayaa la hayaa. Faro-raad browser oo ceeriin ah ma jiro. Aqoonsi maalmo kala duwan ama goobo kala duwan ah ma jiro. Goob sax ah ma jirto. Ma jiro cookie ama aqoonsi kaydka browser-ka ah oo kuu calaamadeeya booqde soo noqday ujeeddooyin falanqayn."
+			},
+			github_pages_collects: {
+				heading: "Waxa GitHub Pages ururiyo",
+				p1: "Goobtan waxa lagu martigeliyaa GitHub Pages. Server-yada GitHub waxay si toos ah u diiwaangeliyaan faahfaahinta aasaasiga ah ee codsiga marka bog kasta soo dego — cinwaankaaga IP, nooca browser-ka, bogga kaa soo gudbiyay, iyo waqtiga. Ma helno mana xakamayno diiwaannadan; waxa maamula <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" target=\"_blank\" rel=\"noopener noreferrer\">Bayaanka Arrimaha Gaarka ah ee GitHub</a>. Xidhiidh kale lalama lihin GitHub martigelinta mooyaane. Falanqaynta kor lagu qeexay si gooni ah ayay u socotaa weligeedna ma hesho cinwaankaaga IP."
+			},
+			share_codes: {
+				heading: "Koodhadhka wadaagga",
+				p1: "Baadhaha khariidaddu wuxuu leeyahay astaan Wadaag ah. Wuxuu muuqaalka khariidaddaada hadda — khariidadda firfircoon, dahaarrada iyo lakabyada shidan, qiyaas ahaan halka daaqaddaadu taal — u beddelaa koodh gaaban oo saddex eray ah oo aad koobiyeyn karto oo qof u diri karto. Waxa jira si sax ah 19,200 koodh oo sax ah, maxaa yeelay koodh wuxuu matalaa qaabaynta khariidad, ma aha qof. Laba qof oo si madax-bannaan u gaadha isla muuqaalka waxay helayaan isla koodhka; taasi waa la filayaa mana sido wax xidhiidh ah oo dhexdooda ah.",
+				p2: "Koodhadhka wadaaggu waxay ka muuqdaan shaashadda waxayna u tagaan kaydka ku-meel-gaadhka ah (clipboard) oo keliya marka aad gujiso Koobiyee. Weligood laguma dhejiyo URL, sidaa darteed kama muuqdaan taariikhda browser-ka, diiwaannada server-ka, ama madaxyada referrer-ka. Si uu u furo muuqaal qof wadaagay, qaatuhu koodhka si toos ah ayuu goobta ugu qoraa.",
+				p3: "Marka aad samayso koodh wadaag, qaabaynta khariidadda uu koodhku matalo waxa lagu kaydiyaa xogtayada si xidhiidhiyuhu u sii shaqeeyo. Diiwaankaas la kaydiyay waa xaalad khariidad — ma aha qof, ma aha jid, lamana xidhiidhiyo falanqaynta. Kuma jiro aqoonsi adiga kuu gaar ah."
+			},
+			cookies_browser_storage: {
+				heading: "Cookie-yada iyo kaydka browser-ka",
+				p1: "Falanqayntu ma isticmaasho cookie iyo aqoonsi kaydka browser-ka midna. Waxba oo cabbirka ku saabsan kuuma calaamadeeyaan booqde soo noqday.",
+				p2: "Goobtu waxay dhigtaa hal cookie oo yar oo <strong>shaqo</strong> ah si ay u xusuusato doorbidyadaada booqashooyinka dhexdooda. Looma isticmaalo falanqayn ama raad-raac, weligiina kama baxo browser-kaaga qaab la akhriyi karo. Wuxuu kaydiyaa:",
+				li1: "<strong>Midabka muuqaalka</strong> — madow ama iftiin, haddii aad beddeshay",
+				li2: "<strong>Hordhaca la xidhay</strong> — si hordhaca khariidaddu aanu isu soo celin",
+				li3: "<strong>Muuqaalka khariidadda hadda</strong> — si muuqaalkaagii ugu dambeeyay laguugu soo celiyo booqashadaada xigta",
+				li4: "<strong>Luqadda browser-ka</strong> — si goobtu u muujin karto luqadda aad doorbidayso",
+				p3: "Cookie-gani wuxuu hayaa oo keliya doorbidyada kor ku xusan — macluumaad shakhsi ah ama aqoonsi ah ma jiro. Waxa ku jira waxa lagu qasaa fure ku jira bogga laftiisa, sidaa darteed qiimaha la kaydiyay aadamuhu ma akhriyi karo; maadaama furahaasi dadweyne yahay, u qaado ka-hortag wax-ka-beddel halkii aad ka qaadan lahayd qarsoodi dhab ah. Waxa loo diraa oo keliya HTTPS, weligiis lalama wadaago goobo kale, waadna ka saari kartaa waqti kasta adigoo nadiifinaya cookie-yadaada. Goobta waxa loo adeegaa sidii faylal taagan, sidaa darteed waxba oo dhinaca server-ka ah ma akhriyaan. Midabka muuqaalkaaga waxa kaloo lagu koobiyeeyaa kaydka maxalliga ah ee browser-kaaga si muuqaalka saxda ah isla markiiba loo dabaqo marka boggu soo dego, ka hor intaanu wax lilic yeelan; qiimahaasina waa shaqo oo keliya weligiina meelna looma diro."
+			},
+			data_retention: {
+				heading: "Haynta xogta",
+				p1: "Diiwaannada falanqayntu waa guud oo qarsoon dhismahooda awgii, mana jiro aqoonsi la hayo. Waxa lagu kaydiyaa kaabayaal lagu martigeliyay Kanada (ca-central-1) waxaana loo hayaa xog cilmi-baadhis. Haddii aan weligeen ogaanno in diiwaan ka kooban yahay macluumaad aqoonsi — taas oo naqshaddu u dhisan tahay inay ka hortagto — waan tirtiri lahayn 30 maalmood gudahood."
+			},
+			your_choices: {
+				heading: "Doorashooyinkaaga",
+				p1: "Maadaama aan wax shakhsi ah la ururin, ma jiraan wax aad ka baxdo mana jiro codsi oggolaansho oo aad maamusho. Haddii aad weli doorbidayso inaanad dirin wax dhacdooyin falanqayn ah gabi ahaanba, xannibe nuxur (content blocker) ama browser xannibaya codsiga loo diro adeegga tirinta ayaa joojin doona, goobtuna si isku mid ah ayay u shaqayn doontaa. Waxaad kaloo nadiifin kartaa cookie-ga doorbidyada shaqada waqti kasta adigoo adeegsanaya browser-kaaga."
+			},
+			contact: {
+				heading: "Xidhiidh",
+				p1: "Will Conner — cilmi-baadhis madax-bannaan, aan ku xidhnayn ama aanay taageerin hay'ad kasta.",
+				p2: "Su'aalo, saxitaanno, iyo codsiyo tirtirid: fadlan isticmaal <a href=\"__BASE__/feedback\">foomka jawaab-celinta</a>. Codsiyada waxa looga jawaabaa 10 maalmood oo shaqo gudahood."
+			},
+			policy_updates: {
+				heading: "Cusboonaysiinta siyaasadda",
+				p1: "Marka siyaasaddani isbeddesho, taariikhda dhaqan-galka ee sare waa la cusboonaysiiyaa isbeddelkana waxa lagu xaqiijiyaa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">kaydka git ee dadweynaha</a>. Taariikhda commit-yadu waa diiwaanka isbeddellada. Isbeddel kasta oo ballaadhiya waxa la ururiyo waxa lagu xusaa fariinta commit-ka."
+			}
+		},
+		home: {
+			references: {
+				academic: {
+					commission_2026: "<strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.",
+					chen_rodden_2013: "<strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> \"Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.\" <em>Quarterly Journal of Political Science</em> 8(3): 239–269.",
+					courtney_2001: "<strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.",
+					deford_duchin_solomon_2021: "<strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> \"Recombination: A Family of Markov Chains for Redistricting.\" <em>Harvard Data Science Review</em> 3(1). (Algorithm-ka ReCom ee loo isticmaalay soo saarista ensemble-ka 1,010,000 khariidadood.)",
+					gelman_king_1994: "<strong>Gelman, Andrew, and Gary King. 1994.</strong> \"A Unified Method of Evaluating Electoral Systems and Redistricting Plans.\" <em>American Journal of Political Science</em> 38(2): 514–554.",
+					katz_king_rosenblatt_2020: "<strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> \"Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies.\" <em>American Political Science Review</em> 114(1): 164–178.",
+					pal_2015: "<strong>Pal, Michael. 2015.</strong> \"The Fractured Right to Vote.\" <em>McGill Law Journal</em> 61(2): 231–274. (Qaab-dhismeedka dastuuriga ah ee Kanada ee xudduudaha doorashada.)",
+					stephanopoulos_mcghee_2015: "<strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> \"Partisan Gerrymandering and the Efficiency Gap.\" <em>University of Chicago Law Review</em> 82(2): 831–900. (Isha cabbirka farqiga waxtarka ee meel kasta lagu isticmaalay.)"
+				},
+				cases: {
+					saskatchewan_reference: "<em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (Tixraaca hormoodka ah ee Maxkamadda Sare ee Kanada ee heerka dastuuriga ah ee sawirista xudduudaha doorashada.)",
+					raiche: "<em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Maxkamadda Federaalka; tixraaca hormoodka ah ee Kanada ee caddaynta bulshada danta wadaagta ee khilaafaadka xudduudaha doorashada.)",
+					rucho: "<em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (Maxkamadda Sare ee Maraykanka; waxay dejisay in dacwadaha gerrymandering xisbiyeed aan lagu xukumi karin maxkamadaha federaalka — macnaha sababta heerka matalaadda waxtarka leh ee s.3 ee Kanada u kala duwan yahay.)"
+				},
+				statutes: {
+					ebca: "<em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3."
+				}
 			}
 		}
 	}
