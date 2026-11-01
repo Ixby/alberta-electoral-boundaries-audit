@@ -117,7 +117,7 @@ forced consequence of the legal criteria.
   2021 DAs over the official boundaries, Airdrie East holds 55% of the city,
   Calgary-Airdrie 24%, Calgary-Foothills-Airdrie West 21% and
   Olds-Three Hills-Didsbury under 1%
-  (data/outputs/airdrie_split_shares_2026-11-01.json).
+  (data/outputs/airdrie_split_shares_2026-10-31.json).
 
 A 2-way split therefore fits every district cleanly inside the +/-25% band.
 Cross-check: the majority's own plan executes exactly this — `Airdrie-East`

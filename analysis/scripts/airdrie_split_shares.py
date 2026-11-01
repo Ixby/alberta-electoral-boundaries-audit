@@ -39,7 +39,7 @@ Backward: data/shapefiles/canonical/ea_{majority,minority}_2026_eds.gpkg,
   data/shapefiles/reference/alberta_2021_csds.gpkg,
   data/reference/alberta_2021_da_populations.csv,
   data/reference/alberta_2021_csd_populations.csv
-Forward: data/outputs/airdrie_split_shares_2026-11-01.json
+Forward: data/outputs/airdrie_split_shares_2026-10-31.json
 
 Usage
   python analysis/scripts/airdrie_split_shares.py [--out PATH]
@@ -61,7 +61,7 @@ NAME = "EDName2025"
 AIRDRIE_CSDUID = "4806021"
 WHOLE = 0.99  # a DA is whole when one district holds at least this share of its area
 PIECE = 0.02  # Amendment 17's piece rule
-DEFAULT_OUT = REPO / "data/outputs/airdrie_split_shares_2026-11-01.json"
+DEFAULT_OUT = REPO / "data/outputs/airdrie_split_shares_2026-10-31.json"
 
 
 def load_das(crs):

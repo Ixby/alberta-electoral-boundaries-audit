@@ -48,7 +48,7 @@ type: project
 | 2026-10-30 | Amendment 23 | Erratum | s.15(2)(b) distance measured to the district boundary itself; the s.15(2) set is rerun |
 | 2026-10-31 | Amendment 24 | Primary size-matched set | Set D (s.15(2), Amendment 23 rule) is the primary size-matched comparison; A–C beside it; headline unchanged |
 | 2026-10-31 | Amendment 25 (withdrawn, unsigned) | s.15(2)(c) read both ways | Not adopted; Amendment 21's reading stands, following commission practice; the legal-status argument and a diagnostic are recorded |
-| 2026-11-01 | Amendment 27 (proposed) | Errata | Retraction condition 4.3 B's inference direction; committee and source facts in the registered process scorecard |
+| 2026-10-31 | Amendment 27 | Errata | Retraction condition 4.3 B's inference direction; committee and source facts in the registered process scorecard |
 
 ---
 
@@ -1310,9 +1310,9 @@ and finds no special district that fails both readings.
 
 ---
 
-### Amendment 27 — Errata: a retraction condition's direction, and facts in the registered process scorecard (2026-11-01)
+### Amendment 27 — Errata: a retraction condition's direction, and facts in the registered process scorecard (2026-10-31)
 
-> **Status: proposed, not signed.** Drafted 2026-11-01 MDT on the author's direction to ground the open items ("Ground them all"). It takes effect when the author signs it. Amendment 26 (size-matched sets for a map of any seat count) is signed on branch `size-matched-candidate`; this one is numbered 27 to avoid a clash. The committee's map is due November 2, 2026, and has not been published.
+> **Status: in force.** Signed 2026-10-31 20:15 MDT on the author's direction in session ("Rescore, sign, fix the rest"), before the committee's map is due (November 2, 2026) and before any committee map has been published. Drafted earlier that evening on the author's direction to ground the open items ("Ground them all"). Amendment 26 (size-matched sets for a map of any seat count) is signed on branch `size-matched-candidate`; this one is numbered 27 to avoid a clash. The committee's map is due November 2, 2026, and has not been published.
 
 **1. Retraction condition 4.3 B is inverted against its own reasoning** (`preregistration/retraction_conditions.md`, the "Trade-off Frontier" condition; filed as Issue #14). Its reasoning sentence says a "Symmetric-Airdrie" counter-map, with equal community-of-interest preservation and majority-symmetric anchoring, would show that the minority's 14.5% anchoring "is no longer defensible as the only map that achieves the COI preservation it claims". That is evidence for the anchoring finding, not against it. Its last sentence then says the finding "stands against the null alternative (no counter-map exists) and would be retracted against a successful alternative", which reverses the inference. The academic report's §6.2.6 item 1 and the plain-language defense's §6.2.6 repeat the reversed form.
 
@@ -1327,7 +1327,8 @@ The test stays the same: the Issue #14 counter-map challenge, judged by the same
 
 **3. A falsifier's premise** (academic report §6.2.6 item 2). It opens "The 2019 cross-election direction reversal extends to 338Canada April 2026 polling". On the official 2019 files there is no reversal: the minority stays the more UCP-favourable map (C44). The premise is struck. The operative test is the one its second sentence states and stays as written: if more recent polling shows the direction flipping under several 2020s-era voter distributions, the structural pattern becomes harder to read as engineering.
 
-**Disclosure.** These errata were found while checking the voice pass (2026-10-31) and grounding its open items (2026-11-01). No committee map or result exists. Item 1 changes no registered outcome so far, because no counter-map has been filed. Item 2 changes one tally and no verdict. Item 3 changes no test.
+**Disclosure.** These errata were found while checking the voice pass (2026-10-31) and grounding its open items (2026-10-31). No committee map or result exists. Item 1 changes no registered outcome so far, because no counter-map has been filed. Item 2 changes one tally and no verdict. Item 3 changes no test.
 
-**Signed:** pending
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-10-31 20:15 MDT
 
