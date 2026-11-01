@@ -452,7 +452,7 @@ export default {
 			table1_r7c2: "46.1% (boqolleyda 78aad)",
 			table1_r7c3: "51.7% (boqolleyda 99.99aad; 69 ka mid ah 1,010,000 ayaa ka badan)",
 			table1_r8c1: "Farqiga dhexe-dhexdhexaadka",
-			table1_r8c2: "boqolleyda 1aad: qiime ka baxsan, laakiin u janjeedha xagga NDP, jihada khaldan ee caawin lahayd UCP",
+			table1_r8c2: "boqolleyda 1aad: qiime ka baxsan, laakiin u janjeedha xagga NDP — jiho khaldan haddii la doonayo in UCP la caawiyo",
 			table1_r8c3: "dabada uga qoto dheer 99.97% khariidadaha dhexdhexaadka ah, una janjeedha xagga UCP",
 			table1_r9c1: "Declination (cabbir labaad oo dheellitir-la'aanta ah)",
 			table1_r9c2: "boqolleyda 22aad: gudaha xadka caadiga ah",
@@ -510,7 +510,7 @@ export default {
 			table2_r7c3: "Lama taageerin: sharraxaadda juquraafigu way adkaysatay, inta badanna way ka gudubtay",
 			p11: "Sababaha ay inta yar daabacday ee khadadkeeda lagu murmay inta badan way ku dhacaan xogta dadweynaha: shan ka mid ah lix kama badbaadaan hubin madax-bannaan. Badanaa sheegashada guud waa run, khadka gaarka ahina ma aha. Qiyaastii saddex meelood meel shaqaalaha Cochrane waxay u safraan meel ka mid ah Calgary. Taasi waxba kama sheegto xaafadda Nolan Hill ee marinku gaadho. Inta badan ma daabicin liis noocaas ah, sidaa darteed hubintani hal jiho ayay u socotaa oo keliya. Wadajir, labada eedeyn ee inta yar ay u jeedisay inta badan waxay qeexayaan laba hab oo kala duwan. Qaybo miyi ah oo ka badan laakiin ka buuxa khariidadda inta badan. Kuwo ka yar laakiin ka fudud khariidadda inta yar.",
 			h3_9: "Cidda samaysay",
-			p12: "Waxaan ahay qoraaga keliya, arday Mount Royal University ah oo isagu maalgeliya shaqadiisa, waxaanan u codeeyay oo deeq siiyay xisbiyada gobolka ee muxaafidka iyo horusocodka labadaba (wax badan oo ku saabsan qaybta Aniga). Natiijooyinka ka soo horjeeday waxa aan filayay diiwaanka way ku sii jiraan, tiro kastana waxa dib looga soo saari karaa koodh dadweyne, xog dadweyne iyo abuurro bakhtiyaanasiib ah oo si dadweyne loo xaqiijiyay ka hor intaan falanqayntu socon.",
+			p12: "Waxaan ahay qoraaga keliya, arday Mount Royal University ah oo isagu maalgeliya shaqadiisa, waxaanan u codeeyay oo deeq siiyay xisbiyada gobolka ee muxaafidka iyo horusocodka labadaba (wax badan oo ku saabsan qaybta Aniga). Natiijooyinka ka soo horjeeday waxa aan filayay diiwaanka way ku sii jiraan, tiro kastana waxa dib looga soo saari karaa koodh dadweyne, xog dadweyne iyo abuurro bakhtiyaanasiib ah oo si dadweyne horay loogu xidhay ka hor intaan falanqayntu socon.",
 			h3_10: "Diiwaanka oo dhan",
 			p13: "Dhammaan afar iyo tobanka natiijo waxay ku jiraan <a href=\"__BASE__/evidence\">diiwaanka oo dhan</a>, mid kastaa tirooyinkiisa, waxa uu muujin karo, waxa dhaqanka Kanada filayo iyo waxa sharcigu ku sameeyo. Mid kastaa wuxuu ku xidhan yahay sharraxaad gaaban oo ku taal <a href=\"__BASE__/explainers\">bogga sharraxaadyada</a>."
 		},
