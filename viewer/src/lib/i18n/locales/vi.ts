@@ -511,8 +511,65 @@ export default {
 			p11: "Các lý do được công bố của phe thiểu số cho những đường ranh giới gây tranh cãi phần lớn không đứng vững trước dữ liệu công khai: năm trong sáu lý do không vượt qua được một phép kiểm tra độc lập. Thường thì khẳng định chung là đúng còn đường ranh giới cụ thể thì không. Khoảng một phần ba người lao động ở Cochrane đi làm ở đâu đó trong Calgary. Điều đó không nói gì về khu phố Nolan Hill mà hành lang vươn tới. Phe đa số không công bố danh sách nào như vậy, nên phép kiểm tra này chỉ chạy theo một chiều. Gộp lại, hai cáo buộc của phe thiểu số nhắm vào phe đa số mô tả hai cách tiếp cận khác nhau. Nhiều đơn vị nông thôn hơn nhưng đông dân hơn trên bản đồ đa số. Ít hơn nhưng thưa dân hơn trên bản đồ thiểu số.",
 			h3_9: "Ai đã làm việc này",
 			p12: "Tôi là tác giả duy nhất, một sinh viên tự túc kinh phí tại Đại học Mount Royal, và tôi đã từng bỏ phiếu cho và quyên góp cho cả các đảng cấp tỉnh bảo thủ lẫn cấp tiến (xem thêm ở phần Về tôi). Những phát hiện đi ngược với điều tôi mong đợi vẫn được giữ trong hồ sơ, và mọi con số đều có thể tái tạo từ mã nguồn công khai, dữ liệu công khai và các hạt giống ngẫu nhiên được cam kết công khai trước khi phân tích được chạy.",
-			h3_10: "Hồ sơ đầy đủ"
+			h3_10: "Hồ sơ đầy đủ",
+			p13: "Cả mười bốn phát hiện đều có trong <a href=\"__BASE__/evidence\">hồ sơ đầy đủ</a>, mỗi phát hiện kèm các con số, điều nó có thể cho thấy, điều thông lệ Canada kỳ vọng và luật xử lý nó ra sao. Mỗi phát hiện liên kết đến một bài giải thích ngắn trên <a href=\"__BASE__/explainers\">trang bài giải thích</a>."
+		},
+		test: {
+			h: "Bài kiểm tra tháng Mười Một",
+			p1: "Bản đồ 91 ghế của ủy ban đến hạn vào ngày 2 tháng Mười Một năm 2026. Tôi đã đăng ký các bài kiểm tra tháng Mười Một (đăng ký OSF qsgy8) trước khi bản đồ của ủy ban tồn tại. Tôi sẽ công bố điểm số trong vòng 72 giờ sau khi bản đồ được công bố, dù chúng chỉ về hướng nào.",
+			p2: "<strong>Quy trình.</strong> Có tổ chức điều trần công khai không? Có công bố bản dự thảo không? Thành viên và điều khoản tham chiếu của ban cố vấn có được công bố không? Hồ sơ đằng sau bản đồ có công khai không? Ủy ban đã giữ kín các bài nộp, nên tôi chỉ có thể chấm điểm lý do cho các đường ranh giới của nó dựa trên những gì báo cáo của nó công bố. Quy trình cũng có bảng điểm chín đặc điểm riêng, được công bố ở dạng dự thảo trên <a href=\"__BASE__/norms#measurable\">trang chuẩn mực</a>. Bốn ô đang trượt của ủy ban là những đặc điểm mà nó vẫn có thể bổ sung trước khi báo cáo.",
+			p3: "<strong>Khuyến nghị 5.</strong> Bài kiểm tra X1 chấm điểm bản đồ của ủy ban theo bốn điều kiện của chủ tịch, lần lượt từng điều kiện:",
+			li1: "(a), (b) và (c) đạt nếu bản đồ để nguyên các đơn vị đó như đã mô tả.",
+			li2: "(d) chỉ yêu cầu một ghế Clearwater được cân nhắc, nên nó được chấm theo việc cân nhắc có bằng chứng. Nó đạt nếu bản đồ có đơn vị đó, hoặc nếu báo cáo được công bố của ủy ban nêu phương án này và đưa ra lý do chấp nhận hay từ chối nó. Khi các bài nộp bị giữ kín, báo cáo là hồ sơ duy nhất được tính. Im lặng hoặc lời lẽ rập khuôn là không đạt.",
+			p4: "X1 chỉ đạt nếu cả bốn đều đạt. Tôi cũng sẽ báo cáo một cách đọc nghiêm ngặt, theo đó (d) không đạt trừ khi ghế đó tồn tại. Về mặt pháp lý, Khuyến nghị 5 không ràng buộc ai. Điều X1 kiểm tra là liệu ủy ban có thực hiện điều mà chính phủ đã viện dẫn hay không.",
+			p5: "<strong>Bản đồ.</strong> Nó rơi vào đâu trên mọi phép đo trên trang này, so với cùng phân phối một triệu bản đồ và theo cùng các ngưỡng đã đăng ký trước?",
+			p6: "<strong>Mỗi kết quả có nghĩa là gì.</strong> Nếu bản đồ của ủy ban lặp lại mẫu hình của bản đồ thiểu số, dù được vẽ bởi những người khác, theo những ràng buộc khác, trong một khung thời gian khác, thì phát hiện cấu trúc trở thành mang tính xác nhận. Nếu nó rơi vào trong các dải trung lập, phát hiện đó vẫn chỉ là một quan sát đơn lẻ về một bản đồ chưa bao giờ được ban hành, và tôi sẽ nói vậy ở đây. Dù thế nào, các phép tính đều công khai. Bạn có thể tự kiểm tra."
+		},
+		mind: {
+			h: "Điều gì sẽ khiến tôi đổi ý",
+			p1: "Mỗi phát hiện đều có một điều kiện, được viết ra trước, mà nếu xảy ra sẽ khiến nó bị rút lại. Nếu một điều kiện được đáp ứng, tôi sẽ công bố việc rút lại trong vòng 30 ngày.",
+			li1: "<strong>Ai đó vẽ được một bản đồ có lý do vững hơn.</strong> Nếu bất kỳ ai tạo ra một bản đồ Alberta hợp pháp thỏa mãn chính các lý do mà phe thiểu số đã nêu cho Airdrie, Cochrane, Nolan Hill và Rocky Mountain House–Banff Park, và bám theo các đường ranh giới đô thị thường xuyên gần bằng bản đồ đa số, tôi sẽ rút lại phát hiện rằng những ranh giới đó không thể được giải thích bằng các lý do đã nêu. Thử thách này đang mở tại <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+			li2: "<strong>Một tài liệu cho thấy lý do có trước.</strong> Nếu một tài liệu nội bộ của ủy ban, đề ngày trước các lựa chọn cuối cùng của phe thiểu số, cho thấy những lựa chọn đó xuất phát từ các bài nộp của cộng đồng mà tôi chưa thấy, tôi sẽ rút lại suy luận rằng chúng là các quyết định soạn thảo.",
+			li3: "<strong>Kết quả đạt ở bài rút cạn lân cận hóa ra là một sản phẩm phụ của phương pháp.</strong> Nếu phiên bản liên tục của điểm số đó rơi vào phần đuôi trên cực đoan (p < 0,05) của các hoán vị ngẫu nhiên, tôi sẽ rút lại kết quả đạt của phe thiểu số.",
+			li4: "<strong>Một cuộc bầu cử mâu thuẫn với mô phỏng.</strong> Nếu cuộc bầu cử năm 2027 diễn ra trên một trong hai bản đồ của ủy ban và sự phân chia ghế thực tế mâu thuẫn với dự báo từ phiếu bầu năm 2023, tôi sẽ xem xét lại các phát hiện phân vị của mô phỏng so với kết quả thực tế.",
+			li5: "<strong>Một tòa án phân biệt với vụ <em>Lalande</em>.</strong> Trong vụ <em>Quebec (AG) v. Lalande</em>, 2026 SCC 13, Tòa án Tối cao đã hủy bỏ đạo luật của Quebec tạm dừng ủy ban của tỉnh, và Quebec sau đó đã tự lập pháp bản đồ của mình. Nếu một tòa án xem xét con đường của Alberta thấy nó khác biệt về mặt hiến pháp, chẳng hạn vì việc trao công việc đã hoàn tất của một ủy ban cho một ủy ban MLA không giống với việc đóng băng một ủy ban giữa chừng, tôi sẽ rút lại lập luận trên <a href=\"__BASE__/norms\">trang chuẩn mực</a> rằng hai trường hợp thuộc cùng một loại.",
+			p2: "Bản đồ tháng Mười Một cũng có thể làm yếu kết luận tổng thể, như đã mô tả ở trên. Tôi sửa lỗi một cách công khai. Tôi không xóa chúng. Mọi đính chính đều được liệt kê trong <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md\" rel=\"noopener\">mục Đính chính được ghi nhận của báo cáo học thuật</a>."
+		},
+		authors: {
+			h: "Quan điểm của tác giả",
+			p1: "Mọi thứ ở trên là cuộc kiểm toán. Phần này là ý kiến của tôi. Xóa nó đi và không con số nào trên trang này thay đổi.",
+			p2: "Có hai sự thật khó giải thích theo hướng vô tội. Các ủy viên do chính phủ đề cử đã vẽ một bản đồ mà việc vẽ bản đồ trung lập hầu như không bao giờ tạo ra: chưa đến một trăm trường hợp khớp trong một triệu lần rút. Và khi ủy ban chia rẽ thay vì tán thành bản đồ đó, chính phủ không hỏi tại sao. Nó chuyển công việc cho một ủy ban do chính các MLA của mình kiểm soát.",
+			p3: "Mỗi sự thật đều có một lời giải thích vô tội. Một ủy viên có thể lập dị mà vẫn thiện chí, và một cơ quan lập pháp có thể mất kiên nhẫn với một ủy ban chia rẽ. Nhưng đặt hai sự thật theo thứ tự, và những lời giải thích vô tội trở nên khó giữ hơn: một chính phủ muốn một loại bản đồ nhất định, quy trình độc lập đã không tạo ra nó, và một quy trình khác đã được dựng lên.",
+			p4: "Điều khiến tôi lo ngại là không có luật nào bị vi phạm. Tôi đã kiểm tra, và việc kiểm tra đó là phần lớn nội dung của cuộc kiểm toán này. Luật khiến báo cáo của ủy ban chỉ mang tính tư vấn. Nó không quy định thời hạn thông báo, và không đòi hỏi bản dự thảo, điều trần hay tham vấn trước khi Cơ quan Lập pháp hành động. Sự bảo vệ là một quy ước, không phải luật, và một quy ước chỉ ràng buộc một chính phủ chọn tuân theo nó. Alberta đã trải qua chuyện này năm 1992, và năm 1995 tỉnh đã thay đổi cách bổ nhiệm các ủy ban.",
+			p5: "Ủy ban thay thế ủy ban ranh giới có sáu MLA, bốn từ chính phủ và hai từ phe đối lập, với một MLA của chính phủ làm chủ tịch. Nó có một ban cố vấn, do một thẩm phán đã nghỉ hưu làm chủ tịch, người được bổ nhiệm sau khi quyền chánh án của tỉnh từ chối giúp tìm người. Ban cố vấn chỉ tư vấn. Các MLA bỏ phiếu, và họ sẽ tranh cử trong chính các khu vực mà họ phê duyệt. Bản đồ sẽ không có phiên điều trần công khai nào trước khi được chốt.",
+			p6: "Chính phủ này đã từng làm những việc kiểu này. Dự luật đầu tiên của họ, theo văn bản ban đầu, sẽ cho phép nội các viết lại luật mà không cần Cơ quan Lập pháp, và quyền đó chỉ bị gỡ bỏ sau khi công chúng phản đối dữ dội. Chính ủy viên đạo đức của họ đã kết luận rằng Thủ hiến vi phạm luật xung đột lợi ích khi gây áp lực lên bộ trưởng tư pháp của bà về một vụ án hình sự. Họ đã thông qua một đạo luật cho phép nội các bãi bỏ các quy định địa phương và khởi động việc bãi miễn các ủy viên hội đồng được bầu. Khi một tòa án tạm dừng một trong các đạo luật của họ vào tháng Mười Hai năm 2025, họ đã viện dẫn điều khoản bất chấp. Mỗi động thái đó đều hợp pháp, và mỗi động thái đều gạt bỏ một quy ước để vượt qua một cơ chế kiểm soát độc lập.",
+			p7: "Tôi cũng lo ngại về những gì bản đồ mang lại. Chạy lại phiếu bầu ngày bầu cử năm 2023 và bản đồ thiểu số cho UCP sáu mươi trong tám mươi chín ghế. Sáu mươi ghế sẽ bảo vệ một chính phủ khỏi những người đổi phe, và khỏi một phe đối lập đủ lớn để duy trì sự giám sát tại các ủy ban. Tôi sẽ lo ngại về điều đó dù nó nằm trong tay bất kỳ ai.",
+			p8: "Tôi có thể sai, và tôi đã nêu rõ cách để bạn biết. Bản đồ của ủy ban đến hạn vào ngày 2 tháng Mười Một, và tôi đã đăng ký các bài kiểm tra trước khi nó tồn tại. Nếu nó rơi vào phạm vi trung lập, mối nghi ngờ của tôi đã chịu tổn hại thực sự, và trang web này sẽ nói vậy trong vòng 72 giờ. Tôi đã cam kết điều đó trước khi biết câu trả lời.",
+			signed: "— Will Conner"
+		},
+		fixes: {
+			h: "Sửa chữa cho lần sau",
+			p1: "Có hai vấn đề khiến mọi cuộc kiểm toán bản đồ của Alberta khó hơn mức cần thiết. Thứ nhất, khoảng một nửa số phiếu bầu hiện được bỏ trước ngày bầu cử, và Elections Alberta báo cáo chúng theo đơn vị bầu cử thay vì theo khu vực bỏ phiếu. Vì vậy khoảng 395.000 phiếu NDP và UCP được bỏ năm 2023 không thể được đặt lên bản đồ. Thứ hai, các ủy ban vẽ dựa trên dữ liệu điều tra dân số đã cũ nhiều năm vào lúc bản đồ có hiệu lực. Cả hai vấn đề đều có thể khắc phục. <a href=\"__BASE__/fixes\">Trang đề xuất</a> giải thích cách làm."
 		}
+	},
+	fixes: {
+		page_title: "Sửa chữa cho lần sau · Kiểm toán Ranh giới Bầu cử Alberta",
+		h1: "Sửa chữa cho lần sau",
+		meta: "Bản đồng hành bằng ngôn ngữ đơn giản · điều gì sẽ giúp bản đồ lần sau dễ kiểm tra hơn",
+		back: "← Quay lại cuộc kiểm toán"
+	},
+	evidence: {
+		page_title: "Hồ sơ đầy đủ · Kiểm toán Ranh giới Bầu cử Alberta",
+		h1: "Hồ sơ đầy đủ",
+		meta: "Bản đồng hành bằng ngôn ngữ đơn giản · toàn văn mười bốn phát hiện",
+		intro: "Mọi phát hiện đằng sau trang chính, đầy đủ: điều đã tìm thấy, điều nó có thể cho thấy, điều thông lệ Canada kỳ vọng, và giới hạn của nó, bao gồm cả việc luật xử lý nó ra sao. Những phát hiện đi ngược với cuộc kiểm toán nằm ngay cạnh những phát hiện ủng hộ nó.",
+		back: "← Quay lại cuộc kiểm toán",
+		group_map: "Trên bản đồ",
+		group_sim: "Trong mô phỏng",
+		group_conduct: "Trong cách hành xử",
+		beat_found: "Điều chúng tôi tìm thấy",
+		beat_show: "Điều nó có thể cho thấy",
+		beat_context: "Bối cảnh"
 	},
 	body: {
 		section_link_aria: "Liên kết đến mục",
