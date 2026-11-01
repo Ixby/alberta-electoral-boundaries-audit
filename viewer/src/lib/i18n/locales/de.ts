@@ -1871,7 +1871,7 @@ export default {
 			meta: "Gültig ab: 2026-06-24 · Gepflegt von Will Conner",
 			overview: {
 				heading: "Überblick",
-				p1: "Dieses Werkzeug ist ein Audit des Verfahrens der Wahlbezirkskommission Albertas von 2023 im öffentlichen Interesse. Es ist kein kommerzielles Produkt und zeigt keine Werbung. Diese Seite erklärt, was gemessen wird, was niemals erhoben wird und warum nichts davon mit Ihnen in Verbindung gebracht werden kann.",
+				p1: "Dieses Werkzeug ist ein Audit des Verfahrens der Wahlbezirkskommission Albertas 2025–26 im öffentlichen Interesse. Es ist kein kommerzielles Produkt und zeigt keine Werbung. Diese Seite erklärt, was gemessen wird, was niemals erhoben wird und warum nichts davon mit Ihnen in Verbindung gebracht werden kann.",
 				p2: "Die Kurzfassung: Die Website verwendet cookielose, aggregierte Analysen. Es gibt kein Tracking-Cookie, keine Werbung, keine websiteübergreifende Profilbildung und keine Kennung, die Ihnen folgt. Weil nichts Persönliches gespeichert wird, gibt es kein Zustimmungsbanner zum Wegklicken — der Datenschutz ist in die Art eingebaut, wie die Messung funktioniert, nicht als Abfrage nachträglich angefügt."
 			},
 			how_analytics_work: {
