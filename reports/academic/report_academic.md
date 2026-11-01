@@ -2674,6 +2674,8 @@ The audit's directional claim — *minority more UCP-favorable than majority acr
 <a id="documented-corrections"></a>
 > **DOCUMENTED CORRECTIONS**
 >
+> *Note on publication status (author's ruling, 2026-10-31):* the audit is unpublished until November 3, 2026. Entries dated before then record draft revisions made during preparation, not retractions of published claims. The word "retracted" in those entries means "removed from the draft".
+>
 > Findings not surviving methodological review or data upgrade. Retained per the audit's pre-committed policy of never deleting failed findings. Full per-finding retraction conditions: `analysis/methodology/retraction_pathway.md`.
 >
 > **C1 — SZAT substrate description (retracted 2026-05-10).** An earlier version of [§5.2.10](#sec-5-2-10)'s Post-registration VA file update paragraph described the file switch from `va_polygons_with_2023_votes.gpkg` to `va_polygons_with_full_2023_votes.gpkg` as a substrate change to "full advance-vote" data with NDP two-party share rising 42.60% → 44.66%. The description was false: both files carry election-day vote columns (`va_ndp`/`va_ucp`); the switch changed only 2 VA centroid assignments. The retracted paragraph incorrectly implied the SZAT was re-run on a different vote substrate.

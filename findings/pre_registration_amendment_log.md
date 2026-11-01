@@ -50,6 +50,8 @@ type: project
 | 2026-10-31 | Amendment 25 (withdrawn, unsigned) | s.15(2)(c) read both ways | Not adopted; Amendment 21's reading stands, following commission practice; the legal-status argument and a diagnostic are recorded |
 | 2026-10-31 | Amendment 27 | Errata | Retraction condition 4.3 B's inference direction; committee and source facts in the registered process scorecard |
 
+**Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
+
 ---
 
 ## Amendment 1 — 2026-04-23
