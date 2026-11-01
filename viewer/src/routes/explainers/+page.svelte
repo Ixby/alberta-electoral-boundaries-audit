@@ -43,7 +43,7 @@
       <h2>Appendix A — What "cracking" actually does to a vote</h2>
       <p class="confusion"><em>The confusion:</em> "Airdrie voters still vote. Nobody took their ballots. How does drawing lines 'dilute' anything?"</p>
       <p>Imagine a town of 40,000 that mostly votes Orange, sitting in a region that mostly votes Blue. Give the town its own riding, a district with its own seat in the Legislature, and it elects an Orange MLA: 40,000 people, one seat, a voice. Now slice the town into four pieces and staple each piece to a chunk of Blue countryside. In each new riding the town's 10,000 voters face 30,000 rural voters. Orange loses all four. Same voters, same ballots, zero seats. Nothing was stolen from any single voter. What was taken is the <em>community's</em> ability to elect anyone. That is cracking. Its mirror move is packing (Appendix C): stuff a group into as few ridings as possible, so it wins those by landslides and nothing else.</p>
-      <p>Now re-read finding 1: 85,805 people, four ridings, a minority in every one. The same commission's other draft shows two ridings were enough to satisfy the law.</p>
+      <p>Now re-read finding 1: 85,805 people, four ridings, a minority in three of them. The same commission's other draft shows two ridings were enough to satisfy the law.</p>
       <p class="limit"><em>The limit:</em> cracking describes an effect, not a motive. A split can happen because someone wanted dilution. It can also happen because other constraints crowded the map. The geometry alone cannot say which.</p>
       <p class="back-anchor"><a href="{base}/evidence#casing-1">↩ Back to finding 1</a></p>
     </section>

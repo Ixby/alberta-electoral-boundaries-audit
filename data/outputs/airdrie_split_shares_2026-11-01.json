@@ -1,0 +1,160 @@
+{
+  "script": "analysis/scripts/airdrie_split_shares.py",
+  "method": "2021 census DAs over Elections Alberta's official 2026 boundaries; a DA is in Airdrie when its representative point lies in CSD 4806021; DAs cut by a district line shared out by area; a DA is whole when one district holds >= 99% of its area; piece rule = >= 2% of Airdrie's people (Amendment 17).",
+  "airdrie_2021_census_csd": 74100,
+  "maps": {
+    "majority": {
+      "airdrie_total_2021_da": 74100,
+      "airdrie_das": 89,
+      "airdrie_das_cut_by_a_district_line": 8,
+      "districts_with_any_airdrie_residents": 2,
+      "districts_holding_2pct_or_more": 2,
+      "districts_where_airdrie_is_a_majority": [
+        "Airdrie-West",
+        "Airdrie-East"
+      ],
+      "districts": [
+        {
+          "district": "Airdrie-West",
+          "district_pop_2021_da": 38467,
+          "district_pop_official": 48145,
+          "airdrie_residents": 37514,
+          "share_of_district_airdrie": 0.9752,
+          "share_of_airdrie_held": 0.5063,
+          "airdrie_from_whole_das": 33319,
+          "airdrie_from_cut_das": 4187,
+          "airdrie_from_slivers_of_whole_das": 8.2,
+          "rests_only_on_cut_das": false,
+          "piece_2pct": true,
+          "check_rep_point_airdrie_residents": 37572,
+          "check_rep_point_share_of_district_airdrie": 0.9698,
+          "airdrie_land_km2": 35.09,
+          "residents_by_csd_top3": {
+            "Airdrie": 37514,
+            "Rocky View County": 911,
+            "Calgary": 42
+          }
+        },
+        {
+          "district": "Airdrie-East",
+          "district_pop_2021_da": 48252,
+          "district_pop_official": 53809,
+          "airdrie_residents": 36586,
+          "share_of_district_airdrie": 0.7582,
+          "share_of_airdrie_held": 0.4937,
+          "airdrie_from_whole_das": 33396,
+          "airdrie_from_cut_das": 3163,
+          "airdrie_from_slivers_of_whole_das": 27.4,
+          "rests_only_on_cut_das": false,
+          "piece_2pct": true,
+          "check_rep_point_airdrie_residents": 36528,
+          "check_rep_point_share_of_district_airdrie": 0.7563,
+          "airdrie_land_km2": 50.54,
+          "residents_by_csd_top3": {
+            "Airdrie": 36586,
+            "Rocky View County": 6103,
+            "Crossfield": 3599
+          }
+        }
+      ],
+      "below_one_resident": []
+    },
+    "minority": {
+      "airdrie_total_2021_da": 74100,
+      "airdrie_das": 89,
+      "airdrie_das_cut_by_a_district_line": 10,
+      "districts_with_any_airdrie_residents": 4,
+      "districts_holding_2pct_or_more": 3,
+      "districts_where_airdrie_is_a_majority": [
+        "Airdrie-East"
+      ],
+      "districts": [
+        {
+          "district": "Airdrie-East",
+          "district_pop_2021_da": 45218,
+          "district_pop_official": 50797,
+          "airdrie_residents": 40501,
+          "share_of_district_airdrie": 0.8957,
+          "share_of_airdrie_held": 0.5466,
+          "airdrie_from_whole_das": 36377,
+          "airdrie_from_cut_das": 4099,
+          "airdrie_from_slivers_of_whole_das": 25.1,
+          "rests_only_on_cut_das": false,
+          "piece_2pct": true,
+          "check_rep_point_airdrie_residents": 40567,
+          "check_rep_point_share_of_district_airdrie": 0.8976,
+          "airdrie_land_km2": 35.46,
+          "residents_by_csd_top3": {
+            "Airdrie": 40501,
+            "Rocky View County": 4003,
+            "Wheatland County": 689
+          }
+        },
+        {
+          "district": "Calgary-Airdrie",
+          "district_pop_2021_da": 40531,
+          "district_pop_official": 58820,
+          "airdrie_residents": 17752,
+          "share_of_district_airdrie": 0.438,
+          "share_of_airdrie_held": 0.2396,
+          "airdrie_from_whole_das": 15139,
+          "airdrie_from_cut_das": 2613,
+          "airdrie_from_slivers_of_whole_das": 0.0,
+          "rests_only_on_cut_das": false,
+          "piece_2pct": true,
+          "check_rep_point_airdrie_residents": 17720,
+          "check_rep_point_share_of_district_airdrie": 0.4244,
+          "airdrie_land_km2": 15.82,
+          "residents_by_csd_top3": {
+            "Calgary": 22587,
+            "Airdrie": 17752,
+            "Rocky View County": 193
+          }
+        },
+        {
+          "district": "Calgary-Foothills-Airdrie West",
+          "district_pop_2021_da": 45466,
+          "district_pop_official": 58436,
+          "airdrie_residents": 15496,
+          "share_of_district_airdrie": 0.3408,
+          "share_of_airdrie_held": 0.2091,
+          "airdrie_from_whole_das": 14256,
+          "airdrie_from_cut_das": 1223,
+          "airdrie_from_slivers_of_whole_das": 16.8,
+          "rests_only_on_cut_das": false,
+          "piece_2pct": true,
+          "check_rep_point_airdrie_residents": 15813,
+          "check_rep_point_share_of_district_airdrie": 0.3771,
+          "airdrie_land_km2": 11.17,
+          "residents_by_csd_top3": {
+            "Calgary": 29490,
+            "Airdrie": 15496,
+            "Rocky View County": 480
+          }
+        },
+        {
+          "district": "Olds-Three Hills-Didsbury",
+          "district_pop_2021_da": 46201,
+          "district_pop_official": 49436,
+          "airdrie_residents": 351,
+          "share_of_district_airdrie": 0.0076,
+          "share_of_airdrie_held": 0.0047,
+          "airdrie_from_whole_das": 0,
+          "airdrie_from_cut_das": 342,
+          "airdrie_from_slivers_of_whole_das": 8.6,
+          "rests_only_on_cut_das": true,
+          "piece_2pct": false,
+          "check_rep_point_airdrie_residents": 0,
+          "check_rep_point_share_of_district_airdrie": 0.0,
+          "airdrie_land_km2": 23.18,
+          "residents_by_csd_top3": {
+            "Olds": 9209,
+            "Mountain View County": 7737,
+            "Didsbury": 5070
+          }
+        }
+      ],
+      "below_one_resident": []
+    }
+  }
+}

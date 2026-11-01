@@ -137,7 +137,7 @@ There is a structural problem too. Statistics Canada's census chronically underc
 
 Airdrie is a city of about 85,000 people. It has one city hall, one tax bill, one school board.
 
-The majority map puts Airdrie in two ridings. The minority map splits it into **four**, and attaches each piece to a different rural area. Four different MLAs, and no single politician is primarily accountable to Airdrie. A citywide problem (a road, a school, a hospital) has to be carried to four different offices, each of which mostly represents somewhere else.
+The majority map puts Airdrie in two ridings. The minority map splits it into **four**. Airdrie East keeps more than half the city; nearly all the rest is attached to two Calgary-edge ridings where Calgary residents outnumber Airdrie's. Four different MLAs. A citywide problem (a road, a school, a hospital) has to be carried to four different offices, three of which mostly represent somewhere else.
 
 The commission chair called the four-way split "not something that I can condone." Zero public submissions asked for it.
 

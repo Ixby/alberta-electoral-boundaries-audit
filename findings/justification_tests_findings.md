@@ -112,8 +112,12 @@ forced consequence of the legal criteria.
 - **2-way split:** each half ≈ **37,050**. To reach the 41,197 floor, each
   half only needs **4,147** additional non-Airdrie residents — trivially
   sourced from adjacent rural Rocky View.
-- **4-way split (minority):** each quarter ≈ **18,525**, needing **22,672**
-  non-Airdrie residents per district.
+- **4-way split, if even:** each quarter ≈ **18,525**, needing **22,672**
+  non-Airdrie residents per district. The minority's pieces are not even: on
+  2021 DAs over the official boundaries, Airdrie East holds 55% of the city,
+  Calgary-Airdrie 24%, Calgary-Foothills-Airdrie West 21% and
+  Olds-Three Hills-Didsbury under 1%
+  (data/outputs/airdrie_split_shares_2026-11-01.json).
 
 A 2-way split therefore fits every district cleanly inside the +/-25% band.
 Cross-check: the majority's own plan executes exactly this — `Airdrie-East`

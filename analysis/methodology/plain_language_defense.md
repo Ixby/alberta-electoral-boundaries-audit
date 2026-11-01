@@ -234,15 +234,15 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority map splits the City of Airdrie four ways; the majority concentrates 73.8% of Airdrie's population inside a single electoral division (Airdrie-East).
+**Assertion:** The minority map splits the City of Airdrie four ways; the majority splits it into two halves, Airdrie-East and Airdrie-West.
 **Why?** Why is splitting a city across more electoral districts a problem?
-**Answer:** Spread a city's residents across many different electoral districts, and no single representative answers mainly to that city. Airdrie residents divided among four districts have to share their representative with people from other communities, who may have different interests. The majority map keeps nearly three-quarters of Airdrie's residents in one district, and that gives the city a clearer political voice. The specific concern is that splitting a community can dilute its voting power. In electoral analysis, that technique has a name: "cracking."
+**Answer:** Spread a city's residents across many different electoral districts, and no single representative answers mainly to that city. Airdrie residents divided among four districts have to share their representative with people from other communities, who may have different interests. The majority map makes each half of Airdrie the core of its own district, and that gives the city a clearer political voice. The specific concern is that splitting a community can dilute its voting power. In electoral analysis, that technique has a name: "cracking."
 
 ---
 
 **Assertion:** One minority district ("Calgary-Foothills-Airdrie West") carries "Airdrie" in its name but has 0% anchoring on Airdrie's gazetted city limit.
 **Why?** What does it mean for a district boundary to have 0% anchoring on a city limit?
-**Answer:** A district boundary is "anchored" on a city limit when part of the district's edge runs along the official municipal boundary. A district named after a city, yet sharing none of its border with that city's official edge, draws its residents from a different area entirely. That suggests the "Airdrie" label reflects no real geographic connection to Airdrie as a municipality.
+**Answer:** A district boundary is "anchored" on a city limit when part of the district's edge runs along the official municipal boundary. A district named after a city, yet sharing none of its border with that city's official edge, is not drawn around the city. It can still take in part of it: about a fifth of Airdrie's residents live in Calgary-Foothills-Airdrie West, a third of the district's people.
 
 ---
 
@@ -681,7 +681,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Airdrie split count is 4 vs 2 across the two maps.
 **Why?** How is the "split count" measured?
-**Answer:** The split count is simply the number of separate electoral districts that hold at least some of the City of Airdrie's population. On the minority map, Airdrie residents land in four different districts. On the majority map, in two. The count comes straight from the commission's own published boundary descriptions and maps. No vote data. No statistical modeling.
+**Answer:** The split count is simply the number of separate electoral districts that hold at least some of the City of Airdrie's population. On the minority map, Airdrie residents land in four different districts. On the majority map, in two. The fourth minority district, Olds-Three Hills-Didsbury, takes in only about 350 Airdrie residents; counted by the audit's 2% piece rule (Amendment 17), the split is three pieces to two. The count comes straight from the commission's own published boundary descriptions and maps. No vote data. No statistical modeling.
 
 ---
 
