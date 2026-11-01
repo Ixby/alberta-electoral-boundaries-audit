@@ -1839,7 +1839,7 @@ export default {
 				criterion1: "baaxad ka badan 20,000 km² (ama baaxadda guud ee la sahamiyay oo ka badan 15,000 km²);",
 				criterion2: "in ka badan 150 km laga bilaabo Dhismaha Golaha Sharci-dejinta ilaa xadka ugu dhow ee qaybta, waddada ugu toosan;",
 				criterion3: "ma jirto magaalo qaybta ku taal oo ka badan 8,000 qof;",
-				criterion4: "qaybtu waxay ka kooban tahay kayd Hindi (Indian reserve) ama degaan Métis;",
+				criterion4: "qaybtu waxay ka kooban tahay kayd Indian (Indian reserve) ama degsiimo Métis;",
 				criterion5: "qayb ka mid ah xadku wuxuu raacaa xadka gobolka Alberta.",
 				p4: "Qodobku waa oggolaansho: buuxinta shuruuduhu waxay qayb ka dhigtaa mid u qalanta, laakiin weligeed guddida kuma qasbo inay isticmaasho oggolaanshaha. Labada khariidadood ee 2026 mid kastaa wuxuu s.15(2) u adeegsadaa saddex qaybood. Hubintu waxay dib u hubisay lixda adeegsi oo dhan marka loo eego xadadka sharciga ee la saxay waxayna ogaatay inay dhammaantood u qalmaan. Muranka hubintu diiwaangeliso ma aha u-qalmitaanka. Waa doorasho sawir. Qaybta Rocky Mountain House–Banff Park ee inta yar waxay hesho hal shuruud oo u qalmid ah, ta xadka gobolka, oo keliya iyadoo lagu fidiyo dhul beer qaran oo aan cidi ku noolayn. Doorashadaas, warbixinta kama dambaysta ah ee guddida laftigeeda (23 Maarso 2026, b. 10) iyadaa isu hadlaysa. Xubnaha guddida inta badan waxay qoreen:",
 				quote: "\"Waxay soo jeedinayaan in la sii hayo qayb doorasho oo 'Rocky Mountain House-Banff Park' ah iyagoo si macmal ah ugu fidinaya xadkeeda ilaa xadka galbeed ee gobolka ee British Columbia (iyagoo qaadanaya qayb ka mid ah Banff National Park, oo aan cidi ku noolayn), taasoo ah isku day niyad xun oo lagu xaqiijinayo in lagu ilaalin karo s. 15(2) ee Sharciga.\"",
@@ -1925,7 +1925,7 @@ export default {
 			},
 			policy_updates: {
 				heading: "Cusboonaysiinta siyaasadda",
-				p1: "Marka siyaasaddani isbeddesho, taariikhda dhaqan-galka ee sare waa la cusboonaysiiyaa isbeddelkana waxa lagu xaqiijiyaa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">kaydka git ee dadweynaha</a>. Taariikhda commit-yadu waa diiwaanka isbeddellada. Isbeddel kasta oo ballaadhiya waxa la ururiyo waxa lagu xusaa fariinta commit-ka."
+				p1: "Marka siyaasaddani isbeddesho, taariikhda dhaqan-galka ee sare waa la cusboonaysiiyaa isbeddelkana waxa lagu daraa (commit) <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit\" target=\"_blank\" rel=\"noopener noreferrer\">kaydka git ee dadweynaha</a>. Taariikhda commit-yadu waa diiwaanka isbeddellada. Isbeddel kasta oo ballaadhiya waxa la ururiyo waxa lagu xusaa fariinta commit-ka."
 			}
 		},
 		home: {
