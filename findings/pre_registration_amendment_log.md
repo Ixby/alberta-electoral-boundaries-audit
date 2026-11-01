@@ -237,8 +237,10 @@ This replaces the rule "at least 1.5 times the majority map's value". A flag fir
 | S5 | Neighbour-drain adjacency score | 0.0072 | 0.0006 | 0.0039 | below 0.0039 |
 | S6 | Hybrid patterns P1–P5 reproduced | 0 | 5 | 2.5 | 3 or more |
 
+- *Values.* The table gives the values frozen in the specification. The runs cited below measure S3 at 0.7996 (majority) and 0.7178 (minority). The flags are the same either way.
 - *Excluded.* S4 (median Polsby–Popper, 0.4366 on both maps) is measured and reported but not counted. P6 (St. Albert–Sturgeon) is listed when it matches but does not count toward S6, because the majority map has the same district.
 - *Verdict.* The lane reads "replicated" when 3 or more of the 5 flags fire. On the official boundaries the minority map scores 5 of 5 and the majority map 0 of 5 (`findings/structural_battery_result.json`; `findings/structural_battery_majority.json`).
+- *Disclosed: S3 and S5.* Both fire on the minority's side of the midpoint, but the audit does not treat either measure as evidence against the minority. Anchoring no longer separates the two maps as a finding (minority 71.8%, majority 80.0%, either side of the 2019 map's 75.1%; Part 31). On the drain test the minority is the less adjacency-coupled map, a registered pass (`preregistration/retraction_conditions.md` §3.4). A November map with 72% anchoring would still fire S3 and count toward "replicated".
 - *The script.* `analysis/scripts/run_structural_battery.py` flags S1 at 3382.50 or above, and S5 below 0.0039018, the unrounded midpoint of 0.0072127 and 0.0005909.
 - *Specificity.* The lane is a screen, not a significance test. How often each flag fires on neutral maps is reported beside the verdict:
   - S1 fires on 255,934 of the 1,010,000 canonical plans (25.34%; 87-district plans).
@@ -250,6 +252,11 @@ This replaces the rule "at least 1.5 times the majority map's value". A flag fir
 - minority map: +0.0770 (p98.79);
 - majority map: −0.0267 (p21.85);
 - 2019 map: +0.0451 (p91.33).
+
+The same sign applies in the registered documents. With it, the minority's declination is +0.077 (p98.79) and agrees with the efficiency gap, mean-median and seats at 50/50: four of four. These statements are withdrawn:
+- B6 "disagrees with B2" (`null_hypotheses.md` §1.2, the §7.1 table and the §7.2 list);
+- "declination reverses" and "3/4" direction consistency (`null_hypotheses.md` §2.6; `retraction_conditions.md` §2.2 and §2.6 C);
+- the old-sign row in `seed_robustness_rerun.md` Section C (−0.0770, at p1.89 and p1.21).
 
 **Part 10 — Reference ensemble.** §2 calls the canonical ensemble fixed. It was regenerated on 2026-07-12 (Part 1), before any committee map existed, under the same paths, seed and parameters. P2–P4 are placed against the rerun. P1's threshold stays at +4.10%.
 
@@ -346,11 +353,11 @@ The only prior information about the advisory panel's draft was a meme posted on
 - Option D's registered threshold is +4.10%. The rerun ensemble's 95th percentile is +4.08%. Against that ensemble the minority map is at p94.54 and the majority map at p16.52; the ensemble's median is +1.63% and n_eff is 1,413–1,522.
 - §B.2.1.D: every canonical neutral plan has 87 districts, and the band applies around a quota of 2021 population ÷ 87. The 89-district shapefiles only score the commission maps.
 - Part A, row #42 gives the ensemble's 95th percentile as +0.0410 and cites `data/simulated_ensemble_percentiles_canonical.csv`. The file is at `data/outputs/`, and the rerun gives 0.04084. The registered threshold stays +4.10%.
-- Rows #3 and #4 give s.15(2)(b) as "> 100 km from major centre" and (c) as "4,000 residents". The Act reads more than 150 km by highway from the Legislature Building, and no town of more than 8,000 people (`preregistration/terms_of_reference.md` §3d). The audit computes the Act's values (Part 15).
+- Rows #3 and #4 give s.15(2)(b) as "> 100 km from major centre" and (c) as "4,000 residents". The Act reads more than 150 km by highway from the Legislature Building, and no town of more than 8,000 people (`preregistration/terms_of_reference.md` §3d). The audit computes the Act's values (Part 15). B.1.3–B.1.5 and D.1 item 2 repeat the same errors: "100 km … major centre", "4,000 or more residents … Used directly", criterion (d) as a "significant Indigenous population", and "All six … used directly". The Act's (d) is that the division contains an Indian reserve or a Metis settlement (s.15(2)(d)).
 - B.1.5 gives Canmore-Banff 1 of the 5 criteria and Rocky Mountain House–Banff Park 2. Computed on the official boundaries, they meet 3 and 5 (`data/outputs/s15_2_real_maps.json`).
 - Rows #14 and #15 still hold the urban weight before Amendment 1 (0.70; range 0.60–0.80). Amendment 1 set 0.85 and 0.60–0.90, and Part 1 retired the model.
 
-**Part 20 — Scenario E1.** The P1 threshold was committed in the same commit as the detection run (`282bc6d`). The claim that it "predates detection by 2 hours 24 minutes" was removed from the draft. B.3.2 and D.2 item 1 repeat the claim; it is withdrawn there too.
+**Part 20 — Scenario E1.** The P1 and P2 thresholds were committed in the same commit as the detection run (`282bc6d`), so the packing test is exploratory. The claim that P1 "predates detection by 2 hours 24 minutes" was removed from the draft. D.2 items 1 and 2 cite "pre-registration" for P1 and P2; that is withdrawn for both.
 
 #### F. `preregistration/retraction_conditions.md`
 
@@ -364,6 +371,7 @@ The only prior information about the advisory panel's draft was a meme posted on
 - *What a successful counter-map does.* A "Symmetric-Airdrie" counter-map strengthens the finding, because it shows the minority's low anchoring was not required by its stated reasons.
 - *What weakens or retracts the finding.* A demonstration that no constraint-legal map achieves the minority's claimed community-of-interest preservation with anchoring comparable to the majority's. Decisive evidence of that retracts the finding.
 - No counter-map has been filed. The §8 table row "4 Statutory Silence" is read the same way.
+- `seed_issue14.md`'s success row ("Best plan anchoring ≥60% … §5.8.5 retracted under condition B") is read the same way. Its 60% bar is met by both official maps (minority 71.8%, majority 80.0%), so the test no longer separates them.
 
 **Part 23 — Condition 4.1, "Visible anomalies (3 chair-flagged)".**
 - *The reading.* The final report puts these objections in the majority's own section, written as "we":
@@ -383,7 +391,7 @@ The only prior information about the advisory panel's draft was a meme posted on
 **Part 24 — "Chair-flagged" and the "no public support" claim.**
 - *Where it applies.* The §5.8.2 rows ("chair-flagged visible anomalies") and §7.2 item 5 (the "chair's 'no public support' claim") are read as the commission's majority's, as in Part 23. Names, tests and thresholds are unchanged. The file's other mentions of the chair's flags are read the same way.
 - *Not covered: S6.* S6 in the scoring specification ("Chair-flagged hybrid patterns") is not covered by this reading. Its predicates were set from the chair's addendum to the majority report (final report, p. 67), and it is unchanged.
-- *Disclosed: pattern P4.* One of S6's patterns is not one the chair objected to. P4 is a Calgary district joined with Bearspaw or Rocky View. In the addendum the chair wrote that he did not consider the Bearspaw and Springbank hybrids unreasonable, and "may well have agreed with them" (p. 67). P4 stays in S6 as registered; the label is disclosed here, not changed in the test.
+- *Disclosed: pattern P4.* One of S6's patterns is not one the chair objected to. P4 is a Calgary district joined with Bearspaw or Rocky View. In the addendum the chair wrote that he did not consider the Bearspaw and Springbank hybrids "necessarily unreasonable", and "may well have agreed with them" (p. 67). P4 stays in S6 as registered; the label is disclosed here, not changed in the test.
 
 #### H. `preregistration/lane3_process_scorecard_draft.md` (OSF u47bq; the OSF copy stays frozen)
 
