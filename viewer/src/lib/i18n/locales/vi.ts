@@ -49,7 +49,7 @@ export default {
 		author_p1: "Đúng vậy — và đó chính xác là điều tấm bản đồ thể hiện. Nó được dựng từ chính hình học và số liệu của Elections Alberta, ở độ phân giải duy nhất mà họ lưu giữ: bao nhiêu người đã bỏ phiếu trong mỗi khu vực bầu cử, và bỏ như thế nào. Màu sắc chạy theo một dải phổ giữa hai đảng, và độ đậm của nó đi theo dân số — đó là lý do các thành phố rực sáng còn vùng đồng quê trống trải vẫn nhạt nhòa.",
 		author_p2: "Vùng đất phía tây Ponoka hoàn toàn trắng: không có điểm bỏ phiếu, không ai được ghi nhận sinh sống hay bỏ phiếu ở đó. Nó trống rỗng chính bởi vì đất đai không bỏ phiếu. Mục tiêu không phải là diễn giải dữ liệu, mà chỉ là để nó tự lên tiếng ở độ chi tiết mà nó đã được ghi lại — và để bạn ra về hiểu biết hơn một chút so với khi đến.",
 		author_label: "tác giả",
-		ethic: "Đó là cam kết đằng sau toàn bộ cuộc thẩm định: lập bản đồ hệ thống, và để dữ liệu tự nói lên — không hơn những gì nó cho phép."
+		ethic: "Đó là cam kết đằng sau toàn bộ cuộc kiểm toán: lập bản đồ hệ thống, và để dữ liệu tự nói lên — không hơn những gì nó cho phép."
 	},
 	opener: {
 		heading: "Trang này dành cho ai?",
@@ -1170,9 +1170,9 @@ export default {
 		p2: "Điều khiến Canada khác biệt là bài kiểm tra mà các đường phải vượt qua.",
 		p3: "Trong luật hiến pháp Hoa Kỳ, quy tắc ràng buộc là <em>một người, một phiếu</em> — các khu vực phải có dân số gần bằng nhau như thực tế có thể, và những sai lệch lớn đòi hỏi sự biện minh nghiêm ngặt. Trong luật hiến pháp Canada, quy tắc ràng buộc thì khác. Điều 3 của <em>Hiến chương Quyền và Tự do Canada</em> đảm bảo cho mọi công dân quyền bỏ phiếu. Trong <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — Tham chiếu Saskatchewan năm 1991, án lệ hàng đầu — Tòa án Tối cao Canada đã giải thích quyền này là quyền có <em>đại diện hiệu quả</em>, không phải là quyền có sự bình đẳng toán học về dân số khu vực.",
 		p4: "Sự khác biệt đó quan trọng. Đại diện hiệu quả cho phép dân số khu vực thay đổi, đôi khi đáng kể, khi có lý do chính đáng: các địa lý nông thôn rộng lớn mà một MLA không thể phục vụ hợp lý ở mật độ dân số tiêu chuẩn, các cộng đồng lợi ích nên được giữ cùng nhau, đại diện thiểu số mà sự bình đẳng toán học sẽ pha loãng. Tham chiếu Saskatchewan đã làm cho sự linh hoạt đó trở thành hiến pháp. Sự chênh lệch dân số 25% của EBCA — quy tắc bảo vệ các ghế nông thôn Alberta — bắt nguồn trực tiếp từ đó.",
-		p5: "Điều trớ trêu là sự linh hoạt cắt theo cả hai hướng. Nếu một ủy ban có thể chính đáng đi chệch khỏi sự bình đẳng dân số vì những lý do đúng đắn, nó cũng có thể đi chệch khỏi sự bình đẳng dân số vì những lý do sai. Luật Canada không có sàn toán học kiểu Mỹ để dựa vào. Nó có bài kiểm tra đại diện hiệu quả, được áp dụng bởi các thẩm phán, sau sự việc, trong vụ kiện. Hầu hết các khu vực tài phán bảo vệ chống lại những lý do sai bằng các bảo vệ cấu trúc: ở cấp liên bang, các ủy ban phân định lại được cách ly bởi đạo luật và các ranh giới của họ có hiệu lực thông qua một lệnh đại diện (representation order), mà không cần một cuộc bỏ phiếu của Quốc hội để chấp nhận chúng. Quebec đi xa nhất — ủy ban độc lập thường trực của nó tự thiết lập bản đồ cuối cùng, không có cuộc bỏ phiếu nào của Quốc hội để chấp nhận hoặc ghi đè nó. Ngay cả British Columbia, nơi Cơ quan Lập pháp có bỏ phiếu để phê duyệt các đề xuất của ủy ban và ban hành chúng thành luật, vẫn coi việc chấp nhận công việc của ủy ban độc lập là chuẩn mực thay vì thay thế bằng bản đồ của riêng mình.",
+		p5: "Vấn đề là sự linh hoạt cắt theo cả hai hướng. Nếu một ủy ban có thể chính đáng đi chệch khỏi sự bình đẳng dân số vì những lý do đúng đắn, nó cũng có thể đi chệch khỏi sự bình đẳng dân số vì những lý do sai. Luật Canada không có sàn toán học kiểu Mỹ để dựa vào. Nó có bài kiểm tra đại diện hiệu quả, được áp dụng bởi các thẩm phán, sau sự việc, trong vụ kiện. Hầu hết các khu vực tài phán bảo vệ chống lại những lý do sai bằng các bảo vệ cấu trúc: ở cấp liên bang, các ủy ban phân định lại được cách ly bởi đạo luật và các ranh giới của họ có hiệu lực thông qua một lệnh đại diện (representation order), mà không cần một cuộc bỏ phiếu của Quốc hội để chấp nhận chúng. Quebec đi xa nhất — ủy ban độc lập thường trực của nó tự thiết lập bản đồ cuối cùng, không có cuộc bỏ phiếu nào của Quốc hội để chấp nhận hoặc ghi đè nó. Ngay cả British Columbia, nơi Cơ quan Lập pháp có bỏ phiếu để phê duyệt các đề xuất của ủy ban và ban hành chúng thành luật, vẫn coi việc chấp nhận công việc của ủy ban độc lập là chuẩn mực thay vì thay thế bằng bản đồ của riêng mình.",
 		p6: "Alberta là ngoại lệ. Theo <em>Luật Ủy ban Ranh giới Bầu cử</em>, báo cáo của ủy ban chỉ là một khuyến nghị — cơ quan lập pháp phải bỏ phiếu để ban hành nó. Sự chấp thuận thường là một hình thức. Trong chu kỳ 2026, ủy ban chia 3–2 và tạo ra hai đề xuất cạnh tranh; cơ quan lập pháp đã tạo ra một ủy ban MLA riêng biệt, do một MLA của UCP làm chủ tọa, để lựa chọn giữa chúng. Không có gì trong luật hiến pháp Canada yêu cầu ủy ban tồn tại. Không có gì yêu cầu sự lựa chọn của nó phải tuân theo quy trình của ủy ban. Đây là khoảng cách cấu trúc mà cuộc kiểm toán này đang xem xét.",
-		p7: "Vì vậy, khi các tòa án Canada nói \"gerrymander\" không phải là từ vựng pháp lý của họ, họ không nói rằng khái niệm cơ bản không áp dụng ở đây. Họ đang nói rằng bài kiểm tra khác — đại diện hiệu quả, không phải bình đẳng toán học. Liệu đề xuất thiểu số có đáp ứng bài kiểm tra đó hay không chính xác là câu hỏi mà cuộc kiểm toán này đã đo lường hình học và chính xác là câu hỏi mà chỉ có thẩm phán mới có thể trả lời dứt khoát. Lý luận <em>Tham chiếu Saskatchewan</em> đầy đủ, sự tương phản với các tỉnh khác, câu hỏi về tư cách, và các con đường cải cách có sẵn được đề cập trong <a href=\"#references\">phần tài liệu tham khảo bên dưới</a>."
+		p7: "Vì vậy, khi các tòa án Canada nói \"gerrymander\" không phải là từ vựng pháp lý của họ, họ không nói rằng khái niệm cơ bản không áp dụng ở đây. Họ đang nói rằng bài kiểm tra khác — đại diện hiệu quả, không phải bình đẳng toán học. Liệu đề xuất thiểu số có đáp ứng bài kiểm tra đó hay không chính xác là câu hỏi mà cuộc kiểm toán này đã đo lường hình học và chính xác là câu hỏi mà chỉ có thẩm phán mới có thể trả lời dứt khoát. Lý luận <em>Tham chiếu Saskatchewan</em> đầy đủ, sự tương phản với các tỉnh khác, câu hỏi về tư cách khởi kiện, và các con đường cải cách có sẵn được đề cập trong <a href=\"#references\">phần tài liệu tham khảo bên dưới</a>."
 	},
 	chrome: {
 		back_to_top: "Quay về đầu trang",
@@ -1192,7 +1192,7 @@ export default {
 			heading: "Giúp chúng tôi tinh chỉnh MapExplorer",
 			body: "Khi bạn khám phá, chúng tôi theo dõi các bản đồ và khu vực bạn ghé thăm và định kỳ gửi dữ liệu đến cơ sở dữ liệu nghiên cứu của chúng tôi. Chia sẻ một góc nhìn cũng lưu lại nơi bạn đã kết thúc. Mục tiêu: hiểu điều gì hữu ích và làm cho công cụ tốt hơn.",
 			no_collect: "Chúng tôi không bao giờ thu thập tên, địa chỉ IP hoặc vị trí chính xác của bạn. Mọi thứ được ẩn danh trong trình duyệt của bạn trước khi nó rời đi. Chúng tôi không thể xác định bạn từ dữ liệu ngay cả khi được yêu cầu.",
-			dnt: "Trình duyệt của bạn đã bật Do Not Track. Không được chọn trước thay cho bạn. Bạn vẫn có thể chọn Có.",
+			dnt: "Trình duyệt của bạn đã bật Do Not Track. Lựa chọn “Không” đã được chọn sẵn thay cho bạn. Bạn vẫn có thể chọn “Có”.",
 			no_thanks: "Không, cảm ơn",
 			yes_help: "Có, tôi sẽ giúp",
 			privacy_policy: "Chính sách bảo mật"
@@ -1226,7 +1226,7 @@ export default {
 			help_aria: "Trợ giúp bản đồ",
 			help_title: "Cách sử dụng bản đồ",
 			pin_aria: "Ghim bản đồ",
-			pin_title: "Ghim bản đồ — ngăn tự động pan khi nhấp vào khu vực",
+			pin_title: "Ghim bản đồ — ngăn bản đồ tự động di chuyển khi nhấp vào khu vực",
 			search_aria: "Tìm một khu vực bầu cử",
 			search_placeholder: "Tìm khu vực…",
 			zoom_aria: "Thu phóng bản đồ",
@@ -1244,7 +1244,7 @@ export default {
 			pop_prefix: "Dân số",
 			voting_areas_suffix: "khu vực bỏ phiếu",
 			other_maps: "Bản đồ khác",
-			unique_boundary: "Ranh giới duy nhất cho bản đồ này",
+			unique_boundary: "Ranh giới chỉ có trên bản đồ này",
 			in_person_votes: "phiếu bầu trực tiếp (loại trừ Vote Anywhere)",
 			load_error_generic: "Không thể tải bản đồ ranh giới. Hãy thử tải lại trang.",
 			load_error_map: "Không thể tải bản đồ {key} — kiểm tra kết nối của bạn.",
@@ -1267,7 +1267,7 @@ export default {
 		map_intro: {
 			heading: "Cách sử dụng bản đồ",
 			click_district: "Nhấp vào bất kỳ khu vực nào",
-			click_district_desc: "xem kết quả bầu cử 2023 và snap vào nó",
+			click_district_desc: "xem kết quả bầu cử 2023 và đưa bản đồ đến khu vực đó",
 			click_within: "Nhấp vào trong một khu vực đã chọn",
 			click_within_desc: "xem kết quả điểm bỏ phiếu cá nhân (màu sắc = phân chia phiếu bầu)",
 			dblclick: "Nhấp đúp vào một khu vực",
@@ -1348,7 +1348,7 @@ export default {
 			inperson_votes: "phiếu bầu trực tiếp",
 			ed_total: "Tổng khu vực bầu cử: {n} phiếu",
 			ed_total_eday: "Tổng khu vực bầu cử: {n} (ngày bầu cử)",
-			poll: "Điểm bỏ phiếu #{id} · phiếu bầu trực tiếp",
+			poll: "Điểm bỏ phiếu #{id}",
 			ucp_pct: "UCP {u}%",
 			ndp_pct: "NDP {n}%",
 			unassigned: "(chưa phân công)",
@@ -1395,7 +1395,7 @@ export default {
 				body: "Việc người dân Cochrane đi làm ở Calgary lẽ ra có thể biện minh cho việc ghép thị trấn này với thành phố — nhưng dữ liệu đi lại đến nơi làm việc năm 2021 cho thấy dòng người đó trải ra khắp thành phố (khoảng một phần ba số người lao động; một nửa làm việc ngay trong Cochrane) và không hướng về Nolan Hill. Hành lang hẹp của thiểu số tới phường Nolan Hill — hình dạng mà chủ tịch gọi là thòng lọng — vươn xa hơn những gì dữ liệu cho thấy, và không bài nộp nào đề xuất nó. Bài kiểm tra phá vỡ của cuộc kiểm toán không gắn cờ nó: Cochrane được giữ nguyên vẹn và chiếm khoảng hai phần ba khu vực bầu cử, và với khoảng 34.000 người, Cochrane quá nhỏ để có ghế riêng. (Học thuật §5.3.2.)"
 			},
 			"olds-airdrie-reach": {
-				title: "Olds–Three Hills–Didsbury — phần với Airdrie",
+				title: "Olds–Three Hills–Didsbury — phần vươn vào Airdrie",
 				body: "Một khu vực bầu cử nông thôn giữ các thị trấn dọc Highway 2 — Olds, Didsbury, Three Hills — ở cùng nhau được ủng hộ rõ ràng; cư dân khu vực Beiseker đã viết thư ủng hộ điều đó. Nó lẽ ra có thể chỉ nằm trong những cộng đồng đó. Thay vào đó, phiên bản của thiểu số vươn về phía nam vào rìa bắc của Airdrie, một phần mở rộng mà phép tính dân số không đòi hỏi. Phần vươn này là một phần trong cách việc chia Airdrie làm bốn vận hành — một dải thưa dân của thành phố, khoảng 350 người, bị nhập vào một ghế nông thôn lớn hơn — mà cuộc kiểm toán coi là một phần của mẫu hình phá vỡ. (Học thuật §5.3.2.)"
 			},
 			chestermere: {
@@ -1404,7 +1404,7 @@ export default {
 			},
 			"red-deer": {
 				title: "Red Deer — các khu vực bầu cử lai",
-				body: "Các mối liên kết khu vực của Red Deer với Blackfalds, Sylvan Lake, Lacombe và Innisfail lẽ ra có thể nhóm những thị trấn đó cùng nhau — một ủy viên hội đồng thành phố và cư dân đã đề xuất các bản lai tương tự. Phiên bản của thiểu số thay vào đó gập các phần của chính thành phố vào các khu vực bầu cử do thị trấn dẫn dắt, làm mỏng phiếu bầu của Red Deer đô thị; lý do “trường học chung” của nó cũng không đứng vững (các bộ phận giáo dục khác nhau). Gập một thành phố vào các khu vực bầu cử do thị trấn dẫn dắt là mẫu mà cuộc kiểm toán gọi là lai hóa — nhất quán với phá vỡ, đạt được hiệu ứng đảng phái bên trong các khu vực bầu cử lai chứ không phải qua chúng. (Học thuật §5.3.5.)"
+				body: "Các mối liên kết khu vực của Red Deer với Blackfalds, Sylvan Lake, Lacombe và Innisfail lẽ ra có thể nhóm những thị trấn đó cùng nhau — một ủy viên hội đồng thành phố và cư dân đã đề xuất các bản lai tương tự. Phiên bản của thiểu số thay vào đó gập các phần của chính thành phố vào các khu vực bầu cử do thị trấn dẫn dắt, làm mỏng phiếu bầu của Red Deer đô thị; lý do “trường học chung” của nó cũng không đứng vững (các khu học chánh khác nhau). Gập một thành phố vào các khu vực bầu cử do thị trấn dẫn dắt là mẫu mà cuộc kiểm toán gọi là lai hóa — nhất quán với phá vỡ, đạt được hiệu ứng đảng phái bên trong các khu vực bầu cử lai chứ không phải qua chúng. (Học thuật §5.3.5.)"
 			},
 			"st-albert": {
 				title: "St. Albert — các cấu hình cạnh tranh",
@@ -1452,7 +1452,7 @@ export default {
 	feedback: {
 		nav_link: "Gửi phản hồi",
 		page_title: "Gửi phản hồi",
-		meta_description: "Chia sẻ một chỉnh sửa, câu hỏi hoặc đề xuất về cuộc thẩm định Ranh giới Bầu cử Alberta.",
+		meta_description: "Chia sẻ một chỉnh sửa, câu hỏi hoặc đề xuất về cuộc Kiểm toán Ranh giới Bầu cử Alberta.",
 		heading: "Gửi phản hồi",
 		intro: "Phát hiện một lỗi, có câu hỏi, hoặc muốn đề xuất một cải tiến? Nội dung này sẽ được gửi thẳng đến tác giả. Tên và email là tùy chọn — chỉ để lại email nếu bạn muốn nhận phản hồi.",
 		name_label: "Tên",
@@ -1473,7 +1473,7 @@ export default {
 		error_empty: "Vui lòng nhập tin nhắn trước khi gửi.",
 		error_rate: "Bạn đã gửi nhiều tin nhắn gần đây. Vui lòng thử lại sau một lát.",
 		error_generic: "Đã xảy ra lỗi khi gửi phản hồi của bạn. Vui lòng thử lại sau giây lát.",
-		privacy_note: "Tin nhắn của bạn được lưu trữ an toàn tại Canada và chỉ được sử dụng để cải thiện cuộc thẩm định này. Xem {privacy} để biết chi tiết.",
+		privacy_note: "Tin nhắn của bạn được lưu trữ an toàn tại Canada và chỉ được sử dụng để cải thiện cuộc kiểm toán này. Xem {privacy} để biết chi tiết.",
 		privacy_link_text: "chính sách quyền riêng tư",
 		back_to_report: "Quay lại báo cáo",
 		back_to_map: "Quay lại trình khám phá bản đồ"
@@ -1554,7 +1554,7 @@ export default {
 			appendix_i: {
 				heading: "Phụ lục I — Bộ lấy mẫu là gì, và vì sao việc hoán đổi nó quan trọng",
 				confusion: "<em>Sự bối rối:</em> \"Các bạn kiểm tra mô phỏng của mình bằng… một mô phỏng khác? Đó mà là kiểm tra sao?\"",
-				p1: "Vì hai cỗ máy được xây dựng khác nhau, và các sản phẩm phụ của phương pháp (kết quả do đặc tính riêng của cỗ máy tạo ra chứ không phải do bản đồ) thường không sống sót qua việc thay đổi bộ máy. Thuật toán vẽ bản đồ nào cũng có đặc tính riêng. Thuật toán tiêu chuẩn, ReCom, có xu hướng đã được ghi nhận là ưa các khu vực gọn gàng, ngăn nắp, điều về nguyên tắc có thể phóng đại mức độ cực đoan của một bản đồ thực có hình dạng trải rộng. Vì vậy cuộc kiểm toán đã thay bộ máy. Biến thể này phát triển các khu vực từ các <em>rừng</em> bao trùm ngẫu nhiên thay vì các cây, với hành vi bên trong khác biệt có thể đo được. Nó đã được đăng ký công khai (OSF he53s) trước khi một bản đồ nào được vẽ bằng nó, và các hạt giống của nó được lấy từ một nguồn phát tín hiệu ngẫu nhiên công khai mà ai cũng có thể xác minh. Nếu vị trí ở phần đuôi của phe thiểu số là sản phẩm phụ của đặc tính bộ máy thứ nhất, bộ máy thứ hai sẽ dịch chuyển nó. Nó dịch chuyển chưa đến một điểm phân vị trên mọi chỉ số: một kết luận VỮNG đã đăng ký trước. Cuộc kiểm toán cũng báo cáo phép kiểm tra đã <em>thất bại</em>. Khẳng định rằng hình học bị gắn cờ của Hồi I là cơ chế cụ thể đằng sau các con số về ghế đã không vượt qua kiểm tra, và đã bị bỏ.",
+				p1: "Vì hai cỗ máy được xây dựng khác nhau, và các sản phẩm phụ của phương pháp (kết quả do đặc tính riêng của cỗ máy tạo ra chứ không phải do bản đồ) thường không đứng vững khi thay đổi bộ máy. Thuật toán vẽ bản đồ nào cũng có đặc tính riêng. Thuật toán tiêu chuẩn, ReCom, có xu hướng đã được ghi nhận là ưa các khu vực gọn gàng, ngăn nắp, điều về nguyên tắc có thể phóng đại mức độ cực đoan của một bản đồ thực có hình dạng trải rộng. Vì vậy cuộc kiểm toán đã thay bộ máy. Biến thể này phát triển các khu vực từ các <em>rừng</em> bao trùm ngẫu nhiên thay vì các cây, với hành vi bên trong khác biệt có thể đo được. Nó đã được đăng ký công khai (OSF he53s) trước khi một bản đồ nào được vẽ bằng nó, và các hạt giống của nó được lấy từ một nguồn phát tín hiệu ngẫu nhiên công khai mà ai cũng có thể xác minh. Nếu vị trí ở phần đuôi của phe thiểu số là sản phẩm phụ của đặc tính bộ máy thứ nhất, bộ máy thứ hai sẽ dịch chuyển nó. Nó dịch chuyển chưa đến một điểm phân vị trên mọi chỉ số: một kết luận VỮNG đã đăng ký trước. Cuộc kiểm toán cũng báo cáo phép kiểm tra đã <em>thất bại</em>. Khẳng định rằng hình học bị gắn cờ của Hồi I là cơ chế cụ thể đằng sau các con số về ghế đã không vượt qua kiểm tra, và đã bị bỏ.",
 				p2: "Giờ hãy đọc lại phát hiện 9: ba cuộc tấn công, hai lần đứng vững, một khẳng định thua một cách trung thực.",
 				limit: "<em>Giới hạn:</em> độ vững loại trừ các sản phẩm phụ của công cụ. Nó không thể khẳng định có chủ đích. Một bản đồ thực sự cực đoan thì thực sự cực đoan, bất kể điều gì đã tạo ra nó.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-9\">↩ Quay lại phát hiện 9</a>"
@@ -1562,7 +1562,7 @@ export default {
 			appendix_j: {
 				heading: "Phụ lục J — Vì sao láng giềng bỏ phiếu giống nhau làm hỏng các phép thống kê ngây thơ",
 				confusion: "<em>Sự bối rối:</em> \"Một bài kiểm tra cho p = 0,0024 mà các bạn vứt bỏ nó? Trông như đang che giấu một kết quả.\"",
-				p1: "Ngược lại: đó là đang sửa một kết quả. Nhiều bài kiểm tra giả định các quan sát là độc lập, như những lần tung đồng xu riêng biệt. Các khu vực bỏ phiếu thì không như vậy. Các khu vực lân cận có chung đặc điểm nhân khẩu, thu nhập, lịch sử. Chúng bỏ phiếu giống nhau. Coi 100 khu vực tập trung thành cụm như 100 lần tung độc lập thực ra giống như 20 quan sát có giá trị mặc 100 chiếc áo khoác, và nó khiến những sự trùng hợp trông như không thể xảy ra trong khi chúng chỉ là không phổ biến. Cách sửa là xây dựng một giả thuyết không (một bức tranh về những gì chỉ riêng sự ngẫu nhiên sẽ tạo ra) giữ nguyên sự tập trung thành cụm đó. Xáo trộn các <em>khối</em> khu vực lân cận cùng nhau thay vì từng khu vực riêng lẻ, rồi đặt lại câu hỏi. Bài kiểm tra vùng dao động của cuộc kiểm toán trông có ý nghĩa thống kê dưới giả thuyết không ngây thơ (p = 0,0024) và chẳng có gì đáng chú ý dưới giả thuyết đã hiệu chỉnh (p ≈ 0,19). Khi giả thuyết không trung thực mâu thuẫn với giả thuyết không dễ nghe, bạn giữ cái trung thực. Và bạn gỡ bỏ kết quả.",
+				p1: "Ngược lại: đó là đang sửa một kết quả. Nhiều bài kiểm tra giả định các quan sát là độc lập, như những lần tung đồng xu riêng biệt. Các khu vực bỏ phiếu thì không như vậy. Các khu vực lân cận có chung đặc điểm nhân khẩu, thu nhập, lịch sử. Chúng bỏ phiếu giống nhau. Coi 100 khu vực tập trung thành cụm như 100 lần tung độc lập thực ra giống như 20 quan sát có giá trị mặc 100 chiếc áo khoác, và nó khiến những sự trùng hợp trông như không thể xảy ra trong khi chúng chỉ là không phổ biến. Cách sửa là xây dựng một giả thuyết không (một bức tranh về những gì chỉ riêng sự ngẫu nhiên sẽ tạo ra) giữ nguyên sự tập trung thành cụm đó. Xáo trộn các <em>khối</em> khu vực lân cận cùng nhau thay vì từng khu vực riêng lẻ, rồi đặt lại câu hỏi. Bài kiểm tra vùng dao động của cuộc kiểm toán trông có ý nghĩa thống kê dưới giả thuyết không (H₀) ngây thơ (p = 0,0024) và chẳng có gì đáng chú ý dưới giả thuyết đã hiệu chỉnh (p ≈ 0,19). Khi giả thuyết H₀ trung thực mâu thuẫn với giả thuyết H₀ dễ nghe, bạn giữ giả thuyết trung thực. Và bạn gỡ bỏ kết quả.",
 				p2: "Giờ hãy đọc lại phát hiện 10: hai công cụ của chính cuộc kiểm toán bị gỡ bỏ, một bài kiểm tra đã đăng ký trước mà bản đồ thiểu số vượt qua hẳn.",
 				limit: "<em>Giới hạn:</em> việc hiệu chỉnh cho thấy tín hiệu về <em>lựa chọn ranh giới</em> không đứng vững. Nó không nói gì chống lại các phát hiện tập hợp từ các bản đồ do máy tính vẽ, vốn ngay từ đầu chưa bao giờ giả định sự độc lập.",
 				back_anchor: "<a href=\"__BASE__/evidence#casing-10\">↩ Quay lại phát hiện 10</a>"
@@ -1754,7 +1754,7 @@ export default {
 					public_hearings_before: {
 						feature: "Điều trần công khai trước khi thông qua",
 						commission: "Có — mười sáu cộng đồng",
-						committee: "Không — không có kế hoạch nào cho bản đồ được tạo ra"
+						committee: "Không — không có phiên điều trần nào được lên kế hoạch về bản đồ được tạo ra"
 					},
 					draft_published_challenge: {
 						feature: "Bản dự thảo được công bố để phản biện",

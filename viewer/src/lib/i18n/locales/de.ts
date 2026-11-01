@@ -112,7 +112,7 @@ export default {
 		route_story: "Geschichte",
 		route_law: "Recht",
 		route_methods: "Methoden",
-		stakes: "Einsatz",
+		stakes: "Worum es geht",
 		findings: "Ergebnisse",
 		history: "Historie",
 		reform: "Reform",
@@ -1186,7 +1186,7 @@ export default {
 		license_title: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0",
 		license_alt: "CC BY-NC-SA 4.0",
 		license_aria: "Creative Commons BY-NC-SA 4.0",
-		back_to_stakes: "↑ Zurück zum Einsatz",
+		back_to_stakes: "↑ Zurück zu „Worum es geht“",
 		back_to_picture: "↑ Zurück zum Bild",
 		lightbox: {
 			fig_aria: "Vergrößerte Ansicht der Abbildung",
@@ -1480,7 +1480,7 @@ export default {
 		error_empty: "Bitte geben Sie vor dem Senden eine Nachricht ein.",
 		error_rate: "Sie haben in letzter Zeit mehrere Nachrichten gesendet. Bitte versuchen Sie es in Kürze erneut.",
 		error_generic: "Beim Senden Ihres Feedbacks ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.",
-		privacy_note: "Ihre Nachricht wird sicher in Canada gespeichert und nur zur Verbesserung dieses Audits verwendet. Einzelheiten finden Sie in der {privacy}.",
+		privacy_note: "Ihre Nachricht wird sicher in Kanada gespeichert und nur zur Verbesserung dieses Audits verwendet. Einzelheiten finden Sie in der {privacy}.",
 		privacy_link_text: "Datenschutzerklärung",
 		back_to_report: "Zurück zum Bericht",
 		back_to_map: "Zurück zum Karten-Explorer"
@@ -1742,7 +1742,7 @@ export default {
 			norms_vs_law: {
 				heading: "Normen sind kein Recht — und ein Ort hat die Norm zu Recht gemacht",
 				p1: "Verfassungskonventionen, die ungeschriebenen Regeln politischen Verhaltens, binden politisch, nicht gerichtlich. Der Supreme Court hat das 1981 in der Patriation Reference gesagt, und die Gerichte haben diese Linie seither gehalten: Ein Gericht kann eine Konvention benennen und wird es dennoch ablehnen, sie durchzusetzen. Diese Lücke zwischen dem Üblichen und dem Erzwingbaren ist der Ort, an dem sich diese ganze Episode abspielt.",
-				p2: "Quebec zeigt, wie die andere Wahl aussieht. Seine Grenzkommission ist ständig und unabhängig, und bei der Karte selbst hat die Kommission normalerweise das letzte Wort. Als die Regierung Quebecs versuchte, ihre Kommission per Gesetz einzufrieren, <em>handelten</em> die Gerichte, weil nun ein Gesetz im Spiel war. Am 22. April 2026 bestätigte der Supreme Court of Canada mit 7–2 und aus dem Stand das Urteil, dass das Einfrieren die Garantie demokratischer Vertretung in der Charter verletzte. Seine Begründung folgte am 1. Mai (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Wo die Norm ins Gesetz geschrieben war, wurde sie durchsetzbar. Albertas Norm war es nie, und so war sie es auch nicht. Der Kontrast schneidet allerdings in beide Richtungen. Am 12. Juni 2026 verabschiedete die Nationalversammlung Quebecs ihre eigene Karte mit 127 Sitzen."
+				p2: "Quebec zeigt, wie die andere Wahl aussieht. Seine Grenzkommission ist ständig und unabhängig, und bei der Karte selbst hat die Kommission normalerweise das letzte Wort. Als die Regierung Quebecs versuchte, ihre Kommission per Gesetz einzufrieren, <em>handelten</em> die Gerichte, weil nun ein Gesetz im Spiel war. Am 22. April 2026 bestätigte der Supreme Court of Canada mit 7 zu 2 Stimmen und mündlich direkt in der Verhandlung das Urteil, dass das Einfrieren die Garantie demokratischer Vertretung in der Charter verletzte. Seine Begründung folgte am 1. Mai (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Wo die Norm ins Gesetz geschrieben war, wurde sie durchsetzbar. Albertas Norm war es nie, und so war sie es auch nicht. Der Kontrast schneidet allerdings in beide Richtungen. Am 12. Juni 2026 verabschiedete die Nationalversammlung Quebecs ihre eigene Karte mit 127 Sitzen."
 			},
 			measurable: {
 				heading: "Die Bewertung des Verfahrens: die Frage der Normen messbar machen",
