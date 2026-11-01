@@ -173,6 +173,22 @@ def draw_bar(
     width_total = x_right - x_left
     for seg in segments:
         w = width_total * (seg.proportion / total)
+        # A segment too narrow to hold its own label (e.g. a few hundred
+        # people out of a city) is drawn to scale and labelled below the bar,
+        # right-aligned to the bar's end, with a short leader line.
+        if w * fig_width_in < 0.30:
+            ax.add_patch(Rectangle((x, y_bot), max(w, 0.0015), y_top - y_bot,
+                                   facecolor=seg.color, edgecolor=COLOR_INK,
+                                   linewidth=0.5, zorder=4))
+            cx = x + w / 2
+            ax.plot([cx, cx], [y_bot, y_bot - 0.022], color=COLOR_INK,
+                    lw=0.6, zorder=4)
+            callout = seg.label + (f" · {seg.sublabel}" if seg.sublabel else "")
+            ax.text(min(cx + 0.004, x_right), y_bot - 0.028, callout,
+                    ha="right", va="top", fontsize=7.5, fontstyle="italic",
+                    family=FONT_LABEL, color=COLOR_INK_SOFT, zorder=5)
+            x += w
+            continue
         rect = FancyBboxPatch(
             (x, y_bot),
             w,
@@ -259,6 +275,38 @@ def draw_bar(
         else:
             y_label = y_mid + sub_offset * 0.55 + 0.005
 
+        # Sublabel size, decided before placement. Shrink for narrow
+        # segments; two-line labels already consume most of the vertical
+        # space, so shrink the sublabel further in that case.
+        sub_fs = None
+        n_sub_lines = 0
+        if seg.sublabel:
+            sub_fs = max(best_fs - 2.8, 6.2)
+            if n_label_lines >= 2:
+                sub_fs = max(sub_fs - 0.8, 5.8)
+            # Widest line, not the whole string: a two-line sublabel is as
+            # wide as its longer line.
+            sub_w_in = max(len(ln) for ln in seg.sublabel.split("\n")) * sub_fs * 0.52 / 72.0
+            if sub_w_in > seg_width_in - 0.05:
+                sub_fs = max(sub_fs - 1.0, 5.5)
+            n_sub_lines = seg.sublabel.count("\n") + 1
+        # A multi-line sublabel (2026-11-01, Airdrie shares): centre the
+        # label + sublabel stack in the bar so neither runs off its edge.
+        # The axes spans the whole figure, so 1 pt = 1 / (FIG_H_IN * 72).
+        sub_y_stacked = None
+        if n_sub_lines >= 2:
+            # Stacking frees vertical room, so keep the sublabel at a
+            # readable 6.5 pt where the segment is wide enough for it.
+            longest = max(len(ln) for ln in seg.sublabel.split("\n"))
+            sub_fs = max(sub_fs, min(6.5, (seg_width_in - 0.10) * 72.0 / (longest * 0.52)))
+            pt = 1.0 / (FIG_H_IN * 72.0)
+            label_h = n_label_lines * best_fs * 1.15 * pt
+            sub_h = n_sub_lines * sub_fs * 1.2 * pt
+            gap = 3.0 * pt
+            top = y_mid + (label_h + gap + sub_h) / 2
+            y_label = top - label_h / 2
+            sub_y_stacked = top - label_h - gap - sub_h / 2
+
         # Flip main label to light on dark segments for contrast
         try:
             import matplotlib.colors as mc
@@ -283,15 +331,6 @@ def draw_bar(
             linespacing=1.0,
         )
         if seg.sublabel:
-            # Shrink sublabel for narrow segments. Two-line labels
-            # already consume most of the vertical space, so shrink the
-            # sublabel further in that case.
-            sub_fs = max(best_fs - 2.8, 6.2)
-            if n_label_lines >= 2:
-                sub_fs = max(sub_fs - 0.8, 5.8)
-            sub_w_in = len(seg.sublabel) * sub_fs * 0.52 / 72.0
-            if sub_w_in > seg_width_in - 0.05:
-                sub_fs = max(sub_fs - 1.0, 5.5)
             # On dark segments, the near-black sublabel becomes illegible.
             # Compute segment brightness (simple luma) and flip to a pale
             # colour when the fill is dark.
@@ -309,6 +348,8 @@ def draw_bar(
             # least 0.015 above y_bot.
             sub_y_raw = y_mid - 0.024 * n_label_lines - 0.018
             sub_y = max(sub_y_raw, y_bot + 0.018)
+            if sub_y_stacked is not None:
+                sub_y = sub_y_stacked
             ax.text(
                 x + w / 2,
                 sub_y,
@@ -352,6 +393,7 @@ def draw_schematic(
     min_segments: list[Segment],
     inset_callouts: list[tuple[str, str]] | None = None,
     caption: str = "",
+    source: str = "Source: commission majority report Appendix A and minority report Appendix E.",
 ) -> None:
     """Render a two-bar schematic figure.
 
@@ -521,7 +563,7 @@ def draw_schematic(
     ax.text(
         0.95,
         0.03,
-        "Source: commission majority report Appendix A and minority report Appendix E.",
+        source,
         ha="right",
         va="bottom",
         fontsize=7,
@@ -838,64 +880,100 @@ def draw_calgary(fig_path: Path) -> dict:
 
 
 def build_airdrie():
-    title = "Airdrie: one city, four partitions"
-    subtitle = (
-        "Population 85,805 (2024 municipal census). The majority draws two ridings "
-        "both named Airdrie. The minority cuts the city into four pieces \u2014 one per "
-        "compass direction \u2014 each attached to a different surrounding district."
+    """How each map divides Airdrie's people, drawn to scale.
+
+    Rebuilt 2026-11-01 (DOCUMENTED CORRECTIONS C45). The earlier version drew
+    four equal minority segments ("one per compass direction ... each attached
+    to a different surrounding district"), which read as four equal quarters
+    of the city. Counted by people, the minority's Airdrie East holds 54.7% of
+    the city and is 89.6% Airdrie; Calgary-Airdrie (24.0%) and
+    Calgary-Foothills-Airdrie West (20.9%) are Calgary-majority; and
+    Olds-Three Hills-Didsbury takes about 350 people, by area-sharing of cut
+    census areas only. (The four districts by land area are in the 2026-07-08
+    note this replaces: Airdrie East 35.5 km^2 of the city, Olds-Three
+    Hills-Didsbury 23.2, Calgary-Airdrie 15.8, Calgary-Foothills-Airdrie West
+    11.2.) Segment widths and every number drawn are read from
+    data/outputs/airdrie_split_shares_2026-10-31.json
+    (analysis/scripts/airdrie_split_shares.py), so the picture cannot drift
+    from the counts.
+    """
+    import json
+
+    shares = json.loads(
+        (DATA / "outputs" / "airdrie_split_shares_2026-10-31.json").read_text(encoding="utf-8")
     )
+    total = shares["airdrie_2021_census_csd"]
+    words = {1: "one", 2: "two", 3: "three", 4: "four"}
+
+    def rows(map_key):
+        return {d["district"]: d for d in shares["maps"][map_key]["districts"]}
+
+    maj, mino = rows("majority"), rows("minority")
+
+    def pct(x):
+        return f"{x * 100:.1f}%"
+
+    def seg(map_rows, district, label, color):
+        d = map_rows[district]
+        held = d["share_of_airdrie_held"]
+        if held < 0.02:
+            # Below the audit's 2% piece rule: give people, not a percentage.
+            sub = f"about {int(round(d['airdrie_residents'], -1)):,} people"
+        else:
+            sub = (f"{pct(held)} of the city\n"
+                   f"district {d['share_of_district_airdrie'] * 100:.0f}% Airdrie")
+        return Segment(label, color, sublabel=sub, proportion=held)
+
+    # West to east within each bar.
     maj_segments = [
-        Segment("Airdrie-East", MAJORITY_SEGMENT_COLORS[0], proportion=1.0),
-        Segment("Airdrie-West", MAJORITY_SEGMENT_COLORS[1], proportion=1.0),
+        seg(maj, "Airdrie-West", "Airdrie-West", MAJORITY_SEGMENT_COLORS[1]),
+        seg(maj, "Airdrie-East", "Airdrie-East", MAJORITY_SEGMENT_COLORS[0]),
     ]
-    # Four minority segments, one per quadrant of the city.
-    # Corrected 2026-07-08: the north segment previously read "Calgary-Nolan
-    # Hill-Cochrane" and the population "~90,000". Ground truth recomputed by
-    # intersecting the Airdrie CSD boundary (alberta_2021_csds.gpkg) with the
-    # canonical minority shapefile (ea_minority_2026_eds.gpkg): the four EDs
-    # covering Airdrie are Airdrie-East (35.5 km^2 of the city),
-    # Olds-Three Hills-Didsbury (23.2, the northern piece), Calgary-Airdrie
-    # (15.8, centre-south) and Calgary-Foothills-Airdrie West (11.2, west) \u2014
-    # matching report_public.md Part III. Nolan Hill-Cochrane is the separate
-    # lasso-corridor finding and does not touch Airdrie. Population per the
-    # 2024 municipal census figure cited throughout the reports.
+    # The official boundary file spells the minority's division
+    # "Airdrie-East"; the minority report's table and the site write
+    # "Airdrie East".
     min_segments = [
-        Segment(
-            "Calgary-Airdrie",
-            MINORITY_SEGMENT_COLORS[3],
-            sublabel="south",
-            proportion=1.0,
-        ),
-        Segment(
-            "Airdrie East", MINORITY_SEGMENT_COLORS[0], sublabel="east", proportion=1.0
-        ),
-        Segment(
-            "Olds-Three Hills-Didsbury",
-            MINORITY_SEGMENT_COLORS[2],
-            sublabel="north",
-            proportion=1.0,
-        ),
-        Segment(
-            "Calgary-Foothills-Airdrie West",
-            MINORITY_SEGMENT_COLORS[1],
-            sublabel="west",
-            proportion=1.0,
-        ),
+        seg(mino, "Calgary-Foothills-Airdrie West", "Calgary-Foothills-Airdrie West",
+            MINORITY_SEGMENT_COLORS[1]),
+        seg(mino, "Calgary-Airdrie", "Calgary-Airdrie", MINORITY_SEGMENT_COLORS[3]),
+        seg(mino, "Airdrie-East", "Airdrie East", MINORITY_SEGMENT_COLORS[0]),
+        seg(mino, "Olds-Three Hills-Didsbury", "Olds-Three Hills-Didsbury",
+            MINORITY_SEGMENT_COLORS[2]),
     ]
+    m_maj, m_min = shares["maps"]["majority"], shares["maps"]["minority"]
+    n_maj_home = len(m_maj["districts_where_airdrie_is_a_majority"])
+    n_min_home = len(m_min["districts_where_airdrie_is_a_majority"])
+    ae = mino["Airdrie-East"]
+    calgary_held = (mino["Calgary-Airdrie"]["share_of_airdrie_held"]
+                    + mino["Calgary-Foothills-Airdrie West"]["share_of_airdrie_held"])
+
+    title = "Airdrie: how each map divides the city"
+    subtitle = (
+        f"Bar widths are shares of Airdrie's {total:,} residents at the 2021 census "
+        "(the city counted 85,805 in its 2024 municipal census). "
+        f"The majority gives the city {words[n_maj_home]} divisions where most people "
+        f"are from Airdrie; the minority gives it {words[n_min_home]}."
+    )
     caption = (
-        "The minority cuts Airdrie into four pieces, each attached to a different surrounding district. "
-        "Only one of the four is named Airdrie alone; the other three carry Calgary or regional names. "
-        "The majority draws two compact ridings, both named Airdrie."
+        f"The minority's Airdrie East holds {pct(ae['share_of_airdrie_held'])} of the city and is "
+        f"{pct(ae['share_of_district_airdrie'])} Airdrie. Calgary-Airdrie and "
+        f"Calgary-Foothills-Airdrie West hold {calgary_held * 100:.0f}% between them; in both, "
+        "Calgary residents outnumber Airdrie's. Counting only pieces with at least 2% of the "
+        f"city's people, the split is {words[m_min['districts_holding_2pct_or_more']]} pieces "
+        f"to {words[m_maj['districts_holding_2pct_or_more']]}."
     )
     draw_schematic(
         OUT / "figure_airdrie_v3.svg",
         title=title,
         subtitle=subtitle,
-        maj_label="Majority proposal  \u00b7  2 ridings, both named Airdrie",
+        maj_label="Majority proposal  \u00b7  2 divisions, both mostly Airdrie",
         maj_segments=maj_segments,
-        min_label="Minority proposal  \u00b7  4 segments, only one named Airdrie",
+        min_label=(f"Minority proposal  \u00b7  {m_min['districts_with_any_airdrie_residents']} "
+                   f"districts, {words[n_min_home]} of them mostly Airdrie"),
         min_segments=min_segments,
         caption=caption,
+        source="Source: 2021 census areas over Elections Alberta's official 2026 boundaries "
+               "(analysis/scripts/airdrie_split_shares.py).",
     )
 
 
