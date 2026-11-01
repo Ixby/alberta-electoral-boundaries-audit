@@ -2127,7 +2127,7 @@ export default {
 			meta: 'Effective: 2026-06-24 · Maintained by Will Conner',
 			overview: {
 				heading: 'Overview',
-				p1: "This tool is a public-interest audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what is measured, what is never collected, and why none of it can be tied back to you.",
+				p1: "This tool is a public-interest audit of Alberta's 2025–26 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what is measured, what is never collected, and why none of it can be tied back to you.",
 				p2: 'The short version: the site uses cookieless, aggregate analytics. There is no tracking cookie, no advertising, no cross-site profiling, and no identifier that follows you. Because nothing personal is stored, there is no consent banner to click through — the privacy protection is built into how the measurement works, not bolted on as a prompt.'
 			},
 			how_analytics_work: {
