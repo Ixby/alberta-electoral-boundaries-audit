@@ -48,9 +48,9 @@ These compromise the audit's pre-registration discipline but don't directly inva
 | B3 | Ref 18 | `preregistration/november_2026_scoring_spec.md:20 vs :69` | Spec contradicts itself on partisan criterion — §1 says "at least *one* partisan-bias metric"; §3 says "≥ *two* of P1-P4 fire." Internal contradiction in pre-reg document. |
 | B4 | Ref 4 | `preregistration/t3_2_majority_rural_isolation_design.md` (today's work) | **T3.2 "pre-registration" was 85 seconds before execution.** Commits 5fbd1ca (design) → 3bfeefa (result) = 17:12:56 → 17:14:21. The 347-line analysis script co-committed with design; could trivially encode known results. Declared `salt_string` never used (test is deterministic). Audit's own §5.3.1 standard would label this exploratory. |
 | B5 | Ref 11 | `preregistration/t3_2_majority_rural_isolation_design.md` (today's work) | T3.2 design doc cites z=−2.915 as motivation, mislabeled "against the canonical 1.01M-plan ensemble" — it's actually the Phase B label-shuffle null. The z-value itself is substrate-stale (canonical z=−3.17). Rural/urban classifier is name-prefix-based: minority's "Airdrie East" (space) doesn't match "Airdrie-" prefix → classifies rural; majority's "Airdrie-Cochrane" matches → classifies urban. "Minority least isolated" is partly a producer-naming artifact. |
-| B6 | Ref 18 | `findings/pre_registration_amendment_log.md` | Log self-describes as "complete dated chain" but jumps Amendment 4 → Amendment 8; Amendments 5-7 absent repo-wide. Spec header still v1.0 (2026-06-10) despite Amendment 9 rewriting §3 on 06-11. |
+| B6 | Ref 18 | `findings/pre_registration_amendment_log.md` | Log self-describes as "complete dated chain" but jumps from Amendment 4 to the entry then numbered 8 (now Amendment 5, Part 7); numbers 5-7 absent repo-wide (5 now holds the consolidated Amendment 5; 6 and 7 are unused). Spec header still v1.0 (2026-06-10) despite the midpoint rule (now Amendment 5, Part 7) rewriting §3 on 06-11. |
 | B7 | Ref 4 | `report_academic.md:1143` vs `citation_verification.md:63,99` | AsPredicted records: same test cited as #289,455 (`null_hypothesis_and_exoneration_criteria.md:66`) AND #289452 (`phase_b_scorecard.py:90`). Public-vs-not-public contradicted across docs. |
-| B8 | Ref 18 | `findings/pre_registration_amendment_log.md:336–349` | **Amendment 9 self-validation is circular.** Midpoint thresholds fitted to the only two existing maps, then "validated" on those same maps — training set = test set. Audit owns 1.01M ensemble; never computed Pr(≥3/5 flags \| neutral plan). False-positive rate undefined. |
+| B8 | Ref 18 | `findings/pre_registration_amendment_log.md:336–349` | **The midpoint rule's self-validation is circular (rule now in Amendment 5, Part 7).** Midpoint thresholds fitted to the only two existing maps, then "validated" on those same maps — training set = test set. Audit owns 1.01M ensemble; never computed Pr(≥3/5 flags \| neutral plan). False-positive rate undefined. |
 
 ## Severity Tier C — Substrate-staleness in framing / text
 
@@ -124,8 +124,8 @@ These don't invalidate any finding directly but raise the bar a careful reviewer
 - B3 spec internal contradiction (one vs two partisan flags)
 - B4 mark T3.2 as exploratory/same-session
 - B5 fix T3.2 design-doc mislabeling + classifier
-- B6 fill Amendments 5-7 gap
-- B8 specificity-rate calculation for Amendment 9
+- B6 fill the gap at numbers 5-7 (5 now holds the consolidated Amendment 5; 6 and 7 are unused)
+- B8 specificity-rate calculation for the midpoint rule (Amendment 5, Part 7)
 
 ### Phase 3 — Tier C substrate-text-staleness (mechanical)
 - C1 regrade RT7 against canonical 1.01M

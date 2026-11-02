@@ -1,9 +1,9 @@
 # `simulated_ensemble_raw_samples_canonical.csv` — substrate-stale (2026-06-12)
 
 The LFS-tracked version of this file (oid `eef920b85e…`, size ~170 MB) was
-committed *before* Amendment 10 (the declination sign-convention correction,
-2026-06-12). Its declination column carries the pre-Amendment-10 sign
-(mean ≈ −0.00246 instead of the corrected +0.00246).
+committed *before* the declination sign-convention correction (2026-06-12;
+recorded in Amendment 5, Part 9). Its declination column carries the
+pre-correction sign (mean ≈ −0.00246 instead of the corrected +0.00246).
 
 **Do not consume the LFS-tracked version directly.** Either:
 
@@ -27,5 +27,5 @@ The pooled cache is retained as an LFS pointer for repository-size reasons
 configuration). The chain CSVs are authoritative; the pool is a regenerable
 duplicate.
 
-See `findings/pre_registration_amendment_log.md` Amendment 10 for the full
+See `findings/pre_registration_amendment_log.md` Amendment 5, Part 9 for the
 sign-correction record.

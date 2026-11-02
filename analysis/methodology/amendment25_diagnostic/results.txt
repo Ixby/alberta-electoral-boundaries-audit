@@ -1,0 +1,14 @@
+Pre-signing diagnostic for the withdrawn draft on reading s.15(2)(c) by legal town status (not carried into Amendment 5), 2026-10-31 (Alberta time). Validation counts only; no outcome statistic.
+Harness: close_seats_ensemble.py at amendment17-local-runs@2994113c (session copy, repository path only changed), set D options
+(proposal epsilon 0.5, s.15(2) mode), table data/outputs/s15_2_va_criteria_status.csv. 5,000 burn-in steps, then one plan every 500 steps, 61 plans per chain.
+Index 396 failed to seed; 397 replaced it.
+
+Check of the checker, on the existing set D (cities count as towns) calibration plans:
+setD_cities_k89: 200 plans; special districts meeting neither reading: 0; qualifying only under the status reading: 0
+setD_cities_k91: 200 plans; special districts meeting neither reading: 0; qualifying only under the status reading: 0
+
+Status-reading chains:
+status_k89 (chain 395): 61 plans; special districts per plan {4: 33, 3: 22, 2: 5, 1: 1}; plans with a special district that qualifies only under the status reading: 45 of 61
+  places in those districts: Wood Buffalo (urban service area) 36, Medicine Hat 15, Lloydminster (Part) 9, Grande Prairie 3, Brooks 2, Calgary 1
+status_k91 (chain 397): 61 plans; special districts per plan {4: 20, 2: 19, 3: 16, 1: 6}; plans with a special district that qualifies only under the status reading: 44 of 61
+  places in those districts: Medicine Hat 28, Brooks 12, Wood Buffalo (urban service area) 10, Lethbridge 6, Grande Prairie 1

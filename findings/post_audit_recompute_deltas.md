@@ -4,7 +4,7 @@ description: Side-by-side comparison of the audit's pre-audit (buggy) v0_8-subst
 type: project
 ---
 
-> **⚠ AMENDMENT 10 SIGN-CONVENTION CORRECTION (2026-06-12).** All declination values
+> **⚠ SIGN-CONVENTION CORRECTION (2026-06-12; AMENDMENT 5, PART 9).** All declination values
 > below were computed under the implementation's *swapped-operand* convention at
 > `mcmc_ensemble.py:215`, which gave `(2/π)(θ_R − θ_D)` instead of Warrington 2018's
 > `(2/π)(θ_D − θ_R)`. Under the corrected sign:
@@ -19,7 +19,7 @@ type: project
 > for the minority once the operand swap is corrected; the transient first-canonical
 > reading is closer to median than either.
 >
-> See `findings/pre_registration_amendment_log.md` Amendment 10 for the full
+> See `findings/pre_registration_amendment_log.md` Amendment 5, Part 9 for the
 > correction record.
 
 > **Backward:**

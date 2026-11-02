@@ -215,14 +215,14 @@ def seat_results(
         # Sign convention: Warrington 2018 defines δ = (2/π)(θ_D − θ_R),
         # giving positive δ = R-favoured (= UCP-favoured here).
         # Sign-flip correction landed 2026-06-12 per T1.7 referee #5 finding
-        # (Amendment 10 in findings/pre_registration_amendment_log.md).
+        # (Amendment 5, Part 9 in findings/pre_registration_amendment_log.md).
         # The canonical chain CSVs at data/simulation_checkpoints_canonical/
         # were migrated in place at commit c9a9fbd (and re-migrated at full
         # %.17g precision via analysis/scripts/amendment_10_declination_migration.py
         # at HEAD); their declination column is ALREADY in Warrington convention.
         # Do NOT negate downstream — that would double-flip back to the old sign.
         # (packing_cracking_analysis.py uses the same θ_D − θ_R convention since
-        # its own Amendment-10 fix; its local variables are theta_ndp / theta_ucp.)
+        # its own sign fix (Amendment 5, Part 9); its local variables are theta_ndp / theta_ucp.)
         # Pre-flip blobs are recoverable as `git show fc5aae1:<csv>` if needed.
         declination = (2.0 / math.pi) * (theta_D - theta_R)
 
@@ -572,8 +572,9 @@ def run_ensemble(
         recom,
         pop_col="pop_2021",
         pop_target=ideal_pop_mcmc,
-        # Proposal epsilon = pop_deviation / 2.0 (half-band). T1.11 / Amendment 11
-        # (2026-06-13) tested the full-band alternative (epsilon = pop_deviation,
+        # Proposal epsilon = pop_deviation / 2.0 (half-band). T1.11 (2026-06-13;
+        # once labelled "Amendment 11", but never an amendment-log entry and not
+        # in Amendment 5) tested the full-band alternative (epsilon = pop_deviation,
         # Ref #2 A13): at 1.01M the partisan-fairness ensemble distributions are
         # INVARIANT to this choice (minority percentiles shift < 0.05 pp; EG/s50
         # bands identical) — see findings/eps_full_robustness.md. But the full band

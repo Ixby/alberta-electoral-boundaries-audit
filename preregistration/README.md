@@ -11,7 +11,7 @@ Pre-registration documents for the 2026 Alberta Electoral Boundaries Audit.
 | `null_hypotheses.md` | Pre-committed null hypotheses, pass/fail thresholds, and three-axis robustness classification (Structural / Robust / Durable) for every test |
 | `retraction_conditions.md` | Named conditions (G0–G5) under which specific findings would be retracted or amended |
 | `seed_commitments.md` | MCMC random seed provenance — Cloudflare drand beacon values and SHA-256 derivations |
-| `seed_issue14.md` | Seed commitment for the Issue #14 counter-map challenge (OSF submission pending) |
+| `seed_issue14.md` | Seed commitment for the Issue #14 counter-map challenge (not filed on OSF) |
 | `seed_robustness_rerun.md` | Seed commitment for the canonical robustness rerun |
 | `terms_of_reference.md` | Scope, mandate, and independence statement for the audit |
 | `thresholds.md` | Every numeric threshold traced to its statutory source, literature citation, or first-principles derivation |
@@ -19,3 +19,5 @@ Pre-registration documents for the 2026 Alberta Electoral Boundaries Audit.
 | `lane3_process_scorecard_draft.md` | Third lane scoring process features (hearings, drafts, arm's-length drafting…) — **registered as OSF [u47bq](https://osf.io/u47bq/), 2026-07-14**, well before the committee's 2026-11-02 report; descriptive when applied retrospectively, prospective for November |
 
 All documents in this directory except those explicitly marked DRAFT were committed before the corresponding data was examined, in accordance with the audit's pre-registration protocol. Do not backdate or amend entries without a dated correction notice.
+
+**The OSF record.** `osf_ledger.json` pins what OSF holds: every registration, update and archived file (SHA-256), and where each amendment was filed. Run `analysis/scripts/osf_reconcile.py` before and after any OSF write, and before any commit that touches `preregistration/` or `findings/pre_registration_amendment_log.md`. Exit 0 means reconciled; exit 1 lists each drift; exit 2 means no OSF token, so private records went unchecked, and is not a pass. The ledger is edited by hand, in the same commit as the OSF write it records.

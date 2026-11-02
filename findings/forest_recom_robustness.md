@@ -7,7 +7,7 @@ status: executed as registered; joint verdict ROBUST on all four metrics
 
 > **Backward:**
 > - `preregistration/osf_forest_recom_robustness.md` — binding spec (commit 264afc5b)
-> - OSF registration [he53s](https://osf.io/he53s/) — filed 2026-07-10, public, pre-execution
+> - OSF registration [he53s](https://osf.io/he53s/) — filed 2026-07-09 (23:42 MDT), public, pre-execution
 > - `analysis/scripts/forest_recom_ensemble.py` — sampler + harness
 > - `data/outputs/forest_recom_*_phaseA.*` — the four pre-committed output artifacts
 >
@@ -20,7 +20,7 @@ status: executed as registered; joint verdict ROBUST on all four metrics
 ## Chain of custody
 
 - Pre-registration document committed 2026-06-10 (`264afc5b`), script scaffold same day.
-- OSF registration **he53s** filed public 2026-07-10, **before any Forest-ReCom
+- OSF registration **he53s** filed public 2026-07-09 (23:42 MDT), **before any Forest-ReCom
   sample existed**; the execution gate in the script verifiably refused to run
   without a registration ID.
 - Seed 949257740 derived from drand beacon round 5,500,000, salt
@@ -104,7 +104,7 @@ structure and the percentiles barely move. It does not address constraint
 realism (the s.15(2)-pinned companion remains future work), sample-size
 resolution (Phase B), or anything about intent.
 
-## Post-registration code changes (Amendment 13)
+## Post-registration code changes (Amendment 5, Part 27)
 
 The execution harness was wired *after* OSF he53s was filed (the registered
 scaffold's sampler was complete but its `main()` was gated), one import-error
@@ -113,5 +113,5 @@ sample), and the prereg's "Aldous-Broder" naming was resolved to the
 implemented multi-root Wilson sampler (distribution-identical; the document's
 own citations are the LERW literature). Full detail, and why the chain of
 custody survives (no sample predates either the registration or the final
-harness), at `findings/pre_registration_amendment_log.md` Amendment 13 —
+harness), at `findings/pre_registration_amendment_log.md` Amendment 5, Part 27 —
 flagged by the author on execution day.

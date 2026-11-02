@@ -1,4 +1,4 @@
-# What was known before Amendment 17: a Facebook meme about the panel's draft
+# What was known before the added tests (Amendment 5, Part 17): a Facebook meme about the panel's draft
 
 - **File:** `2026-10-29_facebook_meme_panel_draft.jpg`, 1088 × 1358 JPEG, SHA-256
   `2f816773cb588867e0557a98c9122859d19d4ed6d26bc5615151fcfce1eeae8b`. It carries no EXIF metadata.
@@ -6,13 +6,16 @@
   audit session on 2026-10-29 at 17:52 MDT. Who posted it and where it came from are unknown.
   Its claims are unverified. The advisory panel's draft had not been released.
 - **Why it is kept:** it is the only information about the panel's draft that the audit
-  had before Amendment 17 (signed 2026-10-29 18:20 MDT) and Amendment 24. Amendment 17
-  calls it "public reporting". Two of the tests Amendment 17 added address claims made here:
+  had before the three added tests were signed (2026-10-29 18:20 MDT; now Amendment 5, Part 17)
+  and before set D was made primary (Amendment 5, Parts 14 and 18). The entry that first signed
+  the tests called it "public reporting" (wording not carried into Amendment 5). Two of those
+  tests (Amendment 5, Part 17) address claims made here:
   - the **town-split test** (Lethbridge split into four ridings; Okotoks split);
   - the **city-versus-rest test** (Calgary and Edmonton ridings averaging 7,000 more
     residents per MLA, a 14% difference).
   
-  Both tests were fixed before any panel or committee map existed, and they apply the same
+  Both tests were fixed before any panel or committee map was published or seen (the panel
+  reported to the committee on October 22; its report was not public), and they apply the same
   way to whatever the published map contains.
 
 ## Transcription

@@ -1,7 +1,7 @@
 <!--
   DeckExplorer — the production deck.gl map explorer for the boundary audit.
 
-  Ports the validated prototype (viewer/static/spike/index.html) into a Svelte 5
+  Ports the validated prototype (viewer/static/spike/index.html, removed 2026-10-31; see git history) into a Svelte 5
   component, MINUS all dev/debug chrome (no HUD, no ?debug instrumentation, no
   JS-error-to-HUD handlers). The framework-free data + layer logic lives in
   $lib/deckExplorer/{loader,layers,pois}; this component wires them into a live

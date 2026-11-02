@@ -23,8 +23,8 @@ Files marked * are directly cited in both the public report and the academic mon
 | `partisan_bias_summary.md` | * Partisan bias B1–B6: packing, cracking, efficiency gap across all three maps |
 | `historical_eg_baseline.md` | * Efficiency-gap baseline from 2015–2023 Alberta elections |
 | `neighbour_drain_analysis.md` | * Neighbour-drain effect findings |
-| `../archive/dpg_era/da_anchoring_analysis.md` | * Dissemination-area boundary anchor results — **RETRACTED on canonical geometry** (moved to archive 2026-05-23) |
-| `../archive/dpg_era/municipal_anchoring_analysis.md` | * Municipal boundary anchor results — **RETRACTED on canonical geometry** (moved to archive 2026-05-23) |
+| `../archive/dpg_era/da_anchoring_analysis.md` | * Dissemination-area boundary anchor results — **superseded on canonical geometry** (moved to archive 2026-05-23) |
+| `../archive/dpg_era/municipal_anchoring_analysis.md` | * Municipal boundary anchor results — **superseded on canonical geometry** (moved to archive 2026-05-23) |
 | `terms_of_reference_audit.md` | * Audit against Electoral Boundaries Commission Terms of Reference |
 | `chair_recommendation_5_analysis.md` | * Analysis of Commission Chair Recommendation 5 |
 | `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (Fisher-combined p-value) |
@@ -58,7 +58,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `airdrie_highway_pretext.md` | Airdrie boundary and Highway 2 corridor alignment analysis |
 | `airdrie_overlap_report.md` | Airdrie four-way split: overlap area calculation |
 | `municipal_splits.md` | Municipal boundary splits by commission map |
-| `../archive/dpg_era/natural_anchoring_secondary_check.md` | Secondary natural-feature anchoring check (rivers, escarpments) — **MOOT on canonical geometry** (moved to archive 2026-05-23; the headline 14.5% it was designed to test was retracted) |
+| `../archive/dpg_era/natural_anchoring_secondary_check.md` | Secondary natural-feature anchoring check (rivers, escarpments) — **MOOT on canonical geometry** (moved to archive 2026-05-23; the headline 14.5% it was designed to test did not hold) |
 | `va_spatial_integrity_report.md` | Spatial integrity of vote-anywhere polygons |
 | `vote_anywhere_report.md` | Vote-anywhere coverage findings |
 | `lesser_slave_lake_va043_representation_gap.md` | Lesser Slave Lake VA 043 representation gap: Woodland Cree community boundary analysis |
@@ -106,7 +106,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 - `rural_division_count.md` — the minority's p. 356 charge against the majority, tested (exploratory, 2026-07-14): rural-anchored division counts and 2019 successions per map; direction reverses under both classifier variants
 - `rural_variance_usage.md` — the minority's second p. 356 charge (majority declined the ±25% rural flexibility), tested same day (exploratory): SUPPORTED — majority rural divisions near parity, minority's drawn light
 - `hansard_april16_motion19.md` — the April 16, 2026 floor debate (the day Government Motion 37 was introduced; it passed April 21) mined (2026-07-14): no one criticized the majority report on the floor; the only report attacked was the minority's, by the opposition
-| `drain_metric_validation.md` | Justify-or-drop validation of the §5.3.5 drain metric: V1 construct validity (PASS), V2 LISA framing (FAIL, retracted), V3 canonical-substrate direction (PASS, identifies substrate-staleness in published Phase B + joint-outlier numbers) |
+| `drain_metric_validation.md` | Justify-or-drop validation of the §5.3.5 drain metric: V1 construct validity (PASS), V2 LISA framing (FAIL, framing dropped), V3 canonical-substrate direction (PASS, identifies substrate-staleness in published Phase B + joint-outlier numbers) |
 | `drain_label_shuffle_null_canonical.md` | Canonical-substrate Phase B label-shuffle null (10K perms; all three maps z < -2.7; Prediction A confirms on canonical) — supersedes `drain_label_shuffle_null.md` |
 | `extended_partisan_metrics_canonical.md` | Canonical-substrate extended partisan metrics (PB, Lopsided-t, Proportionality Deviation, Responsiveness; canonical EA shapefiles + 1.01M ReCom ensemble) — supersedes `extended_partisan_metrics.md` |
 | `phase4f_hardstop_canonical.md` | Canonical-substrate population-hardstop validation (share-based: 78/89 majority + 72/89 minority fail 2% share-drift; universe-mismatch 89/89 reading superseded) — supersedes `phase4f_summary.json` |

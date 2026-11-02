@@ -1,12 +1,17 @@
 # November 2 runbook: scoring the committee's map
 
 The order of work when the Select Special Committee's map is tabled. The registered procedure is
-`preregistration/november_2026_scoring_spec.md` (v1.2) with Amendments 16 and 17. This file
+`preregistration/november_2026_scoring_spec.md` (v1.2) with Amendment 5, Parts 13, 14 and 17. This file
 changes none of it. It gives the commands that run it, plus three supplementary checks that are
 labelled as such wherever they appear.
 
 Dry-run on 2026-10-30, end to end, on `proposals/lunty_dry_run/synthetic_neutral_91_test_input.gpkg`
-(a random 91-district plan, not a prediction). Every step below ran and exited 0.
+(a random 91-district plan, not a prediction). Every step below ran and exited 0. A second dry run
+on master `45cb1d27` matched it.
+
+Scripts that record their runs (for example `joint_outlier_score.py`) append a line to
+`data/outputs/script_run_audit.jsonl`, a tracked file, so the working tree shows it changed after
+the runs. That is expected. Commit it with the results; it is the record of what ran and when.
 
 ## 0. Ingest
 
@@ -64,19 +69,19 @@ with spec §3; no rule or threshold changed.
 
 The guard is `tests/test_verdict_synthesis.py`: 4 of its 5 tests fail on the old code.
 
-Also registered: X1 (Amendment 16).
+Also registered: X1 (Amendment 5, Part 13).
 
 ```bash
 python analysis/scripts/score_x1.py --map data/shapefiles/lunty/lunty_2026_eds.gpkg \
   [--interim <October 2025 interim map>] [--d-record considered|not_shown] --out findings/lunty_x1.json
 ```
 
-## 3b. Registered: size-matched comparison (Amendments 17, 20, 21, 23, 24)
+## 3b. Registered: size-matched comparison (Amendment 5, Parts 14–18)
 
-Amendment 24 fixes the order. The 87-district canonical comparison above is the headline. Set D
-(s.15(2), Amendment 23 rule) is the primary size-matched comparison. Sets A, B and C are reported
-beside it in the same table, each labelled; C is a sensitivity reading. These commands need `--candidate` and `--name-col`, which are on branch
-`size-matched-candidate` (on top of Audit's `ccr-7082dbd7-sqy3h2`) until it lands. The chain
+Amendment 5, Part 14 fixes the order. The 87-district canonical comparison above is the headline. Set D
+(s.15(2), the Part 15 rule) is the primary size-matched comparison. Sets A, B and C are reported
+beside it in the same table, each labelled; C is a sensitivity reading. These commands use `--candidate` (`size_matched_results.py`) and `--name-col`
+(`close_seats_ensemble.py`), both on master. The chain
 outputs are on `amendment17-local-runs`; pass that checkout as `--root`.
 
 ```bash
@@ -90,6 +95,11 @@ python analysis/scripts/size_matched_results.py --root <checkout with the chain 
 The candidate key is the map file's stem. A map whose district count has no neutral-map set is an
 error. Check: a copy of the minority map given as a candidate reproduces `minority_2026`'s
 placements in every 89-district set.
+
+Expect most cells to print "provisional". Under Amendment 5, Part 16, a result is final only when
+its effective sample size, summed over chains, reaches 400 and no chain's lag cap bound; otherwise
+it is reported as provisional, with its effective sample size. In the dry run on master `45cb1d27`,
+only population MAD at 91 districts was final. Report each cell as the script labels it.
 
 ## 4. Supplementary: EBCA population rules
 
@@ -106,10 +116,10 @@ What it reports:
 
 - Each district's deviation from the average.
 - Districts outside ±25%, and any below −50%.
-- For every district below −25%: criteria (a)–(e) under the Amendment 23 table, whether it meets
+- For every district below −25%: criteria (a)–(e) under the Part 15 table, whether it meets
   3 of 5, and whether more than 4 districts are below −25%.
 
-The table must be the Amendment 23 table (SHA-256 `48c928b8…2fafc`, on `amendment17-local-runs`).
+The table must be the one Amendment 5, Part 15 names (SHA-256 `48c928b8…2fafc`, on `amendment17-local-runs`).
 `origin/master` still has the superseded table, and the tool says so when it is given it.
 
 Deviations use the VA-level 2021 overlay. That overlay is not the official count. Give `--stated`
@@ -160,7 +170,7 @@ population spread is below every neutral plan in sets B, C and D (MAD p0.0). The
 mismatch did not produce its flags. An earlier version of this note suggested it did; that was
 wrong.
 
-The measured rate is in `findings/size_matched_results_2026-10-30.md` (Audit's branch): neutral
+The measured rate is in `findings/size_matched_results_2026-10-30.md`: neutral
 plans from sets A-D, scored by the registered P1-P4 rule against the canonical ensemble, fire the
 partisan lane 4.8-8.3% of the time. The structural lane's rate on neutral plans is not yet
 measured.

@@ -394,7 +394,7 @@ def run() -> None:
             "_SUPERSEDED": (
                 "2026-06-11. DPG/blended-substrate values replaced by the canonical-substrate "
                 "Phase B re-run (findings/drain_label_shuffle_null_canonical.json). Banner "
-                "reapplied 2026-06-12 after Amendment-10 regeneration overwrote the prior "
+                "reapplied 2026-06-12 after the sign-fix regeneration (Amendment 5, Part 9) overwrote the prior "
                 "retraction; script-generated since 2026-07-08 so regeneration can no longer "
                 "drop it."
             ),
@@ -517,7 +517,7 @@ def run() -> None:
         "caveats": [
             f"Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, "
             f"base_seed=1432864451); {_neff_range_note}",
-            "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
+            "Declination column re-signed 2026-06-12 per the sign fix recorded in Amendment 5, Part 9 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
             "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
             "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",
             "Ch2 (SZAT) retired as a confirmatory channel 2026-06-13: block-permutation null returns p=0.1947 (findings/szat_block_permutation.md); the i.i.d.-flip p=0.0024 is exploratory context only.",

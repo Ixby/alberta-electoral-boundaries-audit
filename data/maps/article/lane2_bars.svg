@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="440.922pt" height="530.942781pt" viewBox="0 0 440.922 530.942781" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="440.922pt" height="531.022625pt" viewBox="0 0 440.922 531.022625" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-07-14T10:02:11.063454</dc:date>
+    <dc:date>2026-11-01T02:24:43.035754</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -21,8 +21,8 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 530.942781 
-L 440.922 530.942781 
+   <path d="M 0 531.022625 
+L 440.922 531.022625 
 L 440.922 0 
 L 0 0 
 z
@@ -41,83 +41,83 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="m68c6804330" d="M 0 0 
+       <path id="m3d8a689dab" d="M 0 0 
 L 0 3 
 " style="stroke: #555555; stroke-width: 0.5"/>
       </defs>
       <g>
-       <use xlink:href="#m68c6804330" x="44.928" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="44.928" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_1">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="44.928" y="136.872754" transform="rotate(-0 44.928 136.872754)">0</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="44.928" y="136.935098" transform="rotate(-0 44.928 136.935098)">0</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#m68c6804330" x="109.858909" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="109.858909" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_2">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="109.858909" y="136.872754" transform="rotate(-0 109.858909 136.872754)">1000</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="109.858909" y="136.935098" transform="rotate(-0 109.858909 136.935098)">1000</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#m68c6804330" x="174.789818" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="174.789818" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_3">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="174.789818" y="136.872754" transform="rotate(-0 174.789818 136.872754)">2000</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="174.789818" y="136.935098" transform="rotate(-0 174.789818 136.935098)">2000</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m68c6804330" x="239.720727" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="239.720727" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_4">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="239.720727" y="136.872754" transform="rotate(-0 239.720727 136.872754)">3000</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="239.720727" y="136.935098" transform="rotate(-0 239.720727 136.935098)">3000</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#m68c6804330" x="304.651636" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="304.651636" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_5">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="304.651636" y="136.872754" transform="rotate(-0 304.651636 136.872754)">4000</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="304.651636" y="136.935098" transform="rotate(-0 304.651636 136.935098)">4000</text>
      </g>
     </g>
     <g id="xtick_6">
      <g id="line2d_6">
       <g>
-       <use xlink:href="#m68c6804330" x="369.582545" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="369.582545" y="125.362286" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_6">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="369.582545" y="136.872754" transform="rotate(-0 369.582545 136.872754)">5000</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="369.582545" y="136.935098" transform="rotate(-0 369.582545 136.935098)">5000</text>
      </g>
     </g>
     <g id="text_7">
-     <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #666666" x="223.488" y="145.359786" transform="rotate(-0 223.488 145.359786)">people away from the ideal size (smaller is better)</text>
+     <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="145.460411" transform="rotate(-0 223.488 145.460411)">people away from the ideal size (smaller is better)</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_7"/>
      <g id="text_8">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="118.275037" transform="rotate(-0 41.928 118.275037)">Minority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="118.308435" transform="rotate(-0 41.928 118.308435)">Minority</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_8"/>
      <g id="text_9">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="98.73218" transform="rotate(-0 41.928 98.73218)">Majority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="98.765578" transform="rotate(-0 41.928 98.765578)">Majority</text>
      </g>
     </g>
    </g>
@@ -127,7 +127,7 @@ L 251.408291 101.422286
 L 251.408291 90.673714 
 L 44.928 90.673714 
 z
-" clip-path="url(#p6891791d8c)" style="fill: #0f8a78; opacity: 0.9"/>
+" clip-path="url(#pab5a34ccc3)" style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="patch_4">
     <path d="M 44.928 120.965143 
@@ -135,7 +135,7 @@ L 350.557789 120.965143
 L 350.557789 110.216571 
 L 44.928 110.216571 
 z
-" clip-path="url(#p6891791d8c)" style="fill: #6b35a7; opacity: 0.9"/>
+" clip-path="url(#pab5a34ccc3)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_5">
     <path d="M 44.928 125.362286 
@@ -143,14 +143,14 @@ L 402.048 125.362286
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_10">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="260.336291" y="97.986867" transform="rotate(-0 260.336291 97.986867)">3,180</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="260.336291" y="97.987453" transform="rotate(-0 260.336291 97.987453)">3,180</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="359.485789" y="117.534998" transform="rotate(-0 359.485789 117.534998)">4,707</text>
+    <text style="fill: #1a1a1a; font: 700 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="359.485789" y="117.53031" transform="rotate(-0 359.485789 117.53031)">4,707</text>
    </g>
    <g id="text_12">
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 70.153734)">How unevenly people are spread across districts</text>
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 79.368)">(typical distance from the ideal district size; minority is 48% wider)</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 70.212438)">How unevenly people are spread across districts</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 79.368)">(typical distance from the ideal district size; minority is 48% wider)</text>
    </g>
   </g>
   <g id="axes_2">
@@ -166,108 +166,108 @@ z
     <g id="xtick_7">
      <g id="line2d_9">
       <g>
-       <use xlink:href="#m68c6804330" x="44.928" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="44.928" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_13">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="44.928" y="231.460183" transform="rotate(-0 44.928 231.460183)">0</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="44.928" y="231.522527" transform="rotate(-0 44.928 231.522527)">0</text>
      </g>
     </g>
     <g id="xtick_8">
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m68c6804330" x="89.568" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="89.568" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_14">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="89.568" y="231.460183" transform="rotate(-0 89.568 231.460183)">2</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="89.568" y="231.522527" transform="rotate(-0 89.568 231.522527)">2</text>
      </g>
     </g>
     <g id="xtick_9">
      <g id="line2d_11">
       <g>
-       <use xlink:href="#m68c6804330" x="134.208" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="134.208" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_15">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="134.208" y="231.460183" transform="rotate(-0 134.208 231.460183)">4</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="134.208" y="231.522527" transform="rotate(-0 134.208 231.522527)">4</text>
      </g>
     </g>
     <g id="xtick_10">
      <g id="line2d_12">
       <g>
-       <use xlink:href="#m68c6804330" x="178.848" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="178.848" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_16">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="178.848" y="231.460183" transform="rotate(-0 178.848 231.460183)">6</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="178.848" y="231.522527" transform="rotate(-0 178.848 231.522527)">6</text>
      </g>
     </g>
     <g id="xtick_11">
      <g id="line2d_13">
       <g>
-       <use xlink:href="#m68c6804330" x="223.488" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="223.488" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_17">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="223.488" y="231.460183" transform="rotate(-0 223.488 231.460183)">8</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="231.522527" transform="rotate(-0 223.488 231.522527)">8</text>
      </g>
     </g>
     <g id="xtick_12">
      <g id="line2d_14">
       <g>
-       <use xlink:href="#m68c6804330" x="268.128" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="268.128" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_18">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="268.128" y="231.460183" transform="rotate(-0 268.128 231.460183)">10</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="268.128" y="231.522527" transform="rotate(-0 268.128 231.522527)">10</text>
      </g>
     </g>
     <g id="xtick_13">
      <g id="line2d_15">
       <g>
-       <use xlink:href="#m68c6804330" x="312.768" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="312.768" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_19">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="312.768" y="231.460183" transform="rotate(-0 312.768 231.460183)">12</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="312.768" y="231.522527" transform="rotate(-0 312.768 231.522527)">12</text>
      </g>
     </g>
     <g id="xtick_14">
      <g id="line2d_16">
       <g>
-       <use xlink:href="#m68c6804330" x="357.408" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="357.408" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_20">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="357.408" y="231.460183" transform="rotate(-0 357.408 231.460183)">14</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="357.408" y="231.522527" transform="rotate(-0 357.408 231.522527)">14</text>
      </g>
     </g>
     <g id="xtick_15">
      <g id="line2d_17">
       <g>
-       <use xlink:href="#m68c6804330" x="402.048" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="402.048" y="219.949714" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_21">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="402.048" y="231.460183" transform="rotate(-0 402.048 231.460183)">16</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="402.048" y="231.522527" transform="rotate(-0 402.048 231.522527)">16</text>
      </g>
     </g>
     <g id="text_22">
-     <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #666666" x="223.488" y="239.947214" transform="rotate(-0 223.488 239.947214)">% above the provincial average district size</text>
+     <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="240.047839" transform="rotate(-0 223.488 240.047839)">% above the provincial average district size</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
     <g id="ytick_3">
      <g id="line2d_18"/>
      <g id="text_23">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="212.862465" transform="rotate(-0 41.928 212.862465)">Minority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="212.895864" transform="rotate(-0 41.928 212.895864)">Minority</text>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_19"/>
      <g id="text_24">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="193.319608" transform="rotate(-0 41.928 193.319608)">Majority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="193.353007" transform="rotate(-0 41.928 193.353007)">Majority</text>
      </g>
     </g>
    </g>
@@ -277,7 +277,7 @@ L 107.424 196.009714
 L 107.424 185.261143 
 L 44.928 185.261143 
 z
-" clip-path="url(#pad6b58c12d)" style="fill: #0f8a78; opacity: 0.9"/>
+" clip-path="url(#p298f9f871a)" style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="patch_8">
     <path d="M 44.928 215.552571 
@@ -285,7 +285,7 @@ L 301.608 215.552571
 L 301.608 204.804 
 L 44.928 204.804 
 z
-" clip-path="url(#pad6b58c12d)" style="fill: #6b35a7; opacity: 0.9"/>
+" clip-path="url(#p298f9f871a)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_9">
     <path d="M 44.928 219.949714 
@@ -295,17 +295,17 @@ L 402.048 219.949714
    <g id="line2d_20">
     <path d="M 156.528 219.949714 
 L 156.528 176.955429 
-" clip-path="url(#pad6b58c12d)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+" clip-path="url(#p298f9f871a)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
    </g>
    <g id="text_25">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="116.352" y="192.574296" transform="rotate(-0 116.352 192.574296)">2.8%</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="116.352" y="192.574882" transform="rotate(-0 116.352 192.574882)">2.8%</text>
    </g>
    <g id="text_26">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="310.536" y="212.122426" transform="rotate(-0 310.536 212.122426)">11.5%</text>
+    <text style="fill: #1a1a1a; font: 700 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="310.536" y="212.117739" transform="rotate(-0 310.536 212.117739)">11.5%</text>
    </g>
    <g id="text_27">
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 164.741163)">How overcrowded the NE &amp; central Calgary districts are</text>
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 173.955429)">(the audit's line is +5% above the provincial average)</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 164.762679)">How overcrowded the NE &amp; central Calgary districts are</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 173.955429)">(the audit's line is +5% above the provincial average)</text>
    </g>
   </g>
   <g id="axes_3">
@@ -321,78 +321,78 @@ z
     <g id="xtick_16">
      <g id="line2d_21">
       <g>
-       <use xlink:href="#m68c6804330" x="44.928" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="44.928" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_28">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="44.928" y="326.047612" transform="rotate(-0 44.928 326.047612)">0</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="44.928" y="326.109955" transform="rotate(-0 44.928 326.109955)">0</text>
      </g>
     </g>
     <g id="xtick_17">
      <g id="line2d_22">
       <g>
-       <use xlink:href="#m68c6804330" x="116.352" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="116.352" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_29">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="116.352" y="326.047612" transform="rotate(-0 116.352 326.047612)">1</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="116.352" y="326.109955" transform="rotate(-0 116.352 326.109955)">1</text>
      </g>
     </g>
     <g id="xtick_18">
      <g id="line2d_23">
       <g>
-       <use xlink:href="#m68c6804330" x="187.776" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="187.776" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_30">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="187.776" y="326.047612" transform="rotate(-0 187.776 326.047612)">2</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="187.776" y="326.109955" transform="rotate(-0 187.776 326.109955)">2</text>
      </g>
     </g>
     <g id="xtick_19">
      <g id="line2d_24">
       <g>
-       <use xlink:href="#m68c6804330" x="259.2" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="259.2" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_31">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="259.2" y="326.047612" transform="rotate(-0 259.2 326.047612)">3</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="259.2" y="326.109955" transform="rotate(-0 259.2 326.109955)">3</text>
      </g>
     </g>
     <g id="xtick_20">
      <g id="line2d_25">
       <g>
-       <use xlink:href="#m68c6804330" x="330.624" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="330.624" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_32">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="330.624" y="326.047612" transform="rotate(-0 330.624 326.047612)">4</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="330.624" y="326.109955" transform="rotate(-0 330.624 326.109955)">4</text>
      </g>
     </g>
     <g id="xtick_21">
      <g id="line2d_26">
       <g>
-       <use xlink:href="#m68c6804330" x="402.048" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="402.048" y="314.537143" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_33">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="402.048" y="326.047612" transform="rotate(-0 402.048 326.047612)">5</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="402.048" y="326.109955" transform="rotate(-0 402.048 326.109955)">5</text>
      </g>
     </g>
     <g id="text_34">
-     <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #666666" x="223.488" y="334.534643" transform="rotate(-0 223.488 334.534643)">boundaries flagged</text>
+     <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="334.635268" transform="rotate(-0 223.488 334.635268)">boundaries flagged and confirmed</text>
     </g>
    </g>
    <g id="matplotlib.axis_6">
     <g id="ytick_5">
      <g id="line2d_27"/>
      <g id="text_35">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="307.449894" transform="rotate(-0 41.928 307.449894)">Minority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="307.483292" transform="rotate(-0 41.928 307.483292)">Minority</text>
      </g>
     </g>
     <g id="ytick_6">
      <g id="line2d_28"/>
      <g id="text_36">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="287.907037" transform="rotate(-0 41.928 287.907037)">Majority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="287.940435" transform="rotate(-0 41.928 287.940435)">Majority</text>
      </g>
     </g>
    </g>
@@ -402,7 +402,7 @@ L 44.928 290.597143
 L 44.928 279.848571 
 L 44.928 279.848571 
 z
-" clip-path="url(#pd8e10e67dd)" style="fill: #0f8a78; opacity: 0.9"/>
+" clip-path="url(#p8d01f60688)" style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="patch_12">
     <path d="M 44.928 310.14 
@@ -410,7 +410,7 @@ L 259.2 310.14
 L 259.2 299.391429 
 L 44.928 299.391429 
 z
-" clip-path="url(#pd8e10e67dd)" style="fill: #6b35a7; opacity: 0.9"/>
+" clip-path="url(#p8d01f60688)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_13">
     <path d="M 44.928 314.537143 
@@ -420,17 +420,17 @@ L 402.048 314.537143
    <g id="line2d_29">
     <path d="M 116.352 314.537143 
 L 116.352 271.542857 
-" clip-path="url(#pd8e10e67dd)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+" clip-path="url(#p8d01f60688)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
    </g>
    <g id="text_37">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="59.2128" y="287.161724" transform="rotate(-0 59.2128 287.161724)">0</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="59.2128" y="287.16231" transform="rotate(-0 59.2128 287.16231)">0</text>
    </g>
    <g id="text_38">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="268.128" y="306.709855" transform="rotate(-0 268.128 306.709855)">3</text>
+    <text style="fill: #1a1a1a; font: 700 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="268.128" y="306.705167" transform="rotate(-0 268.128 306.705167)">3</text>
    </g>
    <g id="text_39">
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 259.440154)">Boundaries the commission's own chair</text>
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 268.542857)">flagged as geographically anomalous</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 259.350107)">Chair-flagged boundaries the audit confirmed</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 268.542857)">(the chair flagged 4 on the minority map; 3 confirmed)</text>
    </g>
   </g>
   <g id="axes_4">
@@ -446,58 +446,58 @@ z
     <g id="xtick_22">
      <g id="line2d_30">
       <g>
-       <use xlink:href="#m68c6804330" x="44.928" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="44.928" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_40">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="44.928" y="420.63504" transform="rotate(-0 44.928 420.63504)">0</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="44.928" y="420.697384" transform="rotate(-0 44.928 420.697384)">0</text>
      </g>
     </g>
     <g id="xtick_23">
      <g id="line2d_31">
       <g>
-       <use xlink:href="#m68c6804330" x="163.968" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="163.968" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_41">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="163.968" y="420.63504" transform="rotate(-0 163.968 420.63504)">1</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="163.968" y="420.697384" transform="rotate(-0 163.968 420.697384)">1</text>
      </g>
     </g>
     <g id="xtick_24">
      <g id="line2d_32">
       <g>
-       <use xlink:href="#m68c6804330" x="283.008" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="283.008" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_42">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="283.008" y="420.63504" transform="rotate(-0 283.008 420.63504)">2</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="283.008" y="420.697384" transform="rotate(-0 283.008 420.697384)">2</text>
      </g>
     </g>
     <g id="xtick_25">
      <g id="line2d_33">
       <g>
-       <use xlink:href="#m68c6804330" x="402.048" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="402.048" y="409.124571" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_43">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="402.048" y="420.63504" transform="rotate(-0 402.048 420.63504)">3</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="402.048" y="420.697384" transform="rotate(-0 402.048 420.697384)">3</text>
      </g>
     </g>
     <g id="text_44">
-     <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #666666" x="223.488" y="429.05754" transform="rotate(-0 223.488 429.05754)">extra pieces beyond the required 2</text>
+     <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="429.222696" transform="rotate(-0 223.488 429.222696)">extra districts beyond the required 2</text>
     </g>
    </g>
    <g id="matplotlib.axis_8">
     <g id="ytick_7">
      <g id="line2d_34"/>
      <g id="text_45">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="402.037323" transform="rotate(-0 41.928 402.037323)">Minority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="402.070721" transform="rotate(-0 41.928 402.070721)">Minority</text>
      </g>
     </g>
     <g id="ytick_8">
      <g id="line2d_35"/>
      <g id="text_46">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="382.494465" transform="rotate(-0 41.928 382.494465)">Majority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="382.527864" transform="rotate(-0 41.928 382.527864)">Majority</text>
      </g>
     </g>
    </g>
@@ -507,7 +507,7 @@ L 44.928 385.184571
 L 44.928 374.436 
 L 44.928 374.436 
 z
-" clip-path="url(#p0eedb692ba)" style="fill: #0f8a78; opacity: 0.9"/>
+" clip-path="url(#peb97b54a45)" style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="patch_16">
     <path d="M 44.928 404.727429 
@@ -515,7 +515,7 @@ L 283.008 404.727429
 L 283.008 393.978857 
 L 44.928 393.978857 
 z
-" clip-path="url(#p0eedb692ba)" style="fill: #6b35a7; opacity: 0.9"/>
+" clip-path="url(#peb97b54a45)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_17">
     <path d="M 44.928 409.124571 
@@ -523,14 +523,14 @@ L 402.048 409.124571
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_47">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="59.2128" y="381.749153" transform="rotate(-0 59.2128 381.749153)">0</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="59.2128" y="381.749739" transform="rotate(-0 59.2128 381.749739)">0</text>
    </g>
    <g id="text_48">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="291.936" y="401.297283" transform="rotate(-0 291.936 401.297283)">2</text>
+    <text style="fill: #1a1a1a; font: 700 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="291.936" y="401.292596" transform="rotate(-0 291.936 401.292596)">2</text>
    </g>
    <g id="text_49">
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 353.91602)">Extra pieces the City of Airdrie is cut into</text>
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 363.130286)">(every map must use at least 2)</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 353.974723)">Extra districts the City of Airdrie is split across</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 363.130286)">(every map needs at least 2; one of the minority's 4 holds about 350 people)</text>
    </g>
   </g>
   <g id="axes_5">
@@ -546,78 +546,78 @@ z
     <g id="xtick_26">
      <g id="line2d_36">
       <g>
-       <use xlink:href="#m68c6804330" x="44.928" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="44.928" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_50">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="44.928" y="515.222469" transform="rotate(-0 44.928 515.222469)">0</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="44.928" y="515.284812" transform="rotate(-0 44.928 515.284812)">0</text>
      </g>
     </g>
     <g id="xtick_27">
      <g id="line2d_37">
       <g>
-       <use xlink:href="#m68c6804330" x="109.858909" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="109.858909" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_51">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="109.858909" y="515.222469" transform="rotate(-0 109.858909 515.222469)">1</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="109.858909" y="515.284812" transform="rotate(-0 109.858909 515.284812)">1</text>
      </g>
     </g>
     <g id="xtick_28">
      <g id="line2d_38">
       <g>
-       <use xlink:href="#m68c6804330" x="174.789818" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="174.789818" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_52">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="174.789818" y="515.222469" transform="rotate(-0 174.789818 515.222469)">2</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="174.789818" y="515.284812" transform="rotate(-0 174.789818 515.284812)">2</text>
      </g>
     </g>
     <g id="xtick_29">
      <g id="line2d_39">
       <g>
-       <use xlink:href="#m68c6804330" x="239.720727" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="239.720727" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_53">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="239.720727" y="515.222469" transform="rotate(-0 239.720727 515.222469)">3</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="239.720727" y="515.284812" transform="rotate(-0 239.720727 515.284812)">3</text>
      </g>
     </g>
     <g id="xtick_30">
      <g id="line2d_40">
       <g>
-       <use xlink:href="#m68c6804330" x="304.651636" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="304.651636" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_54">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="304.651636" y="515.222469" transform="rotate(-0 304.651636 515.222469)">4</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="304.651636" y="515.284812" transform="rotate(-0 304.651636 515.284812)">4</text>
      </g>
     </g>
     <g id="xtick_31">
      <g id="line2d_41">
       <g>
-       <use xlink:href="#m68c6804330" x="369.582545" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#m3d8a689dab" x="369.582545" y="503.712" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_55">
-      <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #555555" x="369.582545" y="515.222469" transform="rotate(-0 369.582545 515.222469)">5</text>
+      <text style="fill: #555555; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="369.582545" y="515.284812" transform="rotate(-0 369.582545 515.284812)">5</text>
      </g>
     </g>
     <g id="text_56">
-     <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #666666" x="223.488" y="523.7095" transform="rotate(-0 223.488 523.7095)">tests fired (4 of 5 = structural outlier)</text>
+     <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="223.488" y="523.810125" transform="rotate(-0 223.488 523.810125)">tests fired (4 of 5 = structural outlier)</text>
     </g>
    </g>
    <g id="matplotlib.axis_10">
     <g id="ytick_9">
      <g id="line2d_42"/>
      <g id="text_57">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="496.624751" transform="rotate(-0 41.928 496.624751)">Minority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="496.65815" transform="rotate(-0 41.928 496.65815)">Minority</text>
      </g>
     </g>
     <g id="ytick_10">
      <g id="line2d_43"/>
      <g id="text_58">
-      <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #1a1a1a" x="41.928" y="477.081894" transform="rotate(-0 41.928 477.081894)">Majority</text>
+      <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="41.928" y="477.115292" transform="rotate(-0 41.928 477.115292)">Majority</text>
      </g>
     </g>
    </g>
@@ -627,7 +627,7 @@ L 44.928 479.772
 L 44.928 469.023429 
 L 44.928 469.023429 
 z
-" clip-path="url(#pa81e38f39b)" style="fill: #0f8a78; opacity: 0.9"/>
+" clip-path="url(#pf31ce2cbcc)" style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="patch_20">
     <path d="M 44.928 499.314857 
@@ -635,7 +635,7 @@ L 304.651636 499.314857
 L 304.651636 488.566286 
 L 44.928 488.566286 
 z
-" clip-path="url(#pa81e38f39b)" style="fill: #6b35a7; opacity: 0.9"/>
+" clip-path="url(#pf31ce2cbcc)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_21">
     <path d="M 44.928 503.712 
@@ -645,70 +645,70 @@ L 402.048 503.712
    <g id="line2d_44">
     <path d="M 304.651636 503.712 
 L 304.651636 460.717714 
-" clip-path="url(#pa81e38f39b)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+" clip-path="url(#pf31ce2cbcc)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
    </g>
    <g id="text_59">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="59.2128" y="476.336581" transform="rotate(-0 59.2128 476.336581)">0</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="59.2128" y="476.337167" transform="rotate(-0 59.2128 476.337167)">0</text>
    </g>
    <g id="text_60">
-    <text style="font-weight: 700; font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="313.579636" y="495.884712" transform="rotate(-0 313.579636 495.884712)">4</text>
+    <text style="fill: #1a1a1a; font: 700 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="313.579636" y="495.880025" transform="rotate(-0 313.579636 495.880025)">4</text>
    </g>
    <g id="text_61">
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 448.615011)">The scorecard: tests fired, out of 5</text>
-    <text style="font-weight: 700; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(44.928 457.717714)">(the 5th, municipal anchoring, was neutral for both maps)</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 448.562152)">The scorecard: tests fired, out of 5</text>
+    <text style="fill: #1a1a1a; font: 700 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.928 457.717714)">(the 5th, municipal anchoring, was neutral for both maps)</text>
    </g>
   </g>
   <g id="text_62">
-   <text style="font-weight: 700; font-size: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="5.76" y="13.039688" transform="rotate(-0 5.76 13.039688)">How the two maps score on the structural fairness tests</text>
+   <text style="fill: #1a1a1a; font: 700 10px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="5.76" y="13.006875" transform="rotate(-0 5.76 13.006875)">How the two maps score on the structural fairness tests</text>
   </g>
   <g id="legend_1">
    <g id="patch_22">
-    <path d="M 211.845984 23.372625 
-L 226.845984 23.372625 
-L 226.845984 18.122625 
-L 211.845984 18.122625 
+    <path d="M 211.845984 23.417156 
+L 226.845984 23.417156 
+L 226.845984 18.167156 
+L 211.845984 18.167156 
 z
 " style="fill: #0f8a78; opacity: 0.9"/>
    </g>
    <g id="text_63">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="229.845984" y="23.372625" transform="rotate(-0 229.845984 23.372625)">Majority 2026</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="229.845984" y="23.417156" transform="rotate(-0 229.845984 23.417156)">Majority 2026</text>
    </g>
    <g id="patch_23">
-    <path d="M 282.364734 23.372625 
-L 297.364734 23.372625 
-L 297.364734 18.122625 
-L 282.364734 18.122625 
+    <path d="M 282.364734 23.417156 
+L 297.364734 23.417156 
+L 297.364734 18.167156 
+L 282.364734 18.167156 
 z
 " style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="text_64">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="300.364734" y="23.372625" transform="rotate(-0 300.364734 23.372625)">Minority 2026</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="300.364734" y="23.417156" transform="rotate(-0 300.364734 23.417156)">Minority 2026</text>
    </g>
    <g id="line2d_45">
-    <path d="M 352.883484 20.747625 
-L 360.383484 20.747625 
-L 367.883484 20.747625 
+    <path d="M 352.883484 20.792156 
+L 360.383484 20.792156 
+L 367.883484 20.792156 
 " style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #7b2d3e; stroke-width: 0.9"/>
    </g>
    <g id="text_65">
-    <text style="font-size: 7.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="370.883484" y="23.372625" transform="rotate(-0 370.883484 23.372625)">Pass/fail threshold</text>
+    <text style="fill: #1a1a1a; font: 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="370.883484" y="23.417156" transform="rotate(-0 370.883484 23.417156)">Pass/fail threshold</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p6891791d8c">
+  <clipPath id="pab5a34ccc3">
    <rect x="44.928" y="82.368" width="357.12" height="42.994286"/>
   </clipPath>
-  <clipPath id="pad6b58c12d">
+  <clipPath id="p298f9f871a">
    <rect x="44.928" y="176.955429" width="357.12" height="42.994286"/>
   </clipPath>
-  <clipPath id="pd8e10e67dd">
+  <clipPath id="p8d01f60688">
    <rect x="44.928" y="271.542857" width="357.12" height="42.994286"/>
   </clipPath>
-  <clipPath id="p0eedb692ba">
+  <clipPath id="peb97b54a45">
    <rect x="44.928" y="366.130286" width="357.12" height="42.994286"/>
   </clipPath>
-  <clipPath id="pa81e38f39b">
+  <clipPath id="pf31ce2cbcc">
    <rect x="44.928" y="460.717714" width="357.12" height="42.994286"/>
   </clipPath>
  </defs>

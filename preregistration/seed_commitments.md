@@ -122,15 +122,15 @@ pre-registration timestamp → beacon round → salt → seed → ensemble.
 
 ---
 
-## november_2026_scoring_spec — External pin (added 2026-06-12 per Amendments 11 + 12)
+## november_2026_scoring_spec — External pin (added 2026-06-12; recorded in Amendment 5, Parts 6 and 8)
 
 | Attribute | Value |
 |---|---|
 | File path | `preregistration/november_2026_scoring_spec.md` |
-| SHA-256 (as of 2026-06-12 commit, Amendments 8 + 9 + 11 + 12 applied) | `e3546346a17091562e57dc943a302d7bd5650546cd8188d628e5f4d0a17568b9` |
-| Last amendment | 12 (2026-06-12; documented in `findings/pre_registration_amendment_log.md`) |
+| SHA-256 (as of 2026-06-12 commit, with the changes recorded in Amendment 5, Parts 6–8 applied) | `e3546346a17091562e57dc943a302d7bd5650546cd8188d628e5f4d0a17568b9` |
+| Last amendment | Amendment 5, Part 6 (the 2026-06-12 change; documented in `findings/pre_registration_amendment_log.md`) |
 | Drand round target | **To be pinned** before Lunty draft circulates (queued T5.3). Round 5500000 (Oct 2025) is rejected: it predates the salt commits and was therefore *publicly known* when the salts were chosen — cannot serve as a future-beacon anchor. A genuinely future round will be selected and pinned here before any Lunty draft circulates publicly. |
-| OSF mirror | qsgy8 (initial); refresh queued T5.3 to reflect Amendments 8–12 |
+| OSF mirror | qsgy8 (initial); refresh queued T5.3 to reflect Amendment 5, Parts 6–9 |
 
 **Verification protocol.** Any reader can verify the spec has not been tampered with after pinning by running
 
@@ -138,9 +138,9 @@ pre-registration timestamp → beacon round → salt → seed → ensemble.
 sha256sum preregistration/november_2026_scoring_spec.md
 ```
 
-and comparing against the SHA-256 above. If the values differ, either (a) a follow-on amendment was filed (look for a numbered entry in `findings/pre_registration_amendment_log.md` after Amendment 12), or (b) the file has been modified outside the documented amendment chain. The amendment-chain protocol is in `preregistration/november_2026_scoring_spec.md` §6.
+and comparing against the SHA-256 above. If the values differ, either (a) a follow-on amendment was filed (look for an entry in `findings/pre_registration_amendment_log.md` that postdates the pin; Amendment 5, Part 6 records the pin), or (b) the file has been modified outside the documented amendment chain. The amendment-chain protocol is in `preregistration/november_2026_scoring_spec.md` §6.
 
-This entry was added 2026-06-12 to retire a self-invalidating pin written earlier the same session (Amendment 12; see T1.7 R2 Refs #4 + #18). The earlier pin recorded the SHA-256 *inside* the spec file, then continued editing the spec — guaranteeing the recorded hash would not match the file. External pinning is the standard fix.
+This entry was added 2026-06-12 to retire a self-invalidating pin written earlier the same session (Amendment 5, Part 6; see T1.7 R2 Refs #4 + #18). The earlier pin recorded the SHA-256 *inside* the spec file, then continued editing the spec — guaranteeing the recorded hash would not match the file. External pinning is the standard fix.
 
 ---
 

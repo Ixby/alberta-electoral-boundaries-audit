@@ -1,0 +1,7 @@
+map,district,perimeter_km,city_limit_km,highway_km,neither_km,city_limit_pct,highway_pct,neither_pct,city_limit_runs_1km_km,city_limit_runs_1km_pct,shared_border_20m_km,airdrie_residents_2021,share_of_airdrie_pct,share_of_district_airdrie_pct
+majority_2026,Airdrie-West,61.558,1.899,36.630,23.029,3.085,59.505,37.410,0.000,0.000,0.080,37514,50.630,97.520
+majority_2026,Airdrie-East,195.025,1.900,28.021,165.103,0.974,14.368,84.658,0.000,0.000,0.080,36586,49.370,75.820
+minority_2026,Airdrie-East,170.048,2.699,63.445,103.904,1.587,37.310,61.102,0.000,0.000,0.080,40501,54.660,89.570
+minority_2026,Calgary-Airdrie,39.836,5.934,30.153,3.749,14.896,75.692,9.412,5.284,13.265,3.333,17752,23.960,43.800
+minority_2026,Calgary-Foothills-Airdrie West,54.710,5.931,44.332,4.447,10.842,81.030,8.128,6.031,11.024,4.149,15496,20.910,34.080
+minority_2026,Olds-Three Hills-Didsbury,405.154,2.700,51.747,350.707,0.666,12.772,86.561,1.800,0.444,0.896,351,0.470,0.760

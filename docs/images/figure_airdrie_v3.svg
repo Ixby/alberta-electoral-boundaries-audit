@@ -6,11 +6,11 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-07-13T01:04:27.041292</dc:date>
+    <dc:date>2026-11-01T02:27:28.274586</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -30,140 +30,148 @@ z
   </g>
   <g id="axes_1">
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 20px; font-family: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif; text-anchor: start; fill: #1a1a1a" x="25.2" y="28.0496" transform="rotate(-0 25.2 28.0496)">Airdrie: one city, four partitions</text>
+    <text style="fill: #1a1a1a; font: 700 20px 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif; text-anchor: start" x="25.2" y="27.327725" transform="rotate(-0 25.2 27.327725)">Airdrie: how each map divides the city</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 9.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #444444" transform="translate(25.2 53.989303)">Population 85,805 (2024 municipal census). The majority draws two ridings both named Airdrie.</text>
-    <text style="font-size: 9.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #444444" transform="translate(25.2 65.324955)">The minority cuts the city into four pieces — one per compass direction — each attached to a</text>
-    <text style="font-size: 9.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #444444" transform="translate(25.2 76.660608)">different surrounding district.</text>
+    <text style="fill: #444444; font: 9.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 53.958131)">Bar widths are shares of Airdrie's 74,100 residents at the 2021 census (the city counted 85,805</text>
+    <text style="fill: #444444; font: 9.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 65.223498)">in its 2024 municipal census). The majority gives the city two divisions where most people are</text>
+    <text style="fill: #444444; font: 9.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 76.488866)">from Airdrie; the minority gives it one.</text>
    </g>
    <g id="text_3">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="25.2" y="91.937278" transform="rotate(-0 25.2 91.937278)">Majority proposal  ·  2 ridings, both named Airdrie</text>
+    <text style="fill: #1a1a1a; font: 700 10.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="25.2" y="91.96845" transform="rotate(-0 25.2 91.96845)">Majority proposal  ·  2 divisions, both mostly Airdrie</text>
    </g>
    <g id="patch_2">
     <path d="M 28.224 151.308 
-L 248.976 151.308 
-Q 252 151.308 252 149.29056 
-L 252 102.88944 
-Q 252 100.872 248.976 100.872 
+L 251.83368 151.308 
+Q 254.85768 151.308 254.85768 149.29056 
+L 254.85768 102.88944 
+Q 254.85768 100.872 251.83368 100.872 
 L 28.224 100.872 
 Q 25.2 100.872 25.2 102.88944 
 L 25.2 149.29056 
 Q 25.2 151.308 28.224 151.308 
 z
-" clip-path="url(#pd009f7ca34)" style="fill: #0f8a78; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
+" clip-path="url(#p1b761c5dfd)" style="fill: #2ea594; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
-    <path d="M 255.024 151.308 
+    <path d="M 257.88168 151.308 
 L 475.776 151.308 
 Q 478.8 151.308 478.8 149.29056 
 L 478.8 102.88944 
 Q 478.8 100.872 475.776 100.872 
-L 255.024 100.872 
-Q 252 100.872 252 102.88944 
-L 252 149.29056 
-Q 252 151.308 255.024 151.308 
+L 257.88168 100.872 
+Q 254.85768 100.872 254.85768 102.88944 
+L 254.85768 149.29056 
+Q 254.85768 151.308 257.88168 151.308 
 z
-" clip-path="url(#pd009f7ca34)" style="fill: #2ea594; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
+" clip-path="url(#p1b761c5dfd)" style="fill: #0f8a78; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start; fill: #1a1a1a" x="25.2" y="189.446878" transform="rotate(-0 25.2 189.446878)">Minority proposal  ·  4 segments, only one named Airdrie</text>
+    <text style="fill: #1a1a1a; font: 700 10.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: start" x="25.2" y="189.47805" transform="rotate(-0 25.2 189.47805)">Minority proposal  ·  4 districts, one of them mostly Airdrie</text>
    </g>
    <g id="patch_4">
     <path d="M 28.224 248.8176 
-L 135.576 248.8176 
-Q 138.6 248.8176 138.6 246.80016 
-L 138.6 200.39904 
-Q 138.6 198.3816 135.576 198.3816 
+L 117.02376 248.8176 
+Q 120.04776 248.8176 120.04776 246.80016 
+L 120.04776 200.39904 
+Q 120.04776 198.3816 117.02376 198.3816 
 L 28.224 198.3816 
 Q 25.2 198.3816 25.2 200.39904 
 L 25.2 246.80016 
 Q 25.2 248.8176 28.224 248.8176 
 z
-" clip-path="url(#pd009f7ca34)" style="fill: #b48cd9; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
+" clip-path="url(#p1b761c5dfd)" style="fill: #8f55c9; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 141.624 248.8176 
-L 248.976 248.8176 
-Q 252 248.8176 252 246.80016 
-L 252 200.39904 
-Q 252 198.3816 248.976 198.3816 
-L 141.624 198.3816 
-Q 138.6 198.3816 138.6 200.39904 
-L 138.6 246.80016 
-Q 138.6 248.8176 141.624 248.8176 
+    <path d="M 123.07176 248.8176 
+L 225.70632 248.8176 
+Q 228.73032 248.8176 228.73032 246.80016 
+L 228.73032 200.39904 
+Q 228.73032 198.3816 225.70632 198.3816 
+L 123.07176 198.3816 
+Q 120.04776 198.3816 120.04776 200.39904 
+L 120.04776 246.80016 
+Q 120.04776 248.8176 123.07176 248.8176 
 z
-" clip-path="url(#pd009f7ca34)" style="fill: #6b35a7; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
+" clip-path="url(#p1b761c5dfd)" style="fill: #b48cd9; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
-    <path d="M 255.024 248.8176 
-L 362.376 248.8176 
-Q 365.4 248.8176 365.4 246.80016 
-L 365.4 200.39904 
-Q 365.4 198.3816 362.376 198.3816 
-L 255.024 198.3816 
-Q 252 198.3816 252 200.39904 
-L 252 246.80016 
-Q 252 248.8176 255.024 248.8176 
+    <path d="M 231.75432 248.8176 
+L 473.64408 248.8176 
+Q 476.66808 248.8176 476.66808 246.80016 
+L 476.66808 200.39904 
+Q 476.66808 198.3816 473.64408 198.3816 
+L 231.75432 198.3816 
+Q 228.73032 198.3816 228.73032 200.39904 
+L 228.73032 246.80016 
+Q 228.73032 248.8176 231.75432 248.8176 
 z
-" clip-path="url(#pd009f7ca34)" style="fill: #4d2080; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_7">
-    <path d="M 368.424 248.8176 
-L 475.776 248.8176 
-Q 478.8 248.8176 478.8 246.80016 
-L 478.8 200.39904 
-Q 478.8 198.3816 475.776 198.3816 
-L 368.424 198.3816 
-Q 365.4 198.3816 365.4 200.39904 
-L 365.4 246.80016 
-Q 365.4 248.8176 368.424 248.8176 
-z
-" clip-path="url(#pd009f7ca34)" style="fill: #8f55c9; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
+" clip-path="url(#p1b761c5dfd)" style="fill: #6b35a7; stroke: #1a1a1a; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_5">
-    <text style="font-style: italic; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #666666" transform="translate(25.2 281.904534)">The minority cuts Airdrie into four pieces, each attached to a different surrounding district. Only one of the</text>
-    <text style="font-style: italic; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #666666" transform="translate(25.2 292.04696)">four is named Airdrie alone; the other three carry Calgary or regional names. The majority draws two compact</text>
-    <text style="font-style: italic; font-size: 8.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #666666" transform="translate(25.2 302.049534)">ridings, both named Airdrie.</text>
+    <text style="fill: #666666; font: italic 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 281.876644)">The minority's Airdrie East holds 54.7% of the city and is 89.6% Airdrie. Calgary-Airdrie and</text>
+    <text style="fill: #666666; font: italic 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 291.956183)">Calgary-Foothills-Airdrie West hold 45% between them; in both, Calgary residents outnumber Airdrie's. Counting</text>
+    <text style="fill: #666666; font: italic 8.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(25.2 302.035722)">only pieces with at least 2% of the city's people, the split is three pieces to two.</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end; fill: #666666" x="478.8" y="324.679519" transform="rotate(-0 478.8 324.679519)">Source: commission majority report Appendix A and minority report Appendix E.</text>
+    <text style="fill: #666666; font: 7px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="478.8" y="324.7003" transform="rotate(-0 478.8 324.7003)">Source: 2021 census areas over Elections Alberta's official 2026 boundaries (analysis/scripts/airdrie_split_shares.py).</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 476.66808 248.8176 
+L 478.8 248.8176 
+L 478.8 198.3816 
+L 476.66808 198.3816 
+z
+" clip-path="url(#p1b761c5dfd)" style="fill: #4d2080; stroke: #1a1a1a; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 477.73404 248.8176 
+L 477.73404 256.21488 
+" clip-path="url(#p1b761c5dfd)" style="fill: none; stroke: #1a1a1a; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="text_7">
-    <text style="font-weight: 700; font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #ffffff" x="138.6" y="128.941406" transform="rotate(-0 138.6 128.941406)">Airdrie-East</text>
+    <text style="fill: #1a1a1a; font: 700 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="140.02884" y="117.594531" transform="rotate(-0 140.02884 117.594531)">Airdrie-West</text>
    </g>
    <g id="text_8">
-    <text style="font-weight: 700; font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #1a1a1a" x="365.4" y="128.941406" transform="rotate(-0 365.4 128.941406)">Airdrie-West</text>
+    <text style="fill: #444444; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(109.718949 131.619256)">50.6% of the city</text>
+    <text style="fill: #444444; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(106.006527 140.451681)">district 98% Airdrie</text>
    </g>
    <g id="text_9">
-    <text style="font-weight: 700; font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #1a1a1a" x="81.9" y="221.267754" transform="rotate(-0 81.9 221.267754)">Calgary-Airdrie</text>
+    <text style="fill: #ffffff; font: 700 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="366.82884" y="117.594531" transform="rotate(-0 366.82884 117.594531)">Airdrie-East</text>
    </g>
    <g id="text_10">
-    <text style="font-style: italic; font-size: 8.2px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #444444" x="81.9" y="239.841508" transform="rotate(-0 81.9 239.841508)">south</text>
+    <text style="fill: #ece6d4; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(336.518949 131.619256)">49.4% of the city</text>
+    <text style="fill: #ece6d4; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(332.806528 140.451681)">district 76% Airdrie</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #ffffff" x="195.3" y="221.27291" transform="rotate(-0 195.3 221.27291)">Airdrie East</text>
+    <text style="fill: #1a1a1a; font: 700 9.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(33.831224 212.307569)">Calgary-Foothills</text>
+    <text style="fill: #1a1a1a; font: 700 9.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(44.729505 221.204913)">Airdrie West</text>
    </g>
    <g id="text_12">
-    <text style="font-style: italic; font-size: 8.2px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #ece6d4" x="195.3" y="239.841508" transform="rotate(-0 195.3 239.841508)">east</text>
+    <text style="fill: #444444; font: italic 6.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(48.597747 234.204803)">20.9% of the city</text>
+    <text style="fill: #444444; font: italic 6.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(45.654974 241.206116)">district 34% Airdrie</text>
    </g>
    <g id="text_13">
-    <text style="font-weight: 700; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #ffffff" x="308.7" y="220.491504" transform="rotate(-0 308.7 220.491504)">Olds-Three Hills-Didsbury</text>
+    <text style="fill: #1a1a1a; font: 700 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="174.38904" y="215.080069" transform="rotate(-0 174.38904 215.080069)">Calgary-Airdrie</text>
    </g>
    <g id="text_14">
-    <text style="font-style: italic; font-size: 6.2px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #ece6d4" x="308.7" y="239.324477" transform="rotate(-0 308.7 239.324477)">north</text>
+    <text style="fill: #444444; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(144.079149 229.128856)">24.0% of the city</text>
+    <text style="fill: #444444; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(140.366728 237.961281)">district 44% Airdrie</text>
    </g>
    <g id="text_15">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(379.223906 214.663273)">Calgary-Foothills</text>
-    <text style="font-weight: 700; font-size: 10.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; fill: #1a1a1a" transform="translate(391.269375 224.388898)">Airdrie West</text>
+    <text style="fill: #ffffff; font: 700 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle" x="352.6992" y="215.104131" transform="rotate(-0 352.6992 215.104131)">Airdrie East</text>
    </g>
    <g id="text_16">
-    <text style="font-style: italic; font-size: 6.9px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #444444" x="422.1" y="244.549038" transform="rotate(-0 422.1 244.549038)">west</text>
+    <text style="fill: #ece6d4; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(322.389309 229.128856)">54.7% of the city</text>
+    <text style="fill: #ece6d4; font: italic 8.2px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" transform="translate(318.676887 237.961281)">district 90% Airdrie</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #444444; font: italic 7.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-anchor: end" x="478.8" y="263.667476" transform="rotate(-0 478.8 263.667476)">Olds-Three Hills-Didsbury · about 350 people</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pd009f7ca34">
+  <clipPath id="p1b761c5dfd">
    <rect x="0" y="0" width="504" height="336.24"/>
   </clipPath>
  </defs>

@@ -132,8 +132,8 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     favoured; **POSITIVE declination = UCP-favoured (Warrington 2018)**;
     seats_at_50_50 is UCP fraction of seats under uniform-swing to 50/50.
 
-    Sign-flip correction landed 2026-06-12 per Amendment 10
-    (T1.7 referee #5). Earlier docstring incorrectly said
+    Sign-flip correction landed 2026-06-12 (recorded in Amendment 5,
+    Part 9; T1.7 referee #5). Earlier docstring incorrectly said
     "NEGATIVE declination = UCP-favoured" — that described a bug, not
     the convention. Implementation at line 178 also corrected.
     """
@@ -180,7 +180,7 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
         mean_ucp_in_ndp_won = float(np.mean(ndp_won))
         theta_R = math.atan2(mean_ucp_in_ucp_won - 0.5, R / (2 * n))
         theta_D = math.atan2(0.5 - mean_ucp_in_ndp_won, D / (2 * n))
-        declination = (2.0 / math.pi) * (theta_D - theta_R)  # Warrington 2018; sign fixed 2026-06-12 (Amendment 10)
+        declination = (2.0 / math.pi) * (theta_D - theta_R)  # Warrington 2018; sign fixed 2026-06-12 (Amendment 5, Part 9)
 
     province_ucp = ucp.sum() / two_party_total.sum()
     swing = 0.5 - province_ucp

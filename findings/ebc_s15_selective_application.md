@@ -76,8 +76,8 @@ This documents that:
 **Rocky Mountain House-Banff Park (§15(2) applied in minority map only):**
 - 5 of 5 criteria satisfied, but criterion (e) — BC provincial border — is satisfied only because the minority extended the boundary through Banff National Park to reach the BC border
 - Without the NP extension, the ED satisfies 4 of 5 criteria — i.e., it is already eligible for §15(2) without the park extension
-- The park extension adds approximately 491 area-weighted visitor-services residents and zero permanent residents of Banff National Park (no one lives in the park territory that was added)
-- The extension adds no represented community and serves no community-of-interest rationale
+- The park extension holds approximately 491 residents by area-weighted estimate (polygon-clipped 2021 census dissemination areas; `analysis/methodology/reference/banff_extension_population_check.md`). The earlier reading of zero residents oversimplified a very sparsely inhabited area (academic report §5.9.6, Claim 3)
+- The minority gives four grounds for the extension: the Highway 22 corridor, Rocky Mountain House as a hub for Clearwater County, keeping reserves with their nearest economic hub, and historical precedent (final report pp. 351–352). The audit has not tested them against data (academic report §5.9.6, Claim 3)
 
 ---
 

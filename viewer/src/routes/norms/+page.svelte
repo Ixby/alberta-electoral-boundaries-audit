@@ -18,21 +18,23 @@
   Voice target: Flesch-Kincaid grade ~9. Findings voice; no verdict.
 -->
 <svelte:head>
-  <title>What the Norms Ask · Alberta Electoral Boundary Audit</title>
-  <meta name="description" content="The third lens on Alberta's 2026 boundary episode: where the politicians-don't-draw-their-own-districts norm came from, what it bought, the case for setting it aside, and who is actually accusing whom of what.">
+  <title>{t(lang.current, 'pages.norms.head_title')}</title>
+  <meta name="description" content={t(lang.current, 'pages.norms.head_description')}>
 </svelte:head>
 
 <script lang="ts">
   import { base } from '$app/paths';
+  import { lang } from '$lib/i18n/store.svelte';
+  import { t } from '$lib/i18n/dict';
 </script>
 
 <div class="page-head">
   <div class="header-inner">
-    <a href="{base}/" class="back-link">← Back to audit</a>
+    <a href="{base}/" class="back-link">{t(lang.current, 'pages.norms.back')}</a>
     <div class="header-text">
-      <div class="site-label">Alberta Electoral Boundary Audit</div>
-      <h1>What the Norms Ask of an Electoral Map</h1>
-      <p class="meta">Plain-language companion · English only for now · Not a verdict on anyone</p>
+      <div class="site-label">{t(lang.current, 'pages.norms.site_label')}</div>
+      <h1>{t(lang.current, 'pages.norms.h1')}</h1>
+      <p class="meta">{t(lang.current, 'pages.norms.meta')}</p>
     </div>
   </div>
 </div>
@@ -40,280 +42,98 @@
 <main id="main" tabindex="-1">
   <div class="content">
 
-    <p class="standfirst">
-      This episode has three lenses. The <a href="{base}/law">law</a> asks what is legal.
-      The <a href="{base}/methods">statistics</a> ask what is unusual. The third lens asks
-      what is customary — and custom is the contested ground. "The government broke a
-      sixty-year norm" is not a neutral measurement; it is the heart of the opposition's
-      accusation. So this page does not just recite the norms. It cross-examines them:
-      where they came from, what they are for, what the case for setting them aside
-      actually is, and what remains once the rhetoric on both sides is cleared away.
-    </p>
+    <p class="standfirst">{@html t(lang.current, 'pages.norms.standfirst').replaceAll('__BASE__', base)}</p>
 
     <section id="the-norm">
-      <h2>The norm, stated plainly</h2>
-      <p>
-        Politicians do not draw their own districts. Canada spent roughly sixty years
-        building that rule — not as a law, but as a practice. Since the federal reform era
-        of the 1960s, every province and the federal process have used arm's-length boundary
-        commissions. The person who will run in a district does not hold the pen that
-        draws it.
-      </p>
-      <p>
-        The norm exists because of what came before it. Governing parties once routinely
-        drew their own ridings, and the conflict of interest is not subtle: a map-drawer who
-        must win under the map has every reason to draw it in his own favour, and no one
-        watching can tell an honest line from a self-serving one. The commission model does
-        not make maps perfect. It makes the drawer's interest separable from the outcome —
-        which is the thing that lets everyone else trust the result.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.the_norm.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.the_norm.p1')}</p>
+      <p>{t(lang.current, 'pages.norms.the_norm.p2')}</p>
     </section>
 
     <section id="what-it-bought">
-      <h2>What the norm bought, in this very cycle</h2>
-      <p>
-        The 2025–26 commission is its own best exhibit. It held hearings in sixteen
-        communities. It received 1,147 written submissions. It published an interim
-        proposal, took criticism, and reversed itself on the strength of eighty-plus
-        submissions — the system visibly responding to public input. Whatever else the
-        commission failed at, the process around it worked exactly as designed: in public,
-        on the record, and answerable to what citizens said.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.what_it_bought.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.what_it_bought.p1')}</p>
     </section>
 
     <section id="the-departure">
-      <h2>The departure</h2>
-      <p>
-        In April 2026 — weeks after the split commission filed two incompatible maps — the
-        Legislative Assembly set both aside. Government Motion 37, passed April 21, handed
-        the work to a committee of six MLAs, four from the governing party, chaired by a
-        government member. The committee is not required to hold public hearings, and per
-        CBC's reporting it will not hold hearings on the map it produces. No draft will be
-        released for public challenge before the map is final.
-      </p>
-      <p>
-        In May, Duane Bratt, Professor of
-        Political Science at Mount Royal University, described it to the author as without
-        precedent in Canada. That claim is wrong. In 1992 Alberta set a deadlocked
-        commission's work aside and gave the map to a committee of MLAs; the Opposition
-        refused to take part, and in 1994 the Court of Appeal let the map stand while faulting the
-        committee for being unable to explain several of its boundaries. The Act was amended
-        in 1995. What is new in 2026 is narrower: a commission majority signed a report, which
-        the Act treats as the commission's report, and it was set aside anyway. What it
-        <em>means</em> is where the argument starts.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.the_departure.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.the_departure.p1')}</p>
+      <p>{@html t(lang.current, 'pages.norms.the_departure.p2')}</p>
     </section>
 
     <section id="steel-man">
-      <h2>The case for setting the norm aside — taken seriously</h2>
-      <p>
-        An audit that only rehearses one side's outrage is not checking anything. So take
-        the government's side at full strength:
-      </p>
+      <h2>{t(lang.current, 'pages.norms.steel_man.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.steel_man.p1')}</p>
       <ul>
-        <li>
-          <strong>The commission failed at its one job.</strong> The commission model
-          promises a single arm's-length answer. This commission delivered two incompatible
-          maps and a chair publicly accusing colleagues of bad faith. When the independent
-          route deadlocks, someone has to decide — and the statute says who.
-        </li>
-        <li>
-          <strong>The statute gives the legislature the pen by design.</strong> Under
-          Alberta's Act, a commission report has no legal force. Boundaries change only when
-          the Assembly passes an Electoral Divisions Act. Government Motion 37 used a door
-          the law built on purpose. Nothing was smuggled.
-        </li>
-        <li>
-          <strong>Elected members answer to voters; commissioners answer to no one.</strong>
-          The oldest argument for legislative control is accountability. An MLA who draws a
-          self-serving map can be voted out. A commissioner cannot.
-        </li>
-        <li>
-          <strong>The committee is not a purely partisan instrument.</strong> Two of its
-          six members are opposition MLAs. The advisory panel that drafts the proposal includes
-          two opposition nominees and is chaired by a retired Court of Appeal justice.
-        </li>
-        <li>
-          <strong>The government cited the chair's own recommendation.</strong> Its stated
-          justification for the 91-seat mandate was Recommendation 5 — written by the
-          commission chair himself — and it told the House exactly that: “We are adopting
-          the recommendations from the report.”
-        </li>
+        <li>{@html t(lang.current, 'pages.norms.steel_man.li1')}</li>
+        <li>{@html t(lang.current, 'pages.norms.steel_man.li2')}</li>
+        <li>{@html t(lang.current, 'pages.norms.steel_man.li3')}</li>
+        <li>{@html t(lang.current, 'pages.norms.steel_man.li4')}</li>
+        <li>{@html t(lang.current, 'pages.norms.steel_man.li5')}</li>
       </ul>
     </section>
 
     <section id="where-it-bends">
-      <h2>Where the steel-man bends</h2>
-      <p>
-        Each of those points is real. The documented record also pushes back on each:
-      </p>
+      <h2>{t(lang.current, 'pages.norms.where_it_bends.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.where_it_bends.p1')}</p>
       <ul>
-        <li>
-          The deadlock explains <em>replacing</em> the maps. It does not explain
-          <em>removing the public</em>. A hearing requirement, a published draft, or a
-          binding panel would have answered the deadlock too — the chosen vehicle forfeits
-          each transparency feature the comparative literature treats as protective, and
-          none of those forfeits was forced by the deadlock.
-        </li>
-        <li>
-          "The statute allows it" is the law lens, and it is answered there: every step was
-          lawful. The norms question is different — most provinces make a commission's map
-          effective <em>unless</em> the legislature overrides it. Alberta's reversed default
-          means the governing party always controls whether any commission map becomes law.
-          Lawful and customary are different questions.
-        </li>
-        <li>
-          The accountability argument proves too much: it argues against boundary
-          commissions everywhere, yet every Canadian jurisdiction — and the UK, and
-          Australia — moved the other way, precisely because election-time accountability
-          is weak protection against a map designed to shape those same elections.
-        </li>
-        <li>
-          The panel advises; the five MLA votes decide. Bipartisan advice with a
-          government-controlled decision is a different institution from an independent
-          commission, and the difference is exactly the norm at issue.
-        </li>
-        <li>
-          Recommendation 5's author wrote it to dissuade the legislature from adopting the
-          minority map, and his majority colleagues did not endorse it. It is also specific:
-          it leaves Airdrie, Calgary and everything south of them exactly as the majority
-          drew them, which are the very lines the commission split over, and nothing in the
-          committee's mandate holds it to that. Citing a recommendation against its
-          author's stated purpose is a documented tension, not a resolved one.
-        </li>
-        <li>
-          The other document read onto the floor — page 58 of the majority report —
-          laments the two-seat cap, but the remedy attached to it is for the Legislature to
-          give <em>future commissions</em> the power to set seat counts. The motion took
-          that latitude now, for a committee of MLAs, while declining the report’s
-          operative request: adopt the 89-seat map.
-        </li>
+        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li1')}</li>
+        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li2')}</li>
+        <li>{t(lang.current, 'pages.norms.where_it_bends.li3')}</li>
+        <li>{t(lang.current, 'pages.norms.where_it_bends.li4')}</li>
+        <li>{t(lang.current, 'pages.norms.where_it_bends.li5')}</li>
+        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li6')}</li>
       </ul>
     </section>
 
     <section id="whose-accusation">
-      <h2>Whose accusation is it?</h2>
-      <p>
-        Here is the separation this page exists to make. The following are documented facts:
-        the departure happened, for the first time since Alberta's own 1992 committee; the
-        transparency features were forfeited; the commission chair called one minority
-        boundary a "bad faith effort" in a public statutory document; the Canadian Civil
-        Liberties Association publicly
-        <a href="https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/" rel="noopener">raised the politicization concern</a>;
-        the opposition voted against the motion. And the accusations run both ways: the minority report charges the majority with “an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation” — rural representation being, in the minority's own words, “not merely a question of numbers; it is a question of access, voice, and practical governability” (p. 356) — a charge the audit tested the day it surfaced it (exploratory; the hyphen-robust classifier and every classified name are published with the finding). The direction reverses: the minority map keeps fewer rural-anchored divisions than the majority (23 vs 28 against 2019's 31) and absorbs more of 2019's rural divisions into city-named districts (seven vs three). Both maps thin rural representation relative to 2019 — the charge's core observation is real — but on the measure the accusation names, it lands on its author. Its companion charge — that the majority declined to use the Act's ±25% flexibility for rural Alberta — was tested the same day and holds: the majority drew its rural divisions near population parity; the minority drew them light. One charge reversed, one supported, both published. The same one-sided-provenance discount applied to the chair's flags applies here too, in both directions.
-      </p>
-      <p>
-        The following is <em>not</em> a documented fact — it is a political judgment: that
-        the departure was illegitimate. That judgment depends on how much deference the norm
-        deserved in the face of a deadlocked commission, and reasonable people weigh that
-        differently. The audit documents the departure and its costs. It does not carry the
-        opposition's conclusion, and nothing in the audit's statistics can carry it either —
-        a number can say a map is rare; it cannot say a process was wrong.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.whose_accusation.heading')}</h2>
+      <p>{@html t(lang.current, 'pages.norms.whose_accusation.p1')}</p>
+      <p>{@html t(lang.current, 'pages.norms.whose_accusation.p2')}</p>
     </section>
 
     <section id="norms-vs-law">
-      <h2>Norms are not law — and one place turned the norm into law</h2>
-      <p>
-        Constitutional conventions bind politically, not judicially. The Supreme Court said
-        so in the 1981 Patriation Reference, and courts have held that line since: a court
-        may name a convention and will still decline to enforce it. That gap — between what
-        is customary and what is compellable — is where this entire episode lives.
-      </p>
-      <p>
-        Quebec shows what the other choice looks like. Its boundary commission is permanent
-        and independent, and on the map itself the commission ordinarily has the last
-        word. When Quebec's government tried to freeze its commission by
-        legislation, the courts <em>did</em> act, because a law was now in play: on
-        April 22, 2026, the Supreme Court of Canada upheld, 7–2 and from the bench, the
-        ruling that the freeze violated the Charter's democratic-representation guarantee.
-        Its reasons followed on May 1 (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). Where the
-        norm was written into law, it became enforceable. Alberta's norm never was, and so it
-        wasn't. The contrast cuts both ways, though: on June 12, 2026 Quebec's National
-        Assembly passed its own 127-seat map.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.norms_vs_law.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.norms_vs_law.p1')}</p>
+      <p>{@html t(lang.current, 'pages.norms.norms_vs_law.p2')}</p>
     </section>
 
     <section id="measurable">
-      <h2>The process scorecard: making the norms question measurable</h2>
-      <p>
-        Rhetoric about norms is cheap in both directions. The audit's answer is a third
-        scorecard — alongside the structural tests and the statistics — that scores the
-        <em>process</em> on nine protective features the sixty-year practice guaranteed.
-        Each is a yes-or-no question answerable from public documents, and the same nine
-        score every process this audit examines.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.measurable.heading')}</h2>
+      <p>{@html t(lang.current, 'pages.norms.measurable.p1')}</p>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Protective feature</th>
-              <th>Commission process</th>
-              <th>Committee process (as constituted)</th>
+              <th>{t(lang.current, 'pages.norms.measurable.table.head.feature')}</th>
+              <th>{t(lang.current, 'pages.norms.measurable.table.head.commission')}</th>
+              <th>{t(lang.current, 'pages.norms.measurable.table.head.committee')}</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Arm's-length drafting</td><td class="yes">Yes</td><td class="part">Partial — the panel drafts; the committee's six MLAs (four government) decide</td></tr>
-            <tr><td>Public hearings before adoption</td><td class="yes">Yes — sixteen communities</td><td class="no">No — none planned on the map produced</td></tr>
-            <tr><td>Draft published for challenge</td><td class="yes">Yes — interim proposal revised in public</td><td class="no">No — none announced</td></tr>
-            <tr><td>New public submissions accepted</td><td class="yes">Yes — 1,147 received</td><td class="no">No — reuses the commission's archive</td></tr>
-            <tr><td>Demonstrated responsiveness</td><td class="yes">Yes — reversed itself on 80+ submissions</td><td class="pend">Pending</td></tr>
-            <tr><td>Neutral chair of the deciding body</td><td class="yes">Yes — a judge, appointed by cabinet</td><td class="no">No — a government MLA chairs; the retired judge chairs only the advisory layer</td></tr>
-            <tr><td>Opposition in the deciding body</td><td class="yes">Yes — two of five</td><td class="yes">Yes — two of six</td></tr>
-            <tr><td>Published reasons for contested choices</td><td class="yes">Yes — both reports</td><td class="pend">Pending</td></tr>
-            <tr><td>Precedent conformity</td><td class="yes">Yes</td><td class="no">No — last done in Alberta in 1992, and faulted by the Court of Appeal in 1994</td></tr>
-            <tr class="count"><td>Count</td><td class="yes">9 of 9</td><td>1 Yes · 2 Partial · 4 No · 2 Pending</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.arms_length_drafting.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.arms_length_drafting.commission')}</td><td class="part">{t(lang.current, 'pages.norms.measurable.table.arms_length_drafting.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.commission')}</td><td class="pend">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.commission')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.commission')}</td><td class="pend">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.committee')}</td></tr>
+            <tr class="count"><td>{t(lang.current, 'pages.norms.measurable.table.count.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.count.commission')}</td><td>{t(lang.current, 'pages.norms.measurable.table.count.committee')}</td></tr>
           </tbody>
         </table>
       </div>
-      <p>
-        One more way to see this scorecard: it is the <em>third axis</em>. The audit's chart plots
-        every map on two dimensions — structure and statistics — and all three maps plotted so far
-        were drawn by commission processes that score nine of nine here, so the third axis has had
-        nothing to separate. The November map will be the first point in the audit's history with a
-        different process score behind it.
-      </p>
-      <p>
-        Read the table honestly, in both directions. The commission scores nine of nine
-        <em>by construction</em> — the criteria describe the institution the norm built, and
-        the commission was that institution. The informative part is prospective: four of the
-        committee's No cells are features it can still add between now and November —
-        hearings, a published draft, new submissions, and the responsiveness they make
-        possible. If it adds them, the audit's process-departure finding is materially
-        mitigated, and the audit has committed in writing to saying so.
-      </p>
-      <p class="draft-note">
-        Status matters here: this scorecard's criteria, sources, and predicted directions
-        are <a href="https://osf.io/u47bq/" rel="noopener">registered on the OSF (u47bq, July 14, 2026)</a> —
-        frozen months before the committee reports, so nothing can be quietly reworded when
-        the answer arrives. It was written mid-episode by an author whose earlier findings
-        you have just read — a bias risk the
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/lane3_process_scorecard_draft.md" rel="noopener">registered document</a>
-        discloses rather than hides. Applied backward to the commission,
-        it is description, not prediction. When the committee's map lands, the same locked
-        map tests run unchanged — and this checklist scores the process that produced it.
-        At that point the norms debate stops being a shouting match about tradition and
-        becomes a scored comparison: did the committee behave like the institution it
-        replaced?
-      </p>
+      <p>{@html t(lang.current, 'pages.norms.measurable.p2')}</p>
+      <p>{@html t(lang.current, 'pages.norms.measurable.p3')}</p>
+      <p class="draft-note">{@html t(lang.current, 'pages.norms.measurable.draft_note')}</p>
     </section>
 
     <section>
-      <h2>The audit's standing rule</h2>
-      <p>
-        Same rule as everywhere else on this site: the audit documents what happened, how
-        rare it is, and who claimed what. Whether the norm deserved to survive the deadlock
-        — and what its setting-aside should cost at the ballot box, if anything — belongs
-        to readers and voters, not to a statistical audit.
-      </p>
-      <p class="cross-ref">
-        Companion pages: <a href="{base}/law">What the law asks of an electoral map</a> ·
-        <a href="{base}/methods">How the maps were tested</a>
-      </p>
-      <p class="disclaimer">
-        This page is a plain-language companion to the audit, written for orientation. It is
-        not legal advice, and it is not a verdict on any person or party.
-      </p>
+      <h2>{t(lang.current, 'pages.norms.audits_standing_rule.heading')}</h2>
+      <p>{t(lang.current, 'pages.norms.audits_standing_rule.p1')}</p>
+      <p class="cross-ref">{@html t(lang.current, 'pages.norms.audits_standing_rule.cross_ref').replaceAll('__BASE__', base)}</p>
+      <p class="disclaimer">{t(lang.current, 'pages.norms.audits_standing_rule.disclaimer')}</p>
     </section>
 
   </div>

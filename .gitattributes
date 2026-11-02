@@ -16,3 +16,6 @@ data/v0_1_targeted_burst*_trace.csv filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 data/outputs/simulated_ensemble_raw_samples_*.csv filter=lfs diff=lfs merge=lfs -text
 data/outputs/constraint_enforcing_*_samples.csv filter=lfs diff=lfs merge=lfs -text
+
+# Evidence copies are kept byte-exact so their recorded SHA-256 hashes hold
+evidence/** -text

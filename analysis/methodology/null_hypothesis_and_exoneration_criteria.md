@@ -38,10 +38,10 @@ This document is the authoritative lookup for what each test in the audit batter
 | B3 — Mean-median | Minority-majority MM gap = 0 | Directional consistency across cross-election inputs | Exploratory | Active: minority −1.20 pp vs majority −0.66 pp (minority more UCP-favourable) |
 | B4 — Seats@50/50 uniform swing | Minority seats@50/50 ≤ majority seats@50/50 | Minority > majority under 2023 vote input | Exploratory | Active: 46 vs 45 (blended attribution) |
 | B5 — MCMC ensemble (Mahalanobis, Ch1) | Minority feature vector drawn from neutral redistricting distribution (p ≥ 0.05) | p < 0.05 one-tailed constitutes an outlier finding | Exploratory; seeds committed to drand before shapefile receipt | **Active finding**: p = 8.80×10⁻⁷ (D² = 33.64 against 1M-plan ensemble) |
-| B6 — Declination | No winning-district-margin angle asymmetry between minority and majority | Directional consistency with B2/B3/B4 | Exploratory | Minority at ensemble p1.21 (NDP-tail) under the pre-Amendment-10 sign; **corrected to p98.79 UCP-tail, agrees with B2/B3/B4 — see note below** |
+| B6 — Declination | No winning-district-margin angle asymmetry between minority and majority | Directional consistency with B2/B3/B4 | Exploratory | Minority at ensemble p1.21 (NDP-tail) under the sign used before Amendment 5, Part 9; **corrected to p98.79 UCP-tail, agrees with B2/B3/B4 — see note below** |
 | B7 — Intermap permutation | Minority-majority partisan-metric distance ≤ distance between random neutral plan pairs | p < 0.05 | Pre-registered: OSF:yvc7g | See `findings/intermap_permutation_test_results.md` |
 
-**[Amendment 10, 2026-06-12 — declination sign corrected.** The "p1.21 / NDP-tail / disagrees-with-EG" reading here used the swapped-operand convention (δ_audit = −δ_Warrington), a code-side artefact at `mcmc_ensemble.py:215`, now retired. Under the corrected Warrington convention the minority's declination is +0.077, **p98.79, UCP-tail** — it AGREES with EG, mean-median, and seats@50/50 (four of four in the UCP-favoured direction). The text here is preserved as the pre-correction record. See `reports/academic/report_academic.md` §5.4.9 and Amendment 10 in `findings/pre_registration_amendment_log.md`.**]**
+**[2026-06-12 — declination sign corrected (recorded in Amendment 5, Part 9).** The "p1.21 / NDP-tail / disagrees-with-EG" reading here used the swapped-operand convention (δ_audit = −δ_Warrington), a code-side artefact at `mcmc_ensemble.py:215`, now retired. Under the corrected Warrington convention the minority's declination is +0.077, **p98.79, UCP-tail** — it AGREES with EG, mean-median, and seats@50/50 (four of four in the UCP-favoured direction). The text here is preserved as the pre-correction record. See `reports/academic/report_academic.md` §5.4.9 and Amendment 5, Part 9 in `findings/pre_registration_amendment_log.md`.**]**
 
 ### Ch2 — SZAT boundary-choice test (§5.2.10)
 
@@ -75,7 +75,7 @@ This document is the authoritative lookup for what each test in the audit batter
 |---|---|---|---|---|
 | C1 Polsby-Popper | No per-ED compactness differences between minority and majority beyond geometry-forced variation | Per-ED PP < threshold for chair-flagged districts | Not pre-registered (structural) | H10: Calgary-Nolan Hill-Cochrane PP = 0.402 (moderate); Reock = 0.230 (flagged) |
 | C2 Reock | No elongation-compactness differences between minority and majority | Per-ED Reock < 0.30 conventional threshold | Not pre-registered | H10: Calgary-Nolan Hill-Cochrane Reock = 0.230 (flagged) |
-| Municipal anchoring | Minority anchoring ≥ 70% CSD edge alignment (Canadian comparator norm) | Both maps within 70–85% norm = pass; outside = finding | Pre-registered (s58a6) | **Retracted** on canonical geometry: minority 71.8%, majority 80.0%; both within norm |
+| Municipal anchoring | Minority anchoring ≥ 70% CSD edge alignment (Canadian comparator norm) | Both maps within 70–85% norm = pass; outside = finding | Pre-registered (s58a6) | **Does not separate the maps** on canonical geometry: minority 71.8%, majority 80.0%; both within norm |
 
 ---
 

@@ -9,13 +9,13 @@ n_steps: 100,000 (single chain; ESS caveat below)
 
 > **Backward:**
 > - `analysis/scripts/constraint_enforcing_ensemble.py` — this run
-> - `analysis/scripts/mcmc_ensemble.py` — canonical sampler (post-Amendment-10 seat_results)
+> - `analysis/scripts/mcmc_ensemble.py` — canonical sampler (post-correction seat_results; Amendment 5, Part 9)
 > - `data/shapefiles/reference/alberta_2021_csds.gpkg` — municipal-split tally layer
 > - TODO_REMEDIATION T1.4 (constraint-enforcing ensemble) + T1.11 (ε rerun)
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §5.4 — incorporates this result
-> - `findings/pre_registration_amendment_log.md` Amendment 9 addendum — S2 specificity
+> - `findings/pre_registration_amendment_log.md` Amendment 5, Part 7 (specificity) — S2 specificity
 
 # Constraint-enforcing ReCom ensemble — first run
 
@@ -76,7 +76,7 @@ ReCom plans split **55–67 multi-VA municipalities (median 61, min 25, max 75)*
 
 - This **empirically validates** the "commission convention" explanation for the majority's MM p0.92 NDP-tail outlier (§5.4.9): real commissions preserve municipalities at rates ReCom never reaches, and that preservation mechanically shapes partisan-metric distributions.
 - It applies the auxiliary **symmetrically** (the T1.17 severity requirement): both maps are convention-compliant; the minority's partisan-metric extremity is *not* explained by convention compliance, because the majority is equally convention-compliant and sits mid-band.
-- It supplies the **S2 specificity rate** the Amendment 9 addendum flagged as missing: Pr(splits ≤ 30 | ReCom plan) ≈ 0.0002. (Definition caveat: the per-plan tally uses 170 multi-VA CSDs; the battery's 23/30 counts use the CY/T/SM filter — close but not identical universes, so the percentile is indicative rather than exact. A like-for-like recount is queued.)
+- It supplies the **S2 specificity rate** the midpoint rule's specificity addendum (now Amendment 5, Part 7) flagged as missing: Pr(splits ≤ 30 | ReCom plan) ≈ 0.0002. (Definition caveat: the per-plan tally uses 170 multi-VA CSDs; the battery's 23/30 counts use the CY/T/SM filter — close but not identical universes, so the percentile is indicative rather than exact. A like-for-like recount is queued.)
 
 ## Honest caveats
 

@@ -1,5 +1,5 @@
 ---
-title: Proposal-epsilon robustness check (T1.11 / Amendment 11)
+title: Proposal-epsilon robustness check (T1.11)
 status: COMPLETE 2026-06-13 (100k pilot + 1.01M confirmation both run)
 salt: mcmc_ensemble_250k (same base_seed=1432864451 as canonical)
 supersedes: nothing — this is a robustness check, not a headline replacement
@@ -34,7 +34,7 @@ the malapportionment mechanism at scale (eps_full band p5/p50/p95 =
 minority at p0.013 (135 of 1,010,000 plans are more equal). The minority's
 canonical MedAD flag therefore holds only under the half band. Detail below.
 
-# Proposal-epsilon robustness check (T1.11 / Amendment 11)
+# Proposal-epsilon robustness check (T1.11)
 
 ## Question
 
@@ -84,8 +84,8 @@ partisan metric is robust (shifts < 0.15 pp):
 | declination¹ | p98.79 | p98.92 | +0.13 |
 | seats_at_50_50 | p99.99 | p99.98 | −0.01 |
 
-¹ The published canonical *percentiles CSV* still carries the pre-Amendment-10
-declination convention (−0.077 @ p1.21); the correct post-Amendment-10 value is
+¹ The published canonical *percentiles CSV* still carries the pre-correction
+declination convention (−0.077 @ p1.21; see Amendment 5, Part 9); the correct post-correction value is
 +0.077 @ p98.79, which is what the report and the chain CSVs use, and what the
 eps_full run reproduces. See the separate stale-derived-output note.
 
@@ -131,8 +131,8 @@ T1.11 is resolved as a **robustness check, not a headline replacement**:
    robustness evidence.
 3. The population MedAD placements are **not** robust to the choice. Every
    report of them is conditional on the half band, and the statute-band
-   placement (majority p0.0, minority p0.013) is reported beside them. Amendment
-   20's statute-band set (set 1) re-tests them on size-matched plans.
+   placement (majority p0.0, minority p0.013) is reported beside them. The
+   statute-band set (set B, Amendment 5, Part 14) re-tests them on size-matched plans.
 
 This mirrors how SZAT and the constraint-enforcing ensemble were handled:
 a more-permissive alternative null is run symmetrically, the partisan tail is

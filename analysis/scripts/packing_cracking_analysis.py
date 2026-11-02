@@ -443,8 +443,8 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
         # are packed into a few high-share districts). Negative = pro-NDP.
         # Sign convention matches mcmc_ensemble.py line 225 (theta_D − theta_R):
         #   theta_ndp here ≡ theta_D there; theta_ucp here ≡ theta_R there.
-        # Amendment 10 (2026-06-12) corrected mcmc_ensemble.py to this convention;
-        # this file's pre-Amendment-10 formula "(theta_ucp − theta_ndp)" was the
+        # The 2026-06-12 sign fix (Amendment 5, Part 9) corrected mcmc_ensemble.py to
+        # this convention; this file's pre-fix formula "(theta_ucp − theta_ndp)" was the
         # wrong sign and is now corrected to "(theta_ndp − theta_ucp)".
         theta_ndp = math.atan2(mean_ndp_won - 0.5, n_ndp_wins / n)
         theta_ucp = math.atan2(0.5 - mean_ucp_won, n_ucp_wins / n)
