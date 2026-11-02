@@ -32,6 +32,7 @@ type: project
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
 | 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 40 parts, grouped by registered document; mapping table at its end |
 | 2026-11-02 | Amendment 6 | The author asked who did the hostile review | Corrects Amendment 5, Part 5: the AI tools used and what each did |
+| 2026-11-02 | Amendment 7 | The map was published as scanned images only | Data lanes wait for the official shapefile; the process lane is graded now; P6 and P7 read against the Assembly; P8 erratum |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -583,3 +584,24 @@ What Part 5 says about Claude is unchanged.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-11-02 (Alberta time)
+
+---
+
+## Amendment 7 — Scoring the November map when it is published as images only
+
+> **Status: draft, not filed.** Written 2026-11-02 (Alberta time), after the committee reported. It is to be filed as an update to registration 9wp5y once the author approves its text. No threshold changes.
+
+**What happened.** The Select Special Committee reported on 2026-11-02. It adopted no map of its own: it acknowledged the Independent Advisory Panel's report and concluded its review. The map before the Legislative Assembly is therefore the panel's 91-district map. The panel's report is published only as a PDF of 150-dpi page images, with no text layer. Elections Alberta has published no shapefile. Its GIS staff hold a standing request from the author and have said they will send the files when they are posted.
+
+**Part 1 — Which map is scored.** The scoring specification scores "the committee's final map". Since the committee adopted none, the map scored is the panel's map, the one before the Assembly. This is a reading of the specification; it changes no test.
+
+**Part 2 — The data lanes wait for the official shapefile.** Specification §2 says that if only PDF or image releases are available within 72 hours, the audit applies the DPG-construction protocol and reports that scoring as provisional. The audit does not apply it to this map.
+- *Why.* The April reconstruction, built from sharper images, carried boundary errors of about 500 m and area errors above 100% on some hybrid districts. Its headline seats figure moved from 52.8% to 48.31% once the official files arrived. A reconstruction from 150-dpi pages would be coarser, and a provisional reading built on it would invite the same challenges.
+- *What happens instead.* The partisan and structural lanes, X1 and the size-matched comparison are scored on the official shapefile, within 72 hours of the audit receiving it. That scoring is the headline, as §2 already provides. Until the shapefile arrives, the audit publishes no partisan or structural reading of the map.
+- *What is published within 72 hours of the map's publication.* The process lane (Part 3), and the population facts the panel's own table states (district populations and their deviations from the average), with no geometry.
+
+**Part 3 — The process lane is graded now.** The Lane 3 process scorecard (`preregistration/lane3_process_scorecard_draft.md`; OSF u47bq) is scored from documents. Its cells P5 and P8 were pending until the committee reported. They are graded from the committee's report and the panel's report, with the page cited for each.
+
+**Part 4 — P6 and P7: the body whose vote settles the map.** Amendment 5, Part 25 reads P6 against the committee, as the body whose vote settles the map. The committee adopted no map. The map becomes law only if the Legislative Assembly passes it. P6 and P7 are therefore read against the Legislative Assembly for the committee process. The cells' definitions are unchanged.
+
+**Part 5 — Erratum in the scorecard (P8, commission column).** The registered text says the audit "found five of six failed independent check". The current count (academic report §5.9.6) is: two of six fail on population arithmetic, two hold in part, one was not tested on the minority's stated grounds, and one is withdrawn. The cell stays Yes; it scores publication, not accuracy.
