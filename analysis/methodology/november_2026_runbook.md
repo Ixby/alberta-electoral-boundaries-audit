@@ -1,7 +1,7 @@
 # November 2 runbook: scoring the committee's map
 
 The order of work when the Select Special Committee's map is tabled. The registered procedure is
-`preregistration/november_2026_scoring_spec.md` (v1.2) with Amendments 16 and 17. This file
+`preregistration/november_2026_scoring_spec.md` (v1.2) with Amendment 5, Parts 13, 14 and 17. This file
 changes none of it. It gives the commands that run it, plus three supplementary checks that are
 labelled as such wherever they appear.
 
@@ -64,19 +64,19 @@ with spec §3; no rule or threshold changed.
 
 The guard is `tests/test_verdict_synthesis.py`: 4 of its 5 tests fail on the old code.
 
-Also registered: X1 (Amendment 16).
+Also registered: X1 (Amendment 5, Part 13).
 
 ```bash
 python analysis/scripts/score_x1.py --map data/shapefiles/lunty/lunty_2026_eds.gpkg \
   [--interim <October 2025 interim map>] [--d-record considered|not_shown] --out findings/lunty_x1.json
 ```
 
-## 3b. Registered: size-matched comparison (Amendments 17, 20, 21, 23, 24)
+## 3b. Registered: size-matched comparison (Amendment 5, Parts 14–18)
 
-Amendment 24 fixes the order. The 87-district canonical comparison above is the headline. Set D
-(s.15(2), Amendment 23 rule) is the primary size-matched comparison. Sets A, B and C are reported
-beside it in the same table, each labelled; C is a sensitivity reading. These commands need `--candidate` and `--name-col`, which are on branch
-`size-matched-candidate` (on top of Audit's `ccr-7082dbd7-sqy3h2`) until it lands. The chain
+Amendment 5, Part 14 fixes the order. The 87-district canonical comparison above is the headline. Set D
+(s.15(2), the Part 15 rule) is the primary size-matched comparison. Sets A, B and C are reported
+beside it in the same table, each labelled; C is a sensitivity reading. These commands use `--candidate` (`size_matched_results.py`) and `--name-col`
+(`close_seats_ensemble.py`), both on master. The chain
 outputs are on `amendment17-local-runs`; pass that checkout as `--root`.
 
 ```bash
@@ -106,10 +106,10 @@ What it reports:
 
 - Each district's deviation from the average.
 - Districts outside ±25%, and any below −50%.
-- For every district below −25%: criteria (a)–(e) under the Amendment 23 table, whether it meets
+- For every district below −25%: criteria (a)–(e) under the Part 15 table, whether it meets
   3 of 5, and whether more than 4 districts are below −25%.
 
-The table must be the Amendment 23 table (SHA-256 `48c928b8…2fafc`, on `amendment17-local-runs`).
+The table must be the one Amendment 5, Part 15 names (SHA-256 `48c928b8…2fafc`, on `amendment17-local-runs`).
 `origin/master` still has the superseded table, and the tool says so when it is given it.
 
 Deviations use the VA-level 2021 overlay. That overlay is not the official count. Give `--stated`

@@ -1,4 +1,4 @@
-# Governance log — EBCA s.15(2) in the Amendment 17 nk chains
+# Governance log — EBCA s.15(2) in the size-matched nk chains (Amendment 5, Part 14)
 
 Started 2026-10-29 ~20:20 MT. Mode: interactive. Owner: Wuff (Will).
 Owner rulings carried in: "we want to be as strict as the statue, no more, no less";

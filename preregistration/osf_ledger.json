@@ -1,0 +1,359 @@
+{
+ "_about": "The repo's statement of what is on the OSF (account kguxq, Will Conner). Edited by hand, in the same commit as the OSF write it records; analysis/scripts/osf_reconcile.py checks it both ways and never writes it. Times are UTC as the OSF reports them; Alberta time is UTC-6 (MDT) or UTC-7 (MST). First pinned 2026-11-01 from a read-only pass, every entry reviewed against the OSF.",
+ "account": "kguxq",
+ "registrations": {
+  "u47bq": {
+   "title": "Alberta Electoral Boundary Audit — Lane 3 Process Scorecard (prospective evaluation of the 2026 Lunty committee process)",
+   "registered_utc": "2026-07-14T08:09:31.051572",
+   "registered_from": "g3qj8",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "b620ebaea7423dc6c4985e2102e8c8f4da6b56f56fed3e6dbd8e96e57461c821",
+   "updates": [
+    {
+     "id": "6ae7b99a9af5821038b754e4",
+     "state": "approved",
+     "submitted_utc": "2026-11-01T22:13:48.986816",
+     "justification_head": "Pointer to Amendment 5 (filed as an update to 9wp5y), which records the errata t"
+    }
+   ],
+   "files": {}
+  },
+  "he53s": {
+   "title": "Forest-ReCom Sampler Robustness Check — Alberta 2026 Electoral Boundary Audit Canonical Ensemble",
+   "registered_utc": "2026-07-10T05:42:52.489203",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "d2bc284d3b8517223f331ce0bc59e38528b97836b610be7dda795942cdc9e09b",
+   "updates": [
+    {
+     "id": "6a508f72ebc6e52902a86033",
+     "state": "approved",
+     "submitted_utc": "2026-07-10T06:26:11.374753",
+     "justification_head": "EXECUTION LOG APPEND (pre-registration §8.4 — no change to any pre-committed hyp"
+    },
+    {
+     "id": "6ae7b9a0ff3176d612b754e8",
+     "state": "approved",
+     "submitted_utc": "2026-11-01T22:13:54.976979",
+     "justification_head": "Pointer to Amendment 5 (filed as an update to 9wp5y), which records the errata t"
+    }
+   ],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "s58a6": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-10T13:18:24.105910",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "884201c07a4ddf955d4c79c8ae6ca8a3b5de061c6d73c9de1fdb46075ebd6d89",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "6pt83": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-07T03:25:02.228214",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "36ecfd153e17c3c02dd42912976831f6de35d0210bf5ead9b762fff8bf27b3bb",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "yvc7g": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-10T10:39:07.494409",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "7e9b68030f615b9ee77f3a307f04f707d34ea87fa3447cdb1ce63da04d50d5d3",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "r3zm7": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:25.093667",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "1d79bc6d4c14e3046ce01523d9351eb3e95a524b27120aab6668822eeb8b8aed",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "9wp5y": {
+   "title": "Alberta Electoral Boundaries Audit — November 2026 Pre-registered Signature-Detection Checklist",
+   "registered_utc": "2026-05-07T04:27:20.781012",
+   "registered_from": "2gue9",
+   "schema": "697b72f611a8e98484c6139b",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "04b83e528393821fd226bc97f1e2d5bc1d51fe40bb50f6e15a39374baa41f929",
+   "updates": [
+    {
+     "id": "6ae7b85d4c54dce4aebde274",
+     "state": "approved",
+     "submitted_utc": "2026-11-01T22:13:06.832180",
+     "justification_head": "Amendment 5 (2026-11-01): the consolidated record of every change to this pre-re"
+    }
+   ],
+   "files": {
+    "osfstorage:Archive of OSF Storage/v0_2_packing_cracking_analysis.py": "55d7f75e96efc0c504927e0748ac8eafd3762079e9e897c7748a1a98c80f583d",
+    "osfstorage:Archive of OSF Storage/electoral_forensics_population.py": "860e2aa7f346d0c2229cd271fdcc152e38148f1a7094d0176ac4ac90fbd9eb29",
+    "osfstorage:Archive of OSF Storage/v0_1_track_c_checklist_baseline_scoring.md": "700533e8d2f6c475fb6117bd5f5ed3b4f246e609fbf87d762d7d2f63d3a84b57",
+    "osfstorage:Archive of OSF Storage/v0_1_majority_hybrid_crosswalk.csv": "89f2a7651453e1a16b83694aa16c5c102d2425f1515e1c916b9ee5ab338f5702",
+    "osfstorage:Archive of OSF Storage/null_hypothesis_and_exoneration_criteria.md": "7355fc25e63899684e7a5b89049ac74e16dd81b8896c3173cc0edbfda69edcc4",
+    "osfstorage:Archive of OSF Storage/pre_registration_amendment_2026-04-27_final_hardening.md": "b023a0d43cf4fd056405f0fe7aa6d6dbb68b5a51c921b3101106b33f4e63c509",
+    "osfstorage:Archive of OSF Storage/drand_seed.py": "81091ee26aab80b172356fa70875dcf67ee3dd4c5f8b161a17a7635e9eeda082",
+    "osfstorage:Archive of OSF Storage/november_red_alert_scorecard.py": "04b726a081e89c7f8699e118375087545f903fb24b89d051a644bac1b2e658f9",
+    "osfstorage:Archive of OSF Storage/v0_1_pre_registration_draft.md": "4d1ad5aef23b1de77753d2ddb27cf8f6a9baf3512fa016667fe872c445e31b5c",
+    "osfstorage:Archive of OSF Storage/v0_3_monte_carlo_ci.py": "80f228922c5da008441a886c5a497522badec0ded3614981022a76c08fc84c8b",
+    "osfstorage:Archive of OSF Storage/v0_1_minority_hybrid_crosswalk.csv": "7b6041e3cb24c458f61950d36208d14a5728183f480aabe1bd078b21fb1bb2cf",
+    "osfstorage:Archive of OSF Storage/v0_1_pre_registration_amendment_2026-04-23.md": "2ba09d1bcab2a513802101a34ef160991e7fe40e808d6647ae9f7b79b762acbf"
+   }
+  },
+  "w2s8k": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:20.372421",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "c3fc9567292ad00fc40dcf3a7e73d4e3c3fd1f63ef5de276efb0f7190f90bf9b",
+   "updates": [],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "qsgy8": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "registered_utc": "2026-05-06T21:50:30.261292",
+   "registered_from": "af2hn",
+   "schema": "5df83f7dd28338001ac0ab0d",
+   "public": true,
+   "withdrawn": false,
+   "pending_update": false,
+   "responses_sha256": "6ffdd5bd862b28be5981943172091364cb0f5b1a462b8ad27e8a49f41d44e05c",
+   "updates": [
+    {
+     "id": "6ae7b993643055fe12bde256",
+     "state": "approved",
+     "submitted_utc": "2026-11-01T22:13:42.242597",
+     "justification_head": "Pointer to Amendment 5 (filed as an update to 9wp5y), which records the errata t"
+    }
+   ],
+   "files": {
+    "osfstorage:Archive of OSF Storage/dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:Archive of OSF Storage/drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  }
+ },
+ "projects": {
+  "g3qj8": {
+   "title": "Alberta Electoral Boundary Audit — Lane 3 Process Scorecard (prospective evaluation of the 2026 Lunty committee process)",
+   "created_utc": "2026-07-14T08:09:03.880109",
+   "public": false,
+   "files": {}
+  },
+  "af2hn": {
+   "title": "Alberta 2026 Electoral Boundary Redistricting Audit",
+   "created_utc": "2026-05-06T20:13:38.342054",
+   "public": false,
+   "files": {
+    "osfstorage:dpg2_experiment_plan.md": "d052d2a36a28d77498fadba057a868aa49eb345298963087a4fef4d3bfd82353",
+    "osfstorage:drain_v2_plan.md": "d892d0ffb9e7081d8b0f3b100c7aaa6ba3fc4b0526af7cc348792665ff93f9d1"
+   }
+  },
+  "2gue9": {
+   "title": "Alberta Electoral Boundaries Audit — November 2026 Pre-registered Signature-Detection Checklist",
+   "created_utc": "2026-04-24T00:19:10.089146",
+   "public": false,
+   "files": {
+    "osfstorage:v0_1_pre_registration_draft.md": "4d1ad5aef23b1de77753d2ddb27cf8f6a9baf3512fa016667fe872c445e31b5c",
+    "osfstorage:v0_2_packing_cracking_analysis.py": "55d7f75e96efc0c504927e0748ac8eafd3762079e9e897c7748a1a98c80f583d",
+    "osfstorage:v0_3_monte_carlo_ci.py": "80f228922c5da008441a886c5a497522badec0ded3614981022a76c08fc84c8b",
+    "osfstorage:electoral_forensics_population.py": "860e2aa7f346d0c2229cd271fdcc152e38148f1a7094d0176ac4ac90fbd9eb29",
+    "osfstorage:v0_1_track_c_checklist_baseline_scoring.md": "700533e8d2f6c475fb6117bd5f5ed3b4f246e609fbf87d762d7d2f63d3a84b57",
+    "osfstorage:v0_1_majority_hybrid_crosswalk.csv": "89f2a7651453e1a16b83694aa16c5c102d2425f1515e1c916b9ee5ab338f5702",
+    "osfstorage:v0_1_minority_hybrid_crosswalk.csv": "7b6041e3cb24c458f61950d36208d14a5728183f480aabe1bd078b21fb1bb2cf",
+    "osfstorage:v0_1_pre_registration_amendment_2026-04-23.md": "2ba09d1bcab2a513802101a34ef160991e7fe40e808d6647ae9f7b79b762acbf",
+    "osfstorage:null_hypothesis_and_exoneration_criteria.md": "7355fc25e63899684e7a5b89049ac74e16dd81b8896c3173cc0edbfda69edcc4",
+    "osfstorage:pre_registration_amendment_2026-04-27_final_hardening.md": "b023a0d43cf4fd056405f0fe7aa6d6dbb68b5a51c921b3101106b33f4e63c509",
+    "osfstorage:drand_seed.py": "81091ee26aab80b172356fa70875dcf67ee3dd4c5f8b161a17a7635e9eeda082",
+    "osfstorage:november_red_alert_scorecard.py": "04b726a081e89c7f8699e118375087545f903fb24b89d051a644bac1b2e658f9"
+   }
+  }
+ },
+ "amendments": {
+  "1": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "osfstorage:Archive of OSF Storage/v0_1_pre_registration_amendment_2026-04-23.md",
+   "note": "archived file, unnumbered on the OSF"
+  },
+  "4": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "osfstorage:Archive of OSF Storage/pre_registration_amendment_2026-04-27_final_hardening.md",
+   "note": "archived file, unnumbered on the OSF"
+  },
+  "5": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6ae7b85d4c54dce4aebde274, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-01 22:13 UTC (3:13 PM MST), approved by the admin the same minute; text = the '## Amendment 5' section at commit ba877ed8, SHA-256 4502c33f...69b15. Pointer updates: qsgy8 6ae7b993643055fe12bde256, u47bq 6ae7b99a9af5821038b754e4, he53s 6ae7b9a0ff3176d612b754e8"
+  }
+ },
+ "acknowledged": [
+  {
+   "file": "analysis/review/swarm_audit_2026-10-29.md",
+   "contains": "name the registration meant (2gue9, 2026-04-",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "dated review record of 2026-10-29; kept as written"
+  },
+  {
+   "file": "analysis/review/swarm_audit_2026-10-29.md",
+   "contains": "Add it as a dated note, since 2gue9 is regist",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "dated review record of 2026-10-29; kept as written"
+  },
+  {
+   "file": "analysis/review/swarm_audit_2026-10-29.md",
+   "contains": "registration OSF 2gue9 and the o",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "dated review record of 2026-10-29; kept as written"
+  },
+  {
+   "file": "analysis/review/swarm_audit_2026-10-29.md",
+   "contains": "| 492 | MED | LIKELY | prereg |",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "dated review record of 2026-10-29; kept as written"
+  },
+  {
+   "file": "analysis/review/swarm_audit_2026-10-29.md",
+   "contains": "| 499 | MED | LIKELY | prereg |",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "dated review record of 2026-10-29; kept as written"
+  },
+  {
+   "file": "findings/pre_registration_amendment_log.md",
+   "contains": "to OSF project 2gue9, which is private. It was not a registration.",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "the log header states 2gue9 is private, citing it as the first upload"
+  },
+  {
+   "file": "findings/pre_registration_amendment_log.md",
+   "contains": "**Part 26 — Errata.** The canonical ensemble has 1,010,000 plans",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "Amendment 5's own text, naming the errors it corrects (filed verbatim on 9wp5y)"
+  },
+  {
+   "file": "findings/pre_registration_amendment_log.md",
+   "contains": "`null_hypotheses.md` names OSF 2gue9 as its \"public pre-registration\"",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "Amendment 5's own text, naming the errors it corrects (filed verbatim on 9wp5y)"
+  },
+  {
+   "file": "findings/pre_registration_amendment_log.md",
+   "contains": "Status lines that say a filing is still to come are read as follows.",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "Amendment 5's own text, naming the errors it corrects (filed verbatim on 9wp5y)"
+  },
+  {
+   "file": "preregistration/lane3_process_scorecard_draft.md",
+   "contains": "(OSF registration — pending; see status banner)",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/null_hypotheses.md",
+   "contains": "osf_id: 2gue9",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/null_hypotheses.md",
+   "contains": "osf_url: https://osf.io/2gue9",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/null_hypotheses.md",
+   "contains": "OSF 2gue9 — public pre-registration of these criteria",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/null_hypotheses.md",
+   "contains": "(verifiable at https://osf.io/2gue9/overview)",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/osf_forest_recom_robustness.md",
+   "contains": "**Pre-registration target:** OSF (form to be filed",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/seed_issue14.md",
+   "contains": "OSF submission pending at time of writing.",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  },
+  {
+   "file": "preregistration/seed_issue14.md",
+   "contains": "3. OSF pre-registration submitted — **pending**",
+   "by": "Will Conner (CLI, 'Acknowledge all listed')",
+   "date": "2026-11-01",
+   "reason": "registered or dated document left as written; the error is recorded in Amendment 5 (filed on 9wp5y)"
+  }
+ ]
+}

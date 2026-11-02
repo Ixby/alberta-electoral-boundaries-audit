@@ -4,7 +4,7 @@
 close_seats_ensemble.py
 -----------------------
 
-Size-matched neutral ensembles and the Amendment 17 measures (2026-10-29).
+Size-matched neutral ensembles and the Amendment 5, Part 17 measures.
 
 Reuses analysis/scripts/mcmc_ensemble.py unchanged. Two read-only hooks add
 per-plan measures without touching any random draw, so each chain is the
@@ -23,7 +23,7 @@ would have written. Both change the sample path for a given idx (not the
 distribution), so nk output from this version is not row-identical to earlier
 versions.
 
-Measures (Amendment 17 items 3-5; the same function scores real maps):
+Measures (Amendment 5, Part 17; the same function scores real maps):
   town split   cities and towns (Statistics Canada 2021 CSD types CY and T)
                of 20,000-150,000 people; pieces = districts holding >= 2% of
                the town's population; flagged when pieces > ceil(pop /

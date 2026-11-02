@@ -6,7 +6,8 @@ s152_criteria.py
 ----------------
 
 Per-VA inputs for the EBCA s.15(2) criteria, so a district's criteria are sums
-and counts over its VAs (Amendment 17, set D; governance/GOVERNANCE-s15-2-chain-model.md).
+and counts over its VAs (set D's first build, since superseded; see Amendment 5, Part 15;
+governance/GOVERNANCE-s15-2-chain-model.md).
 
 s.15(2): for no more than 4 divisions, if the Commission is of the opinion that
 at least 3 of these exist, the division may be as much as 50% below average:

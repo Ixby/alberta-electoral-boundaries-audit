@@ -1,0 +1,407 @@
+{
+  "script": "analysis/scripts/cracking_signature_rescore.py",
+  "rule": "v1.2 audit prompt 'Cracking signature detection' (commit 249cff7d): detected iff C1 and C2 and C3; C1 and C2 with the community too large for one district = 'forced by population'. C3 threshold: preregistration/thresholds.md row 12.",
+  "average": 54929,
+  "communities": {
+    "Airdrie": {
+      "csduid": "4806021",
+      "maps": {
+        "minority": {
+          "scored_in_section_5_3_2": true,
+          "population_2021": 74100,
+          "minimum_districts": 2,
+          "districts_by_territory": 4,
+          "districts_by_people_2pct": 3,
+          "C1_split_above_minimum": true,
+          "C1_note": "3 piece(s) holding >= 2% (4 with any residents) vs minimum 2",
+          "C2_minority_in_every_piece": false,
+          "C2_minority_in_every_district_with_residents": false,
+          "C2_majority_in": [
+            "Airdrie-East"
+          ],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": true,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": false,
+          "districts": [
+            {
+              "district": "Airdrie-East",
+              "residents": 40501,
+              "share_of_community": 0.5466,
+              "share_of_district": 0.8957,
+              "district_pop_2021_da": 45218,
+              "district_pop_official": 50797,
+              "rep_point_residents": 40567,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Airdrie": 40501,
+                "Rocky View County": 4003,
+                "Wheatland County": 689
+              },
+              "share_floor_if_all_growth_outside": 0.7973
+            },
+            {
+              "district": "Calgary-Airdrie",
+              "residents": 17752,
+              "share_of_community": 0.2396,
+              "share_of_district": 0.438,
+              "district_pop_2021_da": 40531,
+              "district_pop_official": 58820,
+              "rep_point_residents": 17720,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Calgary": 22587,
+                "Airdrie": 17752,
+                "Rocky View County": 193
+              }
+            },
+            {
+              "district": "Calgary-Foothills-Airdrie West",
+              "residents": 15496,
+              "share_of_community": 0.2091,
+              "share_of_district": 0.3408,
+              "district_pop_2021_da": 45466,
+              "district_pop_official": 58436,
+              "rep_point_residents": 15813,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Calgary": 29490,
+                "Airdrie": 15496,
+                "Rocky View County": 480
+              }
+            },
+            {
+              "district": "Olds-Three Hills-Didsbury",
+              "residents": 351,
+              "share_of_community": 0.0047,
+              "share_of_district": 0.0076,
+              "district_pop_2021_da": 46201,
+              "district_pop_official": 49436,
+              "rep_point_residents": 0,
+              "rests_only_on_cut_das": true,
+              "residents_by_csd_top3": {
+                "Olds": 9209,
+                "Mountain View County": 7737,
+                "Didsbury": 5070
+              }
+            }
+          ],
+          "C3_registered_at_2024_municipal": false,
+          "C3_restated_at_2024_municipal": true,
+          "C3_registered_at_2025_municipal": false,
+          "C3_restated_at_2025_municipal": true
+        },
+        "majority": {
+          "scored_in_section_5_3_2": true,
+          "population_2021": 74100,
+          "minimum_districts": 2,
+          "districts_by_territory": 2,
+          "districts_by_people_2pct": 2,
+          "C1_split_above_minimum": false,
+          "C1_note": "2 piece(s) holding >= 2% (2 with any residents) vs minimum 2",
+          "C2_minority_in_every_piece": false,
+          "C2_minority_in_every_district_with_residents": false,
+          "C2_majority_in": [
+            "Airdrie-West",
+            "Airdrie-East"
+          ],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": true,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": false,
+          "districts": [
+            {
+              "district": "Airdrie-West",
+              "residents": 37514,
+              "share_of_community": 0.5063,
+              "share_of_district": 0.9752,
+              "district_pop_2021_da": 38467,
+              "district_pop_official": 48145,
+              "rep_point_residents": 37572,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Airdrie": 37514,
+                "Rocky View County": 911,
+                "Calgary": 42
+              },
+              "share_floor_if_all_growth_outside": 0.7792
+            },
+            {
+              "district": "Airdrie-East",
+              "residents": 36586,
+              "share_of_community": 0.4937,
+              "share_of_district": 0.7582,
+              "district_pop_2021_da": 48252,
+              "district_pop_official": 53809,
+              "rep_point_residents": 36528,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Airdrie": 36586,
+                "Rocky View County": 6103,
+                "Crossfield": 3599
+              },
+              "share_floor_if_all_growth_outside": 0.6799
+            }
+          ],
+          "C3_registered_at_2024_municipal": false,
+          "C3_restated_at_2024_municipal": true,
+          "C3_registered_at_2025_municipal": false,
+          "C3_restated_at_2025_municipal": true
+        }
+      }
+    },
+    "Cochrane": {
+      "csduid": "4806019",
+      "maps": {
+        "minority": {
+          "scored_in_section_5_3_2": true,
+          "population_2021": 32199,
+          "minimum_districts": 1,
+          "districts_by_territory": 3,
+          "districts_by_people_2pct": 1,
+          "C1_split_above_minimum": false,
+          "C1_note": "1 piece(s) holding >= 2% (3 with any residents) vs minimum 1",
+          "C2_minority_in_every_piece": false,
+          "C2_minority_in_every_district_with_residents": false,
+          "C2_majority_in": [
+            "Calgary-Nolan Hill-Cochrane"
+          ],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": false,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": false,
+          "districts": [
+            {
+              "district": "Calgary-Nolan Hill-Cochrane",
+              "residents": 32169,
+              "share_of_community": 0.9991,
+              "share_of_district": 0.6586,
+              "district_pop_2021_da": 48844,
+              "district_pop_official": 56282,
+              "rep_point_residents": 32199,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Cochrane": 32169,
+                "Calgary": 8639,
+                "Rocky View County": 7999
+              },
+              "share_floor_if_all_growth_outside": 0.5716
+            },
+            {
+              "district": "Rocky Mountain House-Banff Park",
+              "residents": 29,
+              "share_of_community": 0.0009,
+              "share_of_district": 0.0009,
+              "district_pop_2021_da": 32819,
+              "district_pop_official": 38298,
+              "rep_point_residents": 0,
+              "rests_only_on_cut_das": true,
+              "residents_by_csd_top3": {
+                "Clearwater County": 11776,
+                "Rocky Mountain House": 6765,
+                "Mountain View County": 5243
+              }
+            },
+            {
+              "district": "Calgary-Bow-Springbank",
+              "residents": 1,
+              "share_of_community": 0.0,
+              "share_of_district": 0.0,
+              "district_pop_2021_da": 51249,
+              "district_pop_official": 55560,
+              "rep_point_residents": 0,
+              "rests_only_on_cut_das": true,
+              "residents_by_csd_top3": {
+                "Calgary": 44045,
+                "Rocky View County": 7202,
+                "Cochrane": 1
+              }
+            }
+          ]
+        },
+        "majority": {
+          "scored_in_section_5_3_2": true,
+          "population_2021": 32199,
+          "minimum_districts": 1,
+          "districts_by_territory": 2,
+          "districts_by_people_2pct": 1,
+          "C1_split_above_minimum": false,
+          "C1_note": "1 piece(s) holding >= 2% (2 with any residents) vs minimum 1",
+          "C2_minority_in_every_piece": false,
+          "C2_minority_in_every_district_with_residents": false,
+          "C2_majority_in": [
+            "Cochrane-Springbank"
+          ],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": false,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": false,
+          "districts": [
+            {
+              "district": "Cochrane-Springbank",
+              "residents": 32075,
+              "share_of_community": 0.9962,
+              "share_of_district": 0.6542,
+              "district_pop_2021_da": 49027,
+              "district_pop_official": 56487,
+              "rep_point_residents": 32199,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Cochrane": 32075,
+                "Rocky View County": 16771,
+                "Calgary": 180
+              },
+              "share_floor_if_all_growth_outside": 0.5678
+            },
+            {
+              "district": "Canmore-Banff",
+              "residents": 124,
+              "share_of_community": 0.0038,
+              "share_of_district": 0.004,
+              "district_pop_2021_da": 31344,
+              "district_pop_official": 39961,
+              "rep_point_residents": 0,
+              "rests_only_on_cut_das": true,
+              "residents_by_csd_top3": {
+                "Canmore": 15990,
+                "Banff": 8305,
+                "Rocky View County": 3672
+              }
+            }
+          ]
+        }
+      }
+    },
+    "Chestermere": {
+      "csduid": "4806017",
+      "maps": {
+        "minority": {
+          "scored_in_section_5_3_2": false,
+          "population_2021": 22163,
+          "minimum_districts": 1,
+          "districts_by_territory": 3,
+          "districts_by_people_2pct": 2,
+          "C1_split_above_minimum": true,
+          "C1_note": "2 piece(s) holding >= 2% (3 with any residents) vs minimum 1",
+          "C2_minority_in_every_piece": true,
+          "C2_minority_in_every_district_with_residents": true,
+          "C2_majority_in": [],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": false,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": true,
+          "districts": [
+            {
+              "district": "Chestermere-Strathmore",
+              "residents": 20101,
+              "share_of_community": 0.907,
+              "share_of_district": 0.4576,
+              "district_pop_2021_da": 43926,
+              "district_pop_official": 52982,
+              "rep_point_residents": 20222,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Chestermere": 20101,
+                "Strathmore": 14339,
+                "Rocky View County": 5609
+              }
+            },
+            {
+              "district": "Calgary-Peigan-Chestermere",
+              "residents": 1957,
+              "share_of_community": 0.0883,
+              "share_of_district": 0.0401,
+              "district_pop_2021_da": 48851,
+              "district_pop_official": 52639,
+              "rep_point_residents": 1941,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Calgary": 44592,
+                "Rocky View County": 2302,
+                "Chestermere": 1957
+              }
+            },
+            {
+              "district": "Calgary-Cross",
+              "residents": 105,
+              "share_of_community": 0.0047,
+              "share_of_district": 0.0019,
+              "district_pop_2021_da": 56405,
+              "district_pop_official": 63064,
+              "rep_point_residents": 0,
+              "rests_only_on_cut_das": true,
+              "residents_by_csd_top3": {
+                "Calgary": 54570,
+                "Rocky View County": 1730,
+                "Chestermere": 105
+              }
+            }
+          ]
+        },
+        "majority": {
+          "scored_in_section_5_3_2": true,
+          "population_2021": 22163,
+          "minimum_districts": 1,
+          "districts_by_territory": 1,
+          "districts_by_people_2pct": 1,
+          "C1_split_above_minimum": false,
+          "C1_note": "1 piece(s) holding >= 2% (1 with any residents) vs minimum 1",
+          "C2_minority_in_every_piece": true,
+          "C2_minority_in_every_district_with_residents": true,
+          "C2_majority_in": [],
+          "C3_registered_one_district_within_band": false,
+          "C3_band": [
+            41197,
+            68661
+          ],
+          "C3_restated_two_district_minimum": false,
+          "result_by_registered_rule": "not detected",
+          "result_if_C3_read_as_restated": "not detected",
+          "cracking_adjacent_pattern_C1_C2_not_C3": false,
+          "districts": [
+            {
+              "district": "Chestermere-Strathmore",
+              "residents": 22163,
+              "share_of_community": 1.0,
+              "share_of_district": 0.4679,
+              "district_pop_2021_da": 47368,
+              "district_pop_official": 56679,
+              "rep_point_residents": 22163,
+              "rests_only_on_cut_das": false,
+              "residents_by_csd_top3": {
+                "Chestermere": 22163,
+                "Strathmore": 14278,
+                "Rocky View County": 8381
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

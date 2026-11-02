@@ -1,7 +1,7 @@
 {
  "A_k89": {
   "set": "A",
-  "label": "\u00b112.5% proposal band (Amendment 17)",
+  "label": "\u00b112.5% proposal band (Amendment 5, Part 14)",
   "k": 89,
   "chains": [
    100,
@@ -235,7 +235,7 @@
  },
  "A_k91": {
   "set": "A",
-  "label": "\u00b112.5% proposal band (Amendment 17)",
+  "label": "\u00b112.5% proposal band (Amendment 5, Part 14)",
   "k": 91,
   "chains": [
    201,
@@ -411,7 +411,7 @@
  },
  "B_k89": {
   "set": "B",
-  "label": "statute band, \u00b125% (Amendment 20, set 1)",
+  "label": "statute band, \u00b125% (Amendment 5, Part 14)",
   "k": 89,
   "chains": [
    130,
@@ -655,7 +655,7 @@
  },
  "B_k91": {
   "set": "B",
-  "label": "statute band, \u00b125% (Amendment 20, set 1)",
+  "label": "statute band, \u00b125% (Amendment 5, Part 14)",
   "k": 91,
   "chains": [
    230,
@@ -861,7 +861,7 @@
  },
  "C_k89": {
   "set": "C",
-  "label": "municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21)",
+  "label": "municipality-aware, W = 0.5 (Amendment 5, Part 14)",
   "k": 89,
   "chains": [
    140,
@@ -1085,7 +1085,7 @@
  },
  "C_k91": {
   "set": "C",
-  "label": "municipality-aware, W = 0.5 (Amendment 20 set 2; Amendment 21)",
+  "label": "municipality-aware, W = 0.5 (Amendment 5, Part 14)",
   "k": 91,
   "chains": [
    241,
@@ -1251,7 +1251,7 @@
  },
  "D_k89": {
   "set": "D",
-  "label": "s.15(2), Amendment 23 rule (Amendment 20 set 3)",
+  "label": "s.15(2), Amendment 5, Part 15 rule (Part 14)",
   "k": 89,
   "chains": [
    150,
@@ -1475,7 +1475,7 @@
  },
  "D_k91": {
   "set": "D",
-  "label": "s.15(2), Amendment 23 rule (Amendment 20 set 3)",
+  "label": "s.15(2), Amendment 5, Part 15 rule (Part 14)",
   "k": 91,
   "chains": [
    251,

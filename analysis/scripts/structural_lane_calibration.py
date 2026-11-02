@@ -5,12 +5,17 @@ structural_lane_calibration.py
 ------------------------------
 
 How often the November spec's two lanes fire on neutral maps. Calibration
-only; it changes no registered rule (Amendment 24 keeps the 2x2 verdict).
+only; it changes no registered rule (Amendment 5, Part 14 keeps the 2x2
+verdict).
 
-Neutral maps: 91-district plans from set D (s.15(2), Amendment 23 rule),
-sampled by calibration chains 290-293 with the production set-D options
-(sampler: close_seats_ensemble.py at amendment17-local-runs@2994113c), 10,000
-burn-in steps, then one plan every 2,500 steps.
+Neutral maps, sampled with close_seats_ensemble.py at
+amendment17-local-runs@2994113c, 10,000 burn-in steps, then one plan every
+2,500 steps:
+  91 districts  set D (s.15(2), Amendment 5, Part 15 rule), chains 290-293,
+                production set-D options
+  87 districts  canonical kernel, chains 300-303 (run on the PC)
+The script scores whatever plans --plans holds; label each run's output by
+the chains that made it.
 
   structural  run_structural_battery.py on each plan, exactly as registered,
               with the plan's districts dissolved from the VA polygons. S6 is
@@ -146,7 +151,7 @@ def main(a):
         if idx not in chains:
             chains[idx] = pd.read_csv(Path(a.plans) / f"chain{idx}.csv", usecols=PARTISAN)
         gpkg = work / f"{p.stem}.gpkg"
-        labels = write_plan_gpkg(json.loads(p.read_text()), va, gpkg)
+        labels = write_plan_gpkg(json.loads(p.read_text(encoding="utf-8")), va, gpkg)
         pf, present = partisan_flags(chains[idx].iloc[done - 1], srt)
         meta[p.stem] = {"chain": idx, "step": done, "s6_geometric": s6_geometric(labels, va),
                         "partisan_flags": pf, "partisan_present": present}
@@ -159,7 +164,7 @@ def main(a):
                 print(f"battery failed: {out.name}: {err}", flush=True)
     rows = []
     for stem, m in meta.items():
-        b = json.loads((work / f"{stem}_battery.json").read_text())
+        b = json.loads((work / f"{stem}_battery.json").read_text(encoding="utf-8"))
         met = b["metrics"]
         flags = {k: bool(v.get("flag")) for k, v in met.items()}
         reg = sum(flags.get(k, False) for k in ("S1_population_mad", "S2_municipal_split_count",
@@ -187,8 +192,8 @@ def main(a):
            "both_lanes_registered": rate(df["structural_registered_replicated"] & df["partisan_present"]),
            "both_lanes_geometric_s6": rate(df["structural_geometric_replicated"] & df["partisan_present"]),
            "plans": rows}
-    Path(a.out_json).write_text(json.dumps(res, indent=1, default=str))
-    Path(a.out_md).write_text(render(res))
+    Path(a.out_json).write_text(json.dumps(res, indent=1, default=str), encoding="utf-8")
+    Path(a.out_md).write_text(render(res), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "plans"}, indent=1, default=str))
 
 

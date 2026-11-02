@@ -5,7 +5,7 @@
   },
   "outputs/simulated_ensemble_percentiles_canonical.csv": {
     "sha256": "c5268501acdbeaef1c1a1987e4dc36b43af2853fb9ec4c9f7c768cc535123845",
-    "description": "MCMC ensemble percentile table (canonical shapefiles; 2026-07-12 clean rerun, Amendment 15 / C10)"
+    "description": "MCMC ensemble percentile table (canonical shapefiles; 2026-07-12 clean rerun, Amendment 5, Part 1 / C10)"
   },
   "outputs/simulation_real_map_scores_canonical.json": {
     "sha256": "5f84dbef456292cb3ab123b707de7eba10d60ac1bd77eb7a1c4868e94e938735",
@@ -13,7 +13,7 @@
   },
   "outputs/simulation_convergence_diagnostics_canonical.json": {
     "sha256": "fe02a9e16910392c8272409ce8bc2a2a1f4ec6698dfb37863da382509f22e3a4",
-    "description": "MCMC convergence diagnostics (Gelman-Rubin, ESS; 2026-07-12 clean rerun, Amendment 15 / C10)"
+    "description": "MCMC convergence diagnostics (Gelman-Rubin, ESS; 2026-07-12 clean rerun, Amendment 5, Part 1 / C10)"
   },
   "outputs/phase4c_per_ed_votes_majority.csv": {
     "sha256": "23ae1ce79b5689dc6ec51924e0346b640f869bc592c438012f465d06d07ec8eb",

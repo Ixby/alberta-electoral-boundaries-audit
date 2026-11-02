@@ -496,7 +496,7 @@ paragraph. Word count ~285.
 > is excluded from the comparator distribution used to position it
 > (an earlier version of this paper reported a "71st percentile"
 > placement against an n=7 distribution that included Alberta
-> 2025-26; that claim was circular and has been retracted). Against
+> 2025-26; that claim was circular and is not made). Against
 > the n=6 comparator, four cycles (Federal-AB 2022, BC 2023,
 > Saskatchewan 2022, Alberta 2010) produce zero inter-map
 > projected-winner asymmetry; two produce non-zero asymmetry —

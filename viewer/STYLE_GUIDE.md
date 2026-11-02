@@ -6,7 +6,9 @@ here conflicts with something in the code, the code should be brought to the
 rule (see **Known inconsistencies** at the end).
 
 > Scope: the SvelteKit viewer (`viewer/`) — the public report homepage, the map
-> explorer, and the satellite routes (feedback, privacy, law, methods).
+> explorer, and the satellite routes (feedback, privacy, law, methods). The
+> editorial voice (§4) also governs the public report, the README, the findings
+> brief and the plain-language defense.
 
 ---
 
@@ -101,15 +103,59 @@ Dark mode rides on the global `:root[data-theme="dark"]` attribute.
 
 ## 4. Editorial voice
 
-- Public report targets **Flesch–Kincaid grade 11** (overrides any higher
-  default). Academic report targets ≤ grade 13.
-- Plain, grounded prose. **No templated triads, no mirrored reversals, no emoji.**
-- **No verdict** on whether a map "is a gerrymander" — describe the statistical
-  position and the Charter s.3 / EBCA framing; let readers draw legal
-  conclusions. "Gerrymander" has no legal definition in Canada.
-- Every claim, number, quote, and citation is verified against a primary source
-  before it is written (the grounding standard). Retracted findings move to the
-  DOCUMENTED CORRECTIONS box — never deleted silently.
+Applies to the site's English copy, the public report, the README, the findings
+brief and the plain-language defense. The academic report keeps its own grade
+target. These are the author's voice rules; they are kept current: each voice
+correction the author gives is added here as a rule, in the same commit as the
+prose it changes.
+
+- **Teach.** Write for a reader with little domain knowledge and walk them
+  through, so that by the end they understand what happened, feel they learned
+  something, and see why it matters to them. Explain a load-bearing term in
+  plain words where it first appears. The stakes come from true consequences
+  for the reader's vote and community, never from outrage or villains.
+- **Write on a beat.** Good prose here is lyrical, musical, rhythmic, and it
+  reads well aloud. The music comes from cadence in plain words, not from
+  ornate ones. Vary sentence length to set the beat; let a long stacked list run
+  when its weight is the point; use a refrain or repetition where it carries the
+  rhythm; land endings on one or two words.
+- **The beat never bends a fact.** Every item in a rhythmic list is true and
+  sourced. Never add an item to finish a beat, and never round a number to make
+  a line scan.
+- **Plain words, exact names.** Everyday words; a technical term only where it
+  is the working norm (riding, gerrymandering, cracking, packing). Call a thing
+  what it is. No label that dresses a finding up or blurs it ("tidy",
+  "disciplined", "neutral" left unexplained). Public text targets
+  Flesch–Kincaid grade 11; academic, grade 13 or less.
+- **Numbers that never lie.** Every number is tied to a named source, and a
+  question is settled by pointing at the primary document. Walk the reader
+  through the arithmetic step by step. Show size as a concrete comparison where
+  one is true and exact, not only as a ratio.
+- **Hedge only real doubt.** State what is known flatly. Where something is
+  uncertain, say so in the same sentence, in plain words; "I don't know" can
+  stand alone. A one-line scope caveat is fine; a defensive paragraph is not.
+- **Person.** "I" for the author's own judgement and decisions; "we" for the
+  project's commitments; "you" for the reader.
+- **Argument shape** for a longer section: a question, answered at once; the
+  claim, stated flatly; the reader's likely objection, voiced and answered; one
+  concrete example; a short line to close. A plain statement followed by one
+  short line that lands is the signature move.
+- **What, why, what it affects.** Say what is claimed, why, and what it
+  changes. Don't repeat what the page already says.
+- **A finding has to earn its place.** Report what the data show, not what we'd
+  like them to show. Keep underdog or villain framing out of findings.
+- **Own failures plainly.** In corrections, say what was wrong, why, and what
+  replaced it, without padding.
+- **Reversals** ("not X but Y") only when the contrast is the point.
+- **Suppress.** Praise openers, sign-offs, templated triads, "it's worth
+  noting", emoji, filler summaries.
+- **No verdict** on whether a map "is a gerrymander"; "gerrymander" has no
+  legal definition in Canada. Describe the evidence and the Charter s.3 / EBCA
+  framing; readers draw legal conclusions.
+- **Grounding.** Every claim, number, quote and citation is verified against a
+  primary source before it is written. Retracted findings move to the
+  DOCUMENTED CORRECTIONS ledger, never deleted silently.
+- **Accessibility is not optional.**
 
 ---
 

@@ -171,26 +171,6 @@
   });
 </script>
 
-<!-- Lane 1 (statistical / neutral-ensemble) sections — §3 (litmus) and §6 (clean
-     gerrymanders) — are shown in full but framed as preliminary pending an
-     independent expert review. The banner frames review *status* only; it makes
-     no claim about the findings and is distinct from the hero's draft notice. -->
-{#snippet preliminaryBanner()}
-  <aside class="prelim-banner" role="note" aria-label={t(lang.current, 'body.preliminary.heading')}>
-    <svg class="prelim-ico" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="10.5" cy="10.5" r="6.4" />
-      <line x1="15.2" y1="15.2" x2="20.5" y2="20.5" />
-      <polyline points="7.8,10.6 9.7,12.5 13.4,8.4" />
-    </svg>
-    <div class="prelim-text">
-      <span class="prelim-badge">{t(lang.current, 'body.preliminary.badge')}</span>
-      <p class="prelim-heading">{t(lang.current, 'body.preliminary.heading')}</p>
-      <p class="prelim-body">{t(lang.current, 'body.preliminary.body')}</p>
-    </div>
-  </aside>
-{/snippet}
-
-
 <div class="hero">
   <div class="header-inner">
     <div class="header-text">
@@ -470,26 +450,26 @@
 
     <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_academic')}</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
-      <li style="margin-bottom: 0.5rem;"><strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> "Recombination: A Family of Markov Chains for Redistricting." <em>Harvard Data Science Review</em> 3(1). (The ReCom algorithm used to generate the 1,010,000-map ensemble.)</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Gelman, Andrew, and Gary King. 1994.</strong> "A Unified Method of Evaluating Electoral Systems and Redistricting Plans." <em>American Journal of Political Science</em> 38(2): 514–554.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies." <em>American Political Science Review</em> 114(1): 164–178.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Pal, Michael. 2015.</strong> "The Fractured Right to Vote." <em>McGill Law Journal</em> 61(2): 231–274. (Canadian constitutional framework for electoral boundaries.)</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2015.</strong> "Partisan Gerrymandering and the Efficiency Gap." <em>University of Chicago Law Review</em> 82(2): 831–900. (Source of the efficiency gap measure used throughout.)</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.commission_2026')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.chen_rodden_2013')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.courtney_2001')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.deford_duchin_solomon_2021')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.gelman_king_1994')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.katz_king_rosenblatt_2020')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.pal_2015')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.academic.stephanopoulos_mcghee_2015')}</li>
     </ul>
 
     <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_cases')}</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
-      <li style="margin-bottom: 0.5rem;"><em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (The leading Supreme Court of Canada authority on the constitutional standard for electoral boundary drawing.)</li>
-      <li style="margin-bottom: 0.5rem;"><em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679. (Federal Court; leading Canadian authority on community-of-interest evidence in electoral boundary disputes.)</li>
-      <li style="margin-bottom: 0.5rem;"><em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; establishes the non-justiciability of partisan gerrymandering claims in federal courts — context for why Canada's s.3 effective-representation standard differs.)</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.cases.saskatchewan_reference')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.cases.raiche')}</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.cases.rucho')}</li>
     </ul>
 
     <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_statutes')}</h3>
     <ul style="margin: 0 0 0.5rem 1.4rem; line-height: 1.7;">
-      <li style="margin-bottom: 0.5rem;"><em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.</li>
+      <li style="margin-bottom: 0.5rem;">{@html t(lang.current, 'pages.home.references.statutes.ebca')}</li>
     </ul>
   </section>
 
@@ -536,11 +516,11 @@
     </p>
   </section>
 
-  {#if lang.current !== 'en' && lang.current !== 'fr'}
+  {#if lang.current !== 'en'}
     <!-- Rendered only on machine-translated versions — sits under About me so the
          translation provenance reads as part of the audit's transparency
-         apparatus, alongside the author's own disclosure. English is the source;
-         French has had a native-speaker review, so neither shows this notice. -->
+         apparatus, alongside the author's own disclosure. English is the source,
+         so it shows no notice; French is now mostly machine-translated, so it does. -->
     <section id="about-translation">
       <h2>{t(lang.current, 'body.translation_about.heading')}</h2>
       <p style="font-size:0.9rem; color:var(--text-muted);">

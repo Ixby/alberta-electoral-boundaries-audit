@@ -2,7 +2,7 @@
 > - `analysis/scripts/structural_lane_calibration.py` — produces every number here
 > - `data/outputs/structural_lane_calibration_2026-10-31.json` — per-plan results
 > - `analysis/scripts/run_structural_battery.py`, `preregistration/november_2026_scoring_spec.md` §3 — the registered lanes
-> - `findings/pre_registration_amendment_log.md` — Amendments 9, 23 and 24
+> - `findings/pre_registration_amendment_log.md` — Amendment 5, Parts 7, 14 and 15
 >
 > **Forward:**
 > - the November verdict write-up reports these rates beside the 2×2
@@ -13,13 +13,13 @@
 
 ## Summary
 
-On 200 neutral 91-district maps drawn under the statute's rules (set D, the primary size-matched set under Amendment 24):
+On 200 neutral 91-district maps drawn under the statute's rules (set D, the primary size-matched set under Amendment 5, Part 14):
 
 - **The structural lane says "replicated" on nearly all of them.** That's 93.5% with the registered battery, where S6 cannot fire on unnamed maps, and 100% with a geometric stand-in for S6.
 - **The partisan lane says "present" on 8.5%.**
 - **Both lanes fire on 7.5%.**
 
-The structural lane's thresholds sit midway between the majority and minority commission maps (Amendment 9). Both commission maps follow municipal lines and balance populations more tightly than neutral maps do, so neutral maps land on the minority side of the midpoint. Three flags fire on almost every neutral plan:
+The structural lane's thresholds sit midway between the majority and minority commission maps (Amendment 5, Part 7). Both commission maps follow municipal lines and balance populations more tightly than neutral maps do, so neutral maps land on the minority side of the midpoint. Three flags fire on almost every neutral plan:
 
 - **S1, population spread:** 100%.
 - **S3, municipal anchoring:** 100%.
@@ -38,7 +38,7 @@ These rates are reported beside the registered verdict. They don't replace it.
 
 ## What was run
 
-- **Plans.** Four calibration chains (290, 291, 293, 295; 292 and 294 failed to seed) were run with the production set-D sampler (`close_seats_ensemble.py` at `amendment17-local-runs@2994113c`) and the Amendment 23 criteria table. After a 10,000-step burn-in, one plan was kept every 2,500 steps, 50 per chain, 200 in all.
+- **Plans.** Four calibration chains (290, 291, 293, 295; 292 and 294 failed to seed) were run with the production set-D sampler (`close_seats_ensemble.py` at `amendment17-local-runs@2994113c`) and the Amendment 5, Part 15 criteria table. After a 10,000-step burn-in, one plan was kept every 2,500 steps, 50 per chain, 200 in all.
 - **Structural lane.** `run_structural_battery.py` was run exactly as registered, on each plan's districts dissolved from the VA polygons. S6 is name-based: it reads district names such as "Airdrie" or "Cochrane" with "Calgary", so it cannot fire on unnamed plans. The registered count is therefore a lower bound. A geometric stand-in replaces names with where each place's people fall:
   - P1 and P5: Airdrie or Red Deer split into 3 or more districts, counting a district when it holds at least 2% of the city's people.
   - P2 to P4: a district with at least 10% of its people in each of Calgary and Cochrane, Chestermere or Rocky View County.
@@ -69,5 +69,5 @@ These rates are reported beside the registered verdict. They don't replace it.
 ## Limits
 
 - **The intervals are too narrow.** Plans 2,500 steps apart in one chain are not independent, and the intervals assume they are.
-- **Only set D is measured.** Sets A (±12.5%) and C (municipality-aware) would lower S1 and S2–S3 respectively. Set D is used because Amendment 24 makes it primary.
+- **Only set D is measured.** Sets A (±12.5%) and C (municipality-aware) would lower S1 and S2–S3 respectively. Set D is used because Amendment 5, Part 14 makes it primary.
 - **The S6 stand-in is this audit's construction,** including its 10% cut. The registered S6 cannot be computed on unnamed maps.
