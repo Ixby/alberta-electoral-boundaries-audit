@@ -6,7 +6,12 @@ changes none of it. It gives the commands that run it, plus three supplementary 
 labelled as such wherever they appear.
 
 Dry-run on 2026-10-30, end to end, on `proposals/lunty_dry_run/synthetic_neutral_91_test_input.gpkg`
-(a random 91-district plan, not a prediction). Every step below ran and exited 0.
+(a random 91-district plan, not a prediction). Every step below ran and exited 0. A second dry run
+on master `45cb1d27` matched it.
+
+Scripts that record their runs (for example `joint_outlier_score.py`) append a line to
+`data/outputs/script_run_audit.jsonl`, a tracked file, so the working tree shows it changed after
+the runs. That is expected. Commit it with the results; it is the record of what ran and when.
 
 ## 0. Ingest
 
@@ -91,6 +96,11 @@ The candidate key is the map file's stem. A map whose district count has no neut
 error. Check: a copy of the minority map given as a candidate reproduces `minority_2026`'s
 placements in every 89-district set.
 
+Expect most cells to print "provisional". Under Amendment 5, Part 16, a result is final only when
+its effective sample size, summed over chains, reaches 400 and no chain's lag cap bound; otherwise
+it is reported as provisional, with its effective sample size. In the dry run on master `45cb1d27`,
+only population MAD at 91 districts was final. Report each cell as the script labels it.
+
 ## 4. Supplementary: EBCA population rules
 
 This is descriptive, not a registered test.
@@ -160,7 +170,7 @@ population spread is below every neutral plan in sets B, C and D (MAD p0.0). The
 mismatch did not produce its flags. An earlier version of this note suggested it did; that was
 wrong.
 
-The measured rate is in `findings/size_matched_results_2026-10-30.md` (Audit's branch): neutral
+The measured rate is in `findings/size_matched_results_2026-10-30.md`: neutral
 plans from sets A-D, scored by the registered P1-P4 rule against the canonical ensemble, fire the
 partisan lane 4.8-8.3% of the time. The structural lane's rate on neutral plans is not yet
 measured.
