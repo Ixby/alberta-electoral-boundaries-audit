@@ -20,6 +20,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 | `legislature/votes_proceedings_2026-04-21.pdf` | Votes and Proceedings, 2026-04-21: Government Motion 37 agreed to | https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_31/session_2/20260421_1200_01_vp.pdf | 2026-11-02 16:05 MST |
 | `hansard/alberta_hansard_2026-04-21_afternoon.pdf` | Alberta Hansard, 2026-04-21 afternoon; 40 pages | https://docs.assembly.ab.ca/LADDAR_files/docs/hansards/han/legislature_31/session_2/20260421_1330_01_han.pdf | 2026-11-02 16:06 MST |
 | `elections_alberta/ea_maps_page_2026-11-02.html` | Elections Alberta "Maps" page, as served | https://www.elections.ab.ca/resources/maps/ | 2026-11-02 16:12 MST |
+| `correspondence/elections_alberta_gis_2026-10-28.md` | Email exchange with Elections Alberta's Geomatics Team Lead on shapefiles for the new boundaries; contact details removed | provided by the author | 2026-11-02 |
 
 Full hashes:
 
@@ -110,7 +111,7 @@ Checked 2026-11-02 against the files above. The question: is there a written sou
   - The report is image-only, so it could not be searched. Pages read: 1–5, 41–42, 73–74, 79, 81, 91–94, 97, 101, 103–104, 109–110, 113–115 and 205–206.
 - **Elections Alberta's maps page** (`elections_alberta/ea_maps_page_2026-11-02.html`). It offers "Shapefiles of our electoral division and voting area boundaries for use with mapping software" for the current divisions, plus the 2026 voting-area file. It says nothing about when new boundaries will be published, or whether proposed boundaries ever are.
 - **The earlier committee transcripts** (May 4, May 12, June 2, June 9 and June 30, 2026; not archived here). The only mention of GIS is the LAO's cost estimate for the panel, which includes "GIS staff necessary to produce maps" (May 12).
-- **The author's own correspondence.** No correspondence with Elections Alberta GIS or the Assembly about the panel's map or shapefiles was found on the author's computer. The only Elections Alberta correspondence found is from May 2026, about advance votes and the commission's maps.
+- **The author's own correspondence.** No correspondence with Elections Alberta GIS or the Assembly about the panel's map or shapefiles was found on the author's computer. The only Elections Alberta correspondence found is from May 2026, about advance votes and the commission's maps. The author then provided an email exchange of 2026-10-28 with Elections Alberta's Geomatics Team Lead, from another account; it is archived as `correspondence/elections_alberta_gis_2026-10-28.md`.
 
 **Result:** no written source found in these records supports the statement that "provisional and working information will not be provided to the public … we will only get the official shape files". The records show three things:
 - the panel's report was kept from the public until tabling;
@@ -118,6 +119,10 @@ Checked 2026-11-02 against the files above. The question: is there a written sou
 - Elections Alberta publishes boundary shapefiles for the divisions in force.
 
 The statement may rest on direct communication with Elections Alberta that is not in these records.
+
+## What each is relied on for: when official shapefiles are expected
+
+- `correspondence/elections_alberta_gis_2026-10-28.md`: Elections Alberta's Geomatics Team Lead, 2026-10-28: "The proposed ED boundaries are not set in bills yet. Once they are ready, the shp will be ready from our election website." No written source says shapefiles are withheld until Royal Assent, or that no interim shapefile will be published (see the section above). Amendment 7, Part 3 relies on this exchange.
 
 ## What each is relied on for: the Speaker
 

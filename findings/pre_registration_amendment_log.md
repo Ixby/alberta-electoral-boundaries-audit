@@ -32,7 +32,7 @@ type: project
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
 | 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 40 parts, grouped by registered document; mapping table at its end |
 | 2026-11-02 | Amendment 6 | The author asked who did the hostile review | Corrects Amendment 5, Part 5: the AI tools used and what each did |
-| 2026-11-02 | Amendment 7 | The map was published as scanned images only | Data lanes wait for the official shapefile; the process lane is graded now; P6 and P7 read against the Assembly; P8 erratum |
+| 2026-11-02 | Amendment 7 | The panel's map was published as images only, and the map can still change before it becomes law | The November map is scored in stages, on what each stage releases; numeric scores only on official shapefiles; P5, P6, P7 readings; P8 erratum |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -587,21 +587,35 @@ What Part 5 says about Claude is unchanged.
 
 ---
 
-## Amendment 7 — Scoring the November map when it is published as images only
+## Amendment 7 — Scoring the November map in stages, on what is released
 
-> **Status: draft, not filed.** Written 2026-11-02 (Alberta time), after the committee reported. It is to be filed as an update to registration 9wp5y once the author approves its text. No threshold changes.
+> **Status: draft, not filed.** Written 2026-11-02 (Alberta time), after the committee reported, from the committee's report, part of the panel's report and the October 28 transcript, and before any geometry of the panel's map existed or was scored. It is to be filed as an update to registration 9wp5y once the author approves its text. No threshold changes.
 
-**What happened.** The Select Special Committee reported on 2026-11-02. It adopted no map of its own: it acknowledged the Independent Advisory Panel's report and concluded its review. The map before the Legislative Assembly is therefore the panel's 91-district map. The panel's report is published only as a PDF of 150-dpi page images, with no text layer. Elections Alberta has published no shapefile. Its GIS staff hold a standing request from the author and have said they will send the files when they are posted.
+**What happened.** The Select Special Committee reported on 2026-11-02. It adopted no map of its own: it acknowledged the Independent Advisory Panel's report and concluded its review, saying "the appropriate forum to offer any comments or observations on the Report is the Legislative Assembly" (committee report, p. 11). The map before the Assembly is the panel's 91-district map. The panel's report is published only as a PDF of 150-dpi page images. Elections Alberta has published no shapefile. Its Geomatics Team Lead wrote to the author on 2026-10-28: "The proposed ED boundaries are not set in bills yet. Once they are ready, the shp will be ready from our election website" (`evidence/correspondence/elections_alberta_gis_2026-10-28.md`).
 
-**Part 1 — Which map is scored.** The scoring specification scores "the committee's final map". Since the committee adopted none, the map scored is the panel's map, the one before the Assembly. This is a reading of the specification; it changes no test.
+**Part 1 — The map is scored in stages, and only on what is released.** The panel's report sets out what follows it (pp. 109–110). The Assembly may accept, reject or alter the proposals by resolution; the Government then introduces a bill, which goes through the normal legislative process and may be amended. The stages are:
+1. the panel's report, tabled 2026-11-02;
+2. the Assembly's resolution;
+3. the bill as introduced;
+4. each amendment to the bill;
+5. the bill as passed (Royal Assent).
 
-**Part 2 — The data lanes wait for the official shapefile.** Specification §2 says that if only PDF or image releases are available within 72 hours, the audit applies the DPG-construction protocol and reports that scoring as provisional. The audit does not apply it to this map.
-- *Why.* The April reconstruction, built from sharper images, carried boundary errors of about 500 m and area errors above 100% on some hybrid districts. Its headline seats figure moved from 52.8% to 48.31% once the official files arrived. A reconstruction from 150-dpi pages would be coarser, and a provisional reading built on it would invite the same challenges.
-- *What happens instead.* The partisan and structural lanes, X1 and the size-matched comparison are scored on the official shapefile, within 72 hours of the audit receiving it. That scoring is the headline, as §2 already provides. Until the shapefile arrives, the audit publishes no partisan or structural reading of the map.
-- *What is published within 72 hours of the map's publication.* The process lane (Part 3), and the population facts the panel's own table states (district populations and their deviations from the average), with no geometry.
+The audit grades only what is released to the public at each stage. A stage that releases nothing gets no grade, and the record says so, with the date checked. A stage is graded only on what it releases. A change between two stages is reported only when both versions are public. The stage record is `findings/map_stages.md`, with each source archived in `evidence/` with its SHA-256.
 
-**Part 3 — The process lane is graded now.** The Lane 3 process scorecard (`preregistration/lane3_process_scorecard_draft.md`; OSF u47bq) is scored from documents. Its cells P5 and P8 were pending until the committee reported. They are graded from the committee's report and the panel's report, with the page cited for each.
+**Part 2 — Which map is scored.** The scoring specification scores "the committee's final map". The committee adopted none. Each stage's map is scored as that stage releases it. The headline is the map in the bill as passed.
 
-**Part 4 — P6 and P7: the body whose vote settles the map.** Amendment 5, Part 25 reads P6 against the committee, as the body whose vote settles the map. The committee adopted no map. The map becomes law only if the Legislative Assembly passes it. P6 and P7 are therefore read against the Legislative Assembly for the committee process. The cells' definitions are unchanged.
+**Part 3 — Numeric scores only on official shapefiles.** The partisan lane, the structural lane, X1 and the size-matched comparison are scored only on official shapefiles, each within 72 hours of its release. Elections Alberta expects to publish them once the boundaries are set in a bill. The specification's §2 fallback (score a reconstruction from PDF or images, reported as provisional) is withdrawn for every stage.
+- *Why.* Those tests need each voting area's district exactly. The registered validation of the April reconstructions (OSF w2s8k) measured, for the image-based reconstruction against the official shapefiles: mean overlap with the true district (IoU) 38% and 36%; 29% and 33% of voting areas in the wrong district; mean area error about 41% and 43%; mean boundary displacement about 19 and 23 km; and efficiency-gap error 0.55 and 3.89 points (majority and minority). The partisan thresholds sit within that error; P1's is +4.10%. The panel's images are coarser than those were.
 
-**Part 5 — Erratum in the scorecard (P8, commission column).** The registered text says the audit "found five of six failed independent check". The current count (academic report §5.9.6) is: two of six fail on population arithmetic, two hold in part, one was not tested on the minority's stated grounds, and one is withdrawn. The cell stays Yes; it scores publication, not accuracy.
+**Part 4 — What each stage gets without geometry.** Within 72 hours of a stage's release:
+- the process lane (Lane 3 scorecard, OSF u47bq), graded from the published documents, with the page cited for each cell;
+- the population table the stage itself publishes (district populations and deviations from the average), with any arithmetic check;
+- counts read from the published maps and district names: which cities and towns are split, and into how many districts. These are labelled as counts read from the published maps, not geometric scores.
+
+**Part 5 — Readings of the process-lane cells.**
+- *P5.* Graded under its registered rule: "structurally foreclosed if P2–P4 remain No". Any boundary change the record credits to input outside a public process is reported beside the grade, not as part of it.
+- *P6 and P7.* Amendment 5, Part 25 reads them against the committee, as the body whose vote settles the map. The committee adopted no map; the map becomes law only through the Assembly's resolution and bill. P6 and P7 are read against the Legislative Assembly, which the Speaker chairs. The cells' definitions are unchanged.
+
+**Part 6 — Erratum in the scorecard (P8, commission column).** The registered text says the audit "found five of six failed independent check". The current count (academic report §5.9.6) is: two of six fail on population arithmetic, two hold in part, one was not tested on the minority's stated grounds, and one is withdrawn. The cell stays Yes; it scores publication, not accuracy.
+
+**Part 7 — When the first stage's clock starts.** The panel's report was confidential until tabled (committee report, p. 11), and archived copies of the committee's page first link it on 2026-11-02. The 72-hour clock for stage 1 starts at 07:38 MST on 2026-11-02, when the committee's report was created, the earliest plausible tabling time, unless the Assembly's record gives an earlier one. The November drand round (Amendment 5, Part 4) is a round at or after that time, committed before any scoring run.
