@@ -559,7 +559,7 @@ The entries that made these changes all record that they were signed before the 
 
 ## Amendment 6 — Correction to Amendment 5, Part 5 (the AI tools)
 
-> **Status: draft, not filed.** Written 2026-11-02 (Alberta time), after the author asked who did the hostile review. It is to be filed as an update to registration 9wp5y once the author approves its text. No test, threshold or finding changes.
+> **Status: in force.** Written 2026-11-02 (Alberta time), after the author asked who did the hostile review, and signed the same day on the author's approval of its text, given in the CLI session ("Go"). It is filed as an update to registration 9wp5y. No test, threshold or finding changes.
 
 **What was checked.** On 2026-11-02, read-only:
 - the author's computer: the Codex extension's session logs (`~/.codex`), the Gemini CLI's chat logs and the Antigravity IDE's conversation index (`~/.gemini`), and the Downloads and Documents folders;
@@ -580,3 +580,6 @@ Web use of ChatGPT, Codex cloud, Gemini and Kimi leaves no record on the compute
 - **Who did the hostile review.** The author recalls Codex doing it. The computer holds no record of that. The records show adversarial reviews by Gemini (2026-04-23 to 04-26) and Kimi (2026-04-27). The author's web history, which was not checked, could settle it.
 
 What Part 5 says about Claude is unchanged.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-11-02 (Alberta time)
