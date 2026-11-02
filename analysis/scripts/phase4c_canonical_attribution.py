@@ -28,6 +28,19 @@ data/outputs/phase4c_per_ed_votes_majority.csv   per-ED vote totals (majority)
 data/outputs/phase4c_per_ed_votes_minority.csv   per-ED vote totals (minority)
 data/outputs/phase4c_canonical_results.json      metric summary (EG, MM, d, s50)
 
+Candidate map (November spec section 7, step 2)
+-----------------------------------------------
+  python analysis/scripts/phase4c_canonical_attribution.py       --majority data/shapefiles/lunty/lunty_2026_eds.gpkg       --output data/outputs/lunty_phase4c_results.json [--map-key lunty_2026] [--name-col COL]
+
+With --majority, the given map is scored instead of the two commission maps,
+with mcmc_ensemble.score_exogenous_map(): the function that scored the
+commission maps for simulation_real_map_scores_canonical.json, on the same VA
+substrate, representative-point attribution and metric conventions as the
+canonical ensemble (positive = UCP direction for all four metrics). The
+output has that file's schema ({map_key: metrics}), which is what
+joint_outlier_score_canonical.py --real-scores reads. The no-argument run
+is unchanged.
+
 Backward:
   data/shapefiles/canonical/va_2023_election_day_votes.gpkg
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg
@@ -287,5 +300,43 @@ def main() -> None:
     print(f"Total elapsed: {time.time()-t0:.1f}s")
 
 
+def score_candidate(path: Path, output: Path, map_key: str, name_col: str) -> None:
+    """Score one map with the canonical ensemble's own scorer and write {map_key: metrics}."""
+    sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+    sys.path.insert(0, str(ROOT / "analysis" / "utils"))
+    import mcmc_ensemble as me
+
+    if not path.exists():
+        sys.exit(f"ERROR: {path} not found.")
+    va, _ = me.build_va_graph(verbose=False)
+    m = me.score_exogenous_map(va, path, id_col=name_col)
+    if m["coverage_pct"] < 0.98:
+        sys.exit(f"ERROR: only {m['coverage_pct']:.2%} of VAs fall inside the map's polygons; "
+                 f"check the file and --name-col before scoring.")
+    out = {map_key: m, f"{map_key}_source": path.name, "name_col": name_col,
+           "scorer": "mcmc_ensemble.score_exogenous_map (canonical ensemble conventions)"}
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(out, indent=2, default=float), encoding="utf-8")
+    print(f"{map_key}: {m['n_districts']} districts, coverage {m['coverage_pct']:.2%}; "
+          f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
+          f"declination={m['declination']:+.4f}  seats@50={m['seats_at_50_50']:.4f}")
+    print(f"-> {output}")
+
+
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Phase 4C attribution; with --majority, score one candidate map.")
+    ap.add_argument("--majority", type=Path, help="candidate map (.gpkg/.shp); the November spec's flag name")
+    ap.add_argument("--output", type=Path, help="candidate scores JSON (required with --majority)")
+    ap.add_argument("--map-key", default="lunty_2026")
+    ap.add_argument("--name-col", default="EDName2025")
+    a = ap.parse_args()
+    if a.majority:
+        if not a.output:
+            sys.exit("ERROR: --output is required with --majority.")
+        score_candidate(a.majority, a.output, a.map_key, a.name_col)
+    elif a.output:
+        sys.exit("ERROR: --output given without --majority; the no-argument run writes its fixed outputs.")
+    else:
+        main()
