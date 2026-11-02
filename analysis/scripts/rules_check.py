@@ -9,7 +9,7 @@ s.15(1) (within 25% of the average) and s.15(2) (up to 4 divisions as much
 as 50% below the average, each meeting at least 3 of criteria (a)-(e)).
 
 SUPPLEMENTARY. Not a registered November test (those are in
-preregistration/november_2026_scoring_spec.md and Amendments 16-17). It
+preregistration/november_2026_scoring_spec.md and Amendment 5, Parts 13-17). It
 reports what the map does against the Act's numbers; it gives no verdict.
 The Act's s.15 rules are addressed to the Commission; whether they bind a
 legislative committee depends on the motion that created it.
@@ -24,7 +24,7 @@ on the overlay alone it is listed as "overlay only".
 
 Criteria. (a)-(e) are scored with s15_2_criteria.criteria() on the per-VA
 table given by --table (default data/outputs/s15_2_va_criteria.csv). The
-table in force for set D is the Amendment 23 table, SHA-256 48c928b8...2fafc;
+table in force for set D is the Amendment 5, Part 15 table, SHA-256 48c928b8...2fafc;
 any other table is reported as such.
 
 Usage
@@ -191,7 +191,7 @@ def main():
 
     print(f"{a.label}: {summary['districts']} districts, overlay average {summary['average_pop_overlay']:,}; "
           f"deviation {summary['dev_range_overlay_pct'][0]:+.1f}% to {summary['dev_range_overlay_pct'][1]:+.1f}% (overlay)")
-    print(f"criteria table {sha[:12]}{'' if summary['table_is_a23'] else '  (NOT the Amendment 23 table)'}; "
+    print(f"criteria table {sha[:12]}{'' if summary['table_is_a23'] else '  (NOT the Amendment 5, Part 15 table)'}; "
           f"population basis: {'overlay and stated' if summary['stated_populations'] else 'overlay only'}")
     if summary["stated_populations"]:
         lo, hi = summary["dev_range_stated_pct"]

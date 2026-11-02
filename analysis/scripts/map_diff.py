@@ -14,7 +14,7 @@ For every district of map B: the district of map A it takes the most
 population from, the share of B's population that comes from it, and the
 share of that A district's population that B keeps. A B district is
 "unchanged" from its A match when both shares are at least 99%, the rule
-Amendment 17 uses for X1 (a) and (b). Population is the VA-level 2021 census
+Amendment 5, Part 13 uses for X1 (a) and (b). Population is the VA-level 2021 census
 overlay (graph attribute pop_2021); VAs are attributed by representative
 point, as in score_x1.py.
 
