@@ -15,9 +15,26 @@ the runs. That is expected. Commit it with the results; it is the record of what
 
 ## 0. Ingest
 
-- Put the published file at `data/shapefiles/lunty/lunty_2026_eds.gpkg` and note its source URL,
-  download time and SHA-256 in the run log. Check which column holds district names. Every
-  command below defaults to `EDName2025`; pass `--name-col` if the name column is different.
+Check the published file and write the copy every later step reads:
+
+```bash
+python analysis/scripts/ingest_committee_map.py --src <downloaded file, or a .zip holding it> \
+  --url <source URL> --downloaded "2026-11-02 HH:MM MST" [--name-col <column>] [--dissolve]
+```
+
+- It writes `data/shapefiles/lunty/lunty_2026_eds.gpkg` with the district names copied to
+  `EDName2025`, so no later step needs `--name-col`. That matters for `run_structural_battery.py`,
+  which has no `--name-col` and would otherwise take the file's first column as the names.
+- It blocks (exit 1; the map is not written) on any of these: no coordinate system; a missing or
+  duplicate district name; invalid or empty geometry; districts overlapping by more than 0.1 km²;
+  a district that receives no voting area; 0.5% or more of the 2021 population outside every
+  district. Fix the cause, then rerun. Rows that share a name are one district in several parts:
+  rerun with `--dissolve`, which the log records.
+- It warns (exit 0) when it guessed the name column, and when the district count has no
+  neutral-map set (only 87, 89 and 91 have one, so step 3b stops by design). It also prints the
+  voting-area overlay's deviation range, which is not the official count.
+- `lunty_2026_eds.gpkg.ingest.json` records the source path, URL, download time, the SHA-256 of
+  every source file and of the output, the name column used, and every check. Commit it with the map.
 - If only a PDF is published, the spec's DPG protocol applies, and the results are provisional (spec §2).
 - If the report gives district populations, save them as `data/shapefiles/lunty/stated_populations.csv`
   (`district,population`) for step 4.
