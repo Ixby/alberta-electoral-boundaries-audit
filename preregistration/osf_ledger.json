@@ -117,13 +117,19 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "04b83e528393821fd226bc97f1e2d5bc1d51fe40bb50f6e15a39374baa41f929",
+   "responses_sha256": "08a82bf0d4cf8b312d38201625a4a1928317e528833785d1cd440c3a5dd54694",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
      "state": "approved",
      "submitted_utc": "2026-11-01T22:13:06.832180",
      "justification_head": "Amendment 5 (2026-11-01): the consolidated record of every change to this pre-re"
+    },
+    {
+     "id": "6ae88339b3b6e88d2bbde26b",
+     "state": "approved",
+     "submitted_utc": "2026-11-02T12:34:04.807383",
+     "justification_head": "Amendment 6 (2026-11-02): corrects Amendment 5, Part 5 (the AI tools used), and "
     }
    ],
    "files": {
@@ -233,6 +239,12 @@
    "registration": "9wp5y",
    "where": "update 6ae7b85d4c54dce4aebde274, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-01 22:13 UTC (3:13 PM MST), approved by the admin the same minute; text = the '## Amendment 5' section at commit ba877ed8, SHA-256 4502c33f...69b15. Pointer updates: qsgy8 6ae7b993643055fe12bde256, u47bq 6ae7b99a9af5821038b754e4, he53s 6ae7b9a0ff3176d612b754e8"
+  },
+  "6": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6ae88339b3b6e88d2bbde26b, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-02 12:34 UTC (5:34 AM MST), approved the same minute; text = the '## Amendment 6' section at commit b1f0848c, SHA-256 ef96aa71...085a47 (2,643 bytes); appended after Amendment 5"
   }
  },
  "acknowledged": [
