@@ -166,7 +166,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three AI tools were used (Claude, Gemini Pro, Codex). Claude also worked as a coding agent, running scripts at the author's direction. The author directed the work and approves what is published.
+**Assertion:** Four AI tools were used (Claude, Gemini, Kimi, Codex). Claude also worked as a coding agent, running scripts at the author's direction. The author directed the work and approves what is published.
 **Why?** Does using AI tools make the analysis less reliable?
 **Answer:** AI tools helped draft text, find inconsistencies, review code, write scripts and suggest analytical approaches. Claude sessions also wrote and ran scripts and fetched public documents at the author's direction, and the report says so. One part of the analysis does rest on AI output. The public-input scripts (report §5.9.4.6) send each submission and hearing comment to a Claude model, which labels it, and the counts of opposing and supporting comments in §5.9.4.6 and §5.9.4.7 come from those labels. A Claude vision model was also used to inspect the commission's map images (§5.8.1). The label counts were reconciled against the output files and compared with a keyword search of the same submissions. No person has yet scored the 60-item check sample, so the labels' accuracy has not been measured. Every other number was checked against the original data files and script output, many of the checks run by Claude sessions at the author's directions.
 

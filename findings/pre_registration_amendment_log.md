@@ -31,6 +31,7 @@ type: project
 | 2026-04-23 | Amendment 1 | Five corrections after initial upload | Urban-weight parameter corrections (C1–C4); AI toolstack disclosure (C5) |
 | 2026-04-27 | Amendment 4 | Final hardening | 250k ensemble locked; v0_9 topology; headline s50=48.31%@p98.5; drand seed pre-committed |
 | 2026-11-01 | Amendment 5 | Consolidation of every unfiled change (earlier entries 2, 3, 8–25, 27, 28) | 40 parts, grouped by registered document; mapping table at its end |
+| 2026-11-02 | Amendment 6 | The author asked who did the hostile review | Corrects Amendment 5, Part 5: the AI tools used and what each did |
 
 **Note on publication status (author's ruling, 2026-10-31; not an amendment).** The audit is unpublished until November 3, 2026. Entries in this log dated before then record draft revisions made while the audit was being prepared, not retractions of published claims. Where an entry says a claim was "retracted" or "withdrawn", it means the claim was removed from the draft before publication.
 
@@ -553,3 +554,29 @@ The entries that made these changes all record that they were signed before the 
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-11-01 (Alberta time)
+
+---
+
+## Amendment 6 — Correction to Amendment 5, Part 5 (the AI tools)
+
+> **Status: draft, not filed.** Written 2026-11-02 (Alberta time), after the author asked who did the hostile review. It is to be filed as an update to registration 9wp5y once the author approves its text. No test, threshold or finding changes.
+
+**What was checked.** On 2026-11-02, read-only:
+- the author's computer: the Codex extension's session logs (`~/.codex`), the Gemini CLI's chat logs and the Antigravity IDE's conversation index (`~/.gemini`), and the Downloads and Documents folders;
+- the repository's full commit history.
+
+Web use of ChatGPT, Codex cloud, Gemini and Kimi leaves no record on the computer and was not checked.
+
+**Part 5's list of the other tools is replaced by the following.**
+- **Gemini (Google)**, through the Gemini CLI and the Antigravity IDE, from 2026-04-23 to 2026-05-08:
+  - an evaluation of the academic paper (Gemini CLI, 2026-04-23);
+  - a red-team review of the audit, opened with "make sure the science is sound" (Antigravity, 2026-04-23);
+  - a code audit (2026-04-26; `analysis/review/external_audit_gemini.md`);
+  - code fixes written in response to a red-team review (commit `94700697`, 2026-04-26 23:40 MDT, which credits it as co-author).
+
+  Antigravity can run other models, and the model used in each of its sessions is not recorded on the computer. Part 5's "in five passes" is withdrawn: no record supports the count.
+- **Kimi AI (Moonshot AI)** audited the code on 2026-04-27. Its findings were fixed that morning, in commits `8933e648` ("fix adversarial AI audit findings", 09:41 MDT), `aa81bd20` ("resolve remaining Kimi AI audit findings", 09:58) and `d936a47a` ("resolve Kimi AI moderate findings", 10:30). No earlier disclosure named it.
+- **Codex (OpenAI)** checked the literature review's citations on 2026-05-06 (`analysis/methodology/reference/citation_verification.md`). An attempt at 09:18 MDT on 2026-04-27 to have it audit the repository failed before it produced anything; the model was not available on the author's plan. No other Codex use is recorded on the computer, so Part 5's "helped with scripting and data processing" is withdrawn.
+- **Who did the hostile review.** The author recalls Codex doing it. The computer holds no record of that. The records show adversarial reviews by Gemini (2026-04-23 to 04-26) and Kimi (2026-04-27). The author's web history, which was not checked, could settle it.
+
+What Part 5 says about Claude is unchanged.
