@@ -19,5 +19,5 @@ Times are Alberta time. Sources are archived in `evidence/` with their SHA-256.
 
 **Reconstruction (Amendment 7, Part 3):**
 - Step A, matching the panel's districts to the commission's, is done (`findings/iap_unchanged_districts.md`).
-- Step B, the calibration, follows the November drand pin (`preregistration/seed_commitments.md`, round 6606642).
-- Step C, the provisional map score, runs only if the calibration passes.
+- Step B, the calibration, was run once on 2026-11-03 and **fails**: 49.0% of the sample's VAs misassigned (gate: at most 10%) and an EG delta of −2.16 points (gate: under 0.5). The procedure places city pages almost exactly but cannot place rural pages (`findings/a7_stepb_calibration.md`).
+- Step C, the provisional map score, does not run. No numeric reading of the panel's map is published before the official shapefiles.
