@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "f150ee4138b59dd8de69ef2d4b26cc0ac35a5dd355e403d5de31be1d56976f70",
+   "responses_sha256": "700ba1d61ba45326a5fd3e5c53f206bece8e5b3316c243b4cde0bf5420efade1",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -142,6 +142,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-03T06:26:48.705795",
      "justification_head": "Amendment 8: adds two redraw tests for the November map (the swing-zone question"
+    },
+    {
+     "id": "6aea2abd5e67b5390f474434",
+     "state": "approved",
+     "submitted_utc": "2026-11-03T18:41:12.999398",
+     "justification_head": "Amendment 9: registers one further Step B calibration attempt (Amendment 7), on "
     }
    ],
    "files": {
@@ -269,6 +275,12 @@
    "registration": "9wp5y",
    "where": "update 6ae97e98a6de1679355f6114, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-03 06:26 UTC (2026-11-02 11:26 PM MST), approved the same minute; text = the '## Amendment 8' section at commit f2d6aa25, SHA-256 77726443...f8816e (10,066 bytes); appended after Amendment 7; author's approval given in the CLI ('File'). A first draft (6ae97e6167175eafaa5f6106) was deleted unsubmitted: the OSF stripped two angle-bracketed placeholders as HTML tags, so the read-back differed"
+  },
+  "9": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6aea2abd5e67b5390f474434, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-03 18:41 UTC (2026-11-03 11:41 AM MST), approved the same minute; text = the '## Amendment 9' section at commit aa383391, SHA-256 408f2251...77afe363e0 (11,146 bytes); appended after Amendment 8; author's approval given in the CLI ('File when ready and continue', after 'Prep, file osf, run'). The draft read back matched on the first attempt"
   }
  },
  "acknowledged": [
