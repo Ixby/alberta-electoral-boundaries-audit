@@ -99,9 +99,9 @@ Checked 2026-11-01 against the Assembly notice above.
 Checked 2026-11-02 against the files above. The question: is there a written source for the statement that the Legislature will release only official shapefiles, not provisional or proposed ones?
 
 - **Government Motion 37.** The motion has no clause on maps, GIS data or shapefiles, and no clause on confidentiality. Its disclosure-related clauses:
-  - C(a) sets up the review "(i) on an expedited basis, and (ii) without a requirement to direct the holding of public hearings" (SSCEB report, p. 5).
-  - C(f) lets the committee request "any information and statistics … gathered and input received by the Electoral Boundaries Commission" and "advice, information and assistance from the Office of the Chief Electoral Officer" (p. 7).
-  - C(i)(ii) says the committee "must submit the report to the Legislative Assembly no later than November 2, 2026" (p. 7).
+  - C(a) sets up the review "(i) on an expedited basis, and (ii) without a requirement to direct the holding of public hearings" (SSCEB report, p. 6).
+  - C(f) lets the committee request "any information and statistics … gathered and input received by the Electoral Boundaries Commission" and "advice, information and assistance from the Office of the Chief Electoral Officer" (p. 8).
+  - C(i)(ii) says the committee "must submit the report to the Legislative Assembly no later than November 2, 2026" (p. 8).
 - **The committee's reading of C(i)(ii).** The SSCEB report says the IAP report "remains confidential until it is tabled in the Assembly on or before November 2, 2026, in accordance with Part C. clause (i)(ii) of Government Motion 37" (p. 11). The motion's own text, quoted above, says only when the report must be submitted; it does not say "confidential".
 - **The October 28 meeting** (`legislature/ceb_transcript_2026-10-28.pdf`):
   - **Motion to publish the report early.** MLA Gray moved to release the report to MLAs and the public before tabling. The chair ruled it "likely out of order because of Government Motion 37", on the table's advice (CEB-66).
