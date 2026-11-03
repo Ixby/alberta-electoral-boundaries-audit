@@ -297,20 +297,23 @@ On the panel's map the only divisions below -25% (computed from App. 7) are Cent
 - **Composition:** the minority (¶33) says it includes "Portions of the MD of Bighorn and Banff National Park north of the Bow River watershed" (¶33(d), p.122) and remarks that including "the uninhabited portions of Banff National Park" "may seem superficially odd" (¶35). The majority's narrative (p.42) says the western boundary is the B.C. border.
 - **Population figures:** majority text "approximately 30,000", "about 44% below" (p.42); map p.40 and App. 7: 31,540 = -41.3% (computed). Area 25,122 km² (App. 7); the majority says "roughly 25,000 square kilometers".
 - **What the maps show:** composite c (PDF 205) and district map ED85 (PDF 300) are the relevant maps. Two reads disagree in emphasis. The appendix reader inferred from ED85 that its white area does not reach B.C., because Banff National Park (grey, shown as part of ED52, Banff-Canmore-Diamond Valley) lies between (inference). A separate visual check of the map (PDF 300) found the shading ambiguous: national parks are shaded grey, and a "Bow River Watershed" boundary is drawn across the park.
-- **B.C. border question: settled from the map's vector paths (read-only, 2026-11-02, corrected the same day). Rocky Mountain House-Sundre does not reach the B.C. border on the panel's own map.**
+- **B.C. border question: settled from the map's vector paths (read-only, 2026-11-02; second correction the same night). Rocky Mountain House-Sundre does reach the B.C. border on the panel's own map.**
   - The majority (p.42) says the division's "western boundary is coterminous with a provincial border (namely, the B.C. border)".
   - The minority (¶33(d), ¶35) says it includes "Banff National Park north of the Bow River watershed".
+  - The Act, s.15(2)(e): "the proposed electoral division has a portion of its boundary coterminous with a boundary of the Province of Alberta".
 
-  On the hi-res map page for ED 85 (PDF 300, SHA-256 d8ae78ab…), the division is drawn as a 2.76-pt brown outline. The outline encloses the ED 85 label (31540) and Abraham Lake. It does not enclose the "Banff National Park" label in the strip between the division and B.C. Measured on that page:
-  - the closest approach of the outline to the provincial-border stroke is 21.8 pt;
-  - no length of the outline runs along the border;
-  - township labels on the page are about 23 pt apart, so the gap is roughly one township, about 9–10 km (inference).
+  On the hi-res map page for ED 85 (PDF 300, SHA-256 d8ae78ab…), the division's own outline is the single 2.76-pt red-brown stroke, RGB (0.71, 0.36, 0.28). The same style (a reddish 2.76-pt stroke) is the district outline on the Step B tuning pages, where it reproduces the official boundaries at a mean IoU of 0.999. Measured on page 300:
+  - the outline encloses the ED 85 label (31540), Abraham Lake and the "Banff National Park" label;
+  - about 338 pt of the outline's 2,370 pt perimeter (about 14%) lies within 0.5 pt of the provincial-border stroke. That stretch runs from the Brazeau River south to the Bow River watershed line;
+  - north of the Brazeau River, the western boundary leaves B.C. and follows the river and the Clearwater County boundary.
 
-  On the map as published, the majority's criterion (e) claim at p.42 does not hold, and the minority's description of the territory does not match the map either.
+  So criterion (e) is met: part of the boundary runs along B.C. The majority's "western boundary" is true of the southwestern stretch, not the whole western side. The minority's description (the park north of the Bow River watershed) matches the map.
 
-  Correction: an earlier version of this entry, the same day, said the division meets B.C. That was wrong. It had read the absence of other districts' grey shading as membership of ED 85; the park strip is unshaded but lies outside the ED 85 outline.
+  Corrections, both on 2026-11-02:
+  - The first version of this entry said the division meets B.C. That conclusion was right, but it rested on an unsafe reading of the shading.
+  - The second version said the division does not reach B.C. That was wrong. It took the 2.76-pt dark brown stroke, RGB (0.43, 0.38, 0.29), for the district outline. That stroke draws the township grid and county lines, so it splits into about 1,180 small faces; its nearest approach to the border (21.8 pt) measured the wrong line. The error was found when the Step B procedure identified the outline style independently, and Wuff confirmed by eye that ED 85 touches B.C.
 
-  This is a reading of the published map in page coordinates. Nothing was georeferenced. Which district holds the park strip is not settled from these pages.
+  This is a reading of the published map in page coordinates. Nothing was georeferenced.
 - **Context:** the Commission's response to its own minority (App. 4, PDF 192) objected that the Commission minority's "Rocky Mountain House-Banff Park" division used Banff National Park "to create the conditions for s. 15(2)(a) and (e)". That concerns the Commission minority's map, not this one.
 
 ### 5.2 Lesser Slave Lake
@@ -528,7 +531,7 @@ The cells are defined in `preregistration/lane3_process_scorecard_draft.md`: P1 
 
 1. **s.15(2)(b) distances.** No highway distance from the Legislature Building is printed for Central Peace-Notley, Lesser Slave Lake or Rocky Mountain House-Sundre. The majority's Rocky Mountain House-Sundre argument (p.42) does not mention criterion (2) in the text read; the minority lists "distance to the legislature by road" (¶35).
 2. **s.15(2)(c) town populations.** No town populations are printed on the maps or in App. 7. The majority asserts only that there is "no town ... exceeding 8,000" for Rocky Mountain House-Sundre. For the other two divisions the towns inside the outlines are named on the maps without populations.
-3. **Rocky Mountain House-Sundre and the B.C. border.** Settled from the vector paths (section 5): on the published map, the division's outline stays about 22 pt (about one township) east of the B.C. border and never touches it. That contradicts p.42. Which district holds the Banff National Park strip between them is not settled from these pages.
+3. **Rocky Mountain House-Sundre and the B.C. border.** Settled from the vector paths (section 5): on the published map, part of the division's outline (about 14% of its perimeter, from the Brazeau River to the Bow River watershed) runs along the B.C. border, and the outline encloses that part of Banff National Park. Criterion (e) is met. An earlier version of this item said the outline never touches B.C.; it had measured the township-grid stroke, not the outline (section 5).
 4. **Panel chair's nominator and the nominators of the other members.** The transmittal letter names O'Ferrall as Chair; App. 5 gives no roles, no nominators and no party nomination for any member, and the Chair is appointed by the Committee under Motion 37 C(d). Which members were nominated by the Leader of the Opposition and which by the President of the Executive Council is not stated. Solberg's bio says he was "the longtime Finance critic for his party" without naming the party. That Kennedy and Robinson are the minority is clear from section 13; that the other three form the majority is from the majority's own labels (O'Ferrall, Durnie, Solberg).
 5. **Mr. Lunty's role and affiliation.** Motion 37 names him as Chair of the Committee; the pages read do not state his party.
 6. **Whether a draft was published for challenge.** Nothing in the report states that the panel published a draft with a comment period. The report says the panel's report goes to the Committee for observations and then the Legislature; the 13-step list shows no public draft step. The absence of a mention is an inference, not a statement.
