@@ -20,6 +20,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 | `legislature/votes_proceedings_2026-04-21.pdf` | Votes and Proceedings, 2026-04-21: Government Motion 37 agreed to | https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_31/session_2/20260421_1200_01_vp.pdf | 2026-11-02 16:05 MST |
 | `hansard/alberta_hansard_2026-04-21_afternoon.pdf` | Alberta Hansard, 2026-04-21 afternoon; 40 pages | https://docs.assembly.ab.ca/LADDAR_files/docs/hansards/han/legislature_31/session_2/20260421_1330_01_han.pdf | 2026-11-02 16:06 MST |
 | `elections_alberta/ea_maps_page_2026-11-02.html` | Elections Alberta "Maps" page, as served | https://www.elections.ab.ca/resources/maps/ | 2026-11-02 16:12 MST |
+| `legislature/iap_report_2026_hires_text/` | Text layer of the IAP report's high-resolution PDF, one file per PDF page (pdftotext 4.06, -layout); README gives the source file, size and SHA-256 (d8ae78ab…75122) and the per-page hashes. The 830 MB PDF itself is not committed | https://librarysearch.assembly.ab.ca/client/en_CA/search/asset/236105/1 | 2026-11-02 18:06 MST |
 | `correspondence/elections_alberta_gis_2026-10-28.md` | Email exchange with Elections Alberta's Geomatics Team Lead on shapefiles for the new boundaries; contact details removed | provided by the author | 2026-11-02 |
 
 Full hashes:
