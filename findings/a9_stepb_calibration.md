@@ -58,3 +58,15 @@ The scorer wrapper records version 3's diagnostics only after `georeference()` r
 - The headline remains the official shapefiles. They are scored within 72 hours of release, as registered.
 - The voting-area cut list (Amendment 9, Part 5) is made only on the official shapefiles.
 - The procedure stays in the repository as developed. Its rural placements, checked against truth here for the first time, are recorded above, beside its failures.
+
+## Post-hoc: would a fit-together check have caught it?
+
+Districts fit together like puzzle pieces, so a correct reconstruction should not overlap the official geometry of districts known to be its neighbours. This was checked after the run, when the sample was already spent, so it is a diagnosis and not a result (`findings/a9_stepb_v3_dev/posthoc_fit_together.txt`; code `posthoc_fit_together.py`). For each placed sample district it measures the share of the reconstruction's area that overlaps two things:
+1. the official geometry of the 22 non-sample tuning districts, which the procedure is allowed to know;
+2. the other placed reconstructions.
+
+- **Every correct placement** overlaps the tuning districts by at most 0.074% of its area.
+- **Sherwood Park overlaps them by 82.8%.**
+- Among the reconstructions, the only overlaps above 0.3% are Sherwood Park and the three Edmonton districts it lands on: City Centre 64.7%, Glenora-Riverview 3.9% and Gold Bar 2.4%.
+
+A rule rejecting a placement that overlaps known official districts by more than 1% would have caught the wrong acceptance with a wide margin, and rejected nothing else. The registered result does not change.
