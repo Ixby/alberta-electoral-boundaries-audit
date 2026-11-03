@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "ff550b15915e70af09336ddc6a2e903a0bd7bb8090ec99571dced40def78751b",
+   "responses_sha256": "f150ee4138b59dd8de69ef2d4b26cc0ac35a5dd355e403d5de31be1d56976f70",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -136,6 +136,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-03T03:20:39.213438",
      "justification_head": "Amendment 7 (2026-11-02): stage-by-stage scoring of the Independent Advisory Pan"
+    },
+    {
+     "id": "6ae97e98a6de1679355f6114",
+     "state": "approved",
+     "submitted_utc": "2026-11-03T06:26:48.705795",
+     "justification_head": "Amendment 8: adds two redraw tests for the November map (the swing-zone question"
     }
    ],
    "files": {
@@ -257,6 +263,12 @@
    "registration": "9wp5y",
    "where": "update 6ae95303438cd6c135f38454, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-03 03:20 UTC (2026-11-02 8:20 PM MST), approved the same minute; text = the '## Amendment 7' section at commit 86c58716, SHA-256 dcd7580f...168733 (8,551 bytes); appended after Amendment 6; author's approval given in the CLI ('File A7 and save Wayback')"
+  },
+  "8": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6ae97e98a6de1679355f6114, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-03 06:26 UTC (2026-11-02 11:26 PM MST), approved the same minute; text = the '## Amendment 8' section at commit f2d6aa25, SHA-256 77726443...f8816e (10,066 bytes); appended after Amendment 7; author's approval given in the CLI ('File'). A first draft (6ae97e6167175eafaa5f6106) was deleted unsubmitted: the OSF stripped two angle-bracketed placeholders as HTML tags, so the read-back differed"
   }
  },
  "acknowledged": [

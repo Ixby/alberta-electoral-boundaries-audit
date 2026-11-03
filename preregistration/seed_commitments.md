@@ -181,4 +181,6 @@ Amendment 7, Part 7 sets the round: "a round at or after" 07:38 MST on 2026-11-0
 
 **What has run before this pin:** no scoring of the panel's map. Step A (`findings/iap_unchanged_districts.md`) is a table comparison and uses no randomness.
 
-**First use:** the Amendment 7, Step B calibration top-up draw, with salt `a7-stepB-calibration-topup`, if the fixed sample has fewer than 10 districts.
+**First use:** the Amendment 7, Step B calibration top-up draw, with salt `a7-stepB-calibration-topup`, if the fixed sample has fewer than 10 districts. Not used: the fixed sample had 34 districts.
+
+**Uses (Amendment 8):** the territory-null chains, salts `a8-territory-null-chain1` to `a8-territory-null-chain5` (run 2026-11-02/03 at code `401e15b5`; outputs `data/outputs/a8_territory_null/` on branch `a8-territory-null`), and the label-shuffle draws, salts `a8-drain-label-shuffle-calibration` and `a8-drain-label-shuffle-` followed by a map's file name. Smoke tests used chains 900 and 901 (not kept).
