@@ -15,6 +15,14 @@ It was evaluated on two groups:
 
 Raw results are in `findings/a9_stepb_v2_dev/`. The page lists used are recorded there too. None of the 57 districts is in the sample (`findings/a7_stepb_sample.json`).
 
+**Software environment (correction, added the same day).** These results depend on the PDF library's version.
+- `dev0.json` and `dev1.json` were produced with Python 3.12.13 and PyMuPDF 2.1 (MuPDF 1.28.6).
+- `dev2.json` (EDs 3 and 65) was produced with Python 3.14 and PyMuPDF 1.27.2.2.
+
+The two versions read the page's lines differently. PyMuPDF 1.27.2.2 reports no width for the 2.76-pt outline stroke on 9 of the 57 pages (EDs 7, 19, 21, 45, 53, 58, 71, 76 and 81). On those pages version 2 then finds no outline and fails, though it placed all nine under PyMuPDF 2.1.
+
+So the procedure is only reproducible with its environment pinned. Rerun under Python 3.12.13 and PyMuPDF 2.1, EDs 3 and 65 placed at IoU 0.999 again (`dev2_venv.json`), so all 22 tuning results now come from one environment. Any registered run must name the Python and PyMuPDF versions.
+
 ## Results
 
 **Tuning districts (official geometry).** All 22 placed, at IoU 0.998 to 1.000 and boundary error (Hausdorff) of 1 to 5 m. Calgary-Bhullar-McCall (3) and Grande Prairie (65) had failed under an earlier build of version 2 (no fit consistent with the stated area); on the final build both placed at IoU 0.999 (`dev2.json`). Every tuning page has a scale below 29 m per point (Grande Prairie is the largest, at 28.8). **No tuning page is rural, so there is no truth-based evidence on rural pages at all.**
