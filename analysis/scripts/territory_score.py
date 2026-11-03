@@ -49,7 +49,7 @@ _orig_seat_results = me.seat_results
 
 
 class Substrate:
-    def __init__(self):
+    def __init__(self, enacted=None, stated_low=None):
         self.va, self.graph = me.build_va_graph(verbose=False)
         self.nodes = sorted(self.graph.nodes())
         self.pos = {n: i for i, n in enumerate(self.nodes)}
@@ -57,13 +57,13 @@ class Substrate:
         self.ndp = np.array([self.graph.nodes[n]["va_ndp"] for n in self.nodes], float)
         e = np.array([(self.pos[a], self.pos[b]) for a, b in self.graph.edges()])
         self.ea, self.eb = e[:, 0], e[:, 1]
-        lab, terr = tn.territory(self.va, self.graph)
+        lab, terr, self.k_terr, self.s152_cap = tn.territory(self.va, self.graph, enacted, stated_low=stated_low)
         self.terr_idx = np.array([self.pos[n] for n in terr])
-        fixed_names = sorted({lab[n] for n in self.nodes} - {lab[n] for n in terr})
+        fixed_names = sorted(set(lab.values()))
         self.n_fixed = len(fixed_names)
-        assert self.n_fixed == 57, self.n_fixed  # 56 unchanged + Calgary-Acadia
+        assert self.n_fixed + self.k_terr == tn.K_PROV, (self.n_fixed, self.k_terr)
         fid = {s: i for i, s in enumerate(fixed_names)}
-        self.base = np.array([fid.get(lab[n], -1) for n in self.nodes])
+        self.base = np.array([fid[lab[n]] if n in lab else -1 for n in self.nodes])
 
     def plan_labels(self, plan):
         lab = self.base.copy()
@@ -228,11 +228,14 @@ if __name__ == "__main__":
     sp.add_parser("selftest")
     p = sp.add_parser("plans"); p.add_argument("dir")
     p = sp.add_parser("real"); p.add_argument("maps", nargs="+"); p.add_argument("--shuffle", type=int, default=10_000)
+    p = sp.add_parser("rank", help="R1/R2: rank a map against scored plans (DIR/scores.csv)")
+    p.add_argument("map"); p.add_argument("dir"); p.add_argument("--ref", type=int, nargs="+", default=[1, 2, 3, 4])
+    p.add_argument("--burn", type=int, default=10_000); p.add_argument("--stated-low", type=int, required=True)
     p = sp.add_parser("calibrate"); p.add_argument("dir"); p.add_argument("--ref", type=int, nargs="+", required=True)
     p.add_argument("--holdout", type=int, required=True); p.add_argument("--shuffle-plans", type=int, default=200)
     p.add_argument("--shuffle", type=int, default=2_000); p.add_argument("--burn", type=int, default=10_000)
     a = ap.parse_args()
-    S = Substrate()
+    S = Substrate(a.map if a.cmd == "rank" else None, getattr(a, "stated_low", None))
     if a.cmd == "selftest":
         selftest(S)
     elif a.cmd == "plans":
@@ -243,5 +246,16 @@ if __name__ == "__main__":
             lab, _ = S.map_labels(f)
             out[Path(f).stem] = S.score(lab, a.shuffle, shuffle_rng(Path(f).stem))
         print(json.dumps(out, indent=1))
+    elif a.cmd == "rank":
+        lab, _ = S.map_labels(a.map)
+        obs = S.score(lab, 10_000, shuffle_rng(Path(a.map).stem))
+        df = pd.read_csv(Path(a.dir) / "scores.csv")
+        ref = df[(df.step > a.burn) & df.chain.isin(a.ref)]
+        out = {"map": a.map, "observed": obs, "n_ref_plans": int(len(ref))}
+        for v in ("eg", "drain", "mean_median", "declination", "ucp_seats"):
+            r = ref[v].to_numpy()
+            out[v] = {"observed": obs[v], "p_two_sided": float(min(1, 2 * min(np.mean(r <= obs[v]), np.mean(r >= obs[v])))),
+                      "null_mean": float(r.mean())}
+        print(json.dumps(out, indent=1, default=float))
     else:
         calibrate(S, a.dir, a.ref, a.holdout, a.shuffle_plans, a.shuffle, a.burn)

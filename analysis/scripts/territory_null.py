@@ -15,12 +15,16 @@ s.15(1) +/-25%, s.15(2) mode on the Amendment 23 criteria table), so the
 panel's choices in that territory can be ranked against neutral choices made
 under the same fixed districts and the same statute.
 
-Territory. VAs are assigned to majority districts by representative point (the
-audit's convention). Nodes outside the 56 form two components on the VA graph:
-  - Calgary-Acadia alone (one district; the panel changed it by 2 people), which
-    can only ever hold one district, so it is fixed too;
-  - everything else (K_TERR = 34 districts in the panel's map).
-The chain runs on that main component only.
+Territory (territory()). VAs are assigned to districts by representative point
+(the audit's convention). Before an enacted map exists, the fixed set is Step A's
+56; nodes outside it form two components on the VA graph:
+  - Calgary-Acadia alone (the panel changed it by 2 people), which can only
+    ever hold one district, so it is fixed too;
+  - everything else (34 districts in the panel's map).
+With an enacted map (--enacted, Amendment 8, Part 5), a majority district is
+fixed when an enacted district holds exactly its VAs, and the territory's
+district count and s.15(2) cap come from the enacted map. On the Step A fixed
+set the generalised code reproduces the first plans of chain 1 byte for byte.
 
 Statute, as strict as the statute:
   - the s.15(1) band is +/-25% of the PROVINCIAL average (2021 VA overlay total
@@ -63,7 +67,7 @@ UNCHANGED = REPO / "analysis/a8/unchanged_56.json"
 CRITERIA = REPO / "data/outputs/s15_2_va_criteria.csv"
 CRITERIA_SHA = "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc"
 RANDOMNESS = "8093cc614f39474aeb08e80a8a63eb04053d5fd3c5942524ea0ce54a4541d70f"  # round 6606642
-K_PROV, K_TERR, S152_USED_OUTSIDE = 91, 34, 2
+K_PROV = 91
 
 
 def seed_for(idx):
@@ -71,26 +75,82 @@ def seed_for(idx):
     return int.from_bytes(h[:4], "big")
 
 
-def territory(va, graph):
-    """(fixed labels per node, sorted main-component node list)."""
+def _rep_labels(va, nodes, gpkg, col):
     import geopandas as gpd
-    import networkx as nx
 
     norm = lambda s: s.replace("’", "'").strip()  # noqa: E731
-    keep = {norm(n) for n in json.loads(UNCHANGED.read_text(encoding="utf-8"))["districts"]}
-    assert len(keep) == 56
-    nodes = sorted(graph.nodes())
     pts = va.loc[nodes, ["geometry"]].copy()
     pts["geometry"] = pts.geometry.representative_point()
-    maj = gpd.read_file(MAJ).to_crs(va.crs)
-    j = gpd.sjoin(pts, maj[["EDName2025", "geometry"]], how="left", predicate="within")
+    g = gpd.read_file(gpkg).to_crs(va.crs)
+    j = gpd.sjoin(pts, g[[col, "geometry"]], how="left", predicate="within")
     j = j[~j.index.duplicated(keep="first")].reindex(pts.index)
-    lab = {n: norm(s) for n, s in zip(nodes, j["EDName2025"])}
-    assert all(isinstance(v, str) for v in lab.values()), "a VA falls outside every majority district"
-    rest = [n for n in nodes if lab[n] not in keep]
-    comps = sorted(nx.connected_components(graph.subgraph(rest)), key=len, reverse=True)
-    assert len(comps) == 2 and {lab[n] for n in comps[1]} == {"Calgary-Acadia"}, [len(c) for c in comps]
-    return lab, sorted(comps[0])
+    lab = {n: norm(v) for n, v in zip(nodes, j[col])}
+    assert all(isinstance(v, str) for v in lab.values()), f"a VA falls outside every district of {gpkg}"
+    return lab
+
+
+def territory(va, graph, enacted=None, enacted_col="EDName2025", stated_low=None):
+    """Split the province into fixed districts and the redrawn territory.
+
+    A commission-majority district is fixed when the map being scored keeps it
+    unchanged: with an enacted map (enacted=gpkg), when some enacted district
+    holds exactly the same voting areas (by representative point); before one
+    exists, when it is one of Amendment 7 Step A's 56 (unchanged_56.json).
+    The rest of the graph splits into connected components. A component the
+    scored map fills with one district is fixed too. The chain redraws the
+    component(s) holding more than one: with an enacted map, as many districts
+    as the enacted map puts there; before one exists, all 35 changed districts
+    in the one remaining component.
+
+    stated_low: how many fixed districts the scored map's own population table
+    puts more than 25% below its average (s.15(2) districts already used).
+    Before an enacted map: 2 (App. 7: Central Peace-Notley, Lesser Slave Lake).
+
+    Returns (fixed label per non-territory node, sorted territory nodes,
+    districts in the territory, s.15(2) cap in the territory).
+    """
+    import networkx as nx
+
+    nodes = sorted(graph.nodes())
+    maj = _rep_labels(va, nodes, MAJ, "EDName2025")
+    sets = {}
+    for n in nodes:
+        sets.setdefault(maj[n], set()).add(n)
+    if enacted is None:
+        keep = {n.replace("’", "'").strip() for n in json.loads(UNCHANGED.read_text(encoding="utf-8"))["districts"]}
+        assert len(keep) == 56
+        fixed = {d for d in sets if d in keep}
+        n_changed, enl = K_PROV - len(fixed), None
+        stated_low = 2 if stated_low is None else stated_low
+    else:
+        enl = _rep_labels(va, nodes, enacted, enacted_col)
+        esets = {}
+        for n in nodes:
+            esets.setdefault(enl[n], set()).add(n)
+        same = {frozenset(v) for v in esets.values()}
+        fixed = {d for d, v in sets.items() if frozenset(v) in same}
+        assert stated_low is not None, "give the enacted map's count of districts below -25%"
+    lab = {n: maj[n] for n in nodes if maj[n] in fixed}
+    rest = [n for n in nodes if maj[n] not in fixed]
+    comps = sorted((sorted(c) for c in nx.connected_components(graph.subgraph(rest))), key=len, reverse=True)
+    multi = []
+    for c in comps:
+        cs = set(c)
+        if enl is not None:
+            k = len({enl[n] for n in c})
+            assert all(esets[enl[n]] <= cs for n in c), "an enacted district straddles a fixed district"
+        else:
+            k = 1 if any(cs == v for v in sets.values()) else None
+        if k == 1:
+            for n in c:
+                lab[n] = (enl or maj)[n]
+        else:
+            multi.append((c, k))
+    assert len(multi) == 1, f"{len(multi)} multi-district components; this code redraws exactly one"
+    c, k = multi[0]
+    if k is None:
+        k = n_changed - (len(comps) - 1)
+    return lab, c, k, 4 - stated_low
 
 
 def main():
@@ -99,6 +159,10 @@ def main():
     ap.add_argument("--steps", type=int, default=100_000)
     ap.add_argument("--thin", type=int, default=250)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--enacted", default=None, help="enacted map gpkg (rerun under Amendment 8, Part 5)")
+    ap.add_argument("--enacted-col", default="EDName2025")
+    ap.add_argument("--stated-low", type=int, default=None,
+                    help="with --enacted: fixed districts its own table puts > 25%% below average")
     a = ap.parse_args()
     cse._no_power_throttling()
     assert hashlib.sha256(CRITERIA.read_bytes()).hexdigest() == CRITERIA_SHA, "criteria table changed"
@@ -106,7 +170,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     va, graph = me.build_va_graph(verbose=False)
-    _, terr = territory(va, graph)
+    _, terr, K_TERR, cap = territory(va, graph, a.enacted, a.enacted_col, a.stated_low)
     (out / "territory_nodes.json").write_text(json.dumps([int(n) for n in terr]))
     prov_ideal = sum(graph.nodes[n]["pop_2021"] for n in graph.nodes()) / K_PROV
 
@@ -115,7 +179,7 @@ def main():
     cse.OPTS.update(s152=CRITERIA_SHA, proposal_epsilon=0.5)
     cse.S152 = cse.load_s152(graph, CRITERIA, K_PROV)
     assert abs(cse.S152["ideal"] - prov_ideal) < 1e-6
-    cse.S152_MAX = 4 - S152_USED_OUTSIDE
+    cse.S152_MAX = cap
 
     # run_ensemble indexes per-node arrays by node id, so the territory graph is relabelled
     # 0..n-1 in sorted original order (territory_nodes.json maps back).
@@ -139,7 +203,7 @@ def main():
     st_np, st_py = np.random.get_state(), random.getstate()
     np.random.seed((s + 999) % 2**32)
     random.seed(s + 999)
-    # The seed is cut around the territory's own average (its population is not 34 provincial
+    # The seed is cut around the territory's own average (its population is not K_TERR provincial
     # averages), with a band narrow enough that every seed district is within +/-25% of the
     # provincial average. The chain itself judges every split against the provincial average.
     terr_ideal = sum(H.nodes[n]["pop_2021"] for n in H.nodes()) / K_TERR
