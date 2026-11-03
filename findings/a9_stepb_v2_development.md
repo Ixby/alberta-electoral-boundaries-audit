@@ -1,6 +1,6 @@
 # Step B, version 2: development results, and why Amendment 9 was not filed
 
-> Written 2026-11-03 (Alberta time). **Amendment 9 has not been filed, and the second calibration has not been run.** No sample page was opened. The 34-district sample is still unspent.
+> Written 2026-11-03 (Alberta time). **The version 2 draft of Amendment 9 was not filed, and version 2 was never run on the sample.** No sample page was opened. Development continued with version 3 (`findings/a9_stepb_v3_development.md`), and Amendment 9 was filed with version 3 instead.
 
 ## What was tried
 
