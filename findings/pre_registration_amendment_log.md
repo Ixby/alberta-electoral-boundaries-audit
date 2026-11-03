@@ -662,7 +662,7 @@ This amendment adds one null that fits both tests: neutral redraws of the territ
 - *Code.* `analysis/scripts/territory_null.py` (SHA-256 `46fc7a16…ee02`) and `territory_score.py` (`0485e788…2b55`), branch `a8-territory-null`, commit `42b5fda8`.
   - The calibration plans were drawn at `401e15b5`. The generalised code at `42b5fda8` reproduces them byte for byte.
   - Outputs are in `data/outputs/a8_territory_null/`: `plans.npz` (`204d89a5…c3c7`), `scores.csv` (`3aac2c68…f2cd`) and `calibration.json` (`6eb1ab82…8ad2`).
-- *Seeds.* drand round 6606642 (`preregistration/seed_commitments.md`). Chain i uses salt `a8-territory-null-chain<i>`; the label-shuffle draws use salt `a8-drain-label-shuffle-<map>`.
+- *Seeds.* drand round 6606642 (`preregistration/seed_commitments.md`). Chains 1–5 use salts `a8-territory-null-chain1` to `a8-territory-null-chain5`; the label-shuffle draws use salt `a8-drain-label-shuffle-` followed by the map's file name.
 - *Runs.*
   - Reference chains 1–4 and holdout chain 5, 100,000 steps each.
   - One plan is kept every 250 steps, and the first 10,000 steps are discarded.
