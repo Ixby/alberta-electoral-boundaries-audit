@@ -13,7 +13,7 @@ records version 3's own fit diagnostics for each district, which the frozen
 scorer does not copy.
 
 Environment: Python 3.12.13 with PyMuPDF 2.1 (findings/a9_stepb_v3_dev/environment.txt).
-It refuses to run under another PyMuPDF version.
+It refuses to run under any other Python or PyMuPDF version.
 
 Usage: python analysis/scripts/a9_stepb_calibrate.py --out findings/a9_stepb_calibration.json
 """
@@ -24,8 +24,9 @@ from pathlib import Path
 
 import pymupdf
 
-if pymupdf.__version__ != "2.1":
-    sys.exit(f"PyMuPDF {pymupdf.__version__}: the registered run needs PyMuPDF 2.1")
+if pymupdf.__version__ != "2.1" or sys.version_info[:3] != (3, 12, 13):
+    sys.exit(f"Python {sys.version.split()[0]}, PyMuPDF {pymupdf.__version__}: "
+             "the registered run needs Python 3.12.13 with PyMuPDF 2.1")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 os.environ["STEPB_V3_CALIBRATION_RUN"] = "1"

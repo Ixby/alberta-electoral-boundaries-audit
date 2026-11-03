@@ -22,7 +22,8 @@ Version 3 keeps version 2's outline reading, references and refinement code, and
      subdivisions' centroids (two-point RANSAC, then least squares on the inliers). The prior is
      used when its rotation is within 1 degree of a multiple of 90 degrees and it has at least 4
      inliers and a scale within 10% of the stated-area scale, or exactly 3 inliers, a scale within
-     1.5% and a median residual under max(150 m, 1 pt).
+     1.5% and a median residual under max(150 m, 1 pt); a 3-inlier prior's rotation is then
+     snapped to the right angle and its scale and translation refitted.
      Without such a prior, version 2's road search (unchanged) supplies it.
   2. Layer identification on each page. Each grey stroke style with at least 150 sample points is
      assigned to the reference it matches best (roads: NRN + OSM highways; boundaries: 2021 CSD
@@ -30,11 +31,12 @@ Version 3 keeps version 2's outline reading, references and refinement code, and
      is not used.
   3. Local refinement: the correlation search is restricted to translations within the prior's
      error (municipal prior: max(500 m, 2 x median residual); version 2 prior: 1,500 m), then
-     version 2's robust ICP. If that first pass finds no usable layer or no local match, one wide
-     retry runs: error max(5,000 m, 3 x the first), scale within +/-1%, layer threshold 0.4.
-  4. Acceptance rule, applied before a polygon is returned: the matched page lines must lie a
-     median of at most 40 m (ACCEPT_MED_M) from their references, and at least 60% of them
-     (ACCEPT_IN60) within 60 m. A page that fails it raises an error and counts as a failure.
+     version 2's robust ICP.
+  4. Acceptance rule, applied before a polygon is returned: at least 2,000 matched page points
+     (ACCEPT_MIN_PTS), lying a median of at most 40 m (ACCEPT_MED_M) from their references, with
+     at least 60% of them (ACCEPT_IN60) within 60 m. A page that fails it raises an error and
+     counts as a failure. (The point floor was added after Fort McMurray-Wood Buffalo matched only
+     its 363 provincial-border points, at 99% within 60 m, in a wrong place.)
 
 Environment: results depend on the PDF library. Development ran on Python 3.12.13 with PyMuPDF
 2.1 (MuPDF 1.28.6); PyMuPDF 1.27.2.2 reads some outline strokes without a width. The registered
@@ -63,7 +65,8 @@ SAMPLE = R2.SAMPLE
 TOWNS = {"CY", "T", "VL", "SV"}
 RESERVES = {"IRI", "S-E", "MS"}
 ACCEPT_MED_M = 40.0   # set from the development results (placed pages: 5.4 to 29.6 m)
-ACCEPT_IN60 = 0.60    # (placed pages: 0.72 to 0.94)
+ACCEPT_IN60 = 0.60    # (placed pages: 0.72 to 0.96)
+ACCEPT_MIN_PTS = 2000  # (placed pages: 9,363 to 53,806 matched points)
 last_info = {}
 
 
@@ -180,6 +183,14 @@ def _ransac(pairs, s_exp, tol, iters=3000):
     return M, t, f, inl, np.hypot(*(f(P) - Q).T)
 
 
+def _fixed_rotation_fit(P, Q, th):
+    """Least-squares scale and translation for a given rotation th: Q ~ s R(th) (x, -y) + t."""
+    G = _tf([1.0, th, 0.0, 0.0], P); gm, qm = G.mean(0), Q.mean(0)
+    s = float(((G - gm) * (Q - qm)).sum() / ((G - gm) ** 2).sum())
+    t = qm - s * gm
+    return [s, th, float(t[0]), float(t[1])]
+
+
 def _tf(p, P):
     s, th, tx, ty = p; cs, sn = np.cos(th), np.sin(th); dx = P[:, 0]; dy = -P[:, 1]
     return np.c_[s * (cs * dx - sn * dy) + tx, s * (sn * dx + cs * dy) + ty]
@@ -213,6 +224,12 @@ def georeference(n):
         rot = np.degrees(np.arctan2(M[1, 0], M[0, 0])); square = abs((rot + 45) % 90 - 45) < 1.0
         if square and ((inl.sum() >= 4 and sr < 0.1) or (inl.sum() == 3 and sr < 0.015 and med < max(150, s0))):
             p0 = [float(np.hypot(*M[:, 0])), float(np.arctan2(M[1, 0], M[0, 0])), *f(np.zeros((1, 2)))[0]]
+            if inl.sum() == 3:
+                # three points fix rotation poorly; every page is drawn at a right angle, so snap it
+                # and refit scale and translation on the inliers
+                P = np.array([q[1] for q in pr])[inl]; Q = np.array([q[2] for q in pr])[inl]
+                p0 = _fixed_rotation_fit(P, Q, float(np.round(p0[1] / (np.pi / 2)) * (np.pi / 2)))
+                med = float(np.median(np.hypot(*(_tf(p0, P) - Q).T)))
             g0 = _tf(p0, c[None])[0]; pc = [p0[0], p0[1], g0[0], g0[1]]
             src = 'municipalities'; err = max(500.0, 2 * med)
             info.update(n_muni=int(inl.sum()), muni_med_m=med)
@@ -226,14 +243,7 @@ def georeference(n):
     last = max(i for i, x in enumerate(d) if x['type'] in ('s', 'fs') and x.get('color') and (x.get('width') or 0) >= 2
                and x['color'][0] > x['color'][1] + .2)
     S = {k: v for k, v in _styles(n, last).items() if len(v) >= 150}
-    try:
-        p, part = _refine(S, pc, c, err, (1.0,), 0.5, err / 6)
-    except RuntimeError as e:
-        # Wide retry, only when the first pass finds no usable layer or no local match: a sparse
-        # northern page whose prior is off by more than its error, or slightly off in scale.
-        tol = max(60.0, 0.25 * pc[0]); err2 = max(5000.0, 3 * err)
-        p, part = _refine(S, pc, c, err2, (0.99, 0.995, 1.0, 1.005, 1.01), 0.4, min(err2 / 6, tol))
-        info.update(wide_retry=True, first_pass_error=str(e))
+    p, part = _refine(S, pc, c, err, (1.0,), 0.5, err / 6)
     info.update(part)
     info.update(area_ratio=float(p[0] ** 2 * poly.area / stated), s_ratio=float(p[0] / s0))
     return poly, p, c, info
@@ -280,9 +290,9 @@ def reconstruct(ed_number):
     n = int(ed_number); _guard(n)
     poly, p, c, info = georeference(n)
     last_info = info
-    if not (info['med_dist_m'] <= ACCEPT_MED_M and info['in60'] >= ACCEPT_IN60):
-        raise RuntimeError(f"fit below the acceptance rule (median {info['med_dist_m']:.1f} m, "
-                           f"within 60 m {info['in60']:.2f})")
+    if not (info['n_layer_pts'] >= ACCEPT_MIN_PTS and info['med_dist_m'] <= ACCEPT_MED_M and info['in60'] >= ACCEPT_IN60):
+        raise RuntimeError(f"fit below the acceptance rule ({info['n_layer_pts']} matched points, median "
+                           f"{info['med_dist_m']:.1f} m, within 60 m {info['in60']:.2f})")
     geoms = [poly] if poly.geom_type == 'Polygon' else list(poly.geoms)
     return unary_union([Polygon(V1._apply(np.array(g.exterior.coords), p[0], p[1], p[2:], c),
                                 [V1._apply(np.array(h.coords), p[0], p[1], p[2:], c) for h in g.interiors]).buffer(0)
