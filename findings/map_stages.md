@@ -20,4 +20,9 @@ Times are Alberta time. Sources are archived in `evidence/` with their SHA-256.
 **Reconstruction (Amendment 7, Part 3):**
 - Step A, matching the panel's districts to the commission's, is done (`findings/iap_unchanged_districts.md`).
 - Step B, the calibration, was run once on 2026-11-03 and **fails**: 49.0% of the sample's VAs misassigned (gate: at most 10%) and an EG delta of −2.16 points (gate: under 0.5). The procedure places city pages almost exactly but cannot place rural pages (`findings/a7_stepb_calibration.md`).
+- A second attempt was registered as Amendment 9 (OSF 9wp5y, update 6aea2abd5e67b5390f474434, 2026-11-03 11:41 AM MST), with version 3 of the procedure, which reads rural pages. It was run once on 2026-11-03 and also **fails**: 13.8% of VAs misassigned and an EG delta of +0.80 points (`findings/a9_stepb_calibration.md`).
+  - It placed 30 of the 34 pages correctly, rural pages included (IoU 0.998 to 1.000).
+  - It declined three: Chestermere-Strathmore, Grande Prairie-Wapiti and Peace River.
+  - It placed Sherwood Park wrongly (rotated 90°, 13.5 km off) and accepted the placement.
+  - Amendment 9 allows no third attempt.
 - Step C, the provisional map score, does not run. No numeric reading of the panel's map is published before the official shapefiles.

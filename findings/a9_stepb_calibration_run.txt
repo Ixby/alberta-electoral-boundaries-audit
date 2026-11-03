@@ -1,0 +1,50 @@
+2 Calgary-Beddington inlier30=0.000
+6 Calgary-Confluence inlier30=0.000
+8 Calgary-Currie inlier30=0.000
+10 Calgary-Edgemont inlier30=0.000
+11 Calgary-Elbow inlier30=0.000
+13 Calgary-Fish Creek inlier30=0.000
+14 Calgary-Glenmore-Tsuut'ina inlier30=0.000
+18 Calgary-McKenzie inlier30=0.000
+26 Calgary-Symons Valley inlier30=0.000
+27 Calgary-Varsity inlier30=0.000
+31 Edmonton-City Centre inlier30=0.000
+34 Edmonton-Enoch inlier30=0.000
+35 Edmonton-Glenora-Riverview inlier30=0.000
+36 Edmonton-Gold Bar inlier30=0.000
+39 Edmonton-McClung inlier30=0.000
+41 Edmonton-Mill Woods inlier30=0.000
+44 Edmonton-Rutherford inlier30=0.000
+47 Edmonton-West Henday inlier30=0.000
+50 Airdrie-East inlier30=0.000
+51 Airdrie-West inlier30=0.000
+55 Camrose inlier30=0.000
+56 Central Peace-Notley inlier30=0.000
+57 Chestermere-Strathmore RuntimeError("no local match within the prior's error")
+59 Cold Lake-Bonnyville-St. Paul inlier30=0.000
+64 Fort Saskatchewan-Vegreville inlier30=0.000
+66 Grande Prairie-Wapiti RuntimeError("no local match within the prior's error")
+70 Lesser Slave Lake inlier30=0.000
+75 Lloydminster-Wainwright inlier30=0.000
+77 Medicine Hat-Brooks inlier30=0.000
+78 Medicine Hat-Cypress inlier30=0.000
+82 Peace River RuntimeError('fit below the acceptance rule (10168 matched points, median 100.7 m, within 60 m 0.36)')
+83 Red Deer-North inlier30=0.000
+86 Sherwood Park inlier30=0.000
+89 Strathcona-Sherwood Park inlier30=0.000
+{
+ "procedure": "analysis/scripts/a7_stepb_reconstruct.py",
+ "sample": [
+ ],
+ "placed": 31,
+ "failed": [
+ ],
+ "T1": {
+ },
+ "T4": {
+ },
+ "T2_mean_abs_area_err_pct": 0.0368645911393022,
+ "T3_mean_hausdorff_km": 0.5558250119996855,
+ "mean_iou": 0.9670260291268324,
+ "calibration_passes": false
+}
