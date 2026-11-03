@@ -23,7 +23,9 @@ This amendment adds one null that fits both tests: neutral redraws of the territ
 - *Sampler.* This is the set D sampler (`close_seats_ensemble.py`, Amendment 17), unchanged: ReCom on the canonical voting-area graph, 2021 census population overlay. The statute is applied as written:
   - s.15(1): every district within ±25% of the provincial average (overlay total ÷ 91), not the territory's own average;
   - s.15(2): up to 50% below the average for a district meeting at least 3 of the 5 criteria, on the Amendment 23 criteria table (SHA-256 `48c928b8…2fafc`). At most 4 such districts province-wide. Two unchanged districts already use s.15(2) (Central Peace-Notley, Lesser Slave Lake), so at most 2 in the territory.
-- *Code.* `analysis/scripts/territory_null.py` and `territory_score.py`, branch `a8-territory-null`, commit `401e15b5` (calibration outputs in `data/outputs/a8_territory_null/`, commit `10032155`).
+- *Code.* `analysis/scripts/territory_null.py` (SHA-256 `46fc7a16…ee02`) and `territory_score.py` (`0485e788…2b55`), branch `a8-territory-null`, commit `42b5fda8`.
+  - The calibration plans were drawn at `401e15b5`. The generalised code at `42b5fda8` reproduces them byte for byte.
+  - Outputs are in `data/outputs/a8_territory_null/`: `plans.npz` (`204d89a5…c3c7`), `scores.csv` (`3aac2c68…f2cd`) and `calibration.json` (`6eb1ab82…8ad2`).
 - *Seeds.* drand round 6606642 (`preregistration/seed_commitments.md`). Chain i uses salt `a8-territory-null-chain<i>`; the label-shuffle draws use salt `a8-drain-label-shuffle-<map>`.
 - *Runs.*
   - Reference chains 1–4 and holdout chain 5, 100,000 steps each.
@@ -61,13 +63,24 @@ This asks the swing-zone test's question directly: given the districts the panel
 
 On reading it:
 - The rank tests are calibrated: false-positive rates are near or below 5%, and the chains agree (R̂ ≤ 1.011).
-- The registered label-shuffle null flags nearly every neutral plan. It ignores geography, and real districting arranges similar neighbours next to each other. Its p is therefore reported only and never used as a gate. This also explains why both commission maps come out at p ≈ 0 under it.
+- The registered label-shuffle null flags nearly every neutral plan. It ignores geography, and real districting arranges similar neighbours next to each other. Its p is therefore reported only and never used as a gate.
+  - This agrees with the audit's registered canonical run (`findings/drain_label_shuffle_null_canonical.md`, polygon adjacency): the majority, minority and 2019 maps all sit far below that null (p ≤ 0.0002).
+  - This substrate (voting-area edges) reproduces that null on the majority map: mean 0.047 against the canonical 0.049. The vectorised null matches the original function within Monte Carlo error.
 - **Sensitivity.** R1 flags a November map whose efficiency gap falls outside −0.02% to +2.24%, given the 57 fixed districts. R2 flags a drain score outside 0.0022 to 0.0258.
 
 **Part 5: Which map, and when.**
 - *Headline.* R1 and R2 are scored on the official shapefiles within 72 hours of their release, beside the structural and partisan lanes.
 - *Before the shapefiles.* There is no provisional score. Amendment 7's Step B calibration was run on 2026-11-03 and failed (`findings/a7_stepb_calibration.md`), so no reconstruction of the panel's map is scored.
-- *If the enacted map changes any of the 57 fixed districts* (a resolution, an amendment, the bill), the null is rerun with that map's unchanged set before scoring. The code, seeds and rules stay the same, and the rerun is disclosed.
+- *The null is always rerun on the enacted map's own fixed set before scoring*, with the code at `42b5fda8`, the same seeds and the same run lengths. This holds even if nothing changed, and the rerun is disclosed.
+  - A commission-majority district is fixed when an enacted district holds exactly the same voting areas (by representative point), whatever its name.
+  - A component of the remaining territory that the enacted map fills with one district is fixed too.
+  - The territory's district count is the number of enacted districts in it.
+  - The s.15(2) cap in the territory is 4 minus the fixed districts the enacted map's own population table puts more than 25% below its average.
+  - If the remaining territory has more than one multi-district component, R1 and R2 are not scored. The code redraws exactly one, and adding more would be a new procedure.
+- *Population base.*
+  - The null applies the statute to the 2021 census overlay. The panel balanced its map on 2024 estimates.
+  - An enacted district can therefore lie outside ±25% on the overlay. For example, the majority map's Canmore-Banff is −32% on the overlay, and its fixed Calgary-North East −38%.
+  - Such a map is still scored, and every territory district outside the null's band on the overlay is listed beside the result.
 
 **Part 6: What this changes and what it does not.**
 - SZAT as registered (6pt83, swing-zone permutation null) stays retired. R1 is a new test, scored beside the specification and not part of its verdict.
