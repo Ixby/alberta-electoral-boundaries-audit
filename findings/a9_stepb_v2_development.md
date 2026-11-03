@@ -17,7 +17,7 @@ Raw results are in `findings/a9_stepb_v2_dev/`. The page lists used are recorded
 
 ## Results
 
-**Tuning districts (official geometry).** All 22 placed, at IoU 0.998 to 1.000 and boundary error (Hausdorff) of 1 to 5 m. Calgary-Bhullar-McCall (3) and Grande Prairie (65) had failed under an earlier build of version 2 (no fit consistent with the stated area); on the final build both placed at IoU 0.999 (`dev2.json`). Every tuning page has a scale below 23 m per point. **No tuning page is rural, so there is no truth-based evidence on rural pages at all.**
+**Tuning districts (official geometry).** All 22 placed, at IoU 0.998 to 1.000 and boundary error (Hausdorff) of 1 to 5 m. Calgary-Bhullar-McCall (3) and Grande Prairie (65) had failed under an earlier build of version 2 (no fit consistent with the stated area); on the final build both placed at IoU 0.999 (`dev2.json`). Every tuning page has a scale below 29 m per point (Grande Prairie is the largest, at 28.8). **No tuning page is rural, so there is no truth-based evidence on rural pages at all.**
 
 **Changed districts (no geometry).** Fit quality depends on the district's size:
 
