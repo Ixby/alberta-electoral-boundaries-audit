@@ -163,3 +163,22 @@ This entry was added 2026-06-12 to retire a self-invalidating pin written earlie
 4. Dated and traceable in the public git log
 
 **Disclosure:** Any reader validating the file against the pinned SHA-256 will find a mismatch and can trace the cause via `git log` to commit 893e6d3a. The mismatch is not silent tampering — it is disclosed by the pin mechanism itself and is explained by this amendment.
+
+---
+
+## November 2026 drand round — pinned 2026-11-02 (Amendment 5, Part 4; Amendment 7, Part 7)
+
+Amendment 7, Part 7 sets the round: "a round at or after" 07:38 MST on 2026-11-02, when the committee's report was created, "committed before any scoring run". Under that rule the round is the first drand mainnet round whose scheduled time is at or after 2026-11-02 14:38:00 UTC.
+
+| Attribute | Value |
+|---|---|
+| Chain hash (League of Entropy mainnet, 30 s period, genesis 1595431050) | `8990e7a9aaed2ffed73dbd7092123d6f289930540d7651336225dc172e51b2ce` |
+| Round | **6606642**, scheduled 2026-11-02T14:38:00Z (07:38 MST) |
+| Randomness | `8093cc614f39474aeb08e80a8a63eb04053d5fd3c5942524ea0ce54a4541d70f` |
+| Signature | `b9b0ff8c98d7f154c1b9490f91e54af40e6d59be2c64f69b8241351419b7477590ab3e8e03da0c6f845a22c40d565ac507c6e0f35847910a166985e82660990fbb1b60cce3097a80eb20d21795ebad1320aa91aad5d20e3d3458ae0587aa3566` |
+| Fetched | 2026-11-02 ~20:40 MST from https://drand.cloudflare.com/public/6606642, and matched at https://api.drand.sh/public/6606642 |
+| Derivation | seed = first 4 bytes, big-endian, of SHA-256(randomness + salt), as in `analysis/scripts/drand_seed.py`; each use names its salt |
+
+**What has run before this pin:** no scoring of the panel's map. Step A (`findings/iap_unchanged_districts.md`) is a table comparison and uses no randomness.
+
+**First use:** the Amendment 7, Step B calibration top-up draw, with salt `a7-stepB-calibration-topup`, if the fixed sample has fewer than 10 districts.
