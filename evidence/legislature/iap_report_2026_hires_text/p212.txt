@@ -1,0 +1,55 @@
+                                       Electoral Division Populations
+
+   ED                   Proposed       Estimated      Average            Difference  Percentage   Area
+Number                  ED Name        Population  ED Population       from Average  Difference  in km2
+        Airdrie-East                                                                              1579
+   50   Airdrie-West                      53809         53722                 87          0%
+   51   Banff-Canmore-Diamond Valley      48145         53722               -5577        -10%      195
+   52   Barrhead-Westlock-Athabasca       48862         53722               -4860         -9%    11483
+   53   Blackfalds-Innisfail              46602         53722               -7120        -13%    15750
+   54   Camrose                           44536         53722               -9186        -17%     3557
+   55   Central Peace-Notley              54653         53722                931          2%     10096
+   56   Chestermere-Strathmore            28715         53722              -25007        -47%    47312
+   57   Cochrane                          56679         53722               2957          6%      1025
+   58   Cold Lake-Bonnyville-St. Paul     46785         53722               -6937        -13%
+   59   Drayton Valley-Devon              55809         53722               2087          4%       564
+   60   Drumheller-Stettler               44203         53722               -9519        -18%    16704
+   61   Fort McMurray-Lac La Biche        43570         53722              -10152        -19%     6256
+   62   Fort McMurray-Wood Buffalo        47304         53722               -6418        -12%    38398
+   63   Fort Saskatchewan-Vegreville      46721         53722               -7001        -13%    32317
+   64   Grande Prairie                    54278         53722                556          1%     86353
+   65   Grande Prairie-Wapiti             50352         53722               -3370         -6%     8299
+   66   Lac Ste. Anne                     53781         53722                             0%
+   67   Lacombe-Sylvan Lake               51546         53722                 59          -4%      112
+   68   Leduc-Beaumont                    54055         53722               -2176         1%     16018
+   69   Lesser Slave Lake                 63434         53722                333         18%      4319
+   70   Lethbridge                        30011         53722               9712         -44%     3882
+   71   Lethbridge-Cardston               58897         53722              -23711        10%
+   72   Lethbridge-Little Bow             41943         53722               5175         -22%      114
+   73   Lethbridge-Taber-Warner           52662         53722              -11779         -2%    75775
+   74   Lloydminster-Wainwright           52955         53722               -1060         -1%
+   75   Macleod-Crowsnest                 50139         53722               -767          -7%       57
+   76   Medicine Hat-Brooks               52185         53722               -3583         -3%     5432
+   77   Medicine Hat-Cypress              54833         53722               -1537         2%      8428
+   78   Morinville-Sturgeon               54210         53722               1111          1%     16957
+   79   Okotoks                           53458         53722                488          0%     11047
+   80   Olds-Didsbury-Three Hills         49853         53722               -264          -7%    13380
+   81   Peace River                       50780         53722               -3869         -5%    13740
+   82   Red Deer-North                    43399         53722               -2942        -19%     6117
+   83   Red Deer-South                    53798         53722              -10323         0%      2182
+   84   Rocky Mountain House-Sundre       59121         53722                            10%      1213
+   85   Sherwood Park                     31540         53722                 76         -41%    10339
+   86   Spruce Grove                      52475         53722               5399          -2%    109228
+   87   St. Albert                        52063         53722              -22182         -3%
+   88   Strathcona-Sherwood Park          59935         53722               -1247        12%        74
+   89   West Yellowhead                   51020         53722               -1659         -5%       31
+   90   Wetaskiwin-Ponoka                 51355         53722               6213          -4%    25122
+   91                                     54034         53722               -2702         1%        71
+                                                                            -2367                  283
+                                                                             312                    57
+                                                                                                   767
+                                                                                                 49405
+                                                                                                  6138
+
+206|2026 Independent Advisory Panel on Electoral Boundaries
+

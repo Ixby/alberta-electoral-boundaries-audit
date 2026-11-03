@@ -1,0 +1,49 @@
+Minority Opinion - Panel of the Special Select Committee on Electoral Boundaries  43
+
+20) Calgary-North
+21) Calgary-North East
+22) Calgary-North West
+23) Calgary-Nose Creek
+24) Calgary-Shaw
+25) Calgary-South East
+26) Calgary-Symons Valley
+27) Calgary-Varsity
+28) Calgary-West-Elbow Valley
+29) Edmonton-Beverly-Clareview
+30) Edmonton-Castle Downs
+31) Edmonton-City Centre
+32) Edmonton-Decore
+33) Edmonton-Enoch
+34) Edmonton-Glenora-Riverview
+35) Edmonton-Gold Bar
+36) Edmonton-Highlands-Norwood
+37) Edmonton-Manning
+38) Edmonton-McClung
+39) Edmonton-Mill Woods
+40) Edmonton-North West
+41) Edmonton-Rutherford
+42) Edmonton-West Henday
+43) Airdrie-East
+44) Airdrie-West
+45) Chestermere-Strathmore
+46) Cochrane-Springbank
+47) Okotoks-Diamond Valley
+48) Fort Saskatchewan-Vegreville
+49) Sherwood Park
+50) St. Albert
+51) Strathcona-Sherwood Park
+52) Central Peace-Notley
+53) Cold Lake-Bonnyville-St. Paul
+54) Grande Prairie
+55) Grande Prairie-Wapiti
+56) Lesser Slave Lake
+57) Peace River
+58) Camrose
+59) Lloydminster-Wainwright
+60) Red Deer-North
+61) Red Deer-South
+62) High River-Vulcan-Siksika
+63) Lethbridge-East
+64) Lethbridge-West
+65) Livingstone-Macleod
+
