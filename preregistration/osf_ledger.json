@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "08a82bf0d4cf8b312d38201625a4a1928317e528833785d1cd440c3a5dd54694",
+   "responses_sha256": "ff550b15915e70af09336ddc6a2e903a0bd7bb8090ec99571dced40def78751b",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -130,6 +130,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-02T12:34:04.807383",
      "justification_head": "Amendment 6 (2026-11-02): corrects Amendment 5, Part 5 (the AI tools used), and "
+    },
+    {
+     "id": "6ae95303438cd6c135f38454",
+     "state": "approved",
+     "submitted_utc": "2026-11-03T03:20:39.213438",
+     "justification_head": "Amendment 7 (2026-11-02): stage-by-stage scoring of the Independent Advisory Pan"
     }
    ],
    "files": {
@@ -245,6 +251,12 @@
    "registration": "9wp5y",
    "where": "update 6ae88339b3b6e88d2bbde26b, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-02 12:34 UTC (5:34 AM MST), approved the same minute; text = the '## Amendment 6' section at commit b1f0848c, SHA-256 ef96aa71...085a47 (2,643 bytes); appended after Amendment 5"
+  },
+  "7": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6ae95303438cd6c135f38454, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-03 03:20 UTC (2026-11-02 8:20 PM MST), approved the same minute; text = the '## Amendment 7' section at commit 86c58716, SHA-256 dcd7580f...168733 (8,551 bytes); appended after Amendment 6; author's approval given in the CLI ('File A7 and save Wayback')"
   }
  },
  "acknowledged": [
