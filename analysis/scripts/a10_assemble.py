@@ -52,7 +52,10 @@ Usage:
     districts plus Calgary-Acadia (Step C).
 """
 import argparse
+import itertools
 import json
+import math
+import re
 import sys
 import time
 from dataclasses import dataclass
@@ -86,7 +89,7 @@ POP_TOL = 0.05             # rule 5, reporting only (pop_within_5pct): the 2021 
                            # it misses the stated figure by -39% to +13% even on exactly known districts
 FIXED_EXTRA = ("Calgary-Acadia",)  # ED 1: changed by 2 people, treated as fixed (Amendment 8)
 CITIES = {"calgary", "edmonton", "st. albert", "red deer", "lethbridge", "medicine hat", "grande prairie",
-          "airdrie", "sherwood park"}   # a bare city label on a neighbour page stands for all of that city districts
+          "airdrie", "sherwood park", "fort mcmurray"}   # a bare city label on a neighbour page stands for all of that city districts
 UNCHANGED_56 = REPO / "analysis/a8/unchanged_56.json"
 _BIG = 10 ** 6             # sort key for a known district with no ED number
 
@@ -137,7 +140,7 @@ def load_pages(out_dir, with_rejected=True):
         return g, (None if geom is None or geom.is_empty else geom)
 
     for f in sorted(out_dir.glob("ed*.json")):
-        if f.stem.endswith("_neighbours"):
+        if not re.fullmatch(r"ed\d+", f.stem):
             continue
         d = json.loads(f.read_text(encoding="utf-8"))
         nf = f.with_name(f.stem + "_neighbours.json")
@@ -161,7 +164,7 @@ def load_pages(out_dir, with_rejected=True):
                 accepted = (st == "accepted") if st is not None else not d.get("error")
                 (polys if accepted else rejected_polys)[ed] = geom
     for f in sorted(out_dir.glob("ed*.gpkg")):
-        if f.stem in stems:
+        if f.stem in stems or not re.fullmatch(r"ed\d+", f.stem):
             continue
         g, geom = read_gpkg(f)
         if geom is not None and "ed" in g.columns and len(g):
@@ -479,7 +482,10 @@ def assemble(polys, pages, known, va, app7, *, known_overlap_max=KNOWN_OVERLAP_M
         if pg.get("neighbour_eds") is not None:
             printed = set(pg["neighbour_eds"])
             cands = pg.get("city_labels") or [x for x in (pg.get("neighbour_labels") or []) if norm(str(x)).lower() in CITIES]
+            own = name_of[ed].lower()
             for city in {norm(str(x)).lower() for x in cands}:
+                if own == city or own.startswith(city + "-"):
+                    continue   # a city label does not stand for the districts of the claimant's own city
                 printed |= {e for e, n in name_of.items() if n.lower() == city or n.lower().startswith(city + "-")}
             unplaced[ed] = dict(pg, _printed_neighbours=printed)
     stated_area = {ed: float(app7.loc[ed, "area_km2"]) for ed in unplaced}
@@ -509,6 +515,46 @@ def assemble(polys, pages, known, va, app7, *, known_overlap_max=KNOWN_OVERLAP_M
                    "all claims dropped on area" if claims[c] else "no claim")
             left.append({"c": c, "n_vas": sizes[c], "area_km2": areas[c], "claims": claims[c], "claimants": valid, "why": why})
         comps.append(rec)
+    # matched: districts and components that validly claim each other (single-component claims only) are
+    # settled by the unique one-to-one assignment minimising sum |log(component area / stated area)|
+    pend = [d for d in left if d["claimants"] and d["c"] is not None]
+    graph_m = {}   # ed -> set of pending components it validly claims
+    for d in pend:
+        for k in claims[d["c"]]:
+            if k["status"] == "valid" and not k["pooled"] and k["ed"] not in filled:
+                graph_m.setdefault(k["ed"], set()).add(d["c"])
+    seen, matched_n = set(), 0
+    for e0 in sorted(graph_m):
+        if e0 in seen:
+            continue
+        eds_, cs_, stack = set(), set(), [("e", e0)]
+        while stack:   # connected cluster of the claim graph
+            t, v = stack.pop()
+            if t == "e" and v not in eds_:
+                eds_.add(v); stack += [("c", c) for c in graph_m[v]]
+            elif t == "c" and v not in cs_:
+                cs_.add(v); stack += [("e", e) for e in graph_m if v in graph_m[e]]
+        seen |= eds_
+        el, cl = sorted(eds_), sorted(cs_)
+        if len(el) != len(cl) or len(el) > 7:
+            continue
+        cost = lambda e, c: abs(math.log(areas[c] / stated_area[e]))
+        sols = []
+        for perm in itertools.permutations(cl):
+            if all(c in graph_m[e] for e, c in zip(el, perm)):
+                sols.append((sum(cost(e, c) for e, c in zip(el, perm)), perm))
+        sols.sort()
+        if not sols or (len(sols) > 1 and sols[1][0] - sols[0][0] < 1e-9):
+            continue   # no valid one-to-one assignment, or not unique
+        for e, c in zip(el, sols[0][1]):
+            idx = np.flatnonzero(comp == c)
+            va_district[idx] = name_of[e]
+            filled[e] = filled.get(e, 0) + len(idx)
+            filled_type.setdefault(e, set()).add("matched")
+            comps[c]["assigned_to"] = e
+            comps[c]["matched"] = True
+            matched_n += 1
+    left = [d for d in left if comps[d["c"]]["assigned_to"] is None]
     # enclosed fragments: an unassigned component whose VA-graph neighbours all belong to one district
     enclosed = []
     while True:

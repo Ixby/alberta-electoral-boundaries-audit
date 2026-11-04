@@ -420,7 +420,8 @@ def sanity(va, table, dgeoms, known, app7, edges, name_of, ed_of, nb_dir, pieces
             printed = {int(x) for x in d.get("neighbour_eds", [])}
             for lb in list(d.get("city_labels") or []) + list(d.get("labels") or []):  # a bare city name prints every district of that city
                 txt = str(lb.get("text", "") if isinstance(lb, dict) else lb).strip().rstrip("-").strip().lower()
-                if txt in CITY_LABELS:
+                own = name_of.get(int(d.get("ed", f.stem[2:4])), "").lower()
+                if txt in CITY_LABELS and not (own == txt or own.startswith(txt + "-")):  # not on a page inside that city
                     printed |= {e for e, n in name_of.items() if n.lower() == txt or n.lower().startswith(txt + "-")}
             files[int(d.get("ed", f.stem[2:4]))] = printed
     if not files:
