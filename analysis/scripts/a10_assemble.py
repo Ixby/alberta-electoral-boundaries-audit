@@ -395,10 +395,10 @@ def _rule4_hole_fill(va, edges, unassigned, unplaced, stated_area, va_ed, area_t
         printed = pg.get("_printed_neighbours")
         adjc = adj[c]
         n_in = len(adjc & printed) if printed is not None else None
-        nb_ok = printed is None or not adjc or n_in > len(adjc) / 2
+        nb_ok = printed is not None and (not adjc or n_in > len(adjc) / 2)  # fail closed: no neighbour file, no claim
         why = [] if ok else [f"area {area_used:.1f} vs stated {st:.1f}" + (" (pooled)" if pooled else "")]
         if not nb_ok:
-            why.append(f"neighbour check: {n_in} of {len(adjc)} adjacent EDs printed")
+            why.append("neighbour check: no neighbour file" if printed is None else f"neighbour check: {n_in} of {len(adjc)} adjacent EDs printed")
         claims[c].append({"ed": int(ed), "type": kind, "pooled": pooled, "component_area_km2": areas[c],
                           "area_used_km2": area_used, "stated_area_km2": st, "area_ratio": ratio,
                           "adjacent_eds": sorted(adjc),

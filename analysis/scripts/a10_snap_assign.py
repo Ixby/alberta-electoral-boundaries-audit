@@ -16,8 +16,9 @@ snap their edges together, measure drift, assign every voting area (VA), and run
                 and skipped): overlap area + gap area (gap = the part of the two pieces' DRIFT_GAP_BUF
                 buffers that lies in neither piece). Total drift = sum / area of the union of pieces.
                 Reported before and after snapping; pairs listed worst first.
-  3. Assign     A VA goes to the piece holding the largest share of its area; below MIN_AREA_SHARE it is
-                left to the hole fill. VAs the assembly gave to a hole-filled district stay with it.
+  3. Assign     A VA goes to the piece containing its representative point (the audit's convention); when
+                that point lies in no piece (a gap) it goes to the piece holding the largest share of its
+                area, if that is at least MIN_AREA_SHARE, else it is left to the hole fill. VAs the assembly gave to a hole-filled district stay with it.
                 Any other piece holding more than CUT_SHARE of a VA marks it CUT; in districts.gpkg a cut
                 VA is drawn split along the piece lines, in the VA population report it is apportioned
                 by area.
@@ -70,6 +71,10 @@ NB_MIN_EDGE_M = 200.0          # sanity: a shared edge shorter than this is a co
 NB_MIN_SHARE = 0.5             # sanity: more than this share of a district's real neighbours must be printed on its page
 CITY_LABELS = {"calgary", "edmonton", "st. albert", "red deer", "lethbridge", "medicine hat",
                "grande prairie", "airdrie", "sherwood park"}  # a bare city label on a page stands for all of the city's districts
+FRAME_MIN_W, FRAME_MIN_H = 400.0, 500.0  # sanity: the map frame is the largest dark-stroked rectangle wider/taller than this (pt)
+FRAME_DARK = 0.4              # sanity: a stroke counts as dark when every colour channel is below this
+OUT_OF_FRAME_MAX = 0.005      # sanity: a district drawn back on its page may have at most this share of its area outside the frame
+INSET_NAME = "inset_districts.gpkg"  # sanity: the pages' locator-inset shapes (a10_inset.py fit PAGES_DIR), read from the pages directory; absent = item not run, which fails the sanity check
 CONNECT_INSIDE = 0.90            # sanity: a VA-graph component of a district passes if one of its VAs has this share inside the piece
 AREA_TOL_FILLED = 0.25        # sanity: filled / split districts (unions of whole VAs) carry cut-VA granularity: figure reported, never gates; this share only marks the row 'info_out_of_25pct'
 AREA_TOL_SANITY = 0.05        # sanity: |area - App. 7 area_km2| <= this share of the stated area
@@ -275,6 +280,12 @@ def assign(va, res, pieces, extra_split, name_of):
     shares = [dict() for _ in range(len(va))]
     for v, d, s in zip(vi, di, sh):
         shares[v][names[d]] = float(s)
+    # the audit's standing convention: a VA goes to the piece containing its representative point
+    ptree = STRtree(np.array([pieces[n] for n in names], dtype=object))
+    ri, pi = ptree.query(np.asarray(va.geometry.representative_point().values, dtype=object), predicate="within")
+    rep_in = [[] for _ in range(len(va))]
+    for r_, p_ in zip(ri, pi):
+        rep_in[r_].append(names[p_])
     filled_names = {name_of[e] for e in res.filled}
     known_names = set(res.districts.loc[res.districts.source == "known", "district"])
     dist, kind, partners, allsh = [], [], [], []
@@ -286,7 +297,10 @@ def assign(va, res, pieces, extra_split, name_of):
             c, k = extra_split[v], "split"
         elif prior is not None and prior in filled_names:
             c, k = prior, "filled"
-        elif order and order[0][1] >= MIN_AREA_SHARE:
+        elif rep_in[v]:  # representative point inside a piece (overlap of pieces: the larger area share, known first)
+            c = sorted(rep_in[v], key=lambda n: (-round(s.get(n, 0.0), A.TIE_DECIMALS), n not in known_names, n))[0]
+            k = "known" if c in known_names else "placed"
+        elif order and order[0][1] >= MIN_AREA_SHARE:  # a gap: the largest area share
             c = order[0][0]
             k = "known" if c in known_names else "placed"
         else:
@@ -457,13 +471,93 @@ def sanity(va, table, dgeoms, known, app7, edges, name_of, ed_of, nb_dir, pieces
     return items, adj, arows
 
 
+def page_frame(n):
+    """The page's map frame as a pymupdf-free (x0, y0, x1, y1) in page points."""
+    import a9_stepb_reconstruct_v3 as V3
+    pg = V3._page(n)
+    best, area = None, 0.0
+    for d in pg.get_drawings():
+        col = d.get("color")
+        if col is None or max(col) >= FRAME_DARK:
+            continue
+        r = d["rect"]
+        kinds = {it[0] for it in d["items"]}
+        if not (kinds <= {"re", "qu"} or (kinds == {"l"} and len(d["items"]) <= 5)):  # a rectangle, not a long path
+            continue
+        if r.x0 < pg.rect.x0 - 2 or r.y0 < pg.rect.y0 - 2 or r.x1 > pg.rect.x1 + 2 or r.y1 > pg.rect.y1 + 2:
+            continue                                                               # the frame lies on the page
+        if r.width > FRAME_MIN_W and r.height > FRAME_MIN_H and r.width * r.height > area:
+            best, area = (r.x0, r.y0, r.x1, r.y1), r.width * r.height
+    if best is None:
+        r = pg.rect
+        best = (r.x0, r.y0, r.x1, r.y1)
+    return best
+
+
+def in_frame_item(dgeoms, pages, name_of, used):
+    """Each district with an accepted page transform, mapped back to its page (inverse of V1._apply:
+    s, theta, t, c from the json diagnostics), must lie inside that page's map frame. The gate covers pages
+    whose transform was USED (a placed piece: its snapped outline is mapped back); every other accepted page
+    (rejected, filled, split, known) is listed informationally with the final VA-union district."""
+    rows = []
+    for ed, pg in sorted(pages.items()):
+        dg = pg.get("diagnostics") or {}
+        n = name_of.get(ed)
+        if pg.get("polygon_status") != "accepted" or dg.get("p") is None or dg.get("c") is None or n not in dgeoms:
+            continue
+        sc, th, tx, ty = dg["p"]
+        cx, cy = dg["c"]
+        g = used[ed] if ed in used else dgeoms[n]
+        cs, sn = np.cos(th), np.sin(th)
+
+        def back(xy):  # ground -> page points
+            u, v = (xy[:, 0] - tx) / sc, (xy[:, 1] - ty) / sc
+            return np.c_[cs * u + sn * v + cx, cy - (-sn * u + cs * v)]
+
+        polys = []
+        for part in _poly_parts(g):
+            polys.append(Polygon(back(np.array(part.exterior.coords)), [back(np.array(h.coords)) for h in part.interiors]).buffer(0))
+        pg_geom = unary_union(polys)
+        x0, y0, x1, y1 = page_frame(ed)
+        out = pg_geom.difference(box(x0, y0, x1, y1)).area / pg_geom.area if pg_geom.area else 1.0
+        rows.append({"ed": ed, "district": n, "share_outside_frame": float(out), "transform_used": ed in used, "frame_pt": [x0, y0, x1, y1]})
+    gated = [r for r in rows if r["transform_used"]]
+    bad = [r for r in gated if r["share_outside_frame"] >= OUT_OF_FRAME_MAX]
+    info = [r for r in rows if not r["transform_used"] and r["share_outside_frame"] >= OUT_OF_FRAME_MAX]
+    return {"pass": not bad and bool(gated), "n_pages": len(gated), "n_fail": len(bad),
+            "fails": sorted(bad, key=lambda r: -r["share_outside_frame"]),
+            "informational_unused_over_threshold": sorted(info, key=lambda r: -r["share_outside_frame"]),
+            "per_page": rows}
+
+
+def inset_item(inset, out_dir):
+    """Compare the assembled districts with the locator-inset shapes on the pages (a10_inset.py check).
+    An inset that highlights the wrong district (inset_source_error) is reported, not failed."""
+    import subprocess
+    if not inset.exists():
+        return {"pass": None, "status": f"not run ({inset} absent)"}
+    outj = out_dir / "inset_check.json"
+    r = subprocess.run([sys.executable, "-W", "ignore", str(Path(__file__).resolve().parent / "a10_inset.py"), "check",
+                        "--inset", str(inset), "--districts", str(out_dir / "districts.gpkg"), "--out", str(outj)],
+                       capture_output=True, text=True)
+    if r.returncode != 0 or not outj.exists():
+        return {"pass": False, "status": "error running a10_inset.py", "stderr": r.stderr[-500:]}
+    d = json.loads(outj.read_text(encoding="utf-8"))
+    rows = d.get("districts", {})
+    return {"pass": d.get("n_fail", 1) == 0 and d.get("n_pass", 0) > 0, "status": "run", "n_pass": d.get("n_pass"),
+            "n_fail": d.get("n_fail"), "n_source_error": d.get("n_source_error"), "rule": d.get("rule"),
+            "failed": d.get("failed"), "source_errors": sorted(int(k) for k, v in rows.items() if v.get("inset_source_error")),
+            "per_district": rows}
+
+
 # ---- main --------------------------------------------------------------------------------------
 
 def _plain(x):
     return A._plain(x)
 
 
-def run(pages_dir, which, out_dir, nb_dir=None):
+def run(pages_dir, which, out_dir, nb_dir=None, inset=None):
+    inset = Path(pages_dir) / INSET_NAME if inset is None else Path(inset)
     t0 = time.time()
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -543,6 +637,8 @@ def run(pages_dir, which, out_dir, nb_dir=None):
               and any(k["ed"] == c["assigned_to"] and k.get("pooled") for k in c["claims"])}
     items, adj, arows = sanity(va, table, dgeoms, known, app7, edges, name_of, ed_of, nb_dir, pieces, loose, pooled)
 
+    items["districts_inside_page_frame"] = in_frame_item(dgeoms, pages, name_of, {e: g for e, g in snapped.items()})
+
     # per-district rows
     scale = float(app7["population"].sum()) / float(va["pop_2021"].sum())
     pop = {}
@@ -601,6 +697,7 @@ def run(pages_dir, which, out_dir, nb_dir=None):
     gd.to_file(out_dir / "districts.gpkg", driver="GPKG")
     gpd.GeoDataFrame([{"ed": e, "district": name_of[e], "geometry": g} for e, g in sorted(snapped.items())],
                      crs=3400).to_file(out_dir / "snapped_pieces.gpkg", driver="GPKG")
+    items["districts_match_locator_inset"] = inset_item(Path(inset), out_dir)
     report = {
         "inputs": {"pages": str(pages_dir), "known": which, "neighbours_dir": str(nb_dir)},
         "constants": {"SNAP_TOL_m": SNAP_TOL, "CUT_SHARE": CUT_SHARE, "DRIFT_GAP_BUF_m": DRIFT_GAP_BUF,
@@ -631,8 +728,9 @@ def main():
     ap.add_argument("--known", required=True, choices=["tuning", "fixed"])
     ap.add_argument("--out", required=True, help="result directory")
     ap.add_argument("--neighbours", help="directory of edNN_neighbours.json/.gpkg (default: --pages)")
+    ap.add_argument("--inset", default=None, help="inset_districts.gpkg for the locator-inset cross-check (default: PAGES_DIR/inset_districts.gpkg)")
     a = ap.parse_args()
-    rep = run(a.pages, a.known, a.out, a.neighbours)
+    rep = run(a.pages, a.known, a.out, a.neighbours, a.inset)
     d = rep["drift"]
     print(f"\nDRIFT before {100 * d['before_snap']:.4f}%  after {100 * d['after_snap']:.4f}%  "
           f"({'PASS' if d['pass'] else 'FAIL'} vs < {100 * DRIFT_TARGET:.2f}%), territory {d['territory_km2']:.0f} km2, {d['n_pairs']} pairs")
