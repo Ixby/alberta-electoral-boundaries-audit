@@ -1,0 +1,2707 @@
+{
+ "snap": "C:/tmp/a10test/snap_fixed",
+ "constants": {
+  "STEP_m": 100.0,
+  "SMOOTH_m": 400.0,
+  "SECTOR_deg": 50.0,
+  "OUTER_share": 0.3,
+  "TOL_m": 200.0,
+  "RUN_MIN_m": 1000.0,
+  "PROX_TOL_m": 5000.0
+ },
+ "limits": [
+  "no street, creek, railway or watershed names exist in the repo's data; clauses that need them are listed under not_checkable or tested only for 'runs along a main road' / 'runs along a mapped waterway'",
+  "OSM waterways are unnamed and dense in rural areas, so a river clause passes easily in the north and west",
+  "municipal limits are the 2021 census subdivisions, not the 2025-26 limits"
+ ],
+ "summary": {
+  "districts": 8,
+  "stretches_checked": 30,
+  "stretches_not_checkable": 12,
+  "median_of_stretch_medians_m": 90.0,
+  "stretches_with_share_within_tol_ge_90pct": 9,
+  "stretches_with_run_over_tol": 19
+ },
+ "districts": {
+  "71": {
+   "ed": 71,
+   "name": "Lethbridge",
+   "source": "placed",
+   "area_km2": 57.1,
+   "description": "FULL RING (metes-and-bounds M1 + prose summary B01)",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "B01",
+     "text": "on the north by Highway 3",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "route:3"
+     ],
+     "feature_lines": 300,
+     "checked": true,
+     "n_samples": 84,
+     "length_km": 8.4,
+     "median_m": 4.6,
+     "p90_m": 69.0,
+     "share_within_tol": 1.0,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 9.5,
+     "side_length_km": 8.4,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B01/M1",
+     "text": "bounded on the south by the Oldman River in West Lethbridge and the city limits east of the river",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-",
+      "csd:Lethbridge"
+     ],
+     "feature_lines": 34,
+     "checked": true,
+     "n_samples": 94,
+     "length_km": 9.4,
+     "median_m": 7.6,
+     "p90_m": 23.2,
+     "share_within_tol": 1.0,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 24.2,
+     "side_length_km": 9.4,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B01",
+     "text": "On the eastern side the electoral boundary heads down Mayor Magrath to South Parkside Drive and then east to Highway 4 ... and then south along the Lethbridge's eastern city limits",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "route:5/4",
+      "csd:Lethbridge"
+     ],
+     "feature_lines": 160,
+     "checked": true,
+     "n_samples": 51,
+     "length_km": 5.1,
+     "median_m": 10.0,
+     "p90_m": 10.4,
+     "share_within_tol": 1.0,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 25.7,
+     "side_length_km": 5.1,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B01",
+     "text": "It's bounded on the west by Metis Trail West",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "arterial:-"
+     ],
+     "feature_lines": 2804,
+     "note": "street name not in the sources: tests only that the boundary runs along a main road",
+     "checked": true,
+     "n_samples": 123,
+     "length_km": 12.3,
+     "median_m": 62.2,
+     "p90_m": 599.3,
+     "share_within_tol": 0.6179,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 29.9,
+     "side_length_km": 12.3,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 2.5,
+       "max_distance_m": 761.0,
+       "median_distance_m": 526.0,
+       "at_x_y_epsg3400": [
+        653085,
+        5500063
+       ],
+       "at_lon_lat": [
+        -112.8782,
+        49.6535
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 685.0,
+       "median_distance_m": 481.0,
+       "at_x_y_epsg3400": [
+        652584,
+        5502080
+       ],
+       "at_lon_lat": [
+        -112.8844,
+        49.6717
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 2,
+     "length_in_runs_km": 3.6
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "M1",
+     "what": "Westside Drive, Garry Drive, Metis Trail W., Whoop Up Drive, McMaster Blvd, Mount Burke Blvd, Rocky Mountain Blvd, Sunridge Blvd, South Parkside Drive, Mayor Magrath Drive as separate waypoints",
+     "reason": "the NRN extract keeps ROADCLASS and RTNUMBER1 only, no street names; Mayor Magrath Drive (Highway 5) and Highways 3 and 4 are the only waypoints a route number resolves"
+    },
+    {
+     "clause": "B01",
+     "what": "southeast along the railway tracks / back up north to take in the Research and Development Centre",
+     "reason": "no railway or facility layer in the repo"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 10.1,
+   "median_of_stretch_medians_m": 8.8,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "W",
+     "clause": "B01",
+     "text": "It's bounded on the west by Metis Trail West",
+     "runs": [
+      {
+       "length_km": 2.5,
+       "max_distance_m": 761.0,
+       "median_distance_m": 526.0,
+       "at_x_y_epsg3400": [
+        653085,
+        5500063
+       ],
+       "at_lon_lat": [
+        -112.8782,
+        49.6535
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 685.0,
+       "median_distance_m": 481.0,
+       "at_x_y_epsg3400": [
+        652584,
+        5502080
+       ],
+       "at_lon_lat": [
+        -112.8844,
+        49.6717
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "40": {
+   "ed": 40,
+   "name": "Edmonton-Meadows",
+   "source": "filled",
+   "area_km2": 12.7,
+   "description": "full prose ring",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "B14",
+     "text": "Its northern boundary is still Whitemud Drive or Highway 14 ... and 38th Avenue N.W.",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "route:14",
+      "expressway:-"
+     ],
+     "feature_lines": 201,
+     "checked": true,
+     "n_samples": 36,
+     "length_km": 3.6,
+     "median_m": 436.7,
+     "p90_m": 1324.9,
+     "share_within_tol": 0.4722,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 4.8,
+     "side_length_km": 3.6,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 1.1,
+       "max_distance_m": 1411.0,
+       "median_distance_m": 1312.0,
+       "at_x_y_epsg3400": [
+        607004,
+        5923678
+       ],
+       "at_lon_lat": [
+        -113.3872,
+        53.4725
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 1.1
+    },
+    {
+     "clause": "B14",
+     "text": "Its southern boundary is still Anthony Henday Drive and 16A Avenue N.W.",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "route:216"
+     ],
+     "feature_lines": 328,
+     "checked": true,
+     "n_samples": 39,
+     "length_km": 3.9,
+     "median_m": 445.2,
+     "p90_m": 950.7,
+     "share_within_tol": 0.4103,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 6.3,
+     "side_length_km": 3.9,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1161.0,
+       "median_distance_m": 697.0,
+       "at_x_y_epsg3400": [
+        607407,
+        5920163
+       ],
+       "at_lon_lat": [
+        -113.3823,
+        53.4409
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 2.3
+    },
+    {
+     "clause": "B14",
+     "text": "(eastern edge) bordering Edmonton's eastern city limits",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Edmonton"
+     ],
+     "feature_lines": 1,
+     "checked": true,
+     "n_samples": 45,
+     "length_km": 4.5,
+     "median_m": 30.3,
+     "p90_m": 380.8,
+     "share_within_tol": 0.8222,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 4.7,
+     "side_length_km": 4.5,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B14",
+     "text": "Its western boundary is still 34th [Street N.W.]",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "arterial:-"
+     ],
+     "feature_lines": 10526,
+     "note": "street name not in the sources: tests only that the boundary runs along a main road",
+     "checked": true,
+     "n_samples": 40,
+     "length_km": 4.0,
+     "median_m": 4.5,
+     "p90_m": 11.3,
+     "share_within_tol": 0.95,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 14.0,
+     "side_length_km": 4.0,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "B14",
+     "what": "38th Avenue N.W., 16A Avenue N.W., 34th Street N.W. by name",
+     "reason": "no street names in the NRN extract"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 25.8,
+   "median_of_stretch_medians_m": 233.5,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "N",
+     "clause": "B14",
+     "text": "Its northern boundary is still Whitemud Drive or Highway 14 ... and 38th Avenue N.W.",
+     "runs": [
+      {
+       "length_km": 1.1,
+       "max_distance_m": 1411.0,
+       "median_distance_m": 1312.0,
+       "at_x_y_epsg3400": [
+        607004,
+        5923678
+       ],
+       "at_lon_lat": [
+        -113.3872,
+        53.4725
+       ]
+      }
+     ]
+    },
+    {
+     "side": "S",
+     "clause": "B14",
+     "text": "Its southern boundary is still Anthony Henday Drive and 16A Avenue N.W.",
+     "runs": [
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1161.0,
+       "median_distance_m": 697.0,
+       "at_x_y_epsg3400": [
+        607407,
+        5920163
+       ],
+       "at_lon_lat": [
+        -113.3823,
+        53.4409
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "46": {
+   "ed": 46,
+   "name": "Edmonton-Strathcona",
+   "source": "placed",
+   "area_km2": 24.4,
+   "description": "full prose ring (east edge cut off in the text layer)",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "B16",
+     "text": "bounded on the south by Whitemud Drive",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "route:14",
+      "expressway:-"
+     ],
+     "feature_lines": 164,
+     "checked": true,
+     "n_samples": 47,
+     "length_km": 4.7,
+     "median_m": 8.0,
+     "p90_m": 430.9,
+     "share_within_tol": 0.766,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 3.8,
+     "side_length_km": 4.7,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B16",
+     "text": "on the north by the North Saskatchewan River",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 57,
+     "checked": true,
+     "n_samples": 50,
+     "length_km": 5.0,
+     "median_m": 90.7,
+     "p90_m": 125.0,
+     "share_within_tol": 0.98,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 11.1,
+     "side_length_km": 5.0,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B16",
+     "text": "on the west, by Whitemud Creek",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 57,
+     "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
+     "checked": true,
+     "n_samples": 79,
+     "length_km": 7.9,
+     "median_m": 155.8,
+     "p90_m": 1157.7,
+     "share_within_tol": 0.519,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 11.1,
+     "side_length_km": 7.9,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 3.8,
+       "max_distance_m": 1346.0,
+       "median_distance_m": 879.0,
+       "at_x_y_epsg3400": [
+        595513,
+        5925968
+       ],
+       "at_lon_lat": [
+        -113.5596,
+        53.4953
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 3.8
+    },
+    {
+     "clause": "B16",
+     "text": "and on the east by Gateway Boulevard, 99th Street",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "route:2"
+     ],
+     "feature_lines": 706,
+     "note": "the passage is cut off after '99th Street'; Gateway Boulevard is Highway 2",
+     "checked": true,
+     "n_samples": 69,
+     "length_km": 6.9,
+     "median_m": 3170.0,
+     "p90_m": 5486.7,
+     "share_within_tol": 0.0435,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 5.0,
+     "side_length_km": 6.9,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 2.5,
+       "max_distance_m": 6088.0,
+       "median_distance_m": 5174.0,
+       "at_x_y_epsg3400": [
+        600928,
+        5929622
+       ],
+       "at_lon_lat": [
+        -113.4768,
+        53.5272
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 4057.0,
+       "median_distance_m": 3072.0,
+       "at_x_y_epsg3400": [
+        600349,
+        5927594
+       ],
+       "at_lon_lat": [
+        -113.4862,
+        53.509
+       ]
+      },
+      {
+       "length_km": 2.0,
+       "max_distance_m": 1996.0,
+       "median_distance_m": 1138.0,
+       "at_x_y_epsg3400": [
+        600007,
+        5925640
+       ],
+       "at_lon_lat": [
+        -113.492,
+        53.4916
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 3,
+     "length_in_runs_km": 6.6
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "B16",
+     "what": "the east edge after '99th Street'",
+     "reason": "text cut off in the text layer"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 130.6,
+   "median_of_stretch_medians_m": 123.2,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "W",
+     "clause": "B16",
+     "text": "on the west, by Whitemud Creek",
+     "runs": [
+      {
+       "length_km": 3.8,
+       "max_distance_m": 1346.0,
+       "median_distance_m": 879.0,
+       "at_x_y_epsg3400": [
+        595513,
+        5925968
+       ],
+       "at_lon_lat": [
+        -113.5596,
+        53.4953
+       ]
+      }
+     ]
+    },
+    {
+     "side": "E",
+     "clause": "B16",
+     "text": "and on the east by Gateway Boulevard, 99th Street",
+     "runs": [
+      {
+       "length_km": 2.5,
+       "max_distance_m": 6088.0,
+       "median_distance_m": 5174.0,
+       "at_x_y_epsg3400": [
+        600928,
+        5929622
+       ],
+       "at_lon_lat": [
+        -113.4768,
+        53.5272
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 4057.0,
+       "median_distance_m": 3072.0,
+       "at_x_y_epsg3400": [
+        600349,
+        5927594
+       ],
+       "at_lon_lat": [
+        -113.4862,
+        53.509
+       ]
+      },
+      {
+       "length_km": 2.0,
+       "max_distance_m": 1996.0,
+       "median_distance_m": 1138.0,
+       "at_x_y_epsg3400": [
+        600007,
+        5925640
+       ],
+       "at_lon_lat": [
+        -113.492,
+        53.4916
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "48": {
+   "ed": 48,
+   "name": "Edmonton-Whitemud",
+   "source": "placed",
+   "area_km2": 25.7,
+   "description": "full prose ring",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "C19",
+     "text": "all areas south of Anthony Henday Drive are recommended to be removed [south edge = the Henday]",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "route:216"
+     ],
+     "feature_lines": 610,
+     "checked": true,
+     "n_samples": 42,
+     "length_km": 4.2,
+     "median_m": 16.9,
+     "p90_m": 592.7,
+     "share_within_tol": 0.5238,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 5.7,
+     "side_length_km": 4.2,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 2.0,
+       "max_distance_m": 676.0,
+       "median_distance_m": 545.0,
+       "at_x_y_epsg3400": [
+        596071,
+        5919385
+       ],
+       "at_lon_lat": [
+        -113.5532,
+        53.4361
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 2.0
+    },
+    {
+     "clause": "C19",
+     "text": "[Whitemud Creek] north to the River [North Saskatchewan]",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 55,
+     "checked": true,
+     "n_samples": 40,
+     "length_km": 4.0,
+     "median_m": 93.2,
+     "p90_m": 229.9,
+     "share_within_tol": 0.875,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 18.8,
+     "side_length_km": 4.0,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "C19",
+     "text": "[north and west edges: the North Saskatchewan River]",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 55,
+     "checked": true,
+     "n_samples": 47,
+     "length_km": 4.7,
+     "median_m": 85.8,
+     "p90_m": 1049.9,
+     "share_within_tol": 0.7021,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 18.8,
+     "side_length_km": 4.7,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 1.4,
+       "max_distance_m": 1460.0,
+       "median_distance_m": 875.0,
+       "at_x_y_epsg3400": [
+        592445,
+        5921269
+       ],
+       "at_lon_lat": [
+        -113.6073,
+        53.4536
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 1.4
+    },
+    {
+     "clause": "C19",
+     "text": "the advisory panel recommends it follow Whitemud Creek north to the River",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 55,
+     "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
+     "checked": true,
+     "n_samples": 140,
+     "length_km": 14.0,
+     "median_m": 451.6,
+     "p90_m": 1837.7,
+     "share_within_tol": 0.4071,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 18.8,
+     "side_length_km": 14.0,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 3.9,
+       "max_distance_m": 1382.0,
+       "median_distance_m": 841.0,
+       "at_x_y_epsg3400": [
+        595471,
+        5925996
+       ],
+       "at_lon_lat": [
+        -113.5602,
+        53.4956
+       ]
+      },
+      {
+       "length_km": 2.0,
+       "max_distance_m": 1409.0,
+       "median_distance_m": 860.0,
+       "at_x_y_epsg3400": [
+        596571,
+        5920962
+       ],
+       "at_lon_lat": [
+        -113.5452,
+        53.4501
+       ]
+      },
+      {
+       "length_km": 1.4,
+       "max_distance_m": 2196.0,
+       "median_distance_m": 1804.0,
+       "at_x_y_epsg3400": [
+        596729,
+        5919961
+       ],
+       "at_lon_lat": [
+        -113.5431,
+        53.4411
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 3,
+     "length_in_runs_km": 7.3
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "C19",
+     "what": "Rabbit Hill Road limit and Whitemud Drive",
+     "reason": "no street names in the NRN extract"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 111.7,
+   "median_of_stretch_medians_m": 89.5,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "S",
+     "clause": "C19",
+     "text": "all areas south of Anthony Henday Drive are recommended to be removed [south edge = the Henday]",
+     "runs": [
+      {
+       "length_km": 2.0,
+       "max_distance_m": 676.0,
+       "median_distance_m": 545.0,
+       "at_x_y_epsg3400": [
+        596071,
+        5919385
+       ],
+       "at_lon_lat": [
+        -113.5532,
+        53.4361
+       ]
+      }
+     ]
+    },
+    {
+     "side": "W",
+     "clause": "C19",
+     "text": "[north and west edges: the North Saskatchewan River]",
+     "runs": [
+      {
+       "length_km": 1.4,
+       "max_distance_m": 1460.0,
+       "median_distance_m": 875.0,
+       "at_x_y_epsg3400": [
+        592445,
+        5921269
+       ],
+       "at_lon_lat": [
+        -113.6073,
+        53.4536
+       ]
+      }
+     ]
+    },
+    {
+     "side": "E",
+     "clause": "C19",
+     "text": "the advisory panel recommends it follow Whitemud Creek north to the River",
+     "runs": [
+      {
+       "length_km": 3.9,
+       "max_distance_m": 1382.0,
+       "median_distance_m": 841.0,
+       "at_x_y_epsg3400": [
+        595471,
+        5925996
+       ],
+       "at_lon_lat": [
+        -113.5602,
+        53.4956
+       ]
+      },
+      {
+       "length_km": 2.0,
+       "max_distance_m": 1409.0,
+       "median_distance_m": 860.0,
+       "at_x_y_epsg3400": [
+        596571,
+        5920962
+       ],
+       "at_lon_lat": [
+        -113.5452,
+        53.4501
+       ]
+      },
+      {
+       "length_km": 1.4,
+       "max_distance_m": 2196.0,
+       "median_distance_m": 1804.0,
+       "at_x_y_epsg3400": [
+        596729,
+        5919961
+       ],
+       "at_lon_lat": [
+        -113.5431,
+        53.4411
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "49": {
+   "ed": 49,
+   "name": "Edmonton-Windermere",
+   "source": "filled",
+   "area_km2": 53.9,
+   "description": "full prose ring",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "B15",
+     "text": "It is bounded on the east by Whitemud Creek",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 46,
+     "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
+     "checked": true,
+     "n_samples": 105,
+     "length_km": 10.5,
+     "median_m": 3675.7,
+     "p90_m": 4747.5,
+     "share_within_tol": 0.0,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 16.0,
+     "side_length_km": 10.5,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 3.2,
+       "max_distance_m": 4091.0,
+       "median_distance_m": 3718.0,
+       "at_x_y_epsg3400": [
+        593663,
+        5917629
+       ],
+       "at_lon_lat": [
+        -113.59,
+        53.4207
+       ]
+      },
+      {
+       "length_km": 2.6,
+       "max_distance_m": 4111.0,
+       "median_distance_m": 3727.0,
+       "at_x_y_epsg3400": [
+        592950,
+        5911605
+       ],
+       "at_lon_lat": [
+        -113.6025,
+        53.3667
+       ]
+      },
+      {
+       "length_km": 1.9,
+       "max_distance_m": 3189.0,
+       "median_distance_m": 2326.0,
+       "at_x_y_epsg3400": [
+        593151,
+        5919745
+       ],
+       "at_lon_lat": [
+        -113.5971,
+        53.4398
+       ]
+      },
+      {
+       "length_km": 1.2,
+       "max_distance_m": 5391.0,
+       "median_distance_m": 5109.0,
+       "at_x_y_epsg3400": [
+        594970,
+        5916071
+       ],
+       "at_lon_lat": [
+        -113.5708,
+        53.4065
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 4,
+     "length_in_runs_km": 8.9
+    },
+    {
+     "clause": "B15",
+     "text": "between the City's southern boundary (Highway 19 to Devon) and Anthony Henday Drive",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Edmonton",
+      "route:19"
+     ],
+     "feature_lines": 21,
+     "checked": true,
+     "n_samples": 67,
+     "length_km": 6.7,
+     "median_m": 0.0,
+     "p90_m": 1657.3,
+     "share_within_tol": 0.7463,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 16.1,
+     "side_length_km": 6.7,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B15",
+     "text": "[north edge] Anthony Henday Drive at its northern end",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "route:216"
+     ],
+     "feature_lines": 450,
+     "checked": true,
+     "n_samples": 34,
+     "length_km": 3.4,
+     "median_m": 1208.7,
+     "p90_m": 3207.6,
+     "share_within_tol": 0.3529,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 4.5,
+     "side_length_km": 3.4,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 1.2,
+       "max_distance_m": 1909.0,
+       "median_distance_m": 1405.0,
+       "at_x_y_epsg3400": [
+        591110,
+        5920781
+       ],
+       "at_lon_lat": [
+        -113.6275,
+        53.4495
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 1.2
+    },
+    {
+     "clause": "C17",
+     "text": "moving the western boundary of the electoral division east to the North Saskatchewan River",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 46,
+     "checked": true,
+     "n_samples": 70,
+     "length_km": 7.0,
+     "median_m": 115.6,
+     "p90_m": 1282.0,
+     "share_within_tol": 0.6143,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 16.0,
+     "side_length_km": 7.0,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 1.0,
+       "max_distance_m": 941.0,
+       "median_distance_m": 545.0,
+       "at_x_y_epsg3400": [
+        586928,
+        5909658
+       ],
+       "at_lon_lat": [
+        -113.6936,
+        53.3502
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 1926.0,
+       "median_distance_m": 1506.0,
+       "at_x_y_epsg3400": [
+        587592,
+        5908884
+       ],
+       "at_lon_lat": [
+        -113.6838,
+        53.3431
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 2,
+     "length_in_runs_km": 2.0
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "C18",
+     "what": "Chappelle Link S.W. between 28th and 41st Avenue S.W.; the Chappelle Gardens addition",
+     "reason": "no street or neighbourhood names in the sources"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 1235.8,
+   "median_of_stretch_medians_m": 662.1,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "E",
+     "clause": "B15",
+     "text": "It is bounded on the east by Whitemud Creek",
+     "runs": [
+      {
+       "length_km": 3.2,
+       "max_distance_m": 4091.0,
+       "median_distance_m": 3718.0,
+       "at_x_y_epsg3400": [
+        593663,
+        5917629
+       ],
+       "at_lon_lat": [
+        -113.59,
+        53.4207
+       ]
+      },
+      {
+       "length_km": 2.6,
+       "max_distance_m": 4111.0,
+       "median_distance_m": 3727.0,
+       "at_x_y_epsg3400": [
+        592950,
+        5911605
+       ],
+       "at_lon_lat": [
+        -113.6025,
+        53.3667
+       ]
+      },
+      {
+       "length_km": 1.9,
+       "max_distance_m": 3189.0,
+       "median_distance_m": 2326.0,
+       "at_x_y_epsg3400": [
+        593151,
+        5919745
+       ],
+       "at_lon_lat": [
+        -113.5971,
+        53.4398
+       ]
+      },
+      {
+       "length_km": 1.2,
+       "max_distance_m": 5391.0,
+       "median_distance_m": 5109.0,
+       "at_x_y_epsg3400": [
+        594970,
+        5916071
+       ],
+       "at_lon_lat": [
+        -113.5708,
+        53.4065
+       ]
+      }
+     ]
+    },
+    {
+     "side": "N",
+     "clause": "B15",
+     "text": "[north edge] Anthony Henday Drive at its northern end",
+     "runs": [
+      {
+       "length_km": 1.2,
+       "max_distance_m": 1909.0,
+       "median_distance_m": 1405.0,
+       "at_x_y_epsg3400": [
+        591110,
+        5920781
+       ],
+       "at_lon_lat": [
+        -113.6275,
+        53.4495
+       ]
+      }
+     ]
+    },
+    {
+     "side": "W",
+     "clause": "C17",
+     "text": "moving the western boundary of the electoral division east to the North Saskatchewan River",
+     "runs": [
+      {
+       "length_km": 1.0,
+       "max_distance_m": 941.0,
+       "median_distance_m": 545.0,
+       "at_x_y_epsg3400": [
+        586928,
+        5909658
+       ],
+       "at_lon_lat": [
+        -113.6936,
+        53.3502
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 1926.0,
+       "median_distance_m": 1506.0,
+       "at_x_y_epsg3400": [
+        587592,
+        5908884
+       ],
+       "at_lon_lat": [
+        -113.6838,
+        53.3431
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "62": {
+   "ed": 62,
+   "name": "Fort McMurray-Lac La Biche",
+   "source": "placed",
+   "area_km2": 32317.7,
+   "description": "full prose ring (rough: 'Roughly speaking')",
+   "stretches_checked": 3,
+   "stretches": [
+    {
+     "clause": "B06",
+     "text": "Fort McMurray-Lac La Biche's western boundary is the Athabasca River",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 212,
+     "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
+     "checked": true,
+     "n_samples": 2664,
+     "length_km": 266.4,
+     "median_m": 137.7,
+     "p90_m": 10730.8,
+     "share_within_tol": 0.646,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 408.4,
+     "side_length_km": 266.4,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 19.4,
+       "max_distance_m": 11066.0,
+       "median_distance_m": 6185.0,
+       "at_x_y_epsg3400": [
+        663878,
+        6078576
+       ],
+       "at_lon_lat": [
+        -112.4464,
+        54.8493
+       ]
+      },
+      {
+       "length_km": 16.8,
+       "max_distance_m": 13291.0,
+       "median_distance_m": 8112.0,
+       "at_x_y_epsg3400": [
+        665874,
+        6060572
+       ],
+       "at_lon_lat": [
+        -112.4256,
+        54.6869
+       ]
+      },
+      {
+       "length_km": 12.2,
+       "max_distance_m": 17206.0,
+       "median_distance_m": 11374.0,
+       "at_x_y_epsg3400": [
+        656816,
+        6040710
+       ],
+       "at_lon_lat": [
+        -112.5767,
+        54.5114
+       ]
+      },
+      {
+       "length_km": 9.7,
+       "max_distance_m": 17742.0,
+       "median_distance_m": 13745.0,
+       "at_x_y_epsg3400": [
+        678505,
+        6025733
+       ],
+       "at_lon_lat": [
+        -112.251,
+        54.3698
+       ]
+      },
+      {
+       "length_km": 6.4,
+       "max_distance_m": 411.0,
+       "median_distance_m": 311.0,
+       "at_x_y_epsg3400": [
+        649468,
+        6240147
+       ],
+       "at_lon_lat": [
+        -112.5831,
+        56.305
+       ]
+      },
+      {
+       "length_km": 4.9,
+       "max_distance_m": 21479.0,
+       "median_distance_m": 19111.0,
+       "at_x_y_epsg3400": [
+        660379,
+        6032298
+       ],
+       "at_lon_lat": [
+        -112.5262,
+        54.4348
+       ]
+      },
+      {
+       "length_km": 4.4,
+       "max_distance_m": 2748.0,
+       "median_distance_m": 1987.0,
+       "at_x_y_epsg3400": [
+        663421,
+        6090968
+       ],
+       "at_lon_lat": [
+        -112.4465,
+        54.9607
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 2269.0,
+       "median_distance_m": 1276.0,
+       "at_x_y_epsg3400": [
+        666255,
+        6050479
+       ],
+       "at_lon_lat": [
+        -112.4255,
+        54.5962
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 17,
+     "length_in_runs_km": 88.0
+    },
+    {
+     "clause": "B06",
+     "text": "Its northern boundary is the Athabasca and Clearwater Rivers",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 212,
+     "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
+     "checked": true,
+     "n_samples": 1826,
+     "length_km": 182.6,
+     "median_m": 93.3,
+     "p90_m": 227.7,
+     "share_within_tol": 0.8631,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 408.4,
+     "side_length_km": 182.6,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 3.8,
+       "max_distance_m": 3316.0,
+       "median_distance_m": 1991.0,
+       "at_x_y_epsg3400": [
+        717093,
+        6290598
+       ],
+       "at_lon_lat": [
+        -111.4495,
+        56.7314
+       ]
+      },
+      {
+       "length_km": 2.5,
+       "max_distance_m": 554.0,
+       "median_distance_m": 276.0,
+       "at_x_y_epsg3400": [
+        695713,
+        6272407
+       ],
+       "at_lon_lat": [
+        -111.8124,
+        56.5776
+       ]
+      },
+      {
+       "length_km": 2.4,
+       "max_distance_m": 325.0,
+       "median_distance_m": 242.0,
+       "at_x_y_epsg3400": [
+        703536,
+        6277198
+       ],
+       "at_lon_lat": [
+        -111.6814,
+        56.6173
+       ]
+      },
+      {
+       "length_km": 2.2,
+       "max_distance_m": 284.0,
+       "median_distance_m": 261.0,
+       "at_x_y_epsg3400": [
+        709970,
+        6282464
+       ],
+       "at_lon_lat": [
+        -111.5724,
+        56.6617
+       ]
+      },
+      {
+       "length_km": 1.3,
+       "max_distance_m": 1237.0,
+       "median_distance_m": 804.0,
+       "at_x_y_epsg3400": [
+        719774,
+        6292238
+       ],
+       "at_lon_lat": [
+        -111.4044,
+        56.7449
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 303.0,
+       "median_distance_m": 277.0,
+       "at_x_y_epsg3400": [
+        691981,
+        6272509
+       ],
+       "at_lon_lat": [
+        -111.873,
+        56.5801
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 596.0,
+       "median_distance_m": 516.0,
+       "at_x_y_epsg3400": [
+        796990,
+        6292768
+       ],
+       "at_lon_lat": [
+        -110.1449,
+        56.7069
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 296.0,
+       "median_distance_m": 272.0,
+       "at_x_y_epsg3400": [
+        698345,
+        6274967
+       ],
+       "at_lon_lat": [
+        -111.7676,
+        56.5995
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 8,
+     "length_in_runs_km": 15.3
+    },
+    {
+     "clause": "B06",
+     "text": "Its eastern boundary is the Saskatchewan border and the Cold Lake Air Weapons Range",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "province:-"
+     ],
+     "feature_lines": 1,
+     "checked": true,
+     "n_samples": 1593,
+     "length_km": 159.3,
+     "median_m": 360.6,
+     "p90_m": 19978.7,
+     "share_within_tol": 0.0188,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 3.0,
+     "side_length_km": 159.3,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 79.3,
+       "max_distance_m": 410.0,
+       "median_distance_m": 361.0,
+       "at_x_y_epsg3400": [
+        811990,
+        6204034
+       ],
+       "at_lon_lat": [
+        -110.0058,
+        55.9026
+       ]
+      },
+      {
+       "length_km": 46.5,
+       "max_distance_m": 361.0,
+       "median_distance_m": 358.0,
+       "at_x_y_epsg3400": [
+        807215,
+        6269764
+       ],
+       "at_lon_lat": [
+        -110.0058,
+        56.4943
+       ]
+      },
+      {
+       "length_km": 19.8,
+       "max_distance_m": 20012.0,
+       "median_distance_m": 19916.0,
+       "at_x_y_epsg3400": [
+        796051,
+        6153586
+       ],
+       "at_lon_lat": [
+        -110.3144,
+        55.4607
+       ]
+      },
+      {
+       "length_km": 3.3,
+       "max_distance_m": 26411.0,
+       "median_distance_m": 26401.0,
+       "at_x_y_epsg3400": [
+        790366,
+        6141848
+       ],
+       "at_lon_lat": [
+        -110.4162,
+        55.359
+       ]
+      },
+      {
+       "length_km": 1.8,
+       "max_distance_m": 6804.0,
+       "median_distance_m": 6337.0,
+       "at_x_y_epsg3400": [
+        799625,
+        6292046
+       ],
+       "at_lon_lat": [
+        -110.1029,
+        56.6987
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 29703.0,
+       "median_distance_m": 29674.0,
+       "at_x_y_epsg3400": [
+        787276,
+        6139195
+       ],
+       "at_lon_lat": [
+        -110.4676,
+        55.337
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 6,
+     "length_in_runs_km": 152.4
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "B06",
+     "what": "the Cold Lake Air Weapons Range part of the east edge",
+     "reason": "no range boundary in the repo (the Saskatchewan border part is checked)"
+    },
+    {
+     "clause": "B06",
+     "what": "its southern boundary is south of Lac La Biche / Smoky Lake County out",
+     "reason": "too vague: no line named"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 170.1,
+   "median_of_stretch_medians_m": 137.7,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "W",
+     "clause": "B06",
+     "text": "Fort McMurray-Lac La Biche's western boundary is the Athabasca River",
+     "runs": [
+      {
+       "length_km": 19.4,
+       "max_distance_m": 11066.0,
+       "median_distance_m": 6185.0,
+       "at_x_y_epsg3400": [
+        663878,
+        6078576
+       ],
+       "at_lon_lat": [
+        -112.4464,
+        54.8493
+       ]
+      },
+      {
+       "length_km": 16.8,
+       "max_distance_m": 13291.0,
+       "median_distance_m": 8112.0,
+       "at_x_y_epsg3400": [
+        665874,
+        6060572
+       ],
+       "at_lon_lat": [
+        -112.4256,
+        54.6869
+       ]
+      },
+      {
+       "length_km": 12.2,
+       "max_distance_m": 17206.0,
+       "median_distance_m": 11374.0,
+       "at_x_y_epsg3400": [
+        656816,
+        6040710
+       ],
+       "at_lon_lat": [
+        -112.5767,
+        54.5114
+       ]
+      },
+      {
+       "length_km": 9.7,
+       "max_distance_m": 17742.0,
+       "median_distance_m": 13745.0,
+       "at_x_y_epsg3400": [
+        678505,
+        6025733
+       ],
+       "at_lon_lat": [
+        -112.251,
+        54.3698
+       ]
+      },
+      {
+       "length_km": 6.4,
+       "max_distance_m": 411.0,
+       "median_distance_m": 311.0,
+       "at_x_y_epsg3400": [
+        649468,
+        6240147
+       ],
+       "at_lon_lat": [
+        -112.5831,
+        56.305
+       ]
+      },
+      {
+       "length_km": 4.9,
+       "max_distance_m": 21479.0,
+       "median_distance_m": 19111.0,
+       "at_x_y_epsg3400": [
+        660379,
+        6032298
+       ],
+       "at_lon_lat": [
+        -112.5262,
+        54.4348
+       ]
+      },
+      {
+       "length_km": 4.4,
+       "max_distance_m": 2748.0,
+       "median_distance_m": 1987.0,
+       "at_x_y_epsg3400": [
+        663421,
+        6090968
+       ],
+       "at_lon_lat": [
+        -112.4465,
+        54.9607
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 2269.0,
+       "median_distance_m": 1276.0,
+       "at_x_y_epsg3400": [
+        666255,
+        6050479
+       ],
+       "at_lon_lat": [
+        -112.4255,
+        54.5962
+       ]
+      }
+     ]
+    },
+    {
+     "side": "N",
+     "clause": "B06",
+     "text": "Its northern boundary is the Athabasca and Clearwater Rivers",
+     "runs": [
+      {
+       "length_km": 3.8,
+       "max_distance_m": 3316.0,
+       "median_distance_m": 1991.0,
+       "at_x_y_epsg3400": [
+        717093,
+        6290598
+       ],
+       "at_lon_lat": [
+        -111.4495,
+        56.7314
+       ]
+      },
+      {
+       "length_km": 2.5,
+       "max_distance_m": 554.0,
+       "median_distance_m": 276.0,
+       "at_x_y_epsg3400": [
+        695713,
+        6272407
+       ],
+       "at_lon_lat": [
+        -111.8124,
+        56.5776
+       ]
+      },
+      {
+       "length_km": 2.4,
+       "max_distance_m": 325.0,
+       "median_distance_m": 242.0,
+       "at_x_y_epsg3400": [
+        703536,
+        6277198
+       ],
+       "at_lon_lat": [
+        -111.6814,
+        56.6173
+       ]
+      },
+      {
+       "length_km": 2.2,
+       "max_distance_m": 284.0,
+       "median_distance_m": 261.0,
+       "at_x_y_epsg3400": [
+        709970,
+        6282464
+       ],
+       "at_lon_lat": [
+        -111.5724,
+        56.6617
+       ]
+      },
+      {
+       "length_km": 1.3,
+       "max_distance_m": 1237.0,
+       "median_distance_m": 804.0,
+       "at_x_y_epsg3400": [
+        719774,
+        6292238
+       ],
+       "at_lon_lat": [
+        -111.4044,
+        56.7449
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 303.0,
+       "median_distance_m": 277.0,
+       "at_x_y_epsg3400": [
+        691981,
+        6272509
+       ],
+       "at_lon_lat": [
+        -111.873,
+        56.5801
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 596.0,
+       "median_distance_m": 516.0,
+       "at_x_y_epsg3400": [
+        796990,
+        6292768
+       ],
+       "at_lon_lat": [
+        -110.1449,
+        56.7069
+       ]
+      },
+      {
+       "length_km": 1.0,
+       "max_distance_m": 296.0,
+       "median_distance_m": 272.0,
+       "at_x_y_epsg3400": [
+        698345,
+        6274967
+       ],
+       "at_lon_lat": [
+        -111.7676,
+        56.5995
+       ]
+      }
+     ]
+    },
+    {
+     "side": "E",
+     "clause": "B06",
+     "text": "Its eastern boundary is the Saskatchewan border and the Cold Lake Air Weapons Range",
+     "runs": [
+      {
+       "length_km": 79.3,
+       "max_distance_m": 410.0,
+       "median_distance_m": 361.0,
+       "at_x_y_epsg3400": [
+        811990,
+        6204034
+       ],
+       "at_lon_lat": [
+        -110.0058,
+        55.9026
+       ]
+      },
+      {
+       "length_km": 46.5,
+       "max_distance_m": 361.0,
+       "median_distance_m": 358.0,
+       "at_x_y_epsg3400": [
+        807215,
+        6269764
+       ],
+       "at_lon_lat": [
+        -110.0058,
+        56.4943
+       ]
+      },
+      {
+       "length_km": 19.8,
+       "max_distance_m": 20012.0,
+       "median_distance_m": 19916.0,
+       "at_x_y_epsg3400": [
+        796051,
+        6153586
+       ],
+       "at_lon_lat": [
+        -110.3144,
+        55.4607
+       ]
+      },
+      {
+       "length_km": 3.3,
+       "max_distance_m": 26411.0,
+       "median_distance_m": 26401.0,
+       "at_x_y_epsg3400": [
+        790366,
+        6141848
+       ],
+       "at_lon_lat": [
+        -110.4162,
+        55.359
+       ]
+      },
+      {
+       "length_km": 1.8,
+       "max_distance_m": 6804.0,
+       "median_distance_m": 6337.0,
+       "at_x_y_epsg3400": [
+        799625,
+        6292046
+       ],
+       "at_lon_lat": [
+        -110.1029,
+        56.6987
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 29703.0,
+       "median_distance_m": 29674.0,
+       "at_x_y_epsg3400": [
+        787276,
+        6139195
+       ],
+       "at_lon_lat": [
+        -110.4676,
+        55.337
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "79": {
+   "ed": 79,
+   "name": "Morinville-Sturgeon",
+   "source": "placed",
+   "area_km2": 2181.4,
+   "description": "full prose ring (north edge cut off in the text layer)",
+   "stretches_checked": 4,
+   "stretches": [
+    {
+     "clause": "B04",
+     "text": "Its southern boundary is the City of Edmonton and the southern border of Sturgeon County",
+     "side": "S",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Edmonton/Sturgeon County"
+     ],
+     "feature_lines": 7,
+     "checked": true,
+     "n_samples": 495,
+     "length_km": 49.5,
+     "median_m": 13.0,
+     "p90_m": 1137.4,
+     "share_within_tol": 0.7919,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 275.8,
+     "side_length_km": 49.5,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 2.8,
+       "max_distance_m": 2386.0,
+       "median_distance_m": 1704.0,
+       "at_x_y_epsg3400": [
+        586140,
+        5946275
+       ],
+       "at_lon_lat": [
+        -113.6953,
+        53.6795
+       ]
+      },
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1467.0,
+       "median_distance_m": 792.0,
+       "at_x_y_epsg3400": [
+        588667,
+        5947182
+       ],
+       "at_lon_lat": [
+        -113.6568,
+        53.6872
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 839.0,
+       "median_distance_m": 794.0,
+       "at_x_y_epsg3400": [
+        593512,
+        5944490
+       ],
+       "at_lon_lat": [
+        -113.5842,
+        53.6622
+       ]
+      },
+      {
+       "length_km": 1.6,
+       "max_distance_m": 1789.0,
+       "median_distance_m": 1406.0,
+       "at_x_y_epsg3400": [
+        591234,
+        5943188
+       ],
+       "at_lon_lat": [
+        -113.6191,
+        53.6509
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 4,
+     "length_in_runs_km": 8.4
+    },
+    {
+     "clause": "B04",
+     "text": "Its eastern boundary is the North Saskatchewan River",
+     "side": "E",
+     "rule": "within 200 m",
+     "feature": [
+      "river:-"
+     ],
+     "feature_lines": 107,
+     "checked": true,
+     "n_samples": 300,
+     "length_km": 30.0,
+     "median_m": 89.2,
+     "p90_m": 128.5,
+     "share_within_tol": 0.95,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 55.4,
+     "side_length_km": 30.0,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 1.0,
+       "max_distance_m": 447.0,
+       "median_distance_m": 395.0,
+       "at_x_y_epsg3400": [
+        618530,
+        5952433
+       ],
+       "at_lon_lat": [
+        -113.2026,
+        53.7285
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 1.0
+    },
+    {
+     "clause": "B04",
+     "text": "Its western boundary is the western boundary of Sturgeon County",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Sturgeon County"
+     ],
+     "feature_lines": 6,
+     "checked": true,
+     "n_samples": 518,
+     "length_km": 51.8,
+     "median_m": 3.9,
+     "p90_m": 62.6,
+     "share_within_tol": 0.9788,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 275.8,
+     "side_length_km": 51.8,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    },
+    {
+     "clause": "B04",
+     "text": "the electoral division's northern boundary is roughly the northern boundary of Sturgeon County",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Sturgeon County"
+     ],
+     "feature_lines": 6,
+     "checked": true,
+     "n_samples": 799,
+     "length_km": 79.9,
+     "median_m": 3.2,
+     "p90_m": 30.9,
+     "share_within_tol": 1.0,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 275.8,
+     "side_length_km": 79.9,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "B03",
+     "what": "push the boundary ... west to parallel Highway 779; Alexander reserve left out; Pine Sands in",
+     "reason": "'parallel' gives no line; the reserve and Pine Sands are not in the files"
+    },
+    {
+     "clause": "C06",
+     "what": "the St. Albert border moved to the Sturgeon River within St. Albert",
+     "reason": "no river names or St. Albert wards in the sources"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 8.5,
+   "median_of_stretch_medians_m": 8.4,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "S",
+     "clause": "B04",
+     "text": "Its southern boundary is the City of Edmonton and the southern border of Sturgeon County",
+     "runs": [
+      {
+       "length_km": 2.8,
+       "max_distance_m": 2386.0,
+       "median_distance_m": 1704.0,
+       "at_x_y_epsg3400": [
+        586140,
+        5946275
+       ],
+       "at_lon_lat": [
+        -113.6953,
+        53.6795
+       ]
+      },
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1467.0,
+       "median_distance_m": 792.0,
+       "at_x_y_epsg3400": [
+        588667,
+        5947182
+       ],
+       "at_lon_lat": [
+        -113.6568,
+        53.6872
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 839.0,
+       "median_distance_m": 794.0,
+       "at_x_y_epsg3400": [
+        593512,
+        5944490
+       ],
+       "at_lon_lat": [
+        -113.5842,
+        53.6622
+       ]
+      },
+      {
+       "length_km": 1.6,
+       "max_distance_m": 1789.0,
+       "median_distance_m": 1406.0,
+       "at_x_y_epsg3400": [
+        591234,
+        5943188
+       ],
+       "at_lon_lat": [
+        -113.6191,
+        53.6509
+       ]
+      }
+     ]
+    },
+    {
+     "side": "E",
+     "clause": "B04",
+     "text": "Its eastern boundary is the North Saskatchewan River",
+     "runs": [
+      {
+       "length_km": 1.0,
+       "max_distance_m": 447.0,
+       "median_distance_m": 395.0,
+       "at_x_y_epsg3400": [
+        618530,
+        5952433
+       ],
+       "at_lon_lat": [
+        -113.2026,
+        53.7285
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "85": {
+   "ed": 85,
+   "name": "Rocky Mountain House-Sundre",
+   "source": "placed",
+   "area_km2": 25122.6,
+   "description": "full prose ring",
+   "stretches_checked": 3,
+   "stretches": [
+    {
+     "clause": "B17",
+     "text": "Its western boundary follows the B.C. Border north to the Brazeau River",
+     "side": "W",
+     "rule": "within 200 m",
+     "feature": [
+      "province:-"
+     ],
+     "feature_lines": 1,
+     "checked": true,
+     "n_samples": 1724,
+     "length_km": 172.4,
+     "median_m": 11195.8,
+     "p90_m": 66288.9,
+     "share_within_tol": 0.46,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 135.2,
+     "side_length_km": 172.4,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 12.7,
+       "max_distance_m": 30286.0,
+       "median_distance_m": 25436.0,
+       "at_x_y_epsg3400": [
+        362669,
+        5797203
+       ],
+       "at_lon_lat": [
+        -117.0161,
+        52.3288
+       ]
+      },
+      {
+       "length_km": 9.8,
+       "max_distance_m": 86600.0,
+       "median_distance_m": 82618.0,
+       "at_x_y_epsg3400": [
+        391316,
+        5848932
+       ],
+       "at_lon_lat": [
+        -116.6128,
+        52.8003
+       ]
+      },
+      {
+       "length_km": 6.9,
+       "max_distance_m": 70737.0,
+       "median_distance_m": 68761.0,
+       "at_x_y_epsg3400": [
+        377345,
+        5841609
+       ],
+       "at_lon_lat": [
+        -116.8172,
+        52.7315
+       ]
+      },
+      {
+       "length_km": 5.6,
+       "max_distance_m": 47051.0,
+       "median_distance_m": 45976.0,
+       "at_x_y_epsg3400": [
+        373000,
+        5816558
+       ],
+       "at_lon_lat": [
+        -116.8719,
+        52.5053
+       ]
+      },
+      {
+       "length_km": 5.3,
+       "max_distance_m": 34943.0,
+       "median_distance_m": 32966.0,
+       "at_x_y_epsg3400": [
+        365708,
+        5805404
+       ],
+       "at_lon_lat": [
+        -116.9748,
+        52.4033
+       ]
+      },
+      {
+       "length_km": 5.3,
+       "max_distance_m": 20143.0,
+       "median_distance_m": 19927.0,
+       "at_x_y_epsg3400": [
+        361496,
+        5785354
+       ],
+       "at_lon_lat": [
+        -117.0285,
+        52.222
+       ]
+      },
+      {
+       "length_km": 4.9,
+       "max_distance_m": 56865.0,
+       "median_distance_m": 54933.0,
+       "at_x_y_epsg3400": [
+        374592,
+        5826817
+       ],
+       "at_lon_lat": [
+        -116.8524,
+        52.5979
+       ]
+      },
+      {
+       "length_km": 3.7,
+       "max_distance_m": 52034.0,
+       "median_distance_m": 50746.0,
+       "at_x_y_epsg3400": [
+        372461,
+        5823252
+       ],
+       "at_lon_lat": [
+        -116.8824,
+        52.5653
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 23,
+     "length_in_runs_km": 87.7
+    },
+    {
+     "clause": "B17",
+     "text": "the northern boundary of Clearwater County which is recommended to form the northern boundary of the electoral division as well",
+     "side": "N",
+     "rule": "within 200 m",
+     "feature": [
+      "csd:Clearwater County"
+     ],
+     "feature_lines": 5,
+     "checked": true,
+     "n_samples": 1894,
+     "length_km": 189.4,
+     "median_m": 39.4,
+     "p90_m": 110.2,
+     "share_within_tol": 0.9187,
+     "tol_m": 200.0,
+     "follow_km_all_sides": 365.6,
+     "side_length_km": 189.4,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 14.7,
+       "max_distance_m": 4961.0,
+       "median_distance_m": 3942.0,
+       "at_x_y_epsg3400": [
+        473617,
+        5854202
+       ],
+       "at_lon_lat": [
+        -115.392,
+        52.858
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 1,
+     "length_in_runs_km": 14.7
+    },
+    {
+     "clause": "B17",
+     "text": "Its eastern boundary is roughly a north-south line just east of the Highway 22 corridor",
+     "side": "E",
+     "rule": "proximity (5 km): the clause says 'roughly ... just east of', not 'along'",
+     "feature": [
+      "route:22"
+     ],
+     "feature_lines": 418,
+     "checked": true,
+     "n_samples": 2050,
+     "length_km": 205.0,
+     "median_m": 11418.5,
+     "p90_m": 26615.3,
+     "share_within_tol": 0.2673,
+     "tol_m": 5000.0,
+     "follow_km_all_sides": 84.7,
+     "side_length_km": 205.0,
+     "median_east_offset_m": 11092.0,
+     "share_east_of_route": 0.7595,
+     "runs_over_tol_ge_1km": [
+      {
+       "length_km": 57.0,
+       "max_distance_m": 28088.0,
+       "median_distance_m": 16293.0,
+       "at_x_y_epsg3400": [
+        534060,
+        5780853
+       ],
+       "at_lon_lat": [
+        -114.5015,
+        52.1979
+       ]
+      },
+      {
+       "length_km": 19.4,
+       "max_distance_m": 9812.0,
+       "median_distance_m": 9739.0,
+       "at_x_y_epsg3400": [
+        498884,
+        5862200
+       ],
+       "at_lon_lat": [
+        -115.0166,
+        52.9306
+       ]
+      },
+      {
+       "length_km": 14.6,
+       "max_distance_m": 19930.0,
+       "median_distance_m": 19654.0,
+       "at_x_y_epsg3400": [
+        528216,
+        5845336
+       ],
+       "at_lon_lat": [
+        -114.5815,
+        52.7782
+       ]
+      },
+      {
+       "length_km": 13.4,
+       "max_distance_m": 16429.0,
+       "median_distance_m": 14998.0,
+       "at_x_y_epsg3400": [
+        523691,
+        5831690
+       ],
+       "at_lon_lat": [
+        -114.6496,
+        52.6557
+       ]
+      },
+      {
+       "length_km": 10.9,
+       "max_distance_m": 14318.0,
+       "median_distance_m": 9272.0,
+       "at_x_y_epsg3400": [
+        539450,
+        5743606
+       ],
+       "at_lon_lat": [
+        -114.4269,
+        51.8625
+       ]
+      },
+      {
+       "length_km": 6.5,
+       "max_distance_m": 27682.0,
+       "median_distance_m": 27652.0,
+       "at_x_y_epsg3400": [
+        531933,
+        5812190
+       ],
+       "at_lon_lat": [
+        -114.5296,
+        52.4799
+       ]
+      },
+      {
+       "length_km": 6.5,
+       "max_distance_m": 31731.0,
+       "median_distance_m": 30228.0,
+       "at_x_y_epsg3400": [
+        535964,
+        5818639
+       ],
+       "at_lon_lat": [
+        -114.4695,
+        52.5376
+       ]
+      },
+      {
+       "length_km": 4.8,
+       "max_distance_m": 11445.0,
+       "median_distance_m": 10946.0,
+       "at_x_y_epsg3400": [
+        498275,
+        5874291
+       ],
+       "at_lon_lat": [
+        -115.0257,
+        53.0393
+       ]
+      }
+     ],
+     "n_runs_over_tol_ge_1km": 15,
+     "length_in_runs_km": 148.4
+    }
+   ],
+   "not_checkable": [
+    {
+     "clause": "B17",
+     "what": "its southern boundary meanders west along a watershed northwest of Cochrane",
+     "reason": "no watershed layer in the repo"
+    },
+    {
+     "clause": "B17",
+     "what": "then northeast along the Brazeau River to the northern boundary of Clearwater County",
+     "reason": "waterways are unnamed in the OSM layer and the clause covers a short stretch inside the north-west corner"
+    }
+   ],
+   "median_distance_all_checked_samples_m": 75.0,
+   "median_of_stretch_medians_m": 11195.8,
+   "stretches_with_run_over_tol": [
+    {
+     "side": "W",
+     "clause": "B17",
+     "text": "Its western boundary follows the B.C. Border north to the Brazeau River",
+     "runs": [
+      {
+       "length_km": 12.7,
+       "max_distance_m": 30286.0,
+       "median_distance_m": 25436.0,
+       "at_x_y_epsg3400": [
+        362669,
+        5797203
+       ],
+       "at_lon_lat": [
+        -117.0161,
+        52.3288
+       ]
+      },
+      {
+       "length_km": 9.8,
+       "max_distance_m": 86600.0,
+       "median_distance_m": 82618.0,
+       "at_x_y_epsg3400": [
+        391316,
+        5848932
+       ],
+       "at_lon_lat": [
+        -116.6128,
+        52.8003
+       ]
+      },
+      {
+       "length_km": 6.9,
+       "max_distance_m": 70737.0,
+       "median_distance_m": 68761.0,
+       "at_x_y_epsg3400": [
+        377345,
+        5841609
+       ],
+       "at_lon_lat": [
+        -116.8172,
+        52.7315
+       ]
+      },
+      {
+       "length_km": 5.6,
+       "max_distance_m": 47051.0,
+       "median_distance_m": 45976.0,
+       "at_x_y_epsg3400": [
+        373000,
+        5816558
+       ],
+       "at_lon_lat": [
+        -116.8719,
+        52.5053
+       ]
+      },
+      {
+       "length_km": 5.3,
+       "max_distance_m": 34943.0,
+       "median_distance_m": 32966.0,
+       "at_x_y_epsg3400": [
+        365708,
+        5805404
+       ],
+       "at_lon_lat": [
+        -116.9748,
+        52.4033
+       ]
+      },
+      {
+       "length_km": 5.3,
+       "max_distance_m": 20143.0,
+       "median_distance_m": 19927.0,
+       "at_x_y_epsg3400": [
+        361496,
+        5785354
+       ],
+       "at_lon_lat": [
+        -117.0285,
+        52.222
+       ]
+      },
+      {
+       "length_km": 4.9,
+       "max_distance_m": 56865.0,
+       "median_distance_m": 54933.0,
+       "at_x_y_epsg3400": [
+        374592,
+        5826817
+       ],
+       "at_lon_lat": [
+        -116.8524,
+        52.5979
+       ]
+      },
+      {
+       "length_km": 3.7,
+       "max_distance_m": 52034.0,
+       "median_distance_m": 50746.0,
+       "at_x_y_epsg3400": [
+        372461,
+        5823252
+       ],
+       "at_lon_lat": [
+        -116.8824,
+        52.5653
+       ]
+      }
+     ]
+    },
+    {
+     "side": "N",
+     "clause": "B17",
+     "text": "the northern boundary of Clearwater County which is recommended to form the northern boundary of the electoral division as well",
+     "runs": [
+      {
+       "length_km": 14.7,
+       "max_distance_m": 4961.0,
+       "median_distance_m": 3942.0,
+       "at_x_y_epsg3400": [
+        473617,
+        5854202
+       ],
+       "at_lon_lat": [
+        -115.392,
+        52.858
+       ]
+      }
+     ]
+    },
+    {
+     "side": "E",
+     "clause": "B17",
+     "text": "Its eastern boundary is roughly a north-south line just east of the Highway 22 corridor",
+     "runs": [
+      {
+       "length_km": 57.0,
+       "max_distance_m": 28088.0,
+       "median_distance_m": 16293.0,
+       "at_x_y_epsg3400": [
+        534060,
+        5780853
+       ],
+       "at_lon_lat": [
+        -114.5015,
+        52.1979
+       ]
+      },
+      {
+       "length_km": 19.4,
+       "max_distance_m": 9812.0,
+       "median_distance_m": 9739.0,
+       "at_x_y_epsg3400": [
+        498884,
+        5862200
+       ],
+       "at_lon_lat": [
+        -115.0166,
+        52.9306
+       ]
+      },
+      {
+       "length_km": 14.6,
+       "max_distance_m": 19930.0,
+       "median_distance_m": 19654.0,
+       "at_x_y_epsg3400": [
+        528216,
+        5845336
+       ],
+       "at_lon_lat": [
+        -114.5815,
+        52.7782
+       ]
+      },
+      {
+       "length_km": 13.4,
+       "max_distance_m": 16429.0,
+       "median_distance_m": 14998.0,
+       "at_x_y_epsg3400": [
+        523691,
+        5831690
+       ],
+       "at_lon_lat": [
+        -114.6496,
+        52.6557
+       ]
+      },
+      {
+       "length_km": 10.9,
+       "max_distance_m": 14318.0,
+       "median_distance_m": 9272.0,
+       "at_x_y_epsg3400": [
+        539450,
+        5743606
+       ],
+       "at_lon_lat": [
+        -114.4269,
+        51.8625
+       ]
+      },
+      {
+       "length_km": 6.5,
+       "max_distance_m": 27682.0,
+       "median_distance_m": 27652.0,
+       "at_x_y_epsg3400": [
+        531933,
+        5812190
+       ],
+       "at_lon_lat": [
+        -114.5296,
+        52.4799
+       ]
+      },
+      {
+       "length_km": 6.5,
+       "max_distance_m": 31731.0,
+       "median_distance_m": 30228.0,
+       "at_x_y_epsg3400": [
+        535964,
+        5818639
+       ],
+       "at_lon_lat": [
+        -114.4695,
+        52.5376
+       ]
+      },
+      {
+       "length_km": 4.8,
+       "max_distance_m": 11445.0,
+       "median_distance_m": 10946.0,
+       "at_x_y_epsg3400": [
+        498275,
+        5874291
+       ],
+       "at_lon_lat": [
+        -115.0257,
+        53.0393
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "seconds": 19.0
+}

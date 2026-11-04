@@ -336,7 +336,15 @@ def build_geometries(va, table, pieces):
         rest = g.difference(allocated) if not allocated.is_empty else g
         parts.setdefault(c, []).append(rest)
         weight[(v, c)] = rest.area / g.area
-    return {n: unary_union(p) for n, p in parts.items()}, weight
+    return {n: _polygonal(unary_union(p)) for n, p in parts.items()}, weight
+
+
+def _polygonal(g):
+    """Drop the zero-area lines and points that clipping cut VAs leaves in a union."""
+    if g.geom_type in ("Polygon", "MultiPolygon"):
+        return g
+    polys = [q for q in shapely.get_parts(g) if q.geom_type == "Polygon" and not q.is_empty]
+    return unary_union(polys) if polys else Polygon()
 
 
 # ---- sanity ------------------------------------------------------------------------------------

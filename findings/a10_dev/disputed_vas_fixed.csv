@@ -1,0 +1,4 @@
+pair,pair_names,OBJECTID,VA_NUMBER,assigned_to,cut,cut_partners,share_in_strip,would_change_if_line_followed,assignment_would_change,rep_point_in_strip,rep_point_to_strip_m,pop_2021,ballots_cast,va_area_km2
+76-80,Macleod-Crowsnest | Okotoks,1519,004,Macleod-Crowsnest,True,Banff-Canmore-Diamond Valley:0.149,0.0235,,False,False,3014.6,1268.4,143.0,213.8201
+76-80,Macleod-Crowsnest | Okotoks,3383,006,Macleod-Crowsnest,False,,0.0203,,False,False,4634.3,199.7,158.0,87.5642
+76-80,Macleod-Crowsnest | Okotoks,3826,007,Macleod-Crowsnest,False,,0.0188,,False,False,4545.1,483.6,158.0,140.2677

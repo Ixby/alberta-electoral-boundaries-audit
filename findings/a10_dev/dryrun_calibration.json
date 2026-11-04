@@ -2196,8 +2196,8 @@
      "52": {
       "ed": 52,
       "inset_width_km": 177.8339552663397,
-      "offset_km": 0.15688560055193726,
-      "iou": 0.9872390311385311,
+      "offset_km": 0.1568856005235707,
+      "iou": 0.9872390311385272,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2221,7 +2221,7 @@
      "55": {
       "ed": 55,
       "inset_width_km": 149.57101978381164,
-      "offset_km": 0.12136411938601711,
+      "offset_km": 0.1213641193878534,
       "iou": 0.9892550227525307,
       "status": "pass",
       "inset_source_error": false
@@ -2293,8 +2293,8 @@
      "64": {
       "ed": 64,
       "inset_width_km": 167.49207396816277,
-      "offset_km": 0.11372024738998501,
-      "iou": 0.9879905064610014,
+      "offset_km": 0.11372024737635673,
+      "iou": 0.9879905064610036,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2333,8 +2333,8 @@
      "69": {
       "ed": 69,
       "inset_width_km": 16.542891286309807,
-      "offset_km": 0.1062659014616349,
-      "iou": 0.9100222383034194,
+      "offset_km": 0.10626590145929758,
+      "iou": 0.910022238303419,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2349,15 +2349,15 @@
      "71": {
       "ed": 71,
       "inset_width_km": 11.029342153234408,
-      "offset_km": 0.059235692592471606,
-      "iou": 0.8930193714250277,
+      "offset_km": 0.05923569259019199,
+      "iou": 0.8930193714250289,
       "status": "pass",
       "inset_source_error": false
      },
      "72": {
       "ed": 72,
       "inset_width_km": 103.39261627715919,
-      "offset_km": 0.1764553115960157,
+      "offset_km": 0.17645531159961841,
       "iou": 0.9857605861717075,
       "status": "pass",
       "inset_source_error": false
@@ -2373,8 +2373,8 @@
      "74": {
       "ed": 74,
       "inset_width_km": 166.80565553643856,
-      "offset_km": 0.1544634507034826,
-      "iou": 0.9923355502184442,
+      "offset_km": 0.15446345069778164,
+      "iou": 0.9923355502184412,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2413,8 +2413,8 @@
      "79": {
       "ed": 79,
       "inset_width_km": 79.25849758022244,
-      "offset_km": 0.10385471536186683,
-      "iou": 0.9767047689524934,
+      "offset_km": 0.10385471535120296,
+      "iou": 0.97670476895249,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2461,7 +2461,7 @@
      "85": {
       "ed": 85,
       "inset_width_km": 197.82457242373388,
-      "offset_km": 0.12623402921544954,
+      "offset_km": 0.12623402921543486,
       "iou": 0.9936506986851156,
       "status": "pass",
       "inset_source_error": false
@@ -2501,15 +2501,15 @@
      "90": {
       "ed": 90,
       "inset_width_km": 343.2565721511366,
-      "offset_km": 0.11608876834480028,
-      "iou": 0.9945007361027074,
+      "offset_km": 0.11608876832859252,
+      "iou": 0.9945007361027058,
       "status": "pass",
       "inset_source_error": false
      },
      "91": {
       "ed": 91,
       "inset_width_km": 133.71640785819386,
-      "offset_km": 0.22796950952413328,
+      "offset_km": 0.22796950952334216,
       "iou": 0.983984170127089,
       "status": "pass",
       "inset_source_error": false
@@ -2789,8 +2789,8 @@
      "35": {
       "ed": 35,
       "inset_width_km": 8.243226178255863,
-      "offset_km": 0.35128114610839184,
-      "iou": 0.8228207503240699,
+      "offset_km": 0.3512811461020112,
+      "iou": 0.8228207503240706,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2846,7 +2846,7 @@
       "ed": 42,
       "inset_width_km": 19.224559638852252,
       "offset_km": 0.8633337240667289,
-      "iou": 0.7070135012050695,
+      "iou": 0.7070135012050709,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2861,7 +2861,7 @@
      "44": {
       "ed": 44,
       "inset_width_km": 6.368115558952093,
-      "offset_km": 0.6827197047692367,
+      "offset_km": 0.6827197047470753,
       "iou": 0.6961954123329898,
       "status": "pass",
       "inset_source_error": false
@@ -2869,8 +2869,8 @@
      "45": {
       "ed": 45,
       "inset_width_km": 9.572968433777802,
-      "offset_km": 0.7417878569582761,
-      "iou": 0.7038665480701818,
+      "offset_km": 0.7417878569554465,
+      "iou": 0.7038665480701813,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2916,8 +2916,8 @@
    "DRIFT_TARGET": 0.0005,
    "SEGMENT_MAX_m": 250.0
   },
-  "output_dir": "C:\\tmp\\a10test\\fresh_calibration_snap",
-  "seconds": 138.8
+  "output_dir": "C:\\tmp\\a10test\\rerun\\calibration_snap",
+  "seconds": 150.3
  },
  "T2_mean_abs_area_err_pct": 0.016226325371168537,
  "T3_mean_hausdorff_km": 0.031353162783955814,
@@ -4628,7 +4628,7 @@
     "area_tol": 0.25,
     "pop_tol": 0.05
    },
-   "seconds": 3.6
+   "seconds": 2.9
   },
   "parameters": {
    "known_overlap_max": 0.05,
@@ -5692,7 +5692,7 @@
   90,
   91
  ],
- "sec": 168.7,
+ "sec": 184.2,
  "environment": {
   "python": "3.12.13",
   "pymupdf": "2.1",
