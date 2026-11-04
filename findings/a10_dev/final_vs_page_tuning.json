@@ -1,6 +1,6 @@
 {
  "pages": "C:/tmp/a10test/fixture",
- "snap": "C:/tmp/a10test/rerun/calibration_snap",
+ "snap": "C:/tmp/a10test/clean5_calibration_snap",
  "summary": {
   "placed": 61,
   "with_mismatch": 1,

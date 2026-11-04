@@ -27,7 +27,7 @@ snap their edges together, measure drift, assign every voting area (VA), and run
                 VAs it holds >= MIN_AREA_SHARE of, the other claimant (when exactly two) taking the
                 rest. Flagged low_confidence (source "split"). With no polygon: left unassigned.
   5. Sanity     91 districts; every VA assigned; each district connected on the VA graph; no district
-                overlaps a known district by more than KNOWN_OVERLAP_SANITY (0.1%); area within AREA_TOL_SANITY
+                overlaps a known district by more than KNOWN_OVERLAP_SANITY (0.1%); area within AREA_TOL_SANITY (or App. 7 rounding)
                 of App. 7; neighbour numbers printed on the page equal the districts adjacent in the
                 assembled map (needs piece D's edNN_neighbours.json, else "not run"); coverage complete.
 
@@ -78,6 +78,7 @@ INSET_NAME = "inset_districts.gpkg"  # sanity: the pages' locator-inset shapes (
 CONNECT_INSIDE = 0.90            # sanity: a VA-graph component of a district passes if one of its VAs has this share inside the piece
 AREA_TOL_FILLED = 0.25        # sanity: filled / split districts (unions of whole VAs) carry cut-VA granularity: figure reported, never gates; this share only marks the row 'info_out_of_25pct'
 AREA_TOL_SANITY = 0.05        # sanity: |area - App. 7 area_km2| <= this share of the stated area
+APP7_ROUNDING_KM2 = 0.5       # sanity: ... or <= App. 7's rounding to whole km2, whichever is larger
 
 
 # ---- helpers -----------------------------------------------------------------------------------
@@ -169,6 +170,21 @@ def _clip(g, b):
         return g.intersection(b)
     except shapely.errors.GEOSException:
         return g.buffer(0).intersection(b)
+
+
+def _diff(g, b):
+    try:
+        return g.difference(b)
+    except shapely.errors.GEOSException:
+        return g.buffer(0).difference(b.buffer(0))
+
+
+def _shared(a, b_buf):
+    """Length of a's edge lying within b_buf (b buffered by 1 cm)."""
+    try:
+        return float(a.boundary.intersection(b_buf).length)
+    except shapely.errors.GEOSException:
+        return float(a.buffer(0).boundary.intersection(b_buf).length)
 
 
 def drift(pieces, known_names):
@@ -315,28 +331,88 @@ def assign(va, res, pieces, extra_split, name_of):
 
 def build_geometries(va, table, pieces):
     """District geometry = whole uncut VAs + split parts of cut VAs. Returns (geoms {name: geom},
-    weight per VA per district {(row, name): fraction of the VA's area})."""
+    weight per VA per district {(row, name): fraction of the VA's area}, VAs newly found cut
+    {row: {district: share}})."""
     geoms = np.asarray(va.geometry.values, dtype=object)
-    parts, weight = {}, {}
-    for v in np.flatnonzero(table.district.notna().to_numpy()):
-        c, pr = table.district.iloc[v], table.partners.iloc[v]
+    dist_ = table.district.to_numpy(dtype=object)
+    kind_ = table.kind.to_numpy(dtype=object)
+    # Districts with no snapped piece (hole-filled or split) are unions of their VAs; part of a placed
+    # district's VA that lies outside its piece and against one of these belongs to it on the page.
+    fills = {}
+    for v in np.flatnonzero(pd.notna(dist_)):
+        if dist_[v] not in pieces:
+            fills.setdefault(dist_[v], []).append(geoms[v])
+    fill_buf = {n: unary_union(gs).buffer(0.01) for n, gs in fills.items()}
+    names = list(pieces)
+    tree = STRtree([pieces[n] for n in names])
+    parts, weight, newcut = {}, {}, {}
+    for v in np.flatnonzero(pd.notna(dist_)):
+        c, pr = dist_[v], table.partners.iloc[v]
         g = geoms[v]
-        if not pr:
+        if not pr and c not in pieces:
             parts.setdefault(c, []).append(g)
             weight[(v, c)] = 1.0
             continue
-        allocated = Polygon()
+        allocated, own = Polygon(), {}
         for n, _ in sorted(pr.items(), key=lambda kv: (-kv[1], kv[0])):
+            if n not in pieces:
+                continue
             part = _clip(g, pieces[n]).difference(allocated) if not allocated.is_empty else _clip(g, pieces[n])
             if part.is_empty:
                 continue
             allocated = part if allocated.is_empty else unary_union([allocated, part])
             parts.setdefault(n, []).append(part)
+            own[n] = part
             weight[(v, n)] = part.area / g.area
         rest = g.difference(allocated) if not allocated.is_empty else g
+        if c not in pieces:
+            parts.setdefault(c, []).append(rest)
+            weight[(v, c)] = rest.area / g.area
+            continue
+        home = _clip(rest, pieces[c])
+        outside = _diff(rest, pieces[c]) if not home.is_empty else rest
+        orphan = outside
+        for i in tree.query(outside):
+            n = names[i]
+            if n != c and not orphan.is_empty:
+                inside = _clip(orphan, pieces[n])
+                if not inside.is_empty and inside.area > 0:
+                    # a sliver of the VA inside another district's piece (under CUT_SHARE, so the VA is
+                    # not flagged cut) is drawn with that district, as the page line places it
+                    parts.setdefault(n, []).append(inside)
+                    weight[(v, n)] = weight.get((v, n), 0.0) + inside.area / g.area
+                orphan = _diff(orphan, pieces[n])
+        rest = unary_union([home, orphan]) if not orphan.is_empty else home
+        if orphan.is_empty or orphan.area < 1e-6 * g.area:
+            parts.setdefault(c, []).append(rest)
+            weight[(v, c)] = rest.area / g.area
+            continue
+        # The part of the VA in no snapped piece lies outside the line its district's page draws. It
+        # goes, fragment by fragment, to the other district it shares the longest edge with: one of
+        # the VA's own parts, or a neighbouring district with no piece (hole-filled or split). A
+        # fragment touching no other district (the VA layer's edge beyond the page's drawn border)
+        # stays. So no district carries detached remnants, and a page's line splits a VA against a
+        # filled district too.
+        bufs = {n: q.buffer(0.01) for n, q in own.items()}
+        bufs.update({n: b for n, b in fill_buf.items() if n != c and kind_[v] != "known" and b.intersects(orphan)})
+        take = {}
+        for q in shapely.get_parts(_polygonal(orphan)):
+            best, blen = c, 0.0
+            for n, bq in bufs.items():
+                ln = _shared(q, bq) if q.intersects(bq) else 0.0
+                if ln > blen:
+                    best, blen = n, ln
+            take.setdefault(best, []).append(q)
+        rest = unary_union([home, *take.pop(c, [])])
+        for n, qs in take.items():
+            parts.setdefault(n, []).append(unary_union(qs))
+            sh = sum(q.area for q in qs) / g.area
+            weight[(v, n)] = weight.get((v, n), 0.0) + sh
+            if n not in pr and sh > CUT_SHARE:
+                newcut.setdefault(v, {})[n] = sh
         parts.setdefault(c, []).append(rest)
         weight[(v, c)] = rest.area / g.area
-    return {n: _polygonal(unary_union(p)) for n, p in parts.items()}, weight
+    return {n: _polygonal(unary_union(p)) for n, p in parts.items()}, weight, newcut
 
 
 def _polygonal(g):
@@ -414,6 +490,9 @@ def sanity(va, table, dgeoms, known, app7, edges, name_of, ed_of, nb_dir, pieces
         # filled / split districts on their VA union (25%)
         a = (pieces[n].area if n in pieces and n not in known and n not in loose else g.area) / 1e6
         tol = AREA_TOL_FILLED if n in loose else AREA_TOL_SANITY
+        # App. 7 states areas in whole km2, so a district may also differ by the rounding (0.5 km2):
+        # the commission's own Calgary-Buffalo is 4.20 km2 against a stated 4
+        tol = max(tol, APP7_ROUNDING_KM2 / st) if st else tol
         arows.append({"ed": ed, "district": n, "area_km2": a, "stated_km2": st, "diff_pct": 100 * (a - st) / st if st else None,
                       "tol_pct": 100 * tol})
     for r in arows:
@@ -635,7 +714,10 @@ def run(pages_dir, which, out_dir, nb_dir=None, inset=None):
     # 4 then 3
     extra, merged_report = split_merged_holes(res, va, edges, {**rej_polys, **polys}, pages, name_of)
     table = assign(va, res, pieces, extra, name_of)
-    dgeoms, weight = build_geometries(va, table, pieces)
+    dgeoms, weight, newcut = build_geometries(va, table, pieces)
+    for v, extra_p in newcut.items():
+        table.at[table.index[v], "partners"] = {**table.partners.iloc[v], **extra_p}
+    table["cut"] = [bool(p) for p in table.partners]
     print(f"[{time.time() - t0:.0f}s] assigned {int(table.district.notna().sum())}/{len(va)} VAs, "
           f"{int(table.cut.sum())} cut, {len(extra)} from merged-hole splits", flush=True)
 

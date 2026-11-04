@@ -36,7 +36,7 @@
   86,
   89
  ],
- "pages_dir": "C:\\tmp\\a10test\\fresh",
+ "pages_dir": "C:\\tmp\\a10test\\clean5",
  "placed": 30,
  "placed_eds": [
   2,
@@ -1231,7 +1231,7 @@
     "result": "split"
    }
   ],
-  "cut_vas": 222,
+  "cut_vas": 233,
   "sanity": {
    "districts_91": {
     "pass": true,
@@ -1298,17 +1298,7 @@
     "n_checked": 91,
     "n_fail": 0,
     "fails": [],
-    "informational_filled_split_over_25pct": [
-     {
-      "ed": 57,
-      "district": "Chestermere-Strathmore",
-      "area_km2": 749.6784455433926,
-      "stated_km2": 1025.0,
-      "diff_pct": -26.860639459181208,
-      "tol_pct": 25.0,
-      "informational": true
-     }
-    ]
+    "informational_filled_split_over_25pct": []
    },
    "page_neighbours_match_adjacency": {
     "pass": true,
@@ -1329,21 +1319,9 @@
     "fails": [],
     "informational_unused_over_threshold": [
      {
-      "ed": 22,
-      "district": "Calgary-North West-Bearspaw",
-      "share_outside_frame": 1.0000000000000007,
-      "transform_used": false,
-      "frame_pt": [
-       51.96200180053711,
-       64.79998779296875,
-       581.8819580078125,
-       735.47998046875
-      ]
-     },
-     {
       "ed": 49,
       "district": "Edmonton-Windermere",
-      "share_outside_frame": 0.9999999999999998,
+      "share_outside_frame": 1.0000000000000078,
       "transform_used": false,
       "frame_pt": [
        30.118000030517578,
@@ -1353,9 +1331,21 @@
       ]
      },
      {
+      "ed": 22,
+      "district": "Calgary-North West-Bearspaw",
+      "share_outside_frame": 1.0000000000000016,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
       "ed": 86,
       "district": "Sherwood Park",
-      "share_outside_frame": 0.999999999999999,
+      "share_outside_frame": 1.0000000000000004,
       "transform_used": false,
       "frame_pt": [
        51.96200180053711,
@@ -1367,7 +1357,7 @@
      {
       "ed": 40,
       "district": "Edmonton-Meadows",
-      "share_outside_frame": 0.9999999999999989,
+      "share_outside_frame": 0.9999999999999997,
       "transform_used": false,
       "frame_pt": [
        51.96200180053711,
@@ -1501,7 +1491,7 @@
      {
       "ed": 22,
       "district": "Calgary-North West-Bearspaw",
-      "share_outside_frame": 1.0000000000000007,
+      "share_outside_frame": 1.0000000000000016,
       "transform_used": false,
       "frame_pt": [
        51.96200180053711,
@@ -1621,7 +1611,7 @@
      {
       "ed": 40,
       "district": "Edmonton-Meadows",
-      "share_outside_frame": 0.9999999999999989,
+      "share_outside_frame": 0.9999999999999997,
       "transform_used": false,
       "frame_pt": [
        51.96200180053711,
@@ -1717,7 +1707,7 @@
      {
       "ed": 49,
       "district": "Edmonton-Windermere",
-      "share_outside_frame": 0.9999999999999998,
+      "share_outside_frame": 1.0000000000000078,
       "transform_used": false,
       "frame_pt": [
        30.118000030517578,
@@ -2101,7 +2091,7 @@
      {
       "ed": 86,
       "district": "Sherwood Park",
-      "share_outside_frame": 0.999999999999999,
+      "share_outside_frame": 1.0000000000000004,
       "transform_used": false,
       "frame_pt": [
        51.96200180053711,
@@ -2180,31 +2170,31 @@
      "50": {
       "ed": 50,
       "inset_width_km": 53.76230001848005,
-      "offset_km": 1.3171022427176897,
-      "iou": 0.9394877175502443,
+      "offset_km": 0.2298911393129697,
+      "iou": 0.9790153584565395,
       "status": "pass",
       "inset_source_error": false
      },
      "51": {
       "ed": 51,
       "inset_width_km": 21.36785969404783,
-      "offset_km": 0.05299882844884212,
-      "iou": 0.9585844852792749,
+      "offset_km": 0.05103659536557014,
+      "iou": 0.9587132403950704,
       "status": "pass",
       "inset_source_error": false
      },
      "52": {
       "ed": 52,
       "inset_width_km": 177.8339552663397,
-      "offset_km": 0.1568856005235707,
-      "iou": 0.9872390311385272,
+      "offset_km": 0.23404267975746548,
+      "iou": 0.9865153190772026,
       "status": "pass",
       "inset_source_error": false
      },
      "53": {
       "ed": 53,
       "inset_width_km": 136.4752997695431,
-      "offset_km": 154.50677412512428,
+      "offset_km": 154.51997111054365,
       "iou": 0.0,
       "status": "inset_source_error",
       "inset_source_error": true,
@@ -2213,88 +2203,88 @@
      "54": {
       "ed": 54,
       "inset_width_km": 109.59336861721519,
-      "offset_km": 0.6808609968140147,
-      "iou": 0.9548904028217909,
+      "offset_km": 0.6819407775268077,
+      "iou": 0.9548573860717264,
       "status": "pass",
       "inset_source_error": false
      },
      "55": {
       "ed": 55,
       "inset_width_km": 149.57101978381164,
-      "offset_km": 0.1213641193878534,
-      "iou": 0.9892550227525307,
+      "offset_km": 0.13939172765790242,
+      "iou": 0.9893234484644111,
       "status": "pass",
       "inset_source_error": false
      },
      "56": {
       "ed": 56,
       "inset_width_km": 388.7623582938388,
-      "offset_km": 0.0878294578923955,
-      "iou": 0.9946769774001727,
+      "offset_km": 0.08778407817072253,
+      "iou": 0.9946797791299783,
       "status": "pass",
       "inset_source_error": false
      },
      "57": {
       "ed": 57,
       "inset_width_km": 37.220927394405706,
-      "offset_km": 2.945157023766019,
-      "iou": 0.715752958073219,
+      "offset_km": 0.20963866116769564,
+      "iou": 0.9723861532849205,
       "status": "pass",
       "inset_source_error": false
      },
      "58": {
       "ed": 58,
       "inset_width_km": 29.639127897934056,
-      "offset_km": 0.3219621752953091,
-      "iou": 0.9624869645107827,
+      "offset_km": 0.187399232969916,
+      "iou": 0.9721781073515292,
       "status": "pass",
       "inset_source_error": false
      },
      "59": {
       "ed": 59,
       "inset_width_km": 205.4073374557644,
-      "offset_km": 0.11644014536565386,
-      "iou": 0.9933276538363778,
+      "offset_km": 0.10502790943309717,
+      "iou": 0.9934570508549072,
       "status": "pass",
       "inset_source_error": false
      },
      "60": {
       "ed": 60,
       "inset_width_km": 136.47746216219664,
-      "offset_km": 0.2393011408892858,
-      "iou": 0.9832491247813856,
+      "offset_km": 0.2009612268882265,
+      "iou": 0.9843172423020469,
       "status": "pass",
       "inset_source_error": false
      },
      "61": {
       "ed": 61,
       "inset_width_km": 231.59933262615,
-      "offset_km": 0.1351173521371856,
-      "iou": 0.99585044501627,
+      "offset_km": 0.13464621844682204,
+      "iou": 0.9958669417061614,
       "status": "pass",
       "inset_source_error": false
      },
      "62": {
       "ed": 62,
       "inset_width_km": 283.984541030651,
-      "offset_km": 0.12344235557958906,
-      "iou": 0.9946848630678874,
+      "offset_km": 0.11777495068201675,
+      "iou": 0.994700545933764,
       "status": "pass",
       "inset_source_error": false
      },
      "63": {
       "ed": 63,
       "inset_width_km": 403.23317428697646,
-      "offset_km": 0.06438334835135977,
-      "iou": 0.9970782165679721,
+      "offset_km": 0.06441099221995238,
+      "iou": 0.9970781912268798,
       "status": "pass",
       "inset_source_error": false
      },
      "64": {
       "ed": 64,
       "inset_width_km": 167.49207396816277,
-      "offset_km": 0.11372024737635673,
-      "iou": 0.9879905064610036,
+      "offset_km": 0.11038566398928108,
+      "iou": 0.9882993049900324,
       "status": "pass",
       "inset_source_error": false
      },
@@ -2309,600 +2299,600 @@
      "66": {
       "ed": 66,
       "inset_width_km": 166.80599051834363,
-      "offset_km": 0.446834353658297,
-      "iou": 0.9861974014325293,
+      "offset_km": 0.44654300076481235,
+      "iou": 0.9861983051344587,
       "status": "pass",
       "inset_source_error": false
      },
      "67": {
       "ed": 67,
       "inset_width_km": 95.80818626463879,
-      "offset_km": 0.28057617429651827,
-      "iou": 0.983493620045011,
+      "offset_km": 0.2769538198255263,
+      "iou": 0.9838024335876047,
       "status": "pass",
       "inset_source_error": false
      },
      "68": {
       "ed": 68,
       "inset_width_km": 108.21669016791508,
-      "offset_km": 0.1486064789533312,
-      "iou": 0.9786733685652951,
+      "offset_km": 0.16864057629123952,
+      "iou": 0.9794193933492299,
       "status": "pass",
       "inset_source_error": false
      },
      "69": {
       "ed": 69,
       "inset_width_km": 16.542891286309807,
-      "offset_km": 0.10626590145929758,
-      "iou": 0.910022238303419,
+      "offset_km": 0.10577766169755312,
+      "iou": 0.9100720372449965,
       "status": "pass",
       "inset_source_error": false
      },
      "70": {
       "ed": 70,
       "inset_width_km": 343.95236859961227,
-      "offset_km": 0.09356893804920216,
-      "iou": 0.9969905908184874,
+      "offset_km": 0.10763314977991996,
+      "iou": 0.9969810789094816,
       "status": "pass",
       "inset_source_error": false
      },
      "71": {
       "ed": 71,
       "inset_width_km": 11.029342153234408,
-      "offset_km": 0.05923569259019199,
-      "iou": 0.8930193714250289,
+      "offset_km": 0.060225289154497465,
+      "iou": 0.8926491273464734,
       "status": "pass",
       "inset_source_error": false
      },
      "72": {
       "ed": 72,
       "inset_width_km": 103.39261627715919,
-      "offset_km": 0.17645531159961841,
-      "iou": 0.9857605861717075,
+      "offset_km": 0.17694443903299178,
+      "iou": 0.9857680072962937,
       "status": "pass",
       "inset_source_error": false
      },
      "73": {
       "ed": 73,
       "inset_width_km": 148.19611789671424,
-      "offset_km": 0.13869274380657448,
-      "iou": 0.9883735660254489,
+      "offset_km": 0.14361965321291145,
+      "iou": 0.9883955037804402,
       "status": "pass",
       "inset_source_error": false
      },
      "74": {
       "ed": 74,
       "inset_width_km": 166.80565553643856,
-      "offset_km": 0.15446345069778164,
-      "iou": 0.9923355502184412,
+      "offset_km": 0.1573538866014796,
+      "iou": 0.992466969989006,
       "status": "pass",
       "inset_source_error": false
      },
      "75": {
       "ed": 75,
       "inset_width_km": 153.02130671361647,
-      "offset_km": 0.1274997697579083,
-      "iou": 0.9917481402269216,
+      "offset_km": 0.12692563593515943,
+      "iou": 0.9917809785495991,
       "status": "pass",
       "inset_source_error": false
      },
      "76": {
       "ed": 76,
       "inset_width_km": 185.41716492785233,
-      "offset_km": 0.10958664104794692,
-      "iou": 0.9895557914861828,
+      "offset_km": 0.18268040181014428,
+      "iou": 0.9889357693128793,
       "status": "pass",
       "inset_source_error": false
      },
      "77": {
       "ed": 77,
       "inset_width_km": 191.61377350994292,
-      "offset_km": 0.18779253872773702,
-      "iou": 0.9896706203692112,
+      "offset_km": 0.18351958557694767,
+      "iou": 0.989744634981088,
       "status": "pass",
       "inset_source_error": false
      },
      "78": {
       "ed": 78,
       "inset_width_km": 122.69300603335165,
-      "offset_km": 0.211577599993757,
-      "iou": 0.9877144028034145,
+      "offset_km": 0.19607416148131163,
+      "iou": 0.9881511479102106,
       "status": "pass",
       "inset_source_error": false
      },
      "79": {
       "ed": 79,
       "inset_width_km": 79.25849758022244,
-      "offset_km": 0.10385471535120296,
-      "iou": 0.97670476895249,
+      "offset_km": 0.10112408516600414,
+      "iou": 0.9768925232428072,
       "status": "pass",
       "inset_source_error": false
      },
      "80": {
       "ed": 80,
       "inset_width_km": 74.44242238985608,
-      "offset_km": 0.2190793869711117,
-      "iou": 0.965733223189578,
+      "offset_km": 0.21912652393561527,
+      "iou": 0.9657339538325787,
       "status": "pass",
       "inset_source_error": false
      },
      "81": {
       "ed": 81,
       "inset_width_km": 158.53176992867247,
-      "offset_km": 1.2442337984992593,
-      "iou": 0.9689397502523439,
+      "offset_km": 0.13680242452758543,
+      "iou": 0.9874969179338142,
       "status": "pass",
       "inset_source_error": false
      },
      "82": {
       "ed": 82,
       "inset_width_km": 465.95348081750984,
-      "offset_km": 0.08493451566031315,
-      "iou": 0.9974232881632057,
+      "offset_km": 0.08654649754755857,
+      "iou": 0.9974073090132141,
       "status": "pass",
       "inset_source_error": false
      },
      "83": {
       "ed": 83,
       "inset_width_km": 12.408400736657903,
-      "offset_km": 0.03508303838369902,
-      "iou": 0.9091830243809703,
+      "offset_km": 0.03499601870958199,
+      "iou": 0.9100103855655072,
       "status": "pass",
       "inset_source_error": false
      },
      "84": {
       "ed": 84,
       "inset_width_km": 8.961322070735507,
-      "offset_km": 0.349712645437923,
-      "iou": 0.8095131915912541,
+      "offset_km": 0.3496893527961547,
+      "iou": 0.8095349581645203,
       "status": "pass",
       "inset_source_error": false
      },
      "85": {
       "ed": 85,
       "inset_width_km": 197.82457242373388,
-      "offset_km": 0.12623402921543486,
-      "iou": 0.9936506986851156,
+      "offset_km": 0.1256024807802559,
+      "iou": 0.9936464454314703,
       "status": "pass",
       "inset_source_error": false
      },
      "86": {
       "ed": 86,
       "inset_width_km": 12.407099505920895,
-      "offset_km": 0.7701627302243566,
-      "iou": 0.7933004526075795,
+      "offset_km": 0.3176264096421708,
+      "iou": 0.8894030850510474,
       "status": "pass",
       "inset_source_error": false
      },
      "87": {
       "ed": 87,
       "inset_width_km": 22.746389277360404,
-      "offset_km": 0.1742566692838071,
-      "iou": 0.9513769080542087,
+      "offset_km": 0.1741319740699553,
+      "iou": 0.9512875381795768,
       "status": "pass",
       "inset_source_error": false
      },
      "88": {
       "ed": 88,
       "inset_width_km": 10.339589254449121,
-      "offset_km": 0.1801429647051897,
-      "iou": 0.8881124557163035,
+      "offset_km": 0.191273930658019,
+      "iou": 0.8856847439576686,
       "status": "pass",
       "inset_source_error": false
      },
      "89": {
       "ed": 89,
       "inset_width_km": 34.46341614749655,
-      "offset_km": 0.12248426898110948,
-      "iou": 0.9649540132977416,
+      "offset_km": 0.08365335561433286,
+      "iou": 0.9741422581261321,
       "status": "pass",
       "inset_source_error": false
      },
      "90": {
       "ed": 90,
       "inset_width_km": 343.2565721511366,
-      "offset_km": 0.11608876832859252,
-      "iou": 0.9945007361027058,
+      "offset_km": 0.1292483748879406,
+      "iou": 0.9946169451209642,
       "status": "pass",
       "inset_source_error": false
      },
      "91": {
       "ed": 91,
       "inset_width_km": 133.71640785819386,
-      "offset_km": 0.22796950952334216,
-      "iou": 0.983984170127089,
+      "offset_km": 0.2352595962808562,
+      "iou": 0.9842324180740839,
       "status": "pass",
       "inset_source_error": false
      },
      "1": {
       "ed": 1,
       "inset_width_km": 7.200691102472134,
-      "offset_km": 0.40388520342695217,
-      "iou": 0.7769546063027302,
+      "offset_km": 0.4038508980183588,
+      "iou": 0.7769537984571668,
       "status": "pass",
       "inset_source_error": false
      },
      "2": {
       "ed": 2,
       "inset_width_km": 8.411188067471493,
-      "offset_km": 0.6656434453985887,
-      "iou": 0.6570219020711463,
+      "offset_km": 0.6656359127392922,
+      "iou": 0.6570420433884973,
       "status": "pass",
       "inset_source_error": false
      },
      "3": {
       "ed": 3,
       "inset_width_km": 9.267182328538155,
-      "offset_km": 0.5803298502721426,
-      "iou": 0.7302671378291199,
+      "offset_km": 0.5796785852184353,
+      "iou": 0.7303317900156505,
       "status": "pass",
       "inset_source_error": false
      },
      "4": {
       "ed": 4,
       "inset_width_km": 22.506588539549266,
-      "offset_km": 0.8747713516154335,
-      "iou": 0.7700740636079764,
+      "offset_km": 0.8761454331283843,
+      "iou": 0.7699720007628309,
       "status": "pass",
       "inset_source_error": false
      },
      "5": {
       "ed": 5,
       "inset_width_km": 2.558837914202828,
-      "offset_km": 0.5032451092266548,
-      "iou": 0.5040592052110001,
+      "offset_km": 0.5019672468156295,
+      "iou": 0.5049163223254773,
       "status": "pass",
       "inset_source_error": false
      },
      "6": {
       "ed": 6,
       "inset_width_km": 7.959520479562692,
-      "offset_km": 0.39236814047146235,
-      "iou": 0.853863386534366,
+      "offset_km": 0.39176995584987556,
+      "iou": 0.8539322996078228,
       "status": "pass",
       "inset_source_error": false
      },
      "7": {
       "ed": 7,
       "inset_width_km": 4.8491479830642925,
-      "offset_km": 0.468696474928385,
-      "iou": 0.7169637129274621,
+      "offset_km": 0.4676799153635751,
+      "iou": 0.7171655024029905,
       "status": "pass",
       "inset_source_error": false
      },
      "8": {
       "ed": 8,
       "inset_width_km": 4.945260753963143,
-      "offset_km": 0.5593779115835057,
-      "iou": 0.6553788023755723,
+      "offset_km": 0.559369317972704,
+      "iou": 0.6553869754560829,
       "status": "pass",
       "inset_source_error": false
      },
      "9": {
       "ed": 9,
       "inset_width_km": 9.594584267251193,
-      "offset_km": 0.3448794379284241,
-      "iou": 0.8916248028456795,
+      "offset_km": 0.3449019863113981,
+      "iou": 0.8916056801060318,
       "status": "pass",
       "inset_source_error": false
      },
      "10": {
       "ed": 10,
       "inset_width_km": 7.297139512938214,
-      "offset_km": 0.7210827705871862,
-      "iou": 0.6305728193081551,
+      "offset_km": 0.7211619315744818,
+      "iou": 0.6305485715204958,
       "status": "pass",
       "inset_source_error": false
      },
      "11": {
       "ed": 11,
       "inset_width_km": 5.635491333889193,
-      "offset_km": 0.48023653359169355,
-      "iou": 0.7123757415143267,
+      "offset_km": 0.48034468581172174,
+      "iou": 0.7123192701841596,
       "status": "pass",
       "inset_source_error": false
      },
      "12": {
       "ed": 12,
       "inset_width_km": 9.695258240893716,
-      "offset_km": 0.47863406924203294,
-      "iou": 0.7963151326815597,
+      "offset_km": 0.47871039537747695,
+      "iou": 0.7964002777372283,
       "status": "pass",
       "inset_source_error": false
      },
      "13": {
       "ed": 13,
       "inset_width_km": 10.551024070270243,
-      "offset_km": 0.3374765901115117,
-      "iou": 0.8259800371424738,
+      "offset_km": 0.3365452275963974,
+      "iou": 0.8261502810838737,
       "status": "pass",
       "inset_source_error": false
      },
      "14": {
       "ed": 14,
       "inset_width_km": 40.06539834545628,
-      "offset_km": 0.7668787009295639,
-      "iou": 0.8794788669028276,
+      "offset_km": 0.765828896609476,
+      "iou": 0.8794199035385943,
       "status": "pass",
       "inset_source_error": false
      },
      "15": {
       "ed": 15,
       "inset_width_km": 8.80078728984017,
-      "offset_km": 0.21521960004624607,
-      "iou": 0.9159133109682889,
+      "offset_km": 0.2152979547785864,
+      "iou": 0.9159449336592316,
       "status": "pass",
       "inset_source_error": false
      },
      "16": {
       "ed": 16,
       "inset_width_km": 8.89689676577598,
-      "offset_km": 0.5258618120757609,
-      "iou": 0.7685551428157488,
+      "offset_km": 0.5267255963213945,
+      "iou": 0.7683768654458171,
       "status": "pass",
       "inset_source_error": false
      },
      "17": {
       "ed": 17,
       "inset_width_km": 10.729280488896999,
-      "offset_km": 0.45757325909825947,
-      "iou": 0.8584247640305259,
+      "offset_km": 0.4571364161321647,
+      "iou": 0.8587052096240335,
       "status": "pass",
       "inset_source_error": false
      },
      "18": {
       "ed": 18,
       "inset_width_km": 14.456059102213942,
-      "offset_km": 0.2851272074949967,
-      "iou": 0.7780954606952374,
+      "offset_km": 0.28247233362421775,
+      "iou": 0.7774588338618413,
       "status": "pass",
       "inset_source_error": false
      },
      "19": {
       "ed": 19,
       "inset_width_km": 7.714575729837874,
-      "offset_km": 0.526189730698772,
-      "iou": 0.6388028351091275,
+      "offset_km": 0.5247996292196221,
+      "iou": 0.6390977831005809,
       "status": "pass",
       "inset_source_error": false
      },
      "20": {
       "ed": 20,
       "inset_width_km": 7.473062312248163,
-      "offset_km": 0.7645027653030905,
-      "iou": 0.620020840173994,
+      "offset_km": 0.7642136587223276,
+      "iou": 0.6200316267144337,
       "status": "pass",
       "inset_source_error": false
      },
      "21": {
       "ed": 21,
       "inset_width_km": 7.301724857227178,
-      "offset_km": 0.6387990578048611,
-      "iou": 0.6703147427422802,
+      "offset_km": 0.638156067497511,
+      "iou": 0.6706474472380562,
       "status": "pass",
       "inset_source_error": false
      },
      "22": {
       "ed": 22,
       "inset_width_km": 8.58449444193393,
-      "offset_km": 0.2264669894743169,
-      "iou": 0.6819228843406353,
+      "offset_km": 0.8139154993962332,
+      "iou": 0.7107193652209449,
       "status": "pass",
       "inset_source_error": false
      },
      "23": {
       "ed": 23,
       "inset_width_km": 9.518504654536954,
-      "offset_km": 0.7141248096661685,
-      "iou": 0.7350886016961531,
+      "offset_km": 0.714409167393682,
+      "iou": 0.7350148521350751,
       "status": "pass",
       "inset_source_error": false
      },
      "24": {
       "ed": 24,
       "inset_width_km": 8.48327587979706,
-      "offset_km": 0.32189186366878664,
-      "iou": 0.8911508716349181,
+      "offset_km": 0.3256669930232557,
+      "iou": 0.8902981497298714,
       "status": "pass",
       "inset_source_error": false
      },
      "25": {
       "ed": 25,
       "inset_width_km": 8.034341138570452,
-      "offset_km": 0.15099435133892278,
-      "iou": 0.9350114782330751,
+      "offset_km": 0.1510746635006452,
+      "iou": 0.9349755475918776,
       "status": "pass",
       "inset_source_error": false
      },
      "26": {
       "ed": 26,
       "inset_width_km": 8.148889656719751,
-      "offset_km": 0.7824274043109354,
-      "iou": 0.7104303042550092,
+      "offset_km": 0.7823708515057588,
+      "iou": 0.7104378318479909,
       "status": "pass",
       "inset_source_error": false
      },
      "27": {
       "ed": 27,
       "inset_width_km": 7.5806985671108125,
-      "offset_km": 0.3635467488869688,
-      "iou": 0.7693254730344229,
+      "offset_km": 0.36353269110087577,
+      "iou": 0.7693246864645754,
       "status": "pass",
       "inset_source_error": false
      },
      "28": {
       "ed": 28,
       "inset_width_km": 21.75364500666829,
-      "offset_km": 0.8047334056454686,
-      "iou": 0.8387866249789837,
+      "offset_km": 0.805471747222345,
+      "iou": 0.8387209756823334,
       "status": "pass",
       "inset_source_error": false
      },
      "29": {
       "ed": 29,
       "inset_width_km": 10.192890472108033,
-      "offset_km": 0.21226248245150273,
-      "iou": 0.9068933659121641,
+      "offset_km": 0.21193971831650413,
+      "iou": 0.906967713902375,
       "status": "pass",
       "inset_source_error": false
      },
      "30": {
       "ed": 30,
       "inset_width_km": 6.781821598090813,
-      "offset_km": 0.1596672496667194,
-      "iou": 0.8921117671005251,
+      "offset_km": 0.1596672497514471,
+      "iou": 0.8921117668017648,
       "status": "pass",
       "inset_source_error": false
      },
      "31": {
       "ed": 31,
       "inset_width_km": 6.069436113895849,
-      "offset_km": 0.3526425199315511,
-      "iou": 0.8295380697772007,
+      "offset_km": 0.3528324935591361,
+      "iou": 0.829093246914277,
       "status": "pass",
       "inset_source_error": false
      },
      "32": {
       "ed": 32,
       "inset_width_km": 5.22593563179858,
-      "offset_km": 0.18557880836353496,
-      "iou": 0.8915382925259016,
+      "offset_km": 0.18557468152859508,
+      "iou": 0.8915406774055628,
       "status": "pass",
       "inset_source_error": false
      },
      "33": {
       "ed": 33,
       "inset_width_km": 6.533407508009113,
-      "offset_km": 0.5921209353111831,
-      "iou": 0.7241483253290559,
+      "offset_km": 0.5922510991491763,
+      "iou": 0.7239116726918464,
       "status": "pass",
       "inset_source_error": false
      },
      "34": {
       "ed": 34,
       "inset_width_km": 19.00973773033265,
-      "offset_km": 0.7828073497377614,
-      "iou": 0.8357443460298141,
+      "offset_km": 0.7820950160156388,
+      "iou": 0.8358543672434506,
       "status": "pass",
       "inset_source_error": false
      },
      "35": {
       "ed": 35,
       "inset_width_km": 8.243226178255863,
-      "offset_km": 0.3512811461020112,
-      "iou": 0.8228207503240706,
+      "offset_km": 0.3512211572537882,
+      "iou": 0.8228664646818107,
       "status": "pass",
       "inset_source_error": false
      },
      "36": {
       "ed": 36,
       "inset_width_km": 9.786209453420248,
-      "offset_km": 0.38028839540388204,
-      "iou": 0.8489826641901721,
+      "offset_km": 0.38031293809540256,
+      "iou": 0.8489759108845071,
       "status": "pass",
       "inset_source_error": false
      },
      "37": {
       "ed": 37,
       "inset_width_km": 5.8375831846453945,
-      "offset_km": 0.2892421168836433,
-      "iou": 0.8024598798799822,
+      "offset_km": 0.28885952467198656,
+      "iou": 0.8020963352376478,
       "status": "pass",
       "inset_source_error": false
      },
      "38": {
       "ed": 38,
       "inset_width_km": 12.85210140225198,
-      "offset_km": 0.09807839582485166,
-      "iou": 0.9537791612408358,
+      "offset_km": 0.09023079929500168,
+      "iou": 0.9555478490774051,
       "status": "pass",
       "inset_source_error": false
      },
      "39": {
       "ed": 39,
       "inset_width_km": 7.876391468211077,
-      "offset_km": 0.49447695074319786,
-      "iou": 0.7127635291406786,
+      "offset_km": 0.4938534054887288,
+      "iou": 0.7129048329398093,
       "status": "pass",
       "inset_source_error": false
      },
      "40": {
       "ed": 40,
       "inset_width_km": 4.8424654078446325,
-      "offset_km": 0.529884347854851,
-      "iou": 0.6806443033871142,
+      "offset_km": 0.5179750237160962,
+      "iou": 0.686787373758978,
       "status": "pass",
       "inset_source_error": false
      },
      "41": {
       "ed": 41,
       "inset_width_km": 8.022416762882145,
-      "offset_km": 0.5521829476252256,
-      "iou": 0.6787375242009129,
+      "offset_km": 0.5476830542561409,
+      "iou": 0.6809413845402642,
       "status": "pass",
       "inset_source_error": false
      },
      "42": {
       "ed": 42,
       "inset_width_km": 19.224559638852252,
-      "offset_km": 0.8633337240667289,
-      "iou": 0.7070135012050709,
+      "offset_km": 0.8639345915593744,
+      "iou": 0.706846743744683,
       "status": "pass",
       "inset_source_error": false
      },
      "43": {
       "ed": 43,
       "inset_width_km": 9.549681637019036,
-      "offset_km": 0.23035292027628504,
-      "iou": 0.8587946060415556,
+      "offset_km": 0.2301355565463769,
+      "iou": 0.8588838527500815,
       "status": "pass",
       "inset_source_error": false
      },
      "44": {
       "ed": 44,
       "inset_width_km": 6.368115558952093,
-      "offset_km": 0.6827197047470753,
-      "iou": 0.6961954123329898,
+      "offset_km": 0.6175569128770114,
+      "iou": 0.7126699872097433,
       "status": "pass",
       "inset_source_error": false
      },
      "45": {
       "ed": 45,
       "inset_width_km": 9.572968433777802,
-      "offset_km": 0.7417878569554465,
-      "iou": 0.7038665480701813,
+      "offset_km": 0.8124428468071294,
+      "iou": 0.6880623307284928,
       "status": "pass",
       "inset_source_error": false
      },
      "46": {
       "ed": 46,
       "inset_width_km": 6.2412925399998205,
-      "offset_km": 0.4177348907202058,
-      "iou": 0.7744401329239063,
+      "offset_km": 0.4176363063025643,
+      "iou": 0.7745101023597192,
       "status": "pass",
       "inset_source_error": false
      },
      "47": {
       "ed": 47,
       "inset_width_km": 11.184942474638927,
-      "offset_km": 0.4751563968710068,
-      "iou": 0.8504879077265437,
+      "offset_km": 0.4748146394741621,
+      "iou": 0.8505079974504463,
       "status": "pass",
       "inset_source_error": false
      },
      "48": {
       "ed": 48,
       "inset_width_km": 8.41934486360103,
-      "offset_km": 0.5308622078072303,
-      "iou": 0.7232536679130906,
+      "offset_km": 0.5313027635945653,
+      "iou": 0.7232775821313434,
       "status": "pass",
       "inset_source_error": false
      },
      "49": {
       "ed": 49,
       "inset_width_km": 13.29963720639143,
-      "offset_km": 0.9381848832940415,
-      "iou": 0.7092778075961453,
+      "offset_km": 0.8409661189520494,
+      "iou": 0.6975968567375158,
       "status": "pass",
       "inset_source_error": false
      }
@@ -2916,8 +2906,8 @@
    "DRIFT_TARGET": 0.0005,
    "SEGMENT_MAX_m": 250.0
   },
-  "output_dir": "C:\\tmp\\a10test\\rerun\\calibration_snap",
-  "seconds": 150.3
+  "output_dir": "C:\\tmp\\a10test\\clean5_calibration_snap",
+  "seconds": 267.8
  },
  "T2_mean_abs_area_err_pct": 0.016226325371168537,
  "T3_mean_hausdorff_km": 0.031353162783955814,
@@ -4628,7 +4618,7 @@
     "area_tol": 0.25,
     "pop_tol": 0.05
    },
-   "seconds": 2.9
+   "seconds": 3.7
   },
   "parameters": {
    "known_overlap_max": 0.05,
@@ -5692,7 +5682,7 @@
   90,
   91
  ],
- "sec": 184.2,
+ "sec": 301.6,
  "environment": {
   "python": "3.12.13",
   "pymupdf": "2.1",

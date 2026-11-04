@@ -101,6 +101,7 @@ OBJECTID,VA_NUMBER,district,ed,confidence,cut_category,assigned_has_piece,assign
 1864,052,Rocky Mountain House-Sundre,85,cut,involves_changed,True,0.7616081271415116,Banff-Canmore-Diamond Valley:0.238,Banff-Canmore-Diamond Valley,0.23829016839169065,0.23829234921309445,True,849.1704713413965,289.0,True
 1870,028,Rocky Mountain House-Sundre,85,cut,involves_changed,True,0.7080857733260141,Lacombe-Sylvan Lake:0.292,Lacombe-Sylvan Lake,0.2919837391998122,0.2919837391998122,True,976.9314970081986,177.9,True
 1898,022,Calgary-Mountain View,19,cut,known_known,True,0.8435117196472077,Calgary-Klein:0.156,Calgary-Klein,0.1564882803529742,0.1564882803529742,True,711.73124440196,192.0,True
+1905,056,Edmonton-South,45,cut,involves_changed,True,0.8332361703700835,,,0.0,0.0,True,604.5711812322347,126.5,False
 1910,022,Wetaskiwin-Ponoka,91,cut,involves_changed,True,0.836435693872742,Lacombe-Sylvan Lake:0.163,Lacombe-Sylvan Lake,0.16339585692288516,0.16339585692288516,True,1027.5174772278338,258.14285714285717,True
 1935,043,Edmonton-Windermere,49,cut,involves_changed,False,,Edmonton-Enoch:0.208,Edmonton-Enoch,0.20778409329056852,0.0,,1564.3337687234637,208.33333333333334,False
 1944,055,Edmonton-Windermere,49,cut,involves_changed,False,,Edmonton-South:0.116,Edmonton-South,0.11618873269191246,0.0,,928.9392156020896,126.5,False
@@ -164,6 +165,7 @@ OBJECTID,VA_NUMBER,district,ed,confidence,cut_category,assigned_has_piece,assign
 3265,053,Calgary-Bow-Springbank,4,cut,involves_changed,True,0.872688800777517,Calgary-Varsity:0.127,Calgary-Varsity,0.12740315501950986,0.12740315501950986,True,574.7767924471577,231.83333333333334,True
 3332,012,Wetaskiwin-Ponoka,91,cut,involves_changed,True,0.9884750130136223,Drayton Valley-Devon:0.012,Drayton Valley-Devon,0.011629862750169332,0.011629862750169332,True,610.4221858665347,306.3333333333333,False
 3334,021,Olds-Didsbury-Three Hills,81,cut,involves_changed,True,0.5483346140478766,Chestermere-Strathmore:0.426,Chestermere-Strathmore,0.4264331517855216,0.42908246801353794,True,966.163088739788,402.0,True
+3337,061,Edmonton-South,45,cut,involves_changed,True,0.972147619009941,,,0.0,0.0,True,486.2515669071575,126.5,False
 3349,026,Lacombe-Sylvan Lake,68,cut,involves_changed,True,0.9642398634186985,Wetaskiwin-Ponoka:0.036,Wetaskiwin-Ponoka,0.03574793504953421,0.03574793504953421,True,592.414718728571,278.75,False
 3374,007,Lethbridge-Taber-Warner,74,cut,involves_changed,True,0.6518323489382275,Lethbridge-Little Bow:0.353,Lethbridge-Little Bow,0.3530875176172917,0.3530875176172917,True,1048.5685106878525,234.8,True
 3410,019,Lac Ste. Anne,67,cut,involves_changed,True,0.9697526913029195,Drayton Valley-Devon:0.030,Drayton Valley-Devon,0.030222817912812002,0.030222817912812002,True,1194.3537622068206,272.0,False
@@ -210,6 +212,7 @@ OBJECTID,VA_NUMBER,district,ed,confidence,cut_category,assigned_has_piece,assign
 4183,033,Camrose,55,cut,involves_changed,True,0.9832972826404273,Wetaskiwin-Ponoka:0.017,Wetaskiwin-Ponoka,0.01670878022332771,0.01670878022332771,True,527.8883024298495,228.0,False
 4190,034,Lethbridge-Cardston,72,cut,involves_changed,True,0.37130086306404264,Lethbridge-Little Bow:0.628,Lethbridge-Little Bow,0.6283781960712316,0.37136136064667724,False,1914.5318349725835,165.2,True
 4213,049,Cochrane,58,cut,involves_changed,True,0.9665332785838987,Airdrie-West:0.033,Airdrie-West,0.033463903373727684,0.03347408955253087,True,639.951021728689,173.33333333333331,False
+4250,046,Edmonton-South,45,cut,involves_changed,True,0.7369756924702859,,,0.0,0.0001600019309259098,True,827.8590530357753,137.4,False
 4271,051,Medicine Hat-Cypress,78,cut,involves_changed,True,0.97634019610654,Lethbridge-Taber-Warner:0.024,Lethbridge-Taber-Warner,0.023660290093847392,0.023660290093847392,True,1367.7878018666972,358.0,False
 4281,003,Lloydminster-Wainwright,75,cut,known_known,True,0.8993331718931706,Fort Saskatchewan-Vegreville:0.101,Fort Saskatchewan-Vegreville,0.1006668281068303,0.1006668281068303,True,645.4828209160813,215.0,True
 4299,054,Grande Prairie-Wapiti,66,cut,known_known,True,0.7392932410732699,Grande Prairie:0.261,Grande Prairie,0.26070675892670847,0.26070675892670847,True,328.3353546702694,187.49999999999997,True
@@ -236,6 +239,7 @@ OBJECTID,VA_NUMBER,district,ed,confidence,cut_category,assigned_has_piece,assign
 4497,025,Edmonton-Strathcona,46,cut,involves_changed,True,0.9866110086001477,Edmonton-Gold Bar:0.014,Edmonton-Gold Bar,0.013845003643199181,0.013845003643199181,True,844.7096731021552,222.0,False
 4554,014,Calgary-McKenzie,18,cut,known_known,True,0.9754589516033156,Calgary-South East:0.025,Calgary-South East,0.024541048396619334,0.024541048396619334,True,667.6703246769321,192.5,False
 4557,045,Spruce Grove,87,cut,involves_changed,True,0.533302673742162,Lac Ste. Anne:0.467,Lac Ste. Anne,0.46721208520103447,0.46721208520103447,True,831.5688417279824,191.85714285714286,True
+4590,057,Edmonton-South,45,cut,involves_changed,True,0.7180345755672948,,,0.0,0.0,True,723.1604172102044,126.5,False
 4595,076,Edmonton-South,45,cut,involves_changed,True,0.9287705877222475,Edmonton-Nisku:0.071,Edmonton-Nisku,0.0710816676968462,0.0710816676968462,True,908.3926069155958,121.8888888888889,False
 4614,063,Calgary-Buffalo,5,cut,known_known,True,0.6083001812119346,Calgary-Confluence:0.392,Calgary-Confluence,0.39169981878809185,0.39169981878809185,True,723.4856143934052,131.33333333333334,True
 4716,049,Cold Lake-Bonnyville-St. Paul,59,cut,involves_changed,True,0.8615592888876131,Barrhead-Westlock-Athabasca:0.138,Barrhead-Westlock-Athabasca,0.1384351132919189,0.1384458603120161,True,1372.3792486388531,369.5,True

@@ -1,23 +1,23 @@
 {
  "step1_inventory": {
   "which": "tuning",
-  "snap_dir": "C:\\tmp\\a10test\\snap_tuning",
+  "snap_dir": "C:\\tmp\\a10test\\clean5_calibration_snap",
   "n_vas": 4765,
   "n_known_districts": 22,
-  "cut_flag_in_csv": 222,
-  "cut_vas_recomputed": 222,
-  "worst_gap_vs_csv_partner_share": 0.0004949400120922154,
+  "cut_flag_in_csv": 233,
+  "cut_vas_recomputed": 233,
+  "worst_gap_vs_csv_partner_share": 0.449,
   "province": {
    "population": 4262572.251436839,
    "total_votes": 932164.0,
    "note": "pop_2021 = DA-overlay population floored at 1 per VA; total_votes = sum of candidate vote columns"
   },
   "all_cut_vas": {
-   "n": 222,
-   "population": 239989.03154805073,
-   "total_votes": 44569.47196969697,
-   "population_share_of_province": 0.05630145775644146,
-   "total_votes_share_of_province": 0.04781290842566004,
+   "n": 233,
+   "population": 253584.94157596186,
+   "total_votes": 46917.405303030304,
+   "population_share_of_province": 0.05949106000267392,
+   "total_votes_share_of_province": 0.05033170697756007,
    "minority_ge_10pct": {
     "n": 121,
     "population": 124117.03289590696,
@@ -35,11 +35,11 @@
    }
   },
   "involves_changed": {
-   "n": 200,
-   "population": 208254.36305545917,
-   "total_votes": 40540.66244588744,
-   "population_share_of_province": 0.04885650043474577,
-   "total_votes_share_of_province": 0.0434909119488496,
+   "n": 211,
+   "population": 221850.2730833703,
+   "total_votes": 42888.59577922078,
+   "population_share_of_province": 0.052046102680978236,
+   "total_votes_share_of_province": 0.04600971050074963,
    "minority_ge_10pct": {
     "n": 108,
     "population": 107613.23058407646,
@@ -1427,7 +1427,26 @@
     "district_total_votes": 11793.5,
     "n_vas": 54,
     "assigned_cut": {
-     "n": 0
+     "n": 1,
+     "population": 773.7442115971766,
+     "total_votes": 188.50000000000003,
+     "population_share_of_province": 0.00018152049184300885,
+     "total_votes_share_of_province": 0.00020221763552336286,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
     },
     "cut_where_partner": {
      "n": 1,
@@ -1510,7 +1529,26 @@
     "district_total_votes": 11469.500000000002,
     "n_vas": 55,
     "assigned_cut": {
-     "n": 0
+     "n": 1,
+     "population": 1961.096132435672,
+     "total_votes": 215.2,
+     "population_share_of_province": 0.0004600734056237101,
+     "total_votes_share_of_province": 0.00023086066400332988,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
     },
     "cut_where_partner": {
      "n": 2,
@@ -1542,11 +1580,11 @@
     "district_total_votes": 7675.928571428572,
     "n_vas": 51,
     "assigned_cut": {
-     "n": 3,
-     "population": 1782.3689807655624,
-     "total_votes": 433.15079365079373,
-     "population_share_of_province": 0.00041814399278856956,
-     "total_votes_share_of_province": 0.0004646723040696634,
+     "n": 7,
+     "population": 4424.211199150934,
+     "total_votes": 950.0507936507937,
+     "population_share_of_province": 0.0010379205179829173,
+     "total_votes_share_of_province": 0.0010191884621705983,
      "minority_ge_10pct": {
       "n": 0,
       "population": 0.0,
@@ -2468,11 +2506,11 @@
     "district_total_votes": 13677.0,
     "n_vas": 49,
     "assigned_cut": {
-     "n": 4,
-     "population": 4771.789074801198,
-     "total_votes": 1386.5,
-     "population_share_of_province": 0.0011194623324432122,
-     "total_votes_share_of_province": 0.001487399213014019,
+     "n": 7,
+     "population": 10517.325891893004,
+     "total_votes": 2218.5,
+     "population_share_of_province": 0.002467366010827804,
+     "total_votes_share_of_province": 0.002379946018082655,
      "minority_ge_10pct": {
       "n": 2,
       "population": 2093.305775655146,
@@ -2711,11 +2749,11 @@
     "district_total_votes": 14929.0,
     "n_vas": 57,
     "assigned_cut": {
-     "n": 1,
-     "population": 540.6189701102762,
-     "total_votes": 181.75,
-     "population_share_of_province": 0.00012682928012024735,
-     "total_votes_share_of_province": 0.00019497642045820262,
+     "n": 3,
+     "population": 3014.3096185114,
+     "total_votes": 777.0833333333334,
+     "population_share_of_province": 0.0007071574253070616,
+     "total_votes_share_of_province": 0.0008336337096619622,
      "minority_ge_10pct": {
       "n": 1,
       "population": 540.6189701102762,
@@ -2877,7 +2915,7 @@
    "share": 0.0,
    "pass": true
   },
-  "seconds": 350.8
+  "seconds": 266.3
  },
- "seconds": 371.4
+ "seconds": 286.2
 }

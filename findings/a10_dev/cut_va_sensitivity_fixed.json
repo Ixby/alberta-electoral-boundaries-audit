@@ -1,23 +1,23 @@
 {
  "step1_inventory": {
   "which": "fixed",
-  "snap_dir": "C:\\tmp\\a10test\\snap_fixed",
+  "snap_dir": "C:\\tmp\\a10test\\clean5_fixed",
   "n_vas": 4765,
   "n_known_districts": 57,
-  "cut_flag_in_csv": 241,
-  "cut_vas_recomputed": 241,
-  "worst_gap_vs_csv_partner_share": 0.0004994686800933734,
+  "cut_flag_in_csv": 245,
+  "cut_vas_recomputed": 245,
+  "worst_gap_vs_csv_partner_share": 0.282,
   "province": {
    "population": 4262572.251436839,
    "total_votes": 932164.0,
    "note": "pop_2021 = DA-overlay population floored at 1 per VA; total_votes = sum of candidate vote columns"
   },
   "all_cut_vas": {
-   "n": 241,
-   "population": 260451.52076496996,
-   "total_votes": 49224.8053030303,
-   "population_share_of_province": 0.06110196036610905,
-   "total_votes_share_of_province": 0.05280702247998238,
+   "n": 245,
+   "population": 263093.36298335536,
+   "total_votes": 49741.70530303031,
+   "population_share_of_province": 0.061721736891303405,
+   "total_votes_share_of_province": 0.05336153863808333,
    "minority_ge_10pct": {
     "n": 132,
     "population": 138086.2107462085,
@@ -35,11 +35,11 @@
    }
   },
   "involves_changed": {
-   "n": 149,
-   "population": 157735.4631207026,
-   "total_votes": 31458.781096681094,
-   "population_share_of_province": 0.037004759993811885,
-   "total_votes_share_of_province": 0.03374811846057249,
+   "n": 153,
+   "population": 160377.30533908796,
+   "total_votes": 31975.681096681095,
+   "population_share_of_province": 0.037624536519006234,
+   "total_votes_share_of_province": 0.034302634618673424,
    "minority_ge_10pct": {
     "n": 87,
     "population": 89905.74937044932,
@@ -622,11 +622,11 @@
     "district_total_votes": 7675.928571428572,
     "n_vas": 51,
     "assigned_cut": {
-     "n": 6,
-     "population": 3750.2839843396455,
-     "total_votes": 962.6507936507937,
-     "population_share_of_province": 0.0008798171064608911,
-     "total_votes_share_of_province": 0.0010327053969588975,
+     "n": 10,
+     "population": 6392.126202725017,
+     "total_votes": 1479.5507936507936,
+     "population_share_of_province": 0.0014995936316552388,
+     "total_votes_share_of_province": 0.0015872215550598323,
      "minority_ge_10pct": {
       "n": 0,
       "population": 0.0,
@@ -1555,5 +1555,5 @@
   "run": false,
   "reason": "partisan step; refused for this map without A10_STEPC=1"
  },
- "seconds": 21.3
+ "seconds": 17.8
 }

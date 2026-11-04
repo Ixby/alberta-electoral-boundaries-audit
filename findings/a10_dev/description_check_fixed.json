@@ -1,5 +1,5 @@
 {
- "snap": "C:/tmp/a10test/snap_fixed",
+ "snap": "C:/tmp/a10test/clean5_fixed",
  "constants": {
   "STEP_m": 100.0,
   "SMOOTH_m": 400.0,
@@ -18,9 +18,9 @@
   "districts": 8,
   "stretches_checked": 30,
   "stretches_not_checkable": 12,
-  "median_of_stretch_medians_m": 90.0,
+  "median_of_stretch_medians_m": 90.6,
   "stretches_with_share_within_tol_ge_90pct": 9,
-  "stretches_with_run_over_tol": 19
+  "stretches_with_run_over_tol": 17
  },
  "districts": {
   "71": {
@@ -43,11 +43,11 @@
      "checked": true,
      "n_samples": 84,
      "length_km": 8.4,
-     "median_m": 4.6,
-     "p90_m": 69.0,
+     "median_m": 4.5,
+     "p90_m": 75.9,
      "share_within_tol": 1.0,
      "tol_m": 200.0,
-     "follow_km_all_sides": 9.5,
+     "follow_km_all_sides": 9.4,
      "side_length_km": 8.4,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
@@ -62,15 +62,15 @@
       "river:-",
       "csd:Lethbridge"
      ],
-     "feature_lines": 34,
+     "feature_lines": 33,
      "checked": true,
      "n_samples": 94,
      "length_km": 9.4,
-     "median_m": 7.6,
-     "p90_m": 23.2,
+     "median_m": 7.5,
+     "p90_m": 23.4,
      "share_within_tol": 1.0,
      "tol_m": 200.0,
-     "follow_km_all_sides": 24.2,
+     "follow_km_all_sides": 23.6,
      "side_length_km": 9.4,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
@@ -93,7 +93,7 @@
      "p90_m": 10.4,
      "share_within_tol": 1.0,
      "tol_m": 200.0,
-     "follow_km_all_sides": 25.7,
+     "follow_km_all_sides": 25.1,
      "side_length_km": 5.1,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
@@ -107,41 +107,41 @@
      "feature": [
       "arterial:-"
      ],
-     "feature_lines": 2804,
+     "feature_lines": 2784,
      "note": "street name not in the sources: tests only that the boundary runs along a main road",
      "checked": true,
-     "n_samples": 123,
-     "length_km": 12.3,
-     "median_m": 62.2,
-     "p90_m": 599.3,
-     "share_within_tol": 0.6179,
+     "n_samples": 106,
+     "length_km": 10.6,
+     "median_m": 85.2,
+     "p90_m": 639.9,
+     "share_within_tol": 0.5943,
      "tol_m": 200.0,
-     "follow_km_all_sides": 29.9,
-     "side_length_km": 12.3,
+     "follow_km_all_sides": 27.5,
+     "side_length_km": 10.6,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 2.5,
-       "max_distance_m": 761.0,
-       "median_distance_m": 526.0,
+       "max_distance_m": 767.0,
+       "median_distance_m": 529.0,
        "at_x_y_epsg3400": [
-        653085,
-        5500063
+        653079,
+        5500053
        ],
        "at_lon_lat": [
-        -112.8782,
-        49.6535
+        -112.8783,
+        49.6534
        ]
       },
       {
        "length_km": 1.1,
-       "max_distance_m": 685.0,
-       "median_distance_m": 481.0,
+       "max_distance_m": 683.0,
+       "median_distance_m": 471.0,
        "at_x_y_epsg3400": [
-        652584,
-        5502080
+        652586,
+        5502072
        ],
        "at_lon_lat": [
-        -112.8844,
+        -112.8843,
         49.6717
        ]
       }
@@ -172,27 +172,27 @@
      "runs": [
       {
        "length_km": 2.5,
-       "max_distance_m": 761.0,
-       "median_distance_m": 526.0,
+       "max_distance_m": 767.0,
+       "median_distance_m": 529.0,
        "at_x_y_epsg3400": [
-        653085,
-        5500063
+        653079,
+        5500053
        ],
        "at_lon_lat": [
-        -112.8782,
-        49.6535
+        -112.8783,
+        49.6534
        ]
       },
       {
        "length_km": 1.1,
-       "max_distance_m": 685.0,
-       "median_distance_m": 481.0,
+       "max_distance_m": 683.0,
+       "median_distance_m": 471.0,
        "at_x_y_epsg3400": [
-        652584,
-        5502080
+        652586,
+        5502072
        ],
        "at_lon_lat": [
-        -112.8844,
+        -112.8843,
         49.6717
        ]
       }
@@ -221,29 +221,15 @@
      "checked": true,
      "n_samples": 36,
      "length_km": 3.6,
-     "median_m": 436.7,
-     "p90_m": 1324.9,
+     "median_m": 424.7,
+     "p90_m": 1312.4,
      "share_within_tol": 0.4722,
      "tol_m": 200.0,
-     "follow_km_all_sides": 4.8,
+     "follow_km_all_sides": 4.7,
      "side_length_km": 3.6,
-     "runs_over_tol_ge_1km": [
-      {
-       "length_km": 1.1,
-       "max_distance_m": 1411.0,
-       "median_distance_m": 1312.0,
-       "at_x_y_epsg3400": [
-        607004,
-        5923678
-       ],
-       "at_lon_lat": [
-        -113.3872,
-        53.4725
-       ]
-      }
-     ],
-     "n_runs_over_tol_ge_1km": 1,
-     "length_in_runs_km": 1.1
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
     },
     {
      "clause": "B14",
@@ -255,31 +241,17 @@
      ],
      "feature_lines": 328,
      "checked": true,
-     "n_samples": 39,
-     "length_km": 3.9,
-     "median_m": 445.2,
-     "p90_m": 950.7,
-     "share_within_tol": 0.4103,
+     "n_samples": 34,
+     "length_km": 3.4,
+     "median_m": 205.6,
+     "p90_m": 974.2,
+     "share_within_tol": 0.5,
      "tol_m": 200.0,
      "follow_km_all_sides": 6.3,
-     "side_length_km": 3.9,
-     "runs_over_tol_ge_1km": [
-      {
-       "length_km": 2.3,
-       "max_distance_m": 1161.0,
-       "median_distance_m": 697.0,
-       "at_x_y_epsg3400": [
-        607407,
-        5920163
-       ],
-       "at_lon_lat": [
-        -113.3823,
-        53.4409
-       ]
-      }
-     ],
-     "n_runs_over_tol_ge_1km": 1,
-     "length_in_runs_km": 2.3
+     "side_length_km": 3.4,
+     "runs_over_tol_ge_1km": [],
+     "n_runs_over_tol_ge_1km": 0,
+     "length_in_runs_km": 0
     },
     {
      "clause": "B14",
@@ -291,14 +263,14 @@
      ],
      "feature_lines": 1,
      "checked": true,
-     "n_samples": 45,
-     "length_km": 4.5,
-     "median_m": 30.3,
-     "p90_m": 380.8,
-     "share_within_tol": 0.8222,
+     "n_samples": 46,
+     "length_km": 4.6,
+     "median_m": 29.5,
+     "p90_m": 401.6,
+     "share_within_tol": 0.8043,
      "tol_m": 200.0,
      "follow_km_all_sides": 4.7,
-     "side_length_km": 4.5,
+     "side_length_km": 4.6,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -314,14 +286,14 @@
      "feature_lines": 10526,
      "note": "street name not in the sources: tests only that the boundary runs along a main road",
      "checked": true,
-     "n_samples": 40,
-     "length_km": 4.0,
-     "median_m": 4.5,
-     "p90_m": 11.3,
-     "share_within_tol": 0.95,
+     "n_samples": 38,
+     "length_km": 3.8,
+     "median_m": 4.4,
+     "p90_m": 6.7,
+     "share_within_tol": 0.9737,
      "tol_m": 200.0,
-     "follow_km_all_sides": 14.0,
-     "side_length_km": 4.0,
+     "follow_km_all_sides": 13.9,
+     "side_length_km": 3.8,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -334,50 +306,9 @@
      "reason": "no street names in the NRN extract"
     }
    ],
-   "median_distance_all_checked_samples_m": 25.8,
-   "median_of_stretch_medians_m": 233.5,
-   "stretches_with_run_over_tol": [
-    {
-     "side": "N",
-     "clause": "B14",
-     "text": "Its northern boundary is still Whitemud Drive or Highway 14 ... and 38th Avenue N.W.",
-     "runs": [
-      {
-       "length_km": 1.1,
-       "max_distance_m": 1411.0,
-       "median_distance_m": 1312.0,
-       "at_x_y_epsg3400": [
-        607004,
-        5923678
-       ],
-       "at_lon_lat": [
-        -113.3872,
-        53.4725
-       ]
-      }
-     ]
-    },
-    {
-     "side": "S",
-     "clause": "B14",
-     "text": "Its southern boundary is still Anthony Henday Drive and 16A Avenue N.W.",
-     "runs": [
-      {
-       "length_km": 2.3,
-       "max_distance_m": 1161.0,
-       "median_distance_m": 697.0,
-       "at_x_y_epsg3400": [
-        607407,
-        5920163
-       ],
-       "at_lon_lat": [
-        -113.3823,
-        53.4409
-       ]
-      }
-     ]
-    }
-   ]
+   "median_distance_all_checked_samples_m": 18.6,
+   "median_of_stretch_medians_m": 117.5,
+   "stretches_with_run_over_tol": []
   },
   "46": {
    "ed": 46,
@@ -400,11 +331,11 @@
      "checked": true,
      "n_samples": 47,
      "length_km": 4.7,
-     "median_m": 8.0,
-     "p90_m": 430.9,
-     "share_within_tol": 0.766,
+     "median_m": 8.1,
+     "p90_m": 390.9,
+     "share_within_tol": 0.7447,
      "tol_m": 200.0,
-     "follow_km_all_sides": 3.8,
+     "follow_km_all_sides": 3.7,
      "side_length_km": 4.7,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
@@ -420,14 +351,14 @@
      ],
      "feature_lines": 57,
      "checked": true,
-     "n_samples": 50,
-     "length_km": 5.0,
-     "median_m": 90.7,
-     "p90_m": 125.0,
-     "share_within_tol": 0.98,
+     "n_samples": 49,
+     "length_km": 4.9,
+     "median_m": 91.7,
+     "p90_m": 123.9,
+     "share_within_tol": 0.9796,
      "tol_m": 200.0,
-     "follow_km_all_sides": 11.1,
-     "side_length_km": 5.0,
+     "follow_km_all_sides": 11.0,
+     "side_length_km": 4.9,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -443,26 +374,26 @@
      "feature_lines": 57,
      "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
      "checked": true,
-     "n_samples": 79,
-     "length_km": 7.9,
-     "median_m": 155.8,
-     "p90_m": 1157.7,
-     "share_within_tol": 0.519,
+     "n_samples": 78,
+     "length_km": 7.8,
+     "median_m": 140.6,
+     "p90_m": 1126.8,
+     "share_within_tol": 0.5128,
      "tol_m": 200.0,
-     "follow_km_all_sides": 11.1,
-     "side_length_km": 7.9,
+     "follow_km_all_sides": 11.0,
+     "side_length_km": 7.8,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 3.8,
-       "max_distance_m": 1346.0,
-       "median_distance_m": 879.0,
+       "max_distance_m": 1352.0,
+       "median_distance_m": 871.0,
        "at_x_y_epsg3400": [
-        595513,
-        5925968
+        595444,
+        5925973
        ],
        "at_lon_lat": [
-        -113.5596,
-        53.4953
+        -113.5607,
+        53.4954
        ]
       }
      ],
@@ -480,57 +411,57 @@
      "feature_lines": 706,
      "note": "the passage is cut off after '99th Street'; Gateway Boulevard is Highway 2",
      "checked": true,
-     "n_samples": 69,
-     "length_km": 6.9,
-     "median_m": 3170.0,
-     "p90_m": 5486.7,
-     "share_within_tol": 0.0435,
+     "n_samples": 70,
+     "length_km": 7.0,
+     "median_m": 3250.5,
+     "p90_m": 5507.0,
+     "share_within_tol": 0.0286,
      "tol_m": 200.0,
-     "follow_km_all_sides": 5.0,
-     "side_length_km": 6.9,
+     "follow_km_all_sides": 4.9,
+     "side_length_km": 7.0,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 2.5,
-       "max_distance_m": 6088.0,
-       "median_distance_m": 5174.0,
+       "length_km": 2.6,
+       "max_distance_m": 6126.0,
+       "median_distance_m": 5166.0,
        "at_x_y_epsg3400": [
-        600928,
-        5929622
+        600920,
+        5929564
        ],
        "at_lon_lat": [
-        -113.4768,
-        53.5272
+        -113.477,
+        53.5267
        ]
       },
       {
        "length_km": 2.1,
-       "max_distance_m": 4057.0,
-       "median_distance_m": 3072.0,
-       "at_x_y_epsg3400": [
-        600349,
-        5927594
-       ],
-       "at_lon_lat": [
-        -113.4862,
-        53.509
-       ]
-      },
-      {
-       "length_km": 2.0,
-       "max_distance_m": 1996.0,
-       "median_distance_m": 1138.0,
+       "max_distance_m": 1998.0,
+       "median_distance_m": 1113.0,
        "at_x_y_epsg3400": [
         600007,
-        5925640
+        5925665
        ],
        "at_lon_lat": [
         -113.492,
-        53.4916
+        53.4918
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 4062.0,
+       "median_distance_m": 3103.0,
+       "at_x_y_epsg3400": [
+        600349,
+        5927626
+       ],
+       "at_lon_lat": [
+        -113.4862,
+        53.5093
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 3,
-     "length_in_runs_km": 6.6
+     "length_in_runs_km": 6.8
     }
    ],
    "not_checkable": [
@@ -540,8 +471,8 @@
      "reason": "text cut off in the text layer"
     }
    ],
-   "median_distance_all_checked_samples_m": 130.6,
-   "median_of_stretch_medians_m": 123.2,
+   "median_distance_all_checked_samples_m": 131.2,
+   "median_of_stretch_medians_m": 116.2,
    "stretches_with_run_over_tol": [
     {
      "side": "W",
@@ -550,15 +481,15 @@
      "runs": [
       {
        "length_km": 3.8,
-       "max_distance_m": 1346.0,
-       "median_distance_m": 879.0,
+       "max_distance_m": 1352.0,
+       "median_distance_m": 871.0,
        "at_x_y_epsg3400": [
-        595513,
-        5925968
+        595444,
+        5925973
        ],
        "at_lon_lat": [
-        -113.5596,
-        53.4953
+        -113.5607,
+        53.4954
        ]
       }
      ]
@@ -569,42 +500,42 @@
      "text": "and on the east by Gateway Boulevard, 99th Street",
      "runs": [
       {
-       "length_km": 2.5,
-       "max_distance_m": 6088.0,
-       "median_distance_m": 5174.0,
+       "length_km": 2.6,
+       "max_distance_m": 6126.0,
+       "median_distance_m": 5166.0,
        "at_x_y_epsg3400": [
-        600928,
-        5929622
+        600920,
+        5929564
        ],
        "at_lon_lat": [
-        -113.4768,
-        53.5272
+        -113.477,
+        53.5267
        ]
       },
       {
        "length_km": 2.1,
-       "max_distance_m": 4057.0,
-       "median_distance_m": 3072.0,
-       "at_x_y_epsg3400": [
-        600349,
-        5927594
-       ],
-       "at_lon_lat": [
-        -113.4862,
-        53.509
-       ]
-      },
-      {
-       "length_km": 2.0,
-       "max_distance_m": 1996.0,
-       "median_distance_m": 1138.0,
+       "max_distance_m": 1998.0,
+       "median_distance_m": 1113.0,
        "at_x_y_epsg3400": [
         600007,
-        5925640
+        5925665
        ],
        "at_lon_lat": [
         -113.492,
-        53.4916
+        53.4918
+       ]
+      },
+      {
+       "length_km": 2.1,
+       "max_distance_m": 4062.0,
+       "median_distance_m": 3103.0,
+       "at_x_y_epsg3400": [
+        600349,
+        5927626
+       ],
+       "at_lon_lat": [
+        -113.4862,
+        53.5093
        ]
       }
      ]
@@ -631,8 +562,8 @@
      "checked": true,
      "n_samples": 42,
      "length_km": 4.2,
-     "median_m": 16.9,
-     "p90_m": 592.7,
+     "median_m": 17.2,
+     "p90_m": 587.3,
      "share_within_tol": 0.5238,
      "tol_m": 200.0,
      "follow_km_all_sides": 5.7,
@@ -640,11 +571,11 @@
      "runs_over_tol_ge_1km": [
       {
        "length_km": 2.0,
-       "max_distance_m": 676.0,
-       "median_distance_m": 545.0,
+       "max_distance_m": 678.0,
+       "median_distance_m": 547.0,
        "at_x_y_epsg3400": [
-        596071,
-        5919385
+        596072,
+        5919392
        ],
        "at_lon_lat": [
         -113.5532,
@@ -665,14 +596,14 @@
      ],
      "feature_lines": 55,
      "checked": true,
-     "n_samples": 40,
-     "length_km": 4.0,
+     "n_samples": 41,
+     "length_km": 4.1,
      "median_m": 93.2,
-     "p90_m": 229.9,
-     "share_within_tol": 0.875,
+     "p90_m": 377.7,
+     "share_within_tol": 0.8537,
      "tol_m": 200.0,
-     "follow_km_all_sides": 18.8,
-     "side_length_km": 4.0,
+     "follow_km_all_sides": 18.7,
+     "side_length_km": 4.1,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -689,24 +620,24 @@
      "checked": true,
      "n_samples": 47,
      "length_km": 4.7,
-     "median_m": 85.8,
-     "p90_m": 1049.9,
+     "median_m": 83.6,
+     "p90_m": 1066.3,
      "share_within_tol": 0.7021,
      "tol_m": 200.0,
-     "follow_km_all_sides": 18.8,
+     "follow_km_all_sides": 18.7,
      "side_length_km": 4.7,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 1.4,
-       "max_distance_m": 1460.0,
-       "median_distance_m": 875.0,
+       "max_distance_m": 1477.0,
+       "median_distance_m": 892.0,
        "at_x_y_epsg3400": [
-        592445,
-        5921269
+        592454,
+        5921254
        ],
        "at_lon_lat": [
-        -113.6073,
-        53.4536
+        -113.6071,
+        53.4535
        ]
       }
      ],
@@ -724,57 +655,57 @@
      "feature_lines": 55,
      "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
      "checked": true,
-     "n_samples": 140,
-     "length_km": 14.0,
-     "median_m": 451.6,
-     "p90_m": 1837.7,
-     "share_within_tol": 0.4071,
+     "n_samples": 139,
+     "length_km": 13.9,
+     "median_m": 417.7,
+     "p90_m": 1840.8,
+     "share_within_tol": 0.4029,
      "tol_m": 200.0,
-     "follow_km_all_sides": 18.8,
-     "side_length_km": 14.0,
+     "follow_km_all_sides": 18.7,
+     "side_length_km": 13.9,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 3.9,
-       "max_distance_m": 1382.0,
-       "median_distance_m": 841.0,
+       "length_km": 3.1,
+       "max_distance_m": 1375.0,
+       "median_distance_m": 946.0,
        "at_x_y_epsg3400": [
-        595471,
-        5925996
+        595458,
+        5925701
        ],
        "at_lon_lat": [
-        -113.5602,
-        53.4956
+        -113.5605,
+        53.4929
        ]
       },
       {
        "length_km": 2.0,
-       "max_distance_m": 1409.0,
-       "median_distance_m": 860.0,
+       "max_distance_m": 1412.0,
+       "median_distance_m": 862.0,
        "at_x_y_epsg3400": [
-        596571,
+        596582,
         5920962
        ],
        "at_lon_lat": [
-        -113.5452,
+        -113.545,
         53.4501
        ]
       },
       {
        "length_km": 1.4,
-       "max_distance_m": 2196.0,
-       "median_distance_m": 1804.0,
+       "max_distance_m": 2193.0,
+       "median_distance_m": 1801.0,
        "at_x_y_epsg3400": [
-        596729,
-        5919961
+        596738,
+        5919960
        ],
        "at_lon_lat": [
-        -113.5431,
+        -113.543,
         53.4411
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 3,
-     "length_in_runs_km": 7.3
+     "length_in_runs_km": 6.5
     }
    ],
    "not_checkable": [
@@ -784,8 +715,8 @@
      "reason": "no street names in the NRN extract"
     }
    ],
-   "median_distance_all_checked_samples_m": 111.7,
-   "median_of_stretch_medians_m": 89.5,
+   "median_distance_all_checked_samples_m": 110.7,
+   "median_of_stretch_medians_m": 88.4,
    "stretches_with_run_over_tol": [
     {
      "side": "S",
@@ -794,11 +725,11 @@
      "runs": [
       {
        "length_km": 2.0,
-       "max_distance_m": 676.0,
-       "median_distance_m": 545.0,
+       "max_distance_m": 678.0,
+       "median_distance_m": 547.0,
        "at_x_y_epsg3400": [
-        596071,
-        5919385
+        596072,
+        5919392
        ],
        "at_lon_lat": [
         -113.5532,
@@ -814,15 +745,15 @@
      "runs": [
       {
        "length_km": 1.4,
-       "max_distance_m": 1460.0,
-       "median_distance_m": 875.0,
+       "max_distance_m": 1477.0,
+       "median_distance_m": 892.0,
        "at_x_y_epsg3400": [
-        592445,
-        5921269
+        592454,
+        5921254
        ],
        "at_lon_lat": [
-        -113.6073,
-        53.4536
+        -113.6071,
+        53.4535
        ]
       }
      ]
@@ -833,41 +764,41 @@
      "text": "the advisory panel recommends it follow Whitemud Creek north to the River",
      "runs": [
       {
-       "length_km": 3.9,
-       "max_distance_m": 1382.0,
-       "median_distance_m": 841.0,
+       "length_km": 3.1,
+       "max_distance_m": 1375.0,
+       "median_distance_m": 946.0,
        "at_x_y_epsg3400": [
-        595471,
-        5925996
+        595458,
+        5925701
        ],
        "at_lon_lat": [
-        -113.5602,
-        53.4956
+        -113.5605,
+        53.4929
        ]
       },
       {
        "length_km": 2.0,
-       "max_distance_m": 1409.0,
-       "median_distance_m": 860.0,
+       "max_distance_m": 1412.0,
+       "median_distance_m": 862.0,
        "at_x_y_epsg3400": [
-        596571,
+        596582,
         5920962
        ],
        "at_lon_lat": [
-        -113.5452,
+        -113.545,
         53.4501
        ]
       },
       {
        "length_km": 1.4,
-       "max_distance_m": 2196.0,
-       "median_distance_m": 1804.0,
+       "max_distance_m": 2193.0,
+       "median_distance_m": 1801.0,
        "at_x_y_epsg3400": [
-        596729,
-        5919961
+        596738,
+        5919960
        ],
        "at_lon_lat": [
-        -113.5431,
+        -113.543,
         53.4411
        ]
       }
@@ -879,7 +810,7 @@
    "ed": 49,
    "name": "Edmonton-Windermere",
    "source": "filled",
-   "area_km2": 53.9,
+   "area_km2": 54.8,
    "description": "full prose ring",
    "stretches_checked": 4,
    "stretches": [
@@ -894,70 +825,83 @@
      "feature_lines": 46,
      "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
      "checked": true,
-     "n_samples": 105,
-     "length_km": 10.5,
-     "median_m": 3675.7,
-     "p90_m": 4747.5,
+     "n_samples": 110,
+     "length_km": 11.0,
+     "median_m": 3714.1,
+     "p90_m": 4714.0,
      "share_within_tol": 0.0,
      "tol_m": 200.0,
-     "follow_km_all_sides": 16.0,
-     "side_length_km": 10.5,
+     "follow_km_all_sides": 15.9,
+     "side_length_km": 11.0,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 3.2,
-       "max_distance_m": 4091.0,
-       "median_distance_m": 3718.0,
+       "length_km": 2.6,
+       "max_distance_m": 4099.0,
+       "median_distance_m": 3724.0,
        "at_x_y_epsg3400": [
-        593663,
-        5917629
+        592958,
+        5911624
        ],
        "at_lon_lat": [
-        -113.59,
-        53.4207
+        -113.6024,
+        53.3668
        ]
       },
       {
-       "length_km": 2.6,
-       "max_distance_m": 4111.0,
-       "median_distance_m": 3727.0,
+       "length_km": 2.0,
+       "max_distance_m": 5402.0,
+       "median_distance_m": 4826.0,
        "at_x_y_epsg3400": [
-        592950,
-        5911605
+        594738,
+        5915770
        ],
        "at_lon_lat": [
-        -113.6025,
-        53.3667
+        -113.5744,
+        53.4038
        ]
       },
       {
        "length_km": 1.9,
-       "max_distance_m": 3189.0,
-       "median_distance_m": 2326.0,
+       "max_distance_m": 3148.0,
+       "median_distance_m": 2290.0,
        "at_x_y_epsg3400": [
-        593151,
-        5919745
+        593133,
+        5919782
        ],
        "at_lon_lat": [
-        -113.5971,
-        53.4398
+        -113.5973,
+        53.4401
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 4304.0,
+       "median_distance_m": 4003.0,
+       "at_x_y_epsg3400": [
+        593678,
+        5916930
+       ],
+       "at_lon_lat": [
+        -113.59,
+        53.4144
        ]
       },
       {
        "length_km": 1.2,
-       "max_distance_m": 5391.0,
-       "median_distance_m": 5109.0,
+       "max_distance_m": 3727.0,
+       "median_distance_m": 3675.0,
        "at_x_y_epsg3400": [
-        594970,
-        5916071
+        593886,
+        5918507
        ],
        "at_lon_lat": [
-        -113.5708,
-        53.4065
+        -113.5864,
+        53.4286
        ]
       }
      ],
-     "n_runs_over_tol_ge_1km": 4,
-     "length_in_runs_km": 8.9
+     "n_runs_over_tol_ge_1km": 5,
+     "length_in_runs_km": 9.4
     },
     {
      "clause": "B15",
@@ -970,14 +914,14 @@
      ],
      "feature_lines": 21,
      "checked": true,
-     "n_samples": 67,
-     "length_km": 6.7,
-     "median_m": 0.0,
-     "p90_m": 1657.3,
-     "share_within_tol": 0.7463,
+     "n_samples": 68,
+     "length_km": 6.8,
+     "median_m": 0.1,
+     "p90_m": 1556.0,
+     "share_within_tol": 0.75,
      "tol_m": 200.0,
-     "follow_km_all_sides": 16.1,
-     "side_length_km": 6.7,
+     "follow_km_all_sides": 16.3,
+     "side_length_km": 6.8,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -992,31 +936,44 @@
      ],
      "feature_lines": 450,
      "checked": true,
-     "n_samples": 34,
-     "length_km": 3.4,
-     "median_m": 1208.7,
-     "p90_m": 3207.6,
-     "share_within_tol": 0.3529,
+     "n_samples": 45,
+     "length_km": 4.5,
+     "median_m": 463.5,
+     "p90_m": 3050.2,
+     "share_within_tol": 0.2667,
      "tol_m": 200.0,
      "follow_km_all_sides": 4.5,
-     "side_length_km": 3.4,
+     "side_length_km": 4.5,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 1.2,
-       "max_distance_m": 1909.0,
-       "median_distance_m": 1405.0,
+       "length_km": 1.3,
+       "max_distance_m": 508.0,
+       "median_distance_m": 445.0,
        "at_x_y_epsg3400": [
-        591110,
-        5920781
+        594374,
+        5918132
        ],
        "at_lon_lat": [
-        -113.6275,
-        53.4495
+        -113.5792,
+        53.4251
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 1877.0,
+       "median_distance_m": 1394.0,
+       "at_x_y_epsg3400": [
+        591084,
+        5920753
+       ],
+       "at_lon_lat": [
+        -113.6279,
+        53.4492
        ]
       }
      ],
-     "n_runs_over_tol_ge_1km": 1,
-     "length_in_runs_km": 1.2
+     "n_runs_over_tol_ge_1km": 2,
+     "length_in_runs_km": 2.4
     },
     {
      "clause": "C17",
@@ -1028,39 +985,39 @@
      ],
      "feature_lines": 46,
      "checked": true,
-     "n_samples": 70,
-     "length_km": 7.0,
-     "median_m": 115.6,
-     "p90_m": 1282.0,
-     "share_within_tol": 0.6143,
+     "n_samples": 71,
+     "length_km": 7.1,
+     "median_m": 115.5,
+     "p90_m": 1397.3,
+     "share_within_tol": 0.5775,
      "tol_m": 200.0,
-     "follow_km_all_sides": 16.0,
-     "side_length_km": 7.0,
+     "follow_km_all_sides": 15.9,
+     "side_length_km": 7.1,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 1.0,
-       "max_distance_m": 941.0,
-       "median_distance_m": 545.0,
+       "max_distance_m": 898.0,
+       "median_distance_m": 486.0,
        "at_x_y_epsg3400": [
-        586928,
-        5909658
+        586929,
+        5909726
        ],
        "at_lon_lat": [
-        -113.6936,
-        53.3502
+        -113.6935,
+        53.3508
        ]
       },
       {
        "length_km": 1.0,
-       "max_distance_m": 1926.0,
-       "median_distance_m": 1506.0,
+       "max_distance_m": 1957.0,
+       "median_distance_m": 1537.0,
        "at_x_y_epsg3400": [
-        587592,
-        5908884
+        587593,
+        5908851
        ],
        "at_lon_lat": [
         -113.6838,
-        53.3431
+        53.3428
        ]
       }
      ],
@@ -1075,8 +1032,8 @@
      "reason": "no street or neighbourhood names in the sources"
     }
    ],
-   "median_distance_all_checked_samples_m": 1235.8,
-   "median_of_stretch_medians_m": 662.1,
+   "median_distance_all_checked_samples_m": 1167.4,
+   "median_of_stretch_medians_m": 289.5,
    "stretches_with_run_over_tol": [
     {
      "side": "E",
@@ -1084,55 +1041,68 @@
      "text": "It is bounded on the east by Whitemud Creek",
      "runs": [
       {
-       "length_km": 3.2,
-       "max_distance_m": 4091.0,
-       "median_distance_m": 3718.0,
+       "length_km": 2.6,
+       "max_distance_m": 4099.0,
+       "median_distance_m": 3724.0,
        "at_x_y_epsg3400": [
-        593663,
-        5917629
+        592958,
+        5911624
        ],
        "at_lon_lat": [
-        -113.59,
-        53.4207
+        -113.6024,
+        53.3668
        ]
       },
       {
-       "length_km": 2.6,
-       "max_distance_m": 4111.0,
-       "median_distance_m": 3727.0,
+       "length_km": 2.0,
+       "max_distance_m": 5402.0,
+       "median_distance_m": 4826.0,
        "at_x_y_epsg3400": [
-        592950,
-        5911605
+        594738,
+        5915770
        ],
        "at_lon_lat": [
-        -113.6025,
-        53.3667
+        -113.5744,
+        53.4038
        ]
       },
       {
        "length_km": 1.9,
-       "max_distance_m": 3189.0,
-       "median_distance_m": 2326.0,
+       "max_distance_m": 3148.0,
+       "median_distance_m": 2290.0,
        "at_x_y_epsg3400": [
-        593151,
-        5919745
+        593133,
+        5919782
        ],
        "at_lon_lat": [
-        -113.5971,
-        53.4398
+        -113.5973,
+        53.4401
+       ]
+      },
+      {
+       "length_km": 1.7,
+       "max_distance_m": 4304.0,
+       "median_distance_m": 4003.0,
+       "at_x_y_epsg3400": [
+        593678,
+        5916930
+       ],
+       "at_lon_lat": [
+        -113.59,
+        53.4144
        ]
       },
       {
        "length_km": 1.2,
-       "max_distance_m": 5391.0,
-       "median_distance_m": 5109.0,
+       "max_distance_m": 3727.0,
+       "median_distance_m": 3675.0,
        "at_x_y_epsg3400": [
-        594970,
-        5916071
+        593886,
+        5918507
        ],
        "at_lon_lat": [
-        -113.5708,
-        53.4065
+        -113.5864,
+        53.4286
        ]
       }
      ]
@@ -1143,16 +1113,29 @@
      "text": "[north edge] Anthony Henday Drive at its northern end",
      "runs": [
       {
-       "length_km": 1.2,
-       "max_distance_m": 1909.0,
-       "median_distance_m": 1405.0,
+       "length_km": 1.3,
+       "max_distance_m": 508.0,
+       "median_distance_m": 445.0,
        "at_x_y_epsg3400": [
-        591110,
-        5920781
+        594374,
+        5918132
        ],
        "at_lon_lat": [
-        -113.6275,
-        53.4495
+        -113.5792,
+        53.4251
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 1877.0,
+       "median_distance_m": 1394.0,
+       "at_x_y_epsg3400": [
+        591084,
+        5920753
+       ],
+       "at_lon_lat": [
+        -113.6279,
+        53.4492
        ]
       }
      ]
@@ -1164,28 +1147,28 @@
      "runs": [
       {
        "length_km": 1.0,
-       "max_distance_m": 941.0,
-       "median_distance_m": 545.0,
+       "max_distance_m": 898.0,
+       "median_distance_m": 486.0,
        "at_x_y_epsg3400": [
-        586928,
-        5909658
+        586929,
+        5909726
        ],
        "at_lon_lat": [
-        -113.6936,
-        53.3502
+        -113.6935,
+        53.3508
        ]
       },
       {
        "length_km": 1.0,
-       "max_distance_m": 1926.0,
-       "median_distance_m": 1506.0,
+       "max_distance_m": 1957.0,
+       "median_distance_m": 1537.0,
        "at_x_y_epsg3400": [
-        587592,
-        5908884
+        587593,
+        5908851
        ],
        "at_lon_lat": [
         -113.6838,
-        53.3431
+        53.3428
        ]
       }
      ]
@@ -1196,7 +1179,7 @@
    "ed": 62,
    "name": "Fort McMurray-Lac La Biche",
    "source": "placed",
-   "area_km2": 32317.7,
+   "area_km2": 32316.4,
    "description": "full prose ring (rough: 'Roughly speaking')",
    "stretches_checked": 3,
    "stretches": [
@@ -1211,122 +1194,122 @@
      "feature_lines": 212,
      "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
      "checked": true,
-     "n_samples": 2664,
-     "length_km": 266.4,
-     "median_m": 137.7,
-     "p90_m": 10730.8,
-     "share_within_tol": 0.646,
+     "n_samples": 2667,
+     "length_km": 266.7,
+     "median_m": 138.3,
+     "p90_m": 10698.5,
+     "share_within_tol": 0.6434,
      "tol_m": 200.0,
-     "follow_km_all_sides": 408.4,
-     "side_length_km": 266.4,
+     "follow_km_all_sides": 407.1,
+     "side_length_km": 266.7,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 19.4,
-       "max_distance_m": 11066.0,
-       "median_distance_m": 6185.0,
+       "max_distance_m": 11016.0,
+       "median_distance_m": 6175.0,
        "at_x_y_epsg3400": [
-        663878,
-        6078576
+        663876,
+        6078636
        ],
        "at_lon_lat": [
         -112.4464,
-        54.8493
+        54.8498
        ]
       },
       {
-       "length_km": 16.8,
-       "max_distance_m": 13291.0,
-       "median_distance_m": 8112.0,
+       "length_km": 16.9,
+       "max_distance_m": 13296.0,
+       "median_distance_m": 8122.0,
        "at_x_y_epsg3400": [
-        665874,
-        6060572
+        665875,
+        6060532
        ],
        "at_lon_lat": [
         -112.4256,
-        54.6869
+        54.6866
        ]
       },
       {
        "length_km": 12.2,
-       "max_distance_m": 17206.0,
-       "median_distance_m": 11374.0,
+       "max_distance_m": 17147.0,
+       "median_distance_m": 11317.0,
        "at_x_y_epsg3400": [
-        656816,
-        6040710
+        656814,
+        6040770
        ],
        "at_lon_lat": [
         -112.5767,
-        54.5114
+        54.512
        ]
       },
       {
        "length_km": 9.7,
-       "max_distance_m": 17742.0,
-       "median_distance_m": 13745.0,
+       "max_distance_m": 17785.0,
+       "median_distance_m": 13784.0,
        "at_x_y_epsg3400": [
-        678505,
-        6025733
+        678507,
+        6025684
        ],
        "at_lon_lat": [
         -112.251,
-        54.3698
+        54.3693
        ]
       },
       {
        "length_km": 6.4,
-       "max_distance_m": 411.0,
-       "median_distance_m": 311.0,
+       "max_distance_m": 416.0,
+       "median_distance_m": 308.0,
        "at_x_y_epsg3400": [
-        649468,
-        6240147
+        649447,
+        6240193
        ],
        "at_lon_lat": [
-        -112.5831,
-        56.305
+        -112.5835,
+        56.3054
        ]
       },
       {
-       "length_km": 4.9,
-       "max_distance_m": 21479.0,
-       "median_distance_m": 19111.0,
+       "length_km": 4.8,
+       "max_distance_m": 21421.0,
+       "median_distance_m": 19102.0,
        "at_x_y_epsg3400": [
-        660379,
-        6032298
+        660377,
+        6032357
        ],
        "at_lon_lat": [
         -112.5262,
-        54.4348
+        54.4353
        ]
       },
       {
-       "length_km": 4.4,
-       "max_distance_m": 2748.0,
-       "median_distance_m": 1987.0,
+       "length_km": 4.5,
+       "max_distance_m": 2765.0,
+       "median_distance_m": 1996.0,
        "at_x_y_epsg3400": [
-        663421,
-        6090968
+        663423,
+        6090928
        ],
        "at_lon_lat": [
         -112.4465,
-        54.9607
+        54.9604
        ]
       },
       {
-       "length_km": 2.1,
-       "max_distance_m": 2269.0,
-       "median_distance_m": 1276.0,
+       "length_km": 2.2,
+       "max_distance_m": 2270.0,
+       "median_distance_m": 1266.0,
        "at_x_y_epsg3400": [
-        666255,
-        6050479
+        666252,
+        6050539
        ],
        "at_lon_lat": [
         -112.4255,
-        54.5962
+        54.5967
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 17,
-     "length_in_runs_km": 88.0
+     "length_in_runs_km": 88.4
     },
     {
      "clause": "B06",
@@ -1339,122 +1322,122 @@
      "feature_lines": 212,
      "note": "waterways are unnamed in the OSM layer: tests only that the boundary runs along a mapped waterway",
      "checked": true,
-     "n_samples": 1826,
-     "length_km": 182.6,
-     "median_m": 93.3,
-     "p90_m": 227.7,
-     "share_within_tol": 0.8631,
+     "n_samples": 1822,
+     "length_km": 182.2,
+     "median_m": 93.7,
+     "p90_m": 229.5,
+     "share_within_tol": 0.8606,
      "tol_m": 200.0,
-     "follow_km_all_sides": 408.4,
-     "side_length_km": 182.6,
+     "follow_km_all_sides": 407.1,
+     "side_length_km": 182.2,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 3.8,
-       "max_distance_m": 3316.0,
-       "median_distance_m": 1991.0,
+       "length_km": 3.9,
+       "max_distance_m": 3310.0,
+       "median_distance_m": 2002.0,
        "at_x_y_epsg3400": [
-        717093,
-        6290598
+        717030,
+        6290614
        ],
        "at_lon_lat": [
-        -111.4495,
-        56.7314
-       ]
-      },
-      {
-       "length_km": 2.5,
-       "max_distance_m": 554.0,
-       "median_distance_m": 276.0,
-       "at_x_y_epsg3400": [
-        695713,
-        6272407
-       ],
-       "at_lon_lat": [
-        -111.8124,
-        56.5776
+        -111.4505,
+        56.7316
        ]
       },
       {
        "length_km": 2.4,
-       "max_distance_m": 325.0,
+       "max_distance_m": 328.0,
        "median_distance_m": 242.0,
        "at_x_y_epsg3400": [
-        703536,
-        6277198
+        703557,
+        6277199
        ],
        "at_lon_lat": [
-        -111.6814,
+        -111.6811,
         56.6173
+       ]
+      },
+      {
+       "length_km": 2.4,
+       "max_distance_m": 554.0,
+       "median_distance_m": 273.0,
+       "at_x_y_epsg3400": [
+        695724,
+        6272410
+       ],
+       "at_lon_lat": [
+        -111.8122,
+        56.5776
        ]
       },
       {
        "length_km": 2.2,
        "max_distance_m": 284.0,
-       "median_distance_m": 261.0,
+       "median_distance_m": 260.0,
        "at_x_y_epsg3400": [
-        709970,
-        6282464
+        709997,
+        6282472
        ],
        "at_lon_lat": [
-        -111.5724,
+        -111.572,
         56.6617
        ]
       },
       {
-       "length_km": 1.3,
-       "max_distance_m": 1237.0,
-       "median_distance_m": 804.0,
+       "length_km": 1.4,
+       "max_distance_m": 1257.0,
+       "median_distance_m": 817.0,
        "at_x_y_epsg3400": [
-        719774,
-        6292238
+        719804,
+        6292252
        ],
        "at_lon_lat": [
-        -111.4044,
-        56.7449
+        -111.4039,
+        56.745
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 296.0,
+       "median_distance_m": 271.0,
+       "at_x_y_epsg3400": [
+        698282,
+        6274906
+       ],
+       "at_lon_lat": [
+        -111.7687,
+        56.599
        ]
       },
       {
        "length_km": 1.1,
        "max_distance_m": 303.0,
-       "median_distance_m": 277.0,
+       "median_distance_m": 276.0,
        "at_x_y_epsg3400": [
-        691981,
+        691986,
         6272509
        ],
        "at_lon_lat": [
-        -111.873,
+        -111.8729,
         56.5801
        ]
       },
       {
        "length_km": 1.0,
-       "max_distance_m": 596.0,
-       "median_distance_m": 516.0,
+       "max_distance_m": 592.0,
+       "median_distance_m": 509.0,
        "at_x_y_epsg3400": [
-        796990,
-        6292768
+        796961,
+        6292775
        ],
        "at_lon_lat": [
-        -110.1449,
+        -110.1454,
         56.7069
-       ]
-      },
-      {
-       "length_km": 1.0,
-       "max_distance_m": 296.0,
-       "median_distance_m": 272.0,
-       "at_x_y_epsg3400": [
-        698345,
-        6274967
-       ],
-       "at_lon_lat": [
-        -111.7676,
-        56.5995
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 8,
-     "length_in_runs_km": 15.3
+     "length_in_runs_km": 15.5
     },
     {
      "clause": "B06",
@@ -1466,26 +1449,26 @@
      ],
      "feature_lines": 1,
      "checked": true,
-     "n_samples": 1593,
-     "length_km": 159.3,
+     "n_samples": 1594,
+     "length_km": 159.4,
      "median_m": 360.6,
-     "p90_m": 19978.7,
+     "p90_m": 19979.4,
      "share_within_tol": 0.0188,
      "tol_m": 200.0,
      "follow_km_all_sides": 3.0,
-     "side_length_km": 159.3,
+     "side_length_km": 159.4,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 79.3,
-       "max_distance_m": 410.0,
+       "max_distance_m": 396.0,
        "median_distance_m": 361.0,
        "at_x_y_epsg3400": [
-        811990,
-        6204034
+        811989,
+        6204047
        ],
        "at_lon_lat": [
         -110.0058,
-        55.9026
+        55.9027
        ]
       },
       {
@@ -1493,24 +1476,24 @@
        "max_distance_m": 361.0,
        "median_distance_m": 358.0,
        "at_x_y_epsg3400": [
-        807215,
-        6269764
+        807214,
+        6269773
        ],
        "at_lon_lat": [
         -110.0058,
-        56.4943
+        56.4944
        ]
       },
       {
-       "length_km": 19.8,
+       "length_km": 19.7,
        "max_distance_m": 20012.0,
-       "median_distance_m": 19916.0,
+       "median_distance_m": 19907.0,
        "at_x_y_epsg3400": [
-        796051,
-        6153586
+        796036,
+        6153585
        ],
        "at_lon_lat": [
-        -110.3144,
+        -110.3146,
         55.4607
        ]
       },
@@ -1519,20 +1502,20 @@
        "max_distance_m": 26411.0,
        "median_distance_m": 26401.0,
        "at_x_y_epsg3400": [
-        790366,
-        6141848
+        790365,
+        6141864
        ],
        "at_lon_lat": [
         -110.4162,
-        55.359
+        55.3591
        ]
       },
       {
        "length_km": 1.8,
-       "max_distance_m": 6804.0,
+       "max_distance_m": 6808.0,
        "median_distance_m": 6337.0,
        "at_x_y_epsg3400": [
-        799625,
+        799626,
         6292046
        ],
        "at_lon_lat": [
@@ -1542,20 +1525,20 @@
       },
       {
        "length_km": 1.7,
-       "max_distance_m": 29703.0,
-       "median_distance_m": 29674.0,
+       "max_distance_m": 29687.0,
+       "median_distance_m": 29673.0,
        "at_x_y_epsg3400": [
-        787276,
-        6139195
+        787275,
+        6139211
        ],
        "at_lon_lat": [
         -110.4676,
-        55.337
+        55.3372
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 6,
-     "length_in_runs_km": 152.4
+     "length_in_runs_km": 152.3
     }
    ],
    "not_checkable": [
@@ -1571,7 +1554,7 @@
     }
    ],
    "median_distance_all_checked_samples_m": 170.1,
-   "median_of_stretch_medians_m": 137.7,
+   "median_of_stretch_medians_m": 138.3,
    "stretches_with_run_over_tol": [
     {
      "side": "W",
@@ -1580,106 +1563,106 @@
      "runs": [
       {
        "length_km": 19.4,
-       "max_distance_m": 11066.0,
-       "median_distance_m": 6185.0,
+       "max_distance_m": 11016.0,
+       "median_distance_m": 6175.0,
        "at_x_y_epsg3400": [
-        663878,
-        6078576
+        663876,
+        6078636
        ],
        "at_lon_lat": [
         -112.4464,
-        54.8493
+        54.8498
        ]
       },
       {
-       "length_km": 16.8,
-       "max_distance_m": 13291.0,
-       "median_distance_m": 8112.0,
+       "length_km": 16.9,
+       "max_distance_m": 13296.0,
+       "median_distance_m": 8122.0,
        "at_x_y_epsg3400": [
-        665874,
-        6060572
+        665875,
+        6060532
        ],
        "at_lon_lat": [
         -112.4256,
-        54.6869
+        54.6866
        ]
       },
       {
        "length_km": 12.2,
-       "max_distance_m": 17206.0,
-       "median_distance_m": 11374.0,
+       "max_distance_m": 17147.0,
+       "median_distance_m": 11317.0,
        "at_x_y_epsg3400": [
-        656816,
-        6040710
+        656814,
+        6040770
        ],
        "at_lon_lat": [
         -112.5767,
-        54.5114
+        54.512
        ]
       },
       {
        "length_km": 9.7,
-       "max_distance_m": 17742.0,
-       "median_distance_m": 13745.0,
+       "max_distance_m": 17785.0,
+       "median_distance_m": 13784.0,
        "at_x_y_epsg3400": [
-        678505,
-        6025733
+        678507,
+        6025684
        ],
        "at_lon_lat": [
         -112.251,
-        54.3698
+        54.3693
        ]
       },
       {
        "length_km": 6.4,
-       "max_distance_m": 411.0,
-       "median_distance_m": 311.0,
+       "max_distance_m": 416.0,
+       "median_distance_m": 308.0,
        "at_x_y_epsg3400": [
-        649468,
-        6240147
+        649447,
+        6240193
        ],
        "at_lon_lat": [
-        -112.5831,
-        56.305
+        -112.5835,
+        56.3054
        ]
       },
       {
-       "length_km": 4.9,
-       "max_distance_m": 21479.0,
-       "median_distance_m": 19111.0,
+       "length_km": 4.8,
+       "max_distance_m": 21421.0,
+       "median_distance_m": 19102.0,
        "at_x_y_epsg3400": [
-        660379,
-        6032298
+        660377,
+        6032357
        ],
        "at_lon_lat": [
         -112.5262,
-        54.4348
+        54.4353
        ]
       },
       {
-       "length_km": 4.4,
-       "max_distance_m": 2748.0,
-       "median_distance_m": 1987.0,
+       "length_km": 4.5,
+       "max_distance_m": 2765.0,
+       "median_distance_m": 1996.0,
        "at_x_y_epsg3400": [
-        663421,
-        6090968
+        663423,
+        6090928
        ],
        "at_lon_lat": [
         -112.4465,
-        54.9607
+        54.9604
        ]
       },
       {
-       "length_km": 2.1,
-       "max_distance_m": 2269.0,
-       "median_distance_m": 1276.0,
+       "length_km": 2.2,
+       "max_distance_m": 2270.0,
+       "median_distance_m": 1266.0,
        "at_x_y_epsg3400": [
-        666255,
-        6050479
+        666252,
+        6050539
        ],
        "at_lon_lat": [
         -112.4255,
-        54.5962
+        54.5967
        ]
       }
      ]
@@ -1690,107 +1673,107 @@
      "text": "Its northern boundary is the Athabasca and Clearwater Rivers",
      "runs": [
       {
-       "length_km": 3.8,
-       "max_distance_m": 3316.0,
-       "median_distance_m": 1991.0,
+       "length_km": 3.9,
+       "max_distance_m": 3310.0,
+       "median_distance_m": 2002.0,
        "at_x_y_epsg3400": [
-        717093,
-        6290598
+        717030,
+        6290614
        ],
        "at_lon_lat": [
-        -111.4495,
-        56.7314
-       ]
-      },
-      {
-       "length_km": 2.5,
-       "max_distance_m": 554.0,
-       "median_distance_m": 276.0,
-       "at_x_y_epsg3400": [
-        695713,
-        6272407
-       ],
-       "at_lon_lat": [
-        -111.8124,
-        56.5776
+        -111.4505,
+        56.7316
        ]
       },
       {
        "length_km": 2.4,
-       "max_distance_m": 325.0,
+       "max_distance_m": 328.0,
        "median_distance_m": 242.0,
        "at_x_y_epsg3400": [
-        703536,
-        6277198
+        703557,
+        6277199
        ],
        "at_lon_lat": [
-        -111.6814,
+        -111.6811,
         56.6173
+       ]
+      },
+      {
+       "length_km": 2.4,
+       "max_distance_m": 554.0,
+       "median_distance_m": 273.0,
+       "at_x_y_epsg3400": [
+        695724,
+        6272410
+       ],
+       "at_lon_lat": [
+        -111.8122,
+        56.5776
        ]
       },
       {
        "length_km": 2.2,
        "max_distance_m": 284.0,
-       "median_distance_m": 261.0,
+       "median_distance_m": 260.0,
        "at_x_y_epsg3400": [
-        709970,
-        6282464
+        709997,
+        6282472
        ],
        "at_lon_lat": [
-        -111.5724,
+        -111.572,
         56.6617
        ]
       },
       {
-       "length_km": 1.3,
-       "max_distance_m": 1237.0,
-       "median_distance_m": 804.0,
+       "length_km": 1.4,
+       "max_distance_m": 1257.0,
+       "median_distance_m": 817.0,
        "at_x_y_epsg3400": [
-        719774,
-        6292238
+        719804,
+        6292252
        ],
        "at_lon_lat": [
-        -111.4044,
-        56.7449
+        -111.4039,
+        56.745
+       ]
+      },
+      {
+       "length_km": 1.1,
+       "max_distance_m": 296.0,
+       "median_distance_m": 271.0,
+       "at_x_y_epsg3400": [
+        698282,
+        6274906
+       ],
+       "at_lon_lat": [
+        -111.7687,
+        56.599
        ]
       },
       {
        "length_km": 1.1,
        "max_distance_m": 303.0,
-       "median_distance_m": 277.0,
+       "median_distance_m": 276.0,
        "at_x_y_epsg3400": [
-        691981,
+        691986,
         6272509
        ],
        "at_lon_lat": [
-        -111.873,
+        -111.8729,
         56.5801
        ]
       },
       {
        "length_km": 1.0,
-       "max_distance_m": 596.0,
-       "median_distance_m": 516.0,
+       "max_distance_m": 592.0,
+       "median_distance_m": 509.0,
        "at_x_y_epsg3400": [
-        796990,
-        6292768
+        796961,
+        6292775
        ],
        "at_lon_lat": [
-        -110.1449,
+        -110.1454,
         56.7069
-       ]
-      },
-      {
-       "length_km": 1.0,
-       "max_distance_m": 296.0,
-       "median_distance_m": 272.0,
-       "at_x_y_epsg3400": [
-        698345,
-        6274967
-       ],
-       "at_lon_lat": [
-        -111.7676,
-        56.5995
        ]
       }
      ]
@@ -1802,15 +1785,15 @@
      "runs": [
       {
        "length_km": 79.3,
-       "max_distance_m": 410.0,
+       "max_distance_m": 396.0,
        "median_distance_m": 361.0,
        "at_x_y_epsg3400": [
-        811990,
-        6204034
+        811989,
+        6204047
        ],
        "at_lon_lat": [
         -110.0058,
-        55.9026
+        55.9027
        ]
       },
       {
@@ -1818,24 +1801,24 @@
        "max_distance_m": 361.0,
        "median_distance_m": 358.0,
        "at_x_y_epsg3400": [
-        807215,
-        6269764
+        807214,
+        6269773
        ],
        "at_lon_lat": [
         -110.0058,
-        56.4943
+        56.4944
        ]
       },
       {
-       "length_km": 19.8,
+       "length_km": 19.7,
        "max_distance_m": 20012.0,
-       "median_distance_m": 19916.0,
+       "median_distance_m": 19907.0,
        "at_x_y_epsg3400": [
-        796051,
-        6153586
+        796036,
+        6153585
        ],
        "at_lon_lat": [
-        -110.3144,
+        -110.3146,
         55.4607
        ]
       },
@@ -1844,20 +1827,20 @@
        "max_distance_m": 26411.0,
        "median_distance_m": 26401.0,
        "at_x_y_epsg3400": [
-        790366,
-        6141848
+        790365,
+        6141864
        ],
        "at_lon_lat": [
         -110.4162,
-        55.359
+        55.3591
        ]
       },
       {
        "length_km": 1.8,
-       "max_distance_m": 6804.0,
+       "max_distance_m": 6808.0,
        "median_distance_m": 6337.0,
        "at_x_y_epsg3400": [
-        799625,
+        799626,
         6292046
        ],
        "at_lon_lat": [
@@ -1867,15 +1850,15 @@
       },
       {
        "length_km": 1.7,
-       "max_distance_m": 29703.0,
-       "median_distance_m": 29674.0,
+       "max_distance_m": 29687.0,
+       "median_distance_m": 29673.0,
        "at_x_y_epsg3400": [
-        787276,
-        6139195
+        787275,
+        6139211
        ],
        "at_lon_lat": [
         -110.4676,
-        55.337
+        55.3372
        ]
       }
      ]
@@ -1886,7 +1869,7 @@
    "ed": 79,
    "name": "Morinville-Sturgeon",
    "source": "placed",
-   "area_km2": 2181.4,
+   "area_km2": 2181.2,
    "description": "full prose ring (north edge cut off in the text layer)",
    "stretches_checked": 4,
    "stretches": [
@@ -1900,70 +1883,70 @@
      ],
      "feature_lines": 7,
      "checked": true,
-     "n_samples": 495,
-     "length_km": 49.5,
-     "median_m": 13.0,
-     "p90_m": 1137.4,
-     "share_within_tol": 0.7919,
+     "n_samples": 492,
+     "length_km": 49.2,
+     "median_m": 12.8,
+     "p90_m": 1166.3,
+     "share_within_tol": 0.7907,
      "tol_m": 200.0,
-     "follow_km_all_sides": 275.8,
-     "side_length_km": 49.5,
+     "follow_km_all_sides": 276.2,
+     "side_length_km": 49.2,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 2.8,
-       "max_distance_m": 2386.0,
-       "median_distance_m": 1704.0,
+       "max_distance_m": 2382.0,
+       "median_distance_m": 1702.0,
        "at_x_y_epsg3400": [
-        586140,
+        586146,
         5946275
        ],
        "at_lon_lat": [
-        -113.6953,
+        -113.6952,
         53.6795
        ]
       },
       {
-       "length_km": 2.3,
-       "max_distance_m": 1467.0,
-       "median_distance_m": 792.0,
+       "length_km": 2.6,
+       "max_distance_m": 1833.0,
+       "median_distance_m": 1375.0,
        "at_x_y_epsg3400": [
-        588667,
+        591536,
+        5942892
+       ],
+       "at_lon_lat": [
+        -113.6146,
+        53.6482
+       ]
+      },
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1455.0,
+       "median_distance_m": 787.0,
+       "at_x_y_epsg3400": [
+        588682,
         5947182
        ],
        "at_lon_lat": [
-        -113.6568,
+        -113.6566,
         53.6872
        ]
       },
       {
-       "length_km": 1.7,
-       "max_distance_m": 839.0,
+       "length_km": 1.8,
+       "max_distance_m": 846.0,
        "median_distance_m": 794.0,
        "at_x_y_epsg3400": [
-        593512,
-        5944490
+        593464,
+        5944519
        ],
        "at_lon_lat": [
-        -113.5842,
-        53.6622
-       ]
-      },
-      {
-       "length_km": 1.6,
-       "max_distance_m": 1789.0,
-       "median_distance_m": 1406.0,
-       "at_x_y_epsg3400": [
-        591234,
-        5943188
-       ],
-       "at_lon_lat": [
-        -113.6191,
-        53.6509
+        -113.585,
+        53.6625
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 4,
-     "length_in_runs_km": 8.4
+     "length_in_runs_km": 9.5
     },
     {
      "clause": "B04",
@@ -1975,31 +1958,31 @@
      ],
      "feature_lines": 107,
      "checked": true,
-     "n_samples": 300,
-     "length_km": 30.0,
-     "median_m": 89.2,
-     "p90_m": 128.5,
-     "share_within_tol": 0.95,
+     "n_samples": 297,
+     "length_km": 29.7,
+     "median_m": 89.5,
+     "p90_m": 130.8,
+     "share_within_tol": 0.9495,
      "tol_m": 200.0,
-     "follow_km_all_sides": 55.4,
-     "side_length_km": 30.0,
+     "follow_km_all_sides": 55.7,
+     "side_length_km": 29.7,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 1.0,
-       "max_distance_m": 447.0,
-       "median_distance_m": 395.0,
+       "length_km": 1.1,
+       "max_distance_m": 446.0,
+       "median_distance_m": 370.0,
        "at_x_y_epsg3400": [
-        618530,
-        5952433
+        618555,
+        5952455
        ],
        "at_lon_lat": [
-        -113.2026,
-        53.7285
+        -113.2022,
+        53.7287
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 1,
-     "length_in_runs_km": 1.0
+     "length_in_runs_km": 1.1
     },
     {
      "clause": "B04",
@@ -2011,14 +1994,14 @@
      ],
      "feature_lines": 6,
      "checked": true,
-     "n_samples": 518,
-     "length_km": 51.8,
-     "median_m": 3.9,
-     "p90_m": 62.6,
-     "share_within_tol": 0.9788,
+     "n_samples": 517,
+     "length_km": 51.7,
+     "median_m": 5.4,
+     "p90_m": 32.2,
+     "share_within_tol": 0.9768,
      "tol_m": 200.0,
-     "follow_km_all_sides": 275.8,
-     "side_length_km": 51.8,
+     "follow_km_all_sides": 276.2,
+     "side_length_km": 51.7,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -2033,14 +2016,14 @@
      ],
      "feature_lines": 6,
      "checked": true,
-     "n_samples": 799,
-     "length_km": 79.9,
-     "median_m": 3.2,
-     "p90_m": 30.9,
+     "n_samples": 797,
+     "length_km": 79.7,
+     "median_m": 2.0,
+     "p90_m": 31.5,
      "share_within_tol": 1.0,
      "tol_m": 200.0,
-     "follow_km_all_sides": 275.8,
-     "side_length_km": 79.9,
+     "follow_km_all_sides": 276.2,
+     "side_length_km": 79.7,
      "runs_over_tol_ge_1km": [],
      "n_runs_over_tol_ge_1km": 0,
      "length_in_runs_km": 0
@@ -2059,7 +2042,7 @@
     }
    ],
    "median_distance_all_checked_samples_m": 8.5,
-   "median_of_stretch_medians_m": 8.4,
+   "median_of_stretch_medians_m": 9.1,
    "stretches_with_run_over_tol": [
     {
      "side": "S",
@@ -2068,54 +2051,54 @@
      "runs": [
       {
        "length_km": 2.8,
-       "max_distance_m": 2386.0,
-       "median_distance_m": 1704.0,
+       "max_distance_m": 2382.0,
+       "median_distance_m": 1702.0,
        "at_x_y_epsg3400": [
-        586140,
+        586146,
         5946275
        ],
        "at_lon_lat": [
-        -113.6953,
+        -113.6952,
         53.6795
        ]
       },
       {
-       "length_km": 2.3,
-       "max_distance_m": 1467.0,
-       "median_distance_m": 792.0,
+       "length_km": 2.6,
+       "max_distance_m": 1833.0,
+       "median_distance_m": 1375.0,
        "at_x_y_epsg3400": [
-        588667,
+        591536,
+        5942892
+       ],
+       "at_lon_lat": [
+        -113.6146,
+        53.6482
+       ]
+      },
+      {
+       "length_km": 2.3,
+       "max_distance_m": 1455.0,
+       "median_distance_m": 787.0,
+       "at_x_y_epsg3400": [
+        588682,
         5947182
        ],
        "at_lon_lat": [
-        -113.6568,
+        -113.6566,
         53.6872
        ]
       },
       {
-       "length_km": 1.7,
-       "max_distance_m": 839.0,
+       "length_km": 1.8,
+       "max_distance_m": 846.0,
        "median_distance_m": 794.0,
        "at_x_y_epsg3400": [
-        593512,
-        5944490
+        593464,
+        5944519
        ],
        "at_lon_lat": [
-        -113.5842,
-        53.6622
-       ]
-      },
-      {
-       "length_km": 1.6,
-       "max_distance_m": 1789.0,
-       "median_distance_m": 1406.0,
-       "at_x_y_epsg3400": [
-        591234,
-        5943188
-       ],
-       "at_lon_lat": [
-        -113.6191,
-        53.6509
+        -113.585,
+        53.6625
        ]
       }
      ]
@@ -2126,16 +2109,16 @@
      "text": "Its eastern boundary is the North Saskatchewan River",
      "runs": [
       {
-       "length_km": 1.0,
-       "max_distance_m": 447.0,
-       "median_distance_m": 395.0,
+       "length_km": 1.1,
+       "max_distance_m": 446.0,
+       "median_distance_m": 370.0,
        "at_x_y_epsg3400": [
-        618530,
-        5952433
+        618555,
+        5952455
        ],
        "at_lon_lat": [
-        -113.2026,
-        53.7285
+        -113.2022,
+        53.7287
        ]
       }
      ]
@@ -2146,7 +2129,7 @@
    "ed": 85,
    "name": "Rocky Mountain House-Sundre",
    "source": "placed",
-   "area_km2": 25122.6,
+   "area_km2": 25121.9,
    "description": "full prose ring",
    "stretches_checked": 3,
    "stretches": [
@@ -2160,113 +2143,113 @@
      ],
      "feature_lines": 1,
      "checked": true,
-     "n_samples": 1724,
-     "length_km": 172.4,
-     "median_m": 11195.8,
-     "p90_m": 66288.9,
-     "share_within_tol": 0.46,
+     "n_samples": 1718,
+     "length_km": 171.8,
+     "median_m": 11196.2,
+     "p90_m": 66234.4,
+     "share_within_tol": 0.4604,
      "tol_m": 200.0,
-     "follow_km_all_sides": 135.2,
-     "side_length_km": 172.4,
+     "follow_km_all_sides": 135.3,
+     "side_length_km": 171.8,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 12.7,
-       "max_distance_m": 30286.0,
-       "median_distance_m": 25436.0,
+       "max_distance_m": 30318.0,
+       "median_distance_m": 25455.0,
        "at_x_y_epsg3400": [
-        362669,
-        5797203
+        362673,
+        5797231
        ],
        "at_lon_lat": [
         -117.0161,
-        52.3288
+        52.3291
        ]
       },
       {
-       "length_km": 9.8,
-       "max_distance_m": 86600.0,
-       "median_distance_m": 82618.0,
+       "length_km": 9.7,
+       "max_distance_m": 86558.0,
+       "median_distance_m": 82614.0,
        "at_x_y_epsg3400": [
-        391316,
-        5848932
+        391315,
+        5848877
        ],
        "at_lon_lat": [
         -116.6128,
-        52.8003
+        52.7998
        ]
       },
       {
        "length_km": 6.9,
-       "max_distance_m": 70737.0,
-       "median_distance_m": 68761.0,
+       "max_distance_m": 70764.0,
+       "median_distance_m": 68759.0,
        "at_x_y_epsg3400": [
-        377345,
-        5841609
+        377350,
+        5841606
        ],
        "at_lon_lat": [
-        -116.8172,
-        52.7315
+        -116.8171,
+        52.7314
        ]
       },
       {
        "length_km": 5.6,
-       "max_distance_m": 47051.0,
-       "median_distance_m": 45976.0,
+       "max_distance_m": 47053.0,
+       "median_distance_m": 46011.0,
        "at_x_y_epsg3400": [
-        373000,
-        5816558
+        373007,
+        5816596
        ],
        "at_lon_lat": [
-        -116.8719,
-        52.5053
+        -116.8718,
+        52.5056
        ]
       },
       {
-       "length_km": 5.3,
-       "max_distance_m": 34943.0,
-       "median_distance_m": 32966.0,
+       "length_km": 5.4,
+       "max_distance_m": 34989.0,
+       "median_distance_m": 32957.0,
        "at_x_y_epsg3400": [
-        365708,
+        365755,
         5805404
        ],
        "at_lon_lat": [
-        -116.9748,
+        -116.9742,
         52.4033
        ]
       },
       {
-       "length_km": 5.3,
-       "max_distance_m": 20143.0,
-       "median_distance_m": 19927.0,
+       "length_km": 5.2,
+       "max_distance_m": 20139.0,
+       "median_distance_m": 19928.0,
        "at_x_y_epsg3400": [
-        361496,
-        5785354
+        361514,
+        5785437
        ],
        "at_lon_lat": [
-        -117.0285,
-        52.222
+        -117.0283,
+        52.2228
        ]
       },
       {
        "length_km": 4.9,
-       "max_distance_m": 56865.0,
-       "median_distance_m": 54933.0,
+       "max_distance_m": 56906.0,
+       "median_distance_m": 54967.0,
        "at_x_y_epsg3400": [
-        374592,
-        5826817
+        374618,
+        5826841
        ],
        "at_lon_lat": [
-        -116.8524,
-        52.5979
+        -116.852,
+        52.5981
        ]
       },
       {
        "length_km": 3.7,
-       "max_distance_m": 52034.0,
-       "median_distance_m": 50746.0,
+       "max_distance_m": 52036.0,
+       "median_distance_m": 50748.0,
        "at_x_y_epsg3400": [
-        372461,
-        5823252
+        372466,
+        5823249
        ],
        "at_lon_lat": [
         -116.8824,
@@ -2275,7 +2258,7 @@
       }
      ],
      "n_runs_over_tol_ge_1km": 23,
-     "length_in_runs_km": 87.7
+     "length_in_runs_km": 87.2
     },
     {
      "clause": "B17",
@@ -2287,25 +2270,25 @@
      ],
      "feature_lines": 5,
      "checked": true,
-     "n_samples": 1894,
-     "length_km": 189.4,
-     "median_m": 39.4,
-     "p90_m": 110.2,
-     "share_within_tol": 0.9187,
+     "n_samples": 1788,
+     "length_km": 178.8,
+     "median_m": 39.9,
+     "p90_m": 108.2,
+     "share_within_tol": 0.9172,
      "tol_m": 200.0,
-     "follow_km_all_sides": 365.6,
-     "side_length_km": 189.4,
+     "follow_km_all_sides": 367.2,
+     "side_length_km": 178.8,
      "runs_over_tol_ge_1km": [
       {
        "length_km": 14.7,
-       "max_distance_m": 4961.0,
-       "median_distance_m": 3942.0,
+       "max_distance_m": 4956.0,
+       "median_distance_m": 3931.0,
        "at_x_y_epsg3400": [
-        473617,
+        473630,
         5854202
        ],
        "at_lon_lat": [
-        -115.392,
+        -115.3918,
         52.858
        ]
       }
@@ -2321,126 +2304,126 @@
      "feature": [
       "route:22"
      ],
-     "feature_lines": 418,
+     "feature_lines": 231,
      "checked": true,
-     "n_samples": 2050,
-     "length_km": 205.0,
+     "n_samples": 2065,
+     "length_km": 206.5,
      "median_m": 11418.5,
-     "p90_m": 26615.3,
-     "share_within_tol": 0.2673,
+     "p90_m": 26620.6,
+     "share_within_tol": 0.2654,
      "tol_m": 5000.0,
-     "follow_km_all_sides": 84.7,
-     "side_length_km": 205.0,
-     "median_east_offset_m": 11092.0,
-     "share_east_of_route": 0.7595,
+     "follow_km_all_sides": 84.8,
+     "side_length_km": 206.5,
+     "median_east_offset_m": 11089.0,
+     "share_east_of_route": 0.7477,
      "runs_over_tol_ge_1km": [
       {
-       "length_km": 57.0,
-       "max_distance_m": 28088.0,
-       "median_distance_m": 16293.0,
+       "length_km": 57.6,
+       "max_distance_m": 28081.0,
+       "median_distance_m": 16092.0,
        "at_x_y_epsg3400": [
-        534060,
-        5780853
+        534061,
+        5780571
        ],
        "at_lon_lat": [
         -114.5015,
-        52.1979
+        52.1954
        ]
       },
       {
-       "length_km": 19.4,
-       "max_distance_m": 9812.0,
-       "median_distance_m": 9739.0,
+       "length_km": 19.5,
+       "max_distance_m": 9849.0,
+       "median_distance_m": 9748.0,
        "at_x_y_epsg3400": [
-        498884,
-        5862200
+        498875,
+        5862272
        ],
        "at_lon_lat": [
-        -115.0166,
-        52.9306
+        -115.0167,
+        52.9312
        ]
       },
       {
        "length_km": 14.6,
-       "max_distance_m": 19930.0,
+       "max_distance_m": 19926.0,
        "median_distance_m": 19654.0,
        "at_x_y_epsg3400": [
-        528216,
-        5845336
+        528192,
+        5845308
        ],
        "at_lon_lat": [
-        -114.5815,
-        52.7782
+        -114.5819,
+        52.7779
        ]
       },
       {
        "length_km": 13.4,
-       "max_distance_m": 16429.0,
-       "median_distance_m": 14998.0,
+       "max_distance_m": 16427.0,
+       "median_distance_m": 14987.0,
        "at_x_y_epsg3400": [
-        523691,
-        5831690
+        523678,
+        5831666
        ],
        "at_lon_lat": [
-        -114.6496,
-        52.6557
+        -114.6498,
+        52.6554
        ]
       },
       {
-       "length_km": 10.9,
-       "max_distance_m": 14318.0,
-       "median_distance_m": 9272.0,
+       "length_km": 11.0,
+       "max_distance_m": 14345.0,
+       "median_distance_m": 9274.0,
        "at_x_y_epsg3400": [
         539450,
-        5743606
+        5743558
        ],
        "at_lon_lat": [
         -114.4269,
-        51.8625
+        51.8621
        ]
       },
       {
-       "length_km": 6.5,
-       "max_distance_m": 27682.0,
-       "median_distance_m": 27652.0,
+       "length_km": 6.6,
+       "max_distance_m": 27679.0,
+       "median_distance_m": 27643.0,
        "at_x_y_epsg3400": [
         531933,
-        5812190
+        5812087
        ],
        "at_lon_lat": [
         -114.5296,
-        52.4799
+        52.4789
        ]
       },
       {
-       "length_km": 6.5,
-       "max_distance_m": 31731.0,
-       "median_distance_m": 30228.0,
+       "length_km": 6.6,
+       "max_distance_m": 31721.0,
+       "median_distance_m": 30218.0,
        "at_x_y_epsg3400": [
-        535964,
-        5818639
+        535965,
+        5818614
        ],
        "at_lon_lat": [
         -114.4695,
-        52.5376
+        52.5374
        ]
       },
       {
-       "length_km": 4.8,
-       "max_distance_m": 11445.0,
-       "median_distance_m": 10946.0,
+       "length_km": 5.3,
+       "max_distance_m": 11452.0,
+       "median_distance_m": 11025.0,
        "at_x_y_epsg3400": [
-        498275,
-        5874291
+        498268,
+        5874565
        ],
        "at_lon_lat": [
-        -115.0257,
-        53.0393
+        -115.0258,
+        53.0418
        ]
       }
      ],
      "n_runs_over_tol_ge_1km": 15,
-     "length_in_runs_km": 148.4
+     "length_in_runs_km": 149.9
     }
    ],
    "not_checkable": [
@@ -2455,8 +2438,8 @@
      "reason": "waterways are unnamed in the OSM layer and the clause covers a short stretch inside the north-west corner"
     }
    ],
-   "median_distance_all_checked_samples_m": 75.0,
-   "median_of_stretch_medians_m": 11195.8,
+   "median_distance_all_checked_samples_m": 76.2,
+   "median_of_stretch_medians_m": 11196.2,
    "stretches_with_run_over_tol": [
     {
      "side": "W",
@@ -2465,102 +2448,102 @@
      "runs": [
       {
        "length_km": 12.7,
-       "max_distance_m": 30286.0,
-       "median_distance_m": 25436.0,
+       "max_distance_m": 30318.0,
+       "median_distance_m": 25455.0,
        "at_x_y_epsg3400": [
-        362669,
-        5797203
+        362673,
+        5797231
        ],
        "at_lon_lat": [
         -117.0161,
-        52.3288
+        52.3291
        ]
       },
       {
-       "length_km": 9.8,
-       "max_distance_m": 86600.0,
-       "median_distance_m": 82618.0,
+       "length_km": 9.7,
+       "max_distance_m": 86558.0,
+       "median_distance_m": 82614.0,
        "at_x_y_epsg3400": [
-        391316,
-        5848932
+        391315,
+        5848877
        ],
        "at_lon_lat": [
         -116.6128,
-        52.8003
+        52.7998
        ]
       },
       {
        "length_km": 6.9,
-       "max_distance_m": 70737.0,
-       "median_distance_m": 68761.0,
+       "max_distance_m": 70764.0,
+       "median_distance_m": 68759.0,
        "at_x_y_epsg3400": [
-        377345,
-        5841609
+        377350,
+        5841606
        ],
        "at_lon_lat": [
-        -116.8172,
-        52.7315
+        -116.8171,
+        52.7314
        ]
       },
       {
        "length_km": 5.6,
-       "max_distance_m": 47051.0,
-       "median_distance_m": 45976.0,
+       "max_distance_m": 47053.0,
+       "median_distance_m": 46011.0,
        "at_x_y_epsg3400": [
-        373000,
-        5816558
+        373007,
+        5816596
        ],
        "at_lon_lat": [
-        -116.8719,
-        52.5053
+        -116.8718,
+        52.5056
        ]
       },
       {
-       "length_km": 5.3,
-       "max_distance_m": 34943.0,
-       "median_distance_m": 32966.0,
+       "length_km": 5.4,
+       "max_distance_m": 34989.0,
+       "median_distance_m": 32957.0,
        "at_x_y_epsg3400": [
-        365708,
+        365755,
         5805404
        ],
        "at_lon_lat": [
-        -116.9748,
+        -116.9742,
         52.4033
        ]
       },
       {
-       "length_km": 5.3,
-       "max_distance_m": 20143.0,
-       "median_distance_m": 19927.0,
+       "length_km": 5.2,
+       "max_distance_m": 20139.0,
+       "median_distance_m": 19928.0,
        "at_x_y_epsg3400": [
-        361496,
-        5785354
+        361514,
+        5785437
        ],
        "at_lon_lat": [
-        -117.0285,
-        52.222
+        -117.0283,
+        52.2228
        ]
       },
       {
        "length_km": 4.9,
-       "max_distance_m": 56865.0,
-       "median_distance_m": 54933.0,
+       "max_distance_m": 56906.0,
+       "median_distance_m": 54967.0,
        "at_x_y_epsg3400": [
-        374592,
-        5826817
+        374618,
+        5826841
        ],
        "at_lon_lat": [
-        -116.8524,
-        52.5979
+        -116.852,
+        52.5981
        ]
       },
       {
        "length_km": 3.7,
-       "max_distance_m": 52034.0,
-       "median_distance_m": 50746.0,
+       "max_distance_m": 52036.0,
+       "median_distance_m": 50748.0,
        "at_x_y_epsg3400": [
-        372461,
-        5823252
+        372466,
+        5823249
        ],
        "at_lon_lat": [
         -116.8824,
@@ -2576,14 +2559,14 @@
      "runs": [
       {
        "length_km": 14.7,
-       "max_distance_m": 4961.0,
-       "median_distance_m": 3942.0,
+       "max_distance_m": 4956.0,
+       "median_distance_m": 3931.0,
        "at_x_y_epsg3400": [
-        473617,
+        473630,
         5854202
        ],
        "at_lon_lat": [
-        -115.392,
+        -115.3918,
         52.858
        ]
       }
@@ -2595,107 +2578,107 @@
      "text": "Its eastern boundary is roughly a north-south line just east of the Highway 22 corridor",
      "runs": [
       {
-       "length_km": 57.0,
-       "max_distance_m": 28088.0,
-       "median_distance_m": 16293.0,
+       "length_km": 57.6,
+       "max_distance_m": 28081.0,
+       "median_distance_m": 16092.0,
        "at_x_y_epsg3400": [
-        534060,
-        5780853
+        534061,
+        5780571
        ],
        "at_lon_lat": [
         -114.5015,
-        52.1979
+        52.1954
        ]
       },
       {
-       "length_km": 19.4,
-       "max_distance_m": 9812.0,
-       "median_distance_m": 9739.0,
+       "length_km": 19.5,
+       "max_distance_m": 9849.0,
+       "median_distance_m": 9748.0,
        "at_x_y_epsg3400": [
-        498884,
-        5862200
+        498875,
+        5862272
        ],
        "at_lon_lat": [
-        -115.0166,
-        52.9306
+        -115.0167,
+        52.9312
        ]
       },
       {
        "length_km": 14.6,
-       "max_distance_m": 19930.0,
+       "max_distance_m": 19926.0,
        "median_distance_m": 19654.0,
        "at_x_y_epsg3400": [
-        528216,
-        5845336
+        528192,
+        5845308
        ],
        "at_lon_lat": [
-        -114.5815,
-        52.7782
+        -114.5819,
+        52.7779
        ]
       },
       {
        "length_km": 13.4,
-       "max_distance_m": 16429.0,
-       "median_distance_m": 14998.0,
+       "max_distance_m": 16427.0,
+       "median_distance_m": 14987.0,
        "at_x_y_epsg3400": [
-        523691,
-        5831690
+        523678,
+        5831666
        ],
        "at_lon_lat": [
-        -114.6496,
-        52.6557
+        -114.6498,
+        52.6554
        ]
       },
       {
-       "length_km": 10.9,
-       "max_distance_m": 14318.0,
-       "median_distance_m": 9272.0,
+       "length_km": 11.0,
+       "max_distance_m": 14345.0,
+       "median_distance_m": 9274.0,
        "at_x_y_epsg3400": [
         539450,
-        5743606
+        5743558
        ],
        "at_lon_lat": [
         -114.4269,
-        51.8625
+        51.8621
        ]
       },
       {
-       "length_km": 6.5,
-       "max_distance_m": 27682.0,
-       "median_distance_m": 27652.0,
+       "length_km": 6.6,
+       "max_distance_m": 27679.0,
+       "median_distance_m": 27643.0,
        "at_x_y_epsg3400": [
         531933,
-        5812190
+        5812087
        ],
        "at_lon_lat": [
         -114.5296,
-        52.4799
+        52.4789
        ]
       },
       {
-       "length_km": 6.5,
-       "max_distance_m": 31731.0,
-       "median_distance_m": 30228.0,
+       "length_km": 6.6,
+       "max_distance_m": 31721.0,
+       "median_distance_m": 30218.0,
        "at_x_y_epsg3400": [
-        535964,
-        5818639
+        535965,
+        5818614
        ],
        "at_lon_lat": [
         -114.4695,
-        52.5376
+        52.5374
        ]
       },
       {
-       "length_km": 4.8,
-       "max_distance_m": 11445.0,
-       "median_distance_m": 10946.0,
+       "length_km": 5.3,
+       "max_distance_m": 11452.0,
+       "median_distance_m": 11025.0,
        "at_x_y_epsg3400": [
-        498275,
-        5874291
+        498268,
+        5874565
        ],
        "at_lon_lat": [
-        -115.0257,
-        53.0393
+        -115.0258,
+        53.0418
        ]
       }
      ]
@@ -2703,5 +2686,5 @@
    ]
   }
  },
- "seconds": 19.0
+ "seconds": 19.9
 }
