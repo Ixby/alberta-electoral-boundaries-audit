@@ -18,10 +18,14 @@ Reads   data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg (left unch
         data/reference/alberta_2023_results.csv (check only)
 Writes  data/shapefiles/derived/va_polygons_with_all_2023_ballots.gpkg
         (va_*_full as in the input; va_*_all = va_*_full + Vote Anywhere share)
+        with --primary: also data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg, the
+        election-day file (va_polygons_with_2023_votes.gpkg, same rows and geometry) with va_ndp, va_ucp
+        and va_other replaced by the all-ballots values, for scripts that read only those columns
+        (e.g. mcmc_ensemble_canonical.py --va-file)
 
 Exits non-zero unless every 2019 district's UCP, NDP and other totals equal the official results.
 
-Usage: python -W ignore analysis/scripts/vote_anywhere_splat.py
+Usage: python -W ignore analysis/scripts/vote_anywhere_splat.py [--primary]
 """
 import sys
 from pathlib import Path
@@ -34,6 +38,8 @@ VA_IN = ROOT / "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg"
 POLLS = ROOT / "data/outputs/polls_2023_unified.csv"
 OFFICIAL = ROOT / "data/reference/alberta_2023_results.csv"
 VA_OUT = ROOT / "data/shapefiles/derived/va_polygons_with_all_2023_ballots.gpkg"
+VA_ED = ROOT / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
+VA_PRIMARY = ROOT / "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg"
 PARTIES = (("ucp", "ucp_votes"), ("ndp", "ndp_votes"), ("other", "other_votes"))
 
 
@@ -87,6 +93,14 @@ def main():
         sys.exit(1)
     va.to_file(VA_OUT, driver="GPKG")
     print(f"PASS: all {len(got)} districts equal the official results; wrote {VA_OUT.relative_to(ROOT)}")
+    if "--primary" in sys.argv:
+        ed = gpd.read_file(VA_ED)
+        if not (ed.OBJECTID.values == va.OBJECTID.values).all():
+            sys.exit("election-day file rows do not match")
+        for p, _ in PARTIES:
+            ed[f"va_{p}"] = va[f"va_{p}_all"].values
+        ed.to_file(VA_PRIMARY, driver="GPKG")
+        print(f"wrote {VA_PRIMARY.relative_to(ROOT)} (va_ndp/va_ucp/va_other = all ballots)")
 
 
 if __name__ == "__main__":
