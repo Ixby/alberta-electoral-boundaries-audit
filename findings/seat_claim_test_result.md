@@ -6,7 +6,7 @@
 
 ## Result
 
-**Within the reconstruction's uncertainty, one seat from the claim.** On the substrate that reproduces 2023 exactly, the panel's map gives **51 UCP and 40 NDP** (UCP +2, NDP +2). The claim's 50/41 lies inside the range the reconstruction cannot rule out (UCP 49 to 53), and the deciding seat is a near-tie: the unchanged Calgary-Acadia, won by the UCP by 12 votes of 24,359 (0.05 points) on this substrate.
+**Within the reconstruction's uncertainty, one seat from the claim.** On the substrate that reproduces 2023 exactly, the panel's map gives **51 UCP and 40 NDP** (UCP +2, NDP +2). The claim's 50/41 lies inside the range the reconstruction cannot rule out (UCP 49 to 53), and the deciding seat is a near-tie: the unchanged Calgary-Acadia, won by the UCP by 12 votes of about 24,360 (0.05 points) on this substrate.
 
 | Substrate | Check: 2019 map (must be 49 / 38) | Panel's map | Range over undecided districts |
 |---|---|---|---|
@@ -16,7 +16,7 @@
 
 ## The method check failed on the planned substrate, and what was done
 
-Step 4 of the plan requires the method to reproduce 2023 on the 2019 map. Substrate A does not: it holds 854,502 UCP and 689,637 NDP votes against the official 928,900 and 777,404, about 8% and 11% short, so it under-counts the NDP more and turns three near-tied Calgary seats UCP (Acadia, Edgemont, Glenmore, each decided by under 1 point in 2023). Substrate B, election day only, is further off (57 / 30), because advance ballots, nearly half of 2023's, leaned differently.
+Step 4 of the plan requires the method to reproduce 2023 on the 2019 map. Substrate A does not: it holds 854,502 UCP and 689,637 NDP votes against the official 928,900 and 777,404, about 8% and 11% short, so it under-counts the NDP more and turns three near-tied Calgary seats UCP (Acadia, Edgemont and Glenmore, each decided by about a point or less in 2023). Substrate B, election day only, is further off (57 / 30), because advance ballots, nearly half of 2023's, leaned differently.
 
 Substrate C is not in the plan. It rescales A party by party within each 2019 district so that every district's totals equal the official 2023 results, which makes the 2019 check exact by construction while keeping A's spread of votes within each district. It is reported beside the planned substrates, not instead of them, and the result above is read on C because the plan says a failed check must be reported and the result read with it; A's failure is the reason a fuller substrate was needed.
 
