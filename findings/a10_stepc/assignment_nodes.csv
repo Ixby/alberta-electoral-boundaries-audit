@@ -1,0 +1,4766 @@
+node,district
+0,Fort Saskatchewan-Vegreville
+1,Lesser Slave Lake
+2,Edmonton-Highlands-Norwood
+3,Edmonton-City Centre
+4,Lesser Slave Lake
+5,Edmonton-City Centre
+6,Strathcona-Sherwood Park
+7,Strathcona-Sherwood Park
+8,Cochrane
+9,Calgary-Beddington
+10,Calgary-Beddington
+11,Calgary-Mountain View
+12,Calgary-Currie
+13,Rocky Mountain House-Sundre
+14,Calgary-Beddington
+15,Fort McMurray-Lac La Biche
+16,Calgary-Cross
+17,Lloydminster-Wainwright
+18,Morinville-Sturgeon
+19,Edmonton-Beverly-Clareview
+20,Edmonton-Manning
+21,Calgary-North West-Bearspaw
+22,Cold Lake-Bonnyville-St. Paul
+23,Medicine Hat-Brooks
+24,Medicine Hat-Brooks
+25,Morinville-Sturgeon
+26,Morinville-Sturgeon
+27,Sherwood Park
+28,Calgary-Hays
+29,Calgary-Hays
+30,Calgary-Fish Creek
+31,Banff-Canmore-Diamond Valley
+32,Edmonton-Meadows
+33,Calgary-Fish Creek
+34,Edmonton-Windermere
+35,Calgary-Elbow
+36,Leduc-Beaumont
+37,Central Peace-Notley
+38,Calgary-Glenmore-Tsuut'ina
+39,Okotoks
+40,Banff-Canmore-Diamond Valley
+41,Edmonton-Whitemud
+42,Cold Lake-Bonnyville-St. Paul
+43,Medicine Hat-Cypress
+44,Medicine Hat-Cypress
+45,Edmonton-West Henday
+46,Drayton Valley-Devon
+47,Camrose
+48,Lethbridge-Cardston
+49,Airdrie-West
+50,Edmonton-Decore
+51,Edmonton-Enoch
+52,Okotoks
+53,Edmonton-West Henday
+54,Morinville-Sturgeon
+55,Central Peace-Notley
+56,Macleod-Crowsnest
+57,Calgary-North East
+58,Edmonton-Rutherford
+59,Chestermere-Strathmore
+60,Calgary-East
+61,Banff-Canmore-Diamond Valley
+62,Calgary-Symons Valley
+63,Calgary-Fish Creek
+64,Cold Lake-Bonnyville-St. Paul
+65,Camrose
+66,Central Peace-Notley
+67,Calgary-Nose Creek
+68,Lethbridge
+69,Cochrane
+70,Edmonton-Rutherford
+71,Central Peace-Notley
+72,Calgary-Fish Creek
+73,Edmonton-Beverly-Clareview
+74,West Yellowhead
+75,Edmonton-Manning
+76,Strathcona-Sherwood Park
+77,Medicine Hat-Brooks
+78,Calgary-Nose Creek
+79,Lacombe-Sylvan Lake
+80,Red Deer-North
+81,Lac Ste. Anne
+82,Lethbridge
+83,Calgary-Acadia
+84,Edmonton-McClung
+85,Calgary-West-Springbank
+86,Calgary-West-Springbank
+87,Cochrane
+88,Calgary-West-Springbank
+89,Edmonton-Highlands-Norwood
+90,Grande Prairie
+91,Leduc-Beaumont
+92,Leduc-Beaumont
+93,Olds-Didsbury-Three Hills
+94,Calgary-Shaw
+95,Calgary-Shaw
+96,Lethbridge-Taber-Warner
+97,Edmonton-City Centre
+98,Calgary-Cross
+99,Barrhead-Westlock-Athabasca
+100,St. Albert
+101,Edmonton-Glenora-Riverview
+102,Edmonton-Ellerslie
+103,Spruce Grove
+104,Calgary-North West-Bearspaw
+105,Edmonton-Gold Bar
+106,Okotoks
+107,Grande Prairie
+108,Lethbridge-Cardston
+109,Calgary-Confluence
+110,Edmonton-Meadows
+111,Camrose
+112,Grande Prairie-Wapiti
+113,Calgary-Hays
+114,Spruce Grove
+115,Blackfalds-Innisfail
+116,Calgary-Acadia
+117,Lethbridge
+118,Calgary-Beddington
+119,Edmonton-West Henday
+120,Lac Ste. Anne
+121,Calgary-Acadia
+122,Drayton Valley-Devon
+123,Calgary-South East
+124,Olds-Didsbury-Three Hills
+125,Macleod-Crowsnest
+126,Sherwood Park
+127,Calgary-North East
+128,Leduc-Beaumont
+129,Peace River
+130,Calgary-West-Springbank
+131,Calgary-Bhullar-McCall
+132,Edmonton-Decore
+133,Fort McMurray-Wood Buffalo
+134,Peace River
+135,Strathcona-Sherwood Park
+136,Edmonton-Highlands-Norwood
+137,Red Deer-North
+138,Rocky Mountain House-Sundre
+139,Cochrane
+140,Blackfalds-Innisfail
+141,Lacombe-Sylvan Lake
+142,Grande Prairie
+143,Calgary-Lougheed
+144,Calgary-Buffalo
+145,Red Deer-South
+146,Grande Prairie-Wapiti
+147,St. Albert
+148,Lacombe-Sylvan Lake
+149,Wetaskiwin-Ponoka
+150,Lethbridge-Little Bow
+151,Calgary-Lougheed
+152,Calgary-Elbow
+153,Calgary-Fish Creek
+154,Red Deer-North
+155,Calgary-North
+156,Calgary-McKenzie
+157,Medicine Hat-Cypress
+158,Calgary-McKenzie
+159,Camrose
+160,Calgary-East
+161,Chestermere-Strathmore
+162,Calgary-Symons Valley
+163,Calgary-Klein
+164,Medicine Hat-Cypress
+165,Strathcona-Sherwood Park
+166,Calgary-North East
+167,Calgary-Buffalo
+168,Rocky Mountain House-Sundre
+169,Calgary-East
+170,Airdrie-East
+171,Calgary-Varsity
+172,Edmonton-Windermere
+173,Chestermere-Strathmore
+174,Edmonton-Strathcona
+175,Calgary-Acadia
+176,Calgary-Shaw
+177,Calgary-Currie
+178,Cold Lake-Bonnyville-St. Paul
+179,Banff-Canmore-Diamond Valley
+180,Medicine Hat-Brooks
+181,Fort McMurray-Lac La Biche
+182,Leduc-Beaumont
+183,Blackfalds-Innisfail
+184,Calgary-Beddington
+185,Lethbridge
+186,Cold Lake-Bonnyville-St. Paul
+187,Lethbridge-Cardston
+188,Calgary-Mountain View
+189,Calgary-Mountain View
+190,Spruce Grove
+191,Cold Lake-Bonnyville-St. Paul
+192,Drumheller-Stettler
+193,Spruce Grove
+194,Calgary-Bhullar-McCall
+195,Calgary-Hays
+196,Lethbridge-Little Bow
+197,Medicine Hat-Cypress
+198,Calgary-Lougheed
+199,Edmonton-Enoch
+200,Edmonton-Decore
+201,Edmonton-Decore
+202,Spruce Grove
+203,Calgary-McKenzie
+204,Lethbridge-Taber-Warner
+205,Calgary-Currie
+206,Calgary-McKenzie
+207,Edmonton-Nisku
+208,Calgary-Acadia
+209,Calgary-Edgemont
+210,Edmonton-McClung
+211,Calgary-Lougheed
+212,Calgary-North East
+213,Calgary-East
+214,Calgary-Glenmore-Tsuut'ina
+215,Edmonton-Gold Bar
+216,Peace River
+217,Wetaskiwin-Ponoka
+218,Calgary-South East
+219,Sherwood Park
+220,Calgary-Elbow
+221,Edmonton-Glenora-Riverview
+222,Edmonton-Castle Downs
+223,Edmonton-Enoch
+224,Lloydminster-Wainwright
+225,Red Deer-North
+226,Calgary-Glenmore-Tsuut'ina
+227,Calgary-Lougheed
+228,Calgary-McKenzie
+229,Lesser Slave Lake
+230,Airdrie-East
+231,Edmonton-Beverly-Clareview
+232,Edmonton-South
+233,Medicine Hat-Brooks
+234,Edmonton-Gold Bar
+235,Central Peace-Notley
+236,Barrhead-Westlock-Athabasca
+237,Medicine Hat-Cypress
+238,Edmonton-West Henday
+239,Lethbridge
+240,Fort McMurray-Wood Buffalo
+241,Calgary-Currie
+242,Calgary-Cross
+243,Calgary-North West-Bearspaw
+244,Calgary-Bow-Springbank
+245,Edmonton-City Centre
+246,Edmonton-City Centre
+247,Barrhead-Westlock-Athabasca
+248,Lac Ste. Anne
+249,Spruce Grove
+250,Edmonton-McClung
+251,Wetaskiwin-Ponoka
+252,Morinville-Sturgeon
+253,Calgary-East
+254,Calgary-Elbow
+255,Edmonton-Decore
+256,Edmonton-Decore
+257,Cochrane
+258,Calgary-Symons Valley
+259,Edmonton-Decore
+260,Edmonton-Strathcona
+261,Grande Prairie-Wapiti
+262,Morinville-Sturgeon
+263,Edmonton-Whitemud
+264,Calgary-West-Springbank
+265,Red Deer-South
+266,Medicine Hat-Brooks
+267,Wetaskiwin-Ponoka
+268,Lethbridge-Little Bow
+269,Red Deer-South
+270,Calgary-Symons Valley
+271,Edmonton-Nisku
+272,Fort McMurray-Wood Buffalo
+273,St. Albert
+274,Edmonton-Manning
+275,Edmonton-Manning
+276,Airdrie-East
+277,Okotoks
+278,Grande Prairie
+279,Fort McMurray-Lac La Biche
+280,Edmonton-City Centre
+281,St. Albert
+282,Calgary-Hays
+283,Lethbridge-Taber-Warner
+284,Edmonton-Windermere
+285,Spruce Grove
+286,Airdrie-East
+287,Calgary-Varsity
+288,Fort Saskatchewan-Vegreville
+289,Calgary-Currie
+290,Medicine Hat-Brooks
+291,Blackfalds-Innisfail
+292,Blackfalds-Innisfail
+293,Lac Ste. Anne
+294,Edmonton-Manning
+295,Camrose
+296,Airdrie-East
+297,Grande Prairie
+298,Drayton Valley-Devon
+299,Drayton Valley-Devon
+300,Cochrane
+301,Calgary-North East
+302,Airdrie-East
+303,Edmonton-Nisku
+304,Calgary-South East
+305,Calgary-Buffalo
+306,Drumheller-Stettler
+307,Calgary-Beddington
+308,Calgary-McKenzie
+309,Calgary-Mountain View
+310,Drayton Valley-Devon
+311,West Yellowhead
+312,Lethbridge-Taber-Warner
+313,Edmonton-Manning
+314,Calgary-North
+315,Edmonton-Gold Bar
+316,Calgary-Cross
+317,Calgary-East
+318,Drayton Valley-Devon
+319,Grande Prairie-Wapiti
+320,Central Peace-Notley
+321,Morinville-Sturgeon
+322,Medicine Hat-Cypress
+323,Fort McMurray-Wood Buffalo
+324,Chestermere-Strathmore
+325,Peace River
+326,Edmonton-Manning
+327,Lethbridge
+328,Lethbridge
+329,Edmonton-City Centre
+330,Edmonton-Rutherford
+331,Fort McMurray-Lac La Biche
+332,Cochrane
+333,Edmonton-Decore
+334,Edmonton-Castle Downs
+335,Lloydminster-Wainwright
+336,Airdrie-West
+337,Airdrie-West
+338,Calgary-McKenzie
+339,Lethbridge-Little Bow
+340,Airdrie-East
+341,Calgary-Edgemont
+342,Central Peace-Notley
+343,Edmonton-Rutherford
+344,Barrhead-Westlock-Athabasca
+345,Camrose
+346,Calgary-Edgemont
+347,Strathcona-Sherwood Park
+348,Calgary-Cross
+349,Spruce Grove
+350,Lesser Slave Lake
+351,Banff-Canmore-Diamond Valley
+352,Calgary-Elbow
+353,Blackfalds-Innisfail
+354,Edmonton-Beverly-Clareview
+355,Edmonton-Mill Woods
+356,Wetaskiwin-Ponoka
+357,Calgary-Klein
+358,Lethbridge
+359,Edmonton-City Centre
+360,Edmonton-Nisku
+361,Edmonton-Whitemud
+362,Calgary-Confluence
+363,Grande Prairie
+364,Okotoks
+365,Calgary-Glenmore-Tsuut'ina
+366,Edmonton-Strathcona
+367,Edmonton-Glenora-Riverview
+368,Calgary-Elbow
+369,Medicine Hat-Cypress
+370,Medicine Hat-Cypress
+371,Fort McMurray-Lac La Biche
+372,Calgary-Klein
+373,Morinville-Sturgeon
+374,Calgary-East
+375,Peace River
+376,St. Albert
+377,Edmonton-Meadows
+378,Edmonton-Glenora-Riverview
+379,Calgary-Hays
+380,Red Deer-South
+381,Lethbridge-Taber-Warner
+382,Leduc-Beaumont
+383,Lac Ste. Anne
+384,Edmonton-Gold Bar
+385,Edmonton-Rutherford
+386,Edmonton-Rutherford
+387,Calgary-North
+388,Calgary-Klein
+389,Drayton Valley-Devon
+390,Okotoks
+391,Calgary-South East
+392,Calgary-South East
+393,Edmonton-Glenora-Riverview
+394,Leduc-Beaumont
+395,Cold Lake-Bonnyville-St. Paul
+396,Camrose
+397,Spruce Grove
+398,Calgary-North
+399,Red Deer-North
+400,Edmonton-Strathcona
+401,Calgary-East
+402,Calgary-Varsity
+403,Edmonton-Manning
+404,Calgary-North West-Bearspaw
+405,Edmonton-Meadows
+406,Olds-Didsbury-Three Hills
+407,Sherwood Park
+408,Edmonton-Whitemud
+409,Calgary-Confluence
+410,Sherwood Park
+411,Calgary-Confluence
+412,Edmonton-Ellerslie
+413,Grande Prairie
+414,Airdrie-East
+415,Edmonton-South
+416,Peace River
+417,Edmonton-Ellerslie
+418,Calgary-Shaw
+419,Airdrie-East
+420,Calgary-Acadia
+421,Spruce Grove
+422,Lesser Slave Lake
+423,Blackfalds-Innisfail
+424,Edmonton-McClung
+425,Drayton Valley-Devon
+426,Strathcona-Sherwood Park
+427,Strathcona-Sherwood Park
+428,St. Albert
+429,Calgary-Mountain View
+430,Calgary-Fish Creek
+431,Edmonton-Glenora-Riverview
+432,Edmonton-Castle Downs
+433,Lethbridge-Taber-Warner
+434,Airdrie-West
+435,Lethbridge-Little Bow
+436,Camrose
+437,Calgary-East
+438,Lesser Slave Lake
+439,Lesser Slave Lake
+440,Calgary-Bow-Springbank
+441,Edmonton-Nisku
+442,Edmonton-Whitemud
+443,Calgary-East
+444,Medicine Hat-Brooks
+445,Grande Prairie-Wapiti
+446,Wetaskiwin-Ponoka
+447,Camrose
+448,Lac Ste. Anne
+449,Lac Ste. Anne
+450,Grande Prairie-Wapiti
+451,Lethbridge
+452,Edmonton-Whitemud
+453,Edmonton-Ellerslie
+454,Edmonton-Decore
+455,Calgary-Buffalo
+456,Lethbridge
+457,Drayton Valley-Devon
+458,Edmonton-Mill Woods
+459,Calgary-West-Springbank
+460,Calgary-West-Springbank
+461,Calgary-Bow-Springbank
+462,Lethbridge
+463,Calgary-Edgemont
+464,Edmonton-Enoch
+465,Cold Lake-Bonnyville-St. Paul
+466,Wetaskiwin-Ponoka
+467,Sherwood Park
+468,Calgary-Edgemont
+469,Edmonton-Gold Bar
+470,Banff-Canmore-Diamond Valley
+471,Calgary-Glenmore-Tsuut'ina
+472,Edmonton-Beverly-Clareview
+473,Edmonton-Strathcona
+474,Fort McMurray-Lac La Biche
+475,Leduc-Beaumont
+476,Leduc-Beaumont
+477,Edmonton-West Henday
+478,Edmonton-South
+479,Edmonton-Enoch
+480,Wetaskiwin-Ponoka
+481,Wetaskiwin-Ponoka
+482,Edmonton-North West
+483,Calgary-McKenzie
+484,Edmonton-Rutherford
+485,Calgary-Mountain View
+486,Calgary-Buffalo
+487,Fort McMurray-Wood Buffalo
+488,Edmonton-Beverly-Clareview
+489,Blackfalds-Innisfail
+490,Red Deer-South
+491,Calgary-Symons Valley
+492,Drayton Valley-Devon
+493,Blackfalds-Innisfail
+494,Lacombe-Sylvan Lake
+495,St. Albert
+496,Edmonton-Rutherford
+497,West Yellowhead
+498,Calgary-Cross
+499,Edmonton-Castle Downs
+500,Edmonton-Rutherford
+501,Leduc-Beaumont
+502,Calgary-East
+503,Peace River
+504,Calgary-Hays
+505,Drayton Valley-Devon
+506,Edmonton-Strathcona
+507,Calgary-North East
+508,Calgary-Lougheed
+509,Calgary-Fish Creek
+510,Cochrane
+511,Calgary-Confluence
+512,Calgary-Confluence
+513,Central Peace-Notley
+514,Lesser Slave Lake
+515,Edmonton-Castle Downs
+516,Rocky Mountain House-Sundre
+517,Lloydminster-Wainwright
+518,Calgary-East
+519,Calgary-Glenmore-Tsuut'ina
+520,Edmonton-West Henday
+521,Red Deer-North
+522,Edmonton-Gold Bar
+523,Okotoks
+524,Red Deer-North
+525,Edmonton-Ellerslie
+526,Lethbridge-Little Bow
+527,Peace River
+528,Calgary-East
+529,Red Deer-North
+530,Morinville-Sturgeon
+531,Morinville-Sturgeon
+532,Calgary-Bow-Springbank
+533,Lethbridge
+534,Fort Saskatchewan-Vegreville
+535,Barrhead-Westlock-Athabasca
+536,Edmonton-Castle Downs
+537,Strathcona-Sherwood Park
+538,Edmonton-Nisku
+539,Edmonton-Ellerslie
+540,Leduc-Beaumont
+541,Calgary-Cross
+542,Calgary-Buffalo
+543,Calgary-Buffalo
+544,Calgary-Lougheed
+545,Calgary-Fish Creek
+546,Grande Prairie-Wapiti
+547,St. Albert
+548,Lacombe-Sylvan Lake
+549,West Yellowhead
+550,Edmonton-City Centre
+551,Calgary-East
+552,Calgary-East
+553,Calgary-East
+554,Lloydminster-Wainwright
+555,Edmonton-South
+556,Edmonton-Decore
+557,Calgary-Symons Valley
+558,Spruce Grove
+559,Strathcona-Sherwood Park
+560,Spruce Grove
+561,Medicine Hat-Cypress
+562,Red Deer-South
+563,Grande Prairie-Wapiti
+564,Cochrane
+565,Lesser Slave Lake
+566,Calgary-Fish Creek
+567,Blackfalds-Innisfail
+568,Wetaskiwin-Ponoka
+569,Edmonton-Mill Woods
+570,Calgary-Falconridge-Conrich
+571,Edmonton-West Henday
+572,Drayton Valley-Devon
+573,Calgary-Confluence
+574,Calgary-Confluence
+575,Leduc-Beaumont
+576,Edmonton-West Henday
+577,Edmonton-South
+578,Edmonton-South
+579,Calgary-Fish Creek
+580,Edmonton-City Centre
+581,Edmonton-Strathcona
+582,Drayton Valley-Devon
+583,Calgary-Glenmore-Tsuut'ina
+584,Edmonton-Enoch
+585,Calgary-Elbow
+586,Calgary-South East
+587,Cochrane
+588,Cochrane
+589,Camrose
+590,Edmonton-Highlands-Norwood
+591,Blackfalds-Innisfail
+592,Edmonton-City Centre
+593,Calgary-Bow-Springbank
+594,Edmonton-Highlands-Norwood
+595,Olds-Didsbury-Three Hills
+596,Calgary-Falconridge-Conrich
+597,Calgary-Falconridge-Conrich
+598,Edmonton-Castle Downs
+599,Lesser Slave Lake
+600,Lesser Slave Lake
+601,Lethbridge-Cardston
+602,Barrhead-Westlock-Athabasca
+603,Calgary-Mountain View
+604,Calgary-North East
+605,Edmonton-Beverly-Clareview
+606,Drayton Valley-Devon
+607,Drayton Valley-Devon
+608,Medicine Hat-Brooks
+609,Medicine Hat-Brooks
+610,Edmonton-Mill Woods
+611,Edmonton-South
+612,Calgary-Mountain View
+613,Calgary-Elbow
+614,Airdrie-West
+615,Edmonton-South
+616,Edmonton-City Centre
+617,Calgary-McKenzie
+618,Fort McMurray-Wood Buffalo
+619,Fort McMurray-Wood Buffalo
+620,Calgary-North East
+621,Fort McMurray-Lac La Biche
+622,Edmonton-McClung
+623,Calgary-Falconridge-Conrich
+624,Morinville-Sturgeon
+625,Red Deer-South
+626,Leduc-Beaumont
+627,Macleod-Crowsnest
+628,Morinville-Sturgeon
+629,Rocky Mountain House-Sundre
+630,Calgary-Buffalo
+631,Lac Ste. Anne
+632,Central Peace-Notley
+633,Drayton Valley-Devon
+634,Camrose
+635,Lacombe-Sylvan Lake
+636,Camrose
+637,Lac Ste. Anne
+638,Edmonton-Decore
+639,Edmonton-Whitemud
+640,Okotoks
+641,Lethbridge-Taber-Warner
+642,Calgary-Elbow
+643,Calgary-Buffalo
+644,Calgary-Fish Creek
+645,Chestermere-Strathmore
+646,Lacombe-Sylvan Lake
+647,Macleod-Crowsnest
+648,Calgary-McKenzie
+649,Calgary-North East
+650,Wetaskiwin-Ponoka
+651,Edmonton-Rutherford
+652,Edmonton-West Henday
+653,Olds-Didsbury-Three Hills
+654,Edmonton-Enoch
+655,Edmonton-Highlands-Norwood
+656,Calgary-Bow-Springbank
+657,Lacombe-Sylvan Lake
+658,Lethbridge
+659,Calgary-Fish Creek
+660,Calgary-Bow-Springbank
+661,Edmonton-Castle Downs
+662,Central Peace-Notley
+663,Lloydminster-Wainwright
+664,Edmonton-City Centre
+665,Lethbridge-Taber-Warner
+666,Chestermere-Strathmore
+667,Grande Prairie
+668,Lethbridge
+669,Edmonton-South
+670,Airdrie-East
+671,Airdrie-East
+672,Fort McMurray-Lac La Biche
+673,Edmonton-Castle Downs
+674,Fort McMurray-Lac La Biche
+675,Lloydminster-Wainwright
+676,Edmonton-Decore
+677,Cold Lake-Bonnyville-St. Paul
+678,Edmonton-Ellerslie
+679,Fort Saskatchewan-Vegreville
+680,Barrhead-Westlock-Athabasca
+681,Calgary-Mountain View
+682,Lethbridge-Cardston
+683,Lethbridge
+684,Fort McMurray-Lac La Biche
+685,Calgary-East
+686,Morinville-Sturgeon
+687,Calgary-Varsity
+688,Calgary-Currie
+689,Lethbridge-Cardston
+690,Calgary-North West-Bearspaw
+691,Peace River
+692,Edmonton-Glenora-Riverview
+693,Edmonton-Whitemud
+694,Morinville-Sturgeon
+695,Calgary-Fish Creek
+696,Lesser Slave Lake
+697,Calgary-South East
+698,Edmonton-McClung
+699,Calgary-West-Springbank
+700,Red Deer-North
+701,Central Peace-Notley
+702,Calgary-Varsity
+703,Grande Prairie-Wapiti
+704,Olds-Didsbury-Three Hills
+705,Calgary-Edgemont
+706,Calgary-Cross
+707,Calgary-Cross
+708,Red Deer-South
+709,Edmonton-Beverly-Clareview
+710,Edmonton-Nisku
+711,Camrose
+712,Blackfalds-Innisfail
+713,Cold Lake-Bonnyville-St. Paul
+714,Edmonton-Gold Bar
+715,Calgary-Beddington
+716,Edmonton-Meadows
+717,Peace River
+718,Edmonton-Beverly-Clareview
+719,Lesser Slave Lake
+720,Lethbridge-Little Bow
+721,Calgary-Bow-Springbank
+722,Chestermere-Strathmore
+723,Calgary-North West-Bearspaw
+724,Calgary-Confluence
+725,Calgary-Bow-Springbank
+726,Calgary-Acadia
+727,Calgary-Varsity
+728,Calgary-Varsity
+729,Edmonton-Castle Downs
+730,Edmonton-South
+731,Camrose
+732,Calgary-Cross
+733,Medicine Hat-Cypress
+734,Calgary-Nose Creek
+735,Camrose
+736,Grande Prairie
+737,Calgary-Varsity
+738,Calgary-Varsity
+739,Edmonton-Ellerslie
+740,Airdrie-East
+741,Edmonton-Mill Woods
+742,Lethbridge-Little Bow
+743,Fort Saskatchewan-Vegreville
+744,Strathcona-Sherwood Park
+745,Fort McMurray-Lac La Biche
+746,Camrose
+747,Peace River
+748,Edmonton-Mill Woods
+749,Edmonton-Mill Woods
+750,Calgary-Varsity
+751,Calgary-South East
+752,Edmonton-South
+753,Airdrie-West
+754,Calgary-Bow-Springbank
+755,Lethbridge-Taber-Warner
+756,Calgary-North West-Bearspaw
+757,Lac Ste. Anne
+758,Cochrane
+759,Lethbridge-Little Bow
+760,Calgary-Glenmore-Tsuut'ina
+761,Calgary-North West-Bearspaw
+762,Calgary-North West-Bearspaw
+763,Calgary-Elbow
+764,Edmonton-Whitemud
+765,Calgary-Buffalo
+766,Calgary-Fish Creek
+767,Edmonton-Meadows
+768,Calgary-Fish Creek
+769,Calgary-South East
+770,Chestermere-Strathmore
+771,Lethbridge-Taber-Warner
+772,Calgary-Cross
+773,Calgary-North
+774,Edmonton-Whitemud
+775,Calgary-Varsity
+776,Calgary-North West-Bearspaw
+777,Rocky Mountain House-Sundre
+778,Calgary-Acadia
+779,Airdrie-West
+780,Edmonton-Mill Woods
+781,Edmonton-Mill Woods
+782,Cold Lake-Bonnyville-St. Paul
+783,Okotoks
+784,Drayton Valley-Devon
+785,Edmonton-City Centre
+786,Airdrie-East
+787,Grande Prairie-Wapiti
+788,Edmonton-Ellerslie
+789,Edmonton-Rutherford
+790,Barrhead-Westlock-Athabasca
+791,Grande Prairie-Wapiti
+792,Lac Ste. Anne
+793,Wetaskiwin-Ponoka
+794,Edmonton-Rutherford
+795,Edmonton-Whitemud
+796,Calgary-Symons Valley
+797,Edmonton-Nisku
+798,Fort Saskatchewan-Vegreville
+799,Spruce Grove
+800,Spruce Grove
+801,Edmonton-Mill Woods
+802,Fort McMurray-Lac La Biche
+803,Calgary-North West-Bearspaw
+804,Fort Saskatchewan-Vegreville
+805,Grande Prairie
+806,Airdrie-East
+807,Drumheller-Stettler
+808,Calgary-Nose Creek
+809,Lethbridge-Taber-Warner
+810,Medicine Hat-Cypress
+811,West Yellowhead
+812,Lethbridge-Taber-Warner
+813,Calgary-Beddington
+814,Calgary-Shaw
+815,Medicine Hat-Brooks
+816,Calgary-Hays
+817,Edmonton-Rutherford
+818,Chestermere-Strathmore
+819,Calgary-Glenmore-Tsuut'ina
+820,Edmonton-Glenora-Riverview
+821,Fort McMurray-Lac La Biche
+822,Lloydminster-Wainwright
+823,Strathcona-Sherwood Park
+824,Calgary-Symons Valley
+825,Barrhead-Westlock-Athabasca
+826,Cochrane
+827,Lesser Slave Lake
+828,Calgary-Lougheed
+829,Calgary-Falconridge-Conrich
+830,Fort Saskatchewan-Vegreville
+831,Fort Saskatchewan-Vegreville
+832,Edmonton-Strathcona
+833,Calgary-West-Springbank
+834,Calgary-Confluence
+835,Cold Lake-Bonnyville-St. Paul
+836,Calgary-Varsity
+837,West Yellowhead
+838,Calgary-Currie
+839,Calgary-Currie
+840,Red Deer-North
+841,Edmonton-Glenora-Riverview
+842,Calgary-Beddington
+843,Calgary-Lougheed
+844,Calgary-Varsity
+845,Calgary-Varsity
+846,Lloydminster-Wainwright
+847,Calgary-Bhullar-McCall
+848,Calgary-Confluence
+849,Calgary-North
+850,Lacombe-Sylvan Lake
+851,Lethbridge-Taber-Warner
+852,Calgary-Glenmore-Tsuut'ina
+853,Calgary-Glenmore-Tsuut'ina
+854,Edmonton-North West
+855,Calgary-Bhullar-McCall
+856,Calgary-Bhullar-McCall
+857,Edmonton-Highlands-Norwood
+858,Edmonton-West Henday
+859,Edmonton-North West
+860,Calgary-Beddington
+861,Calgary-Beddington
+862,Calgary-Lougheed
+863,Okotoks
+864,Cold Lake-Bonnyville-St. Paul
+865,Calgary-Acadia
+866,Lethbridge-Little Bow
+867,Leduc-Beaumont
+868,Edmonton-Highlands-Norwood
+869,Calgary-Klein
+870,Lethbridge-Taber-Warner
+871,Edmonton-Rutherford
+872,Calgary-Edgemont
+873,Leduc-Beaumont
+874,Rocky Mountain House-Sundre
+875,Lethbridge
+876,Calgary-Hays
+877,Strathcona-Sherwood Park
+878,Calgary-North West-Bearspaw
+879,Calgary-West-Springbank
+880,Peace River
+881,Edmonton-Highlands-Norwood
+882,Edmonton-Gold Bar
+883,Camrose
+884,Lethbridge-Taber-Warner
+885,Drayton Valley-Devon
+886,Banff-Canmore-Diamond Valley
+887,Edmonton-Manning
+888,Airdrie-West
+889,Fort Saskatchewan-Vegreville
+890,West Yellowhead
+891,Banff-Canmore-Diamond Valley
+892,Fort Saskatchewan-Vegreville
+893,Lethbridge-Taber-Warner
+894,Fort Saskatchewan-Vegreville
+895,Spruce Grove
+896,Wetaskiwin-Ponoka
+897,Lloydminster-Wainwright
+898,Red Deer-North
+899,Leduc-Beaumont
+900,St. Albert
+901,St. Albert
+902,Blackfalds-Innisfail
+903,Rocky Mountain House-Sundre
+904,Edmonton-Windermere
+905,Medicine Hat-Brooks
+906,Edmonton-Rutherford
+907,Blackfalds-Innisfail
+908,Airdrie-East
+909,Airdrie-East
+910,Calgary-Cross
+911,Edmonton-Nisku
+912,Edmonton-McClung
+913,Wetaskiwin-Ponoka
+914,Peace River
+915,Blackfalds-Innisfail
+916,Grande Prairie-Wapiti
+917,Lacombe-Sylvan Lake
+918,Wetaskiwin-Ponoka
+919,Edmonton-Castle Downs
+920,Calgary-Fish Creek
+921,Airdrie-West
+922,Calgary-East
+923,Edmonton-McClung
+924,West Yellowhead
+925,Calgary-Varsity
+926,Macleod-Crowsnest
+927,St. Albert
+928,Medicine Hat-Brooks
+929,Calgary-Lougheed
+930,Edmonton-Highlands-Norwood
+931,Edmonton-Rutherford
+932,Chestermere-Strathmore
+933,Edmonton-Whitemud
+934,Edmonton-Beverly-Clareview
+935,Calgary-Falconridge-Conrich
+936,Morinville-Sturgeon
+937,Lloydminster-Wainwright
+938,Calgary-Beddington
+939,Edmonton-Strathcona
+940,Fort McMurray-Wood Buffalo
+941,Lesser Slave Lake
+942,Lethbridge-Cardston
+943,Fort Saskatchewan-Vegreville
+944,Edmonton-Gold Bar
+945,Calgary-Beddington
+946,St. Albert
+947,Edmonton-Strathcona
+948,Calgary-Mountain View
+949,Cold Lake-Bonnyville-St. Paul
+950,Lesser Slave Lake
+951,Lethbridge-Little Bow
+952,Lethbridge-Taber-Warner
+953,Edmonton-Rutherford
+954,Blackfalds-Innisfail
+955,Blackfalds-Innisfail
+956,Wetaskiwin-Ponoka
+957,Camrose
+958,Lesser Slave Lake
+959,Fort Saskatchewan-Vegreville
+960,Strathcona-Sherwood Park
+961,Calgary-Varsity
+962,Edmonton-Glenora-Riverview
+963,Calgary-Fish Creek
+964,Edmonton-Highlands-Norwood
+965,Lethbridge-Little Bow
+966,Calgary-Bow-Springbank
+967,Airdrie-East
+968,Edmonton-Decore
+969,Lesser Slave Lake
+970,Cold Lake-Bonnyville-St. Paul
+971,Calgary-Falconridge-Conrich
+972,Calgary-Lougheed
+973,Edmonton-Nisku
+974,Edmonton-Nisku
+975,Calgary-Edgemont
+976,Edmonton-Gold Bar
+977,Calgary-Glenmore-Tsuut'ina
+978,Calgary-McKenzie
+979,Calgary-Shaw
+980,Edmonton-Manning
+981,Medicine Hat-Cypress
+982,Red Deer-North
+983,Lethbridge-Taber-Warner
+984,Wetaskiwin-Ponoka
+985,Lethbridge-Little Bow
+986,Cold Lake-Bonnyville-St. Paul
+987,Calgary-Buffalo
+988,Calgary-Buffalo
+989,Lethbridge-Little Bow
+990,Lethbridge-Little Bow
+991,Central Peace-Notley
+992,Fort McMurray-Lac La Biche
+993,Strathcona-Sherwood Park
+994,Leduc-Beaumont
+995,Okotoks
+996,Red Deer-North
+997,Edmonton-Castle Downs
+998,Edmonton-Mill Woods
+999,Grande Prairie-Wapiti
+1000,Spruce Grove
+1001,Chestermere-Strathmore
+1002,Calgary-East
+1003,Calgary-East
+1004,Lloydminster-Wainwright
+1005,Calgary-Nose Creek
+1006,Calgary-Nose Creek
+1007,Banff-Canmore-Diamond Valley
+1008,Banff-Canmore-Diamond Valley
+1009,Drumheller-Stettler
+1010,Olds-Didsbury-Three Hills
+1011,Rocky Mountain House-Sundre
+1012,Calgary-Currie
+1013,Edmonton-Rutherford
+1014,Lethbridge-Cardston
+1015,Fort McMurray-Wood Buffalo
+1016,Calgary-Mountain View
+1017,Olds-Didsbury-Three Hills
+1018,Spruce Grove
+1019,Calgary-Glenmore-Tsuut'ina
+1020,Edmonton-City Centre
+1021,Edmonton-Manning
+1022,Calgary-Confluence
+1023,Fort McMurray-Lac La Biche
+1024,Red Deer-South
+1025,Edmonton-Windermere
+1026,Edmonton-Windermere
+1027,Calgary-East
+1028,Calgary-Confluence
+1029,Edmonton-Rutherford
+1030,Cold Lake-Bonnyville-St. Paul
+1031,Lethbridge-Little Bow
+1032,Calgary-Fish Creek
+1033,Lacombe-Sylvan Lake
+1034,Edmonton-Glenora-Riverview
+1035,Macleod-Crowsnest
+1036,Calgary-Currie
+1037,Lethbridge-Little Bow
+1038,Lethbridge-Little Bow
+1039,Calgary-West-Springbank
+1040,Calgary-South East
+1041,Medicine Hat-Brooks
+1042,Calgary-East
+1043,Calgary-Falconridge-Conrich
+1044,Edmonton-Enoch
+1045,Lesser Slave Lake
+1046,West Yellowhead
+1047,Calgary-Fish Creek
+1048,Okotoks
+1049,Edmonton-North West
+1050,Calgary-North West-Bearspaw
+1051,Okotoks
+1052,Okotoks
+1053,Lloydminster-Wainwright
+1054,Calgary-Bow-Springbank
+1055,Morinville-Sturgeon
+1056,Grande Prairie
+1057,Grande Prairie
+1058,Edmonton-City Centre
+1059,Edmonton-Highlands-Norwood
+1060,Lethbridge-Cardston
+1061,Edmonton-McClung
+1062,Calgary-North
+1063,Lethbridge-Little Bow
+1064,Airdrie-West
+1065,Medicine Hat-Brooks
+1066,Lethbridge-Taber-Warner
+1067,Calgary-Hays
+1068,Calgary-Beddington
+1069,Fort Saskatchewan-Vegreville
+1070,Edmonton-Windermere
+1071,Fort McMurray-Lac La Biche
+1072,Calgary-Hays
+1073,Edmonton-Mill Woods
+1074,Calgary-Symons Valley
+1075,Calgary-Currie
+1076,Grande Prairie
+1077,Fort McMurray-Wood Buffalo
+1078,Camrose
+1079,Calgary-North West-Bearspaw
+1080,Chestermere-Strathmore
+1081,Chestermere-Strathmore
+1082,Lethbridge-Taber-Warner
+1083,Edmonton-West Henday
+1084,Peace River
+1085,Calgary-West-Springbank
+1086,Calgary-East
+1087,Cochrane
+1088,Edmonton-Mill Woods
+1089,Lethbridge-Little Bow
+1090,Banff-Canmore-Diamond Valley
+1091,Calgary-North East
+1092,Rocky Mountain House-Sundre
+1093,Edmonton-Meadows
+1094,Airdrie-East
+1095,Grande Prairie-Wapiti
+1096,Morinville-Sturgeon
+1097,Calgary-North
+1098,Edmonton-Beverly-Clareview
+1099,Edmonton-Gold Bar
+1100,Camrose
+1101,Grande Prairie-Wapiti
+1102,Rocky Mountain House-Sundre
+1103,Lethbridge-Little Bow
+1104,Peace River
+1105,Okotoks
+1106,Medicine Hat-Cypress
+1107,Calgary-West-Springbank
+1108,Edmonton-Mill Woods
+1109,Fort Saskatchewan-Vegreville
+1110,Lesser Slave Lake
+1111,Macleod-Crowsnest
+1112,Cold Lake-Bonnyville-St. Paul
+1113,Sherwood Park
+1114,Grande Prairie-Wapiti
+1115,Calgary-Fish Creek
+1116,Grande Prairie-Wapiti
+1117,Edmonton-Enoch
+1118,Calgary-Confluence
+1119,Lethbridge
+1120,Edmonton-Castle Downs
+1121,Edmonton-West Henday
+1122,St. Albert
+1123,Edmonton-Decore
+1124,Fort McMurray-Lac La Biche
+1125,Airdrie-West
+1126,Central Peace-Notley
+1127,Macleod-Crowsnest
+1128,Edmonton-Strathcona
+1129,Edmonton-City Centre
+1130,Peace River
+1131,Fort McMurray-Lac La Biche
+1132,Central Peace-Notley
+1133,Morinville-Sturgeon
+1134,Calgary-McKenzie
+1135,Calgary-Mountain View
+1136,Calgary-Mountain View
+1137,Okotoks
+1138,Okotoks
+1139,Calgary-South East
+1140,Edmonton-Glenora-Riverview
+1141,Calgary-North West-Bearspaw
+1142,West Yellowhead
+1143,Drumheller-Stettler
+1144,Medicine Hat-Cypress
+1145,Calgary-South East
+1146,Calgary-South East
+1147,Calgary-North East
+1148,Okotoks
+1149,Okotoks
+1150,Edmonton-Highlands-Norwood
+1151,Edmonton-Beverly-Clareview
+1152,Edmonton-McClung
+1153,Cochrane
+1154,Edmonton-South
+1155,Edmonton-Windermere
+1156,Olds-Didsbury-Three Hills
+1157,Grande Prairie-Wapiti
+1158,Calgary-Currie
+1159,Calgary-Bow-Springbank
+1160,Calgary-Klein
+1161,Banff-Canmore-Diamond Valley
+1162,Lac Ste. Anne
+1163,Lacombe-Sylvan Lake
+1164,Fort McMurray-Lac La Biche
+1165,Fort McMurray-Lac La Biche
+1166,Edmonton-Gold Bar
+1167,Okotoks
+1168,Leduc-Beaumont
+1169,Leduc-Beaumont
+1170,Calgary-Shaw
+1171,Calgary-Symons Valley
+1172,Calgary-Symons Valley
+1173,Calgary-Glenmore-Tsuut'ina
+1174,Calgary-Glenmore-Tsuut'ina
+1175,Calgary-Falconridge-Conrich
+1176,Edmonton-West Henday
+1177,Cold Lake-Bonnyville-St. Paul
+1178,Cold Lake-Bonnyville-St. Paul
+1179,Edmonton-Decore
+1180,Cochrane
+1181,Olds-Didsbury-Three Hills
+1182,Peace River
+1183,Calgary-Glenmore-Tsuut'ina
+1184,Lethbridge
+1185,Lethbridge
+1186,Calgary-East
+1187,Calgary-Klein
+1188,Fort McMurray-Lac La Biche
+1189,Strathcona-Sherwood Park
+1190,Calgary-Confluence
+1191,Edmonton-McClung
+1192,Central Peace-Notley
+1193,Edmonton-Enoch
+1194,Edmonton-South
+1195,Calgary-Fish Creek
+1196,Medicine Hat-Cypress
+1197,Lesser Slave Lake
+1198,Calgary-McKenzie
+1199,Calgary-Klein
+1200,Calgary-Cross
+1201,Edmonton-Nisku
+1202,Okotoks
+1203,Edmonton-Gold Bar
+1204,Calgary-Glenmore-Tsuut'ina
+1205,Calgary-Buffalo
+1206,Cochrane
+1207,West Yellowhead
+1208,Calgary-North West-Bearspaw
+1209,Calgary-West-Springbank
+1210,Calgary-West-Springbank
+1211,Calgary-Glenmore-Tsuut'ina
+1212,Lloydminster-Wainwright
+1213,Edmonton-Beverly-Clareview
+1214,Medicine Hat-Cypress
+1215,Calgary-Nose Creek
+1216,Strathcona-Sherwood Park
+1217,West Yellowhead
+1218,Calgary-East
+1219,Lloydminster-Wainwright
+1220,Macleod-Crowsnest
+1221,Edmonton-Castle Downs
+1222,Fort McMurray-Wood Buffalo
+1223,Edmonton-Castle Downs
+1224,Calgary-East
+1225,Fort McMurray-Wood Buffalo
+1226,Edmonton-West Henday
+1227,Fort Saskatchewan-Vegreville
+1228,Red Deer-South
+1229,West Yellowhead
+1230,Rocky Mountain House-Sundre
+1231,Calgary-South East
+1232,Calgary-Mountain View
+1233,Calgary-Confluence
+1234,Calgary-Shaw
+1235,Calgary-Klein
+1236,Central Peace-Notley
+1237,Wetaskiwin-Ponoka
+1238,Edmonton-Windermere
+1239,Calgary-South East
+1240,Calgary-Fish Creek
+1241,Drayton Valley-Devon
+1242,Rocky Mountain House-Sundre
+1243,Banff-Canmore-Diamond Valley
+1244,Cold Lake-Bonnyville-St. Paul
+1245,Macleod-Crowsnest
+1246,Fort Saskatchewan-Vegreville
+1247,Calgary-North
+1248,Edmonton-Enoch
+1249,Calgary-Symons Valley
+1250,Edmonton-Castle Downs
+1251,Edmonton-Mill Woods
+1252,Blackfalds-Innisfail
+1253,Calgary-Bhullar-McCall
+1254,Edmonton-Glenora-Riverview
+1255,Calgary-Falconridge-Conrich
+1256,Edmonton-Decore
+1257,Red Deer-North
+1258,Leduc-Beaumont
+1259,Edmonton-Meadows
+1260,Drumheller-Stettler
+1261,Drumheller-Stettler
+1262,Calgary-Bow-Springbank
+1263,Edmonton-Whitemud
+1264,Airdrie-East
+1265,Calgary-Elbow
+1266,Okotoks
+1267,Edmonton-West Henday
+1268,Sherwood Park
+1269,Edmonton-Beverly-Clareview
+1270,Calgary-Currie
+1271,Calgary-Currie
+1272,Macleod-Crowsnest
+1273,Calgary-Edgemont
+1274,Peace River
+1275,Banff-Canmore-Diamond Valley
+1276,Lloydminster-Wainwright
+1277,Medicine Hat-Brooks
+1278,Calgary-Hays
+1279,Red Deer-North
+1280,Lac Ste. Anne
+1281,Calgary-Acadia
+1282,Calgary-Beddington
+1283,Central Peace-Notley
+1284,Edmonton-City Centre
+1285,Edmonton-Meadows
+1286,Medicine Hat-Brooks
+1287,Sherwood Park
+1288,Calgary-Bhullar-McCall
+1289,Banff-Canmore-Diamond Valley
+1290,Calgary-Currie
+1291,Lethbridge-Cardston
+1292,Lloydminster-Wainwright
+1293,Calgary-Elbow
+1294,Calgary-Confluence
+1295,Calgary-Hays
+1296,Calgary-West-Springbank
+1297,Edmonton-Gold Bar
+1298,Fort Saskatchewan-Vegreville
+1299,Fort Saskatchewan-Vegreville
+1300,Edmonton-South
+1301,Barrhead-Westlock-Athabasca
+1302,Edmonton-Beverly-Clareview
+1303,Morinville-Sturgeon
+1304,Peace River
+1305,Peace River
+1306,Calgary-Edgemont
+1307,Okotoks
+1308,Strathcona-Sherwood Park
+1309,Edmonton-Manning
+1310,Calgary-Elbow
+1311,Edmonton-Meadows
+1312,Blackfalds-Innisfail
+1313,Calgary-North East
+1314,Edmonton-Strathcona
+1315,Edmonton-Decore
+1316,Edmonton-West Henday
+1317,Calgary-Shaw
+1318,Edmonton-Nisku
+1319,Camrose
+1320,Calgary-Confluence
+1321,Edmonton-Meadows
+1322,Calgary-Beddington
+1323,Calgary-Confluence
+1324,Edmonton-Glenora-Riverview
+1325,Cochrane
+1326,Edmonton-South
+1327,Calgary-Glenmore-Tsuut'ina
+1328,Edmonton-Mill Woods
+1329,Medicine Hat-Brooks
+1330,Medicine Hat-Brooks
+1331,Barrhead-Westlock-Athabasca
+1332,Blackfalds-Innisfail
+1333,Olds-Didsbury-Three Hills
+1334,Wetaskiwin-Ponoka
+1335,Edmonton-Strathcona
+1336,Edmonton-Windermere
+1337,St. Albert
+1338,Lac Ste. Anne
+1339,Calgary-Nose Creek
+1340,Grande Prairie
+1341,Calgary-Edgemont
+1342,Edmonton-Beverly-Clareview
+1343,Edmonton-Gold Bar
+1344,Edmonton-Castle Downs
+1345,Calgary-Edgemont
+1346,Edmonton-Highlands-Norwood
+1347,Calgary-Beddington
+1348,Fort McMurray-Wood Buffalo
+1349,Edmonton-Highlands-Norwood
+1350,Red Deer-South
+1351,Edmonton-North West
+1352,Spruce Grove
+1353,Edmonton-McClung
+1354,Edmonton-McClung
+1355,Calgary-Acadia
+1356,Calgary-North
+1357,Calgary-Falconridge-Conrich
+1358,Calgary-Falconridge-Conrich
+1359,Camrose
+1360,Leduc-Beaumont
+1361,Wetaskiwin-Ponoka
+1362,Calgary-McKenzie
+1363,Lethbridge-Taber-Warner
+1364,Calgary-Buffalo
+1365,Fort Saskatchewan-Vegreville
+1366,West Yellowhead
+1367,Blackfalds-Innisfail
+1368,Edmonton-Ellerslie
+1369,Lethbridge-Taber-Warner
+1370,Edmonton-Enoch
+1371,Medicine Hat-Brooks
+1372,Drumheller-Stettler
+1373,Calgary-North East
+1374,Medicine Hat-Brooks
+1375,Calgary-North
+1376,Edmonton-Manning
+1377,Calgary-East
+1378,Lloydminster-Wainwright
+1379,Lethbridge-Taber-Warner
+1380,Calgary-Edgemont
+1381,Lethbridge-Taber-Warner
+1382,Calgary-West-Springbank
+1383,Lesser Slave Lake
+1384,Banff-Canmore-Diamond Valley
+1385,Edmonton-City Centre
+1386,Edmonton-City Centre
+1387,Airdrie-East
+1388,Macleod-Crowsnest
+1389,Calgary-North West-Bearspaw
+1390,Edmonton-City Centre
+1391,Lesser Slave Lake
+1392,Drayton Valley-Devon
+1393,Strathcona-Sherwood Park
+1394,Edmonton-Gold Bar
+1395,Edmonton-Gold Bar
+1396,Edmonton-Nisku
+1397,Edmonton-Castle Downs
+1398,Lethbridge-Cardston
+1399,Central Peace-Notley
+1400,Calgary-Cross
+1401,Drumheller-Stettler
+1402,Lethbridge
+1403,Calgary-Glenmore-Tsuut'ina
+1404,Calgary-Bhullar-McCall
+1405,Red Deer-North
+1406,Calgary-Mountain View
+1407,Edmonton-City Centre
+1408,West Yellowhead
+1409,St. Albert
+1410,Red Deer-South
+1411,Peace River
+1412,Edmonton-Castle Downs
+1413,Calgary-Confluence
+1414,Medicine Hat-Brooks
+1415,Edmonton-City Centre
+1416,Calgary-North East
+1417,Lethbridge
+1418,Calgary-Buffalo
+1419,Edmonton-Glenora-Riverview
+1420,Calgary-McKenzie
+1421,Calgary-Hays
+1422,Calgary-Falconridge-Conrich
+1423,Banff-Canmore-Diamond Valley
+1424,Blackfalds-Innisfail
+1425,Airdrie-East
+1426,Olds-Didsbury-Three Hills
+1427,Red Deer-South
+1428,Calgary-Shaw
+1429,Edmonton-Glenora-Riverview
+1430,Cochrane
+1431,Edmonton-Beverly-Clareview
+1432,Edmonton-McClung
+1433,Edmonton-Enoch
+1434,Calgary-Varsity
+1435,Calgary-Elbow
+1436,Edmonton-Windermere
+1437,Edmonton-Castle Downs
+1438,Lethbridge-Taber-Warner
+1439,Peace River
+1440,Edmonton-Manning
+1441,Grande Prairie-Wapiti
+1442,Calgary-Bow-Springbank
+1443,Calgary-Bhullar-McCall
+1444,Calgary-Bow-Springbank
+1445,West Yellowhead
+1446,Edmonton-Mill Woods
+1447,Edmonton-Nisku
+1448,Calgary-Hays
+1449,Drumheller-Stettler
+1450,Calgary-Confluence
+1451,Drumheller-Stettler
+1452,Olds-Didsbury-Three Hills
+1453,Calgary-Mountain View
+1454,Red Deer-North
+1455,Lethbridge-Taber-Warner
+1456,Airdrie-East
+1457,Calgary-Currie
+1458,Calgary-Beddington
+1459,West Yellowhead
+1460,Edmonton-Windermere
+1461,Calgary-Confluence
+1462,Calgary-Acadia
+1463,Edmonton-West Henday
+1464,Edmonton-Whitemud
+1465,Calgary-Mountain View
+1466,Edmonton-Gold Bar
+1467,Macleod-Crowsnest
+1468,Morinville-Sturgeon
+1469,Calgary-Bow-Springbank
+1470,Lloydminster-Wainwright
+1471,Calgary-Currie
+1472,Grande Prairie-Wapiti
+1473,Strathcona-Sherwood Park
+1474,Edmonton-Ellerslie
+1475,Calgary-Lougheed
+1476,Cold Lake-Bonnyville-St. Paul
+1477,Calgary-Klein
+1478,Calgary-Edgemont
+1479,Sherwood Park
+1480,Calgary-Confluence
+1481,Medicine Hat-Cypress
+1482,Calgary-Glenmore-Tsuut'ina
+1483,Strathcona-Sherwood Park
+1484,Lethbridge
+1485,Banff-Canmore-Diamond Valley
+1486,Red Deer-North
+1487,Edmonton-Strathcona
+1488,Calgary-Symons Valley
+1489,Calgary-Symons Valley
+1490,Medicine Hat-Cypress
+1491,Calgary-Edgemont
+1492,Sherwood Park
+1493,Cochrane
+1494,Calgary-North
+1495,Banff-Canmore-Diamond Valley
+1496,Chestermere-Strathmore
+1497,Calgary-Confluence
+1498,Calgary-Mountain View
+1499,Calgary-Varsity
+1500,Edmonton-Enoch
+1501,Calgary-Fish Creek
+1502,Edmonton-McClung
+1503,Edmonton-Castle Downs
+1504,Edmonton-Whitemud
+1505,Medicine Hat-Brooks
+1506,Lacombe-Sylvan Lake
+1507,Edmonton-Nisku
+1508,Olds-Didsbury-Three Hills
+1509,Olds-Didsbury-Three Hills
+1510,Leduc-Beaumont
+1511,Sherwood Park
+1512,Edmonton-North West
+1513,Edmonton-Strathcona
+1514,Calgary-Fish Creek
+1515,Medicine Hat-Cypress
+1516,Drumheller-Stettler
+1517,Fort Saskatchewan-Vegreville
+1518,Macleod-Crowsnest
+1519,Calgary-Shaw
+1520,Calgary-Shaw
+1521,Calgary-Shaw
+1522,Drayton Valley-Devon
+1523,Spruce Grove
+1524,Camrose
+1525,Calgary-Lougheed
+1526,Lethbridge-Little Bow
+1527,Edmonton-West Henday
+1528,Edmonton-Windermere
+1529,Edmonton-Castle Downs
+1530,Edmonton-South
+1531,Edmonton-Castle Downs
+1532,Calgary-Nose Creek
+1533,Calgary-Confluence
+1534,Calgary-Elbow
+1535,Calgary-Elbow
+1536,Edmonton-City Centre
+1537,Edmonton-City Centre
+1538,Grande Prairie
+1539,Edmonton-Glenora-Riverview
+1540,Edmonton-Glenora-Riverview
+1541,Morinville-Sturgeon
+1542,Calgary-Elbow
+1543,Calgary-Glenmore-Tsuut'ina
+1544,Edmonton-North West
+1545,Calgary-Buffalo
+1546,Edmonton-City Centre
+1547,Calgary-West-Springbank
+1548,Calgary-North West-Bearspaw
+1549,Lacombe-Sylvan Lake
+1550,Edmonton-Whitemud
+1551,Edmonton-Decore
+1552,Edmonton-Manning
+1553,Edmonton-Manning
+1554,Cochrane
+1555,Calgary-Lougheed
+1556,Calgary-Fish Creek
+1557,Chestermere-Strathmore
+1558,Chestermere-Strathmore
+1559,Chestermere-Strathmore
+1560,Chestermere-Strathmore
+1561,Leduc-Beaumont
+1562,Morinville-Sturgeon
+1563,Edmonton-Glenora-Riverview
+1564,Grande Prairie
+1565,Cochrane
+1566,Calgary-Currie
+1567,Edmonton-North West
+1568,Edmonton-Manning
+1569,Edmonton-Rutherford
+1570,Cold Lake-Bonnyville-St. Paul
+1571,St. Albert
+1572,Lethbridge-Taber-Warner
+1573,Lethbridge-Little Bow
+1574,West Yellowhead
+1575,Grande Prairie-Wapiti
+1576,Morinville-Sturgeon
+1577,Peace River
+1578,Edmonton-Highlands-Norwood
+1579,Calgary-Edgemont
+1580,Calgary-Mountain View
+1581,Calgary-West-Springbank
+1582,Rocky Mountain House-Sundre
+1583,Rocky Mountain House-Sundre
+1584,Camrose
+1585,Camrose
+1586,Cochrane
+1587,Calgary-Klein
+1588,Lac Ste. Anne
+1589,Calgary-Hays
+1590,Calgary-North West-Bearspaw
+1591,Edmonton-Glenora-Riverview
+1592,Edmonton-City Centre
+1593,Lacombe-Sylvan Lake
+1594,Lacombe-Sylvan Lake
+1595,Spruce Grove
+1596,Calgary-Shaw
+1597,Blackfalds-Innisfail
+1598,Edmonton-Nisku
+1599,Edmonton-Rutherford
+1600,Calgary-Elbow
+1601,Calgary-Acadia
+1602,Calgary-Acadia
+1603,Peace River
+1604,Camrose
+1605,Airdrie-East
+1606,Edmonton-Rutherford
+1607,Calgary-Mountain View
+1608,Lloydminster-Wainwright
+1609,Calgary-Cross
+1610,Calgary-Nose Creek
+1611,Calgary-Varsity
+1612,Lac Ste. Anne
+1613,Barrhead-Westlock-Athabasca
+1614,Edmonton-Ellerslie
+1615,Okotoks
+1616,Calgary-Elbow
+1617,Edmonton-City Centre
+1618,Edmonton-Windermere
+1619,Calgary-Currie
+1620,Rocky Mountain House-Sundre
+1621,Calgary-Buffalo
+1622,Edmonton-North West
+1623,Edmonton-Ellerslie
+1624,Edmonton-Ellerslie
+1625,Olds-Didsbury-Three Hills
+1626,Edmonton-Mill Woods
+1627,Lethbridge-Little Bow
+1628,Peace River
+1629,Edmonton-Castle Downs
+1630,Drumheller-Stettler
+1631,Calgary-Bow-Springbank
+1632,Edmonton-Whitemud
+1633,Calgary-Hays
+1634,Calgary-Hays
+1635,Red Deer-North
+1636,Red Deer-North
+1637,Macleod-Crowsnest
+1638,Calgary-Bow-Springbank
+1639,Lethbridge
+1640,Lethbridge
+1641,Camrose
+1642,Wetaskiwin-Ponoka
+1643,Drayton Valley-Devon
+1644,Drumheller-Stettler
+1645,Leduc-Beaumont
+1646,Leduc-Beaumont
+1647,Peace River
+1648,Calgary-Elbow
+1649,Calgary-Buffalo
+1650,Calgary-East
+1651,Calgary-Varsity
+1652,Calgary-Varsity
+1653,Spruce Grove
+1654,Lacombe-Sylvan Lake
+1655,Lac Ste. Anne
+1656,Camrose
+1657,Calgary-Glenmore-Tsuut'ina
+1658,Edmonton-Meadows
+1659,Calgary-Hays
+1660,Calgary-Bow-Springbank
+1661,Edmonton-Rutherford
+1662,Morinville-Sturgeon
+1663,Edmonton-North West
+1664,Leduc-Beaumont
+1665,Edmonton-Beverly-Clareview
+1666,Edmonton-Glenora-Riverview
+1667,Grande Prairie-Wapiti
+1668,Grande Prairie-Wapiti
+1669,Calgary-South East
+1670,Calgary-Cross
+1671,Calgary-Mountain View
+1672,Calgary-Beddington
+1673,Macleod-Crowsnest
+1674,Calgary-South East
+1675,Edmonton-Gold Bar
+1676,Lacombe-Sylvan Lake
+1677,Rocky Mountain House-Sundre
+1678,Calgary-Nose Creek
+1679,Edmonton-Manning
+1680,Grande Prairie
+1681,Edmonton-City Centre
+1682,Lethbridge-Cardston
+1683,Airdrie-East
+1684,Airdrie-East
+1685,Fort McMurray-Lac La Biche
+1686,Calgary-Mountain View
+1687,Calgary-Falconridge-Conrich
+1688,Edmonton-Mill Woods
+1689,Calgary-Falconridge-Conrich
+1690,Medicine Hat-Brooks
+1691,Drayton Valley-Devon
+1692,Calgary-Nose Creek
+1693,Wetaskiwin-Ponoka
+1694,Calgary-Nose Creek
+1695,Fort Saskatchewan-Vegreville
+1696,Lethbridge-Little Bow
+1697,Calgary-North West-Bearspaw
+1698,Chestermere-Strathmore
+1699,Grande Prairie-Wapiti
+1700,Airdrie-West
+1701,St. Albert
+1702,St. Albert
+1703,Leduc-Beaumont
+1704,Drumheller-Stettler
+1705,Edmonton-McClung
+1706,Calgary-West-Springbank
+1707,Chestermere-Strathmore
+1708,Morinville-Sturgeon
+1709,Calgary-Bow-Springbank
+1710,Camrose
+1711,Banff-Canmore-Diamond Valley
+1712,Edmonton-Whitemud
+1713,Lac Ste. Anne
+1714,Strathcona-Sherwood Park
+1715,Calgary-Glenmore-Tsuut'ina
+1716,Calgary-East
+1717,Fort McMurray-Wood Buffalo
+1718,Calgary-Klein
+1719,Leduc-Beaumont
+1720,Grande Prairie-Wapiti
+1721,Edmonton-Beverly-Clareview
+1722,Lacombe-Sylvan Lake
+1723,Edmonton-Highlands-Norwood
+1724,Lacombe-Sylvan Lake
+1725,Cold Lake-Bonnyville-St. Paul
+1726,Calgary-Shaw
+1727,Calgary-North
+1728,Drayton Valley-Devon
+1729,Calgary-McKenzie
+1730,Edmonton-Enoch
+1731,Banff-Canmore-Diamond Valley
+1732,Fort McMurray-Wood Buffalo
+1733,Spruce Grove
+1734,Drumheller-Stettler
+1735,Calgary-Buffalo
+1736,Fort Saskatchewan-Vegreville
+1737,Edmonton-Beverly-Clareview
+1738,Edmonton-Glenora-Riverview
+1739,Strathcona-Sherwood Park
+1740,Edmonton-Meadows
+1741,Lethbridge-Taber-Warner
+1742,Edmonton-Whitemud
+1743,Banff-Canmore-Diamond Valley
+1744,Edmonton-Manning
+1745,Drayton Valley-Devon
+1746,Calgary-Bow-Springbank
+1747,Edmonton-Enoch
+1748,Calgary-East
+1749,Edmonton-Beverly-Clareview
+1750,Calgary-Confluence
+1751,Edmonton-Mill Woods
+1752,Airdrie-West
+1753,Edmonton-Beverly-Clareview
+1754,Edmonton-West Henday
+1755,Lethbridge
+1756,Fort McMurray-Wood Buffalo
+1757,Calgary-Buffalo
+1758,Calgary-Hays
+1759,Calgary-Edgemont
+1760,Okotoks
+1761,Medicine Hat-Cypress
+1762,Calgary-Bhullar-McCall
+1763,Banff-Canmore-Diamond Valley
+1764,Banff-Canmore-Diamond Valley
+1765,Peace River
+1766,Edmonton-Mill Woods
+1767,Grande Prairie
+1768,Edmonton-Castle Downs
+1769,Edmonton-Castle Downs
+1770,Drumheller-Stettler
+1771,Edmonton-Mill Woods
+1772,Chestermere-Strathmore
+1773,Calgary-Fish Creek
+1774,Lethbridge-Little Bow
+1775,Calgary-Bhullar-McCall
+1776,Calgary-South East
+1777,Edmonton-Rutherford
+1778,Edmonton-Rutherford
+1779,Airdrie-West
+1780,Central Peace-Notley
+1781,Cochrane
+1782,Calgary-Edgemont
+1783,Peace River
+1784,Sherwood Park
+1785,Edmonton-City Centre
+1786,Calgary-Bow-Springbank
+1787,Calgary-Bow-Springbank
+1788,Sherwood Park
+1789,Calgary-Mountain View
+1790,Edmonton-Windermere
+1791,Edmonton-City Centre
+1792,Calgary-Fish Creek
+1793,Calgary-East
+1794,Spruce Grove
+1795,Calgary-Beddington
+1796,Edmonton-Rutherford
+1797,Wetaskiwin-Ponoka
+1798,Wetaskiwin-Ponoka
+1799,Calgary-Edgemont
+1800,Fort Saskatchewan-Vegreville
+1801,West Yellowhead
+1802,Calgary-Buffalo
+1803,Calgary-Currie
+1804,Calgary-Fish Creek
+1805,Cold Lake-Bonnyville-St. Paul
+1806,Calgary-Confluence
+1807,Calgary-Edgemont
+1808,Edmonton-Manning
+1809,Calgary-Confluence
+1810,Calgary-Confluence
+1811,Fort McMurray-Wood Buffalo
+1812,Fort Saskatchewan-Vegreville
+1813,Lac Ste. Anne
+1814,Edmonton-Ellerslie
+1815,Calgary-Klein
+1816,Drayton Valley-Devon
+1817,Lacombe-Sylvan Lake
+1818,Edmonton-Manning
+1819,Lloydminster-Wainwright
+1820,Camrose
+1821,Calgary-Mountain View
+1822,Airdrie-East
+1823,Macleod-Crowsnest
+1824,Edmonton-Whitemud
+1825,Calgary-Lougheed
+1826,Cold Lake-Bonnyville-St. Paul
+1827,Edmonton-West Henday
+1828,Edmonton-City Centre
+1829,Red Deer-South
+1830,Red Deer-South
+1831,Red Deer-South
+1832,Calgary-South East
+1833,Edmonton-Enoch
+1834,Edmonton-Strathcona
+1835,Calgary-Klein
+1836,Edmonton-Beverly-Clareview
+1837,Calgary-North
+1838,Calgary-Falconridge-Conrich
+1839,Edmonton-Beverly-Clareview
+1840,Barrhead-Westlock-Athabasca
+1841,Lloydminster-Wainwright
+1842,Calgary-Bow-Springbank
+1843,Calgary-McKenzie
+1844,Calgary-Hays
+1845,Edmonton-Highlands-Norwood
+1846,Cold Lake-Bonnyville-St. Paul
+1847,Calgary-Shaw
+1848,Calgary-Shaw
+1849,Medicine Hat-Brooks
+1850,Spruce Grove
+1851,Chestermere-Strathmore
+1852,Edmonton-North West
+1853,Edmonton-North West
+1854,Calgary-McKenzie
+1855,Edmonton-Strathcona
+1856,Grande Prairie
+1857,Lacombe-Sylvan Lake
+1858,Okotoks
+1859,Peace River
+1860,West Yellowhead
+1861,Lac Ste. Anne
+1862,Lethbridge-Taber-Warner
+1863,Rocky Mountain House-Sundre
+1864,Edmonton-Decore
+1865,Cold Lake-Bonnyville-St. Paul
+1866,Red Deer-South
+1867,Edmonton-Windermere
+1868,Okotoks
+1869,Rocky Mountain House-Sundre
+1870,Lethbridge-Little Bow
+1871,Edmonton-City Centre
+1872,Edmonton-Ellerslie
+1873,Edmonton-City Centre
+1874,Edmonton-Meadows
+1875,Calgary-North West-Bearspaw
+1876,Calgary-Buffalo
+1877,Calgary-Confluence
+1878,Red Deer-North
+1879,Calgary-Beddington
+1880,Calgary-Mountain View
+1881,Calgary-Mountain View
+1882,Fort Saskatchewan-Vegreville
+1883,Fort Saskatchewan-Vegreville
+1884,Strathcona-Sherwood Park
+1885,Peace River
+1886,Airdrie-East
+1887,Rocky Mountain House-Sundre
+1888,Edmonton-Highlands-Norwood
+1889,Edmonton-Highlands-Norwood
+1890,Calgary-Currie
+1891,Camrose
+1892,Calgary-Fish Creek
+1893,Edmonton-Decore
+1894,Medicine Hat-Cypress
+1895,Medicine Hat-Cypress
+1896,Blackfalds-Innisfail
+1897,Calgary-Mountain View
+1898,Calgary-East
+1899,St. Albert
+1900,Calgary-Beddington
+1901,Edmonton-Enoch
+1902,Calgary-Mountain View
+1903,Grande Prairie-Wapiti
+1904,Edmonton-South
+1905,Lethbridge-Cardston
+1906,Peace River
+1907,Calgary-Confluence
+1908,Edmonton-Beverly-Clareview
+1909,Wetaskiwin-Ponoka
+1910,Fort Saskatchewan-Vegreville
+1911,Edmonton-Whitemud
+1912,Edmonton-Enoch
+1913,Edmonton-Glenora-Riverview
+1914,Edmonton-Castle Downs
+1915,Edmonton-Rutherford
+1916,Rocky Mountain House-Sundre
+1917,Edmonton-Highlands-Norwood
+1918,Grande Prairie
+1919,Calgary-Falconridge-Conrich
+1920,Strathcona-Sherwood Park
+1921,Olds-Didsbury-Three Hills
+1922,Edmonton-Decore
+1923,Edmonton-Decore
+1924,Grande Prairie-Wapiti
+1925,Lethbridge
+1926,Lethbridge
+1927,Edmonton-Beverly-Clareview
+1928,Calgary-Falconridge-Conrich
+1929,West Yellowhead
+1930,Medicine Hat-Brooks
+1931,Calgary-Nose Creek
+1932,Calgary-Mountain View
+1933,Cold Lake-Bonnyville-St. Paul
+1934,Edmonton-Windermere
+1935,Olds-Didsbury-Three Hills
+1936,Calgary-Symons Valley
+1937,Grande Prairie
+1938,Red Deer-South
+1939,Red Deer-South
+1940,Calgary-McKenzie
+1941,Calgary-Acadia
+1942,Lethbridge-Cardston
+1943,Edmonton-Windermere
+1944,Edmonton-Enoch
+1945,Calgary-North
+1946,Calgary-Edgemont
+1947,Edmonton-South
+1948,Okotoks
+1949,Calgary-Acadia
+1950,Calgary-Acadia
+1951,Banff-Canmore-Diamond Valley
+1952,Edmonton-Rutherford
+1953,Medicine Hat-Brooks
+1954,Airdrie-East
+1955,Drumheller-Stettler
+1956,Edmonton-Strathcona
+1957,Cold Lake-Bonnyville-St. Paul
+1958,Edmonton-Strathcona
+1959,Wetaskiwin-Ponoka
+1960,Edmonton-North West
+1961,Grande Prairie-Wapiti
+1962,West Yellowhead
+1963,Edmonton-Beverly-Clareview
+1964,Grande Prairie
+1965,Medicine Hat-Cypress
+1966,Medicine Hat-Cypress
+1967,Calgary-Edgemont
+1968,Olds-Didsbury-Three Hills
+1969,Peace River
+1970,Lethbridge-Taber-Warner
+1971,Wetaskiwin-Ponoka
+1972,Calgary-Shaw
+1973,Airdrie-West
+1974,Calgary-Cross
+1975,Lethbridge-Little Bow
+1976,Calgary-Buffalo
+1977,Calgary-Beddington
+1978,Calgary-Hays
+1979,Edmonton-Enoch
+1980,Chestermere-Strathmore
+1981,Lacombe-Sylvan Lake
+1982,Calgary-Acadia
+1983,Airdrie-East
+1984,Camrose
+1985,Calgary-North
+1986,Calgary-East
+1987,Edmonton-Mill Woods
+1988,Calgary-Bow-Springbank
+1989,Morinville-Sturgeon
+1990,Morinville-Sturgeon
+1991,Edmonton-Ellerslie
+1992,Rocky Mountain House-Sundre
+1993,Sherwood Park
+1994,Spruce Grove
+1995,Lloydminster-Wainwright
+1996,Lloydminster-Wainwright
+1997,Wetaskiwin-Ponoka
+1998,Wetaskiwin-Ponoka
+1999,Calgary-East
+2000,Lesser Slave Lake
+2001,Barrhead-Westlock-Athabasca
+2002,Calgary-Beddington
+2003,Edmonton-North West
+2004,Edmonton-North West
+2005,Calgary-North
+2006,Lesser Slave Lake
+2007,Edmonton-Mill Woods
+2008,Banff-Canmore-Diamond Valley
+2009,Calgary-Currie
+2010,Lethbridge
+2011,Strathcona-Sherwood Park
+2012,St. Albert
+2013,Macleod-Crowsnest
+2014,Calgary-East
+2015,Lethbridge-Little Bow
+2016,Lloydminster-Wainwright
+2017,Edmonton-Ellerslie
+2018,Fort McMurray-Lac La Biche
+2019,Chestermere-Strathmore
+2020,Chestermere-Strathmore
+2021,Calgary-Cross
+2022,Edmonton-Enoch
+2023,Red Deer-South
+2024,Calgary-South East
+2025,Edmonton-Castle Downs
+2026,Wetaskiwin-Ponoka
+2027,Spruce Grove
+2028,Calgary-Falconridge-Conrich
+2029,Lac Ste. Anne
+2030,Calgary-Bow-Springbank
+2031,Lesser Slave Lake
+2032,Lesser Slave Lake
+2033,Camrose
+2034,Camrose
+2035,Strathcona-Sherwood Park
+2036,Calgary-Edgemont
+2037,Peace River
+2038,Grande Prairie
+2039,Olds-Didsbury-Three Hills
+2040,Edmonton-North West
+2041,Calgary-East
+2042,Airdrie-East
+2043,Calgary-South East
+2044,Drayton Valley-Devon
+2045,Calgary-Fish Creek
+2046,Sherwood Park
+2047,Lethbridge-Taber-Warner
+2048,Calgary-West-Springbank
+2049,Calgary-Buffalo
+2050,Lac Ste. Anne
+2051,Calgary-Glenmore-Tsuut'ina
+2052,Olds-Didsbury-Three Hills
+2053,Medicine Hat-Cypress
+2054,Edmonton-Whitemud
+2055,Calgary-Confluence
+2056,Calgary-Currie
+2057,Edmonton-Whitemud
+2058,Edmonton-West Henday
+2059,Calgary-Fish Creek
+2060,Calgary-Glenmore-Tsuut'ina
+2061,Calgary-Glenmore-Tsuut'ina
+2062,Calgary-Klein
+2063,Fort Saskatchewan-Vegreville
+2064,Wetaskiwin-Ponoka
+2065,Lethbridge-Cardston
+2066,Calgary-Acadia
+2067,Drumheller-Stettler
+2068,Edmonton-Whitemud
+2069,Lloydminster-Wainwright
+2070,Edmonton-Gold Bar
+2071,Edmonton-Rutherford
+2072,Calgary-North West-Bearspaw
+2073,Drumheller-Stettler
+2074,Calgary-Mountain View
+2075,Edmonton-Decore
+2076,Calgary-Falconridge-Conrich
+2077,Cochrane
+2078,Edmonton-Manning
+2079,Calgary-Elbow
+2080,Calgary-North West-Bearspaw
+2081,Edmonton-Mill Woods
+2082,Calgary-Shaw
+2083,Calgary-Cross
+2084,Edmonton-Beverly-Clareview
+2085,Edmonton-South
+2086,Camrose
+2087,Strathcona-Sherwood Park
+2088,Strathcona-Sherwood Park
+2089,Lloydminster-Wainwright
+2090,Medicine Hat-Brooks
+2091,Edmonton-Castle Downs
+2092,Edmonton-South
+2093,Red Deer-North
+2094,Edmonton-McClung
+2095,Edmonton-South
+2096,Calgary-Beddington
+2097,Edmonton-Glenora-Riverview
+2098,Calgary-Fish Creek
+2099,Calgary-Beddington
+2100,Edmonton-Meadows
+2101,Calgary-East
+2102,Edmonton-Mill Woods
+2103,Edmonton-Gold Bar
+2104,Edmonton-Gold Bar
+2105,Calgary-Hays
+2106,Banff-Canmore-Diamond Valley
+2107,Calgary-North
+2108,Edmonton-McClung
+2109,Edmonton-Beverly-Clareview
+2110,Edmonton-Beverly-Clareview
+2111,Airdrie-West
+2112,Barrhead-Westlock-Athabasca
+2113,Calgary-North West-Bearspaw
+2114,Edmonton-Decore
+2115,Fort McMurray-Wood Buffalo
+2116,Calgary-Elbow
+2117,Edmonton-Ellerslie
+2118,Calgary-Acadia
+2119,Calgary-Hays
+2120,Airdrie-West
+2121,Edmonton-City Centre
+2122,Drumheller-Stettler
+2123,Olds-Didsbury-Three Hills
+2124,Calgary-Acadia
+2125,Airdrie-East
+2126,Airdrie-East
+2127,Lloydminster-Wainwright
+2128,Edmonton-Ellerslie
+2129,Edmonton-Mill Woods
+2130,Spruce Grove
+2131,Calgary-Acadia
+2132,Calgary-Acadia
+2133,Lloydminster-Wainwright
+2134,Red Deer-South
+2135,Red Deer-South
+2136,Calgary-Elbow
+2137,Calgary-South East
+2138,Edmonton-West Henday
+2139,Cochrane
+2140,Fort McMurray-Wood Buffalo
+2141,Calgary-Mountain View
+2142,Calgary-Mountain View
+2143,Drumheller-Stettler
+2144,Edmonton-Gold Bar
+2145,Edmonton-McClung
+2146,Morinville-Sturgeon
+2147,Airdrie-East
+2148,Grande Prairie
+2149,Calgary-Cross
+2150,Edmonton-Meadows
+2151,Red Deer-South
+2152,St. Albert
+2153,Strathcona-Sherwood Park
+2154,Fort McMurray-Wood Buffalo
+2155,Edmonton-Mill Woods
+2156,Airdrie-West
+2157,Calgary-Glenmore-Tsuut'ina
+2158,Grande Prairie-Wapiti
+2159,West Yellowhead
+2160,West Yellowhead
+2161,Calgary-West-Springbank
+2162,Calgary-West-Springbank
+2163,Calgary-Fish Creek
+2164,Edmonton-Glenora-Riverview
+2165,Central Peace-Notley
+2166,Calgary-Cross
+2167,Barrhead-Westlock-Athabasca
+2168,Chestermere-Strathmore
+2169,Calgary-Beddington
+2170,Rocky Mountain House-Sundre
+2171,Lesser Slave Lake
+2172,Medicine Hat-Brooks
+2173,Edmonton-Decore
+2174,Edmonton-Whitemud
+2175,Edmonton-Rutherford
+2176,Lethbridge-Taber-Warner
+2177,Okotoks
+2178,Banff-Canmore-Diamond Valley
+2179,Calgary-Cross
+2180,Calgary-McKenzie
+2181,Edmonton-Enoch
+2182,Calgary-Edgemont
+2183,Calgary-McKenzie
+2184,Camrose
+2185,Drumheller-Stettler
+2186,Calgary-West-Springbank
+2187,Fort McMurray-Wood Buffalo
+2188,Airdrie-East
+2189,Edmonton-Manning
+2190,Edmonton-Decore
+2191,Cochrane
+2192,Macleod-Crowsnest
+2193,Macleod-Crowsnest
+2194,Edmonton-West Henday
+2195,Lethbridge
+2196,Edmonton-Whitemud
+2197,Fort McMurray-Lac La Biche
+2198,Red Deer-North
+2199,Barrhead-Westlock-Athabasca
+2200,Chestermere-Strathmore
+2201,Rocky Mountain House-Sundre
+2202,Edmonton-Meadows
+2203,Edmonton-Highlands-Norwood
+2204,Edmonton-Windermere
+2205,Calgary-North West-Bearspaw
+2206,Calgary-Falconridge-Conrich
+2207,Edmonton-Decore
+2208,Lethbridge-Cardston
+2209,Fort McMurray-Lac La Biche
+2210,Morinville-Sturgeon
+2211,Morinville-Sturgeon
+2212,Banff-Canmore-Diamond Valley
+2213,Calgary-Glenmore-Tsuut'ina
+2214,Edmonton-Ellerslie
+2215,Morinville-Sturgeon
+2216,Calgary-Acadia
+2217,Edmonton-South
+2218,Lethbridge-Little Bow
+2219,Grande Prairie
+2220,Edmonton-Castle Downs
+2221,Edmonton-Rutherford
+2222,Banff-Canmore-Diamond Valley
+2223,Edmonton-Glenora-Riverview
+2224,Calgary-Lougheed
+2225,Edmonton-Windermere
+2226,Calgary-Lougheed
+2227,Calgary-West-Springbank
+2228,Calgary-West-Springbank
+2229,Calgary-Hays
+2230,Calgary-Klein
+2231,Edmonton-North West
+2232,Edmonton-North West
+2233,Edmonton-McClung
+2234,Red Deer-North
+2235,Red Deer-North
+2236,Edmonton-South
+2237,Edmonton-Glenora-Riverview
+2238,Lacombe-Sylvan Lake
+2239,Strathcona-Sherwood Park
+2240,Calgary-Falconridge-Conrich
+2241,Lacombe-Sylvan Lake
+2242,Edmonton-McClung
+2243,Macleod-Crowsnest
+2244,Lethbridge-Taber-Warner
+2245,Edmonton-Manning
+2246,Camrose
+2247,Lacombe-Sylvan Lake
+2248,Lacombe-Sylvan Lake
+2249,Leduc-Beaumont
+2250,Leduc-Beaumont
+2251,Calgary-Mountain View
+2252,Grande Prairie-Wapiti
+2253,Edmonton-Whitemud
+2254,Macleod-Crowsnest
+2255,Sherwood Park
+2256,Olds-Didsbury-Three Hills
+2257,Edmonton-Rutherford
+2258,Okotoks
+2259,Airdrie-West
+2260,Edmonton-North West
+2261,Grande Prairie-Wapiti
+2262,Strathcona-Sherwood Park
+2263,Lac Ste. Anne
+2264,Edmonton-Rutherford
+2265,Macleod-Crowsnest
+2266,Airdrie-West
+2267,Calgary-Edgemont
+2268,Calgary-Mountain View
+2269,Edmonton-Gold Bar
+2270,Edmonton-Gold Bar
+2271,Calgary-Mountain View
+2272,Edmonton-Gold Bar
+2273,Edmonton-City Centre
+2274,Calgary-McKenzie
+2275,Fort Saskatchewan-Vegreville
+2276,Edmonton-Beverly-Clareview
+2277,Calgary-Falconridge-Conrich
+2278,Calgary-North
+2279,Grande Prairie-Wapiti
+2280,Lesser Slave Lake
+2281,St. Albert
+2282,Banff-Canmore-Diamond Valley
+2283,Edmonton-Rutherford
+2284,Calgary-Bow-Springbank
+2285,Fort Saskatchewan-Vegreville
+2286,Calgary-Buffalo
+2287,Calgary-Buffalo
+2288,Drumheller-Stettler
+2289,Calgary-Shaw
+2290,Edmonton-Manning
+2291,Edmonton-Whitemud
+2292,Calgary-Confluence
+2293,Strathcona-Sherwood Park
+2294,Medicine Hat-Brooks
+2295,Calgary-Currie
+2296,Edmonton-Ellerslie
+2297,Drumheller-Stettler
+2298,Edmonton-Gold Bar
+2299,Calgary-Currie
+2300,Calgary-Varsity
+2301,Edmonton-Enoch
+2302,Cochrane
+2303,Lethbridge-Little Bow
+2304,Wetaskiwin-Ponoka
+2305,Calgary-Confluence
+2306,Calgary-North West-Bearspaw
+2307,Calgary-Glenmore-Tsuut'ina
+2308,Red Deer-North
+2309,Strathcona-Sherwood Park
+2310,Lloydminster-Wainwright
+2311,Calgary-Varsity
+2312,Macleod-Crowsnest
+2313,Edmonton-Castle Downs
+2314,Calgary-Falconridge-Conrich
+2315,Calgary-Falconridge-Conrich
+2316,Calgary-Confluence
+2317,Calgary-Confluence
+2318,Edmonton-Enoch
+2319,Red Deer-South
+2320,Red Deer-South
+2321,Edmonton-Strathcona
+2322,Calgary-North West-Bearspaw
+2323,Fort McMurray-Wood Buffalo
+2324,Airdrie-West
+2325,Edmonton-Meadows
+2326,Edmonton-City Centre
+2327,Edmonton-Strathcona
+2328,Edmonton-Glenora-Riverview
+2329,Calgary-Lougheed
+2330,Calgary-Lougheed
+2331,Calgary-Cross
+2332,Sherwood Park
+2333,Calgary-Elbow
+2334,Edmonton-Whitemud
+2335,Camrose
+2336,Edmonton-Decore
+2337,Calgary-Beddington
+2338,Edmonton-McClung
+2339,Lethbridge-Cardston
+2340,Lethbridge
+2341,Calgary-Glenmore-Tsuut'ina
+2342,Calgary-Glenmore-Tsuut'ina
+2343,Calgary-Symons Valley
+2344,Peace River
+2345,Sherwood Park
+2346,Edmonton-Strathcona
+2347,Edmonton-Rutherford
+2348,Camrose
+2349,Medicine Hat-Brooks
+2350,Calgary-Bhullar-McCall
+2351,Chestermere-Strathmore
+2352,Morinville-Sturgeon
+2353,Sherwood Park
+2354,Lethbridge-Taber-Warner
+2355,Calgary-Edgemont
+2356,Lethbridge-Taber-Warner
+2357,Calgary-Klein
+2358,Edmonton-Windermere
+2359,Edmonton-Decore
+2360,Airdrie-West
+2361,Airdrie-West
+2362,Calgary-Hays
+2363,Calgary-Hays
+2364,Grande Prairie-Wapiti
+2365,Calgary-Confluence
+2366,Calgary-Confluence
+2367,Airdrie-East
+2368,Edmonton-Rutherford
+2369,Central Peace-Notley
+2370,Edmonton-Windermere
+2371,Edmonton-McClung
+2372,Calgary-Hays
+2373,Calgary-East
+2374,Calgary-East
+2375,Edmonton-Windermere
+2376,Okotoks
+2377,Blackfalds-Innisfail
+2378,Lesser Slave Lake
+2379,Red Deer-South
+2380,Wetaskiwin-Ponoka
+2381,Calgary-Fish Creek
+2382,Grande Prairie-Wapiti
+2383,Lloydminster-Wainwright
+2384,Edmonton-Rutherford
+2385,Calgary-Lougheed
+2386,Blackfalds-Innisfail
+2387,Edmonton-Enoch
+2388,Lesser Slave Lake
+2389,Edmonton-Rutherford
+2390,Drumheller-Stettler
+2391,Calgary-Cross
+2392,Airdrie-East
+2393,Edmonton-North West
+2394,Medicine Hat-Brooks
+2395,Red Deer-South
+2396,Calgary-Varsity
+2397,Macleod-Crowsnest
+2398,Chestermere-Strathmore
+2399,Grande Prairie
+2400,Strathcona-Sherwood Park
+2401,Fort Saskatchewan-Vegreville
+2402,Calgary-Shaw
+2403,Lethbridge-Taber-Warner
+2404,Edmonton-Nisku
+2405,Edmonton-Nisku
+2406,Calgary-East
+2407,Edmonton-Highlands-Norwood
+2408,Grande Prairie-Wapiti
+2409,Olds-Didsbury-Three Hills
+2410,Edmonton-Decore
+2411,Calgary-Shaw
+2412,Calgary-North
+2413,Grande Prairie-Wapiti
+2414,Lacombe-Sylvan Lake
+2415,Edmonton-West Henday
+2416,Edmonton-Enoch
+2417,Calgary-McKenzie
+2418,Edmonton-Strathcona
+2419,Edmonton-Decore
+2420,Calgary-Beddington
+2421,Calgary-Falconridge-Conrich
+2422,Edmonton-Decore
+2423,Lac Ste. Anne
+2424,Morinville-Sturgeon
+2425,Airdrie-East
+2426,Calgary-East
+2427,Airdrie-West
+2428,Cochrane
+2429,Calgary-Falconridge-Conrich
+2430,Calgary-Falconridge-Conrich
+2431,Edmonton-Mill Woods
+2432,Calgary-Bow-Springbank
+2433,Cochrane
+2434,Banff-Canmore-Diamond Valley
+2435,Banff-Canmore-Diamond Valley
+2436,Calgary-Nose Creek
+2437,Calgary-Bhullar-McCall
+2438,Edmonton-Meadows
+2439,Edmonton-Meadows
+2440,Lethbridge-Cardston
+2441,Cochrane
+2442,Strathcona-Sherwood Park
+2443,Calgary-Elbow
+2444,Calgary-Nose Creek
+2445,St. Albert
+2446,St. Albert
+2447,Edmonton-Gold Bar
+2448,Edmonton-Rutherford
+2449,Edmonton-Windermere
+2450,Calgary-Nose Creek
+2451,Calgary-North East
+2452,Calgary-Fish Creek
+2453,Edmonton-North West
+2454,Edmonton-South
+2455,Edmonton-Whitemud
+2456,Wetaskiwin-Ponoka
+2457,Edmonton-Windermere
+2458,Lethbridge
+2459,Rocky Mountain House-Sundre
+2460,Calgary-Buffalo
+2461,Edmonton-Glenora-Riverview
+2462,Edmonton-Manning
+2463,Okotoks
+2464,Lesser Slave Lake
+2465,Calgary-North East
+2466,Calgary-Symons Valley
+2467,Calgary-West-Springbank
+2468,Edmonton-Manning
+2469,Rocky Mountain House-Sundre
+2470,Calgary-Mountain View
+2471,St. Albert
+2472,Edmonton-South
+2473,Cold Lake-Bonnyville-St. Paul
+2474,Edmonton-Rutherford
+2475,Calgary-Confluence
+2476,Calgary-Lougheed
+2477,Calgary-South East
+2478,Red Deer-South
+2479,Lethbridge
+2480,Lac Ste. Anne
+2481,Calgary-Cross
+2482,Olds-Didsbury-Three Hills
+2483,Lethbridge-Cardston
+2484,Olds-Didsbury-Three Hills
+2485,Edmonton-Ellerslie
+2486,Edmonton-North West
+2487,Lesser Slave Lake
+2488,Cochrane
+2489,Edmonton-Gold Bar
+2490,Edmonton-McClung
+2491,Edmonton-Glenora-Riverview
+2492,Edmonton-Strathcona
+2493,Lac Ste. Anne
+2494,Lesser Slave Lake
+2495,Calgary-Symons Valley
+2496,Edmonton-Enoch
+2497,Calgary-Hays
+2498,Calgary-Varsity
+2499,Fort McMurray-Wood Buffalo
+2500,Peace River
+2501,Lethbridge-Cardston
+2502,Edmonton-Enoch
+2503,Calgary-Lougheed
+2504,Blackfalds-Innisfail
+2505,Lacombe-Sylvan Lake
+2506,Edmonton-Glenora-Riverview
+2507,Calgary-East
+2508,Spruce Grove
+2509,Lesser Slave Lake
+2510,Lesser Slave Lake
+2511,Calgary-East
+2512,Calgary-Currie
+2513,Macleod-Crowsnest
+2514,Edmonton-Manning
+2515,Calgary-West-Springbank
+2516,Red Deer-North
+2517,Calgary-Bow-Springbank
+2518,Lethbridge
+2519,Peace River
+2520,Calgary-Shaw
+2521,Calgary-Confluence
+2522,Wetaskiwin-Ponoka
+2523,Cochrane
+2524,Sherwood Park
+2525,Strathcona-Sherwood Park
+2526,West Yellowhead
+2527,Grande Prairie-Wapiti
+2528,Edmonton-South
+2529,Lac Ste. Anne
+2530,Calgary-Varsity
+2531,Edmonton-McClung
+2532,Cochrane
+2533,Calgary-West-Springbank
+2534,Lethbridge-Taber-Warner
+2535,Edmonton-Castle Downs
+2536,Calgary-Bow-Springbank
+2537,Lloydminster-Wainwright
+2538,Lacombe-Sylvan Lake
+2539,Grande Prairie
+2540,Grande Prairie-Wapiti
+2541,Central Peace-Notley
+2542,Lethbridge-Cardston
+2543,Wetaskiwin-Ponoka
+2544,Calgary-North West-Bearspaw
+2545,Airdrie-West
+2546,Lacombe-Sylvan Lake
+2547,Lethbridge
+2548,Edmonton-Windermere
+2549,Drumheller-Stettler
+2550,Peace River
+2551,Edmonton-City Centre
+2552,Edmonton-Strathcona
+2553,Calgary-Falconridge-Conrich
+2554,Lloydminster-Wainwright
+2555,Edmonton-Mill Woods
+2556,Spruce Grove
+2557,Leduc-Beaumont
+2558,Calgary-Fish Creek
+2559,Camrose
+2560,Edmonton-South
+2561,Calgary-Mountain View
+2562,Calgary-Mountain View
+2563,St. Albert
+2564,Calgary-Bow-Springbank
+2565,Calgary-Glenmore-Tsuut'ina
+2566,Calgary-Lougheed
+2567,Calgary-Lougheed
+2568,Cold Lake-Bonnyville-St. Paul
+2569,Lethbridge
+2570,Grande Prairie-Wapiti
+2571,Edmonton-Castle Downs
+2572,Edmonton-Strathcona
+2573,Calgary-Buffalo
+2574,Calgary-Beddington
+2575,Airdrie-West
+2576,Cochrane
+2577,Morinville-Sturgeon
+2578,Calgary-North
+2579,Airdrie-West
+2580,Calgary-Currie
+2581,Edmonton-Highlands-Norwood
+2582,Strathcona-Sherwood Park
+2583,Calgary-Glenmore-Tsuut'ina
+2584,Calgary-Glenmore-Tsuut'ina
+2585,Edmonton-Whitemud
+2586,Calgary-Acadia
+2587,Drayton Valley-Devon
+2588,Calgary-Varsity
+2589,Calgary-Varsity
+2590,Barrhead-Westlock-Athabasca
+2591,Calgary-Edgemont
+2592,Calgary-Hays
+2593,Edmonton-McClung
+2594,St. Albert
+2595,St. Albert
+2596,Calgary-West-Springbank
+2597,Calgary-Bow-Springbank
+2598,Edmonton-McClung
+2599,Macleod-Crowsnest
+2600,Calgary-Currie
+2601,Fort McMurray-Lac La Biche
+2602,Edmonton-Highlands-Norwood
+2603,St. Albert
+2604,Grande Prairie
+2605,Blackfalds-Innisfail
+2606,Leduc-Beaumont
+2607,Edmonton-North West
+2608,Calgary-Currie
+2609,Lethbridge
+2610,Lethbridge-Taber-Warner
+2611,Lesser Slave Lake
+2612,West Yellowhead
+2613,Lac Ste. Anne
+2614,Banff-Canmore-Diamond Valley
+2615,Barrhead-Westlock-Athabasca
+2616,Edmonton-North West
+2617,Barrhead-Westlock-Athabasca
+2618,Calgary-Hays
+2619,Grande Prairie-Wapiti
+2620,Drumheller-Stettler
+2621,Lethbridge-Little Bow
+2622,Okotoks
+2623,Edmonton-Glenora-Riverview
+2624,Edmonton-McClung
+2625,Edmonton-McClung
+2626,Fort Saskatchewan-Vegreville
+2627,Macleod-Crowsnest
+2628,Cochrane
+2629,Calgary-Klein
+2630,Calgary-Klein
+2631,Okotoks
+2632,Calgary-Varsity
+2633,Fort Saskatchewan-Vegreville
+2634,Banff-Canmore-Diamond Valley
+2635,Edmonton-Enoch
+2636,Peace River
+2637,Calgary-Varsity
+2638,Calgary-Shaw
+2639,Edmonton-Whitemud
+2640,Edmonton-West Henday
+2641,Calgary-North
+2642,Cochrane
+2643,Calgary-Symons Valley
+2644,Calgary-Bow-Springbank
+2645,Rocky Mountain House-Sundre
+2646,Lethbridge
+2647,Calgary-Lougheed
+2648,Calgary-Nose Creek
+2649,Central Peace-Notley
+2650,Fort Saskatchewan-Vegreville
+2651,Edmonton-West Henday
+2652,Lesser Slave Lake
+2653,Edmonton-Glenora-Riverview
+2654,Lethbridge-Cardston
+2655,Camrose
+2656,Central Peace-Notley
+2657,Calgary-North West-Bearspaw
+2658,Calgary-Edgemont
+2659,Calgary-Nose Creek
+2660,Calgary-West-Springbank
+2661,Medicine Hat-Cypress
+2662,Rocky Mountain House-Sundre
+2663,Calgary-Falconridge-Conrich
+2664,Calgary-Currie
+2665,Central Peace-Notley
+2666,Fort McMurray-Lac La Biche
+2667,Macleod-Crowsnest
+2668,Calgary-Currie
+2669,Calgary-Acadia
+2670,Cold Lake-Bonnyville-St. Paul
+2671,Okotoks
+2672,Barrhead-Westlock-Athabasca
+2673,Edmonton-Ellerslie
+2674,Calgary-North West-Bearspaw
+2675,Calgary-West-Springbank
+2676,Calgary-Symons Valley
+2677,Calgary-Fish Creek
+2678,St. Albert
+2679,Sherwood Park
+2680,Lethbridge-Cardston
+2681,Leduc-Beaumont
+2682,Calgary-Fish Creek
+2683,Calgary-Mountain View
+2684,Calgary-Shaw
+2685,Calgary-Shaw
+2686,Edmonton-Beverly-Clareview
+2687,Edmonton-Ellerslie
+2688,Medicine Hat-Brooks
+2689,Calgary-East
+2690,Edmonton-Glenora-Riverview
+2691,Macleod-Crowsnest
+2692,Lloydminster-Wainwright
+2693,Calgary-Nose Creek
+2694,Edmonton-Windermere
+2695,Peace River
+2696,Grande Prairie
+2697,Calgary-Fish Creek
+2698,Calgary-Fish Creek
+2699,Calgary-Klein
+2700,Calgary-Beddington
+2701,Edmonton-North West
+2702,Lac Ste. Anne
+2703,Calgary-South East
+2704,Calgary-South East
+2705,Calgary-Fish Creek
+2706,Chestermere-Strathmore
+2707,Olds-Didsbury-Three Hills
+2708,Olds-Didsbury-Three Hills
+2709,Peace River
+2710,Peace River
+2711,West Yellowhead
+2712,Calgary-Lougheed
+2713,Edmonton-Windermere
+2714,Calgary-North West-Bearspaw
+2715,Calgary-North West-Bearspaw
+2716,Edmonton-Highlands-Norwood
+2717,Okotoks
+2718,Calgary-Lougheed
+2719,Calgary-Elbow
+2720,Calgary-Edgemont
+2721,Calgary-Nose Creek
+2722,Camrose
+2723,Okotoks
+2724,Red Deer-North
+2725,Edmonton-Rutherford
+2726,Calgary-Fish Creek
+2727,Calgary-Fish Creek
+2728,St. Albert
+2729,Lethbridge-Little Bow
+2730,Edmonton-Gold Bar
+2731,Medicine Hat-Brooks
+2732,Calgary-McKenzie
+2733,Calgary-Cross
+2734,Airdrie-East
+2735,Edmonton-Castle Downs
+2736,Lacombe-Sylvan Lake
+2737,Barrhead-Westlock-Athabasca
+2738,Calgary-McKenzie
+2739,Calgary-McKenzie
+2740,Lloydminster-Wainwright
+2741,Medicine Hat-Brooks
+2742,Calgary-Edgemont
+2743,Barrhead-Westlock-Athabasca
+2744,Edmonton-West Henday
+2745,Edmonton-Enoch
+2746,Edmonton-Rutherford
+2747,Calgary-Cross
+2748,Calgary-East
+2749,Calgary-Varsity
+2750,Edmonton-Glenora-Riverview
+2751,Drayton Valley-Devon
+2752,Calgary-Confluence
+2753,Wetaskiwin-Ponoka
+2754,Calgary-Cross
+2755,Sherwood Park
+2756,Sherwood Park
+2757,Calgary-Fish Creek
+2758,Airdrie-East
+2759,Edmonton-Whitemud
+2760,Edmonton-Beverly-Clareview
+2761,Calgary-Klein
+2762,Morinville-Sturgeon
+2763,Calgary-Bhullar-McCall
+2764,Lethbridge-Cardston
+2765,Peace River
+2766,Edmonton-West Henday
+2767,West Yellowhead
+2768,Camrose
+2769,Edmonton-West Henday
+2770,Calgary-Nose Creek
+2771,Calgary-East
+2772,Barrhead-Westlock-Athabasca
+2773,Sherwood Park
+2774,Sherwood Park
+2775,Sherwood Park
+2776,Lethbridge-Taber-Warner
+2777,Medicine Hat-Brooks
+2778,Edmonton-Ellerslie
+2779,Edmonton-Mill Woods
+2780,Camrose
+2781,Grande Prairie
+2782,Edmonton-Strathcona
+2783,Lac Ste. Anne
+2784,Rocky Mountain House-Sundre
+2785,Edmonton-Decore
+2786,Calgary-Bhullar-McCall
+2787,Lethbridge-Cardston
+2788,Calgary-Fish Creek
+2789,Edmonton-Strathcona
+2790,Drayton Valley-Devon
+2791,Edmonton-City Centre
+2792,Red Deer-North
+2793,Calgary-Buffalo
+2794,Peace River
+2795,Calgary-Confluence
+2796,Central Peace-Notley
+2797,Lethbridge
+2798,St. Albert
+2799,Calgary-Lougheed
+2800,Leduc-Beaumont
+2801,Barrhead-Westlock-Athabasca
+2802,Rocky Mountain House-Sundre
+2803,Edmonton-Enoch
+2804,Edmonton-Enoch
+2805,Calgary-McKenzie
+2806,Calgary-North
+2807,Rocky Mountain House-Sundre
+2808,Edmonton-Enoch
+2809,Edmonton-Beverly-Clareview
+2810,Edmonton-Rutherford
+2811,Grande Prairie
+2812,Medicine Hat-Brooks
+2813,Barrhead-Westlock-Athabasca
+2814,Edmonton-Glenora-Riverview
+2815,St. Albert
+2816,Calgary-Elbow
+2817,St. Albert
+2818,Edmonton-McClung
+2819,Lesser Slave Lake
+2820,Calgary-Buffalo
+2821,Calgary-Buffalo
+2822,Lloydminster-Wainwright
+2823,Edmonton-Gold Bar
+2824,Fort Saskatchewan-Vegreville
+2825,Fort Saskatchewan-Vegreville
+2826,Barrhead-Westlock-Athabasca
+2827,Edmonton-North West
+2828,Edmonton-Strathcona
+2829,Calgary-Edgemont
+2830,Morinville-Sturgeon
+2831,Calgary-Bhullar-McCall
+2832,Edmonton-Meadows
+2833,Fort McMurray-Lac La Biche
+2834,Calgary-Confluence
+2835,Edmonton-McClung
+2836,Red Deer-South
+2837,Lethbridge
+2838,Calgary-Edgemont
+2839,Edmonton-Highlands-Norwood
+2840,Edmonton-City Centre
+2841,Lacombe-Sylvan Lake
+2842,Fort Saskatchewan-Vegreville
+2843,Macleod-Crowsnest
+2844,Edmonton-Gold Bar
+2845,Calgary-Lougheed
+2846,Calgary-Beddington
+2847,Calgary-Edgemont
+2848,Calgary-Fish Creek
+2849,Fort McMurray-Lac La Biche
+2850,Calgary-Glenmore-Tsuut'ina
+2851,Cochrane
+2852,Calgary-Currie
+2853,Leduc-Beaumont
+2854,Barrhead-Westlock-Athabasca
+2855,Edmonton-Ellerslie
+2856,Edmonton-City Centre
+2857,Calgary-Klein
+2858,Grande Prairie-Wapiti
+2859,Morinville-Sturgeon
+2860,Calgary-Beddington
+2861,Banff-Canmore-Diamond Valley
+2862,Leduc-Beaumont
+2863,Leduc-Beaumont
+2864,Edmonton-Ellerslie
+2865,Calgary-Bow-Springbank
+2866,Drumheller-Stettler
+2867,Cochrane
+2868,Edmonton-Mill Woods
+2869,Edmonton-Castle Downs
+2870,Rocky Mountain House-Sundre
+2871,Banff-Canmore-Diamond Valley
+2872,Edmonton-West Henday
+2873,Olds-Didsbury-Three Hills
+2874,Medicine Hat-Cypress
+2875,Airdrie-West
+2876,Fort Saskatchewan-Vegreville
+2877,Calgary-Acadia
+2878,Edmonton-Gold Bar
+2879,Edmonton-North West
+2880,Grande Prairie-Wapiti
+2881,Lethbridge-Taber-Warner
+2882,Lethbridge-Taber-Warner
+2883,West Yellowhead
+2884,Edmonton-Mill Woods
+2885,Wetaskiwin-Ponoka
+2886,Lloydminster-Wainwright
+2887,Airdrie-West
+2888,Calgary-West-Springbank
+2889,Edmonton-Beverly-Clareview
+2890,Edmonton-Windermere
+2891,Calgary-Acadia
+2892,Calgary-Confluence
+2893,Calgary-Shaw
+2894,Calgary-Confluence
+2895,Calgary-Elbow
+2896,Drumheller-Stettler
+2897,Calgary-North
+2898,Lac Ste. Anne
+2899,Lac Ste. Anne
+2900,Strathcona-Sherwood Park
+2901,Chestermere-Strathmore
+2902,Airdrie-West
+2903,Lethbridge-Taber-Warner
+2904,Calgary-Elbow
+2905,Calgary-Lougheed
+2906,Grande Prairie
+2907,Calgary-Currie
+2908,St. Albert
+2909,Spruce Grove
+2910,Wetaskiwin-Ponoka
+2911,Drayton Valley-Devon
+2912,Medicine Hat-Cypress
+2913,Spruce Grove
+2914,Calgary-Fish Creek
+2915,Fort McMurray-Wood Buffalo
+2916,Lloydminster-Wainwright
+2917,St. Albert
+2918,Calgary-East
+2919,Calgary-Lougheed
+2920,Edmonton-City Centre
+2921,Edmonton-Manning
+2922,Leduc-Beaumont
+2923,Edmonton-Decore
+2924,Calgary-Glenmore-Tsuut'ina
+2925,Airdrie-West
+2926,Edmonton-City Centre
+2927,Rocky Mountain House-Sundre
+2928,Edmonton-Gold Bar
+2929,Airdrie-East
+2930,Okotoks
+2931,Edmonton-Manning
+2932,Edmonton-McClung
+2933,Grande Prairie
+2934,Lac Ste. Anne
+2935,Wetaskiwin-Ponoka
+2936,Calgary-Nose Creek
+2937,Calgary-Nose Creek
+2938,St. Albert
+2939,Airdrie-East
+2940,Edmonton-Enoch
+2941,Calgary-McKenzie
+2942,Edmonton-Enoch
+2943,Blackfalds-Innisfail
+2944,Lac Ste. Anne
+2945,Drayton Valley-Devon
+2946,Edmonton-Ellerslie
+2947,Calgary-Currie
+2948,Lacombe-Sylvan Lake
+2949,Edmonton-Mill Woods
+2950,Edmonton-Strathcona
+2951,Lethbridge-Cardston
+2952,Edmonton-Mill Woods
+2953,Calgary-Edgemont
+2954,Calgary-Klein
+2955,Medicine Hat-Cypress
+2956,Edmonton-Glenora-Riverview
+2957,Calgary-McKenzie
+2958,Calgary-McKenzie
+2959,Morinville-Sturgeon
+2960,Edmonton-Windermere
+2961,West Yellowhead
+2962,Lac Ste. Anne
+2963,Calgary-Nose Creek
+2964,West Yellowhead
+2965,Airdrie-West
+2966,Edmonton-Whitemud
+2967,Chestermere-Strathmore
+2968,Calgary-North West-Bearspaw
+2969,Airdrie-East
+2970,Edmonton-City Centre
+2971,West Yellowhead
+2972,Leduc-Beaumont
+2973,Edmonton-Strathcona
+2974,Calgary-Glenmore-Tsuut'ina
+2975,Calgary-Elbow
+2976,Banff-Canmore-Diamond Valley
+2977,Medicine Hat-Cypress
+2978,Calgary-Currie
+2979,Calgary-Klein
+2980,Red Deer-South
+2981,Edmonton-McClung
+2982,Camrose
+2983,Rocky Mountain House-Sundre
+2984,Airdrie-East
+2985,Calgary-Elbow
+2986,St. Albert
+2987,Fort McMurray-Wood Buffalo
+2988,Calgary-Bow-Springbank
+2989,Lethbridge
+2990,Lethbridge
+2991,Lethbridge
+2992,Calgary-Nose Creek
+2993,Calgary-Buffalo
+2994,Edmonton-West Henday
+2995,Macleod-Crowsnest
+2996,Cochrane
+2997,Spruce Grove
+2998,Spruce Grove
+2999,Rocky Mountain House-Sundre
+3000,West Yellowhead
+3001,Calgary-Currie
+3002,Calgary-Nose Creek
+3003,Calgary-Falconridge-Conrich
+3004,Edmonton-Gold Bar
+3005,Calgary-North West-Bearspaw
+3006,Calgary-West-Springbank
+3007,Okotoks
+3008,Barrhead-Westlock-Athabasca
+3009,Edmonton-Ellerslie
+3010,Airdrie-West
+3011,Calgary-Beddington
+3012,Edmonton-Highlands-Norwood
+3013,Edmonton-City Centre
+3014,Calgary-Cross
+3015,Calgary-Symons Valley
+3016,Calgary-McKenzie
+3017,Calgary-McKenzie
+3018,Edmonton-Ellerslie
+3019,Medicine Hat-Brooks
+3020,Leduc-Beaumont
+3021,Calgary-Mountain View
+3022,Calgary-Lougheed
+3023,Airdrie-East
+3024,Calgary-Cross
+3025,Calgary-North
+3026,Morinville-Sturgeon
+3027,Edmonton-Decore
+3028,Drumheller-Stettler
+3029,Lethbridge-Little Bow
+3030,Barrhead-Westlock-Athabasca
+3031,Calgary-Edgemont
+3032,Cold Lake-Bonnyville-St. Paul
+3033,Edmonton-Beverly-Clareview
+3034,Edmonton-Beverly-Clareview
+3035,Edmonton-Strathcona
+3036,Calgary-Confluence
+3037,Edmonton-Windermere
+3038,Calgary-Buffalo
+3039,Calgary-North West-Bearspaw
+3040,Drumheller-Stettler
+3041,Edmonton-West Henday
+3042,Edmonton-West Henday
+3043,Edmonton-Decore
+3044,Calgary-North
+3045,Lac Ste. Anne
+3046,Edmonton-Gold Bar
+3047,Leduc-Beaumont
+3048,Barrhead-Westlock-Athabasca
+3049,Drayton Valley-Devon
+3050,Macleod-Crowsnest
+3051,Red Deer-South
+3052,Red Deer-South
+3053,Sherwood Park
+3054,Lethbridge-Taber-Warner
+3055,Lloydminster-Wainwright
+3056,Edmonton-Windermere
+3057,Calgary-Lougheed
+3058,Calgary-McKenzie
+3059,Edmonton-Mill Woods
+3060,Calgary-North East
+3061,Edmonton-Beverly-Clareview
+3062,Lloydminster-Wainwright
+3063,Calgary-North East
+3064,Blackfalds-Innisfail
+3065,Calgary-Elbow
+3066,Calgary-Nose Creek
+3067,St. Albert
+3068,Calgary-Varsity
+3069,Calgary-Fish Creek
+3070,Calgary-North
+3071,Calgary-Acadia
+3072,Calgary-Acadia
+3073,Strathcona-Sherwood Park
+3074,Calgary-Lougheed
+3075,Calgary-Fish Creek
+3076,Fort McMurray-Lac La Biche
+3077,Peace River
+3078,Edmonton-Gold Bar
+3079,Edmonton-McClung
+3080,Calgary-Elbow
+3081,Macleod-Crowsnest
+3082,Calgary-Currie
+3083,Fort Saskatchewan-Vegreville
+3084,Edmonton-West Henday
+3085,Edmonton-North West
+3086,Edmonton-McClung
+3087,Camrose
+3088,Airdrie-East
+3089,Calgary-Mountain View
+3090,Edmonton-Strathcona
+3091,Fort Saskatchewan-Vegreville
+3092,Strathcona-Sherwood Park
+3093,Strathcona-Sherwood Park
+3094,Edmonton-Glenora-Riverview
+3095,Calgary-Shaw
+3096,Edmonton-Decore
+3097,Strathcona-Sherwood Park
+3098,Edmonton-Highlands-Norwood
+3099,Lethbridge
+3100,Calgary-Cross
+3101,Calgary-Bow-Springbank
+3102,Lethbridge-Little Bow
+3103,Edmonton-West Henday
+3104,Calgary-Mountain View
+3105,Edmonton-Castle Downs
+3106,Medicine Hat-Brooks
+3107,Edmonton-Gold Bar
+3108,Fort Saskatchewan-Vegreville
+3109,Calgary-McKenzie
+3110,Airdrie-West
+3111,Lethbridge-Little Bow
+3112,Barrhead-Westlock-Athabasca
+3113,Calgary-North
+3114,Okotoks
+3115,Calgary-Cross
+3116,Okotoks
+3117,Calgary-Confluence
+3118,Calgary-Nose Creek
+3119,Calgary-McKenzie
+3120,Grande Prairie
+3121,Edmonton-Enoch
+3122,Calgary-McKenzie
+3123,Calgary-Varsity
+3124,Edmonton-Enoch
+3125,Drumheller-Stettler
+3126,Calgary-North West-Bearspaw
+3127,Calgary-McKenzie
+3128,Calgary-Beddington
+3129,Calgary-West-Springbank
+3130,Macleod-Crowsnest
+3131,Edmonton-Mill Woods
+3132,Red Deer-South
+3133,Lethbridge-Taber-Warner
+3134,Lethbridge
+3135,Calgary-East
+3136,Fort Saskatchewan-Vegreville
+3137,Calgary-Beddington
+3138,Grande Prairie-Wapiti
+3139,Calgary-Symons Valley
+3140,Calgary-Buffalo
+3141,Calgary-West-Springbank
+3142,Lesser Slave Lake
+3143,Lesser Slave Lake
+3144,Lloydminster-Wainwright
+3145,Medicine Hat-Cypress
+3146,Edmonton-Castle Downs
+3147,Drumheller-Stettler
+3148,Calgary-Fish Creek
+3149,Cochrane
+3150,Sherwood Park
+3151,Edmonton-City Centre
+3152,Edmonton-City Centre
+3153,Edmonton-Highlands-Norwood
+3154,Calgary-Lougheed
+3155,Central Peace-Notley
+3156,Edmonton-Decore
+3157,Calgary-Beddington
+3158,Drumheller-Stettler
+3159,Macleod-Crowsnest
+3160,Lethbridge
+3161,Olds-Didsbury-Three Hills
+3162,Calgary-Acadia
+3163,Edmonton-Gold Bar
+3164,Calgary-North
+3165,Grande Prairie-Wapiti
+3166,Calgary-Elbow
+3167,Calgary-Elbow
+3168,Cold Lake-Bonnyville-St. Paul
+3169,Chestermere-Strathmore
+3170,Okotoks
+3171,Lethbridge-Taber-Warner
+3172,Edmonton-Gold Bar
+3173,Calgary-Mountain View
+3174,Calgary-Mountain View
+3175,Calgary-Cross
+3176,Edmonton-Nisku
+3177,Edmonton-Nisku
+3178,Calgary-McKenzie
+3179,Calgary-Beddington
+3180,Wetaskiwin-Ponoka
+3181,Rocky Mountain House-Sundre
+3182,Edmonton-City Centre
+3183,Lloydminster-Wainwright
+3184,Medicine Hat-Cypress
+3185,Drayton Valley-Devon
+3186,Morinville-Sturgeon
+3187,Edmonton-City Centre
+3188,Fort McMurray-Lac La Biche
+3189,Edmonton-South
+3190,Red Deer-North
+3191,Red Deer-North
+3192,Red Deer-South
+3193,Calgary-Fish Creek
+3194,Edmonton-Gold Bar
+3195,Drumheller-Stettler
+3196,Grande Prairie-Wapiti
+3197,Medicine Hat-Cypress
+3198,Medicine Hat-Cypress
+3199,Morinville-Sturgeon
+3200,Lethbridge-Taber-Warner
+3201,Central Peace-Notley
+3202,Edmonton-Mill Woods
+3203,Calgary-Currie
+3204,Barrhead-Westlock-Athabasca
+3205,Edmonton-City Centre
+3206,Calgary-East
+3207,Calgary-Lougheed
+3208,Calgary-West-Springbank
+3209,Calgary-Elbow
+3210,Calgary-Acadia
+3211,Edmonton-Enoch
+3212,Edmonton-Ellerslie
+3213,Edmonton-Gold Bar
+3214,Edmonton-McClung
+3215,Cold Lake-Bonnyville-St. Paul
+3216,Edmonton-Windermere
+3217,Peace River
+3218,Edmonton-McClung
+3219,Calgary-Bow-Springbank
+3220,Edmonton-South
+3221,Edmonton-Glenora-Riverview
+3222,Edmonton-North West
+3223,Calgary-West-Springbank
+3224,Chestermere-Strathmore
+3225,Edmonton-North West
+3226,Macleod-Crowsnest
+3227,Calgary-McKenzie
+3228,Central Peace-Notley
+3229,Calgary-Bow-Springbank
+3230,Calgary-Varsity
+3231,Medicine Hat-Brooks
+3232,Red Deer-South
+3233,Medicine Hat-Cypress
+3234,Edmonton-Windermere
+3235,Edmonton-West Henday
+3236,Drumheller-Stettler
+3237,Edmonton-Strathcona
+3238,Edmonton-Beverly-Clareview
+3239,Lethbridge-Little Bow
+3240,Calgary-North
+3241,Camrose
+3242,Lethbridge
+3243,Lethbridge
+3244,St. Albert
+3245,Airdrie-West
+3246,Calgary-Confluence
+3247,Strathcona-Sherwood Park
+3248,Central Peace-Notley
+3249,Edmonton-West Henday
+3250,Edmonton-West Henday
+3251,Lac Ste. Anne
+3252,Calgary-Symons Valley
+3253,Calgary-Glenmore-Tsuut'ina
+3254,Macleod-Crowsnest
+3255,Edmonton-Strathcona
+3256,Banff-Canmore-Diamond Valley
+3257,Calgary-West-Springbank
+3258,Calgary-Klein
+3259,Calgary-Glenmore-Tsuut'ina
+3260,Cold Lake-Bonnyville-St. Paul
+3261,Wetaskiwin-Ponoka
+3262,Edmonton-Highlands-Norwood
+3263,Blackfalds-Innisfail
+3264,Calgary-Bow-Springbank
+3265,Edmonton-Glenora-Riverview
+3266,Banff-Canmore-Diamond Valley
+3267,Fort McMurray-Lac La Biche
+3268,Edmonton-Manning
+3269,Calgary-East
+3270,Fort Saskatchewan-Vegreville
+3271,Grande Prairie-Wapiti
+3272,Camrose
+3273,Edmonton-Strathcona
+3274,Calgary-Cross
+3275,Medicine Hat-Brooks
+3276,Olds-Didsbury-Three Hills
+3277,Edmonton-McClung
+3278,Edmonton-McClung
+3279,Drumheller-Stettler
+3280,Calgary-Beddington
+3281,Red Deer-North
+3282,Fort McMurray-Wood Buffalo
+3283,Lethbridge-Little Bow
+3284,Calgary-Klein
+3285,Lethbridge-Taber-Warner
+3286,Calgary-Mountain View
+3287,Calgary-Buffalo
+3288,Spruce Grove
+3289,Calgary-Currie
+3290,Calgary-Glenmore-Tsuut'ina
+3291,Lethbridge-Taber-Warner
+3292,Macleod-Crowsnest
+3293,Edmonton-McClung
+3294,Calgary-Acadia
+3295,Calgary-Acadia
+3296,Leduc-Beaumont
+3297,Calgary-North West-Bearspaw
+3298,Chestermere-Strathmore
+3299,Calgary-West-Springbank
+3300,Okotoks
+3301,Lac Ste. Anne
+3302,Calgary-McKenzie
+3303,Calgary-Bhullar-McCall
+3304,Grande Prairie
+3305,Edmonton-McClung
+3306,Edmonton-Beverly-Clareview
+3307,Macleod-Crowsnest
+3308,Macleod-Crowsnest
+3309,Calgary-Bow-Springbank
+3310,Sherwood Park
+3311,Edmonton-Enoch
+3312,Blackfalds-Innisfail
+3313,Medicine Hat-Brooks
+3314,Wetaskiwin-Ponoka
+3315,Lloydminster-Wainwright
+3316,Camrose
+3317,Camrose
+3318,Morinville-Sturgeon
+3319,Morinville-Sturgeon
+3320,Calgary-Currie
+3321,Calgary-Buffalo
+3322,Grande Prairie-Wapiti
+3323,Wetaskiwin-Ponoka
+3324,Fort McMurray-Lac La Biche
+3325,Calgary-McKenzie
+3326,Edmonton-City Centre
+3327,Olds-Didsbury-Three Hills
+3328,Calgary-Klein
+3329,Calgary-Klein
+3330,Drumheller-Stettler
+3331,Wetaskiwin-Ponoka
+3332,Calgary-Nose Creek
+3333,Olds-Didsbury-Three Hills
+3334,Lethbridge-Little Bow
+3335,Edmonton-Castle Downs
+3336,Edmonton-South
+3337,West Yellowhead
+3338,Edmonton-Beverly-Clareview
+3339,Okotoks
+3340,Edmonton-McClung
+3341,Lethbridge-Little Bow
+3342,Calgary-East
+3343,Calgary-Falconridge-Conrich
+3344,Lacombe-Sylvan Lake
+3345,Calgary-Cross
+3346,Lac Ste. Anne
+3347,Medicine Hat-Brooks
+3348,Lacombe-Sylvan Lake
+3349,Strathcona-Sherwood Park
+3350,Lacombe-Sylvan Lake
+3351,Calgary-East
+3352,Edmonton-South
+3353,Drayton Valley-Devon
+3354,Blackfalds-Innisfail
+3355,Lac Ste. Anne
+3356,Calgary-Acadia
+3357,Calgary-Beddington
+3358,Calgary-Bow-Springbank
+3359,Calgary-Bow-Springbank
+3360,Red Deer-North
+3361,Calgary-McKenzie
+3362,Lesser Slave Lake
+3363,Calgary-Edgemont
+3364,Cochrane
+3365,Airdrie-East
+3366,Airdrie-East
+3367,Macleod-Crowsnest
+3368,Red Deer-South
+3369,Edmonton-McClung
+3370,Lloydminster-Wainwright
+3371,Okotoks
+3372,Calgary-Mountain View
+3373,Lethbridge-Taber-Warner
+3374,Calgary-North West-Bearspaw
+3375,Lethbridge
+3376,Lethbridge-Cardston
+3377,Calgary-Edgemont
+3378,Edmonton-City Centre
+3379,Calgary-East
+3380,Edmonton-Rutherford
+3381,Edmonton-Decore
+3382,Macleod-Crowsnest
+3383,Rocky Mountain House-Sundre
+3384,West Yellowhead
+3385,Blackfalds-Innisfail
+3386,Calgary-Nose Creek
+3387,Lac Ste. Anne
+3388,Lac Ste. Anne
+3389,Calgary-Klein
+3390,Lesser Slave Lake
+3391,Edmonton-Castle Downs
+3392,Drumheller-Stettler
+3393,Lethbridge
+3394,Okotoks
+3395,Calgary-Mountain View
+3396,Edmonton-North West
+3397,Olds-Didsbury-Three Hills
+3398,Fort McMurray-Lac La Biche
+3399,Okotoks
+3400,Drayton Valley-Devon
+3401,Lac Ste. Anne
+3402,St. Albert
+3403,Lethbridge-Little Bow
+3404,Calgary-Buffalo
+3405,Calgary-Acadia
+3406,Fort Saskatchewan-Vegreville
+3407,Calgary-Falconridge-Conrich
+3408,Blackfalds-Innisfail
+3409,Lac Ste. Anne
+3410,Red Deer-South
+3411,Red Deer-North
+3412,Calgary-Buffalo
+3413,Edmonton-Whitemud
+3414,Calgary-Varsity
+3415,Edmonton-Ellerslie
+3416,Calgary-Hays
+3417,Calgary-Symons Valley
+3418,Edmonton-Mill Woods
+3419,Calgary-Confluence
+3420,Edmonton-Manning
+3421,Edmonton-Meadows
+3422,Chestermere-Strathmore
+3423,Calgary-Lougheed
+3424,Grande Prairie-Wapiti
+3425,Edmonton-Manning
+3426,Lethbridge-Little Bow
+3427,Calgary-Acadia
+3428,Edmonton-North West
+3429,Lac Ste. Anne
+3430,Calgary-Mountain View
+3431,Edmonton-North West
+3432,Cochrane
+3433,Calgary-Lougheed
+3434,Calgary-West-Springbank
+3435,Medicine Hat-Brooks
+3436,Leduc-Beaumont
+3437,West Yellowhead
+3438,Edmonton-West Henday
+3439,Edmonton-West Henday
+3440,Drayton Valley-Devon
+3441,Spruce Grove
+3442,Calgary-Klein
+3443,Medicine Hat-Cypress
+3444,Cold Lake-Bonnyville-St. Paul
+3445,Calgary-West-Springbank
+3446,Calgary-West-Springbank
+3447,Central Peace-Notley
+3448,Edmonton-Whitemud
+3449,Morinville-Sturgeon
+3450,Peace River
+3451,Grande Prairie-Wapiti
+3452,Calgary-Bow-Springbank
+3453,Cold Lake-Bonnyville-St. Paul
+3454,Cold Lake-Bonnyville-St. Paul
+3455,Chestermere-Strathmore
+3456,Sherwood Park
+3457,Edmonton-Strathcona
+3458,Calgary-South East
+3459,Peace River
+3460,Barrhead-Westlock-Athabasca
+3461,Edmonton-North West
+3462,Central Peace-Notley
+3463,Calgary-Varsity
+3464,Edmonton-Beverly-Clareview
+3465,Edmonton-City Centre
+3466,Medicine Hat-Brooks
+3467,Medicine Hat-Cypress
+3468,Medicine Hat-Cypress
+3469,Olds-Didsbury-Three Hills
+3470,Calgary-East
+3471,Banff-Canmore-Diamond Valley
+3472,Red Deer-South
+3473,Calgary-Varsity
+3474,Calgary-Symons Valley
+3475,Calgary-Symons Valley
+3476,Calgary-Varsity
+3477,Lloydminster-Wainwright
+3478,Edmonton-Glenora-Riverview
+3479,Edmonton-Manning
+3480,Calgary-Klein
+3481,Edmonton-Beverly-Clareview
+3482,Morinville-Sturgeon
+3483,Calgary-Klein
+3484,Sherwood Park
+3485,Calgary-East
+3486,Okotoks
+3487,Olds-Didsbury-Three Hills
+3488,Edmonton-Manning
+3489,Wetaskiwin-Ponoka
+3490,Drumheller-Stettler
+3491,Edmonton-North West
+3492,Wetaskiwin-Ponoka
+3493,Okotoks
+3494,Edmonton-City Centre
+3495,Calgary-North
+3496,Edmonton-Gold Bar
+3497,Wetaskiwin-Ponoka
+3498,Grande Prairie-Wapiti
+3499,Calgary-Shaw
+3500,Peace River
+3501,Edmonton-City Centre
+3502,Okotoks
+3503,Fort Saskatchewan-Vegreville
+3504,Calgary-Glenmore-Tsuut'ina
+3505,Edmonton-Rutherford
+3506,Edmonton-City Centre
+3507,Edmonton-Mill Woods
+3508,Edmonton-Strathcona
+3509,Central Peace-Notley
+3510,Rocky Mountain House-Sundre
+3511,Lloydminster-Wainwright
+3512,Calgary-Fish Creek
+3513,Calgary-Shaw
+3514,Calgary-Shaw
+3515,Calgary-Currie
+3516,Banff-Canmore-Diamond Valley
+3517,Sherwood Park
+3518,Calgary-Fish Creek
+3519,Calgary-Klein
+3520,Olds-Didsbury-Three Hills
+3521,Fort McMurray-Lac La Biche
+3522,Wetaskiwin-Ponoka
+3523,Lloydminster-Wainwright
+3524,Calgary-Confluence
+3525,Lesser Slave Lake
+3526,Leduc-Beaumont
+3527,Edmonton-North West
+3528,Lac Ste. Anne
+3529,Calgary-Klein
+3530,Lethbridge-Cardston
+3531,Grande Prairie
+3532,Calgary-Shaw
+3533,Calgary-Shaw
+3534,Calgary-West-Springbank
+3535,Calgary-Edgemont
+3536,Calgary-Acadia
+3537,Lac Ste. Anne
+3538,Airdrie-East
+3539,Edmonton-Whitemud
+3540,Grande Prairie
+3541,Lethbridge
+3542,Edmonton-Rutherford
+3543,Calgary-Symons Valley
+3544,Calgary-East
+3545,Edmonton-McClung
+3546,Drumheller-Stettler
+3547,Rocky Mountain House-Sundre
+3548,Edmonton-Ellerslie
+3549,Calgary-Bow-Springbank
+3550,Calgary-Beddington
+3551,Lethbridge-Little Bow
+3552,Calgary-South East
+3553,Fort McMurray-Wood Buffalo
+3554,Calgary-Bhullar-McCall
+3555,Lethbridge-Cardston
+3556,Camrose
+3557,Lloydminster-Wainwright
+3558,Calgary-East
+3559,Chestermere-Strathmore
+3560,Blackfalds-Innisfail
+3561,Calgary-Nose Creek
+3562,Airdrie-East
+3563,Edmonton-Whitemud
+3564,Edmonton-Rutherford
+3565,Edmonton-Decore
+3566,Medicine Hat-Brooks
+3567,Central Peace-Notley
+3568,St. Albert
+3569,Edmonton-Manning
+3570,Cochrane
+3571,West Yellowhead
+3572,Calgary-McKenzie
+3573,Lacombe-Sylvan Lake
+3574,Grande Prairie-Wapiti
+3575,Lethbridge-Cardston
+3576,Edmonton-Ellerslie
+3577,Banff-Canmore-Diamond Valley
+3578,Airdrie-East
+3579,St. Albert
+3580,Edmonton-Gold Bar
+3581,West Yellowhead
+3582,West Yellowhead
+3583,Medicine Hat-Brooks
+3584,Morinville-Sturgeon
+3585,Calgary-North West-Bearspaw
+3586,Banff-Canmore-Diamond Valley
+3587,Calgary-Klein
+3588,Drayton Valley-Devon
+3589,Lesser Slave Lake
+3590,Calgary-Buffalo
+3591,Calgary-Elbow
+3592,Calgary-Shaw
+3593,Strathcona-Sherwood Park
+3594,Edmonton-Glenora-Riverview
+3595,Edmonton-Enoch
+3596,Camrose
+3597,Grande Prairie-Wapiti
+3598,St. Albert
+3599,West Yellowhead
+3600,Macleod-Crowsnest
+3601,Calgary-Confluence
+3602,Edmonton-Strathcona
+3603,Barrhead-Westlock-Athabasca
+3604,Blackfalds-Innisfail
+3605,Calgary-Currie
+3606,Calgary-Bhullar-McCall
+3607,Leduc-Beaumont
+3608,Leduc-Beaumont
+3609,Drayton Valley-Devon
+3610,Edmonton-North West
+3611,Calgary-North West-Bearspaw
+3612,Calgary-Nose Creek
+3613,Edmonton-Highlands-Norwood
+3614,Blackfalds-Innisfail
+3615,Lethbridge
+3616,Okotoks
+3617,Okotoks
+3618,Calgary-Glenmore-Tsuut'ina
+3619,Calgary-Edgemont
+3620,Calgary-East
+3621,Drumheller-Stettler
+3622,Calgary-Confluence
+3623,Edmonton-McClung
+3624,Red Deer-North
+3625,Drayton Valley-Devon
+3626,Drayton Valley-Devon
+3627,Morinville-Sturgeon
+3628,Calgary-Bow-Springbank
+3629,Medicine Hat-Cypress
+3630,Calgary-Edgemont
+3631,Drumheller-Stettler
+3632,Lac Ste. Anne
+3633,Fort McMurray-Lac La Biche
+3634,St. Albert
+3635,Edmonton-Strathcona
+3636,Olds-Didsbury-Three Hills
+3637,Edmonton-Glenora-Riverview
+3638,West Yellowhead
+3639,Edmonton-South
+3640,Edmonton-Rutherford
+3641,Chestermere-Strathmore
+3642,Blackfalds-Innisfail
+3643,Calgary-North
+3644,Lacombe-Sylvan Lake
+3645,Edmonton-West Henday
+3646,Calgary-Edgemont
+3647,Edmonton-Whitemud
+3648,Rocky Mountain House-Sundre
+3649,Strathcona-Sherwood Park
+3650,Edmonton-Manning
+3651,Edmonton-Strathcona
+3652,Lesser Slave Lake
+3653,Lac Ste. Anne
+3654,Edmonton-Mill Woods
+3655,Calgary-Mountain View
+3656,Edmonton-North West
+3657,Calgary-Falconridge-Conrich
+3658,Edmonton-Rutherford
+3659,Cold Lake-Bonnyville-St. Paul
+3660,Grande Prairie-Wapiti
+3661,Edmonton-Windermere
+3662,Calgary-West-Springbank
+3663,Drumheller-Stettler
+3664,Leduc-Beaumont
+3665,Sherwood Park
+3666,Sherwood Park
+3667,Edmonton-Strathcona
+3668,Calgary-Fish Creek
+3669,Morinville-Sturgeon
+3670,Calgary-Lougheed
+3671,Olds-Didsbury-Three Hills
+3672,Calgary-Hays
+3673,Lac Ste. Anne
+3674,Calgary-North West-Bearspaw
+3675,Red Deer-South
+3676,Edmonton-Decore
+3677,Calgary-Acadia
+3678,Calgary-Shaw
+3679,Calgary-Shaw
+3680,Wetaskiwin-Ponoka
+3681,Edmonton-City Centre
+3682,Edmonton-City Centre
+3683,Barrhead-Westlock-Athabasca
+3684,Cold Lake-Bonnyville-St. Paul
+3685,Fort McMurray-Lac La Biche
+3686,Calgary-Edgemont
+3687,Olds-Didsbury-Three Hills
+3688,Drumheller-Stettler
+3689,Macleod-Crowsnest
+3690,Edmonton-Mill Woods
+3691,Lethbridge-Cardston
+3692,Calgary-Klein
+3693,Calgary-Klein
+3694,Calgary-North East
+3695,Lacombe-Sylvan Lake
+3696,Calgary-Bow-Springbank
+3697,West Yellowhead
+3698,Edmonton-South
+3699,Sherwood Park
+3700,Sherwood Park
+3701,West Yellowhead
+3702,Grande Prairie-Wapiti
+3703,Edmonton-City Centre
+3704,Edmonton-Decore
+3705,Edmonton-West Henday
+3706,Macleod-Crowsnest
+3707,Edmonton-Glenora-Riverview
+3708,Calgary-Cross
+3709,Red Deer-South
+3710,Sherwood Park
+3711,Cold Lake-Bonnyville-St. Paul
+3712,Medicine Hat-Cypress
+3713,Red Deer-South
+3714,Edmonton-West Henday
+3715,Calgary-Confluence
+3716,Red Deer-South
+3717,Calgary-North West-Bearspaw
+3718,Calgary-Acadia
+3719,Olds-Didsbury-Three Hills
+3720,Calgary-Bhullar-McCall
+3721,Calgary-Confluence
+3722,Red Deer-North
+3723,Fort Saskatchewan-Vegreville
+3724,Edmonton-South
+3725,Lloydminster-Wainwright
+3726,Calgary-Bhullar-McCall
+3727,Red Deer-South
+3728,Edmonton-North West
+3729,Drayton Valley-Devon
+3730,Calgary-Bow-Springbank
+3731,Edmonton-Highlands-Norwood
+3732,Calgary-Elbow
+3733,Lesser Slave Lake
+3734,Blackfalds-Innisfail
+3735,Spruce Grove
+3736,Lethbridge-Cardston
+3737,Edmonton-City Centre
+3738,Calgary-West-Springbank
+3739,Edmonton-Windermere
+3740,Edmonton-Strathcona
+3741,Fort Saskatchewan-Vegreville
+3742,Calgary-North West-Bearspaw
+3743,Edmonton-Decore
+3744,Edmonton-McClung
+3745,Central Peace-Notley
+3746,Edmonton-South
+3747,Edmonton-Strathcona
+3748,Calgary-Glenmore-Tsuut'ina
+3749,Red Deer-North
+3750,Medicine Hat-Brooks
+3751,Calgary-Glenmore-Tsuut'ina
+3752,Calgary-Acadia
+3753,Red Deer-North
+3754,Red Deer-North
+3755,Edmonton-Highlands-Norwood
+3756,Calgary-Varsity
+3757,Edmonton-Meadows
+3758,Cold Lake-Bonnyville-St. Paul
+3759,Calgary-Hays
+3760,Calgary-Edgemont
+3761,Cold Lake-Bonnyville-St. Paul
+3762,Leduc-Beaumont
+3763,Lac Ste. Anne
+3764,Lacombe-Sylvan Lake
+3765,Calgary-South East
+3766,Calgary-Varsity
+3767,Calgary-Varsity
+3768,Olds-Didsbury-Three Hills
+3769,Lac Ste. Anne
+3770,Red Deer-South
+3771,Calgary-Glenmore-Tsuut'ina
+3772,Edmonton-Castle Downs
+3773,Calgary-East
+3774,Calgary-South East
+3775,Morinville-Sturgeon
+3776,Calgary-Hays
+3777,Calgary-Bow-Springbank
+3778,Calgary-Beddington
+3779,Calgary-Edgemont
+3780,Edmonton-City Centre
+3781,Calgary-Acadia
+3782,Calgary-Acadia
+3783,Edmonton-Mill Woods
+3784,Calgary-Fish Creek
+3785,Fort McMurray-Wood Buffalo
+3786,Lethbridge-Taber-Warner
+3787,Edmonton-Beverly-Clareview
+3788,Edmonton-Beverly-Clareview
+3789,Calgary-McKenzie
+3790,Chestermere-Strathmore
+3791,Olds-Didsbury-Three Hills
+3792,Edmonton-Decore
+3793,Grande Prairie-Wapiti
+3794,Calgary-Varsity
+3795,Calgary-Cross
+3796,Lethbridge-Taber-Warner
+3797,Calgary-McKenzie
+3798,Lethbridge-Taber-Warner
+3799,Calgary-Mountain View
+3800,Spruce Grove
+3801,Grande Prairie-Wapiti
+3802,Edmonton-Mill Woods
+3803,Blackfalds-Innisfail
+3804,Calgary-Lougheed
+3805,Calgary-Lougheed
+3806,Calgary-Nose Creek
+3807,Lethbridge-Cardston
+3808,Edmonton-Highlands-Norwood
+3809,Calgary-Varsity
+3810,Calgary-Mountain View
+3811,Airdrie-West
+3812,Fort Saskatchewan-Vegreville
+3813,Olds-Didsbury-Three Hills
+3814,Chestermere-Strathmore
+3815,Morinville-Sturgeon
+3816,Morinville-Sturgeon
+3817,Grande Prairie-Wapiti
+3818,Red Deer-South
+3819,Edmonton-McClung
+3820,Medicine Hat-Cypress
+3821,Strathcona-Sherwood Park
+3822,Lethbridge-Little Bow
+3823,Edmonton-South
+3824,Lethbridge-Little Bow
+3825,Macleod-Crowsnest
+3826,Edmonton-Glenora-Riverview
+3827,Edmonton-Glenora-Riverview
+3828,Calgary-South East
+3829,Edmonton-McClung
+3830,Airdrie-West
+3831,Peace River
+3832,Lethbridge
+3833,Edmonton-Windermere
+3834,Lacombe-Sylvan Lake
+3835,Drumheller-Stettler
+3836,Lesser Slave Lake
+3837,Red Deer-South
+3838,Fort Saskatchewan-Vegreville
+3839,West Yellowhead
+3840,Medicine Hat-Brooks
+3841,Airdrie-West
+3842,Calgary-Mountain View
+3843,Airdrie-East
+3844,Calgary-Elbow
+3845,Grande Prairie-Wapiti
+3846,Spruce Grove
+3847,Calgary-North
+3848,Macleod-Crowsnest
+3849,Grande Prairie
+3850,Calgary-Mountain View
+3851,Edmonton-North West
+3852,Drayton Valley-Devon
+3853,Calgary-Lougheed
+3854,Calgary-Beddington
+3855,Cold Lake-Bonnyville-St. Paul
+3856,Edmonton-Gold Bar
+3857,Okotoks
+3858,Calgary-Elbow
+3859,Lethbridge-Little Bow
+3860,Lac Ste. Anne
+3861,Airdrie-East
+3862,Calgary-Lougheed
+3863,Lesser Slave Lake
+3864,Edmonton-Windermere
+3865,Calgary-Fish Creek
+3866,Wetaskiwin-Ponoka
+3867,Edmonton-Mill Woods
+3868,Calgary-North West-Bearspaw
+3869,Edmonton-Ellerslie
+3870,Edmonton-Decore
+3871,Calgary-Edgemont
+3872,Medicine Hat-Brooks
+3873,Calgary-Edgemont
+3874,Lesser Slave Lake
+3875,Rocky Mountain House-Sundre
+3876,Calgary-Glenmore-Tsuut'ina
+3877,Rocky Mountain House-Sundre
+3878,West Yellowhead
+3879,Red Deer-North
+3880,Edmonton-Meadows
+3881,Lacombe-Sylvan Lake
+3882,Edmonton-Glenora-Riverview
+3883,Drumheller-Stettler
+3884,Medicine Hat-Cypress
+3885,Blackfalds-Innisfail
+3886,Red Deer-South
+3887,Calgary-East
+3888,Central Peace-Notley
+3889,Fort McMurray-Lac La Biche
+3890,Lloydminster-Wainwright
+3891,Barrhead-Westlock-Athabasca
+3892,Macleod-Crowsnest
+3893,St. Albert
+3894,Lloydminster-Wainwright
+3895,Edmonton-Manning
+3896,Calgary-Beddington
+3897,Edmonton-City Centre
+3898,Morinville-Sturgeon
+3899,Calgary-Cross
+3900,Camrose
+3901,Lloydminster-Wainwright
+3902,Calgary-Klein
+3903,Rocky Mountain House-Sundre
+3904,Medicine Hat-Cypress
+3905,Calgary-McKenzie
+3906,Barrhead-Westlock-Athabasca
+3907,Fort McMurray-Wood Buffalo
+3908,Edmonton-Beverly-Clareview
+3909,Camrose
+3910,Calgary-South East
+3911,Edmonton-Castle Downs
+3912,Edmonton-Castle Downs
+3913,Rocky Mountain House-Sundre
+3914,Edmonton-Whitemud
+3915,Red Deer-South
+3916,Red Deer-South
+3917,Strathcona-Sherwood Park
+3918,Camrose
+3919,Edmonton-Windermere
+3920,Edmonton-Highlands-Norwood
+3921,Edmonton-Windermere
+3922,Calgary-Varsity
+3923,Central Peace-Notley
+3924,Calgary-Elbow
+3925,Edmonton-City Centre
+3926,Lesser Slave Lake
+3927,Airdrie-East
+3928,Lethbridge-Taber-Warner
+3929,Lethbridge-Little Bow
+3930,Macleod-Crowsnest
+3931,Edmonton-Enoch
+3932,Edmonton-Enoch
+3933,Lloydminster-Wainwright
+3934,Calgary-Symons Valley
+3935,Calgary-Symons Valley
+3936,Barrhead-Westlock-Athabasca
+3937,Calgary-North West-Bearspaw
+3938,Edmonton-Highlands-Norwood
+3939,Airdrie-East
+3940,Cochrane
+3941,Lacombe-Sylvan Lake
+3942,Morinville-Sturgeon
+3943,Calgary-Glenmore-Tsuut'ina
+3944,Blackfalds-Innisfail
+3945,Lethbridge-Little Bow
+3946,Calgary-Cross
+3947,Chestermere-Strathmore
+3948,Lethbridge-Taber-Warner
+3949,Red Deer-South
+3950,Medicine Hat-Cypress
+3951,St. Albert
+3952,Edmonton-Castle Downs
+3953,Calgary-Klein
+3954,Calgary-South East
+3955,Fort Saskatchewan-Vegreville
+3956,Grande Prairie
+3957,Red Deer-South
+3958,Calgary-Symons Valley
+3959,Edmonton-City Centre
+3960,Fort McMurray-Wood Buffalo
+3961,Peace River
+3962,Peace River
+3963,Leduc-Beaumont
+3964,Edmonton-Mill Woods
+3965,Edmonton-Manning
+3966,Edmonton-Castle Downs
+3967,Edmonton-McClung
+3968,Edmonton-McClung
+3969,Red Deer-North
+3970,Medicine Hat-Cypress
+3971,Calgary-Nose Creek
+3972,Edmonton-Glenora-Riverview
+3973,Edmonton-West Henday
+3974,Lethbridge
+3975,Calgary-Lougheed
+3976,Red Deer-North
+3977,Calgary-Bhullar-McCall
+3978,Cochrane
+3979,Barrhead-Westlock-Athabasca
+3980,Fort Saskatchewan-Vegreville
+3981,Peace River
+3982,Barrhead-Westlock-Athabasca
+3983,Calgary-Symons Valley
+3984,Calgary-Edgemont
+3985,Edmonton-Strathcona
+3986,Fort McMurray-Lac La Biche
+3987,Leduc-Beaumont
+3988,Leduc-Beaumont
+3989,Fort Saskatchewan-Vegreville
+3990,Edmonton-Enoch
+3991,Lac Ste. Anne
+3992,Peace River
+3993,Okotoks
+3994,Edmonton-Glenora-Riverview
+3995,Edmonton-Manning
+3996,Calgary-Confluence
+3997,Spruce Grove
+3998,Edmonton-Beverly-Clareview
+3999,Lac Ste. Anne
+4000,Edmonton-Highlands-Norwood
+4001,Edmonton-Highlands-Norwood
+4002,Central Peace-Notley
+4003,Calgary-Confluence
+4004,Calgary-Acadia
+4005,Lethbridge-Cardston
+4006,Sherwood Park
+4007,Calgary-Buffalo
+4008,Calgary-Glenmore-Tsuut'ina
+4009,Edmonton-Whitemud
+4010,Calgary-Beddington
+4011,Fort McMurray-Wood Buffalo
+4012,Central Peace-Notley
+4013,Lac Ste. Anne
+4014,Fort McMurray-Wood Buffalo
+4015,Grande Prairie-Wapiti
+4016,Lethbridge
+4017,Edmonton-City Centre
+4018,Calgary-Bow-Springbank
+4019,Rocky Mountain House-Sundre
+4020,Edmonton-Enoch
+4021,Edmonton-Whitemud
+4022,Blackfalds-Innisfail
+4023,Olds-Didsbury-Three Hills
+4024,Calgary-North
+4025,Calgary-Bow-Springbank
+4026,Medicine Hat-Brooks
+4027,Lethbridge
+4028,Lethbridge
+4029,Edmonton-South
+4030,Edmonton-McClung
+4031,Edmonton-Decore
+4032,Edmonton-Glenora-Riverview
+4033,Edmonton-Manning
+4034,Edmonton-Beverly-Clareview
+4035,Edmonton-Gold Bar
+4036,Edmonton-Gold Bar
+4037,Lethbridge-Cardston
+4038,Lethbridge-Cardston
+4039,Peace River
+4040,Edmonton-Manning
+4041,Calgary-Klein
+4042,Airdrie-West
+4043,Edmonton-Decore
+4044,Drayton Valley-Devon
+4045,Spruce Grove
+4046,Lac Ste. Anne
+4047,Cold Lake-Bonnyville-St. Paul
+4048,Edmonton-Highlands-Norwood
+4049,Calgary-North East
+4050,Central Peace-Notley
+4051,Olds-Didsbury-Three Hills
+4052,Spruce Grove
+4053,Calgary-Symons Valley
+4054,Olds-Didsbury-Three Hills
+4055,Lethbridge-Taber-Warner
+4056,Grande Prairie-Wapiti
+4057,Calgary-South East
+4058,Edmonton-Castle Downs
+4059,Edmonton-Windermere
+4060,Edmonton-South
+4061,Edmonton-South
+4062,Central Peace-Notley
+4063,Drayton Valley-Devon
+4064,Leduc-Beaumont
+4065,Calgary-Beddington
+4066,Calgary-Buffalo
+4067,Edmonton-McClung
+4068,Calgary-Hays
+4069,Lethbridge
+4070,Macleod-Crowsnest
+4071,Macleod-Crowsnest
+4072,Red Deer-South
+4073,Calgary-Falconridge-Conrich
+4074,Barrhead-Westlock-Athabasca
+4075,St. Albert
+4076,St. Albert
+4077,Grande Prairie
+4078,Macleod-Crowsnest
+4079,Calgary-Currie
+4080,Drayton Valley-Devon
+4081,Calgary-Hays
+4082,Edmonton-Whitemud
+4083,Edmonton-Whitemud
+4084,Calgary-Shaw
+4085,Lacombe-Sylvan Lake
+4086,Lacombe-Sylvan Lake
+4087,Calgary-Varsity
+4088,Grande Prairie-Wapiti
+4089,Edmonton-North West
+4090,Calgary-West-Springbank
+4091,Edmonton-Enoch
+4092,Calgary-McKenzie
+4093,Airdrie-West
+4094,Calgary-Symons Valley
+4095,Edmonton-Ellerslie
+4096,Edmonton-Ellerslie
+4097,Calgary-Symons Valley
+4098,Sherwood Park
+4099,Edmonton-McClung
+4100,Edmonton-Decore
+4101,Barrhead-Westlock-Athabasca
+4102,Calgary-Fish Creek
+4103,Cold Lake-Bonnyville-St. Paul
+4104,Calgary-Mountain View
+4105,Edmonton-Glenora-Riverview
+4106,Fort McMurray-Lac La Biche
+4107,Edmonton-Manning
+4108,Edmonton-Manning
+4109,Leduc-Beaumont
+4110,Fort McMurray-Lac La Biche
+4111,Calgary-Cross
+4112,Lethbridge-Little Bow
+4113,Peace River
+4114,Lloydminster-Wainwright
+4115,Grande Prairie-Wapiti
+4116,Edmonton-Mill Woods
+4117,Lethbridge-Little Bow
+4118,Lethbridge-Taber-Warner
+4119,Lethbridge-Taber-Warner
+4120,Calgary-Fish Creek
+4121,Edmonton-Beverly-Clareview
+4122,Spruce Grove
+4123,Spruce Grove
+4124,Rocky Mountain House-Sundre
+4125,Calgary-Beddington
+4126,Calgary-Edgemont
+4127,Calgary-Falconridge-Conrich
+4128,Cochrane
+4129,Calgary-Bow-Springbank
+4130,Drumheller-Stettler
+4131,Calgary-Confluence
+4132,Drumheller-Stettler
+4133,Drumheller-Stettler
+4134,Drumheller-Stettler
+4135,Calgary-Hays
+4136,Edmonton-Beverly-Clareview
+4137,Grande Prairie
+4138,Edmonton-West Henday
+4139,Calgary-Lougheed
+4140,Red Deer-North
+4141,Lethbridge
+4142,Fort Saskatchewan-Vegreville
+4143,Lethbridge-Taber-Warner
+4144,Fort Saskatchewan-Vegreville
+4145,Wetaskiwin-Ponoka
+4146,Lethbridge-Taber-Warner
+4147,Edmonton-North West
+4148,Cold Lake-Bonnyville-St. Paul
+4149,Leduc-Beaumont
+4150,Spruce Grove
+4151,Edmonton-City Centre
+4152,Grande Prairie
+4153,Calgary-Beddington
+4154,Fort Saskatchewan-Vegreville
+4155,Edmonton-South
+4156,Strathcona-Sherwood Park
+4157,Cold Lake-Bonnyville-St. Paul
+4158,Edmonton-North West
+4159,Airdrie-West
+4160,Calgary-Symons Valley
+4161,Edmonton-Nisku
+4162,Calgary-Mountain View
+4163,Airdrie-West
+4164,Medicine Hat-Brooks
+4165,Edmonton-Meadows
+4166,Strathcona-Sherwood Park
+4167,Spruce Grove
+4168,Calgary-Edgemont
+4169,Calgary-Shaw
+4170,Leduc-Beaumont
+4171,Red Deer-South
+4172,Medicine Hat-Brooks
+4173,Lacombe-Sylvan Lake
+4174,Calgary-Glenmore-Tsuut'ina
+4175,West Yellowhead
+4176,Macleod-Crowsnest
+4177,Cochrane
+4178,Calgary-Confluence
+4179,Spruce Grove
+4180,Calgary-Mountain View
+4181,Calgary-Mountain View
+4182,Camrose
+4183,Calgary-Glenmore-Tsuut'ina
+4184,Lac Ste. Anne
+4185,Edmonton-Mill Woods
+4186,Calgary-Edgemont
+4187,Calgary-Mountain View
+4188,Peace River
+4189,Lethbridge-Cardston
+4190,Edmonton-Nisku
+4191,Red Deer-South
+4192,West Yellowhead
+4193,Medicine Hat-Brooks
+4194,Calgary-Cross
+4195,Edmonton-Glenora-Riverview
+4196,Blackfalds-Innisfail
+4197,Lethbridge-Little Bow
+4198,Central Peace-Notley
+4199,Drumheller-Stettler
+4200,Fort McMurray-Wood Buffalo
+4201,Sherwood Park
+4202,Calgary-Klein
+4203,Calgary-Klein
+4204,Central Peace-Notley
+4205,Wetaskiwin-Ponoka
+4206,Camrose
+4207,Calgary-North West-Bearspaw
+4208,West Yellowhead
+4209,Calgary-North West-Bearspaw
+4210,Edmonton-Nisku
+4211,Calgary-Beddington
+4212,Cochrane
+4213,Medicine Hat-Brooks
+4214,Lloydminster-Wainwright
+4215,Grande Prairie-Wapiti
+4216,Edmonton-Gold Bar
+4217,Rocky Mountain House-Sundre
+4218,West Yellowhead
+4219,Central Peace-Notley
+4220,Medicine Hat-Cypress
+4221,Sherwood Park
+4222,Macleod-Crowsnest
+4223,Lethbridge-Taber-Warner
+4224,Fort McMurray-Wood Buffalo
+4225,Calgary-Glenmore-Tsuut'ina
+4226,Central Peace-Notley
+4227,Red Deer-North
+4228,Edmonton-Whitemud
+4229,Calgary-West-Springbank
+4230,Edmonton-Gold Bar
+4231,Edmonton-Decore
+4232,Calgary-Mountain View
+4233,Wetaskiwin-Ponoka
+4234,Calgary-South East
+4235,Lloydminster-Wainwright
+4236,Calgary-Nose Creek
+4237,Edmonton-McClung
+4238,Edmonton-McClung
+4239,Fort McMurray-Wood Buffalo
+4240,Calgary-North
+4241,Cold Lake-Bonnyville-St. Paul
+4242,Calgary-Varsity
+4243,St. Albert
+4244,Edmonton-West Henday
+4245,Edmonton-Rutherford
+4246,Lloydminster-Wainwright
+4247,Edmonton-Windermere
+4248,Calgary-Confluence
+4249,Edmonton-South
+4250,Calgary-Elbow
+4251,Calgary-Klein
+4252,Calgary-Beddington
+4253,Drumheller-Stettler
+4254,Edmonton-Windermere
+4255,Medicine Hat-Brooks
+4256,St. Albert
+4257,St. Albert
+4258,Lethbridge-Taber-Warner
+4259,Calgary-Bhullar-McCall
+4260,Edmonton-Decore
+4261,Camrose
+4262,Blackfalds-Innisfail
+4263,Lethbridge-Taber-Warner
+4264,West Yellowhead
+4265,Calgary-Edgemont
+4266,Blackfalds-Innisfail
+4267,Chestermere-Strathmore
+4268,Edmonton-Highlands-Norwood
+4269,Drumheller-Stettler
+4270,Medicine Hat-Cypress
+4271,St. Albert
+4272,St. Albert
+4273,Red Deer-North
+4274,Edmonton-Castle Downs
+4275,Banff-Canmore-Diamond Valley
+4276,Edmonton-Castle Downs
+4277,Edmonton-Castle Downs
+4278,Edmonton-Gold Bar
+4279,Calgary-Confluence
+4280,Lloydminster-Wainwright
+4281,Blackfalds-Innisfail
+4282,Lethbridge
+4283,Macleod-Crowsnest
+4284,Edmonton-Gold Bar
+4285,Calgary-Elbow
+4286,Calgary-Mountain View
+4287,Banff-Canmore-Diamond Valley
+4288,Olds-Didsbury-Three Hills
+4289,Central Peace-Notley
+4290,Calgary-Elbow
+4291,Calgary-Shaw
+4292,Calgary-Klein
+4293,Medicine Hat-Brooks
+4294,Fort McMurray-Lac La Biche
+4295,Lac Ste. Anne
+4296,Edmonton-Beverly-Clareview
+4297,Camrose
+4298,Grande Prairie-Wapiti
+4299,Calgary-Cross
+4300,Edmonton-Highlands-Norwood
+4301,Calgary-Klein
+4302,St. Albert
+4303,Calgary-West-Springbank
+4304,Drayton Valley-Devon
+4305,Calgary-West-Springbank
+4306,Edmonton-Glenora-Riverview
+4307,Calgary-Bhullar-McCall
+4308,Lacombe-Sylvan Lake
+4309,Edmonton-Nisku
+4310,Calgary-Mountain View
+4311,Calgary-McKenzie
+4312,Edmonton-Nisku
+4313,Calgary-Cross
+4314,Edmonton-North West
+4315,Fort McMurray-Lac La Biche
+4316,Fort McMurray-Lac La Biche
+4317,Lethbridge-Taber-Warner
+4318,Edmonton-Gold Bar
+4319,Calgary-West-Springbank
+4320,Central Peace-Notley
+4321,Lac Ste. Anne
+4322,Lac Ste. Anne
+4323,Airdrie-East
+4324,Calgary-Acadia
+4325,Grande Prairie-Wapiti
+4326,West Yellowhead
+4327,St. Albert
+4328,Grande Prairie
+4329,Edmonton-Manning
+4330,Rocky Mountain House-Sundre
+4331,Macleod-Crowsnest
+4332,Calgary-McKenzie
+4333,Calgary-McKenzie
+4334,Calgary-North East
+4335,Edmonton-South
+4336,Calgary-Varsity
+4337,Calgary-Currie
+4338,Fort Saskatchewan-Vegreville
+4339,Lethbridge
+4340,Drayton Valley-Devon
+4341,Edmonton-South
+4342,Macleod-Crowsnest
+4343,Blackfalds-Innisfail
+4344,West Yellowhead
+4345,Calgary-Shaw
+4346,Cochrane
+4347,Leduc-Beaumont
+4348,Calgary-Fish Creek
+4349,Macleod-Crowsnest
+4350,Macleod-Crowsnest
+4351,Strathcona-Sherwood Park
+4352,Calgary-McKenzie
+4353,Calgary-Shaw
+4354,Edmonton-Gold Bar
+4355,Calgary-Cross
+4356,Calgary-East
+4357,Lethbridge
+4358,Airdrie-West
+4359,Calgary-Klein
+4360,Lethbridge-Taber-Warner
+4361,Macleod-Crowsnest
+4362,Calgary-Currie
+4363,Edmonton-South
+4364,Calgary-North
+4365,Chestermere-Strathmore
+4366,Barrhead-Westlock-Athabasca
+4367,Okotoks
+4368,Calgary-McKenzie
+4369,Edmonton-Beverly-Clareview
+4370,Calgary-Symons Valley
+4371,Blackfalds-Innisfail
+4372,Blackfalds-Innisfail
+4373,Edmonton-Mill Woods
+4374,Calgary-Shaw
+4375,Calgary-Shaw
+4376,Calgary-Shaw
+4377,Edmonton-South
+4378,Calgary-West-Springbank
+4379,Lacombe-Sylvan Lake
+4380,Calgary-North
+4381,Drayton Valley-Devon
+4382,Calgary-Lougheed
+4383,Fort Saskatchewan-Vegreville
+4384,Airdrie-West
+4385,Edmonton-Nisku
+4386,Calgary-North West-Bearspaw
+4387,Calgary-North West-Bearspaw
+4388,Edmonton-Glenora-Riverview
+4389,Calgary-Hays
+4390,Edmonton-Rutherford
+4391,Drayton Valley-Devon
+4392,Fort Saskatchewan-Vegreville
+4393,Lethbridge-Little Bow
+4394,Banff-Canmore-Diamond Valley
+4395,St. Albert
+4396,Edmonton-Manning
+4397,Lesser Slave Lake
+4398,Edmonton-Gold Bar
+4399,Lethbridge-Taber-Warner
+4400,Calgary-Hays
+4401,Camrose
+4402,Calgary-McKenzie
+4403,Calgary-Symons Valley
+4404,Medicine Hat-Brooks
+4405,Edmonton-South
+4406,Camrose
+4407,Edmonton-Strathcona
+4408,Calgary-Elbow
+4409,Macleod-Crowsnest
+4410,Lethbridge-Little Bow
+4411,Calgary-Bow-Springbank
+4412,Edmonton-North West
+4413,Calgary-Acadia
+4414,Banff-Canmore-Diamond Valley
+4415,Calgary-Mountain View
+4416,Calgary-Cross
+4417,Calgary-Cross
+4418,Calgary-Lougheed
+4419,Calgary-Elbow
+4420,Medicine Hat-Brooks
+4421,Red Deer-South
+4422,Edmonton-Gold Bar
+4423,Calgary-Varsity
+4424,Fort Saskatchewan-Vegreville
+4425,Cochrane
+4426,Wetaskiwin-Ponoka
+4427,Calgary-North
+4428,Grande Prairie
+4429,Edmonton-Nisku
+4430,Lethbridge-Little Bow
+4431,Calgary-Fish Creek
+4432,Olds-Didsbury-Three Hills
+4433,Calgary-McKenzie
+4434,Edmonton-Meadows
+4435,Lesser Slave Lake
+4436,Camrose
+4437,Calgary-Edgemont
+4438,Drayton Valley-Devon
+4439,Edmonton-Decore
+4440,Camrose
+4441,Morinville-Sturgeon
+4442,Edmonton-North West
+4443,Calgary-Symons Valley
+4444,Sherwood Park
+4445,Edmonton-McClung
+4446,Fort Saskatchewan-Vegreville
+4447,Edmonton-Rutherford
+4448,Calgary-Varsity
+4449,Calgary-Cross
+4450,Cochrane
+4451,St. Albert
+4452,St. Albert
+4453,Airdrie-East
+4454,Airdrie-West
+4455,Calgary-East
+4456,Okotoks
+4457,Okotoks
+4458,Calgary-Acadia
+4459,Calgary-Acadia
+4460,Sherwood Park
+4461,Sherwood Park
+4462,Spruce Grove
+4463,Calgary-North West-Bearspaw
+4464,Calgary-Currie
+4465,Camrose
+4466,Edmonton-Meadows
+4467,Edmonton-Highlands-Norwood
+4468,Cold Lake-Bonnyville-St. Paul
+4469,Macleod-Crowsnest
+4470,Macleod-Crowsnest
+4471,Macleod-Crowsnest
+4472,Okotoks
+4473,Leduc-Beaumont
+4474,Calgary-Buffalo
+4475,Cold Lake-Bonnyville-St. Paul
+4476,Macleod-Crowsnest
+4477,Okotoks
+4478,Sherwood Park
+4479,Edmonton-Rutherford
+4480,Macleod-Crowsnest
+4481,Calgary-Fish Creek
+4482,Edmonton-Castle Downs
+4483,Calgary-Shaw
+4484,Lacombe-Sylvan Lake
+4485,Macleod-Crowsnest
+4486,Calgary-Currie
+4487,Fort Saskatchewan-Vegreville
+4488,Calgary-South East
+4489,Edmonton-Whitemud
+4490,Calgary-Glenmore-Tsuut'ina
+4491,Calgary-Beddington
+4492,Lethbridge-Taber-Warner
+4493,Lethbridge
+4494,Calgary-Shaw
+4495,Airdrie-East
+4496,Edmonton-Strathcona
+4497,Fort Saskatchewan-Vegreville
+4498,Calgary-Nose Creek
+4499,Calgary-North West-Bearspaw
+4500,Calgary-West-Springbank
+4501,Olds-Didsbury-Three Hills
+4502,Edmonton-Strathcona
+4503,Medicine Hat-Brooks
+4504,Edmonton-South
+4505,Calgary-Elbow
+4506,Cold Lake-Bonnyville-St. Paul
+4507,Calgary-Varsity
+4508,Okotoks
+4509,Edmonton-Whitemud
+4510,Fort Saskatchewan-Vegreville
+4511,Edmonton-Mill Woods
+4512,Calgary-Confluence
+4513,Calgary-Bow-Springbank
+4514,Lethbridge-Taber-Warner
+4515,Calgary-Bhullar-McCall
+4516,Peace River
+4517,Calgary-Fish Creek
+4518,Medicine Hat-Cypress
+4519,Grande Prairie-Wapiti
+4520,Cold Lake-Bonnyville-St. Paul
+4521,Red Deer-South
+4522,Edmonton-Strathcona
+4523,Lloydminster-Wainwright
+4524,Calgary-Acadia
+4525,Lethbridge-Cardston
+4526,Lacombe-Sylvan Lake
+4527,Calgary-Confluence
+4528,Camrose
+4529,Calgary-North West-Bearspaw
+4530,Calgary-Edgemont
+4531,Grande Prairie-Wapiti
+4532,Medicine Hat-Brooks
+4533,Calgary-Fish Creek
+4534,Wetaskiwin-Ponoka
+4535,Lac Ste. Anne
+4536,Calgary-Klein
+4537,Calgary-McKenzie
+4538,Edmonton-West Henday
+4539,Macleod-Crowsnest
+4540,Edmonton-Windermere
+4541,Camrose
+4542,Edmonton-Mill Woods
+4543,Edmonton-Mill Woods
+4544,Calgary-Nose Creek
+4545,Lac Ste. Anne
+4546,Calgary-Beddington
+4547,Calgary-Glenmore-Tsuut'ina
+4548,Calgary-Buffalo
+4549,Sherwood Park
+4550,Strathcona-Sherwood Park
+4551,Medicine Hat-Cypress
+4552,Edmonton-Glenora-Riverview
+4553,Calgary-McKenzie
+4554,Edmonton-Gold Bar
+4555,Calgary-Cross
+4556,Spruce Grove
+4557,Macleod-Crowsnest
+4558,Edmonton-Ellerslie
+4559,Calgary-North West-Bearspaw
+4560,Medicine Hat-Brooks
+4561,Central Peace-Notley
+4562,Edmonton-Highlands-Norwood
+4563,Barrhead-Westlock-Athabasca
+4564,Blackfalds-Innisfail
+4565,Edmonton-Whitemud
+4566,Edmonton-City Centre
+4567,Edmonton-Whitemud
+4568,Calgary-Currie
+4569,Wetaskiwin-Ponoka
+4570,Edmonton-Whitemud
+4571,Edmonton-Whitemud
+4572,Calgary-North East
+4573,Calgary-Lougheed
+4574,Lethbridge-Little Bow
+4575,Calgary-Bow-Springbank
+4576,Calgary-McKenzie
+4577,Cold Lake-Bonnyville-St. Paul
+4578,Calgary-McKenzie
+4579,Morinville-Sturgeon
+4580,Red Deer-North
+4581,Calgary-Acadia
+4582,Fort Saskatchewan-Vegreville
+4583,Edmonton-Ellerslie
+4584,Edmonton-Mill Woods
+4585,Edmonton-Enoch
+4586,Calgary-McKenzie
+4587,Blackfalds-Innisfail
+4588,Lethbridge-Cardston
+4589,Edmonton-South
+4590,Edmonton-Mill Woods
+4591,Calgary-Mountain View
+4592,Calgary-Acadia
+4593,Airdrie-East
+4594,Edmonton-South
+4595,Edmonton-Enoch
+4596,West Yellowhead
+4597,West Yellowhead
+4598,Calgary-Elbow
+4599,Cold Lake-Bonnyville-St. Paul
+4600,Calgary-Elbow
+4601,Calgary-Acadia
+4602,Lacombe-Sylvan Lake
+4603,Lethbridge
+4604,Calgary-North West-Bearspaw
+4605,Peace River
+4606,Medicine Hat-Brooks
+4607,Strathcona-Sherwood Park
+4608,Strathcona-Sherwood Park
+4609,Calgary-Confluence
+4610,West Yellowhead
+4611,Edmonton-Highlands-Norwood
+4612,Calgary-North West-Bearspaw
+4613,Calgary-Buffalo
+4614,Central Peace-Notley
+4615,Medicine Hat-Brooks
+4616,Drumheller-Stettler
+4617,Calgary-Currie
+4618,Calgary-Beddington
+4619,Airdrie-East
+4620,Edmonton-Rutherford
+4621,Peace River
+4622,Sherwood Park
+4623,Edmonton-South
+4624,Calgary-West-Springbank
+4625,Calgary-Elbow
+4626,Calgary-Shaw
+4627,Barrhead-Westlock-Athabasca
+4628,Calgary-Mountain View
+4629,Edmonton-Gold Bar
+4630,Edmonton-Meadows
+4631,Calgary-Bow-Springbank
+4632,Rocky Mountain House-Sundre
+4633,Lesser Slave Lake
+4634,Drumheller-Stettler
+4635,Morinville-Sturgeon
+4636,Edmonton-Gold Bar
+4637,Medicine Hat-Brooks
+4638,Lacombe-Sylvan Lake
+4639,Drayton Valley-Devon
+4640,Macleod-Crowsnest
+4641,Macleod-Crowsnest
+4642,Fort McMurray-Lac La Biche
+4643,Red Deer-North
+4644,Wetaskiwin-Ponoka
+4645,St. Albert
+4646,Lloydminster-Wainwright
+4647,Calgary-North West-Bearspaw
+4648,Calgary-Falconridge-Conrich
+4649,Edmonton-Manning
+4650,Calgary-Acadia
+4651,Calgary-East
+4652,Calgary-Acadia
+4653,Calgary-Acadia
+4654,Edmonton-McClung
+4655,Lac Ste. Anne
+4656,Okotoks
+4657,Calgary-Elbow
+4658,Cold Lake-Bonnyville-St. Paul
+4659,Edmonton-Castle Downs
+4660,Calgary-Varsity
+4661,Calgary-Elbow
+4662,Leduc-Beaumont
+4663,Medicine Hat-Cypress
+4664,Edmonton-Decore
+4665,Calgary-Symons Valley
+4666,Banff-Canmore-Diamond Valley
+4667,Calgary-Lougheed
+4668,Fort Saskatchewan-Vegreville
+4669,Calgary-Cross
+4670,Sherwood Park
+4671,Spruce Grove
+4672,Strathcona-Sherwood Park
+4673,West Yellowhead
+4674,Fort McMurray-Lac La Biche
+4675,Edmonton-South
+4676,West Yellowhead
+4677,Calgary-McKenzie
+4678,Calgary-West-Springbank
+4679,Calgary-North
+4680,Calgary-Klein
+4681,West Yellowhead
+4682,Calgary-North East
+4683,Calgary-Cross
+4684,Edmonton-Decore
+4685,Cold Lake-Bonnyville-St. Paul
+4686,Lacombe-Sylvan Lake
+4687,Edmonton-Nisku
+4688,Drumheller-Stettler
+4689,Calgary-South East
+4690,Lethbridge
+4691,Calgary-Klein
+4692,Calgary-Klein
+4693,Peace River
+4694,Sherwood Park
+4695,Airdrie-West
+4696,Calgary-Bhullar-McCall
+4697,Calgary-Bhullar-McCall
+4698,Edmonton-North West
+4699,Edmonton-Beverly-Clareview
+4700,Calgary-Mountain View
+4701,Calgary-Mountain View
+4702,Medicine Hat-Brooks
+4703,Chestermere-Strathmore
+4704,Red Deer-North
+4705,Calgary-Varsity
+4706,Calgary-Fish Creek
+4707,Edmonton-West Henday
+4708,Calgary-Elbow
+4709,Edmonton-Meadows
+4710,Lac Ste. Anne
+4711,Edmonton-Whitemud
+4712,Lacombe-Sylvan Lake
+4713,Lesser Slave Lake
+4714,Calgary-West-Springbank
+4715,Cold Lake-Bonnyville-St. Paul
+4716,Medicine Hat-Brooks
+4717,Edmonton-West Henday
+4718,Banff-Canmore-Diamond Valley
+4719,Banff-Canmore-Diamond Valley
+4720,Lethbridge-Taber-Warner
+4721,Calgary-Buffalo
+4722,Grande Prairie-Wapiti
+4723,Calgary-Confluence
+4724,Calgary-Lougheed
+4725,Fort McMurray-Wood Buffalo
+4726,St. Albert
+4727,St. Albert
+4728,Calgary-Glenmore-Tsuut'ina
+4729,Grande Prairie
+4730,Sherwood Park
+4731,Lethbridge-Taber-Warner
+4732,Cochrane
+4733,Edmonton-Gold Bar
+4734,Strathcona-Sherwood Park
+4735,Camrose
+4736,Spruce Grove
+4737,Edmonton-Strathcona
+4738,Camrose
+4739,West Yellowhead
+4740,Edmonton-McClung
+4741,Morinville-Sturgeon
+4742,West Yellowhead
+4743,Cold Lake-Bonnyville-St. Paul
+4744,Lethbridge-Taber-Warner
+4745,Chestermere-Strathmore
+4746,Edmonton-Highlands-Norwood
+4747,Edmonton-West Henday
+4748,Chestermere-Strathmore
+4749,Morinville-Sturgeon
+4750,Edmonton-Whitemud
+4751,Calgary-Edgemont
+4752,Spruce Grove
+4753,Red Deer-North
+4754,West Yellowhead
+4755,Edmonton-Highlands-Norwood
+4756,St. Albert
+4757,Medicine Hat-Cypress
+4758,Edmonton-North West
+4759,Edmonton-Rutherford
+4760,Calgary-Beddington
+4761,Edmonton-North West
+4762,Grande Prairie-Wapiti
+4763,Drumheller-Stettler
+4764,Cold Lake-Bonnyville-St. Paul
