@@ -16,6 +16,9 @@ computation): do 2023's votes on the panel's 91 districts elect 50 UCP and 41 ND
   check      the same code on the 2019 map (parent_ed_2019) must give 49 UCP / 38 NDP on substrate A
   C (added after A failed the check, a disclosed deviation): A rescaled party by party within each 2019
              district so that district totals equal the official 2023 results, which makes the check exact
+  D (added 2026-11-04 after the cause of A's shortfall was found): A plus the Vote Anywhere advance ballots
+             that advance_vote_splat.py excludes, spread within each voter's 2019 district by election-day
+             share (analysis/scripts/vote_anywhere_splat.py); equals the official results in every district
   undecided  a district whose margin is smaller than the votes in its cut VAs (cut by one of its changed
              lines), or whose winner changes when any one of its cut VAs with at least FLIP_MIN of its
              area on the other side is moved to its largest partner; the seat count is given as a range
@@ -30,7 +33,7 @@ import pandas as pd
 
 ASSIGN = "findings/a10_stepb_run/va_assignment_real_map.csv"
 REPORT = "findings/a10_stepb_run/report_real_map.json"
-VOTES = "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg"
+VOTES = "data/shapefiles/derived/va_polygons_with_all_2023_ballots.gpkg"
 OFFICIAL = "data/reference/alberta_2023_results.csv"
 FLIP_MIN = 0.10
 CLOSE_PTS = 2.0
@@ -92,7 +95,8 @@ def main():
                                     "ndp_votes": float(sub.va_ndp_full.sum()), "official_ndp": float(off.NDP.sum())}}
     for tag, cols in (("A_all_ballots", ["va_ucp_full", "va_ndp_full", "va_other_full"]),
                       ("B_election_day", ["va_ucp", "va_ndp", "va_other"]),
-                      ("C_all_ballots_scaled_to_official", ["va_ucp_cal", "va_ndp_cal", "va_other_cal"])):
+                      ("C_all_ballots_scaled_to_official", ["va_ucp_cal", "va_ndp_cal", "va_other_cal"]),
+                      ("D_all_ballots_with_vote_anywhere", ["va_ucp_all", "va_ndp_all", "va_other_all"])):
         chk = seats(tally(v, "parent_ed_2019", cols))
         t = tally(v, "district", cols)
         base = seats(t)

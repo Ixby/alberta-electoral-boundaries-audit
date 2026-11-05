@@ -13,12 +13,19 @@
 | A. all ballots, advance ballots spread by election-day share (planned primary) | **52 / 35, fails** | 52 UCP / 39 NDP | UCP 51 to 57 |
 | B. election-day ballots only | 57 / 30, fails | 58 UCP / 33 NDP | UCP 55 to 61 |
 | C. A rescaled to the official district totals (added; see below) | 49 / 38, passes | **51 UCP / 40 NDP** | UCP 49 to 53 |
+| D. A plus the Vote Anywhere ballots (added 2026-11-04; see below) | 49 / 38, passes | **51 UCP / 40 NDP** | UCP 49 to 53 |
 
 ## The method check failed on the planned substrate, and what was done
 
 Step 4 of the plan requires the method to reproduce 2023 on the 2019 map. Substrate A does not: it holds 854,502 UCP and 689,637 NDP votes against the official 928,900 and 777,404, about 8% and 11% short, so it under-counts the NDP more and turns three near-tied Calgary seats UCP (Acadia, Edgemont and Glenmore, each decided by about a point or less in 2023). Substrate B, election day only, is further off (57 / 30), because advance ballots, nearly half of 2023's, leaned differently.
 
 Substrate C is not in the plan. It rescales A party by party within each 2019 district so that every district's totals equal the official 2023 results, which makes the 2019 check exact by construction while keeping A's spread of votes within each district. It is reported beside the planned substrates, not instead of them, and the result above is read on C because the plan says a failed check must be reported and the result read with it; A's failure is the reason a fuller substrate was needed.
+
+## Why A fell short, and substrate D (added 2026-11-04, after the result above)
+
+The shortfall in A is exactly the 2023 "Vote Anywhere (Out of ED)" advance ballots: 74,398 UCP, 87,767 NDP and 3,768 other. `advance_vote_splat.py` excludes them by design (its step C5) because they are not cast at a poll tied to particular voting areas. Every other ballot type is fully present. Elections Alberta reports each Vote Anywhere ballot under the voter's own 2019 district, so `analysis/scripts/vote_anywhere_splat.py` spreads them over that district's voting areas by election-day two-party share, the rule A already uses for the other advance ballots. The result (`data/shapefiles/derived/va_polygons_with_all_2023_ballots.gpkg`) equals the official results in all 87 districts; the script fails if it does not. The earlier file is unchanged.
+
+D is the substrate C stood in for, built from the cause rather than by rescaling. On D the panel's map gives the same **51 UCP / 40 NDP**, the same four undecided districts and the same range (UCP 49 to 53). Calgary-Acadia remains the deciding near-tie (UCP by 0.04 points). A, B and C are unchanged from the first run.
 
 ## What decides it
 
