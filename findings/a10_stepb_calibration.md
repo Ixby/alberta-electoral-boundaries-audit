@@ -23,11 +23,11 @@ With the 56 unchanged districts and Calgary-Acadia at the commission's published
 
 69 pages were run: 65 placed and 4 failed, the same four as in development:
 
-- ED 57 Chestermere-Strathmore and ED 66 Lac Ste. Anne: no local match within the prior's error;
+- ED 57 Chestermere-Strathmore and ED 66 Grande Prairie-Wapiti: no local match within the prior's error;
 - ED 63 Fort McMurray-Wood Buffalo: below the acceptance rule (363 matched points);
 - ED 82 Peace River: below the acceptance rule (median 100.7 m, 36% within 60 m).
 
-The assembly handles them as registered (known districts, hole fill, merged-hole split).
+On the panel's map three of the four (57, 66, 82) are among the unchanged districts and are taken at the commission's geometry; Fort McMurray-Wood Buffalo is filled from the hole its neighbours leave. On the calibration map they are handled as registered (hole fill and the merged-hole split).
 
 ## Disclosed stop
 
