@@ -14,8 +14,10 @@ geometry and are not marked.
 Reads findings/a10_stepc/va_cuts.csv (va_bisection.py output) and the scoring copy; writes
 findings/a10_stepc/va_cuts_marked.csv and prints counts.
 
-Usage: python -W ignore findings/a10_stepc/mark_uncertain_cuts.py
+Usage: python -W ignore findings/a10_stepc/mark_uncertain_cuts.py [--map GPKG --cuts CSV --out CSV]
+(the defaults are the 2026-11-04 run's paths)
 """
+import argparse
 import re
 from pathlib import Path
 
@@ -33,10 +35,15 @@ SLIVER_M2 = 1.0   # leftover area below this after removing the margin counts as
 
 
 def main():
-    eds = gpd.read_file(MAP).to_crs(3400)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--map", default=str(MAP))
+    ap.add_argument("--cuts", default=str(CUTS))
+    ap.add_argument("--out", default=str(OUT))
+    a = ap.parse_args()
+    eds = gpd.read_file(a.map).to_crs(3400)
     geom = dict(zip(eds.EDName2025, eds.geometry))
     known = set(eds.loc[eds.source == "known", "EDName2025"])
-    cuts = pd.read_csv(CUTS, dtype={"va_year": str})
+    cuts = pd.read_csv(a.cuts, dtype={"va_year": str})
     rows = []
     for year, grp in cuts.groupby("va_year"):
         va = gpd.read_file(VAS[year]).to_crs(3400)
@@ -54,7 +61,7 @@ def main():
             rows.append({**r._asdict(), "involves_changed": involves_changed, "outside_beyond_margin_m2": round(left.area, 1),
                          "uncertain": bool(involves_changed and within)})
     out = pd.DataFrame(rows).drop(columns="Index")
-    out.to_csv(OUT, index=False)
+    out.to_csv(a.out, index=False)
     for year, grp in out.groupby("va_year"):
         print(f"{year}: {len(grp)} cut; {int(grp.involves_changed.sum())} involve a changed district; "
               f"{int(grp.uncertain.sum())} marked uncertain")

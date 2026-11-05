@@ -1,0 +1,736 @@
+{
+ "map": "data/shapefiles/iap_assembled/iap_2026_assembled.gpkg",
+ "min_people": 513.0,
+ "n_fail_unacknowledged": 1,
+ "acknowledged": [],
+ "districts": [
+  {
+   "district": "Airdrie-East",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Airdrie-East",
+   "n_vas": 59,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Airdrie-West",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Airdrie-West",
+   "n_vas": 46,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Banff-Canmore-Diamond Valley",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 51,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Barrhead-Westlock-Athabasca",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 46,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Blackfalds-Innisfail",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Acadia",
+   "step_a": "changed",
+   "same_vas_as_majority": "Calgary-Acadia",
+   "n_vas": 55,
+   "status": "NOTE: same voting areas as majority Calgary-Acadia; stated difference -2 people",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Beddington",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Beddington",
+   "n_vas": 54,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Bhullar-McCall",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Bhullar-McCall",
+   "n_vas": 27,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Bow-Springbank",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 56,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Buffalo",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Buffalo",
+   "n_vas": 45,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Confluence",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Confluence",
+   "n_vas": 64,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Cross",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Cross",
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Currie",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Currie",
+   "n_vas": 49,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-East",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-East",
+   "n_vas": 63,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Edgemont",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Edgemont",
+   "n_vas": 54,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Elbow",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Elbow",
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Falconridge-Conrich",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Falconridge-Conrich",
+   "n_vas": 37,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Fish Creek",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Fish Creek",
+   "n_vas": 64,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Glenmore-Tsuut'ina",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Glenmore-Tsuut'ina",
+   "n_vas": 55,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Hays",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Hays",
+   "n_vas": 40,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Klein",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Klein",
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Lougheed",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Lougheed",
+   "n_vas": 51,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-McKenzie",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-McKenzie",
+   "n_vas": 60,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Mountain View",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Mountain View",
+   "n_vas": 66,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-North",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-North",
+   "n_vas": 39,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-North East",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-North East",
+   "n_vas": 23,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-North West-Bearspaw",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 56,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Nose Creek",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Nose Creek",
+   "n_vas": 38,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Shaw",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Shaw",
+   "n_vas": 47,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-South East",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-South East",
+   "n_vas": 36,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Symons Valley",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Symons Valley",
+   "n_vas": 39,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-Varsity",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Calgary-Varsity",
+   "n_vas": 52,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Calgary-West-Springbank",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 56,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Camrose",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Camrose",
+   "n_vas": 68,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Central Peace-Notley",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Central Peace-Notley",
+   "n_vas": 49,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Chestermere-Strathmore",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Chestermere-Strathmore",
+   "n_vas": 47,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Cochrane",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Cold Lake-Bonnyville-St. Paul",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Cold Lake-Bonnyville-St. Paul",
+   "n_vas": 62,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Drayton Valley-Devon",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 52,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Drumheller-Stettler",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 59,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Beverly-Clareview",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Beverly-Clareview",
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Castle Downs",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Castle Downs",
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-City Centre",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-City Centre",
+   "n_vas": 67,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Decore",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Decore",
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Ellerslie",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 40,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Enoch",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Enoch",
+   "n_vas": 48,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Glenora-Riverview",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Glenora-Riverview",
+   "n_vas": 55,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Gold Bar",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Gold Bar",
+   "n_vas": 60,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Highlands-Norwood",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Highlands-Norwood",
+   "n_vas": 47,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Manning",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Manning",
+   "n_vas": 47,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-McClung",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-McClung",
+   "n_vas": 58,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Meadows",
+   "step_a": "changed",
+   "same_vas_as_majority": "Edmonton-Meadows",
+   "n_vas": 29,
+   "status": "FAIL: Step A says changed (stated difference -3562); voting areas equal majority Edmonton-Meadows",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Mill Woods",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Mill Woods",
+   "n_vas": 54,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Nisku",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 29,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-North West",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-North West",
+   "n_vas": 49,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Rutherford",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-Rutherford",
+   "n_vas": 55,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-South",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 51,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Strathcona",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-West Henday",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Edmonton-West Henday",
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Whitemud",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 53,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Edmonton-Windermere",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 44,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Fort McMurray-Lac La Biche",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 46,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Fort McMurray-Wood Buffalo",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 36,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Fort Saskatchewan-Vegreville",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Fort Saskatchewan-Vegreville",
+   "n_vas": 67,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Grande Prairie",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Grande Prairie",
+   "n_vas": 45,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Grande Prairie-Wapiti",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Grande Prairie-Wapiti",
+   "n_vas": 69,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lac Ste. Anne",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 65,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lacombe-Sylvan Lake",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 56,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Leduc-Beaumont",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 58,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lesser Slave Lake",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Lesser Slave Lake",
+   "n_vas": 55,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lethbridge",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 64,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lethbridge-Cardston",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 39,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lethbridge-Little Bow",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 55,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lethbridge-Taber-Warner",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 70,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Lloydminster-Wainwright",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Lloydminster-Wainwright",
+   "n_vas": 60,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Macleod-Crowsnest",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 72,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Medicine Hat-Brooks",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Medicine Hat-Brooks",
+   "n_vas": 67,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Medicine Hat-Cypress",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Medicine Hat-Cypress",
+   "n_vas": 52,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Morinville-Sturgeon",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 58,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Okotoks",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 61,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Olds-Didsbury-Three Hills",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 50,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Peace River",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Peace River",
+   "n_vas": 60,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Red Deer-North",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Red Deer-North",
+   "n_vas": 49,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Red Deer-South",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 56,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Rocky Mountain House-Sundre",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 48,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Sherwood Park",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Sherwood Park",
+   "n_vas": 51,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Spruce Grove",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 51,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "St. Albert",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "St. Albert",
+   "n_vas": 63,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Strathcona-Sherwood Park",
+   "step_a": "unchanged",
+   "same_vas_as_majority": "Strathcona-Sherwood Park",
+   "n_vas": 57,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "West Yellowhead",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 61,
+   "status": "ok",
+   "acknowledged": false
+  },
+  {
+   "district": "Wetaskiwin-Ponoka",
+   "step_a": "changed",
+   "same_vas_as_majority": null,
+   "n_vas": 58,
+   "status": "ok",
+   "acknowledged": false
+  }
+ ]
+}
