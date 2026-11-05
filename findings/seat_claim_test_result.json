@@ -1,0 +1,2529 @@
+{
+ "test_plan": "preregistration/seat_claim_test_2026-11-04.md (da21f14b)",
+ "claim": {
+  "UCP": 50,
+  "NDP": 41
+ },
+ "substrate_A_coverage": {
+  "ucp_votes": 854502.0,
+  "official_ucp": 928900.0,
+  "ndp_votes": 689637.0,
+  "official_ndp": 777404.0
+ },
+ "A_all_ballots": {
+  "method_check_2019_map": {
+   "UCP": 52,
+   "NDP": 35,
+   "other_combined": 0
+  },
+  "method_check_passes": false,
+  "seats": {
+   "UCP": 52,
+   "NDP": 39,
+   "other_combined": 0
+  },
+  "matches_claim": false,
+  "undecided_by_reconstruction": [
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ndp",
+    "margin_votes": 196.9,
+    "margin_pts": 1.19,
+    "cut_votes": 1921.1,
+    "flip_vas": []
+   },
+   {
+    "district": "Calgary-Bow-Springbank",
+    "winner": "ucp",
+    "margin_votes": 1199.3,
+    "margin_pts": 5.01,
+    "cut_votes": 2709.4,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-Nisku",
+    "winner": "ndp",
+    "margin_votes": 1748.9,
+    "margin_pts": 18.43,
+    "cut_votes": 1798.6,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-South",
+    "winner": "ndp",
+    "margin_votes": 2166.1,
+    "margin_pts": 18.78,
+    "cut_votes": 2223.9,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-Windermere",
+    "winner": "ndp",
+    "margin_votes": 1182.9,
+    "margin_pts": 11.33,
+    "cut_votes": 1837.0,
+    "flip_vas": []
+   },
+   {
+    "district": "Lethbridge",
+    "winner": "ndp",
+    "margin_votes": 1000.4,
+    "margin_pts": 4.41,
+    "cut_votes": 2010.0,
+    "flip_vas": []
+   }
+  ],
+  "seat_range_over_undecided": {
+   "UCP": [
+    51,
+    57
+   ],
+   "NDP": [
+    34,
+    40
+   ]
+  },
+  "close_districts_under_2pts": [
+   {
+    "district": "Calgary-Glenmore-Tsuut'ina",
+    "winner": "ucp",
+    "margin_pts": 0.42,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Beddington",
+    "winner": "ndp",
+    "margin_pts": 0.73,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Confluence",
+    "winner": "ndp",
+    "margin_pts": 1.1,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Edgemont",
+    "winner": "ucp",
+    "margin_pts": 1.11,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Acadia",
+    "winner": "ucp",
+    "margin_pts": 1.14,
+    "source": "known"
+   },
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ndp",
+    "margin_pts": 1.19,
+    "source": "placed"
+   },
+   {
+    "district": "Calgary-Symons Valley",
+    "winner": "ndp",
+    "margin_pts": 1.41,
+    "source": "known"
+   }
+  ],
+  "districts": {
+   "Airdrie-East": {
+    "winner": "ucp",
+    "ucp": 13739.0,
+    "ndp": 6804.9,
+    "other": 662.4,
+    "margin_pts": 32.7,
+    "source": "known"
+   },
+   "Airdrie-West": {
+    "winner": "ucp",
+    "ucp": 8965.6,
+    "ndp": 5558.9,
+    "other": 382.2,
+    "margin_pts": 22.85,
+    "source": "known"
+   },
+   "Banff-Canmore-Diamond Valley": {
+    "winner": "ndp",
+    "ucp": 7965.9,
+    "ndp": 8162.8,
+    "other": 391.1,
+    "margin_pts": 1.19,
+    "source": "placed"
+   },
+   "Barrhead-Westlock-Athabasca": {
+    "winner": "ucp",
+    "ucp": 13573.8,
+    "ndp": 4747.6,
+    "other": 16.9,
+    "margin_pts": 48.13,
+    "source": "placed"
+   },
+   "Blackfalds-Innisfail": {
+    "winner": "ucp",
+    "ucp": 13477.5,
+    "ndp": 4733.5,
+    "other": 995.0,
+    "margin_pts": 45.53,
+    "source": "placed"
+   },
+   "Calgary-Acadia": {
+    "winner": "ucp",
+    "ucp": 11229.1,
+    "ndp": 10969.5,
+    "other": 643.8,
+    "margin_pts": 1.14,
+    "source": "known"
+   },
+   "Calgary-Beddington": {
+    "winner": "ndp",
+    "ucp": 9302.5,
+    "ndp": 9442.9,
+    "other": 621.0,
+    "margin_pts": 0.73,
+    "source": "known"
+   },
+   "Calgary-Bhullar-McCall": {
+    "winner": "ndp",
+    "ucp": 3211.1,
+    "ndp": 4538.0,
+    "other": 0.0,
+    "margin_pts": 17.12,
+    "source": "known"
+   },
+   "Calgary-Bow-Springbank": {
+    "winner": "ucp",
+    "ucp": 12240.6,
+    "ndp": 11041.3,
+    "other": 666.4,
+    "margin_pts": 5.01,
+    "source": "placed"
+   },
+   "Calgary-Buffalo": {
+    "winner": "ndp",
+    "ucp": 4392.9,
+    "ndp": 7572.8,
+    "other": 280.0,
+    "margin_pts": 25.97,
+    "source": "known"
+   },
+   "Calgary-Confluence": {
+    "winner": "ndp",
+    "ucp": 7877.9,
+    "ndp": 8059.4,
+    "other": 543.2,
+    "margin_pts": 1.1,
+    "source": "known"
+   },
+   "Calgary-Cross": {
+    "winner": "ndp",
+    "ucp": 6826.7,
+    "ndp": 7556.4,
+    "other": 514.2,
+    "margin_pts": 4.9,
+    "source": "known"
+   },
+   "Calgary-Currie": {
+    "winner": "ndp",
+    "ucp": 6863.0,
+    "ndp": 8933.0,
+    "other": 745.0,
+    "margin_pts": 12.51,
+    "source": "known"
+   },
+   "Calgary-East": {
+    "winner": "ucp",
+    "ucp": 7622.3,
+    "ndp": 6448.1,
+    "other": 599.8,
+    "margin_pts": 8.0,
+    "source": "known"
+   },
+   "Calgary-Edgemont": {
+    "winner": "ucp",
+    "ucp": 11169.0,
+    "ndp": 10917.3,
+    "other": 575.7,
+    "margin_pts": 1.11,
+    "source": "known"
+   },
+   "Calgary-Elbow": {
+    "winner": "ndp",
+    "ucp": 9809.9,
+    "ndp": 10878.8,
+    "other": 1020.9,
+    "margin_pts": 4.92,
+    "source": "known"
+   },
+   "Calgary-Falconridge-Conrich": {
+    "winner": "ndp",
+    "ucp": 4141.7,
+    "ndp": 5953.6,
+    "other": 256.0,
+    "margin_pts": 17.5,
+    "source": "known"
+   },
+   "Calgary-Fish Creek": {
+    "winner": "ucp",
+    "ucp": 12637.6,
+    "ndp": 9699.4,
+    "other": 559.2,
+    "margin_pts": 12.83,
+    "source": "known"
+   },
+   "Calgary-Glenmore-Tsuut'ina": {
+    "winner": "ucp",
+    "ucp": 12739.7,
+    "ndp": 12630.1,
+    "other": 587.9,
+    "margin_pts": 0.42,
+    "source": "known"
+   },
+   "Calgary-Hays": {
+    "winner": "ucp",
+    "ucp": 8770.0,
+    "ndp": 6743.1,
+    "other": 339.3,
+    "margin_pts": 12.79,
+    "source": "known"
+   },
+   "Calgary-Klein": {
+    "winner": "ndp",
+    "ucp": 8011.0,
+    "ndp": 9363.1,
+    "other": 441.3,
+    "margin_pts": 7.59,
+    "source": "known"
+   },
+   "Calgary-Lougheed": {
+    "winner": "ucp",
+    "ucp": 10589.8,
+    "ndp": 7567.9,
+    "other": 481.5,
+    "margin_pts": 16.21,
+    "source": "known"
+   },
+   "Calgary-McKenzie": {
+    "winner": "ucp",
+    "ucp": 14051.4,
+    "ndp": 9730.3,
+    "other": 642.8,
+    "margin_pts": 17.69,
+    "source": "known"
+   },
+   "Calgary-Mountain View": {
+    "winner": "ndp",
+    "ucp": 6605.6,
+    "ndp": 12252.1,
+    "other": 431.1,
+    "margin_pts": 29.27,
+    "source": "known"
+   },
+   "Calgary-North": {
+    "winner": "ucp",
+    "ucp": 6028.9,
+    "ndp": 5704.2,
+    "other": 18.4,
+    "margin_pts": 2.76,
+    "source": "known"
+   },
+   "Calgary-North East": {
+    "winner": "ndp",
+    "ucp": 2576.3,
+    "ndp": 3578.2,
+    "other": 0.0,
+    "margin_pts": 16.28,
+    "source": "known"
+   },
+   "Calgary-North West-Bearspaw": {
+    "winner": "ucp",
+    "ucp": 10446.6,
+    "ndp": 9776.7,
+    "other": 880.7,
+    "margin_pts": 3.17,
+    "source": "filled"
+   },
+   "Calgary-Nose Creek": {
+    "winner": "ndp",
+    "ucp": 6707.4,
+    "ndp": 7316.2,
+    "other": 51.2,
+    "margin_pts": 4.33,
+    "source": "known"
+   },
+   "Calgary-Shaw": {
+    "winner": "ucp",
+    "ucp": 8818.6,
+    "ndp": 6291.7,
+    "other": 139.4,
+    "margin_pts": 16.57,
+    "source": "known"
+   },
+   "Calgary-South East": {
+    "winner": "ucp",
+    "ucp": 8378.0,
+    "ndp": 5662.9,
+    "other": 238.1,
+    "margin_pts": 19.02,
+    "source": "known"
+   },
+   "Calgary-Symons Valley": {
+    "winner": "ndp",
+    "ucp": 7024.9,
+    "ndp": 7228.4,
+    "other": 174.7,
+    "margin_pts": 1.41,
+    "source": "known"
+   },
+   "Calgary-Varsity": {
+    "winner": "ndp",
+    "ucp": 8737.8,
+    "ndp": 12089.1,
+    "other": 278.6,
+    "margin_pts": 15.88,
+    "source": "known"
+   },
+   "Calgary-West-Springbank": {
+    "winner": "ucp",
+    "ucp": 14492.0,
+    "ndp": 10689.5,
+    "other": 347.6,
+    "margin_pts": 14.89,
+    "source": "placed"
+   },
+   "Camrose": {
+    "winner": "ucp",
+    "ucp": 14878.8,
+    "ndp": 6269.5,
+    "other": 1967.7,
+    "margin_pts": 37.24,
+    "source": "known"
+   },
+   "Central Peace-Notley": {
+    "winner": "ucp",
+    "ucp": 8932.0,
+    "ndp": 2125.0,
+    "other": 442.0,
+    "margin_pts": 59.2,
+    "source": "known"
+   },
+   "Chestermere-Strathmore": {
+    "winner": "ucp",
+    "ucp": 12672.5,
+    "ndp": 5038.2,
+    "other": 463.9,
+    "margin_pts": 42.01,
+    "source": "known"
+   },
+   "Cochrane": {
+    "winner": "ucp",
+    "ucp": 11176.9,
+    "ndp": 6890.5,
+    "other": 497.0,
+    "margin_pts": 23.09,
+    "source": "placed"
+   },
+   "Cold Lake-Bonnyville-St. Paul": {
+    "winner": "ucp",
+    "ucp": 13855.3,
+    "ndp": 4495.2,
+    "other": 0.0,
+    "margin_pts": 51.01,
+    "source": "known"
+   },
+   "Drayton Valley-Devon": {
+    "winner": "ucp",
+    "ucp": 14225.4,
+    "ndp": 4024.2,
+    "other": 803.3,
+    "margin_pts": 53.54,
+    "source": "placed"
+   },
+   "Drumheller-Stettler": {
+    "winner": "ucp",
+    "ucp": 16213.7,
+    "ndp": 2993.6,
+    "other": 798.6,
+    "margin_pts": 66.08,
+    "source": "placed"
+   },
+   "Edmonton-Beverly-Clareview": {
+    "winner": "ndp",
+    "ucp": 6069.1,
+    "ndp": 9166.9,
+    "other": 522.8,
+    "margin_pts": 19.66,
+    "source": "known"
+   },
+   "Edmonton-Castle Downs": {
+    "winner": "ndp",
+    "ucp": 6305.0,
+    "ndp": 8442.0,
+    "other": 621.0,
+    "margin_pts": 13.91,
+    "source": "known"
+   },
+   "Edmonton-City Centre": {
+    "winner": "ndp",
+    "ucp": 3462.3,
+    "ndp": 11812.9,
+    "other": 451.2,
+    "margin_pts": 53.1,
+    "source": "known"
+   },
+   "Edmonton-Decore": {
+    "winner": "ndp",
+    "ucp": 5667.8,
+    "ndp": 7079.1,
+    "other": 820.4,
+    "margin_pts": 10.4,
+    "source": "known"
+   },
+   "Edmonton-Ellerslie": {
+    "winner": "ndp",
+    "ucp": 4840.2,
+    "ndp": 7454.6,
+    "other": 92.1,
+    "margin_pts": 21.11,
+    "source": "placed"
+   },
+   "Edmonton-Enoch": {
+    "winner": "ndp",
+    "ucp": 6372.1,
+    "ndp": 7547.1,
+    "other": 285.5,
+    "margin_pts": 8.27,
+    "source": "known"
+   },
+   "Edmonton-Glenora-Riverview": {
+    "winner": "ndp",
+    "ucp": 5889.0,
+    "ndp": 13432.0,
+    "other": 654.8,
+    "margin_pts": 37.76,
+    "source": "known"
+   },
+   "Edmonton-Gold Bar": {
+    "winner": "ndp",
+    "ucp": 6426.1,
+    "ndp": 16706.2,
+    "other": 693.5,
+    "margin_pts": 43.15,
+    "source": "known"
+   },
+   "Edmonton-Highlands-Norwood": {
+    "winner": "ndp",
+    "ucp": 3217.0,
+    "ndp": 8769.6,
+    "other": 408.3,
+    "margin_pts": 44.8,
+    "source": "known"
+   },
+   "Edmonton-Manning": {
+    "winner": "ndp",
+    "ucp": 4445.0,
+    "ndp": 6355.0,
+    "other": 215.8,
+    "margin_pts": 17.34,
+    "source": "known"
+   },
+   "Edmonton-McClung": {
+    "winner": "ndp",
+    "ucp": 7925.2,
+    "ndp": 12948.4,
+    "other": 641.4,
+    "margin_pts": 23.35,
+    "source": "known"
+   },
+   "Edmonton-Meadows": {
+    "winner": "ndp",
+    "ucp": 3114.0,
+    "ndp": 5563.2,
+    "other": 117.2,
+    "margin_pts": 27.85,
+    "source": "filled"
+   },
+   "Edmonton-Mill Woods": {
+    "winner": "ndp",
+    "ucp": 7255.7,
+    "ndp": 12047.9,
+    "other": 98.3,
+    "margin_pts": 24.7,
+    "source": "known"
+   },
+   "Edmonton-Nisku": {
+    "winner": "ndp",
+    "ucp": 3796.5,
+    "ndp": 5545.4,
+    "other": 149.8,
+    "margin_pts": 18.43,
+    "source": "placed"
+   },
+   "Edmonton-North West": {
+    "winner": "ndp",
+    "ucp": 6233.1,
+    "ndp": 9425.2,
+    "other": 352.5,
+    "margin_pts": 19.94,
+    "source": "known"
+   },
+   "Edmonton-Rutherford": {
+    "winner": "ndp",
+    "ucp": 6935.6,
+    "ndp": 13756.7,
+    "other": 635.6,
+    "margin_pts": 31.98,
+    "source": "known"
+   },
+   "Edmonton-South": {
+    "winner": "ndp",
+    "ucp": 4590.9,
+    "ndp": 6757.1,
+    "other": 184.4,
+    "margin_pts": 18.78,
+    "source": "placed"
+   },
+   "Edmonton-Strathcona": {
+    "winner": "ndp",
+    "ucp": 2816.9,
+    "ndp": 11374.9,
+    "other": 515.5,
+    "margin_pts": 58.19,
+    "source": "placed"
+   },
+   "Edmonton-West Henday": {
+    "winner": "ndp",
+    "ucp": 6520.6,
+    "ndp": 9555.9,
+    "other": 687.3,
+    "margin_pts": 18.11,
+    "source": "known"
+   },
+   "Edmonton-Whitemud": {
+    "winner": "ndp",
+    "ucp": 8486.8,
+    "ndp": 13506.4,
+    "other": 602.4,
+    "margin_pts": 22.22,
+    "source": "placed"
+   },
+   "Edmonton-Windermere": {
+    "winner": "ndp",
+    "ucp": 4563.5,
+    "ndp": 5746.5,
+    "other": 129.4,
+    "margin_pts": 11.33,
+    "source": "filled"
+   },
+   "Fort McMurray-Lac La Biche": {
+    "winner": "ucp",
+    "ucp": 7058.0,
+    "ndp": 2300.0,
+    "other": 192.0,
+    "margin_pts": 49.82,
+    "source": "placed"
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "winner": "ucp",
+    "ucp": 5803.0,
+    "ndp": 1715.0,
+    "other": 1099.0,
+    "margin_pts": 47.44,
+    "source": "filled"
+   },
+   "Fort Saskatchewan-Vegreville": {
+    "winner": "ucp",
+    "ucp": 12236.0,
+    "ndp": 8032.3,
+    "other": 1019.3,
+    "margin_pts": 19.75,
+    "source": "known"
+   },
+   "Grande Prairie": {
+    "winner": "ucp",
+    "ucp": 9172.0,
+    "ndp": 4453.0,
+    "other": 699.0,
+    "margin_pts": 32.94,
+    "source": "known"
+   },
+   "Grande Prairie-Wapiti": {
+    "winner": "ucp",
+    "ucp": 13650.0,
+    "ndp": 3441.0,
+    "other": 606.0,
+    "margin_pts": 57.69,
+    "source": "known"
+   },
+   "Lac Ste. Anne": {
+    "winner": "ucp",
+    "ucp": 13186.2,
+    "ndp": 6089.2,
+    "other": 727.2,
+    "margin_pts": 35.48,
+    "source": "placed"
+   },
+   "Lacombe-Sylvan Lake": {
+    "winner": "ucp",
+    "ucp": 14391.5,
+    "ndp": 4697.5,
+    "other": 1883.2,
+    "margin_pts": 46.22,
+    "source": "placed"
+   },
+   "Leduc-Beaumont": {
+    "winner": "ucp",
+    "ucp": 13372.7,
+    "ndp": 9543.6,
+    "other": 666.8,
+    "margin_pts": 16.24,
+    "source": "placed"
+   },
+   "Lesser Slave Lake": {
+    "winner": "ucp",
+    "ucp": 5906.4,
+    "ndp": 2836.9,
+    "other": 141.0,
+    "margin_pts": 34.55,
+    "source": "known"
+   },
+   "Lethbridge": {
+    "winner": "ndp",
+    "ucp": 10487.8,
+    "ndp": 11488.2,
+    "other": 687.5,
+    "margin_pts": 4.41,
+    "source": "placed"
+   },
+   "Lethbridge-Cardston": {
+    "winner": "ucp",
+    "ucp": 6734.2,
+    "ndp": 4200.3,
+    "other": 850.9,
+    "margin_pts": 21.5,
+    "source": "placed"
+   },
+   "Lethbridge-Little Bow": {
+    "winner": "ucp",
+    "ucp": 10341.7,
+    "ndp": 5814.9,
+    "other": 770.3,
+    "margin_pts": 26.74,
+    "source": "placed"
+   },
+   "Lethbridge-Taber-Warner": {
+    "winner": "ucp",
+    "ucp": 13714.3,
+    "ndp": 4222.6,
+    "other": 1255.3,
+    "margin_pts": 49.46,
+    "source": "placed"
+   },
+   "Lloydminster-Wainwright": {
+    "winner": "ucp",
+    "ucp": 13729.6,
+    "ndp": 3281.0,
+    "other": 1484.1,
+    "margin_pts": 56.49,
+    "source": "known"
+   },
+   "Macleod-Crowsnest": {
+    "winner": "ucp",
+    "ucp": 15679.4,
+    "ndp": 6190.3,
+    "other": 1594.4,
+    "margin_pts": 40.44,
+    "source": "placed"
+   },
+   "Medicine Hat-Brooks": {
+    "winner": "ucp",
+    "ucp": 12855.0,
+    "ndp": 5213.0,
+    "other": 1198.0,
+    "margin_pts": 39.67,
+    "source": "known"
+   },
+   "Medicine Hat-Cypress": {
+    "winner": "ucp",
+    "ucp": 12972.0,
+    "ndp": 7412.0,
+    "other": 593.0,
+    "margin_pts": 26.51,
+    "source": "known"
+   },
+   "Morinville-Sturgeon": {
+    "winner": "ucp",
+    "ucp": 12429.0,
+    "ndp": 8774.9,
+    "other": 722.7,
+    "margin_pts": 16.67,
+    "source": "placed"
+   },
+   "Okotoks": {
+    "winner": "ucp",
+    "ucp": 15431.2,
+    "ndp": 6717.1,
+    "other": 502.7,
+    "margin_pts": 38.47,
+    "source": "placed"
+   },
+   "Olds-Didsbury-Three Hills": {
+    "winner": "ucp",
+    "ucp": 16734.7,
+    "ndp": 4263.4,
+    "other": 1292.5,
+    "margin_pts": 55.95,
+    "source": "placed"
+   },
+   "Peace River": {
+    "winner": "ucp",
+    "ucp": 8096.0,
+    "ndp": 2548.0,
+    "other": 476.0,
+    "margin_pts": 49.89,
+    "source": "known"
+   },
+   "Red Deer-North": {
+    "winner": "ucp",
+    "ucp": 10038.0,
+    "ndp": 6552.0,
+    "other": 694.0,
+    "margin_pts": 20.17,
+    "source": "known"
+   },
+   "Red Deer-South": {
+    "winner": "ucp",
+    "ucp": 11886.8,
+    "ndp": 8817.2,
+    "other": 497.7,
+    "margin_pts": 14.48,
+    "source": "placed"
+   },
+   "Rocky Mountain House-Sundre": {
+    "winner": "ucp",
+    "ucp": 9540.5,
+    "ndp": 2259.4,
+    "other": 2101.6,
+    "margin_pts": 52.38,
+    "source": "placed"
+   },
+   "Sherwood Park": {
+    "winner": "ndp",
+    "ucp": 10244.0,
+    "ndp": 11872.0,
+    "other": 1399.0,
+    "margin_pts": 6.92,
+    "source": "known"
+   },
+   "Spruce Grove": {
+    "winner": "ucp",
+    "ucp": 12533.4,
+    "ndp": 8336.1,
+    "other": 576.1,
+    "margin_pts": 19.57,
+    "source": "placed"
+   },
+   "St. Albert": {
+    "winner": "ndp",
+    "ucp": 10843.0,
+    "ndp": 15090.1,
+    "other": 521.6,
+    "margin_pts": 16.05,
+    "source": "known"
+   },
+   "Strathcona-Sherwood Park": {
+    "winner": "ucp",
+    "ucp": 12697.7,
+    "ndp": 9755.0,
+    "other": 601.2,
+    "margin_pts": 12.76,
+    "source": "known"
+   },
+   "West Yellowhead": {
+    "winner": "ucp",
+    "ucp": 14145.0,
+    "ndp": 5573.0,
+    "other": 0.0,
+    "margin_pts": 43.47,
+    "source": "placed"
+   },
+   "Wetaskiwin-Ponoka": {
+    "winner": "ucp",
+    "ucp": 12681.3,
+    "ndp": 4677.3,
+    "other": 1613.5,
+    "margin_pts": 42.19,
+    "source": "placed"
+   }
+  }
+ },
+ "B_election_day": {
+  "method_check_2019_map": {
+   "UCP": 57,
+   "NDP": 30,
+   "other_combined": 0
+  },
+  "method_check_passes": false,
+  "seats": {
+   "UCP": 58,
+   "NDP": 33,
+   "other_combined": 0
+  },
+  "matches_claim": false,
+  "undecided_by_reconstruction": [
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ucp",
+    "margin_votes": 468.1,
+    "margin_pts": 6.04,
+    "cut_votes": 897.7,
+    "flip_vas": []
+   },
+   {
+    "district": "Calgary-Bow-Springbank",
+    "winner": "ucp",
+    "margin_votes": 936.8,
+    "margin_pts": 7.56,
+    "cut_votes": 1421.0,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-Nisku",
+    "winner": "ndp",
+    "margin_votes": 863.7,
+    "margin_pts": 13.8,
+    "cut_votes": 1027.1,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-South",
+    "winner": "ndp",
+    "margin_votes": 1163.9,
+    "margin_pts": 15.16,
+    "cut_votes": 1479.6,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-Windermere",
+    "winner": "ndp",
+    "margin_votes": 457.1,
+    "margin_pts": 7.64,
+    "cut_votes": 1065.3,
+    "flip_vas": []
+   },
+   {
+    "district": "Lethbridge",
+    "winner": "ucp",
+    "margin_votes": 521.7,
+    "margin_pts": 4.36,
+    "cut_votes": 1032.6,
+    "flip_vas": []
+   }
+  ],
+  "seat_range_over_undecided": {
+   "UCP": [
+    55,
+    61
+   ],
+   "NDP": [
+    30,
+    36
+   ]
+  },
+  "close_districts_under_2pts": [
+   {
+    "district": "Sherwood Park",
+    "winner": "ndp",
+    "margin_pts": 0.27,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Symons Valley",
+    "winner": "ucp",
+    "margin_pts": 0.8,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Edgemont",
+    "winner": "ucp",
+    "margin_pts": 0.97,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Acadia",
+    "winner": "ucp",
+    "margin_pts": 1.2,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Elbow",
+    "winner": "ndp",
+    "margin_pts": 1.51,
+    "source": "known"
+   }
+  ],
+  "districts": {
+   "Airdrie-East": {
+    "winner": "ucp",
+    "ucp": 8032.7,
+    "ndp": 3706.8,
+    "other": 414.3,
+    "margin_pts": 35.59,
+    "source": "known"
+   },
+   "Airdrie-West": {
+    "winner": "ucp",
+    "ucp": 4897.7,
+    "ndp": 2949.7,
+    "other": 238.0,
+    "margin_pts": 24.09,
+    "source": "known"
+   },
+   "Banff-Canmore-Diamond Valley": {
+    "winner": "ucp",
+    "ucp": 3987.2,
+    "ndp": 3519.1,
+    "other": 241.6,
+    "margin_pts": 6.04,
+    "source": "placed"
+   },
+   "Barrhead-Westlock-Athabasca": {
+    "winner": "ucp",
+    "ucp": 8790.4,
+    "ndp": 2555.0,
+    "other": 14.0,
+    "margin_pts": 54.89,
+    "source": "placed"
+   },
+   "Blackfalds-Innisfail": {
+    "winner": "ucp",
+    "ucp": 7986.7,
+    "ndp": 2343.5,
+    "other": 633.5,
+    "margin_pts": 51.47,
+    "source": "placed"
+   },
+   "Calgary-Acadia": {
+    "winner": "ucp",
+    "ucp": 6107.0,
+    "ndp": 5957.0,
+    "other": 448.0,
+    "margin_pts": 1.2,
+    "source": "known"
+   },
+   "Calgary-Beddington": {
+    "winner": "ucp",
+    "ucp": 5320.0,
+    "ndp": 5098.0,
+    "other": 402.0,
+    "margin_pts": 2.05,
+    "source": "known"
+   },
+   "Calgary-Bhullar-McCall": {
+    "winner": "ndp",
+    "ucp": 2080.7,
+    "ndp": 2959.9,
+    "other": 0.0,
+    "margin_pts": 17.44,
+    "source": "known"
+   },
+   "Calgary-Bow-Springbank": {
+    "winner": "ucp",
+    "ucp": 6467.5,
+    "ndp": 5530.8,
+    "other": 388.8,
+    "margin_pts": 7.56,
+    "source": "placed"
+   },
+   "Calgary-Buffalo": {
+    "winner": "ndp",
+    "ucp": 2479.8,
+    "ndp": 3742.1,
+    "other": 154.9,
+    "margin_pts": 19.8,
+    "source": "known"
+   },
+   "Calgary-Confluence": {
+    "winner": "ucp",
+    "ucp": 5016.8,
+    "ndp": 4766.1,
+    "other": 396.2,
+    "margin_pts": 2.46,
+    "source": "known"
+   },
+   "Calgary-Cross": {
+    "winner": "ndp",
+    "ucp": 3943.0,
+    "ndp": 4244.0,
+    "other": 334.0,
+    "margin_pts": 3.53,
+    "source": "known"
+   },
+   "Calgary-Currie": {
+    "winner": "ndp",
+    "ucp": 4639.0,
+    "ndp": 5625.0,
+    "other": 541.0,
+    "margin_pts": 9.13,
+    "source": "known"
+   },
+   "Calgary-East": {
+    "winner": "ucp",
+    "ucp": 4809.9,
+    "ndp": 4040.9,
+    "other": 453.8,
+    "margin_pts": 8.27,
+    "source": "known"
+   },
+   "Calgary-Edgemont": {
+    "winner": "ucp",
+    "ucp": 5162.8,
+    "ndp": 5060.6,
+    "other": 362.6,
+    "margin_pts": 0.97,
+    "source": "known"
+   },
+   "Calgary-Elbow": {
+    "winner": "ndp",
+    "ucp": 5085.2,
+    "ndp": 5250.1,
+    "other": 565.4,
+    "margin_pts": 1.51,
+    "source": "known"
+   },
+   "Calgary-Falconridge-Conrich": {
+    "winner": "ndp",
+    "ucp": 2475.5,
+    "ndp": 3540.4,
+    "other": 148.0,
+    "margin_pts": 17.28,
+    "source": "known"
+   },
+   "Calgary-Fish Creek": {
+    "winner": "ucp",
+    "ucp": 8807.0,
+    "ndp": 6515.7,
+    "other": 420.0,
+    "margin_pts": 14.55,
+    "source": "known"
+   },
+   "Calgary-Glenmore-Tsuut'ina": {
+    "winner": "ucp",
+    "ucp": 6654.0,
+    "ndp": 6250.8,
+    "other": 359.8,
+    "margin_pts": 3.04,
+    "source": "known"
+   },
+   "Calgary-Hays": {
+    "winner": "ucp",
+    "ucp": 4965.0,
+    "ndp": 3596.0,
+    "other": 233.0,
+    "margin_pts": 15.57,
+    "source": "known"
+   },
+   "Calgary-Klein": {
+    "winner": "ndp",
+    "ucp": 5374.5,
+    "ndp": 5777.5,
+    "other": 319.0,
+    "margin_pts": 3.51,
+    "source": "known"
+   },
+   "Calgary-Lougheed": {
+    "winner": "ucp",
+    "ucp": 6343.0,
+    "ndp": 4720.3,
+    "other": 317.0,
+    "margin_pts": 14.26,
+    "source": "known"
+   },
+   "Calgary-McKenzie": {
+    "winner": "ucp",
+    "ucp": 8443.0,
+    "ndp": 5410.0,
+    "other": 460.0,
+    "margin_pts": 21.19,
+    "source": "known"
+   },
+   "Calgary-Mountain View": {
+    "winner": "ndp",
+    "ucp": 4112.5,
+    "ndp": 7036.5,
+    "other": 277.0,
+    "margin_pts": 25.59,
+    "source": "known"
+   },
+   "Calgary-North": {
+    "winner": "ucp",
+    "ucp": 4016.1,
+    "ndp": 3657.7,
+    "other": 9.0,
+    "margin_pts": 4.66,
+    "source": "known"
+   },
+   "Calgary-North East": {
+    "winner": "ndp",
+    "ucp": 1295.5,
+    "ndp": 1865.6,
+    "other": 0.0,
+    "margin_pts": 18.04,
+    "source": "known"
+   },
+   "Calgary-North West-Bearspaw": {
+    "winner": "ucp",
+    "ucp": 5040.0,
+    "ndp": 4357.0,
+    "other": 473.5,
+    "margin_pts": 6.92,
+    "source": "filled"
+   },
+   "Calgary-Nose Creek": {
+    "winner": "ucp",
+    "ucp": 3833.9,
+    "ndp": 3577.4,
+    "other": 33.0,
+    "margin_pts": 3.44,
+    "source": "known"
+   },
+   "Calgary-Shaw": {
+    "winner": "ucp",
+    "ucp": 5888.0,
+    "ndp": 4065.0,
+    "other": 107.0,
+    "margin_pts": 18.12,
+    "source": "known"
+   },
+   "Calgary-South East": {
+    "winner": "ucp",
+    "ucp": 4410.0,
+    "ndp": 2852.0,
+    "other": 128.0,
+    "margin_pts": 21.08,
+    "source": "known"
+   },
+   "Calgary-Symons Valley": {
+    "winner": "ucp",
+    "ucp": 3605.2,
+    "ndp": 3547.2,
+    "other": 97.4,
+    "margin_pts": 0.8,
+    "source": "known"
+   },
+   "Calgary-Varsity": {
+    "winner": "ndp",
+    "ucp": 5031.0,
+    "ndp": 6792.0,
+    "other": 157.0,
+    "margin_pts": 14.7,
+    "source": "known"
+   },
+   "Calgary-West-Springbank": {
+    "winner": "ucp",
+    "ucp": 7150.0,
+    "ndp": 4385.0,
+    "other": 177.0,
+    "margin_pts": 23.61,
+    "source": "placed"
+   },
+   "Camrose": {
+    "winner": "ucp",
+    "ucp": 9211.9,
+    "ndp": 3438.6,
+    "other": 1341.9,
+    "margin_pts": 41.26,
+    "source": "known"
+   },
+   "Central Peace-Notley": {
+    "winner": "ucp",
+    "ucp": 5989.0,
+    "ndp": 1287.0,
+    "other": 277.0,
+    "margin_pts": 62.25,
+    "source": "known"
+   },
+   "Chestermere-Strathmore": {
+    "winner": "ucp",
+    "ucp": 5776.7,
+    "ndp": 2460.7,
+    "other": 247.3,
+    "margin_pts": 39.08,
+    "source": "known"
+   },
+   "Cochrane": {
+    "winner": "ucp",
+    "ucp": 6047.3,
+    "ndp": 3470.3,
+    "other": 326.5,
+    "margin_pts": 26.18,
+    "source": "placed"
+   },
+   "Cold Lake-Bonnyville-St. Paul": {
+    "winner": "ucp",
+    "ucp": 8280.1,
+    "ndp": 2437.5,
+    "other": 0.0,
+    "margin_pts": 54.51,
+    "source": "known"
+   },
+   "Drayton Valley-Devon": {
+    "winner": "ucp",
+    "ucp": 9566.7,
+    "ndp": 2510.0,
+    "other": 585.7,
+    "margin_pts": 55.73,
+    "source": "placed"
+   },
+   "Drumheller-Stettler": {
+    "winner": "ucp",
+    "ucp": 10423.0,
+    "ndp": 1620.0,
+    "other": 538.5,
+    "margin_pts": 69.97,
+    "source": "placed"
+   },
+   "Edmonton-Beverly-Clareview": {
+    "winner": "ndp",
+    "ucp": 4073.7,
+    "ndp": 5639.1,
+    "other": 385.4,
+    "margin_pts": 15.5,
+    "source": "known"
+   },
+   "Edmonton-Castle Downs": {
+    "winner": "ndp",
+    "ucp": 3865.0,
+    "ndp": 4638.0,
+    "other": 361.0,
+    "margin_pts": 8.72,
+    "source": "known"
+   },
+   "Edmonton-City Centre": {
+    "winner": "ndp",
+    "ucp": 1876.4,
+    "ndp": 5877.4,
+    "other": 229.7,
+    "margin_pts": 50.12,
+    "source": "known"
+   },
+   "Edmonton-Decore": {
+    "winner": "ndp",
+    "ucp": 3688.6,
+    "ndp": 4386.6,
+    "other": 553.0,
+    "margin_pts": 8.09,
+    "source": "known"
+   },
+   "Edmonton-Ellerslie": {
+    "winner": "ndp",
+    "ucp": 3321.0,
+    "ndp": 4590.5,
+    "other": 67.5,
+    "margin_pts": 15.91,
+    "source": "placed"
+   },
+   "Edmonton-Enoch": {
+    "winner": "ndp",
+    "ucp": 3937.2,
+    "ndp": 4473.3,
+    "other": 210.0,
+    "margin_pts": 6.22,
+    "source": "known"
+   },
+   "Edmonton-Glenora-Riverview": {
+    "winner": "ndp",
+    "ucp": 4437.1,
+    "ndp": 8657.0,
+    "other": 449.6,
+    "margin_pts": 31.16,
+    "source": "known"
+   },
+   "Edmonton-Gold Bar": {
+    "winner": "ndp",
+    "ucp": 4077.7,
+    "ndp": 8899.2,
+    "other": 436.8,
+    "margin_pts": 35.94,
+    "source": "known"
+   },
+   "Edmonton-Highlands-Norwood": {
+    "winner": "ndp",
+    "ucp": 2223.0,
+    "ndp": 5122.2,
+    "other": 279.8,
+    "margin_pts": 38.02,
+    "source": "known"
+   },
+   "Edmonton-Manning": {
+    "winner": "ndp",
+    "ucp": 3109.7,
+    "ndp": 3894.3,
+    "other": 149.6,
+    "margin_pts": 10.97,
+    "source": "known"
+   },
+   "Edmonton-McClung": {
+    "winner": "ndp",
+    "ucp": 4888.5,
+    "ndp": 7272.4,
+    "other": 382.4,
+    "margin_pts": 19.01,
+    "source": "known"
+   },
+   "Edmonton-Meadows": {
+    "winner": "ndp",
+    "ucp": 2013.9,
+    "ndp": 3419.6,
+    "other": 87.7,
+    "margin_pts": 25.46,
+    "source": "filled"
+   },
+   "Edmonton-Mill Woods": {
+    "winner": "ndp",
+    "ucp": 4629.8,
+    "ndp": 7092.8,
+    "other": 71.0,
+    "margin_pts": 20.88,
+    "source": "known"
+   },
+   "Edmonton-Nisku": {
+    "winner": "ndp",
+    "ucp": 2642.0,
+    "ndp": 3505.7,
+    "other": 110.1,
+    "margin_pts": 13.8,
+    "source": "placed"
+   },
+   "Edmonton-North West": {
+    "winner": "ndp",
+    "ucp": 3829.0,
+    "ndp": 5402.0,
+    "other": 232.0,
+    "margin_pts": 16.62,
+    "source": "known"
+   },
+   "Edmonton-Rutherford": {
+    "winner": "ndp",
+    "ucp": 4062.0,
+    "ndp": 7011.0,
+    "other": 396.5,
+    "margin_pts": 25.71,
+    "source": "known"
+   },
+   "Edmonton-South": {
+    "winner": "ndp",
+    "ucp": 3187.7,
+    "ndp": 4351.6,
+    "other": 136.6,
+    "margin_pts": 15.16,
+    "source": "placed"
+   },
+   "Edmonton-Strathcona": {
+    "winner": "ndp",
+    "ucp": 1945.3,
+    "ndp": 7636.8,
+    "other": 339.2,
+    "margin_pts": 57.37,
+    "source": "placed"
+   },
+   "Edmonton-West Henday": {
+    "winner": "ndp",
+    "ucp": 4941.8,
+    "ndp": 6654.7,
+    "other": 551.5,
+    "margin_pts": 14.1,
+    "source": "known"
+   },
+   "Edmonton-Whitemud": {
+    "winner": "ndp",
+    "ucp": 4495.0,
+    "ndp": 6272.0,
+    "other": 339.0,
+    "margin_pts": 16.0,
+    "source": "placed"
+   },
+   "Edmonton-Windermere": {
+    "winner": "ndp",
+    "ucp": 2718.3,
+    "ndp": 3175.4,
+    "other": 88.9,
+    "margin_pts": 7.64,
+    "source": "filled"
+   },
+   "Fort McMurray-Lac La Biche": {
+    "winner": "ucp",
+    "ucp": 4803.0,
+    "ndp": 1384.0,
+    "other": 130.0,
+    "margin_pts": 54.12,
+    "source": "placed"
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "winner": "ucp",
+    "ucp": 3679.0,
+    "ndp": 1029.0,
+    "other": 657.0,
+    "margin_pts": 49.39,
+    "source": "filled"
+   },
+   "Fort Saskatchewan-Vegreville": {
+    "winner": "ucp",
+    "ucp": 7777.0,
+    "ndp": 4422.0,
+    "other": 678.0,
+    "margin_pts": 26.05,
+    "source": "known"
+   },
+   "Grande Prairie": {
+    "winner": "ucp",
+    "ucp": 6485.0,
+    "ndp": 2614.0,
+    "other": 462.0,
+    "margin_pts": 40.49,
+    "source": "known"
+   },
+   "Grande Prairie-Wapiti": {
+    "winner": "ucp",
+    "ucp": 10015.0,
+    "ndp": 2299.0,
+    "other": 444.0,
+    "margin_pts": 60.48,
+    "source": "known"
+   },
+   "Lac Ste. Anne": {
+    "winner": "ucp",
+    "ucp": 8547.7,
+    "ndp": 3357.9,
+    "other": 534.5,
+    "margin_pts": 41.72,
+    "source": "placed"
+   },
+   "Lacombe-Sylvan Lake": {
+    "winner": "ucp",
+    "ucp": 8462.4,
+    "ndp": 2269.7,
+    "other": 1233.9,
+    "margin_pts": 51.75,
+    "source": "placed"
+   },
+   "Leduc-Beaumont": {
+    "winner": "ucp",
+    "ucp": 7139.3,
+    "ndp": 4709.5,
+    "other": 377.7,
+    "margin_pts": 19.87,
+    "source": "placed"
+   },
+   "Lesser Slave Lake": {
+    "winner": "ucp",
+    "ucp": 3467.5,
+    "ndp": 1658.0,
+    "other": 76.0,
+    "margin_pts": 34.79,
+    "source": "known"
+   },
+   "Lethbridge": {
+    "winner": "ucp",
+    "ucp": 6046.9,
+    "ndp": 5525.2,
+    "other": 403.0,
+    "margin_pts": 4.36,
+    "source": "placed"
+   },
+   "Lethbridge-Cardston": {
+    "winner": "ucp",
+    "ucp": 4307.2,
+    "ndp": 2186.2,
+    "other": 617.9,
+    "margin_pts": 29.83,
+    "source": "placed"
+   },
+   "Lethbridge-Little Bow": {
+    "winner": "ucp",
+    "ucp": 6794.7,
+    "ndp": 3203.6,
+    "other": 500.0,
+    "margin_pts": 34.21,
+    "source": "placed"
+   },
+   "Lethbridge-Taber-Warner": {
+    "winner": "ucp",
+    "ucp": 8152.2,
+    "ndp": 2207.0,
+    "other": 740.1,
+    "margin_pts": 53.56,
+    "source": "placed"
+   },
+   "Lloydminster-Wainwright": {
+    "winner": "ucp",
+    "ucp": 8833.0,
+    "ndp": 1771.0,
+    "other": 936.5,
+    "margin_pts": 61.19,
+    "source": "known"
+   },
+   "Macleod-Crowsnest": {
+    "winner": "ucp",
+    "ucp": 7931.0,
+    "ndp": 2694.0,
+    "other": 833.7,
+    "margin_pts": 45.7,
+    "source": "placed"
+   },
+   "Medicine Hat-Brooks": {
+    "winner": "ucp",
+    "ucp": 7609.0,
+    "ndp": 3032.0,
+    "other": 704.0,
+    "margin_pts": 40.34,
+    "source": "known"
+   },
+   "Medicine Hat-Cypress": {
+    "winner": "ucp",
+    "ucp": 8681.0,
+    "ndp": 4676.0,
+    "other": 439.0,
+    "margin_pts": 29.03,
+    "source": "known"
+   },
+   "Morinville-Sturgeon": {
+    "winner": "ucp",
+    "ucp": 8056.0,
+    "ndp": 5053.5,
+    "other": 486.0,
+    "margin_pts": 22.08,
+    "source": "placed"
+   },
+   "Okotoks": {
+    "winner": "ucp",
+    "ucp": 8206.3,
+    "ndp": 3187.2,
+    "other": 301.0,
+    "margin_pts": 42.92,
+    "source": "placed"
+   },
+   "Olds-Didsbury-Three Hills": {
+    "winner": "ucp",
+    "ucp": 10621.3,
+    "ndp": 2310.5,
+    "other": 926.4,
+    "margin_pts": 59.97,
+    "source": "placed"
+   },
+   "Peace River": {
+    "winner": "ucp",
+    "ucp": 4072.0,
+    "ndp": 1531.0,
+    "other": 276.0,
+    "margin_pts": 43.22,
+    "source": "known"
+   },
+   "Red Deer-North": {
+    "winner": "ucp",
+    "ucp": 6098.0,
+    "ndp": 3530.0,
+    "other": 454.0,
+    "margin_pts": 25.47,
+    "source": "known"
+   },
+   "Red Deer-South": {
+    "winner": "ucp",
+    "ucp": 8094.1,
+    "ndp": 5474.8,
+    "other": 357.6,
+    "margin_pts": 18.81,
+    "source": "placed"
+   },
+   "Rocky Mountain House-Sundre": {
+    "winner": "ucp",
+    "ucp": 5875.9,
+    "ndp": 1171.5,
+    "other": 1375.1,
+    "margin_pts": 53.44,
+    "source": "placed"
+   },
+   "Sherwood Park": {
+    "winner": "ndp",
+    "ucp": 6366.0,
+    "ndp": 6403.0,
+    "other": 897.0,
+    "margin_pts": 0.27,
+    "source": "known"
+   },
+   "Spruce Grove": {
+    "winner": "ucp",
+    "ucp": 6549.9,
+    "ndp": 4225.8,
+    "other": 338.2,
+    "margin_pts": 20.91,
+    "source": "placed"
+   },
+   "St. Albert": {
+    "winner": "ndp",
+    "ucp": 6413.0,
+    "ndp": 8119.0,
+    "other": 344.0,
+    "margin_pts": 11.47,
+    "source": "known"
+   },
+   "Strathcona-Sherwood Park": {
+    "winner": "ucp",
+    "ucp": 8367.0,
+    "ndp": 6110.0,
+    "other": 452.0,
+    "margin_pts": 15.12,
+    "source": "known"
+   },
+   "West Yellowhead": {
+    "winner": "ucp",
+    "ucp": 7805.0,
+    "ndp": 2525.0,
+    "other": 0.0,
+    "margin_pts": 51.11,
+    "source": "placed"
+   },
+   "Wetaskiwin-Ponoka": {
+    "winner": "ucp",
+    "ucp": 7948.8,
+    "ndp": 2762.2,
+    "other": 1067.6,
+    "margin_pts": 44.03,
+    "source": "placed"
+   }
+  }
+ },
+ "C_all_ballots_scaled_to_official": {
+  "method_check_2019_map": {
+   "UCP": 49,
+   "NDP": 38,
+   "other_combined": 0
+  },
+  "method_check_passes": true,
+  "seats": {
+   "UCP": 51,
+   "NDP": 40,
+   "other_combined": 0
+  },
+  "matches_claim": false,
+  "undecided_by_reconstruction": [
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ucp",
+    "margin_votes": 153.3,
+    "margin_pts": 0.87,
+    "cut_votes": 2047.5,
+    "flip_vas": []
+   },
+   {
+    "district": "Calgary-Bow-Springbank",
+    "winner": "ucp",
+    "margin_votes": 1010.8,
+    "margin_pts": 3.79,
+    "cut_votes": 3023.4,
+    "flip_vas": []
+   },
+   {
+    "district": "Edmonton-Windermere",
+    "winner": "ndp",
+    "margin_votes": 1652.3,
+    "margin_pts": 13.54,
+    "cut_votes": 2155.4,
+    "flip_vas": []
+   },
+   {
+    "district": "Lethbridge",
+    "winner": "ndp",
+    "margin_votes": 1183.9,
+    "margin_pts": 4.86,
+    "cut_votes": 2112.3,
+    "flip_vas": []
+   }
+  ],
+  "seat_range_over_undecided": {
+   "UCP": [
+    49,
+    53
+   ],
+   "NDP": [
+    38,
+    42
+   ]
+  },
+  "close_districts_under_2pts": [
+   {
+    "district": "Calgary-Acadia",
+    "winner": "ucp",
+    "margin_pts": 0.05,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-North",
+    "winner": "ucp",
+    "margin_pts": 0.74,
+    "source": "known"
+   },
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ucp",
+    "margin_pts": 0.87,
+    "source": "placed"
+   },
+   {
+    "district": "Calgary-Glenmore-Tsuut'ina",
+    "winner": "ndp",
+    "margin_pts": 0.96,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-Edgemont",
+    "winner": "ndp",
+    "margin_pts": 1.22,
+    "source": "known"
+   },
+   {
+    "district": "Calgary-North West-Bearspaw",
+    "winner": "ucp",
+    "margin_pts": 1.58,
+    "source": "filled"
+   },
+   {
+    "district": "Calgary-Confluence",
+    "winner": "ndp",
+    "margin_pts": 1.67,
+    "source": "known"
+   }
+  ],
+  "districts": {
+   "Airdrie-East": {
+    "winner": "ucp",
+    "ucp": 14576.2,
+    "ndp": 7188.6,
+    "other": 687.5,
+    "margin_pts": 32.9,
+    "source": "known"
+   },
+   "Airdrie-West": {
+    "winner": "ucp",
+    "ucp": 9606.8,
+    "ndp": 5973.2,
+    "other": 401.3,
+    "margin_pts": 22.74,
+    "source": "known"
+   },
+   "Banff-Canmore-Diamond Valley": {
+    "winner": "ucp",
+    "ucp": 8691.0,
+    "ndp": 8537.6,
+    "other": 407.1,
+    "margin_pts": 0.87,
+    "source": "placed"
+   },
+   "Barrhead-Westlock-Athabasca": {
+    "winner": "ucp",
+    "ucp": 14257.9,
+    "ndp": 5001.0,
+    "other": 18.9,
+    "margin_pts": 48.02,
+    "source": "placed"
+   },
+   "Blackfalds-Innisfail": {
+    "winner": "ucp",
+    "ucp": 14453.9,
+    "ndp": 5084.9,
+    "other": 1035.4,
+    "margin_pts": 45.54,
+    "source": "placed"
+   },
+   "Calgary-Acadia": {
+    "winner": "ucp",
+    "ucp": 11847.5,
+    "ndp": 11835.6,
+    "other": 675.4,
+    "margin_pts": 0.05,
+    "source": "known"
+   },
+   "Calgary-Beddington": {
+    "winner": "ndp",
+    "ucp": 10405.0,
+    "ndp": 10884.8,
+    "other": 702.3,
+    "margin_pts": 2.18,
+    "source": "known"
+   },
+   "Calgary-Bhullar-McCall": {
+    "winner": "ndp",
+    "ucp": 3925.2,
+    "ndp": 5483.1,
+    "other": 0.0,
+    "margin_pts": 16.56,
+    "source": "known"
+   },
+   "Calgary-Bow-Springbank": {
+    "winner": "ucp",
+    "ucp": 13464.8,
+    "ndp": 12454.0,
+    "other": 721.6,
+    "margin_pts": 3.79,
+    "source": "placed"
+   },
+   "Calgary-Buffalo": {
+    "winner": "ndp",
+    "ucp": 4742.8,
+    "ndp": 8280.5,
+    "other": 296.9,
+    "margin_pts": 26.56,
+    "source": "known"
+   },
+   "Calgary-Confluence": {
+    "winner": "ndp",
+    "ucp": 8889.3,
+    "ndp": 9201.8,
+    "other": 585.7,
+    "margin_pts": 1.67,
+    "source": "known"
+   },
+   "Calgary-Cross": {
+    "winner": "ndp",
+    "ucp": 7213.8,
+    "ndp": 8099.5,
+    "other": 540.5,
+    "margin_pts": 5.59,
+    "source": "known"
+   },
+   "Calgary-Currie": {
+    "winner": "ndp",
+    "ucp": 9181.0,
+    "ndp": 12261.0,
+    "other": 930.0,
+    "margin_pts": 13.77,
+    "source": "known"
+   },
+   "Calgary-East": {
+    "winner": "ucp",
+    "ucp": 8096.7,
+    "ndp": 7036.3,
+    "other": 636.7,
+    "margin_pts": 6.72,
+    "source": "known"
+   },
+   "Calgary-Edgemont": {
+    "winner": "ndp",
+    "ucp": 12014.7,
+    "ndp": 12320.2,
+    "other": 621.2,
+    "margin_pts": 1.22,
+    "source": "known"
+   },
+   "Calgary-Elbow": {
+    "winner": "ndp",
+    "ucp": 10766.9,
+    "ndp": 12188.1,
+    "other": 1092.0,
+    "margin_pts": 5.91,
+    "source": "known"
+   },
+   "Calgary-Falconridge-Conrich": {
+    "winner": "ndp",
+    "ucp": 4656.6,
+    "ndp": 6718.4,
+    "other": 270.5,
+    "margin_pts": 17.7,
+    "source": "known"
+   },
+   "Calgary-Fish Creek": {
+    "winner": "ucp",
+    "ucp": 15352.6,
+    "ndp": 12318.6,
+    "other": 652.3,
+    "margin_pts": 10.71,
+    "source": "known"
+   },
+   "Calgary-Glenmore-Tsuut'ina": {
+    "winner": "ndp",
+    "ucp": 13579.0,
+    "ndp": 13849.7,
+    "other": 623.0,
+    "margin_pts": 0.96,
+    "source": "known"
+   },
+   "Calgary-Hays": {
+    "winner": "ucp",
+    "ucp": 9386.1,
+    "ndp": 7361.5,
+    "other": 356.3,
+    "margin_pts": 11.84,
+    "source": "known"
+   },
+   "Calgary-Klein": {
+    "winner": "ndp",
+    "ucp": 9771.9,
+    "ndp": 11663.6,
+    "other": 509.0,
+    "margin_pts": 8.62,
+    "source": "known"
+   },
+   "Calgary-Lougheed": {
+    "winner": "ucp",
+    "ucp": 11915.8,
+    "ndp": 8929.4,
+    "other": 539.5,
+    "margin_pts": 13.97,
+    "source": "known"
+   },
+   "Calgary-McKenzie": {
+    "winner": "ucp",
+    "ucp": 15720.9,
+    "ndp": 11097.2,
+    "other": 686.2,
+    "margin_pts": 16.81,
+    "source": "known"
+   },
+   "Calgary-Mountain View": {
+    "winner": "ndp",
+    "ucp": 7379.5,
+    "ndp": 14493.3,
+    "other": 477.6,
+    "margin_pts": 31.83,
+    "source": "known"
+   },
+   "Calgary-North": {
+    "winner": "ucp",
+    "ucp": 8357.2,
+    "ndp": 8234.3,
+    "other": 20.4,
+    "margin_pts": 0.74,
+    "source": "known"
+   },
+   "Calgary-North East": {
+    "winner": "ndp",
+    "ucp": 2753.1,
+    "ndp": 3848.6,
+    "other": 0.0,
+    "margin_pts": 16.59,
+    "source": "known"
+   },
+   "Calgary-North West-Bearspaw": {
+    "winner": "ucp",
+    "ucp": 12460.6,
+    "ndp": 12058.3,
+    "other": 992.5,
+    "margin_pts": 1.58,
+    "source": "filled"
+   },
+   "Calgary-Nose Creek": {
+    "winner": "ndp",
+    "ucp": 7345.4,
+    "ndp": 8076.1,
+    "other": 58.2,
+    "margin_pts": 4.72,
+    "source": "known"
+   },
+   "Calgary-Shaw": {
+    "winner": "ucp",
+    "ucp": 10134.6,
+    "ndp": 7520.9,
+    "other": 161.2,
+    "margin_pts": 14.67,
+    "source": "known"
+   },
+   "Calgary-South East": {
+    "winner": "ucp",
+    "ucp": 8910.0,
+    "ndp": 6067.0,
+    "other": 252.5,
+    "margin_pts": 18.67,
+    "source": "known"
+   },
+   "Calgary-Symons Valley": {
+    "winner": "ndp",
+    "ucp": 7657.8,
+    "ndp": 7992.7,
+    "other": 193.8,
+    "margin_pts": 2.11,
+    "source": "known"
+   },
+   "Calgary-Varsity": {
+    "winner": "ndp",
+    "ucp": 10124.6,
+    "ndp": 14406.7,
+    "other": 312.3,
+    "margin_pts": 17.24,
+    "source": "known"
+   },
+   "Calgary-West-Springbank": {
+    "winner": "ucp",
+    "ucp": 15365.6,
+    "ndp": 11373.2,
+    "other": 369.9,
+    "margin_pts": 14.73,
+    "source": "placed"
+   },
+   "Camrose": {
+    "winner": "ucp",
+    "ucp": 15586.0,
+    "ndp": 6531.7,
+    "other": 2005.4,
+    "margin_pts": 37.53,
+    "source": "known"
+   },
+   "Central Peace-Notley": {
+    "winner": "ucp",
+    "ucp": 9280.0,
+    "ndp": 2216.0,
+    "other": 450.0,
+    "margin_pts": 59.13,
+    "source": "known"
+   },
+   "Chestermere-Strathmore": {
+    "winner": "ucp",
+    "ucp": 13018.3,
+    "ndp": 5231.5,
+    "other": 469.7,
+    "margin_pts": 41.6,
+    "source": "known"
+   },
+   "Cochrane": {
+    "winner": "ucp",
+    "ucp": 12023.0,
+    "ndp": 7494.1,
+    "other": 524.8,
+    "margin_pts": 22.6,
+    "source": "placed"
+   },
+   "Cold Lake-Bonnyville-St. Paul": {
+    "winner": "ucp",
+    "ucp": 14072.0,
+    "ndp": 4544.4,
+    "other": 0.0,
+    "margin_pts": 51.18,
+    "source": "known"
+   },
+   "Drayton Valley-Devon": {
+    "winner": "ucp",
+    "ucp": 15332.4,
+    "ndp": 4443.6,
+    "other": 843.0,
+    "margin_pts": 52.81,
+    "source": "placed"
+   },
+   "Drumheller-Stettler": {
+    "winner": "ucp",
+    "ucp": 16411.8,
+    "ndp": 3054.9,
+    "other": 802.9,
+    "margin_pts": 65.9,
+    "source": "placed"
+   },
+   "Edmonton-Beverly-Clareview": {
+    "winner": "ndp",
+    "ucp": 6732.2,
+    "ndp": 10413.2,
+    "other": 586.7,
+    "margin_pts": 20.76,
+    "source": "known"
+   },
+   "Edmonton-Castle Downs": {
+    "winner": "ndp",
+    "ucp": 7286.0,
+    "ndp": 10044.0,
+    "other": 707.0,
+    "margin_pts": 15.29,
+    "source": "known"
+   },
+   "Edmonton-City Centre": {
+    "winner": "ndp",
+    "ucp": 3789.0,
+    "ndp": 12857.1,
+    "other": 482.0,
+    "margin_pts": 52.94,
+    "source": "known"
+   },
+   "Edmonton-Decore": {
+    "winner": "ndp",
+    "ucp": 6749.0,
+    "ndp": 8734.4,
+    "other": 976.5,
+    "margin_pts": 12.06,
+    "source": "known"
+   },
+   "Edmonton-Ellerslie": {
+    "winner": "ndp",
+    "ucp": 5586.3,
+    "ndp": 8845.1,
+    "other": 114.6,
+    "margin_pts": 22.4,
+    "source": "placed"
+   },
+   "Edmonton-Enoch": {
+    "winner": "ndp",
+    "ucp": 7169.8,
+    "ndp": 8959.8,
+    "other": 315.5,
+    "margin_pts": 10.88,
+    "source": "known"
+   },
+   "Edmonton-Glenora-Riverview": {
+    "winner": "ndp",
+    "ucp": 6775.0,
+    "ndp": 15622.7,
+    "other": 733.0,
+    "margin_pts": 38.25,
+    "source": "known"
+   },
+   "Edmonton-Gold Bar": {
+    "winner": "ndp",
+    "ucp": 6782.9,
+    "ndp": 18165.9,
+    "other": 737.4,
+    "margin_pts": 44.32,
+    "source": "known"
+   },
+   "Edmonton-Highlands-Norwood": {
+    "winner": "ndp",
+    "ucp": 3644.3,
+    "ndp": 10227.5,
+    "other": 470.1,
+    "margin_pts": 45.9,
+    "source": "known"
+   },
+   "Edmonton-Manning": {
+    "winner": "ndp",
+    "ucp": 5303.8,
+    "ndp": 8018.4,
+    "other": 254.8,
+    "margin_pts": 19.99,
+    "source": "known"
+   },
+   "Edmonton-McClung": {
+    "winner": "ndp",
+    "ucp": 8564.5,
+    "ndp": 14182.6,
+    "other": 686.3,
+    "margin_pts": 23.97,
+    "source": "known"
+   },
+   "Edmonton-Meadows": {
+    "winner": "ndp",
+    "ucp": 3486.2,
+    "ndp": 6309.0,
+    "other": 130.9,
+    "margin_pts": 28.44,
+    "source": "filled"
+   },
+   "Edmonton-Mill Woods": {
+    "winner": "ndp",
+    "ucp": 7768.0,
+    "ndp": 12992.0,
+    "other": 105.2,
+    "margin_pts": 25.04,
+    "source": "known"
+   },
+   "Edmonton-Nisku": {
+    "winner": "ndp",
+    "ucp": 4551.7,
+    "ndp": 6940.8,
+    "other": 181.5,
+    "margin_pts": 20.47,
+    "source": "placed"
+   },
+   "Edmonton-North West": {
+    "winner": "ndp",
+    "ucp": 6782.6,
+    "ndp": 10548.6,
+    "other": 381.3,
+    "margin_pts": 21.26,
+    "source": "known"
+   },
+   "Edmonton-Rutherford": {
+    "winner": "ndp",
+    "ucp": 7489.9,
+    "ndp": 14833.2,
+    "other": 676.2,
+    "margin_pts": 31.93,
+    "source": "known"
+   },
+   "Edmonton-South": {
+    "winner": "ndp",
+    "ucp": 5556.9,
+    "ndp": 8419.5,
+    "other": 220.9,
+    "margin_pts": 20.16,
+    "source": "placed"
+   },
+   "Edmonton-Strathcona": {
+    "winner": "ndp",
+    "ucp": 3423.7,
+    "ndp": 14820.2,
+    "other": 611.8,
+    "margin_pts": 60.44,
+    "source": "placed"
+   },
+   "Edmonton-West Henday": {
+    "winner": "ndp",
+    "ucp": 7402.5,
+    "ndp": 11461.9,
+    "other": 765.6,
+    "margin_pts": 20.68,
+    "source": "known"
+   },
+   "Edmonton-Whitemud": {
+    "winner": "ndp",
+    "ucp": 8970.4,
+    "ndp": 14380.0,
+    "other": 623.9,
+    "margin_pts": 22.56,
+    "source": "placed"
+   },
+   "Edmonton-Windermere": {
+    "winner": "ndp",
+    "ucp": 5204.0,
+    "ndp": 6856.3,
+    "other": 146.2,
+    "margin_pts": 13.54,
+    "source": "filled"
+   },
+   "Fort McMurray-Lac La Biche": {
+    "winner": "ucp",
+    "ucp": 7692.0,
+    "ndp": 2561.0,
+    "other": 202.0,
+    "margin_pts": 49.08,
+    "source": "placed"
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "winner": "ucp",
+    "ucp": 6483.0,
+    "ndp": 1884.0,
+    "other": 1211.0,
+    "margin_pts": 48.02,
+    "source": "filled"
+   },
+   "Fort Saskatchewan-Vegreville": {
+    "winner": "ucp",
+    "ucp": 12855.8,
+    "ndp": 8420.7,
+    "other": 1043.2,
+    "margin_pts": 19.87,
+    "source": "known"
+   },
+   "Grande Prairie": {
+    "winner": "ucp",
+    "ucp": 10001.0,
+    "ndp": 4890.0,
+    "other": 750.0,
+    "margin_pts": 32.68,
+    "source": "known"
+   },
+   "Grande Prairie-Wapiti": {
+    "winner": "ucp",
+    "ucp": 15093.0,
+    "ndp": 4063.0,
+    "other": 645.0,
+    "margin_pts": 55.7,
+    "source": "known"
+   },
+   "Lac Ste. Anne": {
+    "winner": "ucp",
+    "ucp": 14347.0,
+    "ndp": 6628.6,
+    "other": 794.0,
+    "margin_pts": 35.45,
+    "source": "placed"
+   },
+   "Lacombe-Sylvan Lake": {
+    "winner": "ucp",
+    "ucp": 15157.0,
+    "ndp": 4930.2,
+    "other": 1945.4,
+    "margin_pts": 46.42,
+    "source": "placed"
+   },
+   "Leduc-Beaumont": {
+    "winner": "ucp",
+    "ucp": 13664.1,
+    "ndp": 9725.2,
+    "other": 671.7,
+    "margin_pts": 16.37,
+    "source": "placed"
+   },
+   "Lesser Slave Lake": {
+    "winner": "ucp",
+    "ucp": 6059.5,
+    "ndp": 2908.5,
+    "other": 144.0,
+    "margin_pts": 34.58,
+    "source": "known"
+   },
+   "Lethbridge": {
+    "winner": "ndp",
+    "ucp": 11221.1,
+    "ndp": 12405.0,
+    "other": 726.3,
+    "margin_pts": 4.86,
+    "source": "placed"
+   },
+   "Lethbridge-Cardston": {
+    "winner": "ucp",
+    "ucp": 7028.9,
+    "ndp": 4422.7,
+    "other": 873.1,
+    "margin_pts": 21.15,
+    "source": "placed"
+   },
+   "Lethbridge-Little Bow": {
+    "winner": "ucp",
+    "ucp": 10921.9,
+    "ndp": 6387.3,
+    "other": 799.5,
+    "margin_pts": 25.04,
+    "source": "placed"
+   },
+   "Lethbridge-Taber-Warner": {
+    "winner": "ucp",
+    "ucp": 14280.0,
+    "ndp": 4573.0,
+    "other": 1292.1,
+    "margin_pts": 48.19,
+    "source": "placed"
+   },
+   "Lloydminster-Wainwright": {
+    "winner": "ucp",
+    "ucp": 13888.3,
+    "ndp": 3337.3,
+    "other": 1500.2,
+    "margin_pts": 56.35,
+    "source": "known"
+   },
+   "Macleod-Crowsnest": {
+    "winner": "ucp",
+    "ucp": 16040.3,
+    "ndp": 6317.8,
+    "other": 1617.9,
+    "margin_pts": 40.55,
+    "source": "placed"
+   },
+   "Medicine Hat-Brooks": {
+    "winner": "ucp",
+    "ucp": 13315.0,
+    "ndp": 5477.0,
+    "other": 1233.0,
+    "margin_pts": 39.14,
+    "source": "known"
+   },
+   "Medicine Hat-Cypress": {
+    "winner": "ucp",
+    "ucp": 13489.0,
+    "ndp": 7697.0,
+    "other": 609.0,
+    "margin_pts": 26.57,
+    "source": "known"
+   },
+   "Morinville-Sturgeon": {
+    "winner": "ucp",
+    "ucp": 14076.6,
+    "ndp": 10617.3,
+    "other": 819.2,
+    "margin_pts": 13.56,
+    "source": "placed"
+   },
+   "Okotoks": {
+    "winner": "ucp",
+    "ucp": 16529.3,
+    "ndp": 7093.5,
+    "other": 526.2,
+    "margin_pts": 39.07,
+    "source": "placed"
+   },
+   "Olds-Didsbury-Three Hills": {
+    "winner": "ucp",
+    "ucp": 17516.0,
+    "ndp": 4493.9,
+    "other": 1332.3,
+    "margin_pts": 55.79,
+    "source": "placed"
+   },
+   "Peace River": {
+    "winner": "ucp",
+    "ucp": 8236.0,
+    "ndp": 2587.0,
+    "other": 484.0,
+    "margin_pts": 49.96,
+    "source": "known"
+   },
+   "Red Deer-North": {
+    "winner": "ucp",
+    "ucp": 10629.0,
+    "ndp": 7144.0,
+    "other": 721.0,
+    "margin_pts": 18.84,
+    "source": "known"
+   },
+   "Red Deer-South": {
+    "winner": "ucp",
+    "ucp": 13014.4,
+    "ndp": 9640.5,
+    "other": 561.6,
+    "margin_pts": 14.53,
+    "source": "placed"
+   },
+   "Rocky Mountain House-Sundre": {
+    "winner": "ucp",
+    "ucp": 10201.0,
+    "ndp": 2436.6,
+    "other": 2213.6,
+    "margin_pts": 52.28,
+    "source": "placed"
+   },
+   "Sherwood Park": {
+    "winner": "ndp",
+    "ucp": 11447.0,
+    "ndp": 13108.0,
+    "other": 1518.0,
+    "margin_pts": 6.37,
+    "source": "known"
+   },
+   "Spruce Grove": {
+    "winner": "ucp",
+    "ucp": 13086.4,
+    "ndp": 8663.4,
+    "other": 600.1,
+    "margin_pts": 19.79,
+    "source": "placed"
+   },
+   "St. Albert": {
+    "winner": "ndp",
+    "ucp": 11967.9,
+    "ndp": 17094.8,
+    "other": 565.9,
+    "margin_pts": 17.3,
+    "source": "known"
+   },
+   "Strathcona-Sherwood Park": {
+    "winner": "ucp",
+    "ucp": 14609.6,
+    "ndp": 12097.9,
+    "other": 675.6,
+    "margin_pts": 9.17,
+    "source": "known"
+   },
+   "West Yellowhead": {
+    "winner": "ucp",
+    "ucp": 14456.0,
+    "ndp": 5679.0,
+    "other": 0.0,
+    "margin_pts": 43.59,
+    "source": "placed"
+   },
+   "Wetaskiwin-Ponoka": {
+    "winner": "ucp",
+    "ucp": 13846.9,
+    "ndp": 5131.7,
+    "other": 1705.2,
+    "margin_pts": 42.14,
+    "source": "placed"
+   }
+  }
+ }
+}
