@@ -1,0 +1,192 @@
+{
+ "2019_enacted": {
+  "efficiency_gap": {
+   "election_day": {
+    "value": 0.024119940578423545,
+    "pct": 69.46
+   },
+   "all_ballots": {
+    "value": -0.026364586849705562,
+    "pct": 27.59
+   }
+  },
+  "mean_median": {
+   "election_day": {
+    "value": -0.007671760176883757,
+    "pct": 91.81
+   },
+   "all_ballots": {
+    "value": -0.02215491339662612,
+    "pct": 28.0
+   }
+  },
+  "declination": {
+   "election_day": {
+    "value": 0.04509237880431511,
+    "pct": 91.33
+   },
+   "all_ballots": {
+    "value": -0.057011760557278746,
+    "pct": 49.84
+   }
+  },
+  "seats_at_50_50": {
+   "election_day": {
+    "value": 0.45977011494252873,
+    "pct": 78.54
+   },
+   "all_ballots": {
+    "value": 0.47126436781609193,
+    "pct": 74.08
+   }
+  },
+  "ucp_seats": {
+   "election_day": {
+    "value": 57,
+    "pct": 85.71
+   },
+   "all_ballots": {
+    "value": 49,
+    "pct": 59.98
+   }
+  }
+ },
+ "majority_2026": {
+  "efficiency_gap": {
+   "election_day": {
+    "value": 0.0009823668405000681,
+    "pct": 16.52
+   },
+   "all_ballots": {
+    "value": -0.026961813555927874,
+    "pct": 26.48
+   }
+  },
+  "mean_median": {
+   "election_day": {
+    "value": -0.036190901059016234,
+    "pct": 0.99
+   },
+   "all_ballots": {
+    "value": -0.03513815515600638,
+    "pct": 1.24
+   }
+  },
+  "declination": {
+   "election_day": {
+    "value": -0.026675251362353544,
+    "pct": 21.85
+   },
+   "all_ballots": {
+    "value": -0.09257909653121,
+    "pct": 17.26
+   }
+  },
+  "seats_at_50_50": {
+   "election_day": {
+    "value": 0.4606741573033708,
+    "pct": 78.54
+   },
+   "all_ballots": {
+    "value": 0.47191011235955055,
+    "pct": 74.08
+   }
+  },
+  "ucp_seats": {
+   "election_day": {
+    "value": 55,
+    "pct": 38.13
+   },
+   "all_ballots": {
+    "value": 48,
+    "pct": 35.25
+   }
+  }
+ },
+ "minority_2026": {
+  "efficiency_gap": {
+   "election_day": {
+    "value": 0.04019385991913548,
+    "pct": 94.54
+   },
+   "all_ballots": {
+    "value": 0.025539082898241427,
+    "pct": 98.82
+   }
+  },
+  "mean_median": {
+   "election_day": {
+    "value": 0.010401768621624785,
+    "pct": 99.97
+   },
+   "all_ballots": {
+    "value": 0.0007725400804714511,
+    "pct": 98.73
+   }
+  },
+  "declination": {
+   "election_day": {
+    "value": 0.07700256493469557,
+    "pct": 98.79
+   },
+   "all_ballots": {
+    "value": 0.04576830820011375,
+    "pct": 99.82
+   }
+  },
+  "seats_at_50_50": {
+   "election_day": {
+    "value": 0.5168539325842697,
+    "pct": 99.99
+   },
+   "all_ballots": {
+    "value": 0.5168539325842697,
+    "pct": 99.9
+   }
+  },
+  "ucp_seats": {
+   "election_day": {
+    "value": 60,
+    "pct": 99.95
+   },
+   "all_ballots": {
+    "value": 55,
+    "pct": 100.0
+   }
+  }
+ },
+ "ensemble": {
+  "election_day": {
+   "n_plans": 1010000,
+   "n_districts": 87,
+   "efficiency_gap_q05_q50_q95": [
+    -0.0098,
+    0.0163,
+    0.0408
+   ],
+   "ucp_seats_q05_q50_q95": [
+    53.0,
+    55.0,
+    58.0
+   ]
+  },
+  "all_ballots": {
+   "n_plans": 1010000,
+   "n_districts": 87,
+   "efficiency_gap_q05_q50_q95": [
+    -0.0455,
+    -0.0157,
+    0.0139
+   ],
+   "ucp_seats_q05_q50_q95": [
+    46.0,
+    49.0,
+    51.0
+   ]
+  }
+ },
+ "minority_eg_exceedances": {
+  "election_day": 55169,
+  "all_ballots": 11903
+ }
+}
