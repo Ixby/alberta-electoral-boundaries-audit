@@ -35,6 +35,8 @@ Partisan lane (`joint_outlier.json`, `verdict.json`), against the 87-district ca
 | P4 seats at 50/50 | 48.35% (44 of 91) | 98.8 | **yes** |
 | Joint (reported only) | Mahalanobis 2.45, p = 0.20 | | |
 
+`verdict.json` carries the script's fixed template text ("Lunty map …", `headline_to_publish`, `publishable_72h: true`). None of it applies here: the map is the panel's, the reading is provisional, and it is out of the headline. `structural.json` records `drand_round_at_execution: null`. That field is a provenance stamp the script leaves for a driver to fill; the November round is pinned as 6606642 in `preregistration/seed_commitments.md`, and the structural lane uses no random draw.
+
 P4 is scored against the 87-district ensemble, as registered. Against neutral maps with 91 districts (below) the same 48.35% sits at p91.6 in set D, p95.4 in set B, p96.7 in set A and p90.4 in set C.
 
 ### X1, Recommendation 5 (Amendment 5, Part 13): **not met**
@@ -61,11 +63,13 @@ In set D, the primary set, none of the three Part 17 tests flags. Set A's city-v
 
 ### qsgy8 tripwires (beside the verdict; they do not decide it)
 
-`phase_b_scorecard_iap_2026_assembled_2026-11-04.md`: **1 of 4 fired.** MO #1 fired on Lethbridge (4 districts against 2 justified by population, ratio 2.0, threshold 1.5). MO #2 (lasso), MO #3 (anchoring 74.1%, above 70%) and MO #4 (sampler divergence −1.2 points, threshold 25) are clean. MO #4 used the cached ReCom and SMC outputs (`--skip-mcmc`) with step 1's seats at 50/50.
+`phase_b_scorecard_iap_2026_assembled_2026-11-04.md`: **1 of 4 fired.** MO #1 fired on Lethbridge (4 districts against 2 justified by population, ratio 2.0, threshold 1.5). MO #2 (lasso: no district both in the bottom decile of Polsby-Popper, below 0.268, and mixed urban-rural), MO #3 (the scorecard's anchoring, 74.1%, above 70%; same `score_anchoring.py` method as S3) and MO #4 (sampler divergence −1.2 points, threshold 25) are clean. MO #4 used the cached ReCom and SMC outputs (`--skip-mcmc`) with step 1's seats at 50/50.
 
 ### R1 and R2, the territory redraw tests (Amendment 8, via Amendment 10, Part 5)
 
-`territory/rank.json`, `territory/calibration.json`. Scored, because every changed district is placed or filled (Fort McMurray-Wood Buffalo is filled from its neighbours' hole). The null was rerun on the assembled map's own fixed set, as Amendment 8, Part 5 requires: 58 fixed districts (Step A's 56, Calgary-Acadia, and Edmonton-Meadows, which the panel changed below the resolution of voting areas, so the assembled map holds exactly the majority's voting areas for it), and one territory of 1,753 voting areas holding 33 districts. s.15(2) cap in the territory: 2. Reference chains 1, 2, 4 and 6 (chain 3 retired, see Deviations), 1,440 plans after burn-in; holdout chain 5, 360 plans.
+`territory/rank.json`, `territory/calibration.json`. Scored, because every changed district is placed or filled (Fort McMurray-Wood Buffalo is filled from its neighbours' hole). The null was rerun on the assembled map's own fixed set, as Amendment 8, Part 5 requires: 58 fixed districts (Step A's 56, Calgary-Acadia, and Edmonton-Meadows; see the next paragraph), and one territory of 1,753 voting areas holding 33 districts. s.15(2) cap in the territory: 2. Reference chains 1, 2, 4 and 6 (chain 3 retired, see Deviations), 1,440 plans after burn-in; holdout chain 5, 360 plans.
+
+**Edmonton-Meadows is fixed because of a reconstruction limit.** The panel changed it: App. 7 gives 53,318 people against the majority's 56,880 (−3,562, several voting areas' worth). The assembly did not place its page; it filled Meadows from the hole its placed neighbours (Ellerslie, Nisku, South, Whitemud) left. That hole holds exactly the majority's 29 voting areas, so the rerun rule fixes Meadows. On the panel's true map, Meadows would most likely be in the territory, which would then hold 34 districts. R1 and R2 are internally consistent, because the rule was applied to the map Step C scores. But the fixed set itself depends on this reconstruction error, and that holds for every measure here: whatever moved out of Meadows is placed on the majority's line in this map.
 
 | Test | Panel's map | Null mean | Null 95% | Two-sided p | Flag (p < 0.05) |
 |---|---|---|---|---|---|
@@ -81,7 +85,12 @@ Territory districts outside the null's ±25% band on the 2021 overlay (Amendment
 
 ### Cut voting-area range (Amendment 10, Part 5; sensitivity, not a gate)
 
-`cut_va_sensitivity_fixed.json`, `cut_vas_fixed.csv`. 245 cut voting areas; 132 have at least 10% of their area on the minority side and were flipped one at a time (87 of them involve a changed district). 29 single flips raise the efficiency gap, 19 lower it, 84 leave it unchanged. Greedy bounds: **+1.32% to +2.94%** around the pipeline's +1.45%. The upper bound is mostly one voting area: Strathcona-Sherwood Park poll 012 (38% of its area on the Sherwood Park side; 1,700 people), whose flip alone adds 1.42 points. The bounds ignore interactions between flips.
+`cut_va_sensitivity_fixed.json`, `cut_vas_fixed.csv`. 245 cut voting areas; 132 have at least 10% of their area on the minority side and were flipped one at a time (87 of them involve a changed district). 29 single flips raise the efficiency gap, 19 lower it, 84 leave it unchanged. Greedy bounds: **+1.32% to +2.94%** around the pipeline's +1.45%. The bounds ignore interactions between flips.
+
+What moves the range is not the reconstruction:
+- **The upper bound comes from two voting areas on a line the panel did not change.** Two voting areas in Strathcona-Sherwood Park, on its line with Sherwood Park (polls 012 and 013, OBJECTIDs 3074 and 4352), each add 1.42 points when flipped alone to Sherwood Park. Both districts are unchanged, so both are at the commission's official geometry; the cut is the commission's own line. Those VAs are placed by representative point, the same rule every map in the audit and every neutral plan in the nulls uses. The 45 flips between two unchanged districts give every large delta (largest +1.42 points).
+- **Flips that involve a changed district, the only ones reconstruction error can reach,** move the efficiency gap by at most +0.023 and −0.036 points each. Their 18 raising flips sum to +0.045 points.
+- **Against the registered lines:** the upper bound (+2.94%) is above R1's null 97.5th percentile (+2.09%), so R1 would flag if those two commission-line VAs were attributed by area instead of by representative point. That would change the attribution rule, not correct a reconstruction error, and the null uses the same rule. Neither bound reaches P1's +4.10% or set D's 95th percentile (+4.08%). This describes the test's sensitivity, not a verdict.
 
 ### Voting areas cut (Amendment 9, Part 5; descriptive, on the assembled map)
 
@@ -109,6 +118,8 @@ Steps that read polygons place voting areas by representative point. That reprod
 3. **The territory scorer's CLI cannot score a rerun.** At `42b5fda8`, `territory_score.py`'s `plans` and `calibrate` subcommands build the territory without the enacted map, so they fail on the rerun's 1,753-voting-area plans (shape mismatch). Two short wrappers (`territory/score_plans_enacted.py`, `territory/calibrate_enacted.py`) call the pinned module's own `Substrate`, `score_plans` and `calibrate` with the enacted map, as its `rank` subcommand does. No scoring code was changed.
 4. **The registered cut-VA script does not score the panel's map.** `findings/a10_dev/cut_va_sensitivity.py` (SHA `c264a49e…`, registered in Amendment 10) builds the calibration composite, the majority map with only the sample districts replaced, for every map. On `--map fixed` it therefore never scored the changed districts: its "pipeline" efficiency gap was +0.098%, the majority map's, not the panel's +1.45%. That output is kept, labelled, as `cut_va_sensitivity_fixed_REGISTERED_CODE_DEFECT.json` with its log. A Step C copy, `cut_va_sensitivity_stepc.py`, changes only that one step: on `--map fixed`, every district is the union of the voting areas the registered assignment gives it. Its pipeline efficiency gap, +1.4450%, matches the partisan lane's and R1's. The range above is from the copy. The registered file is unchanged.
 5. **Ingest ran before the run sheet was committed.** It is a set of checks, not a measure, and its result is recorded in the sheet.
+
+Scripts written for Step C (SHA-256): `cut_va_sensitivity_stepc.py` `5f45ec65e7266b29146567190fa906084da958f9dca2bf490b394ec0f4defe8b`; `territory/score_plans_enacted.py` `9ed54016b130aab22fa6064f45cc0a4f968811761a2dc522d0f329f6928dc79a`; `territory/calibrate_enacted.py` `db2273641123b61555a5d90c6cd9d83ab38d9bae7cd2641bb9ba3578e02ff5da`; `mark_uncertain_cuts.py` `025db29b3167b9116357a3d79215f68539400637cb93ea798edaa072b853e9d9`.
 
 ## Files
 
