@@ -94,6 +94,8 @@ print(
 
 # ---------------------------------------------------------------------------
 # C5 — Exclude Vote Anywhere polls (cannot be attributed to specific VAs)
+# 2026-11-05: they can be attributed to the voter's district, which Elections Alberta reports;
+# vote_anywhere_splat.py adds them back to this script's output (academic report C51).
 # ---------------------------------------------------------------------------
 mask_va = polls["poll_name"].str.contains("Vote Anywhere", na=False, case=False)
 va_excluded = polls[mask_va]

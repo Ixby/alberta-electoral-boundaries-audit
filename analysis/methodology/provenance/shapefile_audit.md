@@ -82,6 +82,8 @@ with 2023 Statement of Vote Election-Day NDP and UCP vote totals per VA.
    NDP voters use advance/special at a 6pp higher rate than UCP,
    so the Election-Day subset underestimates NDP's province-wide share (42.60%
    vs full-count 44.66% post-C5 Vote Anywhere exclusion).
+   [2026-11-05: with the Vote Anywhere ballots added back, `va_polygons_with_all_2023_ballots.gpkg`
+   equals the official 2023 result, NDP 45.56% of two-party votes; academic report C51.]
 
 2. **Spatial proxy for residence.** VA centroid is used as a proxy for where
    Election-Day voters live. VAs are small (median ~500m diameter in urban
@@ -92,6 +94,10 @@ with 2023 Statement of Vote Election-Day NDP and UCP vote totals per VA.
    contains votes from electors anywhere in the province. These cannot be
    spatially attributed. They are included in the VA substrate under their
    geographic polygon but their vote totals are not residence-based.
+   [2026-11-05 correction: the 2023 results have no Vote Anywhere voting areas. Vote Anywhere
+   ballots are reported as one "Vote Anywhere (Out of ED)" row per 2019 district, under the
+   voter's own district, so they are residence-attributable to the district (not the voting
+   area), like every other advance ballot; academic report C51.]
 
 ---
 
