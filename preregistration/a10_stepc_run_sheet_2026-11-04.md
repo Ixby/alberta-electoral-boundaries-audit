@@ -53,3 +53,8 @@ The published gap-free copy (`districts_real_map_published.gpkg`) feeds no score
 ## Record
 
 `findings/a10_stepc/README.md` gives every result with its label, any step that fails to run and why, and every deviation from this sheet.
+
+## Changes to this sheet, each made before the result it affects was computed
+
+- **Step 6 named the wrong script.** `november_tripwires.py` is an unregistered v0.2 city-split check (it also requires EPSG:3401 and fails on the CSD file's column names). qsgy8's four tripwires (MO #1–#4) are scored by `analysis/scripts/phase_b_scorecard.py`, the script its dry run used: `--shapefile data/shapefiles/iap_assembled/iap_2026_assembled.gpkg --map-name iap_2026_assembled --name-col EDName2025 --skip-mcmc --map-s50 <step 1's seats at 50/50> --out-dir findings/a10_stepc`. MO #4 uses the cached ReCom and SMC outputs (`--skip-mcmc`). The failed `november_tripwires.py` attempts produced no result and are recorded in the README.
+- **Step 7: chain 3 does not seed.** On the assembled map's territory (33 districts on 1,753 voting areas) the registered seed for chain 3 fails in `recursive_tree_part` ("Could not find a possible cut after 50000 attempts"); the code at `42b5fda8` has no fallback, and Amendment 8 states none. Following the audit's precedent for a chain that does not seed (Amendment 5, Part 14: set D's index 250 "is retired because it does not seed", and the next free index is used), chain 3 is retired and **chain 6** (salt `a8-territory-null-chain6`, same code and run length) takes its place. The reference chains are 1, 2, 4 and 6 (`rank --ref 1 2 4 6`); chain 5 stays the holdout. This was decided when chain 3's failure was seen, before any territory plan or R1/R2 statistic was scored.
