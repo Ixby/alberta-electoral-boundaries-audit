@@ -227,6 +227,8 @@ if __name__ == "__main__":
     sp = ap.add_subparsers(dest="cmd", required=True)
     sp.add_parser("selftest")
     p = sp.add_parser("plans"); p.add_argument("dir")
+    p.add_argument("--enacted", help="the scored map, for a rerun under Amendment 8, Part 5 (as rank takes it)")
+    p.add_argument("--stated-low", type=int)
     p = sp.add_parser("real"); p.add_argument("maps", nargs="+"); p.add_argument("--shuffle", type=int, default=10_000)
     p = sp.add_parser("rank", help="R1/R2: rank a map against scored plans (DIR/scores.csv)")
     p.add_argument("map"); p.add_argument("dir"); p.add_argument("--ref", type=int, nargs="+", default=[1, 2, 3, 4])
@@ -234,8 +236,11 @@ if __name__ == "__main__":
     p = sp.add_parser("calibrate"); p.add_argument("dir"); p.add_argument("--ref", type=int, nargs="+", required=True)
     p.add_argument("--holdout", type=int, required=True); p.add_argument("--shuffle-plans", type=int, default=200)
     p.add_argument("--shuffle", type=int, default=2_000); p.add_argument("--burn", type=int, default=10_000)
+    p.add_argument("--enacted"); p.add_argument("--stated-low", type=int)
     a = ap.parse_args()
-    S = Substrate(a.map if a.cmd == "rank" else None, getattr(a, "stated_low", None))
+    if getattr(a, "enacted", None) and a.stated_low is None:
+        ap.error("--enacted needs --stated-low")
+    S = Substrate(a.map if a.cmd == "rank" else getattr(a, "enacted", None), getattr(a, "stated_low", None))
     if a.cmd == "selftest":
         selftest(S)
     elif a.cmd == "plans":
