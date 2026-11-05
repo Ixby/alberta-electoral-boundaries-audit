@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "0e6bbb25f10a59d78156ba441d58c06254ea138b3a00ff9737e9f8fefc20127c",
+   "responses_sha256": "ab5884930b6743ba3a35cf59663cb5246715406943e0e3c5075f3d14d94d84d6",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -154,6 +154,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-04T21:51:42.979448",
      "justification_head": "Amendment 10: registers a third Step B calibration attempt (Amendment 7) as a re"
+    },
+    {
+     "id": "6aec9576dea08eafc55f6106",
+     "state": "approved",
+     "submitted_utc": "2026-11-05T14:41:14.758501",
+     "justification_head": "Amendment 11: makes three workarounds from the provisional Step C run (2026-11-0"
     }
    ],
    "files": {
@@ -293,6 +299,12 @@
    "registration": "9wp5y",
    "where": "update 6aeb59edd63871f1daf383ab, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-04 21:51 UTC (2026-11-04 2:51 PM MST), approved the same minute; text = the '## Amendment 10' section at commit 7ec489b7, SHA-256 0f36387a...5c2863704a88 (23,155 bytes); appended after Amendment 9; author's approval given in the CLI ('Strip then file', 'Do your recommendations ... Go', then on the area-rounding change made after those: 'Go. The relaxed check is fine'). The draft read back matched on the first attempt"
+  },
+  "11": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6aec9576dea08eafc55f6106, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-05 14:41 UTC (2026-11-05 7:41 AM MST), approved the same minute; text = the '## Amendment 11' section at commit 1c131f10, SHA-256 621ba71f...237d28da16 (5,516 bytes); appended after Amendment 10; author's approval given in the CLI ('File it'). Two earlier drafts read back two characters short (the OSF strips <idx> as an HTML tag) and were deleted unsubmitted; the salt pattern was reworded and the third draft matched"
   }
  },
  "acknowledged": [
