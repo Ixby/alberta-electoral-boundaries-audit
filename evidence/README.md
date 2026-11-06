@@ -22,6 +22,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 | `elections_alberta/ea_maps_page_2026-11-02.html` | Elections Alberta "Maps" page, as served | https://www.elections.ab.ca/resources/maps/ | 2026-11-02 16:12 MST |
 | `legislature/iap_report_2026_hires.pdf` (Git LFS) | 2026 Independent Advisory Panel report, High-Resolution version: 308 pages, full text layer, maps as vector drawings; PDF created 2026-10-19 14:05 MDT; served as `high443404_8-5x11_iapreport_digital-oct29.pdf`, 847,622,582 bytes | https://librarysearch.assembly.ab.ca/client/en_CA/search/asset/236105/1 (linked from the committee page as "High-Resolution") | 2026-11-02 18:03–18:06 MST |
 | `legislature/iap_report_2026_hires_text/` | Text layer of the IAP report's high-resolution PDF, one file per PDF page (pdftotext 4.06, -layout); README gives the source file, size and SHA-256 (d8ae78ab…75122) and the per-page hashes. The 830 MB PDF itself is not committed | https://librarysearch.assembly.ab.ca/client/en_CA/search/asset/236105/1 | 2026-11-02 18:06 MST |
+| `commission_reports/abebc_2025_interim_report.pdf` (Git LFS) | 2025 Electoral Boundaries Commission interim report; 214 pages; PDF created 2025-10-22; Appendix E gives each division's population | https://www.elections.ab.ca/uploads/2025-Interim-Report-Original.pdf | 2026-11-06 03:01 MST |
 | `correspondence/elections_alberta_gis_2026-10-28.md` | Email exchange with Elections Alberta's Geomatics Team Lead on shapefiles for the new boundaries; contact details removed | provided by the author | 2026-11-02 |
 
 Full hashes:
@@ -44,6 +45,7 @@ c45a23dd882db132ca0ce2031512bddde0f53ff2776bb7ec5f446cbf6a4811ab  assembly_commi
 f7fa90058866f30d0b02d3a9d8518e58a4305e50b40baa0031030eff3d7761df  votes_proceedings_2026-04-21.pdf
 a4f04674a224cee7ee60ce7b1008e9d36285afdd15a4b705dda891fc474f5a68  alberta_hansard_2026-04-21_afternoon.pdf
 1cb5044d9e137d1110e277b1ee068b00cedd65d8958abea4e127b9887cb64b4f  ea_maps_page_2026-11-02.html
+67f6fb7830356c9830f63ee15bdf5fb2c4e54dab2984c14ceeb449368ba68a9f  abebc_2025_interim_report.pdf
 ```
 
 The Assembly's news page is built on each request, so a fresh download will not match the hash above byte for byte; the committed copy is the page as served on 2026-11-01. The transcript PDF downloaded again on 2026-11-01 matched its hash exactly.

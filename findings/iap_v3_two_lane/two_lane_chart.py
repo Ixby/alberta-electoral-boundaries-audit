@@ -14,7 +14,7 @@ Unregistered sensitivity; the panel's map is the v3 reconstruction, not an offic
 Draft only: not wired into the report or the viewer.
 
 Reads   findings/iap_v3_two_lane/structural.json, structural_majority_rerun.json,
-        structural_minority_rerun.json, joint_outlier.json
+        structural_minority_rerun.json, structural_2019_rerun.json, joint_outlier.json
         data/outputs/simulated_ensemble_percentiles_canonical.csv
 Writes  findings/iap_v3_two_lane/two_lane_chart.svg (+ .png)
 
@@ -32,7 +32,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "analysis/scripts"))
-from palette import MAJORITY_TEAL, MINORITY_PURPLE, NDP_ORANGE, UCP_BLUE, TEXT_DARK, INK_SUBTLE, PAPER_BG  # noqa: E402
+from palette import MAJORITY_TEAL, MINORITY_PURPLE, NEUTRAL_2019, NDP_ORANGE, UCP_BLUE, TEXT_DARK, INK_SUBTLE, PAPER_BG  # noqa: E402
 
 PANEL = "#8A6D1F"  # ochre: a third map, outside both commission palettes
 
@@ -49,7 +49,8 @@ def p_flags(pct):
 def main():
     c = pd.read_csv(ROOT / "data/outputs/simulated_ensemble_percentiles_canonical.csv")
     rows = {}
-    for key, name in (("majority 2026 canonical", "Majority 2026"), ("minority 2026 canonical", "Minority 2026")):
+    for key, name in (("2019 enacted", "2019 enacted"), ("majority 2026 canonical", "Majority 2026"),
+                      ("minority 2026 canonical", "Minority 2026")):
         g = c[c["map"] == key].set_index("metric")
         rows[name] = {"eg": g.loc["efficiency_gap", "value"], "mm": g.loc["mean_median", "percentile"],
                       "decl": g.loc["declination", "percentile"], "s50": g.loc["seats_at_50_50", "percentile"]}
@@ -58,6 +59,7 @@ def main():
         "eg": m["efficiency_gap"]["observed"], "mm": 100 * m["mean_median"]["ucp_direction_percentile"],
         "decl": 100 * m["declination"]["ucp_direction_percentile"],
         "s50": 100 * m["seats_at_50_50"]["ucp_direction_percentile"]}
+    rows["2019 enacted"]["s"] = flags("structural_2019_rerun.json")
     rows["Majority 2026"]["s"] = flags("structural_majority_rerun.json")
     rows["Minority 2026"]["s"] = flags("structural_minority_rerun.json")
     rows["Panel's map (reconstructed)"]["s"] = flags("structural.json")
@@ -78,7 +80,8 @@ def main():
     ax.text(XMIN + 0.12, 2.58, "3 of 5 = structural signature replicated (registered rule, spec §3)",
             color="#555555", fontsize=7, style="italic", ha="left", va="bottom")
 
-    style = {"Majority 2026": (MAJORITY_TEAL, (0.5, 1.0), "left"),
+    style = {"2019 enacted": (NEUTRAL_2019, (3.7, 0.45), "right"),
+             "Majority 2026": (MAJORITY_TEAL, (-0.5, 0.45), "right"),
              "Minority 2026": (MINORITY_PURPLE, (3.3, 3.3), "right"),
              "Panel's map (reconstructed)": (PANEL, (-0.6, 3.25), "right")}
     for n, r in rows.items():
@@ -105,14 +108,16 @@ def main():
     bx = ax.get_xaxis_transform()
     ax.plot([XMIN, 0], [0, 0], transform=bx, color=NDP_ORANGE, lw=1.2, clip_on=False, zorder=10)
     ax.plot([0, XMAX], [0, 0], transform=bx, color=UCP_BLUE, lw=1.2, clip_on=False, zorder=10)
-    ax.set_title("The panel's map beside the two commission maps, on the registered two lanes",
-                 fontsize=12, fontweight="bold", loc="left", color=TEXT_DARK, pad=40)
+    ax.set_title("The panel's map beside the 2019 map and the commission maps, on the registered two lanes",
+                 fontsize=12, fontweight="bold", loc="left", color=TEXT_DARK, pad=50)
     ax.text(0.0, 1.03, "November scoring spec §3: each structural flag fires on the minority's side of the midpoint\n"
-            "between the commission maps. Dashed lines are the audit's own calibrations, not legal thresholds.",
+            "between the commission maps. These are the audit's tests, not Recommendation 5. Dashed lines are its own\n"
+            "calibrations, not legal thresholds.",
             transform=ax.transAxes, fontsize=8, color="#555555", ha="left", va="bottom")
     ax.text(0.0, -0.17, "Hollow point: the panel's map is reconstructed from its report's pages (v3), not an official "
             "shapefile; provisional,\nunregistered sensitivity. Its seats at 50/50 is ranked against 87-district plans, "
-            "as registered.", transform=ax.transAxes, fontsize=7, color=INK_SUBTLE, style="italic", ha="left", va="top")
+            "as registered.\n2019 fires S3 and S5 here (0 of 5 on the public chart's April tests); these midpoints were set between "
+            "the 2026 maps, and S6 asks about\n2026 patterns only.", transform=ax.transAxes, fontsize=7, color=INK_SUBTLE, style="italic", ha="left", va="top")
     for ext in ("svg", "png"):
         fig.savefig(HERE / f"two_lane_chart.{ext}", dpi=200 if ext == "png" else 300, facecolor=PAPER_BG,
                     bbox_inches="tight", pad_inches=0.1)

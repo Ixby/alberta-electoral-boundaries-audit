@@ -50,20 +50,24 @@ qsgy8 tripwires (beside the verdict): 1 of 4 on both. MO #1 fires on Lethbridge 
 
 The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`, with logs); it reproduces the June anchors exactly. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
 
-| Check (flag rule, spec §3) | Majority | Panel's map (v3) | Minority |
-|---|---|---|---|
-| S1 population MAD (above 3,382.5) | 2,827 | **3,557** | **3,938** |
-| S2 municipal splits (above 26.5) | 23 | 24 | **30** |
-| S3 anchoring (below 76.01%) | 79.96% | **74.29%** | **71.78%** |
-| S5 drain (below 0.0039) | 0.00721 | 0.00442 | **0.00059** |
-| S6 chair-flag patterns (3 or more) | 0 | 1 (Calgary-North West-Bearspaw) | **5** |
-| **Structural lane** | **0 of 5, not replicated** | **2 of 5, not replicated** | **5 of 5, replicated** |
-| P1 efficiency gap (+4.10% or more) | +0.10% | +1.45% | +4.02% |
-| P2 mean-median (p95 or more, UCP direction) | p0.99 | p19.7 | **p99.97** |
-| P3 declination (p95 or more, or p5 or less) | p21.8 | p52.4 | **p98.8** |
-| P4 seats at 50/50 (p95 or more) | p78.5 | **p98.8** | **p99.99** |
-| **Partisan lane** | **0 of 4, absent** | **1 of 4, absent** | **3 of 4, present** |
+| Check (flag rule, spec §3) | 2019 enacted | Majority | Panel's map (v3) | Minority |
+|---|---|---|---|---|
+| S1 population MAD (above 3,382.5) | 3,085 | 2,827 | **3,557** | **3,938** |
+| S2 municipal splits (above 26.5) | 19 | 23 | 24 | **30** |
+| S3 anchoring (below 76.01%) | **75.09%** | 79.96% | **74.29%** | **71.78%** |
+| S5 drain (below 0.0039) | **0.00153** | 0.00721 | 0.00442 | **0.00059** |
+| S6 chair-flag patterns (3 or more) | 0 (asks about 2026 patterns) | 0 | 1 (Calgary-North West-Bearspaw) | **5** |
+| **Structural lane** | **2 of 5, not replicated** | **0 of 5, not replicated** | **2 of 5, not replicated** | **5 of 5, replicated** |
+| P1 efficiency gap (+4.10% or more) | +2.41% | +0.10% | +1.45% | +4.02% |
+| P2 mean-median (p95 or more, UCP direction) | p91.8 | p0.99 | p19.7 | **p99.97** |
+| P3 declination (p95 or more, or p5 or less) | p91.3 | p21.8 | p52.4 | **p98.8** |
+| P4 seats at 50/50 (p95 or more) | p78.5 | p78.5 | **p98.8** | **p99.99** |
+| **Partisan lane** | **0 of 4, absent** | **0 of 4, absent** | **1 of 4, absent** | **3 of 4, present** |
 
 Bold = flag. On every structural check the panel's map lies between the two commission maps; on S1 and S3 it is on the minority's side of the midpoint, on S2, S5 and S6 on the majority's. Its one partisan flag, P4, is a 91-district map ranked against 87-district plans (as registered); against 91-district set D it is p91.6.
+
+**The 2019 map** was added at the author's direction (`structural_2019_rerun.json`, same command, on a copy of the shapefile with the 2017 names in `EDName2025`). It lands on 2 of 5 here, against 0 of 5 on the public chart, and on different checks from the panel's: S3 and S5, where the panel's are S1 and S3. Those midpoints were set between the two 2026 maps, so they do not measure 2019 against anything it was drawn to meet. S1 here is on the 2021 overlay (3,085); the public chart's note cites 2,010 from Appendix C, and the two have not been reconciled.
+
+**None of these checks is Recommendation 5.** The panel's departures from it are in `../iap_r5_degree/README.md`.
 
 **Why this is not the public chart's battery.** The public scorecard chart (`article_figures.build_bias_structure_matrix`, "Where the three maps sit on the audit's two lanes") uses Act I's April tests, on which the minority is 4 of 5 because anchoring is counted neutral there. Those tests were set by comparing the two commission maps and have no rule for a third map. §3's midpoint battery was registered for scoring a third map, and on it anchoring discriminates (79.96% against 71.78%), so the minority is 5 of 5.
