@@ -61,6 +61,7 @@ The excess held no VA's representative point. **No VA changes district, so every
       - The page's outline stroke is 2.76 pt, about 190 m on the ground at the fit's 69 m per point. So a line on one bank and a line on the centreline look the same on the page.
       - The official line sits a median 60 m from the OpenStreetMap centreline, crossing it repeatedly (20.6 km of centreline on the Chestermere side, 16.1 km on the Okotoks side). So "the panel used the centreline" does not explain the gap either: moving to the centreline nets only +0.27 km².
       - The most likely reading is that the panel's GIS draws the Chestermere–Okotoks line along a river line of its own, about 60–80 m toward Okotoks. That is below what the page can show, in riverbed that holds no VA.
+    - *Superseded the same evening:* this note first called VA 014 (181 votes) unresolved, because its representative point is 1 m inside the placed page and the fit error is 26 m. That treated the page as the only evidence. The next point gives the correction.
     - **VA 014 is not ambiguous.**
       - It sits at the north-east corner (about 614.5 km E, 5,655 km N), not on the river. It straddles the line, with 59% of its area in Chestermere-Strathmore.
       - Its representative point is 0.3 m from the official majority line, on the far side. The page matches the official line there (offset about −1 m, the fit's noise), so the panel did not move this segment.
