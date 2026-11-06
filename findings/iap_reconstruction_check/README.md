@@ -48,8 +48,14 @@ The excess held no VA's representative point. **No VA changes district, so every
   - **The panel's own population figure does not reflect this.** Appendix 7 and the page both give 59,121, which is 2 fewer than the commission's 59,123. The conflict is in the panel's report; the geometry was not tuned to it.
 - **Chestermere-Strathmore is a real change that Step A cannot see.**
   - Its stated population equals the commission's (56,679), so Step A counted it unchanged. But its stated area is 1,025 km² against the official 1,019.72 km².
-  - The assembly gave it 3.14 km² of the majority's High River-Vulcan-Siksika. That leaves it 2.15 km² below the stated area, in land with no VA representative point.
   - Step A's rule (name and population) cannot detect a change of unpopulated land. `iap_unchanged_districts.md` is left as filed; this note records the blind spot.
+  - **Placed page (added later the same evening).**
+    - The registered run never placed this page, and Version 4 cannot ("no page layer matches a reference"). `analysis/scripts/iap_chestermere_page_fit.py` places the page's red outline (PDF p272) onto the official district with the inset fit from `a10_inset.py`, sampled every 100 m. Fit error: median 26.5 m, 90th percentile 48 m. Output: `chestermere_page_fit.json`.
+    - The page differs from the majority district in one place only: a 3.25 km² strip of the Bow River valley at Chestermere-Strathmore's south-east corner (about 606–611 km E, 5,626–5,630 km N, mean width 375 m).
+    - On that stretch the majority's line runs along the north edge of the valley. The panel's runs along the river. The strip was the majority's High River-Vulcan-Siksika, and it holds no VA representative point.
+    - **The v2 map already has this strip,** taken by the assembly, and nothing else: v2 against the placed page has IoU 0.9997, with no piece over 0.1 km² in either direction. The geometry is resolved; no change is made.
+    - The page traces to 1,022.95 km², against the stated 1,025. That 0.2% sits inside the spread between page traces and stated areas on placed districts (Okotoks's page is +0.22%, Macleod-Crowsnest's −0.21%). No other departure as wide as the fit's precision shows on the page. The missing 2.05 km² cannot be located from it.
+    - One VA sits on the line. VA 014 (2019 Chestermere-Strathmore, 181 votes) has its representative point 1 m inside the placed page's edge. Both the official majority line (High River-Vulcan-Siksika side) and the v2 map (Olds-Didsbury-Three Hills) put that point outside Chestermere-Strathmore. A 1 m distance is far inside the 26 m fit error, so the page cannot settle it, and the VA stays where it is.
 - **Calgary-North West-Bearspaw (hole fill, no accepted page).**
   - It is the majority's Calgary-North West plus 11.2 km² of Bearspaw holding 3 VAs (408 votes).
   - Its area is 37.41 km² (stated 37).
