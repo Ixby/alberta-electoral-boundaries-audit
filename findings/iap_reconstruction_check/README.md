@@ -55,6 +55,16 @@ The excess held no VA's representative point. **No VA changes district, so every
     - On that stretch the majority's line runs along the north edge of the valley. The panel's runs along the river. The strip was the majority's High River-Vulcan-Siksika, and it holds no VA representative point.
     - **The v2 map already has this strip,** taken by the assembly, and nothing else: v2 against the placed page has IoU 0.9997, with no piece over 0.1 km² in either direction. The geometry is resolved; no change is made.
     - The page traces to 1,022.95 km², against the stated 1,025. That 0.2% sits inside the spread between page traces and stated areas on placed districts (Okotoks's page is +0.22%, Macleod-Crowsnest's −0.21%). No other departure as wide as the fit's precision shows on the page. The missing 2.05 km² cannot be located from it.
+    - **Where the 2.05 km² most likely is.** This is an inference, not a measurement.
+      - Okotoks, across the Bow River, is the mirror image: its page traces 2.66 km² over its stated area, and its v2 area is 2.61 km² over.
+      - The two share 34.3 km of the Bow. Spreading the gaps along that line gives a shift of 60 m (Chestermere-Strathmore) and 78 m (Okotoks).
+      - The page's outline stroke is 2.76 pt, about 190 m on the ground at the fit's 69 m per point. So a line on one bank and a line on the centreline look the same on the page.
+      - The official line sits a median 60 m from the OpenStreetMap centreline, crossing it repeatedly (20.6 km of centreline on the Chestermere side, 16.1 km on the Okotoks side). So "the panel used the centreline" does not explain the gap either: moving to the centreline nets only +0.27 km².
+      - The most likely reading is that the panel's GIS draws the Chestermere–Okotoks line along a river line of its own, about 60–80 m toward Okotoks. That is below what the page can show, in riverbed that holds no VA.
+    - **VA 014 is not ambiguous.**
+      - It sits at the north-east corner (about 614.5 km E, 5,655 km N), not on the river. It straddles the line, with 59% of its area in Chestermere-Strathmore.
+      - Its representative point is 0.3 m from the official majority line, on the far side. The page matches the official line there (offset about −1 m, the fit's noise), so the panel did not move this segment.
+      - The VA is therefore assigned as it is under the official majority map, by the same representative-point convention used to score every map.
     - One VA sits on the line. VA 014 (2019 Chestermere-Strathmore, 181 votes) has its representative point 1 m inside the placed page's edge. Both the official majority line (High River-Vulcan-Siksika side) and the v2 map (Olds-Didsbury-Three Hills) put that point outside Chestermere-Strathmore. A 1 m distance is far inside the 26 m fit error, so the page cannot settle it, and the VA stays where it is.
 - **Calgary-North West-Bearspaw (hole fill, no accepted page).**
   - It is the majority's Calgary-North West plus 11.2 km² of Bearspaw holding 3 VAs (408 votes).
