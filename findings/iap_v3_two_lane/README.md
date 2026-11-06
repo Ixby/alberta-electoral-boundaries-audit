@@ -45,3 +45,25 @@ qsgy8 tripwires (beside the verdict): 1 of 4 on both. MO #1 fires on Lethbridge 
 - **S3 anchoring rises 0.24 points** because v3's lines sit on the panel's drawn lines rather than on page-trace wobble and slivers. It stays 1.7 points below the midpoint, so the flag holds.
 - **S4's median Polsby-Popper rises from 0.4366 to 0.4549**, because two districts cross the old median: Cochrane (placed; 0.314 → 0.519, its page-trace wobble and slivers gone) and Calgary-Falconridge-Conrich (copied; 0.431 → 0.456, back to its official value after v1's slivers). The median district moves from Calgary-Currie (copied, at its official value, which is why v1 matched both commission maps' 0.4366) to Medicine Hat-Cypress, and the ranks there are spread out. S4 is not counted, so nothing turns on it.
 - **The `verdict.json` template text** ("Lunty map …", `publishable_72h`) is the script's fixed wording and does not apply, as in Step C.
+
+## Against the majority and minority maps
+
+The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`, with logs); it reproduces the June anchors exactly. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
+
+| Check (flag rule, spec §3) | Majority | Panel's map (v3) | Minority |
+|---|---|---|---|
+| S1 population MAD (above 3,382.5) | 2,827 | **3,557** | **3,938** |
+| S2 municipal splits (above 26.5) | 23 | 24 | **30** |
+| S3 anchoring (below 76.01%) | 79.96% | **74.29%** | **71.78%** |
+| S5 drain (below 0.0039) | 0.00721 | 0.00442 | **0.00059** |
+| S6 chair-flag patterns (3 or more) | 0 | 1 (Calgary-North West-Bearspaw) | **5** |
+| **Structural lane** | **0 of 5, not replicated** | **2 of 5, not replicated** | **5 of 5, replicated** |
+| P1 efficiency gap (+4.10% or more) | +0.10% | +1.45% | +4.02% |
+| P2 mean-median (p95 or more, UCP direction) | p0.99 | p19.7 | **p99.97** |
+| P3 declination (p95 or more, or p5 or less) | p21.8 | p52.4 | **p98.8** |
+| P4 seats at 50/50 (p95 or more) | p78.5 | **p98.8** | **p99.99** |
+| **Partisan lane** | **0 of 4, absent** | **1 of 4, absent** | **3 of 4, present** |
+
+Bold = flag. On every structural check the panel's map lies between the two commission maps; on S1 and S3 it is on the minority's side of the midpoint, on S2, S5 and S6 on the majority's. Its one partisan flag, P4, is a 91-district map ranked against 87-district plans (as registered); against 91-district set D it is p91.6.
+
+**Why this is not the public chart's battery.** The public scorecard chart (`article_figures.build_bias_structure_matrix`, "Where the three maps sit on the audit's two lanes") uses Act I's April tests, on which the minority is 4 of 5 because anchoring is counted neutral there. Those tests were set by comparing the two commission maps and have no rule for a third map. §3's midpoint battery was registered for scoring a third map, and on it anchoring discriminates (79.96% against 71.78%), so the minority is 5 of 5.
