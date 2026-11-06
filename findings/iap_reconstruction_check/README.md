@@ -77,6 +77,45 @@ The excess held no VA's representative point. **No VA changes district, so every
   - None holds a VA representative point. Giving Banff-Canmore-Diamond Valley's gaps to Macleod-Crowsnest would leave Banff-Canmore-Diamond Valley at its stated area but push Macleod-Crowsnest to +4.7. With no votes at stake, that would only fit one number.
 - **The other placed districts below 0.999** (the Lethbridge, Calgary-west, Edmonton-south and central-Alberta redraws) differ from the majority because the panel redrew them. Every VA in them agrees with its page.
 
+## v3: every line checked for fit and finish (added 22:05 MST)
+
+`data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg` (SHA-256 `8ea5caf68ac95bffe3d7e8a58635b8888f742b3bf115cf3787da3cc92caca1b7`). Scripts and run order: `analysis/scripts/iap_v3/`. Line flags: `line_flags_v3.csv`. **No VA changes district between v1, v2 and v3, so no score changes.**
+
+**Finish: v3 matches the official files.**
+
+| Map | Overlap | Holes | Land outside the province | Parts | Invalid |
+|---|---|---|---|---|---|
+| Official majority | 0 | 2 holes, 0.006 m² | 0 | 89 | 0 |
+| Official minority | 0 | 0 | 0.006 m² | 89 | 0 |
+| v1 (registered) | 258 m², 43 pairs | 4,631 holes, 70,780 m² | 3.53 km² | 361 | 0 |
+| v2 | 52,458 m², 77 pairs | 3,960 holes, 68,980 m² | 3.53 km² | 295 | 0 |
+| **v3** | **0** | **2 holes, 0.006 m²** (the majority file's own two) | **0** | **91** | **0** |
+
+- **Failed check, recorded: v2's correction added overlap.** It went from 258 to 52,458 m², because v2 joined the Rutherford and Mill Woods excess to Windermere and Meadows without removing what those fills already overlapped in Edmonton-Enoch and Mill Woods. v3 removes it.
+- **v1 and v2 extended 3.53 km² outside the province,** across the British Columbia border in Macleod-Crowsnest. v3 clips it, which moves Macleod-Crowsnest from 9.28 to 12.82 km² below its stated area. Its page is itself 28 km² short; no VA is involved.
+- The 57 copied districts are the official geometry to within 0.009 m² each (vertices added where neighbours' lines meet them).
+
+**Fit: the bar is what page tracing achieves where the truth is known.**
+- The 33 pages of copied districts were traced in the registered calibration run. Two of them were misplaced pages that the registered rules reject (Sherwood Park, Peace River). On the other 31, the traced line sits from the official line at:
+  - rural pages: median 6.6 m, 95th percentile 20.7 m, 99th 25.9 m;
+  - urban pages: median 1.0 m, 95th percentile 2.6 m, 99th 3.2 m.
+- **Bar: 30.7 m, the 99.9th percentile.** By construction, 0.1% of a correctly traced line lies beyond it.
+- Each of the 137 lines touching a changed district (8,115 km) was sampled every 25 m. Each sample was measured against the nearer of the line's two references: each side's page trace, or the official line for a copied district.
+- **v3: 0.5 km beyond the bar, 0.006% of the length.** That compares with 0.1% expected for a correct trace. v2 had 6.2 km (0.076%).
+- 26 pieces moved between neighbours to get there (`step3_page_claims.py`, largest 0.23 km², Wetaskiwin-Ponoka to Lacombe-Sylvan Lake). Each is land one district's page claims, that the holder's own page does not, and that is thicker than the bar.
+  - They exist because a district is drawn as whole VAs unless a neighbour holds more than 1% of a VA.
+  - None holds a VA representative point. One is 0.08 km² of Chestermere-Strathmore's river strip, taken back from Lethbridge-Little Bow; that brings Chestermere-Strathmore to 2.07 km² below its stated area.
+- **What is left beyond the bar** (all of it holds no VA representative point):
+  - Banff-Canmore-Diamond Valley | Macleod-Crowsnest: 0.25 km, up to 181 m, in gap land beyond Macleod-Crowsnest's trace, where the Banff-Canmore-Diamond Valley page does not reach.
+  - Edmonton-Windermere against Edmonton-South (0.05 km, 32 m) and against Drayton Valley-Devon (0.18 km, 33 m): Windermere has no accepted page, so only one trace exists.
+  - Blackfalds-Innisfail | Olds-Didsbury-Three Hills (0.02 km, 33 m) and Chestermere-Strathmore | Lethbridge-Little Bow (0.02 km, 34 m).
+  - Apart from the first, all are inside the 40 m snap tolerance, where the line was snapped to a VA or official edge.
+- **What this measures and what it doesn't.**
+  - It shows that v3's lines sit on the panel's drawn lines as closely as page tracing reproduces official lines, everywhere except those 0.5 km.
+  - It does not show that a v3 line is where the panel's own data puts it, where the two differ by less than a trace's error. The Okotoks–Chestermere Bow River line is the known case.
+  - Stated areas: 13 districts remain outside ±0.5 km² (v2: 14). The large ones are Banff-Canmore-Diamond Valley +13.3, Macleod-Crowsnest −12.8, Okotoks +2.7 and Chestermere-Strathmore −2.1. All lie in land holding no VA.
+  - The official shapefile is the test.
+
 ## Not changed
 
 The registered files, the Step C results, `iap_unchanged_districts.md`, OSF. Nothing here is filed.
