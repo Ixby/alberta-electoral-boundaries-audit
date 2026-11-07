@@ -164,6 +164,19 @@ def main():
             block["stated"] = spread(s)
             block["corr_electors_vs_stated"] = {"all": corr(e, s), "calgary_edmonton": corr(e[urban], s[urban]), "rest": corr(e[~urban], s[~urban])}
             block["corr_electors_vs_overlay_2021"] = {"all": corr(e, o2), "calgary_edmonton": corr(e[urban], o2[urban]), "rest": corr(e[~urban], o2[~urban])}
+            # The maps were drawn to equalise the stated figures, so their spread inside each map is squeezed and
+            # any correlation with them is depressed. These two checks do not lean on that spread.
+            def miss(fig, mask):
+                return round(100 * float((e[mask] / ((e.sum() / fig.sum()) * fig[mask]) - 1).abs().mean()), 1)
+            block["range_check"] = {"sd_stated_cities": round(float(s[urban].std())), "sd_overlay_cities": round(float(o2[urban].std())),
+                                    "sd_electors_cities": round(float(e[urban].std())),
+                                    "mean_abs_pct_miss_stated": {"cities": miss(s, urban), "rest": miss(s, ~urban)},
+                                    "mean_abs_pct_miss_overlay": {"cities": miss(o2, urban), "rest": miss(o2, ~urban)}}
+            calgary = e.index.str.startswith("Calgary-")
+            edmonton = e.index.str.startswith("Edmonton-")
+            block["region_shares_pct"] = {lab: {"electors": round(100 * float(e[m].sum() / e.sum()), 1), "stated": round(100 * float(s[m].sum() / s.sum()), 1),
+                                                "overlay_2021": round(100 * float(o2[m].sum() / o2.sum()), 1)}
+                                          for lab, m in (("calgary", calgary), ("edmonton", edmonton), ("rest", ~urban))}
             ratio = e / s
             block["electors_per_stated_person"] = {"province": round(float(prov_ratio), 4), "min": round(float(ratio.min()), 4), "max": round(float(ratio.max()), 4)}
             block["lowest_ratio"] = {n: round(float(v), 3) for n, v in ratio.sort_values().head(8).items()}

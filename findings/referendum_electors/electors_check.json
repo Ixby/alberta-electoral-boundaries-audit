@@ -80,6 +80,36 @@
     "calgary_edmonton": 0.8062,
     "rest": 0.8489
    },
+   "range_check": {
+    "sd_stated_cities": 2525,
+    "sd_overlay_cities": 6314,
+    "sd_electors_cities": 6486,
+    "mean_abs_pct_miss_stated": {
+     "cities": 13.3,
+     "rest": 12.5
+    },
+    "mean_abs_pct_miss_overlay": {
+     "cities": 9.1,
+     "rest": 8.5
+    }
+   },
+   "region_shares_pct": {
+    "calgary": {
+     "electors": 30.2,
+     "stated": 32.3,
+     "overlay_2021": 30.7
+    },
+    "edmonton": {
+     "electors": 22.9,
+     "stated": 24.9,
+     "overlay_2021": 24.2
+    },
+    "rest": {
+     "electors": 46.9,
+     "stated": 42.8,
+     "overlay_2021": 45.1
+    }
+   },
    "electors_per_stated_person": {
     "province": 0.6723,
     "min": 0.2757,
@@ -189,6 +219,36 @@
     "all": 0.7696,
     "calgary_edmonton": 0.75,
     "rest": 0.8392
+   },
+   "range_check": {
+    "sd_stated_cities": 4006,
+    "sd_overlay_cities": 5876,
+    "sd_electors_cities": 6003,
+    "mean_abs_pct_miss_stated": {
+     "cities": 12.1,
+     "rest": 12.0
+    },
+    "mean_abs_pct_miss_overlay": {
+     "cities": 8.6,
+     "rest": 8.3
+    }
+   },
+   "region_shares_pct": {
+    "calgary": {
+     "electors": 32.9,
+     "stated": 34.7,
+     "overlay_2021": 33.2
+    },
+    "edmonton": {
+     "electors": 24.3,
+     "stated": 26.2,
+     "overlay_2021": 25.5
+    },
+    "rest": {
+     "electors": 42.8,
+     "stated": 39.1,
+     "overlay_2021": 41.4
+    }
    },
    "electors_per_stated_person": {
     "province": 0.6723,
@@ -307,6 +367,36 @@
     "all": 0.7968,
     "calgary_edmonton": 0.7976,
     "rest": 0.8592
+   },
+   "range_check": {
+    "sd_stated_cities": 2493,
+    "sd_overlay_cities": 6176,
+    "sd_electors_cities": 6861,
+    "mean_abs_pct_miss_stated": {
+     "cities": 13.6,
+     "rest": 12.6
+    },
+    "mean_abs_pct_miss_overlay": {
+     "cities": 9.7,
+     "rest": 8.9
+    }
+   },
+   "region_shares_pct": {
+    "calgary": {
+     "electors": 30.5,
+     "stated": 32.5,
+     "overlay_2021": 30.9
+    },
+    "edmonton": {
+     "electors": 22.4,
+     "stated": 24.5,
+     "overlay_2021": 24.0
+    },
+    "rest": {
+     "electors": 47.1,
+     "stated": 43.0,
+     "overlay_2021": 45.1
+    }
    },
    "electors_per_stated_person": {
     "province": 0.6723,

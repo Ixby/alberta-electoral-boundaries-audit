@@ -33,3 +33,5 @@ Electors go to divisions by voting-area representative point, on the majority, m
 - Whether the estimates satisfy s.12 stays unresolved: the commission and panel give their reasons, and no court has ruled on this use.
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
+
+**Note added after running (2026-11-07).** The plan's correlation test (item 1) is confounded and was not recognised as such when this was written: every map here was drawn to equalise the stated figures, so their spread inside a map is squeezed and correlation with them is depressed. See `findings/referendum_electors/README.md`. The text above is unchanged.

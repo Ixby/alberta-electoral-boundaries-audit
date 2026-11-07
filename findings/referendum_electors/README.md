@@ -6,30 +6,42 @@
 
 Both bodies state it: the Alberta Office of Statistics and Information's July 1, 2024 estimates at dissemination-area level, total 4,888,723 (commission final report, PDF pp. 28-29; panel report, PDF pp. 107-108). The panel says it kept them so its map could be compared with the commission's on the same figures, and calls criticism of them "unjustified". These stated tables are the audit's primary population figures for the scorecard. The dissemination-area file itself was not found publicly, so no division outside the stated tables can be scored on it directly.
 
-The commission gives February 2027 as the 2026 census release (PDF p. 28); the panel says 2027.
+The commission gives February 2027 as the 2026 census release (PDF p. 28); the panel says 2027. The author expects it mid to late 2027, so the timing is unconfirmed here.
 
 ## Match check
 
 Complete. All 4,904 election-day polls match the 4,904 polygons in Elections Alberta's 2026 voting-area file, on division and voting-area number, with no duplicates. Poll electors sum to each division's stated total and to 3,286,778.
 
-## Result: inside the two cities, electors follow the 2021 overlay more closely than the 2024 estimates
+## Result: electors sit closer to the 2021 overlay, but this check is weak
 
 | Correlation with 2026 electors | Stated 2024 estimates | 2021 overlay |
 |---|---|---|
 | Majority map (official polygons): all 89 | 0.41 | 0.81 |
-| Majority: 49 Calgary and Edmonton divisions | **0.18** | **0.81** |
+| Majority: 49 Calgary and Edmonton divisions | 0.18 | 0.81 |
 | Majority: the other 40 | 0.83 | 0.85 |
 | Panel's map: all 91 | 0.47 | 0.80 |
 | Panel's map: Calgary and Edmonton | 0.39 | 0.80 |
 | Minority map: Calgary and Edmonton | −0.06 | 0.75 |
 
-Outside the two cities the figures agree. The gap is inside Calgary and Edmonton. By the plan, this is reported as **an open question about the estimates, and it changes no s.15(1) grade.**
+**Do not read that table at face value. The planned test is confounded, which was caught only after running it.** Each map was drawn to equalise the stated figures, so they barely vary inside a map (standard deviation among the majority's city divisions: stated 2,525 people, overlay 6,314, electors 6,486). A measure that barely varies cannot correlate strongly with anything. Much of the gap between 0.18 and 0.81 comes from that, not from the accuracy of the estimates. A fair version needs 2024 estimates on lines not drawn from them, such as the old 87 divisions, and none was found in the reports.
+
+Two checks that lean on this less point the same way, by much less:
+
+| Majority map | Stated 2024 estimates | 2021 overlay | Electors |
+|---|---|---|---|
+| Average miss against electors, cities (each figure scaled to the province) | 13.3% | 9.1% | |
+| Average miss against electors, the rest | 12.5% | 8.5% | |
+| Share of the province: Calgary | 32.3% | 30.7% | 30.2% |
+| Share of the province: Edmonton | 24.9% | 24.2% | 22.9% |
+| Share of the province: the rest | 42.8% | 45.1% | 46.9% |
+
+The average miss is still affected by equalisation. The shares are not, and they are small differences at regional level. By the plan, this is an open question about the estimates, and **it changes no s.15(1) grade.**
 
 **It does not show the estimates are wrong.** Two explanations give the same pattern:
 - The estimates are right, and fast-growing city areas hold many children, non-citizens and people not yet on the list. The commission anticipated this (PDF p. 30). The list could also lag new neighbourhoods.
 - The estimates place too much growth in those areas.
 
-This check cannot separate them. The 2026 census can, at dissemination-area level.
+This check cannot separate them. The 2026 census can.
 
 | Division | Electors 2026 | Stated 2024 | 2021 overlay | Electors per stated person (province 0.672) |
 |---|---|---|---|---|
