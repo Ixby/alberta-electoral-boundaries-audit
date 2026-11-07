@@ -1,0 +1,173 @@
+{
+ "info": {
+  "plan": "preregistration/osi_da_rebuild_v2_2026-11-07.md",
+  "split": "electors",
+  "n_das": 6203,
+  "csd_estimates_2024_total": 4903295.0,
+  "csd_matched": 412,
+  "share_pop_2021_in_split_das": {
+   "majority": 0.1037,
+   "minority": 0.124,
+   "panel": 0.1108
+  }
+ },
+ "holdout": {
+  "majority": {
+   "solver_status": 2,
+   "n_divisions": 89,
+   "n_identical_excluded": 65,
+   "n_tested": 24,
+   "mean_abs_err_pct": 0.78,
+   "max_abs_err_pct": 1.88,
+   "prior_alone_mean_abs_err_pct": 2.49,
+   "pass": true,
+   "worst": {
+    "Canmore-Banff": {
+     "published": 39961,
+     "predicted": 40713,
+     "err_pct": 1.88
+    },
+    "Lethbridge-West": {
+     "published": 54235,
+     "predicted": 55193,
+     "err_pct": 1.77
+    },
+    "Lethbridge-East": {
+     "published": 57463,
+     "predicted": 56545,
+     "err_pct": -1.6
+    },
+    "Stony Plain-Drayton Valley": {
+     "published": 55743,
+     "predicted": 54865,
+     "err_pct": -1.58
+    },
+    "Leduc-Devon": {
+     "published": 56572,
+     "predicted": 57261,
+     "err_pct": 1.22
+    },
+    "High River-Vulcan-Siksika": {
+     "published": 53351,
+     "predicted": 52703,
+     "err_pct": -1.21
+    },
+    "Fort McMurray-Lac La Biche": {
+     "published": 52847,
+     "predicted": 52227,
+     "err_pct": -1.17
+    },
+    "Spruce Grove": {
+     "published": 55930,
+     "predicted": 55383,
+     "err_pct": -0.98
+    }
+   }
+  },
+  "minority": {
+   "solver_status": 1,
+   "n_divisions": 89,
+   "n_identical_excluded": 24,
+   "n_tested": 65,
+   "mean_abs_err_pct": 1.6,
+   "max_abs_err_pct": 6.96,
+   "prior_alone_mean_abs_err_pct": 5.35,
+   "pass": false,
+   "worst": {
+    "Calgary-Airdrie": {
+     "published": 58820,
+     "predicted": 54726,
+     "err_pct": -6.96
+    },
+    "Calgary-Beddington": {
+     "published": 61320,
+     "predicted": 65200,
+     "err_pct": 6.33
+    },
+    "Chestermere-Strathmore": {
+     "published": 52982,
+     "predicted": 55892,
+     "err_pct": 5.49
+    },
+    "Lac Ste Anne-Parkland": {
+     "published": 47017,
+     "predicted": 44753,
+     "err_pct": -4.82
+    },
+    "Red Deer-Innisfail": {
+     "published": 52961,
+     "predicted": 55137,
+     "err_pct": 4.11
+    },
+    "Airdrie-East": {
+     "published": 50797,
+     "predicted": 52745,
+     "err_pct": 3.83
+    },
+    "Calgary-Buffalo": {
+     "published": 66801,
+     "predicted": 64240,
+     "err_pct": -3.83
+    },
+    "Calgary-Foothills-Airdrie West": {
+     "published": 58436,
+     "predicted": 56388,
+     "err_pct": -3.51
+    }
+   }
+  },
+  "panel": {
+   "solver_status": 1,
+   "n_divisions": 91,
+   "n_identical_excluded": 58,
+   "n_tested": 33,
+   "mean_abs_err_pct": 1.4,
+   "max_abs_err_pct": 5.47,
+   "prior_alone_mean_abs_err_pct": 4.57,
+   "pass": true,
+   "worst": {
+    "Edmonton-South": {
+     "published": 57522,
+     "predicted": 60670,
+     "err_pct": 5.47
+    },
+    "Edmonton-Nisku": {
+     "published": 54521,
+     "predicted": 52327,
+     "err_pct": -4.02
+    },
+    "Edmonton-Ellerslie": {
+     "published": 53376,
+     "predicted": 51628,
+     "err_pct": -3.27
+    },
+    "Lethbridge-Cardston": {
+     "published": 41943,
+     "predicted": 40705,
+     "err_pct": -2.95
+    },
+    "Edmonton-Windermere": {
+     "published": 54136,
+     "predicted": 52555,
+     "err_pct": -2.92
+    },
+    "Lac Ste. Anne": {
+     "published": 51546,
+     "predicted": 52973,
+     "err_pct": 2.77
+    },
+    "Edmonton-Meadows": {
+     "published": 53318,
+     "predicted": 54638,
+     "err_pct": 2.48
+    },
+    "Lethbridge": {
+     "published": 58897,
+     "predicted": 60229,
+     "err_pct": 2.26
+    }
+   }
+  }
+ },
+ "all_pass": false
+}

@@ -1,4 +1,4 @@
-# Rebuilding the panel's small-area population figures: failed its own test (2026-11-07)
+# Rebuilding the panel's small-area population figures: failed its own test twice (2026-11-07)
 
 **Unregistered.** The plan, with its pass/fail rule, was committed before any fit (`preregistration/osi_da_rebuild_2026-11-07.md`, commit `d3d069da`). **The rebuild did not pass, so it is not used to total any new boundary.** This failure is kept on record.
 
@@ -32,8 +32,24 @@ Splitting a census area by its land area (the plan's rule) cannot place people c
 
 The solver stopped on its tolerance (status 2), not on its iteration limit.
 
-## A possible next attempt (not run)
+## Second and last attempt: splitting by electors (failed)
 
-A redesign could split census areas using voting areas and 2026 electors rather than land area. It would be a new attempt with its own plan and rule written down first. Nothing is attempted here until the author decides.
+Plan committed before running (`preregistration/osi_da_rebuild_v2_2026-11-07.md`, commit `2f9aa3c9`). It is not blind: the design was chosen after the first attempt's misses were known. One thing changed: a census area crossing a line was split by 2026 referendum electors (through Elections Alberta's 2026 voting areas) instead of land area. City blocks would be better, but Statistics Canada's block files refused an automated download (HTTP 403).
 
-Files: `rebuild_da_2024.py`, `holdout.json`.
+| Held out | Divisions tested | Mean error | Largest error | Prior alone (mean) | Rule | Solver |
+|---|---|---|---|---|---|---|
+| Majority | 24 | 0.78% | 1.88% (Canmore-Banff) | 2.49% | Pass | converged (status 2) |
+| Minority | 65 | 1.60% | **6.96% (Calgary-Airdrie)** | 5.35% | **Fail** | hit the 400-iteration limit (status 1) |
+| Panel (v3) | 33 | 1.40% | 5.47% (Edmonton-South) | 4.57% | Pass | hit the 400-iteration limit (status 1) |
+
+**The rebuild fails, and per its plan, this series stops here.** Splitting by electors fixed Lethbridge: the majority hold-out drops from a 6.02% largest miss to 1.88%. It did not fix Calgary-Airdrie and Calgary-Beddington on the minority map (−7.0% and +6.3%). These are fast-growing north Calgary areas, where electors lag population, so electors are a weak guide to where the people are.
+
+**One caveat on the failure itself:** two of the three fits stopped at the solver's iteration limit, which was carried over unchanged from the plan. A longer run might do better. Changing that after seeing the result would be fitting the test, so it is not done here. If it is ever tried, it is a new attempt with its own plan.
+
+The ¶167 map's amended divisions still have no figure from the source. The way forward is the data request, or Statistics Canada's 2021 block files downloaded by hand.
+
+## Not run
+
+No third attempt is made under these plans.
+
+Files: `rebuild_da_2024.py` (`--split area` for the first attempt, `--split electors` for the second), `holdout.json`, `holdout_v2.json`.

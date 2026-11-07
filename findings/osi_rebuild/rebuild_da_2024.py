@@ -19,8 +19,13 @@ Reads   data/shapefiles/reference/alberta_2021_das.gpkg, data/census_2021/albert
 Writes  findings/osi_rebuild/holdout.json, fit_all.json, da_2024_rebuilt.csv, para167_totals.csv,
         eligibility_rebuilt.csv
 
-Usage: python -W ignore findings/osi_rebuild/rebuild_da_2024.py
+Version 2 (preregistration/osi_da_rebuild_v2_2026-11-07.md): --split electors splits a DA across
+divisions by 2026 referendum electors (DA pieces x 2026 voting areas, each piece getting its voting
+area's electors in proportion to the area of the voting area it covers); area is the fallback.
+
+Usage: python -W ignore findings/osi_rebuild/rebuild_da_2024.py [--split area|electors]
 """
+import sys
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -44,6 +49,10 @@ TOTAL = 4888723
 W_DIV, W_CSD, W_PRIOR, W_TOTAL = 1.0, 0.1, 0.01, 100.0
 PRIOR_FLOOR = 50.0
 PASS_MEAN, PASS_MAX = 2.0, 6.0
+SPLIT = sys.argv[sys.argv.index("--split") + 1] if "--split" in sys.argv else "area"
+OUT_SUFFIX = "" if SPLIT == "area" else "_v2"
+VA_ZIP = ROOT / "evidence/elections_alberta/EA_Voting_Area_Boundaries_2026.zip"
+ELECTORS = ROOT / "data/referendum/electors_by_va_2026.csv"
 SAME_IOU = 0.99
 NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
 
@@ -85,8 +94,36 @@ def csd_2024():
     return out[(out.est_2021 > 0) & (out.est_2024 > 0)]
 
 
-def weights(da, g):
-    """Sparse matrix (divisions x DAs) of each DA's area share in each division."""
+def elector_pieces(da):
+    """DA x 2026 voting-area pieces, each carrying electors in proportion to the voting-area area it covers."""
+    va = gpd.read_file("zip://" + str(VA_ZIP)).to_crs(3400)
+    e = pd.read_csv(ELECTORS, dtype={"va": str})
+    va["key"] = va.ED_NUM.astype(int).astype(str) + ":" + va.VA_NUMBER.astype(str).str.zfill(3)
+    e["key"] = e.ed_num.astype(str) + ":" + e.va
+    va = va.merge(e[["key", "electors"]], on="key", how="left").fillna({"electors": 0.0})
+    va["va_area"] = va.geometry.area
+    pc = gpd.overlay(da[["i", "geometry"]], va[["electors", "va_area", "geometry"]], how="intersection", keep_geom_type=True)
+    pc["w"] = pc.electors * pc.geometry.area / pc.va_area
+    pc["piece_area"] = pc.geometry.area
+    return pc[["i", "w", "piece_area", "geometry"]]
+
+
+def weights(da, g, pieces=None):
+    """Sparse matrix (divisions x DAs) of each DA's share in each division: by area, or by electors (v2)."""
+    if pieces is not None:
+        ov = gpd.overlay(pieces, g[["division", "geometry"]].assign(k=range(len(g))), how="intersection", keep_geom_type=True)
+        # Each piece lies in one voting area, so its electors are taken as even across the piece.
+        ov["wk"] = ov.w * ov.geometry.area / ov.piece_area
+        tot_w = ov.groupby("i").wk.transform("sum")
+        area_ok = da.area.values[ov.i.values]
+        # A DA with no electors on this route falls back to land area (the plan's rule).
+        ov["share"] = np.where(tot_w > 0, ov.wk / np.where(tot_w > 0, tot_w, 1), ov.geometry.area / area_ok)
+        ov = ov.groupby(["i", "k"], as_index=False).share.sum()
+        ov = ov[ov.share > 1e-6]
+        s = ov.groupby("i").share.transform("sum")
+        ov["share"] = ov.share / s
+        split = ov[ov.share >= 0.01].groupby("i").k.nunique()
+        return sparse.csr_matrix((ov.share.values, (ov.k.values, ov.i.values)), shape=(len(g), len(da))), split
     ov = gpd.overlay(da[["i", "geometry"]], g[["division", "geometry"]].assign(k=range(len(g))), how="intersection", keep_geom_type=True)
     area = da.area.values[ov.i.values]
     ov["share"] = np.where(area > 0, ov.geometry.area / np.where(area > 0, area, 1), np.nan)
@@ -153,7 +190,8 @@ def main():
 
     M = maps()
     W, split = {}, {}
-    cache = HERE / ".weights_cache"
+    cache = HERE / (".weights_cache" + OUT_SUFFIX)
+    pieces = elector_pieces(da) if SPLIT == "electors" else None
     cache.mkdir(exist_ok=True)
     for k, g in M.items():
         f = cache / f"{k}.npz"
@@ -161,11 +199,11 @@ def main():
             W[k] = sparse.load_npz(f)
             split[k] = pd.read_pickle(cache / f"{k}_split.pkl")
         else:
-            W[k], split[k] = weights(da, g)
+            W[k], split[k] = weights(da, g, pieces)
             sparse.save_npz(f, W[k])
             split[k].to_pickle(cache / f"{k}_split.pkl")
     print("DAs with zero area:", int((da.area == 0).sum()), "DAs in no division per map:", {k: int((np.asarray(W[k].sum(axis=0)).ravel() == 0).sum()) for k in W})
-    info = {"plan": "preregistration/osi_da_rebuild_2026-11-07.md", "n_das": len(da),
+    info = {"plan": "preregistration/osi_da_rebuild_2026-11-07.md" if SPLIT == "area" else "preregistration/osi_da_rebuild_v2_2026-11-07.md", "split": SPLIT, "n_das": len(da),
             "csd_estimates_2024_total": float(E.sum()), "csd_matched": len(present),
             "share_pop_2021_in_split_das": {k: round(float(p21[s[s > 1].index.values].sum() / p21.sum()), 4) for k, s in split.items()}}
     print(info)
@@ -192,7 +230,7 @@ def main():
                        "worst": {M[out_k].division[i]: {"published": int(T[i]), "predicted": round(float(pred[i])), "err_pct": round(float(err[i]), 2)} for i in worst}}
         print(out_k, {k: v for k, v in hold[out_k].items() if k != "worst"})
     passed = all(h["pass"] for h in hold.values())
-    (HERE / "holdout.json").write_text(json.dumps({"info": info, "holdout": hold, "all_pass": passed}, indent=1), encoding="utf8")
+    (HERE / f"holdout{OUT_SUFFIX}.json").write_text(json.dumps({"info": info, "holdout": hold, "all_pass": passed}, indent=1), encoding="utf8")
     if not passed:
         print("FAIL: the rebuilt figures do not reproduce the source; not used for new boundaries")
         for k, h in hold.items():
@@ -202,16 +240,16 @@ def main():
     x, status = fit([W[k] for k in M], [M[k].total.to_numpy(float) for k in M], C, E, prior, len(da))
     fitted = {k: {"mean_abs_err_pct": round(float(np.abs(100 * ((W[k] @ x) / M[k].total.to_numpy() - 1)).mean()), 3),
                   "max_abs_err_pct": round(float(np.abs(100 * ((W[k] @ x) / M[k].total.to_numpy() - 1)).max()), 3)} for k in M}
-    (HERE / "fit_all.json").write_text(json.dumps({"solver_status": int(status), "fit_to_published": fitted, "total": float(x.sum())}, indent=1), encoding="utf8")
-    pd.DataFrame({"DAUID": da.DAUID, "pop_2021": p21, "prior_2024": prior.round(1), "rebuilt_2024": x.round(1)}).to_csv(HERE / "da_2024_rebuilt.csv", index=False)
+    (HERE / f"fit_all{OUT_SUFFIX}.json").write_text(json.dumps({"solver_status": int(status), "fit_to_published": fitted, "total": float(x.sum())}, indent=1), encoding="utf8")
+    pd.DataFrame({"DAUID": da.DAUID, "pop_2021": p21, "prior_2024": prior.round(1), "rebuilt_2024": x.round(1)}).to_csv(HERE / f"da_2024_rebuilt{OUT_SUFFIX}.csv", index=False)
     print("fit all", fitted, x.sum())
 
     para = gpd.read_file(PARA).to_crs(3400)[["district", "source", "geometry"]].rename(columns={"district": "division"})
-    Wp, _ = weights(da, para)
+    Wp, _ = weights(da, para, pieces)
     tot = Wp @ x
     avg = tot.mean()
     pt = para.drop(columns="geometry").assign(rebuilt_2024=tot.round(), dev_pct=(100 * (tot / avg - 1)).round(1))
-    pt.to_csv(HERE / "para167_totals.csv", index=False)
+    pt.to_csv(HERE / f"para167_totals{OUT_SUFFIX}.csv", index=False)
     print(pt.sort_values("dev_pct").head(6).to_string(), pt.sort_values("dev_pct").tail(3).to_string())
     print(pt[pt.source == "amended"].to_string())
 
@@ -234,7 +272,7 @@ def main():
                                   "eligible_share_weighted_2024": s_.round(3), "expected_electors": exp.round(),
                                   "left_over": (x_.electors_2026 / exp).round(3)}).reset_index())
     el = pd.concat(rows)
-    el.to_csv(HERE / "eligibility_rebuilt.csv", index=False)
+    el.to_csv(HERE / f"eligibility_rebuilt{OUT_SUFFIX}.csv", index=False)
     print(el[el.division.isin(["Calgary-North East", "Calgary-Bhullar-McCall", "Calgary-Falconridge-Conrich", "Calgary-Buffalo", "Edmonton-Meadows"])].to_string())
     for k in ("majority", "panel"):
         e = el[el["map"] == k]

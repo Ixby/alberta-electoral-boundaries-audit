@@ -133,3 +133,4 @@ data/outputs/szat_swing_va_canonical.gpkg
 /.svelte-kit/
 viewer/dev/
 findings/osi_rebuild/.weights_cache/
+findings/osi_rebuild/.weights_cache_v2/
