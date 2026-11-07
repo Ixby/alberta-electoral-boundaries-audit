@@ -41,3 +41,29 @@ In the last row, all six cities' NDP voters are in seats the NDP loses badly on 
 - The reconstruction's lines are traced. Rerun on the official shapefile.
 
 Files: `regions.json`, `summary.json`, `chains/` (per chain CSV and JSON with drand salts), `regional_redraw.py`.
+
+## Chikina-Frieze-Pegden local test for Lethbridge (2026-11-07)
+
+Plan committed before any walk (`preregistration/cfp_lethbridge_2026-11-07.md`, commit `f9bb45da`). The chain:
+- **Moves:** a reversible single-area flip chain, uniform over (area, touching district) pairs with Metropolis-Hastings acceptance min(1, B/B'). It is written out in full, not taken from gerrychain, because gerrychain's flip proposal is not exactly reversible when an area touches a district along several edges.
+- **Walks:** four walks of 1,000,000 steps from the panel's southern configuration, with drand salts `cfp_lethbridge_1` to `_4`.
+- **Adjacency:** queen, so corner-touching areas count as neighbours.
+- **Population:** within ±25% of the region mean, on 2021 population.
+- **Pinned:** six voting areas that cannot reach the region are held in their district.
+
+**Deviation from the plan, made after a 20,000-step smoke test and before any of the four walks:** even under queen adjacency, two of the panel's districts are not contiguous on the reconstruction. Lethbridge-Little Bow is in 3 pieces and Banff-Canmore-Diamond Valley in 2, because their lines cut voting areas that are placed by representative point. So the state space allows each district no more pieces than it has in the panel's plan. That is a property of the state, so the chain stays reversible.
+
+| Walk | Moves accepted | Areas reassigned by the end | V1: Lethbridge NDP votes in lopsided losses (start 44.7%), walk 5th / median / 95th | ε | p = √(2ε) | V2: pieces (start 4), walk 5th / median / 95th | ε | p |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 449,162 | 60% | 28% / 62% / 74% | 0.908 | 1.0 | 4 / 4 / 4 | 1.00 | 1.0 |
+| 2 | 451,973 | 58% | 28% / 63% / 100% | 0.880 | 1.0 | 4 / 4 / 4 | 0.99 | 1.0 |
+| 3 | 430,263 | 55% | 20% / 32% / 65% | 0.397 | 0.89 | 3 / 4 / 4 | 0.93 | 1.0 |
+| 4 | 440,916 | 73% | 21% / 52% / 100% | 0.505 | 1.0 | 4 / 4 / 5 | 0.99 | 1.0 |
+
+**Result: the panel's southern configuration is not a local outlier**, on either value, on any walk (every p at least 0.89, against the plan's 0.025). Small changes to the plan crack Lethbridge as much or more as often as they crack it less: on three of the four walks the median is above the panel's 44.7%.
+
+**Limits:**
+- **Weak test of the split:** single-area flips rarely change how many districts hold 2% of a city, so V2 has little power here.
+- **Local only:** by Cho and Rubinstein-Salzedo (2019), this is a local test. It says nothing about how the configuration compares with all neutral maps; that is what the ensemble percentiles above measure.
+
+Files: `cfp_lethbridge.py`, `cfp_lethbridge.json`, `cfp/walkN.json`. The per-step values, `cfp/walkN.npy` at 8 MB each, are not committed.
