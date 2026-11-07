@@ -50,6 +50,22 @@ On election-day ballots, the panel's Lethbridge seat is narrowly UCP (−4.5). U
 
 ## Part 2: seat by seat against neutral maps
 
-Running: set D replayed with its seeds on both ballot sets, recording sorted seat shares. Results and the replay check will be added here.
+Set D's four 91-seat chains were replayed from their seeds on both ballot sets, keeping every 10th plan's sorted seat shares (101,000 plans per ballot set). **Replay check passed:** in all eight chains every vote-independent column equals the original run row for row, and on all ballots the efficiency gap also equals the earlier all-ballots run. All ballots are the primary figures (Amendment 12); election-day figures are in `sorted_vs_neutral_election_day.json`.
+
+| All ballots | Panel | ¶167 | Neutral 5th / median / 95th |
+|---|---|---|---|
+| NDP seats | 40 (p57) | 41 (p78) | 37 / 40 / 42 |
+| Seats at 40-50% NDP (cracking count) | 18 (p36) | 18 (p36) | 15 / 19 / 22 |
+| Seats under 30% NDP | 21 (p77) | 22 (p92) | 17 / 20 / 22 |
+| Sorted positions above the neutral 95th | 2 (Calgary-Nose Creek, Edmonton-Strathcona) | 10 | |
+| Sorted positions below the neutral 5th | 2 (Drumheller-Stettler, Morinville-Sturgeon) | 11 | |
+| Lethbridge NDP votes in seats lost by 10+ | 44.7% (p72) | 0% (**p4.7**) | 0% / 21% / 62% |
+
+**By the plan's rules:**
+- **Cracking:** neither map. Neither has more seats at 40-50% NDP than 95% of neutral plans.
+- **Packing:** one NDP seat on each map is more lopsided than 95% of neutral plans at its position, Edmonton-Strathcona (80.9% against 80.6%). Both maps share Edmonton's lines.
+- **Shape of the curve:** the panel's sorted seats lie inside the neutral band at 87 of 91 positions. The ¶167 map leaves the band at 21 positions. It has more NDP-competitive Calgary and Lethbridge seats than neutral maps (above the band from rank 47 to 62) and more lopsided UCP rural seats (below the band at ranks 1 to 27).
+
+**Reading.** Against province-wide neutral maps, the panel's seat curve is ordinary. The ¶167 map is the outlier, in the NDP's favour on seats and with rural UCP voters packed. This agrees with the regional redraw (`../six_signals/`): what the neutral maps call unusual is keeping Lethbridge whole, not splitting it. These neutral maps also ignore municipal boundaries, and the municipality-aware regional runs (`../hybrid_regions/`) test that.
 
 Code: `real_maps.py` (parts 1 and 3); `alberta_audit/analysis/scripts/sorted_shares_replay.py` (part 2).
