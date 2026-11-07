@@ -2,7 +2,7 @@
 
 **Unregistered and not legal advice.** The grades were chosen after the results were known. They grade the evidence the audit holds, not the law. A court applies these tests, and nothing here says whether any map is lawful or a gerrymander. ("Gerrymander" does not appear in *Carter*.) Numbers: `legal_numbers.py`, `legal_numbers.json`.
 
-Population figures are the panel's stated Appendix 7 and the commission's stated tables, so they do not depend on the page reconstruction. The Act addresses the Commission; Motion 37 clause (e) copied ss.13-15's rules into the panel's mandate, though not s.12's population rules.
+Population figures are the panel's stated Appendix 7 and the commission's stated tables, so they do not depend on the page reconstruction. They are estimates, not the census. The 2021 overlay figures are approximate (voting areas by representative point, v3 for the panel) and are shown because s.12 is unresolved. The Act addresses the Commission; Motion 37 clause (e) copied ss.13-15's rules into the panel's mandate, though not s.12's population rules.
 
 **Scale.** A: clearly met, with room. B: met, weaker than at least one comparison map. C: partly met or genuinely contested. D: not met. **Not graded:** the audit has no measure, or the question is for a court.
 
@@ -11,13 +11,13 @@ Population figures are the panel's stated Appendix 7 and the commission's stated
 | Rule | Text | Panel's map | Majority | Minority | Grade |
 |---|---|---|---|---|---|
 | s.13 | 91 divisions (2026 amendment) | 91 | 89 (rule then) | 89 (rule then) | A |
-| s.15(1) | Within ±25% of average | 88 within; highest +18.1%, lowest −21.9% (Lethbridge-Cardston); 3 rely on s.15(2) | +14.3%, −21.0% | +24.1%, −21.0% | A |
+| s.15(1) | Within ±25% of average | On stated estimates: 88 within; highest +18.1%, lowest −21.9% (Lethbridge-Cardston); 3 rely on s.15(2). On the 2021 census overlay: 2 more fall below −25% without s.15(2) criteria (Calgary-North East, Edmonton-Windermere) | Stated +14.3%, −21.0%. Overlay: 2 more (Calgary-North East, Calgary-South East) | Stated +24.1%, −21.0%. Overlay: none | A on stated estimates; depends on s.12 |
 | s.15(2) cap | No more than 4 special divisions | 3 | 3 | 3 | A |
 | s.15(2) floor | No more than 50% below average | Lowest −46.5% (Central Peace-Notley) | −47.7% | −45.4% | A |
 | s.15(2) criteria | At least 3 of 5 in each | Central Peace-Notley 5, Rocky Mountain House-Sundre 5, Lesser Slave Lake 3 | Includes Canmore-Banff, 3 | 5, 5, 3 | A |
-| s.12 | Census, with more recent data allowed "in conjunction" | Uses "Estimated Population", the same total as the commission (4,888,723; census 4,262,635) | Same | Same | C: unresolved |
+| s.12 | Census, with more recent data allowed "in conjunction" | Uses "Estimated Population", the same total as the commission (4,888,723; census 4,262,635) | Same | Same | C: unresolved. The s.15(1), s.14(a) and *Carter* parity grades all assume the estimates are the right basis |
 | s.14 lead-in | "shall" consider effective representation | Discussed across the report; its application is disputed between panel members | | | C: contested |
-| s.14(a) | Sparsity, density, growth | Calgary and Edmonton average 13.4% above the rest (56,821 / 50,107); growth not separately measured | 9.2% | 15.9% | B |
+| s.14(a) | Sparsity, density, growth | Calgary and Edmonton average 13.4% above the rest on stated estimates (56,821 / 50,107), about 4% on the 2021 overlay; growth not separately measured | 9.2%; overlay −0.7% | 15.9%; overlay 5.6% | B, on stated estimates |
 | s.14(b) | Communities of interest | 24 municipal splits; Lethbridge in 4 districts where population justifies 2; reasons stated for nearly every change | 23; none over-divided | 30; 6 over-divided | C |
 | s.14(c) | Geographical features | Cited in reasons; no measure | | | Not graded |
 | s.14(d) | Communication and transportation | Cited (for example Highway 22); no measure | | | Not graded |
@@ -35,8 +35,8 @@ s.14(a) to (f) are things the body "may" consider. Weak evidence on one is not a
 | Element | Text | Evidence on the panel's map | Grade |
 |---|---|---|---|
 | The right | Purpose of s.3 "is not equality of voting power per se but the right to 'effective representation'" | The framework, not a test to score | Not graded |
-| Relative parity | "a prime condition of effective representation" | 67 of 91 within ±10% (73.6%). Majority 79 of 89 (88.8%), minority 60 of 89 (67.4%). Average gap from the mean 4,214 people; majority 3,179, minority 4,706 | B |
-| Dilution, urban and rural | "dilution of one citizen's vote as compared with another's should not be countenanced" beyond justified deviations | City gap +13.4% on stated figures, between the commission maps. *Carter* itself upheld a map with rural over-representation | B |
+| Relative parity | "a prime condition of effective representation" | 67 of 91 within ±10% (73.6%). Majority 79 of 89 (88.8%), minority 60 of 89 (67.4%). Average gap from the mean 4,214 people; majority 3,179, minority 4,706. On the 2021 overlay the panel is the widest of the three: 47 of 91 within ±10%, majority 53, minority 52 | B, on stated estimates |
+| Dilution, urban and rural | "dilution of one citizen's vote as compared with another's should not be countenanced" beyond justified deviations | City gap +13.4% on stated figures, between the commission maps (about 4% on the overlay, also between them). *Carter* itself upheld a map with rural over-representation | B |
 | Justified deviations | "practical impossibility or the provision of more effective representation" | 3 special divisions have criteria and reasons. Reasons are given for the zone (a) changes. Consistency of those reasons is untested | C |
 | Community factors | "geography, community history, community interests and minority representation" | Community reasons are stated throughout, and Lethbridge's are disputed. The effect on minority representation is untested | C |
 | Better government | "contribute to better government of the populace as a whole" | A judgment, not a measurement | Not graded |

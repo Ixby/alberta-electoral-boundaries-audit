@@ -275,7 +275,7 @@
     "winner": "ucp",
     "margin_votes": 468.1,
     "margin_pts": 6.04,
-    "cut_votes": 1689.5
+    "cut_votes": 939.5
    },
    {
     "map": "panel",
@@ -283,7 +283,15 @@
     "winner": "ucp",
     "margin_votes": 521.7,
     "margin_pts": 4.36,
-    "cut_votes": 995.5
+    "cut_votes": 1236.3
+   },
+   {
+    "map": "panel",
+    "district": "Lethbridge-Cardston",
+    "winner": "ucp",
+    "margin_votes": 2121.0,
+    "margin_pts": 29.83,
+    "cut_votes": 2174.1
    },
    {
     "map": "para167",
@@ -291,7 +299,7 @@
     "winner": "ndp",
     "margin_votes": 690.8,
     "margin_pts": 12.82,
-    "cut_votes": 1701.3
+    "cut_votes": 1374.3
    },
    {
     "map": "para167",
@@ -299,23 +307,7 @@
     "winner": "ndp",
     "margin_votes": 133.0,
     "margin_pts": 1.29,
-    "cut_votes": 614.7
-   },
-   {
-    "map": "panel",
-    "district": "Calgary-Bow-Springbank",
-    "winner": "ucp",
-    "margin_votes": 936.8,
-    "margin_pts": 7.56,
-    "cut_votes": 1826.2
-   },
-   {
-    "map": "para167",
-    "district": "Calgary-Bow",
-    "winner": "ucp",
-    "margin_votes": 648.0,
-    "margin_pts": 5.6,
-    "cut_votes": 1421.0
+    "cut_votes": 849.5
    }
   ],
   "districts_changed": {
@@ -663,7 +655,7 @@
     "winner": "ucp",
     "margin_votes": 228.6,
     "margin_pts": 1.29,
-    "cut_votes": 3722.7
+    "cut_votes": 1964.4
    },
    {
     "map": "panel",
@@ -671,7 +663,7 @@
     "winner": "ndp",
     "margin_votes": 1193.4,
     "margin_pts": 4.9,
-    "cut_votes": 2031.8
+    "cut_votes": 2526.8
    },
    {
     "map": "panel",
@@ -679,7 +671,7 @@
     "winner": "ucp",
     "margin_votes": 2610.3,
     "margin_pts": 21.19,
-    "cut_votes": 3643.4
+    "cut_votes": 4138.4
    },
    {
     "map": "para167",
@@ -687,7 +679,7 @@
     "winner": "ndp",
     "margin_votes": 1414.3,
     "margin_pts": 11.25,
-    "cut_votes": 3892.8
+    "cut_votes": 3117.9
    },
    {
     "map": "para167",
@@ -696,30 +688,6 @@
     "margin_votes": 357.3,
     "margin_pts": 1.54,
     "cut_votes": 918.8
-   },
-   {
-    "map": "panel",
-    "district": "Calgary-Bow-Springbank",
-    "winner": "ucp",
-    "margin_votes": 970.4,
-    "margin_pts": 3.64,
-    "cut_votes": 3938.2
-   },
-   {
-    "map": "para167",
-    "district": "Calgary-Bow",
-    "winner": "ucp",
-    "margin_votes": 806.8,
-    "margin_pts": 3.26,
-    "cut_votes": 3021.1
-   },
-   {
-    "map": "para167",
-    "district": "Calgary-West-Elbow Valley",
-    "winner": "ucp",
-    "margin_votes": 3550.7,
-    "margin_pts": 14.71,
-    "cut_votes": 3998.6
    }
   ],
   "districts_changed": {

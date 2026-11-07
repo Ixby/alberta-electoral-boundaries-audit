@@ -27,6 +27,8 @@ import geopandas as gpd
 import networkx as nx
 import numpy as np
 import pandas as pd
+from shapely.geometry import box
+from shapely.ops import unary_union
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -43,6 +45,7 @@ AUDIT = ROOT.parent / "alberta_audit"
 MEASURES = ["ucp_seats", "efficiency_gap", "mean_median", "declination", "seats_at_50_50", "close4",
             "population_mad", "city_gap_pct", "towns_flagged"]
 SLIGHT, CUT = 0.01, 0.99
+LINE_TOL_M = 100.0
 
 
 def assign(pts, f):
@@ -109,10 +112,20 @@ def main():
     gdf_p = gpd.read_file(V3).to_crs(3400).set_index("district").geometry
     gdf_r = gpd.read_file(PARA).to_crs(3400).set_index("district").geometry
 
-    def cut_votes(v, geom):
+    # Lines of one map not within LINE_TOL_M of the group's lines on the other: the plan's "line that differs".
+    # Simplified to well under the tolerance and clipped to the district, to keep memory small.
+    def cut_votes(v, name, geoms, other_geoms, other_names):
+        geom = geoms[name].simplify(10)
+        x0, y0, x1, y1 = geom.bounds
+        pad = 2 * LINE_TOL_M
+        near = [other_geoms[n].simplify(10).boundary.intersection(box(x0 - pad, y0 - pad, x1 + pad, y1 + pad)) for n in other_names]
+        differing = geom.boundary.difference(unary_union(near).buffer(LINE_TOL_M, quad_segs=1))
+        if differing.is_empty:
+            return 0.0
         sub = base[base.intersects(geom)]
         share = sub.geometry.intersection(geom).area / sub.geometry.area
         idx = share[(share > SLIGHT) & (share < CUT)].index
+        idx = [i for i in idx if base.geometry[i].intersects(differing)]
         return float(v.loc[idx, ["va_ucp", "va_ndp", "va_other"]].to_numpy().sum())
 
     out = {"plan": "preregistration/r5_comparator_2026-11-07.md", "vas_moved": int(moved.sum()), "groups": groups}
@@ -140,10 +153,10 @@ def main():
                          "para167_ucp_ndp": [int((wr.winner == "ucp").sum()), int((wr.winner == "ndp").sum())],
                          "ucp_seats_if_only_this_group_is_undone": s["ucp_seats"],
                          "efficiency_gap_if_only_this_group_is_undone": s["efficiency_gap"]})
-            for tbl, names, geoms, tag in ((tp, g["panel"], gdf_p, "panel"), (tr, g["para167"], gdf_r, "para167")):
+            for tbl, names, geoms, tag, ogeoms, onames in ((tp, g["panel"], gdf_p, "panel", gdf_r, g["para167"]), (tr, g["para167"], gdf_r, "para167", gdf_p, g["panel"])):
                 for n in names:
                     margin = float(abs(tbl.va_ucp[n] - tbl.va_ndp[n]))
-                    cv = cut_votes(v, geoms[n])
+                    cv = cut_votes(v, n, geoms, ogeoms, onames)
                     if margin < cv:
                         undecided.append({"map": tag, "district": n, "winner": tbl.winner[n], "margin_votes": round(margin, 1),
                                           "margin_pts": round(float(tbl.margin_pts[n]), 2), "cut_votes": round(cv, 1)})

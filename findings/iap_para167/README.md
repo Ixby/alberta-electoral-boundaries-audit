@@ -1,6 +1,6 @@
 # The panel minority's ¶167 map beside the panel's map (2026-11-07)
 
-**Unregistered, provisional, and not blind.** The plan was committed before computing (`preregistration/r5_comparator_2026-11-07.md`, commit `5eb63b34`), but its author already knew the panel's scores. Registered Step C and X1 stand. Both maps rest on the page reconstruction, so rerun on the official shapefile when it is posted. Nothing here is a finding on whether any map is a gerrymander, or on whether a change was necessary under Motion 37.
+**Unregistered, provisional, and not blind.** The plan was committed before computing (`preregistration/r5_comparator_2026-11-07.md`, commit `5eb63b34`), but its author already knew the panel's scores. Registered Step C and X1 stand. Both maps rest on the page reconstruction. No shapefile of the ¶167 map will ever be posted, and none is needed: 68 of its divisions already use the official majority file, the 20 interim and panel divisions can be swapped for the official panel file when it is posted, and the three amended divisions are derived from those by ¶167's wording. Rerun then. Those three amendments will remain the audit's reading of ¶167's text, not anyone's published lines. Nothing here is a finding on whether any map is a gerrymander, or on whether a change was necessary under Motion 37.
 
 ¶167 is the proposal of two panel members in a dispute. It is a comparison point, not a neutral baseline.
 
@@ -8,7 +8,7 @@
 
 Undoing the panel's changes south of Airdrie moves every partisan measure a little toward the NDP, apart from a near-tie on election-day mean-median. The seat difference is 1 on all ballots and 2 on election-day ballots, and every seat that differs is undecided by the reconstruction. So the direction is consistent and the size is not established.
 
-The changes also do not make the panel's map stand out from the neutral plans. On most measures it sits nearer their median than the ¶167 map does, and neither map reaches p95 on any partisan measure against set D. On the structural lane the ¶167 map fires more flags than the panel's (3 of 5 against 2 of 5).
+The changes also do not make the panel's map stand out from the neutral plans. On most measures it sits nearer their median than the ¶167 map does, and neither map reaches p95 on any partisan measure against set D. In the other direction, the ¶167 map sits near the low tail on two: p7.5 on election-day seats and p6.5 on all-ballots mean-median. On the structural lane the ¶167 map fires more flags than the panel's (3 of 5 against 2 of 5).
 
 | Measure (rank against 91-district set D) | Panel, election day | ¶167, election day | Panel, all ballots | ¶167, all ballots |
 |---|---|---|---|---|
@@ -31,9 +31,9 @@ Method check: the 2019 map returns 49 UCP / 38 NDP on all ballots, as it should,
 | S4 Polsby-Popper median (not counted) | 0.4549 | 0.4335 |
 | **Flags** | **2 of 5** | **3 of 5** |
 | Towns over-divided (`towns_flagged`) | 1 (Lethbridge, 4 districts for 2) | 0 |
-| City gap | +4.27% | +3.46% |
+| City gap (2021 overlay; not the stated-population gap in `legal_scorecard.md`) | +4.27% | +3.46% |
 
-Bold = flag. On the rule's own terms 3 of 5 reads "replicated" for ¶167, but S1, S3 and S5 all fire close to midpoints set between the commission maps. Those midpoints were written for a third map, not for a variant of one. This is reported, not explained away.
+Bold = flag. On the rule's own terms 3 of 5 reads "replicated" for ¶167, but S1, S3 and S5 all fire close to midpoints set between the commission maps. Most of the ¶167 map is the commission majority's map, and S1 fires at 3,413 against a 3,382.5 midpoint. Those midpoints were written for a third map, not for a variant of one. This is reported, not explained away.
 
 ## Which changes do the work
 
@@ -47,11 +47,11 @@ Groups were found from the voting areas that move, not assumed. There are three,
 
 **Deviation from the plan's four groups:** Banff and Okotoks, Lethbridge and the south, and the Wheatland amendment are connected, so they form one group and are not forced apart.
 
-**The seat that differs on all ballots.** Canmore-Banff is NDP by 11.25 points on the ¶167 map. The panel's Banff-Canmore-Diamond Valley, which adds the Highway 22 corridor, is UCP by 1.29 points (229 votes), with about 3,700 votes in voting areas cut by its lines. The panel's stated reason is population: to meet the 25% limit without s.15(2) status (PDF p.95). The minority disputes that it had to be done this way (¶¶140-141). Both the effect and the reason are on the record, and this does not show why the line was drawn.
+**The seat that differs on all ballots.** Canmore-Banff is NDP by 11.25 points on the ¶167 map. The panel's Banff-Canmore-Diamond Valley, which adds the Highway 22 corridor, is UCP by 1.29 points (229 votes), with about 2,000 votes in voting areas cut by a line that differs between the maps. The panel's stated reason is population: to meet the 25% limit without s.15(2) status (PDF p.95). The minority disputes that it had to be done this way (¶¶140-141). Both the effect and the reason are on the record, and this does not show why the line was drawn.
 
 **On election-day ballots** Lethbridge-West (NDP by 1.29) is the second seat. On all ballots Lethbridge-East is UCP by 1.54 on the ¶167 map, so Lethbridge gives each map one NDP seat there.
 
-**Undecided seats** (margin smaller than the votes in voting areas cut by a differing line) are listed in `comparison.json`. On all ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston, Calgary-Bow-Springbank (panel); Canmore-Banff, Lethbridge-East, Calgary-Bow, Calgary-West-Elbow Valley (¶167).
+**Undecided seats** (margin smaller than the votes in voting areas cut by a differing line) are listed in `comparison.json`. A line counts as differing if it is more than 100 m from the other map's lines in the same group. On all ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-East (¶167). On election-day ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-West (¶167). The first version of this check counted every line of a district, including lines the two maps share. It was corrected before this was reported.
 
 ## Fit check
 
