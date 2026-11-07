@@ -960,3 +960,42 @@ This is the rule Step C applied, citing Amendment 5, Part 14 (set D's index 250,
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-11-05 (Alberta time)
+
+## Amendment 12 — All 2023 ballots replace election-day ballots in every registered step that uses votes
+
+> **Status: draft, not filed.** Written 2026-11-07, about 7:20 AM Alberta Time (UTC−6), at the author's direction ("do the amendment"), before the official map has been posted or scored. **Not blind:** results on all ballots for the reconstructed panel map and the commission maps had already been seen (`findings/allballots_ranking/`, `findings/iap_para167/`). Their effect on outcomes is disclosed in Part 5.
+
+**Why.** The registered steps use 2023 election-day votes. Those leave out about half of 2023's ballots (advance, mobile, special and Vote Anywhere), which Elections Alberta reports only by division. On the 2019 map, election-day votes elect 57 UCP and 30 NDP; the 2023 result was 49 and 38. The all-ballots substrate puts those ballots back by voting area, matches the official result in every 2019 division, and returns 49 and 38 (`findings/seat_claim_test_result.md`, substrate D).
+
+**Part 1: the substrate.** Every registered step that uses 2023 votes uses `data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg` (SHA-256 `c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72`, built by `analysis/scripts/vote_anywhere_splat.py --primary` at commit `4f7de6bb`). These steps are:
+- the specification's partisan lane, P1 to P5;
+- the size-matched sets' competitive-seat test and their reported partisan measures (Amendment 5, Part 14);
+- the swing-zone redraw test R1 (Amendment 8, Part 2).
+
+Steps that use no votes are unchanged: the structural lane S1 to S6, the redraw test R2 (drain), X1, towns over-divided and the city-versus-rest test.
+
+**Part 2: the ensembles.** Each ensemble is the same set of plans, rescored on all ballots. The chains are replayed from their registered seeds with `--va-file` pointing to the file above. A replay counts only if every vote-independent column matches the original run row for row.
+- **Already replayed and checked:** the canonical ensemble (4 × 252,500) and set D (91 districts). Hashes are in `findings/allballots_ranking/README.md`.
+- **Replayed before the official map is scored, under the same check:** sets A, B and C, and Amendment 8's territory null for R1.
+
+**Part 3: thresholds.** Every registered threshold defined as a percentile of an ensemble is taken from the replayed ensemble, by the same rule.
+- **P1:** its fixed line (+4.10%) was the canonical ensemble's 95th percentile on election-day votes (thresholds.md #42; Amendment 5, Part 19). On all ballots that percentile is **+1.39%** (0.01394), and that is P1's threshold under this amendment.
+- **P2 to P4, the Part 14 tests and R1:** these are ranked within their ensembles, so their rules do not change.
+- **No other threshold moves.**
+
+**Part 4: election-day results are still computed.** Every registered step is also run on election-day votes and reported beside the all-ballots result, as a sensitivity. The provisional Step C reading (`findings/a10_stepc/`), on election-day votes, stands as filed.
+
+When the official map is posted it is processed at once, under the owner's standing order of 2026-11-05. If any replay in Part 2 has not finished by then:
+- the election-day run goes first, labelled a sensitivity;
+- the registered result is the all-ballots run, made as soon as the replays pass;
+- the run record states the order.
+
+**Part 5: what this changes on results already seen.** Disclosed so that no reader has to work it out.
+- **The reconstructed panel map:** its partisan lane is 1 of 4 on both ballot sets. P4 is at p98.8 on election-day votes and p98.82 on all ballots. P1 does not fire on either (+1.45% against +4.10%; −1.66% against +1.39%). P2 is at p19.7 and p79.45. P3 is at p52.4 and p48.22.
+- **The commission minority map:** this amendment governs the scoring of the November map. It does not reopen the registered Phase 1 results. But the same rule applied to the minority map would move its partisan lane from 3 of 4 to **4 of 4**: its efficiency gap on all ballots (+2.55%) is above +1.39%, where its election-day gap (+4.02%) was just below +4.10%.
+- **The commission majority map:** 0 of 4 on both ballot sets.
+
+**What this amendment does not change.** Every test, null, statistic, flag rule and outcome rule other than the vote substrate and P1's line. That includes the 2×2 outcome, X1, the structural lane, R2, the qsgy8 tripwires and the 3-of-5 and 2-of-4 counts.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-11-07 (Alberta time)
