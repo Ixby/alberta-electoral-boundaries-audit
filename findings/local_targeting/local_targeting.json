@@ -1,0 +1,377 @@
+{
+ "plan": "preregistration/local_targeting_2026-11-07.md",
+ "A": {
+  "competitive_vs_safe": {
+   "table [[changed, unchanged] in group, [changed, unchanged] outside]": [
+    [
+     4,
+     14
+    ],
+    [
+     27,
+     44
+    ]
+   ],
+   "rate_in_group": 0.222,
+   "rate_outside": 0.38,
+   "odds_ratio": 0.466,
+   "p_fisher_two_sided": 0.2733
+  },
+  "ndp_won_vs_ucp_won": {
+   "table [[changed, unchanged] in group, [changed, unchanged] outside]": [
+    [
+     8,
+     33
+    ],
+    [
+     23,
+     25
+    ]
+   ],
+   "rate_in_group": 0.195,
+   "rate_outside": 0.479,
+   "odds_ratio": 0.264,
+   "p_fisher_two_sided": 0.0071
+  },
+  "changed_majority_divisions": [
+   "Barrhead-Westlock-Athabasca",
+   "Calgary-Bow",
+   "Calgary-North West",
+   "Calgary-West-Elbow Valley",
+   "Canmore-Banff",
+   "Cochrane-Springbank",
+   "Drumheller-Stettler",
+   "Edmonton-Beaumont",
+   "Edmonton-Ellerslie",
+   "Edmonton-South",
+   "Edmonton-Strathcona",
+   "Edmonton-Whitemud",
+   "Edmonton-Windermere",
+   "Fort McMurray-Lac La Biche",
+   "Fort McMurray-Wood Buffalo",
+   "High River-Vulcan-Siksika",
+   "Lacombe-Clearwater",
+   "Leduc-Devon",
+   "Lethbridge-East",
+   "Lethbridge-West",
+   "Livingstone-Macleod",
+   "Mountain View-Kneehill",
+   "Okotoks-Diamond Valley",
+   "Red Deer-South",
+   "Spruce Grove",
+   "St. Albert-Sturgeon",
+   "Stony Plain-Drayton Valley",
+   "Sylvan Lake-Innisfail",
+   "Taber-Cardston",
+   "West Yellowhead",
+   "Wetaskiwin-Ponoka-Maskwacis"
+  ]
+ },
+ "B": {
+  "pairs": [
+   {
+    "panel": "Banff-Canmore-Diamond Valley",
+    "majority_source": "Canmore-Banff",
+    "margin_majority": 0.1039,
+    "margin_panel": -0.0132,
+    "shift_toward_ndp": -0.1171
+   },
+   {
+    "panel": "Barrhead-Westlock-Athabasca",
+    "majority_source": "Barrhead-Westlock-Athabasca",
+    "margin_majority": -0.4812,
+    "margin_panel": -0.4808,
+    "shift_toward_ndp": 0.0004
+   },
+   {
+    "panel": "Blackfalds-Innisfail",
+    "majority_source": "Sylvan Lake-Innisfail",
+    "margin_majority": -0.5003,
+    "margin_panel": -0.4794,
+    "shift_toward_ndp": 0.0209
+   },
+   {
+    "panel": "Calgary-Bow-Springbank",
+    "majority_source": "Calgary-Bow",
+    "margin_majority": -0.0336,
+    "margin_panel": -0.0374,
+    "shift_toward_ndp": -0.0039
+   },
+   {
+    "panel": "Calgary-North West-Bearspaw",
+    "majority_source": "Calgary-North West",
+    "margin_majority": -0.006,
+    "margin_panel": -0.0162,
+    "shift_toward_ndp": -0.0102
+   },
+   {
+    "panel": "Calgary-West-Springbank",
+    "majority_source": "Calgary-West-Elbow Valley",
+    "margin_majority": -0.1492,
+    "margin_panel": -0.1475,
+    "shift_toward_ndp": 0.0016
+   },
+   {
+    "panel": "Cochrane",
+    "majority_source": "Cochrane-Springbank",
+    "margin_majority": -0.2124,
+    "margin_panel": -0.2322,
+    "shift_toward_ndp": -0.0198
+   },
+   {
+    "panel": "Drayton Valley-Devon",
+    "majority_source": "Stony Plain-Drayton Valley",
+    "margin_majority": -0.4358,
+    "margin_panel": -0.5487,
+    "shift_toward_ndp": -0.1128
+   },
+   {
+    "panel": "Drumheller-Stettler",
+    "majority_source": "Drumheller-Stettler",
+    "margin_majority": -0.6585,
+    "margin_panel": -0.686,
+    "shift_toward_ndp": -0.0275
+   },
+   {
+    "panel": "Edmonton-Ellerslie",
+    "majority_source": "Edmonton-Ellerslie",
+    "margin_majority": 0.2328,
+    "margin_panel": 0.2262,
+    "shift_toward_ndp": -0.0065
+   },
+   {
+    "panel": "Edmonton-Nisku",
+    "majority_source": "Edmonton-Beaumont",
+    "margin_majority": 0.0146,
+    "margin_panel": 0.2112,
+    "shift_toward_ndp": 0.1966
+   },
+   {
+    "panel": "Edmonton-South",
+    "majority_source": "Edmonton-South",
+    "margin_majority": 0.2046,
+    "margin_panel": 0.2035,
+    "shift_toward_ndp": -0.0011
+   },
+   {
+    "panel": "Edmonton-Strathcona",
+    "majority_source": "Edmonton-Strathcona",
+    "margin_majority": 0.593,
+    "margin_panel": 0.617,
+    "shift_toward_ndp": 0.024
+   },
+   {
+    "panel": "Edmonton-Whitemud",
+    "majority_source": "Edmonton-Whitemud",
+    "margin_majority": 0.2218,
+    "margin_panel": 0.2327,
+    "shift_toward_ndp": 0.0109
+   },
+   {
+    "panel": "Edmonton-Windermere",
+    "majority_source": "Edmonton-Windermere",
+    "margin_majority": 0.1496,
+    "margin_panel": 0.1392,
+    "shift_toward_ndp": -0.0103
+   },
+   {
+    "panel": "Fort McMurray-Lac La Biche",
+    "majority_source": "Fort McMurray-Lac La Biche",
+    "margin_majority": -0.4943,
+    "margin_panel": -0.5004,
+    "shift_toward_ndp": -0.0062
+   },
+   {
+    "panel": "Fort McMurray-Wood Buffalo",
+    "majority_source": "Fort McMurray-Wood Buffalo",
+    "margin_majority": -0.546,
+    "margin_panel": -0.5497,
+    "shift_toward_ndp": -0.0036
+   },
+   {
+    "panel": "Lac Ste. Anne",
+    "majority_source": "Stony Plain-Drayton Valley",
+    "margin_majority": -0.4358,
+    "margin_panel": -0.3666,
+    "shift_toward_ndp": 0.0692
+   },
+   {
+    "panel": "Lacombe-Sylvan Lake",
+    "majority_source": "Sylvan Lake-Innisfail",
+    "margin_majority": -0.5003,
+    "margin_panel": -0.5116,
+    "shift_toward_ndp": -0.0113
+   },
+   {
+    "panel": "Leduc-Beaumont",
+    "majority_source": "Leduc-Devon",
+    "margin_majority": -0.2927,
+    "margin_panel": -0.1684,
+    "shift_toward_ndp": 0.1244
+   },
+   {
+    "panel": "Lethbridge",
+    "majority_source": "Lethbridge-West",
+    "margin_majority": 0.1124,
+    "margin_panel": 0.0505,
+    "shift_toward_ndp": -0.0618
+   },
+   {
+    "panel": "Lethbridge-Cardston",
+    "majority_source": "Taber-Cardston",
+    "margin_majority": -0.6655,
+    "margin_panel": -0.2279,
+    "shift_toward_ndp": 0.4375
+   },
+   {
+    "panel": "Lethbridge-Little Bow",
+    "majority_source": "Lethbridge-East",
+    "margin_majority": -0.0157,
+    "margin_panel": -0.2626,
+    "shift_toward_ndp": -0.2468
+   },
+   {
+    "panel": "Lethbridge-Taber-Warner",
+    "majority_source": "Taber-Cardston",
+    "margin_majority": -0.6655,
+    "margin_panel": -0.5146,
+    "shift_toward_ndp": 0.1509
+   },
+   {
+    "panel": "Macleod-Crowsnest",
+    "majority_source": "High River-Vulcan-Siksika",
+    "margin_majority": -0.4843,
+    "margin_panel": -0.4349,
+    "shift_toward_ndp": 0.0494
+   },
+   {
+    "panel": "Morinville-Sturgeon",
+    "majority_source": "St. Albert-Sturgeon",
+    "margin_majority": -0.1339,
+    "margin_panel": -0.1367,
+    "shift_toward_ndp": -0.0028
+   },
+   {
+    "panel": "Okotoks",
+    "majority_source": "Okotoks-Diamond Valley",
+    "margin_majority": -0.3851,
+    "margin_panel": -0.3991,
+    "shift_toward_ndp": -0.014
+   },
+   {
+    "panel": "Olds-Didsbury-Three Hills",
+    "majority_source": "Mountain View-Kneehill",
+    "margin_majority": -0.5993,
+    "margin_panel": -0.591,
+    "shift_toward_ndp": 0.0083
+   },
+   {
+    "panel": "Red Deer-South",
+    "majority_source": "Red Deer-South",
+    "margin_majority": -0.149,
+    "margin_panel": -0.1489,
+    "shift_toward_ndp": 0.0001
+   },
+   {
+    "panel": "Rocky Mountain House-Sundre",
+    "majority_source": "Lacombe-Clearwater",
+    "margin_majority": -0.5701,
+    "margin_panel": -0.6126,
+    "shift_toward_ndp": -0.0425
+   },
+   {
+    "panel": "Spruce Grove",
+    "majority_source": "Spruce Grove",
+    "margin_majority": -0.2202,
+    "margin_panel": -0.205,
+    "shift_toward_ndp": 0.0153
+   },
+   {
+    "panel": "West Yellowhead",
+    "majority_source": "West Yellowhead",
+    "margin_majority": -0.4456,
+    "margin_panel": -0.4359,
+    "shift_toward_ndp": 0.0097
+   },
+   {
+    "panel": "Wetaskiwin-Ponoka",
+    "majority_source": "Wetaskiwin-Ponoka-Maskwacis",
+    "margin_majority": -0.4662,
+    "margin_panel": -0.4616,
+    "shift_toward_ndp": 0.0046
+   }
+  ],
+  "close_pairs": [
+   {
+    "panel": "Banff-Canmore-Diamond Valley",
+    "majority_source": "Canmore-Banff",
+    "margin_majority": 0.1039,
+    "margin_panel": -0.0132,
+    "shift_toward_ndp": -0.1171
+   },
+   {
+    "panel": "Calgary-Bow-Springbank",
+    "majority_source": "Calgary-Bow",
+    "margin_majority": -0.0336,
+    "margin_panel": -0.0374,
+    "shift_toward_ndp": -0.0039
+   },
+   {
+    "panel": "Calgary-North West-Bearspaw",
+    "majority_source": "Calgary-North West",
+    "margin_majority": -0.006,
+    "margin_panel": -0.0162,
+    "shift_toward_ndp": -0.0102
+   },
+   {
+    "panel": "Edmonton-Nisku",
+    "majority_source": "Edmonton-Beaumont",
+    "margin_majority": 0.0146,
+    "margin_panel": 0.2112,
+    "shift_toward_ndp": 0.1966
+   },
+   {
+    "panel": "Lethbridge",
+    "majority_source": "Lethbridge-West",
+    "margin_majority": 0.1124,
+    "margin_panel": 0.0505,
+    "shift_toward_ndp": -0.0618
+   },
+   {
+    "panel": "Lethbridge-Little Bow",
+    "majority_source": "Lethbridge-East",
+    "margin_majority": -0.0157,
+    "margin_panel": -0.2626,
+    "shift_toward_ndp": -0.2468
+   }
+  ],
+  "toward_ucp": 5,
+  "toward_ndp": 1,
+  "p_sign_two_sided": 0.2188
+ },
+ "C": {
+  "ndp_votes_moved": 157699,
+  "transition_ndp_votes": {
+   "ndp_far": {
+    "ndp_far": 87684.0,
+    "ndp_near": 5400.0,
+    "ndp_won": 8799.0
+   },
+   "ndp_near": {
+    "ndp_far": 2808.0,
+    "ndp_near": 23387.0,
+    "ndp_won": 6854.0
+   },
+   "ndp_won": {
+    "ndp_far": 344.0,
+    "ndp_near": 5767.0,
+    "ndp_won": 16657.0
+   }
+  },
+  "won_or_near_to_far": 14199,
+  "far_to_won_or_near": 3152,
+  "share_won_or_near_to_far": 0.09,
+  "share_far_to_won_or_near": 0.02,
+  "ucp_votes_moved": 275196
+ }
+}

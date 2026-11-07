@@ -1,5 +1,5 @@
 {
- "n_tests": 88,
+ "n_tests": 91,
  "bh_discoveries": 0,
  "bonferroni_discoveries": 0,
  "nominal_flags": 5,
@@ -16,6 +16,19 @@
    "bh_significant": false,
    "bonferroni_significant": false,
    "nominal_flag_5pct_tail": true
+  },
+  {
+   "analysis": "local targeting A",
+   "plan": "399a489a",
+   "comparison": "Fisher exact, majority divisions changed",
+   "measure": "ndp_won_vs_ucp_won",
+   "map": "panel",
+   "percentile": null,
+   "p_two_sided": 0.0071,
+   "note": "",
+   "bh_significant": false,
+   "bonferroni_significant": false,
+   "nominal_flag_5pct_tail": false
   },
   {
    "analysis": "hybrid regions",
@@ -252,6 +265,19 @@
    "nominal_flag_5pct_tail": false
   },
   {
+   "analysis": "local targeting B",
+   "plan": "399a489a",
+   "comparison": "sign test, close changed pairs",
+   "measure": "margin shift direction",
+   "map": "panel",
+   "percentile": null,
+   "p_two_sided": 0.2188,
+   "note": "",
+   "bh_significant": false,
+   "bonferroni_significant": false,
+   "nominal_flag_5pct_tail": false
+  },
+  {
    "analysis": "para167 comparison",
    "plan": "5eb63b34",
    "comparison": "set D (91), election_day",
@@ -337,6 +363,19 @@
    "map": "panel",
    "percentile": 86.42,
    "p_two_sided": 0.2716,
+   "note": "",
+   "bh_significant": false,
+   "bonferroni_significant": false,
+   "nominal_flag_5pct_tail": false
+  },
+  {
+   "analysis": "local targeting A",
+   "plan": "399a489a",
+   "comparison": "Fisher exact, majority divisions changed",
+   "measure": "competitive_vs_safe",
+   "map": "panel",
+   "percentile": null,
+   "p_two_sided": 0.2733,
    "note": "",
    "bh_significant": false,
    "bonferroni_significant": false,

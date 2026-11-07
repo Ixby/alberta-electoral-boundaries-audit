@@ -53,6 +53,13 @@ def main():
     for w, rr in cfp["walks"].items():
         for k in ("V1", "V2"):
             add("Chikina-Frieze-Pegden", "f9bb45da", f"local walk {w}", k, "panel", p=rr[k]["p"], note="p as reported, one-sided")
+    lt = F / "local_targeting/local_targeting.json"
+    if lt.exists():
+        t = json.loads(lt.read_text())
+        for k in ("competitive_vs_safe", "ndp_won_vs_ucp_won"):
+            add("local targeting A", "399a489a", "Fisher exact, majority divisions changed", k, "panel", p=t["A"][k]["p_fisher_two_sided"])
+        if t["B"]["p_sign_two_sided"] is not None:
+            add("local targeting B", "399a489a", "sign test, close changed pairs", "margin shift direction", "panel", p=t["B"]["p_sign_two_sided"])
     m = len(rows)
     order = sorted(range(m), key=lambda i: rows[i]["p_two_sided"])
     bh_max = 0
