@@ -9,7 +9,7 @@
 ### 1. Lethbridge: "population to spare", not applied to Red Deer
 
 - **What the panel says:** "Lethbridge already has population to spare" (p.80). It then adds that "if it grows any more, its population will have to be shared with electoral divisions outside of Lethbridge because it will have too much population for two electoral divisions and not enough population for three" (p.80).
-- **The comparison the panel draws itself:** it names Red Deer as the comparable case: "Those two cities are Lethbridge and Red Deer and even Red Deer was once hybridized and will likely have to be hybridized again in the future" (p.81).
+- **The pairing the panel draws itself:** it names the only two Alberta cities with no division reaching past their limits: "Those two cities are Lethbridge and Red Deer and even Red Deer was once hybridized and will likely have to be hybridized again in the future" (p.81). (Corrected 2026-11-07 after the report fact-check: an earlier wording said the panel names Red Deer as "the comparable case"; it names the two together, as the only non-hybrid cities.)
 - **The numbers:** on the July 2024 municipal estimates, Red Deer has 113,145 people, 2.11 times the panel's average division (53,722). Lethbridge has 111,776, or 2.08 times.
 - **What the map does:** it keeps Red Deer in two urban divisions, taking only "a bit of population from Red Deer" (p.113) for Blackfalds-Innisfail. It splits Lethbridge four ways, with 22% of the city in divisions where it is a minority.
 - **Reading: inconsistent.** By the panel's own description, Lethbridge would need to share population only if it grows further, and Red Deer, which is slightly larger, is not shared.
