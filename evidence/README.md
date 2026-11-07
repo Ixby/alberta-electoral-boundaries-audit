@@ -4,6 +4,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 
 | File | What it is | Source | Retrieved |
 |---|---|---|---|
+| `elections_alberta/referendum_2026/ed01-ed87.xlsx`, `index.xlsx`, `SHA256SUMS` | 2026 referendum official poll and division results, Question 10 workbooks, including electors per election-day poll | https://officialresults.elections.ab.ca/ | 2026-11-07, 01:32-01:34 MST |
 | `legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf` | Electoral Boundaries Commission Act, office consolidation current as of 2026-05-14 | https://kings-printer.alberta.ca/documents/Acts/E03.pdf | 2026-10-31 10:14 |
 | `legislation/interpretation_act_RSA2000_cI-8_current_2025-09-01.pdf` | Interpretation Act, current as of 2025-09-01 | https://kings-printer.alberta.ca/documents/Acts/I08.pdf | 2026-10-31 10:14 |
 | `legislation/municipal_government_act_RSA2000_cM-26_current_2026-09-01.pdf` | Municipal Government Act, current as of 2026-09-01 | https://kings-printer.alberta.ca/documents/Acts/m26.pdf | 2026-10-31 10:14 |

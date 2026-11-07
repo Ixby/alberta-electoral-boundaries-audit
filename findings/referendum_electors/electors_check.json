@@ -1,0 +1,410 @@
+{
+ "plan": "preregistration/referendum_electors_check_2026-11-07.md",
+ "match": {
+  "polls": 4904,
+  "va_polygons": 4904,
+  "duplicate_va_keys": 0,
+  "polls_matched": 4904,
+  "electors_total": 3286778,
+  "province_total_stated": 3286778,
+  "share_electors_matched": 1.0,
+  "share_names_agree": 1.0,
+  "divisions_where_polls_differ_from_stated_total": [],
+  "unmatched_polls_sample": [],
+  "polygons_without_a_poll": 0
+ },
+ "maps": {
+  "majority": {
+   "electors_unplaced": 0.0,
+   "electors": {
+    "n": 89,
+    "average": 36930.1,
+    "beyond_25": {
+     "Calgary-Bhullar-McCall": -45.2,
+     "Calgary-Buffalo": -25.7,
+     "Calgary-Falconridge-Conrich": -30.0,
+     "Calgary-North East": -59.3,
+     "Canmore-Banff": -25.4,
+     "Central Peace-Notley": -45.4,
+     "Edmonton-Meadows": -40.3,
+     "Edmonton-Windermere": -29.7,
+     "Fort McMurray-Lac La Biche": -25.6,
+     "Fort McMurray-Wood Buffalo": -25.8,
+     "Lesser Slave Lake": -41.4,
+     "Peace River": -28.2,
+     "St. Albert": 41.5
+    },
+    "within_10": 37,
+    "mad": 5218,
+    "mean_calgary_edmonton": 35607,
+    "mean_rest": 38551,
+    "city_gap_pct": -7.6
+   },
+   "overlay_2021": {
+    "n": 89,
+    "average": 47894.1,
+    "beyond_25": {
+     "Calgary-North East": -39.7,
+     "Calgary-South East": -25.5,
+     "Canmore-Banff": -33.7,
+     "Central Peace-Notley": -43.5,
+     "Lesser Slave Lake": -38.4
+    },
+    "within_10": 53,
+    "mad": 4847,
+    "mean_calgary_edmonton": 47746,
+    "mean_rest": 48076,
+    "city_gap_pct": -0.7
+   },
+   "stated": {
+    "n": 89,
+    "average": 54929.5,
+    "beyond_25": {
+     "Canmore-Banff": -27.3,
+     "Central Peace-Notley": -47.7,
+     "Lesser Slave Lake": -45.4
+    },
+    "within_10": 79,
+    "mad": 3179,
+    "mean_calgary_edmonton": 57091,
+    "mean_rest": 52281,
+    "city_gap_pct": 9.2
+   },
+   "corr_electors_vs_stated": {
+    "all": 0.4053,
+    "calgary_edmonton": 0.1838,
+    "rest": 0.8327
+   },
+   "corr_electors_vs_overlay_2021": {
+    "all": 0.8119,
+    "calgary_edmonton": 0.8062,
+    "rest": 0.8489
+   },
+   "electors_per_stated_person": {
+    "province": 0.6723,
+    "min": 0.2757,
+    "max": 0.8717
+   },
+   "lowest_ratio": {
+    "Calgary-North East": 0.276,
+    "Calgary-Bhullar-McCall": 0.362,
+    "Edmonton-Meadows": 0.388,
+    "Edmonton-Windermere": 0.456,
+    "Calgary-Falconridge-Conrich": 0.456,
+    "Calgary-Buffalo": 0.467,
+    "Edmonton-South": 0.471,
+    "Fort McMurray-Lac La Biche": 0.52
+   },
+   "highest_ratio": {
+    "Stony Plain-Drayton Valley": 0.804,
+    "Edmonton-Gold Bar": 0.805,
+    "Barrhead-Westlock-Athabasca": 0.809,
+    "Okotoks-Diamond Valley": 0.818,
+    "St. Albert-Sturgeon": 0.822,
+    "Calgary-Fish Creek": 0.825,
+    "Strathcona-Sherwood Park": 0.85,
+    "St. Albert": 0.872
+   },
+   "named": {
+    "Calgary-North East": {
+     "electors": 15036,
+     "stated": 54541,
+     "overlay_2021": 28881,
+     "electors_per_stated": 0.276,
+     "electors_per_overlay": 0.521
+    },
+    "Calgary-South East": {
+     "electors": 29472,
+     "stated": 53551,
+     "overlay_2021": 35677,
+     "electors_per_stated": 0.55,
+     "electors_per_overlay": 0.826
+    },
+    "Edmonton-Windermere": {
+     "electors": 25965,
+     "stated": 56944,
+     "overlay_2021": 36560,
+     "electors_per_stated": 0.456,
+     "electors_per_overlay": 0.71
+    }
+   }
+  },
+  "minority": {
+   "electors_unplaced": 0.0,
+   "electors": {
+    "n": 89,
+    "average": 36930.1,
+    "beyond_25": {
+     "Calgary-McCall-Bhullar": -28.1,
+     "Calgary-North East": -48.2,
+     "Central Peace-Notley": -43.0,
+     "Edmonton-Meadows": -40.3,
+     "Edmonton-Windermere": -29.7,
+     "Fort McMurray-Lac La Biche": -35.1,
+     "Fort McMurray-Wood Buffalo": -31.4,
+     "Lesser Slave Lake": -41.4,
+     "Peace River": -28.2,
+     "St Albert": 28.3
+    },
+    "within_10": 45,
+    "mad": 4608,
+    "mean_calgary_edmonton": 36835,
+    "mean_rest": 37058,
+    "city_gap_pct": -0.6
+   },
+   "overlay_2021": {
+    "n": 89,
+    "average": 47894.1,
+    "beyond_25": {
+     "Central Peace-Notley": -41.1,
+     "Lesser Slave Lake": -38.4,
+     "Rocky Mountain House-Banff Park": -31.3
+    },
+    "within_10": 52,
+    "mad": 4871,
+    "mean_calgary_edmonton": 49003,
+    "mean_rest": 46406,
+    "city_gap_pct": 5.6
+   },
+   "stated": {
+    "n": 89,
+    "average": 54929.5,
+    "beyond_25": {
+     "Central Peace-Notley": -44.6,
+     "Lesser Slave Lake": -45.4,
+     "Rocky Mountain House-Banff Park": -30.3
+    },
+    "within_10": 60,
+    "mad": 4706,
+    "mean_calgary_edmonton": 58352,
+    "mean_rest": 50336,
+    "city_gap_pct": 15.9
+   },
+   "corr_electors_vs_stated": {
+    "all": 0.3296,
+    "calgary_edmonton": -0.0578,
+    "rest": 0.8379
+   },
+   "corr_electors_vs_overlay_2021": {
+    "all": 0.7696,
+    "calgary_edmonton": 0.75,
+    "rest": 0.8392
+   },
+   "electors_per_stated_person": {
+    "province": 0.6723,
+    "min": 0.2806,
+    "max": 0.868
+   },
+   "lowest_ratio": {
+    "Calgary-North East": 0.281,
+    "Edmonton-Meadows": 0.388,
+    "Calgary-McCall-Bhullar": 0.399,
+    "Calgary-Buffalo": 0.453,
+    "Edmonton-Windermere": 0.456,
+    "Edmonton-South": 0.471,
+    "Edmonton-Beaumont": 0.524,
+    "Calgary-Falconridge": 0.532
+   },
+   "highest_ratio": {
+    "Highwood": 0.786,
+    "Stony Plain-Drayton Valley": 0.802,
+    "Edmonton-Gold Bar": 0.805,
+    "Olds-Three Hills-Didsbury": 0.82,
+    "Lac Ste Anne-Parkland": 0.827,
+    "St Albert-Sturgeon": 0.828,
+    "Sherwood Park-Strathcona": 0.854,
+    "St Albert": 0.868
+   },
+   "named": {
+    "Calgary-North East": {
+     "electors": 19122,
+     "stated": 68145,
+     "overlay_2021": 38842,
+     "electors_per_stated": 0.281,
+     "electors_per_overlay": 0.492
+    },
+    "Calgary-South East": {
+     "electors": 30516,
+     "stated": 54045,
+     "overlay_2021": 36980,
+     "electors_per_stated": 0.565,
+     "electors_per_overlay": 0.825
+    },
+    "Edmonton-Windermere": {
+     "electors": 25965,
+     "stated": 56944,
+     "overlay_2021": 36560,
+     "electors_per_stated": 0.456,
+     "electors_per_overlay": 0.71
+    }
+   }
+  },
+  "panel": {
+   "electors_unplaced": 0.0,
+   "electors": {
+    "n": 91,
+    "average": 36118.4,
+    "beyond_25": {
+     "Calgary-Bhullar-McCall": -43.9,
+     "Calgary-Falconridge-Conrich": -28.4,
+     "Calgary-Fish Creek": 26.6,
+     "Calgary-McKenzie": 27.1,
+     "Calgary-North East": -58.4,
+     "Central Peace-Notley": -44.1,
+     "Edmonton-Meadows": -42.3,
+     "Edmonton-Nisku": -31.4,
+     "Edmonton-Windermere": -28.7,
+     "Fort McMurray-Lac La Biche": -27.7,
+     "Fort McMurray-Wood Buffalo": -29.8,
+     "Lesser Slave Lake": -40.1,
+     "Lethbridge-Cardston": -30.4,
+     "Peace River": -26.6,
+     "Rocky Mountain House-Sundre": -26.1,
+     "St. Albert": 44.7
+    },
+    "within_10": 39,
+    "mad": 5292,
+    "mean_calgary_edmonton": 35475,
+    "mean_rest": 36870,
+    "city_gap_pct": -3.8
+   },
+   "overlay_2021": {
+    "n": 91,
+    "average": 46841.5,
+    "beyond_25": {
+     "Calgary-North East": -38.3,
+     "Central Peace-Notley": -42.2,
+     "Edmonton-Windermere": -27.3,
+     "Lesser Slave Lake": -37.0,
+     "Rocky Mountain House-Sundre": -32.5
+    },
+    "within_10": 47,
+    "mad": 5125,
+    "mean_calgary_edmonton": 47745,
+    "mean_rest": 45788,
+    "city_gap_pct": 4.3
+   },
+   "stated": {
+    "n": 91,
+    "average": 53722.2,
+    "beyond_25": {
+     "Central Peace-Notley": -46.5,
+     "Lesser Slave Lake": -44.1,
+     "Rocky Mountain House-Sundre": -41.3
+    },
+    "within_10": 67,
+    "mad": 4214,
+    "mean_calgary_edmonton": 56821,
+    "mean_rest": 50107,
+    "city_gap_pct": 13.4
+   },
+   "corr_electors_vs_stated": {
+    "all": 0.4728,
+    "calgary_edmonton": 0.3873,
+    "rest": 0.841
+   },
+   "corr_electors_vs_overlay_2021": {
+    "all": 0.7968,
+    "calgary_edmonton": 0.7976,
+    "rest": 0.8592
+   },
+   "electors_per_stated_person": {
+    "province": 0.6723,
+    "min": 0.2757,
+    "max": 0.8717
+   },
+   "lowest_ratio": {
+    "Calgary-North East": 0.276,
+    "Calgary-Bhullar-McCall": 0.362,
+    "Edmonton-Meadows": 0.391,
+    "Edmonton-Nisku": 0.454,
+    "Calgary-Falconridge-Conrich": 0.456,
+    "Calgary-Buffalo": 0.467,
+    "Edmonton-Windermere": 0.476,
+    "Edmonton-South": 0.491
+   },
+   "highest_ratio": {
+    "Lac Ste. Anne": 0.817,
+    "Drayton Valley-Devon": 0.817,
+    "Okotoks": 0.818,
+    "Morinville-Sturgeon": 0.82,
+    "Calgary-Fish Creek": 0.825,
+    "Rocky Mountain House-Sundre": 0.846,
+    "Strathcona-Sherwood Park": 0.85,
+    "St. Albert": 0.872
+   },
+   "named": {
+    "Calgary-North East": {
+     "electors": 15036,
+     "stated": 54541,
+     "overlay_2021": 28881,
+     "electors_per_stated": 0.276,
+     "electors_per_overlay": 0.521
+    },
+    "Calgary-South East": {
+     "electors": 29472,
+     "stated": 53551,
+     "overlay_2021": 35677,
+     "electors_per_stated": 0.55,
+     "electors_per_overlay": 0.826
+    },
+    "Edmonton-Windermere": {
+     "electors": 25752,
+     "stated": 54136,
+     "overlay_2021": 34044,
+     "electors_per_stated": 0.476,
+     "electors_per_overlay": 0.756
+    }
+   }
+  },
+  "para167": {
+   "electors_unplaced": 0.0,
+   "electors": {
+    "n": 91,
+    "average": 36118.4,
+    "beyond_25": {
+     "Calgary-Bhullar-McCall": -43.9,
+     "Calgary-Falconridge-Conrich": -28.4,
+     "Calgary-Fish Creek": 26.6,
+     "Calgary-McKenzie": 27.1,
+     "Calgary-North East": -58.4,
+     "Canmore-Banff": -27.8,
+     "Central Peace-Notley": -44.1,
+     "Cochrane-Springbank": 25.3,
+     "Edmonton-Meadows": -42.3,
+     "Edmonton-Nisku": -31.4,
+     "Edmonton-Windermere": -28.7,
+     "Fort McMurray-Lac La Biche": -27.7,
+     "Fort McMurray-Wood Buffalo": -29.8,
+     "Lesser Slave Lake": -40.1,
+     "Okotoks-Diamond Valley": 25.2,
+     "Peace River": -26.6,
+     "Rocky Mountain House-Sundre": -26.1,
+     "St. Albert": 44.7
+    },
+    "within_10": 39,
+    "mad": 5291,
+    "mean_calgary_edmonton": 35305,
+    "mean_rest": 37067,
+    "city_gap_pct": -4.8
+   },
+   "overlay_2021": {
+    "n": 91,
+    "average": 46841.5,
+    "beyond_25": {
+     "Calgary-North East": -38.3,
+     "Canmore-Banff": -36.7,
+     "Central Peace-Notley": -42.2,
+     "Edmonton-Windermere": -27.3,
+     "Lesser Slave Lake": -37.0,
+     "Rocky Mountain House-Sundre": -32.5
+    },
+    "within_10": 48,
+    "mad": 5032,
+    "mean_calgary_edmonton": 47576,
+    "mean_rest": 45984,
+    "city_gap_pct": 3.5
+   }
+  }
+ }
+}
