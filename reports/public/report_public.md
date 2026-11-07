@@ -216,7 +216,7 @@ The minority map's 51.7% sits closer to the UCP ceiling that deliberate aiming r
 
 **What Canadian practice expects.** Nothing. The audit found no Canadian commission or court that uses the efficiency gap.
 
-**Why it isn't proof.** It isn't even claimed as evidence against the map. It is here to show the evidence was counted honestly. Pre-registration cuts both ways: the same locked line that gives the other metrics their force makes this one a miss. And a miss it stays. *(Epistemic lesson: the threshold was set before the answer was known — so the answer is allowed to be "no.")*
+**Why it isn't proof.** It isn't even claimed as evidence against the map. It is here to show the evidence was counted honestly. Pre-registration cuts both ways: the same locked line that gives the other metrics their force makes this one a miss. And a miss it stays. *(Update, November 7, 2026: the audit has since registered a change to all 2023 ballots for every vote-based test, Amendment 12. On all ballots the line is +1.39% and the minority's gap is +2.55%, above it. The Phase 1 result here is not reopened; see [November](#november).)* *(Epistemic lesson: the threshold was set before the answer was known — so the answer is allowed to be "no.")*
 
 [Know more: Appendix G, the efficiency gap in one worked example](#appendix-g)
 
@@ -407,7 +407,7 @@ Now put the instrument itself through the same five questions, one last time.
 
 **Why it isn't proof.** Its thresholds are the audit's own calibrations, not legal lines. Alberta is one province with one split commission: a sample size of one. And no pile of findings ever becomes proof, because the gap between "extreme" and "deliberate" is not statistical. It is the gap the law chose to leave open.
 
-*This scorecard runs again in November.*
+*This scorecard ran again in November, on the panel's map. The result is in [November: the panel's map, checked](#november).*
 
 > **WHY A LARGE MAJORITY MATTERS**
 >
@@ -433,6 +433,36 @@ Suppose the panel's map replicates the minority's signature (drawn by different 
 
 ---
 
+## November: the panel's map, checked {#november .new-page}
+
+*Added November 7, 2026. The official shapefile of the panel's map has not been posted. Every result in this section uses the audit's reconstruction of the map from the panel's report, so all of it is provisional. The scoring reruns on the official file as soon as it is posted.*
+
+**The scorecard, run again (November 4).** The tests written down in advance were run on the panel's map (`findings/a10_stepc/README.md`).
+- **Structural half:** 2 of 5 flags. A match needs 3. Not replicated.
+- **Partisan half:** 1 of 4 flags. Seats at a tied vote sit at the 98.8th percentile; the efficiency gap (+1.45%, 45th percentile), mean-median and declination sit inside the normal range. A match needs 2. Not present.
+- **The recommendation the government cited:** Recommendation 5 asked for no change to the 41 divisions from Airdrie south, apart from one. The panel changed 10 of them, so on the audit's registered test the map does not follow it.
+
+So the panel's map does not carry the minority map's signature on either half. Per the commitment above, this site says so.
+
+**One rule changed, in public (November 7).** Until now the votes behind every partisan test were 2023 election-day ballots. Those leave out about half of 2023's ballots (advance, mobile and special ballots, and Vote Anywhere), which Elections Alberta reports only by division. On the 2019 map, election-day ballots alone elect 57 UCP and 30 NDP members; the real 2023 result was 49 and 38. The audit rebuilt the missing ballots by voting area, matched the official result in every division, and registered a change: every vote-based test now uses all ballots, and election-day results are kept beside them (Amendment 12, `findings/pre_registration_amendment_log.md`).
+- **The panel's map** gets the same counts either way: 2 of 5 and 1 of 4.
+- **The commission minority's map** would move: its efficiency gap on all ballots (+2.55%, 98.8th percentile) is above the new line (+1.39%). Its partisan half would read 4 of 4 instead of 3 of 4. The amendment does not reopen the registered Phase 1 result in Finding 7, but the reader should know which way the new rule points.
+- **Still to finish before the official map is scored:** three of the comparison sets are being rescored on all ballots.
+
+**What the newer checks found.** Each of these had its plan written down before it was computed. None is registered, and most were planned after related results were known; the ledger records that (`findings/test_ledger/README.md`).
+- **What the panel's changes do to seats.** Against the panel minority's alternative (its ¶167 map, which undoes the changes south of Airdrie), the panel's map gives the NDP 1 fewer seat on all ballots and 2 fewer on election-day ballots. Every seat that differs is too close to call on the reconstruction. The sign is the same in the 2015, 2019 and 2023 elections and over most of a 10-point swing either way (`findings/iap_para167/`, `findings/six_signals/`).
+- **Against neutral maps,** the panel's map sits near the middle (UCP seats at the 43rd percentile; efficiency gap at the 48th). On those measures the ¶167 map sits nearer the edge.
+- **Lethbridge.** Neutral redraws of the region that respect city limits split Lethbridge two ways in 51% of plans, three ways in 48%, and four ways in 0.9%; the panel's map splits it four ways. The panel's map puts 45% of the city's NDP voters in seats the NDP loses by 10 points or more, and the competitive second city seat is gone. Against those redraws that sits at the 93rd percentile, just inside the line fixed in advance (`findings/hybrid_regions/`).
+- **Where moved voters went.** Of the NDP votes the panel's changes move, 14,199 go from a seat the NDP wins or nearly wins into one it loses by 10 points or more, and 3,152 go the other way. Most of that is Lethbridge and Banff. The panel did not change NDP-held or competitive seats more often than others; it changed them less often (`findings/local_targeting/`).
+- **City limits in past maps.** Since 2010, no commission map has had a division crossing Calgary's city limit. The panel's map has two (the Springbank divisions); the commission minority's had six (`findings/city_weight/big_city_lines.json`).
+- **Rural voters.** In Lethbridge County, the number of rural residents placed in divisions that are mostly city goes from 0 on the commission majority's map to 8,138 on the panel's. Rocky View County goes from 4 pieces to 6. In 2023, no rural community's preferred party lost because of these changes: the rural and city parts leaned the same way (`findings/rural_voice/`).
+- **Which population the comparisons use.** The neutral maps balance 2021 census population; the real maps were drawn on 2024 estimates. Calgary and Edmonton grew faster, and on 2024 figures they hold about two seats' worth more people (51.4 against 49.5). On each map's own published figures, city divisions average 9 to 10 points more people than the rest, compared with what the 2021 figures show (the panel's map: +13.4% against +4.3%). That is a limit on every city comparison in this report. A rerun of the neutral maps on 2024 figures is proposed (`findings/population_basis/`).
+- **All of it together.** The newer checks made 88 percentile comparisons. Maps drawn without reference to party would put about 9 of them beyond the 5th or 95th percentile. The panel's map and the ¶167 map put 5 there. None holds up after correcting for the number of tests.
+
+**What it could show.** Statistics can say whether a pattern is common or rare among maps drawn by the same rules without looking at votes. Most of what the panel's changes do is common. The four-way Lethbridge split is rare among maps that respect city limits (about 1 in 100), but where it puts the city's voters is not extreme by the rule fixed in advance. Why a line was drawn is a different question. It has to be answered from the panel's stated reasons and whether it applied them the same way to comparable places, which is Finding 15.
+
+**Why it isn't proof.** The map is a reconstruction until the official file is posted. The newer checks are unregistered, and their author knew related results first. The effects are small, one or two seats, and every one of them is lawful under the Act.
+
 ## The Author's View {#authors-view}
 
 *Everything above this line is the audit. Dated tests. Documented corrections. Evidence you can check without trusting me. Delete this section and not one number changes. What follows is not a finding. It is an opinion — signed, severable, and mine.*
@@ -455,7 +485,7 @@ Canada spent sixty years building one norm above the rest: politicians do not dr
 
 I worry about what the map buys. Replay the 2023 election-day vote and the minority map's geometry yields sixty seats of eighty-nine. That is not a mandate. It is insulation — from floor-crossings, from committees, from any opposition large enough to sustain scrutiny. I would worry about that insulation in any hands. I worry more in the hands of a government that has just shown me, in this very file, what it does with procedural control when a process threatens to answer back.
 
-I could be wrong. Unlike most opinions about this government, mine ships with the terms of its own destruction. The panel's map was due before the Assembly by November 2. The tests were locked before it existed. Were hearings held. Are the advisers named, their terms of reference published. Does the map honour the recommendation used to justify the takeover. Where does it land against a million neutral maps. If it lands inside the neutral bands, my suspicion took real damage — and this site will say so within seventy-two hours, because I committed to that before I knew the answer. That is the difference between an opinion and an accusation. An opinion tells you what would change it.
+I could be wrong. Unlike most opinions about this government, mine ships with the terms of its own destruction. The panel's map went to the Assembly on November 2. The tests were locked before it existed. Were hearings held. Are the advisers named, their terms of reference published. Does the map honour the recommendation used to justify the takeover. Where does it land against a million neutral maps. If it lands inside the neutral bands, my suspicion took real damage — and this site will say so within seventy-two hours, because I committed to that before I knew the answer. That is the difference between an opinion and an accusation. An opinion tells you what would change it.
 
 — Will Conner
 
