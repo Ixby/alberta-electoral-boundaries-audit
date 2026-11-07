@@ -67,7 +67,7 @@ The city gap changes sign. On population, Calgary and Edmonton divisions are lar
 
 ## How much does the 2021 census explain? (2026-11-07)
 
-Plan committed before any census figure was placed on a division (`preregistration/census_eligibility_check_2026-11-07.md`, commit `e2f5ae2e`). Eligibility is the census count of Canadian citizens aged 18 and over (private households, 25% sample). Data: 2021 Census Profile by dissemination area, from Statistics Canada's API (`STC_CP:DF_DA`), fetched 02:02-02:16 MST; extract in `data/census_2021/`. Areas with no eligibility figure hold 0.13% of 2021 population, inside the plan's 5% limit. The census route reproduces the audit's 2021 overlay to within 2.1% on average.
+Plan committed before any census figure was placed on a division (`preregistration/census_eligibility_check_2026-11-07.md`, commit `e2f5ae2e`). Eligibility is the census count of Canadian citizens aged 18 and over (private households, 25% sample). Data: 2021 Census Profile by dissemination area, from Statistics Canada's API (`STC_CP:DF_DA`), fetched 03:02-03:16 Alberta Time (UTC−6); extract in `data/census_2021/`. Areas with no eligibility figure hold 0.13% of 2021 population, inside the plan's 5% limit. The census route reproduces the audit's 2021 overlay to within 2.1% on average.
 
 **It explains about half the gap overall, and more than half in northeast Calgary, but not all of it.**
 

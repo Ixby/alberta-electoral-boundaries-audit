@@ -1,6 +1,6 @@
 # Rebuilding the panel's small-area population figures from what was published (written before any fitting)
 
-> Written 2026-11-07, about 3:05 AM MST, before any fit has been run. Unregistered and not blind: the author knows the published totals and the 2021 counts. Requested by the author on 2026-11-07. GitHub only; no OSF filing. Nothing here is a finding on whether any map is lawful or a gerrymander.
+> Written 2026-11-07, about 4:05 AM Alberta Time (UTC−6), before any fit has been run. Unregistered and not blind: the author knows the published totals and the 2021 counts. Requested by the author on 2026-11-07. GitHub only; no OSF filing. Nothing here is a finding on whether any map is lawful or a gerrymander.
 
 ## Why
 
