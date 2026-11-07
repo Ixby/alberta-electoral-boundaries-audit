@@ -1,0 +1,897 @@
+{
+ "section": "Act III Findings 11-15 and accusations ledger (lines 267-372)",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 273,
+   "claim": "Six of the minority's contested redraws checked against public data",
+   "type": "count",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.9.6",
+   "found": "'the six contested-rationale checks'; two fail on population arithmetic (Claims 1,4), two partly supported, one untested, one withdrawn",
+   "note": "Public text says 'checked six'; academic report says one of the six is withdrawn and one not tested on its stated grounds. Loose, not wrong."
+  },
+  {
+   "line": 273,
+   "claim": "Minority defends Calgary-Nolan Hill-Cochrane on idea Cochrane residents 'move fluidly'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.331 (minority)",
+   "found": "'residents move fluidly between jurisdictions for work, education, health care, and commerce'",
+   "note": ""
+  },
+  {
+   "line": 273,
+   "claim": "~a third of Cochrane's workers commute somewhere in Calgary",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/cochrane_journey_to_work.md",
+   "found": "3,065 of 8,550 = 35.8% to Calgary CY",
+   "note": "'about a third' for 35.8% is generous rounding."
+  },
+  {
+   "line": 273,
+   "claim": "roughly half of Cochrane workers work within Cochrane",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "same",
+   "found": "4,205 = 49.2%",
+   "note": ""
+  },
+  {
+   "line": 273,
+   "claim": "Airdrie ~76% of out-commuters go to Calgary",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/airdrie_journey_to_work.md",
+   "found": "76.2% of out-commuters (10,260/13,465)",
+   "note": ""
+  },
+  {
+   "line": 273,
+   "claim": "Chestermere sends 86% of out-commuters to Calgary",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/minority_rationales_validation.md R2",
+   "found": "Calgary = 86.0% of out-commuters",
+   "note": ""
+  },
+  {
+   "line": 273,
+   "claim": "Chestermere shares no transit system with the Calgary district it is sliced into",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "minority_rationales_validation.md R2",
+   "found": "'Chestermere does not participate in Calgary Transit'",
+   "note": "Source is the audit's own note, not an archived transit source."
+  },
+  {
+   "line": 273,
+   "claim": "Minority says rural residents 'work, go to school, and gather at community events' in the city (Red Deer-Sylvan Lake)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.351 (minority)",
+   "found": "'urban community where they work, go to school, and gather at community events'",
+   "note": ""
+  },
+  {
+   "line": 273,
+   "claim": "Sylvan Lake in Chinook's Edge SD; City of Red Deer in Red Deer Public; Red Deer Catholic Regional serves both",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/school_division_coherence.md",
+   "found": "Table rows for Chinook's Edge, Red Deer Public, Red Deer Catholic Regional",
+   "note": "Secondary (division self-descriptions via web search per the file), not primary boundary maps."
+  },
+  {
+   "line": 273,
+   "claim": "Airdrie growth real; neither requires four-way split",
+   "type": "inference",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 275,
+   "claim": "Majority did not publish a list of reasons for contested redraws",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "not found in repo",
+   "note": "Absence claim, not checkable by quote."
+  },
+  {
+   "line": 277,
+   "claim": "In the two that fail, population arithmetic pointed to a boundary the minority could have drawn",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "report_academic.md 5.9.6",
+   "found": "Claims 1 and 4 'fail on population arithmetic'",
+   "note": ""
+  },
+  {
+   "line": 279,
+   "claim": "Pretext analysis is how US courts probe intent in gerrymandering cases they hear",
+   "type": "legal",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "evidence/law has Rucho (2019) only",
+   "note": "General legal-method claim; not tested."
+  },
+  {
+   "line": 283,
+   "claim": "No Canadian law requires a commissioner's reasons to survive independent check",
+   "type": "legal",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "Legal framing."
+  },
+  {
+   "line": 289,
+   "claim": "Commission split: two final reports, two 89-seat maps, filed the same day",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf",
+   "found": "majority report and Appendix E minority; academic report: both tabled March 23, 2026",
+   "note": ""
+  },
+  {
+   "line": 289,
+   "claim": "Majority is three commissioners incl. chair; minority Dr. Julian Martin and John D. Evans, KC",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "Martin, Evans listed; Clark, Samson; Miller chair",
+   "note": ""
+  },
+  {
+   "line": 289,
+   "claim": "Appointment notice: Martin and Evans 'Nominated by the President of Executive Council'; Clark and Samson 'Nominated by the Leader of His Majesty's Loyal Opposition'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "same",
+   "found": "exact strings found",
+   "note": ""
+  },
+  {
+   "line": 289,
+   "claim": "Majority asserted minority's changes in Airdrie, Cochrane, Chestermere, Red Deer, St. Albert had no public support (pp.59, 62)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.59,62",
+   "found": "p59: 'do not appear to have any public support'; p62: 'received no public support whatsoever'",
+   "note": "p59 is hedged; report bolds 'no public support' as if verbatim; p62 supports it."
+  },
+  {
+   "line": 289,
+   "claim": "1,345 submissions",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.14,34",
+   "found": "198 pre-interim + 1,147 post-interim = 1,345",
+   "note": "Sum is derived; commission never states 1,345. findings/submission_search_findings.md says ~1,340 and 1,252 = 93.4% (fits 1,340; 1,252/1,345 = 93.1%). Internal inconsistency flagged in analysis/methodology/red_team_consolidated.md HIGH-03."
+  },
+  {
+   "line": 289,
+   "claim": "Archive searched by keyword, 93.4% machine-parsed",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/submission_search_findings.md",
+   "found": "1,252 of ~1,340 (93.4%)",
+   "note": "Denominator differs from 1,345."
+  },
+  {
+   "line": 289,
+   "claim": "Majority right on three of five, partly wrong on two (Chestermere, Red Deer)",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "findings/submission_search_findings.md",
+   "found": "Airdrie, Nolan Hill-Cochrane, St. Albert stand; Chestermere and Red Deer partially refuted",
+   "note": ""
+  },
+  {
+   "line": 289,
+   "claim": "RMH-Banff Park and Olds-Three Hills-Didsbury had documented public support",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "same",
+   "found": "both REFUTED (EBC-2025-2-0619; Beiseker submissions)",
+   "note": ""
+  },
+  {
+   "line": 291,
+   "claim": "Minority charges majority with 'an inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation' (p.356)",
+   "type": "quote",
+   "status": "MISMATCH",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.356",
+   "found": "'the Majority's inclination to delete or mangle rural electoral divisions and, in effect, reduce effective rural representation'",
+   "note": "Quote opens 'an inclination'; source says 'the Majority's inclination'. Same error in report_academic.md line 1821."
+  },
+  {
+   "line": 291,
+   "claim": "p.287: minority 'departed from the majority where we believe the legislative direction given to the Commission and the thoughtfulness of public submissions has not been given sufficient effect'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.287",
+   "found": "exact",
+   "note": ""
+  },
+  {
+   "line": 291,
+   "claim": "T3.2 counter-test supported geographic explanation",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md line 1821",
+   "found": "'returned the geographic null (H0 supported)'",
+   "note": ""
+  },
+  {
+   "line": 291,
+   "claim": "Rural-anchored divisions: 2019=31, majority 28, minority 23",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/rural_division_count.md",
+   "found": "31 / 28 / 23",
+   "note": ""
+  },
+  {
+   "line": 291,
+   "claim": "Majority absorbs 3, merges 6 into 3, creates 2; minority absorbs 7, merges 2 into RMH-Banff Park",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/rural_division_count.md",
+   "found": "3; 6->3; 2; 7; Banff-Kananaskis + Rimbey-RMH-Sundre",
+   "note": ""
+  },
+  {
+   "line": 291,
+   "claim": "Stricter classifier same order (28 -> 24 -> 19)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/rural_division_count.md",
+   "found": "corrected rule: 28 / 24 / 19",
+   "note": "Arrow reads 2019 -> majority -> minority."
+  },
+  {
+   "line": 293,
+   "claim": "Chair's own call for added rural seats",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.66",
+   "found": "Recommendation 5 (restore two rural divisions via 91 seats)",
+   "note": ""
+  },
+  {
+   "line": 293,
+   "claim": "Minority: 'not a benign allowance for errors in mapmaking' but 'a deliberate instruction'; majority 'decline[d] to use' it",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.356",
+   "found": "'it is not a benign allowance for errors in mapmaking; it is a deliberate instruction'; 'To decline to use that range'",
+   "note": ""
+  },
+  {
+   "line": 293,
+   "claim": "Majority rural divisions average 6% below mean, 4 more than 10% light; minority 12% below, 11",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/rural_variance_usage.md",
+   "found": "-6.0% / 4; -12.2% / 11",
+   "note": ""
+  },
+  {
+   "line": 295,
+   "claim": "Outlier map came from the government's nominees",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 299,
+   "claim": "Act s.9: with more than one report the majority's is the commission's; added 1995",
+   "type": "legal",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf",
+   "found": "s.9 text; '1995 c10 s7'",
+   "note": ""
+  },
+  {
+   "line": 299,
+   "claim": "One map per commission is the norm; 1995-2017 each commission sent one map",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "not tested in repo",
+   "note": "No primary source checked."
+  },
+  {
+   "line": 301,
+   "claim": "Audit found no evidence of coordination between government and nominees",
+   "type": "negative",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "Absence claim."
+  },
+  {
+   "line": 307,
+   "claim": "Ledger: the only score in this report is the five dated tests above",
+   "type": "cross-ref",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "Refers to text outside lines 267-372."
+  },
+  {
+   "line": 311,
+   "claim": "Majority (pp.62-63) flagged four boundaries as geometrically anomalous; audit confirmed three, fourth below threshold",
+   "type": "count",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.2",
+   "found": "Nolan Hill-Cochrane, RMH-Banff Park, ODH confirmed; Calgary-Foothills-Airdrie West defensible",
+   "note": "Final report pp.62-63 names Foothills-Airdrie West and Nolan Hill-Cochrane explicitly; the other flags are via the academic report's reading. 'fell below threshold' is paraphrase of 'geographic connection itself is defensible'."
+  },
+  {
+   "line": 312,
+   "claim": "'No public support' row: right on three of five, partly wrong on two",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "findings/submission_search_findings.md",
+   "found": "same as line 289",
+   "note": ""
+  },
+  {
+   "line": 313,
+   "claim": "Park extension called 'a bad faith effort' (p.10)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.10",
+   "found": "'a bad faith effort to ensure it can be protected under s. 15(2)'",
+   "note": ""
+  },
+  {
+   "line": 313,
+   "claim": "Division qualifies under s.15(2) even without the extension",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "report_academic.md 5.8.2",
+   "found": "meets 4 of 5 criteria on predecessor footprint",
+   "note": ""
+  },
+  {
+   "line": 314,
+   "claim": "Rural row: 'delete[s] or mangle[s]' (p.356); 23 vs 28 vs 31",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.356",
+   "found": "'delete or mangle'",
+   "note": ""
+  },
+  {
+   "line": 315,
+   "claim": "Flexibility row: -6.0% (4 below -10%); minority -12.2% (11)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/rural_variance_usage.md",
+   "found": "exact",
+   "note": ""
+  },
+  {
+   "line": 316,
+   "claim": "'Substantial and consistent testimony' for hybrids ignored (p.356); of seven configurations two clear, two partial, three none",
+   "type": "quote/count",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.356; findings/submission_search_findings.md",
+   "found": "p.356 'substantial and consistent testimony'; RMH-Banff, ODH clear; Chestermere, Red Deer partial; Airdrie, Nolan Hill, St. Albert none",
+   "note": "Source lower-case 'substantial'. 'Was ignored' is the charge's gloss; p.356 text asserts the testimony existed."
+  },
+  {
+   "line": 316,
+   "claim": "Chair noted 'extensive submissions' for Bearspaw/Springbank and Lethbridge hybrids (p.67)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.67",
+   "found": "'given the extensive submissions about them'",
+   "note": ""
+  },
+  {
+   "line": 317,
+   "claim": "T3.2 majority corridors of isolation - not supported",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "report_academic.md line 1821",
+   "found": "geographic null",
+   "note": ""
+  },
+  {
+   "line": 319,
+   "claim": "April 16: no one criticized majority report; government wrapped motion in chair's recommendation; opposition demanded adoption",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "findings/hansard_april16_motion19.md; evidence/web/hansard_2026-04-16_morning.pdf",
+   "found": "'No one criticized the majority report on the floor'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Hearings in sixteen communities",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.14",
+   "found": "'28 hearings were held in 16 different locations' plus two virtual",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "1,345 written submissions, 1,147 on interim",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.14,34",
+   "found": "198 + 1,147",
+   "note": "see line 289 note"
+  },
+  {
+   "line": 323,
+   "claim": "Minority report counts at least 56 submissions for Lesser Slave Lake",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.320",
+   "found": "'At least 56 submissions emphasized that the region constitutes a coherent community of interest'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Government Motion 37 introduced April 16, passed April 21, 2026; four weeks after split reports",
+   "type": "date",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf p.14; evidence/web/hansard_2026-04-16_morning.pdf",
+   "found": "'Government Motion 37, which was agreed to on the voice vote' (Apr 21); March 23 to April 21 is ~4 weeks",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Select Special Committee of six MLAs, four UCP, two NDP, chaired by UCP MLA Brandon Lunty; 91-seat map",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "votes_proceedings_2026-04-21.pdf pp.4,14",
+   "found": "Lunty chair + 3 government + 2 opposition; '91 proposed electoral divisions'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Panel: two nominated by Premier, two by Opposition; chaired by retired Court of Appeal justice Brian O'Ferrall",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p169.txt, p197.txt",
+   "found": "'on nomination of the Leader of ... Opposition, 2 persons'; 'on nomination of the President of the Executive Council, 2 persons'; O'Ferrall 'retired Justice of the Alberta Court of Appeal'",
+   "note": "Premier = President of Executive Council. CBC link returned 403."
+  },
+  {
+   "line": 323,
+   "claim": "Panel gave report to committee October 22",
+   "type": "date",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/ceb_transcript_2026-10-28.pdf CEB-65",
+   "found": "'provided to committee members on October 22, 2026'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "The panel itself split",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p129-p163 (Minority Opinion)",
+   "found": "minority opinion by two panel members",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Committee not required to hold hearings; per CBC would not; held none; no draft released",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743",
+   "found": "Motion 37: 'without a requirement to direct the holding of public hearings' (VP p.4). CBC page blocked (403).",
+   "note": "'Not required' verified; 'would not' and 'held none' rest on CBC / absence."
+  },
+  {
+   "line": 323,
+   "claim": "Oct 28 committee voted 3-2 to end review, adding no observations; report due by November 2; embargoed until tabled",
+   "type": "vote/date",
+   "status": "VERIFIED",
+   "source": "ceb_transcript_2026-10-28.pdf CEB-67,72,73",
+   "found": "'For - 3 Against - 2'; Wiebe: 'embargoed until it's tabled in the Chamber... on or before November 2'",
+   "note": "Report says 'the panel's map stays under embargo'; source says the report is embargoed."
+  },
+  {
+   "line": 323,
+   "claim": "Government House Leader, Hansard April 16: 'We are adopting the recommendations from the report'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/web/hansard_2026-04-16_morning.pdf pdf p.12",
+   "found": "exact (Schow)",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Opposition: 'minority report in slow motion'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "same pdf p.9",
+   "found": "'now they're presenting the minority report in slow motion'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Majority asked Legislature to adopt its 89-seat map; seat-count fix aimed at future commissions",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.58-60",
+   "found": "'majority recommends the adoption of the majority report in its totality'; Rec.4(iv) future commissions' authority",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Chair alone: 'That is why I am alone in making this recommendation.'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.66",
+   "found": "exact",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Recommendation 'would need to be studied by an all-party Select Special Committee' (p.66)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.66",
+   "found": "'This would need to be studied by an all-party Select Special Committee or other equivalent Legislative Committee'",
+   "note": ""
+  },
+  {
+   "line": 323,
+   "claim": "Majority wrote more than two added seats would have made it easier to meet Clearwater County's requests (p.54)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.54",
+   "found": "'If the Legislature had allocated more than two additional seats, it would have been easier to address the challenges raised by members of Clearwater County Council'",
+   "note": ""
+  },
+  {
+   "line": 327,
+   "claim": "CCLA raised concern about politicization",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/",
+   "found": "not archived or fetched",
+   "note": ""
+  },
+  {
+   "line": 331,
+   "claim": "Act makes commission report advisory, sets no notice period, no hearing or draft required",
+   "type": "legal",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "Not tested; Motion 37 no-hearing clause consistent."
+  },
+  {
+   "line": 337,
+   "claim": "Canada spent ~60 years building independent commissions (Courtney 2001)",
+   "type": "citation",
+   "status": "UNVERIFIABLE",
+   "source": "reports/public/report_public.md ref list",
+   "found": "Courtney 2001 listed; book not in repo",
+   "note": "No page cited."
+  },
+  {
+   "line": 337,
+   "claim": "In May, Duane Bratt described process to the author as without precedent",
+   "type": "attribution",
+   "status": "UNVERIFIABLE",
+   "source": "analysis/review/legal_review_academic_report.md line 282",
+   "found": "memory-based attribution; no archived correspondence found",
+   "note": "Private correspondence."
+  },
+  {
+   "line": 337,
+   "claim": "Alberta 1992: commission deadlocked, five reports, no majority",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.66; evidence/law/abebc_1992_report.pdf",
+   "found": "'five separate reports - one written by each member'",
+   "note": ""
+  },
+  {
+   "line": 339,
+   "claim": "Opposition: 'a retaliation against the independent Electoral Boundaries Commission for daring to do its job'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/web/hansard_2026-04-16_morning.pdf pdf p.6",
+   "found": "exact",
+   "note": ""
+  },
+  {
+   "line": 343,
+   "claim": "Quebec National Assembly legislated its own 127-seat map in June 2026 after SCC struck down pause",
+   "type": "date",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/quebec_elections_final_boundaries_2026.html; nationalnewswatch 2026-05-07",
+   "found": "Map established by Act, 125->127; bill tabled 2026-05-07; one report expected adoption that afternoon; no June date found",
+   "note": "Likely wrong month (May, not June); adoption date not confirmed in repo or by web search."
+  },
+  {
+   "line": 343,
+   "claim": "Exception: Alberta's 1992 committee",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/iap_review/claims_graded.md A1",
+   "found": "1992-93 whole-province map drawn by legislative committee",
+   "note": ""
+  },
+  {
+   "line": 345,
+   "claim": "Patriation Reference 1981: courts won't enforce conventions",
+   "type": "legal",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "not in evidence/law",
+   "note": "Well-known; not archived."
+  },
+  {
+   "line": 345,
+   "claim": "2017 Nova Scotia Court of Appeal found a map unconstitutional because government stifled commission's independent view",
+   "type": "legal",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/nsca_2017nsca10_courtsns_230165.pdf",
+   "found": "2017 NSCA 10; AG declared Interim Report 'null and void' and directed a new one; Terms of Reference excluded the three ridings",
+   "note": "Info sheet only read; the 'stifled' wording and the unconstitutionality finding were not confirmed in the excerpt."
+  },
+  {
+   "line": 345,
+   "claim": "2026 SCC struck down Quebec law pausing commission (Quebec (AG) v. Lalande, 2026 SCC 13)",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/law/lalande_2026scc13_lexum.html",
+   "found": "2026 SCC 13, 2026-05-01; appeal dismissed; Act to interrupt of no force or effect",
+   "note": ""
+  },
+  {
+   "line": 351,
+   "claim": "Panel's map not yet released as shapefile; lines are audit reconstruction",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/README.md; evidence/correspondence/elections_alberta_gis_2026-10-28.md",
+   "found": "'The proposed ED boundaries are not set in bills yet...'",
+   "note": ""
+  },
+  {
+   "line": 353,
+   "claim": "Panel published reasons for each change",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "Not exhaustively tested."
+  },
+  {
+   "line": 353,
+   "claim": "Calgary-West-Springbank is the 'much more regular polygon shape' promised",
+   "type": "quote/number",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p073.txt; findings/reasons_consistency/measurable_checks.json",
+   "found": "'would have a much more regular polygon shape with straight line boundaries'; PP 0.27 -> 0.53",
+   "note": "v3 reconstruction (provisional, as stated)."
+  },
+  {
+   "line": 355,
+   "claim": "'Lethbridge already has population to spare'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p080.txt",
+   "found": "'Lethbridge already has population to spare.'",
+   "note": "Source uses it in a case for hybridising; 'splits four ways because of it' is the report's inference."
+  },
+  {
+   "line": 355,
+   "claim": "Panel names Red Deer as the comparable city: 'Those two cities are Lethbridge and Red Deer'",
+   "type": "quote",
+   "status": "MISMATCH",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p081.txt",
+   "found": "'Only two cities in the Province do not have electoral divisions which extend beyond their boundaries. Those two cities are Lethbridge and Red Deer and even Red Deer was once hybridized...'",
+   "note": "Words exact, but the panel names them as the only two non-hybrid cities, not as a population comparator. Characterisation mismatch."
+  },
+  {
+   "line": 355,
+   "claim": "Red Deer 113,145; Lethbridge 111,776 (2024)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/osi/population-estimates-ab-census-subdivision-municipal-2016-to-current.xlsx",
+   "found": "Red Deer 2024 = 113145; Lethbridge 2024 = 111776",
+   "note": "2025 values 115,409 / 113,671 exist; ordering unchanged."
+  },
+  {
+   "line": 355,
+   "claim": "Each has room for about two divisions, Red Deer slightly more",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/reasons_consistency/measurable_checks.json",
+   "found": "ratios 2.11 and 2.08 of average 53,722",
+   "note": ""
+  },
+  {
+   "line": 355,
+   "claim": "Panel keeps Red Deer in two city divisions; Lethbridge into one city division and three mixed",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/iap/iap_app7_populations.csv; findings/reasons_consistency/measurable_checks.json",
+   "found": "Red Deer-North 53,798 + Red Deer-South 59,121; Lethbridge 58,897 plus Little Bow, Taber-Warner, Cardston",
+   "note": ""
+  },
+  {
+   "line": 356,
+   "claim": "Panel's test: hybrid justified if it 'reflects a genuine community of interest or is needed to achieve population-compliance'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p081.txt",
+   "found": "'whether a proposed hybrid reflects a genuine community of interest or is needed to achieve population-compliance'",
+   "note": ""
+  },
+  {
+   "line": 356,
+   "claim": "Commission's two Lethbridge divisions 7.0% and 1.0% above average, inside band",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.45; findings/reasons_consistency/measurable_checks.json",
+   "found": "Lethbridge-East 57,463, -West 54,235 vs 91-seat avg 53,722 = +7.0%, +1.0%",
+   "note": "Commission's own table shows +4.6% and -1.3% against its 89-seat average; report silently uses the 91-seat average."
+  },
+  {
+   "line": 356,
+   "claim": "Panel minority: 'Its residents and leaders clearly want two MLAs'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p149.txt",
+   "found": "exact",
+   "note": ""
+  },
+  {
+   "line": 357,
+   "claim": "Panel rule 'dedicated representation' gives Cochrane and Okotoks own divisions",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p070.txt, p096.txt",
+   "found": "'will have dedicated representation'; 'gives Okotoks its own representative'",
+   "note": "'growing mid-size places' is the audit's synthesis."
+  },
+  {
+   "line": 357,
+   "claim": "Lethbridge goes from two dedicated divisions to one",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.45; data/iap/iap_app7_populations.csv",
+   "found": "Lethbridge-East, -West -> Lethbridge",
+   "note": ""
+  },
+  {
+   "line": 358,
+   "claim": "Panel: 'a minor change ... to capture the necessary population'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p095.txt",
+   "found": "'what really amounts to a minor change to the Canmore-Banff electoral division ... to capture the necessary population'",
+   "note": ""
+  },
+  {
+   "line": 358,
+   "claim": "Act forbids ordinary division more than 25% below average",
+   "type": "legal",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p095.txt, p108.txt",
+   "found": "floor 40,292",
+   "note": ""
+  },
+  {
+   "line": 358,
+   "claim": "Canmore-Banff 331 short of floor; at most ~1,300 after transfer all panel agreed on",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/reasons_consistency/measurable_checks.json; evidence/legislature/iap_report_2026_hires_text/p133.txt",
+   "found": "39,961 vs 40,292 = 331; minority: transfer 'affects fewer than 1,000 residents'; panel unanimous on it",
+   "note": "'about 1,300' relies on minority's estimate."
+  },
+  {
+   "line": 358,
+   "claim": "Panel added 8,901",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/iap/iap_app7_populations.csv",
+   "found": "48,862 - 39,961 = 8,901",
+   "note": "Net vs commission version."
+  },
+  {
+   "line": 359,
+   "claim": "Panel says Springbank divisions mix 'urban with urban residents'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p071.txt",
+   "found": "'It mixes urban with urban residents.'",
+   "note": ""
+  },
+  {
+   "line": 359,
+   "claim": "Springbank parts 40-70 per km2; Calgary parts 1,500-1,900",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/reasons_consistency/springbank_density.json",
+   "found": "42.4 and 67.9; 1,488.5 and 1,905.0",
+   "note": ""
+  },
+  {
+   "line": 361,
+   "claim": "On 2023 votes the changes cost the NDP about one seat",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/local_targeting/README.md",
+   "found": "'about one seat on 2023's votes'",
+   "note": "Provisional; no test significant after correction."
+  },
+  {
+   "line": 361,
+   "claim": "Moved voters about four times as likely to go from winnable seat into unwinnable one as reverse",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/local_targeting/README.md",
+   "found": "9.0% (14,199) vs 2.0% (3,152) = 4.5x",
+   "note": "README says 'about four times'."
+  },
+  {
+   "line": 361,
+   "claim": "Changes that move a seat are Lethbridge and Banff",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "findings/local_targeting/README.md",
+   "found": "effect centred on Lethbridge and Banff",
+   "note": ""
+  },
+  {
+   "line": 363,
+   "claim": "Pretext analysis same method as Finding 11",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 367,
+   "claim": "Lethbridge split rare among maps respecting city boundaries (about 1 in 100)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/hybrid_regions/README.md",
+   "found": "four-way split in 0.9% of city-aware redraws; p99.5",
+   "note": "0.9% is ~1 in 111."
+  },
+  {
+   "line": 367,
+   "claim": "Not extreme compared with small changes to panel's own map",
+   "type": "finding",
+   "status": "VERIFIED",
+   "source": "findings/hybrid_regions/README.md (CFP test)",
+   "found": "every p at least 0.89 vs 0.025",
+   "note": ""
+  },
+  {
+   "line": 367,
+   "claim": "A court would ask whether result denies effective representation",
+   "type": "legal",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  }
+ ]
+}
