@@ -62,4 +62,4 @@ Two clauses with no support were removed:
 - **Retraction timing:** the public report and `preregistration/retraction_conditions.md` say 48 hours; academic §6.2.6 says 30 days. Not changed: the commitment is the author's.
 - **Appendix E** does not exist (D goes to F). Nothing links to it.
 - **The site's text** (`viewer/src/lib/i18n/locales/en.ts`) was not fact-checked separately. Only the Finding 15 and minority-quote fixes were carried over. One known difference: the site still says 49.7% and 4 points where the report's corrected sweep says 49.2% and 1.6 points.
-- **The title** ("Two Maps, Then None") still describes a two-map story. It is a taste call, so it is left alone.
+- **The title** was changed by the author on 2026-11-07, from "Two Maps, Then None" to "Two Paths, One Map".

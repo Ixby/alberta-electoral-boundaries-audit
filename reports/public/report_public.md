@@ -16,7 +16,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 > - `docs/FINDINGS_BRIEF.md` — even shorter brief derived from same findings
 > - (leaf otherwise — general-audience report, public-facing)
 
-# Two Maps, Then None: Inside Alberta's 2026 Boundary Audit
+# Two Paths, One Map: Inside Alberta's 2026 Boundary Audit
 
 *A plain-language look at the 2025–26 Electoral Boundaries Commission, the math behind the minority map, and what comes next.*
 
