@@ -136,3 +136,4 @@ findings/osi_rebuild/.weights_cache/
 findings/osi_rebuild/.weights_cache_v2/
 findings/amendment12_replays/claims/
 findings/amendment12_replays/*.log
+findings/hybrid_regions/worker*.log

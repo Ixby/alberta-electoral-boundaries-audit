@@ -1,0 +1,12 @@
+{
+ "region": "Spruce Grove",
+ "variant": "muni",
+ "chain": 1,
+ "seed_salt": "regional_Spruce_Grove_muni_1",
+ "seed": 4144492975,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 6,
+ "n_vas": 324,
+ "muni_weight": 0.5
+}

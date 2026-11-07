@@ -1,0 +1,1421 @@
+{
+ "plan": "preregistration/hybrid_regions_2026-11-07.md",
+ "primary_ballots": "all",
+ "regions": {
+  "Airdrie": {
+   "districts": [
+    "Airdrie-East",
+    "Airdrie-West",
+    "Calgary-Bhullar-McCall",
+    "Calgary-Falconridge-Conrich",
+    "Calgary-North East",
+    "Calgary-Nose Creek",
+    "Chestermere-Strathmore",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "hybrids": [
+    "Airdrie-East"
+   ],
+   "n_vas": 327,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 3.0,
+      "q50": 3.0,
+      "q95": 4.0,
+      "panel": {
+       "value": 4.0,
+       "pct": 93.08
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.02,
+      "panel": {
+       "value": 0.0,
+       "pct": 46.65
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.131,
+      "panel": {
+       "value": 0.0,
+       "pct": 45.93
+      }
+     },
+     "city_far_all": {
+      "q05": 0.869,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 56.92
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 37.15
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 3.0,
+      "q50": 3.0,
+      "q95": 4.0,
+      "panel": {
+       "value": 4.0,
+       "pct": 82.07
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.85
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.44
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.27
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 45.35
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Calgary": {
+   "districts": [
+    "Banff-Canmore-Diamond Valley",
+    "Calgary-Bow-Springbank",
+    "Calgary-Currie",
+    "Calgary-Glenmore-Tsuut'ina",
+    "Calgary-North West-Bearspaw",
+    "Calgary-Varsity",
+    "Calgary-West-Springbank",
+    "Cochrane"
+   ],
+   "hybrids": [
+    "Calgary-Bow-Springbank",
+    "Calgary-West-Springbank"
+   ],
+   "n_vas": 428,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 2.0,
+      "q50": 3.0,
+      "q95": 4.0,
+      "panel": {
+       "value": 3.0,
+       "pct": 46.02
+      }
+     },
+     "city_won_all": {
+      "q05": 0.323,
+      "q50": 0.493,
+      "q95": 0.687,
+      "panel": {
+       "value": 0.55,
+       "pct": 78.85
+      }
+     },
+     "city_near_all": {
+      "q05": 0.137,
+      "q50": 0.355,
+      "q95": 0.621,
+      "panel": {
+       "value": 0.321,
+       "pct": 38.35
+      }
+     },
+     "city_far_all": {
+      "q05": 0.003,
+      "q50": 0.142,
+      "q95": 0.224,
+      "panel": {
+       "value": 0.13,
+       "pct": 45.3
+      }
+     },
+     "city_pieces": {
+      "q05": 6.0,
+      "q50": 7.0,
+      "q95": 7.0,
+      "panel": {
+       "value": 6.0,
+       "pct": 6.29
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.143,
+      0.141
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 3.0,
+      "q50": 4.0,
+      "q95": 5.0,
+      "panel": {
+       "value": 3.0,
+       "pct": 22.62
+      }
+     },
+     "city_won_all": {
+      "q05": 0.466,
+      "q50": 0.647,
+      "q95": 0.762,
+      "panel": {
+       "value": 0.55,
+       "pct": 33.44
+      }
+     },
+     "city_near_all": {
+      "q05": 0.113,
+      "q50": 0.296,
+      "q95": 0.513,
+      "panel": {
+       "value": 0.321,
+       "pct": 59.03
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.118,
+      "q95": 0.171,
+      "panel": {
+       "value": 0.13,
+       "pct": 58.74
+      }
+     },
+     "city_pieces": {
+      "q05": 6.0,
+      "q50": 6.0,
+      "q95": 7.0,
+      "panel": {
+       "value": 6.0,
+       "pct": 36.96
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.117,
+      0.12
+     ]
+    }
+   }
+  },
+  "Chestermere": {
+   "districts": [
+    "Airdrie-East",
+    "Calgary-East",
+    "Calgary-Falconridge-Conrich",
+    "Calgary-Hays",
+    "Calgary-South East",
+    "Chestermere-Strathmore",
+    "Lethbridge-Little Bow",
+    "Okotoks",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "hybrids": [
+    "Chestermere-Strathmore"
+   ],
+   "n_vas": 448,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.12
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 48.12
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.035,
+      "panel": {
+       "value": 0.0,
+       "pct": 46.77
+      }
+     },
+     "city_far_all": {
+      "q05": 0.92,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 55.02
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 26.39
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.02
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.98
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.55
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.47
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 43.77
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Edmonton": {
+   "districts": [
+    "Camrose",
+    "Drayton Valley-Devon",
+    "Edmonton-Ellerslie",
+    "Edmonton-Enoch",
+    "Edmonton-McClung",
+    "Edmonton-Meadows",
+    "Edmonton-Mill Woods",
+    "Edmonton-Nisku",
+    "Edmonton-South",
+    "Edmonton-West Henday",
+    "Edmonton-Windermere",
+    "Leduc-Beaumont",
+    "Spruce Grove",
+    "Strathcona-Sherwood Park"
+   ],
+   "hybrids": [
+    "Edmonton-Enoch",
+    "Edmonton-Nisku"
+   ],
+   "n_vas": 689,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 8.0,
+      "q50": 9.0,
+      "q95": 9.0,
+      "panel": {
+       "value": 9.0,
+       "pct": 68.81
+      }
+     },
+     "city_won_all": {
+      "q05": 0.869,
+      "q50": 0.967,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 94.87
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.003,
+      "q95": 0.106,
+      "panel": {
+       "value": 0.0,
+       "pct": 23.54
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.013,
+      "q95": 0.063,
+      "panel": {
+       "value": 0.0,
+       "pct": 12.16
+      }
+     },
+     "city_pieces": {
+      "q05": 9.0,
+      "q50": 9.0,
+      "q95": 11.0,
+      "panel": {
+       "value": 9.0,
+       "pct": 29.29
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.012,
+      0.014
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 8.0,
+      "q50": 9.0,
+      "q95": 9.0,
+      "panel": {
+       "value": 9.0,
+       "pct": 65.38
+      }
+     },
+     "city_won_all": {
+      "q05": 0.902,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 72.13
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.095,
+      "panel": {
+       "value": 0.0,
+       "pct": 39.34
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.052,
+      "panel": {
+       "value": 0.0,
+       "pct": 36.68
+      }
+     },
+     "city_pieces": {
+      "q05": 9.0,
+      "q50": 9.0,
+      "q95": 9.0,
+      "panel": {
+       "value": 9.0,
+       "pct": 50.01
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "Fort Saskatchewan": {
+   "districts": [
+    "Barrhead-Westlock-Athabasca",
+    "Camrose",
+    "Cold Lake-Bonnyville-St. Paul",
+    "Edmonton-Manning",
+    "Fort Saskatchewan-Vegreville",
+    "Lloydminster-Wainwright",
+    "Morinville-Sturgeon",
+    "Strathcona-Sherwood Park"
+   ],
+   "hybrids": [
+    "Fort Saskatchewan-Vegreville"
+   ],
+   "n_vas": 465,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 49.97
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.293,
+      "panel": {
+       "value": 0.0,
+       "pct": 44.52
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 32.26
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 71.64
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 25.64
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 49.99
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.62
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 40.61
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 59.66
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 46.37
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Grande Prairie": {
+   "districts": [
+    "Central Peace-Notley",
+    "Grande Prairie",
+    "Grande Prairie-Wapiti",
+    "West Yellowhead"
+   ],
+   "hybrids": [
+    "Grande Prairie-Wapiti"
+   ],
+   "n_vas": 224,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.0
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 39.1
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.0
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 46.97
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Lethbridge": {
+   "districts": [
+    "Banff-Canmore-Diamond Valley",
+    "Lethbridge",
+    "Lethbridge-Cardston",
+    "Lethbridge-Little Bow",
+    "Lethbridge-Taber-Warner",
+    "Macleod-Crowsnest",
+    "Okotoks",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "hybrids": null,
+   "n_vas": 462,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 196000,
+     "ndp_seats_all": {
+      "q05": 0.0,
+      "q50": 1.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 47.82
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.454,
+      "q95": 0.924,
+      "panel": {
+       "value": 0.553,
+       "pct": 79.6
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.353,
+      "q95": 0.802,
+      "panel": {
+       "value": 0.0,
+       "pct": 20.04
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.207,
+      "q95": 0.619,
+      "panel": {
+       "value": 0.447,
+       "pct": 70.57
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 3.0,
+      "q95": 4.0,
+      "panel": {
+       "value": 4.0,
+       "pct": 92.1
+      }
+     },
+     "unusual": {
+      "panel": false
+     }
+    },
+    "muni": {
+     "n_plans": 200000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 21.25
+      }
+     },
+     "city_won_all": {
+      "q05": 0.394,
+      "q50": 0.802,
+      "q95": 1.0,
+      "panel": {
+       "value": 0.553,
+       "pct": 37.43
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.565,
+      "panel": {
+       "value": 0.0,
+       "pct": 32.43
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.015,
+      "q95": 0.488,
+      "panel": {
+       "value": 0.447,
+       "pct": 93.27
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 4.0,
+       "pct": 99.54
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.019,
+      0.015,
+      0.021,
+      0.012
+     ]
+    }
+   }
+  },
+  "Medicine Hat": {
+   "districts": [
+    "Drumheller-Stettler",
+    "Lethbridge-Little Bow",
+    "Lethbridge-Taber-Warner",
+    "Medicine Hat-Brooks",
+    "Medicine Hat-Cypress",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "hybrids": [
+    "Medicine Hat-Brooks",
+    "Medicine Hat-Cypress"
+   ],
+   "n_vas": 353,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.0
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 48.06
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 50.0
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.0
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 49.92
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "St. Albert": {
+   "districts": [
+    "Barrhead-Westlock-Athabasca",
+    "Edmonton-Castle Downs",
+    "Edmonton-Manning",
+    "Edmonton-North West",
+    "Edmonton-West Henday",
+    "Fort Saskatchewan-Vegreville",
+    "Lac Ste. Anne",
+    "Morinville-Sturgeon",
+    "Spruce Grove",
+    "St. Albert"
+   ],
+   "hybrids": [
+    "Morinville-Sturgeon"
+   ],
+   "n_vas": 546,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 5.0,
+      "q50": 6.0,
+      "q95": 6.0,
+      "panel": {
+       "value": 5.0,
+       "pct": 15.54
+      }
+     },
+     "city_won_all": {
+      "q05": 0.631,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 0.854,
+       "pct": 18.05
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.359,
+      "panel": {
+       "value": 0.0,
+       "pct": 40.71
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.086,
+      "panel": {
+       "value": 0.146,
+       "pct": 96.83
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 30.38
+      }
+     },
+     "unusual": {
+      "panel": true
+     },
+     "chain_medians_city_far_all": [
+      0.0,
+      0.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 5.0,
+      "q50": 5.0,
+      "q95": 6.0,
+      "panel": {
+       "value": 5.0,
+       "pct": 35.2
+      }
+     },
+     "city_won_all": {
+      "q05": 0.608,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 0.854,
+       "pct": 34.14
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.39,
+      "panel": {
+       "value": 0.0,
+       "pct": 35.39
+      }
+     },
+     "city_far_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.18,
+      "panel": {
+       "value": 0.146,
+       "pct": 92.17
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 47.22
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "Spruce Grove": {
+   "districts": [
+    "Drayton Valley-Devon",
+    "Edmonton-Enoch",
+    "Edmonton-West Henday",
+    "Lac Ste. Anne",
+    "Morinville-Sturgeon",
+    "Spruce Grove"
+   ],
+   "hybrids": [
+    "Spruce Grove"
+   ],
+   "n_vas": 324,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 68.81
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.131,
+      "panel": {
+       "value": 0.0,
+       "pct": 42.2
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.553,
+      "panel": {
+       "value": 0.0,
+       "pct": 44.22
+      }
+     },
+     "city_far_all": {
+      "q05": 0.429,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 63.06
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 2.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 8.09
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 2.0,
+       "pct": 52.63
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.65
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.78
+      }
+     },
+     "city_far_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.57
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 39.49
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Leduc and Beaumont": {
+   "districts": [
+    "Camrose",
+    "Drayton Valley-Devon",
+    "Edmonton-Nisku",
+    "Leduc-Beaumont"
+   ],
+   "hybrids": [
+    "Leduc-Beaumont"
+   ],
+   "n_vas": 207,
+   "majority_closed": false,
+   "variants": {
+    "blind": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.93
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.161,
+      "q95": 0.351,
+      "panel": {
+       "value": 0.0,
+       "pct": 14.15
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 48.98
+      }
+     },
+     "city_far_all": {
+      "q05": 0.649,
+      "q50": 0.833,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 86.76
+      }
+     },
+     "city_pieces": {
+      "q05": 2.0,
+      "q50": 3.0,
+      "q95": 3.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 0.17
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      0.838,
+      0.829
+     ]
+    },
+    "muni": {
+     "n_plans": 50000,
+     "ndp_seats_all": {
+      "q05": 1.0,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 50.11
+      }
+     },
+     "city_won_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.388,
+      "panel": {
+       "value": 0.0,
+       "pct": 42.02
+      }
+     },
+     "city_near_all": {
+      "q05": 0.0,
+      "q50": 0.0,
+      "q95": 0.0,
+      "panel": {
+       "value": 0.0,
+       "pct": 49.91
+      }
+     },
+     "city_far_all": {
+      "q05": 0.612,
+      "q50": 1.0,
+      "q95": 1.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 58.07
+      }
+     },
+     "city_pieces": {
+      "q05": 1.0,
+      "q50": 2.0,
+      "q95": 2.0,
+      "panel": {
+       "value": 1.0,
+       "pct": 13.52
+      }
+     },
+     "unusual": {
+      "panel": false
+     },
+     "chain_medians_city_far_all": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  }
+ }
+}

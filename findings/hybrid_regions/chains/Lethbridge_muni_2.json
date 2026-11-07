@@ -1,0 +1,12 @@
+{
+ "region": "Lethbridge",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_Lethbridge_muni_2",
+ "seed": 1572976468,
+ "steps_kept": 50000,
+ "burn_in": 1000,
+ "districts": 8,
+ "n_vas": 462,
+ "muni_weight": 0.5
+}

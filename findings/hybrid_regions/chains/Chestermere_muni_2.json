@@ -1,0 +1,12 @@
+{
+ "region": "Chestermere",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_Chestermere_muni_2",
+ "seed": 502307749,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 9,
+ "n_vas": 448,
+ "muni_weight": 0.5
+}
