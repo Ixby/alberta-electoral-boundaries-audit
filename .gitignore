@@ -134,3 +134,5 @@ data/outputs/szat_swing_va_canonical.gpkg
 viewer/dev/
 findings/osi_rebuild/.weights_cache/
 findings/osi_rebuild/.weights_cache_v2/
+findings/amendment12_replays/claims/
+findings/amendment12_replays/*.log
