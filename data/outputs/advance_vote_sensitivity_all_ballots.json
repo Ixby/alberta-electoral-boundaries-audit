@@ -1,0 +1,84 @@
+{
+  "results": {
+    "canonical_majority__election_day_only": {
+      "efficiency_gap": 0.0009823668405000681,
+      "mean_median": -0.036190901059016234,
+      "declination": -0.026675251362353544,
+      "seats_at_50_50": 0.4606741573033708,
+      "ucp_seats": 55,
+      "n_districts": 89,
+      "ucp_vote_share": 0.5740427639062995,
+      "coverage_vas": 4765,
+      "coverage_vas_total": 4765
+    },
+    "canonical_minority__election_day_only": {
+      "efficiency_gap": 0.04019385991913548,
+      "mean_median": 0.010401768621624785,
+      "declination": 0.07700256493469557,
+      "seats_at_50_50": 0.5168539325842697,
+      "ucp_seats": 60,
+      "n_districts": 89,
+      "ucp_vote_share": 0.5740427639062995,
+      "coverage_vas": 4765,
+      "coverage_vas_total": 4765
+    },
+    "canonical_majority__with_advance_smear": {
+      "efficiency_gap": -0.026961813555927874,
+      "mean_median": -0.03513815515600638,
+      "declination": -0.09257909653121,
+      "seats_at_50_50": 0.47191011235955055,
+      "ucp_seats": 48,
+      "n_districts": 89,
+      "ucp_vote_share": 0.5443930272682944,
+      "coverage_vas": 4765,
+      "coverage_vas_total": 4765
+    },
+    "canonical_minority__with_advance_smear": {
+      "efficiency_gap": 0.025539082898241427,
+      "mean_median": 0.0007725400804714511,
+      "declination": 0.04576830820011375,
+      "seats_at_50_50": 0.5168539325842697,
+      "ucp_seats": 55,
+      "n_districts": 89,
+      "ucp_vote_share": 0.5443930272682944,
+      "coverage_vas": 4765,
+      "coverage_vas_total": 4765
+    }
+  },
+  "deltas": {
+    "canonical_majority": {
+      "election_day_only": 0.4606741573033708,
+      "with_advance_smear": 0.47191011235955055,
+      "delta_pp": 1.1235955056179747,
+      "efficiency_gap_A": 0.0009823668405000681,
+      "efficiency_gap_B": -0.026961813555927874,
+      "efficiency_gap_delta": -0.02794418039642794,
+      "mean_median_A": -0.036190901059016234,
+      "mean_median_B": -0.03513815515600638,
+      "mean_median_delta": 0.0010527459030098552,
+      "declination_A": -0.026675251362353544,
+      "declination_B": -0.09257909653121,
+      "declination_delta": -0.06590384516885646,
+      "ucp_vote_share_A": 0.5740427639062995,
+      "ucp_vote_share_B": 0.5443930272682944,
+      "ucp_vote_share_delta": -0.029649736638005075
+    },
+    "canonical_minority": {
+      "election_day_only": 0.5168539325842697,
+      "with_advance_smear": 0.5168539325842697,
+      "delta_pp": 0.0,
+      "efficiency_gap_A": 0.04019385991913548,
+      "efficiency_gap_B": 0.025539082898241427,
+      "efficiency_gap_delta": -0.014654777020894055,
+      "mean_median_A": 0.010401768621624785,
+      "mean_median_B": 0.0007725400804714511,
+      "mean_median_delta": -0.009629228541153334,
+      "declination_A": 0.07700256493469557,
+      "declination_B": 0.04576830820011375,
+      "declination_delta": -0.031234256734581814,
+      "ucp_vote_share_A": 0.5740427639062995,
+      "ucp_vote_share_B": 0.5443930272682944,
+      "ucp_vote_share_delta": -0.029649736638005075
+    }
+  }
+}

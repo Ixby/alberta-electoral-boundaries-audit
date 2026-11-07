@@ -1,0 +1,26 @@
+{
+  "iap_2026_assembled": {
+    "efficiency_gap": -0.016637175571172686,
+    "mean_median": -0.010933825485887949,
+    "declination": -0.059833748775490914,
+    "seats_at_50_50": 0.4945054945054945,
+    "ucp_seats": 51,
+    "n_districts": 91,
+    "ucp_vote_share": 0.5443930272682945,
+    "coverage_vas": 4765,
+    "coverage_vas_total": 4765,
+    "coverage_pct": 1.0,
+    "covered_votes": 1764915.0,
+    "all_vote_total": 1764915.0,
+    "votes_coverage_pct": 1.0,
+    "source": "iap_2026_assembled.gpkg",
+    "population_mad": 3556.6619123016135,
+    "reock_proxy_median": 0.597479343071096,
+    "reock_proxy_pct_below_030": 0.02197802197802198
+  },
+  "iap_2026_assembled_source": "iap_2026_assembled.gpkg",
+  "name_col": "EDName2025",
+  "scorer": "mcmc_ensemble.score_exogenous_map (canonical ensemble conventions), all-ballots VA file",
+  "va_file": "va_polygons_all_2023_ballots_primary.gpkg",
+  "va_file_sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+}

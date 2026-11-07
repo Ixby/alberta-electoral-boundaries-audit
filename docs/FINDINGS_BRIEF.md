@@ -172,7 +172,7 @@ Two configurations the majority criticised on other grounds, Rocky Mountain Hous
 
 Several other minority configurations stood out during the audit without rising to the level of a formal finding. Chestermere, a lakeside city east of Calgary, is partly split in the minority map, in a way that places part of the city in a south-east Calgary district (Calgary-Peigan-Chestermere) it shares no transit system with. The majority report and the chair's addendum both object to the Red Deer and St. Albert configurations. The minority said rural residents near Red Deer "go to school" in the city. Public schools are separate (Sylvan Lake is in Chinook's Edge, Red Deer in Red Deer Public), but Red Deer Catholic Regional serves both, so the school tie is partial, not absent. St. Albert is different: both maps drew the same two-district structure there, and the audit treats it as forced by the rules.
 
-The pattern across these smaller anomalies is consistent with the larger findings. They appear predominantly on the minority map. Whether these choices are what produce the minority map's seat advantage was tested, and that claim did not hold up (public report, Casing 9).
+The pattern across these smaller anomalies is consistent with the larger findings. They appear predominantly on the minority map. Whether these choices are what produce the minority map's seat advantage was tested, and that claim did not hold up (public report, Finding 9).
 
 ---
 

@@ -1,0 +1,21 @@
+52 pairs 12 same inliers and fit under seed 876459452 : True
+53 pairs 17 same inliers and fit under seed 876459452 : True
+54 pairs 11 same inliers and fit under seed 876459452 : True
+58 pairs 3 same inliers and fit under seed 876459452 : True
+60 pairs 6 same inliers and fit under seed 876459452 : True
+61 pairs 45 same inliers and fit under seed 876459452 : True
+62 pairs 8 same inliers and fit under seed 876459452 : True
+63 pairs 6 same inliers and fit under seed 876459452 : True
+67 pairs 3 same inliers and fit under seed 876459452 : True
+68 pairs 9 same inliers and fit under seed 876459452 : True
+72 pairs 5 same inliers and fit under seed 876459452 : True
+73 pairs 21 same inliers and fit under seed 876459452 : True
+74 pairs 8 same inliers and fit under seed 876459452 : True
+76 pairs 20 same inliers and fit under seed 876459452 : True
+79 pairs 5 same inliers and fit under seed 876459452 : True
+80 pairs 3 same inliers and fit under seed 876459452 : True
+81 pairs 15 same inliers and fit under seed 876459452 : True
+85 pairs 8 same inliers and fit under seed 876459452 : True
+90 pairs 7 same inliers and fit under seed 876459452 : True
+91 pairs 8 same inliers and fit under seed 876459452 : True
+pages with a fit: 20 identical: 20

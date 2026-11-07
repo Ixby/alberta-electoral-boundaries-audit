@@ -1,0 +1,1032 @@
+{
+ "section": "report_public.md line 466 to end (The Invisible Part, Banff, Appendices A-N with E absent, References & Methodology)",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 468,
+   "claim": "The two data problems 'can both be fixed'",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 470,
+   "claim": "About half of all Alberta votes are now cast before election day (advance, mobile, special ballots)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/advance_vote_sensitivity.md; reports/academic/report_academic.md L3229",
+   "found": "47.5% of 2023 votes are Advance/Mobile/Special",
+   "note": "'about half' is fair rounding of 47.5%"
+  },
+  {
+   "line": 470,
+   "claim": "Elections Alberta reports advance/mobile/special results as totals per electoral division, not per Voting Area",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/advance_vote_sensitivity.md L35; reports/academic/report_academic.md L362",
+   "found": "EA released Advance, Mobile, Special-Ballot results only at ED level",
+   "note": ""
+  },
+  {
+   "line": 470,
+   "claim": "Roughly 810,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/assignment_gerrymander_comparison.md L130,154 (two-party total 1,706,304; election-day substrate 896,644)",
+   "found": "1,706,304 - 896,644 = 809,660",
+   "note": "derived figure; matches the 47.5% advance share. analysis/review/swarm_audit_2026-10-29.md row 147 flagged the old 395,000 figure; this text is the corrected one"
+  },
+  {
+   "line": 470,
+   "claim": "EA checks every advance voter against a voters list tying each voter to a Voting Area, so the information exists at the moment of voting",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L40,174",
+   "found": "ELS entry carries each voter's home VA; the link is not carried into the count",
+   "note": "report hedges as 'our understanding'; the finding file says whether EA internally retains VA-level advance totals is unconfirmed (EA, R. Mok, 2026-05-19, pointed only to the Statement of Vote)"
+  },
+  {
+   "line": 470,
+   "claim": "'no change to the voting process would be required, only a change to what EA reports'",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "conditional policy inference (Election Act s.112(2) exception discussed in the VA043 finding)"
+  },
+  {
+   "line": 472,
+   "claim": "A Voting Area in northern Lesser Slave Lake covers 4,832 km2",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L31",
+   "found": "Geographic area: 4,832 km2",
+   "note": ""
+  },
+  {
+   "line": 472,
+   "claim": "4,832 km2 is 'more than four-fifths the size of Prince Edward Island'",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "web: PEI area ~5,656-5,686 km2, as cited in analysis/review/swarm_audit_2026-10-29.md row 501",
+   "found": "4832/5660 = 85%",
+   "note": "verified_by: web (via the swarm-audit citation of Wikipedia / PEI Annual Statistical Review; not re-fetched). The earlier 'larger than PEI' wording was corrected"
+  },
+  {
+   "line": 472,
+   "claim": "Not one vote in 2023 was cast at an election-day poll in that VA",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L26,34",
+   "found": "Election-day votes: NDP 0, UCP 0; only VA in ED 70 with no election-day activity",
+   "note": ""
+  },
+  {
+   "line": 472,
+   "claim": "All votes there came by mobile poll or special ballot",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L35",
+   "found": "'Voting mechanism: mobile poll only'",
+   "note": "source says mobile poll only; adding 'or special ballot' is not separately sourced but is harmless"
+  },
+  {
+   "line": 472,
+   "claim": "844 residents of that VA",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L36",
+   "found": "844 persons, 2021 Census",
+   "note": "844 is total population (includes non-voters); the sentence says 'residents', so it stands"
+  },
+  {
+   "line": 474,
+   "claim": "The commission first considered eliminating Lesser Slave Lake and merging it into a larger riding (interim report)",
+   "type": "history",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.320 (minority report p.34)",
+   "found": "'the restoration of the Lesser Slave Lake electoral division, which the interim Report had eliminated'",
+   "note": ""
+  },
+  {
+   "line": 474,
+   "claim": "The minority report counts at least 56 public submissions on keeping Lesser Slave Lake",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.320",
+   "found": "'At least 56 submissions emphasized that the region constitutes a coherent community of interest'",
+   "note": ""
+  },
+  {
+   "line": 474,
+   "claim": "Many of those submissions came from Indigenous communities in the northern part of the riding",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.320; findings/",
+   "found": "The passage cites one submission mentioning 'a significant Indigenous population' but does not say many of the 56 came from Indigenous communities",
+   "note": "searched final report, findings/ and analysis/methodology; no count of submitter origin found"
+  },
+  {
+   "line": 474,
+   "claim": "The division was kept by invoking s.15(2) of the Electoral Boundaries Commission Act",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "findings/ebc_s15_selective_application.md L38-48",
+   "found": "Lesser Slave Lake -45.4%, 4 of 5 criteria, Pass on both maps",
+   "note": ""
+  },
+  {
+   "line": 474,
+   "claim": "s.15(2): up to four ridings meeting at least three of five criteria may be as much as 50% below the average population",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(2)",
+   "found": "'no more than 4 ... at least 3 of the following criteria ... as much as 50% below the average population'",
+   "note": ""
+  },
+  {
+   "line": 474,
+   "claim": "The five criteria: large area, distance from Edmonton, no town over 8,000, an Indian reserve or Metis settlement, a stretch of provincial border",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(2)(a)-(e)",
+   "found": "(a) area >20,000 km2 or surveyed >15,000; (b) >150 km from Legislature; (c) no town >8000; (d) reserve or Metis settlement; (e) boundary coterminous with provincial boundary",
+   "note": ""
+  },
+  {
+   "line": 474,
+   "claim": "'The published vote data still cannot show how those communities voted'",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/lesser_slave_lake_va043_representation_gap.md L174",
+   "found": "votes enter the ED advance/mobile total with no VA attribution",
+   "note": ""
+  },
+  {
+   "line": 478,
+   "claim": "The commission's interim report folded Lesser Slave Lake into a larger riding; both final maps restored it and protected it under s.15(2)",
+   "type": "history",
+   "status": "VERIFIED",
+   "source": "findings/ebc_s15_selective_application.md L45,48; evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.320",
+   "found": "Lesser Slave Lake invoked s.15(2) on Majority (-45.4%) and Minority (-45.4%)",
+   "note": ""
+  },
+  {
+   "line": 478,
+   "claim": "The minority used another protected slot on Rocky Mountain House-Banff Park, drawing its boundary through Banff National Park",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/ebc_s15_selective_application.md L51",
+   "found": "minority's third s.15(2) slot = Rocky Mountain House-Banff Park (-30.3%)",
+   "note": ""
+  },
+  {
+   "line": 478,
+   "claim": "The majority described the park stretch as a place 'where no one lives'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF (majority summary p.~10; also p.62-63)",
+   "found": "'taking part of Banff National Park, where no one lives' / 'A large portion of Banff National Park where no one lives'",
+   "note": "quote matches word for word"
+  },
+  {
+   "line": 478,
+   "claim": "Audit's estimate: a few hundred residents in the park extension",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/ebc_s15_selective_application.md L79; analysis/methodology/reference/banff_extension_population_check.md",
+   "found": "approximately 491 residents (area-weighted, 2021 DAs)",
+   "note": "'a few hundred' for 491 is generous rounding; 'nearly five hundred' would be exact"
+  },
+  {
+   "line": 478,
+   "claim": "The minority names the riding 'Rocky Mountain House-Banff Park' and the town of Banff is not in it",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/population_deviation_reaudit.md L125; evidence/commission_reports/abebc_2026_rpt_final.pdf",
+   "found": "'Banff townsite is not in this ED' - ED includes NP land north of the Town of Banff",
+   "note": ""
+  },
+  {
+   "line": 478,
+   "claim": "The Banff townsite and Canmore sit in a minority riding named 'Canmore-Kananaskis'",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (minority report, Canmore-Kananaskis recommendation)",
+   "found": "'the electoral division would include the Town of Banff; ... the Town of Canmore; the Kananaskis Improvement District'",
+   "note": ""
+  },
+  {
+   "line": 478,
+   "claim": "The majority, its own chair among them, called the move 'a bad faith effort' to claim s.15(2) protection, in the commission's official final report",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.~10; Act s.9",
+   "found": "'which is a bad faith effort to ensure it can be protected under s. 15(2) of the Act'",
+   "note": "quote matches; majority = chair + two (Act s.9 makes the majority's report the commission's report)"
+  },
+  {
+   "line": 478,
+   "claim": "'The communities it was designed to help had to fight for it through public submissions'",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "characterisation; the 56-submission fact behind it is verified above"
+  },
+  {
+   "line": 480,
+   "claim": "Banff sits inside a national park on federal land it is not permitted to grow into",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched analysis/methodology, findings, reports/academic/report_academic.md",
+   "found": "no repo source on Banff's growth limits (Parks Canada / Banff Incorporation Agreement)",
+   "note": "true to general knowledge but not sourced in the repo; not web-checked"
+  },
+  {
+   "line": 480,
+   "claim": "For provincial purposes almost the only people the province represents in that stretch of the Rockies live in the Banff townsite",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "analysis/methodology/population_deviation_reaudit.md L103 (Banff 8,305)",
+   "found": "Banff = 8,305 (2021); Lake Louise hamlet and the ~491 estimated park-extension residents are not netted out",
+   "note": "'almost the only' is a loose claim; no repo source states it"
+  },
+  {
+   "line": 480,
+   "claim": "Canmore is the next town down the Bow Valley from Banff; Alberta names many divisions for land rather than towns",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "geographic/naming description, not tested"
+  },
+  {
+   "line": 480,
+   "claim": "Majority's objection: the extension is 'a bad faith effort' to claim 'a population protection' for land it described as a place 'where no one lives'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.~10",
+   "found": "'a bad faith effort to ensure it can be protected under s. 15(2)'; 'where no one lives'",
+   "note": "the two quoted phrases match; 'a population protection' is the report's gloss, not a quoted phrase"
+  },
+  {
+   "line": 484,
+   "claim": "Canada counts its population every five years; the 2026 census was taken in spring 2026",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2366",
+   "found": "'2026 Census was collected in May 2026'",
+   "note": ""
+  },
+  {
+   "line": 484,
+   "claim": "Statistics Canada will not release usable data below the provincial level until roughly 2027 or 2028",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2366; analysis/methodology/plain_language_defense.md L1134; calgary_data_sources_audit.md L45",
+   "found": "counts 'expected in early 2027'; DA data 'mid-to-late 2027'; detailed tables 'late 2027'",
+   "note": "repo sources support 2027; '2028' is not in any repo source (hedged 'roughly')"
+  },
+  {
+   "line": 484,
+   "claim": "The commission started from the 2021 census, updated to mid-2024 with provincial estimates",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.~24; reports/academic/report_academic.md L2368",
+   "found": "2021 census numbers 'updated by the estimated population figures from Alberta Treasury Board'; July 2024 estimate",
+   "note": ""
+  },
+  {
+   "line": 484,
+   "claim": "The census was already four years old when the maps were drawn, potentially fourteen years old when the boundaries retire",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L383",
+   "found": "'up to 14 years stale at the boundaries' retirement (potentially 2035)'",
+   "note": "internal tension: academic L2370 says 'ten years old' by 2031 on the same map; the 14-year figure assumes retirement in 2035"
+  },
+  {
+   "line": 484,
+   "claim": "Fast-growing cities like Airdrie and Chestermere will change by 40% or more over that window",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L385",
+   "found": "'moves per-ED population quotas ... by 40 %+ at the 14-year mark under current growth rates'",
+   "note": "a projection by the audit, not an observed figure"
+  },
+  {
+   "line": 484,
+   "claim": "'Rural communities will shrink'; proposed Act amendment",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "prediction and policy suggestion"
+  },
+  {
+   "line": 486,
+   "claim": "'Neither of these is a finding about the current commission's maps'",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 492,
+   "claim": "Each appendix owns one concept, starts from confusion, ends with what the concept cannot tell you",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 498,
+   "claim": "Appendix A toy example: town of 40,000, four slices of 10,000 against 30,000 rural voters",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "arithmetic",
+   "found": "4 x 10,000 = 40,000; 10,000 vs 30,000 per riding",
+   "note": "toy numbers, arithmetic only"
+  },
+  {
+   "line": 500,
+   "claim": "Finding 1: 85,805 people, four ridings, a minority in three of them",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L85; findings/checklist_baseline_scoring.md L53-60",
+   "found": "Airdrie 85,805 (2024 municipal census); four districts by territory; Airdrie East holds 54.7% so residents are outnumbered in the other three",
+   "note": "true by territory; Olds-Three Hills-Didsbury holds only ~350 Airdrie residents (0.5%), so by the audit's 2% piece rule it is three pieces"
+  },
+  {
+   "line": 500,
+   "claim": "The commission's other (majority) draft shows two ridings were enough",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L85; findings/checklist_baseline_scoring.md L53",
+   "found": "majority splits Airdrie in 2 pieces",
+   "note": ""
+  },
+  {
+   "line": 502,
+   "claim": "Cracking describes an effect, not a motive",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 508,
+   "claim": "Section 15(2) lets up to four districts fall below the normal population floor",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(2)",
+   "found": "'no more than 4 of the proposed electoral divisions'",
+   "note": ""
+  },
+  {
+   "line": 508,
+   "claim": "s.15(2) was written for remote districts with strong community ties, like northern ridings serving Indigenous communities",
+   "type": "history",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf; evidence/hansard",
+   "found": "Act text states criteria only, no statement of purpose",
+   "note": "legislative intent is not stated in the Act; no Hansard source with this wording located in the repo"
+  },
+  {
+   "line": 508,
+   "claim": "The majority called the minority's extension through national park 'a bad faith effort' to qualify the district for s.15(2)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.~10",
+   "found": "'a bad faith effort to ensure it can be protected under s. 15(2)'",
+   "note": ""
+  },
+  {
+   "line": 508,
+   "claim": "'The audit's check undercut the charge:'",
+   "type": "editorial",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "EDITORIAL DEFECT: the sentence ends with a colon and the next paragraph begins 'Now re-read Finding 2' with nothing in between; text appears to be missing (the audit's population check, ~491 residents, is the likely content)"
+  },
+  {
+   "line": 510,
+   "claim": "Finding 2: three shapes, flagged by the commission's majority, confirmed when the audit inspected them",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L99,392",
+   "found": "majority flagged four boundaries, audit confirmed 3 of 4",
+   "note": "internal consistency check"
+  },
+  {
+   "line": 516,
+   "claim": "Appendix C toy example: 12,000 voters (7,000 O / 5,000 B); evenly drawn Orange wins all three; packed layout gives Orange 1 seat, Blue 2",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "arithmetic",
+   "found": "even: 2,333 O vs 1,667 B per district; packed: 4,000-0, then 1,500 O vs 2,500 B twice",
+   "note": "toy numbers, arithmetic only; checks out"
+  },
+  {
+   "line": 520,
+   "claim": "Finding 3: 17 north/east/central Calgary districts, minority 11.5% over provincial average, majority 2.8%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1204",
+   "found": "Zone A mean 61,225 vs provincial 54,929 = +11.5%; majority Zone A +2.8%",
+   "note": "17 districts also stated at reports/public/report_public.md L113"
+  },
+  {
+   "line": 520,
+   "claim": "The 'depth half', big winning margins, is missing so no packing signature",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L113; reports/academic/report_academic.md L1262",
+   "found": "packing P2 fails on official boundaries: NDP wins 8 of 17 by 15.0 pts vs provincial 27.6",
+   "note": ""
+  },
+  {
+   "line": 528,
+   "claim": "MAD of 3,180 (majority) and 4,707 (minority)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/population_equality.md L27,100; reports/academic/report_academic.md L710",
+   "found": "Mean absolute deviation from 54,929: 3,180 / 4,707",
+   "note": ""
+  },
+  {
+   "line": 528,
+   "claim": "4,707 means 'the misses average half again larger'",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "arithmetic",
+   "found": "4707/3180 = 1.480",
+   "note": "'half again' = 1.5x; actual 1.48x, fine"
+  },
+  {
+   "line": 528,
+   "claim": "Alberta allows +/-25%",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(1)",
+   "found": "'not more than 25% above nor more than 25% below'",
+   "note": ""
+  },
+  {
+   "line": 528,
+   "claim": "The minority map spends 48% more of that currency than the majority",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/population_equality.md L39; reports/academic/report_academic.md L253",
+   "found": "48% more mean absolute deviation (4,707 vs 3,180)",
+   "note": ""
+  },
+  {
+   "line": 528,
+   "claim": "Finding 1 shows the minority 'didn't buy Airdrie's wholeness' with its extra deviation",
+   "type": "audit result",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "interpretive inference from Finding 1"
+  },
+  {
+   "line": 530,
+   "claim": "The '99 of every 100 neutral maps' figure holds only against neutral maps held to +/-12.5%",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L539,1648",
+   "found": "MedAD p99.1 under the +/-12.5% proposal band; p0.013 under the +/-25% band",
+   "note": ""
+  },
+  {
+   "line": 532,
+   "claim": "Every district on both maps is legal (inside the +/-25% band, bar the s.15(2) exceptions)",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L135; findings/ebc_s15_selective_application.md",
+   "found": "no district crosses the band outside s.15(2) invocations",
+   "note": ""
+  },
+  {
+   "line": 538,
+   "claim": "Ensemble: 252,500 steps in each of four chains, 1,010,000 maps in all",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L88",
+   "found": "'1,010,000 neutral ReCom plans ... 4 chains x 252,500 steps'",
+   "note": "4 x 252,500 = 1,010,000; the 'merge two districts and re-split' description is ReCom"
+  },
+  {
+   "line": 538,
+   "claim": "No vote data is consulted while drawing the ensemble",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1619",
+   "found": "ReCom proposals use population and contiguity on the 4,765-VA graph; votes used only for scoring",
+   "note": "not checked line by line in the sampler code"
+  },
+  {
+   "line": 538,
+   "claim": "The million maps are worth about 1,400 independent draws",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L555; reports/public/report_public.md L184",
+   "found": "'ESS ~ 1,413-1,522'",
+   "note": "'about 1,400' is at the low end of the stated 1,413-1,522 range"
+  },
+  {
+   "line": 538,
+   "claim": "If 69 do, neutral drawing produces such a map 69 times in a million tries",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L533",
+   "found": "69 of 1,010,000 plans exceed it",
+   "note": "69/1,010,000 = 68 per million; fine"
+  },
+  {
+   "line": 540,
+   "claim": "Finding 6: majority at the 78th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1650,1675",
+   "found": "seats@50/50 0.4607, p78.54",
+   "note": ""
+  },
+  {
+   "line": 540,
+   "claim": "Finding 6: minority at the 99.99th percentile, 69 of 1,010,000 score higher",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L533",
+   "found": "'69 of 1,010,000 plans exceed it, all at 45/87; p99.99'",
+   "note": "69/1,010,000 gives 99.9932"
+  },
+  {
+   "line": 542,
+   "claim": "The machine does not weigh every fine point of the statute; computer maps are nonpartisan alternatives",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 546,
+   "claim": "Efficiency-gap toy: Orange wins a 100-vote district 90-10, Orange wastes 39 (90-51), Blue wastes 10",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "arithmetic",
+   "found": "90 - 51 = 39; loser wastes all 10",
+   "note": "toy numbers, arithmetic only"
+  },
+  {
+   "line": 546,
+   "claim": "Positive efficiency gaps favour conservatives in this report's sign convention",
+   "type": "framing",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L850",
+   "found": "academic report writes the CWEF as 'negative = UCP advantage' in places; the public report defines its own sign and uses it consistently",
+   "note": "convention differs between the two reports; the public report states its own"
+  },
+  {
+   "line": 546,
+   "claim": "The audit's Alberta calibration line (~4.1%) is the level only 5% of the million neutral maps cross",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L555,1090",
+   "found": "95th-percentile EG = +0.0410 as registered (2026-07-12 rerun gives +0.0408)",
+   "note": "~4.1% either way"
+  },
+  {
+   "line": 548,
+   "claim": "Finding 7: minority at +4.0%, the 94.5th percentile, below the pre-registered line",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L541,555",
+   "found": "minority EG +3.96%, p94.54; threshold 4.10%",
+   "note": "3.96 rounds to 4.0; 94.54 rounds to 94.5"
+  },
+  {
+   "line": 550,
+   "claim": "The audit uses four metrics and a locked threshold",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L850; reports/public/report_public.md L170",
+   "found": "four partisan-fairness metrics (EG, mean-median, declination, seats@50/50)",
+   "note": ""
+  },
+  {
+   "line": 554,
+   "claim": "The Ch1 number is 'one in 568,000' (at most)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L582",
+   "found": "Ch1 p = 8.80e-07; Bonferroni upper bound p <= 1.76e-06",
+   "note": "1/1.76e-06 = 568,182"
+  },
+  {
+   "line": 556,
+   "claim": "DNA example: one-in-a-million profile, city of ten million, about ten matches, 90% chance someone else is the source",
+   "type": "arithmetic",
+   "status": "VERIFIED",
+   "source": "arithmetic",
+   "found": "10,000,000 x 1e-6 = 10 matches; 9 of 10 others = 90%",
+   "note": "toy numbers; assumes no other evidence, as the text says ('on the DNA alone')"
+  },
+  {
+   "line": 556,
+   "claim": "Swapping P(evidence|innocence) for P(innocence|evidence) is the prosecutor's fallacy",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "standard statistical definition",
+   "found": "",
+   "note": "well-established term"
+  },
+  {
+   "line": 560,
+   "claim": "Finding 8: audit states the rarity under neutral drawing and refuses to turn it into a verdict",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 568,
+   "claim": "ReCom has a documented lean toward compact, tidy districts",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077",
+   "found": "'spanning-tree ReCom's documented compactness weighting (DeFord, Duchin & Solomon 2021, section 4)'",
+   "note": ""
+  },
+  {
+   "line": 568,
+   "claim": "The replacement sampler grows districts from random spanning forests; registered publicly as OSF he53s before any map was drawn with it",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "preregistration/osf_ledger.json L24-27; reports/academic/report_academic.md L579,1077",
+   "found": "he53s = 'Forest-ReCom Sampler Robustness Check', registered_utc 2026-07-10T05:42Z (= 2026-07-09 23:42 MDT), public, executed 2026-07-10",
+   "note": ""
+  },
+  {
+   "line": 568,
+   "claim": "Seeds were derived from a public randomness beacon",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077",
+   "found": "seeds derived from drand round 5,500,000",
+   "note": ""
+  },
+  {
+   "line": 568,
+   "claim": "It moved less than one percentile point on every metric: a pre-registered ROBUST verdict",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/forest_recom_robustness.md L42-45",
+   "found": "EG 0.81 pp, mean-median 0.34, declination 0.04, seats 0.11 (all < 2 pp = Robust)",
+   "note": "max shift 0.81 pp, so 'less than one point' holds. But reports/academic/report_academic.md L1077 calls the result 'inconclusive at this run size, not a finding of robustness'; the public text hedges ('shifts that small sit inside its margin of error') yet still leads with ROBUST"
+  },
+  {
+   "line": 568,
+   "claim": "That run drew fewer effective samples than registered",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077; findings/forest_recom_robustness.md L68",
+   "found": "pooled n_eff 61-124 against a >=200 target",
+   "note": ""
+  },
+  {
+   "line": 568,
+   "claim": "The claim that Act I's flagged geometry is the specific mechanism behind the seat numbers did not survive testing and was dropped",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L394; reports/academic/report_academic.md L58,258",
+   "found": "mechanism claim dropped (drain test and related checks)",
+   "note": "internal-consistency check only; the underlying test chain was not rerun here"
+  },
+  {
+   "line": 570,
+   "claim": "Finding 9: three attacks, two survived, one claim lost",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L239",
+   "found": "three attacks reported in Finding 9",
+   "note": "internal consistency"
+  },
+  {
+   "line": 576,
+   "claim": "Appendix J: swing-zone test p = 0.0024 under the naive null",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1153,1157",
+   "found": "bootstrap p = 0.0024 (standard i.i.d.-flip permutation)",
+   "note": ""
+  },
+  {
+   "line": 578,
+   "claim": "Under the corrected (block-permutation) null p is about 0.19",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L537,1157",
+   "found": "'block-permutation p ~ 0.19'",
+   "note": ""
+  },
+  {
+   "line": 578,
+   "claim": "100 clustered areas are 'more like 20 informative observations wearing 100 coats'",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "illustrative figure, not a measured effective n; academic L1157: the 2,110 swing-zone VAs form one connected component of 2,086"
+  },
+  {
+   "line": 578,
+   "claim": "The test was retired",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1157",
+   "found": "'SZAT is therefore retired as a confirmatory channel'",
+   "note": ""
+  },
+  {
+   "line": 580,
+   "claim": "Finding 10: two instruments retired and one pre-registered test the minority passed outright",
+   "type": "audit result",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md L251-253; reports/academic/report_academic.md L58",
+   "found": "SZAT and Fisher combination retired; neighbour-drain PASS",
+   "note": "internal consistency"
+  },
+  {
+   "line": 582,
+   "claim": "Correction says nothing against the ensemble findings, which never assumed independence",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 588,
+   "claim": "Minority report says Cochrane residents 'move fluidly' into Calgary",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (minority report, Calgary-Nolan Hill-Cochrane)",
+   "found": "'where residents move fluidly between jurisdictions for work, education, health care, and commerce'",
+   "note": "quote matches; source says residents move fluidly 'between jurisdictions' along the Calgary-Cochrane corridor"
+  },
+  {
+   "line": 588,
+   "claim": "About a third of Cochrane's workers commute into Calgary; roughly half work in Cochrane",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/cochrane_journey_to_work.md",
+   "found": "Calgary 3,065 = 35.8%; Cochrane 4,205 = 49.2% (StatCan 98-10-0459, 2021)",
+   "note": ""
+  },
+  {
+   "line": 588,
+   "claim": "Minority says rural residents near Red Deer 'go to school' in the city",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (minority report, Red Deer-Sylvan Lake)",
+   "found": "'the urban community where they work, go to school, and gather at community events'",
+   "note": "quote matches"
+  },
+  {
+   "line": 588,
+   "claim": "School-division maps put Sylvan Lake and Red Deer in different public divisions, though one Catholic division serves both",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/reference/minority_rationales_validation.md L85-86,97; reports/academic/report_academic.md L1768",
+   "found": "Chinook's Edge vs Red Deer Public; Red Deer Catholic Regional serves both",
+   "note": ""
+  },
+  {
+   "line": 588,
+   "claim": "'In most of the six cases we checked' the particular line is where the reason falls short",
+   "type": "audit result",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md L658",
+   "found": "recount: 2 of 6 fail on population arithmetic (Airdrie, Olds), 2 partly supported (Cochrane, Red Deer-Sylvan Lake), 1 not tested (RMH-Banff Park), 1 has no stated rationale (St. Albert-Sturgeon); 'the rationale check separates the redraws; it does not condemn them all'",
+   "note": "'most of six' is stronger than the academic recount (2 clear failures, 2 partial); the earlier 'five of six failed' reading was withdrawn. Suggest 'in several of the six' or give the 2/2/1/1 split"
+  },
+  {
+   "line": 592,
+   "claim": "Finding 11: the same recipe applied to six stated reasons",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L288,658",
+   "found": "six contested minority redraws",
+   "note": ""
+  },
+  {
+   "line": 598,
+   "claim": "Chair plus commissioners nominated from the government and opposition sides",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "chair appointed by LGIC; four others appointed by Speaker, nominated by President of Executive Council (2) and Leader of the Opposition (2)",
+   "note": ""
+  },
+  {
+   "line": 598,
+   "claim": "From 1995 to 2017 each commission sent the Assembly one map, even when a commissioner dissented",
+   "type": "history",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/abebc_2017_interim_report.pdf; Act s.9 (1995 c10)",
+   "found": "2017 confirmed: Commissioner Day filed a minority report in Appendix A of a single report. 1992 and 2003 PDFs contain no dissent; 1995 and 2010 reports not in the repo",
+   "note": "partly supported (2017 and the 1995 s.9 provision); each cycle not individually confirmed"
+  },
+  {
+   "line": 598,
+   "claim": "This cycle the room split along its nomination lines; the government's nominees produced the outlier",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html; reports/public/report_public.md L289",
+   "found": "minority = Martin and Evans (both nominated by the President of Executive Council); majority = chair + Clark + Samson",
+   "note": ""
+  },
+  {
+   "line": 598,
+   "claim": "Assembly appointment notice names Julian Martin and John D. Evans, KC as 'Nominated by the President of Executive Council' (March 28, 2025)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "'Dr. Julian Martin (Sherwood Park) Nominated by the President of Executive Council John D. Evans, KC (City of Lethbridge) Nominated by the President of Executive Council'",
+   "note": "quote and URL (canonical link in the saved HTML) match"
+  },
+  {
+   "line": 598,
+   "claim": "No evidence in the record shows the government directed or knew of its nominees' map",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "absence-of-evidence statement, scoped to 'this audit's record'"
+  },
+  {
+   "line": 604,
+   "claim": "Under the Act the commission proposes and the Assembly disposes; the report has no legal effect until the Assembly enacts a map",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf ss.9-11",
+   "found": "s.11: if the Assembly by resolution approves or approves with alterations, the Government shall introduce a Bill",
+   "note": ""
+  },
+  {
+   "line": 608,
+   "claim": "The Act places no limits on what the Assembly does instead: no minimum debate, notice period, obligation to prefer the commission, or hearing requirement",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf (whole Act read)",
+   "found": "Act contains no such provisions; s.11 only governs the approval path",
+   "note": "absence claim; checked by reading all 12 pages"
+  },
+  {
+   "line": 608,
+   "claim": "Government Motion 37 referred the work onward to a select committee",
+   "type": "history",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf",
+   "found": "'a Select Special Committee on Electoral Boundaries be established to oversee an independent review ... without a requirement to direct the holding of public hearings'; question put on GM 37 on April 21, 2026",
+   "note": ""
+  },
+  {
+   "line": 608,
+   "claim": "MLAs, not an independent commission, oversaw the advisory panel that drew the new map",
+   "type": "history",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf",
+   "found": "committee: Mr. Lunty (chair), 3 government, 2 opposition MLAs; 'engage independent advisors ... independent advisory panel'",
+   "note": ""
+  },
+  {
+   "line": 608,
+   "claim": "In every cycle since 1995 it was the Assembly's restraint, not the statute, that kept politicians' hands off the pen",
+   "type": "history",
+   "status": "UNVERIFIABLE",
+   "source": "Act s.11; evidence/legislation",
+   "found": "Act confirms the legal freedom; no repo source reviews each post-1995 Assembly response (1996, 2003, 2010, 2017)",
+   "note": "the legal half is verified, the historical half ('every cycle') is not sourced in the repo"
+  },
+  {
+   "line": 610,
+   "claim": "Finding 13: sixteen communities of hearings replaced by a body required to hold none",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf PDF p.14",
+   "found": "'28 hearings were held in 16 different locations' (pre-interim round)",
+   "note": "16 locations is the first round only; the second round added virtual hearings plus Calgary and Edmonton"
+  },
+  {
+   "line": 612,
+   "claim": "The 'November tests' are built to inform the political question",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 618,
+   "claim": "The Supreme Court described the law/convention divide in the 1981 Patriation Reference: courts may recognize a convention yet decline to enforce it",
+   "type": "citation",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/ (case not present); web knowledge: Reference re Resolution to Amend the Constitution, [1981] 1 SCR 753",
+   "found": "not in the repo's evidence/law folder",
+   "note": "well-known holding and standard citation, but the case was neither in the repo nor fetched; verified_by: web (unchecked)"
+  },
+  {
+   "line": 618,
+   "claim": "Decades of practice, federally and in the provinces, built the rule that politicians do not draw their own ridings; some jurisdictions give a commission's map effect unless the legislature overrides it",
+   "type": "history",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/ (ns_bill187_2019, ontario_representation_act_2015, parl_C14, carter_1991)",
+   "found": "repo holds other jurisdictions' acts but this specific comparison was not located",
+   "note": "not traced to a specific statute in the repo; the Alberta s.11 contrast is verified"
+  },
+  {
+   "line": 618,
+   "claim": "Alberta's Act does not give the commission's map effect",
+   "type": "law",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.11",
+   "found": "Assembly must approve by resolution and Government introduce a Bill",
+   "note": ""
+  },
+  {
+   "line": 618,
+   "claim": "'A norm violated once, without consequence, is weaker for every government that follows'",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 620,
+   "claim": "Finding 14: real violation, documented, no convention a court will enforce; a court can still review the map",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "legal characterisation; consistent with the Carter (1991) / Charter s.3 framing elsewhere in the report; not independently retested"
+  },
+  {
+   "line": 622,
+   "claim": "'Unenforceable' is a statement about courts, not about consequences",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 628,
+   "claim": "Methodology relies on established political science and legal literature",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 630,
+   "claim": "Chen, Jowei, and Jonathan Rodden. 2013. 'Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures.' Quarterly Journal of Political Science 8(3): 239-269",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2875",
+   "found": "identical citation text",
+   "note": ""
+  },
+  {
+   "line": 631,
+   "claim": "Courtney, John C. 2001. Commissioned Ridings: Designing Canada's Electoral Districts. Montreal and Kingston: McGill-Queen's University Press",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2877",
+   "found": "identical citation text",
+   "note": ""
+  },
+  {
+   "line": 630,
+   "claim": "References list holds only two works though the intro promises 'key references' and the heading is 'References & Methodology'",
+   "type": "editorial",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "EDITORIAL: academic report cites many more (Stephanopoulos-McGhee, DeFord-Duchin-Solomon, Warrington, etc.); no Methodology subsection follows the heading; Appendix E is absent (letters skip D to F) with no cross-reference to it anywhere"
+  }
+ ]
+}

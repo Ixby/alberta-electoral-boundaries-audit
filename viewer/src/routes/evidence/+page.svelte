@@ -5,7 +5,7 @@
   Code: GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 
   Created 2026-10-29 with the main-page rewrite (proposals/site_rewrite_2026-10-29):
-  the fourteen findings the old main page carried as an evidence log, kept here in
+  the fourteen findings (a fifteenth added 2026-11-07) the old main page carried as an evidence log, kept here in
   full so no caveat lost its home. Plain headings; the #casing-N anchors stay so
   shared links (and the main page's redirect of /#casing-N) still land. Body text
   is the existing body.casings.* strings, so their translations keep working.
@@ -46,7 +46,8 @@
 				{ n: 11, app: 'k' },
 				{ n: 12, app: 'l' },
 				{ n: 13, app: 'm', context: true },
-				{ n: 14, app: 'n' }
+				{ n: 14, app: 'n' },
+				{ n: 15, app: 'k' }
 			]
 		}
 	];
@@ -83,7 +84,17 @@
 			{#each g.items as it (it.n)}
 				<section id={'casing-' + it.n}>
 					<h3>{it.n}. {t(lang.current, 'evidence.e' + it.n)}</h3>
+					{#if it.n === 15}
+						<p class="note">{@html c(it.n, 'note')}</p>
+					{/if}
 					<p><strong>{t(lang.current, 'evidence.beat_found')}.</strong> {@html c(it.n, 'found')}</p>
+					{#if it.n === 15}
+						<ul>
+							{#each [1, 2, 3, 4, 5] as k (k)}
+								<li>{@html c(15, 'p' + k)}</li>
+							{/each}
+						</ul>
+					{/if}
 					{#if it.n === 1}
 						<figure>
 							<picture>
@@ -225,6 +236,16 @@
 	}
 	p {
 		margin-bottom: 0.9rem;
+	}
+	ul {
+		margin: 0 0 0.9rem 1.3rem;
+	}
+	li {
+		margin-bottom: 0.6rem;
+	}
+	.note {
+		font-size: 0.95rem;
+		color: #6b6b66;
 	}
 	a {
 		color: #1a5276;

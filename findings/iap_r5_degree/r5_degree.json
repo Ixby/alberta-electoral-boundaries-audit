@@ -1,0 +1,87 @@
+{
+ "a": {
+  "n": 41,
+  "identical_both_readings": 29,
+  "overlay_unchanged": 31,
+  "stated_identical": 29,
+  "pop": 2268149,
+  "pop_identical": 1627975,
+  "pop_share_identical": 0.7178,
+  "people_moved_est": 141809,
+  "changed": [
+   "Calgary-Bow",
+   "Calgary-North West",
+   "Calgary-West-Elbow Valley",
+   "Canmore-Banff",
+   "Chestermere-Strathmore",
+   "Cochrane-Springbank",
+   "High River-Vulcan-Siksika",
+   "Lethbridge-East",
+   "Lethbridge-West",
+   "Livingstone-Macleod",
+   "Okotoks-Diamond Valley",
+   "Taber-Cardston"
+  ]
+ },
+ "b": {
+  "n": 11,
+  "identical_both_readings": 11,
+  "overlay_unchanged": 11,
+  "stated_identical": 11,
+  "pop": 639447,
+  "pop_identical": 639447,
+  "pop_share_identical": 1.0,
+  "people_moved_est": 0,
+  "changed": []
+ },
+ "rest": {
+  "n": 27,
+  "identical_both_readings": 13,
+  "overlay_unchanged": 13,
+  "stated_identical": 13,
+  "pop": 1401718,
+  "pop_identical": 638365,
+  "pop_share_identical": 0.4554,
+  "people_moved_est": 154874,
+  "changed": [
+   "Barrhead-Westlock-Athabasca",
+   "Drumheller-Stettler",
+   "Fort McMurray-Lac La Biche",
+   "Fort McMurray-Wood Buffalo",
+   "Lacombe-Clearwater",
+   "Leduc-Devon",
+   "Mountain View-Kneehill",
+   "Red Deer-South",
+   "Spruce Grove",
+   "St. Albert-Sturgeon",
+   "Stony Plain-Drayton Valley",
+   "Sylvan Lake-Innisfail",
+   "West Yellowhead",
+   "Wetaskiwin-Ponoka-Maskwacis"
+  ]
+ },
+ "c": {
+  "n": 10,
+  "population_identical": 9,
+  "differ": [
+   {
+    "interim_division": "Edmonton-South East",
+    "app7_division": "Edmonton-Nisku",
+    "population": 52888,
+    "app7": 54521,
+    "diff": 1633
+   }
+  ]
+ },
+ "d": {
+  "state": "adopted",
+  "best_district": "Rocky Mountain House-Sundre",
+  "best_share_in_zone": 0.6096
+ },
+ "registered_X1": {
+  "X1": "not met",
+  "a": "31/41",
+  "b": "11/11",
+  "c": "not scored"
+ }
+}

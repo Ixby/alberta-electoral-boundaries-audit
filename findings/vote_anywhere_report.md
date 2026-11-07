@@ -200,7 +200,7 @@ The Election Day vote total was estimated from the VA-level spatial attribution 
 1. **87 VAN rows identified** — one per 2019 ED, all with ballot_type = "Advance".
 2. **VAN votes total 165,933** = **9.40% of the province-wide 2023 vote** (1,764,915 total).
 3. **VAN votes are approximately 17.8%–18.4% of Election Day votes** (±2 pp uncertainty due to phase4c approximation).
-4. **These votes must not be spatially attributed to the VA polygon.** The poll_name "Vote Anywhere (Out of ED)" confirms the voter is NOT a resident of the VA where they voted. The phase4c pipeline already flags these for home-ED reapportionment using the Election Day share as the attribution key.
+4. **These votes must not be spatially attributed to the VA polygon.** The poll_name "Vote Anywhere (Out of ED)" confirms the voter is NOT a resident of the VA where they voted. The phase4c pipeline already flags these for home-ED reapportionment using the Election Day share as the attribution key. **[2026-11-05: that home-district reapportionment was not carried out — `advance_vote_splat.py` (step C5, 2026-05-10) dropped these rows instead. `vote_anywhere_splat.py` now does it; academic report C51.]**
 5. **Partisan composition of VAN ballots:** NDP 52.9%, UCP 44.8%, Other 2.3% — notably NDP-leaning compared to the province-wide two-party split (approximately 50/50 in many urban EDs). This reflects higher urban VAN uptake where Edmonton NDP-leaning voters were more likely to use province-wide advance facilities.
 6. **No H2 matches** (no "any elector" or "province-wide" poll names). The "vote anywhere" terminology was used exclusively as "Vote Anywhere (Out of ED)".
 

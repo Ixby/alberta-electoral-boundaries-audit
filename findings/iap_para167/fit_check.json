@@ -1,0 +1,688 @@
+{
+ "n_districts": 91,
+ "pop_col": "pop_2021",
+ "total_overlay_pop": 4262572.251436839,
+ "stated_total_on_list": 4856778,
+ "stated_total_app7": 4888723,
+ "polygon_overlaps_over_0_1km2": [
+  {
+   "a": "High River-Vulcan-Siksika",
+   "b": "Olds-Didsbury-Three Hills",
+   "src": [
+    "majority",
+    "amended"
+   ],
+   "km2": 7.277
+  },
+  {
+   "a": "West Yellowhead",
+   "b": "Canmore-Banff",
+   "src": [
+    "iap_v3",
+    "amended"
+   ],
+   "km2": 4.211
+  }
+ ],
+ "polygon_gaps_km2": [
+  1.459,
+  0.434,
+  0.26,
+  0.153,
+  0.111
+ ],
+ "va_points_in_two": [
+  {
+   "va": 3813,
+   "claimed_by": [
+    "High River-Vulcan-Siksika",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "assigned": "High River-Vulcan-Siksika",
+   "pop": 814.1317682622289
+  }
+ ],
+ "va_points_in_none": [],
+ "pop_in_overlaps": 814.1317682622289,
+ "pop_in_gaps": 0,
+ "share_of_population_resolved": 0.00019099541784606684,
+ "districts": [
+  {
+   "district": "Calgary-Acadia",
+   "source": "majority",
+   "stated_pop": 55789,
+   "rebuilt_overlay_pop": 49754,
+   "km2": 27.2
+  },
+  {
+   "district": "Calgary-Beddington",
+   "source": "majority",
+   "stated_pop": 56024,
+   "rebuilt_overlay_pop": 50444,
+   "km2": 29.5
+  },
+  {
+   "district": "Calgary-Bhullar-McCall",
+   "source": "majority",
+   "stated_pop": 55887,
+   "rebuilt_overlay_pop": 38535,
+   "km2": 40.8
+  },
+  {
+   "district": "Calgary-Bow",
+   "source": "majority",
+   "stated_pop": 54982,
+   "rebuilt_overlay_pop": 48108,
+   "km2": 31.9
+  },
+  {
+   "district": "Calgary-Buffalo",
+   "source": "majority",
+   "stated_pop": 58777,
+   "rebuilt_overlay_pop": 41111,
+   "km2": 4.2
+  },
+  {
+   "district": "Calgary-Confluence",
+   "source": "majority",
+   "stated_pop": 58632,
+   "rebuilt_overlay_pop": 47311,
+   "km2": 49.1
+  },
+  {
+   "district": "Calgary-Cross",
+   "source": "majority",
+   "stated_pop": 59491,
+   "rebuilt_overlay_pop": 52856,
+   "km2": 15.9
+  },
+  {
+   "district": "Calgary-Currie",
+   "source": "majority",
+   "stated_pop": 58111,
+   "rebuilt_overlay_pop": 50171,
+   "km2": 15.9
+  },
+  {
+   "district": "Calgary-East",
+   "source": "majority",
+   "stated_pop": 58308,
+   "rebuilt_overlay_pop": 55140,
+   "km2": 68.4
+  },
+  {
+   "district": "Calgary-Edgemont",
+   "source": "majority",
+   "stated_pop": 55141,
+   "rebuilt_overlay_pop": 50265,
+   "km2": 19.9
+  },
+  {
+   "district": "Calgary-Elbow",
+   "source": "majority",
+   "stated_pop": 55297,
+   "rebuilt_overlay_pop": 47595,
+   "km2": 17.6
+  },
+  {
+   "district": "Calgary-Falconridge-Conrich",
+   "source": "majority",
+   "stated_pop": 56661,
+   "rebuilt_overlay_pop": 45586,
+   "km2": 46.3
+  },
+  {
+   "district": "Calgary-Fish Creek",
+   "source": "majority",
+   "stated_pop": 55403,
+   "rebuilt_overlay_pop": 51623,
+   "km2": 32.7
+  },
+  {
+   "district": "Calgary-Glenmore-Tsuut'ina",
+   "source": "majority",
+   "stated_pop": 56970,
+   "rebuilt_overlay_pop": 50441,
+   "km2": 334.2
+  },
+  {
+   "district": "Calgary-Hays",
+   "source": "majority",
+   "stated_pop": 52147,
+   "rebuilt_overlay_pop": 45050,
+   "km2": 63.1
+  },
+  {
+   "district": "Calgary-Klein",
+   "source": "majority",
+   "stated_pop": 56292,
+   "rebuilt_overlay_pop": 49409,
+   "km2": 36.7
+  },
+  {
+   "district": "Calgary-Lougheed",
+   "source": "majority",
+   "stated_pop": 59554,
+   "rebuilt_overlay_pop": 53031,
+   "km2": 34.4
+  },
+  {
+   "district": "Calgary-McKenzie",
+   "source": "majority",
+   "stated_pop": 62772,
+   "rebuilt_overlay_pop": 56334,
+   "km2": 30.9
+  },
+  {
+   "district": "Calgary-Mountain View",
+   "source": "majority",
+   "stated_pop": 54396,
+   "rebuilt_overlay_pop": 46573,
+   "km2": 15.9
+  },
+  {
+   "district": "Calgary-North",
+   "source": "majority",
+   "stated_pop": 57945,
+   "rebuilt_overlay_pop": 48178,
+   "km2": 22.7
+  },
+  {
+   "district": "Calgary-North East",
+   "source": "majority",
+   "stated_pop": 54541,
+   "rebuilt_overlay_pop": 28881,
+   "km2": 25.1
+  },
+  {
+   "district": "Calgary-North West",
+   "source": "majority",
+   "stated_pop": 52488,
+   "rebuilt_overlay_pop": 47450,
+   "km2": 26.2
+  },
+  {
+   "district": "Calgary-Nose Creek",
+   "source": "majority",
+   "stated_pop": 55155,
+   "rebuilt_overlay_pop": 38426,
+   "km2": 44.9
+  },
+  {
+   "district": "Calgary-Shaw",
+   "source": "majority",
+   "stated_pop": 58171,
+   "rebuilt_overlay_pop": 38390,
+   "km2": 34.2
+  },
+  {
+   "district": "Calgary-South East",
+   "source": "majority",
+   "stated_pop": 53551,
+   "rebuilt_overlay_pop": 35677,
+   "km2": 43.6
+  },
+  {
+   "district": "Calgary-Symons Valley",
+   "source": "majority",
+   "stated_pop": 54797,
+   "rebuilt_overlay_pop": 44660,
+   "km2": 36.5
+  },
+  {
+   "district": "Calgary-Varsity",
+   "source": "majority",
+   "stated_pop": 57166,
+   "rebuilt_overlay_pop": 50631,
+   "km2": 27.0
+  },
+  {
+   "district": "Calgary-West-Elbow Valley",
+   "source": "majority",
+   "stated_pop": 54167,
+   "rebuilt_overlay_pop": 47839,
+   "km2": 72.2
+  },
+  {
+   "district": "Edmonton-Beverly-Clareview",
+   "source": "majority",
+   "stated_pop": 57481,
+   "rebuilt_overlay_pop": 53716,
+   "km2": 56.5
+  },
+  {
+   "district": "Edmonton-Castle Downs",
+   "source": "majority",
+   "stated_pop": 59612,
+   "rebuilt_overlay_pop": 50758,
+   "km2": 20.9
+  },
+  {
+   "district": "Edmonton-City Centre",
+   "source": "majority",
+   "stated_pop": 57312,
+   "rebuilt_overlay_pop": 48421,
+   "km2": 15.2
+  },
+  {
+   "district": "Edmonton-Decore",
+   "source": "majority",
+   "stated_pop": 57959,
+   "rebuilt_overlay_pop": 52618,
+   "km2": 18.1
+  },
+  {
+   "district": "Edmonton-Enoch",
+   "source": "majority",
+   "stated_pop": 56894,
+   "rebuilt_overlay_pop": 43193,
+   "km2": 146.3
+  },
+  {
+   "district": "Edmonton-Glenora-Riverview",
+   "source": "majority",
+   "stated_pop": 56622,
+   "rebuilt_overlay_pop": 53231,
+   "km2": 25.7
+  },
+  {
+   "district": "Edmonton-Gold Bar",
+   "source": "majority",
+   "stated_pop": 54981,
+   "rebuilt_overlay_pop": 51593,
+   "km2": 56.6
+  },
+  {
+   "district": "Edmonton-Highlands-Norwood",
+   "source": "majority",
+   "stated_pop": 51806,
+   "rebuilt_overlay_pop": 44845,
+   "km2": 18.8
+  },
+  {
+   "district": "Edmonton-Manning",
+   "source": "majority",
+   "stated_pop": 56901,
+   "rebuilt_overlay_pop": 45105,
+   "km2": 97.4
+  },
+  {
+   "district": "Edmonton-McClung",
+   "source": "majority",
+   "stated_pop": 61859,
+   "rebuilt_overlay_pop": 56985,
+   "km2": 27.5
+  },
+  {
+   "district": "Edmonton-Mill Woods",
+   "source": "majority",
+   "stated_pop": 59673,
+   "rebuilt_overlay_pop": 54921,
+   "km2": 24.4
+  },
+  {
+   "district": "Edmonton-North West",
+   "source": "majority",
+   "stated_pop": 61226,
+   "rebuilt_overlay_pop": 54762,
+   "km2": 32.0
+  },
+  {
+   "district": "Edmonton-Rutherford",
+   "source": "majority",
+   "stated_pop": 58082,
+   "rebuilt_overlay_pop": 52821,
+   "km2": 26.1
+  },
+  {
+   "district": "Edmonton-West Henday",
+   "source": "majority",
+   "stated_pop": 61775,
+   "rebuilt_overlay_pop": 51681,
+   "km2": 73.4
+  },
+  {
+   "district": "Airdrie-East",
+   "source": "majority",
+   "stated_pop": 53809,
+   "rebuilt_overlay_pop": 50082,
+   "km2": 1579.4
+  },
+  {
+   "district": "Airdrie-West",
+   "source": "majority",
+   "stated_pop": 48145,
+   "rebuilt_overlay_pop": 38279,
+   "km2": 194.6
+  },
+  {
+   "district": "Chestermere-Strathmore",
+   "source": "majority",
+   "stated_pop": 56679,
+   "rebuilt_overlay_pop": 41813,
+   "km2": 1019.7
+  },
+  {
+   "district": "Cochrane-Springbank",
+   "source": "majority",
+   "stated_pop": 56487,
+   "rebuilt_overlay_pop": 49851,
+   "km2": 754.7
+  },
+  {
+   "district": "Okotoks-Diamond Valley",
+   "source": "majority",
+   "stated_pop": 55284,
+   "rebuilt_overlay_pop": 50751,
+   "km2": 1259.6
+  },
+  {
+   "district": "Fort Saskatchewan-Vegreville",
+   "source": "majority",
+   "stated_pop": 54278,
+   "rebuilt_overlay_pop": 50631,
+   "km2": 8299.3
+  },
+  {
+   "district": "Sherwood Park",
+   "source": "majority",
+   "stated_pop": 52475,
+   "rebuilt_overlay_pop": 47054,
+   "km2": 71.3
+  },
+  {
+   "district": "St. Albert",
+   "source": "majority",
+   "stated_pop": 59935,
+   "rebuilt_overlay_pop": 56504,
+   "km2": 57.1
+  },
+  {
+   "district": "Strathcona-Sherwood Park",
+   "source": "majority",
+   "stated_pop": 51020,
+   "rebuilt_overlay_pop": 50135,
+   "km2": 767.3
+  },
+  {
+   "district": "Central Peace-Notley",
+   "source": "majority",
+   "stated_pop": 28715,
+   "rebuilt_overlay_pop": 27060,
+   "km2": 47311.8
+  },
+  {
+   "district": "Cold Lake-Bonnyville-St. Paul",
+   "source": "majority",
+   "stated_pop": 55809,
+   "rebuilt_overlay_pop": 52702,
+   "km2": 16704.1
+  },
+  {
+   "district": "Grande Prairie",
+   "source": "majority",
+   "stated_pop": 50352,
+   "rebuilt_overlay_pop": 46592,
+   "km2": 111.6
+  },
+  {
+   "district": "Grande Prairie-Wapiti",
+   "source": "majority",
+   "stated_pop": 53781,
+   "rebuilt_overlay_pop": 50225,
+   "km2": 16017.7
+  },
+  {
+   "district": "Lesser Slave Lake",
+   "source": "majority",
+   "stated_pop": 30011,
+   "rebuilt_overlay_pop": 29501,
+   "km2": 75775.3
+  },
+  {
+   "district": "Peace River",
+   "source": "majority",
+   "stated_pop": 43399,
+   "rebuilt_overlay_pop": 40290,
+   "km2": 109228.3
+  },
+  {
+   "district": "Camrose",
+   "source": "majority",
+   "stated_pop": 54653,
+   "rebuilt_overlay_pop": 51645,
+   "km2": 10095.8
+  },
+  {
+   "district": "Lloydminster-Wainwright",
+   "source": "majority",
+   "stated_pop": 50139,
+   "rebuilt_overlay_pop": 47256,
+   "km2": 11047.2
+  },
+  {
+   "district": "Red Deer-North",
+   "source": "majority",
+   "stated_pop": 53798,
+   "rebuilt_overlay_pop": 46816,
+   "km2": 74.0
+  },
+  {
+   "district": "Red Deer-South",
+   "source": "majority",
+   "stated_pop": 59123,
+   "rebuilt_overlay_pop": 53743,
+   "km2": 35.1
+  },
+  {
+   "district": "High River-Vulcan-Siksika",
+   "source": "majority",
+   "stated_pop": 53351,
+   "rebuilt_overlay_pop": 54291,
+   "km2": 14771.2
+  },
+  {
+   "district": "Lethbridge-East",
+   "source": "majority",
+   "stated_pop": 57463,
+   "rebuilt_overlay_pop": 48180,
+   "km2": 51.2
+  },
+  {
+   "district": "Lethbridge-West",
+   "source": "majority",
+   "stated_pop": 54235,
+   "rebuilt_overlay_pop": 50002,
+   "km2": 95.4
+  },
+  {
+   "district": "Livingstone-Macleod",
+   "source": "majority",
+   "stated_pop": 50144,
+   "rebuilt_overlay_pop": 47136,
+   "km2": 12691.1
+  },
+  {
+   "district": "Medicine Hat-Brooks",
+   "source": "majority",
+   "stated_pop": 54833,
+   "rebuilt_overlay_pop": 51557,
+   "km2": 13740.3
+  },
+  {
+   "district": "Medicine Hat-Cypress",
+   "source": "majority",
+   "stated_pop": 54210,
+   "rebuilt_overlay_pop": 49804,
+   "km2": 6116.9
+  },
+  {
+   "district": "Taber-Cardston",
+   "source": "majority",
+   "stated_pop": 54933,
+   "rebuilt_overlay_pop": 51979,
+   "km2": 21271.2
+  },
+  {
+   "district": "Edmonton-Ellerslie",
+   "source": "interim_via_v3",
+   "stated_pop": 53376,
+   "rebuilt_overlay_pop": 42672,
+   "km2": 25.7
+  },
+  {
+   "district": "Edmonton-Meadows",
+   "source": "interim_via_v3",
+   "stated_pop": 53318,
+   "rebuilt_overlay_pop": 40082,
+   "km2": 12.8
+  },
+  {
+   "district": "Edmonton-South",
+   "source": "interim_via_v3",
+   "stated_pop": 57522,
+   "rebuilt_overlay_pop": 40790,
+   "km2": 50.1
+  },
+  {
+   "district": "Edmonton-Strathcona",
+   "source": "interim_via_v3",
+   "stated_pop": 54093,
+   "rebuilt_overlay_pop": 48856,
+   "km2": 24.4
+  },
+  {
+   "district": "Edmonton-Windermere",
+   "source": "interim_via_v3",
+   "stated_pop": 54136,
+   "rebuilt_overlay_pop": 34044,
+   "km2": 55.5
+  },
+  {
+   "district": "Edmonton-Whitemud",
+   "source": "interim_via_v3",
+   "stated_pop": 56752,
+   "rebuilt_overlay_pop": 52804,
+   "km2": 25.7
+  },
+  {
+   "district": "Fort McMurray-Lac La Biche",
+   "source": "interim_via_v3",
+   "stated_pop": 47304,
+   "rebuilt_overlay_pop": 40624,
+   "km2": 32316.4
+  },
+  {
+   "district": "Fort McMurray-Wood Buffalo",
+   "source": "interim_via_v3",
+   "stated_pop": 46721,
+   "rebuilt_overlay_pop": 44917,
+   "km2": 86352.9
+  },
+  {
+   "district": "Lac Ste. Anne",
+   "source": "iap_v3",
+   "stated_pop": 51546,
+   "rebuilt_overlay_pop": 49052,
+   "km2": 4319.7
+  },
+  {
+   "district": "Morinville-Sturgeon",
+   "source": "iap_v3",
+   "stated_pop": 53458,
+   "rebuilt_overlay_pop": 50359,
+   "km2": 2181.2
+  },
+  {
+   "district": "Barrhead-Westlock-Athabasca",
+   "source": "iap_v3",
+   "stated_pop": 46602,
+   "rebuilt_overlay_pop": 40696,
+   "km2": 15750.2
+  },
+  {
+   "district": "Spruce Grove",
+   "source": "iap_v3",
+   "stated_pop": 52063,
+   "rebuilt_overlay_pop": 47308,
+   "km2": 282.7
+  },
+  {
+   "district": "Drayton Valley-Devon",
+   "source": "iap_v3",
+   "stated_pop": 44203,
+   "rebuilt_overlay_pop": 41020,
+   "km2": 6255.6
+  },
+  {
+   "district": "Leduc-Beaumont",
+   "source": "iap_v3",
+   "stated_pop": 63434,
+   "rebuilt_overlay_pop": 49160,
+   "km2": 113.9
+  },
+  {
+   "district": "Edmonton-Nisku",
+   "source": "iap_v3",
+   "stated_pop": 54521,
+   "rebuilt_overlay_pop": 47872,
+   "km2": 128.5
+  },
+  {
+   "district": "West Yellowhead",
+   "source": "iap_v3",
+   "stated_pop": 51355,
+   "rebuilt_overlay_pop": 49556,
+   "km2": 49405.0
+  },
+  {
+   "district": "Rocky Mountain House-Sundre",
+   "source": "iap_v3",
+   "stated_pop": 31540,
+   "rebuilt_overlay_pop": 31620,
+   "km2": 25121.9
+  },
+  {
+   "district": "Wetaskiwin-Ponoka",
+   "source": "iap_v3",
+   "stated_pop": 54034,
+   "rebuilt_overlay_pop": 51289,
+   "km2": 6138.1
+  },
+  {
+   "district": "Lacombe-Sylvan Lake",
+   "source": "iap_v3",
+   "stated_pop": 54055,
+   "rebuilt_overlay_pop": 47884,
+   "km2": 3883.1
+  },
+  {
+   "district": "Drumheller-Stettler",
+   "source": "iap_v3",
+   "stated_pop": 43570,
+   "rebuilt_overlay_pop": 42826,
+   "km2": 38398.0
+  },
+  {
+   "district": "Canmore-Banff",
+   "source": "amended",
+   "stated_pop": null,
+   "rebuilt_overlay_pop": 29668,
+   "km2": 10713.5
+  },
+  {
+   "district": "Blackfalds-Innisfail",
+   "source": "amended",
+   "stated_pop": 44536,
+   "rebuilt_overlay_pop": 41301,
+   "km2": 3552.0
+  },
+  {
+   "district": "Olds-Didsbury-Three Hills",
+   "source": "amended",
+   "stated_pop": 50780,
+   "rebuilt_overlay_pop": 40174,
+   "km2": 6452.4
+  }
+ ]
+}

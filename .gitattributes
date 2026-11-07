@@ -16,6 +16,7 @@ data/v0_1_targeted_burst*_trace.csv filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 data/outputs/simulated_ensemble_raw_samples_*.csv filter=lfs diff=lfs merge=lfs -text
 data/outputs/constraint_enforcing_*_samples.csv filter=lfs diff=lfs merge=lfs -text
-
 # Evidence copies are kept byte-exact so their recorded SHA-256 hashes hold
 evidence/** -text
+evidence/legislature/iap_report_2026_hires.pdf filter=lfs diff=lfs merge=lfs -text
+evidence/commission_reports/abebc_2025_interim_report.pdf filter=lfs diff=lfs merge=lfs -text

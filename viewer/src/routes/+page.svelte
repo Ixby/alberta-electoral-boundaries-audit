@@ -52,6 +52,7 @@
     { id: 'how-it-got-here',       key: 'system' },
     { id: 'how-we-know',           key: 'know' },
     { id: 'november-test',         key: 'test' },
+    { id: 'november',              key: 'november' },
     { id: 'change-our-mind',       key: 'mind' },
     { id: 'authors-view',          key: 'authors_view' },
     { id: 'references',            key: 'references' },
@@ -408,6 +409,30 @@
     <p>{@html t(lang.current, 'home.test.p5')}</p>
     <p>{@html t(lang.current, 'home.test.p6')}</p>
     <!-- "The results" slot: filled after the November scoring (see proposals/site_rewrite_2026-10-29). -->
+  </section>
+
+  <section id="november">
+    <h2>{t(lang.current, 'home.november.h')} <a href="#november" class="section-link" aria-label={t(lang.current, 'home.november.h')}>#</a></h2>
+    <p><em>{t(lang.current, 'home.november.note')}</em></p>
+    <p>{@html t(lang.current, 'home.november.p1')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.november.li1')}</li>
+      <li>{@html t(lang.current, 'home.november.li2')}</li>
+      <li>{@html t(lang.current, 'home.november.li3')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.november.p2')}</p>
+    <p>{@html t(lang.current, 'home.november.p3')}</p>
+    <ul>
+      <li>{@html t(lang.current, 'home.november.li4')}</li>
+      <li>{@html t(lang.current, 'home.november.li5').replaceAll('__BASE__', base)}</li>
+      <li>{@html t(lang.current, 'home.november.li6')}</li>
+    </ul>
+    <p>{@html t(lang.current, 'home.november.p4')}</p>
+    <ul>
+      {#each [7, 8, 9, 10, 11, 12, 13, 14] as k (k)}
+        <li>{@html t(lang.current, 'home.november.li' + k)}</li>
+      {/each}
+    </ul>
   </section>
 
   <section id="change-our-mind">

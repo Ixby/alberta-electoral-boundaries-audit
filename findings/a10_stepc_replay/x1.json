@@ -1,0 +1,590 @@
+{
+ "map": "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+ "threshold": 0.99,
+ "a": {
+  "met": false,
+  "n": 41,
+  "n_unchanged": 31,
+  "divisions": [
+   {
+    "division": "Airdrie-East",
+    "best": "Airdrie-East",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Airdrie-West",
+    "best": "Airdrie-West",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Acadia",
+    "best": "Calgary-Acadia",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Beddington",
+    "best": "Calgary-Beddington",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Bhullar-McCall",
+    "best": "Calgary-Bhullar-McCall",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Bow",
+    "best": "Calgary-Bow-Springbank",
+    "share_of_old": 1.0,
+    "share_of_new": 0.9487,
+    "unchanged": false
+   },
+   {
+    "division": "Calgary-Buffalo",
+    "best": "Calgary-Buffalo",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Confluence",
+    "best": "Calgary-Confluence",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Cross",
+    "best": "Calgary-Cross",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Currie",
+    "best": "Calgary-Currie",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-East",
+    "best": "Calgary-East",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Edgemont",
+    "best": "Calgary-Edgemont",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Elbow",
+    "best": "Calgary-Elbow",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Falconridge-Conrich",
+    "best": "Calgary-Falconridge-Conrich",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Fish Creek",
+    "best": "Calgary-Fish Creek",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Glenmore-Tsuut'ina",
+    "best": "Calgary-Glenmore-Tsuut'ina",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Hays",
+    "best": "Calgary-Hays",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Klein",
+    "best": "Calgary-Klein",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Lougheed",
+    "best": "Calgary-Lougheed",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-McKenzie",
+    "best": "Calgary-McKenzie",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Mountain View",
+    "best": "Calgary-Mountain View",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-North",
+    "best": "Calgary-North",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-North East",
+    "best": "Calgary-North East",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-North West",
+    "best": "Calgary-North West-Bearspaw",
+    "share_of_old": 1.0,
+    "share_of_new": 0.9939,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Nose Creek",
+    "best": "Calgary-Nose Creek",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Shaw",
+    "best": "Calgary-Shaw",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-South East",
+    "best": "Calgary-South East",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Symons Valley",
+    "best": "Calgary-Symons Valley",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-Varsity",
+    "best": "Calgary-Varsity",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Calgary-West-Elbow Valley",
+    "best": "Calgary-West-Springbank",
+    "share_of_old": 1.0,
+    "share_of_new": 0.8992,
+    "unchanged": false
+   },
+   {
+    "division": "Canmore-Banff",
+    "best": "Banff-Canmore-Diamond Valley",
+    "share_of_old": 0.9337,
+    "share_of_new": 0.8016,
+    "unchanged": false
+   },
+   {
+    "division": "Chestermere-Strathmore",
+    "best": "Chestermere-Strathmore",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Cochrane-Springbank",
+    "best": "Cochrane",
+    "share_of_old": 0.8344,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "High River-Vulcan-Siksika",
+    "best": "Macleod-Crowsnest",
+    "share_of_old": 0.5123,
+    "share_of_new": 0.562,
+    "unchanged": false
+   },
+   {
+    "division": "Lethbridge-East",
+    "best": "Lethbridge",
+    "share_of_old": 0.5233,
+    "share_of_new": 0.4598,
+    "unchanged": false
+   },
+   {
+    "division": "Lethbridge-West",
+    "best": "Lethbridge",
+    "share_of_old": 0.5924,
+    "share_of_new": 0.5402,
+    "unchanged": false
+   },
+   {
+    "division": "Livingstone-Macleod",
+    "best": "Macleod-Crowsnest",
+    "share_of_old": 0.4599,
+    "share_of_new": 0.438,
+    "unchanged": false
+   },
+   {
+    "division": "Medicine Hat-Brooks",
+    "best": "Medicine Hat-Brooks",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Medicine Hat-Cypress",
+    "best": "Medicine Hat-Cypress",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Okotoks-Diamond Valley",
+    "best": "Okotoks",
+    "share_of_old": 0.8686,
+    "share_of_new": 0.939,
+    "unchanged": false
+   },
+   {
+    "division": "Taber-Cardston",
+    "best": "Lethbridge-Taber-Warner",
+    "share_of_old": 0.637,
+    "share_of_new": 0.6172,
+    "unchanged": false
+   }
+  ]
+ },
+ "b": {
+  "met": true,
+  "n": 11,
+  "n_unchanged": 11,
+  "divisions": [
+   {
+    "division": "Edmonton-Beverly-Clareview",
+    "best": "Edmonton-Beverly-Clareview",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Castle Downs",
+    "best": "Edmonton-Castle Downs",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-City Centre",
+    "best": "Edmonton-City Centre",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Decore",
+    "best": "Edmonton-Decore",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Enoch",
+    "best": "Edmonton-Enoch",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Glenora-Riverview",
+    "best": "Edmonton-Glenora-Riverview",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Highlands-Norwood",
+    "best": "Edmonton-Highlands-Norwood",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-Manning",
+    "best": "Edmonton-Manning",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-McClung",
+    "best": "Edmonton-McClung",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-North West",
+    "best": "Edmonton-North West",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Edmonton-West Henday",
+    "best": "Edmonton-West Henday",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   }
+  ]
+ },
+ "c": {
+  "met": null,
+  "note": "not scored: October 2025 interim map not supplied"
+ },
+ "d": {
+  "state": "adopted",
+  "best_district": "Rocky Mountain House-Sundre",
+  "best_share_in_zone": 0.6096
+ },
+ "rest": {
+  "n": 27,
+  "n_unchanged": 13,
+  "divisions": [
+   {
+    "division": "Barrhead-Westlock-Athabasca",
+    "best": "Barrhead-Westlock-Athabasca",
+    "share_of_old": 0.7429,
+    "share_of_new": 0.923,
+    "unchanged": false
+   },
+   {
+    "division": "Camrose",
+    "best": "Camrose",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Central Peace-Notley",
+    "best": "Central Peace-Notley",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Cold Lake-Bonnyville-St. Paul",
+    "best": "Cold Lake-Bonnyville-St. Paul",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Drumheller-Stettler",
+    "best": "Drumheller-Stettler",
+    "share_of_old": 0.8362,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "Fort McMurray-Lac La Biche",
+    "best": "Fort McMurray-Lac La Biche",
+    "share_of_old": 0.9242,
+    "share_of_new": 0.9404,
+    "unchanged": false
+   },
+   {
+    "division": "Fort McMurray-Wood Buffalo",
+    "best": "Fort McMurray-Wood Buffalo",
+    "share_of_old": 0.9488,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "Fort Saskatchewan-Vegreville",
+    "best": "Fort Saskatchewan-Vegreville",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Grande Prairie",
+    "best": "Grande Prairie",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Grande Prairie-Wapiti",
+    "best": "Grande Prairie-Wapiti",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Lacombe-Clearwater",
+    "best": "Rocky Mountain House-Sundre",
+    "share_of_old": 0.4353,
+    "share_of_new": 0.6896,
+    "unchanged": false
+   },
+   {
+    "division": "Leduc-Devon",
+    "best": "Leduc-Beaumont",
+    "share_of_old": 0.5968,
+    "share_of_new": 0.6879,
+    "unchanged": false
+   },
+   {
+    "division": "Lesser Slave Lake",
+    "best": "Lesser Slave Lake",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Lloydminster-Wainwright",
+    "best": "Lloydminster-Wainwright",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Mountain View-Kneehill",
+    "best": "Olds-Didsbury-Three Hills",
+    "share_of_old": 0.839,
+    "share_of_new": 0.7822,
+    "unchanged": false
+   },
+   {
+    "division": "Peace River",
+    "best": "Peace River",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Red Deer-North",
+    "best": "Red Deer-North",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Red Deer-South",
+    "best": "Red Deer-South",
+    "share_of_old": 0.9671,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "Sherwood Park",
+    "best": "Sherwood Park",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Spruce Grove",
+    "best": "Spruce Grove",
+    "share_of_old": 0.9249,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "St. Albert",
+    "best": "St. Albert",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "St. Albert-Sturgeon",
+    "best": "Morinville-Sturgeon",
+    "share_of_old": 0.9792,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "Stony Plain-Drayton Valley",
+    "best": "Lac Ste. Anne",
+    "share_of_old": 0.5125,
+    "share_of_new": 0.5401,
+    "unchanged": false
+   },
+   {
+    "division": "Strathcona-Sherwood Park",
+    "best": "Strathcona-Sherwood Park",
+    "share_of_old": 1.0,
+    "share_of_new": 1.0,
+    "unchanged": true
+   },
+   {
+    "division": "Sylvan Lake-Innisfail",
+    "best": "Blackfalds-Innisfail",
+    "share_of_old": 0.592,
+    "share_of_new": 0.6958,
+    "unchanged": false
+   },
+   {
+    "division": "West Yellowhead",
+    "best": "West Yellowhead",
+    "share_of_old": 0.9142,
+    "share_of_new": 1.0,
+    "unchanged": false
+   },
+   {
+    "division": "Wetaskiwin-Ponoka-Maskwacis",
+    "best": "Wetaskiwin-Ponoka",
+    "share_of_old": 0.9644,
+    "share_of_new": 1.0,
+    "unchanged": false
+   }
+  ]
+ },
+ "X1": "not met",
+ "failing": [
+  "a"
+ ]
+}

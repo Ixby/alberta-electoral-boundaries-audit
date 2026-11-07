@@ -53,6 +53,7 @@ from __future__ import annotations
 
 
 import argparse
+import os
 import json
 import sys
 import time
@@ -482,15 +483,20 @@ def run() -> None:
     )
     args = parser.parse_args()
 
-    ucp_col = "va_ucp_full" if args.full_votes else "va_ucp"
-    ndp_col = "va_ndp_full" if args.full_votes else "va_ndp"
-    substrate_label = "full (advance+election-day; ~1,544k)" if args.full_votes else "election-day (~896k)"
+    # ALL_BALLOTS=1 with --full-votes (added 2026-11-05): the all-ballots substrate, which adds the Vote
+    # Anywhere ballots (vote_anywhere_splat.py); output szat_summary_all_ballots.json.
+    all_ballots = args.full_votes and os.environ.get("ALL_BALLOTS") == "1"
+    full = "all" if all_ballots else "full"
+    ucp_col = f"va_ucp_{full}" if args.full_votes else "va_ucp"
+    ndp_col = f"va_ndp_{full}" if args.full_votes else "va_ndp"
+    substrate_label = ("all ballots incl. Vote Anywhere (~1,706k)" if all_ballots else
+                       "full (advance+election-day; ~1,544k)" if args.full_votes else "election-day (~896k)")
 
-    va_path = Path(args.va_file) if args.va_file else VA_FILE
+    va_path = Path(args.va_file) if args.va_file else (VA_FILE.with_name("va_polygons_with_all_2023_ballots.gpkg") if all_ballots else VA_FILE)
     if args.va_file:
         substrate_label += f" [canonical VA: {va_path.name}]"
 
-    suffix = "_full_votes" if args.full_votes else ""
+    suffix = "_all_ballots" if all_ballots else "_full_votes" if args.full_votes else ""
     if args.va_file:
         suffix += "_canonical_va"
     # Guard (added 2026-07-08): exploratory configurations must not overwrite the
@@ -716,7 +722,8 @@ def run() -> None:
     b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
 
     boot_eg_raw = boot_scores + eg_maj_fixed
-    np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_raw)
+    # Named by configuration (2026-11-05): every run used to overwrite the registered samples file.
+    np.save(DATA / f"szat_bootstrap_eg_samples{suffix}.npy", boot_eg_raw)
     print(f"  Bootstrap EG samples saved: {len(boot_eg_raw)} draws")
 
     print(f"  p-value (two-tailed):        {p_value:.4f} (b+1)/(B+1) on {b_extreme}/{n_boot}")

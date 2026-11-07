@@ -1,0 +1,146 @@
+[
+  {
+    "line": 91,
+    "claim": "Canadian commissions treat keeping a city whole as a core anchor, and a two-way split of a city that size is routine.",
+    "status": "PARTLY",
+    "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.14(b); https://www.elections.ab.ca/uploads/abebc_2017_rpt_final.pdf (2016/17 final report, Airdrie-Cochrane section; Saskatchewan Reference quote)",
+    "quote": "s.14(b): \"communities of interest, including municipalities, regional and rural communities, Indian reserves and Metis settlements\". 2017 final report, quoting the Saskatchewan Reference at p.195: \"[R]ivers and municipal boundaries form natural community dividing lines and hence natural electoral boundaries.\" Same report: the existing Airdrie division \"now has too large a population to be contained within one electoral division\"; the 2017 commission proposed Airdrie-Cochrane plus a remaining Airdrie division, i.e. a two-way split of Airdrie.",
+    "suggested_rewording": "Alberta's Act lists municipalities as communities of interest, and the 2017 commission itself split Airdrie in two when it outgrew one division. Splitting it four ways, so nearly half its residents are a minority, is not what the commission did then, and the same commission's majority draft shows a two-way split was there to be drawn on the same geography.",
+    "note": "Alberta support is solid (Act s.14(b), SCC Saskatchewan Reference p.195 as quoted by the 2017 commission, and Airdrie split two ways in 2017). The wider claim that 'Canadian commissions' treat a whole city as a 'core anchor' is not backed by a Canada-wide source I could open; it is a generalisation. Say 'Alberta' or 'commissions in Alberta' unless a federal or other-province source is added."
+  },
+  {
+    "line": 93,
+    "claim": "The audit's review found no Canadian decision that struck down a map for splitting a city.",
+    "status": "STILL-UNVERIFIED",
+    "source": "Searched: web (CanLII/SCC/news) for Canadian decisions striking boundaries over a split city or municipality; evidence/law/ folder.",
+    "quote": "Nearest hits found were about communities, not city splits: Raiche v. Canada (AG), 2004 FC 679 (Federal Court set aside a New Brunswick federal commission's decision moving parishes out of Acadie-Bathurst, tied to language and community of identity); a Nova Scotia Supreme Court ruling on Cheticamp (Acadian riding status). Neither is a city split.",
+    "suggested_rewording": "Keep as is, it is already hedged to what the audit's review found: 'The audit's review found no Canadian decision that struck down a map for splitting a city (the nearest, Raiche, 2004 FC 679, was about moving Acadian parishes between ridings).' Optional.",
+    "note": "A negative claim cannot be proven from search. It is fair as 'the review found none'. Reader may want the Raiche example named so the claim is not read as 'courts never act on community splits'. I did not read Raiche's reasons myself, only summaries."
+  },
+  {
+    "line": 203,
+    "claim": "As far as this audit's review found, no Canadian court has yet weighed ensemble evidence.",
+    "status": "STILL-UNVERIFIED",
+    "source": "Searched: web for Canadian court decisions mentioning ensemble, simulation or computer-generated maps in s.3 boundary cases; local evidence/law/ folder (Lalande, NSCA 2017, Carter, Saskatchewan-line cases).",
+    "quote": "No Canadian decision using ensemble or simulation evidence turned up. Lalande (2026 SCC 13) and 2017 NSCA 10 turn on process and effective representation; neither discusses simulation evidence.",
+    "suggested_rewording": "Keep. Already hedged ('as far as this audit's review found'). Do not shorten it to a flat 'no Canadian court has'.",
+    "note": "Absence cannot be proven. Rucho v. Common Cause (2019) holding is in evidence/law/rucho_v_common_cause_2019_18-422.pdf."
+  },
+  {
+    "line": 299,
+    "claim": "One map per commission is the norm, even when a commissioner dissents. The Act provides that when there is more than one report, the majority's is the commission's report (s.9, added in 1995).",
+    "status": "SUPPORTED",
+    "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.9 (history note 1995 c10 s7); final reports at https://www.elections.ab.ca/uploads/abebc_1996_rpt.pdf , evidence/law/abebc_2003_final_report.pdf , https://www.elections.ab.ca/uploads/abebc_2010_rpt_final.pdf , https://www.elections.ab.ca/uploads/abebc_2017_rpt_final.pdf",
+    "quote": "s.9: \"If there is more than one report submitted under section 6 or 8, the report of a majority of the members of the Commission is the report of the Commission, but if there is no majority, the report of the chair is the report of the Commission.\" 1996: \"Our proposals are supported, Mr. Speaker, by all members of the Commission ... the unanimous determination of our mandate.\" 2003: Appendix B, Minority Position of Ms. Bauni Mackay (Edmonton seat count). 2010: Appendix A, Minority Position of Allyson Jeffs (proposed 25/20/42 seat split). 2017: \"interim reports, consisting of a majority and a minority report\"; \"Commissioner Day's minority report ... recommends that electoral boundaries be set in each of Calgary and Edmonton in such a manner that no additional electoral divisions be added\".",
+    "suggested_rewording": "No change needed. Optional precision: 'From 1995 to 2017 each Alberta commission sent the Assembly one map; the three dissenters (2003, 2010, 2017) filed written minority positions, not rival maps.'",
+    "note": "1995/96: unanimous, one map. 2002/03 (Mackay), 2009/10 (Jeffs), 2016/17 (Day): each had a minority position paper argued in words; I saw no full alternate set of boundaries in any of them (2017 Appendix A is critique plus a seat-allocation preference; Appendix E maps are the majority's). This contrasts with 2026, where the minority filed a full map. Also: 1992 report in evidence/law is by an MLA Select Special Committee (not a commission), so it is outside 1995-2017."
+  },
+  {
+    "line": 331,
+    "claim": "The Act makes the commission's report advisory, sets no minimum notice or comment period, and requires no hearing or released draft for whatever follows.",
+    "status": "SUPPORTED",
+    "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf, ss.3, 7, 10, 11",
+    "quote": "s.3: \"The function of a Commission is to ... make proposals to the Legislative Assembly\". s.7(1): \"The Commission must hold public hearings both (a) before its report is submitted to the Speaker, and (b) after its report has been made public\" (duty is on the Commission only). s.11(1): \"If the Assembly, by resolution, approves or approves with alterations the proposals of the Commission, the Government shall, at the same session, introduce a Bill to establish new electoral divisions for Alberta in accordance with the resolution.\"",
+    "suggested_rewording": "Optional tweak for accuracy: 'The Act calls the commission's work a set of proposals, and it expects the Assembly to approve them, with or without alterations (s.11). It sets no notice or comment period and no hearing or released draft for whatever the Assembly changes.'",
+    "note": "The word 'advisory' is the report's gloss; the Act says 'make proposals' (s.3). The Act expressly contemplates the Assembly approving 'with alterations' (s.11(1)), so 'lawful' stands. Nothing in the Act says what happens if the Assembly skips s.11 and passes its own bill; that silence supports the claim."
+  },
+  {
+    "line": 337,
+    "claim": "Canada spent roughly sixty years building independent boundary commissions, from the federal reform era of the 1960s on (Courtney 2001).",
+    "status": "SUPPORTED",
+    "source": "https://www.electionsmanitoba.ca/en/Resources/History (Manitoba commission set up 31 March 1955); federal Representation Commission Act 1963 then Electoral Boundaries Readjustment Act 1964 (as summarised at https://www.revparlcan.ca/en/adjusting-federal-electoral-boundaries-in-canada-redistribution-2022/ ); https://laws-lois.justice.gc.ca/eng/acts/E-3/FullText.html",
+    "quote": "Parliament enacted the Representation Commission Act in 1963 shortly before the original iteration of the EBRA in 1964 (search summary of the Parliamentary Review article; I could not open the full text to copy it exactly). Manitoba: commission \"established on March 31, 1955, with The Electoral Divisions Act\"; Elections Manitoba states Manitoba was the first province with an independent boundaries commission.",
+    "suggested_rewording": "If a start date is wanted: 'Canada spent more than sixty years building independent boundary commissions, starting with Manitoba in 1955 and the federal Act of 1964 (Courtney 2001).' Current text ('roughly sixty years', 'federal reform era of the 1960s') is fine.",
+    "note": "1964 to 2026 is 62 years; 1955 to 2026 is 71. I did not open Courtney 2001 itself, so the book's own dating is not verified. Separate issue for another checker: the same line says the 1992 commission 'deadlocked: five commissioners, five reports'. The 1992 report in evidence/law is from an MLA Select Special Committee, and a search of its text found no 'five reports' or 'deadlock' wording."
+  },
+  {
+    "line": 343,
+    "claim": "Quebec's National Assembly legislated its own 127-seat map in June 2026 after the Supreme Court struck down its pause of the commission.",
+    "status": "PARTLY",
+    "source": "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-3-43-3.html ; Gazette officielle du Quebec, 17 June 2026, Vol. 158 No. 24A (https://www.publicationsduquebec.gouv.qc.ca/fileadmin/gazette/pdf_encrypte/lois_reglements/2026A/108226.pdf) ; https://www.electionsquebec.qc.ca/en/electoral-maps/review-of-quebecs-electoral-map/electoral-map-final-boundaries/ (also evidence/law/quebec_elections_final_boundaries_2026.html)",
+    "quote": "Bill 3, \"An Act to ensure effective representation of electors\": introduced 7 May 2026; adopted and assented 12 June 2026; S.Q. 2026, c. 15 (assnat bill page, as read through a fetch summary; the Noovo article of 12 June says the Assembly adopted Bill 3 'vendredi'). Gazette: \"the list of 127 electoral divisions established by An Act to ensure effective representation of electors (S.Q. 2026, c. 15)\". Elections Quebec: \"The number of electoral divisions is increasing from 125 to 127 ... In total, 39 electoral divisions are modified, instead of the 51 targeted in the Commission's decision. The act maintains the boundaries of 12 electoral divisions in the regions of Ile-de-Montreal and Gaspesie-Bas-Saint-Laurent.\"",
+    "suggested_rewording": "Quebec, whose National Assembly passed Bill 3 on June 12, 2026 and set a 127-seat map, keeping the old lines for 12 divisions the commission had changed, a month after the Supreme Court struck down its pause of the commission.",
+    "note": "June is right (the earlier 'May' worry was the bill's tabling date, 7 May). Bill 3 (43rd Legislature, 3rd session), S.Q. 2026 c.15, passed and sanctioned 12 June 2026. Not literally 'its own map': most regions use the commission's 2026 lines; the Act kept 2017 lines for 12 divisions and added 2 divisions the commission had proposed. The SCC reasons came 1 May 2026, so 'after' is right. The bill had support from CAQ, Liberals, PQ and QS (joint statement per Noovo); one independent MNA opposed. I could not open the assnat page directly; the dates come from a fetch summary of it, so re-check on the live page before citing."
+  },
+  {
+    "line": 345,
+    "claim": "The 1981 Patriation Reference held that courts may recognize a convention but will not enforce it.",
+    "status": "SUPPORTED",
+    "source": "Library of Parliament, https://lop.parl.ca/content/lop/TeachersInstitute/ConstitutionalConventions.pdf ; Peter Oliver, https://ukconstitutionallaw.org/2011/11/04/peter-c-oliver-constitutional-conventions-in-the-canadian-courts ; judgment itself: Re: Resolution to amend the Constitution, [1981] 1 SCR 753 (SCC site returned 403 to my fetch, so I could not copy the Court's own sentence)",
+    "quote": "Library of Parliament: \"The Supreme Court found that it could properly recognize conventional rules and even comment on them\" and \"conventional rules are not enforced by the courts in large part because they may be in conflict with the legal rules that the courts are bound to enforce.\" Oliver: the Court \"reiterated the orthodox rule regarding the fact that conventions are not enforced by courts (p. 880).\"",
+    "suggested_rewording": "No change needed.",
+    "note": "These are secondary summaries; the Court's own wording was not fetched. Cite the judgment at pp. 880-883 only after checking it."
+  },
+  {
+    "line": 345,
+    "claim": "In 2017 Nova Scotia's Court of Appeal found a map unconstitutional because government stifled its commission's independent view (2017 NSCA 10).",
+    "status": "PARTLY",
+    "source": "evidence/law/nsca_2017nsca10_courtsns_230165.pdf (5-page information sheet and headnote only; full reasons at https://decisions.courts.ns.ca/nsc/nsca/en/230165/1/document.do returned 403/404 to my fetches)",
+    "quote": "\"The Attorney General's intervention prevented the Commission from performing the balancing exercise required by s. 3 of the Charter to assess effective representation for the electors in Clare, Argyle and Richmond. The Attorney General's intervention led to a Final Report by the Commission that did not represent the authentic view of the Commission on the effective representation of those electors, and to the enactment of those recommendations from that Final Report. Consequently, the enactment of those boundaries violated s. 3 of the Charter.\" Also: \"There is no constitutional requirement that there be an independent boundaries commission.\" Question 1: yes; Question 2 (s.1): no. Date: 24 January 2017, five judges.",
+    "suggested_rewording": "In 2017 Nova Scotia's Court of Appeal found that the province's boundaries broke section 3 because the Attorney General had kept the commission from giving its own view of effective representation. (It also said the Constitution does not require an independent commission at all.)",
+    "note": "Substance holds; 'stifled' is not the court's word. The court's phrases are 'prevented the Commission from performing the balancing exercise' and 'did not represent the authentic view of the Commission'. Two precision points: it was a reference opinion (question put by the Governor in Council), and the case was about the abolition of three Acadian ridings (Clare, Argyle, Richmond), after the AG called the commission's first interim report 'null and void'. The headnote also says the court held the commission need not exist, so the report's 'norm' framing should not imply the court required commissions. I read the headnote only, not the numbered paragraphs."
+  },
+  {
+    "line": 345,
+    "claim": "In 2026 the Supreme Court struck down Quebec's law pausing its commission (Quebec (AG) v. Lalande, 2026 SCC 13).",
+    "status": "SUPPORTED",
+    "source": "evidence/law/lalande_2026scc13_lexum.html (https://scc-csc.lexum.com/scc-csc/scc-csc/en/item/21476/index.do)",
+    "quote": "\"Quebec (Attorney General) v. Lalande, 2026 SCC 13 ... Appeal Heard and Judgment Rendered: April 22, 2026 ... Reasons for Judgment: May 1, 2026\". Headnote: \"Since the ATI is not minimally impairing within the meaning of Oakes, it is of no force or effect under s. 52 of the Constitution Act, 1982.\" Majority (7-2): Wagner C.J., Karakatsanis, Martin, Kasirer, Jamal, O'Bonsawin, Moreau JJ.; Cote and Rowe JJ. dissenting. The law: Act to interrupt the electoral division delimitation process, S.Q. 2024, c. 14.",
+    "suggested_rewording": "No change needed. Optional: 'In May 2026 the Supreme Court (7-2) struck down Quebec's law pausing its commission...'.",
+    "note": "The SCC dismissed Quebec's appeal, so the Court of Appeal's declaration of invalidity stood. The appeal was only about s.1 justification. The Court noted unanimous passage in the National Assembly did not shield the law. The case concerned no gerrymandering allegation."
+  },
+  {
+    "line": 430,
+    "claim": "The Quebec 2026 Supreme Court ruling (case name, citation, date).",
+    "status": "SUPPORTED",
+    "source": "evidence/law/lalande_2026scc13_lexum.html",
+    "quote": "\"Citation: Quebec (Attorney General) v. Lalande, 2026 SCC 13\"; docket 42152; judgment rendered April 22, 2026; reasons May 1, 2026.",
+    "suggested_rewording": "Name it in the line if wanted: 'The Quebec ruling (Lalande, 2026 SCC 13) is materially distinguished by an Alberta court.'",
+    "note": "Line 430 itself has no case name or date; the risk text is generic. The Quebec case struck a freeze law; Alberta's Government Motion 37 and Lunty committee are a different mechanism, which is the point of the risk."
+  },
+  {
+    "line": 454,
+    "claim": "Canada spent sixty years building one norm: politicians do not draw their own districts.",
+    "status": "SUPPORTED",
+    "source": "See line 337 entry (Manitoba 1955; federal 1964).",
+    "quote": "Manitoba commission \"established on March 31, 1955\"; federal Electoral Boundaries Readjustment Act 1964. 1964 to 2026 = 62 years.",
+    "suggested_rewording": "No change needed. If a defence is wanted: 'more than sixty years'.",
+    "note": "Same caveat: Courtney 2001 not opened."
+  },
+  {
+    "line": 508,
+    "claim": "Alberta's s.15(2) (up to 4 divisions as much as 50% below average) was written for remote districts with strong community ties, such as northern ridings serving Indigenous communities.",
+    "status": "PARTLY",
+    "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(2); https://www.elections.ab.ca/uploads/abebc_2017_rpt_final.pdf (s.15(2) section); https://www.elections.ab.ca/uploads/abebc_1996_rpt.pdf",
+    "quote": "2017 final report: \"The rationale for creating the s. 15(2) special status for remote areas of the province is described by the Supreme Court of Canada at page 188 of the Saskatchewan Reference case: 'The problems of representing vast, sparsely populated territories, for example, may dictate somewhat lower voter populations in those districts.'\" and \"The legislature clearly intended that geographically large constituencies, in remote areas, could be created where needed to meet the goal of effective representation ... the legislature introduced s. 15(2) when the current version of the Act was passed in 1990.\" 1996 report: \"These are vast, northern, sparsely populated and remote electoral divisions.\" Act: a division qualifies if at least 3 of 5 tests are met; test (d) is \"the area of the proposed electoral division contains an Indian reserve or a Metis settlement\".",
+    "suggested_rewording": "Alberta's law has a special provision, section 15(2), that lets up to four districts fall below the normal population floor. Commissions have described it as for vast, remote, thinly populated districts, mostly in the north. A district must meet three of five tests, and one of them is holding a First Nation reserve or Metis settlement.",
+    "note": "'Remote', 'vast', 'sparsely populated' and 'northern' are supported by commission reports (1996, 2010, 2017). I found no commission or legislative statement that the provision was written for 'strong community ties' or 'Indigenous communities'; Indigenous presence is one of five optional criteria. The four special divisions in the 1992 committee's list were Athabasca-Wabasca, Cardston-Chief Mountain, Chinook and Lesser Slave Lake, so the provision was not only for northern ridings. I did not find 1990 Hansard debate on s.15(2)'s purpose (evidence/hansard/alberta_hansard_1990-12-10_evening.pdf was not searched in full)."
+  },
+  {
+    "line": 598,
+    "claim": "From 1995 to 2017 the bet paid: even when a commissioner dissented, each commission sent the Assembly one map.",
+    "status": "SUPPORTED",
+    "source": "Same as line 299 entry: abebc 1996 (unanimous), 2003 (Mackay), 2010 (Jeffs), 2017 (Day) final reports.",
+    "quote": "2017 transmittal: \"It submitted its interim reports, consisting of a majority and a minority report ... It now submits its final reports to you\"; Commissioner Day \"fully participated during the Commission's deliberations leading to the majority's final recommendations\". 2010 Appendix A: \"The majority of the Commission is recommending a new electoral map for Alberta that would include 87 electoral divisions\" (Jeffs dissent follows).",
+    "suggested_rewording": "No change needed. Optional: 'each commission sent the Assembly one map; the dissenters in 2003, 2010 and 2017 filed minority positions.'",
+    "note": "Four commissions, one majority map each; three had dissents. Checked the 1995/96, 2002/03, 2009/10 and 2016/17 final reports. 'Even when a commissioner dissented' applies to 2003, 2010, 2017 only."
+  },
+  {
+    "line": 608,
+    "claim": "In every cycle since 1995 it was the Assembly's restraint, not the statute, that kept politicians from drawing the lines.",
+    "status": "PARTLY",
+    "source": "Votes and Proceedings: https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_29/session_3/20171128_1200_01_vp.pdf (28 Nov 2017) ; https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_27/session_3/20101026_1200_01_vp.pdf (26 Oct 2010) ; https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_25/session_3/20030414_1200_01_vp.pdf (14 Apr 2003) ; Electoral Divisions Act Bill 46 (1996)",
+    "quote": "2017, Govt Motion 34 (concur in the Final Report), amended and carried: \"except that the name of the proposed electoral division of Rocky Mountain House-Sundre be changed to Rimbey-Rocky Mountain House-Sundre, Athabasca-Barrhead be changed to Athabasca-Barrhead-Westlock, Cold Lake-St. Paul be changed to Bonnyville-Cold Lake-St. Paul, and Okotoks-Sheep River be changed to Highwood\" plus Vermilion-Wainwright to Vermilion-Lloydminster-Wainwright; four other name amendments defeated; motion as amended carried 37 for. 2010 (Motion 18): amended to rename Okotoks-High River to Highwood, Strathcona to Strathcona-Sherwood Park, Calgary-Montrose to Calgary-Greenway, Calgary-North Hill to Calgary-Klein. 2003: motion to concur with no amendments passed, 33-10.",
+    "suggested_rewording": "In every cycle since 1995, the Assembly left the commission's boundaries alone. At most it changed a few division names.",
+    "note": "The Assembly did amend the commission's package in 2010 and 2017, but only names, never boundaries or seat counts (all amendments I read are renames). 2003: no amendments. 1996: Bill 46 (Electoral Divisions Act, 83 divisions) was debated in Aug 1996; I found no sign of boundary changes but did not find the concurrence motion or committee-stage text, so 1996 is not confirmed. Also s.11(1) itself allows 'approves with alterations', so 'the statute' did let them alter; the restraint was in not altering boundaries."
+  },
+  {
+    "line": 618,
+    "claim": "Some jurisdictions give a commission's map effect unless the legislature overrides it; Alberta's Act does not.",
+    "status": "PARTLY",
+    "source": "Federal: https://laws-lois.justice.gc.ca/eng/acts/E-3/FullText.html s.25(1). Manitoba: https://web2.gov.mb.ca/laws/statutes/ccsm/e040.php s.10(5). Alberta: Act s.11 (evidence/legislation).",
+    "quote": "Federal EBRA s.25(1): \"Within five days after the day on which the Minister receives the representation order, the Governor in Council shall by proclamation declare the representation order to be in force, effective on the first dissolution of Parliament that occurs at least seven months after the day on which that proclamation was issued, and on the issue of the proclamation the order has the force of law accordingly.\" Manitoba Electoral Divisions Act s.10(5): \"The report comes into force and replaces the Schedule on the first dissolution of the Legislature to occur after the end of the year in which the report is submitted to the Speaker, and has the same force and effect as if it were enacted by the Legislature.\" Alberta s.11(1): the Assembly resolves and the Government 'shall' introduce a Bill.",
+    "suggested_rewording": "In some places the commission's map becomes law without a vote. Federally, and in Manitoba, the commission's report takes effect on its own; Alberta's Act asks the Assembly to approve it first.",
+    "note": "'Unless the legislature overrides it' is the weak part: federal and Manitoba maps take effect by the statute's own terms, and the Legislature or Parliament could still override only by passing a new law (as Parliament did with Bill C-36 for Acadie-Bathurst after Raiche, 2004). So say 'takes effect without a vote' rather than 'unless the legislature overrides'. BC: not opened, so not named. Federal process also lets 10 MPs object (ss.21-22), but the commission, not Parliament, decides the objection (s.23)."
+  }
+]

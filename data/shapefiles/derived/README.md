@@ -17,8 +17,9 @@
 
 | File | Description |
 | --- | --- |
-| `va_polygons_with_2023_votes.gpkg` | Vote-anywhere (VA) polling station polygons joined to 2023 provincial election results. Contains `parent_ed_2019` column used to score the 2019 enacted map without a separate shapefile. Primary input for all MCMC ensemble runs. |
-| `va_polygons_with_full_2023_votes.gpkg` | Same as above, retaining all raw attribute columns. Used for detailed vote-attribution diagnostics and the full-vote sensitivity check (ES-13). |
+| `va_polygons_with_2023_votes.gpkg` | Voting-area (VA) polygons joined to 2023 provincial election results. Contains `parent_ed_2019` column used to score the 2019 enacted map without a separate shapefile. Primary input for all MCMC ensemble runs. |
+| `va_polygons_with_full_2023_votes.gpkg` | Same as above, retaining all raw attribute columns. Used for detailed vote-attribution diagnostics and the full-vote sensitivity check (ES-13). Its `va_*_full` columns leave out the Vote Anywhere ballots (1.54M of 1.71M two-party votes). |
+| `va_polygons_with_all_2023_ballots.gpkg` | The file above plus `va_*_all`: every 2023 ballot, the Vote Anywhere ballots spread within the voter's 2019 district by election-day share (`analysis/scripts/vote_anywhere_splat.py`). Equals the official result in all 87 districts. Added 2026-11-05. |
 | `va_polygons_with_2019_votes.gpkg` | VA polygons joined to 2019 provincial election results. Input to the Option C cross-election EG-threshold ensemble ([§5.2.8](../../../reports/academic/report_academic.md)). |
 | `va_polygons_with_2015_votes.gpkg` | VA polygons joined to 2015 provincial election results. Same purpose as above, for the 2015 electoral context. |
 

@@ -1,0 +1,32 @@
+{
+ "majority": {
+  "districts": 89,
+  "n_city_districts": 49,
+  "calgary": 28,
+  "edmonton": 21,
+  "city_gap_pct_2021": -0.69,
+  "city_gap_pct_published": 9.2
+ },
+ "minority": {
+  "districts": 89,
+  "n_city_districts": 49,
+  "calgary": 28,
+  "edmonton": 21,
+  "city_gap_pct_2021": 5.38,
+  "city_gap_pct_published": 15.1
+ },
+ "panel": {
+  "districts": 91,
+  "n_city_districts": 49,
+  "calgary": 28,
+  "edmonton": 21,
+  "city_gap_pct_2021": 4.27,
+  "city_gap_pct_published": 13.4
+ },
+ "para167": {
+  "districts": 91,
+  "n_city_districts": 49,
+  "calgary": 28,
+  "edmonton": 21
+ }
+}

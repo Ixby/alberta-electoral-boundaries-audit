@@ -132,3 +132,9 @@ data/outputs/szat_swing_va_canonical.gpkg
 .claude/
 /.svelte-kit/
 viewer/dev/
+findings/osi_rebuild/.weights_cache/
+findings/osi_rebuild/.weights_cache_v2/
+findings/amendment12_replays/claims/
+findings/amendment12_replays/*.log
+findings/hybrid_regions/worker*.log
+findings/hybrid_regions/cfp/*.npy

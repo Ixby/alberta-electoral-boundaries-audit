@@ -1,0 +1,852 @@
+{
+ "section": "Act I (Findings 1-5, one picture), report_public.md lines 77-167",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 79,
+   "claim": "No election results, no simulation: just geometry",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "report_public.md l.113, l.164; data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "Finding 3 replays 2023 election-day votes (packing P2); l.164 says tests do not depend on any vote attribution",
+   "note": "Internal inconsistency: Act I uses vote results for the packing test."
+  },
+  {
+   "line": 79,
+   "claim": "five commissioners",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.13",
+   "found": "Chair Miller + Clark, Evans, Martin, Samson = 5",
+   "note": ""
+  },
+  {
+   "line": 79,
+   "claim": "about 1,345 public submissions",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.14",
+   "found": "198 + 1,147 = 1,345",
+   "note": ""
+  },
+  {
+   "line": 79,
+   "claim": "drawn in the same room ... same rules in the Act",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.13,62",
+   "found": "Both reports from one Commission under the Act",
+   "note": ""
+  },
+  {
+   "line": 79,
+   "claim": "They agree on most of Alberta",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched findings/, reports/academic/report_academic.md",
+   "found": "No stated count. Audit check of gpkgs: 29/89 majority districts have >95% IoU match in minority; ~90% of area is in best-overlap pairs",
+   "note": "Vague; true by area, not by district count."
+  },
+  {
+   "line": 81,
+   "claim": "A city of 85,805",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "web: https://discoverairdrie.com/articles/airdrie-adds-over-5000-residents-census-results-announced ; repo analysis/scripts/cracking_signature_rescore.py OTHER_VINTAGES",
+   "found": "85,805 = 2024 municipal census (80,649 in 2023)",
+   "note": "verified_by: web, plus repo script constant."
+  },
+  {
+   "line": 81,
+   "claim": "with one seat of its own (heading)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "Minority: Airdrie-East holds 54.66% of Airdrie, 89.6% Airdrie residents; majority has two Airdrie-majority seats",
+   "note": "Heading loose: majority gives two."
+  },
+  {
+   "line": 83,
+   "claim": "minority gives it one, Airdrie East, with 54.7% of the city",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "share_of_airdrie_held 0.5466",
+   "note": ""
+  },
+  {
+   "line": 83,
+   "claim": "majority gives two divisions, both mostly Airdrie",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "Airdrie-West 97.5%, Airdrie-East 75.8% Airdrie (share_of_district)",
+   "note": ""
+  },
+  {
+   "line": 83,
+   "claim": "puts most of the rest in two Calgary-majority divisions",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "Calgary-Airdrie: Calgary 22,587 vs Airdrie 17,752; Foothills-Airdrie West: Calgary 29,490 vs Airdrie 15,496",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "splits Airdrie into four pieces",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "districts_with_any_airdrie_residents 4 (minority); 2 majority",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "Law caps each division at 1.25 x provincial average, so Airdrie needs at least two",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(1)",
+   "found": "Not more than 25% above average; avg 54,929 -> cap 68,661 < 85,805",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "north to Olds-Three Hills-Didsbury, east to Airdrie East, west to Calgary-Foothills-Airdrie West, centre-south to Calgary-Airdrie",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg",
+   "found": "District centroids: Olds y=5718k (north), Airdrie-East x=598k (east), Foothills-Airdrie West x=562k (west), Calgary-Airdrie x=567k",
+   "note": "Checked at district-centroid level only."
+  },
+  {
+   "line": 85,
+   "claim": "nine in ten of [Airdrie East's] people are Airdrie residents",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "share_of_district_airdrie 0.8957",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "north piece holds about 350 people",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "351",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "clears first bar of cracking test (5.3.2)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "C1_split_above_minimum true (3 pieces >=2% vs minimum 2)",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "fails second bar because of Airdrie East; no cracking signature",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "C2 false; C2_majority_in ['Airdrie-East']; result 'not detected'",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "The majority's two-way split fails both bars",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "majority C1 false, C2 false; not detected",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "Nearly all the rest of the city stapled to two Calgary-edge districts",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "23.96% + 20.91% = 44.9% of the 45.3% remainder",
+   "note": ""
+  },
+  {
+   "line": 85,
+   "claim": "one council, one tax bill, treated as a unit",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 87,
+   "claim": "three delegations to three offices (fourth piece about 350)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "3 pieces >=2%; 4th 351",
+   "note": ""
+  },
+  {
+   "line": 87,
+   "claim": "two of those MLAs answer first to voters outside Airdrie",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "Calgary residents outnumber Airdrie's in both",
+   "note": ""
+  },
+  {
+   "line": 87,
+   "claim": "textbook case of cracking",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing; text itself says not a signature",
+   "note": ""
+  },
+  {
+   "line": 89,
+   "claim": "Splitting a community is a main red flag in research; four-way split invisible to partisan statistics",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "General framing, uncited",
+   "note": ""
+  },
+  {
+   "line": 91,
+   "claim": "Canadian commissions treat keeping a city whole as core anchor; two-way split of this size is routine",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched reports/academic/report_academic.md, analysis/methodology",
+   "found": "No source for practice claim or 'routine'",
+   "note": ""
+  },
+  {
+   "line": 91,
+   "claim": "nearly half its residents are a minority",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "45.3% outside Airdrie East; each a minority in its district (43.8%, 34.1%, 0.8%)",
+   "note": ""
+  },
+  {
+   "line": 91,
+   "claim": "majority draft proves two-way split was drawable",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/airdrie_split_shares_2026-10-31.json",
+   "found": "majority map: 2 districts",
+   "note": ""
+  },
+  {
+   "line": 93,
+   "claim": "Act allows municipalities to be split; community of interest one factor, not binding",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.14",
+   "found": "'may take into consideration' (a)-(f) incl. (b) communities of interest, including municipalities",
+   "note": "No prohibition on splits; inference."
+  },
+  {
+   "line": 93,
+   "claim": "Saskatchewan Reference tells courts to defer",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/law/carter_1991_2scr158_lexum_item766.html",
+   "found": "McLachlin J.: courts 'ought not to interfere ... unless ... reasonable persons ... could not have set the electoral boundaries as they exist'",
+   "note": ""
+  },
+  {
+   "line": 93,
+   "claim": "audit's review found no Canadian decision that struck down a map for splitting a city",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched reports/academic/report_academic.md, plain_language_defense.md, findings/iap_para167",
+   "found": "No such statement or search log. Raiche 2004 FC 679 (academic l.321) found statutory community-of-interest violations, remedy referral back",
+   "note": "Absence claim."
+  },
+  {
+   "line": 93,
+   "claim": "Both maps stay inside the Act's population band",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "data/reference/{majority,minority}_2026_populations.csv; Act s.15(2)",
+   "found": "3 districts per map below -25%: majority Canmore-Banff -27.25, Central Peace-Notley -47.72, Lesser Slave Lake -45.36; minority RMH-Banff Park -30.28, Central Peace-Notley -44.57, Lesser Slave Lake -45.36 (permitted by s.15(2))",
+   "note": "True only for ordinary districts; reword."
+  },
+  {
+   "line": 93,
+   "claim": "majority argued minority map likely to fail Charter challenge (p.10)",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.10",
+   "found": "'likely violate s. 3 of the Charter ... court challenge that is likely to be successful'",
+   "note": ""
+  },
+  {
+   "line": 93,
+   "claim": "Legal lesson 1",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 99,
+   "claim": "majority (the chair and two commissioners)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.65",
+   "found": "Signed Miller, Clark, Samson",
+   "note": ""
+  },
+  {
+   "line": 99,
+   "claim": "appointed under same Act, same submissions",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.13",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 99,
+   "claim": "flagged four boundaries as geographically anomalous",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.2; evidence/commission_reports/abebc_2026_rpt_final.pdf pp.62-63",
+   "found": "Named: Calgary-Nolan Hill-Cochrane, RMH-Banff Park, Olds-Three Hills-Didsbury, Calgary-Foothills-Airdrie West",
+   "note": "'Geographically anomalous' is the audit's label; majority wrote 'look strange', 'highly unusual', 'not a good-faith use'; Olds was flagged for including part of Airdrie."
+  },
+  {
+   "line": 99,
+   "claim": "majority called park extension 'a bad faith effort'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.10",
+   "found": "'a bad faith effort to ensure it can be protected under s. 15(2) of the Act'",
+   "note": "The gloss 'population protection written for remote communities where people actually live' is not majority wording."
+  },
+  {
+   "line": 99,
+   "claim": "majority gave its own map zero such flags",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.3; data/outputs/report_numbers.json",
+   "found": "Audit scan of majority's four Calgary hybrids: no anomaly (question set built from minority anomalies)",
+   "note": ""
+  },
+  {
+   "line": 99,
+   "claim": "audit confirmed anomaly at three; Foothills-Airdrie West not confirmed",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.2",
+   "found": "Three Confirmed; fourth defensible highway link",
+   "note": ""
+  },
+  {
+   "line": 99,
+   "claim": "majority's criticism covers seven configurations",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.2",
+   "found": "seven distinct minority configurations",
+   "note": ""
+  },
+  {
+   "line": 101,
+   "claim": "Three commissioners, chair among them, watched these lines being drawn",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.62",
+   "found": "Majority says minority departed in late January; nothing on watching lines drawn",
+   "note": "'As close to direct evidence as this record gets' is OPINION."
+  },
+  {
+   "line": 101,
+   "claim": "charged in the official report that a legal protection was being gamed",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.63",
+   "found": "'cannot be a good faith use of s. 15(2)'",
+   "note": ""
+  },
+  {
+   "line": 103,
+   "claim": "Banff townsite sits inside a federal park, grouping with Canmore has CoI logic",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "outside this range (Banff section)",
+   "found": "Not checked here",
+   "note": ""
+  },
+  {
+   "line": 105,
+   "claim": "no earlier case known of majority accusing colleagues of bad faith",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Hedged by text",
+   "note": ""
+  },
+  {
+   "line": 107,
+   "claim": "Under the Act the majority's report is the commission's report (s.9)",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.9",
+   "found": "'the report of a majority of the members of the Commission is the report of the Commission'",
+   "note": ""
+  },
+  {
+   "line": 107,
+   "claim": "legislature could set both maps aside. It did.",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf; assembly_committee_page_ceb_2026-11-02.html",
+   "found": "Government Motion 37 passed April 21, 2026: Commission concluded, new independent review of 91 divisions",
+   "note": "'Set aside' is characterization; motion does not use the words."
+  },
+  {
+   "line": 107,
+   "claim": "report is advice; Legal lesson 2",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "Legal characterization",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "about 8.5% larger on one map than the other",
+   "type": "number",
+   "status": "MISMATCH",
+   "source": "data/reference/*_2026_populations.csv; reports/academic/report_academic.md 5.1.2",
+   "found": "Zone A means 61,225 vs 56,460 -> ratio 1.0844 = 8.4%",
+   "note": "8.5 follows from rounded 11.5/2.8 only."
+  },
+  {
+   "line": 113,
+   "claim": "17 districts across north, east and central Calgary (incl. Airdrie and Cochrane hybrids)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/scripts/electoral_forensics_population.py CALGARY_ZONE_A",
+   "found": "17 in each map; includes Calgary-Airdrie, Foothills-Airdrie West, Nolan Hill-Cochrane",
+   "note": "List departs from stated line in 3 places; strict recode gives 16 districts avg 60,407 (academic 5.1.2)."
+  },
+  {
+   "line": 113,
+   "claim": "minority average 11.5% above provincial average",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/report_numbers.json",
+   "found": "11.5%; computed 11.46%",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "majority 2.8%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/report_numbers.json",
+   "found": "2.8%; computed 2.79%",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "NDP wins 8 of these 17",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "zone_a_ndp_won 8",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "average margin 15.0 points",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "14.95",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "provincial average 27.6",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "27.56",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "12.6 below; test needs 15 above",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "excess -12.61; threshold 15.0; p2_pass false",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "first bar cleared, second fails (5.3.1)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "P1 passes, P2 fails, not detected",
+   "note": ""
+  },
+  {
+   "line": 113,
+   "claim": "exploratory; written in same commit as first run",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.1196",
+   "found": "commit 282bc6d",
+   "note": ""
+  },
+  {
+   "line": 115,
+   "claim": "Packing and cracking shrink a party's seats below its vote share",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 117,
+   "claim": "US cases most often describe packing and cracking",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "General",
+   "note": ""
+  },
+  {
+   "line": 119,
+   "claim": "Deviations normal inside band; commissions back with CoI reasons",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Uncited practice",
+   "note": ""
+  },
+  {
+   "line": 119,
+   "claim": "quote: unjustifiable emphasis on 'electors' ... (which is not contemplated by the Act) (p.10)",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.10",
+   "found": "Word-for-word match",
+   "note": ""
+  },
+  {
+   "line": 121,
+   "claim": "Every one of those districts inside +/-25% band",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/reference/minority_2026_populations.csv",
+   "found": "Zone A deviations +2.46% to +24.06%",
+   "note": ""
+  },
+  {
+   "line": 121,
+   "claim": "Charter s.3 protects effective representation; no Canadian court read it as proportional",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/law/carter_1991_2scr158...html; reports/academic/report_academic.md l.319-321",
+   "found": "Effective-representation standard; no contrary case in repo",
+   "note": "Universal negative."
+  },
+  {
+   "line": 121,
+   "claim": "Legal lesson 3",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 127,
+   "claim": "MAD 4,707 vs 3,180",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/reference/*_2026_populations.csv; reports/academic/report_academic.md l.710",
+   "found": "computed 4,706.8 and 3,179.6 vs 54,929",
+   "note": ""
+  },
+  {
+   "line": 127,
+   "claim": "48% wider",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "computation",
+   "found": "4707/3180 = 1.480",
+   "note": ""
+  },
+  {
+   "line": 127,
+   "claim": "MedAD 3,938 vs 2,827",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/report_numbers.json",
+   "found": "3,938 / 2,827",
+   "note": ""
+  },
+  {
+   "line": 127,
+   "claim": "minority MedAD at 99th percentile; ~1 in 100 more uneven (+/-12.5%)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "percentile 99.13",
+   "note": "Ensemble plans have 87 districts vs 89."
+  },
+  {
+   "line": 127,
+   "claim": "Against +/-25% neutral maps both commission maps more equal than almost all",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/eps_full_robustness.md l.34",
+   "found": "majority p0.0, minority p0.013 (135 of 1,010,000 more equal)",
+   "note": ""
+  },
+  {
+   "line": 127,
+   "claim": "on 2021 census counts average spreads almost the same",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.1741, C33",
+   "found": "10.1% vs 10.2% of own quota",
+   "note": ""
+  },
+  {
+   "line": 129,
+   "claim": "minority worse than majority; 'they had to draw weird boundaries' defence",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Quoted defence unattributed; MAD part supported",
+   "note": ""
+  },
+  {
+   "line": 131,
+   "claim": "Every formal model treats equal population as first constraint",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "General",
+   "note": ""
+  },
+  {
+   "line": 133,
+   "claim": "Commissions treat deviation band as limit not budget",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Uncited practice",
+   "note": ""
+  },
+  {
+   "line": 135,
+   "claim": "+/-25% band is the only limit; no district on either map crosses it",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.15(2); data/reference/*_2026_populations.csv",
+   "found": "s.15(2) allows 50% below for up to 4; 3 districts per map are below -25%",
+   "note": "Sentence begins 'ordinary district' but ends 'no district'; reword."
+  },
+  {
+   "line": 135,
+   "claim": "Legal lesson 4",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 141,
+   "claim": "Anchoring = border on a city limit, a school-division boundary, a Statistics Canada census line",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "data/outputs/municipal_anchoring_canonical.json; reports/academic/report_academic.md 5.8.5",
+   "found": "Scorer snaps to StatCan 2021 CSD (municipal) edges within 500 m, contiguous runs >=1 km; no school-division data",
+   "note": "Definition broader than the measure."
+  },
+  {
+   "line": 141,
+   "claim": "majority 80%, minority 72%, 2019 map 75%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/municipal_anchoring_canonical.json",
+   "found": "80.0 / 71.8 / 75.1",
+   "note": ""
+  },
+  {
+   "line": 141,
+   "claim": "2019 map drawn by the last commission",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "municipal_anchoring_canonical.json",
+   "found": "EDS_ENACTED_BILL33_15DEC2017",
+   "note": ""
+  },
+  {
+   "line": 143,
+   "claim": "city line, tax line, school-division line and election line all match",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md l.1999",
+   "found": "20 of 21 minority hybrids cross a school-division boundary; Red Deer Catholic serves Red Deer and Sylvan Lake",
+   "note": "Overgeneralised."
+  },
+  {
+   "line": 145,
+   "claim": "No Canadian statute or practice guide requires any anchoring rate",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.14; reports/academic/report_academic.md C49",
+   "found": "No threshold in Act; no 70-85% norm source found",
+   "note": ""
+  },
+  {
+   "line": 147,
+   "claim": "Act sets no anchoring threshold",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s.14",
+   "found": "None",
+   "note": ""
+  },
+  {
+   "line": 151,
+   "claim": "Four discriminating tests plus summary; anchoring did not fire",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/municipal_anchoring_canonical.json",
+   "found": "80.0/71.8 vs 75.1",
+   "note": ""
+  },
+  {
+   "line": 151,
+   "claim": "On every test the teal bar sits at zero or well inside the safe range",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "data/maps/article/lane2_bars.svg",
+   "found": "Figure description",
+   "note": ""
+  },
+  {
+   "line": 157,
+   "claim": "table anchoring 80% / 72%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "municipal_anchoring_canonical.json",
+   "found": "80.0/71.8",
+   "note": ""
+  },
+  {
+   "line": 158,
+   "claim": "table population spread 3,180 vs 4,707, 48% wider",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "see l.127",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 159,
+   "claim": "table Calgary excess 2.8% vs 11.5%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "see l.113",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 160,
+   "claim": "table flagged boundaries 0 vs 4 (3 confirmed)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md 5.8.2-5.8.3",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 161,
+   "claim": "table Airdrie 2 pieces vs 4 by territory, 3 by people (>=2%)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/cracking_signature_rescore_2026-10-31.json",
+   "found": "by_territory 4, by_people_2pct 3; majority 2/2",
+   "note": ""
+  },
+  {
+   "line": 161,
+   "claim": "Beneficiary UCP for Airdrie split",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "Inference; text says no cracking signature",
+   "note": ""
+  },
+  {
+   "line": 162,
+   "claim": "Summary >=4 of 5; majority 0 of 5; minority 4 of 5",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525",
+   "found": "'4 of 5 = the audit's line | 0 of 5 | 4 of 5'",
+   "note": ""
+  },
+  {
+   "line": 164,
+   "claim": "measurements do not depend on any vote attribution",
+   "type": "fact",
+   "status": "MISMATCH",
+   "source": "data/outputs/packing_signature_rescore_2026-11-01.json",
+   "found": "Packing P2 uses 2023 votes attributed to districts",
+   "note": "The 11.5% population figure is vote-free; the packing test is not."
+  },
+  {
+   "line": 164,
+   "claim": "most random legal maps would cross them too (structural_lane_calibration_2026-10-31.md)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/structural_lane_calibration_2026-10-31.md",
+   "found": "Structural lane fires on 93.5% of 200 neutral maps; S1 100%, S3 100%",
+   "note": "Calibration covers registered S1-S6 battery, not exactly these five (Calgary excess absent); 91-district plans."
+  },
+  {
+   "line": 164,
+   "claim": "wrote all five down April 24, 2026 after measuring both maps on provisional boundaries; 4-of-5 rule next day",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525, C50",
+   "found": "'tests written down April 24, 2026, and the 4-of-5 line April 25, after both maps were measured; dated in the repository, not on OSF'",
+   "note": "'Before final simulation results' not separately checked."
+  },
+  {
+   "line": 164,
+   "claim": "dated in this repository, not registered at OSF",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525, C50",
+   "found": "Same",
+   "note": ""
+  }
+ ]
+}

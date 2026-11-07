@@ -1,0 +1,101 @@
+[
+ {
+  "line": 323,
+  "claim": "Committee not required to hold hearings; per CBC would not; held none; no draft released before its vote",
+  "status": "SUPPORTED",
+  "source": "evidence/legislature/iap_report_2026_hires_text/p168.txt (GM 37 C(a)(ii)); evidence/README.md:105; CBC https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743 (403 to fetch; seen via search snippet only); evidence/legislature/ceb_transcript_2026-10-28.pdf",
+  "quote": "GM 37: \"without a requirement to direct the holding of public hearings\". CBC (search snippet): the committee \"would also not hold public hearings on a new map\". Transcript 10-28: \"They didn't take any public submissions\"; report \"embargoed until it's tabled in the Chamber\".",
+  "suggested_rewording": "Tense fix: replace 'stays under embargo until it is tabled' with 'was held under embargo until it was tabled on November 2'.",
+  "note": "The committee page says the panel report went to the Assembly on Nov 2, so the embargo sentence is out of date. The link used for O'Ferrall's name (CBC 9.7187435, a May piece) predates his June 2 appointment; see L462. The CBC page could not be fetched, so 'would not hold hearings' rests on a search snippet; re-read it by hand. 'Two nominated by the Premier and two by the Opposition' was not checked; CTV/Ground News say each party's committee members pick two."
+ },
+ {
+  "line": 327,
+  "claim": "CCLA raised concern about politicization of the process",
+  "status": "SUPPORTED",
+  "source": "https://ccla.org/press-release/ccla-sounds-the-alarm-over-the-politicization-of-albertas-electoral-map/ (403 to fetch; confirmed by search results; dated April 20, 2026)",
+  "quote": "\"The Canadian Civil Liberties Association (CCLA) is troubled by the tabling of Alberta's Government Motion No. 37, dated April 16, 2026.\" Also: \"We urge the Alberta government to adopt an approach that considers the inherent conflict of interest faced by elected officials in matters of electoral boundary delimitation.\"",
+  "suggested_rewording": "The Canadian Civil Liberties Association (CCLA) said on April 20 that it was troubled by the motion, and urged an approach that accounts for the conflict of interest elected officials face when they draw boundaries.",
+  "note": "URL exists and the title uses 'politicization'. The release is about the motion, not about hearings or drafts. 'Civil-liberties observers' is one group; say 'the CCLA'."
+ },
+ {
+  "line": "450a",
+  "claim": "Sovereignty Act's first bill let cabinet rewrite laws; power stripped after outcry (2022)",
+  "status": "SUPPORTED",
+  "source": "CBC https://amp.cbc.ca/lite/story/1.6678407 ; CBC https://amp.cbc.ca/lite/story/1.6675001 (fetch 403; headlines via search)",
+  "quote": "\"Alberta passes Sovereignty Act, but first strips out sweeping powers for cabinet\"; \"Proposed amendment to Alberta Sovereignty Act removes unilateral lawmaking power of cabinet\". Passed about Dec 8, 2022 (27-7).",
+  "suggested_rewording": "",
+  "note": "Accurate. Cabinet kept power to amend regulations and direct provincial entities; only the power to amend statutes was removed. 'Rewrite laws' fits that."
+ },
+ {
+  "line": "450b",
+  "claim": "Bill 20 (2024) lets cabinet repeal municipal bylaws and remove councillors",
+  "status": "PARTLY",
+  "source": "Bill 20 = Municipal Affairs Statutes Amendment Act, 2024 (royal assent May 30, 2024). CBC https://www.cbc.ca/lite/story/1.7185346 ; CBC https://amp.cbc.ca/lite/story/1.7191994 ; RMA https://rmalberta.com/wp-content/uploads/2025/10/Bill-20-Member-Resource-Branded.pdf (image PDF, unreadable by tool)",
+  "quote": "CBC April 2024: \"Alberta government wants power to remove municipal councillors, repeal bylaws it doesn't like\". After backlash the government amended it so cabinet could only overturn bylaws that go against the Constitution or exceed municipal jurisdiction, and could remove a councillor if cabinet deemed it 'in the public interest'.",
+  "suggested_rewording": "It passed a law letting cabinet remove elected councillors when it judges it is in the public interest, and cancel local bylaws that are unconstitutional or outside municipal powers.",
+  "note": "The brief's title 'Municipal Statutes Amendment Act' is wrong; the real title is Municipal Affairs Statutes Amendment Act, 2024. The report's CBC April 2024 link describes the bill as introduced, not as passed. The passed repeal clause was not read. 'Repeal local bylaws' with no limit overstates the passed version; check the Municipal Government Act text or the RMA PDF by eye."
+ },
+ {
+  "line": "450c",
+  "claim": "Court paused a law in June 2025; notwithstanding clause invoked in December; injunction gone a week later",
+  "status": "SUPPORTED",
+  "source": "Egale https://egale.ca/awareness/egale-v-alberta-healthcare/ (redirects, dates via search); CBC https://www.cbc.ca/news/canada/calgary/gender-affirming-care-injunction-court-decision-9.7021936 ; CBC https://www.cbc.ca/news/canada/edmonton/bill-nine-legal-challenges-alberta-9.6986864 ; CTV https://www.ctvnews.ca/edmonton/article/court-lifts-injunction-on-trans-law-after-alberta-uses-notwithstanding-clause/ (Dec 19, 2025)",
+  "quote": "Injunction granted June 27, 2025 against Bill 26 (Health Statutes Amendment Act, youth gender-affirming care; Egale Canada v. Alberta). Bill 9 (Protecting Alberta's Children Statutes Amendment Act) invoked s.33 for Bills 26, 27 and 29; passed Dec 11, 2025. Injunction lifted Dec 18, 2025 (Egale's date). CBC: the ruling came 'after it passed Bill 9 last week'.",
+  "suggested_rewording": "When a court paused its youth gender-affirming-care law (Bill 26) in June 2025, it passed Bill 9 on December 11 invoking the notwithstanding clause; the injunction was lifted on December 18.",
+  "note": "Law: Bill 26 (injunction); Bill 9 carries the clause for 26, 27 and 29. The Dec 18 date comes from one search summary of Egale's page; CTV's Dec 19 story and CBC 'last week' fit. The cited CBC November 2025 link (9.6983786) could not be found in search and predates passage, so it cannot support 'passed Dec 11' or 'a week later'. Add CBC 9.7021936."
+ },
+ {
+  "line": 462,
+  "claim": "Cited URLs exist and say what is claimed",
+  "status": "PARTLY",
+  "source": "Search-confirmed to exist: CCLA; CBC 9.7172743 ('MLA committee to review Alberta electoral boundaries after report is set aside'); CBC 9.7187435 ('All-party committee seeks judicial chair to lead effort to redraw Alberta electoral boundaries'); CBC 1.6678407; CBC 1.7185346; Egale; RMA; assembly.ab.ca committee page. Not found in search: CBC 9.6983786. CBC and CCLA pages return 403 and Wayback was blocked, so contents come from snippets.",
+  "quote": "CBC 9.7187435 (May) covers the search for a judicial chair (deadline May 14, extended to May 26). O'Ferrall was named about June 2, 2026 (CTV; Global https://globalnews.ca/news/11887467/alberta-electoral-boundaries-chair/ ; CBC https://www.cbc.ca/news/canada/edmonton/judge-electoral-boundary-ucp-donations-9.7221110). Final report: \"A total of 28 hearings were held in 16 different locations.\"",
+  "suggested_rewording": "For O'Ferrall as chair, cite CBC 9.7221110 or Global 11887467. For the hearings, cite the commission's final report and say 'sixteen locations'.",
+  "note": "The same bad cite appears at L323. 'Retired Court of Appeal justice' fits CBC. The sixteen-places fact is true but comes from the final report, not CBC, so 'from the same reporting' is wrong. The committee page confirms GM 37 passed April 21, 2026."
+ },
+ {
+  "line": 474,
+  "claim": "Many of the 56 submissions came from Indigenous communities in the north of the riding",
+  "status": "PARTLY",
+  "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (minority report, p.34 of that report; majority text; submission 968)",
+  "quote": "\"At least 56 submissions emphasized that the region constitutes a coherent community of interest.\" Submission 968 (Linda Green): \"significant Indigenous population, including multiple First Nations and Métis communities\". Majority: restored on \"very persuasive -- and cross-partisan -- public feedback\"; Indigenous share \"at least 51%\" (2021 census).",
+  "suggested_rewording": "In the end it kept the division after many public submissions (at least 56, the minority report counts) argued the region is one community of interest, in a riding where at least half the people are Indigenous.",
+  "note": "The 56 is right and is from the minority report. Neither report says who sent the 56 or where they live; named senders are mostly Slave Lake residents. The list of presenters is on the Elections Alberta website (not in repo, not fetched). Drop 'many from the Indigenous communities in the northern part of the riding' unless that list shows it."
+ },
+ {
+  "line": "480a",
+  "claim": "Banff townsite sits inside a national park on federal land and is not permitted to grow",
+  "status": "SUPPORTED",
+  "source": "Parks Canada https://parks.canada.ca/agence-agency/bib-lib/politiques-policies/gestion-management/princip/sec2/part2a/part2a7 ; SOR/90-45 https://laws.justice.gc.ca/eng/regulations/SOR-90-45/FullText.html ; RMO https://www.rmotoday.com/local-news/dab-rules-against-mandatory-population-limit-1570709",
+  "quote": "Parks Canada: the boundary \"has been set out in the National Parks Act\". Park superintendent (news): decisions are bound by \"the Town of Banff's legislated fixed boundary and commercial growth cap\". Parks Canada: the 8,000 population figure is a policy objective, \"not a legislated limit such as the commercial development limit and town boundaries\".",
+  "suggested_rewording": "It sits inside a national park, on federal land, with a fixed boundary and a legal cap on commercial growth.",
+  "note": "'Not permitted to grow' is true for the boundary and commercial floor space; the population figure is a policy target, not a legal limit. I did not read the Act text or the Banff Incorporation Agreement, and did not verify the 'Schedule 4' wording beyond search summaries."
+ },
+ {
+  "line": "480b",
+  "claim": "Almost the only people in that stretch of the Rockies live in the townsite",
+  "status": "PARTLY",
+  "source": "2021 Census figures via Wikipedia https://en.wikipedia.org/wiki/Improvement_District_No._9 and Rocky Mountain Outlook https://www.rmotoday.com/canmore/canmore-banff-outpace-provincial-national-population-rate-5067908 ; Statistics Canada tables not opened directly",
+  "quote": "Town of Banff 8,305 (2021). Improvement District No. 9 (Banff) 1,004 (one source says 1,047); ID9 is the park outside the townsite and includes Lake Louise. Final report: \"apart from the modest population in Lake Louise\".",
+  "suggested_rewording": "For provincial purposes, about nine in ten of the people who live inside Banff National Park live in the townsite; most of the rest, about a thousand, are at Lake Louise.",
+  "note": "8,305 / (8,305 + 1,004) is about 89%. 'Almost the only' is a little strong given Lake Louise. Confirm against the StatCan Census Profile before publishing."
+ },
+ {
+  "line": 103,
+  "claim": "Banff townsite sits inside a federal park; grouping it with Canmore has community-of-interest logic (commission or panel say so)",
+  "status": "PARTLY",
+  "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (Appendix B Canmore-Banff; Appendix C Canmore-Kananaskis); evidence/legislature/iap_report_2026_hires_text/p095.txt",
+  "quote": "Commission: \"Banff and Canmore clearly need to be in the same electoral division.\" And: \"These communities share tourism-based economies, transportation corridors, recreational infrastructure, and service patterns that naturally bind them together.\" Panel (p095): \"Banff... and Canmore... are not sparsely settled communities. They are not even far apart\".",
+  "suggested_rewording": "The town of Banff sits inside a national park, and the commission said Banff and Canmore share tourism economies and transport links, so putting them together has a community-of-interest basis.",
+  "note": "Commission and panel both keep Banff with Canmore. Neither says the park is federal land the town cannot grow into; that comes from Parks Canada (see 480a). Credit the logic to the commission and the federal-park fact to Parks Canada."
+ },
+ {
+  "line": 337,
+  "claim": "In May, Duane Bratt described the process to the author as without precedent",
+  "status": "PARTLY",
+  "source": "reports/academic/report_academic.md:2263 ('D. Bratt, personal communication, 2026-05-09'); analysis/review/swarm_audit_2026-10-29.md items 47 and 67 (Alberta 1992 is a precedent). Public: Global News https://globalnews.ca/news/11805217/albertas-riding-changes/ ; Edmonton Journal column, April 2026 (excerpted at https://www.agriville.com/forum/rural-issues/833095-duane-bratt-gerrymandering-electoral-map-will-erode-alberta-democracy)",
+  "quote": "Public Bratt: told Global News the redrawing process is \"not normal\"; his column called the handling of the final report unprecedented because it arrived as a majority and a minority report, and said \"Thursday was a bad day for democracy\". No public quote of 'without precedent in Canada' found.",
+  "suggested_rewording": "PERSONAL-COMMUNICATION. In May, Duane Bratt, Professor of Political Science at Mount Royal University, told the author in correspondence (personal communication, May 9, 2026) that the process had no Canadian precedent. Publicly he has called it 'not normal'.",
+  "note": "Private correspondence; label it and date it. The repo's own swarm audit (item 67, HIGH) says to remove the 'unprecedented' Bratt corroboration because Alberta 1992 is a precedent. The next sentences handle 1992, but 'That stands' still conflicts with that audit; consider 'It has one close precedent, Alberta in 1992...' or drop 'That stands'. Not checked: whether the public column says 'in Canada'."
+ }
+]

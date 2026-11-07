@@ -1,0 +1,42 @@
+division,stated_pop,stated_identical,overlay_unchanged,largest_successor,share_kept,share_of_successor,people_moved_est,app7_pop,app7_km2,majority_km2
+Airdrie-East,53809,True,True,Airdrie-East,1.0,1.0,0,53809.0,1579.0,1579.352
+Airdrie-West,48145,True,True,Airdrie-West,1.0,1.0,0,48145.0,195.0,194.603
+Calgary-Acadia,55789,True,True,Calgary-Acadia,1.0,1.0,0,55789.0,27.0,27.227
+Calgary-Beddington,56024,True,True,Calgary-Beddington,1.0,1.0,0,56024.0,30.0,29.515
+Calgary-Bhullar-McCall,55887,True,True,Calgary-Bhullar-McCall,1.0,1.0,0,55887.0,41.0,40.769
+Calgary-Bow,54982,False,False,Calgary-Bow-Springbank,1.0,0.9487,0,,,31.899
+Calgary-Buffalo,58777,True,True,Calgary-Buffalo,1.0,1.0,0,58777.0,4.0,4.203
+Calgary-Confluence,58632,True,True,Calgary-Confluence,1.0,1.0,0,58632.0,49.0,49.079
+Calgary-Cross,59491,True,True,Calgary-Cross,1.0,1.0,0,59491.0,16.0,15.858
+Calgary-Currie,58111,True,True,Calgary-Currie,1.0,1.0,0,58111.0,16.0,15.93
+Calgary-East,58308,True,True,Calgary-East,1.0,1.0,0,58308.0,68.0,68.371
+Calgary-Edgemont,55141,True,True,Calgary-Edgemont,1.0,1.0,0,55141.0,20.0,19.9
+Calgary-Elbow,55297,True,True,Calgary-Elbow,1.0,1.0,0,55297.0,18.0,17.605
+Calgary-Falconridge-Conrich,56661,True,True,Calgary-Falconridge-Conrich,1.0,1.0,0,56661.0,46.0,46.29
+Calgary-Fish Creek,55403,True,True,Calgary-Fish Creek,1.0,1.0,0,55403.0,33.0,32.684
+Calgary-Glenmore-Tsuut'ina,56970,True,True,Calgary-Glenmore-Tsuut'ina,1.0,1.0,0,56970.0,334.0,334.243
+Calgary-Hays,52147,True,True,Calgary-Hays,1.0,1.0,0,52147.0,63.0,63.077
+Calgary-Klein,56292,True,True,Calgary-Klein,1.0,1.0,0,56292.0,37.0,36.737
+Calgary-Lougheed,59554,True,True,Calgary-Lougheed,1.0,1.0,0,59554.0,34.0,34.419
+Calgary-McKenzie,62772,True,True,Calgary-McKenzie,1.0,1.0,0,62772.0,31.0,30.929
+Calgary-Mountain View,54396,True,True,Calgary-Mountain View,1.0,1.0,0,54396.0,16.0,15.879
+Calgary-North,57945,True,True,Calgary-North,1.0,1.0,0,57945.0,23.0,22.674
+Calgary-North East,54541,True,True,Calgary-North East,1.0,1.0,0,54541.0,25.0,25.089
+Calgary-North West,52488,False,True,Calgary-North West-Bearspaw,1.0,0.9939,0,,,26.22
+Calgary-Nose Creek,55155,True,True,Calgary-Nose Creek,1.0,1.0,0,55155.0,45.0,44.867
+Calgary-Shaw,58171,True,True,Calgary-Shaw,1.0,1.0,0,58171.0,34.0,34.224
+Calgary-South East,53551,True,True,Calgary-South East,1.0,1.0,0,53551.0,44.0,43.591
+Calgary-Symons Valley,54797,True,True,Calgary-Symons Valley,1.0,1.0,0,54797.0,36.0,36.455
+Calgary-Varsity,57166,True,True,Calgary-Varsity,1.0,1.0,0,57166.0,27.0,26.964
+Calgary-West-Elbow Valley,54167,False,False,Calgary-West-Springbank,1.0,0.8992,0,,,72.187
+Canmore-Banff,39961,False,False,Banff-Canmore-Diamond Valley,0.9337,0.8016,2649,,,15660.004
+Chestermere-Strathmore,56679,False,True,Chestermere-Strathmore,1.0,1.0,0,56679.0,1025.0,1019.716
+Cochrane-Springbank,56487,False,False,Cochrane,0.8344,1.0,9354,,,754.682
+High River-Vulcan-Siksika,53351,False,False,Macleod-Crowsnest,0.5123,0.562,26019,,,14771.199
+Lethbridge-East,57463,False,False,Lethbridge,0.5233,0.4598,27393,,,51.216
+Lethbridge-West,54235,False,False,Lethbridge,0.5924,0.5402,22106,,,95.41
+Livingstone-Macleod,50144,False,False,Macleod-Crowsnest,0.4599,0.438,27083,,,12691.142
+Medicine Hat-Brooks,54833,True,True,Medicine Hat-Brooks,1.0,1.0,0,54833.0,13740.0,13740.261
+Medicine Hat-Cypress,54210,True,True,Medicine Hat-Cypress,1.0,1.0,0,54210.0,6117.0,6116.896
+Okotoks-Diamond Valley,55284,False,False,Okotoks,0.8686,0.939,7264,,,1259.616
+Taber-Cardston,54933,False,False,Lethbridge-Taber-Warner,0.637,0.6172,19941,,,21271.241

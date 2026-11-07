@@ -1,0 +1,12 @@
+{
+ "region": "Medicine Hat",
+ "variant": "blind",
+ "chain": 2,
+ "seed_salt": "regional_Medicine_Hat_blind_2",
+ "seed": 3552558146,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 6,
+ "n_vas": 353,
+ "muni_weight": 0
+}

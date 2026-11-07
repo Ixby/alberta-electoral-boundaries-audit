@@ -1,0 +1,57 @@
+                                     Electoral Division Populations
+
+   ED                   Proposed     Estimated      Average            Difference  Percentage   Area
+Number                  ED Name      Population  ED Population       from Average  Difference  in km2
+        Calgary-Acadia
+    1   Calgary-Beddington              55789         53722               2067          4%       27
+    2   Calgary-Bhullar-McCall          56024         53722               2302          4%       30
+    3   Calgary-Bow-Springbank          55887         53722               2165          4%       41
+    4   Calgary-Buffalo                 58673         53722               4951          9%      119
+    5   Calgary-Confluence              58777         53722               5055          9%        4
+    6   Calgary-Cross                   58632         53722               4910          9%       49
+    7   Calgary-Currie                  59491         53722               5769         11%       16
+    8   Calgary-East                    58111         53722               4389          8%       16
+    9   Calgary-Edgemont                58308         53722               4586          9%       68
+   10   Calgary-Elbow                   55141         53722               1419          3%       20
+   11   Calgary-Falconridge-Conrich     55297         53722               1575          3%       18
+   12   Calgary-Fish Creek              56661         53722               2939          5%       46
+   13   Calgary-Glenmore-Tsuut'ina      55403         53722               1681          3%       33
+   14   Calgary-Hays                    56970         53722               3248          6%      334
+   15   Calgary-Klein                   52147         53722               -1575         -3%      63
+   16   Calgary-Lougheed                56292         53722               2570          5%       37
+   17   Calgary-McKenzie                59554         53722               5832         11%       34
+   18   Calgary-Mountain View           62772         53722               9050         17%       31
+   19   Calgary-North                   54396         53722                674          1%       16
+   20   Calgary-North East              57945         53722               4223          8%       23
+   21   Calgary-North West-Bearspaw     54541         53722                819          2%       25
+   22   Calgary-Nose Creek              54361         53722                639          1%       37
+   23   Calgary-Shaw                    55155         53722               1433          3%       45
+   24   Calgary-South East              58171         53722               4449          8%       34
+   25   Calgary-Symons Valley           53551         53722               -171          0%       44
+   26   Calgary-Varsity                 54797         53722               1075          2%       36
+   27   Calgary-West-Springbank         57166         53722               3444          6%       27
+   28   Edmonton-Beverly-Clareview      58305         53722               4583          9%      165
+   29   Edmonton-Castle Downs           57481         53722               3759          7%       56
+   30   Edmonton-City Centre            59612         53722               5890         11%       21
+   31   Edmonton-Decore                 57312         53722               3590          7%       15
+   32   Edmonton-Ellerslie              57959         53722               4237          8%       18
+   33   Edmonton-Enoch                  53376         53722               -346          -1%      26
+   34   Edmonton-Glenora-Riverview      56894         53722               3172          6%      146
+   35   Edmonton-Gold Bar               56622         53722               2900          5%       26
+   36   Edmonton-Highlands-Norwood      54981         53722               1259          2%       57
+   37   Edmonton-Manning                51806         53722               -1916         -4%      19
+   38   Edmonton-McClung                56901         53722               3179          6%       97
+   39   Edmonton-Meadows                61859         53722               8137         15%       28
+   40   Edmonton-Mill Woods             53318         53722               -404          -1%      13
+   41   Edmonton-Nisku                  59673         53722               5951         11%       24
+   42   Edmonton-North West             54521         53722                799          1%      128
+   43   Edmonton-Rutherford             61226         53722               7504         14%       32
+   44   Edmonton-South                  58082         53722               4360          8%       26
+   45   Edmonton-Strathcona             57522         53722               3800          7%       50
+   46   Edmonton-West Henday            54093         53722                371          1%       24
+   47   Edmonton-Whitemud               61775         53722               8053         15%       73
+   48   Edmonton-Windermere             56752         53722               3030          6%       26
+   49                                   54136         53722                414          1%       56
+
+                                     2026 Independent Advisory Panel on Electoral Boundaries|205
+

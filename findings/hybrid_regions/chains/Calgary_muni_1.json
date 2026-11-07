@@ -1,0 +1,12 @@
+{
+ "region": "Calgary",
+ "variant": "muni",
+ "chain": 1,
+ "seed_salt": "regional_Calgary_muni_1",
+ "seed": 311144667,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 8,
+ "n_vas": 428,
+ "muni_weight": 0.5
+}

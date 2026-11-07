@@ -1,0 +1,12 @@
+{
+ "region": "Calgary",
+ "variant": "blind",
+ "chain": 1,
+ "seed_salt": "regional_Calgary_blind_1",
+ "seed": 3436717789,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 8,
+ "n_vas": 428,
+ "muni_weight": 0
+}

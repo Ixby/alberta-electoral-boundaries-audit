@@ -1,0 +1,31 @@
+{
+  "substrate": "all ballots incl. Vote Anywhere (~1,706k)",
+  "szat_score": 0.052501,
+  "eg_majority": -0.026962,
+  "eg_minority": 0.025539,
+  "swing_zone_count": 2110,
+  "total_va_count": 4765,
+  "unresolved_count": 0,
+  "bootstrap_p_value": 0.0005,
+  "bootstrap_p_estimator": "(b+1)/(B+1) per T1.10; raw exceedance ratio = bootstrap_b_extreme / bootstrap_n",
+  "bootstrap_b_extreme": 4,
+  "bootstrap_n": 10000,
+  "bootstrap_null_type": "i.i.d. per-VA flip (pre-registered)",
+  "bootstrap_block_size": null,
+  "bootstrap_seed": 23687475,
+  "bootstrap_ci_95": [
+    0.018634,
+    0.044068
+  ],
+  "regional_breakdown": {
+    "Calgary": 0.018156,
+    "Edmonton": 0.008417,
+    "Rest of Alberta": 0.015267,
+    "Mountain-West": 0.007246
+  },
+  "canmore_rmh_contribution": 0.007646,
+  "canonical_shapefiles": {
+    "majority": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
+    "minority": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg"
+  }
+}
