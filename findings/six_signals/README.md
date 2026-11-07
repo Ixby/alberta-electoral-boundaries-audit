@@ -87,7 +87,23 @@ On the panel's map, two s.15(2) divisions fall below the −50% floor by 2031 on
 
 ## F. A neutral redraw of the south only
 
-Running: four chains of 50,000 steps on the 462 voting areas of the panel's southern group. Results will be added here.
+196,000 neutral plans: four chains of 50,000 steps on the 462 voting areas of the panel's southern group, with the first 1,000 of each discarded. Seeds come from drand, with salts `regional_south_1` to `_4`. The four chains agree: the median share of Lethbridge NDP votes in lopsided losses is 0.20 to 0.21 in each.
+
+| Measure (percentile among neutral regional plans) | Neutral 5th / median / 95th | Panel | ¶167 |
+|---|---|---|---|
+| Districts holding Lethbridge | 2 / 3 / 4 | 4 (p92) | 2 (p5) |
+| Lethbridge NDP votes in seats lost by 10+, all ballots | 0% / 21% / 62% | 45% (p71) | 0% (**p3.9**) |
+| The same, election day | 3% / 52% / 100% | 45% (p30) | 50% (p45) |
+| NDP seats in the region, all ballots | 0 / 1 / 2 | 1 (p48) | 2 (p90) |
+| NDP seats in the region, election day | 0 / 0 / 1 | 0 (p43) | 2 (**p99.95**) |
+
+**By the plan's rule, the panel's southern configuration is not unusual among neutral redraws of the region.** Its share of Lethbridge's NDP votes in lopsided losses is at p71 on all ballots and p30 on election-day ballots. The configuration that is unusual is ¶167's, at p3.9 on all ballots: it keeps Lethbridge in two seats, which 10% of neutral regional plans do. It also gives the NDP two seats in the region on election-day ballots, more than 99.9% of those plans.
+
+Neutral redraws split Lethbridge three ways in 74% of plans and four ways in 16%. A city of 98,000 in districts of about 47,000 (2021 population) usually ends up in pieces when lines ignore municipal boundaries.
+
+**That is the key limit.** These neutral plans balance population and stay contiguous, but they take no account of keeping a city whole. The Act's s.14(b) asks the drawer to consider municipalities as communities of interest, and both commission maps kept Lethbridge to two seats. A fairer benchmark would weight municipal boundaries, like the audit's municipality-aware set C. Against that benchmark, keeping Lethbridge whole would likely look less unusual and splitting it more so. That run has not been done, so this result says only that the panel's split is ordinary for a city-blind redraw.
+
+Files: `regional_south.json` (summary), `regional_south/chainN.csv|json`.
 
 **Deviation from the plan, made before any chain result was seen:** the plan said to start each chain from the panel's assignment, and widen the band if needed to admit it. On the voting-area graph two of the panel's districts are not contiguous, and repairing that pushed one district to +62%. So each chain starts from a random plan within the ±25% band, and the first 1,000 steps are discarded. One 6-area piece of Banff-Canmore-Diamond Valley touches the region only through outside areas, so it is held with the nearest region area.
 

@@ -1,0 +1,181 @@
+{
+ "plan": "preregistration/six_signals_2026-11-07.md",
+ "n_plans": 196000,
+ "chains": [
+  {
+   "seed_salt": "regional_south_1",
+   "seed": 483882656,
+   "steps": 50000,
+   "epsilon": 0.25,
+   "start_max_dev": 0.12219017336607418,
+   "ideal_pop_2021": 46522.68942286358,
+   "n_vas": 462,
+   "districts": 8,
+   "start": "random plan within the band (recursive_tree_part)",
+   "burn_in_discarded": 1000
+  },
+  {
+   "seed_salt": "regional_south_2",
+   "seed": 3568961049,
+   "steps": 50000,
+   "epsilon": 0.25,
+   "start_max_dev": 0.12263732320689646,
+   "ideal_pop_2021": 46522.68942286357,
+   "n_vas": 462,
+   "districts": 8,
+   "start": "random plan within the band (recursive_tree_part)",
+   "burn_in_discarded": 1000
+  },
+  {
+   "seed_salt": "regional_south_3",
+   "seed": 4139097275,
+   "steps": 50000,
+   "epsilon": 0.25,
+   "start_max_dev": 0.10572506595950859,
+   "ideal_pop_2021": 46522.68942286357,
+   "n_vas": 462,
+   "districts": 8,
+   "start": "random plan within the band (recursive_tree_part)",
+   "burn_in_discarded": 1000
+  },
+  {
+   "seed_salt": "regional_south_4",
+   "seed": 4223340535,
+   "steps": 50000,
+   "epsilon": 0.25,
+   "start_max_dev": 0.10962158966891855,
+   "ideal_pop_2021": 46522.68942286358,
+   "n_vas": 462,
+   "districts": 8,
+   "start": "random plan within the band (recursive_tree_part)",
+   "burn_in_discarded": 1000
+  }
+ ],
+ "measures": {
+  "ndp_seats_ed": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 1.0,
+   "panel": {
+    "value": 0.0,
+    "pct": 42.55
+   },
+   "para167": {
+    "value": 2.0,
+    "pct": 99.95
+   }
+  },
+  "leth_won_ed": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 0.4517004088959809,
+   "panel": {
+    "value": 0.0,
+    "pct": 42.97
+   },
+   "para167": {
+    "value": 0.4994514810012966,
+    "pct": 97.19
+   }
+  },
+  "leth_near_ed": {
+   "q05": 0.0,
+   "q50": 0.4621721352348658,
+   "q95": 0.9730594062697384,
+   "panel": {
+    "value": 0.551032213024833,
+    "pct": 73.3
+   },
+   "para167": {
+    "value": 0.0,
+    "pct": 11.55
+   }
+  },
+  "leth_far_ed": {
+   "q05": 0.0260446793657125,
+   "q50": 0.5161297829194509,
+   "q95": 1.0,
+   "panel": {
+    "value": 0.4489677869751671,
+    "pct": 30.27
+   },
+   "para167": {
+    "value": 0.5005485189987035,
+    "pct": 45.27
+   }
+  },
+  "ndp_seats_all": {
+   "q05": 0.0,
+   "q50": 1.0,
+   "q95": 2.0,
+   "panel": {
+    "value": 1.0,
+    "pct": 47.82
+   },
+   "para167": {
+    "value": 2.0,
+    "pct": 89.57
+   }
+  },
+  "leth_won_all": {
+   "q05": 0.0,
+   "q50": 0.4541778277598819,
+   "q95": 0.9244616651820072,
+   "panel": {
+    "value": 0.5529731762281967,
+    "pct": 79.6
+   },
+   "para167": {
+    "value": 0.5024906691874101,
+    "pct": 64.63
+   }
+  },
+  "leth_near_all": {
+   "q05": 0.0,
+   "q50": 0.3532686456086532,
+   "q95": 0.8015011200137755,
+   "panel": {
+    "value": 0.0,
+    "pct": 20.04
+   },
+   "para167": {
+    "value": 0.49750933081258975,
+    "pct": 83.74
+   }
+  },
+  "leth_far_all": {
+   "q05": 0.0,
+   "q50": 0.2066352303695856,
+   "q95": 0.619484733826505,
+   "panel": {
+    "value": 0.4470268237718032,
+    "pct": 70.57
+   },
+   "para167": {
+    "value": 0.0,
+    "pct": 3.94
+   }
+  },
+  "leth_pieces": {
+   "q05": 2.0,
+   "q50": 3.0,
+   "q95": 4.0,
+   "panel": {
+    "value": 4.0,
+    "pct": 92.1
+   },
+   "para167": {
+    "value": 2.0,
+    "pct": 5.12
+   }
+  }
+ },
+ "unusual_ed": {
+  "panel": false,
+  "para167": false
+ },
+ "unusual_all": {
+  "panel": false,
+  "para167": true
+ }
+}
