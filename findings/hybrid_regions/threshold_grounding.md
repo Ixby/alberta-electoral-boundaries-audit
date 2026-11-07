@@ -49,7 +49,7 @@ On election-day votes the minority is +4.02%. No map comes near 8%. The register
 
 - Under every standard the literature supports, nothing in this session's regional or packing results is a statistically significant outlier.
 - The Lethbridge four-way split is the closest: rare (0.9% of city-aware plans), but not significant once multiple tests or Chikina's bound are applied.
-- St. Albert's single flag does not survive any correction and is consistent with chance.
+- St. Albert's single flag does not survive any correction. It is as rare as one result among this many comparisons would be against nonpartisan alternatives.
 
 ## A test that would apply properly (not run)
 

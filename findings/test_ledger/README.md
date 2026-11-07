@@ -9,7 +9,7 @@ Every analysis made after the provisional Step C reading, with its plan, its rul
 | | Count |
 |---|---|
 | Comparisons | 88 |
-| Expected beyond the 5th or 95th percentile by chance alone, if nothing were going on | about 8.8 |
+| Expected beyond the 5th or 95th percentile if the maps behaved like the nonpartisan comparison maps | about 8.8 |
 | Beyond the 5th or 95th percentile (nominal flags) | 5 |
 | Significant after Benjamini-Hochberg (false discovery rate 5%) | **0** |
 | Significant after Bonferroni | **0** |
@@ -24,7 +24,11 @@ Every analysis made after the provisional Step C reading, with its plan, its rul
 | Seats under 30% NDP, election-day ballots, set D | ¶167 | 96.1 | more lopsided UCP seats |
 | Lethbridge NDP votes in lopsided losses, city-blind | ¶167 | 3.9 | less cracked than neutral |
 
-Fewer nominal flags turned up than chance alone would produce, and none survives a correction. The 88 comparisons overlap (the same maps and chains enter many of them), so they are not independent. Bonferroni is valid under dependence. Benjamini-Hochberg is shown for reference.
+Fewer nominal flags turned up than the nonpartisan comparison maps would produce on their own, and none survives a correction. The 88 comparisons overlap (the same maps and chains enter many of them), so they are not independent. Bonferroni is valid under dependence. Benjamini-Hochberg is shown for reference.
+
+## What "p" means here (author's point, 2026-11-07: "districts aren't drawn by chance")
+
+Districts are drawn by deliberate choice, not at random. None of these p-values or percentiles assumes otherwise. Each one compares the real map with **nonpartisan alternatives**: maps drawn by a procedure that follows the encoded rules (population, contiguity, and in some sets municipalities and s.15(2)) and never looks at votes. A small p means the map's partisan effect is unusual among maps drawn without reference to party. It does not mean the map was drawn randomly, and a large p does not mean it was. A deliberate choice made for a stated, nonpartisan reason, such as a community of interest or a highway corridor, can land anywhere in that range. The question these numbers help with is narrower: is the partisan pattern of the choices something nonpartisan drawing commonly produces, or rarely produces? Why the choices were made is a separate question, and it is answered by the record of the panel's reasons and how consistently it applied them, not by these numbers.
 
 ## Every analysis, including the ones without percentiles
 

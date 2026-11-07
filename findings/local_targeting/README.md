@@ -38,7 +38,7 @@ Of the 6 changed divisions within 10 points on either map, 5 moved toward the UC
 
 ## Reading
 
-The panel's changes do not fall on competitive or NDP-held seats more than chance suggests, and province-wide the map is ordinary (see `../packing_cracking/`, `../changed_districts/`). The effect is local:
+The panel's changes do not fall on competitive or NDP-held seats more often than on other seats, and province-wide the map is ordinary (see `../packing_cracking/`, `../changed_districts/`). The effect is local:
 - **Where it is:** a small number of changes, centred on Lethbridge and Banff.
 - **Which way it runs:** consistently against the NDP, moving NDP voters from competitive seats into lopsided ones about four times as often as the reverse.
 - **How big it is:** about one seat on 2023's votes.
