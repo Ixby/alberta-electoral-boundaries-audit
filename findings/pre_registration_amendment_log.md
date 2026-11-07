@@ -963,7 +963,7 @@ This is the rule Step C applied, citing Amendment 5, Part 14 (set D's index 250,
 
 ## Amendment 12 — All 2023 ballots replace election-day ballots in every registered step that uses votes
 
-> **Status: draft, not filed.** Written 2026-11-07, about 7:20 AM Alberta Time (UTC−6), at the author's direction ("do the amendment"), before the official map has been posted or scored. **Not blind:** results on all ballots for the reconstructed panel map and the commission maps had already been seen (`findings/allballots_ranking/`, `findings/iap_para167/`). Their effect on outcomes is disclosed in Part 5.
+> **Status: in force.** Written 2026-11-07, about 7:20 AM Alberta Time (UTC−6), at the author's direction ("do the amendment"), before the official map has been posted or scored. **Not blind:** results on all ballots for the reconstructed panel map and the commission maps had already been seen (`findings/allballots_ranking/`, `findings/iap_para167/`). Their effect on outcomes is disclosed in Part 5.
 
 **Why.** The registered steps use 2023 election-day votes. Those leave out about half of 2023's ballots (advance, mobile, special and Vote Anywhere), which Elections Alberta reports only by division. On the 2019 map, election-day votes elect 57 UCP and 30 NDP; the 2023 result was 49 and 38. The all-ballots substrate puts those ballots back by voting area, matches the official result in every 2019 division, and returns 49 and 38 (`findings/seat_claim_test_result.md`, substrate D).
 
