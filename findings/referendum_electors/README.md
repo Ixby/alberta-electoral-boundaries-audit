@@ -65,6 +65,45 @@ Calgary-North East does not depend on placement: no voting area is cut by its bo
 
 The city gap changes sign. On population, Calgary and Edmonton divisions are larger than the rest; on electors, they are smaller. The commission treated voter parity as no "more than a marginal consideration" under its statute, and said divisions with many non-voters can be harder to represent (PDF p. 30).
 
+## How much does the 2021 census explain? (2026-11-07)
+
+Plan committed before any census figure was placed on a division (`preregistration/census_eligibility_check_2026-11-07.md`, commit `e2f5ae2e`). Eligibility is the census count of Canadian citizens aged 18 and over (private households, 25% sample). Data: 2021 Census Profile by dissemination area, from Statistics Canada's API (`STC_CP:DF_DA`), fetched 02:02-02:16 MST; extract in `data/census_2021/`. Areas with no eligibility figure hold 0.13% of 2021 population, inside the plan's 5% limit. The census route reproduces the audit's 2021 overlay to within 2.1% on average.
+
+**It explains about half the gap overall, and more than half in northeast Calgary, but not all of it.**
+
+Weighting each division's stated population by its 2021 eligible share cuts the average miss against 2026 electors on the majority map from 13.0% to 7.7% (cities 13.3% to 7.9%; rest 12.5% to 7.4%).
+
+| Division (majority map) | Electors 2026 | Stated 2024 | Eligible share 2021 | Expected electors | Left over (actual / expected) | Share of the gap explained |
+|---|---|---|---|---|---|---|
+| Calgary-North East | 15,036 | 54,541 | 46% | 24,685 | 0.61 | 55% |
+| Calgary-Bhullar-McCall | 20,256 | 55,887 | 45% | 24,545 | 0.82 | 75% |
+| Calgary-Falconridge-Conrich | 25,846 | 56,661 | 54% | 29,869 | 0.86 | 67% |
+| Edmonton-Meadows | 22,047 | 56,880 | 47% | | 0.84 | 74% |
+| Edmonton-Windermere | 25,965 | 56,944 | 56% | | 0.83 | 57% |
+| Calgary-Buffalo | 27,429 | 58,777 | 71% | | 0.67 | -11% |
+
+Province: 69% of 2021 residents were citizens aged 18 or over. In Calgary-North East it was 46%: 24% were under 15 and 30% were not citizens.
+
+**Calgary-North East is still 39% short of what composition predicts.** Its 2021 residents included about 12,700 citizens aged 18 and over, and it now has 15,036 electors. Electors grew by about 18% while the stated population grew by about 89% (27,947 on the census route to 54,541). The plan names three possibilities, and this check cannot pick between them:
+- Growth since 2021 that is far more heavily children and non-citizens than in 2021. Arrivals of temporary residents rose sharply across Canada after 2021, so this is plausible.
+- New neighbourhoods not yet fully on the elector list.
+- A 2024 estimate that is too high for this division.
+
+**Calgary-Buffalo (downtown) is the other large leftover (0.67), and composition explains none of its gap.** Its 2021 eligible share was above average. Turnover and renters not yet registered are the usual explanation, but that is not tested here.
+
+**At the other end, settled suburbs have more electors than composition predicts** (St. Albert 1.20, Okotoks-Diamond Valley 1.16, Strathcona-Sherwood Park 1.16). The expected figures are scaled to the province, so a list that is more complete in settled areas pushes these up and the fast-growing areas down.
+
+**Described for *Carter*'s "minority representation" factor, not graded.** These are 2021 shares of private-household population. Ancestry was not used to estimate eligibility.
+
+| Division (majority map) | Visible minority | South Asian | Filipino | Chinese | Not citizens |
+|---|---|---|---|---|---|
+| Calgary-Bhullar-McCall | 93% | 67% | 11% | 0% | 29% |
+| Calgary-North East | 86% | 49% | 12% | 2% | 30% |
+| Calgary-Falconridge-Conrich | 79% | 48% | 10% | 1% | 24% |
+| Edmonton-Meadows | 77% | 57% | 10% | 1% | 28% |
+
+Full tables, majority and panel maps: `census_division_table.csv`, `census_eligibility.json`. Code: `census_eligibility.py`.
+
 ## By-elections
 
 Not used. They cover a few divisions, so they cannot update the province, and they cannot be mixed into 2023's vote totals.
