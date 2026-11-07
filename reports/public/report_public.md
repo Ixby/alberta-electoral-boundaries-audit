@@ -26,7 +26,7 @@ You may have come here looking for proof that a map was rigged. This report does
 
 Alberta's 2025–26 Electoral Boundaries Commission finished its work on March 23, 2026, and could not agree. Three commissioners signed one map. The other two, the two the government nominated ([Legislative Assembly notice, March 28, 2025](https://www.assembly.ab.ca/about/news-and-announcements/2025/03/28/electoral-boundaries-commission-to-soon-begin-consultations); copy at `evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html`), signed a different one. Both maps meet the *Electoral Boundaries Commission Act*'s numeric rules, though the majority argued the minority's map would likely fail a Charter challenge. Three weeks later, on April 16, the government brought in Government Motion 37 (passed April 21), which set both maps aside and handed the job to a committee of six MLAs (members of the Legislative Assembly), most of them from the governing United Conservative Party (UCP). An independent advisory panel working for that committee delivered a new map on October 22. On October 28 the committee voted 3–2 to end its review, adding no observations of its own. The panel's report was due before the Assembly by November 2, 2026.
 
-This audit measured both commission maps, and the process around them, every way it knew how. Five structural tests, written down on April 24, 2026, after a first measurement of both maps on provisional boundaries, and dated in this repository. Four partisan-fairness metrics, scored against 1,010,000 neutral maps a computer drew with no stake in who wins. Independent checks of the reasons the commissioners published. A review of the process against sixty years of Canadian practice. What it found is **fourteen findings**: each one real, each one measured, each of which would count for something in a courtroom somewhere, and none of which, alone or together, can legally prove the conclusion they invite. Evidence that a map has a partisan effect is not evidence of who intended it, or why. That gap between evidence and proof is not a loophole the audit failed to close. In Canada it is the system as written. That, too, is a finding.
+This audit measured both commission maps, and the process around them, every way it knew how. Five structural tests, written down on April 24, 2026, after a first measurement of both maps on provisional boundaries, and dated in this repository. Four partisan-fairness metrics, scored against 1,010,000 neutral maps a computer drew with no stake in who wins. Independent checks of the reasons the commissioners published. A review of the process against sixty years of Canadian practice. What it found is **fifteen findings**: each one real, each one measured, each of which would count for something in a courtroom somewhere, and none of which, alone or together, can legally prove the conclusion they invite. Evidence that a map has a partisan effect is not evidence of who intended it, or why. That gap between evidence and proof is not a loophole the audit failed to close. In Canada it is the system as written. That, too, is a finding.
 
 So this report is built like an evidence log. Each finding faces the same five questions, in the same order, every time:
 
@@ -36,7 +36,7 @@ So this report is built like an evidence log. Each finding faces the same five q
 - **What Canadian practice expects** — the norm.
 - **Why it isn't proof** — the specific reason, under Canadian law, this evidence proves less than it seems to.
 
-Each of the eight legal lessons is different. By the fourteenth finding you will have learned, one piece at a time, how Canadian boundary law really works. And why every finding in this log ends the same way.
+Each of the eight legal lessons is different. By the fifteenth finding you will have learned, one piece at a time, how Canadian boundary law really works. And why every finding in this log ends the same way.
 
 Two findings in the log point the wrong way for the audit's own story, and both are told in full: one test that does not tell the maps apart, and one test where the minority map beat the majority. A report that never loses an argument with itself isn't checking. Tests that failed, and tests that found nothing, are part of the record.
 
@@ -346,11 +346,33 @@ Neither side's accusations came through whole, and neither side's map escaped a 
 
 [Know more: Appendix N, conventions versus law, and how norms erode](#appendix-n)
 
+### Finding 15 — The panel's reasons, checked against its own map {#finding-15}
+
+*Added November 7, 2026. The panel's map has not been released as a shapefile yet. Where this finding uses the map's lines, it uses the audit's reconstruction of them from the panel's report, so those parts are provisional. The populations and quotes are the panel's own.*
+
+**What we found.** The advisory panel published reasons for each change it made to the commission majority's map. We checked those reasons the same way Finding 11 checked the commission minority's: does the panel apply each reason the same way to comparable places, and do its own numbers support it? Where a change moves no seat, the reasons mostly hold. Calgary-West-Springbank really is the "much more regular polygon shape" the panel promised. But the two changes that do move a seat, Lethbridge and Banff, rest on reasons the panel does not apply elsewhere.
+
+- **Lethbridge, "population to spare."** The panel splits Lethbridge four ways because "Lethbridge already has population to spare." It names Red Deer as the comparable city: "Those two cities are Lethbridge and Red Deer." On the province's 2024 estimates, Red Deer has 113,145 people and Lethbridge 111,776. Each has room for about two divisions, and Red Deer slightly more. The panel keeps Red Deer in two city divisions and splits Lethbridge into one city division and three that mix city and rural voters.
+- **Lethbridge, the panel's own test.** The panel says a mixed city-and-rural division is justified if it "reflects a genuine community of interest or is needed to achieve population-compliance." Population was not the problem. The commission's two Lethbridge divisions were already inside the legal band (7.0% and 1.0% above average). That leaves community of interest, which the panel argues and the panel's minority disputes: "Its residents and leaders clearly want two MLAs."
+- **Lethbridge, a seat of its own.** Elsewhere the panel's rule is that growing mid-size places deserve "dedicated representation", which it uses to give Cochrane and Okotoks their own divisions. Lethbridge, a larger city, goes from two dedicated divisions to one.
+- **Banff, "the necessary population."** The panel calls its Banff change "a minor change ... to capture the necessary population," because the Act forbids an ordinary division more than 25% below average. The commission's Canmore-Banff was 331 people short of that floor, and at most about 1,300 short after a small transfer the whole panel agreed on. The panel added 8,901.
+- **Springbank, "urban with urban."** The panel says its Springbank divisions mix "urban with urban residents." In 2021, the Springbank parts held about 40 to 70 people per square kilometre. The Calgary parts of the same divisions held about 1,500 to 1,900.
+
+**What it could show.** A reason applied in one place and not in a comparable one is a reason that may not be the real one. In the two places where the panel's changes move a seat, the reasons given are the ones that do not hold up. On 2023's votes those changes cost the NDP about one seat. And the voters they move are about four times as likely to go from a seat the NDP can win into one it cannot as the other way.
+
+**What the experts say.** Checking whether stated reasons are applied evenly is the core of pretext analysis, the same method described in Finding 11. A reason that holds everywhere it is used is evidence of a principle. A reason that holds only where it helps one side is the classic sign of a rationale found after the line was drawn.
+
+**What Canadian practice expects.** Commissions and panels publish reasons so the public and the legislature can weigh them. The reasons are meant to be applied the same way across the map. Here they can be checked against the panel's own numbers.
+
+**Why it isn't proof.** Districts are drawn by deliberate choice, and an uneven reason fits several explanations: a judgment that changed between sections of the report, a community tie the numbers cannot see, or a partisan purpose. The statistics in this report can say that the Lethbridge split is rare among maps that respect city boundaries (about 1 in 100). They can also say that it is not extreme compared with small changes to the panel's own map. They cannot say why it was drawn. A court would ask whether the result denies effective representation, not whether the reasons were tidy. *(Legal lesson 6 again: bad reasons for a lawful line are still a lawful line. But they are the right place to look.)*
+
+[Know more: Appendix K, how to check a stated reason against public data](#appendix-k) · Full evidence: `findings/reasons_consistency/README.md`
+
 ---
 
 ## The Scorecard, Revisited {.new-page}
 
-Fourteen findings. No proof. Now go back to the picture from the start of this report. You can read it now.
+Fifteen findings. No proof. Now go back to the picture from the start of this report. You can read it now.
 
 The horizontal axis is one of Act II's four fairness measures (the efficiency gap: further right, more UCP-favoured). The vertical axis is Act I's count of discriminating structural tests failed. The 2019 map and the 2026 majority sit in the quiet corner: near-zero skew, zero structural flags. The minority sits alone. Four of four structural flags. An efficiency gap just under the line the audit set in advance. And, off this chart's axes, a tied-vote seat share only 69 of 1,010,000 neutral maps exceed, a mean-median gap deeper in the tail than 99.97 per cent of them, and the 60-of-89 seat outcome on 2023 election-day votes. The two lanes converge on the same map and the same communities: the urban-hybridization pattern Act I found is the structural pattern consistent with the seat advantage Act II measured. The specific claim that the geometry is the mechanism failed its test (Finding 9), but both lanes still agree on who benefits.
 
@@ -375,7 +397,7 @@ Act II carries the case. Act I's tests show how the minority map differs from th
 
 Now put the instrument itself through the same five questions, one last time.
 
-**What we found.** A scorecard: the best instrument the author could build to pull fourteen findings together into something that can be stated, checked, and shown wrong. Five structural tests: the minority crosses every discriminating one, the majority none, the fifth, which does not tell them apart, on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.
+**What we found.** A scorecard: the best instrument the author could build to pull the first fourteen findings together into something that can be stated, checked, and shown wrong. Five structural tests: the minority crosses every discriminating one, the majority none, the fifth, which does not tell them apart, on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.
 
 **What it could show.** The closest thing to a gerrymandering *signal* that can exist under Alberta law and Canadian norms. A way of saying "this map is the kind of map that aiming produces."
 
