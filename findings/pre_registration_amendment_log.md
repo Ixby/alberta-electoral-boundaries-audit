@@ -1002,3 +1002,33 @@ When the official map is posted it is processed at once, under the owner's stand
 
 **Signed:** Claude (acting as session agent), directed by Will Conner
 **Date:** 2026-11-07 (Alberta time)
+
+## Amendment 13 — How Amendment 12's replays are met: the redraw-test null, and set A without chain 201
+
+> **Status: in force.** Written 2026-11-07, about 11:50 AM Alberta Time (UTC−6), at the author's direction ("yes to both"), before the official map has been posted or scored. **Not blind:** the all-ballots rehearsal on the reconstructed panel map (`findings/amendment12_rehearsal/`) had already been run, and its results are disclosed in Part 3.
+
+**Why.** Amendment 12, Part 2 requires the ensembles to be replayed from their registered seeds on the all-ballots file, and a replay counts only if every vote-independent column matches the original row for row. The rehearsal found two places where that rule cannot be applied as written.
+
+**Part 1: the redraw-test null (R1 and R2, Amendment 8).** The territory null's sampler (`analysis/scripts/territory_null.py`) reads no votes. Its plans depend only on population, the voting-area graph and the seed. Votes enter only when plans are scored (`territory_score.py`, `Substrate`). A replay "with `--va-file`" would therefore draw the same plans, and the script has no such option.
+- **Rule:** Part 2 is met for R1 and R2 by scoring the null's plans on the all-ballots file. Before scoring, each plan file's SHA-256 is checked equal to the file the null wrote.
+- **For the official map:** its own null is run once from the registered seeds (Amendment 8, Part 5). Its plans are scored on all ballots (the registered result) and on election-day ballots (the sensitivity, Amendment 12, Part 4).
+
+Nothing else about R1 or R2 changes.
+
+**Part 2: set A without chain 201.** Set A's chain 201 (91 districts, 47,500 steps, an early chain kept in `data/simulation_checkpoints_k91`) does not replay. On all ballots, its `step` and `n_parts` columns match, but `population_mad` differs in 47,497 of its 47,500 rows. So the replay is not the same set of plans, and under Part 2 it does not count. The cause has not been established.
+- **Rule:** on all ballots, set A is chains 221–224.
+- **On election-day ballots:** set A keeps chain 201, as filed, and the election-day sensitivity is reported on both chain lists.
+
+No other chain is excluded by this amendment. Any other chain that fails its replay check is reported and dropped by the same rule.
+
+**Part 3: what this changes on results already seen.** On the reconstructed panel map (provisional), the rehearsal reads the same as the filed Step C:
+- 2 of 5 structural flags, and 1 of 4 partisan flags (seats at 50/50, p98.8);
+- X1 not met;
+- R1 p = 0.914 and R2 p = 0.419 on all ballots (0.665 and 0.597 on election-day ballots), neither flagged.
+
+On set A (chains 221–224), the city-versus-rest test is at p99.6 on all ballots (p99.5 as filed). Set A is the ±12.5% set; as filed, the statute's own bands (sets B and D) do not flag it.
+
+**What this amendment does not change.** Every test, threshold, null and outcome rule, and every other part of Amendment 12.
+
+**Signed:** Claude (acting as session agent), directed by Will Conner
+**Date:** 2026-11-07 (Alberta time)
