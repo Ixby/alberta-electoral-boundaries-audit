@@ -6,7 +6,7 @@
 >
 > **Forward:**
 > - `findings/rural_division_count.md` — companion count test (the same page-356 critique, other charge)
-> - Casing 12 / norms page / both reports — cite this result
+> - Finding 12 / norms page / both reports — cite this result
 > - `findings/README.md` — indexes this finding
 
 # Rural variance usage — the minority's second charge, tested
