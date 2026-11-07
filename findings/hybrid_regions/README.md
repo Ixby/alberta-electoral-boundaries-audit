@@ -67,3 +67,20 @@ Plan committed before any walk (`preregistration/cfp_lethbridge_2026-11-07.md`, 
 - **Local only:** by Cho and Rubinstein-Salzedo (2019), this is a local test. It says nothing about how the configuration compares with all neutral maps; that is what the ensemble percentiles above measure.
 
 Files: `cfp_lethbridge.py`, `cfp_lethbridge.json`, `cfp/walkN.json`. The per-step values, `cfp/walkN.npy` at 8 MB each, are not committed.
+
+## Which comparison set: why more than one is reported (2026-11-07)
+
+There is no single right comparison set for a map. Each neutral ensemble is a sample from one chosen distribution, not "all neutral maps": the algorithm, the population band, contiguity, the s.15(2) rules and whether municipal lines are preferred all shape it. Herschlag et al. (2020) compare a plan with ensembles "satisfying all legal criteria", so an ensemble is only as valid a comparison as the criteria built into it.
+
+"Neutral" means drawn without partisan data. It does not mean lawful, or what a commission is supposed to do. The Act tells drawers to weigh communities of interest, municipalities, geography, transportation and clear boundaries (s.14), and *Carter* allows departures from parity for such reasons. The ensembles here encode population and contiguity, and in the city-aware runs, municipalities and s.15(2), but not the rest. So:
+- **What a difference can mean:** a difference from a neutral ensemble can come from legitimate factors the ensemble leaves out, not from partisanship. A partisan choice can also hide behind such a factor.
+- **What the ensemble answers:** what maps look like when only the encoded rules matter. That is useful for separating the effects of geography (where voters live) from line-drawing choices.
+- **The local test** answers a narrower question again: is this map extreme compared with small changes to itself? By Cho and Rubinstein-Salzedo (2019), a map can pass one test and fail the other.
+
+For that reason this audit reports several comparison sets and reads across them:
+1. **Neutral ensembles with different encoded rules:** city-blind and city-aware here; sets A to D province-wide. A result that holds across all of them is robust. One that flips between them depends on the rule that differs, and is reported that way.
+2. **Human-drawn reference maps:** the 2026 commission majority and minority, ¶167, and earlier commission maps. They are not neutral, but they show what drawers working under the same law actually produced.
+3. **The local test**, from the map itself.
+4. **The panel's stated reasons**, checked for consistent application. This is the closest to the legal question, and it is not statistical.
+
+**Lethbridge on this reading.** Splitting the city four ways is ordinary if municipal boundaries carry no weight. It is rare if they carry the weight Alberta's commissions have given them, and it is not a local outlier. How much weight the Act requires is a legal judgment. `../city_weight/` estimates how much weight past commissions have actually applied.
