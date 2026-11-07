@@ -588,7 +588,7 @@ export default {
 			h3_9: "Who did this",
 			p12: "I'm the only author, a self-funded student at Mount Royal University, and I've voted for and donated to both conservative and progressive provincial parties (more under About me). Findings that went against what I expected stay on the record, and every number can be reproduced from public code, public data and random seeds fixed in the code before the analysis ran.",
 			h3_10: "The full record",
-			p13: "All fourteen findings are on <a href=\"__BASE__/evidence\">the full record</a>, each with its numbers, what it could show, what Canadian practice expects and what the law does with it. Each one links to a short explainer on <a href=\"__BASE__/explainers\">the explainers page</a>.",
+			p13: "All fifteen findings are on <a href=\"__BASE__/evidence\">the full record</a>, each with its numbers, what it could show, what Canadian practice expects and what the law does with it. Each one links to a short explainer on <a href=\"__BASE__/explainers\">the explainers page</a>.",
 		},
 		test: {
 			h: "The November test",
@@ -638,7 +638,7 @@ export default {
 	evidence: {
 		page_title: "The full record · Alberta Electoral Boundary Audit",
 		h1: "The full record",
-		meta: "Plain-language companion · the fourteen findings in full",
+		meta: "Plain-language companion · the fifteen findings in full",
 		intro: "Every finding behind the main page, in full: what was found, what it could show, what Canadian practice expects, and its limits, including what the law does with it. Most of them weigh the majority’s map against the minority’s: the commission split, and each side filed a map of its own. Read the page as a log: the findings that ran against the audit stay right beside the ones that support it.",
 		back: "← Back to the audit",
 		group_map: "On the map: what the lines do",
@@ -664,6 +664,7 @@ export default {
 		e12: "The commission that couldn’t sign one map, and what each side charged",
 		e13: "The process that answered the public, and what replaced it",
 		e14: "The independent-commission norm, set aside",
+		e15: "The panel’s reasons, checked against its own map",
 	},
 	body: {
 		section_link_aria: 'Link to section',
@@ -929,7 +930,7 @@ export default {
 		november: {
 			heading: 'The Lunty Committee',
 			context_label: 'CONTEXT',
-			context_body: ' — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in the fourteen findings above.',
+			context_body: ' — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in the fifteen findings above.',
 			intro: "Neither commission map is in force. On April 21, 2026 the Legislative Assembly passed Government Motion 37, setting both aside and referring redistricting to a Select Special Committee of six MLAs — four UCP, two NDP — chaired by Brandon Lunty (UCP, Leduc-Beaumont). The committee itself does not draw the map. It oversees a separate Independent Advisory Panel, constituted under the same motion, tasked with producing a 91-seat boundary proposal.",
 			intro_b:
 				"Motion 37 contemplated five panel members — a sitting or retired judge as chair, two members nominated by the Premier, and two by the Leader of the Opposition — but Alberta's acting chief justice declined to nominate a judge to the chair. The panel operates with the four appointees the committee confirmed — the Hon. Monte Solberg and Darwin Durnie (Premier's nominees) and Dr. Gerard Kennedy and Brent Robinson (Opposition nominees) — under a chair appointed later: retired Court of Appeal justice Brian O'Ferrall (sourcing in Finding 13 above). The committee must deliver its report to the Legislature by November 2, 2026. Unlike the original commission, neither the committee nor the panel is required to hold public hearings; the panel draws on submissions the original commission gathered. When the committee's map is released, this audit will apply the same methodology to evaluate it.",
@@ -975,7 +976,7 @@ export default {
 			frame_cast:
 				'Alberta’s 2025–26 Electoral Boundaries Commission finished its work on March 23, 2026, and could not agree. Three commissioners signed one map. The other two — the two the government nominated — signed a different one. Both maps are legal under the <em>Electoral Boundaries Commission Act</em>. Four weeks later, on April 21, the Legislative Assembly set both maps aside and handed the pen to a committee of six MLAs: four of them from the governing United Conservative Party (UCP), with a UCP member in the chair. That committee’s map is due November 2, 2026.',
 			frame_p2:
-				'We measured both commission maps, and the process around them, every way we knew how. What we found is fourteen findings, each one real, each one measured, each of which would count for something in a courtroom — and none of which, alone or together, can legally prove the conclusion they invite. Evidence that a map has a partisan effect is not evidence of who intended it, or why. That gap between evidence and proof is not a loophole we failed to close. In Canada, it is the system as written. That, too, is a finding.',
+				'We measured both commission maps, and the process around them, every way we knew how. What we found is fifteen findings, each one real, each one measured, each of which would count for something in a courtroom — and none of which, alone or together, can legally prove the conclusion they invite. Evidence that a map has a partisan effect is not evidence of who intended it, or why. That gap between evidence and proof is not a loophole we failed to close. In Canada, it is the system as written. That, too, is a finding.',
 			frame_p3: 'So this report is built like an evidence log. Each finding gets the same five questions, in the same order, every time:',
 			beat_found: 'What we found',
 			beat_found_d: 'the evidence, with its number.',
@@ -988,7 +989,7 @@ export default {
 			beat_gun: 'Why it isn\u2019t proof',
 			beat_gun_d: 'the specific reason, under Canadian law, this evidence proves less than it seems to.',
 			frame_p4:
-				'Each of the eight legal reasons is different. By the fourteenth finding you will have learned, one piece at a time, how Canadian boundary law really works — and why every finding in this log ends the same way.',
+				'Each of the eight legal reasons is different. By the fifteenth finding you will have learned, one piece at a time, how Canadian boundary law really works — and why every finding in this log ends the same way.',
 			frame_p5:
 				'Two findings in the log point the wrong way for our own story, and both are reported in full: one test that stopped telling the maps apart when better data arrived, and one lane where the minority map did better than the majority. A report that never loses an argument with itself isn\u2019t checking. Failed and null tests are part of the record.',
 			frame_coi:
@@ -998,7 +999,7 @@ export default {
 			frame_p1b:
 				'Or maybe you came for something simpler. You heard Alberta is fighting over its electoral map, and you want to know what the fight is about. The short version: where district lines fall decides whose votes add up to a seat and whose scatter. Alberta was redrawing its ridings, the districts that each elect an MLA. The independent commission doing the work split into two camps and filed two competing maps on March 23, 2026 — both legal under the Act, both signed. Four weeks later the government set both aside and handed the pen to a committee its own party controls, a move Alberta last made in 1992. The fight is over what that committee will draw this November, and whether anyone could tell if it were drawn unfairly. This audit exists so that someone can tell.',
 			frame_routes:
-				'Two ways in, then. If you came to learn the fight, start with the picture just below, then the map on the cover; the interlude midway down brings it to your own street. Each of the episode\'s three lenses has its own plain-language page: <a href="__BASE__/law">the law</a>, <a href="__BASE__/norms">the norms</a>, <a href="__BASE__/methods">the statistics</a>. If you came for the evidence, the log starts at Finding 1: fourteen findings, five questions each, every one ending the same way.',
+				'Two ways in, then. If you came to learn the fight, start with the picture just below, then the map on the cover; the interlude midway down brings it to your own street. Each of the episode\'s three lenses has its own plain-language page: <a href="__BASE__/law">the law</a>, <a href="__BASE__/norms">the norms</a>, <a href="__BASE__/methods">the statistics</a>. If you came for the evidence, the log starts at Finding 1: fifteen findings, five questions each, every one ending the same way.',
 			refrain: 'Evidence, not proof.',
 			refrain_not_even: 'Not even evidence against the map. We logged it anyway.',
 			c2_refrain: 'An accusation in the official record, not a finding of any tribunal.',
@@ -1221,14 +1222,39 @@ export default {
 			c14_gun:
 				"Constitutional conventions bind politically, but courts will not enforce them; the Supreme Court said as much in the 1981 Patriation Reference. That does not put the process beyond the courts’ reach. In 2017 Nova Scotia’s Court of Appeal found a map unconstitutional because the government had stifled its commission’s independent view. In 2026 the Supreme Court struck down Quebec’s law pausing its commission (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). What a court reviews is the enacted map, under section 3. <em>(Legal lesson 8: norms are not law, but how a map is made can still matter in court.)</em>",
 			c14_app: 'conventions versus law, and how norms erode',
+			c15_title:
+				"Finding 15 — The panel’s reasons, checked against its own map",
+			c15_note:
+				"<em>Added November 7, 2026. The panel’s map has not been released as a shapefile yet. Where this finding uses the map’s lines, it uses the audit’s reconstruction of them from the panel’s report, so those parts are provisional. The populations and quotes are the panel’s own.</em>",
+			c15_found:
+				"The advisory panel published reasons for each change it made to the commission majority’s map. We checked those reasons the same way Finding 11 checked the commission minority’s: does the panel apply each reason the same way to comparable places, and do its own numbers support it? Where a change moves no seat, the reasons mostly hold. Calgary-West-Springbank really is the “much more regular polygon shape” the panel promised. But the two changes that do move a seat, Lethbridge and Banff, rest on reasons the panel does not apply elsewhere.",
+			c15_p1:
+				"<strong>Lethbridge, “population to spare.”</strong> The panel splits Lethbridge four ways because “Lethbridge already has population to spare.” It names Red Deer as the comparable city: “Those two cities are Lethbridge and Red Deer.” On the province’s 2024 estimates, Red Deer has 113,145 people and Lethbridge 111,776. Each has room for about two divisions, and Red Deer slightly more. The panel keeps Red Deer in two city divisions and splits Lethbridge into one city division and three that mix city and rural voters.",
+			c15_p2:
+				"<strong>Lethbridge, the panel’s own test.</strong> The panel says a mixed city-and-rural division is justified if it “reflects a genuine community of interest or is needed to achieve population-compliance.” Population was not the problem. The commission’s two Lethbridge divisions were already inside the legal band (7.0% and 1.0% above average). That leaves community of interest, which the panel argues and the panel’s minority disputes: “Its residents and leaders clearly want two MLAs.”",
+			c15_p3:
+				"<strong>Lethbridge, a seat of its own.</strong> Elsewhere the panel’s rule is that growing mid-size places deserve “dedicated representation”, which it uses to give Cochrane and Okotoks their own divisions. Lethbridge, a larger city, goes from two dedicated divisions to one.",
+			c15_p4:
+				"<strong>Banff, “the necessary population.”</strong> The panel calls its Banff change “a minor change ... to capture the necessary population,” because the Act forbids an ordinary division more than 25% below average. The commission’s Canmore-Banff was 331 people short of that floor, and at most about 1,300 short after a small transfer the whole panel agreed on. The panel added 8,901.",
+			c15_p5:
+				"<strong>Springbank, “urban with urban.”</strong> The panel says its Springbank divisions mix “urban with urban residents.” In 2021, the Springbank parts held about 40 to 70 people per square kilometre. The Calgary parts of the same divisions held about 1,500 to 1,900.",
+			c15_show:
+				"A reason applied in one place and not in a comparable one is a reason that may not be the real one. In the two places where the panel’s changes move a seat, the reasons given are the ones that do not hold up. On 2023’s votes those changes cost the NDP about one seat. And the voters they move are about four times as likely to go from a seat the NDP can win into one it cannot as the other way.",
+			c15_experts:
+				"Checking whether stated reasons are applied evenly is the core of pretext analysis, the same method described in Finding 11. A reason that holds everywhere it is used is evidence of a principle. A reason that holds only where it helps one side is the classic sign of a rationale found after the line was drawn.",
+			c15_canada:
+				"Commissions and panels publish reasons so the public and the legislature can weigh them. The reasons are meant to be applied the same way across the map. Here they can be checked against the panel’s own numbers.",
+			c15_gun:
+				"Districts are drawn by deliberate choice, and an uneven reason fits several explanations: a judgment that changed between sections of the report, a community tie the numbers cannot see, or a partisan purpose. The statistics in this report can say that the Lethbridge split is rare among maps that respect city boundaries (about 1 in 100). They can also say that it is not extreme compared with small changes to the panel’s own map. They cannot say why it was drawn. A court would ask whether the result denies effective representation, not whether the reasons were tidy. <em>(Legal lesson 6 again: bad reasons for a lawful line are still a lawful line. But they are the right place to look.)</em>",
+			c15_app: "how to check a stated reason against public data",
 			rev_h: 'The Scorecard, Revisited',
 			rev_p1:
-				'Fourteen findings. No proof. Now go back to the picture from the top of this page — you can read it now.',
+				'Fifteen findings. No proof. Now go back to the picture from the top of this page — you can read it now.',
 			rev_p2:
 				'The horizontal axis is one of Act II’s four fairness measures: the efficiency gap, more UCP-favoured the further right you go. The vertical axis is Act I’s count of discriminating structural tests failed, the tests that tell the maps apart. The 2019 map and the 2026 majority sit in the quiet corner: near-zero skew, zero structural flags. The minority sits alone. Four of four structural flags. An efficiency gap just under the line we set in advance. And, off this chart’s axes, a tied-vote seat count that only 69 of 1,010,000 neutral maps exceed, and a 60-of-89 seat outcome on recent voting patterns. The two acts converge on the same map and the same communities. The specific claim that the geometry is the mechanism failed its test (Finding 9), yet both acts still agree on who benefits.',
 			rev_litany_intro: 'Now run this instrument itself through the same five questions, one last time.',
 			rev_found:
-				'A scorecard: the best instrument I could build to draw fourteen findings together into something that can be stated, checked, and falsified. Five pre-registered structural tests: the minority crosses every discriminating one, the majority none, the fifth, which does not tell them apart, on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.',
+				'A scorecard: the best instrument I could build to draw the first fourteen findings together into something that can be stated, checked, and falsified. Five pre-registered structural tests: the minority crosses every discriminating one, the majority none, the fifth, which does not tell them apart, on display. Four partisan-fairness metrics against 1,010,000 neutral maps: three in the extreme tail, one reported miss.',
 			rev_show:
 				'The closest thing to a gerrymandering signal that can exist under Alberta law and Canadian norms: a checkable way of saying \u201cthis map is the kind of map that aiming produces,\u201d with every threshold set before any answer was known.',
 			rev_experts:
