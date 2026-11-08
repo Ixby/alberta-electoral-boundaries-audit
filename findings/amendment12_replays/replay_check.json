@@ -1,0 +1,470 @@
+{
+ "A91_221": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A91_222": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A91_223": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A91_224": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A91_early_201": {
+  "rows": [
+   47500,
+   47500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": false
+ },
+ "A89_120": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A89_121": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "A89_early_100": {
+  "rows": [
+   36500,
+   36500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": false
+ },
+ "B91_230": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_231": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_232": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_233": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_236": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_237": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_238": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B91_239": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B89_130": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B89_131": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B89_132": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "B89_133": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C91_241": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C91_243": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C91_244": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C91_245": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C89_140": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ },
+ "C89_141": {
+  "rows": [
+   252500,
+   252500
+  ],
+  "columns_compared": [
+   "step",
+   "population_mad",
+   "reock_proxy_median",
+   "reock_proxy_pct_below_030",
+   "n_districts",
+   "n_parts",
+   "n_city_districts",
+   "towns_flagged",
+   "city_gap_pct"
+  ],
+  "replay_matches": true
+ }
+}

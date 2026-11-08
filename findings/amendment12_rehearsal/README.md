@@ -20,9 +20,9 @@ The only difference from the filed Step C (`findings/a10_stepc/`) is the vote su
 | 3. Specification outcome | structural not replicated, partisan absent (1 of 4) | structural not replicated, partisan absent (1 of 4) | Nothing. Same flags (P4 only). |
 | 4. X1 | not met; (a) 31 of 41, (b) 11 of 11, (c) not scored, (d) adopted | identical (byte for byte with `x1.json`) | Nothing (no votes). |
 | 5. Size-matched, set D (primary) | towns p0.0; city vs rest p59.2; competitive seats (11) p75.2; EG p47.9; MM p17.0; declination p52.4; seats at 50/50 p91.6; MAD p0.0; UCP seats 58, p42.7. No Part 17 flag | towns p0.0; city vs rest p59.2; competitive seats (10) **p34.4**; EG p48.0; MM **p77.4**; declination p47.6; seats at 50/50 p89.9; MAD p0.0; UCP seats 51, p42.9. No Part 17 flag | Competitive seats 11 to 10 and p75.2 to p34.4; MM p17.0 to p77.4. No flag either way. Set D matches `findings/allballots_ranking/setD_panel_all_ballots.json`. |
-| 5. Set A (**partial**: chains 221–224 of the filed 201, 221–224) | city vs rest p99.5 **flag**; seats at 50/50 p96.7; MM p18.5; competitive seats p72.9 | city vs rest p99.6 **flag**; seats at 50/50 p95.9; MM p79.2; competitive seats p31.1 | Same flag. |
-| 5. Set B (**partial**: chains 230–233 of the filed eight) | city p87.7; seats at 50/50 p95.4; MM p19.7; competitive seats p73.0 | city p87.6; seats at 50/50 p94.7; MM p79.0; competitive seats p31.6 | No flag either way. |
-| 5. Set C | city p67.8; seats at 50/50 p90.4 | **blocked**: no all-ballots chains | |
+| 5. Set A (chains 221–224; Amendment 13, Part 2 drops chain 201) | city vs rest p99.5 **flag**; seats at 50/50 p96.7; MM p18.5; competitive seats p72.9 | city vs rest p99.6 **flag**; seats at 50/50 p95.9; MM p79.2; competitive seats p31.1 | Same flag. |
+| 5. Set B (all eight chains, rerun 2026-11-08) | city p87.7; seats at 50/50 p95.4; MM p19.7; competitive seats p73.0 | city p87.7; seats at 50/50 p94.7; MM p79.2; competitive seats p31.4 | No flag either way. |
+| 5. Set C (chains 241, 243–245, run 2026-11-08) | towns p32.1; city p67.8; seats at 50/50 p90.4; MM p25.9; competitive seats p73.6 | towns p32.1; city p67.8; seats at 50/50 p92.0; MM p82.6; competitive seats p39.4 | No flag either way. |
 | 6. qsgy8 tripwires | 1 of 4 (MO #1 Lethbridge, ratio 2.0); MO #4 divergence −1.2 pts | as filed (run with the ED seats at 50/50): identical to the filed scorecard apart from its date; with the AB seats at 50/50 (0.4945): 1 of 4, MO #4 divergence −0.2 pts | Amendment 12 does not list the tripwires. MO #4's comparison percentiles are cached ReCom and SMC outputs on ED votes, so the AB variant mixes substrates and is a sensitivity only. |
 | 7. R1 efficiency gap (flag p < 0.05) | +1.45%; null mean +1.14%; **p = 0.665** | −1.66%; null mean −1.72%, 95% −3.39% to −0.06%; **p = 0.914** | No flag. |
 | 7. R2 neighbour drain | 0.00441; null mean 0.00847; **p = 0.597** | 0.01043; null mean 0.00598, 95% 0.0004 to 0.0253; **p = 0.419** | No flag. |
@@ -32,7 +32,13 @@ The only difference from the filed Step C (`findings/a10_stepc/`) is the vote su
 | 9. Voting areas cut | 211 (2023) / 218 (2026) | identical (byte for byte with `va_cuts.csv`) | Nothing (no votes). |
 | 10. EBCA rules (supplementary) | as filed | identical (`rules_check.json`) | Nothing (no votes). |
 
-Set A, B, D tables in full: `size_matched_allballots.md` / `.json`. Territory: `territory_allballots/` (`rank.json`, `calibration.json`, `scores.csv`).
+Set A, B, C, D tables in full: `size_matched_allballots.md` / `.json`. Territory: `territory_allballots/` (`rank.json`, `calibration.json`, `scores.csv`).
+
+## Update, 2026-11-08: every replay is in
+
+All 26 Amendment 12 replays finished (`findings/amendment12_replays/replay_check.json`). 24 match their originals row for row in every vote-independent column. Two do not: set A's early chains **201** (91 districts) and **100** (89 districts). Both diverge from the first proposal on: row 0 matches and later rows differ in `population_mad`, `reock_proxy_median`, `city_gap_pct` and the city and town counts, while `step`, `n_districts` and `n_parts` match. Under Amendment 13, Part 2 both are dropped from the all-ballots sets, so set A is 221–224 (91) and 120–121 (89). They are the only two chains in the replay list that the run log says were run in the cloud (`alberta_audit/analysis/methodology/amendment17_chain_runs/README.md`, §1); every chain run on this machine replays. That is a lead, not an established cause.
+
+`w00` now checks sets A (221–224), B (all eight) and C (all four) and writes `replay_check_ABC.json`; `w05` uses those whitelists. Both were rerun. The size-matched results are now complete for all four 91-district sets, and the reading is unchanged: set A's city-versus-rest flag (p99.6) is the only flag, as filed (p99.5). `replay_check_AB.json` is the earlier, superseded check.
 
 ## Cross-checks
 
@@ -44,7 +50,7 @@ Set A, B, D tables in full: `size_matched_allballots.md` / `.json`. Territory: `
 | P1–P4 against Amendment 12, Part 5 | close | P1 −1.66% (−1.66%); P2 p79.4 (p79.45); P3 p48.2 (p48.22); P4 p98.8 (p98.82). Same map, so they agree to rounding. |
 | Pipeline EG in step 8 equals step 1a | equal | −0.016637 in both |
 | Territory plans identical to the filed plans | SHA-256 | asserted in `w07` before scoring (`plans_sha256.txt`); passed |
-| Replay check, vote-independent columns, sets A and B | every chain row for row | A 221–224 and B 230–233 pass over all 252,500 rows; **A chain 201 fails** (below) |
+| Replay check, vote-independent columns, sets A, B and C | every chain row for row | A 221–224, B (all eight) and C (all four) pass over all 252,500 rows (`replay_check_ABC.json`, 2026-11-08); **A chain 201 fails** (below) |
 
 ## Failures and blockers
 

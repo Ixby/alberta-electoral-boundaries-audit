@@ -2,7 +2,7 @@
 
 Overrides SETS suffixes and calls the module's own load/summarize/render for k = 91 only. main() cannot be called as filed:
 it always places the 89-district commission maps, which needs an 89-district set, and no all-ballots 89-district set D exists.
-Chain whitelists: set A is chains 201, 221-224 as filed (chain201 is in the repo's data/simulation_checkpoints_k91, 47,500 rows).
+Chain whitelists: set A is chains 221-224 (Amendment 13, Part 2: chain 201's replay fails); set B is all eight filed chains; set C is 241, 243-245.
 Sets with unequal chains are cut to their common length and labelled partial. Set D and set A use full chains."""
 import argparse
 import json
@@ -17,7 +17,7 @@ import _a12  # noqa: E402
 import size_matched_results as sm  # noqa: E402
 
 SUFFIX = {"A": "_allballots", "B": "_eps25_allballots", "C": "_muni_allballots", "D": "_s152a23_allballots"}
-WHITELIST = {"A": {201, 221, 222, 223, 224}, "B": {230, 231, 232, 233}, "C": None, "D": {251, 252, 253, 254}}
+WHITELIST = {"A": {221, 222, 223, 224}, "B": {230, 231, 232, 233, 236, 237, 238, 239}, "C": {241, 243, 244, 245}, "D": {251, 252, 253, 254}}
 sm.SETS = {k: (SUFFIX[k], v[1]) for k, v in sm.SETS.items()}
 
 ap = argparse.ArgumentParser()
@@ -29,10 +29,10 @@ ap.add_argument("--out-md", required=True)
 ap.add_argument("--sets", nargs="+", default=["D", "A", "B", "C"])
 a = ap.parse_args()
 
-# Sets A and B are usable only over rows w00 replay-checked (set D is checked in findings/allballots_ranking).
-_rc = _a12.OUT / "replay_check_AB.json"
+# Sets A, B and C are usable only over rows w00 replay-checked (set D is checked in findings/allballots_ranking).
+_rc = _a12.OUT / "replay_check_ABC.json"
 REPLAY = json.loads(_rc.read_text()) if _rc.exists() else {}
-REPLAY_SETS = {"A", "B"}
+REPLAY_SETS = {"A", "B", "C"}
 
 real = json.loads(Path(a.real).read_text())
 cand = {m: real[m] for m in a.candidate}
