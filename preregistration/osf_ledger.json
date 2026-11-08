@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "cf4a96dce3344f15410da425400df0db147b1a8dbbd698cd79067e9fba9a5d1e",
+   "responses_sha256": "1c959d4643cf178f46ed97e2f0cc631784248420d783074f434330c74f81e8fb",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -166,6 +166,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-07T13:41:10.301828",
      "justification_head": "Amendment 12: every registered step that uses 2023 votes switches from election-"
+    },
+    {
+     "id": "6aef6367695bea212cf383af",
+     "state": "approved",
+     "submitted_utc": "2026-11-08T22:14:23.695514",
+     "justification_head": "Amendment 13: how Amendment 12 Part 2 (replays) is met for the territory null of"
     }
    ],
    "files": {
@@ -317,6 +323,12 @@
    "registration": "9wp5y",
    "where": "update 6aef29e13ed6892ef980bc37, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-07 13:41 UTC (2026-11-07 7:41 AM Alberta Time, UTC-6), approved the same minute; text = the '## Amendment 12' section at commit 2d5c35d0, SHA-256 71647354...7e918041 (5,213 bytes); appended after Amendment 11; the OSF stores the status line's '>' as '&gt;', as for every earlier amendment; author's approval given in the CLI ('File it as drafted')"
+  },
+  "13": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6aef6367695bea212cf383af, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-08 22:14 UTC (2026-11-08 4:14 PM Alberta Time, UTC-6), approved the same minute; text = the '## Amendment 13' section at commit 7b204102, SHA-256 cc0297d8...8e17f2fb (3,072 bytes); appended after Amendment 12; draft read back matched before submit; author's approval given in the CLI ('yes to both', then 'continue')"
   }
  },
  "acknowledged": [
