@@ -161,6 +161,17 @@ All files are in this folder, `p338/sim/`.
 | Commission's map (89) | 42–46 | 45–44 | 54% |
 | Dissenting commissioners' map (89) | 53–36 | 53–36 | 78% |
 
-**Punchline:** "The new map isn't the outlier. The dissenting commissioners' map was." It holds on both readings.
+**How it was made (process scorecard):** the lower grid shows the registered Lane 3 process scorecard (OSF u47bq, filed 2026-07-14), graded for the panel's map in `findings/iap_stage1_part4.md` §1: 2 Yes, 1 Partial, 6 No. The commission's process scored 9 of 9. The grid's plain labels map to the registered cells as follows:
+- P1 Arm's-length drafting → "Drawn at arm's length" (Partial)
+- P2 → "Public hearings" (No)
+- P3 → "Draft shown to the public" (No)
+- P4 → "New public input taken" (No)
+- P5 Demonstrated responsiveness → "Responded to the public" (No)
+- P6 Neutral chair of the deciding body → "Neutral final decider" (No)
+- P7 → "Opposition has a say" (Yes)
+- P8 → "Reasons published" (Yes)
+- P9 Precedent conformity → "Follows past practice" (No)
+
+At Wuff's request this replaced the earlier punchline ("The new map isn't the outlier. The dissenting commissioners' map was."). The seat comparison still shows the new map in line with the others.
 
 The chart counts seats only, and the footer points to the audit's local checks, such as the Lethbridge split. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).

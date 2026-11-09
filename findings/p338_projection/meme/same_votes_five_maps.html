@@ -7,28 +7,36 @@
   html,body{margin:0;padding:0;background:#0f1419;}
   .card{width:1080px;height:1350px;box-sizing:border-box;padding:56px 64px 40px;background:#0f1419;color:#f2f2ee;
         font-family:"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;}
-  h1{font-size:80px;line-height:1.0;margin:0 0 12px;font-weight:900;letter-spacing:-.03em;white-space:nowrap}
-  .q{font-size:30px;line-height:1.3;color:#e8e8e2;margin:0 0 26px;font-weight:600;}
+  h1{font-size:74px;line-height:1.0;margin:0 0 10px;font-weight:900;letter-spacing:-.03em;white-space:nowrap}
+  .q{font-size:28px;line-height:1.3;color:#e8e8e2;margin:0 0 18px;font-weight:600;}
   .q .u{color:#5aa0ff} .q .n{color:#ff9f43}
   svg{flex-shrink:0;display:block}
   svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
-  .why{margin-top:14px;font-size:22px;line-height:1.35;color:#c9cfd4;font-weight:600}
-  .ref{margin-top:34px;font-size:24px;font-weight:800;color:#9aa4ad;margin-bottom:8px}
-  table{width:100%;border-collapse:collapse;font-size:22px}
+  .why{margin-top:8px;font-size:21px;line-height:1.35;color:#c9cfd4;font-weight:600}
+  .ref{margin-top:20px;font-size:23px;font-weight:800;color:#9aa4ad;margin-bottom:8px}
+  table{width:100%;border-collapse:collapse;font-size:21px}
   th{color:#9aa4ad;font-weight:700;text-align:right;padding:4px 0 8px;font-size:18px;line-height:1.2}
   th:first-child,td:first-child{text-align:left}
-  td{padding:13px 0;border-top:1px solid #26303a;text-align:right;font-weight:700;color:#e8e8e2}
+  td{padding:7px 0;border-top:1px solid #26303a;text-align:right;font-weight:700;color:#e8e8e2}
   td small{color:#8b959e;font-weight:600}
   tr.hot td{color:#ff6b5b;font-weight:900}
   tr.hot td small{color:#ff9a8f}
   .punch{margin-top:34px;font-size:44px;line-height:1.15;font-weight:900}
   .punch b{color:#ff6b5b}
+  .proc{margin-top:26px}
+  .pt{font-size:28px;font-weight:800;margin-bottom:12px}
+  .pt .bad{color:#ff6b5b}
+  .pt small{font-size:20px;color:#9aa4ad;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .c{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:20px;font-weight:700;background:#1e2731;color:#e8e8e2}
+  .c i{font-style:normal;font-weight:900;font-size:22px;width:22px;text-align:center}
+  .c.n i{color:#ff6b5b} .c.y i{color:#4ade80} .c.p i{color:#fbbf24}
   .foot{margin-top:auto;font-size:17px;line-height:1.4;color:#8b959e;}
 </style></head>
 <body><div class="card">
   <h1>The new map: 91 seats.</h1>
   <div class="q">Today's polls are <span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>. Two ways to read the map now before MLAs:</div>
-  <svg id="main" width="952" height="336" viewBox="0 0 952 336"></svg>
+  <svg id="main" width="952" height="318" viewBox="0 0 952 318"></svg>
   <div class="why">Why they differ: 11 of the NDP's 46 seats in today's polls are won by less than 4 points. Only 2 of the UCP's are. Small shifts tip more of them to the UCP.</div>
   <div class="ref">The same, on the other maps:</div>
   <table>
@@ -38,8 +46,21 @@
     <tr><td>Commission's map <small>89 seats</small></td><td>42–46</td><td>45–44</td><td>54%</td></tr>
     <tr class="hot"><td>Dissenting commissioners' map <small>89 seats</small></td><td>53–36</td><td>53–36</td><td>78%</td></tr>
   </table>
-  <div class="punch">The new map isn't the outlier.<br><b>The dissenting commissioners' map was.</b></div>
-  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; one riding comes out an exact tie. 5,000 simulated elections add the usual polling error around today's numbers. The new map is redrawn from the panel's report; official files aren't public yet. Seats only; the closer checks, like the Lethbridge split, are at <span style="white-space:nowrap;color:#c9cfd4">ixby.github.io/alberta-electoral-boundaries-audit</span></div>
+  <div class="proc">
+    <div class="pt">How it was made: <span class="bad">2 of 9</span> fair-process checks <small>(the commission's process: 9 of 9)</small></div>
+    <div class="grid">
+      <div class="c p"><i>~</i>Drawn at arm's length</div>
+      <div class="c n"><i>✗</i>Public hearings</div>
+      <div class="c n"><i>✗</i>Draft shown to the public</div>
+      <div class="c n"><i>✗</i>New public input taken</div>
+      <div class="c n"><i>✗</i>Responded to the public</div>
+      <div class="c n"><i>✗</i>Neutral final decider</div>
+      <div class="c y"><i>✓</i>Opposition has a say</div>
+      <div class="c y"><i>✓</i>Reasons published</div>
+      <div class="c n"><i>✗</i>Follows past practice</div>
+    </div>
+  </div>
+  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; one riding comes out an exact tie. 5,000 simulated elections add the usual polling error around today's numbers. The new map is redrawn from the panel's report; official files aren't public yet. Process checks were set in advance (registered July 14, 2026) and graded from the panel's report and committee records. More, including the Lethbridge split, at <span style="white-space:nowrap;color:#c9cfd4">ixby.github.io/alberta-electoral-boundaries-audit</span></div>
 </div>
 <script>
 const NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('main');
@@ -59,7 +80,7 @@ function bar(y, u, t, n, title, sub, verdict, vcol) {
   el('line', {x1: NEED * s, y1: by - 6, x2: NEED * s, y2: by + h + 6, stroke: '#f2f2ee', 'stroke-width': 3, 'stroke-dasharray': '6 4'});
 }
 bar(0, 44, 1, 46, "1. Today's polls", "today's politics on this map", 'Too close to call', '#f2f2ee');
-bar(162, 47, 0, 44, '2. Typical of 5,000 simulated elections', 'what this map tends to do around today’s numbers', 'UCP majority 58% of the time', '#5aa0ff');
-el('text', {x: NEED * s, y: 318, fill: '#c9cfd4', 'font-size': 17, 'font-weight': 700, 'text-anchor': 'middle'}, 'dashed line: 46 seats for a majority');
+bar(150, 47, 0, 44, '2. Typical of 5,000 simulated elections', 'what this map tends to do around today’s numbers', 'UCP majority 58% of the time', '#5aa0ff');
+el('text', {x: NEED * s, y: 304, fill: '#c9cfd4', 'font-size': 17, 'font-weight': 700, 'text-anchor': 'middle'}, 'dashed line: 46 seats for a majority');
 </script>
 </body></html>
