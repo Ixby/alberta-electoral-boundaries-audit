@@ -1,5 +1,13 @@
 # Session handoff — 2026-06-10
 
+> **Historical record, not current.** This file describes the audit as it stood on June 10–14, 2026, and is no longer updated. Several of its claims have since been withdrawn or superseded:
+> - **"Six independent geometric dimensions, all in the UCP direction"** is superseded. The structural measures show distance between the two commission maps, not distance from neutral: nonpartisan alternative maps would be flagged by the structural battery more than nine times in ten (`findings/structural_lane_calibration_2026-10-31.md`).
+> - **"Without precedent"** for the committee route was withdrawn on 2026-10-29 (correction C16): Alberta's 1992 Bogle select committee is a precedent. Government Motion 37 was an Assembly motion, not a cabinet act. What is distinct in 2026 is that a s.9 majority report was set aside.
+> - **"Corroborates"** (the regional-swing line) describes a June check and is not a current claim.
+> - **The vote base changed.** Since November 7, 2026, every vote-based test uses all 2023 ballots (Amendment 12); the figures below are on election-day ballots.
+>
+> For the current state, read `README.md`, `reports/public/report_public.md` (its November section) and `findings/test_ledger/README.md`.
+
 This file exists so a Claude session opened on a fresh machine (PC, web container, or another cloud workspace) can pick up the audit's open work without reading the full transcript of the prior session. It is updated at the close of each substantive session.
 
 ## Where the audit stands
@@ -92,9 +100,9 @@ bonf = 2 * min((n_extreme+1)/(len(df)+1), 0.0024)
 print(f'Mahalanobis D = {np.sqrt(D2):.4f}; n_extreme = {n_extreme} / {len(df):,}')
 print(f'Bonferroni bound = {bonf:.3g} (1 in {int(round(1/bonf)):,})')
 "
-# Expected (post-2026-07-12 clean rerun): D = 5.80; n_extreme = 0; bound = 1.76e-06 (~1 in 568,000)
-# (The published 1-in-568,000 uses the parametric χ² Ch1 p = 8.80e-7 instead of the
-#  empirical floor; both are defensible, the parametric is more conservative.)
+# Expected (post-2026-07-12 clean rerun): D = 5.80; n_extreme = 0; bound = 1.98e-06 (~1 in 505,000)
+# (The published 1.76e-06, about 1 in 568,000, is 2 x the parametric χ² Ch1 p = 8.80e-7
+#  instead of the empirical floor 9.90e-7; the parametric figure is the less conservative one.)
 ```
 
 If that one-liner reproduces, the audit's central machinery is intact and the canonical chain CSVs are unmodified (post-2026-07-12 rerun).

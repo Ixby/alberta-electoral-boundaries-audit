@@ -31,7 +31,7 @@ So riding boundaries are not just a technical detail. They are, in effect, choic
 
 To keep the government from drawing its own riding lines (which would be like letting one team write the rules of its own game), Alberta uses an independent commission: five people who are supposed to draw the lines fairly. In 2025–26, that commission could not agree. Three members produced one map, which under the Act counts as the commission's report. Two produced a different one.
 
-In April 2026 (Government Motion 37, introduced April 16 and passed April 21), the Legislative Assembly threw out both commission maps and gave the job to a six-person committee of MLAs. Four of the six come from the governing United Conservative Party (UCP). The other two come from the main opposition, the New Democratic Party (NDP). An independent advisory panel working for the committee drew a new 91-riding map and handed it over on October 22. On October 28 the committee voted 3–2 to end its review without adding observations. The panel's report was due before the Legislative Assembly by November 2.
+In April 2026 (Government Motion 37, introduced April 16 and passed April 21), the Legislative Assembly threw out both commission maps and gave the job to a six-person committee of MLAs. Four of the six come from the governing United Conservative Party (UCP). The other two come from the main opposition, the New Democratic Party (NDP). An independent advisory panel working for the committee drew a new 91-riding map and handed it over on October 22. On October 28 the committee voted 3–2 to end its review without adding observations. The committee gave the panel's report to the Legislative Assembly on November 2. The official file of the panel's map has not been posted yet, so the audit's results for it use a reconstruction from the panel's report and are provisional. On the tests the audit wrote down in advance, the reconstructed panel map does not carry the minority map's pattern: 2 of 5 structural flags (a match needs 3) and 1 of 4 partisan flags (a match needs 2).
 
 This audit compared the two commission maps and asked: do they treat both parties' voters the same way?
 
@@ -43,7 +43,7 @@ You cannot just look at two maps and say which one is fair. Maps are complicated
 
 **First:** it measured five specific things about each map, things like how evenly people are spread across the ridings and how many pieces cities are cut into.
 
-**Second:** it had a computer program draw 1 million random Alberta maps, each keeping every riding in one piece and within the Act's population limits. (The random maps have 87 ridings, the old map's count; the commission's have 89.) Then it asked: where do the two commission maps fall among all those random maps? Normal, or extreme?
+**Second:** it had a computer program draw 1 million neutral Alberta maps, nonpartisan alternatives drawn without any vote data, each keeping every riding in one piece and within the Act's population limits. (The neutral maps have 87 ridings, the old map's count; the commission's have 89.) Then it asked: where do the two commission maps fall among all those neutral maps? Normal, or extreme?
 
 Think of a height chart at a school. Measure a thousand students and find most stand between 150 cm and 180 cm, and a student at 210 cm is unusual. Not because being tall is wrong. Because it is rare. This audit does the same thing with riding maps.
 
@@ -79,19 +79,19 @@ Under those conditions, how many seats would each party win?
 
 | Scenario | NDP seats | UCP seats | Outcome |
 |---|---|---|---|
-| What a random neutral map gives (median of 1 million draws) | ~49 | ~40 | NDP majority |
+| What a neutral map gives (median of 1 million) | ~49 | ~40 | NDP majority |
 | Majority 2026 map | **48** | 41 | NDP majority |
 | Minority 2026 map | **43** | 46 | **UCP majority** |
 
 Same votes. Same voters. Different maps. A **5-seat difference**.
 
-**This gap is not symmetric.** The majority map sits almost exactly where a neutral random map would, barely one seat from the neutral median. The minority map is the one that moves. It pulls 6 seats toward the UCP, and turns a neutral NDP majority into a UCP majority government.
+**This gap is not symmetric.** The majority map sits almost exactly where a neutral map would, barely one seat from the neutral median. The minority map is the one that moves. It pulls 6 seats toward the UCP, and turns a neutral NDP majority into a UCP majority government.
 
 To put it plainly: **the minority map gives the UCP a majority government. The majority map gives the NDP a majority. Same votes, different maps, different government.**
 
 What that means in seats: 45 seats controls the legislature. Under the majority map at a tied vote, the NDP wins 48, a governing majority. Under the minority map at the same tied vote, the NDP wins only 43, two seats short of a majority, and the UCP wins 46.
 
-The computer drew 1 million random maps. At a tied vote, the majority map's result looked normal; it sat near the middle of the pack. The minority map's result was extreme: **fewer than 100 of the 1 million random maps** produced a seat split that far in the UCP's favour.
+The computer drew 1 million neutral maps. At a tied vote, the majority map's result looked normal; it sat near the middle of the pack. The minority map's result was extreme: **fewer than 100 of the 1 million neutral maps** produced a seat split that far in the UCP's favour.
 
 ---
 
@@ -104,7 +104,7 @@ In every election, some votes do nothing to help their party win more seats. A v
 
 A riding map can be drawn, on purpose or not, so that one party's supporters end up either packed into a few ridings they win by enormous margins (lots of wasted surplus votes) or spread across ridings where they keep losing narrowly (lots of wasted losing votes). The first is called packing; the second, cracking. Either way, that party needs more votes in total to win the same number of seats.
 
-Here is how the two maps compare, across the 896,644 election-day votes cast for the two main parties (advance and special ballots can't be placed on a map):
+Here is how the two maps compare, across the 896,644 election-day votes cast for the two main parties (these are the registered results; the all-ballots count is below):
 
 - Under the **majority map**: NDP voters wasted roughly **881 more votes** than UCP voters. That is about 0.1% of those ballots. Nearly equal.
 - Under the **minority map**: NDP voters wasted roughly **36,000 more votes** than UCP voters. That is about 4% of those ballots.
@@ -114,6 +114,8 @@ The minority map's gap is about **3.9 percentage points larger** than the majori
 **What this means in plain terms:** Under the minority map, NDP voters as a group have to cast significantly more votes to win the same number of seats.
 
 **The threshold hedge — important context.** The audit set a pre-registered threshold of 4.10% on this metric. It was registered as the 95th percentile of the audit's 1,010,000 simulated neutral Alberta maps under 2023 votes (on the current run that percentile is 4.08%), and it was not imported from US case law. The minority map's gap of 4.0% (+4.02%) is *near, but below*, that threshold. On canonical geometry, the official Elections Alberta maps, it sits at the 94.5th percentile of the constraint-bound ensemble of plausible alternative maps: not above the audit's own 95th-percentile flag. The defensible reading is "near-but-below-threshold and coverage-sensitive," not "outlier across every metric." Lane 1 (the partisan measures in Findings 2 and 3) carries the evidence that the minority departs from neutral; Lane 2 (the structural and procedural pattern in Findings 1 and 4) shows how it differs from the majority.
+
+**All ballots.** Election-day votes leave out about half of 2023's ballots (advance, mobile and special ballots, and Vote Anywhere), which Elections Alberta reports only by riding. On the 2019 map, election-day ballots alone elect 57 UCP and 30 NDP members; the real 2023 result was 49 and 38. In November 2026 the audit rebuilt the missing ballots by Voting Area, matched the official result in every riding, and registered a change: every vote-based test now uses all ballots, with election-day results kept beside them (Amendment 12). It does not reopen the results above. But on all ballots, the 95th-percentile line for this metric is 1.39%, and the minority map's gap (+2.55%) is above it.
 
 ---
 
@@ -129,7 +131,7 @@ The minority map's structural tilt turns modest UCP vote advantages into very la
 
 Lesser Slave Lake covers a region with significant First Nations populations on reserve. Its geography and the make-up of its communities qualify it for a statutory exception under the Electoral Boundaries Commission Act (§15(2)), which lets the district hold fewer people than a standard riding. The protection is written for large, remote districts: a district needs three of five criteria, and containing a reserve or Métis settlement is one of them.
 
-After the commission's public hearing process, both the majority and minority maps preserve Lesser Slave Lake. The concern is what happens next. The advisory panel's map is not yet public, so whether it keeps this district's status is not known. The commission held extensive public hearings and received organized Indigenous submissions; the panel worked to a shorter timeline, with less public input. The statutory protection exists. Using it is discretionary.
+After the commission's public hearing process, both the majority and minority maps preserve Lesser Slave Lake. The concern is what happens next. The advisory panel's map keeps it too: Lesser Slave Lake is unchanged from the majority map and is one of the panel's three special-exception districts, at 44.1% below average on the panel's stated figures. The commission held extensive public hearings and received organized Indigenous submissions; the panel worked to a shorter timeline, with less public input. The statutory protection exists. Using it is discretionary.
 
 There is a structural problem too. The census can undercount on-reserve populations. Any undercount gets built into the boundaries and stays for the full lifetime of the map, which could run until 2035.
 
@@ -182,15 +184,15 @@ The pattern across these smaller anomalies is consistent with the larger finding
 
 **It does not say anyone drew the minority map to cheat.** Statistics can show what a map does. They cannot show what anyone intended. The same outcome could come from deliberate choices, from geography, from habit, or from coincidence. This audit measures the effect, not the motive.
 
-**It already accounts for the fact that NDP voters are concentrated in cities.** City voters tend to live close together, so their votes naturally get bundled into fewer ridings. In Alberta that effect is outweighed: rural UCP ridings are won by wider margins, so at a tied vote the typical neutral map gives the NDP more seats (see the table in Finding 2). The 1 million random maps in the simulation were all drawn on real Alberta geography, so this is factored in. Against those neutral draws, the minority map is still unusual.
+**It already accounts for the fact that NDP voters are concentrated in cities.** City voters tend to live close together, so their votes naturally get bundled into fewer ridings. In Alberta that effect is outweighed: rural UCP ridings are won by wider margins, so at a tied vote the typical neutral map gives the NDP more seats (see the table in Finding 2). The 1 million neutral maps in the simulation were all drawn on real Alberta geography, so this is factored in. Against those neutral draws, the minority map is still unusual.
 
 ---
 
 ## How the analysis was done
 
-All results use the official Elections Alberta riding maps, received May 6, 2026. The 2023 election-day results were matched to each riding through the Voting Area each polling station serves. Advance and special ballots carry no Voting Area, so they could not be placed.
+All results use the official Elections Alberta riding maps, received May 6, 2026. The 2023 election-day results were matched to each riding through the Voting Area each polling station serves. Advance, mobile and special ballots carry no Voting Area; since Amendment 12 (November 2026) the audit rebuilds them by Voting Area so that every riding matches the official result.
 
-A standard redistricting research tool (GerryChain) generated the 1 million random maps. Each random map keeps each new riding within ±12.5% of equal (the Act allows ±25%), with 87 ridings (the 2019 map's count) on 2021 census figures; the special-district exception and community of interest are not built in.
+A standard redistricting research tool (GerryChain) generated the 1 million neutral maps. Each neutral map keeps each new riding within ±12.5% of equal (the Act allows ±25%), with 87 ridings (the 2019 map's count) on 2021 census figures; the special-district exception and community of interest are not built in.
 
 **Pre-registration scope (honest version).** Pre-registration means fixing a test in a time-stamped public record before looking at the results. The structural test battery (population deviation, municipal split count, anchoring, compactness, and the boundary-signature checks) was written down on April 24, 2026, after the audit had measured both maps on provisional boundaries; it is dated in this repository, not registered at OSF. The packing and cracking checks were written in the same commit as their first run, so they are exploratory. The partisan-bias channels (the Mahalanobis joint score, SZAT, and their combination) are labelled "exploratory" in the audit's own §4.3.1 sense: they are documented in this repository, but their specific form was not fixed before the data were examined. The registration records that *are* prospective are filed at OSF:r3zm7 / AsPredicted #289,451 (Ch3) and OSF:qsgy8 / AsPredicted #289,455 (a Phase 2 comparison and a first, prospective scorecard for the committee's 91-seat map, registered May 6, 2026; the fuller November scoring rules came later and are dated in this repository, `preregistration/november_2026_scoring_spec.md`). OSF:6pt83 / AsPredicted #289,469 (SZAT) was filed after its results were known. Pre-registration stops a researcher from running many tests and reporting only the ones that look good. But it only does that for the tests that were pre-registered. The exploratory channels are reported as exploratory.
 
