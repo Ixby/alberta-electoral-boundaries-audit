@@ -25,7 +25,7 @@
   <div class="ref">Same votes on the other maps, for reference:</div>
   <svg id="refs" width="952" height="284" viewBox="0 0 952 284"></svg>
   <div class="punch">The new map isn't the outlier.<br><b>The dissenting commissioners' map was.</b></div>
-  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; Red Deer-North comes out an exact tie. The new map is redrawn from the panel's report; the official files aren't public yet. This chart counts seats only; the audit's closer checks, such as how Lethbridge was split, are on the site: ixby.github.io/alberta-electoral-boundaries-audit</div>
+  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; Red Deer-North comes out an exact tie. The new map is redrawn from the panel's report; official files aren't public yet. Polls can be wrong: in 5,000 simulated elections the UCP wins a majority 58% of the time on the new map, 54–62% on the other close maps, 78% on the dissenting map. Seats only; the closer checks, like the Lethbridge split, are on the site.<br><span style="white-space:nowrap;color:#c9cfd4">ixby.github.io/alberta-electoral-boundaries-audit</span></div>
 </div>
 <script>
 const NS = 'http://www.w3.org/2000/svg';
@@ -43,14 +43,14 @@ function bar(el, y, h, u, t, n, need, fs) {
 }
 const m = mk('main');
 m('text', {x: 0, y: 30, fill: '#f2f2ee', 'font-size': 30, 'font-weight': 800}, "Panel's map");
-m('text', {x: W, y: 30, fill: '#ff9f43', 'font-size': 32, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP majority, just barely');
+m('text', {x: W, y: 30, fill: '#f2f2ee', 'font-size': 32, 'font-weight': 900, 'text-anchor': 'end'}, 'Too close to call');
 bar(m, 48, 92, 44, 1, 46, 46, 50);
 m('text', {x: 46 * W / 91, y: 168, fill: '#c9cfd4', 'font-size': 19, 'font-weight': 700, 'text-anchor': 'middle'}, 'dashed line: 46 seats for a majority');
 const r = mk('refs');
 const refs = [
-  {name: "Panel members' alternative", sub: '91 seats', u: 43, t: 1, n: 47, need: 46, verdict: 'NDP majority'},
-  {name: 'Current map, in use since 2019', sub: '87 seats', u: 43, t: 1, n: 43, need: 44, verdict: 'No majority'},
-  {name: "Commission's map", sub: '89 seats', u: 42, t: 1, n: 46, need: 45, verdict: 'NDP majority'},
+  {name: "Panel members' alternative", sub: '91 seats', u: 43, t: 1, n: 47, need: 46, verdict: 'too close to call'},
+  {name: 'Current map, in use since 2019', sub: '87 seats', u: 43, t: 1, n: 43, need: 44, verdict: 'too close to call'},
+  {name: "Commission's map", sub: '89 seats', u: 42, t: 1, n: 46, need: 45, verdict: 'too close to call'},
   {name: "Dissenting commissioners' map", sub: '89 seats', u: 53, t: 0, n: 36, need: 45, verdict: 'UCP majority', hot: true},
 ];
 refs.forEach((d, i) => {

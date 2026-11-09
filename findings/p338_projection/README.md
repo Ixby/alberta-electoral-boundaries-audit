@@ -155,6 +155,7 @@ All files are in this folder, `p338/sim/`.
   - Current map (87): 43–43.
   - Commission's map (89): 42–46.
   - Dissenting commissioners' map (89): 53–36, a UCP majority.
+- **Verdict wording:** at 338's central numbers the panel's map gives NDP 46 of 91, exactly the majority line, with one exact tie. Because the UCP wins a majority in 58% of 5,000 simulated elections on this map (`mc.main.maps.panel.p_ucp_majority`), the chart calls it "Too close to call" rather than an NDP majority. The current map, the commission's map and the panel members' alternative are labelled the same way, at 62%, 54% and 54%. The dissenting map keeps "UCP majority": 53 of 89 is 8 seats over the line, and 78% of draws give the UCP a majority.
 - **Punchline:** "The new map isn't the outlier. The dissenting commissioners' map was." This holds on this measure (seats at today's central numbers). The footer says the chart counts seats only, and points to the audit's local checks, such as the Lethbridge split. Those are a different question.
 
 Why the UCP needs a clear lead on most maps: on the current map at 338's numbers, the UCP's projected wins have a median margin of 23 points, against 11 for the NDP's (`out/districts_map2019.csv`). The neutral ensemble shows the same lean. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).
