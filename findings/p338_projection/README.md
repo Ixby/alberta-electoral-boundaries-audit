@@ -150,13 +150,13 @@ All files are in this folder, `p338/sim/`.
 
 `data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) is for a general reader. It centres on the panel's 91-seat map now before MLAs and reads it two ways, as Wuff framed it: one view speaks to today's politics on the map, the other to the map itself.
 
-1. **Today's polls** (today's politics on this map): UCP 44, NDP 46, 1 exact tie. Source: `out/results.json` `point.panel.proportional`. With NDP exactly on the 46-seat majority line and one tie, the chart calls it "Too close to call".
-2. **Typical of 5,000 simulated elections** (what this map tends to do around today's numbers): UCP 47, NDP 44; the UCP wins a majority 58% of the time. Source: `mc.main.maps.panel` `ucp_median`, `ndp_median` and `p_ucp_majority`.
-3. **Why they differ:** at today's numbers, 11 of the NDP's 46 projected wins on this map are by less than 4 points, against 2 of the UCP's 44 (`out/districts_panel.csv`). Polling error tips more of the NDP's narrow leads.
+1. **Latest polls (Oct 19)** (the polls as they stand, on this map): UCP 44, NDP 46, 1 exact tie. The label is 338Canada's update date; its newest poll was Mainstreet, Oct 16 (`evidence/projections/338canada_2026-10-19/README.md`). It is a projection built from polls, not a poll, and the footer says so. Source: `out/results.json` `point.panel.proportional`. With NDP exactly on the 46-seat majority line and one tie, the chart calls it "Too close to call".
+2. **Typical of 5,000 simulated elections** (what this map tends to do around the latest numbers): UCP 47, NDP 44; the UCP wins a majority "about 6 in 10" times, shown with its range, "43–63%, depending on assumptions". Source: `mc.main.maps.panel` `ucp_median`, `ndp_median` and `p_ucp_majority` (main 58%); the range is the panel column of the table under "Does it hold up under other assumptions?" (no riding noise 43%, riding noise × 1.5 63%).
+3. **Why they differ:** at the latest numbers, 11 of the NDP's 46 projected wins on this map are by less than 4 points, against 2 of the UCP's 44 (`out/districts_panel.csv`). Polling error tips more of the NDP's narrow leads.
 
 **Reference table, same two readings:**
 
-| Map | Today's polls | Typical simulation | UCP majority |
+| Map | Latest polls | Typical simulation | UCP majority |
 |---|---|---|---|
 | Panel members' alternative (91) | 43–47 | 46–45 | 54% |
 | Current map, since 2019 (87) | 43–43 | 46–41 | 62% |
@@ -180,5 +180,11 @@ All files are in this folder, `p338/sim/`.
 - **Scope:** the Act's rules bind commissions, not the Legislature's own bill, so "within the Act's limits" here is a yardstick.
 
 At Wuff's request this replaced the earlier punchline ("The new map isn't the outlier. The dissenting commissioners' map was."). The seat comparison still shows the new map in line with the others.
+
+**Gotcha fixes (2026-11-09, at Wuff's request; items 2 and 6 of the six raised were left as they were):**
+- The single 58% became "about 6 in 10" with its 43–63% range, and the footer says majority odds depend on how much local variation is assumed. The table's single figures stay at the main setting.
+- "Today's polls" became "Latest polls (Oct 19)": the projection is dated, and the footer gives the newest poll's date.
+- The footer says both panel maps (the panel's and its members' alternative) are redrawn from the panel's report, not only "the new map".
+- The footer gives the 1992 counter to "Follows past practice": MLAs last drew the map in 1992, after a deadlocked commission filed five separate reports (`findings/iap_stage1_part4.md` P9; `findings/procedural_analysis.md`).
 
 The chart counts seats only, and the footer points to the audit's local checks, such as the Lethbridge split. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).
