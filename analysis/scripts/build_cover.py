@@ -8,7 +8,7 @@ Pipeline:
    diverge. Orange for majority, blue for minority, grey dashed for the 2019
    baseline.
 2. Build the majority / minority / 2019 map variants and export the
-   map-explorer GeoJSON + hover JSON consumed by the viewer
+   map-explorer GeoJSON
    (tests/test_map_explorer_geojson.py exercises these exports).
 
 Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_cover.py
@@ -107,24 +107,18 @@ MAP_VARIANTS = {
         "shp": None,
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
         "svg": data_loader._resolve_path("data") / "maps" / "cover_art_minority_hires.svg",
-        "json": _DOCS / "data" / "ed_hover_minority.json",
-        "va_json": _DOCS / "data" / "va_hover_minority.json",
     },
     "majority": {
         "candidates": APPROX_MAJ_CANDIDATES,
         "shp": None,
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
         "svg": data_loader._resolve_path("data") / "maps" / "cover_art_majority_hires.svg",
-        "json": _DOCS / "data" / "ed_hover_majority.json",
-        "va_json": _DOCS / "data" / "va_hover_majority.json",
     },
     "2019": {
         "candidates": None,
         "shp": ALBERTA_EDS / "EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_candidates": ["EDName2017", "EDName2025", "ED_NAME", "NAME"],
         "svg": data_loader._resolve_path("data") / "maps" / "cover_art_2019_hires.svg",
-        "json": _DOCS / "data" / "ed_hover_2019.json",
-        "va_json": _DOCS / "data" / "va_hover_2019.json",
     },
 }
 
@@ -232,83 +226,6 @@ def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
     buf = StringIO()
     tree.write(buf, encoding="unicode")
     svg_path.write_text(buf.getvalue(), encoding="utf-8")
-
-
-def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
-    """Export per-ED tooltip data: name, vote split, official vote counts, population."""
-    import json
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    records = []
-    has_official = "official_ucp" in eds.columns
-    for i, row in eds.iterrows():
-        ucp_share = float(row.get("ucp_share", 0.5))
-        va_total = int(row.get("total", 0))
-
-        if has_official:
-            off_ucp = int(round(row.get("official_ucp", 0)))
-            off_ndp = int(round(row.get("official_ndp", 0)))
-            off_total = off_ucp + off_ndp
-        else:
-            off_total = 0
-
-        if off_total > 0:
-            ucp_votes = off_ucp
-            ndp_votes = off_ndp
-            votes = off_total
-            ucp_pct = round(off_ucp / off_total * 100, 1)
-            ndp_pct = round(off_ndp / off_total * 100, 1)
-        else:
-            ucp_votes = round(ucp_share * va_total)
-            ndp_votes = va_total - ucp_votes
-            votes = va_total
-            ucp_pct = round(ucp_share * 100, 1)
-            ndp_pct = round((1.0 - ucp_share) * 100, 1)
-
-        records.append({
-            "id": i,
-            "name": str(row[name_col]),
-            "ucp_pct": ucp_pct,
-            "ndp_pct": ndp_pct,
-            "ucp_votes": ucp_votes,
-            "ndp_votes": ndp_votes,
-            "votes": votes,
-            "pop": int(row.get("pop", 0)),
-            "va_count": int(row.get("va_count", 0)),
-        })
-    out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
-    print(f"[build_cover] Exported hover data for {len(records)} EDs -> {out_path.name}")
-
-
-def _export_va_hover_json(va_render, va_ed_map, out_path: Path) -> None:
-    """Export per-VA tooltip data: poll name, 2026 ED assignment, vote split."""
-    import json
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    records = []
-    for seq_i, (_, row) in enumerate(va_render.iterrows()):
-        va_ucp   = float(row.get("va_ucp",   0) or 0)
-        va_ndp   = float(row.get("va_ndp",   0) or 0)
-        va_other = float(row.get("va_other", 0) or 0)
-        two_party  = max(va_ucp + va_ndp, 1.0)
-        in_person_votes = int(round(va_ucp + va_ndp + va_other))
-        ucp_pct = round(va_ucp / two_party * 100, 1)
-        ndp_pct = round(va_ndp / two_party * 100, 1)
-        va_number = row.get("VA_NUMBER", "")
-        ed_name_raw = va_ed_map.get(seq_i)
-        records.append({
-            "va_id":        seq_i,
-            "ed_name":      "" if (ed_name_raw is None or ed_name_raw != ed_name_raw) else str(ed_name_raw),
-            "poll_name":    f"Poll {va_number}",
-            "ucp_votes":    int(round(va_ucp)),
-            "ndp_votes":    int(round(va_ndp)),
-            "other_votes":  int(round(va_other)),
-            "in_person_votes": in_person_votes,
-            "ucp_pct":    ucp_pct,
-            "ndp_pct":    ndp_pct,
-        })
-    out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
-    print(f"[build_cover] Exported VA hover data for {len(records)} VAs -> {out_path.name}")
 
 
 def _pick(candidates):
@@ -751,7 +668,6 @@ def build_cover_art(map_key: str = "minority") -> Path:
     plt.tight_layout(pad=0)
 
     svg_out = cfg["svg"]
-    json_out = cfg["json"]
     svg_out.parent.mkdir(parents=True, exist_ok=True)
 
     _save_kwargs = dict(bbox_inches="tight", pad_inches=0.02, facecolor="none", transparent=True)
@@ -764,17 +680,6 @@ def build_cover_art(map_key: str = "minority") -> Path:
 
     # Interactive-explorer data (replaces the 37 MB hi-res SVG).
     _export_map_geojson(map_key, eds, name_col, va_render, _va_ed_map)
-
-    # Legacy hover JSON kept until the viewer cutover (Plan 3).
-    _export_ed_hover_json(eds, name_col, json_out)
-    va_json_out = cfg.get("va_json")
-    if va_json_out is not None and _va_ed_map is not None:
-        _export_va_hover_json(va_render, _va_ed_map, va_json_out)
-
-    # Keep legacy ed_hover.json in sync so the pre-cutover embed still works (removed in Plan 3).
-    if map_key == "minority":
-        import shutil
-        shutil.copy2(str(json_out), str(REPO_ROOT / "docs" / "data" / "ed_hover.json"))
 
     return COVER_ART_PNG
 
@@ -794,7 +699,7 @@ def build_map_variants() -> None:
 def main() -> int:
     # 1. Hero art (minority = default / cover map)
     build_cover_art()
-    # 2. Majority and 2019 variants + map-explorer GeoJSON/hover exports
+    # 2. Majority and 2019 variants + map-explorer GeoJSON exports
     build_map_variants()
     return 0
 

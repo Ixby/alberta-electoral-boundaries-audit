@@ -387,9 +387,9 @@
 			let edBboxes: Bbox[] = [];
 			let vaLines: number[][][] = [];
 			const labels: Record<string, Record<number, string>> = {};
-			// Per-map, per-ED vote totals (ed_totals.json). 2026 proposal totals are
-			// election-day only (anywhere:false); 2019 totals include Vote Anywhere
-			// (anywhere:true), since only the enacted map can attribute those ballots.
+			// Per-map, per-ED vote totals (ed_totals.json), all 2023 ballots on every map
+			// (anywhere:true; build_ed_totals.py). anywhere:false would label a total
+			// as election-day only.
 			let edTotals: Record<string, Record<string, { total: number; anywhere: boolean }>> = {};
 			let waterData: { path: number[][] }[] | null = null;
 			let highwaysData: { path: number[][]; major?: boolean }[] | null = null;
@@ -443,7 +443,7 @@
 			const tileData = (k: string): TileFeature[] | null => archive[k] || null;
 			const edNameFor = (mk: string, id: number) => (labels[mk] && labels[mk][id]) || '';
 			// The district's total vote count, shown under the ED name in the tooltip.
-			// 2019 = full total (incl. Vote Anywhere); 2026 proposals = election-day only.
+			// All ballots on every map (ed_totals.json); the election-day label remains for anywhere:false.
 			const edTotalBlock = (mk: string, ed: string): string => {
 				const r = edTotals[mk] && edTotals[mk][ed];
 				if (!r) return '';
