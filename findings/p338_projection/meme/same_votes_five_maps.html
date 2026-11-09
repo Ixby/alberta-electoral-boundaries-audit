@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#0f1419;}
+  .card{width:1080px;height:1350px;box-sizing:border-box;padding:60px 64px 44px;background:#0f1419;color:#f2f2ee;
+        font-family:"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;}
+  .kicker{font-size:28px;letter-spacing:.08em;text-transform:uppercase;color:#9aa4ad;font-weight:700;}
+  h1{font-size:84px;line-height:1.0;margin:14px 0 18px;font-weight:900;letter-spacing:-.02em;}
+  .q{font-size:36px;line-height:1.25;color:#e8e8e2;margin:0 0 26px;font-weight:600;}
+  .q .u{color:#5aa0ff} .q .n{color:#ff9f43}
+  svg{flex-shrink:0;display:block}
+  svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
+  .foot{margin-top:auto;font-size:19px;line-height:1.4;color:#8b959e;}
+  .foot b{color:#c9cfd4;font-weight:600}
+</style></head>
+<body><div class="card">
+  <div class="kicker">Alberta's electoral maps, one projection</div>
+  <h1>Same votes.<br>Five maps.</h1>
+  <div class="q">The latest projection: <span class="u">UCP 47.6%</span>, <span class="n">NDP 43.4%</span>.<br>Who wins the seats?</div>
+  <svg id="chart" width="952" height="640" viewBox="0 0 952 640"></svg>
+  <div class="foot">
+    <b>How it was run:</b> 338Canada's riding projections (Oct 19, 2026; rounded headline 48–43, 47.6–43.4 once added up riding by riding) applied to each map, using where 2023's votes were cast. Seats are at 338's central numbers; Red Deer-North is an exact tie. "Needs +4.3": how far ahead of the NDP the UCP must be province-wide to win a majority on that map. Dashed line: majority. Panel maps are the audit's reconstructions. A projection, not a poll: with polling uncertainty the UCP wins a majority in 54–62% of simulations on the first four maps, 78% on the commission minority's.<br>
+    <b>The full audit:</b> ixby.github.io/alberta-electoral-boundaries-audit<br><b>Data and code:</b> github.com/Ixby/alberta-electoral-boundaries-audit · findings/p338_projection
+  </div>
+</div>
+<script>
+const rows = [
+  {name:"Today's map", sub:"2019 · 87 seats", u:43, t:1, n:43, need:44, verdict:"No majority", lead:"+4.3"},
+  {name:"Commission majority", sub:"89 seats", u:42, t:1, n:46, need:45, verdict:"NDP majority", lead:"+5.4"},
+  {name:"Panel's map", sub:"91 seats · before the Assembly", u:44, t:1, n:46, need:46, verdict:"NDP majority", lead:"+5.3"},
+  {name:"Panel minority's map", sub:"91 seats", u:43, t:1, n:47, need:46, verdict:"NDP majority", lead:"+5.4"},
+  {name:"Commission minority", sub:"89 seats · set aside in April", u:53, t:0, n:36, need:45, verdict:"UCP majority", lead:"−0.2", hot:true},
+];
+const svg = document.getElementById('chart'), NS = 'http://www.w3.org/2000/svg';
+const el = (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
+function measure(t, size, weight) { const e = el('text', {x: -9999, y: -9999, 'font-size': size, 'font-weight': weight}, t); const w = e.getComputedTextLength(); e.remove(); return w; }
+const W = 952, BAR_Y = 44, BH = 56, ROW = 128;
+const UCP = '#3b82f6', NDP = '#f28c28', TIE = '#6b7680';
+rows.forEach((r, i) => {
+  const y = 4 + i * ROW, total = r.u + r.t + r.n, s = W / total;
+  const nw = r.hot ? 900 : 700, nc = r.hot ? '#ff6b5b' : '#f2f2ee';
+  el('text', {x: 0, y: y + 28, fill: nc, 'font-size': 28, 'font-weight': nw}, r.name);
+  const sub = r.sub + ' \u00b7 UCP needs ' + r.lead;
+  el('text', {x: measure(r.name, 28, nw) + 14, y: y + 28, fill: r.hot ? '#ff9a8f' : '#8b959e', 'font-size': 20}, sub);
+  el('text', {x: W, y: y + 28, fill: r.hot ? '#ff6b5b' : (r.verdict.startsWith('No') ? '#c9cfd4' : '#c9cfd4'), 'font-size': 26, 'font-weight': 900, 'text-anchor': 'end'}, r.verdict);
+  let x = 0;
+  el('rect', {x, y: y + BAR_Y, width: r.u * s, height: BH, fill: UCP});
+  el('text', {x: 16, y: y + BAR_Y + 40, fill: '#fff', 'font-size': 32, 'font-weight': 900}, 'UCP ' + r.u);
+  x += r.u * s;
+  if (r.t) { el('rect', {x, y: y + BAR_Y, width: r.t * s, height: BH, fill: TIE}); x += r.t * s; }
+  el('rect', {x, y: y + BAR_Y, width: r.n * s, height: BH, fill: NDP});
+  el('text', {x: W - 16, y: y + BAR_Y + 40, fill: '#fff', 'font-size': 32, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP ' + r.n);
+  const mx = r.need * s;
+  el('line', {x1: mx, y1: y + BAR_Y - 6, x2: mx, y2: y + BAR_Y + BH + 6, stroke: '#f2f2ee', 'stroke-width': 3, 'stroke-dasharray': '6 4'});
+});
+</script>
+</body></html>

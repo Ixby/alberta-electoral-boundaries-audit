@@ -143,3 +143,7 @@ All files are in this folder, `p338/sim/`.
 - `out/seats_vs_lead.csv` gives UCP and NDP seats on every map at each province-wide lead from about −16 to +24 points, without local randomness.
 - `out/tables.md` contains the generated tables.
 - `inputs/` holds copies of the audit files used, with `SHA256SUMS.txt`.
+
+## The chart: "Same votes. Five maps."
+
+`data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) shows the seats each map gives at 338's central numbers, with the UCP lead each map needs for a majority as the supporting figure. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium). Every number on it comes from `out/results.json`: seats from `point.<map>.proportional`, the lead needed from `lead_needed.<map>.ucp_majority_from_lead_pts`, the vote shares from `province_projected_pct`, and the simulated majority odds from `mc`.
