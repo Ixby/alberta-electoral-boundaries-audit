@@ -1,80 +1,48 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<!-- Every number comes from findings/p338_projection/out/: today's seats = results.json point.<map>.proportional;
-     tied-vote seats = seats_vs_lead.csv at provincial_ucp_lead_pts nearest 0 (-0.021). -->
+<!-- Numbers from findings/p338_projection/out/results.json point.<map>.proportional:
+     UCP seats 2019 map 43, commission majority 42, panel 44, panel minority (para 167) 43 -> "42-44"; commission minority 53.
+     "Even if the vote were tied": seats_vs_lead.csv at the step nearest a zero lead gives the commission minority's map UCP 46 of 89 (majority 45). -->
 <style>
   html,body{margin:0;padding:0;background:#0f1419;}
-  .card{width:1080px;height:1350px;box-sizing:border-box;padding:54px 64px 40px;background:#0f1419;color:#f2f2ee;
+  .card{width:1080px;height:1350px;box-sizing:border-box;padding:70px 64px 48px;background:#0f1419;color:#f2f2ee;
         font-family:"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;}
-  .kicker{font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:#9aa4ad;font-weight:700;}
-  h1{font-size:82px;line-height:1.0;margin:12px 0 16px;font-weight:900;letter-spacing:-.02em;white-space:nowrap;}
-  .q{font-size:30px;line-height:1.3;color:#e8e8e2;margin:0 0 22px;font-weight:600;}
+  h1{font-size:132px;line-height:1.0;margin:0 0 20px;font-weight:900;letter-spacing:-.03em;}
+  .q{font-size:38px;line-height:1.3;color:#e8e8e2;margin:0 0 50px;font-weight:600;}
   .q .u{color:#5aa0ff} .q .n{color:#ff9f43}
-  svg{flex-shrink:0;display:block}
-  svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
-  .tie{margin-top:26px}
-  .tie .t{font-size:30px;font-weight:800;margin:0 0 12px}
-  .punch{margin-top:22px;font-size:38px;line-height:1.2;font-weight:900;color:#ff6b5b}
-  .why{margin-top:10px;font-size:23px;line-height:1.3;color:#c9cfd4;font-weight:600}
-  .foot{margin-top:auto;font-size:17px;line-height:1.4;color:#8b959e;}
-  .foot b{color:#c9cfd4;font-weight:600}
+  .boxes{display:flex;gap:28px;}
+  .box{flex:1;border-radius:22px;padding:34px 30px 32px;text-align:center;}
+  .a{background:#1e2731;}
+  .b{background:#3b1d1d;outline:5px solid #ff6b5b;}
+  .who{font-size:34px;font-weight:800;line-height:1.15;min-height:112px}
+  .who small{display:block;font-size:24px;font-weight:600;color:#c9cfd4;margin-top:8px}
+  .big{font-size:140px;font-weight:900;line-height:1;margin:34px 0 6px;letter-spacing:-.03em;white-space:nowrap}
+  .a .big{color:#f2f2ee} .b .big{color:#5aa0ff}
+  .lbl{font-size:32px;font-weight:700;color:#c9cfd4}
+  .verdict{margin-top:26px;font-size:36px;font-weight:900}
+  .a .verdict{color:#c9cfd4} .b .verdict{color:#ff6b5b}
+  .tie{font-size:24px;color:#ff9a8f;font-weight:700;margin-top:8px}
+  .punch{margin-top:60px;font-size:70px;line-height:1.1;font-weight:900;text-align:center}
+  .foot{margin-top:auto;font-size:18px;line-height:1.45;color:#8b959e;}
 </style></head>
 <body><div class="card">
-  <div class="kicker">Alberta's election maps</div>
-  <h1>Same votes. Five maps.</h1>
-  <div class="q">Put today's polls (<span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>) on each map. Who wins?</div>
-  <svg id="bars" width="952" height="577" viewBox="0 0 952 577"></svg>
-  <div class="tie">
-    <div class="t">Now make it a tie. Same share of the vote for both parties:</div>
-    <svg id="tie" width="952" height="116" viewBox="0 0 952 116"></svg>
+  <h1>Same votes.</h1>
+  <div class="q">Today's polls: <span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>.<br>Put them on five possible election maps.</div>
+  <div class="boxes">
+    <div class="box a">
+      <div class="who">On 4 maps<small>including the one now before MLAs</small></div>
+      <div class="big">42–44</div>
+      <div class="lbl">UCP seats</div>
+      <div class="verdict">UCP short of a majority</div>
+    </div>
+    <div class="box b">
+      <div class="who">On 1 map<small>drawn by the 2 dissenting commissioners</small></div>
+      <div class="big">53</div>
+      <div class="lbl">UCP seats</div>
+      <div class="verdict">UCP majority government</div>
+    </div>
   </div>
-  <div class="punch">In a tie, only one map hands the UCP a majority.</div>
-  <div class="why">Why do most maps go NDP in a tie? UCP voters are packed into big rural wins; NDP voters win city seats by less. The dissenting map flips that.</div>
-  <div class="foot">
-    <b>Where the numbers come from:</b> 338Canada's poll average for each riding (October 19, 2026), placed on each map using where Albertans voted in 2023. Added up riding by riding it is 47.6% to 43.4%. Red Deer-North is an exact tie. The panel's maps were redrawn from its report; the official files aren't public yet. Polls can be wrong, so we ran 5,000 simulated elections: the dissenting commissioners' map still favours the UCP most, however we set them up.<br>
-    <b>See the full audit:</b> ixby.github.io/alberta-electoral-boundaries-audit
-  </div>
+  <div class="punch">Different map.<br>Different government.</div>
+  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map. The four: the current map, the commission's map, the panel's map and the panel members' alternative. Polls can be wrong: in 5,000 simulated elections the one map still favoured the UCP most, and it gives the UCP a majority even in a tied vote. Full audit: ixby.github.io/alberta-electoral-boundaries-audit</div>
 </div>
-<script>
-const rows = [
-  {key:'map2019', name:"Current map", sub:"in use since 2019", u:43, t:1, n:43, need:44, verdict:"No majority", tie:[39,48]},
-  {key:'majority', name:"Commission's map", sub:"3 of 5 commissioners", u:42, t:1, n:46, need:45, verdict:"NDP majority", tie:[40,49]},
-  {key:'minority', name:"Dissenting commissioners' map", sub:"the other 2", u:53, t:0, n:36, need:45, verdict:"UCP majority", tie:[46,43], hot:true},
-  {key:'panel', name:"Panel's map", sub:"now before MLAs", u:44, t:1, n:46, need:46, verdict:"NDP majority", tie:[42,49]},
-  {key:'para167', name:"Panel members' alternative", sub:"", u:43, t:1, n:47, need:46, verdict:"NDP majority", tie:[41,50]},
-];
-const NS = 'http://www.w3.org/2000/svg';
-const mk = (svg) => (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
-const UCP = '#3b82f6', NDP = '#f28c28', TIE = '#6b7680';
-const b = mk(document.getElementById('bars'));
-function measure(el, t, size, weight) { const e = el('text', {x: -9999, y: -9999, 'font-size': size, 'font-weight': weight}, t); const w = e.getComputedTextLength(); e.remove(); return w; }
-const W = 952, BAR_Y = 38, BH = 62, ROW = 115;
-rows.forEach((r, i) => {
-  const y = 2 + i * ROW, total = r.u + r.t + r.n, s = W / total;
-  const nw = r.hot ? 900 : 700, nc = r.hot ? '#ff6b5b' : '#f2f2ee';
-  b('text', {x: 0, y: y + 26, fill: nc, 'font-size': 28, 'font-weight': nw}, r.name);
-  if (r.sub) b('text', {x: measure(b, r.name, 28, nw) + 12, y: y + 26, fill: r.hot ? '#ff9a8f' : '#8b959e', 'font-size': 21}, r.sub);
-  b('text', {x: W, y: y + 26, fill: r.hot ? '#ff6b5b' : '#c9cfd4', 'font-size': 26, 'font-weight': 900, 'text-anchor': 'end'}, r.verdict);
-  let x = 0;
-  b('rect', {x, y: y + BAR_Y, width: r.u * s, height: BH, fill: UCP});
-  b('text', {x: 16, y: y + BAR_Y + 43, fill: '#fff', 'font-size': 36, 'font-weight': 900}, 'UCP ' + r.u);
-  x += r.u * s;
-  if (r.t) { b('rect', {x, y: y + BAR_Y, width: r.t * s, height: BH, fill: TIE}); x += r.t * s; }
-  b('rect', {x, y: y + BAR_Y, width: r.n * s, height: BH, fill: NDP});
-  b('text', {x: W - 16, y: y + BAR_Y + 43, fill: '#fff', 'font-size': 36, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP ' + r.n);
-  const mx = r.need * s;
-  b('line', {x1: mx, y1: y + BAR_Y - 5, x2: mx, y2: y + BAR_Y + BH + 5, stroke: '#f2f2ee', 'stroke-width': 3, 'stroke-dasharray': '6 4'});
-  if (i === 0) b('text', {x: mx + 8, y: y + BAR_Y - 8, fill: '#c9cfd4', 'font-size': 15, 'font-weight': 700}, 'majority line');
-});
-const t = mk(document.getElementById('tie'));
-const short = ["Current", "Commission's", "Dissenting", "Panel's", "Panel members'"];
-const CW = W / rows.length;
-rows.forEach((r, i) => {
-  const [u, n] = r.tie, ucpMaj = u >= r.need, ndpMaj = n >= r.need;
-  const fill = ucpMaj ? UCP : (ndpMaj ? NDP : TIE), x = i * CW + 4, w = CW - 8;
-  t('rect', {x, y: 0, width: w, height: 112, rx: 10, fill, stroke: r.hot ? '#ff6b5b' : 'none', 'stroke-width': r.hot ? 4 : 0});
-  t('text', {x: x + w / 2, y: 36, fill: '#fff', 'font-size': 21, 'font-weight': 700, 'text-anchor': 'middle'}, short[i]);
-  t('text', {x: x + w / 2, y: 84, fill: '#fff', 'font-size': 28, 'font-weight': 900, 'text-anchor': 'middle'}, (ucpMaj ? 'UCP ' + u + '–' + n : 'NDP ' + n + '–' + u));
-});
-</script>
 </body></html>
