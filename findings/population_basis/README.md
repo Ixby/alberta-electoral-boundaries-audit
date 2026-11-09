@@ -19,6 +19,8 @@ Calgary and Edmonton together go from 49.5 seats' worth of people to 51.4. **Und
 
 **What the real maps did.** All three maps (majority, minority, panel), and the ¶167 map, have 49 divisions that are at least half Calgary or Edmonton. Set D's neutral maps, balanced on 2021, have a median of 49 (5th to 95th percentile 47 to 51). So on the 2021 basis the real maps look ordinary on city seat count. On the 2024 figures the maps were actually drawn on, the two cities hold about 51.4 seats' worth of people in 49 city divisions.
 
+**Measure 4** (each region's entitlement shift against the gap between the panel's seat count there and set D's median) cannot be computed from committed outputs. Set D's chains record only the combined count of divisions at least half Calgary or Edmonton (`n_city_districts`), not seat counts by region. The combined count above is the nearest measure they hold.
+
 **The city-versus-rest gap on each basis** (mean population of city divisions against the rest; the definition the size-matched test uses):
 
 | Map | On 2021 census (what the test scores) | On the map's own published 2024 figures |
@@ -31,7 +33,7 @@ The registered size-matched test scores each map on 2021 population against neut
 
 ## Validation, and what it limits
 
-Against each map's published division totals, the growth basis misses by 6.6% to 6.7% on average (largest 36%, Calgary-North East). The 2021 census, scaled to the same total, misses by 7.8%. A single growth rate per municipality cannot say where in a city people were added, which is why the small-area rebuild failed (`findings/osi_rebuild/`). So:
+Against each map's published division totals, the growth basis misses by 6.6% to 6.7% on average (largest 36%, Calgary-North East). The 2021 census, scaled to the same total, misses by 7.8% to 8.1%. A single growth rate per municipality cannot say where in a city people were added, which is why the small-area rebuild failed (`findings/osi_rebuild/`). So:
 - The regional figures above are reliable. They depend on whole-municipality totals, which come straight from the estimates.
 - Division-level figures on the growth basis are not reliable. For the real maps' own figures, use their published totals, as the second table does.
 
@@ -39,7 +41,7 @@ On the growth basis the real maps' population spread is wider than on either oth
 
 ## What follows (per the plan's decision rule)
 
-**Proposed, not launched:** a rerun of set D (91 districts, s.15(2), same seeds) on the growth basis, with the city-versus-rest test and seat counts recomputed. The registered chain script reads `pop_2021` from the graph, so this needs a copy of it with a population override. The registered script itself is not edited. Memory is committed to the Amendment 12 replays until they finish.
+**Proposed, not launched:** a rerun of set D (91 districts, s.15(2), same seeds) on the growth basis, with the city-versus-rest test and seat counts recomputed. The registered chain script reads `pop_2021` from the graph, so this needs a copy of it with a population override. The registered script itself is not edited. It was held back while the Amendment 12 replays ran; they finished on 2026-11-08 (`../amendment12_replays/`), and the rerun is not in the repository.
 
 Until then:
 - Comparisons involving the big cities carry this limit.

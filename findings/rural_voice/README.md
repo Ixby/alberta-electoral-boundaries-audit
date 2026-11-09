@@ -31,17 +31,17 @@ In the panel's two urban-majority hybrids, the rural parts vote heavily UCP: 78%
 
 ## Springbank (Rocky View County west of Calgary)
 
-The area has 17,677 rural residents in 2021. On every map they sit in urban-majority or mixed divisions. The panel moves fewer of them into Calgary divisions than the majority's Cochrane-Springbank did: Calgary-Bow-Springbank is 5% rural and Calgary-West-Springbank 14%. Those parts vote within about 2 points of the Calgary parts they join. Rocky View County as a whole goes from 4 pieces to 6.
+The area has 17,677 rural residents in 2021. On every map they sit in urban-majority or mixed divisions. The panel moves more of them into Calgary divisions: about 10,500 rural residents are in Calgary-Bow-Springbank (2,601; the division is 5% rural), Calgary-West-Springbank (7,629; 14% rural) and Calgary-North West-Bearspaw (293). On the majority's map the only Calgary division with rural residents here is Calgary-West-Elbow Valley (2,267); its Cochrane-Springbank is not a Calgary division. The Springbank parts of the panel's two Springbank divisions vote within about 2 points of the Calgary parts they join. Rocky View County as a whole goes from 4 pieces to 6.
 
 ## Reading
 
 - **What the panel adds against the commission majority:** about 14,000 more rural residents province-wide in urban-majority divisions. In Lethbridge County the count goes from 0 to 8,138. Four more counties are split three or more ways.
 - **How the minority compares:** its map goes further on every count (410,324 residents; all of Lethbridge County).
-- **2023 votes:** none of the panel's changes overrides a rural preference. Its two "overridden" cases are Edmonton fringe divisions it shares with the majority's map in substance.
+- **2023 votes:** one of the panel's changes overrides a rural preference by the plan's definition. Of its two "overridden" cases, Edmonton-Enoch is unchanged from the majority's map. Edmonton-Nisku is the panel's own change: it replaces the majority's Edmonton-Beaumont, which is not overridden, and holds about 7,000 of the 10,689 rural residents (Edmonton-Enoch's 3,656 is the majority's 12,778 less Canmore-Banff's 9,122).
 - **The question the counts cannot answer:** whether a rural minority inside a city-majority division loses its voice. That is the minority report's concern and the panel's community-of-interest argument, and it is not testable with vote counts.
 
 ## Owed under the plan
 
-The Lethbridge area crosses the plan's 5,000-resident trigger (8,138). So the south region's redraws are to be rerun, city-blind and municipality-aware, with the same seeds and settings as `findings/hybrid_regions/`, recording these rural measures. Then the panel's 8,138 is ranked among neutral redraws. **Not yet run:** memory is committed to the Amendment 12 replays until they finish.
+The Lethbridge area crosses the plan's 5,000-resident trigger (8,138). So the south region's redraws are to be rerun, city-blind and municipality-aware, with the same seeds and settings as `findings/hybrid_regions/`, recording these rural measures. Then the panel's 8,138 is ranked among neutral redraws. **Not yet run.** It was held back while the Amendment 12 replays ran; they finished on 2026-11-08 (`../amendment12_replays/`), and this rerun is still owed.
 
 Files: `rural_voice.py`, `rural_voice.json`.

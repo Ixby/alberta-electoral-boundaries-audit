@@ -52,9 +52,9 @@ Number of divisions holding at least 2% of each city's 2021 population, and the 
 | Red Deer (100,844) | 2, 0% | 4, 36.2% | 2, 0% | 2, 0% |
 | Airdrie (74,100) | 2, 0% | 3, 45.1% | 2, 0% | 2, 0% |
 
-Calgary, Edmonton and the smaller cities are placed the same way on all four maps; the full table is in `signals_a_to_e.json`.
+Edmonton and the smaller cities are placed the same way on all four maps, except Chestermere, which the minority puts in 2 divisions (9.6% of it in one where it is a minority; 1 division on the others). The minority also puts Calgary in 27 divisions, against 28 on the others. The full table is in `signals_a_to_e.json`.
 
-**Reading.** Putting part of a mid-size city in a mostly rural division is not unique to Lethbridge: the commission's own maps do it for Medicine Hat and Grande Prairie. What is unique to the panel's map is dividing a mid-size city four ways. The commission minority did that to Lethbridge, Red Deer and Airdrie.
+**Reading.** Putting part of a mid-size city in a mostly rural division is not unique to Lethbridge: the commission's own maps do it for Medicine Hat and Grande Prairie. What sets the panel's map apart from the commission majority's is dividing a mid-size city four ways. The commission minority did that to Lethbridge and Red Deer, and split Airdrie three ways.
 
 The panel's stated reasons for Lethbridge are "Lethbridge already has population to spare" (PDF p.80) and a southern community of interest ("The Case for Regional Representation in Southern Alberta", from PDF p.79). The report does not apply the same reasoning to Red Deer or Medicine Hat. That is recorded, not explained.
 
@@ -97,14 +97,16 @@ On the panel's map, two s.15(2) divisions fall below the −50% floor by 2031 on
 | NDP seats in the region, all ballots | 0 / 1 / 2 | 1 (p48) | 2 (p90) |
 | NDP seats in the region, election day | 0 / 0 / 1 | 0 (p43) | 2 (**p99.95**) |
 
-**By the plan's rule, the panel's southern configuration is not unusual among neutral redraws of the region.** Its share of Lethbridge's NDP votes in lopsided losses is at p71 on all ballots and p30 on election-day ballots. The configuration that is unusual is ¶167's, at p3.9 on all ballots: it keeps Lethbridge in two seats, which 10% of neutral regional plans do. It also gives the NDP two seats in the region on election-day ballots, more than 99.9% of those plans.
+**By the plan's rule, the panel's southern configuration is not unusual among neutral redraws of the region.** Its share of Lethbridge's NDP votes in lopsided losses is at p71 on all ballots and p30 on election-day ballots. The configuration that is unusual is ¶167's, at p3.9 on all ballots: it keeps Lethbridge in two seats, which 10% of neutral regional plans do. That p3.9 rests on ties. ¶167's 0% is the lowest value possible and equals the neutral 5th percentile; 7.9% of neutral plans share it, and the percentile counts those ties as half. It also gives the NDP two seats in the region on election-day ballots, more than 99.9% of those plans.
 
 Neutral redraws split Lethbridge three ways in 74% of plans and four ways in 16%. A city of 98,000 in districts of about 47,000 (2021 population) usually ends up in pieces when lines ignore municipal boundaries.
 
-**That is the key limit.** These neutral plans balance population and stay contiguous, but they take no account of keeping a city whole. The Act's s.14(b) asks the drawer to consider municipalities as communities of interest, and both commission maps kept Lethbridge to two seats. A fairer benchmark would weight municipal boundaries, like the audit's municipality-aware set C. Against that benchmark, keeping Lethbridge whole would likely look less unusual and splitting it more so. That run has not been done, so this result says only that the panel's split is ordinary for a city-blind redraw.
+**That is the key limit.** These neutral plans balance population and stay contiguous, but they take no account of keeping a city whole. The Act's s.14(b) asks the drawer to consider municipalities as communities of interest, and both commission maps kept Lethbridge to two seats. A fairer benchmark would weight municipal boundaries, like the audit's municipality-aware set C. Against that benchmark, keeping Lethbridge whole would likely look less unusual and splitting it more so. That run is in `../hybrid_regions/` (city-aware, weight 0.5, 200,000 plans): the panel's four-way split is at p99.5 on pieces, and its share of Lethbridge NDP votes in lopsided losses is at p93, just inside the plan's line. This result alone says only that the panel's split is ordinary for a city-blind redraw.
 
 Files: `regional_south.json` (summary), `regional_south/chainN.csv|json`.
 
 **Deviation from the plan, made before any chain result was seen:** the plan said to start each chain from the panel's assignment, and widen the band if needed to admit it. On the voting-area graph two of the panel's districts are not contiguous, and repairing that pushed one district to +62%. So each chain starts from a random plan within the ±25% band, and the first 1,000 steps are discarded. One 6-area piece of Banff-Canmore-Diamond Valley touches the region only through outside areas, so it is held with the nearest region area.
+
+**Two more departures from the plan:** signal F does not record the region's sorted NDP shares for each plan (`regional_south.py` does not keep them), and signal A's swing curve does not report which seats cause the panel-minus-¶167 difference.
 
 Code: `signals_a_to_e.py`, `regional_south.py`.

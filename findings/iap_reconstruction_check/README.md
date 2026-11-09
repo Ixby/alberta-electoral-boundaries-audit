@@ -66,7 +66,6 @@ The excess held no VA's representative point. **No VA changes district, so every
       - It sits at the north-east corner (about 614.5 km E, 5,655 km N), not on the river. It straddles the line, with 59% of its area in Chestermere-Strathmore.
       - Its representative point is 0.3 m from the official majority line, on the far side. The page matches the official line there (offset about −1 m, the fit's noise), so the panel did not move this segment.
       - The VA is therefore assigned as it is under the official majority map, by the same representative-point convention used to score every map.
-    - One VA sits on the line. VA 014 (2019 Chestermere-Strathmore, 181 votes) has its representative point 1 m inside the placed page's edge. Both the official majority line (High River-Vulcan-Siksika side) and the v2 map (Olds-Didsbury-Three Hills) put that point outside Chestermere-Strathmore. A 1 m distance is far inside the 26 m fit error, so the page cannot settle it, and the VA stays where it is.
 - **Calgary-North West-Bearspaw (hole fill, no accepted page).**
   - It is the majority's Calgary-North West plus 11.2 km² of Bearspaw holding 3 VAs (408 votes).
   - Its area is 37.41 km² (stated 37).
@@ -101,7 +100,7 @@ The excess held no VA's representative point. **No VA changes district, so every
   - urban pages: median 1.0 m, 95th percentile 2.6 m, 99th 3.2 m.
 - **Bar: 30.7 m, the 99.9th percentile.** By construction, 0.1% of a correctly traced line lies beyond it.
 - Each of the 137 lines touching a changed district (8,115 km) was sampled every 25 m. Each sample was measured against the nearer of the line's two references: each side's page trace, or the official line for a copied district.
-- **v3: 0.5 km beyond the bar, 0.006% of the length.** That compares with 0.1% expected for a correct trace. v2 had 6.2 km (0.076%).
+- **v3: 0.5 km beyond the bar, 0.006% of the length.** It is measured after the 26 moves below, and against the nearer of two references, so the bar's 0.1% (one trace against one line) is not its baseline and the two should not be compared. v2 had 6.2 km (0.076%).
 - 26 pieces moved between neighbours to get there (`step3_page_claims.py`, largest 0.23 km², Wetaskiwin-Ponoka to Lacombe-Sylvan Lake). Each is land one district's page claims, that the holder's own page does not, and that is thicker than the bar.
   - They exist because a district is drawn as whole VAs unless a neighbour holds more than 1% of a VA.
   - None holds a VA representative point. One is 0.08 km² of Chestermere-Strathmore's river strip, taken back from Lethbridge-Little Bow; that brings Chestermere-Strathmore to 2.07 km² below its stated area.

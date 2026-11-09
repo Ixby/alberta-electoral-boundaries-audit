@@ -1,6 +1,6 @@
 # Step C: the panel's assembled map, scored provisionally
 
-> **Provisional.** Kept out of the headline. The map scored is the Independent Advisory Panel's 91-district map as assembled by the registered Amendment 10 run (`fd82cdd1`), not an official shapefile. Its calibration passed (T1 0 of 1,909; efficiency-gap delta 0.00 points; final mean Hausdorff 0.031 km; mean IoU 0.9993), but that calibration was a reproducibility run on seen data (Amendment 10, Part 2), not out-of-sample evidence of accuracy. The headline remains the enacted map's official shapefiles. Nothing here is a finding on whether the map is a gerrymander: each test places the map among neutral maps, or against the commission maps, on its registered measure.
+> **Provisional.** Kept out of the headline. The map scored is the Independent Advisory Panel's 91-district map as assembled by the registered Amendment 10 run (`fd82cdd1`), not an official shapefile. Its calibration passed (T1 0 of 1,909; efficiency-gap delta 0.00 points; on the 30 placed sample pages, as raw page fits, mean Hausdorff 0.031 km and mean IoU 0.9993), but that calibration was a reproducibility run on seen data (Amendment 10, Part 2), not out-of-sample evidence of accuracy. The headline remains the enacted map's official shapefiles. Nothing here is a finding on whether the map is a gerrymander: each test places the map among neutral maps, or against the commission maps, on its registered measure.
 
 Run 2026-11-04 (evening, MST) under the run sheet `preregistration/a10_stepc_run_sheet_2026-11-04.md`, committed at `63cbf7d1` before any measure was computed, with changes recorded at `a9c1e3a6` and after (listed under "Deviations" below). Votes: 2023 election-day voting-area votes (the registered substrate). The seat-claim test's rescaled substrate is not used here.
 
@@ -85,11 +85,11 @@ Territory districts outside the null's ±25% band on the 2021 overlay (Amendment
 
 ### Cut voting-area range (Amendment 10, Part 5; sensitivity, not a gate)
 
-`cut_va_sensitivity_fixed.json`, `cut_vas_fixed.csv`. 245 cut voting areas; 132 have at least 10% of their area on the minority side and were flipped one at a time (87 of them involve a changed district). 29 single flips raise the efficiency gap, 19 lower it, 84 leave it unchanged. Greedy bounds: **+1.32% to +2.94%** around the pipeline's +1.45%. The bounds ignore interactions between flips.
+`cut_va_sensitivity_fixed.json`, `cut_vas_fixed.csv`. 245 cut voting areas; 132 have at least 10% of their area on the minority side and were flipped one at a time (87 of them involve a changed district). 6 single flips raise the efficiency gap, 5 lower it, 121 leave it unchanged (a change under 10⁻⁹ points, floating-point noise, counts as none). Greedy bounds: **+1.32% to +2.94%** around the pipeline's +1.45%. The bounds ignore interactions between flips.
 
 What moves the range is not the reconstruction:
 - **The upper bound comes from two voting areas on a line the panel did not change.** Two voting areas in Strathcona-Sherwood Park, on its line with Sherwood Park (polls 012 and 013, OBJECTIDs 3074 and 4352), each add 1.42 points when flipped alone to Sherwood Park. Both districts are unchanged, so both are at the commission's official geometry; the cut is the commission's own line. Those VAs are placed by representative point, the same rule every map in the audit and every neutral plan in the nulls uses. The 45 flips between two unchanged districts give every large delta (largest +1.42 points).
-- **Flips that involve a changed district, the only ones reconstruction error can reach,** move the efficiency gap by at most +0.023 and −0.036 points each. Their 18 raising flips sum to +0.045 points.
+- **Flips that involve a changed district, the only ones reconstruction error can reach,** move the efficiency gap by at most +0.023 and −0.036 points each. Two of them raise it (+0.023 and +0.022), together +0.045 points.
 - **Against the registered lines:** the upper bound (+2.94%) is above R1's null 97.5th percentile (+2.09%), so R1 would flag if those two commission-line VAs were attributed by area instead of by representative point. That would change the attribution rule, not correct a reconstruction error, and the null uses the same rule. Neither bound reaches P1's +4.10% or set D's 95th percentile (+4.08%). This describes the test's sensitivity, not a verdict.
 
 ### Voting areas cut (Amendment 9, Part 5; descriptive, on the assembled map)
@@ -101,7 +101,7 @@ What moves the range is not the reconstruction:
 | 2023 (4,765) | 211 | 144 | 1 |
 | 2026 (4,904) | 218 | 149 | 1 |
 
-Baselines on the 2026 set: majority map 229, minority map 364. "Uncertain" means the part outside the main district lies within 31 m of it, the calibration's final mean Hausdorff distance. That is a mean, not a worst case, so the mark is narrow.
+Baselines on the 2026 set: majority map 229, minority map 364. "Uncertain" means the part outside the main district lies within 31 m of it, the calibration's mean Hausdorff distance over its 30 placed pages. That is a mean, not a worst case, so the mark is narrow.
 
 ### Supplementary: EBCA population rules (not a registered test)
 
@@ -123,4 +123,4 @@ Scripts written for Step C (SHA-256): `cut_va_sensitivity_stepc.py` `5f45ec65e72
 
 ## Files
 
-Logs: `step1_partisan.log`, `step2_3_structural_verdict.log`, `step4_x1.log`, `step5_size_matched.log`, `step6_qsgy8_tripwires.log`, `step8_cut_va.log`, `step9_va_cuts.log`, `step10_rules.log`. Territory: `territory/` (chain logs, plans and their SHA-256s, scores, rank, calibration). Scoring copy: `data/shapefiles/iap_assembled/iap_2026_assembled.gpkg` with its ingest record. Candidate scores: `data/outputs/iap_assembled_phase4c.json`, `data/outputs/iap_assembled_real_maps.json`.
+Logs, not in the repository (`.gitignore` excludes `*.log`, and that includes `territory/chain3.log` and the defect file's log under Deviations): `step1_partisan.log`, `step2_3_structural_verdict.log`, `step4_x1.log`, `step5_size_matched.log`, `step6_qsgy8_tripwires.log`, `step8_cut_va.log`, `step9_va_cuts.log`, `step10_rules.log`. Territory: `territory/` (plans and their SHA-256s, scores, rank, calibration; the chain logs are not committed). Scoring copy: `data/shapefiles/iap_assembled/iap_2026_assembled.gpkg` with its ingest record. Candidate scores: `data/outputs/iap_assembled_phase4c.json`, `data/outputs/iap_assembled_real_maps.json`.

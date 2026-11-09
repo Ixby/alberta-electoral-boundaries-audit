@@ -63,6 +63,8 @@ Calgary-North East does not depend on placement: no voting area is cut by its bo
 | Calgary and Edmonton mean against the rest, electors | −7.6% | −0.6% | −3.8% | −4.8% |
 | Same, stated population | +9.2% | +15.9% | +13.4% | not stated |
 
+Here a Calgary or Edmonton division is one whose name starts with "Calgary-" or "Edmonton-" (`electors_check.py`). `../population_basis/` instead counts a division that is at least half Calgary or Edmonton by 2021 population, as the size-matched test does; on that definition the minority's stated-population gap is +15.1% (the other two maps agree).
+
 The city gap changes sign. On population, Calgary and Edmonton divisions are larger than the rest; on electors, they are smaller. The commission treated voter parity as no "more than a marginal consideration" under its statute, and said divisions with many non-voters can be harder to represent (PDF p. 30).
 
 ## How much does the 2021 census explain? (2026-11-07)
@@ -84,7 +86,7 @@ Weighting each division's stated population by its 2021 eligible share cuts the 
 
 Province: 69% of 2021 residents were citizens aged 18 or over. In Calgary-North East it was 46%: 24% were under 15 and 30% were not citizens.
 
-**Calgary-North East is still 39% short of what composition predicts.** Its 2021 residents included about 12,700 citizens aged 18 and over, and it now has 15,036 electors. Electors grew by about 18% while the stated population grew by about 89% (27,947 on the census route to 54,541). The plan names three possibilities, and this check cannot pick between them:
+**Calgary-North East is still 39% short of what composition predicts.** Its 2021 residents included about 12,700 citizens aged 18 and over, and it now has 15,036 electors. Electors grew by about 18% while the stated population grew by about 95% (27,947 on the census route to 54,541). The plan names three possibilities, and this check cannot pick between them:
 - Growth since 2021 that is far more heavily children and non-citizens than in 2021. Arrivals of temporary residents rose sharply across Canada after 2021, so this is plausible.
 - New neighbourhoods not yet fully on the elector list.
 - A 2024 estimate that is too high for this division.

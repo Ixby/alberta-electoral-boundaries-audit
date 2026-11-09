@@ -3,11 +3,13 @@
 """
 ledger.py
 
-One list of every percentile-ranked comparison made in the unregistered analyses since Step C
-(2026-11-04 to 2026-11-07), read from their saved outputs, with a multiple-testing reading across
-the whole family. Every percentile is turned into a two-sided p = 2 x min(pct, 100 - pct) / 100.
+One list of the percentile-ranked comparisons read below from the saved outputs of the unregistered
+analyses since Step C (2026-11-04 to 2026-11-07), with a multiple-testing reading across them.
+Every percentile is turned into a two-sided p = 2 x min(pct, 100 - pct) / 100.
 Benjamini-Hochberg (false discovery rate 5%) and Bonferroni are applied across all of them.
-Chikina-Frieze-Pegden p-values enter as reported. Nothing is dropped. Unregistered.
+Chikina-Frieze-Pegden p-values enter as reported. Unregistered. Not every percentile the analyses
+report is read: for example packing_cracking's Lethbridge lopsided-loss rows, six signals F's
+election-day rows and set D's close4 are not.
 A map beyond every plan has no percentile p of 0: where the chains' n_eff is known, p is floored at
 2 / (n_eff + 1); a percentile of 0 or 100 without an n_eff is an error.
 

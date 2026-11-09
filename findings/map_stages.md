@@ -24,5 +24,6 @@ Times are Alberta time. Sources are archived in `evidence/` with their SHA-256.
   - It placed 30 of the 34 pages correctly, rural pages included (IoU 0.998 to 1.000).
   - It declined three: Chestermere-Strathmore, Grande Prairie-Wapiti and Peace River.
   - It placed Sherwood Park wrongly (rotated 90°, 13.5 km off) and accepted the placement.
-  - Amendment 9 allows no third attempt.
-- Step C, the provisional map score, does not run. No numeric reading of the panel's map is published before the official shapefiles.
+  - Amendment 9 allowed no third attempt.
+- Amendment 10 (OSF 9wp5y, update `6aeb59edd63871f1daf383ab`, filed 2026-11-04) withdrew that limit (Part 1) and registered a third attempt, which assembles the panel's map from its pages. Its calibration passed on 2026-11-04, as a reproducibility run on pages already seen, not as out-of-sample evidence of accuracy (`findings/a10_stepb_calibration.md`).
+- Step C, the provisional map score, ran on 2026-11-04 under Amendment 10, Part 5 (`findings/a10_stepc/`): structural lane 2 of 5 flags, partisan lane 1 of 4. It is labelled provisional and kept out of the headline. Amendments 11 to 13, written after it, are in the amendment log.

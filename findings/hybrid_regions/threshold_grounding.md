@@ -21,14 +21,14 @@
 ## What that means for this session's thresholds
 
 The plan's rule, beyond the 95th percentile or below the 5th, is a conventional 5%-per-tail global-outlier line. It is weaker than all three published standards:
-- **No multiplicity correction:** it was applied across about ten informative tests.
+- **No multiplicity correction:** it was applied across at least ten informative tests.
 - **Lower bar than the case work:** it is far below the "extreme outlier" standard of the North Carolina analyses.
 - **Wrong test for Chikina's bound:** these chains start from random plans, not from the map, so Chikina's bound does not apply.
 
 | Standard | Line | Lethbridge, city-aware (4 pieces in 0.9% of plans; NDP votes in lopsided losses at p93) | St. Albert, city-blind (p97) |
 |---|---|---|---|
 | Plan's rule (5% per tail) | beyond p95 | no (p93) | yes |
-| Bonferroni, about 10 tests | beyond p99.75 | no | no |
+| Bonferroni, at least 10 tests | beyond p99.75 or stricter | no | no |
 | Chikina et al., if a walk from the map gave the same ε | ε ≤ 0.00125 | no (ε ≈ 0.009 gives p ≈ 0.13; ε ≈ 0.07 gives p ≈ 0.37) | no (ε ≈ 0.03 gives p ≈ 0.25) |
 | Stephanopoulos-McGhee | \|EG\| ≥ 8% | not a regional measure | not a regional measure |
 
@@ -51,9 +51,9 @@ On election-day votes the minority is +4.02%. No map comes near 8%. The register
 - The Lethbridge four-way split is the closest: rare (0.9% of city-aware plans), but not significant once multiple tests or Chikina's bound are applied.
 - St. Albert's single flag does not survive any correction. It is as rare as one result among this many comparisons would be against nonpartisan alternatives.
 
-## A test that would apply properly (not run)
+## A test that applies properly (run: `README.md`, Chikina-Frieze-Pegden section)
 
-The Chikina et al. test for Lethbridge: walk from the panel's own southern configuration and see whether it is extreme among the plans visited. It needs a contiguous starting plan. On the voting-area graph two of the panel's districts are not contiguous (signal F's deviation), so it would start from a minimally repaired version, which must be disclosed. It would answer the local question rigorously. By Cho and Rubinstein-Salzedo, it would not answer the global one.
+The Chikina et al. test for Lethbridge walks from the panel's own southern configuration and asks whether it is extreme among the plans visited. On the voting-area graph two of the panel's districts are not contiguous (signal F's deviation). The walks did not repair the plan; they let each district have no more pieces than it has in the panel's plan, a disclosed deviation. On all four walks of 1,000,000 steps every p is at least 0.89: the configuration is not a local outlier. By Cho and Rubinstein-Salzedo, that answers the local question, not the global one.
 
 ## Sources
 - Herschlag, G. J., et al. (2020). Quantifying gerrymandering in North Carolina. *Statistics and Public Policy*. https://consensus.app/papers/details/9533278654a85506a53b8e0383ac6c8f/

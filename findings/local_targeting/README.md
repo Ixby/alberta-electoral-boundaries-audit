@@ -9,7 +9,7 @@
 | Competitive (within 10 points) | 4 of 18 | 22% | 0.27 against safe seats (27 of 71, 38%) |
 | NDP-won | 8 of 41 | 20% | 0.007 against UCP-won (23 of 48, 48%) |
 
-The panel changed competitive seats and NDP-held seats *less* often than the rest. That is mostly the confound named in the plan: the two restorations cascade through rural central Alberta, which is safe UCP. The NDP-held result is the lowest p in the whole ledger (91 tests), but it does not survive the multiple-testing correction, and it points away from blanket targeting of NDP seats.
+The panel changed competitive seats and NDP-held seats *less* often than the rest. That is mostly the confound named in the plan: the two restorations cascade through rural central Alberta, which is safe UCP. The NDP-held result is one of the lower p-values in the ledger (5th of 143, `../test_ledger/`), but it does not survive the multiple-testing correction, and it points away from blanket targeting of NDP seats.
 
 ## B. Which way did the changes move close margins? Mostly toward the UCP, in a few seats.
 
@@ -34,7 +34,7 @@ Of the 6 changed divisions within 10 points on either map, 5 moved toward the UC
 | From seats lost by under 10 | 5,400 | 23,387 | 5,767 |
 | From seats the NDP won | 8,799 | 6,854 | 16,657 |
 
-**Of the moved NDP votes, 9.0% (14,199) went from a seat the NDP won or nearly won into one it loses by 10 or more. Only 2.0% (3,152) went the other way.** Most of the 9.0% is the Lethbridge and Banff changes in section B.
+**Of the moved NDP votes, 9.0% (14,199) went from a seat the NDP won or nearly won into one it loses by 10 or more. Only 2.0% (3,152) went the other way.** Split by division pair (same votes and rule as `local_targeting.py`), most of the 9.0% is the Lethbridge change in section B: 10,033 votes from Lethbridge-East and Lethbridge-West into the three Lethbridge hybrids. Most of the rest, 3,706, is Edmonton-Beaumont voters moved into Leduc-Beaumont. The Banff change moves its NDP votes into a near loss, not a lopsided one; only 460 go from Canmore-Banff into Rocky Mountain House-Sundre.
 
 ## Reading
 
@@ -43,6 +43,6 @@ The panel's changes do not fall on competitive or NDP-held seats more often than
 - **Which way it runs:** consistently against the NDP, moving NDP voters from competitive seats into lopsided ones about four times as often as the reverse.
 - **How big it is:** about one seat on 2023's votes.
 
-No test here reaches significance after correction, and none can show intent. The changed-district redraws, which are running, test whether this local pattern is unusual against neutral redraws of the same areas.
+No test here reaches significance after correction, and none can show intent. The changed-district redraws (`../changed_districts/`) test this local pattern against neutral redraws of the same areas. The panel's layouts sit inside the band in every region and on every measure. The commission majority's south-and-central layout is the outlier there, though the redraws cannot draw its Canmore-Banff.
 
 Files: `local_targeting.py`, `local_targeting.json`.

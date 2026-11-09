@@ -51,7 +51,7 @@ Groups were found from the voting areas that move, not assumed. There are three,
 
 **On election-day ballots** Lethbridge-West (NDP by 1.29) is the second seat. On all ballots Lethbridge-East is UCP by 1.54 on the ¶167 map, so Lethbridge gives each map one NDP seat there.
 
-**Undecided seats** (margin smaller than the votes in voting areas cut by a differing line) are listed in `comparison.json`. A line counts as differing if it is more than 100 m from the other map's lines in the same group. On all ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-East (¶167). On election-day ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-West (¶167). The first version of this check counted every line of a district, including lines the two maps share. It was corrected before this was reported.
+**Undecided seats** (margin smaller than the votes in voting areas cut by a differing line) are listed in `comparison.json`. A line counts as differing if it is more than 100 m from the other map's lines in the same group. On all ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-East (¶167). On election-day ballots: Banff-Canmore-Diamond Valley, Lethbridge, Lethbridge-Cardston (panel); Canmore-Banff, Lethbridge-West (¶167). The first version of this check counted every line of a district, including lines the two maps share.
 
 ## Fit check
 

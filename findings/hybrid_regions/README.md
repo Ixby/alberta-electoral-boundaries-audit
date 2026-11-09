@@ -19,7 +19,7 @@ For each region the panel's actual configuration is placed against those neutral
 | Leduc and Beaumont | 100% (p87) | 100% (p58) | 1 (p14) | no |
 | Airdrie, Chestermere, Fort Saskatchewan, Grande Prairie, Medicine Hat, Spruce Grove | 100% (p50-72) | 100% (p50-60) | ordinary | no |
 
-In the last row, all six cities' NDP voters are in seats the NDP loses badly on every neutral plan too, because the NDP does not win any seat in those regions. The test has nothing to detect there.
+In the last row, all six cities' NDP voters are in seats the NDP loses by 10 points or more on the panel's map. In Grande Prairie and Medicine Hat that holds on every neutral plan too, because the NDP wins no seat in those regions, so the test has nothing to detect there. In Airdrie, Chestermere, Fort Saskatchewan and Spruce Grove the NDP wins seats (a neutral median of 1 to 3), and some neutral plans keep part of the city's NDP vote out of lopsided losses: 10% to 43% of city-blind plans and 1% to 19% of city-aware ones (`chains/`). There the test is informative, and the panel's map sits inside the band.
 
 **Lethbridge, the case the critics name.**
 - **Pieces:** the city-aware redraws split Lethbridge two ways in 51% of plans and three ways in 48%. Four ways happens in 0.9%, and the panel's map does it.
@@ -72,7 +72,7 @@ Files: `cfp_lethbridge.py`, `cfp_lethbridge.json`, `cfp/walkN.json`. The per-ste
 
 There is no single right comparison set for a map. Each neutral ensemble is a sample from one chosen distribution, not "all neutral maps": the algorithm, the population band, contiguity, the s.15(2) rules and whether municipal lines are preferred all shape it. Herschlag et al. (2020) compare a plan with ensembles "satisfying all legal criteria", so an ensemble is only as valid a comparison as the criteria built into it.
 
-"Neutral" means drawn without partisan data. It does not mean lawful, or what a commission is supposed to do. The Act tells drawers to weigh communities of interest, municipalities, geography, transportation and clear boundaries (s.14), and *Carter* allows departures from parity for such reasons. The ensembles here encode population and contiguity, and in the city-aware runs, municipalities and s.15(2), but not the rest. So:
+"Neutral" means drawn without partisan data. It does not mean lawful, or what a commission is supposed to do. The Act tells drawers to weigh communities of interest, municipalities, geography, transportation and clear boundaries (s.14), and *Carter* allows departures from parity for such reasons. The ensembles here encode population and contiguity, and in the city-aware runs, municipalities, but not s.15(2) (every division stays within ±25% of the region's mean; set D, province-wide, encodes s.15(2)) and not the rest. So:
 - **What a difference can mean:** a difference from a neutral ensemble can come from legitimate factors the ensemble leaves out, not from partisanship. A partisan choice can also hide behind such a factor.
 - **What the ensemble answers:** what maps look like when only the encoded rules matter. That is useful for separating the effects of geography (where voters live) from line-drawing choices.
 - **The local test** answers a narrower question again: is this map extreme compared with small changes to itself? By Cho and Rubinstein-Salzedo (2019), a map can pass one test and fail the other.

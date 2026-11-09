@@ -14,7 +14,7 @@ verdict_synthesis.py --structural findings/iap_v3_two_lane/structural.json --joi
 phase_b_scorecard.py --shapefile <v3> --map-name iap_2026_assembled_v3 --name-col EDName2025 --skip-mcmc --map-s50 0.4835 --out-dir findings/iap_v3_two_lane
 ```
 
-Logs: `partisan.log`, `structural_verdict.log`, `qsgy8.log`.
+Logs: `partisan.log`, `structural_verdict.log`, `qsgy8.log`, not in the repository (`.gitignore` excludes `*.log`).
 
 ## Results: no flag changes
 
@@ -48,7 +48,7 @@ qsgy8 tripwires (beside the verdict): 1 of 4 on both. MO #1 fires on Lethbridge 
 
 ## Against the majority and minority maps
 
-The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`, with logs); it reproduces the June anchors exactly. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
+The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`; their logs are not committed); it reproduces the June anchors exactly. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
 
 | Check (flag rule, spec §3) | 2019 enacted | Majority | Panel's map (v3) | Minority |
 |---|---|---|---|---|

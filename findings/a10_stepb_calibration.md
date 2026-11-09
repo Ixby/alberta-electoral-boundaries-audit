@@ -13,6 +13,8 @@
 
 Before snapping, the assembly alone gave T1 63 of 1,909 (3.3%) and T4 −0.03 points.
 
+T1 counts sample voting areas that leave their true district. It does not count voting areas wrongly taken into a sample district. There is one: the hole-filled Chestermere-Strathmore ends with 48 voting areas against 47 true (`districts` in the JSON).
+
 As Amendment 10, Part 2 states, the sample is development data and this result was stated in advance; the run is a reproducibility check of the frozen pipeline, not out-of-sample evidence of its accuracy. It reproduced exactly: the voting-area assignment of both the calibration map and the panel's assembled map is identical, file for file, to the last development dry run.
 
 ## The panel's map (Amendment 10, Part 5)

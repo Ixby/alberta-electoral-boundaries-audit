@@ -441,7 +441,7 @@ def build_bias_structure_matrix() -> Path:
       x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles,
           simulation_real_map_scores_canonical.json; reference line from the
           canonical ensemble p95)
-      y = Lane 2 structural red-flag count (of the audit's 5 pre-registered checks)
+      y = Lane 2 structural red-flag count (of the audit's 5 structural checks)
     Three points: 2019 enacted (grey), Majority 2026 (teal), Minority 2026 (purple).
 
     Honesty redesign (2026-07-09, author direction): the earlier version shaded
@@ -513,7 +513,7 @@ def build_bias_structure_matrix() -> Path:
     # 4-of-5 line: the audit's own pre-registered bar — say so on its face
     ax.text(
         XMIN + 0.12, threshold_struct + 0.08,
-        "4 of the audit's 5 pre-registered checks\n(the audit's own pre-set bar — no external benchmark exists)",
+        "4 of the audit's 5 structural checks\n(the audit's own pre-set bar — no external benchmark exists)",
         color="#555555", fontsize=7, fontstyle="italic",
         ha="left", va="bottom",
     )

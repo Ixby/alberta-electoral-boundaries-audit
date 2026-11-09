@@ -27,6 +27,12 @@ Amendment 12, Part 2: each size-matched ensemble chain is replayed from its regi
 | `towns_flagged` | 37,524 | 29,258 |
 | `n_city_districts` | 36,496 | 26,381 |
 
+The rehearsal (`../amendment12_rehearsal/`) and Amendment 13 give 47,497 and 47,498 for chain 201's first two columns. The per-column counts are not stored (`replay_check.json` holds pass/fail only), so the difference cannot be resolved here.
+
 So the replays are different sets of plans. Under Amendment 13, Part 2 both are dropped from the all-ballots sets: set A is 221–224 (91 districts) and 120–121 (89 districts). On election-day ballots the sets stay as filed.
 
-**Cause: not established.** A lead: 201 and 100 are the only chains in this list that the run log records as run in the cloud (`alberta_audit/analysis/methodology/amendment17_chain_runs/README.md`, §1: "k=91 200, 201 … (cloud); k=89 100 … (cloud)"). Every chain run on this machine replays. A different library version or platform would change the sampler's path without any vote being read.
+**Cause: not established.** Two leads, and they coincide, so neither can be separated from the other:
+- **Platform.** 201 and 100 are the only chains in this list that the run log records as run in the cloud (`alberta_audit/analysis/methodology/amendment17_chain_runs/README.md`, §1: "k=91 200, 201 … (cloud); k=89 100 … (cloud)"). Every chain run on this machine replays.
+- **Code version.** 201 and 100 are also the only chains in this list that ran before the harness fixes at commit `01095181` (Amendment 5, Part 14: "Chains 201 and 100 ran before these fixes and later chains after"). The run log at that commit says the fast-fail for infeasible pairs keeps the same transition distribution but makes "fewer random draws, so a different sample path per idx". The replays ran `alberta_audit`'s current `close_seats_ensemble.py`; this repository's copy (`analysis/scripts/close_seats_ensemble.py`) has the fast-fail.
+
+Either a different code version or a different library version or platform would change the sampler's path without any vote being read.

@@ -14,7 +14,7 @@ Surplus is the winner's votes beyond half (packing-type). Losses are the loser's
 | Panel (91) | 4.15 | 4.23 | 15.78 | 8.59 | 6.46 | 10.77 | −1.66 |
 | ¶167 (91) | 4.23 | 4.32 | 15.36 | 8.67 | 5.81 | 11.62 | −2.19 |
 
-Election-day figures are in `real_maps.json`. They show the same ordering, with the gap shifted toward the UCP.
+Election-day figures are in `real_maps.json`. Every gap shifts toward the UCP, and the order of the gaps changes: ¶167 −0.24, majority +0.10, panel +1.45, 2019 +2.41, minority +4.03. The minority map still has the most NDP votes in lopsided losses and the fewest UCP near-losses, and the panel's map still sits between the commission maps. But the panel-versus-¶167 difference in NDP lopsided losses reverses: the panel's map has 0.16 points fewer (15.81 against 15.97).
 
 **Reading.** On every map the NDP's largest waste is votes in seats it loses badly. Its surplus is small, so the familiar "NDP packed into Edmonton" pattern is modest by this measure. The minority commission map has the most NDP votes in lopsided losses and the fewest UCP near-losses. The panel's map sits between the commission maps. Compared with ¶167 it has 0.4 points more NDP votes in lopsided losses and 0.8 fewer UCP votes in lopsided losses. Those differences are small on a provincial scale. Part 2 will show whether they are unusual against neutral maps.
 
@@ -59,12 +59,13 @@ Set D's four 91-seat chains were replayed from their seeds on both ballot sets, 
 | Seats under 30% NDP | 21 (p77) | 22 (p92) | 17 / 20 / 22 |
 | Sorted positions above the neutral 95th | 2 (Calgary-Nose Creek, Edmonton-Strathcona) | 10 | |
 | Sorted positions below the neutral 5th | 2 (Drumheller-Stettler, Morinville-Sturgeon) | 11 | |
-| Lethbridge NDP votes in seats lost by 10+ | 44.7% (p72) | 0% (**p4.7**) | 0% / 21% / 62% |
+| Lethbridge NDP votes in seats lost by 10+ | 44.7% (p72) | 0% (**p4.7**; a tie with the neutral 5th percentile, see below) | 0% / 21% / 62% |
 
 **By the plan's rules:**
 - **Cracking:** neither map. Neither has more seats at 40-50% NDP than 95% of neutral plans.
 - **Packing:** one NDP seat on each map is more lopsided than 95% of neutral plans at its position, Edmonton-Strathcona (80.9% against 80.6%). Both maps share Edmonton's lines.
 - **Shape of the curve:** the panel's sorted seats lie inside the neutral band at 87 of 91 positions. The ¶167 map leaves the band at 21 positions. It has more NDP-competitive Calgary and Lethbridge seats than neutral maps (above the band from rank 47 to 62) and more lopsided UCP rural seats (below the band at ranks 1 to 27).
+- **¶167's Lethbridge p4.7:** 0% is the lowest value possible and equals the neutral 5th percentile. The percentile counts the plans tied at 0 as half, so the p4.7 comes from ties, not from a value below the band.
 
 **Reading.** Against province-wide neutral maps, the panel's seat curve is ordinary. The ¶167 map is the outlier, in the NDP's favour on seats and with rural UCP voters packed. This agrees with the regional redraw (`../six_signals/`): what the neutral maps call unusual is keeping Lethbridge whole, not splitting it. These neutral maps also ignore municipal boundaries, and the municipality-aware regional runs (`../hybrid_regions/`) test that.
 

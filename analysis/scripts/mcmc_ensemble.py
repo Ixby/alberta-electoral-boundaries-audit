@@ -935,7 +935,10 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     Uses the standard n_eff = n / tau formula where
     tau = 1 + 2 * sum_{k=1..M} rho_k  (Geyer initial positive sequence).
 
-    We truncate the sum at the first lag where rho_k <= 0 (Geyer 1992).
+    We truncate the sum at the first lag where rho_k <= 0 (Geyer 1992), or at
+    max_lag (default min(n // 4, 2000)), whichever comes first. If max_lag_used
+    equals max_lag, the cap was reached while rho_k was still positive: tau is
+    then understated and n_eff is an upper bound.
     """
     x = np.asarray(x, dtype=float)
     x = x[~np.isnan(x)]

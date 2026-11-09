@@ -22,7 +22,8 @@ assumes multivariate Gaussianity:
      of this script (2026-07-08) reported the 9.90e-07 figure as
      "assumption-free"; it is not — it silently swapped "no Gaussianity
      assumption" for "no assumptions". The sub-1e-06 headline therefore rests
-     on the parametric chi-squared(4) model (p = 1.40e-06), stated as such;
+     on the parametric chi-squared(4) model (p = 8.8e-07 in
+     findings/joint_outlier_score.json), stated as such;
      the empirical scan's roles are (a) confirming no sampled plan reaches the
      minority and (b) validating the parametric model in the observable region
      (check 2), not tightening the headline.

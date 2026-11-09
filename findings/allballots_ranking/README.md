@@ -17,9 +17,9 @@ ReCom proposals depend only on population, so the same seeds give the same plans
 
 The first set D launch (01:56) failed at startup on an unquoted path and wrote no rows; it was relaunched unchanged at 02:07.
 
-**Replay check.** In every chain, every row's vote-independent columns equal the original run's: `step, population_mad, reock_proxy_median, reock_proxy_pct_below_030, n_districts` for the canonical; also `n_parts, n_city_districts, towns_flagged, s152_districts` for set D. So these are the same 2,020,000 plans, with only the votes changed. The election-day column below reproduces the report's existing percentiles (for example minority efficiency gap p94.54, majority mean-median p0.99).
+**Replay check.** In every chain, every row's vote-independent columns equal the original run's: `step, population_mad, reock_proxy_median, reock_proxy_pct_below_030, n_districts` for the canonical; also `n_parts, n_city_districts, towns_flagged, s152_districts` for set D. So these are the same 2,020,000 plans, with only the votes changed. The election-day column below reproduces the report's existing percentiles (for example minority efficiency gap p94.54, majority mean-median p0.99). No script or output for this check is committed, and neither is the script that wrote `canonical_ranking.json`, so this paragraph is the check's only record in the repository.
 
-The chain CSVs are not committed (the canonical ones aren't either). SHA-256:
+The all-ballots chain CSVs are not committed (the election-day canonical chains are, in `data/simulation_checkpoints_canonical/`). SHA-256:
 
 ```
 ba0f12106c65d306ad8e2e43ef9be0aadebf7147f6bb8041ace159c9165ff5ad  data/simulation_checkpoints_allballots/chain0_samples.csv
@@ -34,7 +34,7 @@ dd925ec6df2f7580d30eb33bd817f95dd7f21889d6d1ae593960566af1c5bef9  (alberta_audit
 
 ## Results: the 2019 map and the commission maps against the canonical ensemble
 
-Midrank percentiles, 1,010,000 plans each. Source: `canonical_ranking.json`.
+Midrank percentiles, 1,010,000 plans each, with one exception noted below the table. Source: `canonical_ranking.json`.
 
 | Map | Measure | Election-day value | Percentile | All-ballots value | Percentile |
 |---|---|---:|---:|---:|---:|
@@ -52,6 +52,8 @@ Midrank percentiles, 1,010,000 plans each. Source: `canonical_ranking.json`.
 | Minority | Seats at 50/50 | 0.517 | 99.99 | 0.517 | 99.90 |
 
 Plans at or above the minority's efficiency gap: 55,169 of 1,010,000 on election-day votes; 11,903 on all ballots.
+
+**The 2019 map's seats at 50/50 is not a midrank.** Its election-day value, 40/87, is shared by 266,278 plans (26.4%), but the ranking compares floats exactly and the CSV's 40/87 does not equal the map's in the last digit, so every tied plan counts as below. The 78.54 is therefore the share of plans at or below 40/87; counting the ties as half gives 65.36 (recomputed from the committed canonical chains; the academic report gives both). The majority's 41/89 cannot tie with any k/87, so its 78.54 is right. The 2019 map's all-ballots 74.08, at 41/87, equals the majority's and may carry the same error; it cannot be checked here, because the all-ballots chains are not committed.
 
 **Not shown as a headline: UCP seat percentiles for the 89-district maps.** The canonical ensemble has 87 districts, so a seat count from an 89-district map is partly a district-count effect. For the record (`canonical_ranking.json`): 2019 map 57 → 49 seats (p85.71 → p59.98, a like-for-like count); majority 55 → 48; minority 60 → 55. Ensemble median 55 → 49 of 87.
 

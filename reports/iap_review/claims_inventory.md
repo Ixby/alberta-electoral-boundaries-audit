@@ -14,7 +14,7 @@ Each row is a factual claim that can be checked against a primary source. Opinio
 |---|---|---|---|---|
 | M1 | The Commission's Interim Report "recognized the desirability of preserving as much as possible the current (2017) electoral division of Drayton Valley-Devon" | p.21 | R | Commission Interim Report (Oct 2025), as quoted or summarized in the final report |
 | M2 | "Residents of Leduc and Beaumont, as well as their mayors, asked for this electoral division"; "negative reaction by people in Beaumont to being paired with Sherwood Park" | p.23 | W | Commission submission archive; commission final report |
-| M3 | Lethbridge-Little Bow "has been in existence as a provincial constituency since 1913" | p.81 | W | Elections Alberta historical constituency records |
+| M3 | Little Bow "has been in existence as a provincial constituency since 1913" | p.81 | W | Elections Alberta historical constituency records |
 | M4 | Macleod-Crowsnest "avoids the incongruous encirclement of the City of Lethbridge that the Commission's recommendation entailed" | p.87 | R | Commission majority official shapefile |
 | M5 | Red Deer and Lethbridge do not share population with a division outside their boundaries on the Commission's map (pp.75–76); "all but Lethbridge have been a part of a hybrid" (p.107) | pp.75–76, 107 | R | Commission majority official shapefile; 2019 map |
 | M6 | "There are currently (since 2017) 19 hybrid electoral divisions", plus the Commission's eight, 27 in all | pp.107–108 | R | 2019 enacted map; commission final report |
@@ -43,7 +43,7 @@ Each row is a factual claim that can be checked against a primary source. Opinio
 | N7 | City populations (Alberta Municipal Affairs 2024; Fort McMurray 83,467 from the 2025 municipal census; Sherwood Park 75,575) and gaps of 20,000 or more against Lethbridge | ¶95–97, Table 2 | W | Municipal Affairs 2024 population list; municipal censuses |
 | N8 | Including Bearspaw and Springbank in Calgary adds "about an additional 350 persons per Calgary electoral division" | ¶110–112 | R | App. 7; commission majority populations |
 | N9 | Table 5: the majority's changes to Calgary and Lethbridge "increase population disparities. In small ways" | ¶147–151 | R | App. 7; commission majority populations |
-| N10 | Calgary and Lethbridge are "where Alberta's most competitive electoral divisions are disproportionately found at present" (citing Sigalet) | ¶56 | R | 2023 results |
+| N10 | Calgary and Lethbridge are "where Alberta's most competitive electoral divisions are disproportionately found at present" | ¶56 | R | 2023 results |
 | N11 | Agriculture employs 11,500 of 155,100 in the Lethbridge-Medicine Hat region, June 2026 (no source given) | ¶131 | W | Statistics Canada Labour Force Survey, economic region |
 | N12 | "There is no precedent for the redrawing of the entirety of a province after an independent commission has completed that task in at least the past three decades of Canadian history" | ¶18 | R + W | The audit's own record (Bratt; the 1992 Alberta case) and other provinces |
 | N13 | The panel had "4.5 months from the appointment of the panelists", against about 12 months for a commission | ¶72 | W | Committee transcripts; Motion 37 |
