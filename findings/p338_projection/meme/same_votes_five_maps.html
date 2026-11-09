@@ -35,8 +35,22 @@
   .c.law{grid-column:1 / -1;background:#1b2530}
   .c.law i{color:#c9cfd4} .c.law .ok{color:#4ade80} .c.law .q{color:#fbbf24}
   .foot{margin-top:auto;padding-top:14px;font-size:16.5px;line-height:1.4;color:#8b959e;}
+  .frame{width:1080px;height:1350px;position:relative;background:#FFD200;overflow:hidden}
+  .band{position:absolute;display:flex;align-items:center;white-space:nowrap;overflow:hidden;background:#FFD200;color:#111;
+         font-family:"Helvetica Neue",Arial,sans-serif;font-weight:900;font-size:25px;letter-spacing:.14em;height:44px}
+  .band .w{padding:0 6px}
+  .band{justify-content:space-between;box-sizing:border-box}
+  .corner{position:absolute;width:47px;height:47px;z-index:2;background:repeating-linear-gradient(45deg,#111 0 11px,#FFD200 11px 22px)}
+  .band .st{display:inline-block;flex:none;width:64px;height:44px;margin:0;
+             background:repeating-linear-gradient(45deg,#111 0 11px,#FFD200 11px 22px)}
+  .b-top{left:47px;top:0;width:986px;border-bottom:3px solid #111}
+  .b-bot{left:47px;bottom:0;width:986px;border-top:3px solid #111}
+  .b-left{left:0;top:0;width:1256px;transform-origin:0 0;transform:translate(0,1303px) rotate(-90deg);border-bottom:3px solid #111}
+  .b-right{left:1080px;top:47px;width:1256px;transform-origin:0 0;transform:rotate(90deg);border-bottom:3px solid #111}
+  .inner{position:absolute;left:47px;top:47px;width:986px;height:1256px;overflow:hidden;background:#0f1419}
+  .inner .card{transform-origin:0 0;transform:scale(0.91296);position:absolute;left:0;top:11.8px}
 </style></head>
-<body><div class="card">
+<body><div class="frame"><div class="inner"><div class="card">
   <h1>The new map: 91 seats.</h1>
   <div class="q">Today's polls are <span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>. Two ways to read the map now before MLAs:</div>
   <svg id="main" width="952" height="318" viewBox="0 0 952 318"></svg>
@@ -66,7 +80,14 @@
     </div>
   </div>
   <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; one riding is an exact tie. The new map is redrawn from the panel's report; official files aren't public yet. The law check uses the panel's own populations; no court has ruled on the map. More, including the Lethbridge split: <span style="white-space:nowrap;color:#c9cfd4">ixby.github.io/alberta-electoral-boundaries-audit</span></div>
+</div></div>
+  <div class="band b-top"><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span></div>
+  <div class="band b-bot"><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span></div>
+  <div class="band b-left"><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span></div>
+  <div class="band b-right"><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span><span class="w">PROVISIONAL</span><span class="st"></span></div>
+  <div class="corner" style="left:0;top:0"></div><div class="corner" style="right:0;top:0"></div><div class="corner" style="left:0;bottom:0"></div><div class="corner" style="right:0;bottom:0"></div>
 </div>
+
 <script>
 const NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('main');
 const el = (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };

@@ -146,6 +146,8 @@ All files are in this folder, `p338/sim/`.
 
 ## The chart: "The new map: 91 seats."
 
+**Caution-tape border:** the whole image sits inside a yellow-and-black border reading PROVISIONAL, added at Wuff's request. Every result on it is provisional: the new map is the audit's reconstruction until official files exist, and the seats come from a projection, not an election.
+
 `data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) is for a general reader. It centres on the panel's 91-seat map now before MLAs and reads it two ways, as Wuff framed it: one view speaks to today's politics on the map, the other to the map itself.
 
 1. **Today's polls** (today's politics on this map): UCP 44, NDP 46, 1 exact tie. Source: `out/results.json` `point.panel.proportional`. With NDP exactly on the 46-seat majority line and one tie, the chart calls it "Too close to call".
