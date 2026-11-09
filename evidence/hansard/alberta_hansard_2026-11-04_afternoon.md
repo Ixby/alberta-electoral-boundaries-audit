@@ -13,7 +13,7 @@ Later in the same exchange:
 
 > Why would we restore two rural districts? Because we don't want to deprive rural Alberta from effective representation. If you want to have a look at the weird map that was drawn by Notley, just look at Cardston-Siksika. If you turn it to the side, it kind of looks like Daffy Duck. No wonder it stuck out. The commission looked at it, and they decided to give Lethbridge four seats, and that's what we're going to be debating in this Legislature.
 
-**Checked against the audit (2023 votes, all ballots,  `check_2023`):**
+**Checked against the audit (2023 votes, all ballots; `findings/p338_projection/out/results.json`, `check_2023`):**
 - 2023 actual on the current 87-seat map: UCP 49, NDP 38.
 - The panel's 91-seat map (reconstruction): UCP 51, NDP 40, so +2 each. The Premier's figures imply 50–41 (UCP +1, NDP +3), one seat from ours. Seven seats on the reconstruction are decided by under 2 points, so a one-seat difference is within its error. Her figures match the panel members' alternative exactly (50–41).
 - The comparison depends on the baseline. Against the current map, the four new seats split roughly evenly (ours) or 3–1 for the NDP (hers). Against the commission's 89-seat map (48–41), the panel's map gives the UCP +2 or +3 and the NDP 0 or −1.
