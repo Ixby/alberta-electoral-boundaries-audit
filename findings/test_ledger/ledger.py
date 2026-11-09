@@ -74,6 +74,13 @@ def main():
                     for m_ in ("ndp_seats_all", "ndp_packed_all", "ndp_near_all", "ndp_far_all"):
                         add("changed districts", "3c501006", f"regional ReCom k{mb['k']}, {v}", f"{grp}: {m_}",
                             "majority" if mp == "majority" else "panel", vb[m_]["pct"], n_eff=vb[m_]["n_eff"])
+    lw = F / "city_weight/lethbridge_at_w.json"
+    if lw.exists():
+        for w, vb in json.loads(lw.read_text())["weights"].items():
+            if w == "0.5" or isinstance(vb, str):
+                continue  # W = 0.5 is the hybrid-regions row already counted
+            for m_ in ("city_far_all", "city_pieces"):
+                add("city weight", "5dc4a0dd", f"regional ReCom, city-aware W={w}", f"Lethbridge: {m_}", "panel", vb[m_]["panel"]["pct"])
     m = len(rows)
     order = sorted(range(m), key=lambda i: rows[i]["p_two_sided"])
     bh_max = 0

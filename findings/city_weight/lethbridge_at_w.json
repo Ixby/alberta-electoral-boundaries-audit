@@ -1,0 +1,199 @@
+{
+ "plan": "preregistration/city_weight_calibration_2026-11-07.md",
+ "commission_range": {
+  "min": 0.517,
+  "max": 0.661
+ },
+ "weights": {
+  "0.517": {
+   "n_plans": 200000,
+   "source": "findings\\city_weight\\lethbridge_W0.517",
+   "ndp_seats_all": {
+    "q05": 1.0,
+    "q50": 2.0,
+    "q95": 2.0,
+    "panel": {
+     "value": 1.0,
+     "pct": 21.03
+    }
+   },
+   "city_won_all": {
+    "q05": 0.397,
+    "q50": 0.802,
+    "q95": 1.0,
+    "panel": {
+     "value": 0.553,
+     "pct": 37.28
+    }
+   },
+   "city_near_all": {
+    "q05": 0.0,
+    "q50": 0.0,
+    "q95": 0.565,
+    "panel": {
+     "value": 0.0,
+     "pct": 32.53
+    }
+   },
+   "city_far_all": {
+    "q05": 0.0,
+    "q50": 0.017,
+    "q95": 0.485,
+    "panel": {
+     "value": 0.447,
+     "pct": 93.4
+    }
+   },
+   "city_pieces": {
+    "q05": 2.0,
+    "q50": 2.0,
+    "q95": 3.0,
+    "panel": {
+     "value": 4.0,
+     "pct": 99.58
+    }
+   },
+   "pieces_share": {
+    "2": 0.5097,
+    "3": 0.482,
+    "4": 0.0084
+   },
+   "unusual": {
+    "panel": false
+   },
+   "chain_medians_city_far_all": [
+    0.014,
+    0.018,
+    0.02,
+    0.019
+   ]
+  },
+  "0.5": {
+   "n_plans": 200000,
+   "source": "findings\\hybrid_regions\\chains",
+   "ndp_seats_all": {
+    "q05": 1.0,
+    "q50": 2.0,
+    "q95": 2.0,
+    "panel": {
+     "value": 1.0,
+     "pct": 21.25
+    }
+   },
+   "city_won_all": {
+    "q05": 0.394,
+    "q50": 0.802,
+    "q95": 1.0,
+    "panel": {
+     "value": 0.553,
+     "pct": 37.43
+    }
+   },
+   "city_near_all": {
+    "q05": 0.0,
+    "q50": 0.0,
+    "q95": 0.565,
+    "panel": {
+     "value": 0.0,
+     "pct": 32.43
+    }
+   },
+   "city_far_all": {
+    "q05": 0.0,
+    "q50": 0.015,
+    "q95": 0.488,
+    "panel": {
+     "value": 0.447,
+     "pct": 93.27
+    }
+   },
+   "city_pieces": {
+    "q05": 2.0,
+    "q50": 2.0,
+    "q95": 3.0,
+    "panel": {
+     "value": 4.0,
+     "pct": 99.54
+    }
+   },
+   "pieces_share": {
+    "2": 0.5148,
+    "3": 0.476,
+    "4": 0.0091,
+    "5": 0.0
+   },
+   "unusual": {
+    "panel": false
+   },
+   "chain_medians_city_far_all": [
+    0.019,
+    0.015,
+    0.021,
+    0.012
+   ]
+  },
+  "0.661": {
+   "n_plans": 200000,
+   "source": "findings\\city_weight\\lethbridge_W0.661",
+   "ndp_seats_all": {
+    "q05": 1.0,
+    "q50": 2.0,
+    "q95": 2.0,
+    "panel": {
+     "value": 1.0,
+     "pct": 19.93
+    }
+   },
+   "city_won_all": {
+    "q05": 0.422,
+    "q50": 0.852,
+    "q95": 1.0,
+    "panel": {
+     "value": 0.553,
+     "pct": 35.25
+    }
+   },
+   "city_near_all": {
+    "q05": 0.0,
+    "q50": 0.0,
+    "q95": 0.569,
+    "panel": {
+     "value": 0.0,
+     "pct": 32.13
+    }
+   },
+   "city_far_all": {
+    "q05": 0.0,
+    "q50": 0.0,
+    "q95": 0.399,
+    "panel": {
+     "value": 0.447,
+     "pct": 96.54
+    }
+   },
+   "city_pieces": {
+    "q05": 2.0,
+    "q50": 2.0,
+    "q95": 3.0,
+    "panel": {
+     "value": 4.0,
+     "pct": 99.87
+    }
+   },
+   "pieces_share": {
+    "2": 0.6786,
+    "3": 0.3188,
+    "4": 0.0026
+   },
+   "unusual": {
+    "panel": true
+   },
+   "chain_medians_city_far_all": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ }
+}

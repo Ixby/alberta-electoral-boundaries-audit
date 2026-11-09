@@ -4,18 +4,18 @@ Every analysis made after the provisional Step C reading, with its plan, its rul
 
 ## Multiple testing across the whole family
 
-`ledger.py` gathers every comparison these analyses made: 128 percentile-ranked comparisons, plus 11 tests that report their own p (Chikina-Frieze-Pegden, Fisher, sign). It turns each percentile into a two-sided p = 2 × min(pct, 100 − pct), and corrects across all 139. A map beyond every plan gets p = 2 / (n_eff + 1), not 0.
+`ledger.py` gathers every comparison these analyses made: 132 percentile-ranked comparisons, plus 11 tests that report their own p (Chikina-Frieze-Pegden, Fisher, sign). It turns each percentile into a two-sided p = 2 × min(pct, 100 − pct), and corrects across all 143. A map beyond every plan gets p = 2 / (n_eff + 1), not 0.
 
 | | Count |
 |---|---|
-| p-values corrected | 139 |
-| Percentile-ranked comparisons | 128 |
-| Expected beyond the 5th or 95th percentile if the maps behaved like the nonpartisan comparison maps | about 12.8 |
-| Beyond the 5th or 95th percentile (nominal flags) | 9 |
+| p-values corrected | 143 |
+| Percentile-ranked comparisons | 132 |
+| Expected beyond the 5th or 95th percentile if the maps behaved like the nonpartisan comparison maps | about 13.2 |
+| Beyond the 5th or 95th percentile (nominal flags) | 12 |
 | Significant after Benjamini-Hochberg (false discovery rate 5%) | **0** |
 | Significant after Bonferroni | **0** |
 
-**The nine nominal flags** (the last four, added 2026-11-08, are two findings each measured two ways, and are about the commission majority's map):
+**The twelve nominal flags.** Added 2026-11-08: the commission majority's two south-and-central findings, each measured two ways, and the three Lethbridge rows at the ends of the commission city-weight range:
 
 | Comparison | Map | Percentile | Direction |
 |---|---|---|---|
@@ -26,6 +26,8 @@ Every analysis made after the provisional Step C reading, with its plan, its rul
 | Lethbridge NDP votes in lopsided losses, city-blind | ¶167 | 3.9 | less cracked than neutral |
 | South and central NDP packing, 13 divisions, city-blind and city-aware | majority | 100.0, 100.0 | above every redraw (p ≥ 0.00093 and 0.0016 at the n_eff floor) |
 | South and central NDP votes in lopsided losses, city-blind and city-aware | majority | 4.5, 4.7 | fewer than neutral |
+| Lethbridge pieces, city-aware at W = 0.517 and 0.661 | panel | 99.6, 99.9 | more split than neutral (the same finding as the first row, at other weights) |
+| Lethbridge NDP votes in lopsided losses, city-aware at W = 0.661 | panel | 96.5 | more cracked; at W = 0.517 it is p93.4, inside |
 
 Fewer nominal flags turned up than the nonpartisan comparison maps would produce on their own, and none survives a correction. The closest are the majority's south-and-central packing rows: they would pass Bonferroni only if the 50,000 plans were independent draws (p about 0.00004), and they are not (`../changed_districts/README.md`). The comparisons overlap (the same maps and chains enter many of them), so they are not independent. Bonferroni is valid under dependence. Benjamini-Hochberg is shown for reference.
 
@@ -50,7 +52,7 @@ Districts are drawn by deliberate choice, not at random. None of these p-values 
 | 11-07 | Six signals F (south, city-blind) | `0610a3a9` | Lethbridge lopsided-loss share beyond p95 or below p5 | Panel p71 (not unusual); ¶167 p3.9 |
 | 11-07 | Hybrid regions | `d2c1353e` | Same rule, 11 regions, two variants | Only St. Albert, city-blind; Lethbridge city-aware p93 |
 | 11-07 | Chikina-Frieze-Pegden | `f9bb45da` | p < 0.025 | Not a local outlier (p ≥ 0.89) |
-| 11-07 | City-boundary weight | `5dc4a0dd` | Implied weight from past maps | Running |
+| 11-07 | City-boundary weight | `5dc4a0dd` | Implied weight from past maps; Lethbridge at the range's ends | Commission range W = 0.517–0.661; panel's Lethbridge lopsided-loss share p93.4 to p96.5, beyond the line only at the top (`../city_weight/`) |
 | 11-07 | Amendment 12 replays | filed `6aef29e1` | Every vote-free column equal | 24 of 26 match; early chains 201 and 100 do not and are dropped (Amendment 13); cause not established (`../amendment12_replays/`) |
 | 11-08 | Changed districts | `3c501006` | Each map's layout of each changed region, beyond p95 or below p5 | The panel's layouts all inside the band; the commission majority's south-and-central layout packs more NDP votes than every redraw (`../changed_districts/`) |
 
