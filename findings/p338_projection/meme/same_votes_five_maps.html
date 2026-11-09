@@ -16,16 +16,16 @@
 <body><div class="card">
   <div class="kicker">Alberta's electoral maps, one projection</div>
   <h1>Same votes.<br>Five maps.</h1>
-  <div class="q">The latest projection: <span class="u">UCP 47.6%</span>, <span class="n">NDP 43.4%</span>.<br>Who wins the seats?</div>
+  <div class="q">Today's polling: <span class="u">UCP 47.6%</span>, <span class="n">NDP 43.4%</span>.<br>Who wins the seats?</div>
   <svg id="chart" width="952" height="640" viewBox="0 0 952 640"></svg>
   <div class="foot">
-    <b>How it was run:</b> 338Canada's riding projections (Oct 19, 2026; rounded headline 48–43, 47.6–43.4 once added up riding by riding) applied to each map, using where 2023's votes were cast. Seats are at 338's central numbers; Red Deer-North is an exact tie. "Needs +4.3": how far ahead of the NDP the UCP must be province-wide to win a majority on that map. Dashed line: majority. Panel maps are the audit's reconstructions. A projection, not a poll: with polling uncertainty the UCP wins a majority in 54–62% of simulations on the first four maps, 78% on the commission minority's.<br>
+    <b>How it was run:</b> 338Canada's riding projections of October 19, 2026, built from polls up to October 16 (rounded headline 48–43; 47.6–43.4 once added up riding by riding), applied to each map, using where 2023's votes were cast. Seats are at 338's central numbers; Red Deer-North is an exact tie. "Needs +4.3": how far ahead of the NDP the UCP must be province-wide to win a majority on that map. Dashed line: majority. Panel maps are the audit's reconstructions. A projection, not a poll: with polling uncertainty the UCP wins a majority in 54–62% of simulations on the first four maps, 78% on the commission minority's.<br>
     <b>The full audit:</b> ixby.github.io/alberta-electoral-boundaries-audit<br><b>Data and code:</b> github.com/Ixby/alberta-electoral-boundaries-audit · findings/p338_projection
   </div>
 </div>
 <script>
 const rows = [
-  {name:"Today's map", sub:"2019 · 87 seats", u:43, t:1, n:43, need:44, verdict:"No majority", lead:"+4.3"},
+  {name:"Current map", sub:"2019 · 87 seats", u:43, t:1, n:43, need:44, verdict:"No majority", lead:"+4.3"},
   {name:"Commission majority", sub:"89 seats", u:42, t:1, n:46, need:45, verdict:"NDP majority", lead:"+5.4"},
   {name:"Panel's map", sub:"91 seats · before the Assembly", u:44, t:1, n:46, need:46, verdict:"NDP majority", lead:"+5.3"},
   {name:"Panel minority's map", sub:"91 seats", u:43, t:1, n:47, need:46, verdict:"NDP majority", lead:"+5.4"},
