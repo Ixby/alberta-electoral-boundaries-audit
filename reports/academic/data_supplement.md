@@ -143,7 +143,7 @@ Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, b
 
 The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`. They are scored on 2023 election-day votes, the registered Phase 1 substrate.
 
-**What the minority's p is.** No sampled plan reaches the minority's D² (the ensemble maximum is 28.43), so 8.80 × 10⁻⁷ is a parametric χ²(4) model estimate, not a measured frequency. Counting sampled plans alone, the chains' autocorrelation leaves a pooled effective sample of about 4,372 plans, and zero exceedances then support only p below about 3 / n_eff ≈ 0.0007 (`findings/joint_empirical_bound_verification.json`).
+**What the minority's p is.** No sampled plan reaches the minority's D² (the ensemble maximum is 28.43), so 8.80 × 10⁻⁷ is a parametric χ²(4) model estimate, not a measured frequency. Allowing for the covariance being estimated from a chain with an effective sample of 1,413 (a Hotelling T² correction), the model gives 1.11 × 10⁻⁶ (`findings/joint_outlier_score.json`); doubled, as for the combined figure, that is 2.22 × 10⁻⁶, about 1 in 450,000. Counting sampled plans alone, the chains' autocorrelation leaves a pooled effective sample of about 4,372 plans, and zero exceedances then support only p below about 3 / n_eff ≈ 0.0007 (`findings/joint_empirical_bound_verification.json`).
 
 **Pre-registration status:** Ch1 was not pre-registered before execution. See §D7 for the timing disclosure.
 
