@@ -8,6 +8,8 @@ One list of every percentile-ranked comparison made in the unregistered analyses
 the whole family. Every percentile is turned into a two-sided p = 2 x min(pct, 100 - pct) / 100.
 Benjamini-Hochberg (false discovery rate 5%) and Bonferroni are applied across all of them.
 Chikina-Frieze-Pegden p-values enter as reported. Nothing is dropped. Unregistered.
+A map beyond every plan has no percentile p of 0: where the chains' n_eff is known, p is floored at
+2 / (n_eff + 1); a percentile of 0 or 100 without an n_eff is an error.
 
 Usage: python -W ignore findings/test_ledger/ledger.py
 """
@@ -19,11 +21,14 @@ F = HERE.parent
 rows = []
 
 
-def add(analysis, plan, comparison, measure, map_, pct=None, p=None, note=""):
+def add(analysis, plan, comparison, measure, map_, pct=None, p=None, note="", n_eff=None):
     if p is None:
         p = min(1.0, 2 * min(pct, 100 - pct) / 100)
+        if n_eff is not None:
+            p = max(p, 2 / (n_eff + 1))
+        assert p > 0, f"percentile {pct} with no n_eff: {analysis} {measure}"
     rows.append({"analysis": analysis, "plan": plan, "comparison": comparison, "measure": measure, "map": map_,
-                 "percentile": pct, "p_two_sided": round(p, 6), "note": note})
+                 "percentile": pct, "p_two_sided": round(p, 6), "n_eff": n_eff, "note": note})
 
 
 def main():
@@ -60,6 +65,15 @@ def main():
             add("local targeting A", "399a489a", "Fisher exact, majority divisions changed", k, "panel", p=t["A"][k]["p_fisher_two_sided"])
         if t["B"]["p_sign_two_sided"] is not None:
             add("local targeting B", "399a489a", "sign test, close changed pairs", "margin shift direction", "panel", p=t["B"]["p_sign_two_sided"])
+    cd = F / "changed_districts/summary.json"
+    if cd.exists():
+        # ucp_packed is left out: in a fixed region it equals ndp_packed less a constant (scaled), so it ranks identically
+        for grp, blk in json.loads(cd.read_text())["groups"].items():
+            for mp, mb in blk["maps"].items():
+                for v, vb in mb["variants"].items():
+                    for m_ in ("ndp_seats_all", "ndp_packed_all", "ndp_near_all", "ndp_far_all"):
+                        add("changed districts", "3c501006", f"regional ReCom k{mb['k']}, {v}", f"{grp}: {m_}",
+                            "majority" if mp == "majority" else "panel", vb[m_]["pct"], n_eff=vb[m_]["n_eff"])
     m = len(rows)
     order = sorted(range(m), key=lambda i: rows[i]["p_two_sided"])
     bh_max = 0

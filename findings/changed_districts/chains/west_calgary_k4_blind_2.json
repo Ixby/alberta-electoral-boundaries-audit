@@ -1,0 +1,11 @@
+{
+ "group": "west_calgary",
+ "k": 4,
+ "variant": "blind",
+ "chain": 2,
+ "seed_salt": "changed_west_calgary_4_blind_2",
+ "seed": 1318330049,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "n_vas": 221
+}

@@ -429,7 +429,7 @@
     </ul>
     <p>{@html t(lang.current, 'home.november.p4')}</p>
     <ul>
-      {#each [7, 8, 9, 10, 11, 12, 13, 14] as k (k)}
+      {#each ['7', '8', '9', '10', '11', '12', '13', '13b', '14'] as k (k)}
         <li>{@html t(lang.current, 'home.november.li' + k)}</li>
       {/each}
     </ul>

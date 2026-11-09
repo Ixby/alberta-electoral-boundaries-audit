@@ -145,6 +145,12 @@ def worker(w, nw):
 
 
 def summarize():
+    # Percentiles treat values within 1e-9 as ties (float sums in a different order differ in the last bits).
+    # UCP packing is reported, not ranked: in a fixed region, sum(N - T/2) over all seats is constant, so the
+    # UCP surplus in UCP-won seats equals the NDP surplus in NDP-won seats less that constant, and ranks identically.
+    # n_eff is the registered estimator (size_matched_results.ess), summed over chains.
+    sys.path.insert(0, str(ROOT / "analysis/scripts"))
+    import size_matched_results as sm
     gs = json.loads((HERE / "groups.json").read_text())
     out = {"plan": "preregistration/changed_districts_2026-11-07.md", "primary_ballots": "all", "groups": {}}
     for name, g in gs.items():
@@ -158,14 +164,22 @@ def summarize():
                 files = sorted(OUT.glob(f"{name}_k{k}_{v}_*.csv"))
                 if not files:
                     continue
-                d = pd.concat([pd.read_csv(f) for f in files])
+                per = {i: pd.read_csv(f) for i, f in enumerate(files)}
+                d = pd.concat(per.values())
                 vb = {"n_plans": int(len(d))}
                 for c in ("ndp_seats_all", "ndp_packed_all", "ndp_near_all", "ndp_far_all", "ucp_packed_all"):
                     x = d[c].to_numpy(float)
                     val = float(vals[c])
-                    pct = round(100 * float((x < val).mean() + 0.5 * (x == val).mean()), 2)
                     vb[c] = {"q05": round(float(np.quantile(x, 0.05)), 4), "q50": round(float(np.quantile(x, 0.5)), 4),
-                             "q95": round(float(np.quantile(x, 0.95)), 4), "value": round(val, 4), "pct": pct, "flag": pct >= 95 or pct <= 5}
+                             "q95": round(float(np.quantile(x, 0.95)), 4), "value": round(val, 4),
+                             "n_beyond_or_equal_max_side": int(max((x >= val - 1e-9).sum(), (x <= val + 1e-9).sum()))}
+                    if c == "ucp_packed_all":
+                        vb[c]["note"] = "reported, not ranked: ranks identically to ndp_packed_all"
+                        continue
+                    tie = np.isclose(x, val, rtol=0, atol=1e-9)
+                    pct = round(100 * float((x < val - 1e-9).mean() + 0.5 * tie.mean()), 2)
+                    neff, capped, _ = sm.ess(per, c)
+                    vb[c].update({"pct": pct, "flag": pct >= 95 or pct <= 5, "n_eff": round(neff, 1), "n_eff_lag_cap_bound": capped})
                 vb["chain_medians_ndp_far"] = [round(float(pd.read_csv(f).ndp_far_all.median()), 4) for f in files]
                 blk["maps"][mp]["variants"][v] = vb
         out["groups"][name] = blk
@@ -173,7 +187,7 @@ def summarize():
     for name, blk in out["groups"].items():
         for mp, mb in blk["maps"].items():
             for v, vb in mb["variants"].items():
-                print(name, mp, f"k{mb['k']}", v, {c[:-4]: (vb[c]["value"], vb[c]["pct"]) for c in vb if c.endswith("_all")})
+                print(name, mp, f"k{mb['k']}", v, {c[:-4]: (vb[c]["value"], vb[c].get("pct"), vb[c].get("n_eff")) for c in vb if c.endswith("_all")})
 
 
 if __name__ == "__main__":

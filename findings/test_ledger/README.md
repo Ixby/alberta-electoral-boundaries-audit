@@ -1,20 +1,21 @@
-# Ledger of the unregistered analyses since Step C (2026-11-04 to 2026-11-07)
+# Ledger of the unregistered analyses since Step C (2026-11-04 to 2026-11-08)
 
 Every analysis made after the provisional Step C reading, with its plan, its rule and its outcome, including nulls and failures. The registered result is Step C (`../a10_stepc/`); nothing below changes it. Each analysis had a plan committed before it was computed, but most were written after related results were known, and the plans say so. **None of these is a finding on whether any map is a gerrymander.**
 
 ## Multiple testing across the whole family
 
-`ledger.py` gathers every percentile-ranked comparison these analyses made (88 in all), turns each into a two-sided p = 2 × min(pct, 100 − pct), and corrects across the family. Chikina-Frieze-Pegden p-values enter as reported.
+`ledger.py` gathers every comparison these analyses made: 128 percentile-ranked comparisons, plus 11 tests that report their own p (Chikina-Frieze-Pegden, Fisher, sign). It turns each percentile into a two-sided p = 2 × min(pct, 100 − pct), and corrects across all 139. A map beyond every plan gets p = 2 / (n_eff + 1), not 0.
 
 | | Count |
 |---|---|
-| Comparisons | 88 |
-| Expected beyond the 5th or 95th percentile if the maps behaved like the nonpartisan comparison maps | about 8.8 |
-| Beyond the 5th or 95th percentile (nominal flags) | 5 |
+| p-values corrected | 139 |
+| Percentile-ranked comparisons | 128 |
+| Expected beyond the 5th or 95th percentile if the maps behaved like the nonpartisan comparison maps | about 12.8 |
+| Beyond the 5th or 95th percentile (nominal flags) | 9 |
 | Significant after Benjamini-Hochberg (false discovery rate 5%) | **0** |
 | Significant after Bonferroni | **0** |
 
-**The five nominal flags:**
+**The nine nominal flags** (the last four, added 2026-11-08, are two findings each measured two ways, and are about the commission majority's map):
 
 | Comparison | Map | Percentile | Direction |
 |---|---|---|---|
@@ -23,8 +24,10 @@ Every analysis made after the provisional Step C reading, with its plan, its rul
 | St. Albert NDP votes in lopsided losses, city-blind | panel | 96.8 | more cracked; inherited from the commission majority |
 | Seats under 30% NDP, election-day ballots, set D | ¶167 | 96.1 | more lopsided UCP seats |
 | Lethbridge NDP votes in lopsided losses, city-blind | ¶167 | 3.9 | less cracked than neutral |
+| South and central NDP packing, 13 divisions, city-blind and city-aware | majority | 100.0, 100.0 | above every redraw (p ≥ 0.00093 and 0.0016 at the n_eff floor) |
+| South and central NDP votes in lopsided losses, city-blind and city-aware | majority | 4.5, 4.7 | fewer than neutral |
 
-Fewer nominal flags turned up than the nonpartisan comparison maps would produce on their own, and none survives a correction. The 88 comparisons overlap (the same maps and chains enter many of them), so they are not independent. Bonferroni is valid under dependence. Benjamini-Hochberg is shown for reference.
+Fewer nominal flags turned up than the nonpartisan comparison maps would produce on their own, and none survives a correction. The closest are the majority's south-and-central packing rows: they would pass Bonferroni only if the 50,000 plans were independent draws (p about 0.00004), and they are not (`../changed_districts/README.md`). The comparisons overlap (the same maps and chains enter many of them), so they are not independent. Bonferroni is valid under dependence. Benjamini-Hochberg is shown for reference.
 
 ## What "p" means here (author's point, 2026-11-07: "districts aren't drawn by chance")
 
@@ -48,9 +51,13 @@ Districts are drawn by deliberate choice, not at random. None of these p-values 
 | 11-07 | Hybrid regions | `d2c1353e` | Same rule, 11 regions, two variants | Only St. Albert, city-blind; Lethbridge city-aware p93 |
 | 11-07 | Chikina-Frieze-Pegden | `f9bb45da` | p < 0.025 | Not a local outlier (p ≥ 0.89) |
 | 11-07 | City-boundary weight | `5dc4a0dd` | Implied weight from past maps | Running |
-| 11-07 | Amendment 12 replays | filed `6aef29e1` | Every vote-free column equal | 221, 222 match; 201 cannot replay (early code) and is excluded; rest running |
+| 11-07 | Amendment 12 replays | filed `6aef29e1` | Every vote-free column equal | 24 of 26 match; early chains 201 and 100 do not and are dropped (Amendment 13); cause not established (`../amendment12_replays/`) |
+| 11-08 | Changed districts | `3c501006` | Each map's layout of each changed region, beyond p95 or below p5 | The panel's layouts all inside the band; the commission majority's south-and-central layout packs more NDP votes than every redraw (`../changed_districts/`) |
 
-## Self-corrections made today, kept on record
+## Self-corrections, kept on record
+
+- **The family count (found 2026-11-08):** this page, the report and the site said 88 comparisons. That was the count before the local-targeting tests were added (`e159cbe2`); the ledger then held 91 p-values, of which 80 were percentile-ranked. The "expected about 8.8" used the 88. Neither changed a conclusion (0 survived correction either way). The counts above are current.
+- **Ties at 0 and 100 (2026-11-08):** `ledger.py` turned a percentile of 100 into p = 0. It now floors p at 2 / (n_eff + 1) and stops on a 0 or 100 with no n_eff.
 
 - **Amendment 12's draft:** it said S5 and R2 use no votes. They do. Corrected before filing (`6887aa41`).
 - **The ¶167 undecided rule:** it first counted lines both maps share. Corrected before reporting.
