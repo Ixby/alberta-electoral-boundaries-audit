@@ -61,7 +61,7 @@ Every numeric threshold used to make a pass/fail or flag/no-flag decision in thi
 
 | Threshold | Value | Source | Alberta application |
 |---|---|---|---|
-| Population deviation band | ±25% from provincial quota | Alberta Electoral Boundaries Commission Act (EBCA) §15(1) | Audit applies this as the neutral-ensemble constraint in GerryChain ReCom (`analysis/scripts/mcmc_ensemble_canonical.py`). 2026 maps: all 89 EDs within ±25% per commission's published population tables. |
+| Population deviation band | ±25% from provincial quota | Alberta Electoral Boundaries Commission Act (EBCA) §15(1) | Audit applies this as the neutral ensemble's acceptance constraint in GerryChain ReCom (`analysis/scripts/mcmc_ensemble_canonical.py`). Each ReCom proposal redraws its district pair within ±12.5% of the quota (half the band; `analysis/scripts/mcmc_ensemble.py` L575–588), so every district it draws sits in the ±12.5% band. 2026 maps: all 89 EDs within ±25% per commission's published population tables. |
 | Special-area population extension | ±50% from provincial quota | EBCA §15(2) — remote, sparsely populated, or special rural areas | The A3 audit (`electoral_forensics_population.py`) checks each commission-invoked §15(2) exception against the statutory criteria: population basis, geographic justification, and cumulative constraint compliance. |
 
 ---

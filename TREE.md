@@ -259,8 +259,6 @@ data/
 ├── meta/                       Provenance, integrity, and documentation (not read by scripts)
 │   ├── data_acquisition_manifest.md    Sources, download dates, checksums for all input data
 │   ├── INTEGRITY_STATUS.md             Integrity check results (run_audit.py output)
-│   ├── provenance_manifest.json        Machine-readable provenance record
-│   ├── input_hashes.json               SHA-256 hashes of all input data files
 │   └── topology_alignment_proof.md     Formal proof that VA graph topology is planar + connected
 │
 ├── scratch/                    Issue-specific investigation artefacts (not canonical)
@@ -417,6 +415,8 @@ archive/
 ├── README.md                   Restructure date, rationale, logic delta for each archived era
 ├── consistency_audit.md        Phases 2-6 of sign-convention resolution (phase 1 is in
 │                               analysis/methodology/sign_convention_resolution.md)
+├── data_meta_snapshot_2026-05-12/  input_hashes.json and provenance_manifest.json as of
+│                               May 12, 2026; nothing reads them (see its README)
 └── provisional_geometries/     Derived Provisional Geometries (DPG) — boundary tracings
     │                           made from PDF thumbnails before official EA shapefiles arrived
     │                           (2026-05-06). Active analysis uses canonical/ exclusively.

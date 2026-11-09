@@ -141,7 +141,9 @@ Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, b
 | Majority (March 2026) | 2.78 | 7.74 | 0.102 (within null) |
 | Enacted 2019 (baseline) | 3.63 | 13.16 | 0.0105 |
 
-The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`.
+The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`. They are scored on 2023 election-day votes, the registered Phase 1 substrate.
+
+**What the minority's p is.** No sampled plan reaches the minority's D² (the ensemble maximum is 28.43), so 8.80 × 10⁻⁷ is a parametric χ²(4) model estimate, not a measured frequency. Counting sampled plans alone, the chains' autocorrelation leaves a pooled effective sample of about 4,372 plans, and zero exceedances then support only p below about 3 / n_eff ≈ 0.0007 (`findings/joint_empirical_bound_verification.json`).
 
 **Pre-registration status:** Ch1 was not pre-registered before execution. See §D7 for the timing disclosure.
 
@@ -168,9 +170,9 @@ Source: `findings/szat_summary.json`.
 
 ### Fisher Combination (Ch1 × Ch2)
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.4.9.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p ≈ 4.61×10⁻⁸, recomputed on the clean rerun; the table below gives the figures as published on 2026-06-10) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.4.9.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p ≈ 4.61×10⁻⁸, recomputed on the clean rerun; the table below gives the figures as published on 2026-06-10) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷). The combined figure p ≈ 1.76×10⁻⁶ (about 1 in 568,000) is twice that parametric estimate: a model estimate, not a measured bound (see Ch1 above). The figure here is preserved as historical record.
 
-Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`.
+Historical (retired): Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`. The check correlated unpaired Monte Carlo streams, not the two test statistics, so it could not show that the channels are independent; it was dropped with the Fisher combination (`report_academic.md` §4.3.3).
 
 | Statistic (as published 2026-06-10) | Value |
 |---|---|
@@ -269,9 +271,9 @@ All registrations were submitted before examining the test data for that channel
 
 ### Timing Disclosure — Ch1 (Mahalanobis Joint Outlier)
 
-The canonical Mahalanobis joint outlier test (Ch1) was not filed as a stand-alone OSF pre-registration before execution. The test null hypothesis, the four component metrics, the covariance estimation method, and the rejection threshold were specified in the pre-analysis plan documented in `analysis/methodology/` prior to running the ensemble, but no OSF registration exists for this specific channel.
+The canonical Mahalanobis joint outlier test (Ch1) was not pre-registered. Neither the joint metric nor the combination method was named or specified on OSF before the data were examined, so Ch1 and the combined figure are exploratory. Ch1's seeds derive from a published drand beacon value plus a label, which makes the run reproducible but does not by itself rule out seed choice.
 
-This is disclosed as a limitation of the audit's pre-registration architecture. The Ch1 result should be read with the same evidential weight as a hypothesis-consistent finding where the hypothesis is documented but the registration is absent. The Fisher combination includes Ch1; reviewers who apply a stricter pre-registration standard may wish to treat the Fisher result as primarily driven by Ch2 (OSF 6pt83, p = 0.0024), which is registered. This is discussed in §4.3.3 of the academic report.
+This is disclosed as a limitation of the audit's pre-registration architecture. Ch2 cannot stand in for it: OSF 6pt83 was filed after its first results were known, and SZAT does not survive the contiguity-respecting block-permutation null (p ≈ 0.19; §D5). The Fisher combination of the two is retired (§D5). This is discussed in §4.3.3 of the academic report.
 
 ### drand Beacon Record
 
