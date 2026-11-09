@@ -172,6 +172,11 @@ All files are in this folder, `p338/sim/`.
 - P8 → "Reasons published" (Yes)
 - P9 Precedent conformity → "Follows past practice" (No)
 
+**Tenth check, the law (added 2026-11-09 at Wuff's request; not part of the registered scorecard):** "Norms and process and law count."
+- **Within the Act's population limits: met.** On the panel's own App. 7 populations, no division is above +25% and none is below −50%. Three are below −25% (s.15(2) allows four): Central Peace-Notley −46.5% (5 of 5 criteria), Lesser Slave Lake −44.1% (3 of 5) and Rocky Mountain House-Sundre −41.3% (5 of 5); each meets at least three. Source: `findings/a10_stepc/README.md`, "Supplementary: EBCA population rules", and `rules_check.json`.
+- **Charter (s.3, effective representation): untested.** No court has ruled on this map. The audit can't grade constitutionality; courts have struck down related government interference elsewhere (Nova Scotia 2017; Quebec, *Lalande*, 2026).
+- **Scope:** the Act's rules bind commissions, not the Legislature's own bill, so "within the Act's limits" here is a yardstick.
+
 At Wuff's request this replaced the earlier punchline ("The new map isn't the outlier. The dissenting commissioners' map was."). The seat comparison still shows the new map in line with the others.
 
 The chart counts seats only, and the footer points to the audit's local checks, such as the Lethbridge split. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).
