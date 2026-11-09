@@ -1,80 +1,78 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
+<!-- Every number comes from findings/p338_projection/out/: today's seats = results.json point.<map>.proportional;
+     tied-vote seats = seats_vs_lead.csv at provincial_ucp_lead_pts nearest 0 (-0.021). -->
 <style>
   html,body{margin:0;padding:0;background:#0f1419;}
-  .card{width:1080px;height:1350px;box-sizing:border-box;padding:52px 64px 40px;background:#0f1419;color:#f2f2ee;
+  .card{width:1080px;height:1350px;box-sizing:border-box;padding:54px 64px 40px;background:#0f1419;color:#f2f2ee;
         font-family:"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;}
   .kicker{font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:#9aa4ad;font-weight:700;}
-  h1{font-size:78px;line-height:1.0;margin:12px 0 14px;font-weight:900;letter-spacing:-.02em;white-space:nowrap;}
-  .q{font-size:31px;line-height:1.25;color:#e8e8e2;margin:0 0 20px;font-weight:600;}
+  h1{font-size:82px;line-height:1.0;margin:12px 0 16px;font-weight:900;letter-spacing:-.02em;white-space:nowrap;}
+  .q{font-size:30px;line-height:1.3;color:#e8e8e2;margin:0 0 22px;font-weight:600;}
   .q .u{color:#5aa0ff} .q .n{color:#ff9f43}
   svg{flex-shrink:0;display:block}
   svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
-  .sens{margin-top:18px}
-  .sens .t{font-size:27px;font-weight:800;margin:0 0 4px}
-  .sens .s{font-size:18px;color:#9aa4ad;margin:0 0 10px}
-  .foot{margin-top:auto;font-size:16.5px;line-height:1.38;color:#8b959e;}
+  .tie{margin-top:26px}
+  .tie .t{font-size:30px;font-weight:800;margin:0 0 12px}
+  .punch{margin-top:22px;font-size:38px;line-height:1.2;font-weight:900;color:#ff6b5b}
+  .foot{margin-top:auto;font-size:17px;line-height:1.4;color:#8b959e;}
   .foot b{color:#c9cfd4;font-weight:600}
 </style></head>
 <body><div class="card">
-  <div class="kicker">Alberta's electoral maps, one projection</div>
+  <div class="kicker">Alberta's election maps</div>
   <h1>Same votes. Five maps.</h1>
-  <div class="q">Today's polling: <span class="u">UCP 47.6%</span>, <span class="n">NDP 43.4%</span>. Who wins the seats?</div>
-  <svg id="bars" width="952" height="482" viewBox="0 0 952 482"></svg>
-  <div class="sens">
-    <div class="t">What if the polls are off?</div>
-    <div class="s">Seats (UCP–NDP) on each map as the province-wide lead moves. <span style="color:#5aa0ff">Blue: UCP majority.</span> <span style="color:#ff9f43">Orange: NDP majority.</span> Grey: no majority.</div>
-    <svg id="grid" width="952" height="236" viewBox="0 0 952 236"></svg>
+  <div class="q">Put today's polls (<span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>) on each map. Who wins?</div>
+  <svg id="bars" width="952" height="577" viewBox="0 0 952 577"></svg>
+  <div class="tie">
+    <div class="t">Now make it a tie. Same share of the vote for both parties:</div>
+    <svg id="tie" width="952" height="116" viewBox="0 0 952 116"></svg>
   </div>
+  <div class="punch">In a tie, only one map hands the UCP a majority.</div>
   <div class="foot">
-    <b>How it was run:</b> 338Canada's riding projections of October 19, 2026, built from polls up to October 16 (rounded headline 48–43; 47.6–43.4 once added up riding by riding), applied to each map using where 2023's votes were cast. Top: seats at 338's central numbers; Red Deer-North is an exact tie. "Needs +4.3": the province-wide UCP lead over the NDP needed for a majority. Panel maps are the audit's reconstructions. With polling uncertainty, the UCP wins a majority in 54–62% of simulations on the other four maps and 78% on the commission minority's; across every model variant tried, 42–68% and 76–82%.<br>
-    <b>The full audit:</b> ixby.github.io/alberta-electoral-boundaries-audit · <b>Data and code:</b> github.com/Ixby/alberta-electoral-boundaries-audit, findings/p338_projection
+    <b>Where the numbers come from:</b> 338Canada's poll average for each riding (October 19, 2026), placed on each map using where Albertans voted in 2023. Added up riding by riding it is 47.6% to 43.4%. Red Deer-North is an exact tie. The panel's maps were redrawn from its report; the official files aren't public yet. Polls can be wrong, so we ran 5,000 simulated elections: the dissenting commissioners' map still favours the UCP most, however we set them up.<br>
+    <b>See the full audit:</b> ixby.github.io/alberta-electoral-boundaries-audit
   </div>
 </div>
 <script>
 const rows = [
-  {key:'map2019', name:"Current map", short:"Current map", sub:"2019 · 87 seats", u:43, t:1, n:43, need:44, verdict:"No majority", lead:"+4.3"},
-  {key:'majority', name:"Commission majority", short:"Commission majority", sub:"89 seats", u:42, t:1, n:46, need:45, verdict:"NDP majority", lead:"+5.4"},
-  {key:'minority', name:"Commission minority", short:"Commission minority", sub:"89 seats · set aside in April", u:53, t:0, n:36, need:45, verdict:"UCP majority", lead:"−0.2", hot:true},
-  {key:'panel', name:"Panel's map", short:"Panel's map", sub:"91 seats · before the Assembly", u:44, t:1, n:46, need:46, verdict:"NDP majority", lead:"+5.3"},
-  {key:'para167', name:"Panel minority's map", short:"Panel minority's", sub:"91 seats", u:43, t:1, n:47, need:46, verdict:"NDP majority", lead:"+5.4"},
+  {key:'map2019', name:"Current map", sub:"in use since 2019", u:43, t:1, n:43, need:44, verdict:"No majority", tie:[39,48]},
+  {key:'majority', name:"Commission's map", sub:"3 of 5 commissioners", u:42, t:1, n:46, need:45, verdict:"NDP majority", tie:[40,49]},
+  {key:'minority', name:"Dissenting commissioners' map", sub:"the other 2", u:53, t:0, n:36, need:45, verdict:"UCP majority", tie:[46,43], hot:true},
+  {key:'panel', name:"Panel's map", sub:"now before MLAs", u:44, t:1, n:46, need:46, verdict:"NDP majority", tie:[42,49]},
+  {key:'para167', name:"Panel members' alternative", sub:"", u:43, t:1, n:47, need:46, verdict:"NDP majority", tie:[41,50]},
 ];
-const GRID = {"map2019": [[39, 48, "N"], [39, 48, "N"], [40, 47, "N"], [43, 43, "-"], [45, 42, "U"], [51, 36, "U"]], "majority": [[38, 51, "N"], [40, 49, "N"], [40, 49, "N"], [42, 46, "N"], [45, 44, "U"], [51, 38, "U"]], "panel": [[40, 51, "N"], [42, 49, "N"], [42, 49, "N"], [44, 46, "N"], [47, 44, "U"], [54, 37, "U"]], "para167": [[39, 52, "N"], [41, 50, "N"], [41, 50, "N"], [43, 47, "N"], [46, 45, "U"], [53, 38, "U"]], "minority": [[41, 48, "N"], [46, 43, "U"], [50, 39, "U"], [53, 36, "U"], [55, 34, "U"], [59, 30, "U"]]};
 const NS = 'http://www.w3.org/2000/svg';
 const mk = (svg) => (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
 const UCP = '#3b82f6', NDP = '#f28c28', TIE = '#6b7680';
-const bars = document.getElementById('bars'), b = mk(bars);
+const b = mk(document.getElementById('bars'));
 function measure(el, t, size, weight) { const e = el('text', {x: -9999, y: -9999, 'font-size': size, 'font-weight': weight}, t); const w = e.getComputedTextLength(); e.remove(); return w; }
-const W = 952, BAR_Y = 34, BH = 48, ROW = 96;
+const W = 952, BAR_Y = 38, BH = 62, ROW = 115;
 rows.forEach((r, i) => {
   const y = 2 + i * ROW, total = r.u + r.t + r.n, s = W / total;
   const nw = r.hot ? 900 : 700, nc = r.hot ? '#ff6b5b' : '#f2f2ee';
-  b('text', {x: 0, y: y + 24, fill: nc, 'font-size': 25, 'font-weight': nw}, r.name);
-  b('text', {x: measure(b, r.name, 25, nw) + 12, y: y + 24, fill: r.hot ? '#ff9a8f' : '#8b959e', 'font-size': 18}, r.sub + ' · UCP needs ' + r.lead);
-  b('text', {x: W, y: y + 24, fill: r.hot ? '#ff6b5b' : '#c9cfd4', 'font-size': 23, 'font-weight': 900, 'text-anchor': 'end'}, r.verdict);
+  b('text', {x: 0, y: y + 26, fill: nc, 'font-size': 28, 'font-weight': nw}, r.name);
+  if (r.sub) b('text', {x: measure(b, r.name, 28, nw) + 12, y: y + 26, fill: r.hot ? '#ff9a8f' : '#8b959e', 'font-size': 21}, r.sub);
+  b('text', {x: W, y: y + 26, fill: r.hot ? '#ff6b5b' : '#c9cfd4', 'font-size': 26, 'font-weight': 900, 'text-anchor': 'end'}, r.verdict);
   let x = 0;
   b('rect', {x, y: y + BAR_Y, width: r.u * s, height: BH, fill: UCP});
-  b('text', {x: 14, y: y + BAR_Y + 34, fill: '#fff', 'font-size': 29, 'font-weight': 900}, 'UCP ' + r.u);
+  b('text', {x: 16, y: y + BAR_Y + 43, fill: '#fff', 'font-size': 36, 'font-weight': 900}, 'UCP ' + r.u);
   x += r.u * s;
   if (r.t) { b('rect', {x, y: y + BAR_Y, width: r.t * s, height: BH, fill: TIE}); x += r.t * s; }
   b('rect', {x, y: y + BAR_Y, width: r.n * s, height: BH, fill: NDP});
-  b('text', {x: W - 14, y: y + BAR_Y + 34, fill: '#fff', 'font-size': 29, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP ' + r.n);
+  b('text', {x: W - 16, y: y + BAR_Y + 43, fill: '#fff', 'font-size': 36, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP ' + r.n);
   const mx = r.need * s;
   b('line', {x1: mx, y1: y + BAR_Y - 5, x2: mx, y2: y + BAR_Y + BH + 5, stroke: '#f2f2ee', 'stroke-width': 3, 'stroke-dasharray': '6 4'});
+  if (i === 0) b('text', {x: mx + 8, y: y + BAR_Y - 8, fill: '#c9cfd4', 'font-size': 15, 'font-weight': 700}, 'majority line');
 });
-const grid = document.getElementById('grid'), g = mk(grid);
-const cols = ['NDP +2', 'Tied', 'UCP +2', 'Today, UCP +4.2', 'UCP +6', 'UCP +8'];
-const LX = 240, CW = (W - LX) / cols.length, RH = 38, HY = 26;
-cols.forEach((c, j) => g('text', {x: LX + j * CW + CW / 2, y: 18, fill: j === 3 ? '#f2f2ee' : '#9aa4ad', 'font-size': j === 3 ? 17 : 17, 'font-weight': j === 3 ? 800 : 600, 'text-anchor': 'middle'}, c));
-g('rect', {x: LX + 3 * CW + 1, y: HY - 2, width: CW - 2, height: rows.length * RH + 4, fill: 'none', stroke: '#f2f2ee', 'stroke-width': 2.5});
+const t = mk(document.getElementById('tie'));
+const short = ["Current", "Commission's", "Dissenting", "Panel's", "Panel members'"];
+const CW = W / rows.length;
 rows.forEach((r, i) => {
-  const y = HY + i * RH;
-  g('text', {x: 0, y: y + 26, fill: r.hot ? '#ff6b5b' : '#e8e8e2', 'font-size': 19, 'font-weight': r.hot ? 900 : 700}, r.short);
-  GRID[r.key].forEach(([u, n, w], j) => {
-    const fill = w === 'U' ? UCP : (w === 'N' ? NDP : TIE);
-    g('rect', {x: LX + j * CW + 3, y: y + 3, width: CW - 6, height: RH - 6, fill, rx: 4});
-    g('text', {x: LX + j * CW + CW / 2, y: y + 26, fill: '#fff', 'font-size': 19, 'font-weight': 800, 'text-anchor': 'middle'}, u + '–' + n);
-  });
+  const [u, n] = r.tie, ucpMaj = u >= r.need, ndpMaj = n >= r.need;
+  const fill = ucpMaj ? UCP : (ndpMaj ? NDP : TIE), x = i * CW + 4, w = CW - 8;
+  t('rect', {x, y: 0, width: w, height: 112, rx: 10, fill, stroke: r.hot ? '#ff6b5b' : 'none', 'stroke-width': r.hot ? 4 : 0});
+  t('text', {x: x + w / 2, y: 36, fill: '#fff', 'font-size': 21, 'font-weight': 700, 'text-anchor': 'middle'}, short[i]);
+  t('text', {x: x + w / 2, y: 84, fill: '#fff', 'font-size': 28, 'font-weight': 900, 'text-anchor': 'middle'}, (ucpMaj ? 'UCP ' + u + '–' + n : 'NDP ' + n + '–' + u));
 });
 </script>
 </body></html>
