@@ -1,48 +1,63 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<!-- Numbers from findings/p338_projection/out/results.json point.<map>.proportional:
-     UCP seats 2019 map 43, commission majority 42, panel 44, panel minority (para 167) 43 -> "42-44"; commission minority 53.
-     "Even if the vote were tied": seats_vs_lead.csv at the step nearest a zero lead gives the commission minority's map UCP 46 of 89 (majority 45). -->
+<!-- Numbers from findings/p338_projection/out/results.json point.<map>.proportional (seats at 338's central numbers)
+     and lead_needed.panel.ucp_majority_from_lead_pts (5.3). Panel map: UCP 44, NDP 46, tie 1 of 91, majority 46. -->
 <style>
   html,body{margin:0;padding:0;background:#0f1419;}
-  .card{width:1080px;height:1350px;box-sizing:border-box;padding:70px 64px 48px;background:#0f1419;color:#f2f2ee;
+  .card{width:1080px;height:1350px;box-sizing:border-box;padding:64px 64px 44px;background:#0f1419;color:#f2f2ee;
         font-family:"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;}
-  h1{font-size:132px;line-height:1.0;margin:0 0 20px;font-weight:900;letter-spacing:-.03em;}
-  .q{font-size:38px;line-height:1.3;color:#e8e8e2;margin:0 0 50px;font-weight:600;}
+  h1{font-size:88px;line-height:1.0;margin:0 0 16px;font-weight:900;letter-spacing:-.03em;}
+  .q{font-size:34px;line-height:1.3;color:#e8e8e2;margin:0 0 26px;font-weight:600;}
   .q .u{color:#5aa0ff} .q .n{color:#ff9f43}
-  .boxes{display:flex;gap:28px;}
-  .box{flex:1;border-radius:22px;padding:34px 30px 32px;text-align:center;}
-  .a{background:#1e2731;}
-  .b{background:#3b1d1d;outline:5px solid #ff6b5b;}
-  .who{font-size:34px;font-weight:800;line-height:1.15;min-height:112px}
-  .who small{display:block;font-size:24px;font-weight:600;color:#c9cfd4;margin-top:8px}
-  .big{font-size:140px;font-weight:900;line-height:1;margin:34px 0 6px;letter-spacing:-.03em;white-space:nowrap}
-  .a .big{color:#f2f2ee} .b .big{color:#5aa0ff}
-  .lbl{font-size:32px;font-weight:700;color:#c9cfd4}
-  .verdict{margin-top:26px;font-size:36px;font-weight:900}
-  .a .verdict{color:#c9cfd4} .b .verdict{color:#ff6b5b}
-  .tie{font-size:24px;color:#ff9a8f;font-weight:700;margin-top:8px}
-  .punch{margin-top:60px;font-size:70px;line-height:1.1;font-weight:900;text-align:center}
-  .foot{margin-top:auto;font-size:18px;line-height:1.45;color:#8b959e;}
+  svg{flex-shrink:0;display:block}
+  svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
+  .need{margin-top:18px;font-size:32px;line-height:1.3;font-weight:700;color:#e8e8e2}
+  .ref{margin-top:34px;font-size:26px;font-weight:800;color:#9aa4ad;margin-bottom:12px}
+  .punch{margin-top:24px;font-size:44px;line-height:1.15;font-weight:900}
+  .punch b{color:#ff6b5b}
+  .foot{margin-top:auto;padding-top:22px;font-size:18px;line-height:1.45;color:#8b959e;}
 </style></head>
 <body><div class="card">
-  <h1>Same votes.</h1>
-  <div class="q">Today's polls: <span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>.<br>Put them on five possible election maps.</div>
-  <div class="boxes">
-    <div class="box a">
-      <div class="who">On 4 maps<small>including the one now before MLAs</small></div>
-      <div class="big">42–44</div>
-      <div class="lbl">UCP seats</div>
-      <div class="verdict">UCP short of a majority</div>
-    </div>
-    <div class="box b">
-      <div class="who">On 1 map<small>drawn by the 2 dissenting commissioners</small></div>
-      <div class="big">53</div>
-      <div class="lbl">UCP seats</div>
-      <div class="verdict">UCP majority government</div>
-    </div>
-  </div>
-  <div class="punch">Different map.<br>Different government.</div>
-  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map. The four: the current map, the commission's map, the panel's map and the panel members' alternative. Polls can be wrong: in 5,000 simulated elections the one map still favoured the UCP most, and it gives the UCP a majority even in a tied vote. Full audit: ixby.github.io/alberta-electoral-boundaries-audit</div>
+  <h1>The new map:<br>91 seats.</h1>
+  <div class="q">Today's polls (<span class="u">UCP 48%</span>, <span class="n">NDP 43%</span>) on the map now before MLAs:</div>
+  <svg id="main" width="952" height="176" viewBox="0 0 952 176"></svg>
+  <div class="need">To win a majority here, the UCP needs to win the popular vote by about 5 points.</div>
+  <div class="ref">Same votes on the other maps, for reference:</div>
+  <svg id="refs" width="952" height="284" viewBox="0 0 952 284"></svg>
+  <div class="punch">The new map isn't the outlier.<br><b>The dissenting commissioners' map was.</b></div>
+  <div class="foot">Votes: 338Canada's poll average (Oct 19, 2026), placed riding by riding on each map; Red Deer-North comes out an exact tie. The new map is redrawn from the panel's report; the official files aren't public yet. This chart counts seats only; the audit's closer checks, such as how Lethbridge was split, are on the site: ixby.github.io/alberta-electoral-boundaries-audit</div>
 </div>
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const mk = id => { const svg = document.getElementById(id); return (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }; };
+const UCP = '#3b82f6', NDP = '#f28c28', TIE = '#6b7680', W = 952;
+function bar(el, y, h, u, t, n, need, fs) {
+  const s = W / (u + t + n); let x = 0;
+  el('rect', {x, y, width: u * s, height: h, fill: UCP});
+  el('text', {x: 16, y: y + h / 2 + fs * 0.36, fill: '#fff', 'font-size': fs, 'font-weight': 900}, 'UCP ' + u);
+  x += u * s;
+  if (t) { el('rect', {x, y, width: t * s, height: h, fill: TIE}); x += t * s; }
+  el('rect', {x, y, width: n * s, height: h, fill: NDP});
+  el('text', {x: W - 16, y: y + h / 2 + fs * 0.36, fill: '#fff', 'font-size': fs, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP ' + n);
+  el('line', {x1: need * s, y1: y - 6, x2: need * s, y2: y + h + 6, stroke: '#f2f2ee', 'stroke-width': 3, 'stroke-dasharray': '6 4'});
+}
+const m = mk('main');
+m('text', {x: 0, y: 30, fill: '#f2f2ee', 'font-size': 30, 'font-weight': 800}, "Panel's map");
+m('text', {x: W, y: 30, fill: '#ff9f43', 'font-size': 32, 'font-weight': 900, 'text-anchor': 'end'}, 'NDP majority, just barely');
+bar(m, 48, 92, 44, 1, 46, 46, 50);
+m('text', {x: 46 * W / 91, y: 168, fill: '#c9cfd4', 'font-size': 19, 'font-weight': 700, 'text-anchor': 'middle'}, 'dashed line: 46 seats for a majority');
+const r = mk('refs');
+const refs = [
+  {name: "Panel members' alternative", sub: '91 seats', u: 43, t: 1, n: 47, need: 46, verdict: 'NDP majority'},
+  {name: 'Current map', sub: '87 seats', u: 43, t: 1, n: 43, need: 44, verdict: 'No majority'},
+  {name: "Commission's map", sub: '89 seats', u: 42, t: 1, n: 46, need: 45, verdict: 'NDP majority'},
+  {name: "Dissenting commissioners' map", sub: '89 seats', u: 53, t: 0, n: 36, need: 45, verdict: 'UCP majority', hot: true},
+];
+refs.forEach((d, i) => {
+  const y = i * 70;
+  r('text', {x: 0, y: y + 22, fill: d.hot ? '#ff6b5b' : '#e8e8e2', 'font-size': 22, 'font-weight': d.hot ? 900 : 700}, d.name + '  ');
+  r('text', {x: W, y: y + 22, fill: d.hot ? '#ff6b5b' : '#9aa4ad', 'font-size': 20, 'font-weight': 800, 'text-anchor': 'end'}, d.sub + ' · ' + d.verdict);
+  bar(r, y + 32, 34, d.u, d.t, d.n, d.need, 22);
+});
+</script>
 </body></html>

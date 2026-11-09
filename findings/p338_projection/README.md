@@ -144,15 +144,17 @@ All files are in this folder, `p338/sim/`.
 - `out/tables.md` contains the generated tables.
 - `inputs/` holds copies of the audit files used, with `SHA256SUMS.txt`.
 
-## The chart: "Same votes."
+## The chart: "The new map: 91 seats."
 
-`data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) is a meme for a general reader. It tells one story in one chain: same votes → different map → different government.
+`data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) is a meme for a general reader. It centres on the map that matters now, the panel's 91-seat map before MLAs. The other maps appear only as reference, each with its own seat total, because seat counts can't be compared across 87-, 89- and 91-seat maps.
 
-- **Setup:** today's polls (338Canada's rounded 48–43) put on five possible maps.
-- **On 4 maps** (the current map, the commission's map, the panel's map and the panel members' alternative): the UCP gets 42–44 seats and falls short of a majority. These are 43, 42, 44 and 43 at 338's central numbers, from `out/results.json` `point.<map>.proportional`.
-- **On 1 map** (the dissenting commissioners'): the UCP gets 53 of 89 seats, a majority.
-- **Punchline:** "Different map. Different government." This holds at today's central numbers. The footer adds the caveat that polls can be wrong.
+- **The panel's map at today's polls:** UCP 44, NDP 46, 1 exact tie (Red Deer-North). That is 46 of 91 for the NDP, exactly the majority line. Source: `out/results.json` `point.panel.proportional`.
+- **What the UCP needs:** a popular-vote win of about 5 points for a majority on this map (`lead_needed.panel.ucp_majority_from_lead_pts` = 5.3).
+- **Reference, at the same votes:**
+  - Panel members' alternative (91 seats): 43–47.
+  - Current map (87): 43–43.
+  - Commission's map (89): 42–46.
+  - Dissenting commissioners' map (89): 53–36, a UCP majority.
+- **Punchline:** "The new map isn't the outlier. The dissenting commissioners' map was." This holds on this measure (seats at today's central numbers). The footer says the chart counts seats only, and points to the audit's local checks, such as the Lethbridge split. Those are a different question.
 
-The footer's robustness line has two sources. "Still favoured the UCP most" comes from every variant in `mc`, where the UCP majority odds are 76–82% on that map against 42–68% on the other four. "A majority even in a tied vote" comes from `out/seats_vs_lead.csv` at the step nearest a zero lead: UCP 46 of 89. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).
-
-Why most maps leave the UCP short despite a 5-point lead: on the current map at 338's numbers, the UCP's projected wins have a median margin of 23 points, against 11 for the NDP's (`out/districts_map2019.csv`). More UCP votes pile up where they aren't needed. The neutral ensemble shows the same lean.
+Why the UCP needs a clear lead on most maps: on the current map at 338's numbers, the UCP's projected wins have a median margin of 23 points, against 11 for the NDP's (`out/districts_map2019.csv`). The neutral ensemble shows the same lean. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).
