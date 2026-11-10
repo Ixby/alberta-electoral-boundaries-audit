@@ -75,6 +75,14 @@
     "no_stance": 63,
     "pending_geometry": 1
    },
+   "requests": {
+    "minority_only": 1,
+    "majority_only": 10,
+    "both_maps": 0,
+    "something_else": 22,
+    "argues_against_only": 9,
+    "no_request": 55
+   },
    "wants": {
     "A1": 10,
     "A2": 1,
@@ -110,6 +118,14 @@
     "no_stance": 58,
     "pending_geometry": 1
    },
+   "requests": {
+    "minority_only": 0,
+    "majority_only": 7,
+    "both_maps": 0,
+    "something_else": 1,
+    "argues_against_only": 15,
+    "no_request": 45
+   },
    "wants": {
     "C1": 7,
     "C9": 1
@@ -143,6 +159,14 @@
     "no_stance": 29,
     "pending_geometry": 0
    },
+   "requests": {
+    "minority_only": 3,
+    "majority_only": 6,
+    "both_maps": 0,
+    "something_else": 0,
+    "argues_against_only": 6,
+    "no_request": 23
+   },
    "wants": {
     "H1": 6,
     "H2": 3
@@ -172,6 +196,14 @@
     "third_arrangement": 0,
     "no_stance": 79,
     "pending_geometry": 1
+   },
+   "requests": {
+    "minority_only": 1,
+    "majority_only": 20,
+    "both_maps": 0,
+    "something_else": 1,
+    "argues_against_only": 2,
+    "no_request": 77
    },
    "wants": {
     "R1": 20,
@@ -204,6 +236,14 @@
     "third_arrangement": 2,
     "no_stance": 35,
     "pending_geometry": 1
+   },
+   "requests": {
+    "minority_only": 36,
+    "majority_only": 0,
+    "both_maps": 10,
+    "something_else": 3,
+    "argues_against_only": 11,
+    "no_request": 35
    },
    "wants": {
     "W0": 10,
@@ -238,6 +278,14 @@
     "no_stance": 16,
     "pending_geometry": 1
    },
+   "requests": {
+    "minority_only": 13,
+    "majority_only": 2,
+    "both_maps": 0,
+    "something_else": 11,
+    "argues_against_only": 4,
+    "no_request": 12
+   },
    "wants": {
     "B1": 13,
     "B2": 2,
@@ -271,6 +319,14 @@
     "no_stance": 22,
     "pending_geometry": 2
    },
+   "requests": {
+    "minority_only": 29,
+    "majority_only": 6,
+    "both_maps": 0,
+    "something_else": 9,
+    "argues_against_only": 0,
+    "no_request": 23
+   },
    "wants": {
     "O1": 29,
     "O2": 6,
@@ -302,6 +358,14 @@
     "no_stance": 0,
     "pending_geometry": 0
    },
+   "requests": {
+    "minority_only": 0,
+    "majority_only": 0,
+    "both_maps": 0,
+    "something_else": 0,
+    "argues_against_only": 0,
+    "no_request": 0
+   },
    "wants": {},
    "rejects": {}
   },
@@ -326,6 +390,14 @@
     "third_arrangement": 3,
     "no_stance": 46,
     "pending_geometry": 4
+   },
+   "requests": {
+    "minority_only": 0,
+    "majority_only": 0,
+    "both_maps": 22,
+    "something_else": 10,
+    "argues_against_only": 0,
+    "no_request": 46
    },
    "wants": {
     "S0": 22,
@@ -361,6 +433,14 @@
     "no_stance": 81,
     "pending_geometry": 0
    },
+   "requests": {
+    "minority_only": 38,
+    "majority_only": 93,
+    "both_maps": 0,
+    "something_else": 14,
+    "argues_against_only": 17,
+    "no_request": 64
+   },
    "wants": {
     "L1": 93,
     "L2": 38,
@@ -394,6 +474,14 @@
     "third_arrangement": 10,
     "no_stance": 51,
     "pending_geometry": 0
+   },
+   "requests": {
+    "minority_only": 0,
+    "majority_only": 0,
+    "both_maps": 79,
+    "something_else": 10,
+    "argues_against_only": 7,
+    "no_request": 44
    },
    "wants": {
     "K1": 79,

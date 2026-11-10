@@ -1,32 +1,30 @@
 # Public submissions: what people asked for, read in full
 
-2026-11-10 01:05 Alberta time · claude-opus-5-5 · medium (results); stage 1 text below: 2026-11-09 23:12 Alberta time · claude-fable-5-2 · medium
+2026-11-10 01:00 Alberta time · claude-opus-5-5 · medium (results; table split by map 01:03); stage 1 text below: 2026-11-09 23:12 Alberta time · claude-fable-5-2 · medium
 
 This folder replaces the audit's earlier support-and-oppose labels for public submissions. Those labels were unreliable: in a random sample, 26 of 31 were wrong (`findings/audit_2026-11-10/submissions_sample48_judgements.csv`).
 
 ## The answer
 
-Every record was read whole: all 1,339 posted written submissions and all 349 hearing presentations, 1,688 in all. For eleven places, each reader wrote down what the person asked for, in their own words, with a quote. A script then compared each request with what each final map does there (`CODEBOOK.md`, section 5).
+Every record was read whole: all 1,339 posted written submissions and all 349 hearing presentations, 1,688 in all. For eleven places, each reader wrote down what the person asked for, in their own words, with a quote. The readers and coders were AI agents working under the author's direction; no person has checked every row. A script then compared each request with what each final map does there (`CODEBOOK.md`, section 5).
 
 **Counts are records, not people.** A campaign letter sent 20 times counts 20 times. One person can appear twice, once in a letter and once at a hearing. Nobody saw either final map: people were reacting to the map in force or to the interim map, so "supports" means the request matches what a final map does, not that anyone endorsed that map.
 
-| Place | Records naming it | Ask for what the minority drew | Ask for what the majority drew | Ask for something else | Name it, ask nothing |
-|---|---:|---:|---:|---:|---:|
-| Lethbridge | 226 | 38 | 93 | 13 | 64 |
-| Lesser Slave Lake | 140 | 79 (both maps keep it) | 79 (both maps keep it) | 10 | 51 |
-| Red Deer | 101 | 1 | 20 | 0 | 78 |
-| Airdrie | 97 | 1 | 10 | 21 | 58 |
-| Rocky Mountain House: the west-central riding | 95 | 46 | 10 | 2 | 46 |
-| St. Albert | 78 | 20 | 22 | 3 | 46 |
-| Cochrane | 68 | 0 | 7 | 1 | 56 |
-| Olds: the prairie riding | 67 | 29 | 6 | 8 | 22 |
-| Rocky Mountain House: Banff park | 42 | 13 | 2 | 9 | 16 |
-| Chestermere | 38 | 3 | 6 | 0 | 23 |
-| Olds: reach into Airdrie | 0 | 0 | 0 | 0 | 0 |
+| Place | Records naming it | Ask for what only the minority drew | Only the majority | Both maps | Something else | Argue against, ask nothing | No request |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Lethbridge | 226 | 38 | 93 | 0 | 14 | 17 | 64 |
+| Lesser Slave Lake | 140 | 0 | 0 | 79 | 10 | 7 | 44 |
+| Red Deer | 101 | 1 | 20 | 0 | 1 | 2 | 77 |
+| Airdrie | 97 | 1 | 10 | 0 | 22 | 9 | 55 |
+| Rocky Mountain House: the west-central riding | 95 | 36 | 0 | 10 | 3 | 11 | 35 |
+| St. Albert | 78 | 0 | 0 | 22 | 10 | 0 | 46 |
+| Cochrane | 68 | 0 | 7 | 0 | 1 | 15 | 45 |
+| Olds: the prairie riding | 67 | 29 | 6 | 0 | 9 | 0 | 23 |
+| Rocky Mountain House: Banff park | 42 | 13 | 2 | 0 | 11 | 4 | 12 |
+| Chestermere | 38 | 3 | 6 | 0 | 0 | 6 | 23 |
+| Olds: reach into Airdrie | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Some people argued against an arrangement without asking for anything instead. They are not in the table above. They are counted as opposed in `full_read_results.json`, under `opposes_by_rejection_only`.
-
-The counts above include requests that give the kind of arrangement without its details. Counts for requests that describe it exactly are in `full_read_results.md`.
+"Both maps" means the request is something both final maps do, such as keeping Lesser Slave Lake or keeping Clearwater County whole. "Argue against, ask nothing" counts people who objected to an arrangement without saying what they wanted instead. Counts include requests that give the kind of arrangement without its details; `full_read_results.md` also gives the counts for exact requests, and each map's support and opposition in turn.
 
 **Lethbridge.** Yes, there was sentiment both ways.
 - 38 records ask for the city to be joined to the country around it, as the minority drew. 18 of them describe the four-way split itself.
@@ -39,10 +37,11 @@ The counts above include requests that give the kind of arrangement without its 
 - **Cochrane:** no record asks for Cochrane to be joined to northwest Calgary.
 - **Airdrie:** one record asks for something like the minority's split (EBC-2025-2-0852, by direction).
 - **Red Deer:** one round 1 letter asks for the city to be split into "3-4 separate ridings" with nearby towns (EBC-2025-1-0045). The audit had said that no Red Deer supporter was found. On a full read, one was.
+- **St. Albert:** no record asks for the minority's change (part of the city in Lac Ste. Anne-Parkland). 22 ask to keep the pattern both maps keep.
 - **Chestermere:** three records ask for a link with Calgary (EBC-2025-2-0384, 0811 and 1091; only 0384 describes it exactly). Twelve cut against it.
 - **The two Rocky Mountain House questions and Olds:** more people asked for what the minority drew than for what the majority drew.
 
-**How reliable the reading is.** An earlier pass had two people code the keyword-matched records independently, with a third deciding the 72 disputes (`agreement.json`, `adjudication/`). That pass and this full read give the same stance on 1,621 of the 1,725 record–place pairs both covered (94%). The pairs that differ are listed in `full_read_results.json`. The earlier pass read long records only around keyword hits. This one read every record whole, so it is the count of record.
+**How reliable the reading is.** An earlier pass had two coders code the keyword-matched records independently, with a third deciding the 72 disputes (`agreement.json`, `adjudication/`). That pass and this full read give the same stance on 1,621 of the 1,725 record–place pairs both covered (94%). The pairs that differ are listed in `full_read_results.json`. The earlier pass read long records only around keyword hits. This one read every record whole, so it is the count of record.
 
 **What was not done.**
 - Six submissions were never posted and could not be read.

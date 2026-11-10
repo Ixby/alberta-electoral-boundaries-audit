@@ -1,6 +1,6 @@
 """Count what the public asked for, from the full read of every record.
 
-Entry: 2026-11-10 01:00 Alberta time · claude-opus-5-5 · medium
+Entry: 2026-11-10 01:00 Alberta time (requests split added 01:03) · claude-opus-5-5 · medium
 
 Reads codes_full/F*.jsonl (every submission and hearing record, read whole),
 derives each row's code for the minority and the majority map by CODEBOOK.md
@@ -104,6 +104,17 @@ def main():
                 "no_stance": c["no_stance"],
                 "pending_geometry": c["pending_geometry"],
             }
+        split = collections.Counter()
+        for r in er:
+            w = opts(r["want"])
+            if not w:
+                split["argues_against_only" if opts(r["rejects"]) else "no_request"] += 1
+                continue
+            t = merge.TAGS.get(w[0], set())
+            split["both_maps" if t == {"MAJ", "MIN"} else "minority_only" if t == {"MIN"}
+                  else "majority_only" if t == {"MAJ"} else "something_else"] += 1
+        res["requests"] = {k: split[k] for k in ("minority_only", "majority_only", "both_maps",
+                                                 "something_else", "argues_against_only", "no_request")}
         res["wants"] = dict(sorted(collections.Counter(
             r["want"] for r in er if r["want"]).items()))
         res["rejects"] = dict(sorted(collections.Counter(
@@ -163,8 +174,16 @@ def main():
     }
     json.dump(out, open(os.path.join(HERE, "full_read_results.json"), "w"), indent=1)
 
+    req = ["| Place | Records naming it | Asks for what only the minority drew | Only the majority | Both maps | Something else | Argues against, asks nothing | No request |",
+           "|---|---:|---:|---:|---:|---:|---:|---:|"]
+    for el in ELEMENTS:
+        q = results[el]["requests"]
+        req.append(f"| {el} | {results[el]['records_naming_it']} | {q['minority_only']} | {q['majority_only']} | "
+                   f"{q['both_maps']} | {q['something_else']} | {q['argues_against_only']} | {q['no_request']} |")
     lines = [f"# Full read: what the public asked for, by place\n\n{STAMP}\n",
              f"Records read: {n_read} ({n_whole} read whole).\n",
+             "## What each record asks for\n"] + req + [
+             "\n## Derived codes, each map in turn (support includes requests both maps meet; exact in brackets)\n",
              "| Place | Records naming it | Support minority (exact) | Oppose minority (exact) | "
              "Support majority (exact) | Oppose majority (exact) | Something else | No stance |",
              "|---|---:|---:|---:|---:|---:|---:|---:|"]
