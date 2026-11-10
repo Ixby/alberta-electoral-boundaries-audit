@@ -2,9 +2,9 @@
 
 2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium
 
-**Status: exploratory, not registered.** Nothing here changes the audit's registered method. The registered rule is Amendment 12 (called M0 below). Replacing it needs a new amendment signed by the author, and a rerun of the comparison maps on the new vote file. This folder gives evidence for that decision. It says nothing about whether any map is a gerrymander.
+**Status: registered (Amendment 14).** Rule P is the registered way to place 2023's early ballots when scoring the November map. Amendment 14 was signed on 2026-11-10 at 13:22 Alberta time and filed on OSF (project 9wp5y, update 6af36f7fe50e8122e3826eba). Amendment 12's rule (called M0 below) is reported beside it as a sensitivity (Amendment 14, Part 4). The scorecard under P, scored after signing, is in `scorecard_p.md`. This folder gives the evidence for the rule and its results. It says nothing about whether any map is a gerrymander.
 
-**Not blind.** This rule is being chosen after the audit had already seen that placing early ballots by each party's local strength moves the all-ballots results against the commission minority's map (from 55 to 57 UCP seats, and an efficiency gap from +2.55% to +5.64%). The choice is made knowing which way it cuts. The evidence below uses no map, and it would read the same whichever way the seats moved. A reader should still weigh the timing. Any amendment adopting P must say this.
+**Not blind.** This rule was chosen after the audit had already seen that placing early ballots by each party's local strength moves the all-ballots results against the commission minority's map (from 55 to 57 UCP seats, and an efficiency gap from +2.55% to +5.64%). The choice was made knowing which way it cuts. The evidence below uses no map, and it would read the same whichever way the seats moved. A reader should still weigh the timing. Amendment 14 says this in its status line.
 
 ## The answer first
 
@@ -14,7 +14,7 @@
 - **Seats, as ranges over that lean.** At all eight lean values run from 0.87 to 1.22, no seat moves on any map. Under P: 2019 map **49–38**, majority **48–41**, minority **57–32**, panel reconstruction v3 **50–41**, paragraph 167 reconstruction **50–41**. Under M0 the minority is 55–34 and the panel reconstruction 51–40. The others are the same.
 - **What changes.** Three seats, all close. On the minority map, Calgary-Edgemont (NDP by 4 modelled votes under M0, UCP by 401 under P) and Calgary-Glenmore (NDP by 24, UCP by 68). On the panel reconstruction, Banff-Canmore-Diamond Valley (UCP by 229, NDP by 1,276).
 - **The range is too narrow to trust alone.** It covers only the strength of the lean. The provincial data cannot soundly measure how far P misses in a single station. A seat won by 68 modelled votes should not be read as settled.
-- **The comparison maps.** One set (the redraw-test null) was rescored here under P. The others cannot be: their chains are on another machine and the sampler is far too slow here. `REPLAY.md` says how to rerun them. They have since been replayed on that machine; see "The other comparison sets" below.
+- **The comparison maps.** The redraw-test null was rescored here under P. The canonical ensemble and sets A to D were replayed on the machine that holds their chains (32 of 36 chains pass; the four Forest-ReCom chains fail and are dropped). Under P the minority's efficiency gap of +5.64% is at the 99.98th percentile of the canonical ensemble and above P1's line of +2.15%; 192 of 1,010,000 plans reach it. See "The other comparison sets" below.
 
 ## The problem
 
@@ -138,7 +138,7 @@ So the ranges below vary only the lean strength, over 0.87 to 1.22, computed at 
 
 ## Results on every map
 
-Scripts: `05_models_headlines.py`. Formulas: the audit's own (`analysis/scripts/mcmc_ensemble.py`, `seat_results`). Voting areas go to districts by a point inside each area, the audit's rule. M0 is read straight from the registered Amendment 12 file; the M0 rebuilt here matches it to a millionth of a vote.
+Scripts: `05_models_headlines.py`. Formulas: the audit's own (`analysis/scripts/mcmc_ensemble.py`, `seat_results`). Voting areas go to districts by a point inside each area, the audit's rule. M0 is read straight from Amendment 12's filed vote file; the M0 rebuilt here matches it to a millionth of a vote.
 
 Plain meanings:
 - **Efficiency gap.** The difference between the two parties' "wasted" votes (votes for a loser, and a winner's votes beyond what it needed), as a share of all votes. Positive favours the UCP.
@@ -165,7 +165,7 @@ Where P differs across the lean, its range over the eight lean values from 0.87 
 1. Every division's official NDP, UCP and other totals are returned exactly, under M0 and every P (largest difference about one billionth of a vote).
 2. The 2019 map gives 49–38 under M0 and every P.
 3. No station passes 100% under P beyond the two already over on election day.
-4. The rebuilt M0 equals the registered file.
+4. The rebuilt M0 equals Amendment 12's filed vote file.
 
 ### The seats that change
 
@@ -207,7 +207,7 @@ Neither R1 nor R2 flags under either rule. The M0 rescore here matches the filed
 
 The canonical ensemble and sets A to D were rerun on the P vote file on the PC that holds their chains (`outputs/replay_p_run.md`). Each rerun drew the same plans as the original: every column that does not depend on votes matches, row for row, in all 32 chains. The four Forest-ReCom chains did not match on one column (`population_mad`, in 391 to 451 of 25,000 rows, by at most 9.1×10⁻¹³) and were dropped, as Amendment 13 requires.
 
-Efficiency gap under P, as a percentile of the plans that passed (higher means more UCP-favouring; `outputs/ensemble_ranks_p.json`):
+Efficiency gap under P, as a midrank percentile of the plans that passed (higher means more UCP-favouring; `outputs/ensemble_ranks_p.json`):
 
 | Set | 2019 map | Majority | Minority | Panel (v3) | ¶167 map |
 |---|---|---|---|---|---|
@@ -217,13 +217,13 @@ Efficiency gap under P, as a percentile of the plans that passed (higher means m
 | C (89 / 91) | | 35.47 | 100.00 | 35.76 | 46.46 |
 | D (91, s.15(2)) | | | | 18.85 | 26.70 |
 
-The threshold lines under P are in `outputs/thresholds_p.json` (`11_thresholds_p.py`, run on that machine): P1's line, the 95th percentile of the canonical efficiency gap, is +2.15% (it was +1.39% on the registered file), and 192 of 1,010,000 plans reach the minority's +5.64%. S5's midpoint is 0.00588, but under P the two commission maps' drain scores swap order, so S5's direction has to be settled in Amendment 14 before it is read.
+The threshold lines under P are in `outputs/thresholds_p.json` (`11_thresholds_p.py`, run on that machine): P1's line, the 95th percentile of the canonical efficiency gap, is +2.15%, and 192 of 1,010,000 plans reach the minority's +5.64%. On M0's file the same rule gives +1.39%. S5's midpoint is 0.00588, but under P the two commission maps' drain scores swap order (majority 0.00403, minority 0.00773). Amendment 14, Part 3 sets S5 aside on the P file: it gives no flag to any map and counts as not flagged. The author chose this after the replay, knowing its effect: read as written, S5 would flag the majority, the panel reconstruction (drain 0.00053) and the ¶167 map, and not the minority, which would put the panel reconstruction at 3 of 5 (`scorecard_p.md`). The drain scores and the midpoint are reported beside the result.
 
 ## The vote file
 
 `08_build_vote_file_p.py` writes `data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg`.
 
-- It is built the same way as the registered file (`va_polygons_all_2023_ballots_primary.gpkg`, from `analysis/scripts/vote_anywhere_splat.py --primary`): the election-day file, same rows and shapes, with the NDP, UCP and other columns replaced by all ballots.
+- It is built the same way as Amendment 12's file (`va_polygons_all_2023_ballots_primary.gpkg`, from `analysis/scripts/vote_anywhere_splat.py --primary`): the election-day file, same rows and shapes, with the NDP, UCP and other columns replaced by all ballots.
 - Size 22,040,576 bytes. SHA-256 `bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd`. A rebuild gives the same bytes.
 - Every division's official totals hold. Compared with M0, P puts 84,506 two-party votes in different voting areas.
 - Git: the registered sibling file is tracked by Git LFS. This file matches the repository's LFS pattern (`*.gpkg`) but is not committed.
@@ -238,14 +238,19 @@ The threshold lines under P are in `outputs/thresholds_p.json` (`11_thresholds_p
 - **Below the station.** Election-day votes are split equally among a station's voting areas (the audit's existing rule). P inherits that.
 - **Exactly who is on each station's list.** The list is the March 2024 list, not the list on election day.
 - **The 96 advance polls not found** on the map, and two lookups lost to rate limits. 55% of in-division advance ballots are outside the location test.
-- **Percentiles against the canonical ensemble and sets A to D under P.** Not known until the replays in `REPLAY.md` run and pass.
+- **Competitive-seat flags under P.** Not computed. `ensemble_ranks_p.json` gives each map's percentile but not each set's 5th percentile, which the flag needs (`scorecard_p.md`).
 
-## What would have to happen before anything changes
+## What was adopted
 
-1. A signed amendment naming P, its lean of 1.0 and its count dial of 1, and stating that it was chosen after its effect on the maps was known (see "Not blind").
-2. The vote file above, committed with its hash.
-3. The replays in `REPLAY.md`, each passing its row-for-row check (done: 32 of 36 chains pass; Forest-ReCom dropped), and the threshold lines recomputed from them (done; `outputs/thresholds_p.json`).
-4. Until then, M0's figures stay the registered result. Report P's seats with the close margins beside them, not as bare points.
+Amendment 14 (`findings/pre_registration_amendment_log.md`) adopts P for the scoring of the November map.
+
+1. It names P, its lean of 1.0 and its count dial of 1, and it says that P was chosen after its effect on the maps was known (see "Not blind").
+2. The vote file above is fixed by its hash (Part 2).
+3. The replays in `REPLAY.md` pass their row-for-row check in 32 of 36 chains; Forest-ReCom is dropped (Part 3). The threshold lines come from them (`outputs/thresholds_p.json`). S5 is set aside on the P file and counts as not flagged (Part 3).
+4. Every vote-based result is reported three ways: under P (registered), under M0 (sensitivity) and on election-day ballots (sensitivity) (Part 4). P's seats are reported with their range across the lean, 0.87 to 1.22, and a seat decided by fewer modelled votes than the change across that range is named as too close to call (Part 5).
+5. It does not reopen the registered Phase 1 results.
+
+The scorecard under P, with M0 beside it, is in `scorecard_p.md`; the panel and ¶167 maps are the audit's reconstructions, so their counts are provisional. Structural and partisan counts under P: panel reconstruction 2 of 5 and 1 of 4; majority 0 of 5 and 0 of 4; minority 4 of 5 (replicated) and 4 of 4 (present); ¶167 map 2 of 5 and 0 of 4. Under M0 the minority's structural count is 5 of 5.
 
 ## Files
 
@@ -260,6 +265,8 @@ The threshold lines under P are in `outputs/thresholds_p.json` (`11_thresholds_p
 | `08_build_vote_file_p.py` | The P vote file |
 | `09_rescore_territory_null.py` | The redraw-test null rescored under P |
 | `10_replay_p.py` | Commands, check and ranking for the replays on another machine |
+| `11_thresholds_p.py` | P1's and S5's lines from the replayed canonical ensemble |
+| `12_scorecard_p.py`, `scorecard_p.md` | The scorecard under P, with M0 beside it |
 | `REPLAY.md` | What to run there, the checks, what to bring back |
 | `_models.py`, `_common.py` | The rules, the loaders, the output helpers |
 | `inputs/advance_poll_geocodes.csv` | Geocodes for the advance polls (252 rows, 156 located; cannot be regenerated bit for bit, as OpenStreetMap changes daily) |
