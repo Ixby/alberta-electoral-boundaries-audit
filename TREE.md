@@ -160,10 +160,10 @@ analysis/
 │       ├── alberta_government_databases_survey.md
 │       └── citation_verification.md
 │
-├── review/             External and internal scrutiny record (was: red_team/)
-│   ├── README.md               What each file represents (science review, legal review, peer, external audit)
+├── review/             AI-generated review passes and audit logs, not human peer review (was: red_team/)
+│   ├── README.md               What each file is; nearly all are AI-generated passes
 │   │
-│   │   — Peer reviews —
+│   │   — AI persona reviews (not human referees) —
 │   ├── peer_review_canadian.md
 │   ├── peer_review_legal.md
 │   ├── peer_review_methods.md
@@ -178,7 +178,7 @@ analysis/
 │   ├── science_review_data_literature.md
 │   ├── science_review_reproducibility.md
 │   │
-│   │   — Legal review —
+│   │   — AI legal-standard review passes (not legal advice) —
 │   ├── legal_review_framework.md
 │   ├── legal_review_academic_report.md
 │   ├── legal_review_public_report.md
@@ -192,7 +192,7 @@ analysis/
 │   ├── conclusions.md
 │   ├── latent_bias.md              Latent-bias analysis of the analytical framework
 │   │
-│   │   — External code audits —
+│   │   — AI code audits —
 │   ├── external_audit_gemini.md
 │   └── external_audit_meridian.md
 │

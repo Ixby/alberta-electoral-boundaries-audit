@@ -146,7 +146,7 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 ### B5 MCMC ensemble
 
 - **Attack.** "Your MCMC ensemble has insufficient effective sample size for tail claims."
-- **Defense.** The canonical 1,010,000-plan ensemble (4 chains × 252,500 steps, 2026-07-12) achieves n_eff of 1413–1522 across all four metrics (efficiency gap, mean-median, declination, seats@50/50) per `data/outputs/simulation_convergence_diagnostics_canonical.json`. This exceeds the MGGG 1000-sample target by 41–52 %. Gelman-Rubin R̂ < 1.017 across all metrics confirms strict convergence. Tail percentile claims are thereby warranted at publication grade.
+- **Defense.** The canonical 1,010,000-plan ensemble (4 chains × 252,500 steps, 2026-07-12) is worth about 1,000 independent draws, roughly 900 to 1,300 depending on the measure and the estimator (`findings/audit_2026-11-10/ess_uncapped.json`). The pipeline's figures of 1,413–1,522 (`data/outputs/simulation_convergence_diagnostics_canonical.json`) stop summing at lag 2,000 and are upper bounds. Against the 1,000-sample target, the efficiency gap, mean-median and declination clear it; seats@50/50 is just under it on the pooled estimate (894). Gelman-Rubin R̂ < 1.017 across all metrics. Far-tail percentiles such as p99.99 rest on a handful of excursions and are known less well than these figures suggest.
 
 ### B6 Declination
 
@@ -165,8 +165,8 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 
 ### D11 Public submission sentiment analysis
 
-- **Attack.** "The chair explicitly stated in Appendix C that the minority's configurations had 'no public support'. Evaluating this requires subjective sentiment analysis."
-- **Defense.** The audit operationalizes this through a two-step validation: first, running explicit keyword heuristics (support / oppose / against / recommend) across the fully OCR'd public submission dataset (`submission_ocr_analyze.py`), followed by direct manual verification of the resulting CSV records to catch edge cases. Rather than a subjective reading, the analysis mathematically tiers the chair's claim across seven configurations. The results (`claim_significance_analysis.md`) demonstrate the chair's sweeping claim was materially overbroad in 3 cases, accurate in 3 cases, and ambiguous in 1. By reporting these precise tiers, the audit defends against partisan flattenings ("the chair lied" vs. "the chair was completely right").
+- **Attack.** "The majority stated that the minority's configurations had 'no public support'. Evaluating this requires subjective sentiment analysis."
+- **Defense.** The statement is the majority's (final report, pp. 59 and 62) and names five places. The audit's keyword-and-classifier pass did not hold up: in a random sample, 26 of 31 of its stance labels were wrong, so its tiers and counts are withdrawn while the classification is redone (`findings/submissions_recode/`). Reading the named submissions directly, the statement is right in four of five places and partly wrong on Chestermere, where three submissions support the minority's arrangement and three oppose it. In Red Deer no supporter was found.
 
 ### Cross-election sign reversal
 

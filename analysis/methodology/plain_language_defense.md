@@ -8,6 +8,18 @@
 
 # Plain-Language Defense — Alberta Electoral Boundaries Audit
 
+> **Status, 2026-11-10.** The entries below paraphrase the academic monograph section by section. Where an entry and this note differ, this note holds:
+> - **Joint probability.** "1 in 568,000" is one model's estimate on election-day ballots. Across defensible modelling choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`). It is not an upper bound. The map is far out in the tail on every version.
+> - **Effective sample size.** About 1,000 independent draws (roughly 900 to 1,300 by measure), not about 1,400.
+> - **SZAT (Ch2)** is exploratory and is not used. Its seed label was committed together with its first results.
+> - **Declination** is at p98.79 on the UCP tail (sign fixed 2026-06-12).
+> - **Structural comparisons.** The minority differs from the majority on four dated comparisons that the majority cannot fail.
+> - **Rationale tests.** Counting only reasons the minority stated, none fails and four are partly supported. Counting the audit's own population-necessity arithmetic, four fail.
+> - **Submissions.** The stance labels are unreliable and the stance analysis is withdrawn pending a recode. The majority's "no public support" statement is right in four of five places and partly wrong on Chestermere.
+> - **All ballots.** The registered all-ballots figures depend on how early ballots are placed inside each division (`findings/advance_vote_profile/`).
+> - **Inputs.** The commission-map boundary files were supplied by Elections Alberta on request; every other input is a public download.
+
+
 *Consolidation of `plain_language_defense.md` (215 assertions, all sections)
 and `plain_language_defense_summary.md` (six-objection quick reference).
 The summary file is removed; this document is the canonical record.*
@@ -22,7 +34,7 @@ The audit doesn't. A gerrymander is a legal conclusion about intent: that a map 
 
 ### 2. "Your tests are designed to find what you were looking for."
 
-Three things bear on that. First, what was fixed in advance, and what wasn't. I ran these tests on the commission maps before writing them down, so on those maps every test is exploratory. What the public registry (the Open Science Framework, OSF) fixes in advance is how the November map is scored. Anchoring went onto OSF with its early result already in the file. The November verdict follows a specification committed to git in June 2026 and pinned by hash. It is not on OSF; an earlier OSF plan (qsgy8) is scored beside it. Second, every test was run the same way on both maps. No test in this audit applies to the minority map and not to the majority. Third, three findings came out against my stated prior expectations, and they are reported in full anyway: the efficiency-gap signal falls back inside the normal range under the 2019 election results; the commission majority's claim that some configurations had no public support held for three of the five places it names, not all five; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's wider spread on that measure shows only on the commission's 2024 tables (on median absolute deviation the minority is still wider, 3,938 against 2,827). A process built to confirm a conclusion fixed in advance would have quietly dropped those three results. They are in the paper.
+Three things bear on that. First, what was fixed in advance, and what wasn't. I ran these tests on the commission maps before writing them down, so on those maps every test is exploratory. What the public registry (the Open Science Framework, OSF) fixes in advance is how the November map is scored. Anchoring went onto OSF with its early result already in the file. The November verdict follows a specification committed to git in June 2026 and pinned by hash. It is not on OSF; an earlier OSF plan (qsgy8) is scored beside it. Second, every test was run the same way on both maps. No test in this audit applies to the minority map and not to the majority. Third, three findings came out against my stated prior expectations, and they are reported in full anyway: the efficiency-gap signal falls back inside the normal range under the 2019 election results; the commission majority's claim that some configurations had no public support held for four of the five places it names, not all five; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's wider spread on that measure shows only on the commission's 2024 tables (on median absolute deviation the minority is still wider, 3,938 against 2,827). A process built to confirm a conclusion fixed in advance would have quietly dropped those three results. They are in the paper.
 
 ### 3. "A computer simulation of a million fake maps proves nothing about a real one."
 
@@ -90,7 +102,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Two independent statistical tests — the ensemble test (Mahalanobis Ch1) and the boundary-choice test (SZAT Ch2) — return the same answer. Their Fisher combination is p = 4.61×10⁻⁸.
 **Why?** What do "Ch1" and "Ch2" mean, what is a "Fisher combination," and what does p = 4.61×10⁻⁸ mean in plain terms?
-**Answer:** Ch1, the ensemble test, asks: how unusual is this map next to over one million neutral maps drawn at random? Ch2, the boundary-choice test, asks: in the places where the minority map differs from the majority map, are those differences random, or do they keep moving in a direction that favors one party? The Fisher combination is a standard formula for merging two independent test results into one overall probability. The combined p = 4.61×10⁻⁸ was an earlier "Fisher combination" figure, and it has since been **retired** (2026-06-10). It assumed the two tests were independent, and they are not. And the boundary-choice test (Ch2) does not survive a stricter spatial check. The audit now reports the ensemble test (Ch1) on its own. None of the 1,010,000 plans is as extreme on the four measures together. The p = 8.80×10⁻⁷ figure (about one in 1,140,000), and its conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶), are model-based estimates beyond that range, not counts. Counting directly, the result is rarer than about 1 in 1,500. None of these relies on the independence assumption. See the academic report §4.3.3 and §5.5.
+**Answer:** Ch1, the ensemble test, asks: how unusual is this map next to over one million neutral maps drawn at random? Ch2, the boundary-choice test, asks: in the places where the minority map differs from the majority map, are those differences random, or do they keep moving in a direction that favors one party? The Fisher combination is a standard formula for merging two independent test results into one overall probability. The combined p = 4.61×10⁻⁸ was an earlier "Fisher combination" figure, and it has since been **retired** (2026-06-10). It assumed the two tests were independent, and they are not. And the boundary-choice test (Ch2) does not survive a stricter spatial check. The audit now reports the ensemble test (Ch1) on its own. The joint figure is one model's estimate, on election-day ballots only. Under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`): the published model gives 1 in 566,000 after doubling, the Hotelling version 1 in 449,000, a rank-based version 1 in 238,000, dropping one of two near-duplicate measures 1 in 97,000, and a second sampler 1 in 20,000. The map is far out in the tail on every version. No sampled plan reaches its distance on the published measure; seven do on the rank-based one. No all-ballots version exists, because those chains are not in the repository. Counting directly, the result is rarer than about 1 in 1,000, which is roughly what the million plans are worth in independent draws. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -110,9 +122,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The joint outlier profile reaches Mahalanobis p = 8.80×10⁻⁷ against the 1,010,000-plan canonical ensemble.
-**Why?** What is a "Mahalanobis" score and what does 8.80×10⁻⁷ mean?
-**Answer:** Picture a cloud of data points. A Mahalanobis score measures how far a single point sits from the center of that cloud, while taking account of how correlated its dimensions are with each other. Here the cloud is formed by over one million randomly drawn maps, and the point is the minority map's combination of four partisan fairness scores. None of the 1,010,000 plans (all with 87 districts) is as extreme on the four measures together. The 8.80×10⁻⁷ figure is a model-based estimate beyond that range, not a count; counting directly, it is rarer than about 1 in 1,500.
+**Assertion:** The joint outlier profile reaches Mahalanobis p ≈ 8.84×10⁻⁷ against the 1,010,000-plan canonical ensemble, as one model's estimate on election-day ballots.
+**Why?** What is a "Mahalanobis" score and what does 8.84×10⁻⁷ mean?
+**Answer:** Picture a cloud of data points. A Mahalanobis score measures how far a single point sits from the center of that cloud, while taking account of how correlated its dimensions are with each other. Here the cloud is formed by over one million randomly drawn maps, and the point is the minority map's combination of four partisan fairness scores. None of the 1,010,000 plans (all with 87 districts) is as extreme on the four measures together on the published measure. The p ≈ 8.84×10⁻⁷ figure is a model-based estimate beyond that range, not a count. The joint figure is one model's estimate, on election-day ballots only. Under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`): the published model gives 1 in 566,000 after doubling, the Hotelling version 1 in 449,000, a rank-based version 1 in 238,000, dropping one of two near-duplicate measures 1 in 97,000, and a second sampler 1 in 20,000. The map is far out in the tail on every version. No sampled plan reaches its distance on the published measure; seven do on the rank-based one. No all-ballots version exists, because those chains are not in the repository.
 
 ---
 
@@ -140,7 +152,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The November 2026 committee-map trigger.
 **Why?** What is a "committee-map trigger"?
-**Answer:** After the commission's reports were set aside, the Alberta legislature created the Select Special Committee on Electoral Boundaries, and an independent advisory panel drew a 91-seat map for it. The committee had to report to the Assembly by November 2, 2026. The audit scores the map within 72 hours of its first public release, with the same methodology it committed to in advance. The "trigger" is simply that planned rerun.
+**Answer:** After the commission's reports were set aside, the Alberta legislature created the Select Special Committee on Electoral Boundaries, and an independent advisory panel drew a 91-seat map for it. The committee had to report to the Assembly by November 2, 2026. The committee gave the panel's report to the Assembly on November 2. The official file of the panel's map has not been posted, so the audit has scored its own reconstruction of the map, provisionally: 2 of 5 structural flags and 1 of 4 partisan flags, which is not a match on either half (`findings/a10_stepc/README.md`). The scoring rules were written in June 2026 and amended from November 2 to 7 (Amendments 7 to 13), some of them after results had been seen. The "trigger" is simply that planned rerun.
 
 ---
 
@@ -148,7 +160,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. The author is not under contract now and last worked at a recent election. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. Every input is public.
+**Assertion:** The author has worked as a contract election officer for Elections Alberta for about 27 years, election by election, administering the vote on election day. The author is not under contract now and last worked at a recent election. The author has had no other employment with Elections Alberta, has no knowledge of its work beyond those tasks, and drew nothing in this audit from that work. The commission-map boundary files were supplied by Elections Alberta on request and are not posted on its maps page; every other input is a public download.
 **Why?** Doesn't working for Elections Alberta create a conflict?
 **Answer:** The audit tests maps drawn by the Electoral Boundaries Commission and the MLA committee. Elections Alberta runs elections; its Chief Electoral Officer advises and assists the commission, but does not draw the boundaries. The author's work was administering the vote on election day, not boundary or policy work, and none of the audit's data or reasoning comes from it. The one data set Elections Alberta supplied directly, the official 2026 boundary shapefiles, came through a formal data request in May 2026 and is published with the audit. It is disclosed so readers can weigh it for themselves.
 
@@ -160,7 +172,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: under 2019 vote input the minority's efficiency gap falls inside the neutral range, although the minority remains the more UCP-favourable map; the majority report's "no public support" claim holds for three of the five places it names; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables. On median absolute deviation the minority is still wider (3,938 against 2,827).
+**Assertion:** Three cases surfaced findings that ran against the prior and were retained in the report: under 2019 vote input the minority's efficiency gap falls inside the neutral range, although the minority remains the more UCP-favourable map; the majority report's "no public support" claim holds for four of the five places it names and is partly wrong on Chestermere; and on the 2021 census the three maps have almost the same mean absolute deviation, so the minority's 48% wider spread shows only on the commission's 2024 tables. On median absolute deviation the minority is still wider (3,938 against 2,827).
 **Why?** Why does it matter that some findings went against the researcher's expectations?
 **Answer:** A biased research process would quietly drop inconvenient results. These three contra-prior findings were retained precisely to show that the methodology is not rigged. If every single finding had confirmed the researcher's starting suspicion, that would be a red flag. Results that cut against the prior — and are reported anyway — provide evidence that the method is operating independently of the researcher's preferences.
 
@@ -172,7 +184,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** No GIS desktop software (QGIS, ArcGIS) and no commercial election-analytics platforms were used. R 4.6 with the `redist` package was used for one SMC cross-validation script. Stata and SPSS were not used. All inputs are public.
+**Assertion:** No GIS desktop software (QGIS, ArcGIS) and no commercial election-analytics platforms were used. R 4.6 with the `redist` package was used for one SMC cross-validation script. Stata and SPSS were not used. All inputs are public downloads except the commission-map boundary files, which Elections Alberta supplied on request.
 **Why?** Why does it matter what software was used?
 **Answer:** Commercial or proprietary software can make research harder to reproduce because other researchers may not have access to it. Using only open-source tools (Python, plus R for one cross-check) means anyone with a standard computer can run the same code against the same publicly available data and check that the numbers are correct. This is the practical meaning of "reproducible" in this context.
 
@@ -246,9 +258,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority's own 25 published rationales are, on two of six contested configurations, options the minority did not take when cleaner statutory-compliant alternatives were available.
+**Assertion:** On the six contested configurations, none of the minority's stated reasons fails and four are partly supported; on the audit's own population-necessity arithmetic, four of the six lines were not forced.
 **Why?** What does "cleaner statutory-compliant alternatives" mean?
-**Answer:** When a commission draws a boundary that looks unusual, it is expected to explain why, in writing. The minority commissioners published rationales for their boundary choices. For two of the six configurations examined (the four-way Airdrie split and the Olds–Three Hills–Didsbury reach into Airdrie), the audit finds a simpler boundary option, one that would also satisfy the law, that the minority could have chosen and did not. Two more hold in part (the Cochrane commuter tie; the Red Deer–Sylvan Lake work and school ties). One was not tested on the grounds the minority gave (Rocky Mountain House–Banff Park), and one is withdrawn (St. Albert–Sturgeon). "Cleaner" here means fewer geographic contortions and a more direct fit with city or town edges. So the minority's stated reasons didn't require those lines. That doesn't tell us why the lines were drawn.
+**Answer:** When a commission draws a boundary that looks unusual, it is expected to explain why, in writing. The minority commissioners published rationales for their boundary choices. The tally depends on the rule, so both are given. Counting only the reasons the minority actually stated, none of the six fails: four are partly supported (true in general, but not reaching the line drawn), one was not tested on its stated grounds (Rocky Mountain House–Banff Park), and one gave no reason to test (St. Albert–Sturgeon). Counting the audit's own population-necessity arithmetic, four fail: the arithmetic shows the line was not forced. That second rule tests necessity, which the minority did not claim. "Cleaner" here means fewer geographic contortions and a more direct fit with city or town edges. So the minority's stated reasons didn't require those lines. That doesn't tell us why the lines were drawn.
 
 ---
 
@@ -387,9 +399,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Effective Sample Size (ESS) is 1,413–1,522 on canonical 1M partisan metrics — described as publication-grade.
-**Why?** What is an Effective Sample Size and why does "1,413–1,522" matter when you have 1,000,000 total samples?
-**Answer:** When each new map in a simulation is based on the previous one, consecutive maps are correlated. They are not fully independent observations. The Effective Sample Size scales the total sample count down to reflect how much independent information is actually there. An ESS of 1,413–1,522 out of 1,010,000 total steps means the chain holds about 1,413–1,522 truly independent observations. That is still more than enough for reliable percentile estimates. Comparable published ensemble studies use similar or lower ESS values, which is why this is described as meeting publication standards.
+**Assertion:** Effective Sample Size (ESS) is about 1,000 on the canonical 1M partisan metrics, roughly 900 to 1,300 depending on the measure.
+**Why?** What is an Effective Sample Size and why does "about 1,000" matter when you have 1,000,000 total samples?
+**Answer:** When each new map in a simulation is based on the previous one, consecutive maps are correlated. They are not fully independent observations. The Effective Sample Size scales the total sample count down to reflect how much independent information is actually there. The million plans are worth about 1,000 independent draws, roughly 900 to 1,300 depending on the measure and the estimator (`findings/audit_2026-11-10/ess_uncapped.json`). The pipeline's own figures, 1,413 to 1,522, stop adding up the chain's memory at lag 2,000 and are upper bounds. Against the report's own floor of 1,000, the efficiency gap, mean-median and declination clear it; seats at 50/50 is just under it on the pooled estimate (894). That is enough for percentile estimates near the middle of the range. Far-tail percentiles such as p99.99 rest on a handful of excursions and are known less well.
 
 ---
 
@@ -495,11 +507,11 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Minority EG = +4.02% on canonical results, which is below the audit's 4.10% threshold; the EG flag is withdrawn.
 **Why?** Why is a threshold of 4.10% used rather than the academic 7% threshold?
-**Answer:** The 7% threshold comes from Stephanopoulos and McGhee's foundational academic paper. It was derived from US electoral data, and no Canadian court has ever adopted it. The audit's own threshold of 4.10% was derived from the canonical 1,010,000-plan simulation. It is the 95th-percentile efficiency gap across those random maps as registered, and it stays frozen as the Option D line. The 2026-07-12 clean rerun of the simulation puts the 95th percentile at 4.08%. A threshold drawn from the simulation is more appropriate for Alberta, because it reflects what Alberta's specific geography and population distribution produce. Not what US states produce. At 4.02%, the minority EG sits below even this stricter Alberta-specific threshold, so the efficiency gap alone does not trigger a finding.
+**Answer:** The 7% threshold comes from Stephanopoulos and McGhee's foundational academic paper. It was derived from US electoral data, and no Canadian court has ever adopted it. The audit's own threshold of 4.10% was derived from the canonical 1,010,000-plan simulation. The rule, the 95th percentile of the neutral ensemble, was set in advance; its value, 4.10%, was computed from the ensemble and stays frozen as the Option D line. The 2026-07-12 clean rerun of the simulation puts the 95th percentile at 4.08%. A threshold drawn from the simulation is more appropriate for Alberta, because it reflects what Alberta's specific geography and population distribution produce. Not what US states produce. At 4.02%, the minority EG sits below even this stricter Alberta-specific threshold, so the efficiency gap alone does not trigger a finding.
 
 ---
 
-**Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.97, Seats at 50/50 at p99.99, Declination at p1.21 (NDP-tail).
+**Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.97, Seats at 50/50 at p99.99, Declination at p98.79 (UCP tail; sign convention fixed 2026-06-12, Amendment 5, Part 9).
 **Why?** What does "p99.97" mean and why is declination at p98.79 (UCP-tail, after the sign fix in Amendment 5, Part 9; was p1.21 NDP-tail under the earlier swapped operand) a problem when the others are at p99.97?
 **[Corrected 2026-06-12 (recorded in Amendment 5, Part 9).** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
 
@@ -689,7 +701,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Minority Declination p1.21 — disagrees with EG and MM direction; consistent with narrow-margin-loss packing.
+**Assertion (as first written; superseded by the note below):** Minority Declination p1.21 — disagrees with EG and MM direction; consistent with narrow-margin-loss packing.
 **Why?** How can a low percentile score indicate a problem when the others show high percentile scores?
 **[Corrected 2026-06-12 (recorded in Amendment 5, Part 9).** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
 
@@ -697,9 +709,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Mahalanobis Ch1 p = 8.80×10⁻⁷.
+**Assertion:** Mahalanobis Ch1 p ≈ 8.84×10⁻⁷ (one model's estimate, election-day ballots).
 **Why?** What is the Mahalanobis test doing that a simple average of the four metrics cannot do?
-**Answer:** Average the four percentile scores and you treat each metric as if it stood alone. They don't stand alone. The four metrics are correlated: a map that scores high on efficiency gap often scores high on mean-median too, because the same underlying feature drives both. Average them and that feature gets counted again. The Mahalanobis distance allows for the overlap. It measures how far a map sits from the center of the joint distribution, the cloud of all four metrics at once. No double-counting, and the joint signal still comes through. None of the 1,010,000 plans is as extreme as the minority map on the four measures together. The p = 8.80×10⁻⁷ figure is a model-based estimate beyond that range, not a count; counting directly, it is rarer than about 1 in 1,500.
+**Answer:** Average the four percentile scores and you treat each metric as if it stood alone. They don't stand alone. The four metrics are correlated: a map that scores high on efficiency gap often scores high on mean-median too, because the same underlying feature drives both. Average them and that feature gets counted again. The Mahalanobis distance allows for the overlap. It measures how far a map sits from the center of the joint distribution, the cloud of all four metrics at once. No double-counting, and the joint signal still comes through. None of the 1,010,000 plans is as extreme as the minority map on the four measures together. The p ≈ 8.84×10⁻⁷ figure is a model-based estimate beyond that range, not a count; counting directly, it is rarer than about 1 in 1,000.
 
 ### §5.4.1 — Constraint-bound expectation terminology
 
@@ -819,7 +831,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,500,000; seeds committed, test exploratory). 1,010,000 steps (4 chains × 252,500). ESS 1,413–1,522. Three partisan-metric outlier flags on minority: MM p99.97, seats@50/50 p99.99, declination p1.21. **[2026-06-12, recorded in Amendment 5, Part 9: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.54 below threshold; EG flag withdrawn. Mahalanobis joint p = 8.80×10⁻⁷.
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,500,000; seeds committed, test exploratory). 1,010,000 steps (4 chains × 252,500). ESS about 1,000 (roughly 900 to 1,300 by measure; the pipeline's lag-capped figures are 1,413–1,522). Three partisan-metric outlier flags on minority: MM p99.97, seats@50/50 p99.99, declination p1.21. **[2026-06-12, recorded in Amendment 5, Part 9: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.54 below threshold; EG flag withdrawn. Mahalanobis joint p ≈ 8.84×10⁻⁷ (one model's estimate, election-day ballots).
 **Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
 **Answer:** Because the maps underneath them changed. Before the official shapefiles were available, we built the DPG-era runs on approximate boundary tracings made from the commission's PDF thumbnails. Where a tracing strayed from the real line, especially in rural areas near the edge of cities, the votes credited to individual EDs shifted once the official files arrived. The canonical run is the first analysis on the same shapefiles Elections Alberta itself uses, and the only run whose results can be checked against the official record. The §4.1.4 sunset clause bound us to replace every DPG-era result with a canonical result within two weeks of the shapefiles' release. The headline recompute took 12 days, inside the window; full integration took 17, three days late. The run reported here is the July 12 rerun.
 
@@ -841,7 +853,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** D² progression: 2019 enacted D²=13.16 (p=0.0105, mild joint outlier); majority 2026 D²=7.74 (p=0.102, within null); minority 2026 D²=33.64 (p=8.80×10⁻⁷). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
+**Assertion:** D² progression: 2019 enacted D²=13.16 (p=0.0105, mild joint outlier); majority 2026 D²=7.74 (p=0.102, within null); minority 2026 D²=33.64 (p≈8.84×10⁻⁷, a model estimate). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
 **Why?** What does the 2019 baseline D² tell us, and why is it relevant to compare all three maps?
 **Answer:** It gives the direction of travel. Add the 2019 enacted map, the existing map, as a third point of reference, and the question changes: not only whether a 2026 proposal is unusual, but whether it moved toward what neutral random maps produce, or away. The 2019 map was itself a mild outlier in joint space (D²=13.16, p=0.0105): slightly outside the neutral ensemble, not dramatically. The majority's 2026 map cut that distance to D²=7.74 and landed inside the neutral null; its changes to the 2019 boundaries moved toward normal. The minority's 2026 map stretched the distance to D²=33.64, which is the headline joint-test p-value driving the canonical finding. Toward, and away. This three-map comparison is exploratory, like the Mahalanobis test it draws on.
 
@@ -859,7 +871,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Five OSF pre-registrations cover the audit: w2s8k, r3zm7, qsgy8, 6pt83, s58a6.
 **Why?** Why are five separate registrations needed rather than one?
-**Answer:** Because each registration covers a specific part of the audit at a specific point in time. None was filed before the official maps arrived on May 6, 2026. w2s8k, r3zm7 and qsgy8 were filed about six hours later, 6pt83 that night after a first SZAT run, and s58a6 on May 10. Four more registrations cover other parts: the checklist (9wp5y), the map-pair test (yvc7g), the Forest-ReCom check (he53s) and the process scorecard (u47bq). Some cover the November map (qsgy8, 9wp5y, u47bq); some cover specific sub-tests, like the neighbor-drain analysis (r3zm7). Because all came after the commission maps had been scored, the commission-map results are exploratory. Filing at each stage keeps each registration as close in time as possible to the analysis it covers. The alternative is a single blanket registration, filed months ahead, for tests not yet designed in detail.
+**Answer:** Because each registration covers a specific part of the audit at a specific point in time. None was filed before the official maps arrived on May 6, 2026. w2s8k, r3zm7 and qsgy8 were filed about six hours later, 6pt83 that night after a first SZAT run (the SZAT seed label was committed together with that test's first results), and s58a6 on May 10. Four more registrations cover other parts: the checklist (9wp5y), the map-pair test (yvc7g), the Forest-ReCom check (he53s) and the process scorecard (u47bq). Some cover the November map (qsgy8, 9wp5y, u47bq); some cover specific sub-tests, like the neighbor-drain analysis (r3zm7). Because all came after the commission maps had been scored, the commission-map results are exploratory. Filing at each stage keeps each registration as close in time as possible to the analysis it covers. The alternative is a single blanket registration, filed months ahead, for tests not yet designed in detail.
 
 ---
 
@@ -987,7 +999,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Government Motion 37 (introduced April 16, passed April 21, 2026) set both reports aside and created the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, with a 91-seat map due November 2, 2026.
+**Assertion:** Government Motion 37 (put on notice April 16; moved, debated and passed April 21, 2026) set both reports aside and created the Select Special Committee on Electoral Boundaries: six MLAs, four UCP and two NDP, with a 91-seat map due November 2, 2026.
 **Why?** Why is a legislature setting aside a commission's report unusual?
 **Answer:** An independent boundary commission exists to keep redistricting out of direct political control. Elected members are expected to have a stake in how the lines are drawn, because those lines determine whether they win or lose future elections. When a legislature sets aside an independent commission's work and hands the drafting to a committee of elected members, control of boundary-drawing passes directly to politicians. Whether that is legally permissible is a statutory question. Whether it fits the norms of independent redistricting is taken up in §5.9.
 
@@ -1019,9 +1031,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The minority's 25 published rationales fail falsifiability checks on two of six contested configurations.
+**Assertion:** The rationale checks on the six contested configurations give two tallies, one for each counting rule.
 **Why?** How do you test whether a written rationale for a boundary choice is defensible?
-**Answer:** You look for a simpler line. For each configuration, the audit finds the simplest alternative boundary that would also satisfy every statutory requirement and the community-of-interest criteria the minority said it was following. If a simpler line meets the same stated reasons, those reasons didn't require the line the minority drew. That doesn't tell us why it was drawn. For two of the six configurations examined, a cleaner statutory alternative exists, and the minority passed it over. Two more hold in part, and one was not tested on the grounds the minority gave. The sixth, St. Albert-Sturgeon, is withdrawn: the two maps do not converge there (the majority splits St. Albert in two, the minority in three), and the minority gives no per-district rationale to test.
+**Answer:** You look for a simpler line. For each configuration, the audit finds the simplest alternative boundary that would also satisfy every statutory requirement and the community-of-interest criteria the minority said it was following. If a simpler line meets the same stated reasons, those reasons didn't require the line the minority drew. That doesn't tell us why it was drawn. The tally depends on the rule, so both are given. Counting only the reasons the minority actually stated, none of the six fails: four are partly supported (true in general, but not reaching the line drawn), one was not tested on its stated grounds (Rocky Mountain House–Banff Park), and one gave no reason to test (St. Albert–Sturgeon). Counting the audit's own population-necessity arithmetic, four fail: the arithmetic shows the line was not forced. That second rule tests necessity, which the minority did not claim. The sixth, St. Albert-Sturgeon, is withdrawn: the two maps do not converge there (the majority splits St. Albert in two, the minority in three), and the minority gives no per-district rationale to test.
 
 ---
 
@@ -1033,9 +1045,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The per-configuration support table shows: Airdrie 4-way 0/4 mentions (0% support); Calgary-Nolan Hill-Cochrane 0/0 mentions; RMH-Banff Park 7/20 (35% including aligned submissions); Olds-Three Hills-Didsbury 2/5 (40%); Chestermere 3/13 (23%); Red Deer hybrids 5/23 (22% including aligned); St. Albert-Sturgeon 0/11 for minority's specific alternative.
-**Why?** What does "support rate" actually measure — why only count submissions from people who engaged with that configuration?
-**Answer:** The support rate is the share of engaged submissions, the ones that mention the configuration at all, that back the minority's direction. That tells you more than a rate over all 1,252 submissions, because most people who wrote in simply did not address most configurations. A low support rate among engaged citizens, people who cared enough to write about that specific boundary, is stronger evidence of real opposition or indifference than a low rate across the full corpus, where most absences reflect inattention rather than position. The table separates precisely wrong (supporting submissions exist); precisely wrong but effectively ambiguous (equal support and opposition); and the majority's claim effectively stands (no supporting submissions among engaged citizens).
+**Assertion:** The per-configuration support counts and rates are withdrawn while the classification is redone (`findings/submissions_recode/`).
+**Why?** Why withdraw them?
+**Answer:** They were computed from stance labels that are unreliable: in a random sample, 26 of 31 were wrong. No support rate is reported until the recode lands.
 
 ---
 
@@ -1043,9 +1055,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** EBC-2025-2-0619 ("Appropriate Political Representation for Alpine Alberta") proposes the RMH-Banff configuration by name. EBC-2025-2-0091 (Nordegg resident) recommends including Clearwater County, Rocky Mountain House, Sundre, and Banff. EBC-2025-2-0209 (a Beiseker resident) proposes the Olds-Three Hills-Didsbury rural unit. EBC-2025-2-0252 (Chad Krahn, Red Deer City Councillor) proposes a northern Red Deer hybrid structure.
+**Assertion:** EBC-2025-2-0619 ("Appropriate Political Representation for Alpine Alberta") proposes the RMH-Banff configuration by name. EBC-2025-2-0091 (Nordegg resident) recommends including Clearwater County, Rocky Mountain House, Sundre, and Banff. EBC-2025-2-0209 (a Beiseker resident) proposes the Olds-Three Hills-Didsbury rural unit.
 **Why?** Why cite specific submission ID numbers rather than summarizing what citizens said?
-**Answer:** So the evidence can be checked. Anyone with access to the commission's submission archive can pull EBC-2025-2-0619 and confirm the quoted text appears in it. A general summary like "some citizens supported this configuration" cannot be checked. A submission ID can. The audit reproduces only text read verbatim from the source; no quote is rebuilt from memory, and no paraphrase is presented as a direct quotation. The citation of a Red Deer City Councillor (Krahn, EBC-2025-2-0252) carries particular weight. It shows that a publicly elected official representing Red Deer residents proposed the very hybrid structure the commission majority described as having "no public support."
+**Answer:** So the evidence can be checked. Anyone with access to the commission's submission archive can pull EBC-2025-2-0619 and confirm the quoted text appears in it. A general summary like "some citizens supported this configuration" cannot be checked. A submission ID can. The audit reproduces only text read verbatim from the source; no quote is rebuilt from memory, and no paraphrase is presented as a direct quotation.
 
 ---
 
@@ -1053,9 +1065,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The three configurations with the highest support rates for minority-aligned configurations are Olds-Three Hills-Didsbury (40% of 5 engaged submissions), Chestermere (23% of 13), and RMH-Banff Park (35% of 20, with aligned); Red Deer hybrids, with the most engagement (23), reach 22% with aligned. The configurations with zero supporting submissions also have the smallest sample sizes (4 and 0 engaged submissions respectively for Airdrie and Nolan Hill-Cochrane).
-**Why?** Does small sample size make the "zero support" finding for Airdrie unreliable?
-**Answer:** Small samples cut both ways. Zero supporters in four mentions is consistent with "no public support" but does not prove a larger sample would find none. So the Airdrie and Nolan Hill-Cochrane findings cannot carry a categorical "no citizen anywhere in Alberta wanted this" claim. They carry only "nobody in the engaged submission record asked for these." Where engagement is higher (5–23 mentions), the support-rate estimates are more statistically informative, and the refutation evidence is stronger to match. The audit reports that difference in tiers instead of treating every configuration the same.
+**Assertion:** The per-configuration support counts and rates are withdrawn while the classification is redone (`findings/submissions_recode/`).
+**Why?** Why withdraw them?
+**Answer:** They were computed from stance labels that are unreliable: in a random sample, 26 of 31 were wrong. No support rate is reported until the recode lands.
 
 ---
 
@@ -1063,9 +1075,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The majority's "no public support" claim names five places (final report pp. 59, 62). It holds for three and is partly wrong for two. Support for Rocky Mountain House–Banff Park and Olds–Three Hills–Didsbury answers a claim the majority didn't make. The majority's cartographic critique — that the minority's configurations are less compact and more fragmenting — is unaffected.
+**Assertion:** The majority's "no public support" claim names five places (final report pp. 59, 62). It holds for four and is partly wrong for one, Chestermere. Support for Rocky Mountain House–Banff Park and Olds–Three Hills–Didsbury answers a claim the majority didn't make. The majority's cartographic critique — that the minority's configurations are less compact and more fragmenting — is unaffected.
 **Why?** If the public-support argument is weakened, does the whole procedural case against the minority collapse?
-**Answer:** No. The procedural case has two independent parts. The first is the public-support argument: did the minority draw configurations nobody asked for? The refutation narrows that claim. Of the five places the majority named, it holds for Airdrie, Cochrane and St. Albert, and is partly wrong for Chestermere and Red Deer. The second part is the cartographic argument: are the minority's configurations more compact and community-coherent than the alternatives? That argument does not depend on the submission record at all. It rests on geometric measurement and the analysis in §5.8.2–§5.8.4. So the refutation modestly helps the minority's procedural position on the first part, and does nothing about the geometric findings. Those have nothing to do with what citizens put in writing.
+**Answer:** No. The procedural case has two independent parts. The first is the public-support argument: did the minority draw configurations nobody asked for? The refutation narrows that claim. Of the five places the majority named, it holds for Airdrie, Cochrane, St. Albert and Red Deer, and is partly wrong for Chestermere. The second part is the cartographic argument: are the minority's configurations more compact and community-coherent than the alternatives? That argument does not depend on the submission record at all. It rests on geometric measurement and the analysis in §5.8.2–§5.8.4. So the refutation modestly helps the minority's procedural position on the first part, and does nothing about the geometric findings. Those have nothing to do with what citizens put in writing.
 
 ---
 
@@ -1073,9 +1085,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Approximately 88 of 1,340 submissions (6.6%) were image-only PDFs that could not be machine-parsed. Keyword search uses permissive co-occurrence windows. Position classifier is heuristic; 13 cases were manually reviewed. The minority's configuration names are the audit's labels, not the submissions' own language.
+**Assertion:** Of the 1,345 submissions (198 + 1,147), 1,252 have a text layer and were searched (93.1%); 88 could not be machine-parsed, most of them image-only PDFs. Keyword search uses permissive co-occurrence windows. Position classifier is heuristic and its labels are unreliable. The minority's configuration names are the audit's labels, not the submissions' own language.
 **Why?** If the search methodology has these limitations, how confident can the audit be in its refutation finding?
-**Answer:** The refutation holds against all five limitations the report lists (the four above, plus attachments that were not searched separately), because it rests on counter-examples we identified: specific submission IDs where the supporting text was read directly. It does not depend on finding every supportive submission there is. More submissions would change the counts, not the direction. If verified EBC-2025-2-XXXX submissions already show some support for Chestermere and Red Deer, the 88 unparsed submissions cannot erase it. The limitations affect the counts, and possibly the support rates. They cannot erase a counter-example already found. The limitation is still real, and the audit says so: a full OCR pass over the 88 missing submissions would strengthen the audit's credibility in legal proceedings, though it would not likely change the qualitative verdict.
+**Answer:** The refutation holds against all five limitations the report lists (the four above, plus attachments that were not searched separately), because it rests on counter-examples we identified: specific submission IDs where the supporting text was read directly. It does not depend on finding every supportive submission there is. More submissions would change the counts, not the direction. Three submissions read directly support the minority's Chestermere arrangement (EBC-2025-2-0384, 0811, 1091) and three oppose it (0687, 0785, 0787); the unparsed submissions cannot erase those. In Red Deer no supporter was found, so the majority's statement holds there. The tally is: right in four of five places, partly wrong on Chestermere. The limitations affect the counts, and possibly the support rates. They cannot erase a counter-example already found. The limitation is still real, and the audit says so: a full OCR pass over the unparsed submissions would strengthen the audit's credibility in legal proceedings, though it would not likely change the qualitative verdict.
 
 ---
 
@@ -1083,15 +1095,9 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Two LLM classification pipelines classified all 1,252 parseable submissions (plus 3,107 r1 and 2,358 r2 Hansard community turns) on all seven configurations. Results: 388 configuration-stance rows across 292 unique submissions; overall 49% opposition, 21% support, 30% neutral/contextual. Channel divergence: RMH-Banff Park and Red Deer hybrids show net opposition in written submissions but net support in Hansard hearings. Intensity-weighted net ranking: Red Deer (−64), Airdrie (−61), Nolan Hill-Cochrane (−55), Chestermere (−47), RMH-Banff Park (−9), St. Albert-Sturgeon (−1), Olds-Three Hills-Didsbury (+6).
-**Why?** Why run a full LLM classification pass if the keyword search already found the counter-examples?
-**Answer:** Because finding a few is not the same as knowing the spread. The keyword search shows that supporting submissions exist; it refutes "no support" categorically. The LLM analysis asks a deeper question: how are stances spread across the full corpus? That matters. The keyword search could turn up three positive submissions out of 1,000 that opposed the configuration. Technically, that is a refutation. In practice, it is consistent with the spirit of the majority's claim. The LLM analysis shows that three configurations (Airdrie, Nolan Hill-Cochrane, Chestermere) are indeed broadly opposed across the full corpus, not merely missing the few positive examples the keyword search found. The intensity-weighted net scores turn the tiers from a description into numbers.
-
----
-
-**Assertion:** Channel divergence: RMH-Banff Park and Red Deer hybrids both show net written opposition but net Hansard support. The audit does not assert which channel is more reliable; it reports the divergence and offers a participation-cost explanation.
-**Why?** Why present both channels rather than averaging them or deciding which is more credible?
-**Answer:** Because averaging would bury a real methodological finding. Writing in and showing up are different ways to take part, and they may draw different people. A hearing takes travel and time, which may over-represent people from the affected communities who care enough to attend a regional session. For configurations centered on remote western communities (RMH-Banff Park) or the Red Deer corridor, residents from those communities are more likely to attend than to write. Here this difference in the cost of taking part is offered as a plausible explanation, not a proven cause. The audit cannot determine which channel better represents genuine public sentiment. So both are reported, the divergence is flagged, and you can weigh them as you see fit.
+**Assertion:** The stance analysis of the public submissions (support, oppose or neutral on each configuration; the weighted rankings; the comparison of written submissions with hearings) is withdrawn while the classification is redone.
+**Why?** Why withdraw it?
+**Answer:** Because the labels are unreliable. In a random sample, 26 of 31 stance labels were wrong. The stance tables, the intensity-weighted rankings and the "channel divergence" between written submissions and hearings all rest on those labels, so none of them is reported. A full recode is under way (`findings/submissions_recode/`). What stands meanwhile rests on reading named submissions directly: the majority's "no public support" statement is right in four of five places and partly wrong on Chestermere, where three submissions support the minority's arrangement (EBC-2025-2-0384, 0811, 1091) and three oppose it (0687, 0785, 0787). In Red Deer no supporter was found.
 
 ---
 
@@ -1155,7 +1161,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Fisher combined p = 4.61×10⁻⁸ was the earlier formal statement of convergence between Ch1 and Ch2 (retired 2026-06-10).
 **Why?** Is it valid to combine two p-values using Fisher's method?
-**Answer:** Not here. Fisher's method, a standard technique from 1932, combines independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent: when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (the partisan direction of contested-boundary assignments) ask different questions. But they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975). And the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons, the Fisher combination (p = 4.61×10⁻⁸, about one in 22 million) was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own, about one in 1,140,000 (p = 8.80×10⁻⁷), with a conservative combined upper bound of about one in 568,000 (p ≤ 1.76×10⁻⁶) that does not rely on independence. Both are model-based estimates beyond the range of the 1,010,000 plans, none of which is as extreme; counting directly, the result is rarer than about 1 in 1,500. See the academic report §4.3.3 and §5.5.
+**Answer:** Not here. Fisher's method, a standard technique from 1932, combines independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent: when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (the partisan direction of contested-boundary assignments) ask different questions. But they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975). And the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons, the Fisher combination (p = 4.61×10⁻⁸, about one in 22 million) was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own. The joint figure is one model's estimate, on election-day ballots only. Under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`): the published model gives 1 in 566,000 after doubling, the Hotelling version 1 in 449,000, a rank-based version 1 in 238,000, dropping one of two near-duplicate measures 1 in 97,000, and a second sampler 1 in 20,000. The map is far out in the tail on every version. No sampled plan reaches its distance on the published measure; seven do on the rank-based one. No all-ballots version exists, because those chains are not in the repository. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -1285,15 +1291,15 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** Public-submission support: two contested configurations (Airdrie 4-way, Nolan Hill) have no documented submissions in the ~1,340 archive.
+**Assertion:** Public-submission support: two contested configurations (Airdrie 4-way, Nolan Hill) have no documented supporting submissions among the 1,345 in the archive (1,252 searchable).
 **Why?** What does it mean to check the submission archive and why does the absence of submissions matter?
 **Answer:** The commission's archive holds the public submissions it received from citizens, communities and organizations. Those submissions are the documented evidence of which boundary choices the public wanted. If a minority commissioner made a specific boundary decision, such as splitting Airdrie four ways or drawing the Nolan Hill corridor, and no submission in the archive asked for that configuration, then the choice cannot be defended as a response to public input. No submissions for two of the most unusual configurations is a gap in the rationale. It is not proof of bad intent.
 
 ---
 
-**Assertion:** Structural-irregularity count: minority meets the ≥4 of 5 outlier threshold; majority meets 0 of 5.
+**Assertion:** Structural comparisons: the minority differs from the majority on four dated comparisons. Those four measure the minority against the majority, so the majority cannot fail them.
 **Why?** What is this scoring and what are the five tests?
-**Answer:** After both maps had been measured, the audit wrote down five structural dimensions to score them on: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and majority-flagged anomalies. It set the bar at four or more of the five. Because the dimensions and the bar were written down after the measurements, the count is exploratory. The minority map scores as an outlier on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, does not separate the maps after canonical recomputation.) The majority map scores as an outlier on zero.
+**Answer:** After both maps had been measured, the audit wrote down five structural dimensions to score them on: population dispersion (MAD), Calgary zone asymmetry, Airdrie community fragmentation, municipal boundary anchoring, and majority-flagged anomalies. It set the bar at four or more of the five. Because the dimensions and the bar were written down after the measurements, the count is exploratory. The minority map differs from the majority on four: population, zone gap, Airdrie, anomalies. (The fifth, anchoring, does not separate the maps after canonical recomputation.) Four of the comparisons dated April 24 measure the minority against the majority, so the majority cannot fail them; "4 of 5 against 0 of 5" is not a score either map could fail. The Calgary zone lists were first written on April 22 as "historically NDP-competitive" against "UCP-dominant" and later described as geographic, with the same membership; on a literal reading of the stated geographic rule the minority's gap is 5.3% to 5.7%, not 7.7% or 12.2% (`findings/audit_2026-11-10/calgary_zone_recode.json`).
 
 ---
 
@@ -1303,7 +1309,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The majority's Mahalanobis p = 0.102 on the 1M canonical run — inside the null band.
 **Why?** A p-value of 0.102 is close to 0.10. Isn't that "significant"?
-**Answer:** No. The smaller the p-value, the more extreme the result. A p-value of 0.102 means about 10% of randomly drawn neutral maps have a joint partisan-fairness score at least as extreme as the majority's: toward the edge, but within the normal range. Set that beside the minority: none of the 1,010,000 plans is as extreme as it is on the four measures together (model-based p = 8.80×10⁻⁷; counting directly, rarer than about 1 in 1,500). The 0.102 value sits short of the most extreme 5% of the distribution, the zone the audit treats as unusual.
+**Answer:** No. The smaller the p-value, the more extreme the result. A p-value of 0.102 means about 10% of randomly drawn neutral maps have a joint partisan-fairness score at least as extreme as the majority's: toward the edge, but within the normal range. Set that beside the minority: none of the 1,010,000 plans is as extreme as it is on the four measures together on the published measure (model-based p ≈ 8.84×10⁻⁷, with a range of about 1 in 20,000 to about 1 in 570,000 across defensible modelling choices). The 0.102 value sits short of the most extreme 5% of the distribution, the zone the audit treats as unusual.
 
 ---
 
@@ -1510,7 +1516,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
 **Why?** Is a directional finding strong enough to support any policy response?
-**Answer:** Four structural signals point the same way. They aren't independent: two come from the same commission tables, and the anomaly checks were built from shapes already seen on the minority map. The statistical tests add quantitative weight to the structural signals: the ensemble test Ch1, p = 8.80×10⁻⁷, about one in 1,140,000, with a combined upper bound that holds even if the tests are dependent, p ≤ 1.76×10⁻⁶, about one in 568,000. Both are model-based estimates, not counts: no sampled plan is as extreme, and counting directly the result is rarer than about 1 in 1,500. (The earlier Fisher figure, p = 4.61×10⁻⁸, was retired 2026-06-10.) Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether that is strong enough to require a legal remedy, an administrative revision, or simply public acknowledgment is a policy and legal judgment. The audit provides the empirical input for that judgment.
+**Answer:** Four structural signals point the same way. They aren't independent: two come from the same commission tables, and the anomaly checks were built from shapes already seen on the minority map. The statistical tests add quantitative weight to the structural signals. The joint figure is one model's estimate, on election-day ballots only. Under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`): the published model gives 1 in 566,000 after doubling, the Hotelling version 1 in 449,000, a rank-based version 1 in 238,000, dropping one of two near-duplicate measures 1 in 97,000, and a second sampler 1 in 20,000. The map is far out in the tail on every version. No sampled plan reaches its distance on the published measure; seven do on the rank-based one. No all-ballots version exists, because those chains are not in the repository. (The earlier Fisher figure, p = 4.61×10⁻⁸, was retired 2026-06-10.) Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether that is strong enough to require a legal remedy, an administrative revision, or simply public acknowledgment is a policy and legal judgment. The audit provides the empirical input for that judgment.
 
 ---
 
@@ -1522,7 +1528,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The November 2026 test follows a specification committed to git in June 2026 and pinned by hash. It applies no Benjamini–Hochberg correction and is not on OSF; an earlier OSF plan (qsgy8) is scored beside it.
 **Why?** What happens if the November 2026 committee map falls within the neutral band?
-**Answer:** Then the confirmatory test returns a null result. If the new 91-seat committee map scores within the neutral ensemble band on all partisan-fairness metrics, the committee's map did not reproduce the partisan pattern found in the minority commission proposal. We would report that null result in full, in keeping with our commitment to report failures openly. It would not retroactively change the findings about the original minority proposal. It would indicate that the committee's process produced a different outcome.
+**Answer:** That is what the provisional scoring found: on the audit's reconstruction of the panel's map, 2 of 5 structural flags and 1 of 4 partisan flags, not a match on either half (`findings/a10_stepc/README.md`). In general, if the new 91-seat committee map scores within the neutral ensemble band on all partisan-fairness metrics, the committee's map did not reproduce the partisan pattern found in the minority commission proposal. We would report that null result in full, in keeping with our commitment to report failures openly. It would not retroactively change the findings about the original minority proposal. It would indicate that the committee's process produced a different outcome.
 
 ---
 
@@ -1535,7 +1541,7 @@ Jargon gets translated as we go: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The committee had to report the 91-seat map to the Assembly by November 2, 2026. The audit re-runs the same scripts on it within 72 hours of its first public release, as fully and faithfully as it did for the commission proposals.
+**Assertion:** The committee gave the 91-seat map to the Assembly on November 2, 2026. The audit scored its own reconstruction of that map provisionally, under scoring rules amended from November 2 to 7 (Amendments 7 to 13); the official shapefile has not been posted.
 **Why?** Why make a public commitment to re-run the analysis on the new map?
 **Answer:** For the same reason as every other methodological safeguard in this audit: to prevent the appearance, or the reality, of cherry-picking. If I analyzed only the commission maps and declined to analyze the committee map, a skeptic could argue the analysis was not symmetric, that it targeted the minority proposal specifically because it was expected to show findings. Run the same analysis on the November map, with the same thresholds and the same commitment to reporting null results, and the framework stops being an accusation. It becomes a repeatable test.
 

@@ -86,13 +86,13 @@ Data sources cited inline. Abbreviations: pass (P), fail (F), qualified pass (P*
 | Criterion | Pass/Fail | Underlying number | Source |
 |---|---|---|---|
 | (a) >20,000 km² OR surveyed >15,000 km² | **P** | >20,000 km²; commission describes "large geographic area with significant travel distances" | Commission report p. 248; p. 345 |
-| (b) >150 km from Legislature | **P** | Slave Lake town ~250 km NW of Edmonton; ED extends further into Big Lakes County and Opportunity MD | Commission report p. 248 |
+| (b) >150 km from Legislature | **F** on the audit's road model | Slave Lake town ~250 km NW of Edmonton, but the test is the distance to the district's nearest boundary by the most direct highway route. The audit's road model gives 134.1 km (113.1 km in a straight line), 16 km short, on both maps. The commission credits (b). | `findings/audit_2026-11-10/s15_distances.json`; Commission report p. 248 |
 | (c) no town >8,000 | **P** | Slave Lake town (~7,000), High Prairie (~2,600), Swan Hills (~1,300). None over 8,000 | Commission report p. 248 confirms criterion present |
 | (d) contains Indian reserve or Metis settlement | **P** | Multiple reserves (Driftpile Cree, Sucker Creek, Kapawe'no, Swan River, Sawridge) and Metis settlements (East Prairie, Gift Lake, Peavine); commission states "significant Indigenous population, including" multiple communities | Commission report pp. 40, 248, 345 |
 | (e) coterminous with Alberta boundary | **F** | Not coterminous with BC, SK, NWT, or US | Commission explicitly notes only four of five criteria pass on p. 248 |
-| **TOTAL** | **4/5** | — | — |
+| **TOTAL** | **3/5** on the audit's road model; the commission states 4/5 | — | — |
 
-**Verdict: PASS (4/5). Prior audit verdict: 3/5. UNCHANGED verdict; corrected count 4/5 rather than 3/5.** The commission itself (p. 248) states four criteria pass. **UNCHANGED verdict.**
+**Verdict: PASS (3/5 on the audit's road model; the commission itself, p. 248, states four criteria pass). UNCHANGED verdict:** three of five is enough.
 
 ### 3.3 Canmore-Banff (majority only; ED #54, pop 39,961, variance −27.2%)
 
@@ -121,7 +121,7 @@ Reasoning for the flip:
 | Criterion | Pass/Fail | Underlying number | Source |
 |---|---|---|---|
 | (a) >20,000 km² OR surveyed >15,000 km² | **P** | Clearwater County alone = 18,692 km² (Wikipedia, StatCan). Plus western Mountain View County (Sundre/Cremona area), Bighorn MD, W. Rocky View County, plus portions of Banff NP north of the Town of Banff. Total well over 20,000 km². | Wikipedia "Clearwater County, Alberta" — 18,691.65 km²; commission report p. 352 enumerates the territory |
-| (b) >150 km from Legislature | **P** | Rocky Mountain House town = 215 km by road from Edmonton; nearest boundary of the ED (NE corner of Clearwater County, near Rimbey, is ~145 km from Edmonton). The ED's nearest point may be ~145 km on a strict-highway measure, but most of the ED (and all of Clearwater County proper west of Rimbey) is >150 km. On a "nearest boundary" conservative reading this is **borderline** but the prevailing interpretation by the commission in analogous EDs treats this as a pass because the ED's *functional centre of gravity* and the bulk of its boundary are well beyond 150 km. **Qualified pass.** | Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin) |
+| (b) >150 km from Legislature | **P** | The audit's road model gives 165.2 km from the Legislature to the nearest road point inside the district as drawn (105.1 km in a straight line), so (b) is met. Rocky Mountain House town is about 215 km by road. Rimbey is not in this district: on both official maps the whole town is in Wetaskiwin-Ponoka-Maskwacis. The 165 km depends on local roads not counting as a "highway route". | `findings/audit_2026-11-10/s15_distances.json` |
 | (c) no town >8,000 | **P** | Rocky Mountain House (town) = 6,765 (2021 census). Sundre = 2,672. Banff townsite is **not** in this ED — the ED includes NP land *north* of the Town of Banff (commission report p. 352). No town inside exceeds 8,000. | StatCan 2021 Census — Rocky Mountain House, Town (6,765); Sundre, Town (2,672); commission p. 352 confirms Banff townsite is excluded |
 | (d) contains Indian reserve or Metis settlement | **P** | Commission names five reserves inside the ED: Big Horn 144A, O'Chiese 203, Stoney 142/143/144, Stoney 142B, Sunchild 202. | Commission report p. 352: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" |
 | (e) coterminous with Alberta boundary | **P** | ED extends through Banff NP to reach the BC border | Commission report p. 352 ("extending to the British Columbia provincial border in Banff National Park"); confirmed on the minority's Alberta overview map |
@@ -157,7 +157,7 @@ Same ED but hypothetically trimmed to exclude the Banff NP portion (i.e., approx
 
 ### 3.6 Central Peace-Notley (minority) and Lesser Slave Lake (minority)
 
-Both have boundaries essentially identical to the majority after minor rebalancing. Applied analysis from §3.1 and §3.2: verdicts are **5/5** (Central Peace-Notley) and **4/5** (Lesser Slave Lake), both PASS. **UNCHANGED.**
+Both have boundaries essentially identical to the majority after minor rebalancing. Applied analysis from §3.1 and §3.2: verdicts are **5/5** (Central Peace-Notley) and **3/5** on the audit's road model (Lesser Slave Lake; the commission states 4/5), both PASS. **UNCHANGED.**
 
 ---
 
@@ -166,10 +166,10 @@ Both have boundaries essentially identical to the majority after minor rebalanci
 | ED | Prior count | Prior verdict | Revised count | Revised verdict | Flag |
 |---|---|---|---|---|---|
 | Central Peace-Notley (majority) | 4/5 | Pass | 5/5 | Pass | UNCHANGED |
-| Lesser Slave Lake (majority) | 3/5 | Pass at minimum | 4/5 | Pass | UNCHANGED |
+| Lesser Slave Lake (majority) | 3/5 | Pass at minimum | 3/5 on the audit's road model ((b) not met at 134 km); commission states 4/5 | Pass | UNCHANGED |
 | **Canmore-Banff (majority)** | **1/5** | **Fails 3/5** | **3/5** | **Pass** | **CHANGE (FAIL→PASS)** |
 | Central Peace-Notley (minority) | 4/5 | Pass | 5/5 | Pass | UNCHANGED |
-| Lesser Slave Lake (minority) | 3/5 | Pass at minimum | 4/5 | Pass | UNCHANGED |
+| Lesser Slave Lake (minority) | 3/5 | Pass at minimum | 3/5 on the audit's road model ((b) not met at 134 km); commission states 4/5 | Pass | UNCHANGED |
 | **Rocky Mountain House-Banff Park (minority, as drawn)** | **2/5** | **Fails 3/5** | **5/5** | **Pass** | **CHANGE (FAIL→PASS)** |
 | Rocky Mountain House-Banff Park (minority, hypothetical no NP extension) | n/a | n/a | 4/5 | Pass | NEW — passes without NP extension |
 
@@ -319,7 +319,7 @@ The row that attributes ~+0.7 of a seat to the RMH-Banff Park §15(2) invocation
 
 ## 7. Open questions and uncertainty
 
-1. **Criterion (b) for RMH-Banff Park is borderline.** Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km. I did not run a per-boundary-point GIS computation. The conservative interpretation is that (b) *might* narrowly fail on a strict nearest-boundary-point reading, though the commission's own language on p. 352 does not identify (b) as at risk. If (b) fails, the corrected count becomes 4/5 (as drawn) / 3/5 (without NP extension) — still passing the 3-of-5 threshold in both cases. No verdict changes.
+1. **Criterion (b), by the audit's road model.** For Rocky Mountain House-Banff Park the model gives 165.2 km to the district as drawn, so (b) is met and the count is 5/5 as drawn. For Lesser Slave Lake it gives 134.1 km, so (b) is not met and the count is 3/5, against the commission's four (`findings/audit_2026-11-10/s15_distances.json`). Both districts still meet the 3-of-5 threshold. The figure is a model on a highways extract, not a surveyed route. The replacement table in the next section predates this check: its Lesser Slave Lake rows read 4 where the road model gives 3.
 
 2. **Criterion (a) for Canmore-Banff is uncertain.** The commission does not cite (a) in its rationale, implying it may be aware the ED falls below 20,000 km². I estimated 8,000–15,000 km². Even under (a) pass, the final count is 3/5; under (a) fail, still 3/5 via (b)+(d)+(e). No verdict change.
 
@@ -348,4 +348,4 @@ The row that attributes ~+0.7 of a seat to the RMH-Banff Park §15(2) invocation
   - Town of Sundre: 2,672 — `https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm?Lang=E&DGUIDlist=2021A00054806036`
 - Wikipedia, Clearwater County, Alberta — land area 18,691.65 km²: `https://en.wikipedia.org/wiki/Clearwater_County,_Alberta`
 - Wikipedia, Sunchild First Nation — reserve 52.18 km², ~60 km NW of Rocky Mountain House: `https://en.wikipedia.org/wiki/Sunchild_First_Nation`
-- Road distances (Rome2Rio, ViaMichelin): Edmonton to Rocky Mountain House 215 km; Edmonton to Canmore ~390 km; Edmonton to Rimbey ~143 km.
+- Road distances (Rome2Rio, ViaMichelin): Edmonton to Rocky Mountain House 215 km; Edmonton to Canmore ~390 km. Nearest-boundary distances: the audit's road model (`findings/audit_2026-11-10/s15_distances.json`).

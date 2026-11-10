@@ -1,3 +1,5 @@
+> **AI-generated review (persona prompt), not a human referee.** Produced by an AI tool on 2026-04-23 as an adversarial pass on the draft. The "Anonymous Referee", the stated experience and the target venues belong to the persona, not to a person. No journal submission was made and no human referee wrote this.
+
 > **Backward:**
 > - `reports/academic/report_academic.md` — the manuscript under review
 > - `analysis/scripts/mcmc_ensemble_100k.py`, `mcmc_ensemble.py` — code reviewer #1 inspected

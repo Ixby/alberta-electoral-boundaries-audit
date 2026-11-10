@@ -53,7 +53,7 @@ are genuinely separated in partisan-metric space.
 | Event | Detail |
 | --- | --- |
 | drand beacon infrastructure committed | 2026-04-27 09:49 (salt framework; predates shapefiles by 9 days) |
-| Official EA shapefiles received | 2026-05-06 09:51 (Raymond Mok, Elections Alberta) |
+| Official EA shapefiles received | 2026-05-06 09:51 (from Elections Alberta, on request) |
 | Canonical ensemble computed | 2026-05-06 to 2026-05-07 (250k steps, seed 1432864451) |
 | OSF yvc7g pre-registration filed | 2026-05-10 (before this test run) |
 | git ba0e686 committed | 2026-05-10 (test script + pre-registration record) |
