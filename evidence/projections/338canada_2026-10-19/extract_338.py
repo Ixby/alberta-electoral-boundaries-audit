@@ -4,6 +4,11 @@ Usage: python extract_338.py <dir with riding_urls.tsv and pages/<id>.html> <out
 riding_urls.tsv lines: url<TAB>riding id<TAB>riding name (taken from the autocomplete list on
 https://338canada.com/alberta/districts.htm). Each riding page is https://338canada.com/alberta/<id>e.htm.
 The projection block on each page reads: lower %, upper %, point %, "± n%", optional arrow, party.
+
+The pages are not in the repository (they are 338Canada's work), so this cannot be rerun from a
+clone as it stands. To rerun it, fetch each page in riding_urls.tsv into pages/<id>.html and check
+its SHA-256 against page_sha256.tsv first. 338Canada updates its pages in place, so only a copy
+archived on 2026-10-19 will match.
 """
 import csv, html, re, sys
 

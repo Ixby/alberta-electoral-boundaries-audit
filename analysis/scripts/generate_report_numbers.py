@@ -1,16 +1,17 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-Generate data/outputs/report_numbers.json — the single source of truth for
-every number referenced in reports/academic/report_academic.md and
-reports/public/report_public.md.
+Generate data/outputs/report_numbers.json, a table of report numbers drawn
+from the canonical output files.
 
 Run after any analysis script that updates the canonical output files:
   python analysis/scripts/generate_report_numbers.py
 
-The output file is committed to git as a reproducibility artefact.
-Reports reference numbers via {{R|key}} tokens, which the build scripts
-substitute at PDF-generation time (see build_academic_pdf.py).
+Status: the file has no consumer. build_academic_pdf.py can substitute
+{{R|key}} tokens from it, but neither reports/academic/report_academic.md nor
+reports/public/report_public.md contains any such token, so every number in
+the reports is typed by hand. About 30 of the keys below are literals, not
+values read from a file; they are not checked against the reports.
 
 Key sources read:
   data/outputs/simulation_real_map_scores_canonical.json  — raw map metrics
@@ -35,9 +36,8 @@ Backward:
   data/outputs/extended_partisan_metrics.json
 
 Forward:
-  data/outputs/report_numbers.json          — single source of truth for {{R|key}} tokens
-  reports/academic/report_academic.md       — consumes via {{R|key}} substitution
-  reports/public/report_public.md           — consumes via {{R|key}} substitution
+  data/outputs/report_numbers.json          — read by build_academic_pdf.py for {{R|key}} tokens
+                                              (none in either report today)
   analysis/scripts/build_academic_pdf.py    — substitutes tokens at PDF build
 """
 
@@ -115,6 +115,28 @@ def read_csv_percentiles(path: pathlib.Path) -> dict:
     return rows
 
 
+def neutral_seat_envelope(chain_dir: pathlib.Path) -> dict:
+    """Lowest, highest and median seats-at-a-tied-vote share across the
+    committed canonical chains, as report-number strings."""
+    files = sorted(pathlib.Path(chain_dir).glob("chain*_samples.csv"))
+    if not files:
+        print(f"WARNING: no chain files in {chain_dir} — using hardcoded envelope", file=sys.stderr)
+        return {"neutral_envelope_low": "37.93%", "neutral_envelope_high": "51.72%",
+                "neutral_median_seats": "44.83%"}
+    import numpy as np
+    import pandas as pd
+
+    s = np.concatenate([
+        pd.read_csv(f, usecols=["seats_at_50_50"], float_precision="round_trip")["seats_at_50_50"].to_numpy()
+        for f in files
+    ])
+    return {
+        "neutral_envelope_low": f"{100 * s.min():.2f}%",
+        "neutral_envelope_high": f"{100 * s.max():.2f}%",
+        "neutral_median_seats": f"{100 * float(np.median(s)):.2f}%",
+    }
+
+
 def main() -> None:
     N: dict[str, str | int | float] = {}
 
@@ -189,10 +211,10 @@ def main() -> None:
         print(f"WARNING: {pct_path} not found — using hardcoded fallbacks", file=sys.stderr)
         N["minority_seats_at_50_50_pct"] = "p99.99"
         N["minority_seats_at_50_50_ordinal"] = "99.99th"
-        N["majority_seats_at_50_50_pct"] = "p77.81"
-        N["majority_seats_at_50_50_ordinal"] = "77.8th"
-        N["minority_efficiency_gap_pct"] = "p94.39"
-        N["minority_mean_median_pct"] = "p99.98"
+        N["majority_seats_at_50_50_pct"] = "p78.54"
+        N["majority_seats_at_50_50_ordinal"] = "78.5th"
+        N["minority_efficiency_gap_pct"] = "p94.54"
+        N["minority_mean_median_pct"] = "p99.97"
         N["minority_declination_pct"] = "p98.79"
 
     # ── Convergence diagnostics ─────────────────────────────────────────────
@@ -274,7 +296,7 @@ def main() -> None:
         N["fisher_p_verbal"] = "retired (historical figure)"
         N["bonferroni_bound"] = "1.76×10⁻⁶"
         N["bonferroni_bound_raw"] = 1.76e-6
-        N["joint_headline_verbal"] = "about one in 568,182"
+        N["joint_headline_verbal"] = "about one in 570,000"
 
     # ── CSD / Municipal anchoring ───────────────────────────────────────────
     csd_path = ROOT / "data" / "outputs" / "csd_anchoring_results.json"
@@ -346,6 +368,8 @@ def main() -> None:
     N["drand_round"] = "6062459"
 
     # ── Calgary zone asymmetry ──────────────────────────────────────────────
+    # Key names say "nw"; the zone is north, east and central Calgary (Zone A),
+    # as the reports describe it. The names are kept so existing keys resolve.
     N["minority_nw_calgary_excess"] = "11.5%"
     N["majority_nw_calgary_excess"] = "2.8%"
     N["minority_calgary_zone_gap"] = "12.2 pp"
@@ -378,9 +402,11 @@ def main() -> None:
     # ── Targeted hill-climb ─────────────────────────────────────────────────
     N["hill_climb_ucp_max"] = "52.9%"
     N["hill_climb_ndp_max"] = "37.9%"
-    N["neutral_envelope_low"] = "~39%"
-    N["neutral_envelope_high"] = "50.57%"
-    N["neutral_median_seats"] = "44.8%"
+    # Neutral envelope of seats at a tied vote: read from the committed chains
+    # (min 33/87, max 45/87, median 39/87 on the 1,010,000-plan ensemble). The
+    # literals are the fallback if the chain files are absent; they equal the
+    # chain values (tests/test_published_numbers.py pins the maximum).
+    N.update(neutral_seat_envelope(ROOT / "data" / "simulation_checkpoints_canonical"))
 
     # ── Write output ────────────────────────────────────────────────────────
     OUT.write_text(json.dumps(N, indent=2, ensure_ascii=False), encoding="utf-8")

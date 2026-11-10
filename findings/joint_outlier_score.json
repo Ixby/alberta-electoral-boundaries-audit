@@ -7,21 +7,26 @@
   "channels_pending": 0,
   "channels_pending_note": "Formerly-pending structural channels resolved: municipal anchoring RETRACTED on canonical geometry (both maps within Canadian norm); population MAD and proxy Reock captured in canonical ensemble outputs with percentiles computed below.",
   "joint_headline": {
-    "method": "Bonferroni dependence-robust upper bound over the two examined channels",
-    "p_upper_bound": 1.76e-06,
-    "note": "Operative joint statistic since 2026-06-10: p <= 2 x min(Ch1, Ch2) = 2 x Ch1 (Ch1 is the binding term). Valid under arbitrary dependence between channels; replaces the retired Fisher combination (anti-conservative under positive dependence, Brown 1975 \u2014 the channels share the 2023 vote substrate)."
+    "method": "Parametric model estimate (chi-square(4) tail of the Mahalanobis distance), doubled as a conservative allowance",
+    "p_doubled_model_estimate": 1.7677501603733396e-06,
+    "one_in": 565691,
+    "p_upper_bound": 1.7677501603733396e-06,
+    "note": "2 x the Channel 1 model p. This is an estimate from one model on election-day ballots, not a bound: it lies beyond the largest sampled D2, where the chi-square shape cannot be checked. The doubling was set when two channels were examined; Channel 2 (SZAT) is retired, so the factor of two no longer corresponds to a family of two tests and is kept only as a conservative allowance. Under other defensible choices the doubled figure runs from about 1 in 20,000 to about 1 in 570,000 (findings/audit_2026-11-10/joint_sensitivity.json). Replaces the retired Fisher combination (anti-conservative under positive dependence, Brown 1975)."
   },
   "maps": {
     "minority": {
       "mahalanobis_distance": 5.7999,
       "joint_partisan_p": 8.8e-07,
       "joint_partisan_p_neff_adjusted": 1.11e-06,
+      "joint_partisan_p_unrounded": 8.838750801866698e-07,
+      "joint_partisan_p_neff_adjusted_unrounded": 1.1126740429390678e-06,
+      "joint_partisan_p_neff_adjusted_exact_factor": 1.100565641921957e-06,
       "neff_adjustment": {
         "n_eff_used": 1413,
         "f_stat": 8.3799,
         "df1": 4,
         "df2": 1409,
-        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+        "note": "Hotelling T\u00b2 correction for estimated covariance; n_eff = the smallest lag-capped estimate, itself an upper bound (about 1,000 uncapped; findings/audit_2026-11-10/ess_uncapped.json)"
       },
       "df": 4,
       "marginals": {
@@ -59,12 +64,15 @@
       "mahalanobis_distance": 2.7814,
       "joint_partisan_p": 0.1017266,
       "joint_partisan_p_neff_adjusted": 0.10347496,
+      "joint_partisan_p_unrounded": 0.10172660394725352,
+      "joint_partisan_p_neff_adjusted_unrounded": 0.10347496129633134,
+      "joint_partisan_p_neff_adjusted_exact_factor": 0.10325205963568825,
       "neff_adjustment": {
         "n_eff_used": 1413,
         "f_stat": 1.9273,
         "df1": 4,
         "df2": 1409,
-        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+        "note": "Hotelling T\u00b2 correction for estimated covariance; n_eff = the smallest lag-capped estimate, itself an upper bound (about 1,000 uncapped; findings/audit_2026-11-10/ess_uncapped.json)"
       },
       "df": 4,
       "marginals": {
@@ -102,12 +110,15 @@
       "mahalanobis_distance": 3.6283,
       "joint_partisan_p": 0.01049797,
       "joint_partisan_p_neff_adjusted": 0.01095386,
+      "joint_partisan_p_unrounded": 0.01049796655039232,
+      "joint_partisan_p_neff_adjusted_unrounded": 0.010953863661027815,
+      "joint_partisan_p_neff_adjusted_exact_factor": 0.010910195824738726,
       "neff_adjustment": {
         "n_eff_used": 1413,
         "f_stat": 3.2796,
         "df1": 4,
         "df2": 1409,
-        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+        "note": "Hotelling T\u00b2 correction for estimated covariance; n_eff = the smallest lag-capped estimate, itself an upper bound (about 1,000 uncapped; findings/audit_2026-11-10/ess_uncapped.json)"
       },
       "df": 4,
       "marginals": {
@@ -151,7 +162,7 @@
     "aspredicted": "289469"
   },
   "fisher_combined_minority": {
-    "_SUPERSEDED": "2026-06-10. Fisher assumed Ch1/Ch2 independence; the channels share the 2023 vote substrate and Fisher is anti-conservative under positive dependence (Brown 1975). Retained as historical record only \u2014 the operative joint statistic is joint_headline (Bonferroni upper bound).",
+    "_SUPERSEDED": "2026-06-10. Fisher assumed Ch1/Ch2 independence; the channels share the 2023 vote substrate and Fisher is anti-conservative under positive dependence (Brown 1975). Retained as historical record only \u2014 the operative joint statistic is joint_headline (the doubled model estimate).",
     "as_published_2026_06_10": {
       "p_channel_1": 1.4e-06,
       "p_channel_2": 0.0024,
@@ -166,11 +177,11 @@
     "p_channel_1": 8.8e-07,
     "p_channel_1_neff_adjusted": 1.11e-06,
     "p_channel_2": 0.0025,
-    "fisher_T": 39.8696,
+    "fisher_T": 39.8608,
     "fisher_df": 4,
     "combined_p": 5e-08,
     "combined_p_neff_adjusted": 6e-08,
-    "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1413, conservative lower bound). Both combined p-values reject the null at p < 1e-5."
+    "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1413, lag-capped; an upper bound). Both combined p-values reject the null at p < 1e-5."
   },
   "structural_pending": {
     "municipal_anchoring": {
@@ -218,10 +229,10 @@
     }
   },
   "caveats": [
-    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1413-1522 per metric.",
+    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); lag-capped n_eff 1413-1522 per metric; the cap binds on all four, so these are upper bounds. With no cap the pooled ESS is about 1,000 (900 to 1,300; findings/audit_2026-11-10/ess_uncapped.json).",
     "Declination column re-signed 2026-06-12 per the sign fix recorded in Amendment 5, Part 9 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
     "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
-    "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",
+    "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the doubled model estimate in joint_headline.",
     "Ch2 (SZAT) retired as a confirmatory channel 2026-06-13: block-permutation null returns p=0.1947 (findings/szat_block_permutation.md); the i.i.d.-flip p=0.0024 is exploratory context only.",
     "Mahalanobis assumes multivariate Gaussian ensemble distribution \u2014 informally verified.",
     "This score answers P(features | neutral), not P(gerrymandered | features)."

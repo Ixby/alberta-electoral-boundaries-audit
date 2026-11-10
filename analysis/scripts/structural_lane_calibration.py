@@ -212,6 +212,11 @@ def render(res):
         return f"{100 * x['rate']:.1f}% ({x['k']} of {x['n']}; 95% interval {100 * x['wilson95'][0]:.1f}–{100 * x['wilson95'][1]:.1f}%)"
     lines = ["| Measure | Neutral plans that fire |", "|---|---|"]
     for f, v in res["flag_rates"].items():
+        if f == "S4_polsby_popper_median":
+            # S4 is measured but its flag is hard-coded False (excluded from the
+            # count), so a rate here would not be a measured firing rate.
+            lines.append(f"| {f} | not a flag (measured, excluded from the count) |")
+            continue
         lines.append(f"| {f} | {r(v)} |")
     lines += ["", "| Lane | Neutral plans |", "|---|---|",
               f"| Structural lane replicated (registered battery; S6 cannot fire) | {r(res['structural_replicated_registered'])} |",

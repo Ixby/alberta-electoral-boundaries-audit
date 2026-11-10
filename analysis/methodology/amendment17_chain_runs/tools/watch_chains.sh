@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Emit: first progress line, every 50k-step milestone, FINISHED, ERROR, STALL (>15 min no log line), process-count changes.
-cd "/c/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit/data" || exit 1
+cd "$(dirname "$0")/../../../../data" || exit 1   # the repo's data/ folder
 declare -A mile fin errs stall
 while true; do
   now=$(date +%s)

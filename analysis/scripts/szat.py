@@ -372,6 +372,17 @@ def block_permutation_null(
     return boot_scores
 
 
+def centred_two_sided_p(boot_scores: np.ndarray, szat_score: float) -> tuple[float, int]:
+    """p for a test two-sided about the null's own centre: the share of draws
+    at least as far from the null mean as the observed score is, with the
+    (b+1)/(B+1) correction. Returns (p, b). Reported beside the registered p,
+    which is symmetric about zero and so one-tailed in effect."""
+    boot_scores = np.asarray(boot_scores, dtype=float)
+    centre = float(boot_scores.mean())
+    b = int(np.sum(np.abs(boot_scores - centre) >= abs(szat_score - centre)))
+    return float((b + 1) / (len(boot_scores) + 1)), b
+
+
 def run_permutation_test(
     swing_mask: np.ndarray,
     sw_maj_idx: np.ndarray,
@@ -443,7 +454,13 @@ def run_permutation_test(
             ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
             boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
 
-    # (b+1)/(B+1) finite-sample correction (T1.10 closure 2026-06-12)
+    # (b+1)/(B+1) finite-sample correction (T1.10 closure 2026-06-12).
+    # Tail: this counts draws with |score| >= |observed|, a region symmetric
+    # about ZERO. The null is not centred on zero: flipping swing areas at
+    # random gives a mean near half the observed score, and essentially no
+    # draw reaches -|observed|. So only the upper tail contributes and the
+    # figure is a one-tailed p in effect, whatever it is called. See
+    # centred_two_sided_p() for a test two-sided about the null's own centre.
     b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
     p_value = float((b_extreme + 1) / (n_boot + 1))
     ci_lo = float(np.percentile(boot_scores, 2.5))
@@ -726,7 +743,11 @@ def run() -> None:
     np.save(DATA / f"szat_bootstrap_eg_samples{suffix}.npy", boot_eg_raw)
     print(f"  Bootstrap EG samples saved: {len(boot_eg_raw)} draws")
 
-    print(f"  p-value (two-tailed):        {p_value:.4f} (b+1)/(B+1) on {b_extreme}/{n_boot}")
+    p_centred, b_centred = centred_two_sided_p(boot_scores, szat_score)
+    print(f"  p-value (|score| >= |observed|; one-tailed in effect): "
+          f"{p_value:.4f} (b+1)/(B+1) on {b_extreme}/{n_boot}")
+    print(f"  p-value (two-sided about the null mean {float(np.mean(boot_scores)):+.6f}): "
+          f"{p_centred:.4f} on {b_centred}/{n_boot}")
     print(f"  Null 95% interval:           [{ci_lo:+.6f}, {ci_hi:+.6f}]")
     print(f"  Observed SZAT score:         {szat_score:+.6f}")
     print(f"  Null type:                   {null_label}")
@@ -762,6 +783,12 @@ def run() -> None:
         "unresolved_count": unresolved,
         "bootstrap_p_value": round(p_value, 4),
         "bootstrap_p_estimator": "(b+1)/(B+1) per T1.10; raw exceedance ratio = bootstrap_b_extreme / bootstrap_n",
+        "bootstrap_p_tail": "counts draws with |score| >= |observed| (symmetric about zero); the null is "
+                            "centred near half the observed score, so only the upper tail is reachable: "
+                            "one-tailed in effect",
+        "bootstrap_null_mean": round(float(np.mean(boot_scores)), 6),
+        "bootstrap_p_two_sided_about_null_mean": round(p_centred, 4),
+        "bootstrap_b_two_sided_about_null_mean": b_centred,
         "bootstrap_b_extreme": b_extreme,
         "bootstrap_n": n_boot,
         "bootstrap_null_type": null_label,

@@ -24,7 +24,7 @@ Mahalanobis distance accounts for the correlation structure between these four m
 | Majority 2026 | 2.7814 | 1.02e-01 | 1.03e-01 |
 | 2019 Enacted  | 3.6283 | 1.05e-02 | 1.10e-02 |
 
-*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = 1413 — the conservative lower bound from convergence diagnostics. Both columns reject the null for the minority map.*
+*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = 1413, the effective sample size computed with a lag cap; uncapped it is about 1,000 (`findings/audit_2026-11-10/ess_uncapped.json`). Both columns reject the null for the minority map.*
 
 **Minority marginals:**
 

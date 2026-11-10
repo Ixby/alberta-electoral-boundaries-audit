@@ -129,7 +129,13 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     from lag 1 upward until the first non-positive autocorrelation (the Markov
     chain has "lost" reversible contribution after that lag).
 
-    Returns dict with n, tau, n_eff, max_lag_used, rho_lag_{1,10,100}.
+    The sum also stops at a lag cap: max_lag, default min(n // 4, 2000). When
+    the cap is reached while the autocorrelation is still positive, tau is
+    understated and n_eff is an upper bound; `cap_bound` is then True. For an
+    estimate with no cap use mcmc_ensemble.autocorrelation_ess(x, uncapped=True).
+
+    Returns dict with n, tau, n_eff, max_lag_used, lag_cap, cap_bound,
+    rho_lag_{1,10,100}.
     """
     x = np.asarray(x, dtype=float)
     x = x[~np.isnan(x)]
@@ -140,6 +146,8 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
             "tau": float("nan"),
             "n_eff": float("nan"),
             "max_lag_used": 0,
+            "lag_cap": 0,
+            "cap_bound": False,
             "rho_lag_1": float("nan"),
             "rho_lag_10": float("nan"),
             "rho_lag_100": float("nan"),
@@ -153,6 +161,8 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
             "tau": float("nan"),
             "n_eff": float("nan"),
             "max_lag_used": 0,
+            "lag_cap": 0,
+            "cap_bound": False,
             "rho_lag_1": float("nan"),
             "rho_lag_10": float("nan"),
             "rho_lag_100": float("nan"),
@@ -169,9 +179,11 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
 
     tau = 1.0
     used_lag = max_lag
+    cap_bound = True
     for k in range(1, max_lag + 1):
         if acf[k] <= 0:
             used_lag = k - 1
+            cap_bound = False
             break
         tau += 2.0 * acf[k]
 
@@ -181,6 +193,8 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
         "tau": float(tau),
         "n_eff": float(n_eff),
         "max_lag_used": int(used_lag),
+        "lag_cap": int(max_lag),
+        "cap_bound": bool(cap_bound),
         "rho_lag_1": float(acf[1]) if max_lag >= 1 else float("nan"),
         "rho_lag_10": float(acf[10]) if max_lag >= 10 else float("nan"),
         "rho_lag_100": float(acf[100]) if max_lag >= 100 else float("nan"),

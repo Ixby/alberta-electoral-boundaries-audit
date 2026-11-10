@@ -16,6 +16,10 @@ data/v0_1_targeted_burst*_trace.csv filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 data/outputs/simulated_ensemble_raw_samples_*.csv filter=lfs diff=lfs merge=lfs -text
 data/outputs/constraint_enforcing_*_samples.csv filter=lfs diff=lfs merge=lfs -text
+# The two 100k-step sample files were committed as plain git blobs (12 MB each),
+# not LFS pointers; exempt them so clones and `git lfs fsck --pointers` agree.
+data/outputs/constraint_enforcing_100k_samples.csv !filter !diff !merge
+data/outputs/constraint_enforcing_100k_minority_seed_samples.csv !filter !diff !merge
 # Evidence copies are kept byte-exact so their recorded SHA-256 hashes hold
 evidence/** -text
 evidence/legislature/iap_report_2026_hires.pdf filter=lfs diff=lfs merge=lfs -text

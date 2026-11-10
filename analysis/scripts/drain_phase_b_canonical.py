@@ -11,7 +11,24 @@ only the vote-attribution substrate changes:
   - votes per ED: score_map_by_spatial_join(va_gdf, ea_shp, EDName2025)
   - adjacency: build_adjacency on canonical EA polygons (600 m half-buffer)
   - N_PERMUTATIONS = 10_000
-  - Salt: 'drain-label-shuffle' (same as original; canonical-substrate recomputation)
+  - Salt: the SALT constant below, 'drain-label-shuffle-canonical-2026-06-11'.
+
+Seed. The committed findings/drain_label_shuffle_null_canonical.json was
+produced with --seed 460508741 (COMMITTED_OUTPUT_SEED; the JSON records it).
+The default seed is now the beacon-derived seed for SALT, which is a different
+number, so the default command does NOT reproduce the committed file. To
+reproduce it:
+
+    python analysis/scripts/drain_phase_b_canonical.py --seed 460508741
+
+p-values. p_two_tailed is 2 * min(rank, 1 - rank) with rank = b / B, which is
+0 when no permutation is as low as the observed score. p_two_tailed_plus_one
+uses (b + 1) / (B + 1) and is never 0; quote that one.
+
+Reading. Shuffling district vote totals across the map destroys the spatial
+clustering of the vote that every real map has. Every real map, the 2019 map
+included, therefore scores far below this null; a low score here describes the
+null's mismatch with real geography, not an anomaly in a particular map.
 
 Backward:
   analysis/scripts/drain_label_shuffle_null.py — original (stale-substrate)
@@ -129,6 +146,10 @@ def script_commit() -> str:
 
 
 def write_md(out_md: Path, payload: Dict) -> None:
+    # The (b+1)/(B+1) column is written only when the payload carries it; the
+    # committed JSON (seed 460508741) predates that field.
+    plus_one = all("p_two_tailed_plus_one" in payload["per_map"][m]
+                   for m in ("majority_2026", "minority_2026", "enacted_2019"))
     lines = [
         "---",
         "name: drain_label_shuffle_null_canonical",
@@ -165,22 +186,27 @@ def write_md(out_md: Path, payload: Dict) -> None:
         "## Substrate (this is the canonical version)",
         "",
         "- Shapefiles: `data/shapefiles/canonical/ea_majority_2026_eds.gpkg` + `ea_minority_2026_eds.gpkg` + 2019 enacted reference.",
-        "- VA vote layer: `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`, integer columns `va_ndp` / `va_ucp` (mirrors `mcmc_ensemble_canonical.py`).",
+        "- VA vote layer: `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`, election-day columns `va_ndp` / `va_ucp` (fractional where a station serves several voting areas).",
         "- Attribution: `representative_point()` centroid-in-polygon spatial join.",
         "- Adjacency: queen-contiguity via `neighbour_drain_adjacency.build_adjacency` (600 m half-buffer, K-nearest fallback for isolates).",
         "",
         "## Results",
         "",
-        "| Map | observed drain_score | null mean | null std | z-score | percentile rank | p (two-tailed) |",
-        "|---|---:|---:|---:|---:|---:|---:|",
+        "| Map | observed drain_score | null mean | null std | z-score | percentile rank | p (two-tailed) |"
+        + (" p, (b+1)/(B+1) |" if plus_one else ""),
+        "|---|---:|---:|---:|---:|---:|---:|" + ("---:|" if plus_one else ""),
     ]
     for m in ("majority_2026", "minority_2026", "enacted_2019"):
         r = payload["per_map"][m]
         lines.append(
             f"| {m} | {r['observed']:.6f} | {r['null_mean']:.6f} | {r['null_std']:.6f} | "
             f"{r['z']:.3f} | {r['percentile']:.2f}% | {r['p_two_tailed']:.4f} |"
+            + (f" {r['p_two_tailed_plus_one']:.4f} |" if plus_one else "")
         )
     lines += [
+        "",
+        "The label-shuffle null reassigns district vote totals across the map, which removes the spatial clustering of the vote that every real map has. All three maps, the 2019 map included, score far below it; a low score describes the null's mismatch with real geography, not an anomaly in one map. The p (two-tailed) column is computed without the +1 correction, so it can print 0.0000"
+        + ("; the last column uses (b+1)/(B+1)." if plus_one else "."),
         "",
         "## Pre-registered Prediction A revisited",
         "",
@@ -191,7 +217,7 @@ def write_md(out_md: Path, payload: Dict) -> None:
         "## Reproducibility",
         "",
         "```bash",
-        "python analysis/scripts/drain_phase_b_canonical.py",
+        f"python analysis/scripts/drain_phase_b_canonical.py --seed {payload['seed']}",
         "```",
         "",
         f"Script commit: `{payload['script_commit']}`",
@@ -200,23 +226,51 @@ def write_md(out_md: Path, payload: Dict) -> None:
     out_md.write_text("\n".join(lines), encoding="utf-8")
 
 
+# The seed the committed JSON was produced with (see module docstring).
+COMMITTED_OUTPUT_SEED = 460508741
+
+
+def two_tailed_p(null: np.ndarray, obs: float) -> Dict[str, float]:
+    """Rank of obs in the permutation null and two two-tailed p-values.
+
+    p_two_tailed          : 2 * min(r, 1 - r), r = b / B (b = draws <= obs).
+                            The figure this script has always written; it is
+                            0 when b = 0 or b = B.
+    p_two_tailed_plus_one : 2 * min((b + 1) / (B + 1), (B - b + 1) / (B + 1)),
+                            capped at 1. Counts the observed value as one of
+                            the draws, so it cannot be 0.
+    """
+    null = np.asarray(null, dtype=float)
+    B = len(null)
+    b = int((null <= obs).sum())
+    rank = b / B
+    low = (b + 1) / (B + 1)
+    high = (B - b + 1) / (B + 1)
+    return {
+        "rank": float(rank),
+        "p_two_tailed": float(2.0 * min(rank, 1.0 - rank)),
+        "p_two_tailed_plus_one": float(min(1.0, 2.0 * min(low, high))),
+    }
+
+
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--output-json", type=Path,
                     default=ROOT / "findings/drain_label_shuffle_null_canonical.json")
     ap.add_argument("--output-md", type=Path,
                     default=ROOT / "findings/drain_label_shuffle_null_canonical.md")
-    # Seed derived from the SALT constant via the canonical drand-anchored seed
-    # function (T1.15 D10 closed 2026-06-12 per T1.7 R2 Ref #15). Earlier draft
-    # used a hardcoded seed 460508741 that matched neither the docstring salt
-    # 'drain-label-shuffle' nor the SALT constant
-    # 'drain-label-shuffle-canonical-2026-06-11'.
+    # Default seed: derived from the SALT constant via the canonical
+    # drand-anchored seed function (T1.15 D10, 2026-06-12). The committed JSON
+    # predates that change and used COMMITTED_OUTPUT_SEED; pass
+    # --seed 460508741 to reproduce it.
     try:
         from drand_seed import get_canonical_seed
         _default_seed = get_canonical_seed(SALT)
     except Exception:
-        _default_seed = 460508741  # fallback — preserves round-1 behavior
-    ap.add_argument("--seed", type=int, default=_default_seed)
+        _default_seed = COMMITTED_OUTPUT_SEED
+    ap.add_argument("--seed", type=int, default=_default_seed,
+                    help=f"RNG seed. Default: the beacon-derived seed for SALT. "
+                         f"The committed output used {COMMITTED_OUTPUT_SEED}.")
     args = ap.parse_args(argv)
 
     print(f"Loading canonical VA layer …", flush=True)
@@ -235,8 +289,8 @@ def main(argv=None) -> int:
         mean = float(null.mean())
         std = float(null.std() or 1e-30)
         z = (obs - mean) / std
-        rank = float((null <= obs).sum() / N_PERMUTATIONS)
-        p_two = 2.0 * min(rank, 1.0 - rank)
+        pv = two_tailed_p(null, obs)
+        rank, p_two = pv["rank"], pv["p_two_tailed"]
         per_map[plan] = {
             "n_eds": len(votes),
             "n_directed_pairs": len(directed),
@@ -246,6 +300,7 @@ def main(argv=None) -> int:
             "z": float(z),
             "percentile": float(rank * 100.0),
             "p_two_tailed": float(p_two),
+            "p_two_tailed_plus_one": pv["p_two_tailed_plus_one"],
         }
         print(f"[{plan}] observed={obs:.6f} null_mean={mean:.6f} z={z:.3f} p_two={p_two:.4f}", flush=True)
 

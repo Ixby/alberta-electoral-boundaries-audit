@@ -7,13 +7,14 @@ Pipeline:
    boundary-line art showing where majority and minority 2026 proposals
    diverge. Orange for majority, blue for minority, grey dashed for the 2019
    baseline.
-2. Build the majority / minority / 2019 map variants and export the
-   map-explorer GeoJSON
-   (tests/test_map_explorer_geojson.py exercises these exports).
+2. Build the majority / minority / 2019 map variants. With
+   BUILD_COVER_WRITE_GEOJSON=1 it also writes docs/data/{va,ed}_<map>.geojson
+   (tests/test_map_explorer_geojson.py exercises that export). No site code
+   reads those files; the explorer reads mapdata/*.bin.
 
 Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_cover.py
-Output: maps/cover_art.png + cover_art_hires.svg, and the viewer mapdata
-        exports. (The merged report_public.pdf this script once assembled
+Output: data/maps/cover_art.png and the per-map SVGs (and, only with
+        BUILD_COVER_WRITE_GEOJSON=1, the docs/data GeoJSON). (The merged report_public.pdf this script once assembled
         was removed 2026-07-11 along with build_pdf.py — the public report
         is published as markdown only.)
 
@@ -36,6 +37,7 @@ except ImportError:
     import data_loader
 
 
+import os
 import subprocess
 import sys
 import tempfile
@@ -678,8 +680,17 @@ def build_cover_art(map_key: str = "minority") -> Path:
         print(f"[build_cover] Wrote screen-res art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
     plt.close(fig)
 
-    # Interactive-explorer data (replaces the 37 MB hi-res SVG).
-    _export_map_geojson(map_key, eds, name_col, va_render, _va_ed_map)
+    # GeoJSON export to docs/data/. No site code reads these files any more:
+    # the explorer reads mapdata/*.bin (build_explorer_tiles.py), and the
+    # committed docs/data/*.geojson date from 2026-06-18, so a default run
+    # would rewrite about 87 MB of tracked, unused files with different
+    # content. They are written only when BUILD_COVER_WRITE_GEOJSON=1.
+    # (docs/data/map_meta.json, which build_explorer_tiles.py does read, is
+    # read here and is never rewritten once it exists.)
+    if os.environ.get("BUILD_COVER_WRITE_GEOJSON") == "1":
+        _export_map_geojson(map_key, eds, name_col, va_render, _va_ed_map)
+    else:
+        print(f"[build_cover] [{map_key}] GeoJSON export skipped (set BUILD_COVER_WRITE_GEOJSON=1 to write docs/data/)")
 
     return COVER_ART_PNG
 

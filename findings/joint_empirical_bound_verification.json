@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-12",
+  "date": "2026-11-10",
   "ensemble": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
   "n_plans": 1010000,
   "ensemble_max_d2": 28.4307,
@@ -9,6 +9,7 @@
       "d": 5.7999,
       "plans_at_or_beyond": 0,
       "empirical_tail_fraction": 0.0,
+      "parametric_chi2_4_p": 8.838750801866703e-07,
       "naive_bound_b1_B1_assumes_exchangeability": 9.901e-07,
       "dependence_honest_empirical_bound": 0.000686
     },
@@ -17,6 +18,7 @@
       "d": 2.7814,
       "plans_at_or_beyond": 102111,
       "empirical_tail_fraction": 0.1011,
+      "parametric_chi2_4_p": 0.10172660394725352,
       "naive_bound_b1_B1_assumes_exchangeability": 0.10110089
     },
     "enacted": {
@@ -24,6 +26,7 @@
       "d": 3.6283,
       "plans_at_or_beyond": 12370,
       "empirical_tail_fraction": 0.01224752,
+      "parametric_chi2_4_p": 0.010497966550392323,
       "naive_bound_b1_B1_assumes_exchangeability": 0.0122485027
     }
   },
@@ -31,19 +34,23 @@
     "per_chain": {
       "0": {
         "tau": 214.0,
-        "n_eff": 1180.0
+        "n_eff": 1180.0,
+        "lag_cap_bound": false
       },
       "1": {
         "tau": 251.4,
-        "n_eff": 1004.6
+        "n_eff": 1004.6,
+        "lag_cap_bound": false
       },
       "2": {
         "tau": 245.2,
-        "n_eff": 1029.9
+        "n_eff": 1029.9,
+        "lag_cap_bound": false
       },
       "3": {
         "tau": 218.1,
-        "n_eff": 1157.8
+        "n_eff": 1157.8,
+        "lag_cap_bound": false
       }
     },
     "n_eff_pooled": 4372.3,
@@ -56,8 +63,8 @@
     "seats_at_50_50": 1.00149
   },
   "notes": [
-    "DEPENDENCE-HONESTY CORRECTION (2026-07-11): the (b+1)/(B+1) figure assumes exchangeability; MCMC samples are autocorrelated, so the scan carries only n_eff effective samples (see joint_d2_ess). Zero exceedances honestly supports an empirical bound of ~3/n_eff (rule of three), NOT 9.90e-07. The sub-1e-06 headline rests on the parametric chi-squared(4) model (1.40e-06), stated as such. The 2026-07-08 version of this file called the naive figure 'assumption-free'; that description was wrong and is retracted.",
-    "The scan's Gaussianity-free contributions: (a) no sampled plan reaches the minority's D2; (b) in the observable region the parametric model tracks the empirical tail (majority 0.0971 parametric vs 0.0982 empirical; enacted 0.0126 vs 0.0156), supporting the chi-squared(4) extrapolation.",
+    "The (b+1)/(B+1) figure (9.90e-07) assumes exchangeability; MCMC samples are autocorrelated, so the scan carries only n_eff = 4,372 effective samples (see joint_d2_ess). Zero exceedances supports an empirical bound of about 3/n_eff = 6.86e-04 (rule of three), not 9.90e-07. The sub-1e-06 headline rests on the parametric chi-squared(4) model (8.84e-07), stated as such.",
+    "What the scan shows without assuming Gaussianity: (a) 0 sampled plans reach the minority's D2; (b) at the two other maps' D2 the parametric model and the empirical tail are close (majority 0.1017 parametric vs 0.1011 empirical; enacted 0.0105 vs 0.0122). Two points do not validate the model at the minority's D2: between D2 16 and 24 the sample holds 1.6 to 3.0 times as many plans as the model predicts (findings/audit_2026-11-10/joint_sensitivity.json).",
     "R-hat here is on the full 1,010,000-plan run; the s58a6-B table (2026-05-10) was computed at the run's 250,000-plan state."
   ]
 }
