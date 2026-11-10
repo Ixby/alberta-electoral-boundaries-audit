@@ -109,7 +109,7 @@ export async function markIntroSeen(): Promise<void> {
 // Stored as `<timestamp-ms>~<serialized URL query>` (see share.ts serializeState).
 // The map explorer's resume view is deliberately short-lived: it expires 10
 // minutes after it was written, so reopening the explorer later starts fresh
-// rather than restoring a stale view. (The cookie itself still lives a week for
+// rather than restoring a stale view. (The cookie itself still lives a year for
 // the app-wide prefs — theme, language, intro.)
 const LAST_VIEW_TTL_MS = 10 * 60 * 1000; // 10 minutes
 export async function getLastCode(): Promise<string | null> {

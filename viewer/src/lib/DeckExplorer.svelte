@@ -2742,6 +2742,11 @@
 		-webkit-backdrop-filter: blur(7px);
 		backdrop-filter: blur(7px);
 		box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+		/* Never wider than the screen: scroll sideways inside the bar instead
+		   of pushing its first button off the edge. */
+		box-sizing: border-box;
+		max-width: 100%;
+		overflow-x: auto;
 	}
 	.msw-m .seg {
 		display: flex;
