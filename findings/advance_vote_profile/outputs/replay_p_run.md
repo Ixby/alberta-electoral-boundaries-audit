@@ -36,6 +36,8 @@ Every job exited with code 0. The chain CSVs are not committed because they are 
 
 **Forest-ReCom fails.** In each chain, `population_mad` differs from the original in 391–451 of 25,000 rows. The largest absolute difference is 9.1×10⁻¹³ and the largest relative difference is 2.5×10⁻¹⁶. Every other compared column matches. Under Amendment 13, Part 2 a failing chain is reported and dropped. Its cause is not assigned here, and the chains were not rerun. `ensemble_ranks_p.json` therefore gives no Forest-ReCom percentile.
 
+*Observation, not a cause (added 2026-11-10 13:16 Alberta time · claude-opus-5-5 · high, from settings):* every differing `population_mad` value is within 2 units in the last place of a double (values 1,801 to 5,647; differences at most 9.1×10⁻¹³). `step`, `reock_proxy_median` and `reock_proxy_pct_below_030` are equal in every row of all four chains. That pattern fits the same plans with different floating-point rounding. A different plan would move a district population by whole people, and so would move the mean deviation by far more than 10⁻¹². The chains stay dropped under Amendment 13.
+
 ## Efficiency gap under rule P (`ensemble_ranks_p.json`)
 
 Each value is the percentile of the real map's rule-P efficiency gap among the replayed chains that passed. Higher means more UCP-favouring.
