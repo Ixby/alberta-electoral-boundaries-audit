@@ -13,12 +13,9 @@ reproduces Amendment 12's all-ballots midpoint (0.0019398) from the M0 file.
 
 Writes outputs/thresholds_p.json. Run from the repository root:
   python -I findings/advance_vote_profile/11_thresholds_p.py
-Needs STAMP_MODEL and STAMP_EFFORT in the environment when _common.stamp() reads them; otherwise the
-stamp below is used.
+Needs STAMP_MODEL and STAMP_EFFORT in the environment (read by _common.stamp()).
 """
-import datetime
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -26,13 +23,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import numpy as np
 import pandas as pd
 
-import _common
 from _common import OUT, ROOT, VA_M0, VA_P, rel, write_json
 
-if not (os.environ.get("STAMP_MODEL") and os.environ.get("STAMP_EFFORT")):
-    raise SystemExit("set STAMP_MODEL and STAMP_EFFORT")
-_common.stamp = lambda: (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-6))).strftime("%Y-%m-%d %H:%M")
-                         + f" Alberta time · {os.environ['STAMP_MODEL']} · {os.environ['STAMP_EFFORT']}")
 
 STATS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 CHECK = OUT / "replay_check_p.json"
