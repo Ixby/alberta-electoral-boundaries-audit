@@ -1,0 +1,403 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "what": "UCP-NDP seats on 2023 votes, five maps, two sets of ballots, plus seats at a tied province-wide vote",
+  "caveats": [
+    "The panel's map and the para-167 map are the audit's reconstructions from the panel's report, not official boundary files.",
+    "All-ballots votes use the registered Amendment 12 allocation: ballots not cast on election day are spread over a 2019 division's voting areas with one weight for every party. Other defensible spreads move some all-ballots counts by one or two seats (audit finding vote-substrate-1).",
+    "Election-day votes use the audit's equal split of a polling station's votes across the voting areas it serves.",
+    "Seats are two-party (UCP against NDP); no third party or independent leads in any district on these files."
+  ],
+  "inputs": {
+    "votes": {
+      "election_day": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+      "all_ballots": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg"
+    },
+    "assignments": {
+      "map_2019": "parent_ed_2019 (Elections Alberta coding)",
+      "majority_2026": "data/shapefiles/canonical/ea_majority_2026_eds.gpkg : EDName2025, by representative point",
+      "minority_2026": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg : EDName2025, by representative point",
+      "panel": "findings/a10_stepb_run/va_assignment_real_map.csv : district",
+      "para167": "findings/iap_para167/va_assignment.csv : district"
+    }
+  },
+  "checks": {
+    "election_day": {
+      "voting_areas": 4765,
+      "province_ucp": 514712.0,
+      "province_ndp": 381932.0,
+      "province_other": 35520.0,
+      "province_all_parties": 932164.0,
+      "centroid_table_cross_check": {
+        "majority_2026": {
+          "voting_areas_assigned_differently": 12,
+          "ucp_seats": 55,
+          "ndp_seats": 34,
+          "ucp_seats_at_tied_vote": 41.0
+        },
+        "minority_2026": {
+          "voting_areas_assigned_differently": 20,
+          "ucp_seats": 60,
+          "ndp_seats": 29,
+          "ucp_seats_at_tied_vote": 46.0
+        }
+      }
+    },
+    "all_ballots": {
+      "voting_areas": 4765,
+      "province_ucp": 928900.0,
+      "province_ndp": 777404.0,
+      "province_other": 58611.0,
+      "province_all_parties": 1764915.0,
+      "centroid_table_cross_check": {
+        "majority_2026": {
+          "voting_areas_assigned_differently": 12,
+          "ucp_seats": 48,
+          "ndp_seats": 41,
+          "ucp_seats_at_tied_vote": 42.0
+        },
+        "minority_2026": {
+          "voting_areas_assigned_differently": 20,
+          "ucp_seats": 55,
+          "ndp_seats": 34,
+          "ucp_seats_at_tied_vote": 46.0
+        }
+      }
+    }
+  },
+  "table": {
+    "election_day": {
+      "map_2019": {
+        "n_districts": 87,
+        "ucp_seats": 57,
+        "ndp_seats": 30,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 57.4043,
+        "ucp_seats_at_tied_vote": 40.0,
+        "ndp_seats_at_tied_vote": 47.0,
+        "ucp_seat_share_at_tied_vote_pct": 45.98,
+        "majority_line": 44,
+        "two_thirds_line": 58,
+        "label": "2019 map",
+        "closest_three_districts": [
+          {
+            "district": "Sherwood Park",
+            "winner": "NDP",
+            "margin_votes": 37.0,
+            "margin_two_party_pts": 0.29
+          },
+          {
+            "district": "Calgary-Edgemont",
+            "winner": "UCP",
+            "margin_votes": 64.0,
+            "margin_two_party_pts": 0.67
+          },
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 76.0,
+            "margin_two_party_pts": 0.68
+          }
+        ]
+      },
+      "majority_2026": {
+        "n_districts": 89,
+        "ucp_seats": 55,
+        "ndp_seats": 34,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 57.4043,
+        "ucp_seats_at_tied_vote": 41.0,
+        "ndp_seats_at_tied_vote": 48.0,
+        "ucp_seat_share_at_tied_vote_pct": 46.07,
+        "majority_line": 45,
+        "two_thirds_line": 60,
+        "label": "Commission majority",
+        "closest_three_districts": [
+          {
+            "district": "Sherwood Park",
+            "winner": "NDP",
+            "margin_votes": 37.0,
+            "margin_two_party_pts": 0.29
+          },
+          {
+            "district": "Calgary-Symons Valley",
+            "winner": "UCP",
+            "margin_votes": 58.0,
+            "margin_two_party_pts": 0.81
+          },
+          {
+            "district": "Calgary-Edgemont",
+            "winner": "UCP",
+            "margin_votes": 102.2,
+            "margin_two_party_pts": 1.0
+          }
+        ]
+      },
+      "minority_2026": {
+        "n_districts": 89,
+        "ucp_seats": 60,
+        "ndp_seats": 29,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 57.4043,
+        "ucp_seats_at_tied_vote": 46.0,
+        "ndp_seats_at_tied_vote": 43.0,
+        "ucp_seat_share_at_tied_vote_pct": 51.69,
+        "majority_line": 45,
+        "two_thirds_line": 60,
+        "label": "Commission minority",
+        "closest_three_districts": [
+          {
+            "district": "Sherwood Park",
+            "winner": "UCP",
+            "margin_votes": 19.5,
+            "margin_two_party_pts": 0.14
+          },
+          {
+            "district": "Edmonton-Beaumont",
+            "winner": "UCP",
+            "margin_votes": 109.3,
+            "margin_two_party_pts": 1.49
+          },
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 151.4,
+            "margin_two_party_pts": 1.33
+          }
+        ]
+      },
+      "panel": {
+        "n_districts": 91,
+        "ucp_seats": 58,
+        "ndp_seats": 33,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 57.4043,
+        "ucp_seats_at_tied_vote": 44.0,
+        "ndp_seats_at_tied_vote": 47.0,
+        "ucp_seat_share_at_tied_vote_pct": 48.35,
+        "majority_line": 46,
+        "two_thirds_line": 61,
+        "label": "Panel's map (reconstruction)",
+        "closest_three_districts": [
+          {
+            "district": "Sherwood Park",
+            "winner": "NDP",
+            "margin_votes": 37.0,
+            "margin_two_party_pts": 0.29
+          },
+          {
+            "district": "Calgary-Symons Valley",
+            "winner": "UCP",
+            "margin_votes": 58.0,
+            "margin_two_party_pts": 0.81
+          },
+          {
+            "district": "Calgary-Edgemont",
+            "winner": "UCP",
+            "margin_votes": 102.2,
+            "margin_two_party_pts": 1.0
+          }
+        ]
+      },
+      "para167": {
+        "n_districts": 91,
+        "ucp_seats": 56,
+        "ndp_seats": 35,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 57.4043,
+        "ucp_seats_at_tied_vote": 43.0,
+        "ndp_seats_at_tied_vote": 48.0,
+        "ucp_seat_share_at_tied_vote_pct": 47.25,
+        "majority_line": 46,
+        "two_thirds_line": 61,
+        "label": "Para. 167 map (reconstruction)",
+        "closest_three_districts": [
+          {
+            "district": "Sherwood Park",
+            "winner": "NDP",
+            "margin_votes": 37.0,
+            "margin_two_party_pts": 0.29
+          },
+          {
+            "district": "Calgary-Symons Valley",
+            "winner": "UCP",
+            "margin_votes": 58.0,
+            "margin_two_party_pts": 0.81
+          },
+          {
+            "district": "Calgary-Edgemont",
+            "winner": "UCP",
+            "margin_votes": 102.2,
+            "margin_two_party_pts": 1.0
+          }
+        ]
+      }
+    },
+    "all_ballots": {
+      "map_2019": {
+        "n_districts": 87,
+        "ucp_seats": 49,
+        "ndp_seats": 38,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 54.4393,
+        "ucp_seats_at_tied_vote": 41.0,
+        "ndp_seats_at_tied_vote": 46.0,
+        "ucp_seat_share_at_tied_vote_pct": 47.13,
+        "majority_line": 44,
+        "two_thirds_line": 58,
+        "label": "2019 map",
+        "closest_three_districts": [
+          {
+            "district": "Calgary-Acadia",
+            "winner": "NDP",
+            "margin_votes": 22.0,
+            "margin_two_party_pts": 0.1
+          },
+          {
+            "district": "Calgary-Glenmore",
+            "winner": "NDP",
+            "margin_votes": 48.0,
+            "margin_two_party_pts": 0.19
+          },
+          {
+            "district": "Calgary-North",
+            "winner": "UCP",
+            "margin_votes": 129.0,
+            "margin_two_party_pts": 0.82
+          }
+        ]
+      },
+      "majority_2026": {
+        "n_districts": 89,
+        "ucp_seats": 48,
+        "ndp_seats": 41,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 54.4393,
+        "ucp_seats_at_tied_vote": 42.0,
+        "ndp_seats_at_tied_vote": 47.0,
+        "ucp_seat_share_at_tied_vote_pct": 47.19,
+        "majority_line": 45,
+        "two_thirds_line": 60,
+        "label": "Commission majority",
+        "closest_three_districts": [
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 9.7,
+            "margin_two_party_pts": 0.04
+          },
+          {
+            "district": "Calgary-North",
+            "winner": "UCP",
+            "margin_votes": 117.0,
+            "margin_two_party_pts": 0.71
+          },
+          {
+            "district": "Calgary-North West",
+            "winner": "UCP",
+            "margin_votes": 143.0,
+            "margin_two_party_pts": 0.6
+          }
+        ]
+      },
+      "minority_2026": {
+        "n_districts": 89,
+        "ucp_seats": 55,
+        "ndp_seats": 34,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 54.4393,
+        "ucp_seats_at_tied_vote": 46.0,
+        "ndp_seats_at_tied_vote": 43.0,
+        "ucp_seat_share_at_tied_vote_pct": 51.69,
+        "majority_line": 45,
+        "two_thirds_line": 60,
+        "label": "Commission minority",
+        "closest_three_districts": [
+          {
+            "district": "Calgary-Edgemont",
+            "winner": "NDP",
+            "margin_votes": 3.6,
+            "margin_two_party_pts": 0.01
+          },
+          {
+            "district": "Calgary-Glenmore",
+            "winner": "NDP",
+            "margin_votes": 23.6,
+            "margin_two_party_pts": 0.09
+          },
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 27.2,
+            "margin_two_party_pts": 0.12
+          }
+        ]
+      },
+      "panel": {
+        "n_districts": 91,
+        "ucp_seats": 51,
+        "ndp_seats": 40,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 54.4393,
+        "ucp_seats_at_tied_vote": 45.0,
+        "ndp_seats_at_tied_vote": 46.0,
+        "ucp_seat_share_at_tied_vote_pct": 49.45,
+        "majority_line": 46,
+        "two_thirds_line": 61,
+        "label": "Panel's map (reconstruction)",
+        "closest_three_districts": [
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 9.7,
+            "margin_two_party_pts": 0.04
+          },
+          {
+            "district": "Calgary-North",
+            "winner": "UCP",
+            "margin_votes": 117.0,
+            "margin_two_party_pts": 0.71
+          },
+          {
+            "district": "Banff-Canmore-Diamond Valley",
+            "winner": "UCP",
+            "margin_votes": 228.6,
+            "margin_two_party_pts": 1.32
+          }
+        ]
+      },
+      "para167": {
+        "n_districts": 91,
+        "ucp_seats": 50,
+        "ndp_seats": 41,
+        "exact_ties": 0,
+        "ucp_two_party_share_pct": 54.4393,
+        "ucp_seats_at_tied_vote": 44.0,
+        "ndp_seats_at_tied_vote": 47.0,
+        "ucp_seat_share_at_tied_vote_pct": 48.35,
+        "majority_line": 46,
+        "two_thirds_line": 61,
+        "label": "Para. 167 map (reconstruction)",
+        "closest_three_districts": [
+          {
+            "district": "Calgary-Acadia",
+            "winner": "UCP",
+            "margin_votes": 9.7,
+            "margin_two_party_pts": 0.04
+          },
+          {
+            "district": "Calgary-North",
+            "winner": "UCP",
+            "margin_votes": 117.0,
+            "margin_two_party_pts": 0.71
+          },
+          {
+            "district": "Calgary-North West",
+            "winner": "UCP",
+            "margin_votes": 143.0,
+            "margin_two_party_pts": 0.6
+          }
+        ]
+      }
+    }
+  }
+}

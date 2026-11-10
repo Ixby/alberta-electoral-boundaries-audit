@@ -1,0 +1,1132 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "ballots": "election-day ballots (the canonical ensemble)",
+  "n_plans": 1010000,
+  "n_chains": 4,
+  "lag_cap_in_pipeline": 2000,
+  "floor_used_by_reports": 1000,
+  "metrics": {
+    "efficiency_gap": {
+      "published_pooled_ess": 1522.5,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 663.39,
+          "ess": 1522.5,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0668
+        },
+        "uncapped": {
+          "tau": 973.72,
+          "ess": 1037.3,
+          "last_lag": 5763
+        },
+        "geyer_initial_positive": {
+          "tau": 973.72,
+          "ess": 1037.3,
+          "last_lag": 5763
+        },
+        "geyer_initial_monotone": {
+          "tau": 927.94,
+          "ess": 1088.4
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 558.35,
+            "ess": 452.2,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0219
+          },
+          "uncapped": {
+            "tau": 808.64,
+            "ess": 312.3,
+            "last_lag": 4837
+          },
+          "geyer_initial_positive": {
+            "tau": 808.64,
+            "ess": 312.3,
+            "last_lag": 4837
+          },
+          "geyer_initial_monotone": {
+            "tau": 578.77,
+            "ess": 436.3
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 671.55,
+            "ess": 376.0,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0959
+          },
+          "uncapped": {
+            "tau": 1033.63,
+            "ess": 244.3,
+            "last_lag": 5707
+          },
+          "geyer_initial_positive": {
+            "tau": 1033.63,
+            "ess": 244.3,
+            "last_lag": 5707
+          },
+          "geyer_initial_monotone": {
+            "tau": 919.87,
+            "ess": 274.5
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 608.06,
+            "ess": 415.3,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0704
+          },
+          "uncapped": {
+            "tau": 835.11,
+            "ess": 302.4,
+            "last_lag": 4259
+          },
+          "geyer_initial_positive": {
+            "tau": 835.11,
+            "ess": 302.4,
+            "last_lag": 4259
+          },
+          "geyer_initial_monotone": {
+            "tau": 722.36,
+            "ess": 349.5
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 807.48,
+            "ess": 312.7,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0757
+          },
+          "uncapped": {
+            "tau": 1218.46,
+            "ess": 207.2,
+            "last_lag": 7283
+          },
+          "geyer_initial_positive": {
+            "tau": 1218.46,
+            "ess": 207.2,
+            "last_lag": 7283
+          },
+          "geyer_initial_monotone": {
+            "tau": 1025.26,
+            "ess": 246.3
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 1556.2,
+        "uncapped": 1066.2,
+        "geyer_initial_positive": 1066.2,
+        "geyer_initial_monotone": 1306.6
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 955.98,
+          "ess": 1056.5,
+          "last_lag": 5765
+        },
+        "geyer_initial_monotone": {
+          "tau": 912.38,
+          "ess": 1107.0
+        },
+        "rhat_classic": 1.00011
+      },
+      "largest_per_chain_tau_uncapped": 1218.46
+    },
+    "mean_median": {
+      "published_pooled_ess": 1447.7,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 697.68,
+          "ess": 1447.7,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0499
+        },
+        "uncapped": {
+          "tau": 807.87,
+          "ess": 1250.2,
+          "last_lag": 3791
+        },
+        "geyer_initial_positive": {
+          "tau": 807.87,
+          "ess": 1250.2,
+          "last_lag": 3791
+        },
+        "geyer_initial_monotone": {
+          "tau": 795.42,
+          "ess": 1269.8
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 718.0,
+            "ess": 351.7,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0724
+          },
+          "uncapped": {
+            "tau": 803.89,
+            "ess": 314.1,
+            "last_lag": 3240
+          },
+          "geyer_initial_positive": {
+            "tau": 803.89,
+            "ess": 314.1,
+            "last_lag": 3239
+          },
+          "geyer_initial_monotone": {
+            "tau": 789.29,
+            "ess": 319.9
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 670.14,
+            "ess": 376.8,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0272
+          },
+          "uncapped": {
+            "tau": 787.47,
+            "ess": 320.6,
+            "last_lag": 3541
+          },
+          "geyer_initial_positive": {
+            "tau": 787.47,
+            "ess": 320.6,
+            "last_lag": 3541
+          },
+          "geyer_initial_monotone": {
+            "tau": 740.47,
+            "ess": 341.0
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 653.52,
+            "ess": 386.4,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0344
+          },
+          "uncapped": {
+            "tau": 659.12,
+            "ess": 383.1,
+            "last_lag": 2149
+          },
+          "geyer_initial_positive": {
+            "tau": 659.12,
+            "ess": 383.1,
+            "last_lag": 2149
+          },
+          "geyer_initial_monotone": {
+            "tau": 650.21,
+            "ess": 388.3
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 710.62,
+            "ess": 355.3,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.053
+          },
+          "uncapped": {
+            "tau": 894.67,
+            "ess": 282.2,
+            "last_lag": 3843
+          },
+          "geyer_initial_positive": {
+            "tau": 894.67,
+            "ess": 282.2,
+            "last_lag": 3843
+          },
+          "geyer_initial_monotone": {
+            "tau": 844.45,
+            "ess": 299.0
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 1470.2,
+        "uncapped": 1300.0,
+        "geyer_initial_positive": 1300.0,
+        "geyer_initial_monotone": 1348.2
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 816.14,
+          "ess": 1237.5,
+          "last_lag": 3889
+        },
+        "geyer_initial_monotone": {
+          "tau": 804.43,
+          "ess": 1255.5
+        },
+        "rhat_classic": 1.00205
+      },
+      "largest_per_chain_tau_uncapped": 894.67
+    },
+    "declination": {
+      "published_pooled_ess": 1512.8,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 667.64,
+          "ess": 1512.8,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0689
+        },
+        "uncapped": {
+          "tau": 972.12,
+          "ess": 1039.0,
+          "last_lag": 5773
+        },
+        "geyer_initial_positive": {
+          "tau": 972.12,
+          "ess": 1039.0,
+          "last_lag": 5773
+        },
+        "geyer_initial_monotone": {
+          "tau": 923.16,
+          "ess": 1094.1
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 556.38,
+            "ess": 453.8,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0249
+          },
+          "uncapped": {
+            "tau": 795.41,
+            "ess": 317.4,
+            "last_lag": 4839
+          },
+          "geyer_initial_positive": {
+            "tau": 795.41,
+            "ess": 317.4,
+            "last_lag": 4839
+          },
+          "geyer_initial_monotone": {
+            "tau": 572.67,
+            "ess": 440.9
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 704.73,
+            "ess": 358.3,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.1003
+          },
+          "uncapped": {
+            "tau": 1093.54,
+            "ess": 230.9,
+            "last_lag": 5712
+          },
+          "geyer_initial_positive": {
+            "tau": 1093.54,
+            "ess": 230.9,
+            "last_lag": 5711
+          },
+          "geyer_initial_monotone": {
+            "tau": 994.61,
+            "ess": 253.9
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 556.27,
+            "ess": 453.9,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0617
+          },
+          "uncapped": {
+            "tau": 733.07,
+            "ess": 344.4,
+            "last_lag": 4161
+          },
+          "geyer_initial_positive": {
+            "tau": 733.07,
+            "ess": 344.4,
+            "last_lag": 4161
+          },
+          "geyer_initial_monotone": {
+            "tau": 634.0,
+            "ess": 398.3
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 839.04,
+            "ess": 300.9,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0842
+          },
+          "uncapped": {
+            "tau": 1324.88,
+            "ess": 190.6,
+            "last_lag": 7511
+          },
+          "geyer_initial_positive": {
+            "tau": 1324.88,
+            "ess": 190.6,
+            "last_lag": 7511
+          },
+          "geyer_initial_monotone": {
+            "tau": 1132.9,
+            "ess": 222.9
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 1566.9,
+        "uncapped": 1083.3,
+        "geyer_initial_positive": 1083.3,
+        "geyer_initial_monotone": 1316.0
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 955.61,
+          "ess": 1056.9,
+          "last_lag": 5781
+        },
+        "geyer_initial_monotone": {
+          "tau": 908.77,
+          "ess": 1111.4
+        },
+        "rhat_classic": 1.00016
+      },
+      "largest_per_chain_tau_uncapped": 1324.88
+    },
+    "seats_at_50_50": {
+      "published_pooled_ess": 1413.2,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 714.7,
+          "ess": 1413.2,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0519
+        },
+        "uncapped": {
+          "tau": 1129.23,
+          "ess": 894.4,
+          "last_lag": 9344
+        },
+        "geyer_initial_positive": {
+          "tau": 1129.23,
+          "ess": 894.4,
+          "last_lag": 9345
+        },
+        "geyer_initial_monotone": {
+          "tau": 973.62,
+          "ess": 1037.4
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 804.69,
+            "ess": 313.8,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0451
+          },
+          "uncapped": {
+            "tau": 1167.83,
+            "ess": 216.2,
+            "last_lag": 5158
+          },
+          "geyer_initial_positive": {
+            "tau": 1167.83,
+            "ess": 216.2,
+            "last_lag": 5159
+          },
+          "geyer_initial_monotone": {
+            "tau": 1056.41,
+            "ess": 239.0
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 764.08,
+            "ess": 330.5,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0519
+          },
+          "uncapped": {
+            "tau": 885.52,
+            "ess": 285.1,
+            "last_lag": 3432
+          },
+          "geyer_initial_positive": {
+            "tau": 885.52,
+            "ess": 285.1,
+            "last_lag": 3431
+          },
+          "geyer_initial_monotone": {
+            "tau": 867.41,
+            "ess": 291.1
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 660.38,
+            "ess": 382.4,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0678
+          },
+          "uncapped": {
+            "tau": 808.66,
+            "ess": 312.2,
+            "last_lag": 4509
+          },
+          "geyer_initial_positive": {
+            "tau": 808.66,
+            "ess": 312.2,
+            "last_lag": 4509
+          },
+          "geyer_initial_monotone": {
+            "tau": 714.46,
+            "ess": 353.4
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 582.98,
+            "ess": 433.1,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0299
+          },
+          "uncapped": {
+            "tau": 608.01,
+            "ess": 415.3,
+            "last_lag": 2955
+          },
+          "geyer_initial_positive": {
+            "tau": 608.01,
+            "ess": 415.3,
+            "last_lag": 2955
+          },
+          "geyer_initial_monotone": {
+            "tau": 583.56,
+            "ess": 432.7
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 1459.8,
+        "uncapped": 1228.8,
+        "geyer_initial_positive": 1228.8,
+        "geyer_initial_monotone": 1316.2
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 1124.02,
+          "ess": 898.6,
+          "last_lag": 9331
+        },
+        "geyer_initial_monotone": {
+          "tau": 982.5,
+          "ess": 1028.0
+        },
+        "rhat_classic": 1.00149
+      },
+      "largest_per_chain_tau_uncapped": 1167.83
+    },
+    "population_mad": {
+      "published_pooled_ess": 5653.6,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 178.65,
+          "ess": 5653.6,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0138
+        },
+        "uncapped": {
+          "tau": 180.88,
+          "ess": 5583.7,
+          "last_lag": 2130
+        },
+        "geyer_initial_positive": {
+          "tau": 180.88,
+          "ess": 5583.7,
+          "last_lag": 2129
+        },
+        "geyer_initial_monotone": {
+          "tau": 153.52,
+          "ess": 6578.8
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 159.85,
+            "ess": 1579.6,
+            "last_lag": 690,
+            "cap_binds": false,
+            "rho_at_cap": 0.011
+          },
+          "uncapped": {
+            "tau": 159.85,
+            "ess": 1579.6,
+            "last_lag": 690
+          },
+          "geyer_initial_positive": {
+            "tau": 159.85,
+            "ess": 1579.6,
+            "last_lag": 691
+          },
+          "geyer_initial_monotone": {
+            "tau": 156.9,
+            "ess": 1609.3
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 161.07,
+            "ess": 1567.7,
+            "last_lag": 1027,
+            "cap_binds": false,
+            "rho_at_cap": 0.0196
+          },
+          "uncapped": {
+            "tau": 161.07,
+            "ess": 1567.7,
+            "last_lag": 1027
+          },
+          "geyer_initial_positive": {
+            "tau": 161.07,
+            "ess": 1567.7,
+            "last_lag": 1027
+          },
+          "geyer_initial_monotone": {
+            "tau": 153.55,
+            "ess": 1644.4
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 167.86,
+            "ess": 1504.2,
+            "last_lag": 1504,
+            "cap_binds": false,
+            "rho_at_cap": 0.0318
+          },
+          "uncapped": {
+            "tau": 167.86,
+            "ess": 1504.2,
+            "last_lag": 1504
+          },
+          "geyer_initial_positive": {
+            "tau": 167.86,
+            "ess": 1504.2,
+            "last_lag": 1503
+          },
+          "geyer_initial_monotone": {
+            "tau": 143.39,
+            "ess": 1760.9
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 135.34,
+            "ess": 1865.7,
+            "last_lag": 388,
+            "cap_binds": false,
+            "rho_at_cap": -0.0152
+          },
+          "uncapped": {
+            "tau": 135.34,
+            "ess": 1865.7,
+            "last_lag": 388
+          },
+          "geyer_initial_positive": {
+            "tau": 135.34,
+            "ess": 1865.7,
+            "last_lag": 389
+          },
+          "geyer_initial_monotone": {
+            "tau": 135.34,
+            "ess": 1865.7
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 6517.2,
+        "uncapped": 6517.2,
+        "geyer_initial_positive": 6517.2,
+        "geyer_initial_monotone": 6880.3
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 154.43,
+          "ess": 6540.0,
+          "last_lag": 1065
+        },
+        "geyer_initial_monotone": {
+          "tau": 151.95,
+          "ess": 6647.0
+        },
+        "rhat_classic": 1.00012
+      },
+      "largest_per_chain_tau_uncapped": 167.86
+    },
+    "reock_proxy_median": {
+      "published_pooled_ess": 2772.5,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 364.3,
+          "ess": 2772.5,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0174
+        },
+        "uncapped": {
+          "tau": 377.38,
+          "ess": 2676.3,
+          "last_lag": 2492
+        },
+        "geyer_initial_positive": {
+          "tau": 377.38,
+          "ess": 2676.3,
+          "last_lag": 2493
+        },
+        "geyer_initial_monotone": {
+          "tau": 369.04,
+          "ess": 2736.9
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 409.04,
+            "ess": 617.3,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0308
+          },
+          "uncapped": {
+            "tau": 416.49,
+            "ess": 606.3,
+            "last_lag": 2190
+          },
+          "geyer_initial_positive": {
+            "tau": 416.49,
+            "ess": 606.3,
+            "last_lag": 2191
+          },
+          "geyer_initial_monotone": {
+            "tau": 381.12,
+            "ess": 662.5
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 458.93,
+            "ess": 550.2,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0231
+          },
+          "uncapped": {
+            "tau": 485.79,
+            "ess": 519.8,
+            "last_lag": 2894
+          },
+          "geyer_initial_positive": {
+            "tau": 485.79,
+            "ess": 519.8,
+            "last_lag": 2895
+          },
+          "geyer_initial_monotone": {
+            "tau": 453.82,
+            "ess": 556.4
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 262.44,
+            "ess": 962.1,
+            "last_lag": 956,
+            "cap_binds": false,
+            "rho_at_cap": -0.0044
+          },
+          "uncapped": {
+            "tau": 262.44,
+            "ess": 962.1,
+            "last_lag": 956
+          },
+          "geyer_initial_positive": {
+            "tau": 262.44,
+            "ess": 962.1,
+            "last_lag": 957
+          },
+          "geyer_initial_monotone": {
+            "tau": 262.05,
+            "ess": 963.5
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 303.96,
+            "ess": 830.7,
+            "last_lag": 1229,
+            "cap_binds": false,
+            "rho_at_cap": 0.0193
+          },
+          "uncapped": {
+            "tau": 303.96,
+            "ess": 830.7,
+            "last_lag": 1229
+          },
+          "geyer_initial_positive": {
+            "tau": 303.96,
+            "ess": 830.7,
+            "last_lag": 1229
+          },
+          "geyer_initial_monotone": {
+            "tau": 301.61,
+            "ess": 837.2
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 2960.3,
+        "uncapped": 2918.9,
+        "geyer_initial_positive": 2918.9,
+        "geyer_initial_monotone": 3019.6
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 378.65,
+          "ess": 2667.4,
+          "last_lag": 2485
+        },
+        "geyer_initial_monotone": {
+          "tau": 370.1,
+          "ess": 2729.0
+        },
+        "rhat_classic": 1.00049
+      },
+      "largest_per_chain_tau_uncapped": 485.79
+    },
+    "reock_proxy_pct_below_030": {
+      "published_pooled_ess": 3928.1,
+      "capped_reproduces_published": true,
+      "pooled_chains_joined": {
+        "n": 1010000,
+        "capped": {
+          "tau": 257.12,
+          "ess": 3928.1,
+          "last_lag": 2000,
+          "cap_binds": true,
+          "rho_at_cap": 0.0142
+        },
+        "uncapped": {
+          "tau": 273.13,
+          "ess": 3697.9,
+          "last_lag": 2682
+        },
+        "geyer_initial_positive": {
+          "tau": 273.13,
+          "ess": 3697.9,
+          "last_lag": 2683
+        },
+        "geyer_initial_monotone": {
+          "tau": 248.74,
+          "ess": 4060.4
+        }
+      },
+      "per_chain": [
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 214.19,
+            "ess": 1178.9,
+            "last_lag": 872,
+            "cap_binds": false,
+            "rho_at_cap": 0.0246
+          },
+          "uncapped": {
+            "tau": 214.19,
+            "ess": 1178.9,
+            "last_lag": 872
+          },
+          "geyer_initial_positive": {
+            "tau": 214.19,
+            "ess": 1178.9,
+            "last_lag": 873
+          },
+          "geyer_initial_monotone": {
+            "tau": 212.7,
+            "ess": 1187.1
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 218.67,
+            "ess": 1154.7,
+            "last_lag": 955,
+            "cap_binds": false,
+            "rho_at_cap": -0.0052
+          },
+          "uncapped": {
+            "tau": 218.67,
+            "ess": 1154.7,
+            "last_lag": 955
+          },
+          "geyer_initial_positive": {
+            "tau": 218.67,
+            "ess": 1154.7,
+            "last_lag": 955
+          },
+          "geyer_initial_monotone": {
+            "tau": 213.66,
+            "ess": 1181.8
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 252.48,
+            "ess": 1000.1,
+            "last_lag": 1711,
+            "cap_binds": false,
+            "rho_at_cap": 0.0048
+          },
+          "uncapped": {
+            "tau": 252.48,
+            "ess": 1000.1,
+            "last_lag": 1711
+          },
+          "geyer_initial_positive": {
+            "tau": 252.48,
+            "ess": 1000.1,
+            "last_lag": 1711
+          },
+          "geyer_initial_monotone": {
+            "tau": 243.35,
+            "ess": 1037.6
+          }
+        },
+        {
+          "n": 252500,
+          "capped": {
+            "tau": 296.49,
+            "ess": 851.6,
+            "last_lag": 2000,
+            "cap_binds": true,
+            "rho_at_cap": 0.0303
+          },
+          "uncapped": {
+            "tau": 302.65,
+            "ess": 834.3,
+            "last_lag": 2206
+          },
+          "geyer_initial_positive": {
+            "tau": 302.65,
+            "ess": 834.3,
+            "last_lag": 2207
+          },
+          "geyer_initial_monotone": {
+            "tau": 256.78,
+            "ess": 983.3
+          }
+        }
+      ],
+      "per_chain_sum": {
+        "capped": 4185.3,
+        "uncapped": 4168.0,
+        "geyer_initial_positive": 4168.0,
+        "geyer_initial_monotone": 4389.8
+      },
+      "multichain_combination": {
+        "geyer_initial_positive": {
+          "tau": 274.05,
+          "ess": 3685.5,
+          "last_lag": 2685
+        },
+        "geyer_initial_monotone": {
+          "tau": 249.3,
+          "ess": 4051.3
+        },
+        "rhat_classic": 1.00082
+      },
+      "largest_per_chain_tau_uncapped": 302.65
+    }
+  },
+  "partisan_summary": {
+    "efficiency_gap": {
+      "capped_published": 1522.5,
+      "uncapped_pooled": 1037.3,
+      "geyer_pooled": 1037.3,
+      "uncapped_per_chain_sum": 1066.2,
+      "geyer_per_chain_sum": 1066.2,
+      "geyer_multichain_combination": 1056.5,
+      "cap_free_low": 1037.3,
+      "cap_free_high": 1066.2,
+      "clears_1000_floor": {
+        "capped_published": true,
+        "uncapped_pooled": true,
+        "geyer_pooled": true,
+        "uncapped_per_chain_sum": true,
+        "geyer_per_chain_sum": true,
+        "geyer_multichain_combination": true,
+        "under_every_cap_free_estimate": true
+      }
+    },
+    "mean_median": {
+      "capped_published": 1447.7,
+      "uncapped_pooled": 1250.2,
+      "geyer_pooled": 1250.2,
+      "uncapped_per_chain_sum": 1300.0,
+      "geyer_per_chain_sum": 1300.0,
+      "geyer_multichain_combination": 1237.5,
+      "cap_free_low": 1237.5,
+      "cap_free_high": 1300.0,
+      "clears_1000_floor": {
+        "capped_published": true,
+        "uncapped_pooled": true,
+        "geyer_pooled": true,
+        "uncapped_per_chain_sum": true,
+        "geyer_per_chain_sum": true,
+        "geyer_multichain_combination": true,
+        "under_every_cap_free_estimate": true
+      }
+    },
+    "declination": {
+      "capped_published": 1512.8,
+      "uncapped_pooled": 1039.0,
+      "geyer_pooled": 1039.0,
+      "uncapped_per_chain_sum": 1083.3,
+      "geyer_per_chain_sum": 1083.3,
+      "geyer_multichain_combination": 1056.9,
+      "cap_free_low": 1039.0,
+      "cap_free_high": 1083.3,
+      "clears_1000_floor": {
+        "capped_published": true,
+        "uncapped_pooled": true,
+        "geyer_pooled": true,
+        "uncapped_per_chain_sum": true,
+        "geyer_per_chain_sum": true,
+        "geyer_multichain_combination": true,
+        "under_every_cap_free_estimate": true
+      }
+    },
+    "seats_at_50_50": {
+      "capped_published": 1413.2,
+      "uncapped_pooled": 894.4,
+      "geyer_pooled": 894.4,
+      "uncapped_per_chain_sum": 1228.8,
+      "geyer_per_chain_sum": 1228.8,
+      "geyer_multichain_combination": 898.6,
+      "cap_free_low": 894.4,
+      "cap_free_high": 1228.8,
+      "clears_1000_floor": {
+        "capped_published": true,
+        "uncapped_pooled": false,
+        "geyer_pooled": false,
+        "uncapped_per_chain_sum": true,
+        "geyer_per_chain_sum": true,
+        "geyer_multichain_combination": false,
+        "under_every_cap_free_estimate": false
+      }
+    }
+  },
+  "figure_to_quote": {
+    "published_capped_range": [
+      1413.2,
+      1522.5
+    ],
+    "uncapped_pooled_range_same_estimator_no_cap": [
+      894.4,
+      1250.2
+    ],
+    "cap_free_range_all_variants": [
+      894.4,
+      1300.0
+    ],
+    "suggested_wording": "about 1,000 independent draws (roughly 900 to 1,300 depending on the measure and the estimator; seats at 50/50 is the lowest)",
+    "why": "The published 1,413-1,522 stop the autocorrelation sum at lag 2,000 while the autocorrelation is still positive (0.05 to 0.07), so they are upper bounds. Removing the cap lowers every partisan figure by about a quarter to a third.",
+    "metrics_clearing_1000_under_every_cap_free_estimate": [
+      "efficiency_gap",
+      "mean_median",
+      "declination"
+    ],
+    "metrics_not_clearing_1000_under_at_least_one": [
+      "seats_at_50_50"
+    ]
+  },
+  "limits": [
+    "An autocorrelation time of about 1,000 steps is estimated from chains of 252,500 steps, about 200 to 300 autocorrelation times each; the estimates themselves carry sampling error of very roughly 10 to 20 percent.",
+    "ESS here is for estimating a mean. Far-tail percentiles (such as p99.99) depend on a handful of excursions and are less well determined than these numbers suggest.",
+    "The first row of each chain is the starting plan and no burn-in is dropped, as in the pipeline."
+  ]
+}
