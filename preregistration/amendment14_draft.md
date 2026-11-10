@@ -2,7 +2,7 @@
 
 Entry: 2026-11-10 01:31 Alberta time · claude-opus-5-5 · medium (redraft). First draft: 2026-11-09 23:19 Alberta time · claude-fable-5-2 · medium.
 
-> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Two items marked **[to fill before signing]** do not exist yet.
+> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. One item marked **[to decide before signing]** is open: how S5 reads under rule P (Part 3).
 >
 > **Not blind.** Before this was written, the audit had seen that placing early ballots by each area's own lean moves the all-ballots results against the commission minority's map: 55 to 57 UCP seats, and an efficiency gap of +2.55% to +5.64%. The rule's evidence uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
@@ -36,7 +36,7 @@ The lean is set from provincial evidence only: the 2023 located advance polls (1
 
 Every registered step that uses 2023 votes uses the file built under Part 1:
 
-- `data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg`, built by `findings/advance_vote_profile/08_build_vote_file_p.py`, 22,040,576 bytes, SHA-256 `bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd`. A rebuild gives the same bytes. **[to fill before signing: the commit that adds it]**
+- `data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg`, built by `findings/advance_vote_profile/08_build_vote_file_p.py`, 22,040,576 bytes, SHA-256 `bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd`. A rebuild gives the same bytes. Added in commit 6a735426.
 - The steps are those listed in Amendment 12, Part 1. Steps that use no votes are unchanged.
 
 ## Part 3: the ensembles and thresholds
@@ -47,7 +47,10 @@ As in Amendment 12, Parts 2 and 3, with the Part 2 file here.
 - Thresholds defined as an ensemble percentile are taken from the replayed ensemble by the same rule: P1's line (the 95th percentile of the canonical ensemble's efficiency gap) and S5's line (the midpoint of the two commission maps' drain scores).
 - No registered result is stated on the new file until its ensemble has been replayed. Until then, the Amendment 12 results stand as filed, each with a note that the placement rule is under amendment.
 - The one ensemble whose plans are stored in the repository, the redraw-test null for R1 and R2, has been rescored on the new file: neither test flags (R1 p = 0.619, R2 p = 0.576).
-- The canonical ensemble and sets A to D were replayed on the draft file on 2026-11-10; all 32 chains passed the row-for-row check. The four Forest-ReCom chains failed it and are dropped. **[to fill before signing: P1's and S5's lines, computed from the replayed chains]**
+- The canonical ensemble and sets A to D were replayed on the draft file on 2026-11-10; all 32 chains passed the row-for-row check. The four Forest-ReCom chains failed it and are dropped. The lines under rule P (`findings/advance_vote_profile/outputs/thresholds_p.json`, `11_thresholds_p.py`):
+  - **P1:** the 95th percentile of the canonical ensemble's efficiency gap is **+2.15%** (0.0215028; the same rule on the Amendment 12 replay reproduces its +1.39%). The minority map's +5.64% is above it; 192 of 1,010,000 plans reach it.
+  - **S5:** the midpoint of the two commission maps' drain scores is **0.00588** (majority 0.00403, minority 0.00773; the same call on the Amendment 12 file reproduces its 0.00194).
+  - **S5's direction must be decided before S5 is read under rule P. [to decide before signing]** Under Amendment 12 the minority's drain sat far below the majority's, and S5 flags a map below the midpoint (Amendment 5, Part 7). Under rule P the order reverses: the minority's drain is the higher. Applied as written, S5 would not flag the minority and would flag the majority. This amendment must say which reading governs: keep the rule as written; fix the flag to "the minority's side of the midpoint" as observed on the file in force; or set S5 aside on this file. The choice is made knowing the effect, and must say so.
 
 ## Part 4: what is reported beside it
 

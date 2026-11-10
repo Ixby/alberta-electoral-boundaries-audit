@@ -217,7 +217,7 @@ Efficiency gap under P, as a percentile of the plans that passed (higher means m
 | C (89 / 91) | | 35.47 | 100.00 | 35.76 | 46.46 |
 | D (91, s.15(2)) | | | | 18.85 | 26.70 |
 
-The threshold lines that come from these ensembles (P1's line, the 95th percentile of the canonical efficiency gap) are being computed from the chain files on that machine and are not given here yet.
+The threshold lines under P are in `outputs/thresholds_p.json` (`11_thresholds_p.py`, run on that machine): P1's line, the 95th percentile of the canonical efficiency gap, is +2.15% (it was +1.39% on the registered file), and 192 of 1,010,000 plans reach the minority's +5.64%. S5's midpoint is 0.00588, but under P the two commission maps' drain scores swap order, so S5's direction has to be settled in Amendment 14 before it is read.
 
 ## The vote file
 
@@ -244,7 +244,7 @@ The threshold lines that come from these ensembles (P1's line, the 95th percenti
 
 1. A signed amendment naming P, its lean of 1.0 and its count dial of 1, and stating that it was chosen after its effect on the maps was known (see "Not blind").
 2. The vote file above, committed with its hash.
-3. The replays in `REPLAY.md`, each passing its row-for-row check (done: 32 of 36 chains pass; Forest-ReCom dropped), and the threshold lines recomputed from them (pending).
+3. The replays in `REPLAY.md`, each passing its row-for-row check (done: 32 of 36 chains pass; Forest-ReCom dropped), and the threshold lines recomputed from them (done; `outputs/thresholds_p.json`).
 4. Until then, M0's figures stay the registered result. Report P's seats with the close margins beside them, not as bare points.
 
 ## Files
