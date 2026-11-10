@@ -52,13 +52,16 @@
 		}
 	];
 	// In-page anchors in these strings point at main-page sections; send them home
-	// (retired ids map to their new ones). #casing-N links stay on this page.
+	// (retired ids map to their new ones). #casing-N, #newer-checks and #sides
+	// are sections of this page, so those links stay here.
 	const MOVED: Record<string, string> = { retractions: 'change-our-mind' };
-	const c = (n: number, beat: string) =>
-		t(lang.current, `body.casings.c${n}_${beat}`).replace(
-			/href="#(?!casing-)([^"]+)"/g,
-			(_m, id: string) => `href="${base}/#${MOVED[id] ?? id}"`
-		);
+	const LOCAL = /href="#(?!casing-|newer-checks"|sides")([^"]+)"/g;
+	const fix = (s: string) =>
+		s.replaceAll('__BASE__', base).replace(LOCAL, (_m, id: string) => `href="${base}/#${MOVED[id] ?? id}"`);
+	const c = (n: number, beat: string) => fix(t(lang.current, `body.casings.c${n}_${beat}`));
+	const h = (key: string) => fix(t(lang.current, key));
+	const NEWER = ['7', '8', '9', '10', '11', '12', '13', '13b', '14'];
+	const SIDES = [1, 2, 3, 4, 5, 6, 7];
 </script>
 
 <svelte:head>
@@ -77,7 +80,7 @@
 
 <main id="main" tabindex="-1">
 	<div class="content">
-		<p class="standfirst">{t(lang.current, 'evidence.intro')}</p>
+		<p class="standfirst">{@html h('evidence.intro')}</p>
 
 		{#each GROUPS as g (g.key)}
 			<h2 class="group">{t(lang.current, 'evidence.' + g.key)}</h2>
@@ -136,6 +139,32 @@
 				</figure>
 			{/if}
 		{/each}
+
+		<section id="newer-checks">
+			<h2>{t(lang.current, 'evidence.newer_h')}</h2>
+			<p>{@html h('home.november.p4')}</p>
+			<ul>
+				{#each NEWER as k (k)}
+					<li>{@html h('home.november.li' + k)}</li>
+				{/each}
+			</ul>
+		</section>
+
+		<section id="sides">
+			<span id="both-sides-tested" class="anchor-alias" aria-hidden="true"></span>
+			<h2>{t(lang.current, 'evidence.sides_h')}</h2>
+			<p>{@html h('home.know.p10')}</p>
+			<div class="table-wrap">
+				<table>
+					<thead><tr><th scope="col">{@html h('home.know.table2_h1')}</th><th scope="col">{@html h('home.know.table2_h2')}</th><th scope="col">{@html h('home.know.table2_h3')}</th></tr></thead>
+					<tbody>
+						{#each SIDES as r (r)}
+							<tr><td>{@html h(`home.know.table2_r${r}c1`)}</td><td>{@html h(`home.know.table2_r${r}c2`)}</td><td>{@html h(`home.know.table2_r${r}c3`)}</td></tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</section>
 	</div>
 </main>
 
@@ -270,6 +299,37 @@
 	}
 	:global(:root[data-theme='dark']) .chart-img {
 		filter: brightness(0.88) contrast(0.95);
+	}
+	#newer-checks h2,
+	#sides h2 {
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin: 2.6rem 0 0.8rem;
+		line-height: 1.3;
+	}
+	.anchor-alias {
+		display: block;
+		height: 0;
+	}
+	.table-wrap {
+		overflow-x: auto;
+		margin: 0 0 1rem;
+	}
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		font-size: 0.9rem;
+	}
+	th,
+	td {
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		padding: 0.45rem 0.6rem;
+		text-align: start;
+		vertical-align: top;
+	}
+	:global(:root[data-theme='dark']) th,
+	:global(:root[data-theme='dark']) td {
+		border-color: rgba(255, 255, 255, 0.14);
 	}
 	figcaption {
 		font-size: 0.82rem;
