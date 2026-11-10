@@ -1,8 +1,8 @@
-# Amendment 14 (draft, unsigned): early ballots go only to people who did not vote on election day
+# Amendment 14 (draft; signed 2026-11-10, see the amendment log): early ballots go only to people who did not vote on election day
 
 Entry: 2026-11-10 01:31 Alberta time · claude-opus-5-5 · medium (redraft). First draft: 2026-11-09 23:19 Alberta time · claude-fable-5-2 · medium.
 
-> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. No item is open; the draft awaits the author's signature.
+> **Status: signed 2026-11-10 13:22 Alberta time; in force.** The signed text is the `## Amendment 14` section of `findings/pre_registration_amendment_log.md`. Below is the draft as it stood at signing.
 >
 > **Not blind.** Before this was written, the audit had seen that placing early ballots by each area's own lean moves the all-ballots results against the commission minority's map: 55 to 57 UCP seats, and an efficiency gap of +2.55% to +5.64%. The rule's evidence uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
