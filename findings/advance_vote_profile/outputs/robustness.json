@@ -1,0 +1,138 @@
+{
+ "seed": 20261110,
+ "federal_2021": {
+  "log_odds_weighted": [
+   0.984,
+   0.03
+  ],
+  "log_odds_unweighted": [
+   0.926,
+   0.037
+  ],
+  "share_scale_weighted": [
+   0.932,
+   0.036
+  ],
+  "share_scale_unweighted": [
+   0.878,
+   0.044
+  ],
+  "reverse_regression_upper_bound": 1.192,
+  "placebo_permute_advance_results_within_riding": {
+   "draws": 200,
+   "mean": 0.005,
+   "sd": 0.057,
+   "max": 0.177
+  }
+ },
+ "federal_2019": {
+  "log_odds_weighted": [
+   0.942,
+   0.03
+  ],
+  "log_odds_unweighted": [
+   0.856,
+   0.056
+  ],
+  "share_scale_weighted": [
+   0.874,
+   0.043
+  ],
+  "share_scale_unweighted": [
+   0.828,
+   0.065
+  ],
+  "reverse_regression_upper_bound": 1.222,
+  "placebo_permute_advance_results_within_riding": {
+   "draws": 200,
+   "mean": -0.002,
+   "sd": 0.064,
+   "max": 0.166
+  }
+ },
+ "provincial_2023": {
+  "polls": 123,
+  "divisions": 54,
+  "log_odds_weighted": [
+   0.998,
+   0.068
+  ],
+  "log_odds_unweighted": [
+   0.88,
+   0.081
+  ],
+  "share_scale_weighted": [
+   0.986,
+   0.071
+  ],
+  "leverage_share_top5": {
+   "87": 0.361,
+   "50": 0.303,
+   "52": 0.084,
+   "58": 0.027,
+   "59": 0.023
+  },
+  "leverage_top2_share": 0.663,
+  "top2_divisions_example_polls": {
+   "87": [
+    "Allan & Jean Millar Centre",
+    "Dr. Duncan Murray Rec Centre",
+    "Jasper Activity Centre"
+   ],
+   "50": [
+    "Canmore Miners' Union Hall",
+    "Cascade Shops",
+    "Elbow Springs, Priddis, Bragg Creek, Redwood Meadows",
+    "Exshaw, Spring Bank, Edge School, Banff Centre"
+   ]
+  },
+  "drop_87": [
+   0.996,
+   0.106
+  ],
+  "drop_50": [
+   1.063,
+   0.073
+  ],
+  "drop_87_50": [
+   1.131,
+   0.125
+  ],
+  "leave_one_division_out_range": [
+   0.955,
+   1.063
+  ],
+  "cluster_bootstrap_95pct": [
+   0.87,
+   1.21
+  ],
+  "divisions_with_positive_within_relation": [
+   37,
+   54
+  ],
+  "placebo_permute_within_division": {
+   "draws": 500,
+   "mean": 0.002,
+   "sd": 0.374
+  },
+  "placebo_M0_true_simulation": {
+   "draws": 500,
+   "mean": 0.0,
+   "sd": 0.018
+  },
+  "coverage": {
+   "in_division_advance_two_party_ballots": 575496,
+   "in_tested_polls": 261493,
+   "pct": 45.4,
+   "divisions_tested": 54,
+   "divisions_total": 87,
+   "untested_vote_anywhere_and_special_two_party_ballots": 212562
+  },
+  "unlocated_polls": {
+   "in_file": 252,
+   "not_found": 96,
+   "name_contains_Returning": 8,
+   "multi_site_rows_placed_at_first_name": 39
+  }
+ }
+}

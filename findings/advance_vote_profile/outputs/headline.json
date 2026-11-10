@@ -1,0 +1,354 @@
+{
+ "status": "exploratory, not registered",
+ "recommended": {
+  "rule": "R recommended G(beta=0.96, lam=0.89)",
+  "beta": 0.96,
+  "lam": 0.89,
+  "source": "mean of federal 2019 and 2021 Alberta estimates"
+ },
+ "monte_carlo": {
+  "seed": 20261109,
+  "draws": 1000,
+  "beta_sd_between_divisions": 0.244,
+  "lam_sd_between_divisions": 0.421,
+  "results": {
+   "enacted_2019_87": {
+    "ucp_seats_distribution": {
+     "49": 1.0
+    },
+    "efficiency_gap_pct_p5_p50_p95": [
+     -2.64,
+     -2.64,
+     -2.64
+    ],
+    "mean_median_pct_p5_p50_p95": [
+     -2.21,
+     -2.21,
+     -2.21
+    ],
+    "seats_at_tied_vote_distribution": {
+     "41.0": 1.0
+    },
+    "close_under_4pts_min_max": [
+     12,
+     12
+    ]
+   },
+   "majority_89": {
+    "ucp_seats_distribution": {
+     "47": 0.001,
+     "48": 0.978,
+     "49": 0.021
+    },
+    "efficiency_gap_pct_p5_p50_p95": [
+     -2.83,
+     -2.8,
+     -2.73
+    ],
+    "mean_median_pct_p5_p50_p95": [
+     -3.83,
+     -3.74,
+     -3.64
+    ],
+    "seats_at_tied_vote_distribution": {
+     "42.0": 0.898,
+     "43.0": 0.102
+    },
+    "close_under_4pts_min_max": [
+     10,
+     12
+    ]
+   },
+   "minority_89": {
+    "ucp_seats_distribution": {
+     "55": 0.003,
+     "56": 0.069,
+     "57": 0.928
+    },
+    "efficiency_gap_pct_p5_p50_p95": [
+     4.57,
+     5.63,
+     5.65
+    ],
+    "mean_median_pct_p5_p50_p95": [
+     0.31,
+     0.49,
+     0.67
+    ],
+    "seats_at_tied_vote_distribution": {
+     "46.0": 0.959,
+     "47.0": 0.041
+    },
+    "close_under_4pts_min_max": [
+     7,
+     9
+    ]
+   },
+   "panel_v3_91": {
+    "ucp_seats_distribution": {
+     "49": 0.001,
+     "50": 0.978,
+     "51": 0.021
+    },
+    "efficiency_gap_pct_p5_p50_p95": [
+     -2.83,
+     -2.8,
+     -2.75
+    ],
+    "mean_median_pct_p5_p50_p95": [
+     -0.94,
+     -0.48,
+     -0.04
+    ],
+    "seats_at_tied_vote_distribution": {
+     "45.0": 0.898,
+     "46.0": 0.102
+    },
+    "close_under_4pts_min_max": [
+     9,
+     10
+    ]
+   },
+   "para167_91": {
+    "ucp_seats_distribution": {
+     "49": 0.001,
+     "50": 0.978,
+     "51": 0.021
+    },
+    "efficiency_gap_pct_p5_p50_p95": [
+     -2.33,
+     -2.31,
+     -2.23
+    ],
+    "mean_median_pct_p5_p50_p95": [
+     -2.5,
+     -2.24,
+     -1.99
+    ],
+    "seats_at_tied_vote_distribution": {
+     "44.0": 0.898,
+     "45.0": 0.102
+    },
+    "close_under_4pts_min_max": [
+     10,
+     11
+    ]
+   }
+  }
+ },
+ "supported_range_rules": [
+  "G(0.75,0.0)",
+  "G(0.75,0.5)",
+  "G(0.75,1.0)",
+  "G(1.0,0.0)",
+  "G(1.0,0.5)",
+  "G(1.0,1.0)",
+  "G(1.25,0.0)",
+  "G(1.25,0.5)",
+  "G(1.25,1.0)",
+  "M1 party-specific",
+  "R recommended G(beta=0.96, lam=0.89)"
+ ],
+ "supported_range": {
+  "enacted_2019_87": {
+   "ucp_seats": [
+    49,
+    49
+   ],
+   "efficiency_gap_pct": [
+    -2.636,
+    -2.636
+   ],
+   "mean_median_pct": [
+    -2.215,
+    -2.215
+   ],
+   "seats_at_tied_vote": [
+    41.0,
+    41.0
+   ],
+   "close_under_4pts": [
+    12,
+    12
+   ]
+  },
+  "majority_89": {
+   "ucp_seats": [
+    48,
+    48
+   ],
+   "efficiency_gap_pct": [
+    -2.826,
+    -2.696
+   ],
+   "mean_median_pct": [
+    -3.815,
+    -3.653
+   ],
+   "seats_at_tied_vote": [
+    42.0,
+    42.0
+   ],
+   "close_under_4pts": [
+    11,
+    11
+   ]
+  },
+  "minority_89": {
+   "ucp_seats": [
+    56,
+    57
+   ],
+   "efficiency_gap_pct": [
+    4.573,
+    5.645
+   ],
+   "mean_median_pct": [
+    0.381,
+    0.572
+   ],
+   "seats_at_tied_vote": [
+    46.0,
+    46.0
+   ],
+   "close_under_4pts": [
+    8,
+    9
+   ]
+  },
+  "panel_v3_91": {
+   "ucp_seats": [
+    50,
+    50
+   ],
+   "efficiency_gap_pct": [
+    -2.836,
+    -2.675
+   ],
+   "mean_median_pct": [
+    -0.619,
+    -0.247
+   ],
+   "seats_at_tied_vote": [
+    45.0,
+    45.0
+   ],
+   "close_under_4pts": [
+    9,
+    9
+   ]
+  },
+  "para167_91": {
+   "ucp_seats": [
+    50,
+    50
+   ],
+   "efficiency_gap_pct": [
+    -2.332,
+    -2.188
+   ],
+   "mean_median_pct": [
+    -2.48,
+    -2.009
+   ],
+   "seats_at_tied_vote": [
+    44.0,
+    44.0
+   ],
+   "close_under_4pts": [
+    10,
+    10
+   ]
+  }
+ },
+ "M0_vs_R": {
+  "enacted_2019_87": {
+   "changed_winner": {},
+   "R_three_thinnest": {
+    "Calgary-Acadia": -22.0,
+    "Calgary-Glenmore": -48.0,
+    "Calgary-North": 129.0
+   },
+   "M0_three_thinnest": {
+    "Calgary-Acadia": -22.0,
+    "Calgary-Glenmore": -48.0,
+    "Calgary-North": 129.0
+   },
+   "largest_district_share_shift_pts": 0.0
+  },
+  "majority_89": {
+   "changed_winner": {},
+   "R_three_thinnest": {
+    "Calgary-Acadia": 36.5,
+    "Calgary-North": 132.7,
+    "Calgary-North West": 143.0
+   },
+   "M0_three_thinnest": {
+    "Calgary-Acadia": 9.7,
+    "Calgary-North": 117.0,
+    "Calgary-North West": 143.0
+   },
+   "largest_district_share_shift_pts": 5.88
+  },
+  "minority_89": {
+   "changed_winner": {
+    "Calgary-Edgemont": {
+     "M0_ucp_margin_votes": -3.6,
+     "R_ucp_margin_votes": 384.3
+    },
+    "Calgary-Glenmore": {
+     "M0_ucp_margin_votes": -23.6,
+     "R_ucp_margin_votes": 65.5
+    }
+   },
+   "R_three_thinnest": {
+    "Calgary-Glenmore": 65.5,
+    "Calgary-Acadia": 104.4,
+    "Calgary-North": 141.4
+   },
+   "M0_three_thinnest": {
+    "Calgary-Edgemont": -3.6,
+    "Calgary-Glenmore": -23.6,
+    "Calgary-Acadia": 27.2
+   },
+   "largest_district_share_shift_pts": 3.87
+  },
+  "panel_v3_91": {
+   "changed_winner": {
+    "Banff-Canmore-Diamond Valley": {
+     "M0_ucp_margin_votes": 228.6,
+     "R_ucp_margin_votes": -1212.4
+    }
+   },
+   "R_three_thinnest": {
+    "Calgary-Acadia": 36.5,
+    "Calgary-North": 132.7,
+    "Calgary-Confluence": -212.3
+   },
+   "M0_three_thinnest": {
+    "Calgary-Acadia": 9.7,
+    "Calgary-North": 117.0,
+    "Banff-Canmore-Diamond Valley": 228.6
+   },
+   "largest_district_share_shift_pts": 3.95
+  },
+  "para167_91": {
+   "changed_winner": {},
+   "R_three_thinnest": {
+    "Calgary-Acadia": 36.5,
+    "Calgary-North": 132.7,
+    "Calgary-North West": 143.0
+   },
+   "M0_three_thinnest": {
+    "Calgary-Acadia": 9.7,
+    "Calgary-North": 117.0,
+    "Calgary-North West": 143.0
+   },
+   "largest_district_share_shift_pts": 6.5
+  }
+ },
+ "checks": {
+  "division_totals_match_official_under_every_rule": true,
+  "2019_map_49_38_under_every_rule": true
+ }
+}
