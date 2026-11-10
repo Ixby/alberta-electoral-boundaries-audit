@@ -1,354 +1,498 @@
 {
- "status": "exploratory, not registered",
- "recommended": {
-  "rule": "R recommended G(beta=0.96, lam=0.89)",
-  "beta": 0.96,
-  "lam": 0.89,
-  "source": "mean of federal 2019 and 2021 Alberta estimates"
+ "meta": {
+  "entry": "2026-11-10 01:17 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/05_models_headlines.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/provincial_location_tests.json",
+    "sha256": "c7c7141b5c3a92c51c187bfeeb338e8b7af84b44a613cc509e5262442b8c5de8"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/robustness.json",
+    "sha256": "297807dc51d50efc3f0688aca337cd6d275cbb91c23f9c17789786e7c8a539a6"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_majority_2026_eds.gpkg",
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg",
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897"
+   },
+   {
+    "path": "data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg",
+    "sha256": "8ea5caf68ac95bffe3d7e8a58635b8888f742b3bf115cf3787da3cc92caca1b7"
+   },
+   {
+    "path": "findings/iap_para167/para167_map.gpkg",
+    "sha256": "a6b0acc00d3904e097d473463f8a83d5da318773d92b2a83df30aa1c3fcffb85"
+   }
+  ]
  },
- "monte_carlo": {
-  "seed": 20261109,
-  "draws": 1000,
-  "beta_sd_between_divisions": 0.244,
-  "lam_sd_between_divisions": 0.421,
-  "results": {
-   "enacted_2019_87": {
-    "ucp_seats_distribution": {
-     "49": 1.0
-    },
-    "efficiency_gap_pct_p5_p50_p95": [
-     -2.64,
-     -2.64,
-     -2.64
+ "rule_p": {
+  "lam": 1.0,
+  "beta": {
+   "estimate_2023_located_polls": 0.998,
+   "se_2023_located_polls": 0.068,
+   "estimate_2015_town_polls": 0.988,
+   "se_2015_town_polls": 0.195,
+   "unweighted_2023": 0.88,
+   "without_two_mountain_divisions_2023": 1.131,
+   "range_used": [
+    0.87,
+    1.22
+   ],
+   "range_source": "95% cluster bootstrap of the 2023 located-poll slope (robustness.json)",
+   "value_used": 1.0
+  },
+  "shrink_pseudo_count": 10.0,
+  "betas_run": [
+   0.87,
+   0.9,
+   0.95,
+   1.0,
+   1.05,
+   1.1,
+   1.15,
+   1.22
+  ],
+  "federal_numbers_used": false
+ },
+ "checks": [
+  {
+   "check": "rebuilt M0 equals the registered file",
+   "passed": true,
+   "detail": "largest difference per voting area 2.55e-11 votes"
+  },
+  {
+   "check": "every division's official NDP, UCP and other totals returned",
+   "passed": true,
+   "detail": "87 divisions, 9 allocations, largest difference 1.07e-09 votes"
+  },
+  {
+   "check": "2019 map gives 49-38 under M0 and every P",
+   "passed": true,
+   "detail": "m0: 49-38, p beta 0.87: 49-38, p beta 0.90: 49-38, p beta 0.95: 49-38, p beta 1.00: 49-38, p beta 1.05: 49-38, p beta 1.10: 49-38, p beta 1.15: 49-38, p beta 1.22: 49-38"
+  },
+  {
+   "check": "no station over 100% under P beyond those already over on election day",
+   "passed": true,
+   "detail": "over on election day alone: ['04H', '61C']; new under any P: 0"
+  }
+ ],
+ "all_checks_passed": true,
+ "stations_over_100pct_on_election_day": [
+  {
+   "station": "04H",
+   "division": "04",
+   "name": "Calgary Drop In Centre",
+   "voting_areas": "064",
+   "names_on_list": 9,
+   "election_day_ballots": 21,
+   "turnout_pct": 233.3
+  },
+  {
+   "station": "61C",
+   "division": "61",
+   "name": "Remote Area - Fort Fitzgerald",
+   "voting_areas": "036",
+   "names_on_list": 2,
+   "election_day_ballots": 15,
+   "turnout_pct": 750.0
+  }
+ ],
+ "stations_over_100pct_m0": 26,
+ "maps": [
+  {
+   "map": "enacted_2019_87",
+   "label": "2019 map (87)",
+   "n_districts": 87,
+   "m0": {
+    "ucp_seats": 49,
+    "ndp_seats": 38,
+    "efficiency_gap_pct": -2.636,
+    "mean_median_pct": -2.215,
+    "declination": -0.057,
+    "ucp_seats_at_tied_vote": 41.0,
+    "close_seats_4pts": 12
+   },
+   "p_beta_1": {
+    "ucp_seats": 49,
+    "ndp_seats": 38,
+    "efficiency_gap_pct": -2.636,
+    "mean_median_pct": -2.215,
+    "declination": -0.057,
+    "ucp_seats_at_tied_vote": 41.0,
+    "close_seats_4pts": 12
+   },
+   "p_range_over_beta": {
+    "ucp_seats": [
+     49,
+     49
     ],
-    "mean_median_pct_p5_p50_p95": [
-     -2.21,
-     -2.21,
-     -2.21
+    "efficiency_gap_pct": [
+     -2.636,
+     -2.636
     ],
-    "seats_at_tied_vote_distribution": {
-     "41.0": 1.0
-    },
-    "close_under_4pts_min_max": [
+    "mean_median_pct": [
+     -2.215,
+     -2.215
+    ],
+    "declination": [
+     -0.057,
+     -0.057
+    ],
+    "ucp_seats_at_tied_vote": [
+     41.0,
+     41.0
+    ],
+    "close_seats_4pts": [
      12,
      12
     ]
    },
-   "majority_89": {
-    "ucp_seats_distribution": {
-     "47": 0.001,
-     "48": 0.978,
-     "49": 0.021
+   "seats_that_change": [],
+   "thinnest_p_margins": [
+    {
+     "district": "Calgary-Acadia",
+     "p_ucp_margin_votes": -22
     },
-    "efficiency_gap_pct_p5_p50_p95": [
-     -2.83,
-     -2.8,
-     -2.73
-    ],
-    "mean_median_pct_p5_p50_p95": [
-     -3.83,
-     -3.74,
-     -3.64
-    ],
-    "seats_at_tied_vote_distribution": {
-     "42.0": 0.898,
-     "43.0": 0.102
+    {
+     "district": "Calgary-Glenmore",
+     "p_ucp_margin_votes": -48
     },
-    "close_under_4pts_min_max": [
-     10,
-     12
+    {
+     "district": "Calgary-North",
+     "p_ucp_margin_votes": 129
+    },
+    {
+     "district": "Calgary-North West",
+     "p_ucp_margin_votes": 143
+    }
+   ]
+  },
+  {
+   "map": "majority_89",
+   "label": "Commission majority (89)",
+   "n_districts": 89,
+   "m0": {
+    "ucp_seats": 48,
+    "ndp_seats": 41,
+    "efficiency_gap_pct": -2.696,
+    "mean_median_pct": -3.514,
+    "declination": -0.0926,
+    "ucp_seats_at_tied_vote": 42.0,
+    "close_seats_4pts": 11
+   },
+   "p_beta_1": {
+    "ucp_seats": 48,
+    "ndp_seats": 41,
+    "efficiency_gap_pct": -2.827,
+    "mean_median_pct": -3.767,
+    "declination": -0.0886,
+    "ucp_seats_at_tied_vote": 42.0,
+    "close_seats_4pts": 11
+   },
+   "p_range_over_beta": {
+    "ucp_seats": [
+     48,
+     48
+    ],
+    "efficiency_gap_pct": [
+     -2.827,
+     -2.827
+    ],
+    "mean_median_pct": [
+     -3.809,
+     -3.741
+    ],
+    "declination": [
+     -0.0892,
+     -0.0877
+    ],
+    "ucp_seats_at_tied_vote": [
+     42.0,
+     42.0
+    ],
+    "close_seats_4pts": [
+     11,
+     11
     ]
    },
-   "minority_89": {
-    "ucp_seats_distribution": {
-     "55": 0.003,
-     "56": 0.069,
-     "57": 0.928
+   "seats_that_change": [],
+   "thinnest_p_margins": [
+    {
+     "district": "Calgary-Acadia",
+     "p_ucp_margin_votes": 38
     },
-    "efficiency_gap_pct_p5_p50_p95": [
-     4.57,
-     5.63,
-     5.65
-    ],
-    "mean_median_pct_p5_p50_p95": [
-     0.31,
-     0.49,
-     0.67
-    ],
-    "seats_at_tied_vote_distribution": {
-     "46.0": 0.959,
-     "47.0": 0.041
+    {
+     "district": "Calgary-North",
+     "p_ucp_margin_votes": 133
     },
-    "close_under_4pts_min_max": [
-     7,
+    {
+     "district": "Calgary-North West",
+     "p_ucp_margin_votes": 143
+    },
+    {
+     "district": "Calgary-Confluence",
+     "p_ucp_margin_votes": -192
+    }
+   ]
+  },
+  {
+   "map": "minority_89",
+   "label": "Commission minority (89)",
+   "n_districts": 89,
+   "m0": {
+    "ucp_seats": 55,
+    "ndp_seats": 34,
+    "efficiency_gap_pct": 2.554,
+    "mean_median_pct": 0.077,
+    "declination": 0.0458,
+    "ucp_seats_at_tied_vote": 46.0,
+    "close_seats_4pts": 7
+   },
+   "p_beta_1": {
+    "ucp_seats": 57,
+    "ndp_seats": 32,
+    "efficiency_gap_pct": 5.644,
+    "mean_median_pct": 0.509,
+    "declination": 0.1012,
+    "ucp_seats_at_tied_vote": 46.0,
+    "close_seats_4pts": 9
+   },
+   "p_range_over_beta": {
+    "ucp_seats": [
+     57,
+     57
+    ],
+    "efficiency_gap_pct": [
+     5.644,
+     5.644
+    ],
+    "mean_median_pct": [
+     0.443,
+     0.537
+    ],
+    "declination": [
+     0.1007,
+     0.102
+    ],
+    "ucp_seats_at_tied_vote": [
+     46.0,
+     46.0
+    ],
+    "close_seats_4pts": [
+     8,
      9
     ]
    },
-   "panel_v3_91": {
-    "ucp_seats_distribution": {
-     "49": 0.001,
-     "50": 0.978,
-     "51": 0.021
+   "seats_that_change": [
+    {
+     "district": "Calgary-Edgemont",
+     "m0_ucp_margin_votes": -4,
+     "p_ucp_margin_votes": 401,
+     "p_ucp_margin_range_votes": [
+      349,
+      488
+     ],
+     "winner_m0": "NDP",
+     "winner_p": "UCP",
+     "changes_at_beta_1": true
     },
-    "efficiency_gap_pct_p5_p50_p95": [
-     -2.83,
-     -2.8,
-     -2.75
-    ],
-    "mean_median_pct_p5_p50_p95": [
-     -0.94,
-     -0.48,
-     -0.04
-    ],
-    "seats_at_tied_vote_distribution": {
-     "45.0": 0.898,
-     "46.0": 0.102
+    {
+     "district": "Calgary-Glenmore",
+     "m0_ucp_margin_votes": -24,
+     "p_ucp_margin_votes": 68,
+     "p_ucp_margin_range_votes": [
+      59,
+      83
+     ],
+     "winner_m0": "NDP",
+     "winner_p": "UCP",
+     "changes_at_beta_1": true
+    }
+   ],
+   "thinnest_p_margins": [
+    {
+     "district": "Calgary-Glenmore",
+     "p_ucp_margin_votes": 68
     },
-    "close_under_4pts_min_max": [
+    {
+     "district": "Calgary-Acadia",
+     "p_ucp_margin_votes": 109
+    },
+    {
+     "district": "Calgary-North",
+     "p_ucp_margin_votes": 142
+    },
+    {
+     "district": "Edmonton-Enoch-Devon",
+     "p_ucp_margin_votes": 157
+    }
+   ]
+  },
+  {
+   "map": "panel_v3_91",
+   "label": "Panel reconstruction v3 (91)",
+   "n_districts": 91,
+   "m0": {
+    "ucp_seats": 51,
+    "ndp_seats": 40,
+    "efficiency_gap_pct": -1.664,
+    "mean_median_pct": -1.093,
+    "declination": -0.0598,
+    "ucp_seats_at_tied_vote": 45.0,
+    "close_seats_4pts": 10
+   },
+   "p_beta_1": {
+    "ucp_seats": 50,
+    "ndp_seats": 41,
+    "efficiency_gap_pct": -2.836,
+    "mean_median_pct": -0.473,
+    "declination": -0.0802,
+    "ucp_seats_at_tied_vote": 45.0,
+    "close_seats_4pts": 9
+   },
+   "p_range_over_beta": {
+    "ucp_seats": [
+     50,
+     50
+    ],
+    "efficiency_gap_pct": [
+     -2.836,
+     -2.836
+    ],
+    "mean_median_pct": [
+     -0.548,
+     -0.349
+    ],
+    "declination": [
+     -0.0806,
+     -0.0795
+    ],
+    "ucp_seats_at_tied_vote": [
+     45.0,
+     45.0
+    ],
+    "close_seats_4pts": [
      9,
+     9
+    ]
+   },
+   "seats_that_change": [
+    {
+     "district": "Banff-Canmore-Diamond Valley",
+     "m0_ucp_margin_votes": 229,
+     "p_ucp_margin_votes": -1276,
+     "p_ucp_margin_range_votes": [
+      -1547,
+      -1105
+     ],
+     "winner_m0": "UCP",
+     "winner_p": "NDP",
+     "changes_at_beta_1": true
+    }
+   ],
+   "thinnest_p_margins": [
+    {
+     "district": "Calgary-Acadia",
+     "p_ucp_margin_votes": 38
+    },
+    {
+     "district": "Calgary-North",
+     "p_ucp_margin_votes": 133
+    },
+    {
+     "district": "Calgary-Confluence",
+     "p_ucp_margin_votes": -192
+    },
+    {
+     "district": "Calgary-Nose Creek",
+     "p_ucp_margin_votes": -206
+    }
+   ]
+  },
+  {
+   "map": "para167_91",
+   "label": "Paragraph 167 reconstruction (91)",
+   "n_districts": 91,
+   "m0": {
+    "ucp_seats": 50,
+    "ndp_seats": 41,
+    "efficiency_gap_pct": -2.188,
+    "mean_median_pct": -2.904,
+    "declination": -0.0803,
+    "ucp_seats_at_tied_vote": 44.0,
+    "close_seats_4pts": 10
+   },
+   "p_beta_1": {
+    "ucp_seats": 50,
+    "ndp_seats": 41,
+    "efficiency_gap_pct": -2.332,
+    "mean_median_pct": -2.183,
+    "declination": -0.077,
+    "ucp_seats_at_tied_vote": 44.0,
+    "close_seats_4pts": 10
+   },
+   "p_range_over_beta": {
+    "ucp_seats": [
+     50,
+     50
+    ],
+    "efficiency_gap_pct": [
+     -2.332,
+     -2.332
+    ],
+    "mean_median_pct": [
+     -2.275,
+     -2.03
+    ],
+    "declination": [
+     -0.0776,
+     -0.0762
+    ],
+    "ucp_seats_at_tied_vote": [
+     44.0,
+     44.0
+    ],
+    "close_seats_4pts": [
+     10,
      10
     ]
    },
-   "para167_91": {
-    "ucp_seats_distribution": {
-     "49": 0.001,
-     "50": 0.978,
-     "51": 0.021
+   "seats_that_change": [],
+   "thinnest_p_margins": [
+    {
+     "district": "Calgary-Acadia",
+     "p_ucp_margin_votes": 38
     },
-    "efficiency_gap_pct_p5_p50_p95": [
-     -2.33,
-     -2.31,
-     -2.23
-    ],
-    "mean_median_pct_p5_p50_p95": [
-     -2.5,
-     -2.24,
-     -1.99
-    ],
-    "seats_at_tied_vote_distribution": {
-     "44.0": 0.898,
-     "45.0": 0.102
+    {
+     "district": "Calgary-North",
+     "p_ucp_margin_votes": 133
     },
-    "close_under_4pts_min_max": [
-     10,
-     11
-    ]
-   }
-  }
- },
- "supported_range_rules": [
-  "G(0.75,0.0)",
-  "G(0.75,0.5)",
-  "G(0.75,1.0)",
-  "G(1.0,0.0)",
-  "G(1.0,0.5)",
-  "G(1.0,1.0)",
-  "G(1.25,0.0)",
-  "G(1.25,0.5)",
-  "G(1.25,1.0)",
-  "M1 party-specific",
-  "R recommended G(beta=0.96, lam=0.89)"
- ],
- "supported_range": {
-  "enacted_2019_87": {
-   "ucp_seats": [
-    49,
-    49
-   ],
-   "efficiency_gap_pct": [
-    -2.636,
-    -2.636
-   ],
-   "mean_median_pct": [
-    -2.215,
-    -2.215
-   ],
-   "seats_at_tied_vote": [
-    41.0,
-    41.0
-   ],
-   "close_under_4pts": [
-    12,
-    12
-   ]
-  },
-  "majority_89": {
-   "ucp_seats": [
-    48,
-    48
-   ],
-   "efficiency_gap_pct": [
-    -2.826,
-    -2.696
-   ],
-   "mean_median_pct": [
-    -3.815,
-    -3.653
-   ],
-   "seats_at_tied_vote": [
-    42.0,
-    42.0
-   ],
-   "close_under_4pts": [
-    11,
-    11
-   ]
-  },
-  "minority_89": {
-   "ucp_seats": [
-    56,
-    57
-   ],
-   "efficiency_gap_pct": [
-    4.573,
-    5.645
-   ],
-   "mean_median_pct": [
-    0.381,
-    0.572
-   ],
-   "seats_at_tied_vote": [
-    46.0,
-    46.0
-   ],
-   "close_under_4pts": [
-    8,
-    9
-   ]
-  },
-  "panel_v3_91": {
-   "ucp_seats": [
-    50,
-    50
-   ],
-   "efficiency_gap_pct": [
-    -2.836,
-    -2.675
-   ],
-   "mean_median_pct": [
-    -0.619,
-    -0.247
-   ],
-   "seats_at_tied_vote": [
-    45.0,
-    45.0
-   ],
-   "close_under_4pts": [
-    9,
-    9
-   ]
-  },
-  "para167_91": {
-   "ucp_seats": [
-    50,
-    50
-   ],
-   "efficiency_gap_pct": [
-    -2.332,
-    -2.188
-   ],
-   "mean_median_pct": [
-    -2.48,
-    -2.009
-   ],
-   "seats_at_tied_vote": [
-    44.0,
-    44.0
-   ],
-   "close_under_4pts": [
-    10,
-    10
-   ]
-  }
- },
- "M0_vs_R": {
-  "enacted_2019_87": {
-   "changed_winner": {},
-   "R_three_thinnest": {
-    "Calgary-Acadia": -22.0,
-    "Calgary-Glenmore": -48.0,
-    "Calgary-North": 129.0
-   },
-   "M0_three_thinnest": {
-    "Calgary-Acadia": -22.0,
-    "Calgary-Glenmore": -48.0,
-    "Calgary-North": 129.0
-   },
-   "largest_district_share_shift_pts": 0.0
-  },
-  "majority_89": {
-   "changed_winner": {},
-   "R_three_thinnest": {
-    "Calgary-Acadia": 36.5,
-    "Calgary-North": 132.7,
-    "Calgary-North West": 143.0
-   },
-   "M0_three_thinnest": {
-    "Calgary-Acadia": 9.7,
-    "Calgary-North": 117.0,
-    "Calgary-North West": 143.0
-   },
-   "largest_district_share_shift_pts": 5.88
-  },
-  "minority_89": {
-   "changed_winner": {
-    "Calgary-Edgemont": {
-     "M0_ucp_margin_votes": -3.6,
-     "R_ucp_margin_votes": 384.3
+    {
+     "district": "Calgary-North West",
+     "p_ucp_margin_votes": 143
     },
-    "Calgary-Glenmore": {
-     "M0_ucp_margin_votes": -23.6,
-     "R_ucp_margin_votes": 65.5
+    {
+     "district": "Calgary-Confluence",
+     "p_ucp_margin_votes": -192
     }
-   },
-   "R_three_thinnest": {
-    "Calgary-Glenmore": 65.5,
-    "Calgary-Acadia": 104.4,
-    "Calgary-North": 141.4
-   },
-   "M0_three_thinnest": {
-    "Calgary-Edgemont": -3.6,
-    "Calgary-Glenmore": -23.6,
-    "Calgary-Acadia": 27.2
-   },
-   "largest_district_share_shift_pts": 3.87
-  },
-  "panel_v3_91": {
-   "changed_winner": {
-    "Banff-Canmore-Diamond Valley": {
-     "M0_ucp_margin_votes": 228.6,
-     "R_ucp_margin_votes": -1212.4
-    }
-   },
-   "R_three_thinnest": {
-    "Calgary-Acadia": 36.5,
-    "Calgary-North": 132.7,
-    "Calgary-Confluence": -212.3
-   },
-   "M0_three_thinnest": {
-    "Calgary-Acadia": 9.7,
-    "Calgary-North": 117.0,
-    "Banff-Canmore-Diamond Valley": 228.6
-   },
-   "largest_district_share_shift_pts": 3.95
-  },
-  "para167_91": {
-   "changed_winner": {},
-   "R_three_thinnest": {
-    "Calgary-Acadia": 36.5,
-    "Calgary-North": 132.7,
-    "Calgary-North West": 143.0
-   },
-   "M0_three_thinnest": {
-    "Calgary-Acadia": 9.7,
-    "Calgary-North": 117.0,
-    "Calgary-North West": 143.0
-   },
-   "largest_district_share_shift_pts": 6.5
+   ]
   }
- },
- "checks": {
-  "division_totals_match_official_under_every_rule": true,
-  "2019_map_49_38_under_every_rule": true
- }
+ ]
 }

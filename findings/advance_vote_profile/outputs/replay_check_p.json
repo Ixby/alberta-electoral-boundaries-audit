@@ -1,0 +1,232 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/10_replay_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+    "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+   }
+  ]
+ },
+ "chains": [
+  {
+   "set": "canonical",
+   "chain": 0,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_allballots_p/chain0_samples.csv"
+  },
+  {
+   "set": "canonical",
+   "chain": 1,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_allballots_p/chain1_samples.csv"
+  },
+  {
+   "set": "canonical",
+   "chain": 2,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_allballots_p/chain2_samples.csv"
+  },
+  {
+   "set": "canonical",
+   "chain": 3,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_allballots_p/chain3_samples.csv"
+  },
+  {
+   "set": "D91",
+   "chain": 251,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain251_samples.csv"
+  },
+  {
+   "set": "D91",
+   "chain": 252,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain252_samples.csv"
+  },
+  {
+   "set": "D91",
+   "chain": 253,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain253_samples.csv"
+  },
+  {
+   "set": "D91",
+   "chain": 254,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain254_samples.csv"
+  },
+  {
+   "set": "A91",
+   "chain": 221,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain221_samples.csv"
+  },
+  {
+   "set": "A91",
+   "chain": 222,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain222_samples.csv"
+  },
+  {
+   "set": "A91",
+   "chain": 223,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain223_samples.csv"
+  },
+  {
+   "set": "A91",
+   "chain": 224,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain224_samples.csv"
+  },
+  {
+   "set": "A89",
+   "chain": 120,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_allballots_p/chain120_samples.csv"
+  },
+  {
+   "set": "A89",
+   "chain": 121,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_allballots_p/chain121_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 230,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain230_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 231,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain231_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 232,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain232_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 233,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain233_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 236,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain236_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 237,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain237_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 238,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain238_samples.csv"
+  },
+  {
+   "set": "B91",
+   "chain": 239,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain239_samples.csv"
+  },
+  {
+   "set": "B89",
+   "chain": 130,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain130_samples.csv"
+  },
+  {
+   "set": "B89",
+   "chain": 131,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain131_samples.csv"
+  },
+  {
+   "set": "B89",
+   "chain": 132,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain132_samples.csv"
+  },
+  {
+   "set": "B89",
+   "chain": 133,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain133_samples.csv"
+  },
+  {
+   "set": "C91",
+   "chain": 241,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain241_samples.csv"
+  },
+  {
+   "set": "C91",
+   "chain": 243,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain243_samples.csv"
+  },
+  {
+   "set": "C91",
+   "chain": 244,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain244_samples.csv"
+  },
+  {
+   "set": "C91",
+   "chain": 245,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain245_samples.csv"
+  },
+  {
+   "set": "C89",
+   "chain": 140,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_muni_allballots_p/chain140_samples.csv"
+  },
+  {
+   "set": "C89",
+   "chain": 141,
+   "status": "not run",
+   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_muni_allballots_p/chain141_samples.csv"
+  },
+  {
+   "set": "forest",
+   "chain": 0,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain0_samples.csv"
+  },
+  {
+   "set": "forest",
+   "chain": 1,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain1_samples.csv"
+  },
+  {
+   "set": "forest",
+   "chain": 2,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain2_samples.csv"
+  },
+  {
+   "set": "forest",
+   "chain": 3,
+   "status": "not run",
+   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain3_samples.csv"
+  }
+ ],
+ "rule": "a replay counts only if every vote-independent column the original has is present and equals the election-day original, and the M0 replay where one exists, row for row"
+}

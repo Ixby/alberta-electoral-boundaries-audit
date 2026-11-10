@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/10_replay_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "findings/advance_vote_profile/outputs/replay_check_p.json",
+    "sha256": "c2474663de8426eb8b69e241ddba4d7d0ee36db8685f1c509ea24148786f7a12"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/headline_table.csv",
+    "sha256": "556cc00337b541ca788d87cf219e9b6045c7f2a639ceabdf2ca24df5de1d3f8b"
+   }
+  ]
+ },
+ "sets": [
+  {
+   "set": "canonical",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "D91",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "A91",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "A89",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "B91",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "B89",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "C91",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "C89",
+   "status": "no replay passed its check; no percentile given"
+  },
+  {
+   "set": "forest",
+   "status": "no replay passed its check; no percentile given"
+  }
+ ]
+}

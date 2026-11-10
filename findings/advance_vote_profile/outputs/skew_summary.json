@@ -1,5 +1,24 @@
 {
- "2023": {
+ "meta": {
+  "entry": "2026-11-10 01:16 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/01_measure_skew.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/raw/2015_results.xlsx",
+    "sha256": "4a6656140736783a4984beff75069885ac12feb03470f2f7c8f7d249a6201fc9"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   }
+  ]
+ },
+ "y2023": {
   "label": "2023, NDP share of NDP+UCP",
   "province": {
    "eday": {
@@ -46,8 +65,9 @@
     "share_of_all_two_party_pct": 47.45
    }
   },
-  "by_region": {
-   "Calgary": {
+  "by_region": [
+   {
+    "group": "Calgary",
     "divisions": 26,
     "eday_ndp_pct": 48.7,
     "non_eday_ndp_pct": 52.34,
@@ -56,7 +76,8 @@
     "mean_logit_shift": 0.14,
     "non_eday_share_of_votes_pct": 50.8
    },
-   "Edmonton": {
+   {
+    "group": "Edmonton",
     "divisions": 20,
     "eday_ndp_pct": 61.59,
     "non_eday_ndp_pct": 67.92,
@@ -65,7 +86,8 @@
     "mean_logit_shift": 0.287,
     "non_eday_share_of_votes_pct": 47.1
    },
-   "Rural": {
+   {
+    "group": "Rural",
     "divisions": 22,
     "eday_ndp_pct": 23.35,
     "non_eday_ndp_pct": 29.36,
@@ -74,7 +96,8 @@
     "mean_logit_shift": 0.228,
     "non_eday_share_of_votes_pct": 44.6
    },
-   "Smaller cities and suburbs": {
+   {
+    "group": "Smaller cities and suburbs",
     "divisions": 19,
     "eday_ndp_pct": 38.29,
     "non_eday_ndp_pct": 45.19,
@@ -83,9 +106,10 @@
     "mean_logit_shift": 0.25,
     "non_eday_share_of_votes_pct": 46.1
    }
-  },
-  "by_competitiveness": {
-   "close (under 10 pts)": {
+  ],
+  "by_competitiveness": [
+   {
+    "group": "close (under 10 pts)",
     "divisions": 19,
     "eday_ndp_pct": 50.24,
     "non_eday_ndp_pct": 54.23,
@@ -94,7 +118,8 @@
     "mean_logit_shift": 0.16,
     "non_eday_share_of_votes_pct": 51.8
    },
-   "10 to 30 pts": {
+   {
+    "group": "10 to 30 pts",
     "divisions": 36,
     "eday_ndp_pct": 47.95,
     "non_eday_ndp_pct": 53.39,
@@ -103,7 +128,8 @@
     "mean_logit_shift": 0.222,
     "non_eday_share_of_votes_pct": 47.8
    },
-   "safe (over 30 pts)": {
+   {
+    "group": "safe (over 30 pts)",
     "divisions": 32,
     "eday_ndp_pct": 31.18,
     "non_eday_ndp_pct": 37.63,
@@ -112,7 +138,7 @@
     "mean_logit_shift": 0.252,
     "non_eday_share_of_votes_pct": 43.9
    }
-  },
+  ],
   "cross_division": {
    "logit_non_eday_on_logit_eday": {
     "intercept": 0.22,
@@ -178,7 +204,7 @@
    "dof": 162,
    "p_value": 0.0,
    "divisions_rejecting_same_mix_at_5pct": 63,
-   "median_gap_between_most_and_least_NDP_location_pts": 9.3,
+   "median_gap_between_most_and_least_ndp_location_pts": 9.3,
    "max_gap_pts": 61.6,
    "reading": "M0 says every advance voter group in a division has one party mix; a large chi-square rejects that",
    "median_weighted_sd_pts_election_day_stations": 4.56,
@@ -189,7 +215,7 @@
    }
   }
  },
- "2015": {
+ "y2015": {
   "label": "2015, NDP share of NDP+PC+Wildrose",
   "province": {
    "eday": {
@@ -229,8 +255,9 @@
     "share_of_all_two_party_pct": 18.86
    }
   },
-  "by_region": {
-   "Calgary": {
+  "by_region": [
+   {
+    "group": "Calgary",
     "divisions": 25,
     "eday_ndp_pct": 39.16,
     "non_eday_ndp_pct": 35.86,
@@ -239,7 +266,8 @@
     "mean_logit_shift": -0.154,
     "non_eday_share_of_votes_pct": 18.1
    },
-   "Edmonton": {
+   {
+    "group": "Edmonton",
     "divisions": 19,
     "eday_ndp_pct": 69.13,
     "non_eday_ndp_pct": 70.69,
@@ -248,7 +276,8 @@
     "mean_logit_shift": 0.092,
     "non_eday_share_of_votes_pct": 20.8
    },
-   "Rural": {
+   {
+    "group": "Rural",
     "divisions": 26,
     "eday_ndp_pct": 29.01,
     "non_eday_ndp_pct": 29.16,
@@ -257,7 +286,8 @@
     "mean_logit_shift": -0.025,
     "non_eday_share_of_votes_pct": 18.7
    },
-   "Smaller cities and suburbs": {
+   {
+    "group": "Smaller cities and suburbs",
     "divisions": 17,
     "eday_ndp_pct": 42.4,
     "non_eday_ndp_pct": 46.77,
@@ -266,9 +296,10 @@
     "mean_logit_shift": 0.074,
     "non_eday_share_of_votes_pct": 17.9
    }
-  },
-  "by_competitiveness": {
-   "close (under 10 pts)": {
+  ],
+  "by_competitiveness": [
+   {
+    "group": "close (under 10 pts)",
     "divisions": 10,
     "eday_ndp_pct": 49.36,
     "non_eday_ndp_pct": 49.9,
@@ -277,7 +308,8 @@
     "mean_logit_shift": -0.003,
     "non_eday_share_of_votes_pct": 18.4
    },
-   "10 to 30 pts": {
+   {
+    "group": "10 to 30 pts",
     "divisions": 33,
     "eday_ndp_pct": 45.61,
     "non_eday_ndp_pct": 45.69,
@@ -286,7 +318,8 @@
     "mean_logit_shift": -0.07,
     "non_eday_share_of_votes_pct": 19.5
    },
-   "safe (over 30 pts)": {
+   {
+    "group": "safe (over 30 pts)",
     "divisions": 44,
     "eday_ndp_pct": 41.02,
     "non_eday_ndp_pct": 43.34,
@@ -295,7 +328,7 @@
     "mean_logit_shift": 0.019,
     "non_eday_share_of_votes_pct": 18.5
    }
-  },
+  ],
   "cross_division": {
    "logit_non_eday_on_logit_eday": {
     "intercept": 0.018,

@@ -1,56 +1,25 @@
 {
- "seed": 20261110,
- "federal_2021": {
-  "log_odds_weighted": [
-   0.984,
-   0.03
+ "meta": {
+  "entry": "2026-11-10 01:17 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/06_robustness.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "findings/advance_vote_profile/outputs/advance_locations_2023.csv",
+    "sha256": "1d304f4592dc3f078ae7538de18a65f91238dd7b141e8bb39888e72af8ce0c5e"
+   },
+   {
+    "path": "findings/advance_vote_profile/inputs/advance_poll_geocodes.csv",
+    "sha256": "54d3f9af576a487ab5df590ddf6e8aea4ec7d2d6e6eb946f5e1c17c2e2fb68df"
+   },
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   }
   ],
-  "log_odds_unweighted": [
-   0.926,
-   0.037
-  ],
-  "share_scale_weighted": [
-   0.932,
-   0.036
-  ],
-  "share_scale_unweighted": [
-   0.878,
-   0.044
-  ],
-  "reverse_regression_upper_bound": 1.192,
-  "placebo_permute_advance_results_within_riding": {
-   "draws": 200,
-   "mean": 0.005,
-   "sd": 0.057,
-   "max": 0.177
-  }
+  "seed": 20261110
  },
- "federal_2019": {
-  "log_odds_weighted": [
-   0.942,
-   0.03
-  ],
-  "log_odds_unweighted": [
-   0.856,
-   0.056
-  ],
-  "share_scale_weighted": [
-   0.874,
-   0.043
-  ],
-  "share_scale_unweighted": [
-   0.828,
-   0.065
-  ],
-  "reverse_regression_upper_bound": 1.222,
-  "placebo_permute_advance_results_within_riding": {
-   "draws": 200,
-   "mean": -0.002,
-   "sd": 0.064,
-   "max": 0.166
-  }
- },
- "provincial_2023": {
+ "located_polls_2023": {
   "polls": 123,
   "divisions": 54,
   "log_odds_weighted": [
@@ -65,46 +34,79 @@
    0.986,
    0.071
   ],
-  "leverage_share_top5": {
-   "87": 0.361,
-   "50": 0.303,
-   "52": 0.084,
-   "58": 0.027,
-   "59": 0.023
-  },
+  "reverse_regression_upper_bound": 1.528,
+  "leverage_top5": [
+   {
+    "division": "87",
+    "share": 0.361,
+    "polls": [
+     "Allan & Jean Millar Centre",
+     "Dr. Duncan Murray Rec Centre",
+     "Jasper Activity Centre"
+    ]
+   },
+   {
+    "division": "50",
+    "share": 0.303,
+    "polls": [
+     "Canmore Miners' Union Hall",
+     "Cascade Shops",
+     "Elbow Springs, Priddis, Bragg Creek, Redwood Meadows",
+     "Exshaw, Spring Bank, Edge School, Banff Centre"
+    ]
+   },
+   {
+    "division": "52",
+    "share": 0.084,
+    "polls": [
+     "Hampton Inn & Suites",
+     "Heritage Inn & Suites",
+     "Medicine Hat Regional Hospital, Hilda, Rolling Hills, Suffield"
+    ]
+   },
+   {
+    "division": "58",
+    "share": 0.027,
+    "polls": [
+     "Clymont Community Hall",
+     "Easyford, Lodgepole, Tomahawk, Warburg"
+    ]
+   },
+   {
+    "division": "59",
+    "share": 0.023,
+    "polls": [
+     "Amisk, Czar, Provost",
+     "Castor, Consort, Coronation",
+     "Stettler Community Hall"
+    ]
+   }
+  ],
   "leverage_top2_share": 0.663,
-  "top2_divisions_example_polls": {
-   "87": [
-    "Allan & Jean Millar Centre",
-    "Dr. Duncan Murray Rec Centre",
-    "Jasper Activity Centre"
-   ],
-   "50": [
-    "Canmore Miners' Union Hall",
-    "Cascade Shops",
-    "Elbow Springs, Priddis, Bragg Creek, Redwood Meadows",
-    "Exshaw, Spring Bank, Edge School, Banff Centre"
-   ]
-  },
-  "drop_87": [
+  "drop_top1": [
    0.996,
    0.106
   ],
-  "drop_50": [
+  "drop_second": [
    1.063,
    0.073
   ],
-  "drop_87_50": [
+  "drop_top2": [
    1.131,
    0.125
+  ],
+  "dropped_divisions": [
+   "87",
+   "50"
   ],
   "leave_one_division_out_range": [
    0.955,
    1.063
   ],
+  "cluster_bootstrap_draws": 2000,
   "cluster_bootstrap_95pct": [
    0.87,
-   1.21
+   1.22
   ],
   "divisions_with_positive_within_relation": [
    37,
@@ -112,13 +114,26 @@
   ],
   "placebo_permute_within_division": {
    "draws": 500,
-   "mean": 0.002,
-   "sd": 0.374
+   "mean": 0.012,
+   "sd": 0.375
   },
-  "placebo_M0_true_simulation": {
+  "placebo_m0_true_simulation": {
    "draws": 500,
    "mean": 0.0,
-   "sd": 0.018
+   "sd": 0.017
+  },
+  "residual_at_located_polls": {
+   "share_residual_sd_log_odds": 0.1746,
+   "counting_error_sd_log_odds": 0.049,
+   "excess_sd_log_odds": 0.1676,
+   "count_residual_sd_log": 0.7827,
+   "median_two_party_ballots_per_poll": 1725.0,
+   "sound_as_station_level_error_model": false,
+   "why_not": [
+    "a poll's catchment is a guess (nearest poll); an elector may use any advance poll, so the scatter mixes catchment error with the rule's own error",
+    "a poll's count depends on its hours and size, not only on who lives near it",
+    "polls are larger than stations and cover 45% of in-division advance ballots in 54 divisions; no provincial data show how the error scales down to a station or whether neighbouring stations err together"
+   ]
   },
   "coverage": {
    "in_division_advance_two_party_ballots": 575496,
@@ -131,7 +146,7 @@
   "unlocated_polls": {
    "in_file": 252,
    "not_found": 96,
-   "name_contains_Returning": 8,
+   "name_contains_returning": 8,
    "multi_site_rows_placed_at_first_name": 39
   }
  }

@@ -14,7 +14,8 @@ Both ask the same thing: inside a division, do advance voters near NDP-leaning
 election-day polls lean NDP too (beta near 1), or does every advance poll show
 the division's one mix (beta = 0, the current rule M0)?
 
-Writes outputs/provincial_location_tests.json, outputs/advance_locations_2023.csv
+Writes outputs/provincial_location_tests.json, outputs/advance_locations_2023.csv,
+       outputs/advance_catchments_2023.csv, outputs/advance_places_2015.csv
 
 Usage: python findings/advance_vote_profile/04_provincial_location_tests.py
 """
@@ -26,7 +27,7 @@ import numpy as np
 import pandas as pd
 
 import _models as M
-from _common import INPUTS, OUT, build_va_table, load_2023_rows, load_va, logit
+from _common import INPUTS, OUT, VA_EDAY, WORKBOOK_2023, build_va_table, load_2023_rows, load_va, logit, region_of, write_csv, write_json
 
 BETAS = [0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
 LAMS = [0, 0.5, 1.0]
@@ -88,11 +89,11 @@ def part_a():
             for k, (n, u) in alloc.items():
                 row[f"{k}_n"], row[f"{k}_u"] = n[c].sum(), u[c].sum()
             rows.append(row)
-    pd.DataFrame(catch, columns=["va_row_idx", "ed", "location", "loc_ndp", "loc_ucp"]).to_csv(OUT / "advance_catchments_2023.csv", index=False)
+    write_csv(pd.DataFrame(catch, columns=["va_row_idx", "ed", "location", "loc_ndp", "loc_ucp"]), "advance_catchments_2023.csv")
     L = pd.DataFrame(rows)
     L["adv_share"] = L.a_ndp / (L.a_ndp + L.a_ucp)
     L["catch_share"] = L.c_ndp / (L.c_ndp + L.c_ucp)
-    L[["ed", "name", "complete", "a_ndp", "a_ucp", "c_ndp", "c_ucp", "c_gap", "c_valid", "n_vas", "adv_share", "catch_share"]].to_csv(OUT / "advance_locations_2023.csv", index=False)
+    write_csv(L[["ed", "name", "complete", "a_ndp", "a_ucp", "c_ndp", "c_ucp", "c_gap", "c_valid", "n_vas", "adv_share", "catch_share"]], "advance_locations_2023.csv")
     L = L[L.groupby("ed").ed.transform("size") >= 2]
     w = (L.a_ndp + L.a_ucp).values
     out["locations_used"] = int(len(L)); out["divisions_used"] = int(L.ed.nunique())
@@ -100,7 +101,6 @@ def part_a():
     out["slope_all"] = fe_slope(logit(L.catch_share), logit(L.adv_share), w, L.ed)
     C = L[L.complete]
     out["slope_complete_divisions"] = fe_slope(logit(C.catch_share), logit(C.adv_share), (C.a_ndp + C.a_ucp).values, C.ed)
-    # the same slope when both sides are election-day: split each catchment's own stations at random in two halves.
     # volume: does a location's share of the division's advance ballots follow election-day votes or the turnout gap?
     for c in ("c_valid", "c_gap"):
         L[c + "_sh"] = L[c] / L.groupby("ed")[c].transform("sum")
@@ -116,16 +116,15 @@ def part_a():
         ps, ts, ww = D[f"{k}_n"] / (D[f"{k}_n"] + D[f"{k}_u"]), D.adv_share, D.a_ndp + D.a_ucp
         return {"share_rmse_pts": round(100 * float(np.sqrt((ww * (ps - ts) ** 2).sum() / ww.sum())), 2),
                 "ballots_put_at_wrong_location_pct": round(100 * float(0.5 * ((D[f"{k}_n"] - D.a_ndp).abs() + (D[f"{k}_u"] - D.a_ucp).abs()).sum() / A), 2)}
-    out["hide_and_predict_all"] = {k: loss(k, L) for k in ("M0", "M1", "M2")}
-    out["grid_share_rmse_pts"] = {f"beta={b_}": {f"lam={l_}": loss(f"G({b_},{l_})", L)["share_rmse_pts"] for l_ in LAMS} for b_ in BETAS}
-    out["divisions_where_M1_share_error_below_M0"] = int(sum(
+    out["hide_and_predict_all"] = {k.lower(): loss(k, L) for k in ("M0", "M1", "M2")}
+    out["grid_share_rmse_pts"] = [{"beta": b_, "lam": l_, "share_rmse_pts": loss(f"G({b_},{l_})", L)["share_rmse_pts"]} for b_ in BETAS for l_ in LAMS]
+    out["divisions_where_m1_share_error_below_m0"] = int(sum(
         ((d.a_ndp + d.a_ucp) * (d.M1_n / (d.M1_n + d.M1_u) - d.adv_share) ** 2).sum() < ((d.a_ndp + d.a_ucp) * (d.M0_n / (d.M0_n + d.M0_u) - d.adv_share) ** 2).sum()
         for _, d in L.groupby("ed")))
     # by region
     names = t.drop_duplicates("ed").set_index("ed").name
-    from _common import region_of
     L["region"] = L.ed.map(names).map(region_of)
-    out["slope_by_region"] = {r: fe_slope(logit(d.catch_share), logit(d.adv_share), (d.a_ndp + d.a_ucp).values, d.ed) for r, d in L.groupby("region") if d.ed.nunique() >= 4}
+    out["slope_by_region"] = [{"region": r, **fe_slope(logit(d.catch_share), logit(d.adv_share), (d.a_ndp + d.a_ucp).values, d.ed)} for r, d in L.groupby("region") if d.ed.nunique() >= 4]
     return out
 
 
@@ -158,7 +157,7 @@ def part_b():
     L = pd.DataFrame(rows)
     L = L[L.groupby("ed").ed.transform("size") >= 2]
     L["adv_share"], L["catch_share"] = L.a_ndp / (L.a_ndp + L.a_ucp), L.c_ndp / (L.c_ndp + L.c_ucp)
-    L.to_csv(OUT / "advance_places_2015.csv", index=False)
+    write_csv(L, "advance_places_2015.csv")
     out = {"places_matched": int(len(L)), "divisions": int(L.ed.nunique()),
            "slope": fe_slope(logit(L.catch_share), logit(L.adv_share), (L.a_ndp + L.a_ucp).values, L.ed)}
     # error of "every advance poll shows the division's advance mix" (M0) against "division shift plus the town's own lean" (beta = 1)
@@ -167,14 +166,15 @@ def part_b():
     shift = logit(m0) - logit(tot.c_ndp / (tot.c_ndp + tot.c_ucp))
     b1 = 1 / (1 + np.exp(-(logit(L.catch_share) + shift)))
     w = L.a_ndp + L.a_ucp
-    out["share_rmse_pts"] = {"M0_one_mix_per_division": round(100 * float(np.sqrt((w * (m0 - L.adv_share) ** 2).sum() / w.sum())), 2),
+    out["share_rmse_pts"] = {"m0_one_mix_per_division": round(100 * float(np.sqrt((w * (m0 - L.adv_share) ** 2).sum() / w.sum())), 2),
                              "beta1_town_lean_plus_division_shift": round(100 * float(np.sqrt((w * (b1 - L.adv_share) ** 2).sum() / w.sum())), 2)}
     return out
 
 
 def main():
-    res = {"A_2023_geocoded_advance_locations": part_a(), "B_2015_town_named_advance_polls": part_b()}
-    (OUT / "provincial_location_tests.json").write_text(json.dumps(res, indent=1))
+    res = {"located_polls_2023": part_a(), "town_polls_2015": part_b()}
+    write_json("provincial_location_tests.json", res, __file__,
+               [WORKBOOK_2023, VA_EDAY, INPUTS / "advance_poll_geocodes.csv", OUT / "polls_2015_parsed.csv"])
     print(json.dumps(res, indent=1))
 
 

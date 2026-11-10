@@ -1,20 +1,15 @@
-"""How firm is "about one for one"? Other specifications, placebos, leverage, coverage (exploratory, not registered).
+"""How firm is the provincial lean estimate? Other specifications, placebos, leverage, coverage, and the
+size of P's own error on the located polls (exploratory, not registered). Provincial data only.
 
-Reads only this folder's own outputs and inputs:
-  outputs/federal_alberta_advance_districts_<year>.csv, outputs/advance_locations_2023.csv,
-  inputs/advance_poll_geocodes.csv, and the 2023 workbook.
-Writes outputs/robustness.json. Seed 20261110.
-
-Follows checks first run by the independent verifier (audit2/verify-advance.json), rebuilt here.
+Reads this folder's outputs/advance_locations_2023.csv, inputs/advance_poll_geocodes.csv and the 2023 workbook.
+Writes outputs/robustness.json. Seed 20261110 (bootstrap and placebos).
 
 Usage: python findings/advance_vote_profile/06_robustness.py
 """
-import json
-
 import numpy as np
 import pandas as pd
 
-from _common import INPUTS, OUT, load_2023_rows, logit
+from _common import INPUTS, OUT, WORKBOOK_2023, load_2023_rows, logit, write_json
 
 SEED = 20261110
 
@@ -37,24 +32,6 @@ def permute_within(g, y, rng):
     return yp
 
 
-def federal(year, rng):
-    t = pd.read_csv(OUT / f"federal_alberta_advance_districts_{year}.csv").reset_index(drop=True)
-    w = (t.a_lib_ndp + t.a_con).values.astype(float)
-    xs, ys = t.eday_share.values, t.adv_share.values
-    x, y = logit(xs), logit(ys)
-    b, se, xd, yd = fe(t.fed, x, y, w)
-    bu, seu, _, _ = fe(t.fed, x, y, np.ones(len(t)))
-    bs, ses, _, _ = fe(t.fed, xs, ys, w)
-    bsu, sesu, _, _ = fe(t.fed, xs, ys, np.ones(len(t)))
-    rev = float(np.sum(w * yd * yd) / np.sum(w * xd * yd))
-    pl = [fe(t.fed, x, permute_within(t.fed.values, y, rng), w)[0] for _ in range(200)]
-    return {"log_odds_weighted": [round(b, 3), round(se, 3)], "log_odds_unweighted": [round(bu, 3), round(seu, 3)],
-            "share_scale_weighted": [round(bs, 3), round(ses, 3)], "share_scale_unweighted": [round(bsu, 3), round(sesu, 3)],
-            "reverse_regression_upper_bound": round(rev, 3),
-            "placebo_permute_advance_results_within_riding": {"draws": 200, "mean": round(float(np.mean(pl)), 3), "sd": round(float(np.std(pl)), 3),
-                                                               "max": round(float(np.max(pl)), 3)}}
-
-
 def provincial(rng):
     L = pd.read_csv(OUT / "advance_locations_2023.csv", dtype={"ed": str})
     L = L[L.groupby("ed").ed.transform("size") >= 2].reset_index(drop=True)
@@ -64,40 +41,53 @@ def provincial(rng):
     bu, seu, _, _ = fe(L.ed, x, y, np.ones(len(L)))
     bs, ses, _, _ = fe(L.ed, L.catch_share.values, L.adv_share.values, w)
     out["log_odds_unweighted"], out["share_scale_weighted"] = [round(bu, 3), round(seu, 3)], [round(bs, 3), round(ses, 3)]
+    out["reverse_regression_upper_bound"] = round(float(np.sum(w * yd * yd) / np.sum(w * xd * yd)), 3)
     lev = pd.Series(w * xd * xd).groupby(L.ed.values).sum().sort_values(ascending=False)
     lev = lev / lev.sum()
-    names = {r.ed: r.name for r in L.itertuples()}
-    out["leverage_share_top5"] = {k: round(float(v), 3) for k, v in lev.head(5).items()}
+    out["leverage_top5"] = [{"division": k, "share": round(float(v), 3), "polls": L[L.ed == k].name.tolist()} for k, v in lev.head(5).items()]
     out["leverage_top2_share"] = round(float(lev.head(2).sum()), 3)
-    out["top2_divisions_example_polls"] = {k: L[L.ed == k].name.tolist() for k in lev.head(2).index}
     top2 = list(lev.head(2).index)
-    for drop in ([top2[0]], [top2[1]], top2):
+    for tag, drop in (("drop_top1", [top2[0]]), ("drop_second", [top2[1]]), ("drop_top2", top2)):
         d = L[~L.ed.isin(drop)]
         bb, ss, _, _ = fe(d.ed, logit(d.catch_share), logit(d.adv_share), (d.a_ndp + d.a_ucp).values)
-        out["drop_" + "_".join(drop)] = [round(bb, 3), round(ss, 3)]
+        out[tag] = [round(bb, 3), round(ss, 3)]
+    out["dropped_divisions"] = top2
     eds = L.ed.unique()
-    jk = []
-    for e in eds:
-        m = (L.ed != e).values
-        jk.append(fe(L.ed[m], x[m], y[m], w[m])[0])
+    jk = [fe(L.ed[(L.ed != e).values], x[(L.ed != e).values], y[(L.ed != e).values], w[(L.ed != e).values])[0] for e in eds]
     out["leave_one_division_out_range"] = [round(min(jk), 3), round(max(jk), 3)]
     boot = []
     for _ in range(2000):
         pick = rng.choice(eds, len(eds))
         d = pd.concat([L[L.ed == e].assign(g=i) for i, e in enumerate(pick)])
         boot.append(fe(d.g, logit(d.catch_share), logit(d.adv_share), (d.a_ndp + d.a_ucp).values)[0])
+    out["cluster_bootstrap_draws"] = 2000
     out["cluster_bootstrap_95pct"] = [round(float(q), 2) for q in np.percentile(boot, [2.5, 97.5])]
     pos = sum(np.corrcoef(logit(d.catch_share), logit(d.adv_share))[0, 1] > 0 for _, d in L.groupby("ed"))
     out["divisions_with_positive_within_relation"] = [int(pos), int(L.ed.nunique())]
-    # placebo 1: shuffle advance results among a division's polls
     pl = [fe(L.ed, x, permute_within(L.ed.values, y, rng), w)[0] for _ in range(500)]
     out["placebo_permute_within_division"] = {"draws": 500, "mean": round(float(np.mean(pl)), 3), "sd": round(float(np.std(pl)), 3)}
-    # placebo 2: make M0 true. Every poll draws its ballots from the division's one advance mix.
     tot = L.groupby("ed")[["a_ndp", "a_ucp"]].transform("sum")
     p0 = (tot.a_ndp / (tot.a_ndp + tot.a_ucp)).values
     sim = [fe(L.ed, x, logit(rng.binomial(w.astype(int), p0) / w), w)[0] for _ in range(500)]
-    out["placebo_M0_true_simulation"] = {"draws": 500, "mean": round(float(np.mean(sim)), 3), "sd": round(float(np.std(sim)), 3)}
-    # coverage
+    out["placebo_m0_true_simulation"] = {"draws": 500, "mean": round(float(np.mean(sim)), 3), "sd": round(float(np.std(sim)), 3)}
+
+    # P's own error at the located polls: scatter of a poll's early log-odds around the line with beta = 1,
+    # beyond what counting alone gives; and scatter of its ballot count around P's count side.
+    r = yd - 1.0 * xd
+    p = L.adv_share.values
+    tot_var, samp_var = np.average(r ** 2, weights=w), np.average(1 / (w * p * (1 - p)), weights=w)
+    A_sh = (L.a_ndp + L.a_ucp) / (L.a_ndp + L.a_ucp).groupby(L.ed).transform("sum")
+    G_sh = L.c_gap / L.c_gap.groupby(L.ed).transform("sum")
+    out["residual_at_located_polls"] = {
+        "share_residual_sd_log_odds": round(float(np.sqrt(tot_var)), 4), "counting_error_sd_log_odds": round(float(np.sqrt(samp_var)), 4),
+        "excess_sd_log_odds": round(float(np.sqrt(max(tot_var - samp_var, 0))), 4),
+        "count_residual_sd_log": round(float(np.log(A_sh / G_sh).std()), 4),
+        "median_two_party_ballots_per_poll": float(np.median(w)),
+        "sound_as_station_level_error_model": False,
+        "why_not": ["a poll's catchment is a guess (nearest poll); an elector may use any advance poll, so the scatter mixes "
+                    "catchment error with the rule's own error", "a poll's count depends on its hours and size, not only on who lives near it",
+                    "polls are larger than stations and cover 45% of in-division advance ballots in 54 divisions; no provincial data "
+                    "show how the error scales down to a station or whether neighbouring stations err together"]}
     raw = load_2023_rows()
     adv = raw[raw.kind == "Advance"]
     out["coverage"] = {"in_division_advance_two_party_ballots": int((adv.ndp + adv.ucp).sum()), "in_tested_polls": int(w.sum()),
@@ -105,15 +95,16 @@ def provincial(rng):
                        "untested_vote_anywhere_and_special_two_party_ballots": int(raw[raw.kind.isin(["Vote Anywhere", "Special Ballot"])][["ndp", "ucp"]].sum().sum())}
     gc = pd.read_csv(INPUTS / "advance_poll_geocodes.csv", dtype={"ed": str})
     miss = gc[gc.lat.isna()]
-    out["unlocated_polls"] = {"in_file": int(len(gc)), "not_found": int(len(miss)), "name_contains_Returning": int(miss.name.str.contains("Returning").sum()),
+    out["unlocated_polls"] = {"in_file": int(len(gc)), "not_found": int(len(miss)), "name_contains_returning": int(miss.name.str.contains("Returning").sum()),
                               "multi_site_rows_placed_at_first_name": int(gc[gc.lat.notna() & (gc["query"] != gc.name)].shape[0])}
     return out
 
 
 def main():
     rng = np.random.default_rng(SEED)
-    res = {"seed": SEED, "federal_2021": federal(2021, rng), "federal_2019": federal(2019, rng), "provincial_2023": provincial(rng)}
-    (OUT / "robustness.json").write_text(json.dumps(res, indent=1))
+    res = {"located_polls_2023": provincial(rng)}
+    write_json("robustness.json", res, __file__, [OUT / "advance_locations_2023.csv", INPUTS / "advance_poll_geocodes.csv", WORKBOOK_2023], seed=SEED)
+    import json
     print(json.dumps(res, indent=1))
 
 

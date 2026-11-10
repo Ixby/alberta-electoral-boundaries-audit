@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from _common import DATA_ROOT, OUT, load_2023_rows, load_va, logit, region_of
+from _common import OUT, VA_EDAY, WORKBOOK_2015, WORKBOOK_2023, load_2023_rows, load_va, logit, region_of, write_csv, write_json
 
 
 def wls_slope(x, y, w):
@@ -33,7 +33,7 @@ def wls_slope(x, y, w):
 
 def summarise(div, kinds, label):
     """div: one row per division with columns {kind}_ndp, {kind}_ucp, region, electors."""
-    out = {"label": label, "province": {}, "by_region": {}, "by_competitiveness": {}, "cross_division": {}}
+    out = {"label": label, "province": {}, "by_region": [], "by_competitiveness": [], "cross_division": {}}
     ed_share = div.eday_ndp / (div.eday_ndp + div.eday_ucp)
     div["eday_share"] = ed_share
     div["eday_margin_pts"] = 100 * (2 * ed_share - 1).abs()
@@ -64,10 +64,10 @@ def summarise(div, kinds, label):
     for col, key in (("region", "by_region"), ("comp", "by_competitiveness")):
         for name, g in div.groupby(col, observed=True):
             e, a = P(g.eday_ndp.sum(), g.eday_ucp.sum()), P(g.non_ndp.sum(), g.non_ucp.sum())
-            out[key][str(name)] = {"divisions": int(len(g)), "eday_ndp_pct": round(100 * e, 2), "non_eday_ndp_pct": round(100 * a, 2),
+            out[key].append({"group": str(name), "divisions": int(len(g)), "eday_ndp_pct": round(100 * e, 2), "non_eday_ndp_pct": round(100 * a, 2),
                                    "skew_pts": round(100 * (a - e), 2), "mean_division_skew_pts": round(g.skew_pts.mean(), 2),
                                    "mean_logit_shift": round(g.skew_logit.mean(), 3),
-                                   "non_eday_share_of_votes_pct": round(100 * (g.non_ndp.sum() + g.non_ucp.sum()) / (g.non_ndp.sum() + g.non_ucp.sum() + g.eday_ndp.sum() + g.eday_ucp.sum()), 1)}
+                                   "non_eday_share_of_votes_pct": round(100 * (g.non_ndp.sum() + g.non_ucp.sum()) / (g.non_ndp.sum() + g.non_ucp.sum() + g.eday_ndp.sum() + g.eday_ucp.sum()), 1)})
     # Across divisions: does the non-election-day vote follow the election-day vote one for one?
     w = (div.non_ndp + div.non_ucp).values
     a, b, se = wls_slope(logit(div.eday_share), logit(div.non_share), w)
@@ -122,7 +122,7 @@ def y2023():
     out["advance_locations_within_division"] = {
         "advance_location_rows": int(len(adv)), "divisions_with_2plus_locations": ndiv, "pooled_chi2": round(chi, 1), "dof": dof,
         "p_value": float(stats.chi2.sf(chi, dof)), "divisions_rejecting_same_mix_at_5pct": int(sig),
-        "median_gap_between_most_and_least_NDP_location_pts": round(float(np.median(spread)), 1),
+        "median_gap_between_most_and_least_ndp_location_pts": round(float(np.median(spread)), 1),
         "max_gap_pts": round(float(np.max(spread)), 1),
         "reading": "M0 says every advance voter group in a division has one party mix; a large chi-square rejects that"}
     # the same statistic for election-day stations, to scale the advance-location spread
@@ -144,13 +144,13 @@ def y2023():
     out["advance_locations_within_division"]["median_weighted_sd_pts_advance_locations"] = round(float(sp3.median()), 2)
     r, p = stats.spearmanr(sp2.reindex(sp3.index), sp3)
     out["advance_locations_within_division"]["spearman_sd_advance_vs_sd_election_day"] = {"rho": round(float(r), 3), "p": float(p)}
-    div.to_csv(OUT / "skew_2023_by_division.csv")
+    write_csv(div, "skew_2023_by_division.csv", index=True)
     return out
 
 
 def y2015():
     import openpyxl
-    wb = openpyxl.load_workbook(DATA_ROOT / "data/raw/2015_results.xlsx", read_only=True, data_only=True)
+    wb = openpyxl.load_workbook(WORKBOOK_2015, read_only=True, data_only=True)
     rows = []
     for sn in wb.sheetnames:
         it = list(wb[sn].iter_rows(values_only=True))
@@ -170,7 +170,7 @@ def y2015():
                     v[p] += r[i] or 0
             rows.append(dict(ed=sn, name=title, poll=nm, k=kind, ndp=v["NDP"], ucp=v["PC"] + v["WRP"], valid=r[vcol] or 0, electors=r[3]))
     raw = pd.DataFrame(rows)
-    raw.to_csv(OUT / "polls_2015_parsed.csv", index=False)
+    write_csv(raw, "polls_2015_parsed.csv")
     piv = raw.pivot_table(index="ed", columns="k", values=["ndp", "ucp", "valid"], aggfunc="sum").fillna(0)
     div = pd.DataFrame({f"{k}_{p}": piv[(p, k)] for p in ("ndp", "ucp", "valid") for k in piv["ndp"].columns})
     div["electors"] = raw[raw.k == "eday"].groupby("ed").electors.sum()
@@ -178,23 +178,23 @@ def y2015():
     div["name"] = raw.drop_duplicates("ed").set_index("ed").name
     div["region"] = div.name.map(region_of)
     out = summarise(div, ["advance", "mobile", "special"], "2015, NDP share of NDP+PC+Wildrose")
-    div.to_csv(OUT / "skew_2015_by_division.csv")
+    write_csv(div, "skew_2015_by_division.csv", index=True)
     return out
 
 
 def main():
-    res = {"2023": y2023(), "2015": y2015(),
+    res = {"y2023": y2023(), "y2015": y2015(),
            "note_2019": "No 2019 poll-level workbook is in the repository (only division totals in data/reference), so 2019 is not measured."}
-    (OUT / "skew_summary.json").write_text(json.dumps(res, indent=1))
-    for y in ("2023", "2015"):
+    write_json("skew_summary.json", res, __file__, [WORKBOOK_2023, WORKBOOK_2015, VA_EDAY])
+    for y in ("y2023", "y2015"):
         r = res[y]
         print("==", r["label"])
         for k, v in r["province"].items():
             print(f"  {k:22s} two-party {v['two_party']:>9,}  NDP {v['ndp_share_pct']:6.2f}%  vs election day {v['minus_eday_pts']:+.2f}")
         print("  per division:", r["per_division_skew_pts"])
         for k in ("by_region", "by_competitiveness"):
-            for n, v in r[k].items():
-                print(f"  {n:28s}", v)
+            for v in r[k]:
+                print("  ", v)
         print("  cross:", json.dumps(r["cross_division"]))
         if "advance_locations_within_division" in r:
             print("  locations:", json.dumps(r["advance_locations_within_division"]))

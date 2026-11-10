@@ -1,22 +1,24 @@
-"""Headline numbers on all 2023 ballots under each allocation rule (exploratory, not registered).
+"""Results on all 2023 ballots under M0 (the registered rule) and P, on every map (exploratory, not registered).
 
-Maps: 2019 (in force), commission majority (89), commission minority (89),
-      panel reconstruction v3 (91), para 167 map (91).
-Rules: M0 (current), M1 (party-specific), M2 (turnout gap, half lean),
-       R = G(beta, lam) with beta and lam taken from the federal test
-       (outputs/federal_gradient.json, mean of 2019 and 2021),
-       a grid over G, and a Monte Carlo that lets beta and lam differ by
-       division as much as they differ between federal ridings (seed 20261109).
+Maps: 2019 (in force, 87), commission majority (89), commission minority (89),
+      panel reconstruction v3 (91), para 167 reconstruction (91).
+Rules: M0  read from the registered Amendment 12 file (va_polygons_all_2023_ballots_primary.gpkg,
+           SHA-256 checked), and rebuilt here as a check;
+       P   rule_p in _models.py: lam = 1, beta = 1.0, and the same rule across the provincial
+           range of beta (the 95% cluster-bootstrap range of the 2023 located-poll slope, from
+           outputs/robustness.json). No federal number is used.
 
-Metrics come from analysis/scripts/mcmc_ensemble.seat_results (the audit's own
-formulas); "close" uses the rule in close_seats_ensemble.py (two-party margin
-of 4 points or less).
+Metrics: analysis/scripts/mcmc_ensemble.seat_results (the audit's own formulas). Close seat:
+two-party margin of 4 points or less. Voting areas go to districts by representative point.
 
-Checks: every rule returns each division's official two-party totals, and the
-2019 map gives 49 UCP, 38 NDP under every rule.
+Checks (printed; the script stops if any fails):
+  1. every division's official NDP, UCP and other totals are returned exactly, under M0 and every P;
+  2. the 2019 map gives 49 UCP, 38 NDP under M0 and every P;
+  3. no election-day station is over 100% of its list under P, except those already over on election day;
+  4. the rebuilt M0 equals the registered file.
 
-Writes outputs/headline_table.csv, outputs/headline.json,
-       outputs/turnout_plausibility.json, outputs/va_allocations.csv
+Writes outputs/headline.json, outputs/headline_table.csv, outputs/district_margins.csv,
+       outputs/va_allocations.csv
 
 Usage: python findings/advance_vote_profile/05_models_headlines.py
 """
@@ -30,18 +32,20 @@ import numpy as np
 import pandas as pd
 
 import _models as M
-from _common import DATA_ROOT, HERE, OUT, ROOT, build_va_table, division_totals, load_2023_rows, load_va
+from _common import (DATA_ROOT, M0_SHA256, OUT, ROOT, VA_EDAY, VA_M0, WORKBOOK_2023, build_va_table,
+                     division_totals, load_2023_rows, load_va, sha256, write_csv, write_json)
 
 sys.path.insert(0, str(ROOT / "analysis/scripts"))
 with contextlib.redirect_stdout(io.StringIO()):
     import mcmc_ensemble as me
 
-SEED = 20261109
-N_DRAWS = 1000
 MAPS = {"majority_89": ("data/shapefiles/canonical/ea_majority_2026_eds.gpkg", "EDName2025"),
         "minority_89": ("data/shapefiles/canonical/ea_minority_2026_eds.gpkg", "EDName2025"),
         "panel_v3_91": ("data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg", "district"),
         "para167_91": ("findings/iap_para167/para167_map.gpkg", "district")}
+MAP_LABEL = {"enacted_2019_87": "2019 map (87)", "majority_89": "Commission majority (89)",
+             "minority_89": "Commission minority (89)", "panel_v3_91": "Panel reconstruction v3 (91)",
+             "para167_91": "Paragraph 167 reconstruction (91)"}
 
 
 def src(rel):
@@ -54,8 +58,6 @@ def assignments(g):
     pts = g[["geometry"]].copy()
     pts["geometry"] = g.geometry.representative_point()
     for k, (f, col) in MAPS.items():
-        if not src(f).exists():
-            continue
         eds = gpd.read_file(src(f)).to_crs(pts.crs)
         j = gpd.sjoin(pts, eds[[col, "geometry"]], how="left", predicate="within")
         j = j[~j.index.duplicated(keep="first")][col].reindex(pts.index)
@@ -67,173 +69,169 @@ def assignments(g):
 def metrics(n, u, labels):
     d = pd.DataFrame({"d": labels, "u": u, "n": n}).groupby("d")[["u", "n"]].sum()
     s = me.seat_results(d.u.values, d.n.values)
-    gap = (d.u - d.n) / (d.u + d.n)
-    nseats = len(d)
-    return {"ucp_seats": int(s["ucp_seats"]), "ndp_seats": int(nseats - s["ucp_seats"]), "efficiency_gap_pct": round(100 * s["efficiency_gap"], 3),
-            "mean_median_pct": round(100 * s["mean_median"], 3), "seats_at_tied_vote": round(s["seats_at_50_50"] * nseats, 1),
-            "close_under_4pts": int((gap.abs() <= 0.04).sum()), "n_districts": nseats}, d
+    share = (d.u - d.n) / (d.u + d.n)
+    k = len(d)
+    return {"ucp_seats": int(s["ucp_seats"]), "ndp_seats": int(k - s["ucp_seats"]),
+            "efficiency_gap_pct": round(100 * s["efficiency_gap"], 3), "mean_median_pct": round(100 * s["mean_median"], 3),
+            "declination": round(s["declination"], 4), "ucp_seats_at_tied_vote": round(s["seats_at_50_50"] * k, 1),
+            "close_seats_4pts": int((share.abs() <= 0.04).sum()), "n_districts": k}, d
+
+
+def station_turnout(t, placed):
+    """Per election-day station: (election-day ballots + placed early ballots) / names on list."""
+    s = pd.DataFrame({"station": t.station.values, "electors": t.electors.values, "eday_total": t.eday_total.values,
+                      "placed": placed}).groupby("station").sum()
+    return s, (s.eday_total + s.placed) / s.electors
+
+
+def beta_evidence():
+    loc = json.loads((OUT / "provincial_location_tests.json").read_text())
+    rob = json.loads((OUT / "robustness.json").read_text())
+    a = loc["located_polls_2023"]["slope_all"]
+    b = loc["town_polls_2015"]["slope"]
+    lo, hi = rob["located_polls_2023"]["cluster_bootstrap_95pct"]
+    return {"estimate_2023_located_polls": a["beta"], "se_2023_located_polls": a["se_clustered"],
+            "estimate_2015_town_polls": b["beta"], "se_2015_town_polls": b["se_clustered"],
+            "unweighted_2023": rob["located_polls_2023"]["log_odds_unweighted"][0],
+            "without_two_mountain_divisions_2023": rob["located_polls_2023"]["drop_top2"][0],
+            "range_used": [lo, hi], "range_source": "95% cluster bootstrap of the 2023 located-poll slope (robustness.json)",
+            "value_used": M.BETA_P}
 
 
 def main():
     raw = load_2023_rows()
     g = load_va()
     t = build_va_table(g, raw)
-    t["gap"] = t.gap.fillna(0).clip(lower=0)
     tot = division_totals(raw)
     lab = assignments(g.to_crs(3400))
-    fed = json.loads((OUT / "federal_gradient.json").read_text())
-    yrs = [y for y in fed if fed[y].get("available")]
-    BETA = round(float(np.mean([fed[y]["within_riding_slope_beta"]["beta"] for y in yrs])), 2)
-    LAM = round(float(np.mean([fed[y]["volume_lambda"]["lambda"] for y in yrs])), 2)
-    SD_B = float(np.mean([fed[y]["within_riding_slope_beta"]["per_riding_sd"] for y in yrs]))
-    SD_L = float(np.mean([fed[y]["volume_lambda"]["per_riding_sd"] for y in yrs]))
-    idx = {ed: np.where(t.ed.values == ed)[0] for ed in sorted(t.ed.unique())}
+    official = raw.groupby("ed")[["ndp", "ucp", "other"]].sum()
+    ev = beta_evidence()
+    lo, hi = ev["range_used"]
+    assert lo <= M.BETA_P <= hi, "value used lies outside the provincial range"
+    betas = sorted({round(lo, 2), 0.9, 0.95, 1.0, 1.05, 1.1, 1.15, round(hi, 2)})
+    checks = []
 
-    def alloc(rule):
-        n, u = t.e_n.values.copy(), t.e_u.values.copy()
-        for ed, ix in idx.items():
-            a_n, a_u = rule(t.e_n.values[ix], t.e_u.values[ix], t.gap.values[ix], float(tot.ndp[ed]), float(tot.ucp[ed]), ed)
-            n[ix] += a_n; u[ix] += a_u
-        return n, u
+    def check(name, ok, detail):
+        checks.append({"check": name, "passed": bool(ok), "detail": detail})
+        print(("PASS " if ok else "FAIL ") + name + ": " + detail, flush=True)
 
-    G = lambda b, l: (lambda en, eu, gp, An, Au, ed: M.general(en, eu, gp, An, Au, b, l, shrink_k=10))
-    rules = {"M0 current rule": lambda en, eu, gp, An, Au, ed: M.m0(en, eu, gp, An, Au),
-             "M1 party-specific": lambda en, eu, gp, An, Au, ed: M.m1(en, eu, gp, An, Au),
-             "M2 turnout gap, half lean": lambda en, eu, gp, An, Au, ed: M.m2(en, eu, gp, An, Au),
-             f"R recommended G(beta={BETA}, lam={LAM})": G(BETA, LAM)}
-    grid_b, grid_l = [0.0, 0.25, 0.5, 0.75, 1.0, 1.25], [0.0, 0.5, 1.0]
-    for b in grid_b:
-        for l in grid_l:
-            rules[f"G({b},{l})"] = G(b, l)
+    # M0: the registered file itself
+    assert sha256(VA_M0) == M0_SHA256, "registered all-ballots file changed"
+    gm = gpd.read_file(VA_M0)
+    assert (gm.OBJECTID.values == g.OBJECTID.values).all()
+    store = {"m0": {"ndp": gm.va_ndp.values.astype(float), "ucp": gm.va_ucp.values.astype(float), "other": gm.va_other.values.astype(float)}}
+    # M0 rebuilt (two-party), to show the rule implemented here is the registered one
+    n0, u0 = t.e_n.values.copy(), t.e_u.values.copy()
+    for ed, ix in t.groupby("ed").indices.items():
+        a, b = M.m0(t.e_n.values[ix], t.e_u.values[ix], t.gap.values[ix], float(tot.ndp[ed]), float(tot.ucp[ed]))
+        n0[ix] += a; u0[ix] += b
+    d0 = float(max(np.abs(n0 - store["m0"]["ndp"]).max(), np.abs(u0 - store["m0"]["ucp"]).max()))
+    check("rebuilt M0 equals the registered file", d0 < 1e-6, f"largest difference per voting area {d0:.2e} votes")
+    e_two = t.e_n.values + t.e_u.values
+    m0_share = np.zeros(len(t))
+    for ed, ix in t.groupby("ed").indices.items():
+        m0_share[ix] = e_two[ix] / e_two[ix].sum()
+    store["m0"]["placed_ballots"] = t.ed.map(tot.total).values * m0_share
 
-    # recommended rule applied to each ballot type on its own, then added
-    kinds = {k: division_totals(raw, (k,)) for k in ("Advance", "Vote Anywhere", "Mobile", "Special Ballot")}
+    for b in betas:
+        store[f"p_beta_{b:.2f}".replace(".", "_")] = M.allocate_p(t, tot, b)
+    pkey = "p_beta_1_00"
 
-    official = raw.groupby("ed")[["ndp", "ucp"]].sum()
-    rows, alloc_store, dist_store = [], {}, {}
-    for name, rule in rules.items():
-        n, u = alloc(rule)
-        chk = pd.DataFrame({"ed": t.ed, "n": n, "u": u}).groupby("ed").sum()
-        assert np.abs(chk.n - official.ndp).max() < 1e-6 and np.abs(chk.u - official.ucp).max() < 1e-6, name
-        alloc_store[name] = (n, u)
+    worst = 0.0
+    for k, a in store.items():
+        c = pd.DataFrame({"ed": t.ed, "ndp": a["ndp"], "ucp": a["ucp"], "other": a["other"]}).groupby("ed").sum()
+        worst = max(worst, float((c - official.loc[c.index]).abs().max().max()))
+    check("every division's official NDP, UCP and other totals returned", worst < 1e-6 and len(official) == 87,
+          f"87 divisions, {len(store)} allocations, largest difference {worst:.2e} votes")
+
+    rows, dist = [], {}
+    for k, a in store.items():
         for mp, labels in lab.items():
-            m, d = metrics(n, u, labels)
-            if mp == "enacted_2019_87":
-                assert (m["ucp_seats"], m["ndp_seats"]) == (49, 38), (name, m)
-            rows.append({"map": mp, "rule": name, **m})
-            dist_store[(mp, name)] = d
-    # by-kind variant of R
-    n, u = t.e_n.values.copy(), t.e_u.values.copy()
-    for k, tk in kinds.items():
-        for ed, ix in idx.items():
-            if ed in tk.index:
-                a_n, a_u = M.general(t.e_n.values[ix], t.e_u.values[ix], t.gap.values[ix], float(tk.ndp[ed]), float(tk.ucp[ed]), BETA, LAM, shrink_k=10)
-                n[ix] += a_n; u[ix] += a_u
-    for mp, labels in lab.items():
-        m, _ = metrics(n, u, labels)
-        rows.append({"map": mp, "rule": "R applied to each ballot type separately", **m})
-    # M3: location-informed. Where two or more of a division's named advance polls were geocoded, each such
-    # poll's ballots go only to the voting areas nearest to it (R inside that catchment); everything else follows R.
-    cf = OUT / "advance_catchments_2023.csv"
-    if cf.exists():
-        c = pd.read_csv(cf, dtype={"ed": str})
-        n, u = t.e_n.values.copy(), t.e_u.values.copy()
-        used_n, used_u = pd.Series(0.0, index=tot.index), pd.Series(0.0, index=tot.index)
-        for (ed, loc), cc in c.groupby(["ed", "location"]):
-            ix = cc.va_row_idx.values
-            if t.e_n.values[ix].sum() + t.e_u.values[ix].sum() <= 0:
-                continue
-            a_n, a_u = M.general(t.e_n.values[ix], t.e_u.values[ix], t.gap.values[ix], float(cc.loc_ndp.iloc[0]), float(cc.loc_ucp.iloc[0]), BETA, LAM, shrink_k=10)
-            n[ix] += a_n; u[ix] += a_u
-            used_n[ed] += cc.loc_ndp.iloc[0]; used_u[ed] += cc.loc_ucp.iloc[0]
-        for ed, ix in idx.items():
-            a_n, a_u = M.general(t.e_n.values[ix], t.e_u.values[ix], t.gap.values[ix], float(tot.ndp[ed] - used_n[ed]), float(tot.ucp[ed] - used_u[ed]), BETA, LAM, shrink_k=10)
-            n[ix] += a_n; u[ix] += a_u
-        chk = pd.DataFrame({"ed": t.ed, "n": n, "u": u}).groupby("ed").sum()
-        assert np.abs(chk.n - official.ndp).max() < 1e-6 and np.abs(chk.u - official.ucp).max() < 1e-6
-        m3name = f"M3 location-informed ({c.ed.nunique()} divisions, {int(used_n.sum() + used_u.sum()):,} ballots placed by poll)"
-        alloc_store[m3name] = (n, u)
-        for mp, labels in lab.items():
-            m, d = metrics(n, u, labels)
-            if mp == "enacted_2019_87":
-                assert (m["ucp_seats"], m["ndp_seats"]) == (49, 38)
-            rows.append({"map": mp, "rule": m3name, **m})
+            m, d = metrics(a["ndp"], a["ucp"], labels)
+            rows.append({"map": mp, "rule": "m0" if k == "m0" else "p", "beta": None if k == "m0" else float(k[7:].replace("_", ".")), **m})
+            dist[(mp, k)] = d
     T = pd.DataFrame(rows)
-    T.to_csv(OUT / "headline_table.csv", index=False)
+    e19 = T[T["map"] == "enacted_2019_87"]
+    check("2019 map gives 49-38 under M0 and every P", ((e19.ucp_seats == 49) & (e19.ndp_seats == 38)).all(),
+          ", ".join(f"{r.rule}{'' if r.beta is None or np.isnan(r.beta) else ' beta ' + format(r.beta, '.2f')}: {r.ucp_seats}-{r.ndp_seats}" for r in e19.itertuples()))
 
-    # Monte Carlo: beta and lam differ by division as much as they differ between federal ridings
-    rng = np.random.default_rng(SEED)
-    mc = {mp: [] for mp in lab}
-    for _ in range(N_DRAWS):
-        bd = {ed: max(0.0, rng.normal(BETA, SD_B)) for ed in idx}
-        ld = {ed: float(np.clip(rng.normal(LAM, SD_L), 0, 1)) for ed in idx}
-        n, u = alloc(lambda en, eu, gp, An, Au, ed: M.general(en, eu, gp, An, Au, bd[ed], ld[ed], shrink_k=10))
-        for mp, labels in lab.items():
-            m, _ = metrics(n, u, labels)
-            mc[mp].append((m["ucp_seats"], m["efficiency_gap_pct"], m["mean_median_pct"], m["seats_at_tied_vote"], m["close_under_4pts"]))
-    mc_out = {}
-    for mp, v in mc.items():
-        a = np.array(v)
-        seats = pd.Series(a[:, 0]).value_counts(normalize=True).sort_index()
-        mc_out[mp] = {"ucp_seats_distribution": {int(k): round(float(x), 3) for k, x in seats.items()},
-                      "efficiency_gap_pct_p5_p50_p95": [round(float(q), 2) for q in np.percentile(a[:, 1], [5, 50, 95])],
-                      "mean_median_pct_p5_p50_p95": [round(float(q), 2) for q in np.percentile(a[:, 2], [5, 50, 95])],
-                      "seats_at_tied_vote_distribution": {str(k): round(float(x), 3) for k, x in pd.Series(a[:, 3]).value_counts(normalize=True).sort_index().items()},
-                      "close_under_4pts_min_max": [int(a[:, 4].min()), int(a[:, 4].max())]}
+    # turnout hard check
+    _, to_ed = station_turnout(t, np.zeros(len(t)))
+    over_ed = set(to_ed.index[to_ed > 1])
+    bad = []
+    for k, a in store.items():
+        if k == "m0":
+            continue
+        _, to = station_turnout(t, a["placed_ballots"])
+        bad += [(k, s, round(100 * float(to[s]), 1)) for s in to.index[to > 1 + 1e-9] if s not in over_ed]
+    check("no station over 100% under P beyond those already over on election day", not bad,
+          f"over on election day alone: {sorted(over_ed)}; new under any P: {len(bad)}")
+    _, to_m0 = station_turnout(t, store["m0"]["placed_ballots"])
 
-    rname = [k for k in rules if k.startswith("R ")][0]
-    supported = [k for k in rules if k.startswith("G(") and float(k[2:].split(",")[0]) >= 0.75] + ["M1 party-specific", rname]
-    rng_out = {}
+    # ranges and seat changes
+    P = T[T.rule == "p"]
+    summary = []
     for mp in lab:
-        s = T[(T["map"] == mp) & T.rule.isin(supported)]
-        rng_out[mp] = {"ucp_seats": [int(s.ucp_seats.min()), int(s.ucp_seats.max())],
-                       "efficiency_gap_pct": [float(s.efficiency_gap_pct.min()), float(s.efficiency_gap_pct.max())],
-                       "mean_median_pct": [float(s.mean_median_pct.min()), float(s.mean_median_pct.max())],
-                       "seats_at_tied_vote": [float(s.seats_at_tied_vote.min()), float(s.seats_at_tied_vote.max())],
-                       "close_under_4pts": [int(s.close_under_4pts.min()), int(s.close_under_4pts.max())]}
-    # districts that change hands between M0 and R, and R's thinnest margins
-    flips = {}
+        r0 = T[(T["map"] == mp) & (T.rule == "m0")].iloc[0]
+        rp = P[(P["map"] == mp) & (P.beta == M.BETA_P)].iloc[0]
+        s = P[P["map"] == mp]
+        rec = {"map": mp, "label": MAP_LABEL[mp], "n_districts": int(r0.n_districts),
+               "m0": {c: r0[c] for c in ("ucp_seats", "ndp_seats", "efficiency_gap_pct", "mean_median_pct", "declination", "ucp_seats_at_tied_vote", "close_seats_4pts")},
+               "p_beta_1": {c: rp[c] for c in ("ucp_seats", "ndp_seats", "efficiency_gap_pct", "mean_median_pct", "declination", "ucp_seats_at_tied_vote", "close_seats_4pts")},
+               "p_range_over_beta": {c: [s[c].min(), s[c].max()] for c in ("ucp_seats", "efficiency_gap_pct", "mean_median_pct", "declination", "ucp_seats_at_tied_vote", "close_seats_4pts")}}
+        d0m, d1 = dist[(mp, "m0")], dist[(mp, pkey)]
+        mar = {k: (dist[(mp, k)].u - dist[(mp, k)].n) for k in store}
+        pm = pd.concat([mar[k] for k in store if k != "m0"], axis=1)
+        changed = []
+        for x in d0m.index:
+            w0, w1 = mar["m0"][x] > 0, mar[pkey][x] > 0
+            flips_in_range = bool(((pm.loc[x] > 0) != w0).any())
+            if w0 != w1 or flips_in_range:
+                changed.append({"district": x, "m0_ucp_margin_votes": round(float(mar["m0"][x])), "p_ucp_margin_votes": round(float(mar[pkey][x])),
+                                "p_ucp_margin_range_votes": [round(float(pm.loc[x].min())), round(float(pm.loc[x].max()))],
+                                "winner_m0": "UCP" if w0 else "NDP", "winner_p": "UCP" if w1 else "NDP",
+                                "changes_at_beta_1": bool(w0 != w1)})
+        rec["seats_that_change"] = changed
+        rec["thinnest_p_margins"] = [{"district": x, "p_ucp_margin_votes": round(float(mar[pkey][x]))} for x in mar[pkey].abs().sort_values().index[:4]]
+        summary.append(rec)
+    # one row per district per map
+    dm = []
     for mp in lab:
-        d0, d1 = dist_store[(mp, "M0 current rule")], dist_store[(mp, rname)]
-        ch = d0.index[(d0.u > d0.n) != (d1.u > d1.n)]
-        flips[mp] = {"changed_winner": {x: {"M0_ucp_margin_votes": round(float(d0.u[x] - d0.n[x]), 1), "R_ucp_margin_votes": round(float(d1.u[x] - d1.n[x]), 1)} for x in ch},
-                     "R_three_thinnest": {x: round(float(d1.u[x] - d1.n[x]), 1) for x in (d1.u - d1.n).abs().sort_values().index[:3]},
-                     "M0_three_thinnest": {x: round(float(d0.u[x] - d0.n[x]), 1) for x in (d0.u - d0.n).abs().sort_values().index[:3]},
-                     "largest_district_share_shift_pts": round(float(100 * ((d1.n / (d1.n + d1.u)) - (d0.n / (d0.n + d0.u))).abs().max()), 2)}
-
-    # turnout plausibility per election-day station: (election-day ballots + allocated ballots) / names on list
-    st_el = t.groupby("station").electors.sum()
-    st_ev = t.groupby("station").eday_valid.sum()
-    non_valid = raw[raw.kind != "Election Day"].groupby("ed").valid.sum()
-    scale = (non_valid / (tot.ndp + tot.ucp))  # all-party ballots per two-party ballot, by division
-    plaus = {}
-    for name in ["M0 current rule", "M1 party-specific", "M2 turnout gap, half lean", rname]:
-        n, u = alloc_store[name]
-        add = pd.Series((n - t.e_n.values + u - t.e_u.values) * t.ed.map(scale).values).groupby(t.station.values).sum()
-        to = ((st_ev + add) / st_el).replace([np.inf, -np.inf], np.nan).dropna()
-        sd_within = to.groupby(to.index.str[:2]).std().median()
-        plaus[name] = {"stations": int(len(to)), "over_100pct": int((to > 1).sum()), "over_90pct": int((to > 0.9).sum()), "under_30pct": int((to < 0.3).sum()),
-                       "max_pct": round(100 * float(to.max()), 1), "min_pct": round(100 * float(to.min()), 1), "median_pct": round(100 * float(to.median()), 1),
-                       "median_within_division_sd_pts": round(100 * float(sd_within), 2)}
-    plaus["election_day_only"] = {"max_pct": round(100 * float((st_ev / st_el).max()), 1), "median_pct": round(100 * float((st_ev / st_el).median()), 1),
-                                  "median_within_division_sd_pts": round(100 * float((st_ev / st_el).groupby(st_el.index.str[:2]).std().median()), 2)}
-    (OUT / "turnout_plausibility.json").write_text(json.dumps(plaus, indent=1))
-
-    out = {"status": "exploratory, not registered", "recommended": {"rule": rname, "beta": BETA, "lam": LAM, "source": "mean of federal 2019 and 2021 Alberta estimates"},
-           "monte_carlo": {"seed": SEED, "draws": N_DRAWS, "beta_sd_between_divisions": round(SD_B, 3), "lam_sd_between_divisions": round(SD_L, 3), "results": mc_out},
-           "supported_range_rules": supported, "supported_range": rng_out, "M0_vs_R": flips,
-           "checks": {"division_totals_match_official_under_every_rule": True, "2019_map_49_38_under_every_rule": True}}
-    (OUT / "headline.json").write_text(json.dumps(out, indent=1))
-    va = pd.DataFrame({"va_row_idx": np.arange(len(t)), "ed": t.ed, "va": t.v, "eday_ndp": t.e_n.round(3), "eday_ucp": t.e_u.round(3)})
-    for name, key in (("M0 current rule", "M0"), ("M1 party-specific", "M1"), ("M2 turnout gap, half lean", "M2"), (rname, "R")):
-        va[f"{key}_ndp"], va[f"{key}_ucp"] = alloc_store[name][0].round(3), alloc_store[name][1].round(3)
-    va.to_csv(OUT / "va_allocations.csv", index=False)
-
+        idx = dist[(mp, "m0")].index
+        for x in idx:
+            dd0, dd1 = dist[(mp, "m0")].loc[x], dist[(mp, pkey)].loc[x]
+            pm = [float(dist[(mp, k)].loc[x].u - dist[(mp, k)].loc[x].n) for k in store if k != "m0"]
+            dm.append({"map": mp, "district": x, "m0_ucp": round(dd0.u, 1), "m0_ndp": round(dd0.n, 1), "m0_ucp_margin": round(dd0.u - dd0.n, 1),
+                       "p_ucp": round(dd1.u, 1), "p_ndp": round(dd1.n, 1), "p_ucp_margin": round(dd1.u - dd1.n, 1),
+                       "p_ucp_margin_min_over_beta": round(min(pm), 1), "p_ucp_margin_max_over_beta": round(max(pm), 1),
+                       "winner_m0": "UCP" if dd0.u > dd0.n else "NDP", "winner_p": "UCP" if dd1.u > dd1.n else "NDP"})
+    write_csv(pd.DataFrame(dm), "district_margins.csv")
+    write_csv(T, "headline_table.csv")
+    va = pd.DataFrame({"va_row_idx": np.arange(len(t)), "ed": t.ed, "va": t.v, "station": t.station,
+                       "eday_ndp": t.e_n.round(3), "eday_ucp": t.e_u.round(3), "eday_other": t.e_o.round(3),
+                       "electors": t.electors.round(3), "eday_ballots": t.eday_total.round(3),
+                       "m0_ndp": store["m0"]["ndp"].round(3), "m0_ucp": store["m0"]["ucp"].round(3), "m0_other": store["m0"]["other"].round(3),
+                       "p_ndp": store[pkey]["ndp"].round(3), "p_ucp": store[pkey]["ucp"].round(3), "p_other": store[pkey]["other"].round(3),
+                       "p_placed_ballots": store[pkey]["placed_ballots"].round(3)})
+    write_csv(va, "va_allocations.csv")
+    over = []
+    for s in sorted(over_ed):
+        r = raw[(raw.kind == "Election Day") & ((raw.ed + raw.letter.astype(str)) == s)].iloc[0]
+        over.append({"station": s, "division": r.ed, "name": r["name"], "voting_areas": r.vas, "names_on_list": int(r.electors),
+                     "election_day_ballots": int(r.total), "turnout_pct": round(100 * r.total / r.electors, 1)})
+    out = {"rule_p": {"lam": M.LAM_P, "beta": ev, "shrink_pseudo_count": M.SHRINK_K,
+                      "betas_run": betas, "federal_numbers_used": False},
+           "checks": checks, "all_checks_passed": all(c["passed"] for c in checks),
+           "stations_over_100pct_on_election_day": over,
+           "stations_over_100pct_m0": int((to_m0 > 1).sum()),
+           "maps": summary}
+    write_json("headline.json", out, __file__, [WORKBOOK_2023, VA_EDAY, VA_M0, OUT / "provincial_location_tests.json", OUT / "robustness.json"]
+               + [src(f) for f, _ in MAPS.values()])
     pd.set_option("display.width", 250)
-    show = T[~T.rule.str.startswith("G(")]
-    print(show.to_string(index=False))
-    print(T[T.rule.str.startswith("G(") & T["map"].isin(["minority_89", "majority_89"])].to_string(index=False))
-    print(json.dumps(out["monte_carlo"], indent=1)); print(json.dumps(rng_out, indent=1)); print(json.dumps(flips, indent=1)); print(json.dumps(plaus, indent=1))
+    print(T[(T.rule == "m0") | (T.beta == M.BETA_P)].to_string(index=False))
+    print(json.dumps(summary, indent=1, default=float))
+    if not out["all_checks_passed"]:
+        sys.exit("a check failed")
 
 
 if __name__ == "__main__":

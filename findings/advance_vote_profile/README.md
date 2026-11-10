@@ -1,288 +1,256 @@
-# Where did the advance voters live? Testing how to spread 2023's non-election-day ballots
+# Where did the early voters live? Placing 2023's early ballots with rule P
 
-2026-11-09 23:15 Alberta time · claude-fable-5-2 · medium
+2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium
 
-**Status: exploratory, not registered.** Nothing here changes the audit's registered method. The registered rule for spreading these ballots is Amendment 12. Changing it needs a new amendment that the author signs, and a replay of the comparison maps (the "ensembles") on the new vote file. This folder gives the evidence for that decision. It gives no conclusion on whether any map is a gerrymander.
+**Status: exploratory, not registered.** Nothing here changes the audit's registered method. The registered rule is Amendment 12 (called M0 below). Replacing it needs a new amendment signed by the author, and a rerun of the comparison maps on the new vote file. This folder gives evidence for that decision. It says nothing about whether any map is a gerrymander.
 
-**Not blind.** This rule was studied and recommended on 2026-11-09, after the audit had already seen that a party-specific spread moves the all-ballots results against the commission minority's map (55 to 57 UCP seats, efficiency gap +2.55% to about +5.6%). The choice of R was made knowing which way it cuts. The evidence for the rule (the federal test and the provincial advance polls) uses no map and would read the same whichever way the seats moved, but a reader should weigh the timing. Amendment 12 carried a statement of this kind; any amendment adopting R must carry one too.
+**Not blind.** This rule is being chosen after the audit had already seen that placing early ballots by each party's local strength moves the all-ballots results against the commission minority's map (from 55 to 57 UCP seats, and an efficiency gap from +2.55% to +5.64%). The choice is made knowing which way it cuts. The evidence below uses no map, and it would read the same whichever way the seats moved. A reader should still weigh the timing. Any amendment adopting P must say this.
 
-An independent verifier re-derived the four main claims and confirmed them with corrections (`audit2/verify-advance.json` in the session scratchpad). Those corrections are applied in this version. Scripts 06 and 07 rebuild the verifier's extra checks.
+## The answer first
 
-## The short version
+- **The rule.** Rule P places each division's early ballots only among the people on the list who did not vote on election day. Each area keeps its own election-day lean.
+- **The lean.** Provincial evidence puts the strength of that lean at about 1, that is, early voters lean the same way as their election-day neighbours. The honest range is **0.87 to 1.22**. The value used is **1.0**.
+- **The 100% limit.** Under P no voting station passes 100% turnout, except two tiny stations that already pass it on election day alone. Under M0, 26 stations pass 100%.
+- **Seats, as ranges over that lean.** At all eight lean values run from 0.87 to 1.22, no seat moves on any map. Under P: 2019 map **49–38**, majority **48–41**, minority **57–32**, panel reconstruction v3 **50–41**, paragraph 167 reconstruction **50–41**. Under M0 the minority is 55–34 and the panel reconstruction 51–40. The others are the same.
+- **What changes.** Three seats, all close. On the minority map, Calgary-Edgemont (NDP by 4 modelled votes under M0, UCP by 401 under P) and Calgary-Glenmore (NDP by 24, UCP by 68). On the panel reconstruction, Banff-Canmore-Diamond Valley (UCP by 229, NDP by 1,276).
+- **The range is too narrow to trust alone.** It covers only the strength of the lean. The provincial data cannot soundly measure how far P misses in a single station. A seat won by 68 modelled votes should not be read as settled.
+- **The comparison maps.** One set (the redraw-test null) was rescored here under P. The others cannot be: their chains are on another machine and the sampler is far too slow here. `REPLAY.md` says how to rerun them. No percentile for them is given under P.
 
-- In 2023, 809,660 of 1,706,304 two-party ballots (47.5%) were not cast on election day. Elections Alberta reports them only per 2019 division.
-- Those ballots leaned NDP: 48.8% NDP against 42.6% on election day, a gap of 6.2 points province-wide (42.60% against 48.84%) and 4.8 points inside the average division.
-- The audit's current rule (M0) gives every voting area in a division the same party mix for these ballots. **The evidence rejects that.** In every test with a known answer, advance voters lean the same way as their election-day neighbours, almost one for one.
-- The rule the evidence supports (R) keeps each area's own lean and spreads the ballots by where people did *not* vote on election day. Its two numbers are borrowed from federal elections. Nothing provincial pins the second one.
-- Seats under R, as ranges: **minority 56 to 57** UCP seats (55 under M0), **majority 47 to 49** (48 under M0), panel reconstruction 49 to 51 (51 under M0). The point values are 57, 48 and 50. Seats at a tied vote do not move.
-- **The whole change on the minority map is two seats**: Calgary-Glenmore (UCP by 66 modelled votes under R) and Calgary-Edgemont (UCP by 384). The efficiency gap moves in steps with those two flips: +2.6% with neither, about +4.0% to +4.6% with one, +5.6% with both. Nothing shifted smoothly by 3 points.
-- The rule is well supported. The point seat counts under it are not. With the rule's own error included, the minority map shows 57 in roughly 60% to 76% of draws, and the majority map shows 48 in about 51% to 57%.
-- What stays unknown: the home voting area of any single advance voter. The provincial results cannot show it.
+## The problem
 
-## What was asked
+In 2023, 809,660 of 1,706,304 two-party ballots (47.45%) were not cast on election day. They were cast at advance polls, through "Vote Anywhere" (an advance ballot cast outside your own division), by special ballot (mail and the returning office), or at mobile polls in care homes. "Two-party" means NDP plus UCP.
 
-The author's direction: mimic the election-day pattern, but advance votes skew, so find what that skew looks like in Alberta and apply it. Test every assumption against the data we hold and against public and academic knowledge. Aim for the most faithful picture possible.
+Elections Alberta reports these early ballots only as a total for each 2019 division. To score a new map, the audit has to place them among the division's voting areas. A voting area is the smallest unit Elections Alberta draws. Where a new boundary cuts an old division, the placement decides which new district the ballots land in.
 
-Two things have to be settled. They are separate.
+The early ballots leaned NDP: 48.84% NDP against 42.60% on election day, a gap of 6.25 points. The NDP did better off election day in 83 of 87 divisions. Every rule here keeps each division's official totals exactly, so this lean is never lost. Only the placement inside a division is a model.
 
-1. **The skew** (how the party mix of early ballots differs from election day). This is observed for every division. No rule can get it wrong, because every rule here returns each division's official totals.
-2. **The spread** (which voting areas inside a division those ballots belong to). This is not observed. It matters only where a new district line cuts an old division, which is most of them.
+## Rule P
 
-## What the evidence says about the profile
+Rule P has two parts.
 
-### From the data we hold
+**Who gets the ballots (the count side).** An early ballot can only belong to someone on the list who did not vote on election day. Anything else would be illegal. So P gives each station a share of the division's early ballots equal to its share of the division's election-day non-voters. Election-day non-voters are the names on the list minus the election-day ballots. There is no blend with election-day votes. The "count dial" λ is 1 exactly, by rule, not by estimate.
 
-Source: `data/raw/2023_results.xlsx`, all 1,973 poll rows in 87 divisions. Script: `01_measure_skew.py`. "NDP share" means NDP ÷ (NDP + UCP).
+**Which party (the lean side).** Each area keeps its own election-day lean, after the division-wide shift toward the NDP. A lean strength of 0 would give every area the division's one mix (that is M0's choice). A strength of 1 means early voters share the whole of their neighbours' lean. The strength is measured on a log-odds scale, a standard way to compare party shares that keeps them between 0% and 100%.
 
-| 2023 ballot type | Two-party ballots | NDP share | Against election day |
+P uses no number from any federal election.
+
+The one tuning number left is a small pull toward the division's share for very small areas (10 ballots' worth). It keeps a station with a handful of votes from getting an extreme share.
+
+## How strong is the lean?
+
+Two provincial tests have a partly known answer. Both ask the same thing: inside a division, do early voters near NDP-leaning stations lean NDP too?
+
+**The 2023 advance polls, placed on the map** (`04_provincial_location_tests.py`, `06_robustness.py`). The 2023 results name 254 advance polls with their own counts. 151 were found in OpenStreetMap inside their own division. That leaves 123 polls in 54 divisions with at least two located polls. Each voting area was given to its nearest located poll.
+
+- The lean strength is **1.00 (± 0.07)**. Under M0 it would be 0. When results are reshuffled as if M0 were true, the test returns 0.00 ± 0.02, so the test can tell the two apart.
+- Resampling whole divisions gives a 95% range of **0.87 to 1.22**. This is the range used below.
+- Other reasonable ways of fitting give 0.88 (every poll counted equally) and 1.13 (without West Yellowhead and Banff-Kananaskis, which carry 66% of the weight).
+- The polls cover 261,493 of 575,496 in-division advance ballots (45.4%). Vote Anywhere and special ballots (212,562) are not tested by anything provincial.
+- "Nearest poll" is a rough guess at who uses a poll. Rough guesses blur real differences.
+
+**2015 town-named polls.** In 2015 rural advance polls and election-day polls were both named for towns. Matching names gives 36 advance polls in 12 divisions. The lean strength is **0.99 (± 0.20)**. That is a small sample, from eight years earlier, with three parties.
+
+So the estimate is about 1, the honest range is 0.87 to 1.22, and the value used is 1.0. The provincial evidence gives no reason to move off 1.0.
+
+## The 100% limit
+
+### What "Names on List" counts
+
+The 2023 results workbook gives "Names on List" for each of the 1,216 election-day stations, 2,939,762 in total (`07_turnout_and_count.py`).
+
+- That total equals the "Names on List" in Table 29 of Elections Alberta's 2023 report (p. 131). Division by division, it equals the report's Appendix D, the Post Election Day List of Electors, in all 86 divisions the text extraction could read. The 87th, Airdrie-East, was dropped by the extraction; it equals what is left of the total.
+- So "Names on List" is the **Post Election Day List of Electors**, a snapshot as of March 26, 2024 (p. 62).
+- The report says that list was updated from "all voting records, declarations, and oaths" (p. 62), and that "new electors are reflected in the correct electoral division and voting area" (p. 131). 248,688 electors registered at a voting place, in advance or on election day (p. 61).
+- **What follows.** Electors who registered at the poll on election day are most likely on the list, in the voting area where they live. That rests on the report's general description. The report does not say it station by station, so it is **not established** for any one station. People who died or moved before March 2024 were removed, so a few voters may be missing from the list.
+
+### Stations already over 100% on election day
+
+Two stations are over 100% on election day alone. No station is at exactly 100%.
+
+| Station | Names on list | Election-day ballots | Turnout | Most plausible reason |
+|---|---:|---:|---:|---|
+| Remote Area - Fort Fitzgerald (division 61, area 036) | 2 | 15 | 750% | People who live or work nearby but are listed elsewhere, or who registered at the poll and were placed in another voting area. Cannot tell from the data. |
+| Calgary Drop In Centre (division 04, area 064) | 9 | 21 | 233% | A homeless shelter. Most plausibly voters with no fixed address registered there, and the March 2024 list counts only those still listed there. Not established. |
+
+### The hard check
+
+Under P, no station passes 100% unless it already did on election day. This holds for every lean strength, because the count side does not depend on it. The reason is simple. In every division, early ballots are fewer than election-day non-voters (at most 59% of them, in Calgary-North West). So each station gets fewer early ballots than it has non-voters. The two stations above get no early ballots under P and stay where election day put them. The check passes in `05_models_headlines.py` and `07_turnout_and_count.py`. It is not forced; it follows from take-up being below 1 in every division, and the scripts stop if that ever fails.
+
+### The turnout distribution
+
+Station turnout here means election-day ballots plus placed early ballots, divided by names on the list. Each bin includes its upper edge.
+
+| Turnout | Election day alone | M0 | P |
 |---|---:|---:|---:|
-| Election day | 896,644 | 42.6% | — |
-| Advance, voted inside own division | 575,496 | 47.1% | +4.5 |
-| Advance, "Vote Anywhere" (voted outside own division) | 162,165 | 54.1% | +11.5 |
-| Special ballot (mail and returning office) | 50,397 | 54.9% | +12.3 |
-| Mobile polls (care homes and similar) | 21,602 | 42.7% | +0.1 |
-| All non-election-day | 809,660 | 48.8% | +6.2 |
+| 0 to 5% | 3 | 2 | 0 |
+| 5 to 10% | 1 | 1 | 0 |
+| 10 to 15% | 16 | 1 | 0 |
+| 15 to 20% | 17 | 5 | 0 |
+| 20 to 25% | 107 | 8 | 0 |
+| 25 to 30% | 266 | 8 | 0 |
+| 30 to 35% | 294 | 11 | 4 |
+| 35 to 40% | 202 | 23 | 12 |
+| 40 to 45% | 117 | 55 | 31 |
+| 45 to 50% | 99 | 87 | 73 |
+| 50 to 55% | 55 | 153 | 128 |
+| 55 to 60% | 27 | 150 | 226 |
+| 60 to 65% | 6 | 164 | 310 |
+| 65 to 70% | 2 | 168 | 278 |
+| 70 to 75% | 2 | 113 | 135 |
+| 75 to 80% | 0 | 85 | 13 |
+| 80 to 85% | 0 | 65 | 4 |
+| 85 to 90% | 0 | 39 | 0 |
+| 90 to 95% | 0 | 32 | 0 |
+| 95 to 100% | 0 | 20 | 0 |
+| over 100% | 2 | 26 | 2 |
 
-- **Nearly every division shows it.** The NDP did better off election day in 83 of 87 divisions. The average division gap is +4.8 points (middle value +4.7, spread ±3.0). The largest is Banff-Kananaskis at +12.0. The largest the other way is Peace River at −7.1.
-- **By place.** Calgary +3.6 points, Edmonton +6.3, smaller cities and suburbs +6.9, rural +6.0. Calgary's skew is the smallest. Calgary also votes early the most: 51% of its two-party ballots, against 45% in rural divisions.
-- **By how close the division was.** Close divisions (election-day margin under 10 points) +4.0; middling +5.4; safe +6.5. The link is weak and not statistically clear (rank correlation with margin 0.03).
-- **The skew is a shift, not a reshuffle.** Across the 87 divisions, the early vote follows the election-day vote one for one, with a constant push toward the NDP. On the log-odds scale (the usual scale for comparing shares near 0 or 1) the slope is 1.00 ± 0.02 and the correlation is 0.98. A division that is 10 points more NDP on election day is about 10 points more NDP among early voters too.
-- **Advance polls inside one division do not agree with each other.** The workbook names 254 advance polls with their own counts, two or more in 80 divisions. Under M0 they should all show the same mix, give or take chance. They do not: the middle gap between a division's most and least NDP advance poll is 9.3 points, and a standard test of "same mix" fails overwhelmingly (chi-square 8,771 on 162 degrees of freedom). Divisions whose election-day stations vary more also have advance polls that vary more (rank correlation 0.55).
-- **2015** (`data/raw/2015_results.xlsx`, NDP against PC + Wildrose). Advance ballots were only 16% of the vote. They leaned NDP by +2.6 points province-wide, but the average division showed no lean (−0.3 ± 4.5). Calgary leaned the other way (−3.3). Mobile polls were strongly anti-NDP (−11.2). The one-for-one pattern across divisions held (slope 1.08 ± 0.03).
-- **2019.** The repository holds no 2019 poll-level results, only division totals. 2019 could not be measured.
-
-So the *size and even the sign* of the skew change from election to election. The *shape* does not: early voters track their election-day neighbours.
-
-### From public and academic sources
-
-Full list with URLs, access times and what each says: `sources.md`. Anything not read in full is marked there.
-
-- **Elections Alberta, 2023 general election report** (read in full). Advance ballots were 42.9% of valid votes, up from 36.7% in 2019 and 15.8% in 2015. 22% of advance ballots used Vote Anywhere (31.9% in 2019). **Advance voters are older**: 29.6% were 65 or over, against 24.4% of the list of electors; 5.8% were 18 to 24, against 8.9%. Edmonton and Calgary divisions had two to three advance polls each, other divisions about five, placed so that no one should travel more than 100 km. The report gives no party figures by voting method and nothing below the division.
-- **Elections Canada, turnout by age, 2025 report** (read in full). Nationally, over half of voters aged 65 and up used advance polls or special ballots in 2021 and 2025, against about 30% to 37% of voters under 45.
-- **Loewen, House of Commons committee testimony, 2007**, on the 2006 Canadian Election Study (read in full): older, more interested, party-identified and party-contacted citizens are more likely to vote in advance.
-- **Garnett, 2016 conference paper** (read in full; a draft, used only as a guide to the literature): older voters vote early more in all four countries studied, but the age gap in Canada is small; most studies find early voters are older and more engaged, and the evidence on income and education is mixed.
-- **Not found:** any published analysis of Alberta 2023 advance votes below the division; any Canadian study of distance to advance polls. The earlier audit note that party-specific spreading is "the usual practice" in US precinct data could not be confirmed and stays unverified.
-
-One thing the age profile alone would not predict: Alberta's 2023 early vote leaned NDP, although early voters are older. (That older voters lean conservative is assumed here from general knowledge. It is not sourced.) Our own federal count (below) shows the opposite sign in the same province: federal advance voters in Alberta leaned Conservative by 7 to 8 points in 2019 and 2021. The skew depends on the campaign. That is why the rule should take the skew from each division's own official totals, which all rules here do, and should not import a skew from anywhere else.
-
-## What the data can and cannot pin down
-
-| In the data | What it identifies |
-|---|---|
-| 254 named advance polls with counts (2023) | The party mix of early voters differs from place to place inside a division. With a location for each poll, roughly which side of the division leans which way. |
-| "Names on List" for all 1,216 election-day stations (2,939,762 electors) | How many electors in each station's area did **not** vote on election day. Early voters must come from that group. |
-| 242 mobile-poll rows named by facility | Where those 21,602 ballots were cast. Not used to place them; they are 1.3% of the vote. |
-| One Vote Anywhere row and two special-ballot rows per division | Only the division total. Nothing about location. |
-| `data/va_pop_from_das.csv` | 2021 population per voting area. Not used in the recommended rule; the electors list is the more direct count. |
-
-**Cannot be identified from any provincial source:** the home voting area of an early voter. An elector may use any advance poll, so a poll's count is not a count of its neighbourhood. And 95% of election-day votes are themselves reported for groups of voting areas, not single areas, so no rule can be finer than the station.
-
-## The candidate rules
-
-Each rule spreads a division's early ballots over its voting areas. Each returns the division's official totals exactly.
-
-| Name | Party mix in each area | How many ballots each area gets |
-|---|---|---|
-| **M0** current rule (Amendment 12) | Same in every area: the division's early mix | In proportion to election-day two-party votes |
-| **M1** party-specific | Follows the area's own lean (each party's early ballots follow that party's election-day votes) | Follows from the above |
-| **M2** turnout gap | Half way between M0 and the area's own lean | In proportion to electors who did not vote on election day |
-| **M3** location-informed | As R, but each geocoded advance poll's ballots go only to the areas nearest that poll | As R inside each poll's area |
-| **R** recommended | The area's own lean, at strength 0.96 | 89% by electors who did not vote on election day, 11% by election-day votes |
-
-R belongs to a two-dial family, written G(β, λ) in the scripts (`_models.py`).
-
-- **β (lean dial).** 0 means every area gets the division's mix (M0). 1 means early voters share the whole of their area's election-day lean, after the division-wide shift.
-- **λ (count dial).** 0 means ballots are spread like election-day votes. 1 means they are spread like the electors who stayed home on election day.
-
-R's two numbers are not chosen by taste, but they are **imported from federal elections**. 0.96 and 0.89 are the averages of the 2019 and 2021 federal Alberta estimates below. In those elections the early vote leaned the other way (7 to 8 points more Conservative). The provincial data confirm the lean dial (Tests 2 and 3). **Nothing provincial pins the 89%**, and between federal ridings the count dial varies widely (spread ±0.40 to ±0.44). "0.96" also carries more decimals than the evidence: other reasonable ways of fitting give 0.86 to 0.93 (see Test 1). Seats do not change anywhere in the lean range 0.5 to 1.0.
-
-Under R, as under every rule here, **all 87 divisions return their official NDP and UCP totals** (largest difference one billionth of a vote; checked in `05_models_headlines.py` and again in `07_residual_error.py`). Each division's observed skew is kept exactly. Only the spread inside the division changes.
-
-## The tests
-
-### Test 1. Federal advance polls in Alberta: a test with a known answer
-
-Script: `02_federal_gradient.py`. Elections Canada, unlike Elections Alberta, counts advance ballots for small fixed areas. Each "advance polling district" is a known group of ordinary polls, with one advance polling station (Canada Elections Act s. 168, `sources.md` item 12). The test assumes that a federal elector who votes in advance does so at the poll assigned to their home district. Support: Elections Canada's own table labels these ballots "Electors voting at their assigned advance polling station" (`sources.md` item 7). No source read in full states the rule in so many words, so treat the premise as supported, not proven. So for all 34 Alberta federal ridings we know the true early vote of about 660 small areas.
-
-The test hides those small-area counts, keeps only the riding's early total (which is all Alberta's provincial results give), spreads it with each rule, and compares with the truth. Party pair: Conservative against Liberal plus NDP.
-
-| | 2021 | 2019 |
-|---|---:|---:|
-| Advance districts tested | 663 | 649 |
-| Early two-bloc ballots | 582,592 | 573,652 |
-| **Lean dial β** measured inside ridings | **0.98 ± 0.03** | **0.94 ± 0.03** |
-| **Count dial λ** measured inside ridings | **0.90 ± 0.08** | **0.88 ± 0.09** |
-| Error in each district's early party share: M0 | 8.1 points | 6.9 points |
-| … M1 | 3.3 | 2.8 |
-| … M2 | 5.1 | 4.6 |
-| … best in family, G(1, 0) | 3.4 | 3.1 |
-| Early ballots put in the wrong district: M0 | 13.4% | 12.9% |
-| … M1 | 11.8% | 11.2% |
-| … M2 | 9.5% | 9.3% |
-| … best in family, G(1, 1) | 9.1% | 9.0% |
-| Ridings where M1 beats M0 | 31 of 34 | 32 of 34 |
-
-- The lean dial sits at 1, not 0. M0's error on party share is more than double that of any rule that keeps the local lean.
-- When the dials are picked on 33 ridings and scored on the 34th, β = 1 and λ = 1 are picked every time, in both years.
-- The two years agree, although the federal skew ran the opposite way to the 2023 provincial one. The shape holds whatever the sign.
-- The count dial matters less. Moving λ from 0 to 1 cuts misplaced ballots by about a quarter. An honest caution: the turnout-gap rule makes total turnout look smoother across a riding than it really is (2.7 points of spread against a true 5.6 in 2021), while M0 makes it look rougher (6.7). The truth is between them.
-- β differs between ridings (spread ±0.24; no riding of 34 below 0.5 in 2021, one in 2019).
-- **Other reasonable specifications give a lower slope** (`06_robustness.py`). The 0.98 and 0.94 above weight each district by its ballots and work on the log-odds scale. Unweighted, or on the plain share scale, the slope is 0.93 (2021) and 0.86 to 0.87 (2019). With both changes it is 0.88 and 0.83. Counting noise on the election-day side pulls slopes down; the upper bound from fitting the other way round is about 1.2. So "about one for one" holds across specifications as roughly **0.85 to 1.0**, and ±0.03 understates the uncertainty.
-- **Placebo: the test can tell the rules apart.** Shuffling the advance results among the districts of each riding, which is what M0 would look like, gives a slope of 0.00 ± 0.06 (largest of 200 shuffles: 0.18 in 2021, 0.17 in 2019). The test does not produce a slope near 1 by itself.
-
-Limit: this is a federal election. It is the same electorate and the same kind of polling place, but not the same contest. Tests 2 and 3 check the provincial side directly.
-
-### Test 2. The 2023 provincial advance polls, placed on the map
-
-Scripts: `03_geocode_advance_polls.py`, `04_provincial_location_tests.py`. Of the 254 named advance polls, 156 were found in OpenStreetMap and 151 fell inside their division. That leaves 123 polls in 54 divisions with two or more located polls. Each voting area is given to its nearest located poll.
-
-- **Lean dial, provincial 2023: β = 1.00 ± 0.07.** Advance polls set among NDP-leaning election-day stations lean NDP by the same amount. M0 predicts 0.
-- By place: rural 0.93 ± 0.05, Edmonton 1.01 ± 0.12, Calgary 1.33 ± 0.15, smaller cities 1.31 ± 0.18.
-- Error in each poll's party share: M0 6.5 points, M1 4.7, M2 4.8.
-- **This estimate is less firm than ±0.07 suggests** (`06_robustness.py`). Two divisions supply 66% of what the estimate rests on: West Yellowhead (the Jasper polls, 36%) and Banff-Kananaskis (the Canmore and Banff polls, 30%). Without both, the slope is 1.13 ± 0.13. Resampling whole divisions gives a 95% range of 0.87 to 1.21. Unweighted, the slope is 0.88 ± 0.08. Only 37 of the 54 divisions show a positive relation taken alone. It still rejects 0.
-- **Placebo.** If M0 were true, every poll would draw its ballots from the division's one mix. Simulating that 500 times gives a slope of 0.00 ± 0.02.
-- **Coverage.** The 123 polls hold 261,493 of the 575,496 in-division advance ballots (45%), in 54 of 87 divisions. Vote Anywhere and special ballots (212,562) are not tested by any provincial check.
-- "Nearest poll" is a rough guess at who uses a poll. Rough guesses blur real differences. Of the 96 polls not found, only 8 are "Returning Office" entries. Most are ordinary halls, hotels and churches missing from OpenStreetMap. 39 rows that list several sites, or a site after a dash, were placed by one name only (for example "Exshaw, Spring Bank, Edge School, Banff Centre" by its first).
-- This test says little about the count dial. A poll's volume depends on its size and hours, not only on who lives nearby.
-
-### Test 3. 2015 town-named advance polls
-
-In 2015 rural advance polls were named for towns, and so were election-day polls. Matching names gives 36 advance polls in 12 divisions. **β = 0.99 ± 0.20.** Error in party share: M0 8.7 points, local lean 5.4. A small sample, eight years earlier, with three parties. Same answer.
-
-### Test 4. Does the implied turnout make sense?
-
-`05_models_headlines.py` adds each rule's early ballots to the election-day ballots at each of the 1,216 stations and divides by the names on the list.
-
-| Rule | Stations over 100% turnout | Over 90% | Under 30% |
+| Percentile | Election day alone | M0 | P |
 |---|---:|---:|---:|
-| Election day alone | 2 | — | — |
-| M0 | 23 | 74 | 26 |
-| M1 | 22 | 72 | 24 |
-| M2 | 2 | 2 | 0 |
-| R | 2 | 3 | 2 |
+| 1 | 12.7% | 21.5% | 39.4% |
+| 5 | 21.5% | 40.2% | 46.3% |
+| 25 | 28.1% | 53.3% | 56.6% |
+| 50 (middle station) | 33.3% | 62.7% | 62.2% |
+| 75 | 40.5% | 73.2% | 67.0% |
+| 95 | 52.8% | 92.7% | 72.6% |
+| 99 | 59.7% | 108.4% | 77.1% |
+| Highest | 750.0% | 1294.9% | 750.0% |
 
-M0 and M1 hand busy election-day stations still more early ballots, and push 20 or so past 100%, which cannot happen. Rules that use the electors list do not. (The two stations over 100% under every rule already exceed it on election day alone; their lists are tiny.) This favours the count dial being well above 0 in the provincial data too. It is a plausibility check, not a measurement.
+- **M0 is impossible in places.** It gives early ballots to the stations that were busiest on election day. That pushes 26 stations past 100% and 46 past 95%: 26 of 1,216 stations get more early ballots than they have election-day non-voters. This is evidence against M0's count side.
+- **P is possible everywhere it can be.** Its only stations over 100% are the two above.
+- **P makes turnout more even.** Inside a division, station turnouts typically differ by 2.9 points under P (one standard deviation, middle division), against 5.1 on election day alone and 10.0 under M0. Whether real turnout was that even cannot be checked: no source counts early voters by station.
 
-### What the tests add up to
+## Does P's count side hold?
 
-- **M0 against the rest: decisive.** Placebos show the tests return 0 when M0 is true. Five independent checks (federal 2019, federal 2021, provincial 2023 polls, provincial 2015 polls, and the chi-square on 2023 advance polls) all reject a single party mix per division. None supports it.
-- **The lean dial: about one for one, roughly 0.85 to 1.0 across specifications** (federal 0.83 to 0.98; provincial 2023 0.88 to 1.13; provincial 2015 0.99 ± 0.20). Far from 0. The provincial evidence leans heavily on two mountain-park divisions and covers 45% of in-division advance ballots.
-- **The count dial: federal only.** Federal data put it near 0.9, with wide variation between ridings. Provincial data can only say "above 0" (Test 4). This is the weaker half of R.
-- **M1 against R: the data favour R mildly, and it makes almost no difference to the results.**
+P assumes that, inside a division, the same share of election-day non-voters voted early at every station. Call that share the early take-up. Two provincial looks bear on it (`07_turnout_and_count.py`).
 
-## Results on all 2023 ballots
+- **Across the 87 divisions.** Take-up runs from 24% (Calgary-East) to 59% (Calgary-North West), middle 42%. Divisions with higher election-day turnout had somewhat higher take-up (correlation 0.21; a link this strong would arise by chance about 1 time in 20 (p = 0.05), so it is borderline). The link shows in Calgary, Edmonton and the smaller cities (rank correlations 0.36 to 0.40, none clear on its own), not in rural divisions (−0.06).
+- **Inside divisions, at the located advance polls.** The same link is weak and not distinguishable from zero (correlation 0.12 within divisions; slope 2.6 ± 2.0 on the log scale).
+- **What it means.** If the cross-division link also holds inside divisions, P puts slightly too few early ballots in high-turnout areas and slightly too many in low-turnout areas. The data do not show that it holds inside divisions. They do not show that it does not.
+- **What the data cannot say.** Who voted early at any station. Divisions differ in poll sites, hours, distances and campaigns, so a link between divisions is not a link inside one. The located polls are nearest-poll guesses, and a poll's count depends on its size and hours. Vote Anywhere, special and mobile ballots, about 29% of early two-party ballots, are not covered.
 
-Script: `05_models_headlines.py`. Formulas: `analysis/scripts/mcmc_ensemble.py` (`seat_results`), and the audit's close-seat rule (two-party margin of 4 points or less). Voting areas are assigned to districts by the audit's own rule (representative point). Checks that pass under every rule: each division's official totals are returned exactly, and the 2019 map gives the official 49–38.
+## How far could P be wrong?
 
-Efficiency gap: the difference between the two parties' "wasted" votes as a share of all votes; positive favours the UCP. Mean-median: the middle district's UCP share minus the average district's; positive favours the UCP. Tied vote: UCP seats if every district shifted by the same amount until the province was 50–50.
+The only provincial place to measure P's own miss is the 123 located polls (`06_robustness.py`). There, a poll's early party share scatters around P's line by 0.17 on the log-odds scale beyond counting noise. Its ballot count scatters around P's count side by 0.78 on the log scale.
+
+**That is not a sound error model for stations, so it is not used.** The scatter mixes P's own error with the error of guessing who uses each poll. A poll's count depends on its hours and size. Polls are larger than stations, and nothing provincial shows how the error shrinks or grows at a station, or whether neighbouring stations err together.
+
+So the ranges below vary only the lean strength, over 0.87 to 1.22, computed at eight values of the lean (0.87, 0.90, 0.95, 1.00, 1.05, 1.10, 1.15, 1.22), not as a continuous sweep. They are narrower than the true uncertainty.
+
+## Results on every map
+
+Scripts: `05_models_headlines.py`. Formulas: the audit's own (`analysis/scripts/mcmc_ensemble.py`, `seat_results`). Voting areas go to districts by a point inside each area, the audit's rule. M0 is read straight from the registered Amendment 12 file; the M0 rebuilt here matches it to a millionth of a vote.
+
+Plain meanings:
+- **Efficiency gap.** The difference between the two parties' "wasted" votes (votes for a loser, and a winner's votes beyond what it needed), as a share of all votes. Positive favours the UCP.
+- **Mean-median.** The middle district's UCP share minus the average district's. Positive favours the UCP.
+- **UCP seats at a tied vote.** UCP seats if every district shifted by the same amount until the province was 50–50.
+- **Close seats.** Two-party margin of 4 points or less.
 
 | Map | Rule | UCP–NDP seats | Efficiency gap | Mean-median | UCP seats at a tied vote | Close seats |
 |---|---|---:|---:|---:|---:|---:|
-| 2019 map (87) | every rule | 49–38 | −2.64% | −2.22% | 41 | 12 |
-| Majority (89) | M0 | 48–41 | −2.70% | −3.51% | 42 | 11 |
-| | M1 | 48–41 | −2.73% | −3.73% | 42 | 11 |
-| | M2 | 48–41 | −2.83% | −3.67% | 42 | 11 |
-| | M3 | 48–41 | −2.78% | −3.76% | 42 | 10 |
-| | **R** | **48–41** | **−2.81%** | **−3.75%** | **42** | **11** |
-| Minority (89) | M0 | 55–34 | +2.55% | +0.08% | 46 | 7 |
-| | M1 | 57–32 | +5.58% | +0.53% | 46 | 8 |
-| | M2 | 57–32 | +5.65% | +0.26% | 46 | 8 |
-| | M3 | 57–32 | +5.89% | +0.49% | 46 | 8 |
-| | **R** | **57–32** | **+5.64%** | **+0.51%** | **46** | **9** |
+| 2019 map (87) | M0 | 49–38 | −2.64% | −2.22% | 41 | 12 |
+| | P | 49–38 | −2.64% | −2.22% | 41 | 12 |
+| Commission majority (89) | M0 | 48–41 | −2.70% | −3.51% | 42 | 11 |
+| | P | 48–41 | −2.83% | −3.81 to −3.74% (−3.77 at lean 1.0) | 42 | 11 |
+| Commission minority (89) | M0 | 55–34 | +2.55% | +0.08% | 46 | 7 |
+| | P | 57–32 | +5.64% | +0.44 to +0.54% (+0.51 at lean 1.0) | 46 | 8 to 9 (9 at lean 1.0) |
 | Panel reconstruction v3 (91) | M0 | 51–40 | −1.66% | −1.09% | 45 | 10 |
-| | M1 | 50–41 | −2.70% | −0.39% | 45 | 9 |
-| | M2 | 50–41 | −2.84% | −0.76% | 45 | 10 |
-| | M3 | 50–41 | −2.92% | −0.27% | 45 | 9 |
-| | **R** | **50–41** | **−2.82%** | **−0.49%** | **45** | **9** |
-| ¶167 map (91) | M0 | 50–41 | −2.19% | −2.90% | 44 | 10 |
-| | M1 | 50–41 | −2.22% | −2.31% | 44 | 10 |
-| | M2 | 50–41 | −2.33% | −2.52% | 44 | 10 |
-| | M3 | 50–41 | −2.39% | −2.05% | 44 | 10 |
-| | **R** | **50–41** | **−2.32%** | **−2.23%** | **44** | **10** |
+| | P | 50–41 | −2.84% | −0.55 to −0.35% (−0.47 at lean 1.0) | 45 | 9 |
+| Paragraph 167 reconstruction (91) | M0 | 50–41 | −2.19% | −2.90% | 44 | 10 |
+| | P | 50–41 | −2.33% | −2.28 to −2.03% (−2.18 at lean 1.0) | 44 | 10 |
 
-M3 places 261,493 ballots by poll in 54 divisions and uses R for the rest. Full table with the whole G(β, λ) grid: `outputs/headline_table.csv`.
+Where P differs across the lean, its range over the eight lean values from 0.87 to 1.22 comes first, with the lean-1.0 value in brackets; a single P figure is the same at every lean value. Seats, efficiency gaps and tied-vote seats do not move across those values on any map. (Under P a district's total ballots do not depend on the lean, and the efficiency gap then depends only on who wins each seat.) The 2019 map gives the same figures under both rules because its districts are the 2019 divisions, whose official totals both rules keep.
 
-What changes between M0 and R:
+**Checks, all passed** (printed by `05_models_headlines.py`, stored in `outputs/headline.json`):
+1. Every division's official NDP, UCP and other totals are returned exactly, under M0 and every P (largest difference about one billionth of a vote).
+2. The 2019 map gives 49–38 under M0 and every P.
+3. No station passes 100% under P beyond the two already over on election day.
+4. The rebuilt M0 equals the registered file.
 
-- **Minority map.** Calgary-Edgemont goes from NDP by 4 modelled votes to UCP by 384. Calgary-Glenmore goes from NDP by 24 to UCP by 66. Under M0 both seats hung on a handful of modelled votes. Those two seats are the whole change. The efficiency gap is a step function of them: +2.55% with neither, about +4.0% to +4.6% with one, +5.6% with both, so each flip is worth about 1.5 points. No smooth 3-point shift happened.
-- **Panel reconstruction.** Banff-Canmore-Diamond Valley goes from UCP by 229 to NDP by 1,212.
-- **Majority and ¶167 maps.** No seat changes. Calgary-Acadia stays UCP by a thin margin (10 votes under M0, 37 under R).
+### The seats that change
 
-### The honest range
+| Map | District | M0 margin | P margin over 0.87 to 1.22 (eight lean values) | P margin at lean 1.0 |
+|---|---|---|---|---|
+| Minority | Calgary-Edgemont | NDP by 4 | UCP by 349 to 488 | UCP by 401 |
+| Minority | Calgary-Glenmore | NDP by 24 | UCP by 59 to 83 | UCP by 68 |
+| Panel v3 | Banff-Canmore-Diamond Valley | UCP by 229 | NDP by 1,105 to 1,547 | NDP by 1,276 |
 
-**Lead with ranges, not points: minority 56 to 57 UCP seats, majority 47 to 49, panel reconstruction 49 to 51, ¶167 map 49 to 51.** Three ways of asking how far the unknown can move the answer follow. The third is the fullest and is the source of those ranges.
+Margins are modelled votes (UCP minus NDP). Under M0 the two minority seats hung on 4 and 24 modelled votes. Under P, Calgary-Glenmore hangs on 59 to 83 (68 at lean 1.0). On the majority, panel and paragraph 167 maps, Calgary-Acadia is UCP by 34 to 43 under P (38 at lean 1.0). Every district's margins are in `outputs/district_margins.csv`.
 
-1. **Every rule the evidence supports** (lean dial 0.75 to 1.25, count dial 0 to 1, plus M1). This varies the rule only:
+On the minority map the efficiency gap moves in two steps, one per seat. Nothing moved smoothly.
 
-| Map | UCP seats | Efficiency gap | Mean-median | Tied-vote seats | Close seats |
-|---|---|---|---|---|---|
-| Majority | 48 | −2.83% to −2.70% | −3.82% to −3.65% | 42 | 11 |
-| Minority | 56 to 57 | +4.57% to +5.65% | +0.38% to +0.57% | 46 | 8 to 9 |
-| Panel v3 | 50 | −2.84% to −2.68% | −0.62% to −0.25% | 45 | 9 |
-| ¶167 | 50 | −2.33% to −2.19% | −2.48% to −2.01% | 44 | 10 |
+## The comparison maps (ensembles)
 
-2. **Letting the dials differ from division to division** as much as they differ between federal ridings (`05_models_headlines.py`, 1,000 draws, seed 20261109). Minority 57 in 92.8% of draws, majority 48 in 97.8%. **This understates the uncertainty.** It assumes R is exactly right once the dials are right. Do not quote these percentages alone.
+The audit ranks each map against computer-drawn maps. Each set is listed below, with where its maps are.
 
-3. **Adding the rule's own error** (`07_residual_error.py`, 1,000 draws per row, seed 20261110). Even with the right dials, R misses a small area's true advance vote. On the federal advance districts that miss is 0.17 on the log-odds scale beyond counting error, and 0.26 (log scale) on the number of ballots. Errors of that size are added at each of the 1,216 provincial stations.
+| Set | Its maps | Rescored under P here? |
+|---|---|---|
+| Redraw-test null for R1 and R2 (Amendments 8 and 13), built for the provisional panel reconstruction | Stored in this repository (`findings/a10_stepc/territory/`, 2,000 maps) | **Yes** |
+| Canonical, 87 districts, 1,010,000 maps | Not stored. Rebuilt only by rerunning the chains. Election-day scores are here. | No: far too slow here; see `REPLAY.md` |
+| Set D, 91 districts, s.15(2), 1,010,000 maps | Chains on the machine with the `alberta_audit` clone | No: see `REPLAY.md` |
+| Sets A, B and C, 89 and 91 districts | Chains on that machine (set A's chains 201 and 100 are here but fail to replay, Amendment 13) | No: see `REPLAY.md` |
+| Forest-ReCom Phase A (robustness check) | Not stored; election-day scores are here | No: see `REPLAY.md` |
 
-| Scenario | Minority: draws at 57 / 56 / 55 or fewer | Majority: draws at 48 / 47 / 49 | Panel v3: draws at 50 |
-|---|---|---|---|
-| Error in party share | 76% / 23% / 2% | 57% / 24% / 17% | 57% |
-| Error in share and in ballot count | 66% / 29% / 5% | 56% / 22% / 19% | 56% |
-| Both, and dials vary by division | 60% / 32% / 7% | 51% / 22% / 23% | 52% |
-| Half-size share error (for scale) | 98% / 2% / 0% | 76% / 22% / 2% | 76% |
+**The redraw-test null under P** (`09_rescore_territory_null.py`). The map it was built for is the provisional panel reconstruction (`iap_2026_assembled.gpkg`). Each test flags at p < 0.05.
 
-Middle 90% of draws in the fullest scenario: minority 55 to 57 seats, efficiency gap +3.1% to +5.7%; majority 47 to 49 seats, −4.2% to −1.5%; panel and ¶167 49 to 51 seats.
+| Test | M0: value, p | P: value, p |
+|---|---|---|
+| R1, efficiency gap | −1.66%, p = 0.914 | −2.84%, p = 0.619 |
+| R2, neighbour-drain | 0.01043, p = 0.419 | 0.00053, p = 0.576 |
+| Mean-median (reported) | −1.09%, p = 0.912 | −0.47%, p = 0.981 |
+| Declination (reported) | −0.060, p = 0.794 | −0.080, p = 0.639 |
+| UCP seats (reported) | 51, p = 1.000 | 50, p = 0.853 |
 
-- Under R, 3 to 4 minority-map seats sit within two standard deviations of a tie: Calgary-Glenmore (UCP by 66, ±54 to ±66), Edmonton-Enoch-Devon (UCP by 193, ±156 to ±273), Calgary-Edgemont (UCP by 384, ±211 to ±234). The majority map has 6. Its Calgary-Acadia (UCP by 37, ±100) changes hands in about a third of draws.
-- **The same fragility applies to M0.** Its 55 was 4 and 24 modelled votes away from 56 and 57.
-- Caution on scenario 3: the error is measured on federal advance districts (about 4,700 electors each) and applied independently to provincial stations (about 2,400 each). Smaller areas may be noisier, and neighbouring stations may err together. The half-size row shows how much the answer depends on that size.
-- The independent verifier ran this design first (minority 57 in 62% to 74%, majority 48 in 53% to 57%). The figures here are our own rerun with a different seed. They agree within sampling noise.
+Neither R1 nor R2 flags under either rule. The M0 rescore here matches the filed all-ballots result exactly, which checks the scoring code.
+
+For the canonical ensemble and sets A to D, **no percentile under P is given, and none should be inferred.** Reference lines that come from those ensembles (P1's +1.39% line, for example) would move too.
+
+## The vote file
+
+`08_build_vote_file_p.py` writes `data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg`.
+
+- It is built the same way as the registered file (`va_polygons_all_2023_ballots_primary.gpkg`, from `analysis/scripts/vote_anywhere_splat.py --primary`): the election-day file, same rows and shapes, with the NDP, UCP and other columns replaced by all ballots.
+- Size 22,040,576 bytes. SHA-256 `bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd`. A rebuild gives the same bytes.
+- Every division's official totals hold. Compared with M0, P puts 84,506 two-party votes in different voting areas.
+- Git: the registered sibling file is tracked by Git LFS. This file matches the repository's LFS pattern (`*.gpkg`) but is not committed.
 
 ## What cannot be known
 
-- **Where any early voter lives.** Every rule here is a model. The tests show which model is closest on average, not what happened in a given voting area.
-- **Whether the federal pattern carries over exactly.** The lean dial is confirmed provincially (Tests 2 and 3). The count dial is confirmed only loosely (Test 4).
-- **Vote Anywhere and special ballots** (212,562 two-party ballots, 12.5% of the total). They have no location at all. They are spread like the other early ballots. Applying R to each ballot type on its own gives the same seats and efficiency gaps to two decimals.
-- **Mobile polls.** Cast in named care homes; spread division-wide here. They are 1.3% of the vote.
-- **Below the station.** Election-day votes are split equally among a station's voting areas (the audit's existing rule). R inherits that.
-- **Ensemble percentiles.** The audit ranks each map against about a million computer-drawn maps scored on M0 votes. Those have not been rescored under R. **No percentile, threshold or pass/fail reading is given here, and none should be inferred.** The reference lines would move too.
-- **The 96 advance polls not found** and the two lookups lost to rate limits. In all, 55% of in-division advance ballots are outside Test 2.
+- **Where any early voter lives.** Every rule here is a model. The tests show which model is closer on average, not what happened in a given area.
+- **Whether take-up was even inside a division.** P assumes it. The data neither confirm nor rule it out.
+- **How far P misses at a single station.** No sound provincial measure exists. The ranges here cover the lean strength only.
+- **Vote Anywhere and special ballots** (212,562 two-party ballots, 12.5% of the total). They have no location at all. They are placed like the other early ballots.
+- **Mobile polls.** Cast in named care homes; placed with the rest. They are 1.3% of the vote.
+- **Below the station.** Election-day votes are split equally among a station's voting areas (the audit's existing rule). P inherits that.
+- **Exactly who is on each station's list.** The list is the March 2024 list, not the list on election day.
+- **The 96 advance polls not found** on the map, and two lookups lost to rate limits. 55% of in-division advance ballots are outside the location test.
+- **Percentiles against the canonical ensemble and sets A to D under P.** Not known until the replays in `REPLAY.md` run and pass.
 
-## Recommendation
+## What would have to happen before anything changes
 
-1. **Primary allocation: R**, i.e. each area keeps its own election-day lean at strength 0.96, and ballots are spread 89% by electors who did not vote on election day and 11% by election-day votes. It is the rule the tests pick and it produces no impossible turnouts. Its two numbers are measured on federal elections in Alberta, not provincial ones. The 89% has no provincial confirmation.
-2. **If the author prefers a rule with no fitted numbers, use M1.** It gives the same seats on all five maps, and efficiency gaps within 0.12 points of R. Its weakness is Test 4.
-3. **Report ranges, not points:** minority 56 to 57 UCP seats, majority 47 to 49, panel and ¶167 49 to 51, with the note that the minority change is two seats decided by 66 and 384 modelled votes. Do not publish 57 or +5.64% as point findings. Keep M0's figures as the registered result until an amendment replaces it.
-4. **Do not keep M0 as primary.** It is the one rule every test rejects, and it produces the audit's thinnest margins (4 and 24 modelled votes).
-5. **Before any published number changes:** a signed amendment naming the rule and stating that it was chosen after its effect on the maps was known (see "Not blind"), a rebuilt all-ballots vote file with its hash, and a replay of the ensembles on that file so that percentiles can be restated.
+1. A signed amendment naming P, its lean of 1.0 and its count dial of 1, and stating that it was chosen after its effect on the maps was known (see "Not blind").
+2. The vote file above, committed with its hash.
+3. The replays in `REPLAY.md`, each passing its row-for-row check, so percentiles can be restated.
+4. Until then, M0's figures stay the registered result. Report P's seats with the close margins beside them, not as bare points.
 
 ## Files
 
-| File | What it is |
+| File | What it does |
 |---|---|
-| `01_measure_skew.py` | Skew by ballot type, division, region and closeness, 2023 and 2015 |
-| `02_federal_gradient.py` | Test 1. Downloads federal files on first run (set `AVP_FED_DIR` to choose where; about 250 MB) |
-| `03_geocode_advance_polls.py` | Looks up the named 2023 advance polls; results kept in `inputs/advance_poll_geocodes.csv` |
-| `inputs/advance_poll_geocodes.csv` | The geocodes the results depend on. See "The geocode file" below |
-| `04_provincial_location_tests.py` | Tests 2 and 3 |
-| `05_models_headlines.py` | All rules on all five maps, the range, the Monte Carlo (seed 20261109), Test 4 |
-| `06_robustness.py` | Other specifications, placebos, leverage and coverage for Tests 1 and 2 (seed 20261110); writes `outputs/robustness.json` |
-| `07_residual_error.py` | Seat stability with the rule's own error included (seed 20261110); writes `outputs/residual_error.json` |
-| `_models.py`, `_common.py` | The rules and the loaders |
-| `outputs/skew_summary.json`, `skew_2023_by_division.csv`, `skew_2015_by_division.csv`, `polls_2015_parsed.csv` | Skew measurements |
-| `outputs/federal_gradient.json`, `federal_alberta_advance_districts_2019.csv`, `…_2021.csv` | Test 1 |
-| `outputs/provincial_location_tests.json`, `advance_locations_2023.csv`, `advance_catchments_2023.csv`, `advance_places_2015.csv` | Tests 2 and 3 |
-| `outputs/headline_table.csv`, `headline.json`, `turnout_plausibility.json`, `va_allocations.csv` | Results; per-voting-area ballots under M0, M1, M2 and R |
-| `sources.md` | Every URL fetched, when, and what it says |
+| `01_measure_skew.py` | How early ballots differ from election-day ballots, 2023 and 2015 |
+| `03_geocode_advance_polls.py` | Looked up the named 2023 advance polls; the results are kept in `inputs/advance_poll_geocodes.csv`. Do not rerun unless you mean to rebuild them. |
+| `04_provincial_location_tests.py` | The located-poll test (2023) and the town-name test (2015) |
+| `06_robustness.py` | Other fits, placebos, leverage, coverage, and P's scatter at the located polls (seed 20261110) |
+| `07_turnout_and_count.py` | What "Names on List" counts, station turnout, the hard check, P's count assumption |
+| `05_models_headlines.py` | M0 and P on all five maps, the checks, the seats that change |
+| `08_build_vote_file_p.py` | The P vote file |
+| `09_rescore_territory_null.py` | The redraw-test null rescored under P |
+| `10_replay_p.py` | Commands, check and ranking for the replays on another machine |
+| `REPLAY.md` | What to run there, the checks, what to bring back |
+| `_models.py`, `_common.py` | The rules, the loaders, the output helpers |
+| `inputs/advance_poll_geocodes.csv` | Geocodes for the advance polls (252 rows, 156 located; cannot be regenerated bit for bit, as OpenStreetMap changes daily) |
+| `inputs/ea_2023_report_appendix_c_d.csv` | Appendices C and D of the Elections Alberta 2023 report, copied from the PDF text (86 divisions; Airdrie-East was lost in extraction) |
+| `outputs/SCHEMA.md` | Every output file and its columns |
+| `sources.md` | Every outside source, when it was fetched, and what it says |
 
-Run order: 01, 02, 04, 05, 06, 07, from the repository root, e.g. `python findings/advance_vote_profile/01_measure_skew.py`. In a worktree where large files are LFS pointers, set `AVP_DATA_ROOT` to a checkout that holds the real files. Do not rerun script 03 unless you mean to rebuild the geocodes.
-
-### The geocode file
-
-`inputs/advance_poll_geocodes.csv` has 252 rows, 156 with a location. SHA-256: `54d3f9af576a487ab5df590ddf6e8aea4ec7d2d6e6eb946f5e1c17c2e2fb68df`.
-
-- **How it was made.** On 2026-11-09 (Alberta time) `03_geocode_advance_polls.py` sent one OpenStreetMap Nominatim lookup per named advance poll, limited to the division's bounding box, and took the first match. Each row keeps the matched place name and the text searched, so any match can be checked by eye.
-- **What went wrong.** The service rate-limited the run several times. Failed lookups were retried. Two rows were never completed and are absent: division 07 "Returning Office - Clayburn Center" and division 72 "Ethnic Association".
-- **It cannot be regenerated bit for bit.** OpenStreetMap changes daily and the service's ranking is not fixed.
-- **Where it lives.** It first sat in a git-ignored `cache/` folder. It now sits in `inputs/`, which is tracked. After the move, scripts 01, 02, 04 and 05 were rerun and all 15 output files that existed then were byte-identical to the earlier run.
+Run order, from the repository root: 01, 04, 06, 07, 05, 08, 09, then `10_replay_p.py check`. For example `python findings/advance_vote_profile/01_measure_skew.py`. In a worktree where large files are LFS pointers, set `AVP_DATA_ROOT` to a checkout that holds the real files.
