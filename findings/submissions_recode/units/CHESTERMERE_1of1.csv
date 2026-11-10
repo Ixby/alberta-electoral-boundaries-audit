@@ -1,0 +1,82 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+CHESTERMERE,HANSARD-R1-T02-001,hearing,1,core,4,chestermere×1; strathmore×3,EB-27 start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"21,37-39","hearing: Lethbridge, Thursday, May 29, 2025"
+CHESTERMERE,HANSARD-R1-T02-008,hearing,1,context,2,strathmore×2,EB-18,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,28-30,"hearing: Lethbridge, Thursday, May 29, 2025"
+CHESTERMERE,HANSARD-R1-T02-013,hearing,1,context,1,strathmore×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,39-40,"hearing: Lethbridge, Thursday, May 29, 2025"
+CHESTERMERE,HANSARD-R1-T03-003,hearing,1,core,2,chestermere×1; strathmore×1,EB-39,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,54-57,"hearing: Edmonton, Monday, June 2, 2025"
+CHESTERMERE,HANSARD-R1-T07-001,hearing,1,core,4,chestermere×3; langdon×1,EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+CHESTERMERE,HANSARD-R1-T08-008,hearing,1,core,2,chestermere×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,199-201,"hearing: Edmonton, Tuesday, June 3, 2025"
+CHESTERMERE,HANSARD-R1-T13-003,hearing,1,core,1,chestermere×1,EB-201,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,286-288,"hearing: Calgary, Tuesday, June 10, 2025"
+CHESTERMERE,HANSARD-R1-T13-007,hearing,1,context,1,janet×1,EB-208,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,293-295,"hearing: Calgary, Tuesday, June 10, 2025"
+CHESTERMERE,HANSARD-R1-T13-008,hearing,1,context,1,janet×1,EB-210,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,295-297,"hearing: Calgary, Tuesday, June 10, 2025"
+CHESTERMERE,HANSARD-R1-T14-005,hearing,1,core,2,chestermere×1; strathmore×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,319-320,"hearing: Calgary, Tuesday, June 10, 2025"
+CHESTERMERE,HANSARD-R1-T14-013,hearing,1,core,1,chestermere×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"332-336,340","hearing: Calgary, Tuesday, June 10, 2025"
+CHESTERMERE,HANSARD-R1-T16-002,hearing,1,core,1,chestermere×1,EB-257,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,364-370,"hearing: Calgary, Wednesday, June 11, 2025"
+CHESTERMERE,HANSARD-R1-T17-002,hearing,1,core,2,chestermere×1; strathmore×1,EB-276,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,391-394,"hearing: Calgary, Wednesday, June 11, 2025"
+CHESTERMERE,HANSARD-R1-T17-004,hearing,1,context,1,forest lawn×1,EB-282,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,396-399,"hearing: Calgary, Wednesday, June 11, 2025"
+CHESTERMERE,HANSARD-R1-T18-004,hearing,1,context,11,calgary-peigan×5; peigan×6,start EB-298 EB-299,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,419-422,"hearing: Calgary, Wednesday, June 11, 2025"
+CHESTERMERE,HANSARD-R1-T19-001,hearing,1,core,8,chestermere×1; strathmore×7,EB-306 EB-304,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,433-436,"hearing: Brooks, Thursday, June 12, 2025"
+CHESTERMERE,HANSARD-R1-T19-003,hearing,1,core,53,chestermere×15; langdon×10; prince of peace×3; conrich×4; strathmore×21,start EB-312 EB-311,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,440-442,"hearing: Brooks, Thursday, June 12, 2025"
+CHESTERMERE,HANSARD-R1-T19-004,hearing,1,context,6,strathmore×6,start EB-314,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"442-446,448","hearing: Brooks, Thursday, June 12, 2025"
+CHESTERMERE,HANSARD-R1-T20-005,hearing,1,context,1,strathmore×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,462-464,"hearing: Medicine Hat, Friday, June 13, 2025"
+CHESTERMERE,HANSARD-R1-T20-008,hearing,1,core,5,chestermere×1; strathmore×4,EB-330 start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,465-467,"hearing: Medicine Hat, Friday, June 13, 2025"
+CHESTERMERE,HANSARD-R1-T20-009,hearing,1,context,1,strathmore×1,EB-332,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,467-469,"hearing: Medicine Hat, Friday, June 13, 2025"
+CHESTERMERE,HANSARD-R1-T20-013,hearing,1,core,2,chestermere×1; strathmore×1,EB-336,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,471-473,"hearing: Medicine Hat, Friday, June 13, 2025"
+CHESTERMERE,HANSARD-R1-T27-002,hearing,1,core,13,chestermere×8; forest lawn×5,start EB-403,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,588-589,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R1-T27-010,hearing,1,context,7,strathmore×7,start EB-413 EB-414,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,598-600,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R1-T28-001,hearing,1,core,3,chestermere×3,EB-421 EB-422,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,613-615,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R1-T28-002,hearing,1,core,3,chestermere×2; forest lawn×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,614-615,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R1-T28-007,hearing,1,core,1,chestermere×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,623-624,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R1-T28-008,hearing,1,context,1,forest lawn×1,EB-434,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,624-627,"hearing: Virtual, Monday, June 23, 2025"
+CHESTERMERE,HANSARD-R2-T32-002,hearing,2,context,1,conrich×1,EB-512,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,31-35,"hearing: Calgary, Tuesday, January 13, 2025"
+CHESTERMERE,HANSARD-R2-T32-006,hearing,2,context,1,peigan×1,EB-520,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,39-42,"hearing: Calgary, Tuesday, January 13, 2025"
+CHESTERMERE,HANSARD-R2-T33-001,hearing,2,context,2,strathmore×2,EB-526 EB-528,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,5-8,"hearing: Calgary, Tuesday, January 13, 2026"
+CHESTERMERE,HANSARD-R2-T33-002,hearing,2,context,2,calgary-peigan×1; peigan×1,EB-529,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,8-11,"hearing: Calgary, Tuesday, January 13, 2026"
+CHESTERMERE,HANSARD-R2-T33-004,hearing,2,core,8,chestermere×4; conrich×3; forest lawn×1,EB-534,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,13-16,"hearing: Calgary, Tuesday, January 13, 2026"
+CHESTERMERE,HANSARD-R2-T33-005,hearing,2,context,12,prince of peace×9; conrich×2; forest lawn×1,start EB-537,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,16-18,"hearing: Calgary, Tuesday, January 13, 2026"
+CHESTERMERE,HANSARD-R2-T34-001,hearing,2,context,1,strathmore×1,EB-542,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,53-55,"hearing: Calgary, Wednesday, January 14, 2026"
+CHESTERMERE,HANSARD-R2-T34-005,hearing,2,core,2,chestermere×1; strathmore×1,EB-553,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,63-65,"hearing: Calgary, Wednesday, January 14, 2026"
+CHESTERMERE,HANSARD-R2-T38-005,hearing,2,context,1,strathmore×1,EB-633,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,197-202,"hearing: Virtual, Friday, January 16, 2026"
+CHESTERMERE,HANSARD-R2-T41-008,hearing,2,context,1,forest lawn×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,231-233,"hearing: Edmonton, Monday, January 19, 2026"
+CHESTERMERE,HANSARD-R2-T43-006,hearing,2,context,1,strathmore×1,EB-742,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,369-372,"hearing: Edmonton, Tuesday, January 20, 2026"
+CHESTERMERE,HANSARD-R2-T48-007,hearing,2,context,4,conrich×4,start EB-805 EB-806,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,433-436,"hearing: Virtual, Wednesday, January 21, 2026"
+CHESTERMERE,HANSARD-R2-T48-008,hearing,2,context,1,conrich×1,EB-808,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,436-438,"hearing: Virtual, Wednesday, January 21, 2026"
+CHESTERMERE,EBC-2025-1-0049,written,1,context,8,conrich×1; strathmore×7,105 104,EBC2025Submissions1-50ForPosting.pdf,104-105,Private Citizen
+CHESTERMERE,EBC-2025-1-0051,written,1,core,23,chestermere×5; langdon×4; conrich×5; strathmore×9,1 2,EBC2025Submissions51-100ForPosting.pdf,1-3,Private Citizen
+CHESTERMERE,EBC-2025-1-0072,written,1,core,9,chestermere×3; strathmore×6,64 65,EBC2025Submissions51-100ForPosting.pdf,63-65,Private Citizen
+CHESTERMERE,EBC-2025-1-0089,written,1,context,7,conrich×7,101 102,EBC2025Submissions51-100ForPosting.pdf,101-102,Private Citizen
+CHESTERMERE,EBC-2025-1-0136,written,1,context,1,conrich×1,95,EBC2025Submissions101-150ForPosting.pdf,95-96,Private Citizen
+CHESTERMERE,EBC-2025-1-0138,written,1,core,5,chestermere×1; peigan×1; langdon×1; strathmore×2,108 107 100,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+CHESTERMERE,EBC-2025-1-0178,written,1,context,1,shepard×1,83,EBC2025Submissions151-197ForPosting.pdf,80-83,Private Citizen
+CHESTERMERE,EBC-2025-1-0181,written,1,context,5,shepard×3; forest lawn×1; erin woods×1,93,EBC2025Submissions151-197ForPosting.pdf,89-95,Private Citizen
+CHESTERMERE,EBC-2025-2-0013,written,2,core,1,chestermere×1,30,EBC-2025-2-001-to-050.pdf,29-31,not on the commission's published list
+CHESTERMERE,EBC-2025-2-0020,written,2,core,3,chestermere×1; conrich×2,51,EBC-2025-2-001-to-050.pdf,44-54,MLA for Calgary-Bow
+CHESTERMERE,EBC-2025-2-0161,written,2,core,2,chestermere×2,27,EBC-2025-2-151-to-200.pdf,27-28,Village of Beiseker Councillor
+CHESTERMERE,EBC-2025-2-0162,written,2,context,1,forest lawn×1,30,EBC-2025-2-151-to-200.pdf,29-30,Private Citizen
+CHESTERMERE,EBC-2025-2-0381,written,2,core,12,chestermere×3; strathmore×9,77 78,EBC-2025-2-351-to-400.pdf,77-79,Private Citizen
+CHESTERMERE,EBC-2025-2-0384,written,2,core,18,chestermere×7; calgary-peigan×2; peigan×2; shepard×5; strathmore×2,85 86,EBC-2025-2-351-to-400.pdf,85-87,Private Citizen
+CHESTERMERE,EBC-2025-2-0412,written,2,core,8,chestermere×2; strathmore×6,29 30,EBC-2025-2-401-to-450.pdf,29-31,Private Citizen
+CHESTERMERE,EBC-2025-2-0433,written,2,core,25,chestermere×7; langdon×8; prince of peace×1; conrich×1; strathmore×8,81 82,EBC-2025-2-401-to-450.pdf,81-83,Private Citizen
+CHESTERMERE,EBC-2025-2-0449,written,2,context,4,langdon×4,118 119 123,EBC-2025-2-401-to-450.pdf,118-123,Constituency Office Manager for Calgary-Varsity
+CHESTERMERE,EBC-2025-2-0494,written,2,context,1,forest lawn×1,93,EBC-2025-2-451-to-500.pdf,92-94,Private Citizen
+CHESTERMERE,EBC-2025-2-0533,written,2,core,5,chestermere×1; conrich×3; strathmore×1,75 76,EBC-2025-2-501-to-550.pdf,75-76,Private Citizen
+CHESTERMERE,EBC-2025-2-0618,written,2,core,2,chestermere×1; strathmore×1,47,EBC-2025-2-601-to-650.pdf,46-47,Reeve of Wheatland County
+CHESTERMERE,EBC-2025-2-0638,written,2,context,2,calgary-peigan×1; peigan×1,101,EBC-2025-2-601-to-650.pdf,101-103,Private Citizen
+CHESTERMERE,EBC-2025-2-0646,written,2,context,8,calgary-peigan×2; peigan×4; shepard×1; conrich×1,128,EBC-2025-2-601-to-650.pdf,121-129,Private Citizen
+CHESTERMERE,EBC-2025-2-0657,written,2,context,1,janet×1,13,EBC-2025-2-651-to-700.pdf,13,Private Citizen
+CHESTERMERE,EBC-2025-2-0666,written,2,context,2,conrich×2,31,EBC-2025-2-651-to-700.pdf,31,Private Citizen
+CHESTERMERE,EBC-2025-2-0687,written,2,core,1,chestermere×1,101,EBC-2025-2-651-to-700.pdf,100-102,Private Citizen
+CHESTERMERE,EBC-2025-2-0734,written,2,context,6,calgary-peigan×3; peigan×3,84 85,EBC-2025-2-701-to-750.pdf,84-85,Private Citizen
+CHESTERMERE,EBC-2025-2-0748,written,2,core,3,chestermere×1; conrich×2,118,EBC-2025-2-701-to-750.pdf,118-119,Private Citizen
+CHESTERMERE,EBC-2025-2-0764,written,2,context,2,conrich×2,31,EBC-2025-2-751-to-800.pdf,30-32,Private Citizen
+CHESTERMERE,EBC-2025-2-0778,written,2,core,24,chestermere×12; calgary-peigan×1; peigan×2; strathmore×9,70 96 128 137 147 233 236 237 241 243 246 248 93 87 200 245 247 249,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+CHESTERMERE,EBC-2025-2-0779,written,2,core,1,chestermere×1,264,EBC-2025-2-751-to-800.pdf,263-266,Private Citizen
+CHESTERMERE,EBC-2025-2-0785,written,2,core,14,chestermere×10; strathmore×4,280 281,EBC-2025-2-751-to-800.pdf,280-281,Private Citizen
+CHESTERMERE,EBC-2025-2-0787,written,2,core,17,chestermere×14; strathmore×3,285 286,EBC-2025-2-751-to-800.pdf,285-287,Private Citizen
+CHESTERMERE,EBC-2025-2-0811,written,2,core,20,chestermere×18; shepard×1; strathmore×1,65 66 67,EBC-2025-2-801-to-850.pdf,65-68,Private Citizen
+CHESTERMERE,EBC-2025-2-0919,written,2,core,6,chestermere×1; conrich×4; strathmore×1,46 47,EBC-2025-2-901-to-950.pdf,46-47,Private Citizen
+CHESTERMERE,EBC-2025-2-1026,written,2,context,2,conrich×2,111,EBC-2025-2-1001-to-1050.pdf,110-114,Private Citizen
+CHESTERMERE,EBC-2025-2-1033,written,2,context,3,conrich×3,135,EBC-2025-2-1001-to-1050.pdf,134-136,Private Citizen
+CHESTERMERE,EBC-2025-2-1076,written,2,core,9,chestermere×2; conrich×5; strathmore×2,68 69,EBC-2025-2-1051-to-1100.pdf,68-69,Private Citizen
+CHESTERMERE,EBC-2025-2-1091,written,2,core,18,chestermere×8; janet×5; shepard×3; strathmore×2,103 104,EBC-2025-2-1051-to-1100.pdf,103-104,Private Citizen
+CHESTERMERE,EBC-2025-2-1123,written,2,context,2,calgary-peigan×1; peigan×1,50,EBC-2025-2-1101-to-1143.pdf,50-51,Private Citizen
+CHESTERMERE,EBC-2025-2-1140,written,2,context,2,janet×2,93,EBC-2025-2-1101-to-1143.pdf,93-94,Private Citizen

@@ -1,0 +1,140 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+LETHBRIDGE,HANSARD-R1-T01-002,hearing,1,core,13,lethbridge×5; crowsnest×4; livingstone-macleod×4,EB-5 EB-6 start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,9-10,"hearing: Pincher Creek, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-002,hearing,1,core,9,lethbridge×9,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,21-22,"hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-004,hearing,1,core,19,lethbridge×7; blood reserve×1; cardston×5; crowsnest×6,start EB-13,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,23-25,"hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-006,hearing,1,core,37,lethbridge×34; coalhurst×3,start EB-16,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,26-28,"hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-008,hearing,1,core,20,lethbridge×11; little bow×1; blood reserve×1; taber×3; cardston×4,start EB-18 EB-19,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,28-30,"hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-010,hearing,1,core,27,lethbridge×17; coaldale×3; coalhurst×3; taber×1; cardston×2; crowsnest×1,start EB-23 EB-24,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,33-35,"hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T02-012,hearing,1,core,129,lethbridge×92; coaldale×15; picture butte×2; little bow×4; fort macleod×1; taber×9; cardston×6,start EB-25 EB-26 EB-30 EB-31,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"36-38,40-44","hearing: Lethbridge, Thursday, May 29, 2025"
+LETHBRIDGE,HANSARD-R1-T04-001,hearing,1,core,2,lethbridge×2,start EB-49,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,73-76,"hearing: Edmonton, Monday, June 2, 2025"
+LETHBRIDGE,HANSARD-R1-T07-001,hearing,1,core,3,lethbridge×3,start EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+LETHBRIDGE,HANSARD-R1-T08-004,hearing,1,core,1,lethbridge×1,EB-140,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,191-194,"hearing: Edmonton, Tuesday, June 3, 2025"
+LETHBRIDGE,HANSARD-R1-T10-002,hearing,1,core,1,lethbridge×1,EB-178,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"216-226,228","hearing: St. Paul, Thursday, June 5, 2025"
+LETHBRIDGE,HANSARD-R1-T13-003,hearing,1,context,3,livingstone-macleod×3,start EB-201,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,286-288,"hearing: Calgary, Tuesday, June 10, 2025"
+LETHBRIDGE,HANSARD-R1-T13-006,hearing,1,core,1,lethbridge×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,292-293,"hearing: Calgary, Tuesday, June 10, 2025"
+LETHBRIDGE,HANSARD-R1-T14-012,hearing,1,core,4,lethbridge×3; taber×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,330-332,"hearing: Calgary, Tuesday, June 10, 2025"
+LETHBRIDGE,HANSARD-R1-T17-001,hearing,1,core,3,lethbridge×1; picture butte×2,EB-274,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,389-391,"hearing: Calgary, Wednesday, June 11, 2025"
+LETHBRIDGE,HANSARD-R1-T19-001,hearing,1,core,2,lethbridge×2,EB-304 EB-305,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,433-436,"hearing: Brooks, Thursday, June 12, 2025"
+LETHBRIDGE,HANSARD-R1-T20-001,hearing,1,core,1,lethbridge×1,EB-319,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,454-456,"hearing: Medicine Hat, Friday, June 13, 2025"
+LETHBRIDGE,HANSARD-R1-T20-003,hearing,1,core,1,lethbridge×1,EB-324,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"458-460,462","hearing: Medicine Hat, Friday, June 13, 2025"
+LETHBRIDGE,HANSARD-R1-T20-006,hearing,1,core,1,lethbridge×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,464-465,"hearing: Medicine Hat, Friday, June 13, 2025"
+LETHBRIDGE,HANSARD-R1-T20-009,hearing,1,core,4,lethbridge×1; taber×3,EB-332,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,467-469,"hearing: Medicine Hat, Friday, June 13, 2025"
+LETHBRIDGE,HANSARD-R1-T21-002,hearing,1,core,1,lethbridge×1,EB-347,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"485-490,492-494,496","hearing: Fort McMurray, Monday, June 16, 2025"
+LETHBRIDGE,HANSARD-R1-T27-001,hearing,1,core,1,lethbridge×1,EB-400,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,585-588,"hearing: Virtual, Monday, June 23, 2025"
+LETHBRIDGE,HANSARD-R1-T27-006,hearing,1,core,29,lethbridge×19; picture butte×1; fort macleod×2; taber×5; cardston×1; crowsnest×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,594-595,"hearing: Virtual, Monday, June 23, 2025"
+LETHBRIDGE,HANSARD-R1-T27-010,hearing,1,context,7,taber×7,EB-414,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,598-600,"hearing: Virtual, Monday, June 23, 2025"
+LETHBRIDGE,HANSARD-R2-T32-005,hearing,2,context,10,crowsnest×10,EB-516 EB-517 EB-518,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,35-39,"hearing: Calgary, Tuesday, January 13, 2025"
+LETHBRIDGE,HANSARD-R2-T34-004,hearing,2,context,6,crowsnest×6,EB-550,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,60-64,"hearing: Calgary, Wednesday, January 14, 2026"
+LETHBRIDGE,HANSARD-R2-T35-007,hearing,2,core,1,lethbridge×1,EB-577,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,148-150,"hearing: Virtual, Wednesday, January 15, 2026"
+LETHBRIDGE,HANSARD-R2-T37-003,hearing,2,core,70,lethbridge×52; coaldale×3; coalhurst×4; picture butte×1; fort macleod×2; kainai×1; taber×1; cardston×2; nobleford×3; livingstone-macleod×1,start EB-607 EB-608,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,114-117,"hearing: Virtual, Thursday, January 15, 2026"
+LETHBRIDGE,HANSARD-R2-T38-002,hearing,2,core,66,lethbridge×51; coalhurst×10; picture butte×1; taber×1; cardston×1; crowsnest×2,start EB-624,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,191-193,"hearing: Virtual, Friday, January 16, 2026"
+LETHBRIDGE,HANSARD-R2-T39-001,hearing,2,context,5,crowsnest×5,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,162-164,"hearing: Virtual, Friday, January 16, 2026"
+LETHBRIDGE,HANSARD-R2-T39-010,hearing,2,core,1,lethbridge×1,EB-659,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,176-178,"hearing: Virtual, Friday, January 16, 2026"
+LETHBRIDGE,HANSARD-R2-T41-003,hearing,2,core,1,lethbridge×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,220-222,"hearing: Edmonton, Monday, January 19, 2026"
+LETHBRIDGE,HANSARD-R2-T42-004,hearing,2,context,2,cardston×2,EB-716,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,251-254,"hearing: Edmonton, Monday, January 19, 2026"
+LETHBRIDGE,HANSARD-R2-T43-007,hearing,2,context,1,crowsnest×1,EB-743,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,372-374,"hearing: Edmonton, Tuesday, January 20, 2026"
+LETHBRIDGE,HANSARD-R2-T44-001,hearing,2,core,1,lethbridge×1,EB-754,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,302-305,"hearing: Edmonton, Tuesday, January 20, 2026"
+LETHBRIDGE,HANSARD-R2-T45-004,hearing,2,context,1,crowsnest×1,EB-782,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,336-343,"hearing: Edmonton, Tuesday, January 20, 2026"
+LETHBRIDGE,HANSARD-R2-T48-002,hearing,2,core,75,lethbridge×64; coaldale×2; coalhurst×1; picture butte×1; fort macleod×2; blood tribe×2; taber×2; cardston×1,start EB-797 EB-798,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,425-428,"hearing: Virtual, Wednesday, January 21, 2026"
+LETHBRIDGE,HANSARD-R2-T48-011,hearing,2,core,74,lethbridge×40; coaldale×15; coalhurst×1; picture butte×1; little bow×1; fort macleod×1; taber×11; cardston×1; livingstone-macleod×3,start EB-815 EB-816,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"442-445,449","hearing: Virtual, Wednesday, January 21, 2026"
+LETHBRIDGE,EBC-2025-1-0009,written,1,core,12,lethbridge×10; coaldale×1; coalhurst×1,17 19,EBC2025Submissions1-50ForPosting.pdf,17-20,Private Citizen
+LETHBRIDGE,EBC-2025-1-0028,written,1,context,1,livingstone macleod×1,57,EBC2025Submissions1-50ForPosting.pdf,57-58,Private Citizen
+LETHBRIDGE,EBC-2025-1-0043,written,1,core,11,lethbridge×5; coaldale×1; coalhurst×2; kainai×1; taber×1; cardston×1,90 91,EBC2025Submissions1-50ForPosting.pdf,90-91,Private Citizen
+LETHBRIDGE,EBC-2025-1-0052,written,1,context,1,taber×1,7,EBC2025Submissions51-100ForPosting.pdf,4-7,Former MLA for Medicine Hat
+LETHBRIDGE,EBC-2025-1-0057,written,1,context,1,taber×1,17,EBC2025Submissions51-100ForPosting.pdf,16-17,Private Citizen
+LETHBRIDGE,EBC-2025-1-0061,written,1,core,5,lethbridge×1; fort macleod×1; livingstone-macleod×3,27 26,EBC2025Submissions51-100ForPosting.pdf,26-27,Private Citizen
+LETHBRIDGE,EBC-2025-1-0070,written,1,core,2,lethbridge×1; taber×1,56 59,EBC2025Submissions51-100ForPosting.pdf,56-60,Private Citizen
+LETHBRIDGE,EBC-2025-1-0085,written,1,core,1,lethbridge×1,90,EBC2025Submissions51-100ForPosting.pdf,90-91,Private Citizen
+LETHBRIDGE,EBC-2025-1-0103,written,1,core,6,lethbridge×1; crowsnest×1; livingstone-macleod×4,8 9,EBC2025Submissions101-150ForPosting.pdf,8-9,Private Citizen
+LETHBRIDGE,EBC-2025-1-0114,written,1,core,44,lethbridge×23; coaldale×6; coalhurst×1; picture butte×1; little bow×4; taber×4; cardston×4; livingstone-macleod×1,35 37 38 36,EBC2025Submissions101-150ForPosting.pdf,35-38,"President, Coaldale Chamber of Commerce"
+LETHBRIDGE,EBC-2025-1-0121,written,1,core,20,lethbridge×19; fort macleod×1,50 52 53,EBC2025Submissions101-150ForPosting.pdf,50-53,Private Citizen
+LETHBRIDGE,EBC-2025-1-0126,written,1,core,7,lethbridge×7,69 71 72,EBC2025Submissions101-150ForPosting.pdf,69-72,Private Citizen
+LETHBRIDGE,EBC-2025-1-0135,written,1,core,14,lethbridge×11; coaldale×1; picture butte×1; nobleford×1,93 94,EBC2025Submissions101-150ForPosting.pdf,93-94,"Professor, University of Lethbridge"
+LETHBRIDGE,EBC-2025-1-0140,written,1,core,19,lethbridge×16; taber×1; cardston×1; livingstone-macleod×1,187 188,EBC2025Submissions101-150ForPosting.pdf,187-188,MLA for Lethbridge-East
+LETHBRIDGE,EBC-2025-1-0146,written,1,core,38,lethbridge×21; coaldale×6; little bow×2; taber×3; cardston×4; livingstone-macleod×2,199 200 201 202,EBC2025Submissions101-150ForPosting.pdf,199-202,"Chief Administrative Officer, Town of Coaldale"
+LETHBRIDGE,EBC-2025-1-0151,written,1,core,2,lethbridge×2,1,EBC2025Submissions151-197ForPosting.pdf,1-2,Private Citizen
+LETHBRIDGE,EBC-2025-1-0154,written,1,core,1,lethbridge×1,13,EBC2025Submissions151-197ForPosting.pdf,13,"President, St. Albert NDP Constituency Association"
+LETHBRIDGE,EBC-2025-1-0179,written,1,context,4,livingstone-macleod×4,84 85,EBC2025Submissions151-197ForPosting.pdf,84-85,Private Citizen
+LETHBRIDGE,EBC-2025-1-0183,written,1,core,24,lethbridge×18; coaldale×1; coalhurst×1; kainai×1; cardston×3,98 99,EBC2025Submissions151-197ForPosting.pdf,98-99,Private Citizen
+LETHBRIDGE,EBC-2025-1-0191,written,1,core,1,lethbridge×1,115,EBC2025Submissions151-197ForPosting.pdf,114-116,not on the commission's published list
+LETHBRIDGE,EBC-2025-2-0005,written,2,core,16,lethbridge×3; blood reserve×1; taber×2; cardston×5; livingstone-macleod×5,11 12,EBC-2025-2-001-to-050.pdf,11-14,Private Citizen
+LETHBRIDGE,EBC-2025-2-0018,written,2,core,10,lethbridge×10,40 41,EBC-2025-2-001-to-050.pdf,40-41,Private Citizen
+LETHBRIDGE,EBC-2025-2-0037,written,2,core,9,lethbridge×9,89 90,EBC-2025-2-001-to-050.pdf,89-90,Private Citizen
+LETHBRIDGE,EBC-2025-2-0110,written,2,core,13,lethbridge×11; cardston×2,18 19,EBC-2025-2-101-to-150.pdf,18-20,Private Citizen
+LETHBRIDGE,EBC-2025-2-0123,written,2,core,6,lethbridge×6,54 55,EBC-2025-2-101-to-150.pdf,54-55,Private Citizen
+LETHBRIDGE,EBC-2025-2-0143,written,2,core,7,lethbridge×5; taber×1; cardston×1,101,EBC-2025-2-101-to-150.pdf,100-102,Private Citizen
+LETHBRIDGE,EBC-2025-2-0157,written,2,core,7,lethbridge×5; taber×1; cardston×1,18,EBC-2025-2-151-to-200.pdf,17-19,Private Citizen
+LETHBRIDGE,EBC-2025-2-0236,written,2,core,1,lethbridge×1,85,EBC-2025-2-201-to-250.pdf,80-88,"Mayor of Diamond Valley, Reeve of Foothills County, Mayor of Okotoks"
+LETHBRIDGE,EBC-2025-2-0292,written,2,core,2,lethbridge×2,99,EBC-2025-2-251-to-300.pdf,98-99,Private Citizen
+LETHBRIDGE,EBC-2025-2-0365,written,2,core,5,lethbridge×1; crowsnest×1; livingstone-macleod×3,35 34,EBC-2025-2-351-to-400.pdf,34-35,Private Citizen
+LETHBRIDGE,EBC-2025-2-0373,written,2,core,15,lethbridge×14; little bow×1,55 56 57,EBC-2025-2-351-to-400.pdf,55-57,Private Citizen
+LETHBRIDGE,EBC-2025-2-0400,written,2,core,7,lethbridge×7,134 135,EBC-2025-2-351-to-400.pdf,134-135,Private Citizen
+LETHBRIDGE,EBC-2025-2-0417,written,2,core,11,lethbridge×11,43 44,EBC-2025-2-401-to-450.pdf,43-45,Private Citizen
+LETHBRIDGE,EBC-2025-2-0427,written,2,core,7,lethbridge×5; coaldale×1; taber×1,66 67,EBC-2025-2-401-to-450.pdf,66-67,Private Citizen
+LETHBRIDGE,EBC-2025-2-0434,written,2,core,1,lethbridge×1,85,EBC-2025-2-401-to-450.pdf,84-85,Private Citizen
+LETHBRIDGE,EBC-2025-2-0440,written,2,core,8,lethbridge×3; coaldale×1; taber×4,96 97,EBC-2025-2-401-to-450.pdf,96-98,Former MLA for Cardston-Taber-Warner
+LETHBRIDGE,EBC-2025-2-0442,written,2,context,11,crowsnest×10; livingstone-macleod×1,103 104,EBC-2025-2-401-to-450.pdf,102-105,Private Citizen
+LETHBRIDGE,EBC-2025-2-0455,written,2,context,5,coaldale×2; taber×2; livingstone-macleod×1,8 9,EBC-2025-2-451-to-500.pdf,8-9,Private Citizen
+LETHBRIDGE,EBC-2025-2-0463,written,2,core,5,lethbridge×5,27 28,EBC-2025-2-451-to-500.pdf,27-28,Private Citizen
+LETHBRIDGE,EBC-2025-2-0485,written,2,core,1,lethbridge×1,74,EBC-2025-2-451-to-500.pdf,73-74,Private Citizen
+LETHBRIDGE,EBC-2025-2-0529,written,2,core,9,lethbridge×9,67 68,EBC-2025-2-501-to-550.pdf,67-68,Private Citizen
+LETHBRIDGE,EBC-2025-2-0537,written,2,core,86,lethbridge×71; coaldale×5; coalhurst×2; picture butte×1; taber×6; nobleford×1,86 87 88 89 90 91 92,EBC-2025-2-501-to-550.pdf,86-92,Private Citizen
+LETHBRIDGE,EBC-2025-2-0545,written,2,context,3,livingstone-macleod×3,109 110 111,EBC-2025-2-501-to-550.pdf,109-115,Chair of the Board of Trustees of Foothills School Division
+LETHBRIDGE,EBC-2025-2-0579,written,2,core,6,lethbridge×6,76,EBC-2025-2-551-to-600.pdf,76,Private Citizen
+LETHBRIDGE,EBC-2025-2-0619,written,2,context,17,kainai×1; crowsnest×15; livingstone-macleod×1,49 52 54 55 56 57 58 61,EBC-2025-2-601-to-650.pdf,48-61,Private Citizen
+LETHBRIDGE,EBC-2025-2-0643,written,2,core,11,lethbridge×11,114 115,EBC-2025-2-601-to-650.pdf,114-116,Private Citizen
+LETHBRIDGE,EBC-2025-2-0655,written,2,core,3,lethbridge×3,8,EBC-2025-2-651-to-700.pdf,8-9,Private Citizen
+LETHBRIDGE,EBC-2025-2-0664,written,2,core,3,lethbridge×3,26,EBC-2025-2-651-to-700.pdf,26-27,Private Citizen
+LETHBRIDGE,EBC-2025-2-0668,written,2,core,5,lethbridge×5,34 35,EBC-2025-2-651-to-700.pdf,34-35,Private Citizen
+LETHBRIDGE,EBC-2025-2-0673,written,2,core,6,lethbridge×6,62,EBC-2025-2-651-to-700.pdf,62,Private Citizen
+LETHBRIDGE,EBC-2025-2-0677,written,2,core,12,lethbridge×5; taber×1; cardston×4; crowsnest×2,72 71,EBC-2025-2-651-to-700.pdf,71-73,Private Citizen
+LETHBRIDGE,EBC-2025-2-0680,written,2,core,8,lethbridge×2; taber×1; cardston×3; crowsnest×2,81 80,EBC-2025-2-651-to-700.pdf,80-82,Private Citizen
+LETHBRIDGE,EBC-2025-2-0683,written,2,core,13,lethbridge×6; taber×1; cardston×4; crowsnest×2,89 88,EBC-2025-2-651-to-700.pdf,88-90,Private Citizen
+LETHBRIDGE,EBC-2025-2-0694,written,2,core,1,lethbridge×1,119,EBC-2025-2-651-to-700.pdf,118-120,Private Citizen
+LETHBRIDGE,EBC-2025-2-0696,written,2,core,15,lethbridge×12; taber×1; cardston×1; livingstone-macleod×1,123 124 125,EBC-2025-2-651-to-700.pdf,123-125,Private Citizen
+LETHBRIDGE,EBC-2025-2-0702,written,2,core,5,lethbridge×5,4 5,EBC-2025-2-701-to-750.pdf,4-5,Private Citizen
+LETHBRIDGE,EBC-2025-2-0716,written,2,core,1,lethbridge×1,39,EBC-2025-2-701-to-750.pdf,38-40,Private Citizen
+LETHBRIDGE,EBC-2025-2-0722,written,2,context,2,fort macleod×1; livingstone-macleod×1,55,EBC-2025-2-701-to-750.pdf,55-56,Private Citizen
+LETHBRIDGE,EBC-2025-2-0725,written,2,core,5,lethbridge×5,62 63,EBC-2025-2-701-to-750.pdf,62-63,Private Citizen
+LETHBRIDGE,EBC-2025-2-0729,written,2,core,12,lethbridge×10; coaldale×1; coalhurst×1,71 72,EBC-2025-2-701-to-750.pdf,71-73,Private Citizen
+LETHBRIDGE,EBC-2025-2-0735,written,2,core,8,lethbridge×8,86 87,EBC-2025-2-701-to-750.pdf,86-87,Private Citizen
+LETHBRIDGE,EBC-2025-2-0742,written,2,core,11,lethbridge×11,102 103,EBC-2025-2-701-to-750.pdf,102-103,Private Citizen
+LETHBRIDGE,EBC-2025-2-0744,written,2,core,3,lethbridge×3,106 107,EBC-2025-2-701-to-750.pdf,106-107,Private Citizen
+LETHBRIDGE,EBC-2025-2-0753,written,2,core,5,lethbridge×5,6 7,EBC-2025-2-751-to-800.pdf,6-7,Private Citizen
+LETHBRIDGE,EBC-2025-2-0757,written,2,core,3,lethbridge×3,14,EBC-2025-2-751-to-800.pdf,14-15,Private Citizen
+LETHBRIDGE,EBC-2025-2-0760,written,2,core,3,lethbridge×3,21,EBC-2025-2-751-to-800.pdf,21-22,Private Citizen
+LETHBRIDGE,EBC-2025-2-0767,written,2,core,7,lethbridge×7,39 40,EBC-2025-2-751-to-800.pdf,39-40,Private Citizen
+LETHBRIDGE,EBC-2025-2-0773,written,2,core,3,lethbridge×3,53,EBC-2025-2-751-to-800.pdf,53-54,Private Citizen
+LETHBRIDGE,EBC-2025-2-0775,written,2,core,4,lethbridge×4,58 59,EBC-2025-2-751-to-800.pdf,58-59,Private Citizen
+LETHBRIDGE,EBC-2025-2-0778,written,2,core,74,lethbridge×40; little bow×5; taber×9; cardston×10; crowsnest×1; livingstone-macleod×9,70 129 137 142 143 144 145 195 196 200 202 215 244 247 249 250 243 246 248 262 233 236 241,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+LETHBRIDGE,EBC-2025-2-0788,written,2,core,16,lethbridge×7; taber×1; cardston×6; crowsnest×2,289 288,EBC-2025-2-751-to-800.pdf,288-290,Private Citizen
+LETHBRIDGE,EBC-2025-2-0794,written,2,core,15,lethbridge×7; taber×1; cardston×5; crowsnest×2,310 309 311,EBC-2025-2-751-to-800.pdf,309-311,Private Citizen
+LETHBRIDGE,EBC-2025-2-0797,written,2,core,16,lethbridge×7; taber×1; cardston×6; crowsnest×2,320 319 321,EBC-2025-2-751-to-800.pdf,319-321,Private Citizen
+LETHBRIDGE,EBC-2025-2-0803,written,2,core,8,lethbridge×8,7 8 11 12 13,EBC-2025-2-801-to-850.pdf,6-14,Former Speaker of the Legislative Assembly of Alberta
+LETHBRIDGE,EBC-2025-2-0808,written,2,core,16,lethbridge×7; taber×1; cardston×6; crowsnest×2,26 27 25,EBC-2025-2-801-to-850.pdf,25-27,Private Citizen
+LETHBRIDGE,EBC-2025-2-0818,written,2,core,14,lethbridge×12; cardston×2,84 85,EBC-2025-2-801-to-850.pdf,84-85,Private Citizen
+LETHBRIDGE,EBC-2025-2-0856,written,2,core,3,lethbridge×3,14 15,EBC-2025-2-851-to-900.pdf,14-15,Private Citizen
+LETHBRIDGE,EBC-2025-2-0861,written,2,core,3,lethbridge×3,25,EBC-2025-2-851-to-900.pdf,25-26,Private Citizen
+LETHBRIDGE,EBC-2025-2-0870,written,2,core,8,lethbridge×8,44 45,EBC-2025-2-851-to-900.pdf,44-45,Private Citizen
+LETHBRIDGE,EBC-2025-2-0888,written,2,core,8,lethbridge×2; taber×5; cardston×1,87 86,EBC-2025-2-851-to-900.pdf,86-87,MLA for Taber-Warner
+LETHBRIDGE,EBC-2025-2-0892,written,2,core,6,lethbridge×6,94 95,EBC-2025-2-851-to-900.pdf,94-95,Private Citizen
+LETHBRIDGE,EBC-2025-2-0917,written,2,core,14,lethbridge×1; coaldale×1; taber×10; cardston×2,42 41,EBC-2025-2-901-to-950.pdf,41-42,Private Citizen
+LETHBRIDGE,EBC-2025-2-0937,written,2,core,21,lethbridge×4; coaldale×1; taber×11; cardston×5,99 98,EBC-2025-2-901-to-950.pdf,98-99,Private Citizen
+LETHBRIDGE,EBC-2025-2-0978,written,2,context,1,crowsnest×1,78,EBC-2025-2-951-to-1000.pdf,66-78,MLA for Grande Prairie-Wapiti
+LETHBRIDGE,EBC-2025-2-0987,written,2,core,3,lethbridge×3,99,EBC-2025-2-951-to-1000.pdf,99-100,Private Citizen
+LETHBRIDGE,EBC-2025-2-0991,written,2,core,11,lethbridge×2; coaldale×3; taber×4; cardston×2,139 138,EBC-2025-2-951-to-1000.pdf,138-139,Private Citizen
+LETHBRIDGE,EBC-2025-2-0994,written,2,core,10,lethbridge×2; fort macleod×1; crowsnest×1; livingstone-macleod×6,147 146,EBC-2025-2-951-to-1000.pdf,146-148,Private Citizen
+LETHBRIDGE,EBC-2025-2-1010,written,2,core,1,lethbridge×1,28,EBC-2025-2-1001-to-1050.pdf,28-30,Chair of Board of Trustees of Palliser School Division
+LETHBRIDGE,EBC-2025-2-1015,written,2,context,1,crowsnest×1,59,EBC-2025-2-1001-to-1050.pdf,40-59,MLA for Athabasca-Barrhead-Westlock
+LETHBRIDGE,EBC-2025-2-1020,written,2,core,1,lethbridge×1,70,EBC-2025-2-1001-to-1050.pdf,69-70,Private Citizen
+LETHBRIDGE,EBC-2025-2-1027,written,2,core,4,lethbridge×4,115 116,EBC-2025-2-1001-to-1050.pdf,115-116,Private Citizen
+LETHBRIDGE,EBC-2025-2-1039,written,2,core,1,lethbridge×1,156,EBC-2025-2-1001-to-1050.pdf,155-156,Private Citizen
+LETHBRIDGE,EBC-2025-2-1051,written,2,core,18,lethbridge×1; crowsnest×17,4 2 3,EBC-2025-2-1051-to-1100.pdf,1-4,Private Citizen
+LETHBRIDGE,EBC-2025-2-1081,written,2,context,3,crowsnest×3,81,EBC-2025-2-1051-to-1100.pdf,80-81,Private Citizen
+LETHBRIDGE,EBC-2025-2-1088,written,2,core,4,lethbridge×4,96 97,EBC-2025-2-1051-to-1100.pdf,96-97,Private Citizen
+LETHBRIDGE,EBC-2025-2-1095,written,2,core,7,lethbridge×7,114 115,EBC-2025-2-1051-to-1100.pdf,114-115,Private Citizen
+LETHBRIDGE,EBC-2025-2-1101,written,2,core,3,lethbridge×3,1,EBC-2025-2-1101-to-1143.pdf,1-2,Private Citizen
+LETHBRIDGE,EBC-2025-2-1117,written,2,core,17,lethbridge×4; coaldale×12; taber×1,38 39,EBC-2025-2-1101-to-1143.pdf,38-39,Private Citizen
+LETHBRIDGE,EBC-2025-2-1120,written,2,core,6,lethbridge×6,45 46,EBC-2025-2-1101-to-1143.pdf,45-46,Private Citizen
+LETHBRIDGE,EBC-2025-2-1130,written,2,core,9,lethbridge×9,69 70,EBC-2025-2-1101-to-1143.pdf,69-70,Private Citizen
+LETHBRIDGE,EBC-2025-2-1138,written,2,core,31,lethbridge×27; coaldale×1; picture butte×1; blood reserve×1; nobleford×1,88 89,EBC-2025-2-1101-to-1143.pdf,88-89,Private Citizen

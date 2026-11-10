@@ -1,0 +1,122 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+OLDS,HANSARD-R1-T02-013,hearing,1,context,1,mountain view×1,EB-29,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,39-40,"hearing: Lethbridge, Thursday, May 29, 2025"
+OLDS,HANSARD-R1-T03-001,hearing,1,core,4,olds×1; didsbury×1; three hills×1; sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,50-53,"hearing: Edmonton, Monday, June 2, 2025"
+OLDS,HANSARD-R1-T05-006,hearing,1,core,1,three hills×1,EB-79,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,110-111,"hearing: Edmonton, Monday, June 2, 2025"
+OLDS,HANSARD-R1-T07-002,hearing,1,context,2,sundre×2,EB-113 EB-114,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,156-160,"hearing: Edmonton, Tuesday, June 3, 2025"
+OLDS,HANSARD-R1-T12-002,hearing,1,core,1,three hills×1,EB-192,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"249-252,256","hearing: Drumheller, Monday, June 9, 2025"
+OLDS,HANSARD-R1-T13-010,hearing,1,core,3,olds×1; didsbury×1; three hills×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,298-300,"hearing: Calgary, Tuesday, June 10, 2025"
+OLDS,HANSARD-R1-T14-011,hearing,1,context,1,mountain view×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,327-330,"hearing: Calgary, Tuesday, June 10, 2025"
+OLDS,HANSARD-R1-T16-001,hearing,1,core,6,didsbury×2; carstairs×1; cremona×2; sundre×1,start EB-256,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,362-364,"hearing: Calgary, Wednesday, June 11, 2025"
+OLDS,HANSARD-R1-T17-006,hearing,1,context,1,linden×1,EB-286,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,401-403,"hearing: Calgary, Wednesday, June 11, 2025"
+OLDS,HANSARD-R1-T25-003,hearing,1,context,1,sundre×1,EB-393,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,560-563,"hearing: Hinton, Thursday, June 19, 2025"
+OLDS,HANSARD-R1-T26-001,hearing,1,core,6,didsbury×3; sundre×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"574-576,580","hearing: Red Deer, Thursday, June 19, 2025"
+OLDS,HANSARD-R1-T26-002,hearing,1,context,1,sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,574-575,"hearing: Red Deer, Thursday, June 19, 2025"
+OLDS,HANSARD-R1-T26-003,hearing,1,context,2,sundre×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,574-575,"hearing: Red Deer, Thursday, June 19, 2025"
+OLDS,HANSARD-R1-T27-004,hearing,1,context,5,crossfield×5,EB-406,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,591-594,"hearing: Virtual, Monday, June 23, 2025"
+OLDS,HANSARD-R1-T27-005,hearing,1,core,11,olds×1; didsbury×1; three hills×1; crossfield×8,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,592,"hearing: Virtual, Monday, June 23, 2025"
+OLDS,HANSARD-R2-T32-005,hearing,2,context,3,sundre×3,EB-516 EB-517,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,35-39,"hearing: Calgary, Tuesday, January 13, 2025"
+OLDS,HANSARD-R2-T33-006,hearing,2,context,1,sundre×1,EB-539,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"18-20,24","hearing: Calgary, Tuesday, January 13, 2026"
+OLDS,HANSARD-R2-T34-003,hearing,2,core,39,olds×2; didsbury×1; three hills×2; carstairs×1; mountain view×2; sundre×31,EB-547 EB-548 start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,58-60,"hearing: Calgary, Wednesday, January 14, 2026"
+OLDS,HANSARD-R2-T34-004,hearing,2,context,1,sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,60-64,"hearing: Calgary, Wednesday, January 14, 2026"
+OLDS,HANSARD-R2-T34-005,hearing,2,context,1,sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,63-65,"hearing: Calgary, Wednesday, January 14, 2026"
+OLDS,HANSARD-R2-T34-007,hearing,2,context,1,mountain view×1,EB-555,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,66-68,"hearing: Calgary, Wednesday, January 14, 2026"
+OLDS,HANSARD-R2-T34-011,hearing,2,context,1,sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,74-76,"hearing: Calgary, Wednesday, January 14, 2026"
+OLDS,HANSARD-R2-T37-005,hearing,2,context,2,sundre×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,118-120,"hearing: Virtual, Thursday, January 15, 2026"
+OLDS,HANSARD-R2-T37-006,hearing,2,context,1,trochu×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,120-122,"hearing: Virtual, Thursday, January 15, 2026"
+OLDS,HANSARD-R2-T37-008,hearing,2,core,5,olds×2; three hills×1; trochu×2,EB-616,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,123-125,"hearing: Virtual, Thursday, January 15, 2026"
+OLDS,HANSARD-R2-T37-009,hearing,2,core,19,three hills×3; kneehill×4; trochu×12,EB-618 EB-617,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"125-128,132","hearing: Virtual, Thursday, January 15, 2026"
+OLDS,HANSARD-R2-T38-003,hearing,2,core,18,olds×1; didsbury×1; three hills×2; kneehill×1; mountain view×5; sundre×8,EB-626 start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,193-195,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T38-006,hearing,2,context,5,mountain view×1; cremona×1; sundre×3,EB-629 start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,197-198,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T38-007,hearing,2,core,9,olds×1; sundre×8,EB-635 start EB-636,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,202-204,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T38-008,hearing,2,core,21,three hills×3; kneehill×2; trochu×16,EB-638 start EB-637,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,204-206,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T39-001,hearing,2,context,2,sundre×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,162-164,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T39-003,hearing,2,context,5,crossfield×4; irricana×1,start EB-649,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,166-167,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T39-005,hearing,2,core,12,three hills×1; kneehill×3; trochu×8,EB-652 EB-651,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,169-171,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T39-006,hearing,2,context,2,sundre×2,EB-654,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,171-172,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T39-007,hearing,2,core,20,three hills×1; crossfield×19,start EB-655,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,172-174,"hearing: Virtual, Friday, January 16, 2026"
+OLDS,HANSARD-R2-T40-001,hearing,2,context,1,mountain view×1,EB-665,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,270-273,"hearing: Edmonton, Monday, January 19, 2026"
+OLDS,HANSARD-R2-T41-006,hearing,2,core,14,three hills×2; mountain view×3; trochu×9,EB-698 start EB-699,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,227-229,"hearing: Edmonton, Monday, January 19, 2026"
+OLDS,HANSARD-R2-T42-007,hearing,2,context,3,kneehill×1; mountain view×1; sundre×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,256-257,"hearing: Edmonton, Monday, January 19, 2026"
+OLDS,HANSARD-R2-T43-006,hearing,2,core,78,olds×10; didsbury×4; three hills×9; carstairs×2; crossfield×3; beiseker×9; irricana×6; kneehill×4; mountain view×2; trochu×9; acme×6; linden×1; cremona×3; sundre×10,start EB-741 EB-742,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,369-372,"hearing: Edmonton, Tuesday, January 20, 2026"
+OLDS,HANSARD-R2-T44-001,hearing,2,core,18,olds×7; didsbury×5; three hills×5; sundre×1,EB-752 EB-753 EB-754,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,302-305,"hearing: Edmonton, Tuesday, January 20, 2026"
+OLDS,HANSARD-R2-T45-004,hearing,2,core,52,olds×2; mountain view×9; cremona×3; sundre×38,EB-782 EB-780 EB-781 EB-783 EB-784,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,336-343,"hearing: Edmonton, Tuesday, January 20, 2026"
+OLDS,HANSARD-R2-T47-008,hearing,2,context,2,sundre×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,405-407,"hearing: Discussion of Members of the Legislative Assembly, Wednesday, January 21, 2026"
+OLDS,HANSARD-R2-T48-007,hearing,2,context,2,kneehill×1; mountain view×1,EB-805,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,433-436,"hearing: Virtual, Wednesday, January 21, 2026"
+OLDS,EBC-2025-1-0031,written,1,context,2,mountain view×2,63,EBC2025Submissions1-50ForPosting.pdf,63-64,Private Citizen
+OLDS,EBC-2025-1-0045,written,1,core,6,olds×2; didsbury×3; three hills×1,94,EBC2025Submissions1-50ForPosting.pdf,94-95,Private Citizen
+OLDS,EBC-2025-1-0066,written,1,context,1,sundre×1,43,EBC2025Submissions51-100ForPosting.pdf,41-45,MLA for Athabasca-Barrhead-Westlock
+OLDS,EBC-2025-1-0137,written,1,context,2,sundre×2,97,EBC2025Submissions101-150ForPosting.pdf,97,Private Citizen
+OLDS,EBC-2025-1-0138,written,1,core,12,olds×1; didsbury×1; carstairs×1; crossfield×1; beiseker×1; irricana×1; kneehill×1; mountain view×1; trochu×1; acme×1; cremona×1; sundre×1,109 108,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+OLDS,EBC-2025-1-0139,written,1,core,45,olds×4; didsbury×4; three hills×4; crossfield×33,164 181 165 166 167 168 169 173 177 178 182 183 184 185 186,EBC2025Submissions101-150ForPosting.pdf,161-186,"Grant Writer and Intergovernmental Affairs, City of Airdrie"
+OLDS,EBC-2025-1-0162,written,1,context,7,crossfield×7,40 41,EBC2025Submissions151-197ForPosting.pdf,40-41,"Chief Administrative Officer, Town of Crossﬁeld"
+OLDS,EBC-2025-2-0004,written,2,context,2,sundre×2,8,EBC-2025-2-001-to-050.pdf,8-10,Private Citizen
+OLDS,EBC-2025-2-0013,written,2,core,14,olds×1; didsbury×1; three hills×1; crossfield×2; beiseker×2; irricana×5; acme×1; linden×1,29 30,EBC-2025-2-001-to-050.pdf,29-31,not on the commission's published list
+OLDS,EBC-2025-2-0022,written,2,context,1,sundre×1,57,EBC-2025-2-001-to-050.pdf,57-58,Private Citizen
+OLDS,EBC-2025-2-0067,written,2,context,1,kneehill×1,38,EBC-2025-2-051-to-100.pdf,35-40,Private Citizen
+OLDS,EBC-2025-2-0069,written,2,context,1,sundre×1,43,EBC-2025-2-051-to-100.pdf,43-44,Private Citizen
+OLDS,EBC-2025-2-0082,written,2,context,1,sundre×1,75,EBC-2025-2-051-to-100.pdf,75-76,Private Citizen
+OLDS,EBC-2025-2-0083,written,2,context,1,sundre×1,77,EBC-2025-2-051-to-100.pdf,77-78,Private Citizen
+OLDS,EBC-2025-2-0084,written,2,context,21,kneehill×3; mountain view×8; sundre×10,79 80 81,EBC-2025-2-051-to-100.pdf,79-82,Private Citizen
+OLDS,EBC-2025-2-0090,written,2,context,16,kneehill×1; mountain view×4; sundre×11,97 98 99,EBC-2025-2-051-to-100.pdf,97-99,Private Citizen
+OLDS,EBC-2025-2-0091,written,2,context,7,kneehill×1; mountain view×3; sundre×3,100 101 102,EBC-2025-2-051-to-100.pdf,100-102,Private Citizen
+OLDS,EBC-2025-2-0095,written,2,context,4,kneehill×1; mountain view×2; sundre×1,111 110,EBC-2025-2-051-to-100.pdf,110-112,Private Citizen
+OLDS,EBC-2025-2-0112,written,2,core,9,olds×2; didsbury×3; three hills×2; carstairs×1; crossfield×1,23 25 26,EBC-2025-2-101-to-150.pdf,23-27,Private Citizen
+OLDS,EBC-2025-2-0113,written,2,context,12,kneehill×2; mountain view×3; sundre×7,28 29,EBC-2025-2-101-to-150.pdf,28-30,Private Citizen
+OLDS,EBC-2025-2-0116,written,2,context,30,kneehill×4; mountain view×6; sundre×20,35 36 38 39,EBC-2025-2-101-to-150.pdf,35-39,Chief Administrative Officer of Sundre
+OLDS,EBC-2025-2-0117,written,2,context,11,kneehill×1; mountain view×1; sundre×9,40 41,EBC-2025-2-101-to-150.pdf,40-41,Mayor of Sundre
+OLDS,EBC-2025-2-0120,written,2,core,57,olds×8; didsbury×4; three hills×6; carstairs×1; crossfield×5; beiseker×7; irricana×7; kneehill×4; mountain view×5; trochu×3; acme×5; linden×2,46 47 48,EBC-2025-2-101-to-150.pdf,46-48,MLA for Olds-Didsbury-Three Hills
+OLDS,EBC-2025-2-0126,written,2,context,1,sundre×1,63,EBC-2025-2-101-to-150.pdf,61-64,Private Citizen
+OLDS,EBC-2025-2-0136,written,2,context,12,kneehill×2; mountain view×3; sundre×7,86 87,EBC-2025-2-101-to-150.pdf,86-87,Private Citizen
+OLDS,EBC-2025-2-0137,written,2,context,11,kneehill×2; mountain view×3; sundre×6,88 89,EBC-2025-2-101-to-150.pdf,88-89,Private Citizen
+OLDS,EBC-2025-2-0141,written,2,context,3,kneehill×1; mountain view×1; sundre×1,97,EBC-2025-2-101-to-150.pdf,97,Rocky-Gas Co-op Board of Directors
+OLDS,EBC-2025-2-0142,written,2,core,21,olds×2; didsbury×1; three hills×1; beiseker×4; irricana×4; kneehill×3; mountain view×3; acme×2; linden×1,98 99,EBC-2025-2-101-to-150.pdf,98-99,Private Citizen
+OLDS,EBC-2025-2-0154,written,2,context,4,mountain view×1; trochu×3,10 11,EBC-2025-2-151-to-200.pdf,9-11,Private Citizen
+OLDS,EBC-2025-2-0161,written,2,core,23,olds×2; didsbury×1; three hills×3; beiseker×11; irricana×1; kneehill×1; mountain view×1; trochu×1; acme×1; linden×1,27 28,EBC-2025-2-151-to-200.pdf,27-28,Village of Beiseker Councillor
+OLDS,EBC-2025-2-0164,written,2,context,2,trochu×2,34,EBC-2025-2-151-to-200.pdf,33-34,Private Citizen
+OLDS,EBC-2025-2-0171,written,2,context,2,trochu×2,48,EBC-2025-2-151-to-200.pdf,47-48,Private Citizen
+OLDS,EBC-2025-2-0209,written,2,core,43,olds×8; didsbury×8; three hills×8; carstairs×4; beiseker×11; trochu×1; sundre×3,18 19 20,EBC-2025-2-201-to-250.pdf,18-20,Private Citizen
+OLDS,EBC-2025-2-0210,written,2,context,1,trochu×1,22,EBC-2025-2-201-to-250.pdf,21-22,Private Citizen
+OLDS,EBC-2025-2-0217,written,2,context,1,trochu×1,36,EBC-2025-2-201-to-250.pdf,35-36,Private Citizen
+OLDS,EBC-2025-2-0230,written,2,context,1,trochu×1,67,EBC-2025-2-201-to-250.pdf,66-67,Private Citizen
+OLDS,EBC-2025-2-0239,written,2,core,12,olds×2; didsbury×2; three hills×2; beiseker×2; irricana×2; kneehill×1; acme×1,93 94,EBC-2025-2-201-to-250.pdf,93-94,Private Citizen
+OLDS,EBC-2025-2-0252,written,2,core,4,olds×1; three hills×1; kneehill×1; mountain view×1,4,EBC-2025-2-251-to-300.pdf,3-4,City of Red Deer Councillor
+OLDS,EBC-2025-2-0284,written,2,context,2,sundre×2,78 79,EBC-2025-2-251-to-300.pdf,78-79,Private Citizen
+OLDS,EBC-2025-2-0338,written,2,context,12,kneehill×2; mountain view×4; sundre×6,89 90,EBC-2025-2-301-to-350.pdf,89-91,Private Citizen
+OLDS,EBC-2025-2-0340,written,2,context,19,kneehill×4; mountain view×12; sundre×3,94 95 96,EBC-2025-2-301-to-350.pdf,94-96,Private Citizen
+OLDS,EBC-2025-2-0358,written,2,core,19,olds×2; didsbury×2; three hills×3; crossfield×2; beiseker×3; irricana×2; kneehill×1; mountain view×1; trochu×1; acme×1; linden×1,16,EBC-2025-2-351-to-400.pdf,16,Private Citizen
+OLDS,EBC-2025-2-0376,written,2,context,15,kneehill×3; mountain view×8; sundre×4,64 65,EBC-2025-2-351-to-400.pdf,64-66,
+OLDS,EBC-2025-2-0387,written,2,context,2,sundre×2,93 94,EBC-2025-2-351-to-400.pdf,93-94,Private Citizen
+OLDS,EBC-2025-2-0403,written,2,context,4,trochu×4,8,EBC-2025-2-401-to-450.pdf,7-8,Private Citizen
+OLDS,EBC-2025-2-0409,written,2,context,4,kneehill×1; mountain view×1; sundre×2,23 22,EBC-2025-2-401-to-450.pdf,22-23,Private Citizen
+OLDS,EBC-2025-2-0492,written,2,context,4,kneehill×2; mountain view×2,89,EBC-2025-2-451-to-500.pdf,89,Chair of Wild Rose School Division
+OLDS,EBC-2025-2-0500,written,2,context,1,trochu×1,109,EBC-2025-2-451-to-500.pdf,108-109,Private Citizen
+OLDS,EBC-2025-2-0506,written,2,core,36,olds×7; didsbury×2; three hills×3; beiseker×5; irricana×5; kneehill×4; mountain view×4; trochu×1; acme×3; linden×2,11 12 13,EBC-2025-2-501-to-550.pdf,11-13,Private Citizen
+OLDS,EBC-2025-2-0536,written,2,context,1,sundre×1,84,EBC-2025-2-501-to-550.pdf,83-85,Mayor of Rocky Mountain House
+OLDS,EBC-2025-2-0538,written,2,context,2,trochu×2,94,EBC-2025-2-501-to-550.pdf,93-96,Town of Penhold Councillor
+OLDS,EBC-2025-2-0550,written,2,core,23,olds×2; didsbury×3; three hills×1; kneehill×1; mountain view×13; sundre×3,126 127,EBC-2025-2-501-to-550.pdf,126-127,Reeve of Mountain View County
+OLDS,EBC-2025-2-0555,written,2,context,1,sundre×1,13,EBC-2025-2-551-to-600.pdf,13-15,Private Citizen
+OLDS,EBC-2025-2-0577,written,2,core,1,olds×1,73,EBC-2025-2-551-to-600.pdf,72-73,Private Citizen
+OLDS,EBC-2025-2-0619,written,2,context,7,sundre×7,49 57 58,EBC-2025-2-601-to-650.pdf,48-61,Private Citizen
+OLDS,EBC-2025-2-0631,written,2,context,1,sundre×1,83,EBC-2025-2-601-to-650.pdf,83-85,Private Citizen
+OLDS,EBC-2025-2-0654,written,2,context,2,trochu×2,7,EBC-2025-2-651-to-700.pdf,7,Mayor of Delburne
+OLDS,EBC-2025-2-0656,written,2,context,4,kneehill×1; trochu×3,11,EBC-2025-2-651-to-700.pdf,10-12,Mayor of Elnora
+OLDS,EBC-2025-2-0671,written,2,core,12,didsbury×2; crossfield×6; kneehill×2; mountain view×2,52 55 51 53 56 57,EBC-2025-2-651-to-700.pdf,50-58,Grant Writer and Researcher for the City of Airdrie
+OLDS,EBC-2025-2-0681,written,2,context,5,kneehill×2; mountain view×2; sundre×1,83 84,EBC-2025-2-651-to-700.pdf,83-84,Private Citizen
+OLDS,EBC-2025-2-0684,written,2,context,4,kneehill×1; mountain view×1; sundre×2,91 92,EBC-2025-2-651-to-700.pdf,91-93,Private Citizen
+OLDS,EBC-2025-2-0693,written,2,context,4,kneehill×1; mountain view×2; sundre×1,115 116,EBC-2025-2-651-to-700.pdf,115-117,Private Citizen
+OLDS,EBC-2025-2-0705,written,2,context,21,kneehill×3; mountain view×10; sundre×8,11 12,EBC-2025-2-701-to-750.pdf,11-13,Private Citizen
+OLDS,EBC-2025-2-0778,written,2,core,42,olds×11; didsbury×13; three hills×9; carstairs×1; kneehill×1; mountain view×2; trochu×2; sundre×3,70 120 131 139 147 152 157 237 244 247 90 200 126 249 203 223 222,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+OLDS,EBC-2025-2-0829,written,2,core,19,olds×1; didsbury×1; three hills×1; mountain view×4; cremona×1; sundre×11,119 118 117,EBC-2025-2-801-to-850.pdf,117-119,MLA for Rimbey-Rocky Mountain House-Sundre
+OLDS,EBC-2025-2-0862,written,2,context,2,beiseker×1; irricana×1,28,EBC-2025-2-851-to-900.pdf,27-28,Private Citizen
+OLDS,EBC-2025-2-0889,written,2,core,8,olds×1; didsbury×1; three hills×1; kneehill×1; mountain view×1; acme×3,88 89,EBC-2025-2-851-to-900.pdf,88-89,Chief Administrative Officer of Acme
+OLDS,EBC-2025-2-0923,written,2,context,1,trochu×1,58,EBC-2025-2-901-to-950.pdf,57-59,MLA for Innisfail-Sylvan lake
+OLDS,EBC-2025-2-0953,written,2,context,2,sundre×2,6,EBC-2025-2-951-to-1000.pdf,6,Mayor of Red Deer County
+OLDS,EBC-2025-2-0973,written,2,context,2,sundre×2,55,EBC-2025-2-951-to-1000.pdf,55,Mayor of Bentley
+OLDS,EBC-2025-2-1003,written,2,context,3,kneehill×1; mountain view×1; sundre×1,8 7,EBC-2025-2-1001-to-1050.pdf,7-9,Private Citizen
+OLDS,EBC-2025-2-1006,written,2,context,3,kneehill×1; mountain view×1; sundre×1,16 15,EBC-2025-2-1001-to-1050.pdf,15-17,Private Citizen
+OLDS,EBC-2025-2-1025,written,2,context,8,kneehill×4; mountain view×4,81 108 109,EBC-2025-2-1001-to-1050.pdf,80-109,Private Citizen
+OLDS,EBC-2025-2-1028,written,2,context,3,kneehill×1; mountain view×1; sundre×1,117,EBC-2025-2-1001-to-1050.pdf,117-120,Former Reeve of Clearwater County
+OLDS,EBC-2025-2-1029,written,2,context,5,kneehill×1; mountain view×2; sundre×2,121 122,EBC-2025-2-1001-to-1050.pdf,121-123,Former Reeve of Clearwater County
+OLDS,EBC-2025-2-1074,written,2,context,1,trochu×1,63,EBC-2025-2-1051-to-1100.pdf,62-64,Private Citizen
+OLDS,EBC-2025-2-1092,written,2,context,2,crossfield×2,106,EBC-2025-2-1051-to-1100.pdf,105-107,Private Citizen
+OLDS,EBC-2025-2-1132,written,2,context,1,sundre×1,74,EBC-2025-2-1101-to-1143.pdf,74-75,Private Citizen

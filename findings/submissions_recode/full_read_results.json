@@ -1,0 +1,1663 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:00 Alberta time \u00b7 claude-opus-5-5 \u00b7 medium",
+  "script": "findings/submissions_recode/scripts/09_full_read_results.py",
+  "inputs": {
+   "codes_full/F01.jsonl": "aa407301f7466e86c696e403eb6c2b0e6569bdc6e53c1539796aefa11d9856e3",
+   "codes_full/F02.jsonl": "e19db736e600d69e6af4e740136d00f4e31ffc7c830d9c9b7bbf138480af4a8f",
+   "codes_full/F03.jsonl": "0d9e015bb71db9087030027cf64156827ad47595ea71208c198676a7ed74b7f4",
+   "codes_full/F04.jsonl": "b3afdcf9a3761ff42106d830cbe55d2e403c000214fed6f9f918702b9967d926",
+   "codes_full/F05.jsonl": "dfd72b1a858ac600b58676d294b22cbba5b1c45146bd3f4d110abb13ae4ff6e2",
+   "codes_full/F06.jsonl": "07d1da641d1b35533477654b5521759771621e6d3488da11887adb06ad4ae57a",
+   "codes_full/F07.jsonl": "9abf9f4ebd8564755823aedbb3e0c1dd1e9904adfa23d361d7a69e971f647f27",
+   "codes_full/F08.jsonl": "cfa37e2a9a7325a99952304f0178b8fcdc2bb89cb2b81899f3434b534147ebde",
+   "codes_full/F09.jsonl": "fcacd7731f88fa21b974409ce6e110818a0cc779da47ed137e662407507256d9",
+   "codes_full/F10.jsonl": "4b5e312b08f0395acbe6aa7f0cf55e0970864902679de3ee1105b98c0b471916",
+   "codes_full/F11.jsonl": "78cb15d972115a45660cd565679ce803a2bbaccce477af516e751a8a40953496",
+   "codes_full/F12.jsonl": "d4323a1dab5cc592fea184ff7a595b30dbe3ce67af3479dca2967b708944c7f7",
+   "codes_full/F13.jsonl": "9b614a22fabc74eebf10803b755c1e23395019fa21d64d9937b3c977d3d09267",
+   "codes_full/F14.jsonl": "05649898c765133106e8e41808845a14bb7b3fed35989fdb46d552e816d1ab89",
+   "codes_full/F15.jsonl": "d61195dd0fe796818de336f44c5755981515ddd3bc9ad7714cc12baa833767ae",
+   "codes_full/F16.jsonl": "6d9fdc9019d0639ae16a8c309bb5894bf98af2495de643828ff97a28100dc478",
+   "codes_full/F17.jsonl": "4fddf40e4a7519f3afd1801ef50574c9e91193789870832f14d95ba48ccd37a7",
+   "codes_full/F18.jsonl": "bf95e4ad426c1de59163b236ce197d1f18efadf4dde0728ded0185a61200897d",
+   "codes_full/F19.jsonl": "76d149fe5eeaf91079ab8243a505a3ad64e9e2650cc9fe3a39a287d1e6dbfbb6",
+   "codes_full/F20.jsonl": "0eab821e743b311f365b43be8969b20fd2b1e80086423db222bd3d38b3bc578e",
+   "codes_full/F21.jsonl": "218b88d1a0bbe4caa529867aefe3c4c57a1752921139d9ceffd7c218be8e2139",
+   "codes_full/F22.jsonl": "ccabc6c69146d1076e97a80b74d0e8e854e7760f3f32b8ae3a9c1414f1e6df1c",
+   "codes_full/F23.jsonl": "87ea775f48249e617bfedcb80fe22d53589877918216dcb380b4febaa045fe2a",
+   "codes_full/F24.jsonl": "77019a45aa0dffb27d4104a8981d3182cfd8661825d23b0c93ca71cff55cf95c",
+   "codes_full/F25.jsonl": "ac8b8ba904df5b6742a2bb68b7aba213277b610f4def509c726a3a15965014ec",
+   "codes_full/F26.jsonl": "1488f3e992b44aa1f368ce4ccfb79c24e424b30d4325a99955deb3a13b9175df",
+   "codes_full/F27.jsonl": "3e7c22d37dd2bde9c2e7a27c8ffb173f27e9919fcb3450df183eddc4c2cfd7f7",
+   "codes_full/F28.jsonl": "2a4cd7e8c242f9b71af3b2bfd274e5b26fa07f2271192014964e997474bbea2b",
+   "codes_full/F29.jsonl": "1686c00e656cf89763559daa408f3533ae149f84a3b17b2c48f12698b15b7c1e",
+   "codes_full/F30.jsonl": "37124973cadac828d6413e28e521aab3a569b169b66df7057cb9498fcba09f2a",
+   "codes_full/F31.jsonl": "e7978d2e24833fe4d04c103a7db5eddf05d82f4f2c5f3aecc83e3520707d2c84",
+   "codes_full/F32.jsonl": "581ca2aff06a78ee5f754ff1a3bf17e80754f2a42a06c69f1cfd4b4c3365510a",
+   "codes_full/F33.jsonl": "bae74ecbb49d9b6f82ac3adfa3265a8b139d47c5a760a5814fd2272470f9b631",
+   "codes_full/F34.jsonl": "c68f51522c03f254ea81449adf1a759767a9fd576b887813a2360db9c7a6a2ca",
+   "codes_full/F35.jsonl": "fb02b6ede27274399937d85b6f5d566185435e74c91835328133be2ba26a154f",
+   "codes_full/F36.jsonl": "113fc34944d5a24da32a622a2cf31ec8ec63d077d39ef2bdf98913d98d8d982a",
+   "codes_full/F37.jsonl": "be3898dae5ee3ab13192952d3c26291d958d8e6b25a3ff03da3036266a08eb77",
+   "codes_full/F38.jsonl": "319e75c968e9b614c71d843fa6abbf60f63da9c0a83e4648d79a5e32b42d6bf2",
+   "codes_full/F39.jsonl": "e60edcfb2d4f312af85ac3cddcf7a42231ab68165c29939396175fb1fab77dbc",
+   "codes_full/F40.jsonl": "efaf5ca3769da21fec6da53b123c04071c25b545d732fcb745ffd045d41deca6",
+   "codes_full/F41.jsonl": "0cde5701d8ba1a2b60a6ae60f8acbfab498298cbfd09cb79ca12c2ce19c0cd5d",
+   "codes_full/F42.jsonl": "4eb1a8aa069d3ca5434f04653f900ccd0996ab41ae12b748309dbe73487b69fb",
+   "codes_full/F43.jsonl": "5a53ccfa7f27f65b3e0a4823172fff0803e2606402944cf27da7fea82b789532",
+   "codes_full/F44.jsonl": "ca84084f8d1337cab341ba30f4e40a32bd4be841d84b2212fafec1928e299e3d"
+  },
+  "rule": "CODEBOOK.md section 5, as in 06_merge_codes.py"
+ },
+ "records_read": 1688,
+ "records_read_whole": 1688,
+ "elements": {
+  "AIRDRIE": {
+   "records_naming_it": 97,
+   "minority": {
+    "supports": 1,
+    "supports_exact": 0,
+    "opposes": 16,
+    "opposes_exact": 6,
+    "opposes_by_rejection_only": 5,
+    "third_arrangement": 21,
+    "no_stance": 58,
+    "pending_geometry": 1
+   },
+   "majority": {
+    "supports": 10,
+    "supports_exact": 5,
+    "opposes": 6,
+    "opposes_exact": 3,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 17,
+    "no_stance": 63,
+    "pending_geometry": 1
+   },
+   "wants": {
+    "A1": 10,
+    "A2": 1,
+    "A3": 11,
+    "A4": 1,
+    "A9": 10
+   },
+   "rejects": {
+    "A1": 5,
+    "A2": 6,
+    "A4": 9
+   }
+  },
+  "COCHRANE": {
+   "records_naming_it": 68,
+   "minority": {
+    "supports": 0,
+    "supports_exact": 0,
+    "opposes": 10,
+    "opposes_exact": 6,
+    "opposes_by_rejection_only": 3,
+    "third_arrangement": 1,
+    "no_stance": 56,
+    "pending_geometry": 1
+   },
+   "majority": {
+    "supports": 7,
+    "supports_exact": 6,
+    "opposes": 1,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 1,
+    "third_arrangement": 1,
+    "no_stance": 58,
+    "pending_geometry": 1
+   },
+   "wants": {
+    "C1": 7,
+    "C9": 1
+   },
+   "rejects": {
+    "C1": 1,
+    "C2": 4,
+    "C4": 9,
+    "C5": 4
+   }
+  },
+  "CHESTERMERE": {
+   "records_naming_it": 38,
+   "minority": {
+    "supports": 3,
+    "supports_exact": 1,
+    "opposes": 12,
+    "opposes_exact": 5,
+    "opposes_by_rejection_only": 6,
+    "third_arrangement": 0,
+    "no_stance": 23,
+    "pending_geometry": 0
+   },
+   "majority": {
+    "supports": 6,
+    "supports_exact": 4,
+    "opposes": 3,
+    "opposes_exact": 1,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 0,
+    "no_stance": 29,
+    "pending_geometry": 0
+   },
+   "wants": {
+    "H1": 6,
+    "H2": 3
+   },
+   "rejects": {
+    "H2": 8
+   }
+  },
+  "REDDEER": {
+   "records_naming_it": 101,
+   "minority": {
+    "supports": 1,
+    "supports_exact": 1,
+    "opposes": 21,
+    "opposes_exact": 13,
+    "opposes_by_rejection_only": 1,
+    "third_arrangement": 0,
+    "no_stance": 78,
+    "pending_geometry": 1
+   },
+   "majority": {
+    "supports": 20,
+    "supports_exact": 13,
+    "opposes": 1,
+    "opposes_exact": 1,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 0,
+    "no_stance": 79,
+    "pending_geometry": 1
+   },
+   "wants": {
+    "R1": 20,
+    "R2": 1,
+    "R3": 1
+   },
+   "rejects": {
+    "R2": 1,
+    "R3": 4
+   }
+  },
+  "RMH-A": {
+   "records_naming_it": 95,
+   "minority": {
+    "supports": 46,
+    "supports_exact": 33,
+    "opposes": 0,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 2,
+    "no_stance": 46,
+    "pending_geometry": 1
+   },
+   "majority": {
+    "supports": 10,
+    "supports_exact": 8,
+    "opposes": 47,
+    "opposes_exact": 25,
+    "opposes_by_rejection_only": 11,
+    "third_arrangement": 2,
+    "no_stance": 35,
+    "pending_geometry": 1
+   },
+   "wants": {
+    "W0": 10,
+    "W1": 36,
+    "W3": 2,
+    "W9": 1
+   },
+   "rejects": {
+    "W2": 15,
+    "W3": 38
+   }
+  },
+  "RMH-B": {
+   "records_naming_it": 42,
+   "minority": {
+    "supports": 13,
+    "supports_exact": 4,
+    "opposes": 3,
+    "opposes_exact": 1,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 9,
+    "no_stance": 16,
+    "pending_geometry": 1
+   },
+   "majority": {
+    "supports": 2,
+    "supports_exact": 0,
+    "opposes": 13,
+    "opposes_exact": 4,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 10,
+    "no_stance": 16,
+    "pending_geometry": 1
+   },
+   "wants": {
+    "B1": 13,
+    "B2": 2,
+    "B3": 7,
+    "B9": 4
+   },
+   "rejects": {
+    "B1": 1,
+    "B3": 12
+   }
+  },
+  "OLDS-A": {
+   "records_naming_it": 67,
+   "minority": {
+    "supports": 29,
+    "supports_exact": 14,
+    "opposes": 6,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 8,
+    "no_stance": 22,
+    "pending_geometry": 2
+   },
+   "majority": {
+    "supports": 6,
+    "supports_exact": 0,
+    "opposes": 29,
+    "opposes_exact": 14,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 8,
+    "no_stance": 22,
+    "pending_geometry": 2
+   },
+   "wants": {
+    "O1": 29,
+    "O2": 6,
+    "O9": 9
+   },
+   "rejects": {
+    "O2": 16
+   }
+  },
+  "OLDS-B": {
+   "records_naming_it": 0,
+   "minority": {
+    "supports": 0,
+    "supports_exact": 0,
+    "opposes": 0,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 0,
+    "no_stance": 0,
+    "pending_geometry": 0
+   },
+   "majority": {
+    "supports": 0,
+    "supports_exact": 0,
+    "opposes": 0,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 0,
+    "no_stance": 0,
+    "pending_geometry": 0
+   },
+   "wants": {},
+   "rejects": {}
+  },
+  "STALBERT": {
+   "records_naming_it": 78,
+   "minority": {
+    "supports": 20,
+    "supports_exact": 19,
+    "opposes": 5,
+    "opposes_exact": 4,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 3,
+    "no_stance": 46,
+    "pending_geometry": 4
+   },
+   "majority": {
+    "supports": 22,
+    "supports_exact": 21,
+    "opposes": 3,
+    "opposes_exact": 2,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 3,
+    "no_stance": 46,
+    "pending_geometry": 4
+   },
+   "wants": {
+    "S0": 22,
+    "S3": 4,
+    "S4": 3,
+    "S9": 3
+   },
+   "rejects": {
+    "S0": 3,
+    "S2": 2,
+    "S4": 1
+   }
+  },
+  "LETHBRIDGE": {
+   "records_naming_it": 226,
+   "minority": {
+    "supports": 38,
+    "supports_exact": 18,
+    "opposes": 111,
+    "opposes_exact": 72,
+    "opposes_by_rejection_only": 17,
+    "third_arrangement": 13,
+    "no_stance": 64,
+    "pending_geometry": 0
+   },
+   "majority": {
+    "supports": 93,
+    "supports_exact": 70,
+    "opposes": 38,
+    "opposes_exact": 18,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 14,
+    "no_stance": 81,
+    "pending_geometry": 0
+   },
+   "wants": {
+    "L1": 93,
+    "L2": 38,
+    "L3": 10,
+    "L9": 4
+   },
+   "rejects": {
+    "L1": 4,
+    "L2": 74,
+    "L3": 30
+   }
+  },
+  "LSL": {
+   "records_naming_it": 140,
+   "minority": {
+    "supports": 79,
+    "supports_exact": 57,
+    "opposes": 0,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 10,
+    "no_stance": 51,
+    "pending_geometry": 0
+   },
+   "majority": {
+    "supports": 79,
+    "supports_exact": 57,
+    "opposes": 0,
+    "opposes_exact": 0,
+    "opposes_by_rejection_only": 0,
+    "third_arrangement": 10,
+    "no_stance": 51,
+    "pending_geometry": 0
+   },
+   "wants": {
+    "K1": 79,
+    "K2": 6,
+    "K9": 4
+   },
+   "rejects": {
+    "K2": 66
+   }
+  }
+ },
+ "comparison_with_double_coding": {
+  "pairs_compared": 1725,
+  "stance_agrees": 1621,
+  "stance_differs": 104,
+  "differences": [
+   {
+    "id": "HANSARD-R1-T16-001",
+    "element": "AIRDRIE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T33-004",
+    "element": "AIRDRIE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T34-001",
+    "element": "AIRDRIE",
+    "double_coding": [
+     3,
+     1
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0054",
+    "element": "AIRDRIE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0074",
+    "element": "AIRDRIE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0081",
+    "element": "AIRDRIE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0111",
+    "element": "AIRDRIE",
+    "double_coding": [
+     1,
+     1
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0778",
+    "element": "AIRDRIE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0993",
+    "element": "AIRDRIE",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T13-003",
+    "element": "CHESTERMERE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T17-002",
+    "element": "CHESTERMERE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0778",
+    "element": "CHESTERMERE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     3,
+     2
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T17-002",
+    "element": "COCHRANE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0430",
+    "element": "COCHRANE",
+    "double_coding": [
+     1,
+     1
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0778",
+    "element": "COCHRANE",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T02-007",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     1,
+     1
+    ],
+    "full_read": [
+     3,
+     2
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0077",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0001",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     null,
+     null
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0689",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0752",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0781",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0791",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0849",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0857",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0965",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1087",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1133",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0440",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0668",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0788",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0794",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0797",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0808",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0937",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0987",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     1
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0994",
+    "element": "LETHBRIDGE",
+    "double_coding": [
+     3,
+     1
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T09-006",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T22-003",
+    "element": "LSL",
+    "double_coding": [
+     null,
+     null
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0055",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0086",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0646",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0721",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     2,
+     2
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0993",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1037",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1122",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T16-003",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     2,
+     2
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T23-001",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T41-007",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0055",
+    "element": "LSL",
+    "double_coding": [
+     null,
+     null
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0016",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0059",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0061",
+    "element": "LSL",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0827",
+    "element": "LSL",
+    "double_coding": [
+     1,
+     1
+    ],
+    "full_read": [
+     2,
+     2
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0883",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1096",
+    "element": "LSL",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T32-005",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T37-006",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T38-007",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0091",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0154",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0164",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0171",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0210",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0217",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0403",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0538",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0619",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0693",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0778",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0923",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1029",
+    "element": "OLDS-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1074",
+    "element": "OLDS-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T02-011",
+    "element": "REDDEER",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T39-005",
+    "element": "REDDEER",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T41-006",
+    "element": "REDDEER",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1087",
+    "element": "REDDEER",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     3,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T25-003",
+    "element": "RMH-B",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T37-002",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-1-0137",
+    "element": "RMH-B",
+    "double_coding": [
+     3,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0066",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0068",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0071",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0080",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0091",
+    "element": "RMH-B",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     4,
+     4
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0096",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0112",
+    "element": "RMH-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0116",
+    "element": "RMH-B",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0155",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     3
+    ],
+    "full_read": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T07-002",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T07-002",
+    "element": "RMH-B",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T38-003",
+    "element": "RMH-B",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T38-006",
+    "element": "RMH-B",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T43-006",
+    "element": "RMH-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     0,
+     0
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T48-006",
+    "element": "RMH-B",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0113",
+    "element": "RMH-B",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0117",
+    "element": "RMH-B",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0126",
+    "element": "RMH-A",
+    "double_coding": [
+     1,
+     1
+    ],
+    "full_read": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0142",
+    "element": "RMH-A",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0845",
+    "element": "RMH-A",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "EBC-2025-2-1028",
+    "element": "RMH-A",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T48-008",
+    "element": "STALBERT",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     null,
+     null
+    ]
+   },
+   {
+    "id": "EBC-2025-2-0778",
+    "element": "STALBERT",
+    "double_coding": [
+     4,
+     4
+    ],
+    "full_read": [
+     2,
+     2
+    ]
+   },
+   {
+    "id": "HANSARD-R1-T27-009",
+    "element": "STALBERT",
+    "double_coding": [
+     2,
+     2
+    ],
+    "full_read": [
+     1,
+     1
+    ]
+   },
+   {
+    "id": "HANSARD-R2-T43-009",
+    "element": "STALBERT",
+    "double_coding": [
+     2,
+     3
+    ],
+    "full_read": [
+     2,
+     2
+    ]
+   }
+  ]
+ }
+}

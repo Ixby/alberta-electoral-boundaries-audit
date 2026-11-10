@@ -1,0 +1,43 @@
+{
+  "_comment": "Pages whose commission ID stamp is absent, unreadable by machine, or wrong. Each was checked by eye against the page image and the commission's published list of submitters. Value = submission number within the round.",
+  "EBC2025Submissions51-100ForPosting.pdf": {
+    "28": 62, "29": 62, "30": 62,
+    "66": 73
+  },
+  "EBC2025Submissions101-150ForPosting.pdf": {
+    "76": 128
+  },
+  "EBC2025Submissions151-197ForPosting.pdf": {
+    "113": 190,
+    "114": 191, "115": 191, "116": 191,
+    "117": 192, "118": 192,
+    "119": 193, "120": 193,
+    "121": 194,
+    "122": 195,
+    "123": 196,
+    "124": 197
+  },
+  "EBC-2025-2-001-to-050.pdf": {
+    "24": 11, "25": 11
+  },
+  "EBC-2025-2-151-to-200.pdf": {
+    "25": 160, "26": 160
+  },
+  "EBC-2025-2-251-to-300.pdf": {
+    "5": 253, "6": 253, "7": 253, "8": 253,
+    "50": 270, "51": 270
+  },
+  "EBC-2025-2-351-to-400.pdf": {
+    "71": 378, "72": 378,
+    "83": 383
+  },
+  "EBC-2025-2-401-to-450.pdf": {
+    "75": 430, "76": 430
+  },
+  "EBC-2025-2-551-to-600.pdf": {
+    "20": 558
+  },
+  "EBC-2025-2-601-to-650.pdf": {
+    "104": 639, "105": 639
+  }
+}

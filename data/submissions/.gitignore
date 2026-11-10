@@ -1,0 +1,7 @@
+# Full text of public submissions and hearing testimony. Public records, but
+# they carry private individuals' names and sometimes home towns or addresses.
+# Kept out of version control pending the author's decision; see
+# findings/submissions_recode/README.md ("Storage and privacy").
+# Rebuild with findings/submissions_recode/scripts/ (01 to 03).
+corpus.jsonl
+hansard.jsonl
