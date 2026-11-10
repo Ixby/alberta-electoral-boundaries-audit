@@ -6,7 +6,7 @@
 
 # Repository Tree
 
-*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages).*
+*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last fully updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages). Stale entries removed 2026-11-10; later folders (for example `findings/audit_2026-11-10/`) and most of the 38 files now in `preregistration/` are not yet listed. `git ls-files` is the complete list.*
 
 ---
 
@@ -16,7 +16,6 @@
 alberta_audit/
 ├── CONTRIBUTING.md            PR workflow, coding standards, AI attribution policy
 ├── README.md                  Public-facing overview — findings, quickstart, citation
-├── TODO.md                    Outstanding tasks — M2/M3 milestones, blockers, deferred items
 ├── TREE.md                    This file
 │
 ├── config.yaml                Master configuration — all shapefile paths, column renames, thresholds
@@ -25,7 +24,6 @@ alberta_audit/
 ├── .python-version            Minimum Python version declaration (3.11)
 │
 ├── run_audit.py               Shapefile integrity audit — 10 checks; run before any analysis
-├── run_chain1_recovery.py     Chain 1 MCMC recovery script (used after abort mid-run)
 └── run_master_qa.py           Full QA sweep — invokes all scripts in dependency order
 ```
 
@@ -43,7 +41,6 @@ docs/
 │                              framings; no p-values; CoI disclosure; concept-first explanations
 ├── images/
 │   └── lane1_dotplot.svg      Copy of data/maps/article/lane1_dotplot.svg for GitHub Pages hosting
-├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome
 ├── FROZEN_MANIFEST.md         Canonical file manifest — hashes of every committed output
 ├── REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim
 ├── data_sources.md            Primary data sources with URLs, access dates, and licence information
@@ -196,7 +193,7 @@ analysis/
 │   ├── external_audit_gemini.md
 │   └── external_audit_meridian.md
 │
-└── scripts/            127 Python scripts — the executable analysis pipeline
+└── scripts/            179 Python scripts — the executable analysis pipeline
     ├── packing_cracking_analysis.py        B1–B6 partisan bias; symmetric, all three maps
     ├── electoral_forensics_population.py   A1/A2/A3 population equality tests
     ├── mcmc_ensemble_canonical.py          Canonical 1,010,000-plan ReCom neutral ensemble
@@ -482,7 +479,7 @@ reports/academic/report_academic.md
 | Any percentile / p-value | `reports/academic/report_academic.md` → `README.md` |
 | `config.yaml` | Run `run_audit.py` to verify nothing breaks |
 | Pre-registration methodology | `findings/pre_registration_amendment_log.md` |
-| MCMC checkpoints | `data/simulation_convergence_diagnostics_canonical.json` |
+| MCMC checkpoints | `data/outputs/simulation_convergence_diagnostics_canonical.json` |
 
 ---
 
