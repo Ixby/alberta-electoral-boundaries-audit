@@ -173,3 +173,13 @@ These match every figure already published. Election-day ballots: 932,164, UCP t
 The projection is 338Canada's model output. It is 4.25 points more favourable to the UCP on the lead than the plain average of the polls listed beside it.
 
 **Limits.** The saved file prints the poll numbers with no party labels. The script reads the first as UCP and the second as NDP, the order of the projection block in the same file and of the page header as the auditors re-read it; the header itself is not in the repository. The average is unweighted. 338Canada's model weights polls and adds other inputs, so the two are not expected to match.
+
+## The stance-label sample (`submissions_sample48_judgements.csv`)
+
+Entry: 2026-11-09 23:28 Alberta time · claude-fable-5-2 · medium
+
+**What it is.** 48 rows drawn at random from the old submissions search (`findings/submission_search_findings.md`), each read against the submission's own text by an auditor. `llm_label` is the label the old search gave; `audit_judgement` says whether that label is right.
+
+**Result.** 31 of the 48 rows carried a support or oppose label. 26 of those 31 were wrong, many of them reversed. The 17 neutral labels were all right.
+
+**Limits.** One auditor judged the sample; it was not double coded. The full recode in `findings/submissions_recode/` replaces the old labels and is double coded.
