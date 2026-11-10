@@ -48,7 +48,7 @@ qsgy8 tripwires (beside the verdict): 1 of 4 on both. MO #1 fires on Lethbridge 
 
 ## Against the majority and minority maps
 
-The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`; their logs are not committed); it reproduces the June anchors exactly. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
+The structural battery was rerun today on both commission maps' official shapefiles (`structural_majority_rerun.json`, `structural_minority_rerun.json`; their logs are not committed); it reproduces S1, S2, S5 and S6 exactly. S3 now reads 79.96% and 71.78% against June's 80.05% and 71.97%, so the like-for-like midpoint is 75.87% against the registered 76.01%; no flag changes. Partisan values are the canonical ensemble's (`data/outputs/simulated_ensemble_percentiles_canonical.csv`). Chart: `two_lane_chart.svg` / `.png`, from `two_lane_chart.py` (a draft; not wired into the report or the viewer).
 
 | Check (flag rule, spec §3) | 2019 enacted | Majority | Panel's map (v3) | Minority |
 |---|---|---|---|---|

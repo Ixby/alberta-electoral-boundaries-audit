@@ -41,7 +41,7 @@ Mahalanobis distance accounts for the correlation structure between these four m
 
 SZAT score: +0.039211 (minority EG − majority EG, swing zones only)
 Bootstrap p: 0.0025 ((b+1)/(B+1); 24/10000 permutations exceeded observed, full-recompute)
-(AsPredicted #289,469; seed pre-committed at git hash d2aea42; full-recompute procedure)
+(AsPredicted #289,469, filed after the results were known; the seed label was first committed together with the test's first results, commit 851920f5; full-recompute procedure)
 
 **Status (2026-06-13): retired as a confirmatory channel.** Under a contiguity-respecting
 block-permutation null the SZAT p-value is 0.1947 (variance inflation 5.79× vs the i.i.d.
@@ -74,10 +74,18 @@ stale_* provenance fields in the JSON.)
 
 ---
 
-## Joint statistic — Bonferroni upper bound (Fisher retired)
+## Joint statistic — a model estimate, with its range (Fisher retired)
 
-**Operative headline: p ≤ 1.76e-06 (= 2 × Ch1), valid under arbitrary dependence
-between the two examined channels.** The Fisher combination below assumed Ch1/Ch2
+**Operative figure: p ≈ 1.76e-06 as printed (= 2 × Ch1; 1.77e-06 from the unrounded
+Ch1 value), one model's estimate on election-day ballots. It is not a bound: its Ch1
+input is a chi-square extrapolation beyond every sampled plan. Under other defensible
+choices the doubled figure runs from about 1 in 20,000 to about 1 in 570,000
+(`findings/audit_2026-11-10/joint_sensitivity.json`): Hotelling 1 in 449,000;
+rank-based 1 in 238,000; dropping one of two near-duplicate measures 1 in 97,000;
+a second sampler 1 in 20,000. The map is far out in the tail on every version.
+No all-ballots version exists.** The doubling was a conservative allowance for the
+two channels examined; with SZAT now exploratory it has no stated test family.
+The Fisher combination below assumed Ch1/Ch2
 independence and was retired 2026-06-10 (the channels share the 2023 vote substrate;
 Fisher is anti-conservative under positive dependence — Brown 1975). It is preserved
 as historical record only.
@@ -89,12 +97,13 @@ as historical record only.
 | **Fisher combined (historical)** | **4.61e-08** | **5.74e-08** |
 
 Unadjusted: Fisher T = 39.870, chi-sq df = 4.
-n_eff-adjusted: Fisher T = 39.405, using Hotelling T² p for Ch1 (n_eff = 1413, conservative lower bound).
+n_eff-adjusted: Fisher T = 39.405, using Hotelling T² p for Ch1 (n_eff = 1413 as computed with a lag cap; about 1,000 uncapped, `findings/audit_2026-11-10/ess_uncapped.json`).
 
-**Reading:** the operative claim is the dependence-robust bound p ≤ 1.76e-06
-(≈ 1 in 568,182) — under the neutral null, a map with
-Channel 1's joint partisan profile arises at most about once in every
-568,182 draws, allowing for the two channels examined.
+**Reading:** on the published model, a map with Channel 1's joint partisan profile
+arises about once in 566,000 draws under the neutral null, after doubling; across
+defensible modelling choices the figure runs from about 1 in 20,000 to about 1 in
+570,000. No sampled plan reaches the minority's distance on the published measure;
+seven do on the rank-based one.
 The historical Fisher figure (4.61e-08) overstated joint significance by
 assuming channel independence.
 
@@ -118,9 +127,10 @@ The canonical ensemble outputs contain per-plan values for both metrics.)*
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance 5.80 from the ensemble center
-(p = 8.80e-07). The operative joint statistic is the dependence-robust Bonferroni
-upper bound p ≤ 1.76e-06. SZAT (Ch2) is exploratory context only
-(block-permutation p = 0.1947); the retired Fisher combination is preserved above as
+(p = 8.80e-07 as printed; 8.84e-07 unrounded). The operative joint figure is that
+model estimate, doubled (p ≈ 1.77e-06), with the range given above. SZAT (Ch2) is
+exploratory context only (i.i.d. null invalid; the component-level block test,
+p = 0.1947, has one effective block and cannot reject); the retired Fisher combination is preserved above as
 historical record.
 
 **Channel 3 (Neighbour-Drain, canonical substrate 2026-06-11).** All three maps are

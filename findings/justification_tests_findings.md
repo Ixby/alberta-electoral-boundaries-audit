@@ -178,7 +178,7 @@ unforced by population.**
 
 ## Summary Table
 
-| Test | District | Justification | Verdict |
+| Test | District | Premise tested (the audit's, not the minority's) | Verdict |
 |---|---|---|---|
 | 1 | Olds-Three Hills-Didsbury | Needs Airdrie slice for population | **FAIL** — rural+town sum is 43,691 (within band) |
 | 2 | Rocky Mountain House-Banff Park | Needs NP extension for s.15(2)(a) area | **FAIL** — 2019 predecessor is already 24,468 km² |
@@ -186,7 +186,9 @@ unforced by population.**
 | 4 | Red Deer | 4 districts forced by population | **FAIL** — 2 districts are minimum and achieved by majority |
 | 5 | Chestermere | Some split unavoidable, and Calgary slice is part of it | **FAIL** — Chestermere + Strathmore + Wheatland = 45,240 (viable) |
 
-All five contested configurations are **unforced by population or area math**.
+These are tests of necessity: whether population or area arithmetic forced the line. The minority did not claim that it did; its stated reasons are growth, commuting and community of interest. So the tally depends on the rule. Counting only reasons the minority stated, none of the six contested configurations fails and four are partly supported. Counting this population-necessity arithmetic, four of the six fail: Tests 1 to 4 (`reports/academic/report_academic.md` §5.9.6). Chestermere, Test 5, is not one of the six.
+
+All five configurations tested here are **unforced by population or area math**.
 Cleaner alternatives were arithmetically available to the minority in every
 case. This finding is descriptive: it states that the stated population/area
 justifications do not, on their own, necessitate the contested boundaries. It

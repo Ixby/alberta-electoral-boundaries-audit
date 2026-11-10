@@ -182,4 +182,4 @@ Entry: 2026-11-09 23:28 Alberta time · claude-fable-5-2 · medium
 
 **Result.** 31 of the 48 rows carried a support or oppose label. 26 of those 31 were wrong, many of them reversed. The 17 neutral labels were all right.
 
-**Limits.** One auditor judged the sample; it was not double coded. The full recode in `findings/submissions_recode/` replaces the old labels and is double coded.
+**Limits.** One auditor judged the sample; it was not double coded. A full recode, under way in `findings/submissions_recode/` and double coded, will replace the old labels.

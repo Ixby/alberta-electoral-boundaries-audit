@@ -1,6 +1,6 @@
 # Signs of local targeting in the panel's changes (2026-11-07)
 
-**Unregistered, provisional, not blind.** Plan committed before computing (`preregistration/local_targeting_2026-11-07.md`, commit `399a489a`). Compared with the commission majority's map; all ballots; the panel's map is the v3 reconstruction. Nothing here shows why a line was drawn or says whether any map is a gerrymander.
+**Unregistered, provisional, not blind.** The plan (`preregistration/local_targeting_2026-11-07.md`, commit `399a489a`) was committed with the results, 55 seconds before them; that it was written first rests on the author's statement. Compared with the commission majority's map; all ballots; the panel's map is the v3 reconstruction. Nothing here shows why a line was drawn or says whether any map is a gerrymander.
 
 ## A. Were competitive seats more likely to be changed? No.
 

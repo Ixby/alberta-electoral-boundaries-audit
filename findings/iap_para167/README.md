@@ -8,7 +8,7 @@
 
 Undoing the panel's changes south of Airdrie moves every partisan measure a little toward the NDP, apart from a near-tie on election-day mean-median. The seat difference is 1 on all ballots and 2 on election-day ballots, and every seat that differs is undecided by the reconstruction. So the direction is consistent and the size is not established.
 
-The changes also do not make the panel's map stand out from the neutral plans. On most measures it sits nearer their median than the ¶167 map does, and neither map reaches p95 on any partisan measure against set D. In the other direction, the ¶167 map sits near the low tail on two: p7.5 on election-day seats and p6.5 on all-ballots mean-median. On the structural lane the ¶167 map fires more flags than the panel's (3 of 5 against 2 of 5).
+The changes also do not make the panel's map stand out from the neutral plans. On most measures it sits nearer their median than the ¶167 map does, and neither map reaches p95 on any partisan measure against set D. In the other direction, the ¶167 map sits near the low tail on two: p7.5 on election-day seats and p6.5 on all-ballots mean-median. On the structural lane the ¶167 map fires more flags than the panel's (3 of 5 against 2 of 5). That count uses election-day ballots and the election-day S5 line (0.0039). Amendment 12, written about six hours later, moved S5 to all ballots with a line of 0.00194; the ¶167 map's all-ballots S5 is not in this folder, so the all-ballots count is not stated here.
 
 | Measure (rank against 91-district set D) | Panel, election day | ¶167, election day | Panel, all ballots | ¶167, all ballots |
 |---|---|---|---|---|
@@ -29,11 +29,11 @@ Method check: the 2019 map returns 49 UCP / 38 NDP on all ballots, as it should,
 | S5 drain (below 0.0039) | 0.00442 | **0.00369** |
 | S6 chair-flag patterns (3 or more) | 1 | 0 |
 | S4 Polsby-Popper median (not counted) | 0.4549 | 0.4335 |
-| **Flags** | **2 of 5** | **3 of 5** |
+| **Flags (S5 on election-day ballots)** | **2 of 5** | **3 of 5** |
 | Towns over-divided (`towns_flagged`) | 1 (Lethbridge, 4 districts for 2) | 0 |
 | City gap (2021 overlay; not the stated-population gap in `legal_scorecard.md`) | +4.27% | +3.46% |
 
-Bold = flag. On the rule's own terms 3 of 5 reads "replicated" for ¶167, but S1, S3 and S5 all fire close to midpoints set between the commission maps. Most of the ¶167 map is the commission majority's map, and S1 fires at 3,413 against a 3,382.5 midpoint. Those midpoints were written for a third map, not for a variant of one. This is reported, not explained away.
+Bold = flag. On the rule's own terms, on election-day ballots, 3 of 5 reads "replicated" for ¶167, but S1, S3 and S5 all fire close to midpoints set between the commission maps. Most of the ¶167 map is the commission majority's map, and S1 fires at 3,413 against a 3,382.5 midpoint. Those midpoints were written for a third map, not for a variant of one. This is reported, not explained away.
 
 ## Which changes do the work
 
@@ -55,7 +55,7 @@ Groups were found from the voting areas that move, not assumed. There are three,
 
 ## Fit check
 
-The list closes. Three sources assembled into 91 divisions with 814 people (0.02%) in overlaps and no voting area in a gap, against the plan's 1% limit. The overlaps are 7.3 km² between High River-Vulcan-Siksika and Olds-Didsbury-Three Hills (one voting area, assigned by the plan's rule) and 4.2 km² between West Yellowhead and Canmore-Banff (no voting area). Interim-mapped divisions use v3 polygons, since no interim shapefile exists here. Their populations match the interim report, including Fort McMurray-Lac La Biche 47,304 and Fort McMurray-Wood Buffalo 46,721. `fit_check.json` has the detail.
+The list closes for voting areas. Three sources assembled into 91 divisions with 814 people (0.02%) in overlaps and no voting area in a gap, against the plan's 1% limit. The three amended divisions have no published line or population, so the list cannot be closed on population. The overlaps are 7.3 km² between High River-Vulcan-Siksika and Olds-Didsbury-Three Hills (one voting area, assigned by the plan's rule) and 4.2 km² between West Yellowhead and Canmore-Banff (no voting area). Interim-mapped divisions use v3 polygons, since no interim shapefile exists here. Their populations match the interim report, including Fort McMurray-Lac La Biche 47,304 and Fort McMurray-Wood Buffalo 46,721. `fit_check.json` has the detail.
 
 ## What this cannot show
 

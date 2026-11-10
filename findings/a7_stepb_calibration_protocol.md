@@ -5,7 +5,7 @@ This file fixes how the single Step B run is scored. It is committed, with the p
 **Inputs, by SHA-256:**
 - The procedure: `analysis/scripts/a7_stepb_reconstruct.py`. It is the tuning-set procedure (`findings/a7_stepb_tuning_results.md`) with two changes: its two file paths are now repository paths, and its docstring names it. No parameter changed.
 - The scorer: `analysis/scripts/a7_stepb_calibrate.py`.
-- The sample: `findings/a7_stepb_sample.json`, 34 districts, fixed on 2026-11-02 at about 21:30 MST.
+- The sample: `findings/a7_stepb_sample.json`, 34 districts, fixed on 2026-11-02 at about 20:30 MST (commit `9eaaea54`).
 - The panel's high-resolution PDF: `evidence/legislature/iap_report_2026_hires.pdf` (`d8ae78ab…75122`).
 - The panel's App. 7 table, as transcribed at stage 1: `data/iap/iap_app7_populations.csv`. It is used only for the district names and, as a diagnostic, the stated areas.
 - Official geometry: `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`. Roads: `data/osm/alberta_osm_highways.gpkg`. Place names: `data/shapefiles/reference/alberta_2021_csds.gpkg`.

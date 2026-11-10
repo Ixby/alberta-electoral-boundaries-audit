@@ -1,6 +1,6 @@
 # Packing and cracking, measured (2026-11-07)
 
-**Unregistered, provisional, not blind.** Plan committed before computing (`preregistration/packing_cracking_2026-11-07.md`, commit `c2f1a710`). Two-party votes (UCP and NDP) on two ballot sets. The panel's map is the v3 reconstruction. These measures describe where voters end up. They do not show why a line was drawn, and nothing here says whether any map is a gerrymander.
+**Unregistered, provisional, not blind.** The plan (`preregistration/packing_cracking_2026-11-07.md`, commit `c2f1a710`) was committed with the first results, three minutes before them; that it was written first rests on the author's statement. Two-party votes (UCP and NDP) on two ballot sets. The panel's map is the v3 reconstruction. These measures describe where voters end up. They do not show why a line was drawn, and nothing here says whether any map is a gerrymander.
 
 ## Part 1: wasted votes, split in two (share of all two-party votes)
 

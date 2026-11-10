@@ -35,6 +35,14 @@ backward_dependencies:
 **Map not yet scorable:** November 2026 MLA Committee (91 seats) — date-gated, map does not yet exist
 **Purpose:** (1) establish a baseline scorecard the November map can be compared against; (2) self-test the checklist's calibration against maps whose content is already known.
 
+**Later results that bear on the rows below (note of 2026-11-10 00:57 Alberta time · claude-opus-5-5 · medium).** The text filed on OSF is the 2026-04-22 version (SHA-256 `700533e8…3a84b57`, `preregistration/osf_ledger.json`); this note does not change it.
+- *The 91-seat map.* The panel's map was scored against the registered 9wp5y checklist on 2026-11-09, on the audit's reconstruction (`findings/checklist_9wp5y_panel_map.md`).
+- *Calgary zones (S1).* The 12.20% gap uses the committed zone lists, first written on April 22 as "historically NDP-competitive" against "UCP-dominant" and later described as geographic, with the same membership. On a literal reading of the stated geographic rule the minority's gap is 5.3% to 5.7% (`findings/audit_2026-11-10/calgary_zone_recode.json`), below this row's 10% line.
+- *s.15(2) (S1).* On the audit's road model Rocky Mountain House-Banff Park is 165 km from the Legislature, so criterion (b) is met and the district meets 5 of 5 as drawn (`findings/audit_2026-11-10/s15_distances.json`).
+- *Public support (S6).* The support/oppose labels behind the tiers are unreliable and the classification is being redone (`findings/submissions_recode/`). Read directly, the majority's "no public support" statement is right in four of five places and partly wrong on Chestermere.
+- *Rationales (X2).* The tally depends on the rule. Counting only reasons the minority stated, none fails and four are partly supported. Counting the audit's own population-necessity arithmetic, four fail.
+- *Classification lines.* The audit does not rule on whether either map is a gerrymander; the "classification" lines below are this checklist's labels, not findings.
+
 The checklist is reproduced verbatim from `report_public.md` §"What a gerrymander in the 91-seat map would actually look like." Each signal is applied symmetrically to the two 89-seat commission maps. No test has been omitted or added post-hoc.
 
 ---

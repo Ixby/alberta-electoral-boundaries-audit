@@ -2,7 +2,7 @@
 
 > **Provisional.** Kept out of the headline. The map scored is the Independent Advisory Panel's 91-district map as assembled by the registered Amendment 10 run (`fd82cdd1`), not an official shapefile. Its calibration passed (T1 0 of 1,909; efficiency-gap delta 0.00 points; on the 30 placed sample pages, as raw page fits, mean Hausdorff 0.031 km and mean IoU 0.9993), but that calibration was a reproducibility run on seen data (Amendment 10, Part 2), not out-of-sample evidence of accuracy. The headline remains the enacted map's official shapefiles. Nothing here is a finding on whether the map is a gerrymander: each test places the map among neutral maps, or against the commission maps, on its registered measure.
 
-Run 2026-11-04 (evening, MST) under the run sheet `preregistration/a10_stepc_run_sheet_2026-11-04.md`, committed at `63cbf7d1` before any measure was computed, with changes recorded at `a9c1e3a6` and after (listed under "Deviations" below). Votes: 2023 election-day voting-area votes (the registered substrate). The seat-claim test's rescaled substrate is not used here.
+Run 2026-11-04 (evening, MST) under the run sheet `preregistration/a10_stepc_run_sheet_2026-11-04.md`, committed at `63cbf7d1` before any Step C measure was computed (the seat-claim test's seat counts on this map had been committed an hour earlier, at `6418f8f8`), with changes recorded at `a9c1e3a6` and after (listed under "Deviations" below). Votes: 2023 election-day voting-area votes (the registered substrate). The seat-claim test's rescaled substrate is not used here.
 
 ## Results
 
@@ -84,6 +84,8 @@ Neither test flags. Mean-median sits near the edge of the null, on the NDP-favou
 Territory districts outside the null's ±25% band on the 2021 overlay (Amendment 8, Part 5): Rocky Mountain House-Sundre −31.4% (stated −41.3%; an s.15(2) district, which the null allows) and Edmonton-Windermere −27.3% (stated +0.8%; the overlay predates its growth).
 
 ### Cut voting-area range (Amendment 10, Part 5; sensitivity, not a gate)
+
+This range was computed for the efficiency gap only. The structural lane's count was not stress-tested in the same way.
 
 `cut_va_sensitivity_fixed.json`, `cut_vas_fixed.csv`. 245 cut voting areas; 132 have at least 10% of their area on the minority side and were flipped one at a time (87 of them involve a changed district). 6 single flips raise the efficiency gap, 5 lower it, 121 leave it unchanged (a change under 10⁻⁹ points, floating-point noise, counts as none). Greedy bounds: **+1.32% to +2.94%** around the pipeline's +1.45%. The bounds ignore interactions between flips.
 

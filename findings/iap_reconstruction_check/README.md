@@ -69,7 +69,7 @@ The excess held no VA's representative point. **No VA changes district, so every
 - **Calgary-North West-Bearspaw (hole fill, no accepted page).**
   - It is the majority's Calgary-North West plus 11.2 km² of Bearspaw holding 3 VAs (408 votes).
   - Its area is 37.41 km² (stated 37).
-  - Its stated population is 1,873 above Calgary-North West's 52,488, in line with those 3 rural VAs.
+  - Its stated population is 1,873 above Calgary-North West's 52,488. The 3 added VAs cast 408 election-day votes; no population count for them is filed here, so this is not a population check.
   - Version 4 could not place this page either, so there is no independent check.
 - **Rural area misses: Banff-Canmore-Diamond Valley +13.3 km², Macleod-Crowsnest −9.3, Okotoks +2.6, and ten others off by 0.56 to 1.03 km².**
   - All of them lie in gap land that neither page claims, or in page traces that are themselves off: Macleod-Crowsnest's page is 28 km² short and Okotoks's is 2.7 km² over.

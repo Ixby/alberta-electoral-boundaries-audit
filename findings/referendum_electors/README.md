@@ -1,6 +1,6 @@
 # Referendum electors as a check on the population figures (2026-11-07)
 
-**Unregistered and not blind.** Plan committed before any comparison (`preregistration/referendum_electors_check_2026-11-07.md`, commit `36516e5d`). Electors are not population, and the Act's test is population. Nothing here is a finding on whether any map is lawful or a gerrymander. The panel's map is the v3 reconstruction.
+**Unregistered and not blind.** The plan (`preregistration/referendum_electors_check_2026-11-07.md`, commit `36516e5d`) was committed with the results, two minutes before them; that it was written first rests on the author's statement. Electors are not population, and the Act's test is population. Nothing here is a finding on whether any map is lawful or a gerrymander. The panel's map is the v3 reconstruction.
 
 ## The population source
 

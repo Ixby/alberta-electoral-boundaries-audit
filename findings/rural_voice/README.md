@@ -1,6 +1,6 @@
 # Rural voters in mixed city-and-rural divisions (2026-11-07)
 
-**Unregistered and not blind.** The plan was committed before computing (`preregistration/rural_voice_2026-11-07.md`, commit `c01cbdcd`). The panel's map is the v3 reconstruction (provisional until the official shapefile is posted). Population is the 2021 census on voting areas. Votes are all 2023 ballots, UCP and NDP only; election-day votes give the same divisions on every map. Nothing here says whether any map is a gerrymander, and "overridden" describes a 2023 vote count, not the quality of anyone's representation.
+**Unregistered and not blind.** The plan (`preregistration/rural_voice_2026-11-07.md`, commit `c01cbdcd`) was committed about seven minutes before the results; that it was written first rests on the author's statement. The panel's map is the v3 reconstruction (provisional until the official shapefile is posted). Population is the 2021 census on voting areas. Votes are all 2023 ballots, UCP and NDP only; election-day votes give the same divisions on every map. Nothing here says whether any map is a gerrymander, and "overridden" describes a 2023 vote count, not the quality of anyone's representation.
 
 **Rural** means outside every city or town. That covers counties and municipal districts, villages, summer villages, reserves, Métis settlements, improvement districts and special areas. It is 19.7% of Alberta's 2021 population.
 

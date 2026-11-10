@@ -1,6 +1,6 @@
 # How much weight have Alberta's drawers given city boundaries?
 
-> **Unregistered and not blind.** Plan: `preregistration/city_weight_calibration_2026-11-07.md` (`5dc4a0dd`), written before anything here was computed. The split ratios of the 2019, majority and minority maps and the Lethbridge results were already known. GitHub only. Nothing here says whether any map is a gerrymander or why any line was drawn.
+> **Unregistered and not blind.** Plan: `preregistration/city_weight_calibration_2026-11-07.md` (`5dc4a0dd`), committed with the results, under five minutes before them; that it was written first rests on the author's statement. The split ratios of the 2019, majority and minority maps and the Lethbridge results were already known. GitHub only. Nothing here says whether any map is a gerrymander or why any line was drawn.
 
 ## Split ratios
 

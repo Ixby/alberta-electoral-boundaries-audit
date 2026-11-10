@@ -27,7 +27,7 @@ Files marked * are directly cited in both the public report and the academic mon
 | `../archive/dpg_era/municipal_anchoring_analysis.md` | * Municipal boundary anchor results — **superseded on canonical geometry** (moved to archive 2026-05-23) |
 | `terms_of_reference_audit.md` | * Audit against Electoral Boundaries Commission Terms of Reference |
 | `chair_recommendation_5_analysis.md` | * Analysis of Commission Chair Recommendation 5 |
-| `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (Fisher-combined p-value) |
+| `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (a model estimate with its range; the Fisher combination is retired) |
 
 ---
 
@@ -110,7 +110,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `drain_label_shuffle_null_canonical.md` | Canonical-substrate Phase B label-shuffle null (10K perms; all three maps z < -2.7; Prediction A confirms on canonical) — supersedes `drain_label_shuffle_null.md` |
 | `extended_partisan_metrics_canonical.md` | Canonical-substrate extended partisan metrics (PB, Lopsided-t, Proportionality Deviation, Responsiveness; canonical EA shapefiles + 1.01M ReCom ensemble) — supersedes `extended_partisan_metrics.md` |
 | `phase4f_hardstop_canonical.md` | Canonical-substrate population-hardstop validation (share-based: 78/89 majority + 72/89 minority fail 2% share-drift; universe-mismatch 89/89 reading superseded) — supersedes `phase4f_summary.json` |
-| `szat_block_permutation.md` | SZAT under contiguity-respecting block permutation: variance inflation 5.79×, p collapses 0.0024 → 0.195 — Channel 2 retired from the headline combination |
+| `szat_block_permutation.md` | SZAT under contiguity-respecting block permutation: variance inflation 5.79×, p 0.0024 → 0.195, but the block test has one effective block and cannot reject — Channel 2 unresolved and not used |
 | `constraint_enforcing_ensemble_100k.md` | First constraint-enforcing ReCom run + seed-dependence check (full ±25% ε + s.15(2) freeze + municipal-split tally): MM/decl/s50 robust ≥p98.7 tail flags under every null; EG threshold-straddling p94–p97 (seed-dependent); commission-convention auxiliary empirically validated symmetrically |
 
 ---
@@ -119,10 +119,10 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 
 | File | Description |
 |---|---|
-| `submission_search_findings.md` | Summary of public-submission search and categorisation |
+| `submission_search_findings.md` | Public-submission search; stance labels withdrawn pending the recode in `submissions_recode/` |
 | `submission_search_log.md` | Full public-submission search event log |
-| `sentiment_analysis_completion_report.md` | Submission sentiment and intensity analysis (452 deduplicated rows) |
-| `sentiment_rationale_crossreference.md` | Sentiment-rationale cross-reference to commission published findings |
+| `sentiment_analysis_completion_report.md` | Submission sentiment and intensity analysis (452 deduplicated rows); withdrawn pending the recode |
+| `sentiment_rationale_crossreference.md` | Sentiment-rationale cross-reference to commission published findings; withdrawn pending the recode |
 
 ---
 

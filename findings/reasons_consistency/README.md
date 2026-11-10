@@ -48,7 +48,7 @@
 ## What this does and does not show
 
 - **Where the consistent reasons fall:** where the panel's reasons are checkable and the change does not move a seat, they mostly hold. Regular shapes, the restorations and Bearspaw (which the minority calls "the most defensible change", p.147) are examples.
-- **Where the inconsistent ones fall:** the two changes that do move a seat, Lethbridge and Banff, rest on reasons the panel applies to the comparable case (Red Deer) only in a small way, or that its own numbers do not support (necessary population, population compliance). Banff moves a seat on both ballot sets. Lethbridge moves one on election-day ballots only: on all ballots, each map gives the NDP one Lethbridge seat.
+- **Where the inconsistent ones fall:** the two changes that do move a seat, Lethbridge and Banff, rest on reasons the panel applies to Red Deer, the city it pairs with Lethbridge, only in a small way, or that its own numbers do not support (necessary population, population compliance). Banff moves a seat on both ballot sets. Lethbridge moves one on election-day ballots only: on all ballots, each map gives the NDP one Lethbridge seat.
 - **What that adds up to:** a pattern of evidence that matters for effective representation and for the reasonableness of the panel's choices. It is not proof of purpose. The record of how those choices were made would be.
 
 Files: `stated_reasons.json` (all reasons and counter-quotes), `measurable_checks.py` and `.json` (M1-M3), `springbank_density.json`.

@@ -1,6 +1,6 @@
 # Population basis: 2021 census against the 2024 estimates the maps were drawn on (2026-11-07)
 
-**Unregistered.** The plan, with its decision rule, was committed before computing (`preregistration/population_basis_2026-11-07.md`, commit `c01cbdcd`). Nothing here says whether any map is a gerrymander.
+**Unregistered.** The plan, with its decision rule (`preregistration/population_basis_2026-11-07.md`, commit `c01cbdcd`), was committed with the results, five minutes before them; that it was written first rests on the author's statement. Nothing here says whether any map is a gerrymander.
 
 ## Result: the basis matters, and it matters most for the city-versus-rest test
 

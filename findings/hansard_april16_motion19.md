@@ -6,7 +6,9 @@
 > - `reports/academic/report_academic.md` §5.6 equal-application disclosure
 
 
-# The April 16, 2026 floor debate — who criticized which report
+# Question Period, April 16, 2026 — who criticized which report
+
+**What this sitting was.** Government Motion 37 was on notice on April 16; it was moved, debated and passed on April 21. The exchanges quoted here are from Question Period on April 16, not from debate on the motion. Page numbers below are pages of the retrieved PDF, not Hansard's printed page numbers.
 
 **Purpose.** The audit's record documented the commission-era criticisms (the
 chair's flags against the minority; the minority's p. 356 charges against the

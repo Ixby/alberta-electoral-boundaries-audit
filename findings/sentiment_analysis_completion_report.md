@@ -12,6 +12,8 @@
 
 # Sentiment Analysis — Completion Report
 
+> **Withdrawn pending recode.** The support/oppose labels this file rests on are unreliable: in a random sample, 26 of 31 stance labels were wrong. Its stance counts, support rates, weighted rankings and channel comparisons are not reported by the audit while the classification is redone (`findings/submissions_recode/`). What stands, from reading named submissions directly: the majority's "no public support" statement (final report, pp. 59 and 62) is right in four of five places and partly wrong on Chestermere, where three submissions support the minority's arrangement (EBC-2025-2-0384, 0811, 1091) and three oppose it (0687, 0785, 0787). In Red Deer no supporter was found.
+
 **Project:** Alberta Electoral Boundaries Audit, Phase 1  
 **Completion date:** 2026-05-10  
 **Status:** COMPLETE (without forensic pipeline)  
