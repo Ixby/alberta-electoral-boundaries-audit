@@ -20,7 +20,10 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 _PROBE = "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
-MODEL_TAG = "claude-opus-5-5 · medium"
+# Entry stamps name the model and effort that made the entry (author's rule,
+# 2026-11-09). They come from the environment of the session that runs the
+# script: set STAMP_MODEL (e.g. claude-opus-5-5) and STAMP_EFFORT (e.g. medium).
+ALBERTA = __import__("datetime").timezone(__import__("datetime").timedelta(hours=-6), "UTC-6")
 
 
 def _data_root():
@@ -52,10 +55,15 @@ M0_SHA256 = "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"  
 # ---------------------------------------------------------------- output helpers
 
 def stamp():
-    """Entry stamp, time read from the system clock in Alberta time (never estimated)."""
-    t = subprocess.run(["date", "+%Y-%m-%d %H:%M"], env={**os.environ, "TZ": "America/Edmonton"},
-                       capture_output=True, text=True, check=True).stdout.strip()
-    return f"{t} Alberta time · {MODEL_TAG}"
+    """Entry stamp: the system clock in Alberta time (UTC-6, fixed offset, so it
+    does not depend on the platform's time-zone database), plus the model and
+    effort of the session running the script. Never estimated, never defaulted."""
+    import datetime
+    model, effort = os.environ.get("STAMP_MODEL"), os.environ.get("STAMP_EFFORT")
+    if not model or not effort:
+        raise RuntimeError("set STAMP_MODEL and STAMP_EFFORT to the running session's model and effort")
+    t = datetime.datetime.now(ALBERTA).strftime("%Y-%m-%d %H:%M")
+    return f"{t} Alberta time · {model} · {effort}"
 
 
 def sha256(path):

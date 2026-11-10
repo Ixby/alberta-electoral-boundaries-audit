@@ -14,7 +14,7 @@
 - **Seats, as ranges over that lean.** At all eight lean values run from 0.87 to 1.22, no seat moves on any map. Under P: 2019 map **49–38**, majority **48–41**, minority **57–32**, panel reconstruction v3 **50–41**, paragraph 167 reconstruction **50–41**. Under M0 the minority is 55–34 and the panel reconstruction 51–40. The others are the same.
 - **What changes.** Three seats, all close. On the minority map, Calgary-Edgemont (NDP by 4 modelled votes under M0, UCP by 401 under P) and Calgary-Glenmore (NDP by 24, UCP by 68). On the panel reconstruction, Banff-Canmore-Diamond Valley (UCP by 229, NDP by 1,276).
 - **The range is too narrow to trust alone.** It covers only the strength of the lean. The provincial data cannot soundly measure how far P misses in a single station. A seat won by 68 modelled votes should not be read as settled.
-- **The comparison maps.** One set (the redraw-test null) was rescored here under P. The others cannot be: their chains are on another machine and the sampler is far too slow here. `REPLAY.md` says how to rerun them. No percentile for them is given under P.
+- **The comparison maps.** One set (the redraw-test null) was rescored here under P. The others cannot be: their chains are on another machine and the sampler is far too slow here. `REPLAY.md` says how to rerun them. They have since been replayed on that machine; see "The other comparison sets" below.
 
 ## The problem
 
@@ -203,7 +203,21 @@ The audit ranks each map against computer-drawn maps. Each set is listed below, 
 
 Neither R1 nor R2 flags under either rule. The M0 rescore here matches the filed all-ballots result exactly, which checks the scoring code.
 
-For the canonical ensemble and sets A to D, **no percentile under P is given, and none should be inferred.** Reference lines that come from those ensembles (P1's +1.39% line, for example) would move too.
+### The other comparison sets, replayed on the machine that holds them (2026-11-10 13:15 Alberta time · claude-opus-5-5 · medium)
+
+The canonical ensemble and sets A to D were rerun on the P vote file on the PC that holds their chains (`outputs/replay_p_run.md`). Each rerun drew the same plans as the original: every column that does not depend on votes matches, row for row, in all 32 chains. The four Forest-ReCom chains did not match on one column (`population_mad`, in 391 to 451 of 25,000 rows, by at most 9.1×10⁻¹³) and were dropped, as Amendment 13 requires.
+
+Efficiency gap under P, as a percentile of the plans that passed (higher means more UCP-favouring; `outputs/ensemble_ranks_p.json`):
+
+| Set | 2019 map | Majority | Minority | Panel (v3) | ¶167 map |
+|---|---|---|---|---|---|
+| Canonical (87) | 21.05 | 18.41 | 99.98 | 18.31 | 25.78 |
+| A (89 / 91) | | 18.86 | 99.99 | 19.10 | 27.22 |
+| B (89 / 91) | | 18.84 | 99.98 | 18.82 | 26.68 |
+| C (89 / 91) | | 35.47 | 100.00 | 35.76 | 46.46 |
+| D (91, s.15(2)) | | | | 18.85 | 26.70 |
+
+The threshold lines that come from these ensembles (P1's line, the 95th percentile of the canonical efficiency gap) are being computed from the chain files on that machine and are not given here yet.
 
 ## The vote file
 
@@ -230,7 +244,7 @@ For the canonical ensemble and sets A to D, **no percentile under P is given, an
 
 1. A signed amendment naming P, its lean of 1.0 and its count dial of 1, and stating that it was chosen after its effect on the maps was known (see "Not blind").
 2. The vote file above, committed with its hash.
-3. The replays in `REPLAY.md`, each passing its row-for-row check, so percentiles can be restated.
+3. The replays in `REPLAY.md`, each passing its row-for-row check (done: 32 of 36 chains pass; Forest-ReCom dropped), and the threshold lines recomputed from them (pending).
 4. Until then, M0's figures stay the registered result. Report P's seats with the close margins beside them, not as bare points.
 
 ## Files

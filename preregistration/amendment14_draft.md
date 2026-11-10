@@ -2,7 +2,7 @@
 
 Entry: 2026-11-10 01:31 Alberta time · claude-opus-5-5 · medium (redraft). First draft: 2026-11-09 23:19 Alberta time · claude-fable-5-2 · medium.
 
-> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. One item marked **[to fill before signing]** does not exist yet.
+> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Two items marked **[to fill before signing]** do not exist yet.
 >
 > **Not blind.** Before this was written, the audit had seen that placing early ballots by each area's own lean moves the all-ballots results against the commission minority's map: 55 to 57 UCP seats, and an efficiency gap of +2.55% to +5.64%. The rule's evidence uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
@@ -47,6 +47,7 @@ As in Amendment 12, Parts 2 and 3, with the Part 2 file here.
 - Thresholds defined as an ensemble percentile are taken from the replayed ensemble by the same rule: P1's line (the 95th percentile of the canonical ensemble's efficiency gap) and S5's line (the midpoint of the two commission maps' drain scores).
 - No registered result is stated on the new file until its ensemble has been replayed. Until then, the Amendment 12 results stand as filed, each with a note that the placement rule is under amendment.
 - The one ensemble whose plans are stored in the repository, the redraw-test null for R1 and R2, has been rescored on the new file: neither test flags (R1 p = 0.619, R2 p = 0.576).
+- The canonical ensemble and sets A to D were replayed on the draft file on 2026-11-10; all 32 chains passed the row-for-row check. The four Forest-ReCom chains failed it and are dropped. **[to fill before signing: P1's and S5's lines, computed from the replayed chains]**
 
 ## Part 4: what is reported beside it
 
@@ -61,7 +62,7 @@ No source shows where any one early voter lives. 12.5% of all ballots (Vote Anyw
 
 ## Part 6: what this changes on results already seen
 
-Disclosed so that no reader has to work it out. Seats are UCP–NDP on all 2023 ballots. Percentiles are not given: the main ensembles have not been replayed.
+Disclosed so that no reader has to work it out. Seats are UCP–NDP on all 2023 ballots. The ensembles were replayed on the draft file on 2026-11-10 (32 of 36 chains pass; Forest-ReCom dropped; `findings/advance_vote_profile/outputs/replay_p_run.md`). Efficiency-gap percentiles against the canonical ensemble under rule P: minority 99.98, majority 18.41, panel 18.31, ¶167 25.78, 2019 map 21.05.
 
 | Map | Amendment 12 rule | Rule P (lean 0.87 to 1.22) | Efficiency gap, Amendment 12 → rule P |
 |---|---|---|---|
