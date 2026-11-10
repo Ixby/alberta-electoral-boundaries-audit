@@ -1,11 +1,11 @@
 {
  "meta": {
-  "entry": "2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium",
-  "script": "findings/advance_vote_profile/10_replay_p.py",
+  "entry": "2026-11-10 12:13 Alberta time · claude-opus-5-5 · high (from settings, not per-entry)",
+  "script": "findings\\advance_vote_profile\\10_replay_p.py",
   "status": "exploratory, not registered",
   "inputs": [
    {
-    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+    "path": "data\\shapefiles\\derived\\va_polygons_all_2023_ballots_p.gpkg",
     "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
    }
   ]
@@ -14,218 +14,1790 @@
   {
    "set": "canonical",
    "chain": 0,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_allballots_p/chain0_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_allballots_p\\chain0_samples.csv",
+   "sha256": "b4459799e3b841affde82074240d5121c7ac7e8a4be16329a6f87689a4889493",
+   "original": "data\\simulation_checkpoints_canonical\\chain0_samples.csv",
+   "m0_replay": "data\\simulation_checkpoints_allballots\\chain0_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "canonical",
    "chain": 1,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_allballots_p/chain1_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_allballots_p\\chain1_samples.csv",
+   "sha256": "eb11b526c284ad612d8ecd60ea5236552ec34ba838db0563ba5255b34074d461",
+   "original": "data\\simulation_checkpoints_canonical\\chain1_samples.csv",
+   "m0_replay": "data\\simulation_checkpoints_allballots\\chain1_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "canonical",
    "chain": 2,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_allballots_p/chain2_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_allballots_p\\chain2_samples.csv",
+   "sha256": "36469204128873bdaf1752ae08fbc4a4d70023d0b4a8627723b6b014f6aa4a42",
+   "original": "data\\simulation_checkpoints_canonical\\chain2_samples.csv",
+   "m0_replay": "data\\simulation_checkpoints_allballots\\chain2_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "canonical",
    "chain": 3,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_allballots_p/chain3_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_allballots_p\\chain3_samples.csv",
+   "sha256": "790924121dc2a5b3fe6788bfb24214e3a949b137401383035d35e9fa3531b9c3",
+   "original": "data\\simulation_checkpoints_canonical\\chain3_samples.csv",
+   "m0_replay": "data\\simulation_checkpoints_allballots\\chain3_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "D91",
    "chain": 251,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain251_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct",
+    "s152_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots_p\\chain251_samples.csv",
+   "sha256": "29a871377d8a03425580b21ccde1591d79f034091803e46d55c104c84834fb07",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23\\chain251_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots\\chain251_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "D91",
    "chain": 252,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain252_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct",
+    "s152_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots_p\\chain252_samples.csv",
+   "sha256": "da81e9c34d7cdf1bffc96f149afc8c0f1f0c61cb9ad48eac597208845ec51ed4",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23\\chain252_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots\\chain252_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "D91",
    "chain": 253,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain253_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct",
+    "s152_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots_p\\chain253_samples.csv",
+   "sha256": "e8451061c7032ffa75c7a5b46cf252cb85214ff0e869f8334b0a227d47fa596f",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23\\chain253_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots\\chain253_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "D91",
    "chain": 254,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_s152a23_allballots_p/chain254_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct",
+    "s152_districts"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots_p\\chain254_samples.csv",
+   "sha256": "8608a1da3f52d1763a2c874c162596630b22959b2c7505605adcb7b2fd6aafaf",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23\\chain254_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_s152a23_allballots\\chain254_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0,
+    "s152_districts": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A91",
    "chain": 221,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain221_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots_p\\chain221_samples.csv",
+   "sha256": "2bee7a98505cc082c9ffb79cf829aa200bb3b37f5c7585e8f46bcd072ed1fd61",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91\\chain221_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots\\chain221_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A91",
    "chain": 222,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain222_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots_p\\chain222_samples.csv",
+   "sha256": "e1ac8d1a37de1bb1df66dc560efe19ffa61a67d83e68bc0c3e029c323dec33f0",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91\\chain222_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots\\chain222_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A91",
    "chain": 223,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain223_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots_p\\chain223_samples.csv",
+   "sha256": "900df8dc2a89551c1054a6521909807e14b1e2c51bad7fc597e25a4aed6f230a",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91\\chain223_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots\\chain223_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A91",
    "chain": 224,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_allballots_p/chain224_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots_p\\chain224_samples.csv",
+   "sha256": "01e4c571e843c46a8843ab51665c0457806195360409fdd103701a62a6a78503",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91\\chain224_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_allballots\\chain224_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A89",
    "chain": 120,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_allballots_p/chain120_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_allballots_p\\chain120_samples.csv",
+   "sha256": "fa8ff3db2142c009ffe611a28c3c377e4062d0aa808eea347b072b25b4339680",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89\\chain120_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_allballots\\chain120_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "A89",
    "chain": 121,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_allballots_p/chain121_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_allballots_p\\chain121_samples.csv",
+   "sha256": "467d8fe403a5560b953a63d9e80f32205fcb32bbfd3691fe552f3559ce55107e",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89\\chain121_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_allballots\\chain121_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 230,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain230_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain230_samples.csv",
+   "sha256": "bf43329b297610edbd4f3834e420f6d4919b4e4e1d8947ff13ccf642ae523457",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain230_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain230_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 231,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain231_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain231_samples.csv",
+   "sha256": "2c913ef6f6f16b3258e38fcdc6159bb003f8c86def301c14020b38cd225deb81",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain231_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain231_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 232,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain232_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain232_samples.csv",
+   "sha256": "24ee3ad67ad28a548466dcb739f5b254c73caeb654f411ffb5e9276175e1729d",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain232_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain232_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 233,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain233_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain233_samples.csv",
+   "sha256": "03b5ad59367825015714e928f9079e397f057773e4c96e5731095d14f8477ed6",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain233_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain233_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 236,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain236_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain236_samples.csv",
+   "sha256": "0f085d31688682d4d73f648af055571427a5e4fbfc7b325badc214212be405c6",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain236_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain236_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 237,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain237_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain237_samples.csv",
+   "sha256": "f8f5dbb919aee2322cfaf75b4e0dcda9a1fbe2682e123274c2cdcf2bc68697de",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain237_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain237_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 238,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain238_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain238_samples.csv",
+   "sha256": "f74b72935b72d9d9b14ec76171016f7b62d957cf8523e17f9aef3fa43aa7df9b",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain238_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain238_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B91",
    "chain": 239,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_eps25_allballots_p/chain239_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots_p\\chain239_samples.csv",
+   "sha256": "67b668c9b66185f9fdb9ed5e0a198570429fdb5509b22826128fdfbac515c475",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25\\chain239_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_eps25_allballots\\chain239_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B89",
    "chain": 130,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain130_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots_p\\chain130_samples.csv",
+   "sha256": "47141e6a52b28f869ddac242f2ac522574f7ffd255f6f7295baa8cba8e49283f",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25\\chain130_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots\\chain130_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B89",
    "chain": 131,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain131_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots_p\\chain131_samples.csv",
+   "sha256": "3be9504ff9c7e2bb81e557872dd47e72de918492571186156edae9316fc9ef07",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25\\chain131_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots\\chain131_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B89",
    "chain": 132,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain132_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots_p\\chain132_samples.csv",
+   "sha256": "899062513e1dfc4a8be59b7c2e6df482611ca54b17800195bbcb75acccb305d0",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25\\chain132_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots\\chain132_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "B89",
    "chain": 133,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_eps25_allballots_p/chain133_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots_p\\chain133_samples.csv",
+   "sha256": "ed0ae388c59d5397ea2a633c3f6b907224801e14616dd8b4bf5cd3c365755010",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25\\chain133_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_eps25_allballots\\chain133_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C91",
    "chain": 241,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain241_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots_p\\chain241_samples.csv",
+   "sha256": "099f2f565d790344de17808ca3716adbc4c7060b82c1e906064795d3935c4e8f",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni\\chain241_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots\\chain241_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C91",
    "chain": 243,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain243_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots_p\\chain243_samples.csv",
+   "sha256": "193ff4c35d992c269fd4f0af7f7c72fbb5654cf74069842974c1e5d26ae71c51",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni\\chain243_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots\\chain243_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C91",
    "chain": 244,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain244_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots_p\\chain244_samples.csv",
+   "sha256": "03bd4dc86774f9f907a63fea874b0873592554d1c36f5947a0f1570ba6e2a24a",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni\\chain244_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots\\chain244_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C91",
    "chain": 245,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k91_muni_allballots_p/chain245_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots_p\\chain245_samples.csv",
+   "sha256": "d1608b47196987a06b3f08ac55a88d426c69f16c24e4dcb216eace20c695e236",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni\\chain245_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k91_muni_allballots\\chain245_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C89",
    "chain": 140,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_muni_allballots_p/chain140_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni_allballots_p\\chain140_samples.csv",
+   "sha256": "0f60d90e3aae563f9e40c13688fa15c221c35c188789b27ef4cc4eab582e5a3d",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni\\chain140_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni_allballots\\chain140_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "C89",
    "chain": 141,
-   "status": "not run",
-   "path": "/home/user/alberta_audit/data/simulation_checkpoints_k89_muni_allballots_p/chain141_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts",
+    "n_parts",
+    "n_city_districts",
+    "towns_flagged",
+    "city_gap_pct"
+   ],
+   "rows": [
+    252500,
+    252500
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni_allballots_p\\chain141_samples.csv",
+   "sha256": "a3699aa6b6877c6a82c2659751acb77420aa3d227f97adb82c510c956a4386ea",
+   "original": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni\\chain141_samples.csv",
+   "m0_replay": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\simulation_checkpoints_k89_muni_allballots\\chain141_samples.csv",
+   "rows_vs_m0": [
+    252500,
+    252500
+   ],
+   "missing_columns_vs_m0": [],
+   "rows_that_differ_vs_m0": {
+    "step": 0,
+    "population_mad": 0,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0,
+    "n_parts": 0,
+    "n_city_districts": 0,
+    "towns_flagged": 0,
+    "city_gap_pct": 0
+   },
+   "status": "match",
+   "reasons": []
   },
   {
    "set": "forest",
    "chain": 0,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain0_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    25000,
+    25000
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 422,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_forest_recom_phaseA_allballots_p\\chain0_samples.csv",
+   "sha256": "d952942155c14c906ad41f449f8f5db67c82f8f2bdd3ef295500ee7c5323ff8e",
+   "original": "data\\outputs\\forest_recom_raw_samples_phaseA.csv",
+   "m0_replay": null,
+   "m0_comparison": "no M0 replay of this chain",
+   "status": "fails",
+   "reasons": [
+    "election-day original: columns that differ: population_mad"
+   ]
   },
   {
    "set": "forest",
    "chain": 1,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain1_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    25000,
+    25000
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 391,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_forest_recom_phaseA_allballots_p\\chain1_samples.csv",
+   "sha256": "bc176aaf8929b9671702b763fbdb0bf1a007247b421f83a8f803be4f87603439",
+   "original": "data\\outputs\\forest_recom_raw_samples_phaseA.csv",
+   "m0_replay": null,
+   "m0_comparison": "no M0 replay of this chain",
+   "status": "fails",
+   "reasons": [
+    "election-day original: columns that differ: population_mad"
+   ]
   },
   {
    "set": "forest",
    "chain": 2,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain2_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    25000,
+    25000
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 451,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_forest_recom_phaseA_allballots_p\\chain2_samples.csv",
+   "sha256": "0f9b5a97e1df9f36a438c49a0a8b7053377ec9c8c1acd6fda598bfc530d30df4",
+   "original": "data\\outputs\\forest_recom_raw_samples_phaseA.csv",
+   "m0_replay": null,
+   "m0_comparison": "no M0 replay of this chain",
+   "status": "fails",
+   "reasons": [
+    "election-day original: columns that differ: population_mad"
+   ]
   },
   {
    "set": "forest",
    "chain": 3,
-   "status": "not run",
-   "path": "data/simulation_checkpoints_forest_recom_phaseA_allballots_p/chain3_samples.csv"
+   "columns_compared": [
+    "step",
+    "population_mad",
+    "reock_proxy_median",
+    "reock_proxy_pct_below_030",
+    "n_districts"
+   ],
+   "rows": [
+    25000,
+    25000
+   ],
+   "missing_columns": [],
+   "rows_that_differ": {
+    "step": 0,
+    "population_mad": 422,
+    "reock_proxy_median": 0,
+    "reock_proxy_pct_below_030": 0,
+    "n_districts": 0
+   },
+   "path": "data\\simulation_checkpoints_forest_recom_phaseA_allballots_p\\chain3_samples.csv",
+   "sha256": "91fa81163fc9d20864adf9ac30e952ba5e9ab271f1e17642ba89bba60eb88fd0",
+   "original": "data\\outputs\\forest_recom_raw_samples_phaseA.csv",
+   "m0_replay": null,
+   "m0_comparison": "no M0 replay of this chain",
+   "status": "fails",
+   "reasons": [
+    "election-day original: columns that differ: population_mad"
+   ]
   }
  ],
  "rule": "a replay counts only if every vote-independent column the original has is present and equals the election-day original, and the M0 replay where one exists, row for row"
