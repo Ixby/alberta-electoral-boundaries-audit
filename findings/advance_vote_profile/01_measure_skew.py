@@ -17,6 +17,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 from _common import OUT, VA_EDAY, WORKBOOK_2015, WORKBOOK_2023, load_2023_rows, load_va, logit, region_of, write_csv, write_json
 
 

@@ -24,6 +24,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 import _models as M
 from _common import INPUTS, OUT, VA_EDAY, WORKBOOK_2023, build_va_table, division_totals, load_2023_rows, load_va, write_csv, write_json
 

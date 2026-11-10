@@ -31,6 +31,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 from _common import OUT, ROOT, VA_P, rel, sha256, write_json
 
 P_REL = "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg"

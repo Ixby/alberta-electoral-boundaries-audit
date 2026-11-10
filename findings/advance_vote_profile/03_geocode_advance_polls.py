@@ -14,6 +14,8 @@ import urllib.request
 
 import pandas as pd
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 from _common import INPUTS, load_2023_rows, load_va
 
 OUTF = INPUTS / "advance_poll_geocodes.csv"

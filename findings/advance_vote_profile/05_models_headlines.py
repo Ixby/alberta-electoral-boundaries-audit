@@ -31,6 +31,8 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 import _models as M
 from _common import (DATA_ROOT, M0_SHA256, OUT, ROOT, VA_EDAY, VA_M0, WORKBOOK_2023, build_va_table,
                      division_totals, load_2023_rows, load_va, sha256, write_csv, write_json)

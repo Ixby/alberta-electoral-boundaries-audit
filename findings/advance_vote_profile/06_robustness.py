@@ -9,6 +9,8 @@ Usage: python findings/advance_vote_profile/06_robustness.py
 import numpy as np
 import pandas as pd
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # works under python -I
 from _common import INPUTS, OUT, WORKBOOK_2023, load_2023_rows, logit, write_json
 
 SEED = 20261110
