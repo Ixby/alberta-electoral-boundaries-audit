@@ -1,5 +1,7 @@
 # Amendment 9, Step B: the second calibration result: **fails**
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 Version 3 of the reconstruction procedure was run once, on 2026-11-03, on the fixed 34-district sample, under Amendment 9 and the rules of `findings/a7_stepb_calibration_protocol.md`.
 - Procedure SHA-256 `0b9d07c1…feace62`; scorer `3c470b99…285fda`; frozen Amendment 7 scorer `e3e1340c…59f6`.
 - All inputs were re-hashed against the filed values before the run.

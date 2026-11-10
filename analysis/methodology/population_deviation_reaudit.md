@@ -331,7 +331,7 @@ The row that attributes ~+0.7 of a seat to the RMH-Banff Park §15(2) invocation
 
 ## 8. Source citations
 
-- Alberta *Electoral Boundaries Commission Act*, RSA 2000 c. E-3, King's Printer consolidation 2024-12-05: verbatim §15(2), §15(3) (see `analysis/methodology/terms_of_reference_verbatim.md`).
+- Alberta *Electoral Boundaries Commission Act*, RSA 2000 c. E-3, King's Printer consolidation 2024-12-05: verbatim §15(2), §15(3) (see `preregistration/terms_of_reference.md`).
 - Commission final report (tabled 2026-03-23), `alberta_audit/.temp/commission_report.pdf`:
   - p. 10: majority's narrative rationale for §15(2) on Canmore-Banff
   - p. 212: Canmore-Banff (majority) detailed rationale and reserves

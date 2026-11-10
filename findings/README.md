@@ -153,7 +153,7 @@ The files below are **regenerable** by re-running the corresponding script. Do n
 | `intermap_permutation_test_results.json` | Intermap permutation test raw results |
 | `joint_outlier_score.json` | Joint Mahalanobis outlier score per map |
 | `municipal_anchoring_log.csv` | Municipal boundary anchor event log |
-| `neighbour_drain_log.csv` | Per-ED neighbour-drain drain log |
+| `neighbour_drain_log.csv` | Per-ED neighbour-drain log |
 | `phase4c_maup_summary.json` | Phase 4c MAUP summary statistics |
 | `phase4c_va_to_2026_assignments_maup.csv` | Phase 4c MAUP assignment crosswalk |
 | `phase4f_summary.json` | Phase 4f ensemble summary statistics |

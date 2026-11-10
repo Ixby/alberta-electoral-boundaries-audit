@@ -1,9 +1,9 @@
 > **Backward:**
 > - `analysis/scripts/justification_tests.py` — companion script that runs the five tests
-> - `data/alberta_2021_csds.gpkg`, `data/alberta_2021_csd_populations.csv` — StatsCan CSD inputs
-> - `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — Bill 33 areas
-> - `data/minority_2026_populations.csv`, `data/majority_2026_populations.csv` — Commission variance tables
-> - `data/justification_test_inputs.csv` — intermediate inputs written by the script
+> - `data/shapefiles/reference/alberta_2021_csds.gpkg`, `data/reference/alberta_2021_csd_populations.csv` — StatsCan CSD inputs
+> - `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — Bill 33 areas
+> - `data/reference/minority_2026_populations.csv`, `data/reference/majority_2026_populations.csv` — Commission variance tables
+> - `data/outputs/justification_test_inputs.csv` — intermediate inputs written by the script
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` — incorporates the FAIL/PASS verdicts
@@ -23,14 +23,14 @@ configuration.
 **41,197 to 68,661**.
 
 **Data sources.**
-- `data/alberta_2021_csds.gpkg` + `data/alberta_2021_csd_populations.csv`
+- `data/shapefiles/reference/alberta_2021_csds.gpkg` + `data/reference/alberta_2021_csd_populations.csv`
   (StatsCan 2021 CSD populations).
-- `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` (Bill 33 areas in km²).
-- `data/minority_2026_populations.csv`,
-  `data/majority_2026_populations.csv` (Commission's own variance tables).
+- `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` (Bill 33 areas in km²).
+- `data/reference/minority_2026_populations.csv`,
+  `data/reference/majority_2026_populations.csv` (Commission's own variance tables).
 
 All intermediate values are written to
-`data/justification_test_inputs.csv`.
+`data/outputs/justification_test_inputs.csv`.
 
 ---
 
@@ -197,5 +197,5 @@ does not attribute motive.
 ## Reproducibility
 
 - Script: `analysis/scripts/justification_tests.py`
-- Input table: `data/justification_test_inputs.csv`
+- Input table: `data/outputs/justification_test_inputs.csv`
 - Run: `python analysis/scripts/justification_tests.py`

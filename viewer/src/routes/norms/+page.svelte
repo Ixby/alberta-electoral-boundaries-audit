@@ -8,9 +8,9 @@
   broken" is part of the opposition's accusation and an audit cannot borrow an
   accusation unexamined).
 
-  Content grounded in already-verified material only: the landing page's
-  Casings 12-14 and Lunty section (en.ts, sourced to CBC/CCLA), the academic
-  monograph §5.9 and §7, editorial_history (UK/Australia/US comparators),
+  Content grounded in already-verified material only: findings 12-14 on the
+  evidence page and the Lunty section (en.ts, sourced to CBC/CCLA), the academic
+  monograph §5.9 and §7, the former editorial_history strings (UK/Australia/US comparators; now only in git history),
   retraction condition 5 (Quebec SCC, April 22, 2026), and the Bratt
   correspondence disclosure. Do not add claims here without verifying them
   there first. English-only for now — pending author review before translation.

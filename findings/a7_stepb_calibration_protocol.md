@@ -1,5 +1,7 @@
 # Amendment 7, Step B: the calibration protocol (fixed before the run)
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 This file fixes how the single Step B run is scored. It is committed, with the procedure, before the procedure touches any sample page.
 
 **Inputs, by SHA-256:**

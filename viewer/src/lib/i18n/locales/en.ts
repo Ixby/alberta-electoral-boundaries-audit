@@ -4,40 +4,6 @@ export default {
 	selector: {
 		label: 'Choose language'
 	},
-	verdict: {
-		headline: 'Alberta is redrawing its electoral map.',
-		p_what: 'Every so often the province redraws its ridings — the local areas that each elect one MLA. Where the lines fall decides who you vote with, and who represents you in the legislature.',
-		p_split: 'This time, the panel doing the redraw split. It produced two competing maps — and this audit tests both of them.',
-		p_question: 'We tested both maps for one question: is either one shaped to favour a party — even if no one set out to do that?',
-		p_answer: 'One of the two is. The other looks normal.',
-		p_howfar: 'A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but a tiny share of them (a model puts the odds between about 1 in 20,000 and 1 in 570,000), in the UCP’s favour. The other sits in the normal range.',
-		aside_pre: 'You might call a map shaped like that ',
-		aside_post: '. That word has no legal meaning in Canada, so we don’t use it as a verdict. We show you what the map does; you judge. For the deeper layers — what the law actually requires, and exactly how we ran the test — see ',
-		box_heading: 'What we can and can’t say',
-		box_can_1: 'The minority map sits outside what 1.01 million neutral maps produce, in the UCP’s favour.',
-		box_can_2: 'All four partisan-fairness measures point the same way.',
-		box_cant_1: 'That any commissioner intended this — the audit reads outcomes, not motives.',
-		box_cant_2: 'That the map “is” a gerrymander — that isn’t a category Canadian law recognizes.',
-		box_cant_3: 'How a court would rule, or what the committee will choose.',
-		law_link: 'Law',
-		methods_link: 'Methods'
-	},
-	why_redrawn: {
-		heading: 'Why this happens — and why it touches you',
-		p1: 'Alberta is divided into 87 ridings. Each one elects a single MLA to the legislature. Your riding decides who that person is, which neighbourhoods get grouped with yours, and whose concerns your MLA hears first.',
-		p2: 'The lines don’t stay fixed. As people move and cities grow, some ridings end up with far more voters than others, so the province redraws the map every few years to keep them roughly even. A panel of commissioners does the drawing, working from rules set out in law: districts have to be close in population, stay in one piece, and keep real communities together where they can.',
-		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then the Legislature set both of those maps aside and handed the job to a committee of MLAs, which oversaw an advisory panel that drew a new, larger map. Setting a commission’s maps aside like that is rare.',
-		p4: 'A line on a map decides whose vote counts for what. It can keep a community’s voters together, or scatter them across several districts where their numbers no longer add up to much. It can keep some races close and put others out of reach. None of that shows on the surface; it is set by where the boundaries fall.'
-	},
-	two_maps: {
-		heading: 'Two maps — and who drew them',
-		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Both are legal. They just draw the lines differently.',
-		p2: 'A boundary commission has five members. Cabinet appoints the chair — the neutral seat, here held by Justice Dallas K. Miller, a supernumerary justice of the Court of King’s Bench. The party in government names two members; the opposition names two.',
-		p3: 'This commission divided three to two. The chair and the two opposition-appointed members backed one map — the majority report, because most of the commission signed it. The two government-appointed members backed the other — the minority report.',
-		p4: 'The map the audit flags as the more one-sided is the minority report — the one the two government-appointed members drew. The audit can’t show whether they meant to, and doesn’t try. It shows what the map does.',
-		p5: 'The cover map at the top of this page lets you compare them yourself. Flip between the two proposals and today’s map, find your own riding, and watch which neighbourhoods get grouped together or split apart.',
-		p6: 'The Legislature has since set both maps aside. An advisory panel overseen by a committee of MLAs drew a 91-seat map, which went to the Assembly on November 2, 2026 — a move this site looks at on the Law page. These two remain the audit’s clearest test case, and the panel’s map is checked on the main page.'
-	},
 	disclaimer: {
 		text:
 			'AI translated this site. Some of it may still appear in English while the translations are in progress. If you notice errors or would like to help translate this project, please %s.',
@@ -48,27 +14,6 @@ export default {
 		// correct as the prose grows.
 		word_count: 'For scale: the English prose runs about {count} words. You are welcome to take on all of it or just a part. In most cases the work is fixing small errors the machine made, not translating from scratch.'
 	},
-	// Opening epigraph: a real exchange that frames how to read the cover map and
-	// states the project's ethic before any finding. The commenter is anonymized
-	// ("a reader"); the author's reply is a faithful paraphrase of the original.
-	epigraph: {
-		heading: 'On reading this map',
-		reader:
-			"Land doesn't vote. Colouring the map this way only makes rural Alberta look bigger than it is. Leave the empty land empty.",
-		reader_label: 'a reader',
-		author_p1:
-			"Fair \u2014 and that is exactly what the map does. It is built from Elections Alberta's own geometry and counts, at the only resolution they keep: how many people voted in each voting area, and how. The colour runs on a spectrum between the two parties, and its depth follows population \u2014 which is why the cities glow and the open country stays pale.",
-		author_p2:
-			"The land west of Ponoka is pure white: no polling station, no one recorded living or voting there. It is blank precisely because land doesn't vote. The aim is not to interpret the data, only to let it speak at the grain it was recorded in \u2014 and to leave you a little wiser than you came.",
-		author_label: 'the author',
-		ethic:
-			'That is the commitment behind the whole audit: map the system, and let the data speak for itself \u2014 no more than it allows.'
-	},
-	opener: {
-		heading: "Who's this for?",
-		body:
-			"Us. All of us. Rural, Urban, curious, wonk, journalist, lawyer, academic, politician — all of us. Because it impacts all of us. Whether or not you like the party in power, what the split commission produced has never been done before. And it's given us the opportunity to peer inside the machine in ways we never could before. Now we can establish a baseline — a series of tests, and everything that comes after can be graded on it. Let me show you what I found."
-	},
 	stakes: {
 		q1: {
 			heading: 'Is the proposed map a gerrymander?',
@@ -77,42 +22,11 @@ export default {
 			footnote:
 				'The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. The legislature has since set both aside and referred redistricting to a six-MLA committee chaired by Brandon Lunty (a UCP MLA); the committee oversees a separate five-member Independent Advisory Panel — a chair, retired Court of Appeal justice Brian O\'Ferrall, plus two members nominated by the Premier (Hon. Monte Solberg and Darwin Durnie) and two by the Leader of the Opposition (Dr. Gerard Kennedy and Brent Robinson) — tasked with producing a new 91-seat boundary proposal before the November 2026 deadline.'
 		},
-		q2: {
-			heading: 'What does "gerrymander" mean in Canadian law?',
-			body:
-				"There isn't one. The Canadian test is different: whether the boundaries give voters <em>effective representation</em> under section 3 of the Charter. The minority proposal raises serious questions under the effective-representation standard; only a judge can answer them definitively, and no one has asked one yet."
-		},
-		q3: {
-			heading: "What's at stake for Albertans?",
-			body:
-				"At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because a 60-of-89 majority leaves only a token opposition and is effectively immune to internal dissent — not because it crosses any special threshold (Alberta's Assembly has no two-thirds rule; the same procedural powers are available to a bare majority). Whether the minority proposal's tilt is large enough to push one party past that 60-seat threshold at vote shares <em>other</em> than 50/50 is a question this audit has not yet tested. Whether that imbalance is acceptable is a question for Albertans, not for this audit."
-		},
-		cta_law: 'Read the legal context →',
-		cta_methods: 'See how we tested →',
 		scorecard_h: 'The scorecard',
 		scorecard_fig_alt:
 			'Scatter plot. Across: efficiency gap. Up: number of structural tests flagged. The 2019 map and the commission majority\'s map sit together at lower left. The commission minority\'s map sits alone at upper right, on the four-of-five line and just short of the dashed efficiency-gap line at about 4.1%. The 2019 map is marked 0 of 4 run.',
-		scorecard_fig_caption:
-			'Both lanes on one picture. Horizontal: how skewed the partisan-fairness number is (right = more UCP-favoured). Vertical: how many of five structural-fairness tests the map fails. Bottom-left is the safe corner where neutral procedures routinely land; the upper-right is the outlier region. The 2019 enacted map and the 2026 majority sit in the safe corner (the 2019 map was scored on four of the tests; the Calgary zone test was never run on it). The 2026 minority sits alone in the outlier region.',
 		scorecard_intro:
 			'Two independent measurements applied to both maps under the same pre-registered thresholds. Structure uses only the shape of the lines — no election results. Numbers tests how the lines convert votes into seats. Both lanes reach the same conclusion.',
-		scorecard_close:
-			'Two independent measurements, one answer. The convergence is the audit\'s strongest single signal.'
-	},
-	top_callouts: {
-		gerrymander_lead: 'Is the minority map a gerrymander?',
-		gerrymander_body: 'On the audit\u2019s joint partisan-bias score, the commission\u2019s minority map sits in the extreme tail of 1,010,000 algorithmically-drawn neutral comparison maps \u2014 approximately 69 of them reach its seat share at a tied vote, and a statistical model puts the odds of its combined profile under neutral drawing between about 1 in 20,000 and 1 in 570,000, depending on the model. The majority map falls well within normal range.',
-		tldr_label: 'TL;DR',
-		tldr_p1: 'Alberta’s commission split, the government took the pen, and a six-MLA committee (the Lunty committee) reports in November 2026. Neither commission map is law.',
-		tldr_p2: 'This audit tested both commission maps the same way, against 1,010,000 computer-drawn neutral maps built from official Elections Alberta files. The majority proposal looks like the maps neutral drawing routinely produces \u2014 it passes every pre-registered test. The minority proposal crosses four of five structural tests, and at a tied 50/50 vote only about 69 of the 1,010,000 neutral maps award as many seats as it does. A statistical model puts the odds that a neutral process produces its overall fairness profile between about 1 in 20,000 and 1 in 570,000, depending on the model \u2014 an estimate beyond the edge of every neutral map drawn, not a count. One measure, the efficiency gap, landed just under the audit\u2019s pre-set line; it is reported as a miss.',
-		tldr_p3: 'The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.',
-		tldr_footer: 'Pre-registered falsification conditions and retraction commitments are in %s.',
-		tldr_footer_link: 'Retractions and Corrections'
-	},
-	picture: {
-		heading: 'The picture, before the proof',
-		lead:
-			'Three maps, two ways of measuring. One dot is not like the others. This picture is the audit\u2019s whole case in one image \u2014 and right now you have no way to judge whether it means anything. The lines on it are not laws. The corner is not a courtroom. By the end of this page you will know exactly what this picture can prove, and exactly what it cannot. The log comes back to it at the end.'
 	},
 	head: {
 		title: "Alberta's Electoral Map, Audited",
@@ -195,85 +109,11 @@ export default {
 			"Alberta's commission produced two competing riding maps in 2026. I ran the same tests on both and asked one question: do they treat voters the same way?",
 		badge: 'Cover: the commission\'s minority map (final report, March 2026)',
 		cover_note: 'Click the map to zoom in. Switch between the commission\'s two maps and the 2019 map, the one in use today. Pin the view and flip between them. The lines move. The voters stay put. The panel\'s new map is not in the explorer yet.',
-		cover_note_1:
-			'This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map and the 2019 enacted boundaries, or layer all three to see exactly where they part ways. <strong>Detail</strong> colours each polling area by how people voted in 2023. <strong>Trend</strong> adds party shading by district (blue UCP, orange NDP). <strong>Lines</strong> turns boundaries on and off. <strong>Find</strong> jumps to any riding by name.',
-		cover_note_2:
-			"Lock the viewport and flip between maps. Watch a boundary move while the voters underneath stay still. The whole question, in one gesture.",
-		cover_note_3:
-			"When you're done exploring, scroll down for the summary. The full technical analysis is in the Resources section. All of the data comes from official Elections Alberta shapefiles and other government and open-source records.",
 		image_alt:
 			'Alberta electoral district map — minority commission proposal, coloured by 2023 vote',
 		map_hint: 'Click to explore interactively',
 		btn_title: 'Click to open interactive map',
 		btn_aria: 'Click to explore interactively'
-	},
-	boundary: {
-		heading: "What this audit can and can't tell you",
-		can_1:
-			"The minority map's geometry crosses 4 of 5 pre-registered structural thresholds <em>without using any election data at all</em>. The fifth (anchoring) is neutral. The majority crosses 0 of the 4 firing. These tests measure properties of the boundary lines themselves — district shape, municipal anchoring, population spread — and reach the conclusion before any vote is counted.",
-		can_2:
-			'Separately, when election data is brought in, the minority map sits at the 99.99th percentile of 1.01 million algorithmically-drawn comparison maps matched on population balance and contiguity (the ensemble enforces those two requirements, not every statutory criterion such as communities of interest). Roughly 69 of those 1.01 million neutral maps reach the same seat share at a tied vote. A statistical model puts the odds of this profile under neutral drawing between about 1 in 20,000 and 1 in 570,000, depending on the model. Two analytical instruments — geometric and statistical — reach the same conclusion, favouring the same party; the joint estimate is the dependence-aware summary of that convergence, not four independent tests reading in agreement.',
-		can_3:
-			"Three of the configurations the minority proposal contains were flagged in writing by the commission's majority, the chair among them, in the majority report's response to the minority (final report, pp. 62–63). The audit's tests were run with no knowledge of those flags and surface the same regions. Because the flags come from the majority report, these are the majority's own criticisms — corroborating, not a fully independent third instrument — but the audit's blind tests landing on the same regions is still striking.",
-		cant_1:
-			'The audit does <strong>not</strong> establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent.',
-		cant_2:
-			'The audit does <strong>not</strong> predict what the Lunty committee will choose, what the November 2026 vote will be, or how Albertans will react.',
-		cant_3:
-			'The audit does <strong>not</strong> predict how a court would rule if a Charter challenge were brought against either proposal.',
-		cant_4:
-			"The audit does <strong>not</strong> claim that the model estimate (between about 1 in 20,000 and 1 in 570,000, depending on the model) is the probability that a gerrymander occurred. That number is the tail probability of the minority's geometry under a neutral algorithmic null. It is evidence the neutral null is implausible. It is not a posterior probability of partisan intent — that question requires evidence the geometry cannot supply.",
-		cant_5:
-			"The audit does <strong>not</strong> tell any individual voter what position to take or what to do with this information. The choice is yours."
-	},
-	editorial_intro: {
-		heading: 'What is redistricting, and why it matters',
-		p1: 'Every voter in Alberta lives in an <em>electoral district</em> — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. For most Albertans, that is the whole connection to the legislature: one MLA, one district, one vote.',
-		p2: 'Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the <em>Electoral Boundaries Commission</em> — an independent commission with judges, lawyers, and public members, not politicians.',
-		p3: "This is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a <em>majority proposal</em> (backed by three commissioners) and a <em>minority proposal</em> (backed by two). Both are sitting on the table. On April 21, 2026 the Legislative Assembly passed Government Motion 37, setting both aside and referring redistricting to a six-MLA Select Special Committee chaired by Brandon Lunty (a UCP MLA). The committee oversees a separate four-person Independent Advisory Panel, constituted under the same motion, tasked with producing a new 91-seat map; the committee must deliver its report to the legislature by November 2, 2026.",
-		p4: "Why it matters to you: the lines decide who your MLA is. They decide which neighbourhoods, towns, and concerns get represented together. If your city is split across four MLAs instead of one, no single representative is accountable for the city as a whole. If your community of interest — a small town, a rural region, a downtown core — is divided between districts, your voice on provincial decisions is diluted. The map also shapes which party can form a government, and at what margins. The audit's specific finding (the minority proposal sits at a structural extreme) is the reason you are reading this site, but the broader question is older and applies to every redistricting cycle: do the lines reflect the way Albertans live, or do they shape the politics following?",
-		p5: 'The rest of this page walks through what the two proposed maps actually do.',
-		key_terms_lead: 'Key terms in this section — click to read:'
-	},
-	editorial_reflect: {
-		heading: 'Interlude: What this means for you and your community',
-		intro_p1:
-			"The log pauses here. Which party gains or loses seats is the legislature's problem — it is not where you experience these maps. You experience them through three concrete questions about your own district:",
-		intro_q1: 'Where does your MLA live?',
-		intro_q2: 'Are they invested in your community?',
-		intro_q3: 'Will the demands of the district\'s urban head dominate its rural tails?',
-		intro_p2:
-			'Every other framing — partisan advantage, supermajority threshold, statistical extreme — eventually points back to those three. The five rungs below walk through how each proposed map answers them, at five scales.',
-		you_h: 'You.',
-		you_p:
-			"Your electoral district decides who represents you in the legislature. Right now you live in one of 87 districts. Under both proposed maps you may live in a different one — possibly with a different MLA, possibly anchored to different neighbouring communities. If you don't know what district you're in right now, or who your MLA is, you're not alone: most Albertans couldn't name their MLA. But the boundary lines are not abstract. They decide whose phone number is on your local representative's office wall, whose neighbourhood petition gets your name attached to it, whose concerns your MLA hears about first. The map explorer on this site — search for your community by name — shows which district you sit in under each proposal. If your district changes, your representative changes — and your representative's relationship to your community changes with it.",
-		community_h: 'Your community.',
-		community_p:
-			'Communities are not abstract either. A high school\'s catchment area, a chamber of commerce, a faith community, a neighbourhood association — these are real groupings of people with shared local concerns. When a boundary line cuts through them, no single MLA is responsible for the whole. Finding 1 is the extreme case: Airdrie, one city in four pieces, no single representative accountable for it. The same dynamic plays out anywhere a town, neighbourhood, or recognised community of interest is split — the bigger the split, the weaker the representation. (On the broader measure of how faithfully each map follows municipal lines overall, both proposals sit inside the Canadian norm — Finding 5 records the finding that dissolved.)',
-		municipality_h: 'Your municipality.',
-		municipality_p:
-			"When a city is fractured across many representatives, its ability to bargain on provincial decisions weakens. A council asking for transit funding, a school board negotiating a new school, a mayor lobbying for highway extensions — each of those goes better when the city can point to a few MLAs who owe accountability to the city as a whole. The minority proposal splits Calgary's north, east, and central districts across multiple divisions whose vote-share patterns suggest <em>packing</em> (concentrating one party's voters into a few high-margin seats) on top of <em>cracking</em> (splitting the other party's voters across many low-margin seats). Whether the pattern is intentional is a question the audit cannot answer — boundary geometry doesn't reveal intent. What it can say is that the four statistical measures flag the same districts the structural tests flag, and that the alternative proposal does not produce the same fingerprint.",
-		region_h: 'Your region.',
-		region_p1:
-			"If you live outside Alberta's cities you have probably noticed political conversations about boundaries always seem to centre the cities. It's a fair complaint, so let's be direct about what this audit does and does not say about rural Alberta.",
-		region_p2:
-			"What it does <strong>not</strong> say: rural Alberta has too many seats. The EBCA allows district populations to vary by up to 25% so one rural MLA isn't representing a geography the size of southern France. Canadian courts treat the variance as legitimate. Both proposed maps preserve it. Nothing in this audit changes it.",
-		region_p3:
-			'What it <strong>does</strong> say: in several places on the minority proposal, rural communities are being attached as the <em>tail</em> of a district whose population centre sits in a city. Look at Finding 1\'s Airdrie split again, this time from the rural side: three of its four districts extend out into a different stretch of rural countryside, and in each the population centre is the urban slice, not the rural tail. An MLA elected from that kind of district is most likely to live, campaign, and prioritise where the votes are — which means rural communities formerly represented by a dedicated rural MLA become the back half of an urban-led seat. That pattern repeats on the minority proposal in ways it does not on the majority proposal.',
-		region_p4:
-			"The audit doesn't propose taking seats away from rural Alberta. It asks whether the lines respect the rural communities those seats are meant to represent, or whether rural geography is being used as ballast to absorb urban votes into districts whose centre is somewhere else. If you live in one of those rural tails, the question of which map gets enacted decides whether your MLA represents the rural community you actually live in, or an urban district whose lines happen to include your land.",
-		province_h: 'Your province.',
-		province_p:
-			"The legislature is what you get when you sum every district's answers to the three questions above. If most districts are anchored to communities whose MLAs actually live in them, the legislature represents those communities. If most districts have rural tails attached to urban heads, the legislature represents the heads — and the tails get whatever attention is left over. The partisan question — which party wins a majority — is downstream of that. The large-majority question — whether one party crosses 60 of 89 seats, a margin that makes a government effectively immune to floor-crossings and leaves an opposition too small to sustain scrutiny — is downstream of <em>that</em>. At a hypothetical 50/50 provincial split, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. Whether that imbalance pushes a party past 60 seats at the vote shares Albertans actually deliver is a question this audit has not yet directly tested — an honest gap in the record. Whether the answer to any of these questions matters enough to act on is, again, a question for you."
-	},
-	editorial_history: {
-		heading: 'Context: A short history of gerrymandering',
-		p1: 'The word comes from 1812. Massachusetts governor Elbridge Gerry signed off on a state-senate map whose districts were so contorted in his party\'s favour that a Boston cartoonist drew one of them as a salamander — wings, claws, a forked tongue. The cartoonist\'s pun, <em>Gerry-mander</em>, stuck. The shape stuck too: two centuries later, the word still means drawing electoral lines to engineer a partisan outcome.',
-		p2: 'The term endures because the problem endures. Anywhere voters choose representatives from geographic districts, someone has to draw the lines, and the lines can be drawn many ways. Different countries have arrived at different answers about who should do the drawing and what should constrain them.',
-		p3: '<strong>The United States</strong> treats partisan gerrymandering as a problem the federal courts mostly cannot fix. In <em>Rucho v. Common Cause</em> (2019), the U.S. Supreme Court ruled that partisan gerrymanders are nonjusticiable "political questions" the federal courts will not resolve. Some states (California, Michigan) have responded by creating independent citizen commissions to draw their own lines; others (Texas, North Carolina) have continued to draw openly partisan maps and defended them on the basis that <em>Rucho</em> permits it.',
-		p4: "<strong>The United Kingdom</strong> uses four permanent Boundary Commissions — one each for England, Scotland, Wales, and Northern Ireland — staffed by judges and senior civil servants. They redraw lines roughly every eight years against fixed rules (population equality, geographic coherence, respect for local government boundaries). Since the Parliamentary Constituencies Act 2020, their final recommendations take effect automatically by Order in Council, with no parliamentary vote required — Parliament's former power to reject them was removed.",
-		p5: "<strong>Australia</strong> delegates the work to the Australian Electoral Commission, a federal independent agency with full authority over both election administration and boundaries. Redistributions happen automatically when a state's seat count changes or seven years pass since the last one. The commissioners' decisions are reviewable on procedural grounds but not on partisan ones. As in the U.K., gerrymandering as Americans know it is virtually unheard of.",
-		p6: 'These three cases bracket the spectrum: courts staying out (U.S.), independent commissions with strong parliamentary deference (U.K.), and a permanent independent agency with full authority (Australia). Canada sits somewhere different again — which is what the next section takes up.'
 	},
 	glossary: {
 		more_link: 'Learn more →',
@@ -653,7 +493,7 @@ export default {
 			p1: 'Each main finding has a written condition that would withdraw it, most set on April 24, 2026. If one is met, I will publish the retraction within 48 hours of learning of it, as the project\'s rule says.',
 			li1: '<strong>Someone shows the trade-off was forced.</strong> If no legal map can meet the minority\'s stated reasons at Airdrie, Cochrane, Nolan Hill and Rocky Mountain House–Banff Park while following town and city lines as often as the majority map, I\'ll retract the finding that those reasons don\'t explain those lines. The challenge is open at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
 			li2: "<strong>A document shows the reasons came first.</strong> If an internal commission document, dated before the minority's final choices, shows those choices were driven by community submissions I haven't seen, I'll retract the inference that they were drafting decisions.",
-			li3: "<strong>The neighbour-drain pass turns out to be an artefact.</strong> If the continuous version of that score falls in the extreme upper tail (p < 0.05) of random permutations, I'll withdraw the minority's pass.",
+			li3: "<strong>The neighbour-drain pass turns out to be an artefact.</strong> If the continuous version of that score falls in the extreme upper tail (p &lt; 0.05) of random permutations, I'll withdraw the minority's pass.",
 			li4: '<strong>An election contradicts the computer-drawn maps.</strong> If the 2027 election, on whatever map becomes law, gives a seat split that contradicts what 2023 votes predict on that map, I\'ll revisit the percentile findings.',
 			li5: '<strong>A court sets <em>Lalande</em> apart.</strong> The Supreme Court struck down Quebec\'s law pausing its commission (<em>Quebec (AG) v. Lalande</em>, 2026 SCC 13). If a court finds Alberta\'s route different in law, I\'ll retract the argument on <a href="__BASE__/norms">the norms page</a> that the two belong together.',
 			p2: 'The panel\'s map could have weakened my conclusion. On provisional results it does not repeat the pattern, so the pattern stays a finding about one map, never enacted. I correct mistakes in public and don\'t delete them (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report, Documented Corrections</a>).',
@@ -842,10 +682,10 @@ export default {
 			sub4_quote: '<em>This</em> is the shape of the finding, and it is also the framing a court would actually apply.',
 			sub5_h: 'Ruling Out Alternative Explanations',
 			sub5_p: 'When presented with a statistical outlier of this magnitude, a rigorous audit must test the standard innocent explanations before treating the pattern as unexplained. The structural data (Lane 2) weighs against each of the standard alternative explanations:',
-			defense1: '<strong>The "Natural Political Geography" Defense:</strong> <em>("Urban voters are naturally packed; the map just reflects Alberta\'s geography.")</em> The 1,010,000 simulations already account for Alberta\'s natural geography. Geography does give the UCP a baseline efficiency advantage — but the two real comparison maps show where that advantage naturally tops out: both the 2019 enacted map and the 2026 majority sit at the 78th percentile on the tipping-point metric, and the 2019 map\'s highest placement on any partisan measure is the low 90s (declination, 91st percentile). The minority map sits at the 99.99th percentile — an extreme outlier <em>even when compared to Alberta\'s naturally skewed baseline</em>.',
-			defense2: '<strong>The "Communities of Interest" Defense:</strong> <em>("The odd shapes were drawn to keep specific communities together.")</em> If you are trying to keep communities together, you follow municipal borders. The majority map followed existing city limits 80% of the time. The minority map followed them 72% of the time — both within the 70–85% Canadian norm. What the minority map does do is actively split the unified city of Airdrie into four separate pieces, and place three of its boundary decisions precisely in the urban-edge zones the commission chair flagged as geometrically anomalous — choices not explainable by community-of-interest logic.',
-			defense3: '<strong>The "Population Equality" Defense:</strong> <em>("They had to draw weird boundaries to make sure every district had the exact same population.")</em> On the commission\'s own population tables the minority map is <em>worse</em> at population equality: its Population Mean Absolute Deviation (MAD) was 4,707, 48% wider than the majority map\'s 3,180. On 2021 census numbers the two maps\' mean deviations are almost the same, and the minority\'s median deviation is wider (3,938 against 2,827). That median spread sits at the 99th percentile of neutral maps balanced to within ±12.5%, but at the bottom of the range when neutral maps may use the statute\'s full ±25%.',
-			defense4: '<strong>The "Incompetence or Bad Luck" Defense:</strong> <em>("They just drew a sloppy map and got unlucky with the numbers.")</em> Hitting a 60-seat supermajority configuration while also splitting Airdrie into four pieces and placing three boundaries in the exact zones the commission\'s own majority flagged as anomalous requires precision. A statistical model puts the probability of accidentally drawing a map this extreme under the ReCom neutral reference distribution <strong>between about 1 in 20,000 and 1 in 570,000, depending on the model</strong>. That is still extreme — well beyond conventional significance — but it is a model estimate, not a precise single probability.',
+			defense1: '<strong>The "Natural Political Geography" Defence:</strong> <em>("Urban voters are naturally packed; the map just reflects Alberta\'s geography.")</em> The 1,010,000 simulations already account for Alberta\'s natural geography. Geography does give the UCP a baseline efficiency advantage — but the two real comparison maps show where that advantage naturally tops out: both the 2019 enacted map and the 2026 majority sit at the 78th percentile on the tipping-point metric, and the 2019 map\'s highest placement on any partisan measure is the low 90s (declination, 91st percentile). The minority map sits at the 99.99th percentile — an extreme outlier <em>even when compared to Alberta\'s naturally skewed baseline</em>.',
+			defense2: '<strong>The "Communities of Interest" Defence:</strong> <em>("The odd shapes were drawn to keep specific communities together.")</em> If you are trying to keep communities together, you follow municipal borders. The majority map followed existing city limits 80% of the time. The minority map followed them 72% of the time — both within the 70–85% Canadian norm. What the minority map does do is actively split the unified city of Airdrie into four separate pieces, and place three of its boundary decisions precisely in the urban-edge zones the commission chair flagged as geometrically anomalous — choices not explainable by community-of-interest logic.',
+			defense3: '<strong>The "Population Equality" Defence:</strong> <em>("They had to draw weird boundaries to make sure every district had the exact same population.")</em> On the commission\'s own population tables the minority map is <em>worse</em> at population equality: its Population Mean Absolute Deviation (MAD) was 4,707, 48% wider than the majority map\'s 3,180. On 2021 census numbers the two maps\' mean deviations are almost the same, and the minority\'s median deviation is wider (3,938 against 2,827). That median spread sits at the 99th percentile of neutral maps balanced to within ±12.5%, but at the bottom of the range when neutral maps may use the statute\'s full ±25%.',
+			defense4: '<strong>The "Incompetence or Bad Luck" Defence:</strong> <em>("They just drew a sloppy map and got unlucky with the numbers.")</em> Hitting a 60-seat supermajority configuration while also splitting Airdrie into four pieces and placing three boundaries in the exact zones the commission\'s own majority flagged as anomalous requires precision. A statistical model puts the probability of accidentally drawing a map this extreme under the ReCom neutral reference distribution <strong>between about 1 in 20,000 and 1 in 570,000, depending on the model</strong>. That is still extreme — well beyond conventional significance — but it is a model estimate, not a precise single probability.',
 			sub5_close: 'What the data shows is that the minority proposal worsened both population parity and community coherence relative to what the same five commissioners produced simultaneously under identical statutory rules. The audit does not determine what the minority commissioners intended — boundary geometry cannot reveal intent — but the structural departure from both the neutral ensemble and the majority proposal\'s output stands regardless of intention.',
 			sub6_h: 'A note on the R cross-validation',
 			sub6_p1: 'An earlier version of this audit (using approximated rather than official shapefiles) cross-validated the Python ReCom ensemble against the R <code>redist</code> package\'s Sequential Monte Carlo sampler. The cross-check produced unstable results: across three runs with the same nominal seed, the fraction of plans reaching the old minority value (48.3% on the approximated geometry) was 5.6%, then 28%, then 58% — a sampler-convergence failure, not a discovery. The full write-up is at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -1134,7 +974,7 @@ export default {
 				'How often does a riding line follow a city or town boundary? On the majority map, 80% of the time. On the minority map, 72%. The 2019 map, drawn by the last commission and still in use, does it 75% of the time. This test does not tell the two maps apart.',
 			c5_show: 'When a riding line follows a city or town line, the property-tax line and the election line match, and often the school-division line too. Voters can tell where their riding begins and ends. On that measure the two maps look alike.',
 			c5_experts:
-				'This is what an artifact looks like: a signal made by the tools, not by the map. Provisional tracings manufactured it, and the real map files erased it. That lesson in method is why we re-ran everything on the official shapefiles the day Elections Alberta released them.',
+				'This is what an artefact looks like: a signal made by the tools, not by the map. Provisional tracings manufactured it, and the real map files erased it. That lesson in method is why we re-ran everything on the official shapefiles the day Elections Alberta released them.',
 			c5_canada:
 				'Nothing. No Canadian statute or practice guide requires any particular anchoring rate. The 70–85% norm describes what commissions do; it does not prescribe what they must do.',
 			c5_gun:
@@ -1187,7 +1027,7 @@ export default {
 				'I made three attempts to knock down my own main result: the minority map’s place at the far edge of the computer-drawn maps. The results were mixed, and all of them are reported. First, I swapped the drawing engine, the method that makes the computer-drawn maps, for a different kind (a spanning-forest sampler, registered at OSF as he53s and run on 2026-07-10). Every measure’s percentile moved by less than one point. That meets the registered rule for a “robust” result on all four. But the run fell far short of the sample size it registered, so I read it as inconclusive at this run size, not as a finding that the result is robust. This far out at the edge, a fraction of a point matters: on the new engine, more than ten times as many maps reach the minority’s seat value as on the main run. So it shows the map stays far out, not exactly how far. Second, I swapped the software. An independent program (the R redist package) drew 5,000 maps, and none reached the minority’s value. On that smaller run the majority map sits just above the 95th percentile; on the main run, at the 78th. Third, the mechanism test could not be run. I planned to test whether the odd shapes (the corridors, the park extension) are what produces the seat advantage. If they were, computer-drawn maps that give the UCP as many seats as the minority map does should be less compact than the rest. But none of the 5,000 maps reaches the minority’s seat value, so there is nothing to compare. At the lower cutoff I first used, only 3 maps qualify, and they are slightly <em>less</em> compact than the rest (about 0.227 against 0.232 on a standard compactness score). That is too few to show anything. Both kinds of evidence point at the same map and lean the same way. Whether the shapes are the cause is untested.',
 			c9_show: 'The far-out result belongs to the map, not to my tools.',
 			c9_experts:
-				'Holding up across samplers and implementations is what separates a finding from an artifact. Reporting what you could not test is what separates an audit from advocacy.',
+				'Holding up across samplers and implementations is what separates a finding from an artefact. Reporting what you could not test is what separates an audit from advocacy.',
 			c9_canada: 'Nobody requires any of this. We imposed it on ourselves, in writing, before running it.',
 			c9_gun:
 				'Ruling out a quirk of the tools is not ruling in design. The engine and software swaps found no sign that the map’s far-out place comes from the tools, though the engine run was too small to be conclusive. They say nothing about why the map is that way. <em>(Lesson about evidence: checks like these strengthen the description, never the accusation.)</em>',

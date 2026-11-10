@@ -1,6 +1,6 @@
 > **Backward:**
 > - `analysis/scripts/rural_gap_dissection.py` — companion script
-> - `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv` — population tables
+> - `data/reference/majority_2026_populations.csv`, `data/reference/minority_2026_populations.csv` — population tables
 > - majority and minority hybrid crosswalks + Appendix-E minority crosswalk
 > - 2019 and 2023 official election results
 >

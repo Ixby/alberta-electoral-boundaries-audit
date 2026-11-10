@@ -99,7 +99,7 @@ python -m pytest tests/ -v
 | 2023 Alberta general election results | Official tally (NDP 777,404 + UCP 928,900 province-wide) | `data/reference/alberta_2023_results.csv` |
 | Statistics Canada Census Subdivision boundaries | CSD polygons used for municipal anchoring edge-crossing test | `data/shapefiles/reference/` |
 | Written public submissions (1,339 posted, all read whole; the commission counts 1,345 received) and 349 hearing presentations | Full read of every record (§5.9.4, `findings/submissions_recode/`); the LLM stance analysis of §5.9.4.6–§5.9.4.7 is withdrawn | `.temp/submissions/text/` (gitignored raw text; see `findings/submission_search_findings.md` for the processed dataset) |
-| Hansard transcripts | Round 1 (188 configuration-relevant turns, May 2025), Round 2 (209 configuration-relevant turns, Jan 2026) | `.temp/hansard_r1.txt`, `.temp/hansard_r2.txt` (gitignored raw text) |
+| Hansard transcripts | Round 1 (188 configuration-relevant turns, May 2025), Round 2 (209 configuration-relevant turns, Jan 2026) | Not committed: the text is rebuilt from the two Elections Alberta hearing-transcript PDFs (2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf and -Round-2.pdf) by `findings/submissions_recode/scripts/03_hansard.py` |
 
 **Vote substrate note.** The SZAT channel (Ch2) uses election-day two-party totals (~896,644 combined) from the VA polygon attribution layer, not province-wide election totals. The 1,706,304 two-party figure in Alberta's 2023 results is not the VA-level denominator. This distinction is documented in §5.2.10 (post-registration VA-file note) and in DOCUMENTED CORRECTIONS C1 (§7.3) of the academic report.
 

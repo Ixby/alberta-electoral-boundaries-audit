@@ -1,5 +1,7 @@
 # Stage 1 (the panel's report, tabled 2026-11-02): grades without geometry
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 These are the Amendment 7, Part 4 deliverables for stage 1. They are due within 72 hours of 07:38 MST on 2026-11-02, so by 07:38 MST on 2026-11-05.
 
 Sources:

@@ -1,5 +1,7 @@
 # The November map, stage by stage
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 This is the stage record Amendment 7, Part 1 requires.
 - Each stage is graded only on what it releases to the public.
 - A stage that releases nothing gets no grade, and the record says so, with the date it was checked.

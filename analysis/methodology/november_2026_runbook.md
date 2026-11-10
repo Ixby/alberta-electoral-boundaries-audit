@@ -19,7 +19,7 @@ Check the published file and write the copy every later step reads:
 
 ```bash
 python analysis/scripts/ingest_committee_map.py --src <downloaded file, or a .zip holding it> \
-  --url <source URL> --downloaded "2026-11-02 HH:MM MST" [--name-col <column>] [--dissolve]
+  --url <source URL> --downloaded "2026-11-02 HH:MM Alberta time" [--name-col <column>] [--dissolve]
 ```
 
 - It writes `data/shapefiles/lunty/lunty_2026_eds.gpkg` with the district names copied to

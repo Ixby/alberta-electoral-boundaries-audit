@@ -1,6 +1,6 @@
 > **Backward:**
 > - `analysis/polls_2023_unified.csv` — unified 2023 polls source
-> - `data/alberta_2023_results.csv` — per-ED valid-vote totals
+> - `data/reference/alberta_2023_results.csv` — per-ED valid-vote totals
 >
 > **Forward:**
 > - `findings/advance_vote_sensitivity.md` — uses the VAN exclusion (C5)

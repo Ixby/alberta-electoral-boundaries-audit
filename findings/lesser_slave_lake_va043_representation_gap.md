@@ -1,6 +1,6 @@
 > **Backward:**
-> - `data/polls_2023_unified.csv` — EA 2023 results
-> - `data/EA_Voting_Area_Boundaries_2023.shp` — EA canonical VA boundaries
+> - `data/outputs/polls_2023_unified.csv` — EA 2023 results
+> - `data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.shp` — EA canonical VA boundaries
 > - `data/va_pop_from_das.csv` — 2021 Census DA populations
 > - `.temp/commission_report.pdf` — EBC final report (March 2026)
 > - ISC First Nations Population Profiles April 2026 (Bands 453, 459, 478)

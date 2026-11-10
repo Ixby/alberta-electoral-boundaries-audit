@@ -168,7 +168,7 @@ DATA_DIR = _resolve_path("data")
 **Input sources:**
 - Submissions: `data/submissions/` (PDFs extracted to text via PyMuPDF, with OCR recovery for 23 image-only files)
 - Hansard: Commission's published Hansard record (R1, R2 rounds)
-- Configuration definitions: `analysis/scripts/submission_sentiment_llm_config.json`
+- Configuration definitions: `analysis/scripts/submission_sentiment_llm_config.json` (never committed; not in git history)
 
 **Execution chain:**
 1. `submission_sentiment_llm_full.py` → 388 rows (full-corpus submissions)

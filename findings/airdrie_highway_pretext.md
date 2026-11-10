@@ -14,7 +14,7 @@ type: project
 
 ## 1. The statutory question
 
-Alberta's Electoral Boundaries Commission Act, s.14 (commission report p.15, quoted verbatim in `analysis/methodology/terms_of_reference_verbatim.md`) lists the criteria the Commission "may take into consideration" once the Charter requirement of effective representation is satisfied. Two of those subsections frame this fight:
+Alberta's Electoral Boundaries Commission Act, s.14 (commission report p.15, quoted verbatim in `preregistration/terms_of_reference.md`) lists the criteria the Commission "may take into consideration" once the Charter requirement of effective representation is satisfied. Two of those subsections frame this fight:
 
 > **14(b)** communities of interest, including municipalities, regional and rural communities, Indian reserves and Metis settlements,
 >
@@ -59,7 +59,7 @@ The first run, on v0_9 derived geometry, for each ED containing Airdrie territor
 | Minority | Calgary-Falconridge           |  29.5 | 11.4 | 77.7 | 10.9 | 1,940 | 12.2 |
 | Minority | Calgary-Foothills-Airdrie West |  44.1 |  0.0 | 79.2 | 20.8 |   364 |  2.3 |
 
-(Source: `data/airdrie_quadrant_anchoring.csv`. City-limit % attributed first when a segment matches both substrates, so highway % is the residual highway match.)
+(Source: `data/outputs/airdrie_quadrant_anchoring.csv`. City-limit % attributed first when a segment matches both substrates, so highway % is the residual highway match.)
 
 ## 3. Visual cross-reference
 
@@ -72,8 +72,8 @@ At Airdrie, the minority's dividing lines follow highways and the city limit. On
 ## Outputs
 
 - Visual: `data/maps/airdrie_4way_teardown.png` (300 DPI, two-panel; pre-canonical)
-- Metrics CSV: `data/airdrie_quadrant_anchoring.csv` (7 rows, 11 cols; pre-canonical)
-- Script: `analysis/scripts/airdrie_quadrant_anchoring.py` (pre-canonical)
+- Metrics CSV: `data/outputs/airdrie_quadrant_anchoring.csv` (7 rows, 11 cols; pre-canonical)
+- Script: `analysis/scripts/airdrie_quadrant_anchoring.py` (pre-canonical; file since removed, see git history at 5c056ae5)
 - Official boundaries: `data/outputs/airdrie_city_limit_anchoring_2026-10-31.csv`, from `analysis/scripts/airdrie_city_limit_anchoring.py`
 
 Forward:
@@ -82,7 +82,7 @@ Backward:
   archive/dpg_era/natural_anchoring_secondary_check.md
   analysis/scripts/score_anchoring.py
   analysis/scripts/score_natural_anchoring.py
-  analysis/methodology/terms_of_reference_verbatim.md
+  preregistration/terms_of_reference.md
   data/shapefiles/derived/v0_10_topological_{majority,minority}_2026_eds.gpkg
   data/shapefiles/reference/alberta_2021_csds.gpkg
   data/osm/alberta_osm_highways.gpkg

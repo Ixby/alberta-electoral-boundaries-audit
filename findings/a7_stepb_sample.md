@@ -1,5 +1,7 @@
 # Amendment 7, Step B: the calibration sample (fixed before any reconstruction)
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 Amendment 7, Part 3 (OSF 9wp5y, update 6ae95303…) defines the sample as "the unchanged districts drawn in the same map pages as changed districts", topped up to 10 by a seeded draw if needed. The sample below was fixed on 2026-11-02 at about 20:30 MST (commit `9eaaea54`, 20:31 MST). No district had been reconstructed at that time, and no georeferencing had been built or tuned.
 
 **How the rule is applied** (`analysis/scripts/a7_stepb_select_sample.py`; output `findings/a7_stepb_sample.json`):

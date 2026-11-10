@@ -78,9 +78,9 @@ Under a 3% Alberta threshold, both 2026 proposals remain within the normal zone.
 3. **Actual winner determination:** In 2015, the actual seat winner is the    party with the plurality of all-party votes (not the two-party winner).    NDP won 53 seats by plurality despite being below 50% of two-party votes    in many of those seats. This is the correct input to the wasted-vote formula.
 
 4. **Data sources:**
-   - 2015: `data/alberta_2015_results.csv` (from `parse_2015_results.py`)
-   - 2019: `data/alberta_2019_results.csv`
-   - 2023: `data/alberta_2023_results.csv`
+   - 2015: `data/reference/alberta_2015_results.csv` (from `parse_2015_results.py`)
+   - 2019: `data/reference/alberta_2019_results.csv`
+   - 2023: `data/reference/alberta_2023_results.csv`
 
 5. **Cross-check:** The 2023 EG computed here (-2.64%) matches the v0_2    script's "2019 BOUNDARIES (CURRENT) under 2023 vote shares" result    exactly, confirming formula consistency.
 

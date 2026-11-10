@@ -12,12 +12,12 @@ note: |
 
 > **Backward:**
 > - `analysis/scripts/chen_rodden_decomposition.py` — companion script
-> - `data/simulated_ensemble_raw_samples_100k.csv` — 100,000-plan neutral ensemble (superseded; canonical is the 1.01M run)
-> - `data/simulation_real_map_scores_full_v2.json` — session-12 canonical + full-VA real-map scores
-> - `data/simulation_real_map_scores_full_100k.json` — substrate-matched cross-check
+> - `data/outputs/mcmc/simulated_ensemble_raw_samples_100k.csv` — 100,000-plan neutral ensemble (superseded; canonical is the 1.01M run)
+> - `data/outputs/mcmc/simulation_real_map_scores_full_v2.json` — session-12 canonical + full-VA real-map scores
+> - `data/outputs/mcmc/simulation_real_map_scores_full_100k.json` — substrate-matched cross-check
 >
 > **Forward:**
-> - `data/chen_rodden_decomposition.csv`, `data/chen_rodden_decomposition.json` — produced outputs
+> - `data/outputs/chen_rodden_decomposition.csv`, `data/outputs/chen_rodden_decomposition.json` — produced outputs
 > - `reports/academic/report_academic.md` §5.2.5 — suggested insertion
 > - `findings/README.md` — indexes this finding
 
@@ -31,13 +31,13 @@ real map departs from neutral). Then decomposes each pairwise gap into
 geography-share and drawing-share.
 
 Script: `analysis/scripts/chen_rodden_decomposition.py`.
-Machine-readable outputs: `data/chen_rodden_decomposition.csv`,
-`data/chen_rodden_decomposition.json`.
+Machine-readable outputs: `data/outputs/chen_rodden_decomposition.csv`,
+`data/outputs/chen_rodden_decomposition.json`.
 
-Backward deps: `data/simulated_ensemble_raw_samples_100k.csv` (100,000-plan
-neutral ensemble), `data/simulation_real_map_scores_full_v2.json`
+Backward deps: `data/outputs/mcmc/simulated_ensemble_raw_samples_100k.csv` (100,000-plan
+neutral ensemble), `data/outputs/mcmc/simulation_real_map_scores_full_v2.json`
 (session-12 canonical + full-VA real-map scores, primary per task spec),
-`data/simulation_real_map_scores_full_100k.json` (election-day-only
+`data/outputs/mcmc/simulation_real_map_scores_full_100k.json` (election-day-only
 substrate-matched cross-check). Forward deps: `report_academic.md` §5.2.5
 (suggested insertion below).
 
@@ -106,7 +106,7 @@ and §4.
 
 ## 3. Per-map decomposition — PRIMARY (session-12 canonical + full-VA)
 
-Real-map scores from `data/simulation_real_map_scores_full_v2.json` (Tier A
+Real-map scores from `data/outputs/mcmc/simulation_real_map_scores_full_v2.json` (Tier A
 2019-inheritance polygons, Tier B/C approximate polygons for new 2026
 geometry, full-VA substrate with Vote-Anywhere splat into Election-Day
 polygons). **Substrate caveat:** the ensemble runs on Election-Day-only
@@ -178,7 +178,7 @@ natural voter geography.**
 
 ## 4. Cross-check — election-day-only substrate (substrate-matched)
 
-Real-map scores from `data/simulation_real_map_scores_full_100k.json`.
+Real-map scores from `data/outputs/mcmc/simulation_real_map_scores_full_100k.json`.
 This is the pre-remediation Election-Day-only VA substrate —
 apples-to-apples with the ensemble. The v2 PRIMARY above is cross-
 substrate and should be read alongside this matched pass.
@@ -345,9 +345,9 @@ advantage).
 
 - `analysis/scripts/chen_rodden_decomposition.py` — reproducible script.
 - `findings/chen_rodden_decomposition.md` — this writeup.
-- `data/chen_rodden_decomposition.csv` — per-map and per-gap table
+- `data/outputs/chen_rodden_decomposition.csv` — per-map and per-gap table
   (both substrates, machine-readable, 48 rows).
-- `data/chen_rodden_decomposition.json` — structured summary for
+- `data/outputs/chen_rodden_decomposition.json` — structured summary for
   downstream use.
 
 ## 8. References

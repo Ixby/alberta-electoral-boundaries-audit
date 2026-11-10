@@ -2,9 +2,9 @@
   Alberta Electoral Boundary Audit — The Fourteen Explainers (Appendices A–N)
   © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 
-  One appendix per casing on the main page. Each owns exactly one concept and
+  One appendix per finding on the evidence page. Each owns exactly one concept and
   walks a fixed arc: name the confusion, build the concept with one concrete
-  example, send the reader back to the casing able to read its number unaided,
+  example, send the reader back to the finding able to read its number unaided,
   close with what the concept cannot tell you. Content mirrors the appendices
   of reports/public/report_public.md — keep the two in sync.
   Reader-facing text lives in en.ts under pages.explainers.* so it can be translated

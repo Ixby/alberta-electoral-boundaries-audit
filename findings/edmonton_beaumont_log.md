@@ -55,7 +55,7 @@ RED-TEAM VALIDATION
     C-sweep                  :   4  [medium]
     C-2019-blend             :   2  [lower]
     C-osm-construct          :   1  [lower]
-  Area range: 10.6 � 109222.0 km2
+  Area range: 10.6 – 109222.0 km2
   Checking pairwise overlaps (full NxN)...
   [WARN] 81 overlapping pairs found
 
@@ -75,7 +75,7 @@ RED-TEAM VALIDATION
     B                        :   2  [high]
     C-2019-split             :   1  [lower]
     C-2019-direct            :   1  [lower]
-  Area range: 12.2 � 104403.5 km2
+  Area range: 12.2 – 104403.5 km2
   Checking pairwise overlaps (full NxN)...
   [WARN] 95 overlapping pairs found
   [NOTE] Edmonton-Beaumont exists in minority file too (check if correctly named)

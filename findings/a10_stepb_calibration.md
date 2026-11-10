@@ -1,5 +1,7 @@
 # Amendment 10: the third Step B calibration run — result
 
+> Times before 2026-11-07 marked MST are UTC−7.
+
 > Registered run under Amendment 10 (OSF 9wp5y, update `6aeb59edd63871f1daf383ab`, filed 2026-11-04 2:51 PM MST). Run 2026-11-04, 2:54 PM to 7:22 PM MST, from the frozen code at commit `070c31cd` (every script's SHA-256 matches Amendment 10). Python 3.12.13 with PyMuPDF 2.1.
 
 ## Result: the calibration passes

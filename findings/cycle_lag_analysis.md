@@ -5,16 +5,16 @@ forward_dependencies:
   - report_public.md §"What the seat numbers actually say" — candidate short paragraph
   - ai_use_recommendations_for_committee.md §2.5 — possible addendum subject to Phase 3 reliability verdict
 backward_dependencies:
-  - data/province_wide_drift_2019.csv
-  - data/province_wide_drift_majority.csv
-  - data/province_wide_drift_minority.csv
+  - data/outputs/province_wide_drift_2019.csv
+  - data/outputs/province_wide_drift_majority.csv
+  - data/outputs/province_wide_drift_minority.csv
   - Statistics Canada Table 17-10-0009 (quarterly population estimates)
   - Alberta TBF quarterly population reports, 2021 Q2 through 2025 Q2
   - Alberta Electoral Boundaries Commission Act §§ 13–15
 ---
 
 > **Backward:**
-> - `data/province_wide_drift_2019.csv`, `data/province_wide_drift_majority.csv`, `data/province_wide_drift_minority.csv`
+> - `data/outputs/province_wide_drift_2019.csv`, `data/outputs/province_wide_drift_majority.csv`, `data/outputs/province_wide_drift_minority.csv`
 > - Statistics Canada Table 17-10-0009 — quarterly population estimates
 > - Alberta TBF quarterly population reports, 2021 Q2 through 2025 Q2
 > - Alberta Electoral Boundaries Commission Act §§ 13–15
@@ -124,7 +124,7 @@ Static-rural and resource-net-outflow districts are effectively unaffected: 2–
 
 The EBC Act requires use of the most recent census. That requirement makes sense: the census is the most reliable single source of population data available to a commission at drawing time. But the requirement does not say the committee *cannot* also examine post-census estimates from reliable secondary sources, nor does it say the committee must treat the census figure as equal-weighted across all districts regardless of vintage-drift.
 
-Under the current Alberta trajectory, the lag alone — with no boundary engineering, no political manipulation, and no methodological error — is enough to push the fastest-growing 2019 districts outside ±25% of the provincial mean by the time the map is used. The audit's Plan B re-aggregation (see `data/province_wide_drift_2019.csv`) shows **5 of 87 current (2019) electoral divisions are already outside the ±25% window TODAY under mid-2025 estimates**, up from 5 of 87 under the 2021 census alone. (Which 5 EDs are outside the window shifts: the 2021 census set and the mid-2025 set overlap in 2 EDs and disagree on 3, because the mean itself shifts when Plan B is applied.) By 2027, the expected first election on the new map, fast-growth-ring districts projected from the current trajectory will add several more EDs to the outside-window count — even if the commission draws the new boundaries perfectly at ±0% deviation today.
+Under the current Alberta trajectory, the lag alone — with no boundary engineering, no political manipulation, and no methodological error — is enough to push the fastest-growing 2019 districts outside ±25% of the provincial mean by the time the map is used. The audit's Plan B re-aggregation (see `data/outputs/province_wide_drift_2019.csv`) shows **5 of 87 current (2019) electoral divisions are already outside the ±25% window TODAY under mid-2025 estimates**, up from 5 of 87 under the 2021 census alone. (Which 5 EDs are outside the window shifts: the 2021 census set and the mid-2025 set overlap in 2 EDs and disagree on 3, because the mean itself shifts when Plan B is applied.) By 2027, the expected first election on the new map, fast-growth-ring districts projected from the current trajectory will add several more EDs to the outside-window count — even if the commission draws the new boundaries perfectly at ±0% deviation today.
 
 This is not a hypothetical. It is a mechanical consequence of Alberta's 2021–2025 growth rate and the 5–14-year cycle between map drawings. Two points follow:
 
@@ -168,7 +168,7 @@ The minority report justifies certain configurations by invoking expected growth
 
 ## 8 Quick Plan-A / Plan-B comparison, per map
 
-Source: `data/province_wide_drift_2019.csv`, `data/province_wide_drift_majority.csv`, `data/province_wide_drift_minority.csv`.
+Source: `data/outputs/province_wide_drift_2019.csv`, `data/outputs/province_wide_drift_majority.csv`, `data/outputs/province_wide_drift_minority.csv`.
 
 | Map                     | Plan A mean | Plan B mean | Implied cumulative growth | Status changes (Plan A → Plan B) |
 | ----------------------- | ----------- | ----------- | ------------------------- | -------------------------------- |
