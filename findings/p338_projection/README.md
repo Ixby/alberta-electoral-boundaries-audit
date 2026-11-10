@@ -1,20 +1,21 @@
 > **Exploratory, unregistered, for learning.** Computed 2026-11-09 in the cloud session, after the projection was known; no plan was written in advance and nothing here is a registered test. It applies a third party's projection (338Canada, October 19, 2026) to the maps; it is not a forecast and says nothing about why any line was drawn. The panel's map and the ¶167 map are the audit's reconstructions.
 >
-> **Inputs.** The 338 snapshot is `evidence/projections/338canada_2026-10-19/ridings_2026-10-19.csv`. The script reads copies of these repo files (at `557d11fe`) from an `inputs/` folder beside it, with the SHA-256 of each copy in `input_sha256.txt`. To rerun it, copy them into `inputs/` under the names on the left, and put the 338 CSV one level up as `p338_ridings_2026-10-19.csv`:
+> **Inputs.** The 338 snapshot is `evidence/projections/338canada_2026-10-19/ridings_2026-10-19.csv`. The script reads it and the repo files below in place. The SHA-256 of each, as first run at `557d11fe`, is in `input_sha256.txt` under the name on the left; the files on disk still match. The last five rows are hashed there but not read by the script.
 >
-> | Name in `inputs/` | Repo path |
+> | Name in `input_sha256.txt` | Repo path |
 > |---|---|
 > | `polls_2023_unified.csv` | `data/outputs/polls_2023_unified.csv` |
 > | `alberta_2023_results.csv` | `data/reference/alberta_2023_results.csv` |
 > | `assignment_va_to_2026_canonical.csv` | `data/outputs/assignment_va_to_2026_canonical.csv` |
 > | `panel_assignment_nodes_a10_stepc_replay.csv` | `findings/a10_stepc_replay/assignment_nodes.csv` |
-> | `panel_assignment_nodes_a10_stepc.csv` | `findings/a10_stepc/assignment_nodes.csv` |
-> | `panel_va_assignment_real_map_a10_stepb.csv` | `findings/a10_stepb_run/va_assignment_real_map.csv` |
 > | `para167_va_assignment.csv` | `findings/iap_para167/va_assignment.csv` |
 > | `real_maps_all_ballots.json` | `findings/allballots_ranking/real_maps_all_ballots.json` |
 > | `para167_real_maps_all_ballots.json` | `findings/iap_para167/real_maps_all_ballots.json` |
+> | `va_polygons_with_full_2023_votes.gpkg` | `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` |
+> | `panel_assignment_nodes_a10_stepc.csv` | `findings/a10_stepc/assignment_nodes.csv` |
+> | `panel_va_assignment_real_map_a10_stepb.csv` | `findings/a10_stepb_run/va_assignment_real_map.csv` |
 > | `ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg` | `data/shapefiles/canonical/` |
-> | `va_polygons_with_2023_votes.gpkg`, `va_polygons_with_full_2023_votes.gpkg` | `data/shapefiles/derived/` |
+> | `va_polygons_with_2023_votes.gpkg` | `data/shapefiles/derived/` |
 >
 > The all-ballots voting-area votes were rebuilt in memory by the audit's own Amendment 12 rule, because the committed all-ballots file is a Git LFS pointer in the cloud checkout; the rebuild matches the official count in all 87 districts. Sanity checks: 2023 all-ballots seats reproduce the audit's figures on all five maps exactly (49, 48, 55, 51, 50), and re-aggregation to the 2019 map reproduces 338's 43–43–1.
 
@@ -28,7 +29,7 @@
 - **The panel's map and the commission majority's map are close.** The panel's map has 2 more seats in total, and the UCP wins both of them (median). The lead the UCP needs is almost the same (5.3 against 5.4 points). The two maps give different governments in about 4% of the simulated elections, always with the panel's map giving the UCP the majority.
 - **Panel's map against the 2019 map:** the UCP needs about 1 point more of a lead on the panel's map. They give different governments in about 6% of simulated elections, mostly when the 2019 map gives the UCP a majority and the panel's map does not.
 - **At 338's central numbers the race is a dead heat on every map but the minority's.** The 2019 map gives 43 to 43, with Red Deer-North exactly tied. The majority, panel and ¶167 maps give the NDP a bare majority. The minority's map gives the UCP 53 of 89.
-- **Once local randomness is added, the UCP is a slight favourite on every map.** Its majority chance is 54 to 62% on four maps and 78% on the minority's. The reason is that more of the NDP's projected wins are narrow. On the 2019 map we get 62%, close to 338's own 60%. Whether the UCP or the NDP is the favourite on the majority, panel and ¶167 maps depends on how much local randomness you assume; the order of the maps does not.
+- **Once local randomness is added, the UCP is a slight favourite on every map.** Its majority chance is 54 to 62% on four maps and 78% on the minority's. The reason is that more of the NDP's projected wins are narrow. On the 2019 map we get 62%, close to 338's own 60%, but with about 2 to 3 more UCP seats than 338's own seat projection (see "Against 338's own seat projection" below). Whether the UCP or the NDP is the favourite on the majority, panel and ¶167 maps depends on how much local randomness you assume; the order of the maps does not.
 
 ## What was done
 
@@ -42,7 +43,7 @@
 5. **Counting.** Voting areas are added up into each map's districts. Ties count as ties. "Within 4 points" uses the audit's definition: the UCP-NDP gap as a share of their combined vote.
 6. **Monte Carlo, 5,000 draws, fixed seed.** Each draw combines two random shifts in the UCP-minus-NDP lead, with half the shift going to the UCP and half coming from the NDP:
    - *One province-wide shift.* Its standard deviation is 6.1 points of lead, so that 338's ±5 band for each party is a 90% interval.
-   - *An independent shift in each 2019 district.* 338's riding ranges (typically ±7) are read as 90% intervals that already include the provincial ±5. The riding-only part is what remains: a standard deviation of 5.5 points of lead in a typical riding (3.5 to 9.1).
+   - *An independent shift in each 2019 district.* 338's riding ranges (typically ±7) are read as 90% intervals that already include the provincial ±5. The riding-only part is what remains: a standard deviation of 5.5 points of lead in a typical riding (3.5 to 9.1). Each riding's shift is drawn separately from every other riding's; there is no regional shift shared by, say, Calgary's ridings.
 
    The voting areas are then re-swung to each draw's numbers, and **every map is scored on the same draws**.
 7. **Seats at 50/50.** We used the audit's method (shift every district's two-party share by the same amount until the province is tied) on the projected district totals. Doing it inside the model gives the same counts.
@@ -118,8 +119,33 @@ These comparisons use the same draws on every map. The seat difference is the fi
 | No riding-level noise | 50% | 42% | 76% | 43% | 42% | 0.5% | 7.4% | 33.8% |
 | Riding noise × 1.5 | 68% | 59% | 77% | 63% | 60% | 4.6% | 7.1% | 18.6% |
 | 338's ranges read as 95% intervals | 61% | 52% | 82% | 58% | 53% | 5.4% | 5.2% | 29.7% |
+| Riding noise × 0.5 | 55% | 47% | 78% | 51% | 47% | 4.3% | 4.8% | 31.6% |
 
 The swing method makes no difference. The amount of local randomness changes the headline chances: without it, the NDP is the slight favourite on the majority, panel and ¶167 maps. It does not change the order of the maps, which stays minority first for the UCP, then 2019, then panel, then majority and ¶167 about level. The median seat differences between maps barely move either (`out/results.json`).
+
+**The typical seat split moves with the same assumption.** Median UCP–NDP seats, same draws (`out/results.json`, `mc.<setting>.maps.<map>`, `ucp_median` and `ndp_median`):
+
+| Riding noise | 2019 | majority | minority | panel | ¶167 |
+|---|---:|---:|---:|---:|---:|
+| None | 44–43 | 43–46 | 53–36 | 45–46 | 44–47 |
+| × 0.5 | 45–42 | 44–45 | 54–35 | 46–45 | 45–46 |
+| × 1 (main) | 46–41 | 45–44 | 53–36 | 47–44 | 46–45 |
+| × 1.5 | 47–40 | 47–42 | 53–36 | 49–42 | 48–43 |
+
+On the panel's map the UCP's typical count runs from 45 (one short of a majority, with the NDP on 46) to 49. Which side of the 46-seat line the typical result falls on depends on this setting.
+
+### Against 338's own seat projection
+
+338Canada publishes its own seat projection for the current map: UCP 44 [33–60], NDP 43 [27–54], with UCP odds of 60% (`out/results.json`, `p338_headline`). No setting here matches both figures.
+
+| Setting | 2019 map, median seats | Mean seats | P(UCP majority) |
+|---|---:|---:|---:|
+| 338Canada's own | 44–43 | not published | 60% |
+| Main | 46–41 | 47.1–39.9 | 62% |
+| Riding noise × 0.5 | 45–42 | 46.5–40.5 | 55% |
+| No riding noise | 44–43 | 46.1–40.9 | 50% |
+
+The main setting matches 338's odds and gives the UCP about 2 to 3 more seats on the current map than 338 does (2 at the median, 3 at the mean). The no-noise setting matches 338's seats and gives 50% odds. So the main setting may overstate the UCP's typical seat count on every map by a similar amount. The comparison is rough: 338 does not say whether its 44–43 is a median or a mean.
 
 ## What this can and can't tell you
 
@@ -130,19 +156,22 @@ The swing method makes no difference. The amount of local randomness changes the
 - **Voting areas and turnout are from 2023.** Each voting area keeps its 2023 number of voters, so growth since then (fast-growing suburbs and commuter towns) is not counted. The 2023 ballots not cast on election day are placed by the audit's rule, not observed. Separately, 338's own 2023 baseline differs from the official count in a few ridings (largest: Cardston-Siksika, 70.3% against 74.1%). That does not change the targets, which are 338's projections.
 - **The panel's map and the ¶167 map are reconstructions** from the panel's report, not official shapefiles. About 245 voting areas are cut by reconstructed lines. The audit found that the seats that differ between those two maps depend on such areas. Treat a difference of a seat or two involving these maps as within the reconstruction's error.
 - **The riding-level noise is tied to the 2019 districts,** so that every map faces the same draws. A new district built from pieces of several old ones therefore averages their noise, which gives slightly less local randomness to maps that cut old districts more.
+- **Riding noise is independent from riding to riding.** A polling error shared by a region, for example across Calgary's many narrow NDP seats, would act like the province-wide shift, not like local noise. That would shrink the effect that makes the simulated typical result more UCP than the point projection. No regional shift is modelled.
+- **The main setting is tuned to 338's odds, not its seats.** It gives about 2 to 3 more UCP seats on the current map than 338's own projection (above).
 - **"Other" parties are lumped together.** None wins a seat in any draw, so a strong local independent or third-party candidate is not modelled.
 - **What it cannot tell you:** why any line was drawn, whether a map is lawful or fair, or what will happen on election day. It uses one snapshot of polling, from October 19, 2026.
 
 ## Files
 
-All files are in this folder, `p338/sim/`.
+All files are in this folder, `findings/p338_projection/`.
 
-- `simulate_338.py` runs the whole simulation; `make_tables.py` builds the tables. Run them in that order with `python3 -I -W ignore`. They take about 3 minutes.
+- `simulate_338.py` runs the whole simulation; `make_tables.py` builds the tables. Run them in that order with `python3 -I -W ignore`. The simulation takes a few minutes. Rerunning reproduces `out/` exactly (fixed seed, shared draws).
 - `out/results.json` holds every number above, plus the checks and diagnostics.
 - `out/districts_<map>.csv` has one file per map (`map2019`, `majority`, `minority`, `panel`, `para167`) and one row per district. Each row has 2023 shares, projected shares under both methods, the projected winner, the margin, close-seat flags, and the share of simulated elections each party wins. The 2019 file also has 338's own numbers and ranges and the single-pass check.
 - `out/seats_vs_lead.csv` gives UCP and NDP seats on every map at each province-wide lead from about −16 to +24 points, without local randomness.
 - `out/tables.md` contains the generated tables.
-- `inputs/` holds copies of the audit files used, with `SHA256SUMS.txt`.
+- `input_sha256.txt` holds the SHA-256 of each audit file used.
+- The 338 pages themselves are not stored. Rerunning `evidence/projections/338canada_2026-10-19/extract_338.py` needs the pages fetched again and checked against `page_sha256.tsv`.
 
 ## The chart: "The new map: 91 seats."
 
@@ -150,23 +179,25 @@ All files are in this folder, `p338/sim/`.
 
 `data/maps/article/same_votes_five_maps.png` (1080×1350, rendered at 2×) is for a general reader. It centres on the panel's 91-seat map now before MLAs and reads it two ways, as Wuff framed it: one view speaks to today's politics on the map, the other to the map itself.
 
-1. **Latest polls (Oct 19)** (the polls as they stand, on this map): UCP 44, NDP 46, 1 exact tie. The label is 338Canada's update date; its newest poll was Mainstreet, Oct 16 (`evidence/projections/338canada_2026-10-19/README.md`). It is a projection built from polls, not a poll, and the footer says so. Source: `out/results.json` `point.panel.proportional`. With NDP exactly on the 46-seat majority line and one tie, the chart calls it "Too close to call".
-2. **Typical of 5,000 simulated elections** (what this map tends to do around the latest numbers): UCP 47, NDP 44; the UCP wins a majority "about 6 in 10" times, shown with its range, "43–63%, depending on assumptions". Source: `mc.main.maps.panel` `ucp_median`, `ndp_median` and `p_ucp_majority` (main 58%); the range is the panel column of the table under "Does it hold up under other assumptions?" (no riding noise 43%, riding noise × 1.5 63%).
-3. **Why they differ:** at the latest numbers, 11 of the NDP's 46 projected wins on this map are by less than 4 points, against 2 of the UCP's 44 (`out/districts_panel.csv`). Polling error tips more of the NDP's narrow leads.
+1. **At 338Canada's projection (Oct 19)** (its riding-by-riding numbers, on this map): UCP 44, NDP 46, 1 exact tie. The top line reads "338Canada's projection (Oct 19): UCP 48%, NDP 43%". This is 338Canada's modelled projection, not the polls. The four latest polls on the same 338 page were Pollara (Oct 9) UCP 46, NDP 50; Mainstreet (Oct 16) 43, 43; Abacus (Oct 10) 47, 42; Léger (Oct 3) 47, 45. Their plain average is UCP 45.75, NDP 45.0, and the footer gives it as "UCP 46, NDP 45" (`findings/audit_2026-11-10/polls_338.json`; the committed `provincial_summary.txt` prints the poll numbers without party labels, and that file records how they were read). The seats come from 338's riding figures, which add to 47.6–43.4, not 48–43 (see "What it takes"). Source for the seats: `out/results.json` `point.panel.proportional`. With the NDP exactly on the 46-seat majority line and one tie, the chart calls it "Too close to call".
+2. **Typical of 5,000 simulated elections**: UCP 47, NDP 44 at the main setting; the UCP wins a majority "about 6 in 10" times. Both carry their range under the title: "UCP 45 to 49 seats, depending on assumptions" and "odds 43–63%, depending on assumptions". Source: `mc.main.maps.panel` `ucp_median`, `ndp_median` and `p_ucp_majority` (main 58%). The ranges are the panel map across the riding-noise settings in `out/results.json`: none 45–46 and 43%; × 0.5 46–45 and 51%; × 1 47–44 and 58%; × 1.5 49–42 and 63%. At the low end the NDP, not the UCP, holds 46.
+3. **Why they differ:** at that projection, 11 of the NDP's 46 projected wins on this map are by less than 4 points, against 2 of the UCP's 44. These are margins in points of all votes (`out/districts_panel.csv`, column `ucp_minus_ndp_pts_allvotes`). On the two-party definition used in the table under "Results by map" (column `ucp_minus_ndp_pts_twoparty`) the counts are 9 and 2, which with the tie make that table's 12. Polling error tips more of the NDP's narrow leads.
 
 **Reference table, same two readings:**
 
-| Map | Latest polls | Typical simulation | UCP majority |
+| Map | 338's projection | Typical simulation | UCP majority |
 |---|---|---|---|
 | Panel members' alternative (91) | 43–47 | 46–45 | 54% |
 | Current map, since 2019 (87) | 43–43 | 46–41 | 62% |
 | Commission's map (89) | 42–46 | 45–44 | 54% |
 | Dissenting commissioners' map (89) | 53–36 | 53–36 | 78% |
 
-**How it was made (process scorecard):** the lower grid shows the registered Lane 3 process scorecard (OSF u47bq, filed 2026-07-14), graded for the panel's map in `findings/iap_stage1_part4.md` §1: 2 Yes, 1 Partial, 6 No. The commission's process scored 9 of 9. The grid's plain labels map to the registered cells as follows:
+The table's typical splits and odds are at the main setting; the footer says both depend on how much local variation is assumed.
+
+**How it was made (process scorecard):** the lower grid shows the registered Lane 3 process scorecard (OSF u47bq, filed 2026-07-14), graded for the panel's map in `findings/iap_stage1_part4.md` §1: 2 Yes, 1 Partial, 6 No. The commission's process scored 9 of 9; the registration says it does so "by construction", because the criteria describe the institution the commission was (`findings/iap_stage1_part4.md` §1 sets out how the two processes compare when read the same way). The sub-line says the checks were registered July 14, 2026, after the process was announced and before the map: the registration's own disclosure says the scorecard was drafted after the committee's structure was announced, and Government Motion 37 passed on April 21. The grid's plain labels map to the registered cells as follows:
 - P1 Arm's-length drafting → "Drawn at arm's length" (Partial)
 - P2 → "Public hearings" (No)
-- P3 → "Draft shown to the public" (No)
+- P3 Draft published for challenge → "Public comment on a draft" (No). The draft has been public since it was tabled on Nov 2; what the cell finds missing is a comment period before the map is settled.
 - P4 → "New public input taken" (No)
 - P5 Demonstrated responsiveness → "Responded to the public" (No)
 - P6 Neutral chair of the deciding body → "Neutral final decider" (No)
@@ -181,10 +212,13 @@ All files are in this folder, `p338/sim/`.
 
 At Wuff's request this replaced the earlier punchline ("The new map isn't the outlier. The dissenting commissioners' map was."). The seat comparison still shows the new map in line with the others.
 
-**Gotcha fixes (2026-11-09, at Wuff's request; items 2 and 6 of the six raised were left as they were):**
-- The single 58% became "about 6 in 10" with its 43–63% range, and the footer says majority odds depend on how much local variation is assumed. The table's single figures stay at the main setting.
-- "Today's polls" became "Latest polls (Oct 19)": the projection is dated, and the footer gives the newest poll's date.
+**Wording choices on the chart:**
+- The majority odds read "about 6 in 10" with the range 43–63%, and the typical split carries its range, UCP 45 to 49 seats. The table's single figures are at the main setting.
+- The votes are labelled as 338Canada's projection, dated Oct 19; the footer gives the average of the four latest polls.
 - The footer says both panel maps (the panel's and its members' alternative) are redrawn from the panel's report, not only "the new map".
 - The footer gives the 1992 counter to "Follows past practice": MLAs last drew the map in 1992, after a deadlocked commission filed five separate reports (`findings/iap_stage1_part4.md` P9; `findings/procedural_analysis.md`).
+- "The commission's process met all 9" and "Neutral final decider" stand as the author chose them. Read against the body that finally decides, the Legislative Assembly decides a commission's map as well (EBCA s.11), so on that reading the commission's process does not meet all 9; `findings/iap_stage1_part4.md` §1 gives the detail.
+
+Chart and this section last revised 2026-11-09 23:20 Alberta time · claude-fable-5-2 · medium.
 
 The chart counts seats only, and the footer points to the audit's local checks, such as the Lethbridge split. Source: `meme/same_votes_five_maps.html`; render with `node meme/render.cjs` (Playwright, Chromium).

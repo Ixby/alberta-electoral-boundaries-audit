@@ -13,11 +13,12 @@ What it does (plain terms)
      provincial lead each party needs for a majority.
   6. Monte Carlo: one province-wide swing per draw plus riding noise, the SAME draws on every map.
 
-Inputs are copies of read-only files from the audit repo (commit 557d11fe), in ./inputs/
-(SHA-256 in inputs/SHA256SUMS.txt), plus ../p338_ridings_2026-10-19.csv.
-Writes everything to ./out/. Nothing is written to the audit repo.
+Inputs are read in place from the audit repo (paths in INP below; the SHA-256 of each, as first
+run at commit 557d11fe, is in input_sha256.txt), plus the 338 snapshot in
+evidence/projections/338canada_2026-10-19/ridings_2026-10-19.csv.
+Writes only to ./out/.
 
-Run: python3 -I -W ignore simulate_338.py
+Run from anywhere: python3 -I -W ignore findings/p338_projection/simulate_338.py
 """
 import json
 import re
@@ -29,10 +30,21 @@ import pandas as pd
 import pyogrio
 
 HERE = Path(__file__).resolve().parent
-INP = HERE / "inputs"
+REPO = HERE.parents[1]
+INP = {  # name in input_sha256.txt -> repo path
+    "polls_2023_unified.csv": "data/outputs/polls_2023_unified.csv",
+    "alberta_2023_results.csv": "data/reference/alberta_2023_results.csv",
+    "assignment_va_to_2026_canonical.csv": "data/outputs/assignment_va_to_2026_canonical.csv",
+    "panel_assignment_nodes_a10_stepc_replay.csv": "findings/a10_stepc_replay/assignment_nodes.csv",
+    "para167_va_assignment.csv": "findings/iap_para167/va_assignment.csv",
+    "real_maps_all_ballots.json": "findings/allballots_ranking/real_maps_all_ballots.json",
+    "para167_real_maps_all_ballots.json": "findings/iap_para167/real_maps_all_ballots.json",
+    "va_polygons_with_full_2023_votes.gpkg": "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg",
+}
+INP = {k: REPO / v for k, v in INP.items()}
 OUT = HERE / "out"
 OUT.mkdir(exist_ok=True)
-P338 = HERE.parent / "p338_ridings_2026-10-19.csv"
+P338 = REPO / "evidence/projections/338canada_2026-10-19/ridings_2026-10-19.csv"
 
 SEED = 20261019
 N_DRAWS = 5000
@@ -60,9 +72,9 @@ def need(n):
 # 1. 2023 all-ballots votes by VA (in memory; same rule as vote_anywhere_splat.py)
 # ---------------------------------------------------------------------------------------------
 def load_votes():
-    va = pyogrio.read_dataframe(INP / "va_polygons_with_full_2023_votes.gpkg", read_geometry=False)
+    va = pyogrio.read_dataframe(INP["va_polygons_with_full_2023_votes.gpkg"], read_geometry=False)
     assert (va.OBJECTID.values == np.arange(1, len(va) + 1)).all()
-    polls = pd.read_csv(INP / "polls_2023_unified.csv", dtype={"sheet_num": str, "voting_areas": str},
+    polls = pd.read_csv(INP["polls_2023_unified.csv"], dtype={"sheet_num": str, "voting_areas": str},
                         encoding="cp1252")
     cols = {"ucp": "ucp_votes", "ndp": "ndp_votes", "other": "other_votes"}
     for c in cols.values():
@@ -76,7 +88,7 @@ def load_votes():
     for p, c in cols.items():
         va[p] = va[f"va_{p}_full"] + share * va.parent_ed_2019.map(add[c]).fillna(0.0)
 
-    off = pd.read_csv(INP / "alberta_2023_results.csv").set_index("ed_name")
+    off = pd.read_csv(INP["alberta_2023_results.csv"]).set_index("ed_name")
 
     def party(r, p):
         for i in range(1, 7):
@@ -100,11 +112,11 @@ def load_votes():
 # 2. Map assignments (VA row -> district) and the 2023 reproduction
 # ---------------------------------------------------------------------------------------------
 def load_maps(va):
-    cn = pd.read_csv(INP / "assignment_va_to_2026_canonical.csv")
+    cn = pd.read_csv(INP["assignment_va_to_2026_canonical.csv"])
     assert (cn.OBJECTID.values == va.OBJECTID.values).all()
-    pan = pd.read_csv(INP / "panel_assignment_nodes_a10_stepc_replay.csv")   # representative-point
+    pan = pd.read_csv(INP["panel_assignment_nodes_a10_stepc_replay.csv"])   # representative-point
     assert (pan.node.values == np.arange(len(va))).all()                    # assignment, as scored
-    par = pd.read_csv(INP / "para167_va_assignment.csv")
+    par = pd.read_csv(INP["para167_va_assignment.csv"])
     assert (par.va_index.values == np.arange(len(va))).all()
     lab = {"map2019": va.parent_ed_2019.values, "majority": cn.ed_2026_maj.values,
            "minority": cn.ed_2026_min.values, "panel": pan.district.values, "para167": par.district.values}
@@ -140,8 +152,8 @@ def tally(U, N, O):
 
 
 def check_2023(va, maps):
-    ref = json.loads((INP / "real_maps_all_ballots.json").read_text())
-    ref_p = json.loads((INP / "para167_real_maps_all_ballots.json").read_text())
+    ref = json.loads((INP["real_maps_all_ballots.json"]).read_text())
+    ref_p = json.loads((INP["para167_real_maps_all_ballots.json"]).read_text())
     refkey = {"map2019": (ref, "2019_enacted"), "majority": (ref, "majority_2026"),
               "minority": (ref, "minority_2026"), "panel": (ref, "iap_2026_assembled"),
               "para167": (ref_p, "para167_map")}
@@ -427,6 +439,7 @@ def main():
             outcome[k], useats[k], lead[k] = oc, U, U - D
             per[k] = {"seats": n, "need": nd,
                       "ucp_median": float(np.median(U)), "ndp_median": float(np.median(D)),
+                      "ucp_mean": float(U.mean()), "ndp_mean": float(D.mean()),
                       "ucp_p05_p95": [float(np.percentile(U, 5)), float(np.percentile(U, 95))],
                       "ndp_p05_p95": [float(np.percentile(D, 5)), float(np.percentile(D, 95))],
                       "p_ucp_majority": float((oc == "UCP majority").mean()),
@@ -458,7 +471,8 @@ def main():
                 "additive_swing": dict(method="add"),
                 "no_riding_noise": dict(method="prop", riding_scale=0.0),
                 "riding_noise_x1.5": dict(method="prop", riding_scale=1.5),
-                "ranges_as_95pct": dict(method="prop", z=1.96)}
+                "ranges_as_95pct": dict(method="prop", z=1.96),
+                "riding_noise_x0.5": dict(method="prop", riding_scale=0.5)}
     mc = {}
     for name, kw in variants.items():
         u, d, diag = run(**kw)

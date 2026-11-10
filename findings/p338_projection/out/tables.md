@@ -62,5 +62,6 @@
 | No riding noise | 50% | 42% | 76% | 43% | 42% | 0.5% | 7.4% | 33.8% |
 | Riding noise × 1.5 | 68% | 59% | 77% | 63% | 60% | 4.6% | 7.1% | 18.6% |
 | 338 ranges read as 95% intervals | 61% | 52% | 82% | 58% | 53% | 5.4% | 5.2% | 29.7% |
+| Riding noise × 0.5 | 55% | 47% | 78% | 51% | 47% | 4.3% | 4.8% | 31.6% |
 
 Main run: provincial lead s.d. 6.08 pts; riding s.d. median 5.51 (range 3.45–9.10); provincial UCP lead across draws 5th/50th/95th: −5.8 / +4.3 / +14.1; third-party seat wins: 0; riding targets clipped: 0.0000.

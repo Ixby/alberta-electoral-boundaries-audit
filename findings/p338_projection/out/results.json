@@ -390,6 +390,8 @@
      "need": 44,
      "ucp_median": 46.0,
      "ndp_median": 41.0,
+     "ucp_mean": 47.0924,
+     "ndp_mean": 39.9076,
      "ucp_p05_p95": [
       35.0,
       62.0
@@ -407,6 +409,8 @@
      "need": 45,
      "ucp_median": 45.0,
      "ndp_median": 44.0,
+     "ucp_mean": 46.6718,
+     "ndp_mean": 42.3282,
      "ucp_p05_p95": [
       34.0,
       64.0
@@ -424,6 +428,8 @@
      "need": 45,
      "ucp_median": 53.0,
      "ndp_median": 36.0,
+     "ucp_mean": 52.1968,
+     "ndp_mean": 36.8032,
      "ucp_p05_p95": [
       34.0,
       67.0
@@ -441,6 +447,8 @@
      "need": 46,
      "ucp_median": 47.0,
      "ndp_median": 44.0,
+     "ucp_mean": 48.6638,
+     "ndp_mean": 42.3362,
      "ucp_p05_p95": [
       35.0,
       66.0
@@ -458,6 +466,8 @@
      "need": 46,
      "ucp_median": 46.0,
      "ndp_median": 45.0,
+     "ucp_mean": 47.966,
+     "ndp_mean": 43.034,
      "ucp_p05_p95": [
       36.0,
       65.0
@@ -680,6 +690,8 @@
      "need": 44,
      "ucp_median": 46.0,
      "ndp_median": 41.0,
+     "ucp_mean": 47.0924,
+     "ndp_mean": 39.9076,
      "ucp_p05_p95": [
       35.0,
       62.0
@@ -697,6 +709,8 @@
      "need": 45,
      "ucp_median": 45.0,
      "ndp_median": 44.0,
+     "ucp_mean": 46.677,
+     "ndp_mean": 42.323,
      "ucp_p05_p95": [
       34.0,
       64.0
@@ -714,6 +728,8 @@
      "need": 45,
      "ucp_median": 53.0,
      "ndp_median": 36.0,
+     "ucp_mean": 52.2306,
+     "ndp_mean": 36.7694,
      "ucp_p05_p95": [
       34.0,
       67.0
@@ -731,6 +747,8 @@
      "need": 46,
      "ucp_median": 47.0,
      "ndp_median": 44.0,
+     "ucp_mean": 48.6706,
+     "ndp_mean": 42.3294,
      "ucp_p05_p95": [
       35.0,
       66.0
@@ -748,6 +766,8 @@
      "need": 46,
      "ucp_median": 46.0,
      "ndp_median": 45.0,
+     "ucp_mean": 47.972,
+     "ndp_mean": 43.028,
      "ucp_p05_p95": [
       36.0,
       65.0
@@ -971,6 +991,8 @@
      "need": 44,
      "ucp_median": 44.0,
      "ndp_median": 43.0,
+     "ucp_mean": 46.1368,
+     "ndp_mean": 40.8632,
      "ucp_p05_p95": [
       37.0,
       61.0
@@ -988,6 +1010,8 @@
      "need": 45,
      "ucp_median": 43.0,
      "ndp_median": 46.0,
+     "ucp_mean": 45.7642,
+     "ndp_mean": 43.2358,
      "ucp_p05_p95": [
       35.0,
       64.0
@@ -1005,6 +1029,8 @@
      "need": 45,
      "ucp_median": 53.0,
      "ndp_median": 36.0,
+     "ucp_mean": 52.1548,
+     "ndp_mean": 36.8452,
      "ucp_p05_p95": [
       34.0,
       66.0
@@ -1022,6 +1048,8 @@
      "need": 46,
      "ucp_median": 45.0,
      "ndp_median": 46.0,
+     "ucp_mean": 47.7688,
+     "ndp_mean": 43.2312,
      "ucp_p05_p95": [
       35.0,
       66.0
@@ -1039,6 +1067,8 @@
      "need": 46,
      "ucp_median": 44.0,
      "ndp_median": 47.0,
+     "ucp_mean": 46.9778,
+     "ndp_mean": 44.0222,
      "ucp_p05_p95": [
       37.0,
       65.0
@@ -1262,6 +1292,8 @@
      "need": 44,
      "ucp_median": 47.0,
      "ndp_median": 40.0,
+     "ucp_mean": 47.7474,
+     "ndp_mean": 39.2526,
      "ucp_p05_p95": [
       35.0,
       62.0
@@ -1279,6 +1311,8 @@
      "need": 45,
      "ucp_median": 47.0,
      "ndp_median": 42.0,
+     "ucp_mean": 47.3618,
+     "ndp_mean": 41.6382,
      "ucp_p05_p95": [
       34.0,
       63.0
@@ -1296,6 +1330,8 @@
      "need": 45,
      "ucp_median": 53.0,
      "ndp_median": 36.0,
+     "ucp_mean": 52.083,
+     "ndp_mean": 36.917,
      "ucp_p05_p95": [
       35.0,
       67.0
@@ -1313,6 +1349,8 @@
      "need": 46,
      "ucp_median": 49.0,
      "ndp_median": 42.0,
+     "ucp_mean": 49.3248,
+     "ndp_mean": 41.6752,
      "ucp_p05_p95": [
       36.0,
       66.0
@@ -1330,6 +1368,8 @@
      "need": 46,
      "ucp_median": 48.0,
      "ndp_median": 43.0,
+     "ucp_mean": 48.7256,
+     "ndp_mean": 42.2744,
      "ucp_p05_p95": [
       36.0,
       65.0
@@ -1553,6 +1593,8 @@
      "need": 44,
      "ucp_median": 46.0,
      "ndp_median": 41.0,
+     "ucp_mean": 46.5912,
+     "ndp_mean": 40.4088,
      "ucp_p05_p95": [
       37.0,
       60.0
@@ -1570,6 +1612,8 @@
      "need": 45,
      "ucp_median": 45.0,
      "ndp_median": 44.0,
+     "ucp_mean": 46.1104,
+     "ndp_mean": 42.8896,
      "ucp_p05_p95": [
       35.0,
       61.0
@@ -1587,6 +1631,8 @@
      "need": 45,
      "ucp_median": 54.0,
      "ndp_median": 35.0,
+     "ucp_mean": 52.3802,
+     "ndp_mean": 36.6198,
      "ucp_p05_p95": [
       37.0,
       65.0
@@ -1604,6 +1650,8 @@
      "need": 46,
      "ucp_median": 47.0,
      "ndp_median": 44.0,
+     "ucp_mean": 48.1356,
+     "ndp_mean": 42.8644,
      "ucp_p05_p95": [
       37.0,
       63.0
@@ -1621,6 +1669,8 @@
      "need": 46,
      "ucp_median": 46.0,
      "ndp_median": 45.0,
+     "ucp_mean": 47.3436,
+     "ndp_mean": 43.6564,
      "ucp_p05_p95": [
       37.0,
       62.0
@@ -1813,6 +1863,307 @@
      "p_lead_better_for_ndp_on_first": 0.0466,
      "p_government_differs": 0.0488,
      "p_ucp_maj_on_first_only": 0.0488,
+     "p_ucp_maj_on_second_only": 0.0
+    }
+   }
+  },
+  "riding_noise_x0.5": {
+   "settings": {
+    "method": "prop",
+    "riding_scale": 0.5
+   },
+   "diagnostics": {
+    "riding_targets_clipped_share": 0.0,
+    "additive_va_clipped_share": null,
+    "other_party_wins": 0,
+    "sd_prov_lead_pts": 6.079396923825157,
+    "sd_riding_lead_pts_median": 2.756756816100835,
+    "sd_riding_lead_pts_range": [
+     1.7262168964071596,
+     4.549404081432234
+    ],
+    "provincial_lead_pct": {
+     "5": -5.80200940395053,
+     "50": 4.291263193638487,
+     "95": 14.015339026962057
+    }
+   },
+   "maps": {
+    "map2019": {
+     "seats": 87,
+     "need": 44,
+     "ucp_median": 45.0,
+     "ndp_median": 42.0,
+     "ucp_mean": 46.4604,
+     "ndp_mean": 40.5396,
+     "ucp_p05_p95": [
+      36.0,
+      63.0
+     ],
+     "ndp_p05_p95": [
+      24.0,
+      51.0
+     ],
+     "p_ucp_majority": 0.5484,
+     "p_ndp_majority": 0.4516,
+     "p_hung": 0.0
+    },
+    "majority": {
+     "seats": 89,
+     "need": 45,
+     "ucp_median": 44.0,
+     "ndp_median": 45.0,
+     "ucp_mean": 46.0828,
+     "ndp_mean": 42.9172,
+     "ucp_p05_p95": [
+      34.0,
+      64.0
+     ],
+     "ndp_p05_p95": [
+      25.0,
+      55.0
+     ],
+     "p_ucp_majority": 0.4688,
+     "p_ndp_majority": 0.5312,
+     "p_hung": 0.0
+    },
+    "minority": {
+     "seats": 89,
+     "need": 45,
+     "ucp_median": 54.0,
+     "ndp_median": 35.0,
+     "ucp_mean": 52.1892,
+     "ndp_mean": 36.8108,
+     "ucp_p05_p95": [
+      34.0,
+      66.0
+     ],
+     "ndp_p05_p95": [
+      23.0,
+      55.0
+     ],
+     "p_ucp_majority": 0.7844,
+     "p_ndp_majority": 0.2156,
+     "p_hung": 0.0
+    },
+    "panel": {
+     "seats": 91,
+     "need": 46,
+     "ucp_median": 46.0,
+     "ndp_median": 45.0,
+     "ucp_mean": 48.0836,
+     "ndp_mean": 42.9164,
+     "ucp_p05_p95": [
+      35.0,
+      66.0
+     ],
+     "ndp_p05_p95": [
+      25.0,
+      56.0
+     ],
+     "p_ucp_majority": 0.5114,
+     "p_ndp_majority": 0.4886,
+     "p_hung": 0.0
+    },
+    "para167": {
+     "seats": 91,
+     "need": 46,
+     "ucp_median": 45.0,
+     "ndp_median": 46.0,
+     "ucp_mean": 47.3214,
+     "ndp_mean": 43.6786,
+     "ucp_p05_p95": [
+      36.0,
+      66.0
+     ],
+     "ndp_p05_p95": [
+      25.0,
+      55.0
+     ],
+     "p_ucp_majority": 0.4722,
+     "p_ndp_majority": 0.5278,
+     "p_hung": 0.0
+    }
+   },
+   "pairs": {
+    "map2019_vs_majority": {
+     "ucp_seat_diff_median": 0.0,
+     "ucp_seat_diff_p05_p95": [
+      -2.0,
+      2.0
+     ],
+     "ucp_lead_diff_median": 2.0,
+     "ucp_lead_diff_p05_p95": [
+      -2.0,
+      6.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.7836,
+     "p_lead_same": 0.1294,
+     "p_lead_better_for_ndp_on_first": 0.087,
+     "p_government_differs": 0.0804,
+     "p_ucp_maj_on_first_only": 0.08,
+     "p_ucp_maj_on_second_only": 0.0004
+    },
+    "map2019_vs_minority": {
+     "ucp_seat_diff_median": -7.0,
+     "ucp_seat_diff_p05_p95": [
+      -10.0,
+      2.0
+     ],
+     "ucp_lead_diff_median": -12.0,
+     "ucp_lead_diff_p05_p95": [
+      -18.0,
+      6.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.1054,
+     "p_lead_same": 0.0298,
+     "p_lead_better_for_ndp_on_first": 0.8648,
+     "p_government_differs": 0.236,
+     "p_ucp_maj_on_first_only": 0.0,
+     "p_ucp_maj_on_second_only": 0.236
+    },
+    "map2019_vs_panel": {
+     "ucp_seat_diff_median": -2.0,
+     "ucp_seat_diff_p05_p95": [
+      -4.0,
+      1.0
+     ],
+     "ucp_lead_diff_median": 0.0,
+     "ucp_lead_diff_p05_p95": [
+      -4.0,
+      6.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.4904,
+     "p_lead_same": 0.2734,
+     "p_lead_better_for_ndp_on_first": 0.2362,
+     "p_government_differs": 0.0478,
+     "p_ucp_maj_on_first_only": 0.0424,
+     "p_ucp_maj_on_second_only": 0.0054
+    },
+    "map2019_vs_para167": {
+     "ucp_seat_diff_median": -1.0,
+     "ucp_seat_diff_p05_p95": [
+      -4.0,
+      1.0
+     ],
+     "ucp_lead_diff_median": 2.0,
+     "ucp_lead_diff_p05_p95": [
+      -4.0,
+      6.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.7434,
+     "p_lead_same": 0.1458,
+     "p_lead_better_for_ndp_on_first": 0.1108,
+     "p_government_differs": 0.0774,
+     "p_ucp_maj_on_first_only": 0.0768,
+     "p_ucp_maj_on_second_only": 0.0006
+    },
+    "majority_vs_minority": {
+     "ucp_seat_diff_median": -7.0,
+     "ucp_seat_diff_p05_p95": [
+      -11.0,
+      1.0
+     ],
+     "ucp_lead_diff_median": -14.0,
+     "ucp_lead_diff_p05_p95": [
+      -22.0,
+      2.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.0512,
+     "p_lead_same": 0.0316,
+     "p_lead_better_for_ndp_on_first": 0.9172,
+     "p_government_differs": 0.3156,
+     "p_ucp_maj_on_first_only": 0.0,
+     "p_ucp_maj_on_second_only": 0.3156
+    },
+    "majority_vs_panel": {
+     "ucp_seat_diff_median": -2.0,
+     "ucp_seat_diff_p05_p95": [
+      -3.0,
+      -1.0
+     ],
+     "ucp_lead_diff_median": -2.0,
+     "ucp_lead_diff_p05_p95": [
+      -4.0,
+      0.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.0204,
+     "p_lead_same": 0.1338,
+     "p_lead_better_for_ndp_on_first": 0.8458,
+     "p_government_differs": 0.043,
+     "p_ucp_maj_on_first_only": 0.0002,
+     "p_ucp_maj_on_second_only": 0.0428
+    },
+    "majority_vs_para167": {
+     "ucp_seat_diff_median": -1.0,
+     "ucp_seat_diff_p05_p95": [
+      -2.0,
+      -1.0
+     ],
+     "ucp_lead_diff_median": 0.0,
+     "ucp_lead_diff_p05_p95": [
+      -2.0,
+      0.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.008,
+     "p_lead_same": 0.7538,
+     "p_lead_better_for_ndp_on_first": 0.2382,
+     "p_government_differs": 0.0042,
+     "p_ucp_maj_on_first_only": 0.0004,
+     "p_ucp_maj_on_second_only": 0.0038
+    },
+    "minority_vs_panel": {
+     "ucp_seat_diff_median": 5.0,
+     "ucp_seat_diff_p05_p95": [
+      -2.0,
+      9.0
+     ],
+     "ucp_lead_diff_median": 12.0,
+     "ucp_lead_diff_p05_p95": [
+      -2.0,
+      20.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.8822,
+     "p_lead_same": 0.0458,
+     "p_lead_better_for_ndp_on_first": 0.072,
+     "p_government_differs": 0.273,
+     "p_ucp_maj_on_first_only": 0.273,
+     "p_ucp_maj_on_second_only": 0.0
+    },
+    "minority_vs_para167": {
+     "ucp_seat_diff_median": 6.0,
+     "ucp_seat_diff_p05_p95": [
+      -2.0,
+      10.0
+     ],
+     "ucp_lead_diff_median": 14.0,
+     "ucp_lead_diff_p05_p95": [
+      -2.0,
+      22.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.8882,
+     "p_lead_same": 0.0358,
+     "p_lead_better_for_ndp_on_first": 0.076,
+     "p_government_differs": 0.3122,
+     "p_ucp_maj_on_first_only": 0.3122,
+     "p_ucp_maj_on_second_only": 0.0
+    },
+    "panel_vs_para167": {
+     "ucp_seat_diff_median": 1.0,
+     "ucp_seat_diff_p05_p95": [
+      -1.0,
+      2.0
+     ],
+     "ucp_lead_diff_median": 2.0,
+     "ucp_lead_diff_p05_p95": [
+      -2.0,
+      4.0
+     ],
+     "p_lead_better_for_ucp_on_first": 0.7794,
+     "p_lead_same": 0.1644,
+     "p_lead_better_for_ndp_on_first": 0.0562,
+     "p_government_differs": 0.0392,
+     "p_ucp_maj_on_first_only": 0.0392,
      "p_ucp_maj_on_second_only": 0.0
     }
    }

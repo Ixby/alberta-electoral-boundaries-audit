@@ -1,5 +1,5 @@
 """make_tables.py -- turns out/results.json and out/districts_*.csv into the markdown tables used in
-simulation.md (written to out/tables.md). Run after simulate_338.py: python3 -I make_tables.py"""
+README.md (written to out/tables.md). Run after simulate_338.py: python3 -I make_tables.py"""
 import json
 from pathlib import Path
 
@@ -87,7 +87,8 @@ for a, b in order:
 # robustness
 L.append("\n### Robustness: same draws, different assumptions\n\n| Variant | P(UCP maj.) 2019 | majority | minority | panel | ¶167 | Different govt: panel vs majority | panel vs 2019 | minority vs majority |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|")
 names = {"main": "Main (proportional swing)", "additive_swing": "Additive swing", "no_riding_noise": "No riding noise",
-         "riding_noise_x1.5": "Riding noise × 1.5", "ranges_as_95pct": "338 ranges read as 95% intervals"}
+         "riding_noise_x1.5": "Riding noise × 1.5", "ranges_as_95pct": "338 ranges read as 95% intervals",
+         "riding_noise_x0.5": "Riding noise × 0.5"}
 for v, x in r["mc"].items():
     mm, pp = x["maps"], x["pairs"]
     L.append(f"| {names[v]} | " + " | ".join(pct(mm[k]["p_ucp_majority"]) for k in LAB) + " | "
