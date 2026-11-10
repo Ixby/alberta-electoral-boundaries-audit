@@ -2,7 +2,7 @@
 
 Entry: 2026-11-10 00:05 Alberta time · claude-fable-5-2 · medium
 
-> **Status: draft. Not in force, not signed, not filed.** Written 2026-11-10 at the author's direction ("Draft the amendment"). It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Three items marked **[to fill before signing]** do not exist yet.
+> **Status: draft. Not in force, not signed, not filed.** Written 2026-11-10 at the author's direction ("Draft the amendment"). It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Two items marked **[to fill before signing]** do not exist yet.
 >
 > **Not blind.** Before this was written, the audit had seen that the new rule moves the all-ballots results against the commission minority's map: 55 to 56–57 UCP seats, and an efficiency gap of +2.55% to about +4.6% to +5.6%. The rule was studied on 2026-11-09, after an audit of the vote file showed that sensitivity. The evidence for the rule uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
@@ -50,7 +50,7 @@ The two numbers come from federal elections in Alberta (the mean of the 2019 and
 | Commission majority (89) | 48–41 | 48–41 | 47 to 49 | −2.70% → −2.81% |
 | Commission minority (89) | 55–34 | 57–32 | 56 to 57 | +2.55% → +5.64% |
 | Panel, reconstructed (91) | 51–40 | 50–41 | 49 to 51 | −1.66% → −2.82% |
-| ¶167 map, reconstructed (91) | 50–41 | 50–41 | 49 to 51 | −2.19% → **[to fill before signing: Part 1 value]** |
+| ¶167 map, reconstructed (91) | 50–41 | 50–41 | 49 to 51 | −2.19% → −2.32% |
 
 - **Seats at a tied vote do not change** on any map: minority 46, majority 42, panel 45, ¶167 44.
 - **The minority map's change is two seats:** Calgary-Glenmore (66 modelled votes) and Calgary-Edgemont (384). Its efficiency gap moves in steps with them: +2.6% with neither, about +4.0% to +4.6% with one, +5.6% with both.
