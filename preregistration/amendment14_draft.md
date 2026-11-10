@@ -2,7 +2,7 @@
 
 Entry: 2026-11-10 01:31 Alberta time · claude-opus-5-5 · medium (redraft). First draft: 2026-11-09 23:19 Alberta time · claude-fable-5-2 · medium.
 
-> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. One item marked **[to decide before signing]** is open: how S5 reads under rule P (Part 3).
+> **Status: draft. Not in force, not signed, not filed.** Redrafted at the author's direction: early ballots belong only to electors who did not vote on election day, and federal elections are kept out of the rule. It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. No item is open; the draft awaits the author's signature.
 >
 > **Not blind.** Before this was written, the audit had seen that placing early ballots by each area's own lean moves the all-ballots results against the commission minority's map: 55 to 57 UCP seats, and an efficiency gap of +2.55% to +5.64%. The rule's evidence uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
@@ -50,7 +50,7 @@ As in Amendment 12, Parts 2 and 3, with the Part 2 file here.
 - The canonical ensemble and sets A to D were replayed on the draft file on 2026-11-10; all 32 chains passed the row-for-row check. The four Forest-ReCom chains failed it and are dropped. The lines under rule P (`findings/advance_vote_profile/outputs/thresholds_p.json`, `11_thresholds_p.py`):
   - **P1:** the 95th percentile of the canonical ensemble's efficiency gap is **+2.15%** (0.0215028; the same rule on the Amendment 12 replay reproduces its +1.39%). The minority map's +5.64% is above it; 192 of 1,010,000 plans reach it.
   - **S5:** the midpoint of the two commission maps' drain scores is **0.00588** (majority 0.00403, minority 0.00773; the same call on the Amendment 12 file reproduces its 0.00194).
-  - **S5's direction must be decided before S5 is read under rule P. [to decide before signing]** Under Amendment 12 the minority's drain sat far below the majority's, and S5 flags a map below the midpoint (Amendment 5, Part 7). Under rule P the order reverses: the minority's drain is the higher. Applied as written, S5 would not flag the minority and would flag the majority. This amendment must say which reading governs: keep the rule as written; fix the flag to "the minority's side of the midpoint" as observed on the file in force; or set S5 aside on this file. The choice is made knowing the effect, and must say so.
+  - **S5 is set aside on this file** (the author's decision, 2026-11-10). Under Amendment 12 the minority's drain sat far below the majority's, and S5 flags a map below the midpoint (Amendment 5, Part 7). Under rule P the order reverses: the minority's drain (0.00773) is above the majority's (0.00403). Any direction chosen now would be chosen knowing which map it flags. So on the rule P file S5 gives no flag: both drain scores and the midpoint are reported as a sensitivity. S5's registered reading on the file in force stands as filed.
 
 ## Part 4: what is reported beside it
 
