@@ -1,8 +1,8 @@
 # Amendment 14 (draft, unsigned) — Early ballots are placed by where the evidence says early voters live
 
-Entry: 2026-11-10 00:05 Alberta time · claude-fable-5-2 · medium
+Entry: 2026-11-09 23:19 Alberta time · claude-fable-5-2 · medium
 
-> **Status: draft. Not in force, not signed, not filed.** Written 2026-11-10 at the author's direction ("Draft the amendment"). It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Two items marked **[to fill before signing]** do not exist yet.
+> **Status: draft. Not in force, not signed, not filed.** Written 2026-11-09 at the author's direction ("Draft the amendment"). It takes effect only when the author signs it and it is filed as an update to registration 9wp5y. Two items marked **[to fill before signing]** do not exist yet.
 >
 > **Not blind.** Before this was written, the audit had seen that the new rule moves the all-ballots results against the commission minority's map: 55 to 56–57 UCP seats, and an efficiency gap of +2.55% to about +4.6% to +5.6%. The rule was studied on 2026-11-09, after an audit of the vote file showed that sensitivity. The evidence for the rule uses no map. A reader should still weigh the timing. Part 6 sets out the effects.
 
