@@ -117,7 +117,7 @@
    "public": true,
    "withdrawn": false,
    "pending_update": false,
-   "responses_sha256": "1c959d4643cf178f46ed97e2f0cc631784248420d783074f434330c74f81e8fb",
+   "responses_sha256": "7830b2026acf45937ff54bbafb428e06d5a8e6749e25eaf2b08e53d3617eabda",
    "updates": [
     {
      "id": "6ae7b85d4c54dce4aebde274",
@@ -172,6 +172,12 @@
      "state": "approved",
      "submitted_utc": "2026-11-08T22:14:23.695514",
      "justification_head": "Amendment 13: how Amendment 12 Part 2 (replays) is met for the territory null of"
+    },
+    {
+     "id": "6af36f7fe50e8122e3826eba",
+     "state": "approved",
+     "submitted_utc": "2026-11-10T19:25:05.010840",
+     "justification_head": "Amendment 14, signed 2026-11-10 13:22 Alberta time (UTC-6), before the official "
     }
    ],
    "files": {
@@ -329,6 +335,12 @@
    "registration": "9wp5y",
    "where": "update 6aef6367695bea212cf383af, field 344-86 (Context and additional information)",
    "note": "filed 2026-11-08 22:14 UTC (2026-11-08 4:14 PM Alberta Time, UTC-6), approved the same minute; text = the '## Amendment 13' section at commit 7b204102, SHA-256 cc0297d8...8e17f2fb (3,072 bytes); appended after Amendment 12; draft read back matched before submit; author's approval given in the CLI ('yes to both', then 'continue')"
+  },
+  "14": {
+   "status": "filed",
+   "registration": "9wp5y",
+   "where": "update 6af36f7fe50e8122e3826eba, field 344-86 (Context and additional information)",
+   "note": "filed 2026-11-10 19:25 UTC (2026-11-10 1:25 PM Alberta Time, UTC-6), approved the same minute; text = the '## Amendment 14' section at commit 462395d1, SHA-256 cca2badb...2abc8404 (9,535 bytes); appended after Amendment 13; draft read back matched before submit; author's approval given in the CLI ('Sigb the ammedment'; 'Set S5 aside on this file'; 'Sign and file on OSF')"
   }
  },
  "acknowledged": [
