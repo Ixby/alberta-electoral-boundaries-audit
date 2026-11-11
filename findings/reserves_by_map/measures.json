@@ -1,0 +1,509 @@
+{
+ "meta": {
+  "status": "exploratory, descriptive, not registered",
+  "panel_map": "reconstruction (provisional until the official file is posted)",
+  "referendum_source": "https://officialresults.elections.ab.ca/orPollResultsReferendum2026.cfm?EventID=202610&ED=NN&MODE=exED, downloaded 2026-11-10 21:01 Alberta time",
+  "inputs": {
+   "findings/reserves_by_map/inputs/referendum2026_q10_ed50.xlsx": "aecab3c9f63544d902fe7577c2df889b7b234f5c05f9b3b6d3ab01b68375c486",
+   "findings/reserves_by_map/inputs/referendum2026_q10_ed54.xlsx": "db653b5413685f13c401f8ca6a0e9ec7f82eac2a2c54d6352c0f201617551447",
+   "findings/reserves_by_map/inputs/referendum2026_q10_ed73.xlsx": "8be00f9d42b4ecc7a36e5488b59a9c42520d006a57ff32db48aadbedee602acf",
+   "findings/reserves_by_map/inputs/referendum2026_q10_ed80.xlsx": "7a37271cd4eba881197eccdc7a21a775e017602d8fbfa190111beef64723b444"
+  }
+ },
+ "placement": [
+  {
+   "nation": "Kainai (Blackfoot)",
+   "reserve": "Blood 148",
+   "csduid": "4803802",
+   "population_2021": 4572,
+   "land_km2": 1420.7,
+   "maps": {
+    "2019": {
+     "Cardston-Siksika": 99.8
+    },
+    "commission_majority": {
+     "Taber-Cardston": 99.7
+    },
+    "commission_minority": {
+     "Lethbridge-Cardston": 99.7
+    },
+    "panel_reconstruction": {
+     "Lethbridge-Cardston": 99.8
+    }
+   }
+  },
+  {
+   "nation": "Kainai (Blackfoot)",
+   "reserve": "Blood 148A",
+   "csduid": "4803803",
+   "population_2021": 0,
+   "land_km2": 18.2,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Cardston": 100.0
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Piikani (Blackfoot)",
+   "reserve": "Peigan Timber Limit B",
+   "csduid": "4803805",
+   "population_2021": 16,
+   "land_km2": 30.1,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Fort Macleod-Crowsnest Pass": 100.0
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Piikani (Blackfoot)",
+   "reserve": "Piikani 147",
+   "csduid": "4803801",
+   "population_2021": 1550,
+   "land_km2": 430.9,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Fort Macleod-Crowsnest Pass": 99.6
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Siksika (Blackfoot)",
+   "reserve": "Siksika 146",
+   "csduid": "4805802",
+   "population_2021": 3576,
+   "land_km2": 734.5,
+   "maps": {
+    "2019": {
+     "Cardston-Siksika": 100.0
+    },
+    "commission_majority": {
+     "High River-Vulcan-Siksika": 100.0
+    },
+    "commission_minority": {
+     "Drumheller-Stettler": 98.4,
+     "Lethbridge-Little Bow": 1.6
+    },
+    "panel_reconstruction": {
+     "Lethbridge-Little Bow": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Stoney Nakoda",
+   "reserve": "Big Horn 144A",
+   "csduid": "4809810",
+   "population_2021": null,
+   "land_km2": 22.6,
+   "maps": {
+    "2019": {
+     "Rimbey-Rocky Mountain House-Sundre": 100.0
+    },
+    "commission_majority": {
+     "Lacombe-Clearwater": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 100.0
+    },
+    "panel_reconstruction": {
+     "Rocky Mountain House-Sundre": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Stoney Nakoda",
+   "reserve": "Eden Valley 216",
+   "csduid": "4806803",
+   "population_2021": null,
+   "land_km2": 17.5,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 99.9
+    },
+    "commission_majority": {
+     "Canmore-Banff": 99.9
+    },
+    "commission_minority": {
+     "Canmore-Kananaskis": 100.0
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Stoney Nakoda",
+   "reserve": "Stoney 142, 143, 144 (Morley)",
+   "csduid": "4815802",
+   "population_2021": null,
+   "land_km2": 452.0,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 100.0
+    },
+    "commission_majority": {
+     "Canmore-Banff": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 99.2
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 100.0
+    }
+   }
+  },
+  {
+   "nation": "Stoney Nakoda",
+   "reserve": "Stoney 142B",
+   "csduid": "4815815",
+   "population_2021": null,
+   "land_km2": 71.8,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 100.0
+    },
+    "commission_majority": {
+     "Canmore-Banff": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 100.0
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 96.2,
+     "Rocky Mountain House-Sundre": 3.8
+    }
+   }
+  },
+  {
+   "nation": "Tsuut'ina",
+   "reserve": "Tsuut'ina 145",
+   "csduid": "4806804",
+   "population_2021": null,
+   "land_km2": 284.0,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 99.8
+    },
+    "commission_majority": {
+     "Calgary-Glenmore-Tsuut'ina": 99.5
+    },
+    "commission_minority": {
+     "Calgary-West-Tsuut'ina": 99.6
+    },
+    "panel_reconstruction": {
+     "Calgary-Glenmore-Tsuut'ina": 99.5
+    }
+   }
+  }
+ ],
+ "districts_holding_each_nation": {
+  "Blackfoot Confederacy (Alberta)": {
+   "2019": [
+    "Cardston-Siksika",
+    "Livingstone-Macleod"
+   ],
+   "commission_majority": [
+    "High River-Vulcan-Siksika",
+    "Livingstone-Macleod",
+    "Taber-Cardston"
+   ],
+   "commission_minority": [
+    "Drumheller-Stettler",
+    "Lethbridge-Cardston",
+    "Lethbridge-Fort Macleod-Crowsnest Pass"
+   ],
+   "panel_reconstruction": [
+    "Lethbridge-Cardston",
+    "Lethbridge-Little Bow",
+    "Macleod-Crowsnest"
+   ]
+  },
+  "Stoney Nakoda": {
+   "2019": [
+    "Banff-Kananaskis",
+    "Livingstone-Macleod",
+    "Rimbey-Rocky Mountain House-Sundre"
+   ],
+   "commission_majority": [
+    "Canmore-Banff",
+    "Lacombe-Clearwater"
+   ],
+   "commission_minority": [
+    "Canmore-Kananaskis",
+    "Rocky Mountain House-Banff Park"
+   ],
+   "panel_reconstruction": [
+    "Banff-Canmore-Diamond Valley",
+    "Rocky Mountain House-Sundre"
+   ]
+  },
+  "Tsuut'ina": {
+   "2019": [
+    "Banff-Kananaskis"
+   ],
+   "commission_majority": [
+    "Calgary-Glenmore-Tsuut'ina"
+   ],
+   "commission_minority": [
+    "Calgary-West-Tsuut'ina"
+   ],
+   "panel_reconstruction": [
+    "Calgary-Glenmore-Tsuut'ina"
+   ]
+  }
+ },
+ "referendum_q10_on_reserve_places": [
+  {
+   "ed2019": "Banff-Kananaskis",
+   "voting_area": "037",
+   "voting_place": "Redwood House",
+   "nation": "Tsuut'ina land (Redwood Meadows townsite)",
+   "located_by": "leasehold townsite on Tsuut'ina 145",
+   "on_reserve_community": false,
+   "electors_on_list": 725,
+   "remain": 328,
+   "begin_separation_process": 8,
+   "remain_pct": 97.6
+  },
+  {
+   "ed2019": "Banff-Kananaskis",
+   "voting_area": "038",
+   "voting_place": "Redwood House",
+   "nation": "Tsuut'ina land (Redwood Meadows townsite)",
+   "located_by": "leasehold townsite on Tsuut'ina 145",
+   "on_reserve_community": false,
+   "electors_on_list": 872,
+   "remain": 182,
+   "begin_separation_process": 87,
+   "remain_pct": 67.7
+  },
+  {
+   "ed2019": "Banff-Kananaskis",
+   "voting_area": "052",
+   "voting_place": "Stoney Nakoda",
+   "nation": "Stoney Nakoda",
+   "located_by": "named for Stoney Nakoda (Morley)",
+   "on_reserve_community": true,
+   "electors_on_list": 1404,
+   "remain": 1156,
+   "begin_separation_process": 45,
+   "remain_pct": 96.3
+  },
+  {
+   "ed2019": "Banff-Kananaskis",
+   "voting_area": "054",
+   "voting_place": "Chief Goodstoney Rodeo Centre - Buffalo Room",
+   "nation": "Stoney Nakoda",
+   "located_by": "at Morley",
+   "on_reserve_community": true,
+   "electors_on_list": 6,
+   "remain": 0,
+   "begin_separation_process": 0,
+   "remain_pct": null
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "003",
+   "voting_place": "Siksika Piiksapi Memorial Arbour",
+   "nation": "Siksika (Blackfoot)",
+   "located_by": "named for Siksika",
+   "on_reserve_community": true,
+   "electors_on_list": 1621,
+   "remain": 721,
+   "begin_separation_process": 12,
+   "remain_pct": 98.4
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "004",
+   "voting_place": "Siksika Piiksapi Memorial Arbour",
+   "nation": "Siksika (Blackfoot)",
+   "located_by": "named for Siksika",
+   "on_reserve_community": true,
+   "electors_on_list": 56,
+   "remain": 7,
+   "begin_separation_process": 0,
+   "remain_pct": 100.0
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "005",
+   "voting_place": "Siksika Deerfoot Sportplex",
+   "nation": "Siksika (Blackfoot)",
+   "located_by": "named for Siksika",
+   "on_reserve_community": true,
+   "electors_on_list": 313,
+   "remain": 282,
+   "begin_separation_process": 2,
+   "remain_pct": 99.3
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "006",
+   "voting_place": "Siksika Deerfoot Sportplex",
+   "nation": "Siksika (Blackfoot)",
+   "located_by": "named for Siksika",
+   "on_reserve_community": true,
+   "electors_on_list": 273,
+   "remain": 231,
+   "begin_separation_process": 5,
+   "remain_pct": 97.9
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "043",
+   "voting_place": "Kainai Multi Purpose Building",
+   "nation": "Kainai (Blackfoot)",
+   "located_by": "named for Kainai",
+   "on_reserve_community": true,
+   "electors_on_list": 405,
+   "remain": 523,
+   "begin_separation_process": 8,
+   "remain_pct": 98.5
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "049",
+   "voting_place": "Lavern Community Hall",
+   "nation": "Kainai (Blackfoot)",
+   "located_by": "Levern is a community on the Blood reserve",
+   "on_reserve_community": true,
+   "electors_on_list": 290,
+   "remain": 307,
+   "begin_separation_process": 6,
+   "remain_pct": 98.1
+  },
+  {
+   "ed2019": "Cardston-Siksika",
+   "voting_area": "052",
+   "voting_place": "Moses Lake Gym",
+   "nation": "Kainai (Blackfoot)",
+   "located_by": "Moses Lake is a community on the Blood reserve",
+   "on_reserve_community": true,
+   "electors_on_list": 466,
+   "remain": 456,
+   "begin_separation_process": 3,
+   "remain_pct": 99.3
+  },
+  {
+   "ed2019": "Livingstone-Macleod",
+   "voting_area": "002",
+   "voting_place": "Multipurpose Sprung Building",
+   "nation": "Stoney Nakoda",
+   "located_by": "Bearspaw First Nation's Sprung building at Eden Valley (opened May 2025)",
+   "on_reserve_community": true,
+   "electors_on_list": 308,
+   "remain": 229,
+   "begin_separation_process": 5,
+   "remain_pct": 97.9
+  },
+  {
+   "ed2019": "Livingstone-Macleod",
+   "voting_area": "003",
+   "voting_place": "Multipurpose Sprung Building",
+   "nation": "Stoney Nakoda",
+   "located_by": "Bearspaw First Nation's Sprung building at Eden Valley (opened May 2025)",
+   "on_reserve_community": true,
+   "electors_on_list": 2,
+   "remain": 0,
+   "begin_separation_process": 0,
+   "remain_pct": null
+  },
+  {
+   "ed2019": "Livingstone-Macleod",
+   "voting_area": "057",
+   "voting_place": "Piikani Nation Community Hall",
+   "nation": "Piikani (Blackfoot)",
+   "located_by": "named for Piikani",
+   "on_reserve_community": true,
+   "electors_on_list": 667,
+   "remain": 486,
+   "begin_separation_process": 10,
+   "remain_pct": 98.0
+  },
+  {
+   "ed2019": "Rimbey-Rocky Mountain House-Sundre",
+   "voting_area": "002",
+   "voting_place": "Big Horn Firehall",
+   "nation": "Stoney Nakoda",
+   "located_by": "named for Big Horn 144A",
+   "on_reserve_community": true,
+   "electors_on_list": 138,
+   "remain": 59,
+   "begin_separation_process": 2,
+   "remain_pct": 96.7
+  }
+ ],
+ "referendum_q10_by_nation": {
+  "Stoney Nakoda": {
+   "remain": 1444,
+   "begin_separation_process": 52,
+   "remain_pct": 96.5
+  },
+  "Siksika (Blackfoot)": {
+   "remain": 1241,
+   "begin_separation_process": 19,
+   "remain_pct": 98.5
+  },
+  "Kainai (Blackfoot)": {
+   "remain": 1286,
+   "begin_separation_process": 17,
+   "remain_pct": 98.7
+  },
+  "Piikani (Blackfoot)": {
+   "remain": 486,
+   "begin_separation_process": 10,
+   "remain_pct": 98.0
+  }
+ },
+ "referendum_q10_rest_of_division_election_day": {
+  "Banff-Kananaskis": {
+   "remain": 5047,
+   "begin_separation_process": 2448,
+   "remain_pct": 67.3
+  },
+  "Cardston-Siksika": {
+   "remain": 3357,
+   "begin_separation_process": 4537,
+   "remain_pct": 42.5
+  },
+  "Livingstone-Macleod": {
+   "remain": 4563,
+   "begin_separation_process": 4282,
+   "remain_pct": 51.6
+  },
+  "Rimbey-Rocky Mountain House-Sundre": {
+   "remain": 3800,
+   "begin_separation_process": 5657,
+   "remain_pct": 40.2
+  }
+ }
+}
