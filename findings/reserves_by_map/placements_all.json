@@ -1,0 +1,1937 @@
+{
+ "meta": {
+  "entry": "2026-11-10 21:28 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/reserves_by_map/placements_all.py",
+  "inputs": {
+   "data/shapefiles/reference/alberta_2021_csds.gpkg": "7ee3356b6e5c828db1e016cd96f101bfd0cbc67d8b3f87e429f2316430a4d840",
+   "data/shapefiles/reference/metis_settlements_dl/metis_settlements_goa.geojson": "5e7c1270e922433cddc033974ad38aa2a8e4562058dee1491a36ea6401d2c1e5",
+   "data/reference/alberta_2021_csd_populations.csv": "5d9737f936cab6ff76afb2c6c588cefce36eea40688e87992e38d911ddb36adb",
+   "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp": "89d0393f8046fe9178f630012fbf4a68718e898f538523554e211fc8dae526a4",
+   "data/shapefiles/canonical/ea_majority_2026_eds.gpkg": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160",
+   "data/shapefiles/canonical/ea_minority_2026_eds.gpkg": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
+   "findings/a10_stepb_run/districts_real_map.gpkg": "fc8a121d3ef973c3b45b37f96fbdf1f59c6ca84a0c45b824333f8562b9af5ad1"
+  },
+  "rule": "share of each place's land in each district; under 1% ignored"
+ },
+ "places": [
+  {
+   "place": "Buffalo Lake Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 353.4,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Barrhead-Westlock-Athabasca": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "East Prairie Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 333.2,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Elizabeth Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 261.7,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Fishing Lake Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 386.1,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Gift Lake Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 860.2,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kikino Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 455.6,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Barrhead-Westlock-Athabasca": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Paddle Prairie Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 1725.4,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Peavine Métis Settlement",
+   "kind": "metis_settlement",
+   "csduid": "",
+   "population_2021": null,
+   "land_km2": 838.6,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Alexander 134",
+   "kind": "reserve",
+   "csduid": "4811805",
+   "population_2021": 1077,
+   "land_km2": 72.1,
+   "maps": {
+    "2019": {
+     "Lac Ste. Anne-Parkland": 100.0
+    },
+    "commission_majority": {
+     "St. Albert-Sturgeon": 100.0
+    },
+    "commission_minority": {
+     "Lac Ste Anne-Parkland": 99.5
+    },
+    "panel_reconstruction": {
+     "Lac Ste. Anne": 98.1,
+     "Morinville-Sturgeon": 1.9
+    }
+   }
+  },
+  {
+   "place": "Alexander 134B",
+   "kind": "reserve",
+   "csduid": "4813829",
+   "population_2021": 5,
+   "land_km2": 0.1,
+   "maps": {
+    "2019": {
+     "Athabasca-Barrhead-Westlock": 100.0
+    },
+    "commission_majority": {
+     "West Yellowhead": 99.2
+    },
+    "commission_minority": {
+     "West Yellowhead": 99.2
+    },
+    "panel_reconstruction": {
+     "West Yellowhead": 98.5,
+     "Lesser Slave Lake": 1.5
+    }
+   }
+  },
+  {
+   "place": "Alexis 133",
+   "kind": "reserve",
+   "csduid": "4813811",
+   "population_2021": 770,
+   "land_km2": 66.1,
+   "maps": {
+    "2019": {
+     "Lac Ste. Anne-Parkland": 100.0
+    },
+    "commission_majority": {
+     "Barrhead-Westlock-Athabasca": 100.0
+    },
+    "commission_minority": {
+     "Lac Ste Anne-Parkland": 100.0
+    },
+    "panel_reconstruction": {
+     "Lac Ste. Anne": 100.0
+    }
+   }
+  },
+  {
+   "place": "Alexis Whitecourt 232",
+   "kind": "reserve",
+   "csduid": "4813830",
+   "population_2021": 0,
+   "land_km2": 37.2,
+   "maps": {
+    "2019": {
+     "West Yellowhead": 100.0
+    },
+    "commission_majority": {
+     "West Yellowhead": 100.0
+    },
+    "commission_minority": {
+     "West Yellowhead": 100.0
+    },
+    "panel_reconstruction": {
+     "West Yellowhead": 100.0
+    }
+   }
+  },
+  {
+   "place": "Allison Bay 219",
+   "kind": "reserve",
+   "csduid": "4816850",
+   "population_2021": 113,
+   "land_km2": 17.2,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    }
+   }
+  },
+  {
+   "place": "Beaver Lake 131",
+   "kind": "reserve",
+   "csduid": "4812828",
+   "population_2021": 401,
+   "land_km2": 62.2,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Beaver Ranch 163",
+   "kind": "reserve",
+   "csduid": "4817841",
+   "population_2021": 15,
+   "land_km2": 9.2,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Big Horn 144A",
+   "kind": "reserve",
+   "csduid": "4809810",
+   "population_2021": null,
+   "land_km2": 22.6,
+   "maps": {
+    "2019": {
+     "Rimbey-Rocky Mountain House-Sundre": 100.0
+    },
+    "commission_majority": {
+     "Lacombe-Clearwater": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 100.0
+    },
+    "panel_reconstruction": {
+     "Rocky Mountain House-Sundre": 100.0
+    }
+   }
+  },
+  {
+   "place": "Blood 148",
+   "kind": "reserve",
+   "csduid": "4803802",
+   "population_2021": 4572,
+   "land_km2": 1420.7,
+   "maps": {
+    "2019": {
+     "Cardston-Siksika": 99.8
+    },
+    "commission_majority": {
+     "Taber-Cardston": 99.7
+    },
+    "commission_minority": {
+     "Lethbridge-Cardston": 99.7
+    },
+    "panel_reconstruction": {
+     "Lethbridge-Cardston": 99.8
+    }
+   }
+  },
+  {
+   "place": "Blood 148A",
+   "kind": "reserve",
+   "csduid": "4803803",
+   "population_2021": 0,
+   "land_km2": 18.2,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Cardston": 100.0
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "place": "Boyer 164",
+   "kind": "reserve",
+   "csduid": "4817842",
+   "population_2021": 123,
+   "land_km2": 41.5,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Bushe River 207",
+   "kind": "reserve",
+   "csduid": "4817848",
+   "population_2021": 492,
+   "land_km2": 114.6,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Child Lake 164A",
+   "kind": "reserve",
+   "csduid": "4817843",
+   "population_2021": 172,
+   "land_km2": 27.7,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Clear Hills 152C",
+   "kind": "reserve",
+   "csduid": "4817825",
+   "population_2021": 0,
+   "land_km2": 16.5,
+   "maps": {
+    "2019": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_majority": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_minority": {
+     "Central Peace-Notley": 100.0
+    },
+    "panel_reconstruction": {
+     "Central Peace-Notley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Cold Lake 149",
+   "kind": "reserve",
+   "csduid": "4812810",
+   "population_2021": 671,
+   "land_km2": 147.3,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Cold Lake 149A",
+   "kind": "reserve",
+   "csduid": "4812813",
+   "population_2021": 68,
+   "land_km2": 0.7,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Cold Lake 149B",
+   "kind": "reserve",
+   "csduid": "4812815",
+   "population_2021": 181,
+   "land_km2": 43.5,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Dog Head 218",
+   "kind": "reserve",
+   "csduid": "4816852",
+   "population_2021": 85,
+   "land_km2": 0.4,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    }
+   }
+  },
+  {
+   "place": "Drift Pile River 150",
+   "kind": "reserve",
+   "csduid": "4817828",
+   "population_2021": 775,
+   "land_km2": 69.0,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Duncan's 151A",
+   "kind": "reserve",
+   "csduid": "4819826",
+   "population_2021": 111,
+   "land_km2": 20.8,
+   "maps": {
+    "2019": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_majority": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_minority": {
+     "Central Peace-Notley": 100.0
+    },
+    "panel_reconstruction": {
+     "Central Peace-Notley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Eden Valley 216",
+   "kind": "reserve",
+   "csduid": "4806803",
+   "population_2021": null,
+   "land_km2": 17.5,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 99.9
+    },
+    "commission_majority": {
+     "Canmore-Banff": 99.9
+    },
+    "commission_minority": {
+     "Canmore-Kananaskis": 100.0
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Enoch Cree Nation",
+   "kind": "reserve",
+   "csduid": "4811804",
+   "population_2021": 1825,
+   "land_km2": 52.6,
+   "maps": {
+    "2019": {
+     "Drayton Valley-Devon": 99.8
+    },
+    "commission_majority": {
+     "Edmonton-Enoch": 99.9
+    },
+    "commission_minority": {
+     "Edmonton-Enoch-Devon": 100.0
+    },
+    "panel_reconstruction": {
+     "Edmonton-Enoch": 99.9
+    }
+   }
+  },
+  {
+   "place": "Ermineskin 138",
+   "kind": "reserve",
+   "csduid": "4811801",
+   "population_2021": 2256,
+   "land_km2": 106.0,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 100.0
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "Fort Mckay 174",
+   "kind": "reserve",
+   "csduid": "4816810",
+   "population_2021": 621,
+   "land_km2": 32.3,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    }
+   }
+  },
+  {
+   "place": "Fort Vermilion 173B",
+   "kind": "reserve",
+   "csduid": "4817859",
+   "population_2021": 73,
+   "land_km2": 0.6,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Fox Lake 162",
+   "kind": "reserve",
+   "csduid": "4817835",
+   "population_2021": 2488,
+   "land_km2": 98.2,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Gregoire Lake 176",
+   "kind": "reserve",
+   "csduid": "4816821",
+   "population_2021": 203,
+   "land_km2": 22.7,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Gregoire Lake 176A",
+   "kind": "reserve",
+   "csduid": "4816822",
+   "population_2021": 129,
+   "land_km2": 0.8,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Hay Lake 209",
+   "kind": "reserve",
+   "csduid": "4817845",
+   "population_2021": 957,
+   "land_km2": 110.7,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Heart Lake 167",
+   "kind": "reserve",
+   "csduid": "4812840",
+   "population_2021": 211,
+   "land_km2": 47.7,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Horse Lakes 152B",
+   "kind": "reserve",
+   "csduid": "4819815",
+   "population_2021": 489,
+   "land_km2": 16.4,
+   "maps": {
+    "2019": {
+     "Grande Prairie-Wapiti": 100.0
+    },
+    "commission_majority": {
+     "Grande Prairie-Wapiti": 100.0
+    },
+    "commission_minority": {
+     "Grande Prairie-Wapiti": 100.0
+    },
+    "panel_reconstruction": {
+     "Grande Prairie-Wapiti": 100.0
+    }
+   }
+  },
+  {
+   "place": "Janvier 194",
+   "kind": "reserve",
+   "csduid": "4816817",
+   "population_2021": 360,
+   "land_km2": 27.5,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Lac La Biche": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 100.0
+    }
+   }
+  },
+  {
+   "place": "Jean Baptiste Gambler 183",
+   "kind": "reserve",
+   "csduid": "4817817",
+   "population_2021": 210,
+   "land_km2": 2.0,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "John D'Or Prairie 215",
+   "kind": "reserve",
+   "csduid": "4817837",
+   "population_2021": 702,
+   "land_km2": 140.1,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kapawe'no First Nation 150B",
+   "kind": "reserve",
+   "csduid": "4817836",
+   "population_2021": 42,
+   "land_km2": 0.3,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kapawe'no First Nation 150D",
+   "kind": "reserve",
+   "csduid": "4817830",
+   "population_2021": 5,
+   "land_km2": 3.9,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kapawe'no First Nation 229",
+   "kind": "reserve",
+   "csduid": "4817865",
+   "population_2021": 97,
+   "land_km2": 1.2,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kapawe'no First Nation 231",
+   "kind": "reserve",
+   "csduid": "4817826",
+   "population_2021": 5,
+   "land_km2": 0.5,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Kehewin 123",
+   "kind": "reserve",
+   "csduid": "4812811",
+   "population_2021": 1038,
+   "land_km2": 85.4,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Loon Lake 235",
+   "kind": "reserve",
+   "csduid": "4817860",
+   "population_2021": 487,
+   "land_km2": 71.5,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Louis Bull 138B",
+   "kind": "reserve",
+   "csduid": "4811803",
+   "population_2021": 1321,
+   "land_km2": 32.2,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 100.0
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "Makaoo (Part) 120",
+   "kind": "reserve",
+   "csduid": "4810805",
+   "population_2021": 141,
+   "land_km2": 39.0,
+   "maps": {
+    "2019": {
+     "Vermilion-Lloydminster-Wainwright": 99.8
+    },
+    "commission_majority": {
+     "Lloydminster-Wainwright": 99.8
+    },
+    "commission_minority": {
+     "Lloydminster-Wainwright": 99.8
+    },
+    "panel_reconstruction": {
+     "Lloydminster-Wainwright": 99.8
+    }
+   }
+  },
+  {
+   "place": "Montana 139",
+   "kind": "reserve",
+   "csduid": "4808813",
+   "population_2021": 598,
+   "land_km2": 28.8,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 99.2
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "O'Chiese 203",
+   "kind": "reserve",
+   "csduid": "4809806",
+   "population_2021": 804,
+   "land_km2": 140.0,
+   "maps": {
+    "2019": {
+     "Rimbey-Rocky Mountain House-Sundre": 99.0
+    },
+    "commission_majority": {
+     "Lacombe-Clearwater": 99.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 99.0
+    },
+    "panel_reconstruction": {
+     "Rocky Mountain House-Sundre": 99.0
+    }
+   }
+  },
+  {
+   "place": "Old Fort 217",
+   "kind": "reserve",
+   "csduid": "4816849",
+   "population_2021": 0,
+   "land_km2": 14.3,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    }
+   }
+  },
+  {
+   "place": "Peerless Trout 238",
+   "kind": "reserve",
+   "csduid": "4817834",
+   "population_2021": 0,
+   "land_km2": 37.5,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Peigan Timber Limit \"B\"",
+   "kind": "reserve",
+   "csduid": "4803805",
+   "population_2021": 16,
+   "land_km2": 30.1,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Fort Macleod-Crowsnest Pass": 100.0
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "place": "Pigeon Lake 138A",
+   "kind": "reserve",
+   "csduid": "4811802",
+   "population_2021": 285,
+   "land_km2": 19.8,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 100.0
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "Piikani 147",
+   "kind": "reserve",
+   "csduid": "4803801",
+   "population_2021": 1550,
+   "land_km2": 430.9,
+   "maps": {
+    "2019": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_majority": {
+     "Livingstone-Macleod": 100.0
+    },
+    "commission_minority": {
+     "Lethbridge-Fort Macleod-Crowsnest Pass": 99.6
+    },
+    "panel_reconstruction": {
+     "Macleod-Crowsnest": 100.0
+    }
+   }
+  },
+  {
+   "place": "Puskiakiwenin 122",
+   "kind": "reserve",
+   "csduid": "4812804",
+   "population_2021": 564,
+   "land_km2": 107.1,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 100.0
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 100.0
+    }
+   }
+  },
+  {
+   "place": "Saddle Lake 125",
+   "kind": "reserve",
+   "csduid": "4812806",
+   "population_2021": null,
+   "land_km2": 289.1,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 99.5
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 99.7
+    },
+    "commission_minority": {
+     "Barrhead-Westlock-Athabasca": 99.7
+    },
+    "panel_reconstruction": {
+     "Barrhead-Westlock-Athabasca": 99.7
+    }
+   }
+  },
+  {
+   "place": "Samson 137",
+   "kind": "reserve",
+   "csduid": "4808811",
+   "population_2021": 3252,
+   "land_km2": 134.2,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 99.9
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "Samson 137A",
+   "kind": "reserve",
+   "csduid": "4808812",
+   "population_2021": 19,
+   "land_km2": 1.4,
+   "maps": {
+    "2019": {
+     "Maskwacis-Wetaskiwin": 100.0
+    },
+    "commission_majority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "commission_minority": {
+     "Wetaskiwin-Ponoka-Maskwacis": 100.0
+    },
+    "panel_reconstruction": {
+     "Wetaskiwin-Ponoka": 100.0
+    }
+   }
+  },
+  {
+   "place": "Sawridge 150G",
+   "kind": "reserve",
+   "csduid": "4817832",
+   "population_2021": 41,
+   "land_km2": 10.0,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Sawridge 150H",
+   "kind": "reserve",
+   "csduid": "4817833",
+   "population_2021": 10,
+   "land_km2": 12.0,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Siksika 146",
+   "kind": "reserve",
+   "csduid": "4805802",
+   "population_2021": 3576,
+   "land_km2": 734.5,
+   "maps": {
+    "2019": {
+     "Cardston-Siksika": 100.0
+    },
+    "commission_majority": {
+     "High River-Vulcan-Siksika": 100.0
+    },
+    "commission_minority": {
+     "Drumheller-Stettler": 98.4,
+     "Lethbridge-Little Bow": 1.6
+    },
+    "panel_reconstruction": {
+     "Lethbridge-Little Bow": 100.0
+    }
+   }
+  },
+  {
+   "place": "Stoney 142, 143, 144",
+   "kind": "reserve",
+   "csduid": "4815802",
+   "population_2021": null,
+   "land_km2": 452.0,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 100.0
+    },
+    "commission_majority": {
+     "Canmore-Banff": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 99.2
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Stoney 142B",
+   "kind": "reserve",
+   "csduid": "4815815",
+   "population_2021": null,
+   "land_km2": 71.8,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 100.0
+    },
+    "commission_majority": {
+     "Canmore-Banff": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 100.0
+    },
+    "panel_reconstruction": {
+     "Banff-Canmore-Diamond Valley": 96.2,
+     "Rocky Mountain House-Sundre": 3.8
+    }
+   }
+  },
+  {
+   "place": "Sturgeon Lake 154",
+   "kind": "reserve",
+   "csduid": "4818816",
+   "population_2021": 1291,
+   "land_km2": 150.6,
+   "maps": {
+    "2019": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_majority": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_minority": {
+     "Central Peace-Notley": 100.0
+    },
+    "panel_reconstruction": {
+     "Central Peace-Notley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Sturgeon Lake 154A",
+   "kind": "reserve",
+   "csduid": "4818818",
+   "population_2021": 39,
+   "land_km2": 8.9,
+   "maps": {
+    "2019": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_majority": {
+     "Central Peace-Notley": 100.0
+    },
+    "commission_minority": {
+     "Central Peace-Notley": 100.0
+    },
+    "panel_reconstruction": {
+     "Central Peace-Notley": 100.0
+    }
+   }
+  },
+  {
+   "place": "Sucker Creek 150A",
+   "kind": "reserve",
+   "csduid": "4817829",
+   "population_2021": 703,
+   "land_km2": 66.6,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Sunchild 202",
+   "kind": "reserve",
+   "csduid": "4809809",
+   "population_2021": 644,
+   "land_km2": 53.6,
+   "maps": {
+    "2019": {
+     "Rimbey-Rocky Mountain House-Sundre": 100.0
+    },
+    "commission_majority": {
+     "Lacombe-Clearwater": 100.0
+    },
+    "commission_minority": {
+     "Rocky Mountain House-Banff Park": 100.0
+    },
+    "panel_reconstruction": {
+     "Rocky Mountain House-Sundre": 100.0
+    }
+   }
+  },
+  {
+   "place": "Swan River 150E",
+   "kind": "reserve",
+   "csduid": "4817831",
+   "population_2021": 400,
+   "land_km2": 41.2,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Tall Cree 173",
+   "kind": "reserve",
+   "csduid": "4817838",
+   "population_2021": 282,
+   "land_km2": 40.3,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Tall Cree 173A",
+   "kind": "reserve",
+   "csduid": "4817840",
+   "population_2021": 201,
+   "land_km2": 53.6,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Thabacha Náre 196A",
+   "kind": "reserve",
+   "csduid": "4816861",
+   "population_2021": null,
+   "land_km2": 2.5,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 95.5
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 95.5
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 95.5
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 95.5
+    }
+   }
+  },
+  {
+   "place": "Thebathi 196",
+   "kind": "reserve",
+   "csduid": "4816860",
+   "population_2021": null,
+   "land_km2": 62.3,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_majority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "commission_minority": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Wood Buffalo": 100.0
+    }
+   }
+  },
+  {
+   "place": "Tsuu T'ina Nation 145",
+   "kind": "reserve",
+   "csduid": "4806804",
+   "population_2021": null,
+   "land_km2": 284.0,
+   "maps": {
+    "2019": {
+     "Banff-Kananaskis": 99.8
+    },
+    "commission_majority": {
+     "Calgary-Glenmore-Tsuut'ina": 99.5
+    },
+    "commission_minority": {
+     "Calgary-West-Tsuut'ina": 99.6
+    },
+    "panel_reconstruction": {
+     "Calgary-Glenmore-Tsuut'ina": 99.5
+    }
+   }
+  },
+  {
+   "place": "Unipouheos 121",
+   "kind": "reserve",
+   "csduid": "4812802",
+   "population_2021": 875,
+   "land_km2": 93.9,
+   "maps": {
+    "2019": {
+     "Bonnyville-Cold Lake-St. Paul": 99.4
+    },
+    "commission_majority": {
+     "Cold Lake-Bonnyville-St. Paul": 99.4
+    },
+    "commission_minority": {
+     "Cold Lake-Bonnyville-St. Paul": 99.4
+    },
+    "panel_reconstruction": {
+     "Cold Lake-Bonnyville-St. Paul": 99.4
+    }
+   }
+  },
+  {
+   "place": "Upper Hay River 212",
+   "kind": "reserve",
+   "csduid": "4817849",
+   "population_2021": 381,
+   "land_km2": 15.0,
+   "maps": {
+    "2019": {
+     "Peace River": 100.0
+    },
+    "commission_majority": {
+     "Peace River": 100.0
+    },
+    "commission_minority": {
+     "Peace River": 100.0
+    },
+    "panel_reconstruction": {
+     "Peace River": 100.0
+    }
+   }
+  },
+  {
+   "place": "Utikoomak Lake 155",
+   "kind": "reserve",
+   "csduid": "4817824",
+   "population_2021": 734,
+   "land_km2": 66.8,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Utikoomak Lake 155A",
+   "kind": "reserve",
+   "csduid": "4817827",
+   "population_2021": 145,
+   "land_km2": 10.4,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabamun 133A",
+   "kind": "reserve",
+   "csduid": "4811806",
+   "population_2021": 981,
+   "land_km2": 63.7,
+   "maps": {
+    "2019": {
+     "Lac Ste. Anne-Parkland": 100.0
+    },
+    "commission_majority": {
+     "Stony Plain-Drayton Valley": 100.0
+    },
+    "commission_minority": {
+     "Lac Ste Anne-Parkland": 100.0
+    },
+    "panel_reconstruction": {
+     "Lac Ste. Anne": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabamun 133B",
+   "kind": "reserve",
+   "csduid": "4811807",
+   "population_2021": 20,
+   "land_km2": 2.1,
+   "maps": {
+    "2019": {
+     "Lac Ste. Anne-Parkland": 100.0
+    },
+    "commission_majority": {
+     "Stony Plain-Drayton Valley": 100.0
+    },
+    "commission_minority": {
+     "Lac Ste Anne-Parkland": 100.0
+    },
+    "panel_reconstruction": {
+     "Lac Ste. Anne": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabasca 166",
+   "kind": "reserve",
+   "csduid": "4817818",
+   "population_2021": 158,
+   "land_km2": 92.3,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabasca 166A",
+   "kind": "reserve",
+   "csduid": "4817819",
+   "population_2021": 559,
+   "land_km2": 6.8,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabasca 166B",
+   "kind": "reserve",
+   "csduid": "4817821",
+   "population_2021": 89,
+   "land_km2": 25.5,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabasca 166C",
+   "kind": "reserve",
+   "csduid": "4817822",
+   "population_2021": 179,
+   "land_km2": 34.0,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Wabasca 166D",
+   "kind": "reserve",
+   "csduid": "4817823",
+   "population_2021": 640,
+   "land_km2": 60.8,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "White Fish Lake 128",
+   "kind": "reserve",
+   "csduid": "4812808",
+   "population_2021": 1093,
+   "land_km2": 61.3,
+   "maps": {
+    "2019": {
+     "Fort McMurray-Lac La Biche": 98.8,
+     "Athabasca-Barrhead-Westlock": 1.2
+    },
+    "commission_majority": {
+     "Fort McMurray-Lac La Biche": 99.0,
+     "Cold Lake-Bonnyville-St. Paul": 1.0
+    },
+    "commission_minority": {
+     "Barrhead-Westlock-Athabasca": 99.0,
+     "Cold Lake-Bonnyville-St. Paul": 1.0
+    },
+    "panel_reconstruction": {
+     "Fort McMurray-Lac La Biche": 98.8,
+     "Cold Lake-Bonnyville-St. Paul": 1.0
+    }
+   }
+  },
+  {
+   "place": "Woodland Cree 226",
+   "kind": "reserve",
+   "csduid": "4817856",
+   "population_2021": 655,
+   "land_km2": 120.6,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Woodland Cree 227",
+   "kind": "reserve",
+   "csduid": "4817850",
+   "population_2021": 30,
+   "land_km2": 6.5,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  },
+  {
+   "place": "Woodland Cree 228",
+   "kind": "reserve",
+   "csduid": "4817857",
+   "population_2021": 161,
+   "land_km2": 37.4,
+   "maps": {
+    "2019": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_majority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "commission_minority": {
+     "Lesser Slave Lake": 100.0
+    },
+    "panel_reconstruction": {
+     "Lesser Slave Lake": 100.0
+    }
+   }
+  }
+ ]
+}
