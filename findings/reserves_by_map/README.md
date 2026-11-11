@@ -85,9 +85,9 @@ The rest-of-division shares are Banff-Kananaskis 67.3%, Cardston-Siksika 42.5%, 
 - **Electors on the list.** On-reserve turnout sometimes exceeds 100% (Kainai Multi Purpose Building: 531 ballots against 405 electors on the list). That fits a list of electors that undercounts reserve residents, who then registered at the poll. The 2021 census also gives no population for Stoney Nakoda or Tsuut'ina, which suggests those reserves were not fully enumerated.
 - **The "rest of division" side** includes other First Nations' voting places: Sunchild and O'Chiese are in Rimbey-Rocky Mountain House-Sundre.
 
-## Open next step
+## Public submissions
 
-Whether these nations asked to be kept together can be checked against the public submissions, which were read in full (`findings/submissions_recode/`). The full texts are not on this machine, because they are kept out of version control, so the search has been asked of the session that holds them.
+What the public submissions asked about each reserve, and which map does it, is in `submissions.md` (all 630 records that mention a nation, reserve, treaty or Métis settlement, read whole).
 
 ## Sources
 
