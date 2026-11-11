@@ -107,6 +107,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 - `rural_variance_usage.md` — the minority's second p. 356 charge (majority declined the ±25% rural flexibility), tested same day (exploratory): SUPPORTED — majority rural divisions near parity, minority's drawn light
 - `hansard_april16_motion19.md` — the April 16, 2026 floor debate (the day Government Motion 37 was introduced; it passed April 21) mined (2026-07-14): no one criticized the majority report on the floor; the only report attacked was the minority's, by the opposition
 | `drain_metric_validation.md` | Justify-or-drop validation of the §5.3.5 drain metric: V1 construct validity (PASS), V2 LISA framing (FAIL, framing dropped), V3 canonical-substrate direction (PASS, identifies substrate-staleness in published Phase B + joint-outlier numbers) |
+| `advance_vote_profile/outputs/s5_decomposition.json` | The neighbour-drain (S5) score broken into its district pairs, on election-day ballots, Amendment 12's file and rule P's file (`13_s5_decompose.py`). Each score comes from one to seven pairs, each ending at a seat won by under 5%. The two commission maps swap order between Amendment 12's file and rule P's, and the panel reconstruction's score runs 0.0044, 0.0104, 0.0005 across the three files |
 | `drain_label_shuffle_null_canonical.md` | Canonical-substrate Phase B label-shuffle null (10K perms; all three maps z < -2.7; Prediction A confirms on canonical) — supersedes `drain_label_shuffle_null.md` |
 | `extended_partisan_metrics_canonical.md` | Canonical-substrate extended partisan metrics (PB, Lopsided-t, Proportionality Deviation, Responsiveness; canonical EA shapefiles + 1.01M ReCom ensemble) — supersedes `extended_partisan_metrics.md` |
 | `phase4f_hardstop_canonical.md` | Canonical-substrate population-hardstop validation (share-based: 78/89 majority + 72/89 minority fail 2% share-drift; universe-mismatch 89/89 reading superseded) — supersedes `phase4f_summary.json` |
@@ -164,6 +165,7 @@ The files below are **regenerable** by re-running the corresponding script. Do n
 | `szat_results_full_votes.csv` | SZAT per-ED results (full vote tally) |
 | `szat_summary.json` | SZAT summary statistics (canonical vote attribution) |
 | `szat_summary_full_votes.json` | SZAT summary statistics (full vote tally) |
+| `szat_summary_all_ballots.json` | SZAT on all ballots. Its p = 0.0005 uses the independent-areas baseline that the test was retired for (`szat_block_permutation.md`), so it is not evidence. SZAT is exploratory and not used |
 | `tier_c_crop_manifest.json` | Tier-C boundary crop manifest |
 | `tier_c_sweep_log.csv` | Tier-C boundary sweep event log |
 | `topology_cleanup_log.csv` | Topology cleanup event log |
