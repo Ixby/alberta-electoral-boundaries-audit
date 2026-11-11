@@ -61,6 +61,32 @@ The rest-of-division shares are Banff-Kananaskis 67.3%, Cardston-Siksika 42.5%, 
 - **Packing does not show.** No map puts the reserves in a district their own vote helps win. The one district held by the NDP with reserves in it is Canmore-Banff on the majority map: there the Stoney Nakoda areas (217 votes) are 3.9% of the vote, and the NDP wins with or without them.
 - **2023 turnout on reserves was low.** The Blackfoot reserve areas cast 550 two-party votes on election day in 2023. At the on-reserve voting places in the 2026 referendum, they cast 3,059 valid ballots. At referendum-level turnout, a reserve bloc would be larger, and this test would have to be run again. Party lean on the reserves in 2023: Blackfoot 78% NDP, Stoney Nakoda 81%, Tsuut'ina 50%.
 
+## At referendum turnout (added 2026-11-10 23:03 Alberta time · claude-opus-5-5 · high, from settings)
+
+`turnout_scenario.py` asks what the seat counts would be if the reserves had voted in 2023 at the turnout they showed in the 2026 referendum, keeping their 2023 party split. For each nation, the 2023 election-day two-party votes in its reserve voting areas are multiplied by its 2026 Question 10 election-day ballots at on-reserve places. Everyone else keeps their 2023 votes. Output: `turnout_scenario.json`.
+
+| Nation | 2023 two-party votes | 2026 ballots | Factor | NDP share, 2023 |
+|---|---:|---:|---:|---:|
+| Siksika | 152 | 1,260 | 8.3 | 79.6% |
+| Kainai | 198 | 1,303 | 6.6 | 93.9% |
+| Piikani | 199 | 496 | 2.5 | 62.1% |
+| Stoney Nakoda | 262 | 1,496 | 5.7 | 80.8% |
+| Tsuut'ina | 335 | none found | kept at 1 | 49.6% |
+
+| Map | Seats on 2023 election-day votes (NDP–UCP) | Same, reserves at referendum turnout | District that changes |
+|---|---|---|---|
+| 2019 | 30–57 | 30–57 | none |
+| Commission majority | 34–55 | 34–55 | none |
+| Commission minority | 29–60 | 29–60 | none |
+| Panel (reconstruction) | 33–58 | **34–57** | Banff-Canmore-Diamond Valley, UCP → NDP |
+
+- **One seat changes, on one map.** On the panel reconstruction, Banff-Canmore-Diamond Valley holds Morley and Eden Valley. The UCP leads there by 468 election-day votes. At 3.6 times their 2023 turnout, the reserve votes would erase that lead; at referendum turnout (5.7 times), the NDP leads by 373. Scaling Morley and Eden Valley by their own places (1,435 ballots, 6.6 times) instead of all Stoney Nakoda places makes the NDP lead larger, not smaller.
+- **On the majority map the same two reserves sit in Canmore-Banff, which the NDP already wins** (by 590, and by 1,431 at referendum turnout). The minority map joins Morley to Rocky Mountain House, where the UCP lead is 4,648. On both, the seat stays the same.
+- **The Blackfoot vote changes no seat on any map.** At referendum turnout the reserve vote is 9% to 23% of its district, but the UCP leads stay in the thousands. The closest is Lethbridge-Cardston (Kainai): the reserve vote would need 13 times (panel) or 18 times (minority) its 2023 turnout to flip it, against 6.6 times in the referendum.
+- **Tsuut'ina has no on-reserve referendum place**, so it stays at 2023 turnout. Giving it the pooled factor of the other nations (5.6) changes nothing: its 2023 vote split almost evenly.
+
+**Limits.** Election-day votes only, on both sides; with advance votes the 2023 margins differ, so the one flip is a sign of closeness, not a forecast. A referendum's turnout need not carry over to an election, and a party split need not hold at a higher turnout. The panel map is the reconstruction, so its flip is provisional until the official file is posted. Only the reserves of these five nations are scaled; other nations' reserves keep 2023 turnout.
+
 ## Turnout over 100%, across the province
 
 `turnout_over_100.py` reads all 87 divisions' referendum results (election day, Question 10). In 12 of 4,904 voting areas, ballots exceed electors on the list. They fall into three kinds (`turnout_over_100.json`):
