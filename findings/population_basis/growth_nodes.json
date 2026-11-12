@@ -1,0 +1,148 @@
+{
+ "plan": "preregistration/population_basis_2026-11-07.md",
+ "growth_nodes_csv": "growth_nodes.csv",
+ "growth_nodes_sha256": "205b653c0ca66f8cdf7a8467c348d3d5e6cb849600cc1626a525f825431c7908",
+ "n_nodes": 4765,
+ "total_2021": 4262572.3,
+ "total_growth": 4888723.0,
+ "entitlement_check": "reproduces population_basis.json seats_2024 within 0.001 for every region",
+ "real_maps": {
+  "majority": {
+   "2021": {
+    "districts": 89,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": -0.6859,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 21,
+     "reg_Other_cities_20000plus": 6
+    }
+   },
+   "published": {
+    "city_gap_pct": 9.2001
+   },
+   "growth": {
+    "districts": 89,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 8.2923,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 21,
+     "reg_Other_cities_20000plus": 6
+    }
+   }
+  },
+  "minority": {
+   "2021": {
+    "districts": 89,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 5.3845,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 4,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 9,
+     "reg_Everything_else": 22,
+     "reg_Other_cities_20000plus": 5
+    }
+   },
+   "published": {
+    "city_gap_pct": 15.0953
+   },
+   "growth": {
+    "districts": 89,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 14.9554,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 4,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 9,
+     "reg_Everything_else": 22,
+     "reg_Other_cities_20000plus": 5
+    }
+   }
+  },
+  "panel": {
+   "2021": {
+    "districts": 91,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 4.2746,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 23,
+     "reg_Other_cities_20000plus": 6
+    }
+   },
+   "published": {
+    "city_gap_pct": 13.3983
+   },
+   "growth": {
+    "districts": 91,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 13.6087,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 23,
+     "reg_Other_cities_20000plus": 6
+    }
+   }
+  },
+  "para167": {
+   "2021": {
+    "districts": 91,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 3.4625,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 23,
+     "reg_Other_cities_20000plus": 6
+    }
+   },
+   "growth": {
+    "districts": 91,
+    "n_city_districts": 49,
+    "calgary": 28,
+    "edmonton": 21,
+    "city_gap_pct": 12.7195,
+    "reg": {
+     "reg_Calgary": 28,
+     "reg_Calgary_ring": 5,
+     "reg_Edmonton": 21,
+     "reg_Edmonton_ring": 8,
+     "reg_Everything_else": 23,
+     "reg_Other_cities_20000plus": 6
+    }
+   }
+  }
+ }
+}
