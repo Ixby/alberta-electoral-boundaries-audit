@@ -451,7 +451,7 @@ export default {
 		},
 		mind: {
 			h: "Ano ang magpapabago sa isip ko",
-			p1: "Bawat pangunahing natuklasan ay may nakasulat na kondisyon na magbabawi rito, karamihan ay itinakda noong Abril 24, 2026. Kung matugunan ang isa, ilalathala ko ang pagbawi sa loob ng 48 oras mula nang malaman ko ito, gaya ng sinasabi ng tuntunin ng proyekto.",
+			p1: "Bawat pangunahing natuklasan ay may nakasulat na kondisyon na magbabawi rito, karamihan ay itinakda noong Abril 24, 2026. Kung matugunan ang isa, ilalathala ko ang pagbawi sa loob ng 30 araw mula nang malaman ko ito, gaya ng sinasabi ng tuntunin ng proyekto.",
 			li1: "<strong>May magpakitang sapilitan ang palitan.</strong> Kung walang legal na mapang makatutugon sa mga sinabing dahilan ng minorya sa Airdrie, Cochrane, Nolan Hill at Rocky Mountain House–Banff Park habang sumusunod sa mga hangganan ng bayan at lungsod nang kasindalas ng mapa ng mayorya, babawiin ko ang natuklasang hindi naipapaliwanag ng mga dahilang iyon ang mga linyang iyon. Bukas ang hamon sa <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>May dokumentong nagpapakitang nauna ang mga dahilan.</strong> Kung ang isang panloob na dokumento ng komisyon, na may petsa bago ang mga huling pagpili ng minorya, ay nagpapakitang itinulak ang mga pagpiling iyon ng mga submission ng komunidad na hindi ko pa nakikita, babawiin ko ang hinuhang mga desisyon iyon sa pagbalangkas.",
 			li3: "<strong>Lumabas na artefact ang pass sa neighbour-drain.</strong> Kung bumagsak ang tuloy-tuloy na bersyon ng score na iyon sa matinding itaas na buntot (p &lt; 0.05) ng mga random na permutation, babawiin ko ang pass ng minorya.",

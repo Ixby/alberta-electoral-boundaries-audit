@@ -2556,7 +2556,7 @@ The honest summary: *the minority meets four of five structural tests; on partis
 
 4. **A structural result on the panel's 91-seat map would not, by itself, change the verdict.** The registered November structural lane (replicated at 3 or more of 5 flags) fires on about 93.5% of neutral 91-district maps, so a minority-range score shows resemblance to the minority map, not departure from neutral; the partisan lane carries that test.
 
-The audit's pre-registration commits the author to publishing any of these retractions publicly within 30 days of receiving the falsifying evidence.
+The audit's operating rule, kept in the repository and not registered at OSF (`preregistration/retraction_conditions.md` §0), commits the author to publishing any of these retractions publicly within 30 days of receiving the falsifying evidence.
 
 <a id="sec-6-2-7"></a>
 #### 6.2.7 Verdict on the April 16 government pivot itself

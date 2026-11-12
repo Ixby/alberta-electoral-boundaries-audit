@@ -448,7 +448,7 @@ export default {
 		},
 		mind: {
 			h: "Waut miene Meenunk endre wudd",
-			p1: "Jiede Hauptaunfindunk haft en opjeschräwne Bedinjunk, dee see trigjnäme wudd, dee meeste dän 24. April 2026 fastjelajcht. Wann eene erfellt es, woa ekj dee Trigjnoam bennen 48 Stunde veöffentliche, nodäm ekj doavon jehieet ha, soo aus dee Projekt siene Reajel sajcht.",
+			p1: "Jiede Hauptaunfindunk haft en opjeschräwne Bedinjunk, dee see trigjnäme wudd, dee meeste dän 24. April 2026 fastjelajcht. Wann eene erfellt es, woa ekj dee Trigjnoam bennen 30 Doag veöffentliche, nodäm ekj doavon jehieet ha, soo aus dee Projekt siene Reajel sajcht.",
 			li1: "<strong>Irjentwäa wiest, daut dee Aufweajunk jetwunge wea.</strong> Wann kjeene jesetslije Koat dee Minorität äare jenannte Grind bie Airdrie, Cochrane, Nolan Hill un Rocky Mountain House–Banff Park erfelle kjann un doabie Staut- un Darpgrenze soo oft foljt aus dee Mehrheitskoat, dann näm ekj dee Aunfindunk trigj, daut dee Grind dee Linie nich erkjläre. Dee Utfoadrunk es op bie <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>En Dokument wiest, daut dee Grind toeascht kjeeme.</strong> Wan en intern Kommissjoonsdokument, dotieet vä dee Minorität äare latste Väalwälen, wiest, daut dee Väalwälen von Jemeende-Enjoowe jedräwe wudde, dee ekj nich jeseene ha, woa ekj dän Schluss trigjnäme, daut daut Entwoafsentscheidunge wiere.",
 			li3: "<strong>Daut Dorchkome bie Nobaafloot es bloos en Artefakt.</strong> Wan dee stätje Versjoon von dee Wäatunk em extreme bowaste Schwaunz (p < 0,05) von toofällije Permutatsjoone felt, woa ekj dee Minorität äa Dorchkome trigjtrakje.",

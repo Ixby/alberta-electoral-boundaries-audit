@@ -490,7 +490,7 @@ export default {
 		},
 		mind: {
 			h: "What would change my mind",
-			p1: 'Each main finding has a written condition that would withdraw it, most set on April 24, 2026. If one is met, I will publish the retraction within 48 hours of learning of it, as the project\'s rule says.',
+			p1: 'Each main finding has a written condition that would withdraw it, most set on April 24, 2026. If one is met, I will publish the retraction within 30 days of learning of it, as the project\'s rule says.',
 			li1: '<strong>Someone shows the trade-off was forced.</strong> If no legal map can meet the minority\'s stated reasons at Airdrie, Cochrane, Nolan Hill and Rocky Mountain House–Banff Park while following town and city lines as often as the majority map, I\'ll retract the finding that those reasons don\'t explain those lines. The challenge is open at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.',
 			li2: "<strong>A document shows the reasons came first.</strong> If an internal commission document, dated before the minority's final choices, shows those choices were driven by community submissions I haven't seen, I'll retract the inference that they were drafting decisions.",
 			li3: "<strong>The neighbour-drain pass turns out to be an artefact.</strong> If the continuous version of that score falls in the extreme upper tail (p &lt; 0.05) of random permutations, I'll withdraw the minority's pass.",

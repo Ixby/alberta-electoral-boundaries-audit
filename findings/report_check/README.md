@@ -59,7 +59,7 @@ Two clauses with no support were removed:
 - The CBC November 2025 notwithstanding-clause link could not be found in search.
 
 **Conflicts and gaps in the record:**
-- **Retraction timing:** the public report and `preregistration/retraction_conditions.md` say 48 hours; academic §6.2.6 says 30 days. Not changed: the commitment is the author's.
+- **Retraction timing:** the public report and `preregistration/retraction_conditions.md` said 48 hours; academic §6.2.6 said 30 days. Resolved 2026-11-12: the author chose 30 days, and every document and all 18 site languages now say 30 days.
 - **Appendix E** does not exist (D goes to F). Nothing links to it.
 - **The site's text** (`viewer/src/lib/i18n/locales/en.ts`) was not fact-checked separately. Only the Finding 15 and minority-quote fixes were carried over. One known difference: the report's corrected sweep says 49.2% and 1.6 points. The English site text matches it (`d4b5c735`); most translated locales still say 49.7% and 4 points.
 - **The title** was changed by the author on 2026-11-07, from "Two Maps, Then None" to "Two Paths, One Map".

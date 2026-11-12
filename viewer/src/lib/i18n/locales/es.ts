@@ -453,7 +453,7 @@ export default {
 		},
 		mind: {
 			h: "Qué me haría cambiar de opinión",
-			p1: "Cada hallazgo principal tiene una condición escrita que lo retiraría, la mayoría fijadas el 24 de abril de 2026. Si se cumple una, publicaré la retractación dentro de las 48 horas siguientes a enterarme, como dice la regla del proyecto.",
+			p1: "Cada hallazgo principal tiene una condición escrita que lo retiraría, la mayoría fijadas el 24 de abril de 2026. Si se cumple una, publicaré la retractación dentro de los 30 días siguientes a enterarme, como dice la regla del proyecto.",
 			li1: "<strong>Alguien demuestra que la disyuntiva era forzosa.</strong> Si ningún mapa legal puede cumplir las razones declaradas de la minoría en Airdrie, Cochrane, Nolan Hill y Rocky Mountain House–Banff Park siguiendo los límites de pueblos y ciudades tan a menudo como el mapa mayoritario, me retractaré del hallazgo de que esas razones no explican esas líneas. El desafío está abierto en <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>Un documento muestra que las razones vinieron primero.</strong> Si un documento interno de la comisión, fechado antes de las decisiones finales del minoritario, muestra que esas decisiones las impulsaron presentaciones de la comunidad que no he visto, retractaré la inferencia de que fueron decisiones propias de quienes trazaron el mapa.",
 			li3: "<strong>El aprobado en drenaje de vecinos resulta ser un artefacto.</strong> Si la versión continua de esa puntuación cae en la cola superior extrema (p &lt; 0.05) de permutaciones aleatorias, retiraré el aprobado del minoritario.",

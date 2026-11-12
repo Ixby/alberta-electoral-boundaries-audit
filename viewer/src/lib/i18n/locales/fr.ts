@@ -450,7 +450,7 @@ export default {
 		},
 		mind: {
 			h: "Ce qui me ferait changer d'avis",
-			p1: "Chaque constat principal a une condition écrite qui le retirerait, la plupart fixées le 24 avril 2026. Si l'une est remplie, je publierai la rétractation dans les 48 heures après l'avoir appris, comme le prévoit la règle du projet.",
+			p1: "Chaque constat principal a une condition écrite qui le retirerait, la plupart fixées le 24 avril 2026. Si l'une est remplie, je publierai la rétractation dans les 30 jours après l'avoir appris, comme le prévoit la règle du projet.",
 			li1: "<strong>Quelqu'un montre que le compromis était inévitable.</strong> Si aucune carte légale ne peut répondre aux motifs déclarés de la minorité à Airdrie, à Cochrane, à Nolan Hill et à Rocky Mountain House–Banff Park tout en suivant les limites des villes et des villages aussi souvent que la carte de la majorité, je retirerai le constat selon lequel ces motifs n'expliquent pas ces limites. Le défi est ouvert à l'<a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>Un document montre que les motifs sont venus en premier.</strong> Si un document interne de la commission, daté d'avant les choix finaux de la minorité, montre que ces choix découlaient de mémoires communautaires que je n'ai pas vus, je rétracterai l'inférence selon laquelle il s'agissait de décisions de tracé.",
 			li3: "<strong>La réussite au drainage des voisins se révèle être un artefact.</strong> Si la version continue de ce score tombe dans la queue supérieure extrême (p < 0,05) de permutations aléatoires, je retirerai la réussite de la minorité.",

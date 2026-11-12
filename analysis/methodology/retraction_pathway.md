@@ -15,7 +15,7 @@ type: methodology
 
 # Retraction pathway
 
-Each active finding in this audit has a named retraction condition committed before the finding was published. A finding retracts — meaning it is moved from the active findings section to the DOCUMENTED CORRECTIONS box — when the condition is empirically met. The audit's operating rule is to act on a retraction condition within 48 hours of the evidence becoming known. The rule is kept in the repository and is not pre-registered outside it (`preregistration/retraction_conditions.md` §0).
+Each active finding in this audit has a named retraction condition committed before the finding was published. A finding retracts — meaning it is moved from the active findings section to the DOCUMENTED CORRECTIONS box — when the condition is empirically met. The audit's operating rule is to act on a retraction condition within 30 days of the evidence becoming known. The rule is kept in the repository and is not pre-registered outside it (`preregistration/retraction_conditions.md` §0).
 
 This document is the canonical lookup. Cross-references point to the primary source for each condition.
 

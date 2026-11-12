@@ -448,7 +448,7 @@ export default {
 		},
 		mind: {
 			h: "Co zmieniłoby moje zdanie",
-			p1: "Każde główne ustalenie ma spisany warunek, który by je wycofał; większość ustalono 24 kwietnia 2026 roku. Jeśli któryś zostanie spełniony, opublikuję odwołanie w ciągu 48 godzin od dowiedzenia się o tym, jak mówi zasada projektu.",
+			p1: "Każde główne ustalenie ma spisany warunek, który by je wycofał; większość ustalono 24 kwietnia 2026 roku. Jeśli któryś zostanie spełniony, opublikuję odwołanie w ciągu 30 dni od dowiedzenia się o tym, jak mówi zasada projektu.",
 			li1: "<strong>Ktoś wykaże, że kompromis był wymuszony.</strong> Jeśli żadna legalna mapa nie może spełnić podanych przez mniejszość uzasadnień w Airdrie, Cochrane, Nolan Hill i Rocky Mountain House–Banff Park, trzymając się przy tym granic miast i miasteczek tak często jak mapa większości, wycofam ustalenie, że te uzasadnienia nie wyjaśniają tych linii. Wyzwanie jest otwarte w <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>Dokument pokaże, że powody były pierwsze.</strong> Jeśli wewnętrzny dokument komisji, datowany przed ostatecznymi wyborami mniejszości, pokaże, że te wybory wynikały ze zgłoszeń społeczności, których nie widziałem, wycofam wniosek, że były to decyzje podjęte przy samym rysowaniu mapy.",
 			li3: "<strong>Zaliczenie testu drenażu sąsiedzkiego okaże się artefaktem.</strong> Jeśli ciągła wersja tego wyniku wypadnie w skrajnym górnym ogonie (p < 0,05) losowych permutacji, wycofam zaliczenie mapy mniejszościowej.",

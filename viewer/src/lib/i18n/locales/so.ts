@@ -448,7 +448,7 @@ export default {
 		},
 		mind: {
 			h: "Waxa fikirkayga beddeli lahaa",
-			p1: "Natiijo kasta oo weyn waxay leedahay shuruud qoran oo meesha ka saaraysa, inta badan waxa la dejiyay 24 Abriil 2026. Haddii mid la buuxiyo, dib-u-noqoshada waxaan daabici doonaa 48 saacadood gudahood marka aan ogaado, sida xeerka mashruucu sheegayo.",
+			p1: "Natiijo kasta oo weyn waxay leedahay shuruud qoran oo meesha ka saaraysa, inta badan waxa la dejiyay 24 Abriil 2026. Haddii mid la buuxiyo, dib-u-noqoshada waxaan daabici doonaa 30 maalmood gudahood marka aan ogaado, sida xeerka mashruucu sheegayo.",
 			li1: "<strong>Qof ayaa muujiya in is-dhaafsigu ahaa mid qasab ah.</strong> Haddii aanay jirin khariidad sharci ah oo buuxin karta sababaha inta yar sheegtay ee Airdrie, Cochrane, Nolan Hill iyo Rocky Mountain House–Banff Park iyadoo raacaysa khadadka magaalooyinka iyo degmooyinka inta khariidadda inta badan raacdo, waan ka noqon doonaa natiijada ah in sababahaasi aanay sharxin khadadkaas. Caqabaddu way furan tahay <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Arrinta #14</a>.",
 			li2: "<strong>Dukumeenti ayaa muujiya in sababuhu hore u yimaadeen.</strong> Haddii dukumeenti guddi oo gudaha ah, oo taariikhdiisu ka horreyso doorashooyinka kama dambaysta ah ee inta yar, uu muujiyo in doorashooyinkaas ay wadeen soo gudbinno bulsho oo aanan arag, waan ka noqon doonaa istidlaalka ah inay ahaayeen go'aanno qoris.",
 			li3: "<strong>Gudbitaanka neighbour-drain wuxuu noqdaa wax farsamo ka dhashay.</strong> Haddii nooca joogtada ah ee dhibcahaas uu ku dhaco dabada sare ee xad-dhaafka ah (p &lt; 0.05) ee isbeddellada bakhtiyaanasiibka ah, waan ka laaban doonaa gudbitaanka inta yar.",

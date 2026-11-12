@@ -448,7 +448,7 @@ export default {
 		},
 		mind: {
 			h: "Điều gì sẽ khiến tôi đổi ý",
-			p1: "Mỗi phát hiện chính đều có một điều kiện được viết ra mà nếu xảy ra sẽ rút lại phát hiện đó, phần lớn được đặt vào ngày 24 tháng Tư năm 2026. Nếu một điều kiện được đáp ứng, tôi sẽ công bố việc rút lại trong vòng 48 giờ kể từ khi biết, như quy tắc của dự án yêu cầu.",
+			p1: "Mỗi phát hiện chính đều có một điều kiện được viết ra mà nếu xảy ra sẽ rút lại phát hiện đó, phần lớn được đặt vào ngày 24 tháng Tư năm 2026. Nếu một điều kiện được đáp ứng, tôi sẽ công bố việc rút lại trong vòng 30 ngày kể từ khi biết, như quy tắc của dự án yêu cầu.",
 			li1: "<strong>Ai đó chứng minh được rằng sự đánh đổi là bắt buộc.</strong> Nếu không bản đồ hợp pháp nào có thể đáp ứng các lý do mà phe thiểu số nêu ra ở Airdrie, Cochrane, Nolan Hill và Rocky Mountain House–Banff Park mà vẫn bám theo ranh giới thị trấn và thành phố thường xuyên như bản đồ đa số, tôi sẽ rút lại phát hiện rằng các lý do đó không giải thích được các đường ranh giới đó. Thử thách này đang mở tại <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
 			li2: "<strong>Một tài liệu cho thấy lý do có trước.</strong> Nếu một tài liệu nội bộ của ủy ban, đề ngày trước các lựa chọn cuối cùng của phe thiểu số, cho thấy những lựa chọn đó xuất phát từ các bài nộp của cộng đồng mà tôi chưa thấy, tôi sẽ rút lại suy luận rằng chúng là các quyết định soạn thảo.",
 			li3: "<strong>Kết quả đạt ở bài rút cạn lân cận hóa ra là một sản phẩm phụ của phương pháp.</strong> Nếu phiên bản liên tục của điểm số đó rơi vào phần đuôi trên cực đoan (p < 0,05) của các hoán vị ngẫu nhiên, tôi sẽ rút lại kết quả đạt của phe thiểu số.",
