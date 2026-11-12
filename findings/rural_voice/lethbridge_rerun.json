@@ -1,0 +1,419 @@
+{
+ "plan": "preregistration/rural_voice_2026-11-07.md (commit c01cbdcd), 'Neutral comparison'",
+ "status": "unregistered",
+ "primary_ballots": "all (election-day beside)",
+ "panel": {
+  "rural_in_urbmaj": 82386.51393938197,
+  "leth_rural_in_urbmaj": 8138.336221130616,
+  "mixed": 7,
+  "urbmaj_mixed": 5,
+  "over_div_all": 0,
+  "over_res_all": 0.0,
+  "over_vot_all": 0.0,
+  "over_div_ed": 0,
+  "over_res_ed": 0.0,
+  "over_vot_ed": 0.0,
+  "focus_rural_total_in_region": 14576.105739292463,
+  "focus_rural_total_province": 14576.105739292463
+ },
+ "replay_check": {
+  "blind_1": {
+   "rows": 49000,
+   "rows_equal": 49000,
+   "first_mismatch": null
+  },
+  "blind_2": {
+   "rows": 49000,
+   "rows_equal": 49000,
+   "first_mismatch": null
+  },
+  "blind_3": {
+   "rows": 49000,
+   "rows_equal": 49000,
+   "first_mismatch": null
+  },
+  "blind_4": {
+   "rows": 49000,
+   "rows_equal": 49000,
+   "first_mismatch": null
+  },
+  "muni_1": {
+   "rows": 50000,
+   "rows_equal": 50000,
+   "first_mismatch": null
+  },
+  "muni_2": {
+   "rows": 50000,
+   "rows_equal": 50000,
+   "first_mismatch": null
+  },
+  "muni_3": {
+   "rows": 50000,
+   "rows_equal": 50000,
+   "first_mismatch": null
+  },
+  "muni_4": {
+   "rows": 50000,
+   "rows_equal": 50000,
+   "first_mismatch": null
+  }
+ },
+ "variants": {
+  "blind": {
+   "chains": [
+    {
+     "variant": "blind",
+     "chain": 1,
+     "generator": "findings/six_signals/regional_south.py run()",
+     "seed_salt": "regional_south_1",
+     "seed": 483882656,
+     "total_steps": 50000,
+     "burn_in_discarded_within": 1000,
+     "plans_kept": 49000,
+     "epsilon": 0.25,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "blind",
+     "chain": 2,
+     "generator": "findings/six_signals/regional_south.py run()",
+     "seed_salt": "regional_south_2",
+     "seed": 3568961049,
+     "total_steps": 50000,
+     "burn_in_discarded_within": 1000,
+     "plans_kept": 49000,
+     "epsilon": 0.25,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "blind",
+     "chain": 3,
+     "generator": "findings/six_signals/regional_south.py run()",
+     "seed_salt": "regional_south_3",
+     "seed": 4139097275,
+     "total_steps": 50000,
+     "burn_in_discarded_within": 1000,
+     "plans_kept": 49000,
+     "epsilon": 0.25,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "blind",
+     "chain": 4,
+     "generator": "findings/six_signals/regional_south.py run()",
+     "seed_salt": "regional_south_4",
+     "seed": 4223340535,
+     "total_steps": 50000,
+     "burn_in_discarded_within": 1000,
+     "plans_kept": 49000,
+     "epsilon": 0.25,
+     "districts": 8,
+     "n_vas": 462
+    }
+   ],
+   "n_plans": 196000,
+   "measures": {
+    "rural_in_urbmaj": {
+     "q05": 36561.7,
+     "q50": 59021.1,
+     "q95": 89076.5,
+     "mean": 63377.6,
+     "share_zero": 0.0,
+     "panel": 82386.5,
+     "panel_pct_midrank": 86.16,
+     "share_at_or_above_panel": 0.1384
+    },
+    "leth_rural_in_urbmaj": {
+     "q05": 2582.8,
+     "q50": 8153.6,
+     "q95": 14576.1,
+     "mean": 8411.3,
+     "share_zero": 0.0018,
+     "panel": 8138.3,
+     "panel_pct_midrank": 49.94,
+     "share_at_or_above_panel": 0.5007
+    },
+    "mixed": {
+     "q05": 6.0,
+     "q50": 7.0,
+     "q95": 8.0,
+     "mean": 7.2,
+     "share_zero": 0.0,
+     "panel": 7.0,
+     "panel_pct_midrank": 40.95,
+     "share_at_or_above_panel": 0.9085
+    },
+    "urbmaj_mixed": {
+     "q05": 3.0,
+     "q50": 5.0,
+     "q95": 6.0,
+     "mean": 4.6,
+     "share_zero": 0.0,
+     "panel": 5.0,
+     "panel_pct_midrank": 66.25,
+     "share_at_or_above_panel": 0.5238
+    },
+    "over_div_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 1.0,
+     "mean": 0.4,
+     "share_zero": 0.6605,
+     "panel": 0.0,
+     "panel_pct_midrank": 33.02,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_res_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 11610.9,
+     "mean": 2073.8,
+     "share_zero": 0.6605,
+     "panel": 0.0,
+     "panel_pct_midrank": 33.02,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_vot_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 7970.4,
+     "mean": 866.7,
+     "share_zero": 0.6605,
+     "panel": 0.0,
+     "panel_pct_midrank": 33.02,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_div_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 0.0,
+     "share_zero": 0.9613,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.07,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_res_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 194.1,
+     "share_zero": 0.9613,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.07,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_vot_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 30.3,
+     "share_zero": 0.9613,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.07,
+     "share_at_or_above_panel": 1.0
+    }
+   },
+   "leth_rural_in_urbmaj_chain_medians": [
+    8194.3,
+    8054.4,
+    8284.2,
+    8054.4
+   ],
+   "leth_rural_in_urbmaj_chain_pct_panel": [
+    49.59,
+    50.45,
+    49.31,
+    50.39
+   ],
+   "leth_rural_in_urbmaj_hist_5000": {
+    "0-4999": 48568,
+    "5000-9999": 73934,
+    "10000-14999": 73498
+   }
+  },
+  "muni": {
+   "chains": [
+    {
+     "variant": "muni",
+     "chain": 1,
+     "generator": "findings/hybrid_regions/regional_redraw.py run('Lethbridge', 'muni', chain, steps)",
+     "seed_salt": "regional_Lethbridge_muni_1",
+     "seed": 1933703827,
+     "total_steps": 51000,
+     "burn_in_discarded": 1000,
+     "plans_kept": 50000,
+     "epsilon": 0.25,
+     "muni_weight": 0.5,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "muni",
+     "chain": 2,
+     "generator": "findings/hybrid_regions/regional_redraw.py run('Lethbridge', 'muni', chain, steps)",
+     "seed_salt": "regional_Lethbridge_muni_2",
+     "seed": 1572976468,
+     "total_steps": 51000,
+     "burn_in_discarded": 1000,
+     "plans_kept": 50000,
+     "epsilon": 0.25,
+     "muni_weight": 0.5,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "muni",
+     "chain": 3,
+     "generator": "findings/hybrid_regions/regional_redraw.py run('Lethbridge', 'muni', chain, steps)",
+     "seed_salt": "regional_Lethbridge_muni_3",
+     "seed": 1933128416,
+     "total_steps": 51000,
+     "burn_in_discarded": 1000,
+     "plans_kept": 50000,
+     "epsilon": 0.25,
+     "muni_weight": 0.5,
+     "districts": 8,
+     "n_vas": 462
+    },
+    {
+     "variant": "muni",
+     "chain": 4,
+     "generator": "findings/hybrid_regions/regional_redraw.py run('Lethbridge', 'muni', chain, steps)",
+     "seed_salt": "regional_Lethbridge_muni_4",
+     "seed": 1486967107,
+     "total_steps": 51000,
+     "burn_in_discarded": 1000,
+     "plans_kept": 50000,
+     "epsilon": 0.25,
+     "muni_weight": 0.5,
+     "districts": 8,
+     "n_vas": 462
+    }
+   ],
+   "n_plans": 200000,
+   "measures": {
+    "rural_in_urbmaj": {
+     "q05": 27373.7,
+     "q50": 49249.3,
+     "q95": 77874.2,
+     "mean": 50499.5,
+     "share_zero": 0.0,
+     "panel": 82386.5,
+     "panel_pct_midrank": 97.47,
+     "share_at_or_above_panel": 0.0253
+    },
+    "leth_rural_in_urbmaj": {
+     "q05": 0.0,
+     "q50": 1333.4,
+     "q95": 14576.1,
+     "mean": 4703.7,
+     "share_zero": 0.4643,
+     "panel": 8138.3,
+     "panel_pct_midrank": 71.2,
+     "share_at_or_above_panel": 0.288
+    },
+    "mixed": {
+     "q05": 6.0,
+     "q50": 6.0,
+     "q95": 7.0,
+     "mean": 6.3,
+     "share_zero": 0.0,
+     "panel": 7.0,
+     "panel_pct_midrank": 84.13,
+     "share_at_or_above_panel": 0.303
+    },
+    "urbmaj_mixed": {
+     "q05": 2.0,
+     "q50": 3.0,
+     "q95": 5.0,
+     "mean": 3.4,
+     "share_zero": 0.0002,
+     "panel": 5.0,
+     "panel_pct_midrank": 93.75,
+     "share_at_or_above_panel": 0.116
+    },
+    "over_div_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 1.0,
+     "mean": 0.1,
+     "share_zero": 0.8609,
+     "panel": 0.0,
+     "panel_pct_midrank": 43.05,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_res_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 9966.4,
+     "mean": 1082.3,
+     "share_zero": 0.8609,
+     "panel": 0.0,
+     "panel_pct_midrank": 43.05,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_vot_all": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 6024.4,
+     "mean": 536.9,
+     "share_zero": 0.8609,
+     "panel": 0.0,
+     "panel_pct_midrank": 43.05,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_div_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 0.0,
+     "share_zero": 0.963,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.15,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_res_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 237.9,
+     "share_zero": 0.963,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.15,
+     "share_at_or_above_panel": 1.0
+    },
+    "over_vot_ed": {
+     "q05": 0.0,
+     "q50": 0.0,
+     "q95": 0.0,
+     "mean": 41.4,
+     "share_zero": 0.963,
+     "panel": 0.0,
+     "panel_pct_midrank": 48.15,
+     "share_at_or_above_panel": 1.0
+    }
+   },
+   "leth_rural_in_urbmaj_chain_medians": [
+    884.8,
+    1333.4,
+    1333.4,
+    1333.4
+   ],
+   "leth_rural_in_urbmaj_chain_pct_panel": [
+    71.96,
+    70.29,
+    70.12,
+    72.44
+   ],
+   "leth_rural_in_urbmaj_hist_5000": {
+    "0-4999": 129682,
+    "5000-9999": 18891,
+    "10000-14999": 51427
+   }
+  }
+ }
+}
