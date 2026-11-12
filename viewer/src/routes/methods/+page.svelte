@@ -45,7 +45,7 @@
   // "Words used on this site", in the order the methods writer set.
   const WORDS = [
     'riding', 'electoral-district', 'mla', 'ucp', 'ndp', 'ebc', 'lunty-committee', 'advisory-panel',
-    'ebca', 'charter-s3', 'effective-representation', 'gerrymander', 'cracking', 'packing', 'draining',
+    'ebca', 'charter-s3', 'effective-representation', 'gerrymander', 'cracking', 'packing',
     'anchoring', 'ensemble', 'percentile', 'seats_5050', 'efficiency_gap', 'mean_median', 'declination',
     'hybrid', 'election_day', 'all_ballots', 'reconstruction', 'fsa'
   ];
@@ -159,8 +159,6 @@
       <ul>
         <li>{@html h('pages.methods.died.li1')}</li>
         <li>{@html h('pages.methods.died.li2')}</li>
-        <li>{@html h('home.know.li5')}</li>
-        <li>{@html h('home.know.li4')}</li>
       </ul>
     </section>
 

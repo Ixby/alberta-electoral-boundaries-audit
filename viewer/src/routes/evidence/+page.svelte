@@ -16,9 +16,10 @@
 	import { t } from '$lib/i18n/dict';
 	import FigureLightbox from '$lib/components/FigureLightbox.svelte';
 
-	type Item = { n: number; app: string; context?: boolean; canada?: boolean };
+	type Item = { n: number; app?: string; context?: boolean; canada?: boolean; brief?: boolean };
 	// canada:false = the beat had nothing to say ("Nothing", "Not applicable");
 	// context:true = the one-line expert/context beat is substantive and sourced.
+	// brief:true = the finding is one paragraph (the 'found' beat only), with no explainer.
 	const GROUPS: { key: string; items: Item[] }[] = [
 		{
 			key: 'group_map',
@@ -37,7 +38,7 @@
 				{ n: 7, app: 'g', canada: false },
 				{ n: 8, app: 'h', context: true },
 				{ n: 9, app: 'i', canada: false },
-				{ n: 10, app: 'j', canada: false }
+				{ n: 10, brief: true, canada: false }
 			]
 		},
 		{
@@ -107,14 +108,18 @@
 							<figcaption>{t(lang.current, 'body.cpd.fig_caption')}</figcaption>
 						</figure>
 					{/if}
-					<p><strong>{t(lang.current, 'evidence.beat_show')}.</strong> {@html c(it.n, 'show')}</p>
+					{#if !it.brief}
+						<p><strong>{t(lang.current, 'evidence.beat_show')}.</strong> {@html c(it.n, 'show')}</p>
+					{/if}
 					{#if it.context}
 						<p><strong>{t(lang.current, 'evidence.beat_context')}.</strong> {@html c(it.n, 'experts')}</p>
 					{/if}
 					{#if it.canada !== false}
 						<p><strong>{t(lang.current, 'evidence.beat_canada')}.</strong> {@html c(it.n, 'canada')}</p>
 					{/if}
-					<p><strong>{t(lang.current, 'evidence.beat_law')}.</strong> {@html c(it.n, 'gun')}</p>
+					{#if !it.brief}
+						<p><strong>{t(lang.current, 'evidence.beat_law')}.</strong> {@html c(it.n, 'gun')}</p>
+					{/if}
 					{#if it.n === 7}
 						<figure>
 							<picture>
@@ -124,9 +129,11 @@
 							<figcaption>{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
 						</figure>
 					{/if}
-					<p class="cross-ref">
-						<a href="{base}/explainers#appendix-{it.app}">{t(lang.current, 'evidence.explainer')}: {t(lang.current, `body.casings.c${it.n}_app`)}</a>
-					</p>
+					{#if it.app}
+						<p class="cross-ref">
+							<a href="{base}/explainers#appendix-{it.app}">{t(lang.current, 'evidence.explainer')}: {t(lang.current, `body.casings.c${it.n}_app`)}</a>
+						</p>
+					{/if}
 				</section>
 			{/each}
 			{#if g.key === 'group_map'}
