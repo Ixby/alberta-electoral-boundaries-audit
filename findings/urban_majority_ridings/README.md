@@ -24,7 +24,7 @@ Urban share of the 2021 population: 70.9% (cities only), 86.0% (cities, towns, S
 - **The share of urban-majority ridings tracks the urban share of the population on every map**, under both definitions. On the panel's map it is 68% against 70.9%, or 88% against 86.0%. Neither is near 42%.
 - **The claim counts every mixed riding as a rural seat.** Urban residents of a mixed riding vote in it, and in most mixed ridings they are the majority.
 - **The "69 to 43" figure does not reproduce.** Ridings that are at least 90% city residents number 54 on the 2019 map and 55 on the panel's. Ridings between 10% and 90% city residents go from 13 to 17 (28 to 33 on the wider definition). The post does not say how it classed ridings.
-- **What does change is how cities are divided.** The panel's map has more mixed ridings than the 2019 map and splits some cities into more pieces (`findings/city_weight/README.md`). That is a question about communities, not about how many seats urban voters hold.
+- **What does change is how some cities are divided.** The panel's map has more mixed ridings than the 2019 map, and it puts Lethbridge in four ridings. Across all municipalities it splits a smaller share than the 2017 commission's map did (0.148 against 0.166, `findings/city_weight/README.md`). How a city is divided is a question about communities, not about how many seats urban voters hold.
 
 ## Limits
 
