@@ -9,7 +9,7 @@
 > - `findings/joint_outlier_score_summary.md` — narrative summary of the combined result
 > - `reports/academic/report_academic.md` §5.5 — incorporates Fisher T and combined p
 
-> **SUPERSEDED DOCUMENT — 2026-06-10.** This document defends the Fisher combination of Ch1 (Mahalanobis) and Ch2 (SZAT), which the audit **retired** on 2026-06-10. Fisher assumed channel independence the two channels do not have (shared 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19, T1.10b closed 2026-06-12). The operative joint headline is now Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) with a dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). Canonical correction: `reports/academic/report_academic.md` §4.3.3 and §5.5. This document is preserved as a historical record of the Fisher-era defense; do not cite it as current methodology. Note also: any declination value shown below as "p1.21" / "NDP-tail" predates the sign correction of 2026-06-12 (Amendment 5, Part 9); the corrected value is p98.79 UCP-tail (report_academic.md §5.4.9). Likewise (noted 2026-07-08): the majority Ch1 value appears below as p = 0.125 — a pre-canonical intermediate that contradicts this document's own "values reflect the 1,010,000-plan ensemble" header; the committed canonical value is p = 0.101 (`findings/joint_outlier_score.json`).
+> **SUPERSEDED DOCUMENT — 2026-06-10.** This document defends the Fisher combination of Ch1 (Mahalanobis) and Ch2 (SZAT), which the audit **retired** on 2026-06-10. Fisher assumed channel independence the two channels do not have (shared 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19, T1.10b closed 2026-06-12). The operative joint figure is Ch1 alone (Mahalanobis p ≈ 8.84×10⁻⁷), doubled as a conservative allowance for the two channels then examined (p ≈ 1.77×10⁻⁶). That is one model's estimate on election-day ballots, not a bound: under other defensible choices the figure runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`), and no all-ballots version exists. The map is far out in the tail on every version. SZAT is exploratory and is not used: its i.i.d. null is invalid and its component-level block test (p ≈ 0.19) has one effective block and cannot reject. Canonical correction: `reports/academic/report_academic.md` §4.3.3 and §5.5. This document is preserved as a historical record of the Fisher-era defense; do not cite it as current methodology. Note also: any declination value shown below as "p1.21" / "NDP-tail" predates the sign correction of 2026-06-12 (Amendment 5, Part 9); the corrected value is p98.79 UCP-tail (report_academic.md §5.4.9). Likewise (noted 2026-07-08): the majority Ch1 value appears below as p = 0.125 — a pre-canonical intermediate that contradicts this document's own "values reflect the 1,010,000-plan ensemble" header; the committed canonical value is p = 0.101 (`findings/joint_outlier_score.json`).
 
 # Fisher Combination Defense
 
@@ -254,7 +254,8 @@ Actual n_eff values from `simulation_convergence_diagnostics_canonical.json`:
 
 | Correction | n used | Ch1 p-value |
 |---|---|---|
-| Hotelling T² (used) | n_eff = 1,413 | 8.80×10⁻⁷ |
+| Hotelling T² | n_eff = 1,413 (lag-capped; about 1,000 uncapped) | 1.11×10⁻⁶ (`findings/joint_outlier_score.json`) |
+| Chi-square (published) | — | 8.84×10⁻⁷ |
 | No correction | raw n = 1,010,000 | [needs recomputation from canonical run] |
 | Chi-sq limit (n→∞) | ∞ | [needs recomputation from canonical run] |
 

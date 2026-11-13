@@ -2,6 +2,10 @@ __pycache__/
 *.pyc
 *.pyo
 *.log
+# Logs that findings files cite as their record are kept: anything under
+# findings/ (for example findings/a10_stepc/territory/chain3.log, the only
+# record of that chain's retirement). Other logs stay ignored.
+!findings/**/*.log
 
 # Build-pipeline intermediate outputs — only the merged report_public.pdf
 # is the published artefact; article.pdf and article.html are regenerated
@@ -38,8 +42,14 @@ data/mcmc_checkpoints_*/
 # MCMC raw sample CSVs >100MB — keep percentiles + diagnostics + log instead
 data/v0_1_mcmc_ensemble_samples_*.csv
 
-# All MCMC simulation checkpoint directories (canonical and variant runs)
+# MCMC simulation checkpoint directories of scratch and variant runs.
 data/simulation_checkpoints_*/
+# Not the canonical ensemble, nor the two size-matched sets that hold tracked
+# chains: those directories are part of the record, and a new chain file
+# written there must show up in `git status`, not be silently ignored.
+!data/simulation_checkpoints_canonical/
+!data/simulation_checkpoints_k89/
+!data/simulation_checkpoints_k91/
 
 # Raw census data >100MB — metadata files tracked, bulk data is not
 data/raw/98-401-X2021024_English_CSV_data.csv
@@ -132,3 +142,9 @@ data/outputs/szat_swing_va_canonical.gpkg
 .claude/
 /.svelte-kit/
 viewer/dev/
+findings/osi_rebuild/.weights_cache/
+findings/osi_rebuild/.weights_cache_v2/
+findings/amendment12_replays/claims/
+findings/amendment12_replays/*.log
+findings/hybrid_regions/worker*.log
+findings/hybrid_regions/cfp/*.npy

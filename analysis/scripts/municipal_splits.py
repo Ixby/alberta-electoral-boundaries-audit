@@ -145,6 +145,14 @@ def count_splits_2019(
 ) -> pd.DataFrame:
     """
     For 2019, use VA spatial join to determine which EDs each CSD overlaps.
+
+    This is NOT the method count_splits applies to the 2026 maps. Here a CSD is
+    split when the voting areas whose centroids fall inside it belong to more
+    than one 2019 division; count_splits measures polygon overlap (50 ha and
+    1% of the CSD). The two can disagree: territory with no voting-area
+    centroid on the far side of a line counts under count_splits and not
+    here. min_overlap_m2 is accepted and not used. A like-for-like 2019 count
+    needs count_splits run on the 2019 division polygons.
     """
     csds_proj = csds.to_crs(va.crs)
     va_proj = va.copy()
@@ -202,8 +210,14 @@ def count_splits_two_or_more(shapefile_path, id_col: str = "EDName2025",
     """Public helper used by run_structural_battery.py for the November test (S2).
 
     Returns the number of Alberta census subdivisions (CSDs) split into ≥2 EDs
-    by the candidate map (matches the existing pipeline's reported metric;
-    canonical baselines: majority=8, minority=11 per findings/municipal_splits.md).
+    by the candidate map, counted by territory: a CSD is split when two or
+    more EDs each hold at least min_overlap_m2 (default 5 ha) of it. On the
+    official files this returns 23 for the majority and 30 for the minority
+    (findings/structural_battery_majority.json,
+    findings/iap_v3_two_lane/structural_minority_rerun.json). These are not the
+    10 / 10 / 20 of findings/municipal_splits.md, which uses count_splits
+    (50 ha and 1% of the CSD) for 2026 and a voting-area-centroid count for
+    2019. The 5 ha filter admits slivers.
     ED column auto-detected (tries id_col, then name_2026).
 
     significant_only: filter CSDs to Cities, Towns, and Specialized Municipalities

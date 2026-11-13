@@ -19,11 +19,20 @@ This script replaces the i.i.d. flip with a block-permutation null:
   4. Aggregate to ED-level and compute the SZAT statistic exactly as the
      i.i.d. version does. Report p with (b+1)/(B+1) finite-sample correction.
 
-Expected effect (per Ref #1): ~30 % widening of the SZAT null variance
-because spatially correlated flips have a larger variance than independent
-flips at the same expected mean. The point estimate of the SZAT score is
-unchanged; only the null distribution widens, so p may rise from 0.0024
-to something like 0.005-0.01.
+What the run showed, and what it cannot show. The swing-zone graph has 8
+connected components, and one of them holds 2,086 of the 2,110 swing areas
+(findings/szat_block_permutation.json: n_blocks 8, block_size_max 2086). With
+blocks defined as components, the null is in effect one coin toss: the giant
+block flips (score about equal to the observed) or it does not (score about
+zero). Its mean is half the observed score and its standard deviation is that
+of a two-point law. A test built this way cannot reject for any data, so its
+p (0.19) is a property of the design, not evidence that the signal fails a
+spatial null. The payload therefore records largest_block_share and
+`informative` (False when one block holds more than half the swing areas).
+What stands: the i.i.d. null is invalid because neighbouring areas vote
+alike; an informative spatial null has not been run. szat.py has a
+size-limited block option (--use-block-permutation --block-size N) that
+would give one.
 
 Backward:
   analysis/scripts/szat.py — original i.i.d.-flip implementation
@@ -269,6 +278,13 @@ def main(argv=None) -> int:
         "block_size_median": int(np.median(sizes)),
         "block_size_max": int(sizes.max()),
         "block_size_p95": int(np.percentile(sizes, 95)),
+        "largest_block_share": float(sizes.max() / n_swing),
+        "informative": bool(sizes.max() / n_swing <= 0.5),
+        "informative_note": (
+            "Blocks are connected components of the swing-zone graph. When one block holds most "
+            "swing areas the null is in effect a single coin toss (score ~ observed or ~ 0) and "
+            "the test cannot reject for any data; its p is then a property of the design."
+        ),
         "n_boot": int(args.n_boot),
         "seed": int(args.seed),
         "salt": SALT,

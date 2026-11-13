@@ -74,7 +74,7 @@ def load_chains(roots, k, suffix):
         for f in sorted(d.glob("chain*_samples.csv*")) if d.exists() else []:
             idx = int(re.search(r"chain(\d+)_", f.name).group(1))
             found.setdefault(idx, f)
-    return {i: pd.read_csv(f, usecols=lambda c: c in set(REGISTERED) | set(REPORTED)) for i, f in sorted(found.items())}
+    return {i: pd.read_csv(f, usecols=lambda c: c in set(REGISTERED) | set(REPORTED), float_precision="round_trip") for i, f in sorted(found.items())}
 
 
 def neff_uncapped(x):

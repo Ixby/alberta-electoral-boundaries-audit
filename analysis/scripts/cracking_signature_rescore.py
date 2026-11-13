@@ -166,7 +166,7 @@ def main(out):
             for d in s["districts"]:
                 print(f"    {d['district']:34s} {d['residents']:7,} {d['share_of_community']:7.1%} "
                       f"of community  {d['share_of_district']:6.1%} of district")
-    print(f"\nwrote {out.relative_to(REPO)}")
+    print(f"\nwrote {out.relative_to(REPO) if out.is_relative_to(REPO) else out}")
 
 
 if __name__ == "__main__":

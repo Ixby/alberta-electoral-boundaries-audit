@@ -1,0 +1,103 @@
+{
+ "Calgary": {
+  "2017_commission": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2003_commission": {
+   "crossing_divisions": [
+    "Airdrie-Chestermere",
+    "Foothills-Rocky View",
+    "Highwood"
+   ],
+   "n_crossing": 3,
+   "city_pop_in_crossing_pct": 3.5
+  },
+  "2010_commission": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2026_majority": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2026_minority": {
+   "crossing_divisions": [
+    "Calgary-Airdrie",
+    "Calgary-Bow-Springbank",
+    "Calgary-De Winton",
+    "Calgary-Foothills-Airdrie West",
+    "Calgary-Nolan Hill-Cochrane",
+    "Calgary-Peigan-Chestermere"
+   ],
+   "n_crossing": 6,
+   "city_pop_in_crossing_pct": 13.4
+  },
+  "2026_panel_v3": {
+   "crossing_divisions": [
+    "Calgary-Bow-Springbank",
+    "Calgary-West-Springbank"
+   ],
+   "n_crossing": 2,
+   "city_pop_in_crossing_pct": 7.2
+  },
+  "para167": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  }
+ },
+ "Edmonton": {
+  "2017_commission": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2003_commission": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2010_commission": {
+   "crossing_divisions": [],
+   "n_crossing": 0,
+   "city_pop_in_crossing_pct": 0.0
+  },
+  "2026_majority": {
+   "crossing_divisions": [
+    "Edmonton-Beaumont",
+    "Edmonton-Enoch"
+   ],
+   "n_crossing": 2,
+   "city_pop_in_crossing_pct": 6.4
+  },
+  "2026_minority": {
+   "crossing_divisions": [
+    "Edmonton-Beaumont",
+    "Edmonton-Enoch-Devon",
+    "Edmonton-Spruce Grove"
+   ],
+   "n_crossing": 3,
+   "city_pop_in_crossing_pct": 5.9
+  },
+  "2026_panel_v3": {
+   "crossing_divisions": [
+    "Edmonton-Enoch",
+    "Edmonton-Nisku"
+   ],
+   "n_crossing": 2,
+   "city_pop_in_crossing_pct": 7.9
+  },
+  "para167": {
+   "crossing_divisions": [
+    "Edmonton-Enoch",
+    "Edmonton-Nisku"
+   ],
+   "n_crossing": 2,
+   "city_pop_in_crossing_pct": 7.9
+  }
+ }
+}

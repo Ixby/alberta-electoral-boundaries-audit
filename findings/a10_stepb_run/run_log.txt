@@ -1,0 +1,125 @@
+ED 01 placed  area_km2=27.2255 med_m=6.4838 in60=0.9351 pts=25250 prior=v2 anchors=1 sec=247.2
+ED 04 placed  area_km2=119.0359 med_m=5.6774 in60=0.9392 pts=45266 prior=v2 anchors=1 sec=778.7
+ED 08 placed  area_km2=15.9373 med_m=7.443 in60=0.9157 pts=40317 prior=v2 anchors=1 sec=714.5
+ED 11 placed  area_km2=17.6077 med_m=6.6451 in60=0.9479 pts=24727 prior=v2 anchors=1 sec=220.3
+ED 14 placed  area_km2=334.3082 med_m=5.4126 in60=0.9459 pts=52889 prior=v2 anchors=1 sec=1216.4
+ED 22 placed  area_km2=38.9753 med_m=22.4134 in60=0.8997 pts=19513 prior=v2 anchors=1 sec=263.5
+ED 27 placed  area_km2=26.9603 med_m=6.4479 in60=0.9267 pts=31177 prior=v2 anchors=1 sec=300.9
+ED 31 placed  area_km2=15.1796 med_m=7.1186 in60=0.8954 pts=25769 prior=v2 anchors=1 sec=205.4
+ED 34 placed  area_km2=146.3252 med_m=6.7633 in60=0.9171 pts=27681 prior=v2 anchors=1 sec=913.0
+ED 36 placed  area_km2=56.5954 med_m=6.3906 in60=0.8824 pts=38203 prior=v2 anchors=1 sec=276.3
+ED 40 placed  area_km2=12.9076 med_m=17.607 in60=0.9333 pts=15318 prior=v2 anchors=1 sec=168.0
+ED 01 skipped (ed01.json exists)
+ED 04 skipped (ed04.json exists)
+ED 08 skipped (ed08.json exists)
+ED 11 skipped (ed11.json exists)
+ED 14 skipped (ed14.json exists)
+ED 22 skipped (ed22.json exists)
+ED 27 skipped (ed27.json exists)
+ED 31 skipped (ed31.json exists)
+ED 34 skipped (ed34.json exists)
+ED 36 skipped (ed36.json exists)
+ED 40 skipped (ed40.json exists)
+ED 42 placed  area_km2=128.4768 med_m=5.8055 in60=0.9179 pts=41205 prior=v2 anchors=1 sec=969.2
+ED 45 placed  area_km2=50.1741 med_m=8.09 in60=0.8759 pts=23474 prior=v2 anchors=1 sec=667.0
+ED 47 placed  area_km2=73.4265 med_m=7.223 in60=0.9041 pts=45893 prior=v2 anchors=1 sec=1296.6
+ED 49 placed  area_km2=54.5166 med_m=23.93 in60=0.848 pts=16352 prior=v2 anchors=1 sec=770.9
+ED 51 placed  area_km2=194.6603 med_m=4.445 in60=0.9292 pts=20895 prior=v2 anchors=1 sec=216.7
+ED 53 placed  area_km2=15750.3689 med_m=10.8299 in60=0.8715 pts=31229 prior=municipalities anchors=3 sec=320.3
+ED 55 placed  area_km2=10096.3314 med_m=8.9788 in60=0.8918 pts=39521 prior=municipalities anchors=1 sec=274.0
+ED 57 FAILED  RuntimeError("no local match within the prior's error") anchors=2 sec=254.1
+ED 59 placed  area_km2=16703.7504 med_m=10.2923 in60=0.8888 pts=12287 prior=municipalities anchors=3 sec=138.2
+ED 61 placed  area_km2=38398.1137 med_m=12.9183 in60=0.8101 pts=53806 prior=municipalities anchors=2 sec=350.4
+ED 63 FAILED  RuntimeError('fit below the acceptance rule (363 matched points, median 15.8 m, within 60 m 0.99)') anchors=1 sec=102.5
+ED 66 FAILED  RuntimeError("no local match within the prior's error") anchors=1 sec=539.8
+ED 68 placed  area_km2=3882.4784 med_m=8.9921 in60=0.8659 pts=27078 prior=municipalities anchors=1 sec=176.9
+ED 70 placed  area_km2=75776.9428 med_m=15.2425 in60=0.8406 pts=18454 prior=municipalities anchors=1 sec=303.9
+ED 72 placed  area_km2=5432.5976 med_m=8.0397 in60=0.9162 pts=11915 prior=municipalities anchors=2 sec=173.9
+ED 74 placed  area_km2=16957.1429 med_m=12.4479 in60=0.7262 pts=32581 prior=municipalities anchors=4 sec=229.7
+ED 76 placed  area_km2=13351.7375 med_m=29.614 in60=0.724 pts=9363 prior=municipalities anchors=1 sec=165.8
+ED 78 placed  area_km2=6116.2385 med_m=8.4337 in60=0.8778 pts=5378 prior=v2 anchors=1 sec=622.1
+ED 80 placed  area_km2=1215.6581 med_m=8.8824 in60=0.7808 pts=15600 prior=v2 anchors=1 sec=428.9
+ED 82 FAILED  RuntimeError('fit below the acceptance rule (10168 matched points, median 100.7 m, within 60 m 0.36)') anchors=1 sec=104.4
+ED 84 placed  area_km2=31.133 med_m=6.8409 in60=0.9411 pts=30726 prior=v2 anchors=1 sec=311.6
+ED 86 placed  area_km2=71.7691 med_m=23.1381 in60=0.8507 pts=28066 prior=v2 anchors=1 sec=174.8
+ED 89 placed  area_km2=767.3689 med_m=3.0038 in60=0.9601 pts=53849 prior=v2 anchors=1 sec=412.3
+ED 91 placed  area_km2=6138.0795 med_m=9.7993 in60=0.8393 pts=35340 prior=municipalities anchors=2 sec=245.2
+ED 02 placed  area_km2=29.5119 med_m=5.6026 in60=0.9751 pts=27564 prior=v2 anchors=1 sec=327.4
+ED 06 placed  area_km2=49.0931 med_m=6.7664 in60=0.9129 pts=35603 prior=v2 anchors=1 sec=340.4
+ED 10 placed  area_km2=19.9049 med_m=6.8528 in60=0.9395 pts=39176 prior=v2 anchors=1 sec=683.4
+ED 13 placed  area_km2=32.6941 med_m=7.1986 in60=0.9212 pts=49559 prior=v2 anchors=1 sec=989.7
+ED 18 placed  area_km2=30.9374 med_m=6.3185 in60=0.921 pts=51858 prior=v2 anchors=1 sec=846.2
+ED 26 placed  area_km2=36.4666 med_m=6.9521 in60=0.9169 pts=30745 prior=v2 anchors=1 sec=555.3
+ED 28 placed  area_km2=165.0659 med_m=6.3897 in60=0.8969 pts=34401 prior=v2 anchors=1 sec=599.3
+ED 33 placed  area_km2=25.7209 med_m=7.3972 in60=0.9036 pts=29555 prior=v2 anchors=1 sec=239.3
+ED 35 placed  area_km2=25.7369 med_m=6.1738 in60=0.8982 pts=33761 prior=v2 anchors=1 sec=272.6
+ED 39 placed  area_km2=27.5423 med_m=5.4362 in60=0.8995 pts=25269 prior=v2 anchors=1 sec=234.2
+ED 41 placed  area_km2=24.3505 med_m=5.4359 in60=0.9437 pts=27043 prior=v2 anchors=1 sec=249.3
+ED 44 placed  area_km2=26.0782 med_m=6.3632 in60=0.8822 pts=27991 prior=v2 anchors=1 sec=211.4
+ED 02 skipped (ed02.json exists)
+ED 06 skipped (ed06.json exists)
+ED 10 skipped (ed10.json exists)
+ED 13 skipped (ed13.json exists)
+ED 18 skipped (ed18.json exists)
+ED 26 skipped (ed26.json exists)
+ED 28 skipped (ed28.json exists)
+ED 33 skipped (ed33.json exists)
+ED 35 skipped (ed35.json exists)
+ED 39 skipped (ed39.json exists)
+ED 41 skipped (ed41.json exists)
+ED 44 skipped (ed44.json exists)
+ED 46 placed  area_km2=24.3587 med_m=6.2735 in60=0.8893 pts=32291 prior=v2 anchors=1 sec=365.3
+ED 48 placed  area_km2=25.7013 med_m=5.9273 in60=0.8656 pts=22968 prior=v2 anchors=1 sec=304.2
+ED 50 placed  area_km2=1579.4793 med_m=8.5848 in60=0.8393 pts=16301 prior=v2 anchors=1 sec=886.0
+ED 52 placed  area_km2=11482.9975 med_m=9.8632 in60=0.8889 pts=15027 prior=municipalities anchors=2 sec=593.0
+ED 54 placed  area_km2=3556.6803 med_m=8.4412 in60=0.8846 pts=18989 prior=municipalities anchors=2 sec=247.7
+ED 56 placed  area_km2=47312.0574 med_m=14.4673 in60=0.8721 pts=17302 prior=municipalities anchors=1 sec=319.2
+ED 58 placed  area_km2=563.6521 med_m=6.2984 in60=0.918 pts=29031 prior=v2 anchors=1 sec=851.9
+ED 60 placed  area_km2=6255.8647 med_m=9.5343 in60=0.7814 pts=25687 prior=municipalities anchors=1 sec=165.1
+ED 62 placed  area_km2=32316.5368 med_m=11.8108 in60=0.8884 pts=10383 prior=municipalities anchors=1 sec=123.1
+ED 64 placed  area_km2=8299.0987 med_m=9.3891 in60=0.8975 pts=38080 prior=municipalities anchors=1 sec=317.2
+ED 67 placed  area_km2=4319.2251 med_m=8.6948 in60=0.8116 pts=15077 prior=municipalities anchors=1 sec=185.9
+ED 69 placed  area_km2=113.8367 med_m=5.9059 in60=0.9197 pts=23597 prior=v2 anchors=2 sec=244.5
+ED 71 placed  area_km2=57.1369 med_m=8.4394 in60=0.8382 pts=38593 prior=v2 anchors=1 sec=678.9
+ED 73 placed  area_km2=8428.1628 med_m=9.98 in60=0.8205 pts=30791 prior=municipalities anchors=1 sec=225.8
+ED 75 placed  area_km2=11046.761 med_m=10.0123 in60=0.8184 pts=26877 prior=municipalities anchors=1 sec=186.2
+ED 77 placed  area_km2=13740.208 med_m=12.617 in60=0.7112 pts=30775 prior=municipalities anchors=1 sec=197.7
+ED 79 placed  area_km2=2181.6089 med_m=8.1859 in60=0.8759 pts=17175 prior=municipalities anchors=1 sec=71.3
+ED 81 placed  area_km2=10339.6362 med_m=9.2333 in60=0.8542 pts=34719 prior=municipalities anchors=3 sec=294.8
+ED 83 placed  area_km2=73.9547 med_m=7.5084 in60=0.899 pts=32232 prior=v2 anchors=1 sec=599.6
+ED 85 placed  area_km2=25122.0337 med_m=10.7935 in60=0.9261 pts=17409 prior=municipalities anchors=1 sec=319.1
+ED 87 placed  area_km2=282.6592 med_m=5.4125 in60=0.9399 pts=28023 prior=v2 anchors=1 sec=382.2
+ED 90 placed  area_km2=49405.197 med_m=12.6045 in60=0.9255 pts=13109 prior=municipalities anchors=1 sec=180.3
+
+== stops
+2026-11-04T23:30:34Z workers crashed (python.exe 0xc0000005, 16:29 MST, on exit from Modern Standby during a remote-desktop connect); restarted; completed pages are skipped
+
+== steps 2-4
+== a10_run.py
+== exit 0 925 s
+== a10_snap_assign.py
+== exit 0 169 s
+ALL DONE
+== neighbours: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\wt-osf\analysis\scripts\a10_neighbours.py C:\tmp\a10reg\pages
+== neighbours: exit 0, 570 s
+== inset: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\wt-osf\analysis\scripts\a10_inset.py fit C:\tmp\a10reg\pages
+== inset: exit 0, 123 s
+== score: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\wt-osf\analysis\scripts\a10_stepb_calibrate.py --pages C:\tmp\a10reg\pages --out C:\tmp\a10reg\calibration.json
+ "T1": {
+ "T4": {
+  "T1": {
+  "T4": {
+   "DRIFT_GAP_BUF_m": 40.0,
+   "DRIFT_TARGET": 0.0005,
+== score: exit 0, 232 s
+DRIFT before 0.0111%  after 0.0030%  (PASS vs < 0.05%), territory 576077 km2, 117 pairs
+  PASS    districts_91 {"found": 91}
+  PASS    every_va_assigned {"unassigned_vas": 0}
+  PASS    each_district_connected {"n_multipart": 6}
+  PASS    no_known_overlap_over_0.1pct {"n_offenders": 0}
+  PASS    area_within_tol_of_stated {"n_checked": 91, "n_fail": 0}
+  PASS    page_neighbours_match_adjacency {"status": "run (more than half of adjacent districts over 200 m printed)", "n_pages": 69, "n_mismatch": 0, "page_only_total_informational": 449}
+  PASS    provincial_coverage_complete {"va_area_assigned_share": 1.0}
+  PASS    districts_inside_page_frame {"n_pages": 30, "n_fail": 0}
+  PASS    districts_match_locator_inset {"status": "run", "n_pass": 90, "n_fail": 0, "n_source_error": 1}
+FAILING DISTRICT ROWS

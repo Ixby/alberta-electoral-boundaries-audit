@@ -1,0 +1,11 @@
+{
+ "group": "north_edmonton",
+ "k": 14,
+ "variant": "muni",
+ "chain": 1,
+ "seed_salt": "changed_north_edmonton_14_muni_1",
+ "seed": 1745339355,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "n_vas": 740
+}

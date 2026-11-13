@@ -144,6 +144,7 @@ def mahalanobis_pvalue_neff_adjusted(
     d: float,
     p_metrics: int,
     n_eff: int = N_EFF_CONSERVATIVE,
+    exact_factor: bool = False,
 ) -> tuple[float, float]:
     """
     Hotelling T² adjustment for estimated covariance matrix.
@@ -155,9 +156,19 @@ def mahalanobis_pvalue_neff_adjusted(
     converges to the chi-squared result.
 
     F-statistic: (n_eff - p) / (p * (n_eff + 1)) * D²
+
+    exact_factor=True uses the exact scaling for one new observation tested
+    against a mean and covariance estimated from n draws,
+    (n - p) * n / (p * (n - 1) * (n + 1)), which is larger by n / (n - 1):
+    about 0.07% in the factor and 1% in the tail p at n_eff = 1,413. The
+    default is unchanged, because the published n_eff-adjusted figure and
+    findings/audit_2026-11-10/joint_sensitivity.json both use it.
     """
     d2 = d ** 2
-    f_stat = float((n_eff - p_metrics) / (p_metrics * (n_eff + 1)) * d2)
+    factor = (n_eff - p_metrics) / (p_metrics * (n_eff + 1))
+    if exact_factor:
+        factor *= n_eff / (n_eff - 1)
+    f_stat = float(factor * d2)
     p_adj = float(stats.f.sf(f_stat, p_metrics, n_eff - p_metrics))
     return p_adj, f_stat
 
@@ -237,14 +248,22 @@ def run() -> None:
         }
         results[label] = {
             "mahalanobis_distance": round(d, 4),
+            # Rounded to 8 decimals, which keeps only two significant figures of
+            # a p near 9e-07 (8.84e-07 becomes 8.8e-07). Kept for continuity;
+            # the *_unrounded fields carry the computed values and the joint
+            # headline is built from them.
             "joint_partisan_p": round(p, 8),
             "joint_partisan_p_neff_adjusted": round(p_adj, 8),
+            "joint_partisan_p_unrounded": p,
+            "joint_partisan_p_neff_adjusted_unrounded": p_adj,
+            "joint_partisan_p_neff_adjusted_exact_factor": mahalanobis_pvalue_neff_adjusted(
+                d, len(PARTISAN_COLS), exact_factor=True)[0],
             "neff_adjustment": {
                 "n_eff_used": N_EFF_CONSERVATIVE,
                 "f_stat": round(f_stat, 4),
                 "df1": len(PARTISAN_COLS),
                 "df2": N_EFF_CONSERVATIVE - len(PARTISAN_COLS),
-                "note": "Hotelling T² correction for estimated covariance; conservative lower bound on n_eff",
+                "note": "Hotelling T² correction for estimated covariance; n_eff = the smallest lag-capped estimate, itself an upper bound (about 1,000 uncapped; findings/audit_2026-11-10/ess_uncapped.json)",
             },
             "df": len(PARTISAN_COLS),
             "marginals": marginals,
@@ -287,11 +306,11 @@ def run() -> None:
     # ── Fisher combination (minority only, channels 1+2) ─────────────────────
 
     print("\nFisher combined test (minority, Channels 1+2)...")
-    ch1_p = results["minority"]["joint_partisan_p"]
+    ch1_p = results["minority"]["joint_partisan_p_unrounded"]
     ch2_p = szat_p
 
     T, p_combined = fisher_combine([ch1_p, ch2_p])
-    ch1_p_adj = results["minority"]["joint_partisan_p_neff_adjusted"]
+    ch1_p_adj = results["minority"]["joint_partisan_p_neff_adjusted_unrounded"]
     T_adj, p_combined_adj = fisher_combine([ch1_p_adj, ch2_p])
     print(f"  Channel 1 (partisan joint):   p = {ch1_p:.2e}  (n_eff-adjusted: {ch1_p_adj:.2e})")
     print(f"  Channel 2 (SZAT bootstrap):   p = {ch2_p:.2e}")
@@ -434,7 +453,11 @@ def run() -> None:
         _partisan_n_effs = [
             _diag[c]["n_eff"] for c in ("efficiency_gap", "mean_median", "declination", "seats_at_50_50")
         ]
-        _neff_range_note = f"n_eff ~{min(_partisan_n_effs):.0f}-{max(_partisan_n_effs):.0f} per metric."
+        _neff_range_note = (
+            f"lag-capped n_eff {min(_partisan_n_effs):.0f}-{max(_partisan_n_effs):.0f} per metric; the "
+            "cap binds on all four, so these are upper bounds. With no cap the pooled ESS is about "
+            "1,000 (900 to 1,300; findings/audit_2026-11-10/ess_uncapped.json)."
+        )
     else:
         _neff_range_note = f"n_eff ~{N_EFF_CONSERVATIVE} per metric (conservative fallback; convergence diagnostics unavailable)."
 
@@ -461,13 +484,23 @@ def run() -> None:
             "Reock captured in canonical ensemble outputs with percentiles computed below."
         ),
         "joint_headline": {
-            "method": "Bonferroni dependence-robust upper bound over the two examined channels",
-            "p_upper_bound": round(2 * ch1_p, 10),
+            "method": (
+                "Parametric model estimate (chi-square(4) tail of the Mahalanobis distance), "
+                "doubled as a conservative allowance"
+            ),
+            "p_doubled_model_estimate": 2 * ch1_p,
+            "one_in": int(round(1 / max(2 * ch1_p, 1e-300))),
+            # Same quantity under its earlier name; it is a model estimate, not a bound.
+            "p_upper_bound": 2 * ch1_p,
             "note": (
-                "Operative joint statistic since 2026-06-10: p <= 2 x min(Ch1, Ch2) = 2 x Ch1 "
-                "(Ch1 is the binding term). Valid under arbitrary dependence between channels; "
-                "replaces the retired Fisher combination (anti-conservative under positive "
-                "dependence, Brown 1975 — the channels share the 2023 vote substrate)."
+                "2 x the Channel 1 model p. This is an estimate from one model on election-day "
+                "ballots, not a bound: it lies beyond the largest sampled D2, where the chi-square "
+                "shape cannot be checked. The doubling was set when two channels were examined; "
+                "Channel 2 (SZAT) is retired, so the factor of two no longer corresponds to a "
+                "family of two tests and is kept only as a conservative allowance. Under other "
+                "defensible choices the doubled figure runs from about 1 in 20,000 to about 1 in "
+                "570,000 (findings/audit_2026-11-10/joint_sensitivity.json). Replaces the retired "
+                "Fisher combination (anti-conservative under positive dependence, Brown 1975)."
             ),
         },
         "maps": results,
@@ -484,7 +517,7 @@ def run() -> None:
                 "2026-06-10. Fisher assumed Ch1/Ch2 independence; the channels share the 2023 "
                 "vote substrate and Fisher is anti-conservative under positive dependence "
                 "(Brown 1975). Retained as historical record only — the operative joint "
-                "statistic is joint_headline (Bonferroni upper bound)."
+                "statistic is joint_headline (the doubled model estimate)."
             ),
             "as_published_2026_06_10": {
                 "p_channel_1": 1.4e-06,
@@ -509,7 +542,7 @@ def run() -> None:
             "combined_p_neff_adjusted": round(p_combined_adj, 8),
             "neff_adjustment_note": (
                 f"n_eff-adjusted Fisher uses Hotelling T² p for Ch1 "
-                f"(n_eff={N_EFF_CONSERVATIVE}, conservative lower bound). "
+                f"(n_eff={N_EFF_CONSERVATIVE}, lag-capped; an upper bound). "
                 "Both combined p-values reject the null at p < 1e-5."
             ),
         },
@@ -519,7 +552,7 @@ def run() -> None:
             f"base_seed=1432864451); {_neff_range_note}",
             "Declination column re-signed 2026-06-12 per the sign fix recorded in Amendment 5, Part 9 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
             "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
-            "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the Bonferroni upper bound in joint_headline.",
+            "Fisher combination retired 2026-06-10: it assumed Ch1/Ch2 independence, but the channels share the 2023 vote substrate (anti-conservative under positive dependence, Brown 1975). The fisher_combined_minority block is historical record; the operative joint statistic is the doubled model estimate in joint_headline.",
             "Ch2 (SZAT) retired as a confirmatory channel 2026-06-13: block-permutation null returns p=0.1947 (findings/szat_block_permutation.md); the i.i.d.-flip p=0.0024 is exploratory context only.",
             "Mahalanobis assumes multivariate Gaussian ensemble distribution — informally verified.",
             "This score answers P(features | neutral), not P(gerrymandered | features).",
@@ -550,6 +583,14 @@ def run() -> None:
     for col, v in min_m["marginals"].items():
         marginal_rows += f"| {col} | {v['observed']:+.4f} | {v['ensemble_mean']:+.4f} | {v['marginal_tail_p']:.4f} |\n"
 
+    # The sensitivity range in the joint-statistic section (1 in 20,000 to 1 in
+    # 570,000; Hotelling 449,000; rank-based 238,000; one near-duplicate measure
+    # dropped 97,000; second sampler 20,000; seven plans past the rank-based
+    # distance) is literal text: constants copied from
+    # findings/audit_2026-11-10/joint_sensitivity.json, not computed here.
+    # Likewise the MedAD row's ±25%-band percentile (p0.013) and the canonical
+    # anchoring shares (80.0% / 71.8%) are copied from findings/eps_full_robustness.md
+    # and the anchoring rescore.
     md = f"""# Joint Outlier Score — Alberta 2026 EBC Maps
 
 **Date:** {time.strftime('%Y-%m-%d')} (regenerated; first canonical run 2026-05-07)
@@ -574,7 +615,7 @@ Mahalanobis distance accounts for the correlation structure between these four m
 | Majority 2026 | {maj_m['mahalanobis_distance']:.4f} | {maj_m['joint_partisan_p']:.2e} | {maj_m['joint_partisan_p_neff_adjusted']:.2e} |
 | 2019 Enacted  | {ena_m['mahalanobis_distance']:.4f} | {ena_m['joint_partisan_p']:.2e} | {ena_m['joint_partisan_p_neff_adjusted']:.2e} |
 
-*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = {N_EFF_CONSERVATIVE} — the conservative lower bound from convergence diagnostics. Both columns reject the null for the minority map.*
+*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = {N_EFF_CONSERVATIVE}, computed with a lag cap; uncapped it is about 1,000 (`findings/audit_2026-11-10/ess_uncapped.json`). Both columns reject the null for the minority map.*
 
 **Minority marginals:**
 
@@ -587,12 +628,12 @@ Mahalanobis distance accounts for the correlation structure between these four m
 
 SZAT score: {szat['szat_score']:+.6f} (minority EG − majority EG, swing zones only)
 Bootstrap p: {szat_p_label}
-(AsPredicted #289,469; seed pre-committed at git hash d2aea42; full-recompute procedure)
+(AsPredicted #289,469, filed after the results were known; the seed label was first committed together with the test's first results, commit 851920f5; full-recompute procedure)
 
 **Status (2026-06-13): retired as a confirmatory channel.** Under a contiguity-respecting
 block-permutation null the SZAT p-value is 0.1947 (variance inflation 5.79× vs the i.i.d.
 flip; `findings/szat_block_permutation.md`). The bootstrap p above is the i.i.d.-flip value,
-retained as exploratory context only. The joint headline rests on Channel 1 alone.
+retained as exploratory context only. The block test has one effective block, so its p does not settle the question either way. The joint figure rests on Channel 1 alone.
 
 ---
 
@@ -620,10 +661,17 @@ stale_* provenance fields in the JSON.)
 
 ---
 
-## Joint statistic — Bonferroni upper bound (Fisher retired)
+## Joint statistic — a model estimate, with its range (Fisher retired)
 
-**Operative headline: p ≤ {2 * ch1_p:.2e} (= 2 × Ch1), valid under arbitrary dependence
-between the two examined channels.** The Fisher combination below assumed Ch1/Ch2
+**Operative figure: p ≈ {2 * ch1_p:.2e} (= 2 × Ch1), one model's estimate on election-day ballots. It is not a bound: its Ch1
+input is a chi-square extrapolation beyond every sampled plan. Under other defensible
+choices the doubled figure runs from about 1 in 20,000 to about 1 in 570,000
+(`findings/audit_2026-11-10/joint_sensitivity.json`): Hotelling 1 in 449,000;
+rank-based 1 in 238,000; dropping one of two near-duplicate measures 1 in 97,000;
+a second sampler 1 in 20,000. The map is far out in the tail on every version.
+No all-ballots version exists.** The doubling was a conservative allowance for the
+two channels examined; with SZAT now exploratory it has no stated test family.
+The Fisher combination below assumed Ch1/Ch2
 independence and was retired 2026-06-10 (the channels share the 2023 vote substrate;
 Fisher is anti-conservative under positive dependence — Brown 1975). It is preserved
 as historical record only.
@@ -635,12 +683,13 @@ as historical record only.
 | **Fisher combined (historical)** | **{p_combined:.2e}** | **{p_combined_adj:.2e}** |
 
 Unadjusted: Fisher T = {T:.3f}, chi-sq df = 4.
-n_eff-adjusted: Fisher T = {T_adj:.3f}, using Hotelling T² p for Ch1 (n_eff = {N_EFF_CONSERVATIVE}, conservative lower bound).
+n_eff-adjusted: Fisher T = {T_adj:.3f}, using Hotelling T² p for Ch1 (n_eff = {N_EFF_CONSERVATIVE} as computed with a lag cap; about 1,000 uncapped, `findings/audit_2026-11-10/ess_uncapped.json`).
 
-**Reading:** the operative claim is the dependence-robust bound p ≤ {2 * ch1_p:.2e}
-(≈ 1 in {int(round(1/max(2 * ch1_p, 1e-12))):,}) — under the neutral null, a map with
-Channel 1's joint partisan profile arises at most about once in every
-{int(round(1/max(2 * ch1_p, 1e-12))):,} draws, allowing for the two channels examined.
+**Reading:** on the published model, a map with Channel 1's joint partisan profile
+arises about once in {int(round(1/max(2 * ch1_p, 1e-12), -3)):,} draws under the neutral null, after doubling; across
+defensible modelling choices the figure runs from about 1 in 20,000 to about 1 in
+570,000. No sampled plan reaches the minority's distance on the published measure;
+seven do on the rank-based one.
 The historical Fisher figure ({p_combined:.2e}) overstated joint significance by
 assuming channel independence.
 
@@ -650,12 +699,12 @@ assuming channel independence.
 
 | Channel | Status | Finding |
 | --- | --- | --- |
-| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a channel |
-| Population MAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`) | Minority {(_min_mad / _maj_mad):.2f}× majority ({_min_mad:,.0f} vs {_maj_mad:,.0f}); minority at p{_min_mad_pct:.1f} of the neutral ensemble{'' if _has_mad else ' (percentile unavailable)'} |
-| Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio {_reock_ratio}× (the DPG-era 2.58× value was retracted — see DOCUMENTED CORRECTIONS) |
+| Municipal anchoring departure | Does not separate the maps on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 71.8%, both within 70–85% Canadian norm | No longer a channel |
+| Population MedAD ratio | Captured in canonical ensemble outputs (per-plan `population_mad`, the median absolute deviation from the median district) | Minority {(_min_mad / _maj_mad):.2f}× majority ({_min_mad:,.0f} vs {_maj_mad:,.0f}); minority at p{_min_mad_pct:.1f} of the neutral ensemble{' under the ±12.5% proposal band only, and at p0.013 under the ±25% statute band (`findings/eps_full_robustness.md`)' if _has_mad else ' (percentile unavailable)'} |
+| Reock asymmetry | Captured in canonical ensemble outputs (per-plan proxy Reock) | Null finding: both real maps sit at ~p100 on median compactness (anomalously compact — expected for commission maps); minority/majority pct<0.30 ratio {_reock_ratio}× (the DPG-era 2.58× value did not hold — see DOCUMENTED CORRECTIONS) |
 
 *(Corrected 2026-07-08: this table previously described MAD and Reock as "pending — not in
-ensemble outputs" and carried the retracted 2.58× Reock ratio and a stale 1.48× MAD ratio.
+ensemble outputs" and carried the superseded 2.58× Reock ratio and a stale 1.48× MAD ratio.
 The canonical ensemble outputs contain per-plan values for both metrics.)*
 
 ---
@@ -664,9 +713,10 @@ The canonical ensemble outputs contain per-plan values for both metrics.)*
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance {min_m['mahalanobis_distance']:.2f} from the ensemble center
-(p = {ch1_p:.2e}). The operative joint statistic is the dependence-robust Bonferroni
-upper bound p ≤ {2 * ch1_p:.2e}. SZAT (Ch2) is exploratory context only
-(block-permutation p = 0.1947); the retired Fisher combination is preserved above as
+(p = {ch1_p:.2e}). The operative joint figure is that
+model estimate, doubled (p ≈ {2 * ch1_p:.2e}), with the range given above. SZAT (Ch2) is
+exploratory context only (i.i.d. null invalid; the component-level block test,
+p = 0.1947, has one effective block and cannot reject); the retired Fisher combination is preserved above as
 historical record.
 
 **Channel 3 (Neighbour-Drain, canonical substrate 2026-06-11).** All three maps are
@@ -692,7 +742,7 @@ center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favour
     print(f"\n{'='*60}")
     print(f"DUCK SCORE (minority 2026) — canonical ensemble")
     print(f"  Channel 1 (partisan joint):  p = {ch1_p:.2e}")
-    print(f"  Joint headline (Bonferroni): p <= {2 * ch1_p:.2e}")
+    print(f"  Joint headline (model estimate, doubled): p ~ {2 * ch1_p:.2e}")
     print(f"  Channel 2 (SZAT, retired):   p = {szat_p:.4f} (i.i.d.-flip; block-perm p=0.1947)")
     print(f"  Fisher combined (historical): p = {p_combined:.2e}")
     print(f"  Channel 3 (drain, canonical): min z = {drain_canon['minority']['z']:.3f}, maj z = {drain_canon['majority']['z']:.3f}, 2019 z = {drain_canon['enacted']['z']:.3f}")

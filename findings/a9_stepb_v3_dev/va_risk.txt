@@ -1,0 +1,25 @@
+42 VAs inside 29 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 5.8
+52 VAs inside 51 points within 30/60/120 m of the boundary: 0 1 1 | page fit median m 9.9
+53 VAs inside 46 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 10.8
+54 VAs inside 53 points within 30/60/120 m of the boundary: 1 1 1 | page fit median m 8.4
+58 VAs inside 53 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 6.3
+60 VAs inside 52 points within 30/60/120 m of the boundary: 1 1 1 | page fit median m 9.5
+61 VAs inside 59 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 12.9
+62 VAs inside 46 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 11.8
+67 VAs inside 65 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 8.8
+68 VAs inside 55 points within 30/60/120 m of the boundary: 1 1 2 | page fit median m 9.0
+69 VAs inside 58 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 5.9
+71 VAs inside 64 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 8.4
+72 VAs inside 39 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 8.0
+73 VAs inside 55 points within 30/60/120 m of the boundary: 1 1 2 | page fit median m 10.0
+74 VAs inside 70 points within 30/60/120 m of the boundary: 1 1 2 | page fit median m 12.4
+76 VAs inside 72 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 29.6
+79 VAs inside 58 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 8.2
+80 VAs inside 61 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 8.9
+81 VAs inside 49 points within 30/60/120 m of the boundary: 2 2 2 | page fit median m 9.2
+84 VAs inside 56 points within 30/60/120 m of the boundary: 1 1 1 | page fit median m 6.8
+85 VAs inside 48 points within 30/60/120 m of the boundary: 1 1 1 | page fit median m 10.8
+87 VAs inside 51 points within 30/60/120 m of the boundary: 1 1 1 | page fit median m 5.4
+90 VAs inside 61 points within 30/60/120 m of the boundary: 0 0 0 | page fit median m 12.6
+91 VAs inside 58 points within 30/60/120 m of the boundary: 0 0 1 | page fit median m 9.8
+TOTAL VAs 1309 within 30 m 10 (0.8%) 60 m 11 (0.8%) 120 m 21

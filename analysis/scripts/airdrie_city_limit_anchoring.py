@@ -185,7 +185,7 @@ def main(out):
     df.to_csv(out, index=False, float_format="%.3f")
     print(df.drop(columns=["map"]).to_string(index=False, float_format=lambda v: f"{v:.2f}"))
     print(f"\nAirdrie city limit (2021 CSD): {city_limit.length / 1000:.2f} km")
-    print(f"wrote {out.relative_to(REPO)}")
+    print(f"wrote {out.relative_to(REPO) if out.is_relative_to(REPO) else out}")
 
 
 if __name__ == "__main__":

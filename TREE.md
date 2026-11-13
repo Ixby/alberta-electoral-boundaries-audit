@@ -6,7 +6,7 @@
 
 # Repository Tree
 
-*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages).*
+*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last fully updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages). Stale entries removed 2026-11-10; later folders (for example `findings/audit_2026-11-10/`) and most of the 38 files now in `preregistration/` are not yet listed. `git ls-files` is the complete list.*
 
 ---
 
@@ -16,7 +16,6 @@
 alberta_audit/
 ├── CONTRIBUTING.md            PR workflow, coding standards, AI attribution policy
 ├── README.md                  Public-facing overview — findings, quickstart, citation
-├── TODO.md                    Outstanding tasks — M2/M3 milestones, blockers, deferred items
 ├── TREE.md                    This file
 │
 ├── config.yaml                Master configuration — all shapefile paths, column renames, thresholds
@@ -25,7 +24,6 @@ alberta_audit/
 ├── .python-version            Minimum Python version declaration (3.11)
 │
 ├── run_audit.py               Shapefile integrity audit — 10 checks; run before any analysis
-├── run_chain1_recovery.py     Chain 1 MCMC recovery script (used after abort mid-run)
 └── run_master_qa.py           Full QA sweep — invokes all scripts in dependency order
 ```
 
@@ -43,7 +41,6 @@ docs/
 │                              framings; no p-values; CoI disclosure; concept-first explanations
 ├── images/
 │   └── lane1_dotplot.svg      Copy of data/maps/article/lane1_dotplot.svg for GitHub Pages hosting
-├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome
 ├── FROZEN_MANIFEST.md         Canonical file manifest — hashes of every committed output
 ├── REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim
 ├── data_sources.md            Primary data sources with URLs, access dates, and licence information
@@ -160,10 +157,10 @@ analysis/
 │       ├── alberta_government_databases_survey.md
 │       └── citation_verification.md
 │
-├── review/             External and internal scrutiny record (was: red_team/)
-│   ├── README.md               What each file represents (science review, legal review, peer, external audit)
+├── review/             AI-generated review passes and audit logs, not human peer review (was: red_team/)
+│   ├── README.md               What each file is; nearly all are AI-generated passes
 │   │
-│   │   — Peer reviews —
+│   │   — AI persona reviews (not human referees) —
 │   ├── peer_review_canadian.md
 │   ├── peer_review_legal.md
 │   ├── peer_review_methods.md
@@ -178,7 +175,7 @@ analysis/
 │   ├── science_review_data_literature.md
 │   ├── science_review_reproducibility.md
 │   │
-│   │   — Legal review —
+│   │   — AI legal-standard review passes (not legal advice) —
 │   ├── legal_review_framework.md
 │   ├── legal_review_academic_report.md
 │   ├── legal_review_public_report.md
@@ -192,11 +189,11 @@ analysis/
 │   ├── conclusions.md
 │   ├── latent_bias.md              Latent-bias analysis of the analytical framework
 │   │
-│   │   — External code audits —
+│   │   — AI code audits —
 │   ├── external_audit_gemini.md
 │   └── external_audit_meridian.md
 │
-└── scripts/            127 Python scripts — the executable analysis pipeline
+└── scripts/            179 Python scripts — the executable analysis pipeline
     ├── packing_cracking_analysis.py        B1–B6 partisan bias; symmetric, all three maps
     ├── electoral_forensics_population.py   A1/A2/A3 population equality tests
     ├── mcmc_ensemble_canonical.py          Canonical 1,010,000-plan ReCom neutral ensemble
@@ -259,8 +256,6 @@ data/
 ├── meta/                       Provenance, integrity, and documentation (not read by scripts)
 │   ├── data_acquisition_manifest.md    Sources, download dates, checksums for all input data
 │   ├── INTEGRITY_STATUS.md             Integrity check results (run_audit.py output)
-│   ├── provenance_manifest.json        Machine-readable provenance record
-│   ├── input_hashes.json               SHA-256 hashes of all input data files
 │   └── topology_alignment_proof.md     Formal proof that VA graph topology is planar + connected
 │
 ├── scratch/                    Issue-specific investigation artefacts (not canonical)
@@ -417,6 +412,8 @@ archive/
 ├── README.md                   Restructure date, rationale, logic delta for each archived era
 ├── consistency_audit.md        Phases 2-6 of sign-convention resolution (phase 1 is in
 │                               analysis/methodology/sign_convention_resolution.md)
+├── data_meta_snapshot_2026-05-12/  input_hashes.json and provenance_manifest.json as of
+│                               May 12, 2026; nothing reads them (see its README)
 └── provisional_geometries/     Derived Provisional Geometries (DPG) — boundary tracings
     │                           made from PDF thumbnails before official EA shapefiles arrived
     │                           (2026-05-06). Active analysis uses canonical/ exclusively.
@@ -482,7 +479,7 @@ reports/academic/report_academic.md
 | Any percentile / p-value | `reports/academic/report_academic.md` → `README.md` |
 | `config.yaml` | Run `run_audit.py` to verify nothing breaks |
 | Pre-registration methodology | `findings/pre_registration_amendment_log.md` |
-| MCMC checkpoints | `data/simulation_convergence_diagnostics_canonical.json` |
+| MCMC checkpoints | `data/outputs/simulation_convergence_diagnostics_canonical.json` |
 
 ---
 

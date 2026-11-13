@@ -1,0 +1,707 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "ballots": "ELECTION-DAY BALLOTS ONLY (932,164 of 1,764,915 ballots cast in 2023). Every figure in this file.",
+  "ensemble": {
+    "n_plans": 1010000,
+    "n_chains": 4,
+    "n_districts": 87,
+    "note": "The neutral plans have 87 districts; the two commission maps have 89.",
+    "correlation_matrix": {
+      "efficiency_gap": {
+        "efficiency_gap": 1.0,
+        "mean_median": -0.0506,
+        "declination": 0.9733,
+        "seats_at_50_50": -0.1112
+      },
+      "mean_median": {
+        "efficiency_gap": -0.0506,
+        "mean_median": 1.0,
+        "declination": -0.025,
+        "seats_at_50_50": 0.278
+      },
+      "declination": {
+        "efficiency_gap": 0.9733,
+        "mean_median": -0.025,
+        "declination": 1.0,
+        "seats_at_50_50": -0.086
+      },
+      "seats_at_50_50": {
+        "efficiency_gap": -0.1112,
+        "mean_median": 0.278,
+        "declination": -0.086,
+        "seats_at_50_50": 1.0
+      }
+    },
+    "correlation_eg_declination": 0.9733,
+    "largest_sampled_D2": 28.4307,
+    "largest_sampled_D2_by_chain": [
+      28.431,
+      26.935,
+      26.207,
+      26.669
+    ]
+  },
+  "tail_ratio_D2_13_to_24": {
+    "what": "share of sampled plans with D2 >= t, divided by the chi-square(4) tail at t; 1.0 = the model fits",
+    "rows": [
+      {
+        "D2": 13,
+        "plans_at_or_beyond": 13237,
+        "empirical_share": 0.01311,
+        "chi2_4_tail": 0.01128,
+        "ratio_empirical_to_model": 1.162,
+        "ratio_by_chain": [
+          1.22,
+          1.27,
+          1.19,
+          0.97
+        ]
+      },
+      {
+        "D2": 14,
+        "plans_at_or_beyond": 9123,
+        "empirical_share": 0.009033,
+        "chi2_4_tail": 0.007295,
+        "ratio_empirical_to_model": 1.238,
+        "ratio_by_chain": [
+          1.27,
+          1.49,
+          1.19,
+          1.0
+        ]
+      },
+      {
+        "D2": 15,
+        "plans_at_or_beyond": 6458,
+        "empirical_share": 0.006394,
+        "chi2_4_tail": 0.004701,
+        "ratio_empirical_to_model": 1.36,
+        "ratio_by_chain": [
+          1.42,
+          1.63,
+          1.28,
+          1.11
+        ]
+      },
+      {
+        "D2": 16,
+        "plans_at_or_beyond": 4753,
+        "empirical_share": 0.004706,
+        "chi2_4_tail": 0.003019,
+        "ratio_empirical_to_model": 1.559,
+        "ratio_by_chain": [
+          1.64,
+          1.89,
+          1.45,
+          1.24
+        ]
+      },
+      {
+        "D2": 17,
+        "plans_at_or_beyond": 3482,
+        "empirical_share": 0.003448,
+        "chi2_4_tail": 0.001933,
+        "ratio_empirical_to_model": 1.784,
+        "ratio_by_chain": [
+          1.97,
+          1.93,
+          1.77,
+          1.46
+        ]
+      },
+      {
+        "D2": 18,
+        "plans_at_or_beyond": 2599,
+        "empirical_share": 0.002573,
+        "chi2_4_tail": 0.001234,
+        "ratio_empirical_to_model": 2.085,
+        "ratio_by_chain": [
+          2.36,
+          2.34,
+          1.84,
+          1.8
+        ]
+      },
+      {
+        "D2": 19,
+        "plans_at_or_beyond": 1748,
+        "empirical_share": 0.001731,
+        "chi2_4_tail": 0.0007859,
+        "ratio_empirical_to_model": 2.202,
+        "ratio_by_chain": [
+          2.1,
+          3.02,
+          1.97,
+          1.71
+        ]
+      },
+      {
+        "D2": 20,
+        "plans_at_or_beyond": 1198,
+        "empirical_share": 0.001186,
+        "chi2_4_tail": 0.0004994,
+        "ratio_empirical_to_model": 2.375,
+        "ratio_by_chain": [
+          2.25,
+          3.46,
+          1.96,
+          1.83
+        ]
+      },
+      {
+        "D2": 21,
+        "plans_at_or_beyond": 772,
+        "empirical_share": 0.0007644,
+        "chi2_4_tail": 0.0003167,
+        "ratio_empirical_to_model": 2.414,
+        "ratio_by_chain": [
+          2.36,
+          3.68,
+          1.91,
+          1.7
+        ]
+      },
+      {
+        "D2": 22,
+        "plans_at_or_beyond": 492,
+        "empirical_share": 0.0004871,
+        "chi2_4_tail": 0.0002004,
+        "ratio_empirical_to_model": 2.431,
+        "ratio_by_chain": [
+          2.63,
+          3.87,
+          1.74,
+          1.48
+        ]
+      },
+      {
+        "D2": 23,
+        "plans_at_or_beyond": 381,
+        "empirical_share": 0.0003772,
+        "chi2_4_tail": 0.0001266,
+        "ratio_empirical_to_model": 2.979,
+        "ratio_by_chain": [
+          2.97,
+          4.91,
+          2.16,
+          1.88
+        ]
+      },
+      {
+        "D2": 24,
+        "plans_at_or_beyond": 165,
+        "empirical_share": 0.0001634,
+        "chi2_4_tail": 7.987e-05,
+        "ratio_empirical_to_model": 2.045,
+        "ratio_by_chain": [
+          3.07,
+          1.98,
+          1.49,
+          1.64
+        ]
+      }
+    ],
+    "min_ratio": 1.162,
+    "max_ratio": 2.979,
+    "reading": "The model's tail is too thin where it can be checked: the sample holds 1.2 to 3.0 times as many plans as chi-square(4) predicts between D2 = 13 and 24. Beyond the largest sampled D2 (28.4) nothing can be checked.",
+    "caveat": "With about 1,000 effective draws these ratios are noisy; see ratio_by_chain."
+  },
+  "maps": {
+    "minority": {
+      "scores": {
+        "efficiency_gap": 0.04019385991913548,
+        "mean_median": 0.010401768621624785,
+        "declination": 0.07700256493469557,
+        "seats_at_50_50": 0.5168539325842697
+      },
+      "n_districts": 89,
+      "published": {
+        "D2": 33.6385,
+        "D": 5.7999,
+        "df": 4,
+        "p_exact": 8.839e-07,
+        "one_in_exact": 1131382,
+        "p_doubled": 1.768e-06,
+        "one_in_doubled": 565691
+      },
+      "hotelling": {
+        "pipeline_formula_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 1.113e-06,
+          "one_in_exact": 898736,
+          "p_doubled": 2.225e-06,
+          "one_in_doubled": 449368
+        },
+        "exact_factor_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 1.101e-06,
+          "one_in_exact": 908624,
+          "p_doubled": 2.201e-06,
+          "one_in_doubled": 454312
+        },
+        "pipeline_formula_n_eff_894_uncapped": {
+          "n_eff": 894,
+          "p_exact": 1.268e-06,
+          "one_in_exact": 788907,
+          "p_doubled": 2.535e-06,
+          "one_in_doubled": 394454
+        },
+        "note": "Allows only for error in estimating the covariance matrix from n_eff draws."
+      },
+      "drop_declination": {
+        "D2": 27.2844,
+        "D": 5.2234,
+        "df": 3,
+        "p_exact": 5.132e-06,
+        "one_in_exact": 194852,
+        "p_doubled": 1.026e-05,
+        "one_in_doubled": 97426,
+        "metrics": [
+          "efficiency_gap",
+          "mean_median",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 0
+      },
+      "drop_eg": {
+        "D2": 29.7238,
+        "D": 5.452,
+        "df": 3,
+        "p_exact": 1.578e-06,
+        "one_in_exact": 633877,
+        "p_doubled": 3.155e-06,
+        "one_in_doubled": 316938,
+        "metrics": [
+          "mean_median",
+          "declination",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 0
+      },
+      "single_metric": {
+        "efficiency_gap": {
+          "D2": 2.47,
+          "plans_at_or_above": 55169,
+          "plans_at_or_below": 954831,
+          "midrank_percentile": 94.5377
+        },
+        "mean_median": {
+          "D2": 13.851,
+          "plans_at_or_above": 338,
+          "plans_at_or_below": 1009662,
+          "midrank_percentile": 99.9665
+        },
+        "declination": {
+          "D2": 5.055,
+          "plans_at_or_above": 12240,
+          "plans_at_or_below": 997760,
+          "midrank_percentile": 98.7881
+        },
+        "seats_at_50_50": {
+          "D2": 15.481,
+          "plans_at_or_above": 69,
+          "plans_at_or_below": 1009931,
+          "midrank_percentile": 99.9932
+        }
+      },
+      "rank_based": {
+        "D2": 31.8047,
+        "D": 5.6396,
+        "df": 4,
+        "p_exact": 2.097e-06,
+        "one_in_exact": 476829,
+        "p_doubled": 4.194e-06,
+        "one_in_doubled": 238414,
+        "definition": "normal-scores Mahalanobis; see the docstring of joint_sensitivity.py",
+        "map_normal_scores": {
+          "efficiency_gap": 1.6016,
+          "mean_median": 3.4014,
+          "declination": 2.2533,
+          "seats_at_50_50": 3.8124
+        },
+        "plans_at_or_beyond": 7,
+        "empirical_share": 6.931e-06,
+        "largest_sampled_rank_D2": 45.89
+      },
+      "empirical": {
+        "plans_with_raw_D2_at_or_beyond": 0,
+        "of": 1010000,
+        "largest_sampled_D2": 28.4307,
+        "map_D2_exceeds_every_sampled_plan": true,
+        "plans_at_or_above_on_all_four_metrics": 0,
+        "plans_at_or_above_on_mean_median_and_seats": 29,
+        "one_sided_sum_of_log_upper_tails": {
+          "map_statistic": 24.9141,
+          "plans_at_or_beyond": 4,
+          "note": "one-sided, in the UCP-favourable direction; informative for the minority map only"
+        },
+        "caveat": "A zero count among 1,010,000 autocorrelated plans worth about 1,000 independent draws supports 'rarer than roughly 1 in 1,000' on its own; it cannot support a figure in the hundred-thousands."
+      },
+      "forest_recom": {
+        "D2": 26.5436,
+        "D": 5.1521,
+        "df": 4,
+        "p_exact": 2.458e-05,
+        "one_in_exact": 40682,
+        "p_doubled": 4.916e-05,
+        "one_in_doubled": 20341,
+        "n_plans": 80000,
+        "plans_at_or_beyond": 0,
+        "largest_sampled_D2": 21.764,
+        "note": "80,000 plans, 4 chains, effective sample size about 60 to 120 per metric: a rough check, not a second estimate of equal weight."
+      }
+    },
+    "majority": {
+      "scores": {
+        "efficiency_gap": 0.0009823668405000681,
+        "mean_median": -0.036190901059016234,
+        "declination": -0.026675251362353544,
+        "seats_at_50_50": 0.4606741573033708
+      },
+      "n_districts": 89,
+      "published": {
+        "D2": 7.7364,
+        "D": 2.7814,
+        "df": 4,
+        "p_exact": 0.1017,
+        "one_in_exact": 10,
+        "p_doubled": 0.2035,
+        "one_in_doubled": 5
+      },
+      "hotelling": {
+        "pipeline_formula_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 0.1035,
+          "one_in_exact": 10,
+          "p_doubled": 0.2069,
+          "one_in_doubled": 5
+        },
+        "exact_factor_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 0.1033,
+          "one_in_exact": 10,
+          "p_doubled": 0.2065,
+          "one_in_doubled": 5
+        },
+        "pipeline_formula_n_eff_894_uncapped": {
+          "n_eff": 894,
+          "p_exact": 0.1045,
+          "one_in_exact": 10,
+          "p_doubled": 0.209,
+          "one_in_doubled": 5
+        },
+        "note": "Allows only for error in estimating the covariance matrix from n_eff draws."
+      },
+      "drop_declination": {
+        "D2": 7.2926,
+        "D": 2.7005,
+        "df": 3,
+        "p_exact": 0.06313,
+        "one_in_exact": 16,
+        "p_doubled": 0.1263,
+        "one_in_doubled": 8,
+        "metrics": [
+          "efficiency_gap",
+          "mean_median",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 64241
+      },
+      "drop_eg": {
+        "D2": 6.9753,
+        "D": 2.6411,
+        "df": 3,
+        "p_exact": 0.07269,
+        "one_in_exact": 14,
+        "p_doubled": 0.1454,
+        "one_in_doubled": 7,
+        "metrics": [
+          "mean_median",
+          "declination",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 72809
+      },
+      "single_metric": {
+        "efficiency_gap": {
+          "D2": 0.95,
+          "plans_at_or_above": 843178,
+          "plans_at_or_below": 166822,
+          "midrank_percentile": 16.517
+        },
+        "mean_median": {
+          "D2": 5.026,
+          "plans_at_or_above": 999989,
+          "plans_at_or_below": 10011,
+          "midrank_percentile": 0.9912
+        },
+        "declination": {
+          "D2": 0.698,
+          "plans_at_or_above": 789325,
+          "plans_at_or_below": 220675,
+          "midrank_percentile": 21.849
+        },
+        "seats_at_50_50": {
+          "D2": 0.226,
+          "plans_at_or_above": 216762,
+          "plans_at_or_below": 793238,
+          "midrank_percentile": 78.5384
+        }
+      },
+      "rank_based": {
+        "D2": 9.4911,
+        "D": 3.0808,
+        "df": 4,
+        "p_exact": 0.04993,
+        "one_in_exact": 20,
+        "p_doubled": 0.09986,
+        "one_in_doubled": 10,
+        "definition": "normal-scores Mahalanobis; see the docstring of joint_sensitivity.py",
+        "map_normal_scores": {
+          "efficiency_gap": -0.9734,
+          "mean_median": -2.3296,
+          "declination": -0.7773,
+          "seats_at_50_50": 0.7905
+        },
+        "plans_at_or_beyond": 50407,
+        "empirical_share": 0.04991,
+        "largest_sampled_rank_D2": 45.89
+      },
+      "empirical": {
+        "plans_with_raw_D2_at_or_beyond": 102111,
+        "of": 1010000,
+        "largest_sampled_D2": 28.4307,
+        "map_D2_exceeds_every_sampled_plan": false,
+        "plans_at_or_above_on_all_four_metrics": 160723,
+        "plans_at_or_above_on_mean_median_and_seats": 215847,
+        "one_sided_sum_of_log_upper_tails": {
+          "map_statistic": 1.9759,
+          "plans_at_or_beyond": 757210,
+          "note": "one-sided, in the UCP-favourable direction; informative for the minority map only"
+        },
+        "caveat": "A zero count among 1,010,000 autocorrelated plans worth about 1,000 independent draws supports 'rarer than roughly 1 in 1,000' on its own; it cannot support a figure in the hundred-thousands."
+      },
+      "forest_recom": {
+        "D2": 7.7783,
+        "D": 2.789,
+        "df": 4,
+        "p_exact": 0.1,
+        "one_in_exact": 10,
+        "p_doubled": 0.2001,
+        "one_in_doubled": 5,
+        "n_plans": 80000,
+        "plans_at_or_beyond": 7760,
+        "largest_sampled_D2": 21.764,
+        "note": "80,000 plans, 4 chains, effective sample size about 60 to 120 per metric: a rough check, not a second estimate of equal weight."
+      }
+    },
+    "map_2019": {
+      "scores": {
+        "efficiency_gap": 0.024119940578423545,
+        "mean_median": -0.007671760176883757,
+        "declination": 0.04509237880431511,
+        "seats_at_50_50": 0.45977011494252873
+      },
+      "n_districts": 87,
+      "published": {
+        "D2": 13.1648,
+        "D": 3.6283,
+        "df": 4,
+        "p_exact": 0.0105,
+        "one_in_exact": 95,
+        "p_doubled": 0.021,
+        "one_in_doubled": 48
+      },
+      "hotelling": {
+        "pipeline_formula_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 0.01095,
+          "one_in_exact": 91,
+          "p_doubled": 0.02191,
+          "one_in_doubled": 46
+        },
+        "exact_factor_n_eff_1413": {
+          "n_eff": 1413,
+          "p_exact": 0.01091,
+          "one_in_exact": 92,
+          "p_doubled": 0.02182,
+          "one_in_doubled": 46
+        },
+        "pipeline_formula_n_eff_894_uncapped": {
+          "n_eff": 894,
+          "p_exact": 0.01122,
+          "one_in_exact": 89,
+          "p_doubled": 0.02245,
+          "one_in_doubled": 45
+        },
+        "note": "Allows only for error in estimating the covariance matrix from n_eff draws."
+      },
+      "drop_declination": {
+        "D2": 2.3515,
+        "D": 1.5335,
+        "df": 3,
+        "p_exact": 0.5027,
+        "one_in_exact": 2,
+        "p_doubled": 1.0,
+        "one_in_doubled": 1,
+        "metrics": [
+          "efficiency_gap",
+          "mean_median",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 497077
+      },
+      "drop_eg": {
+        "D2": 3.7851,
+        "D": 1.9455,
+        "df": 3,
+        "p_exact": 0.2856,
+        "one_in_exact": 4,
+        "p_doubled": 0.5713,
+        "one_in_doubled": 2,
+        "metrics": [
+          "mean_median",
+          "declination",
+          "seats_at_50_50"
+        ],
+        "plans_at_or_beyond": 286172
+      },
+      "single_metric": {
+        "efficiency_gap": {
+          "D2": 0.278,
+          "plans_at_or_above": 308440,
+          "plans_at_or_below": 701560,
+          "midrank_percentile": 69.4614
+        },
+        "mean_median": {
+          "D2": 1.984,
+          "plans_at_or_above": 82698,
+          "plans_at_or_below": 927302,
+          "midrank_percentile": 91.8121
+        },
+        "declination": {
+          "D2": 1.688,
+          "plans_at_or_above": 87612,
+          "plans_at_or_below": 922388,
+          "midrank_percentile": 91.3255
+        },
+        "seats_at_50_50": {
+          "D2": 0.176,
+          "plans_at_or_above": 483040,
+          "plans_at_or_below": 793238,
+          "midrank_percentile": 65.3563
+        }
+      },
+      "rank_based": {
+        "D2": 15.406,
+        "D": 3.925,
+        "df": 4,
+        "p_exact": 0.003929,
+        "one_in_exact": 255,
+        "p_doubled": 0.007858,
+        "one_in_doubled": 127,
+        "definition": "normal-scores Mahalanobis; see the docstring of joint_sensitivity.py",
+        "map_normal_scores": {
+          "efficiency_gap": 0.509,
+          "mean_median": 1.3925,
+          "declination": 1.3611,
+          "seats_at_50_50": 0.395
+        },
+        "plans_at_or_beyond": 5603,
+        "empirical_share": 0.005548,
+        "largest_sampled_rank_D2": 45.89
+      },
+      "empirical": {
+        "plans_with_raw_D2_at_or_beyond": 12370,
+        "of": 1010000,
+        "largest_sampled_D2": 28.4307,
+        "map_D2_exceeds_every_sampled_plan": false,
+        "plans_at_or_above_on_all_four_metrics": 3775,
+        "plans_at_or_above_on_mean_median_and_seats": 64108,
+        "one_sided_sum_of_log_upper_tails": {
+          "map_statistic": 6.8711,
+          "plans_at_or_beyond": 101495,
+          "note": "one-sided, in the UCP-favourable direction; informative for the minority map only"
+        },
+        "caveat": "A zero count among 1,010,000 autocorrelated plans worth about 1,000 independent draws supports 'rarer than roughly 1 in 1,000' on its own; it cannot support a figure in the hundred-thousands."
+      },
+      "forest_recom": {
+        "D2": 11.8735,
+        "D": 3.4458,
+        "df": 4,
+        "p_exact": 0.01832,
+        "one_in_exact": 55,
+        "p_doubled": 0.03663,
+        "one_in_doubled": 27,
+        "n_plans": 80000,
+        "plans_at_or_beyond": 1497,
+        "largest_sampled_D2": 21.764,
+        "note": "80,000 plans, 4 chains, effective sample size about 60 to 120 per metric: a rough check, not a second estimate of equal weight. The forest run stored no score for this map; the canonical-run score (same votes, same map) is used."
+      }
+    }
+  },
+  "summary_minority": {
+    "ballots": "election-day ballots only",
+    "one_in_doubled_by_variant": {
+      "published chi-square(4)": 565691,
+      "Hotelling, n_eff 1,413": 449368,
+      "Hotelling, n_eff 894 (uncapped)": 394454,
+      "drop efficiency gap": 316938,
+      "rank-based (normal scores)": 238414,
+      "drop declination": 97426,
+      "forest-ReCom sampler": 20341
+    },
+    "one_in_exact_by_variant": {
+      "published chi-square(4)": 1131382,
+      "Hotelling, n_eff 1,413": 898736,
+      "Hotelling, n_eff 894 (uncapped)": 788907,
+      "drop efficiency gap": 633877,
+      "rank-based (normal scores)": 476829,
+      "drop declination": 194852,
+      "forest-ReCom sampler": 40682
+    },
+    "range_one_in_doubled": [
+      20341,
+      565691
+    ],
+    "range_one_in_doubled_main_sampler_only": [
+      97426,
+      565691
+    ],
+    "range_one_in_exact": [
+      40682,
+      1131382
+    ],
+    "honest_range": "On election-day ballots, between roughly 1 in 20,000 and 1 in 570,000 (doubled, as published) depending on the modelling choice; the published model gives 1 in 565,691. Every variant is rarer than 1 in 10,000.",
+    "every_variant_rarer_than_1_in_10000": true,
+    "sampled_plans_at_or_beyond": {
+      "raw_D2": 0,
+      "rank_based_D2": 7,
+      "one_sided_sum_of_logs": 4,
+      "forest_recom_raw_D2": 0
+    },
+    "what_the_range_does_not_cover": [
+      "All ballots (see all_ballots below).",
+      "The 87-versus-89 district mismatch between the neutral plans and the commission maps.",
+      "The doubling itself: it was set for two channels and one remains (audit finding joint-stats-4). Exact values are given beside it.",
+      "Extrapolation: every model figure lies beyond the largest sampled D2, where the chi-square shape cannot be checked; between D2 13 and 24 the sample has 1.2 to 3.0 times the model's tail."
+    ]
+  },
+  "all_ballots": {
+    "computed": false,
+    "why": "The joint figure needs every plan's four scores on all ballots (to estimate the mean and covariance). The all-ballots replay of the 1,010,000 plans (data/simulation_checkpoints_allballots/chain{0..3}_samples.csv and simulated_ensemble_raw_samples_allballots.csv) is not committed on this branch or on any other branch of this clone; findings/allballots_ranking/README.md records only the SHA-256 of the four chain files.",
+    "branch_search": {
+      "searched": true,
+      "n_refs_searched": 96,
+      "includes_origin_amendment17_local_runs": true,
+      "file_name_patterns": [
+        "simulation_checkpoints_allballots",
+        "raw_samples_allballots",
+        "checkpoints_canonical_allballots"
+      ],
+      "files_found": []
+    },
+    "what_is_committed": "Single-metric percentiles only (findings/allballots_ranking/canonical_ranking.json). For the minority map, election-day -> all ballots: efficiency gap p94.54 -> p98.82, mean-median p99.97 -> p98.73, declination p98.79 -> p99.82, seats at 50/50 p99.99 -> p99.90. The two metrics that carry most of the election-day D2 (mean-median and seats) are weaker on all ballots, so the all-ballots joint figure cannot be assumed equal to, or stronger than, the election-day one.",
+    "how_to_compute": "Re-run mcmc_ensemble_canonical.py with --run-id allballots --va-file data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg (about 2.5 hours), verify the four SHA-256 values in findings/allballots_ranking/README.md, then run this script's calculation on those chains."
+  }
+}

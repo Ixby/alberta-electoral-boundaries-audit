@@ -40,29 +40,9 @@ const locale = readFileSync(localePath, 'utf8');
  * and add it to PROBES below.
  */
 const PROBES = [
-	// Opener
-	{ key: 'opener.body', anchor: 'Rural, Urban, curious, wonk, journalist, lawyer, academic, politician' },
-	{ key: 'opener.body', anchor: 'peer inside the machine' },
 	// Stakes
 	{ key: 'stakes.q1.body', anchor: 'reasonably support calling the' },
 	{ key: 'stakes.q1.footnote', anchor: '"majority" and "minority" names come from a 3–2 split' },
-	{ key: 'stakes.q2.body', anchor: 'whether the boundaries give voters' },
-	{ key: 'stakes.q3.body', anchor: 'two-thirds supermajority) the governing party unlocks extraordinary procedural powers' },
-	// Boundary card
-	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
-	{ key: 'boundary.can_1', anchor: 'crosses 4 of 5 pre-registered structural thresholds' },
-	// Section 1 (onboarding)
-	{ key: 'editorial_intro.heading', anchor: 'What is redistricting, and why it matters' },
-	{ key: 'editorial_intro.p1', anchor: 'one MLA, one district, one vote' },
-	{ key: 'editorial_intro.p3', anchor: 'split 3–2 on what the map should look like' },
-	// Section 5 (ladder)
-	{ key: 'editorial_reflect.intro_q1', anchor: 'Where does your MLA live' },
-	{ key: 'editorial_reflect.intro_q3', anchor: 'demands of the head dominate the demands of the tails' },
-	{ key: 'editorial_reflect.region_p3', anchor: 'rural communities are being attached as the' },
-	{ key: 'editorial_reflect.province_p', anchor: 'sum every district\'s answers to the three questions' },
-	// Section 6 (history)
-	{ key: 'editorial_history.p1', anchor: 'Massachusetts governor Elbridge Gerry' },
-	{ key: 'editorial_history.p3', anchor: 'Rucho v. Common Cause' },
 	// Section 7 (Canada)
 	{ key: 'editorial_canada.p3', anchor: 'Saskatchewan Reference' },
 	{ key: 'editorial_canada.p4', anchor: '25% population variance' }

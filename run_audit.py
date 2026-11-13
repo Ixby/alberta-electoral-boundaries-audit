@@ -16,7 +16,6 @@ import numpy as np
 from shapely.validation import explain_validity
 
 import sys
-from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE / "analysis" / "utils"))
@@ -35,6 +34,39 @@ except FileNotFoundError:
             scores = json.load(f)
     else:
         scores = {}
+
+# District-name column: the official Elections Alberta files call it
+# EDName2025; older provisional files called it name_2026.
+NAME_COLUMNS = ("name_2026", "EDName2025")
+
+
+def name_column(gdf):
+    """The district-name column of a 2026 map, or None if it has none.
+
+    Never falls back to another column: checks 3 and 4 must test names, and a
+    file with no name column must fail them, not pass on the district number.
+    """
+    return next((c for c in NAME_COLUMNS if c in gdf.columns), None)
+
+
+def duplicate_names(gdf):
+    """{name: count} for names used more than once (surrounding spaces ignored)."""
+    col = name_column(gdf)
+    if col is None:
+        raise KeyError(f"no district-name column; looked for {NAME_COLUMNS}")
+    vc = gdf[col].dropna().astype(str).str.strip().value_counts()
+    return vc[vc > 1].to_dict()
+
+
+def blank_names(gdf):
+    """(n_null, n_blank) in the district-name column."""
+    col = name_column(gdf)
+    if col is None:
+        raise KeyError(f"no district-name column; looked for {NAME_COLUMNS}")
+    n_null = int(gdf[col].isna().sum())
+    n_blank = int((gdf[col].dropna().astype(str).str.strip() == "").sum())
+    return n_null, n_blank
+
 
 print("Loading files via config.yaml ...")
 maj = data_loader.get_map("majority")
@@ -95,15 +127,21 @@ else:
 # ── CHECK 3 — Duplicate names ────────────────────────────────────────────────
 dups = {}
 for label, gdf in [("majority", maj), ("minority", minn)]:
-    col = "name_2026" if "name_2026" in gdf.columns else gdf.columns[0]
-    vc = gdf[col].value_counts()
-    d = vc[vc > 1]
-    if len(d):
-        dups[label] = d.to_dict()
+    try:
+        d = duplicate_names(gdf)
+    except KeyError as e:
+        dups[label] = str(e)
+        continue
+    if d:
+        dups[label] = d
 
 if not dups:
     results.append(
-        ("3. Duplicate names", "PASS", "all name_2026 values unique in both maps")
+        (
+            "3. Duplicate names",
+            "PASS",
+            f"all {name_column(maj)} / {name_column(minn)} values unique in both maps",
+        )
     )
 else:
     results.append(("3. Duplicate names", "FAIL", str(dups)))
@@ -111,16 +149,21 @@ else:
 # ── CHECK 4 — Name completeness ──────────────────────────────────────────────
 blanks = {}
 for label, gdf in [("majority", maj), ("minority", minn)]:
-    col = "name_2026" if "name_2026" in gdf.columns else None
-    if col:
-        n_null = gdf[col].isna().sum()
-        n_blank = (gdf[col].str.strip() == "").sum() if gdf[col].dtype == object else 0
-        if n_null or n_blank:
-            blanks[label] = f"{n_null} null, {n_blank} blank"
+    try:
+        n_null, n_blank = blank_names(gdf)
+    except KeyError as e:
+        blanks[label] = str(e)
+        continue
+    if n_null or n_blank:
+        blanks[label] = f"{n_null} null, {n_blank} blank"
 
 if not blanks:
     results.append(
-        ("4. Name completeness", "PASS", "no null/blank name_2026 in either map")
+        (
+            "4. Name completeness",
+            "PASS",
+            f"no null/blank {name_column(maj)} / {name_column(minn)} in either map",
+        )
     )
 else:
     results.append(("4. Name completeness", "FAIL", str(blanks)))
@@ -132,7 +175,7 @@ for label, gdf in [("majority", maj), ("minority", minn)]:
     gdf_proj = gdf.to_crs(epsg=3400)
     pairs_found = []
     geoms = list(gdf_proj.geometry)
-    names_col = "name_2026" if "name_2026" in gdf_proj.columns else gdf_proj.columns[0]
+    names_col = name_column(gdf_proj) or gdf_proj.columns[0]
     names = list(gdf_proj[names_col])
     for i in range(len(geoms)):
         for j in range(i + 1, len(geoms)):

@@ -1,10 +1,19 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-v0.1 MCMC ensemble gerrymandering test — Alberta 2019 baseline.
+MCMC ensemble library — graph construction, the ReCom chain, plan scoring,
+percentile ranking and convergence diagnostics.
 
-Purpose
--------
+Current use: the canonical 1,010,000-plan ensemble (4 chains x 252,500) is
+produced by mcmc_ensemble_canonical.py, which imports build_va_graph,
+run_ensemble, seat_results, score_exogenous_map, pct_rank and
+autocorrelation_ess from this module. The description below is of this
+module's own main(), the original v0.1 single-chain run (default 5,000 plans
+from the 2019 seed, provisional 2026 geometry); it is kept for the record and
+is not how any published number was produced.
+
+Purpose (v0.1 main())
+---------------------
 Run a ReCom (Recombination) MCMC ensemble on the 2019 enacted Alberta ED map using
 Voting-Area (VA) polygons as atomic units. Score each simulated plan on four
 partisan-bias metrics using 2023 vote data, then locate the three real maps
@@ -274,8 +283,11 @@ def build_va_graph(verbose: bool = True, va_path: Path = None):
     pop_cache = DATA / "va_pop_from_das.csv"
     if not pop_cache.exists():
         raise FileNotFoundError(
-            f"Missing {pop_cache}. Run scripts/build_va_pop.py first, or see the block "
-            "in v0_1_mcmc_ensemble.py that constructs it via DA overlay."
+            f"Missing {pop_cache}. It is a committed file (4,765 rows: 2021 census "
+            "population per voting area, from an area-weighted overlay of "
+            "data/shapefiles/reference/alberta_2021_das.gpkg on the VA polygons). "
+            "Restore it with git (an identical copy is at data/outputs/va_pop_from_das.csv), "
+            "or rebuild it with: python analysis/scripts/build_va_pop.py --write"
         )
     pop_df = pd.read_csv(pop_cache).set_index("va_row_idx")["pop_2021"]
     va["pop_2021"] = va.index.map(pop_df).fillna(0.0)
@@ -500,16 +512,16 @@ def run_ensemble(
     # 2 districts (Central Peace-Notley, Lesser Slave Lake) but the resulting
     # 85-district unfrozen subgraph is infeasible to seed-balance via
     # recursive_tree_part — the algorithm exhausts max_attempts=50000.
-    # Reverting to the original behaviour (chain runs on full graph,
-    # recursive_tree_part regenerates the seed under strict ±12.5% half-eps
-    # if the 2019 seed exceeds tolerance). This destroys the s15(2)
-    # protection in the baseline, but: per the Gemini-2 analysis, that
-    # destruction makes the minority's percentile *more conservative* (it
-    # suppresses safe UCP rural seats from the baseline distribution, so
-    # the minority's high UCP count looks LESS anomalous than it would
-    # against an s15(2)-respecting baseline). The original p98.6 is
-    # therefore a LOWER BOUND on the minority's anomaly, not an inflation.
-    # H6 in the academic report's hypothesis tracker documents this.
+    # Reverting to the original behaviour (chain runs on full graph;
+    # recursive_tree_part regenerates the seed at epsilon = pop_deviation,
+    # i.e. the full +/-25% band, if the 2019 seed exceeds tolerance; ReCom
+    # proposals then use the half band, +/-12.5%). This removes the s15(2)
+    # protection from the baseline. The direction of the resulting bias is
+    # unknown: without s.15(2), and with a +/-12.5% proposal band, the
+    # ensemble produces fewer small rural districts than the Act allows, so
+    # the percentiles cannot be read as conservative lower bounds (academic
+    # report s.5.4.9, constraint note). H6 in the academic report's
+    # hypothesis tracker documents the decision.
     frozen_districts = set()
 
     if frozen_districts:
@@ -538,8 +550,8 @@ def run_ensemble(
         _rng_state_np = np.random.get_state()
         _rng_state_py = _random.getstate()
         rng = np.random.default_rng(seed + 999)  # noqa: F841
-        np.random.seed(seed + 999)  # gerrychain-compat: seeds legacy RNG
-        _random.seed(seed + 999)  # gerrychain-compat: seeds global Python random
+        np.random.seed(seed + 999)  # not read by gerrychain 0.3.2; kept so the global numpy state is defined
+        _random.seed(seed + 999)  # gerrychain 0.3.2 draws only from Python's random: this seeds the tree
         # Use full pop_deviation (not half) so seed generation is tractable across
         # all chain seeds; the chain constraint also uses pop_deviation, so the
         # seed is guaranteed to be accepted by the chain.
@@ -690,15 +702,38 @@ def run_ensemble(
 # ---- Plotting ---------------------------------------------------------------
 
 
-def pct_rank(values: np.ndarray, x: float) -> float:
-    """Percentile of x within values (0-100). Uses the midrank method like scipy.percentileofscore(kind='mean')."""
+# Two values closer than this (times max(1, |x|)) are the same value for
+# ranking purposes. A number written to CSV and read back by pandas' default
+# parser can come back one ulp off (about 1e-16 for values near 0.5), so the
+# tolerance must be wider than that. It must also stay far below the gap
+# between distinct plans' continuous metrics: on the 1,010,000-plan ensemble
+# the nearest plan to a real map's mean-median is 6e-10 away, so a 1e-9
+# tolerance would invent a tie there. 1e-12 is the value used in
+# findings/audit_2026-11-10/pct_rank_ties.py.
+PCT_RANK_TIE_ATOL = 1e-12
+
+
+def pct_rank(values: np.ndarray, x: float, atol: float = PCT_RANK_TIE_ATOL) -> float:
+    """Percentile of x within values (0-100), midrank method
+    (scipy.percentileofscore(kind='mean')): 100 * (below + 0.5 * tied) / n.
+
+    A value within atol * max(1, |x|) of x counts as tied with x. This matters
+    for discrete metrics such as seats_at_50_50 = k/n: pandas' default CSV
+    parser returns a float one ulp away from the written value for many k/n
+    strings, so an exact `==` finds no ties and ranks the map at the top (or
+    bottom) of its tie block instead of its middle
+    (findings/audit_2026-11-10/pct_rank_ties.json). Pass atol=0.0 for the
+    exact-equality rule.
+    """
     values = np.asarray(values, dtype=float)
     values = values[~np.isnan(values)]
     # NaN contract: returns float("nan") if values array is empty or x is NaN.
     if len(values) == 0 or np.isnan(x):
         return float("nan")
-    below = np.sum(values < x)
-    equal = np.sum(values == x)
+    tol = atol * max(1.0, abs(float(x)))
+    diff = values - x
+    equal = np.sum(np.abs(diff) <= tol)
+    below = np.sum(diff < -tol)
     return 100.0 * (below + 0.5 * equal) / len(values)
 
 
@@ -768,10 +803,10 @@ def main(n_steps: int = 5000, seed: int = None):
 
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble")
     rng = np.random.default_rng(seed)  # noqa: F841
-    np.random.seed(seed)  # gerrychain-compat: seeds legacy RNG
+    np.random.seed(seed)  # not read by gerrychain 0.3.2; kept so the global numpy state is defined
     import random as _random
 
-    _random.seed(seed)  # gerrychain-compat: seeds global Python random
+    _random.seed(seed)  # gerrychain 0.3.2 draws only from Python's random: this drives the walk
 
     print(
         f"[{time.strftime('%H:%M:%S')}] starting ensemble run — n_steps={n_steps}, seed={seed}"
@@ -929,14 +964,35 @@ if __name__ == "__main__":
 # ---- convergence diagnostics -----------------------------------------------
 
 
-def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
+ESS_DEFAULT_LAG_CAP = 2000
+
+
+def autocorrelation_ess(
+    x: np.ndarray, max_lag: int | None = None, uncapped: bool = False
+) -> dict:
     """Compute integrated autocorrelation time and effective sample size.
 
-    Uses the standard n_eff = n / tau formula where
-    tau = 1 + 2 * sum_{k=1..M} rho_k  (Geyer initial positive sequence).
+    n_eff = n / tau, with tau = 1 + 2 * sum_{k=1..M} rho_k. The sum stops at the
+    lag before the first rho_k <= 0, or at the lag cap, whichever comes first.
 
-    We truncate the sum at the first lag where rho_k <= 0 (Geyer 1992).
+    Lag cap
+    -------
+    Default: max_lag = min(n // 4, ESS_DEFAULT_LAG_CAP). This is the rule the
+    published diagnostics were computed with. When the cap is reached while
+    rho_k is still positive, tau is understated and n_eff is an UPPER BOUND;
+    the returned `cap_bound` is then True. On the canonical 1,010,000-plan
+    ensemble the cap binds on all four partisan metrics
+    (findings/audit_2026-11-10/ess_uncapped.json).
+
+    uncapped=True removes the cap (max_lag = n - 1; `max_lag` must be None) and
+    computes the autocorrelation by FFT, so the sum always runs to the first
+    non-positive lag. Same 1/n normalisation as the capped lag loop.
+
+    Returns n, tau, n_eff, max_lag_used (lags summed), lag_cap (the cap that
+    applied), cap_bound (True iff the cap stopped the sum), rho_lag_{1,10,100}.
     """
+    if uncapped and max_lag is not None:
+        raise ValueError("pass either max_lag or uncapped=True, not both")
     x = np.asarray(x, dtype=float)
     x = x[~np.isnan(x)]
     n = len(x)
@@ -946,6 +1002,8 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
             "tau": float("nan"),
             "n_eff": float("nan"),
             "max_lag_used": 0,
+            "lag_cap": 0,
+            "cap_bound": False,
         }
 
     x_centered = x - x.mean()
@@ -956,25 +1014,35 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
             "tau": float("nan"),
             "n_eff": float("nan"),
             "max_lag_used": 0,
+            "lag_cap": 0,
+            "cap_bound": False,
         }
 
-    if max_lag is None:
-        max_lag = min(n // 4, 2000)
+    if uncapped:
+        max_lag = n - 1
+        m = 1 << (2 * n - 1).bit_length()
+        f = np.fft.rfft(x_centered, m)
+        acov = np.fft.irfft(f * np.conj(f), m)[:n] / n
+        acf = acov / acov[0]
+        acf[0] = 1.0
+    else:
+        if max_lag is None:
+            max_lag = min(n // 4, ESS_DEFAULT_LAG_CAP)
+        # A simple lag loop is fine at O(n * max_lag) when max_lag is bounded.
+        acf = np.empty(max_lag + 1, dtype=float)
+        acf[0] = 1.0
+        for k in range(1, max_lag + 1):
+            cov = np.dot(x_centered[:-k], x_centered[k:]) / n
+            acf[k] = cov / var0
 
-    # FFT-based autocovariance is faster for long chains
-    # but a simple lag loop is fine at O(n * max_lag) when max_lag is bounded.
-    acf = np.empty(max_lag + 1, dtype=float)
-    acf[0] = 1.0
-    for k in range(1, max_lag + 1):
-        cov = np.dot(x_centered[:-k], x_centered[k:]) / n
-        acf[k] = cov / var0
-
-    # Geyer initial positive sequence: truncate at first k where acf[k] <= 0
+    # Truncate at the first k where acf[k] <= 0.
     tau = 1.0
     used_lag = max_lag
+    cap_bound = True
     for k in range(1, max_lag + 1):
         if acf[k] <= 0:
             used_lag = k - 1
+            cap_bound = False
             break
         tau += 2.0 * acf[k]
 
@@ -984,6 +1052,8 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
         "tau": float(tau),
         "n_eff": float(n_eff),
         "max_lag_used": int(used_lag),
+        "lag_cap": int(max_lag),
+        "cap_bound": bool(cap_bound),
         "rho_lag_1": float(acf[1]) if max_lag >= 1 else float("nan"),
         "rho_lag_10": float(acf[10]) if max_lag >= 10 else float("nan"),
         "rho_lag_100": float(acf[100]) if max_lag >= 100 else float("nan"),

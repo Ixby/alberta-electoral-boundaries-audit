@@ -4,26 +4,28 @@
 > **Forward:**
 > - (leaf — reviewer-facing index of `analysis/review/`)
 
-Review documents: peer review, legal review, code review, and design critique.
+Review documents: adversarial review passes on the reports, code and design.
 
-## External reviews
+**Almost everything in this directory was produced by AI tools at the author's direction, not by human reviewers.** The "peer review", "referee", "editor" and "legal review" files are AI-generated passes written to persona prompts. No journal submission was made, no human referee report is filed here, and the "legal review" files are not legal advice. The tools and dates are listed in the AI-use disclosure in `reports/academic/report_academic.md` (Author disclosure).
 
-| File | Description |
-|---|---|
-| `external_audit_gemini.md` | External code and methodology audit (Gemini, 2026-04-26) |
-| `external_audit_meridian.md` | External code audit (Meridian) |
-
-## Peer review
+## AI code audits
 
 | File | Description |
 |---|---|
-| `peer_review_canadian.md` | Canadian redistribution context peer-review pass |
-| `peer_review_legal.md` | Legal peer-review findings and scope |
-| `peer_review_methods.md` | Methodological peer-review pass |
+| `external_audit_gemini.md` | AI code and methodology audit (Gemini, 2026-04-26) |
+| `external_audit_meridian.md` | AI code audit ("Meridian", a Claude session, 2026-04-26); same vendor as the audit's coding tool |
+
+## AI persona reviews (not human peer review)
+
+| File | Description |
+|---|---|
+| `peer_review_canadian.md` | AI-generated persona review: Canadian redistribution context |
+| `peer_review_legal.md` | AI-generated persona review: legal and institutional |
+| `peer_review_methods.md` | AI-generated persona review: methods |
 | `code_review.md` | Internal code review findings and resolutions |
-| `public_report_critique.md` | Peer critique of the public report |
+| `public_report_critique.md` | AI-generated two-persona critique of the public report |
 
-## Legal review
+## AI legal-standard review passes (not legal advice)
 
 | File | Description |
 |---|---|
@@ -49,7 +51,7 @@ Review documents: peer review, legal review, code review, and design critique.
 | `assertions.md` | Assertion-level review findings |
 | `conclusions.md` | Consolidated review conclusions with open items |
 | `design_critique.md` | Hostile stress-test of audit design assumptions |
-| `editor_synthesis.md` | Editorial synthesis of all review passes |
+| `editor_synthesis.md` | AI-generated "editor" synthesis of the three persona reviews |
 | `latent_bias.md` | Self-audit for latent directional bias in analytical choices |
 | `code_fixes_deferred.md` | Known code issues deferred to post-publication cleanup |
 | `quote_verification_log.md` | Quote verification and sourcing log |
@@ -57,9 +59,9 @@ Review documents: peer review, legal review, code review, and design critique.
 | `project_assessment_2026-06-27.md` | Project assessment and verification summary |
 | `report_skeptic_review_2026-06-27.md` | Skeptical adversarial review of all findings |
 
-## Referee results
+## AI referee-agent results
 
 | File | Description |
 |---|---|
-| `t1_7_18_referee_results_2026_06_12.md` | Referee review results — round 1 |
-| `t1_7_round2_referee_results_2026_06_12.md` | Referee review results — round 2 |
+| `t1_7_18_referee_results_2026_06_12.md` | Results of 18 AI review agents — round 1 |
+| `t1_7_round2_referee_results_2026_06_12.md` | Results of 18 AI review agents — round 2 |

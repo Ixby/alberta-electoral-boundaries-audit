@@ -1,6 +1,23 @@
 #!/bin/bash
 # recompute_against_official_shapefiles.sh
 #
+# RETIRED. Kept for the record; it exits at once.
+#
+# This wrapper was written to re-run the audit when Elections Alberta released
+# the official 2026 boundary files. They arrived on 2026-05-06 and the
+# recomputation was done by hand (analysis/methodology/canonical_shapefile_log.md).
+# Since then two of the scripts it calls have been deleted
+# (mcmc_ensemble_250k_v0_8.py on 2026-05-08, mcmc_verification_subset.py on
+# 2026-05-11), so under `set -euo pipefail` it cannot complete. The GitHub
+# workflow that called it (recompute-on-shapefile-release.yml) has been removed.
+# To recompute on the official files today, follow docs/REPRODUCING.md.
+#
+echo "recompute_against_official_shapefiles.sh is retired (it calls deleted scripts)." >&2
+echo "See the header of this file and docs/REPRODUCING.md." >&2
+exit 1
+
+# ---- original script, unreachable -------------------------------------------
+#
 # Single-command re-run of every geometry-dependent finding in the
 # audit against newly-released Elections Alberta official shapefiles.
 # Honors the audit's pre-registered sunset clause (recompute within

@@ -229,7 +229,7 @@ Motion terms (no public hearings; 91-seat ceiling; UCP-majority committee; Novem
 *Updated 2026-06-13: Airdrie, Chestermere, Sylvan Lake CSD-level commuter data now downloaded and incorporated.*
 
 - SUPPORTS: 7 (R3 with CSD data, R6, R7, R15, R16; R8 narrow; R21 growth)
-- PARTIALLY SUPPORTS: 6 (R1, R4, R10, R11 commuter portion, R12 historical/Indigenous, R13, R19)
+- PARTIALLY SUPPORTS: 7 (R1, R4, R10, R11 commuter portion, R12 historical/Indigenous, R13, R19)
 - INCONCLUSIVE: 2 (R5, R24)
 - LEANS CONTRADICTS: 1 (R2 specific Chestermere–Forest-Lawn pairing; commuter general = SUPPORTS but specific SE Calgary tie = lacks evidence)
 - CONTRADICTS (within PARTIALLY SUPPORTS): R11 school claim, R5 school claim

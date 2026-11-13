@@ -1,0 +1,631 @@
+id,source,n_chars,n_terms,terms
+EBC-2025-1-0011,written,937,2,reserve;siksika
+EBC-2025-1-0016,written,784,1,first nation
+EBC-2025-1-0017,written,2289,1,indigenous
+EBC-2025-1-0024,written,3900,1,stoney
+EBC-2025-1-0027,written,1926,4,cree nation;enoch;indigenous;reserve
+EBC-2025-1-0035,written,3508,1,indigenous
+EBC-2025-1-0043,written,2498,4,first nation;kainai;reserve;siksika
+EBC-2025-1-0046,written,4418,2,indigenous;metis
+EBC-2025-1-0054,written,1585,1,indigenous
+EBC-2025-1-0055,written,2075,4,first nation;indigenous;reserve;woodland cree
+EBC-2025-1-0058,written,8493,2,first nation;métis
+EBC-2025-1-0063,written,2484,1,reserve
+EBC-2025-1-0064,written,6431,2,blackfoot;ermineskin
+EBC-2025-1-0066,written,8007,1,reserve
+EBC-2025-1-0068,written,8080,2,first nation;métis
+EBC-2025-1-0070,written,11144,2,first nation;métis
+EBC-2025-1-0072,written,6846,1,reserve
+EBC-2025-1-0077,written,4677,1,siksika
+EBC-2025-1-0091,written,3218,1,maskwac
+EBC-2025-1-0095,written,3143,1,reserve
+EBC-2025-1-0099,written,14536,9,cold lake first;cree nation;first nation;frog lake;kehewin;metis;métis;reserve;saddle lake
+EBC-2025-1-0101,written,3885,1,siksika
+EBC-2025-1-0108,written,2713,1,stoney
+EBC-2025-1-0110,written,5962,1,stoney
+EBC-2025-1-0111,written,6792,1,first nation
+EBC-2025-1-0112,written,4655,1,reserve
+EBC-2025-1-0114,written,3939,1,siksika
+EBC-2025-1-0117,written,4961,1,reserve
+EBC-2025-1-0119,written,3166,1,siksika
+EBC-2025-1-0121,written,5829,1,indigenous
+EBC-2025-1-0125,written,22812,1,metis
+EBC-2025-1-0128,written,4434,6,athabasca chipewyan;first nation;fort mckay first;mikisew;treaty;treaty 8
+EBC-2025-1-0137,written,2554,1,reserve
+EBC-2025-1-0138,written,47817,33,alexis;beaver lake;bigstone;chipewyan;duncan;eden valley;ermineskin;first nation;heart lake;horse lake;indian reserve;janvier;kapawe;kehewin;louis bull;metis;o'chiese;peerless;peigan;piikani;reserves;
+EBC-2025-1-0139,written,30659,1,bearspaw
+EBC-2025-1-0140,written,3174,1,siksika
+EBC-2025-1-0142,written,5128,1,siksika
+EBC-2025-1-0146,written,5823,1,siksika
+EBC-2025-1-0148,written,9734,2,indian reserve;metis
+EBC-2025-1-0150,written,10945,2,first nation;métis
+EBC-2025-1-0152,written,13893,3,indian reserve;metis;reserve
+EBC-2025-1-0154,written,1755,1,metis
+EBC-2025-1-0155,written,24724,2,indian reserve;metis
+EBC-2025-1-0160,written,5596,2,indigenous;tsuu t
+EBC-2025-1-0163,written,6446,2,sarcee;stoney
+EBC-2025-1-0164,written,1907,1,bearspaw
+EBC-2025-1-0167,written,3848,2,indian reserve;metis
+EBC-2025-1-0168,written,6512,1,reserve
+EBC-2025-1-0174,written,4481,3,first nation;métis;reserve
+EBC-2025-1-0179,written,1770,1,reserve
+EBC-2025-1-0180,written,4107,1,stoney
+EBC-2025-1-0181,written,13858,2,indigenous;reserve
+EBC-2025-1-0183,written,4539,7,first nation;indigenous;kainai;piikani;reserve;reserves;siksika
+EBC-2025-1-0185,written,1408,2,first nation;maskwac
+EBC-2025-1-0188,written,4894,1,first nation
+EBC-2025-1-0191,written,5673,1,first nation
+EBC-2025-2-0001,written,2988,1,siksika
+EBC-2025-2-0003,written,9176,1,reserve
+EBC-2025-2-0005,written,3171,1,reserve
+EBC-2025-2-0006,written,2591,4,first nation;indian reserve;metis;treaty 8
+EBC-2025-2-0009,written,4046,1,indigenous
+EBC-2025-2-0012,written,4460,1,enoch
+EBC-2025-2-0020,written,21021,2,sarcee;stoney
+EBC-2025-2-0022,written,2422,1,maskwac
+EBC-2025-2-0023,written,1609,1,maskwac
+EBC-2025-2-0028,written,1956,1,indigenous
+EBC-2025-2-0029,written,2908,1,indigenous
+EBC-2025-2-0038,written,5197,1,sarcee
+EBC-2025-2-0039,written,2429,1,indigenous
+EBC-2025-2-0043,written,1846,1,janvier
+EBC-2025-2-0049,written,4611,1,enoch
+EBC-2025-2-0051,written,2488,1,stoney
+EBC-2025-2-0057,written,2394,1,maskwac
+EBC-2025-2-0058,written,4798,1,indigenous
+EBC-2025-2-0060,written,1982,1,indigenous
+EBC-2025-2-0064,written,2482,1,indigenous
+EBC-2025-2-0067,written,5741,3,maskwac;samson;sunchild
+EBC-2025-2-0069,written,1861,1,indigenous
+EBC-2025-2-0070,written,2283,1,maskwac
+EBC-2025-2-0071,written,3716,1,maskwac
+EBC-2025-2-0073,written,2362,1,maskwac
+EBC-2025-2-0077,written,973,2,lubicon;treaty
+EBC-2025-2-0082,written,2799,1,maskwac
+EBC-2025-2-0085,written,2541,1,indigenous
+EBC-2025-2-0086,written,2435,1,indigenous
+EBC-2025-2-0087,written,4293,1,reserve
+EBC-2025-2-0088,written,6938,4,cree nation;first nation;indigenous;metis
+EBC-2025-2-0089,written,2273,1,indigenous
+EBC-2025-2-0094,written,2558,1,enoch
+EBC-2025-2-0103,written,1885,1,reserve
+EBC-2025-2-0104,written,1692,2,first nation;reserve
+EBC-2025-2-0108,written,3627,2,first nation;metis
+EBC-2025-2-0112,written,10686,1,indigenous
+EBC-2025-2-0118,written,1617,1,maskwac
+EBC-2025-2-0121,written,4465,3,indigenous;metis;reserves
+EBC-2025-2-0125,written,5701,1,reserve
+EBC-2025-2-0126,written,8073,5,first nation;indigenous;métis;reserve;siksika
+EBC-2025-2-0127,written,1956,1,reserve
+EBC-2025-2-0128,written,4436,1,reserve
+EBC-2025-2-0129,written,3588,2,indigenous;reserve
+EBC-2025-2-0138,written,4644,1,reserve
+EBC-2025-2-0143,written,4945,1,siksika
+EBC-2025-2-0144,written,4832,1,siksika
+EBC-2025-2-0145,written,6154,1,reserves
+EBC-2025-2-0148,written,1791,2,first nation;sucker creek
+EBC-2025-2-0151,written,6498,1,reserve
+EBC-2025-2-0152,written,3037,2,first nation;metis
+EBC-2025-2-0153,written,2271,1,reserve
+EBC-2025-2-0155,written,5990,1,maskwac
+EBC-2025-2-0157,written,4800,1,siksika
+EBC-2025-2-0200,written,1675,1,indigenous
+EBC-2025-2-0223,written,4413,1,reserve
+EBC-2025-2-0226,written,3766,3,indian reserve;indigenous;metis
+EBC-2025-2-0234,written,3314,1,reserve
+EBC-2025-2-0235,written,2332,1,indigenous
+EBC-2025-2-0245,written,8894,1,reserve
+EBC-2025-2-0254,written,1962,1,reserves
+EBC-2025-2-0258,written,3487,1,reserve
+EBC-2025-2-0260,written,3542,1,reserve
+EBC-2025-2-0261,written,4171,2,first nation;treaty
+EBC-2025-2-0262,written,7174,1,reserves
+EBC-2025-2-0263,written,4152,1,reserve
+EBC-2025-2-0289,written,8007,1,indigenous
+EBC-2025-2-0298,written,4994,1,reserves
+EBC-2025-2-0309,written,4063,1,stoney
+EBC-2025-2-0324,written,3478,1,reserves
+EBC-2025-2-0340,written,4289,1,indigenous
+EBC-2025-2-0344,written,3252,1,reserve
+EBC-2025-2-0358,written,2575,1,reserve
+EBC-2025-2-0361,written,7015,2,reserve;reserves
+EBC-2025-2-0367,written,4594,6,eden valley;indigenous;nakoda;reserve;stoney;tsuut
+EBC-2025-2-0371,written,5088,1,reserve
+EBC-2025-2-0374,written,2026,1,indigenous
+EBC-2025-2-0375,written,6934,2,reserve;reserves
+EBC-2025-2-0376,written,4627,1,indigenous
+EBC-2025-2-0377,written,2881,2,indigenous;reserve
+EBC-2025-2-0381,written,3007,1,siksika
+EBC-2025-2-0383,written,3011,4,first nation;reserves;stoney;treaty 6
+EBC-2025-2-0384,written,3639,1,peigan
+EBC-2025-2-0388,written,6861,2,reserve;reserves
+EBC-2025-2-0389,written,6933,2,reserve;reserves
+EBC-2025-2-0390,written,6930,2,reserve;reserves
+EBC-2025-2-0394,written,6933,2,reserve;reserves
+EBC-2025-2-0397,written,4513,1,reserve
+EBC-2025-2-0398,written,6936,2,reserve;reserves
+EBC-2025-2-0401,written,6933,2,reserve;reserves
+EBC-2025-2-0407,written,3182,1,enoch
+EBC-2025-2-0408,written,3855,1,maskwac
+EBC-2025-2-0414,written,4820,1,indigenous
+EBC-2025-2-0415,written,6933,2,reserve;reserves
+EBC-2025-2-0418,written,3349,1,reserve
+EBC-2025-2-0424,written,6947,2,reserve;reserves
+EBC-2025-2-0429,written,3719,1,first nation
+EBC-2025-2-0430,written,3227,1,stoney
+EBC-2025-2-0431,written,2776,1,indigenous
+EBC-2025-2-0442,written,6490,3,indigenous;nakoda;stoney
+EBC-2025-2-0444,written,2163,1,indigenous
+EBC-2025-2-0449,written,15075,1,sarcee
+EBC-2025-2-0470,written,6240,1,reserve
+EBC-2025-2-0480,written,3606,1,indigenous
+EBC-2025-2-0484,written,2313,1,indigenous
+EBC-2025-2-0485,written,4685,1,stoney
+EBC-2025-2-0490,written,3945,1,reserve
+EBC-2025-2-0497,written,7757,1,reserves
+EBC-2025-2-0516,written,7041,2,reserve;reserves
+EBC-2025-2-0519,written,5265,3,indigenous;maskwac;reserves
+EBC-2025-2-0528,written,6396,1,reserve
+EBC-2025-2-0535,written,7604,1,reserve
+EBC-2025-2-0536,written,9251,7,big horn;first nation;indigenous;o’chiese;reserve;reserves;sunchild
+EBC-2025-2-0542,written,4525,1,siksika
+EBC-2025-2-0545,written,14460,1,reserve
+EBC-2025-2-0559,written,6252,2,first nation;indigenous
+EBC-2025-2-0563,written,10864,3,first nation;indigenous;métis
+EBC-2025-2-0564,written,6892,1,indigenous
+EBC-2025-2-0573,written,4723,1,stoney
+EBC-2025-2-0585,written,4515,3,first nation;reserves;stoney
+EBC-2025-2-0589,written,3023,1,indigenous
+EBC-2025-2-0600,written,4199,1,siksika
+EBC-2025-2-0602,written,1554,3,cree nation;enoch;indigenous
+EBC-2025-2-0612,written,3930,2,indigenous;reserve
+EBC-2025-2-0615,written,21904,2,indigenous;reserve
+EBC-2025-2-0619,written,47819,16,bearspaw;big horn;eden valley;first nation;indigenous;kainai;morley;nakoda;o’chiese;piikani;reserve;reserves;siksika;stoney;sunchild;treaty
+EBC-2025-2-0631,written,3140,1,first nation
+EBC-2025-2-0632,written,3195,1,reserve
+EBC-2025-2-0638,written,3683,1,peigan
+EBC-2025-2-0641,written,3700,1,reserves
+EBC-2025-2-0643,written,3208,1,reserves
+EBC-2025-2-0646,written,12899,3,cree nation;enoch;peigan
+EBC-2025-2-0647,written,2273,2,indigenous;reserves
+EBC-2025-2-0648,written,8472,1,stoney
+EBC-2025-2-0660,written,1660,1,indigenous
+EBC-2025-2-0666,written,3466,1,stoney
+EBC-2025-2-0669,written,28422,10,beaver lake;chipewyan;heart lake;indian reserve;indigenous;metis;métis;reserve;reserves;saddle lake
+EBC-2025-2-0677,written,3600,1,siksika
+EBC-2025-2-0679,written,7517,4,cree nation;first nation;reserves;sturgeon lake
+EBC-2025-2-0680,written,3177,1,siksika
+EBC-2025-2-0682,written,4555,1,siksika
+EBC-2025-2-0683,written,4832,1,siksika
+EBC-2025-2-0684,written,3472,1,reserve
+EBC-2025-2-0685,written,4173,3,indigenous;reserves;treaty 8
+EBC-2025-2-0686,written,4678,2,indigenous;metis
+EBC-2025-2-0687,written,3720,1,indigenous
+EBC-2025-2-0693,written,5162,1,first nation
+EBC-2025-2-0696,written,4571,2,indigenous;reserve
+EBC-2025-2-0699,written,2779,1,reserve
+EBC-2025-2-0709,written,4107,1,stoney
+EBC-2025-2-0710,written,2627,1,reserve
+EBC-2025-2-0711,written,3348,2,reserve;stoney
+EBC-2025-2-0713,written,4008,1,enoch
+EBC-2025-2-0719,written,4495,1,stoney
+EBC-2025-2-0720,written,6275,1,stoney
+EBC-2025-2-0721,written,5692,6,driftpile;first nation;indigenous;kapawe;sucker creek;swan river
+EBC-2025-2-0727,written,4750,1,stoney
+EBC-2025-2-0730,written,5236,2,cree nation;enoch
+EBC-2025-2-0734,written,3090,1,peigan
+EBC-2025-2-0737,written,7379,1,indigenous
+EBC-2025-2-0751,written,3270,1,stoney
+EBC-2025-2-0759,written,7386,3,indigenous;reserve;stoney
+EBC-2025-2-0761,written,2660,1,reserve
+EBC-2025-2-0768,written,3632,4,cree nation;enoch;first nation;tsuut
+EBC-2025-2-0778,written,118554,10,blackfoot;enoch;first nation;indian reserve;maskwac;metis;métis;peigan;reserve;stoney
+EBC-2025-2-0783,written,7573,1,reserve
+EBC-2025-2-0784,written,2920,1,reserve
+EBC-2025-2-0786,written,5040,3,bearspaw;sarcee;stoney
+EBC-2025-2-0788,written,4588,1,siksika
+EBC-2025-2-0791,written,18480,5,blackfoot;blood tribe;indigenous;reserve;reserves
+EBC-2025-2-0794,written,5295,1,siksika
+EBC-2025-2-0795,written,9682,2,indigenous;métis
+EBC-2025-2-0797,written,5522,1,siksika
+EBC-2025-2-0798,written,3873,1,reserves
+EBC-2025-2-0803,written,14046,2,first nation;stoney
+EBC-2025-2-0806,written,6301,2,indigenous;reserve
+EBC-2025-2-0807,written,1849,1,reserve
+EBC-2025-2-0808,written,5837,1,siksika
+EBC-2025-2-0809,written,61439,15,beaver lake;chipewyan;cold lake first;cree nation;first nation;frog lake;heart lake;indian reserve;indigenous;kehewin;metis;métis;reserve;reserves;saddle lake
+EBC-2025-2-0810,written,3326,1,indigenous
+EBC-2025-2-0811,written,5739,1,stoney
+EBC-2025-2-0817,written,3244,3,cree nation;enoch;first nation
+EBC-2025-2-0818,written,2144,1,siksika
+EBC-2025-2-0822,written,19371,4,chipewyan;first nation;indigenous;janvier
+EBC-2025-2-0825,written,4667,1,stoney
+EBC-2025-2-0827,written,3447,3,first nation;indigenous;peerless
+EBC-2025-2-0829,written,7770,6,big horn;first nation;indigenous;o’chiese;stoney;sunchild
+EBC-2025-2-0837,written,4813,4,first nation;indigenous;métis;reserve
+EBC-2025-2-0844,written,2143,8,dene;first nation;indigenous;reserve;reserves;stoney;treaty;tsuut
+EBC-2025-2-0845,written,2674,3,first nation;o'chiese;sunchild
+EBC-2025-2-0855,written,5416,2,indigenous;reserve
+EBC-2025-2-0866,written,2529,2,first nation;tsuut
+EBC-2025-2-0883,written,3401,11,aboriginal;beaver first;cree nation;dene;first nation;indigenous;little red river;reserve;tallcree;treaty;treaty 8
+EBC-2025-2-0885,written,4210,2,indigenous;metis
+EBC-2025-2-0887,written,3214,1,reserve
+EBC-2025-2-0894,written,3221,1,reserve
+EBC-2025-2-0902,written,3204,1,reserve
+EBC-2025-2-0904,written,3188,1,reserve
+EBC-2025-2-0908,written,4320,1,reserve
+EBC-2025-2-0909,written,9115,9,driftpile;first nation;indigenous;kapawe;metis;peerless;sucker creek;swan river;treaty 8
+EBC-2025-2-0911,written,2876,1,bearspaw
+EBC-2025-2-0913,written,7440,2,cree nation;enoch
+EBC-2025-2-0916,written,6322,1,indigenous
+EBC-2025-2-0918,written,6322,1,indigenous
+EBC-2025-2-0925,written,4811,1,reserves
+EBC-2025-2-0934,written,3882,2,reserve;tsuut
+EBC-2025-2-0935,written,6731,1,enoch
+EBC-2025-2-0939,written,59382,13,bigstone;chipewyan;driftpile;first nation;indigenous;metis;métis;peerless;reserve;reserves;sawridge;treaty;treaty 8
+EBC-2025-2-0947,written,7168,1,indigenous
+EBC-2025-2-0950,written,3242,1,bearspaw
+EBC-2025-2-0956,written,2614,1,tsuut
+EBC-2025-2-0964,written,6559,2,enoch;indigenous
+EBC-2025-2-0967,written,3144,2,metis;reserves
+EBC-2025-2-0968,written,5435,6,first nation;indigenous;metis;métis;reserves;treaty
+EBC-2025-2-0978,written,29632,10,beaver lake;chipewyan;heart lake;indian reserve;indigenous;metis;métis;reserve;reserves;saddle lake
+EBC-2025-2-0989,written,56383,11,beaver lake;chipewyan;heart lake;indian reserve;indigenous;metis;métis;peerless;reserve;reserves;saddle lake
+EBC-2025-2-0990,written,6157,1,bearspaw
+EBC-2025-2-0993,written,6614,3,enoch;indigenous;reserve
+EBC-2025-2-0995,written,2600,1,bearspaw
+EBC-2025-2-1015,written,32024,11,beaver lake;chipewyan;heart lake;indian reserve;indigenous;metis;métis;peerless;reserve;reserves;saddle lake
+EBC-2025-2-1016,written,4705,1,reserves
+EBC-2025-2-1018,written,1912,1,reserves
+EBC-2025-2-1023,written,4770,1,reserves
+EBC-2025-2-1025,written,39031,8,cree nation;enoch;first nation;indigenous;metis;reserves;siksika;sucker creek
+EBC-2025-2-1029,written,5154,2,first nation;reserve
+EBC-2025-2-1031,written,7720,2,reserve;reserves
+EBC-2025-2-1036,written,6619,2,first nation;reserves
+EBC-2025-2-1037,written,10878,1,indigenous
+EBC-2025-2-1041,written,6933,2,reserve;reserves
+EBC-2025-2-1050,written,7667,1,indigenous
+EBC-2025-2-1057,written,4652,1,stoney
+EBC-2025-2-1060,written,6289,1,reserve
+EBC-2025-2-1078,written,3030,1,reserve
+EBC-2025-2-1079,written,4333,1,reserves
+EBC-2025-2-1090,written,4195,3,cold lake first;first nation;metis
+EBC-2025-2-1092,written,4644,1,stoney
+EBC-2025-2-1093,written,3867,1,reserve
+EBC-2025-2-1096,written,4425,5,cree nation;enoch;first nation;indigenous;reserve
+EBC-2025-2-1097,written,2536,1,bearspaw
+EBC-2025-2-1098,written,3873,1,reserves
+EBC-2025-2-1100,written,14479,11,bigstone;cree nation;driftpile;first nation;indigenous;kapawe;metis;sawridge;sucker creek;swan river;treaty 8
+EBC-2025-2-1113,written,3688,1,reserve
+EBC-2025-2-1122,written,1834,1,first nation
+EBC-2025-2-1123,written,2956,1,peigan
+EBC-2025-2-1124,written,3965,4,first nation;nakoda;reserves;stoney
+EBC-2025-2-1128,written,6928,2,reserve;reserves
+EBC-2025-2-1132,written,2596,1,first nation
+EBC-2025-2-1135,written,4762,1,stoney
+EBC-2025-2-1138,written,5594,1,blood reserve
+HANSARD-R1-T01-001,hearing,21516,2,samson;treaty 7
+HANSARD-R1-T01-002,hearing,9885,1,samson
+HANSARD-R1-T02-001,hearing,8561,1,siksika
+HANSARD-R1-T02-002,hearing,4546,5,blackfoot;first nation;indigenous;métis;treaty 7
+HANSARD-R1-T02-003,hearing,8729,1,siksika
+HANSARD-R1-T02-004,hearing,11046,9,blackfoot;blood reserve;eden valley;indian reserve;métis;reserve;reserves;siksika;stoney
+HANSARD-R1-T02-005,hearing,10314,1,samson
+HANSARD-R1-T02-006,hearing,9709,1,indigenous
+HANSARD-R1-T02-007,hearing,4387,1,samson
+HANSARD-R1-T02-008,hearing,13819,4,blood reserve;reserve;samson;siksika
+HANSARD-R1-T02-009,hearing,20002,7,blackfoot;first nation;indigenous;kainai;piikani;samson;siksika
+HANSARD-R1-T02-011,hearing,7344,1,indigenous
+HANSARD-R1-T02-012,hearing,24664,2,samson;siksika
+HANSARD-R1-T02-013,hearing,9111,1,siksika
+HANSARD-R1-T03-001,hearing,18769,1,samson
+HANSARD-R1-T03-002,hearing,9917,1,samson
+HANSARD-R1-T03-003,hearing,16820,2,enoch;samson
+HANSARD-R1-T03-004,hearing,9710,1,samson
+HANSARD-R1-T03-005,hearing,18474,2,reserve;samson
+HANSARD-R1-T03-006,hearing,15087,4,first nation;métis;reserves;samson
+HANSARD-R1-T04-001,hearing,21338,1,samson
+HANSARD-R1-T04-002,hearing,21723,3,métis;reserves;samson
+HANSARD-R1-T04-003,hearing,16953,1,samson
+HANSARD-R1-T04-004,hearing,17109,1,samson
+HANSARD-R1-T04-005,hearing,12294,1,samson
+HANSARD-R1-T04-006,hearing,15473,3,reserve;samson;treaty six
+HANSARD-R1-T04-008,hearing,5147,1,samson
+HANSARD-R1-T05-001,hearing,13947,1,samson
+HANSARD-R1-T05-003,hearing,12547,1,samson
+HANSARD-R1-T05-004,hearing,6515,6,alexis;ermineskin;first nation;indigenous;maskwac;métis
+HANSARD-R1-T05-005,hearing,12745,1,samson
+HANSARD-R1-T05-006,hearing,10031,1,samson
+HANSARD-R1-T05-009,hearing,11053,1,samson
+HANSARD-R1-T05-010,hearing,6781,2,reserve;samson
+HANSARD-R1-T05-011,hearing,15164,1,samson
+HANSARD-R1-T06-001,hearing,16258,1,samson
+HANSARD-R1-T06-002,hearing,11712,2,indigenous;samson
+HANSARD-R1-T06-003,hearing,8213,4,indigenous;reserve;samson;treaty
+HANSARD-R1-T06-004,hearing,16396,3,first nation;indigenous;samson
+HANSARD-R1-T06-005,hearing,12798,1,samson
+HANSARD-R1-T06-006,hearing,10436,1,samson
+HANSARD-R1-T06-007,hearing,9367,1,samson
+HANSARD-R1-T06-008,hearing,9761,1,samson
+HANSARD-R1-T06-009,hearing,8997,1,samson
+HANSARD-R1-T06-011,hearing,6553,1,samson
+HANSARD-R1-T06-012,hearing,10956,7,blackfoot;enoch;indigenous;reserve;samson;treaty;treaty 6
+HANSARD-R1-T07-001,hearing,17914,1,samson
+HANSARD-R1-T07-002,hearing,26870,25,alexander first;alexis;big horn;blackfoot;blood tribe;cree nation;eden valley;enoch;first nation;horse lake;indian reserve;indigenous;maskwac;métis;nakoda;o’chiese;paul first;piikani;reserve;reserves;
+HANSARD-R1-T07-003,hearing,11605,2,indigenous;samson
+HANSARD-R1-T07-004,hearing,7590,1,samson
+HANSARD-R1-T07-005,hearing,12870,1,samson
+HANSARD-R1-T07-006,hearing,16026,4,dene;indigenous;reserve;samson
+HANSARD-R1-T07-007,hearing,6553,1,samson
+HANSARD-R1-T07-008,hearing,13647,8,first nation;heart lake;indian reserve;métis;reserve;reserves;samson;tallcree
+HANSARD-R1-T07-009,hearing,33227,4,indian reserve;métis;reserve;samson
+HANSARD-R1-T08-001,hearing,24712,1,samson
+HANSARD-R1-T08-002,hearing,4345,1,samson
+HANSARD-R1-T08-003,hearing,8908,2,indigenous;samson
+HANSARD-R1-T08-004,hearing,20142,3,métis;reserve;samson
+HANSARD-R1-T08-005,hearing,13907,1,samson
+HANSARD-R1-T08-006,hearing,6236,1,samson
+HANSARD-R1-T08-007,hearing,5130,1,samson
+HANSARD-R1-T08-008,hearing,11819,1,samson
+HANSARD-R1-T08-009,hearing,4592,1,samson
+HANSARD-R1-T08-010,hearing,6432,1,samson
+HANSARD-R1-T08-011,hearing,8397,1,samson
+HANSARD-R1-T08-013,hearing,4778,1,samson
+HANSARD-R1-T10-001,hearing,17846,9,beaver lake;first nation;frog lake;kehewin;métis;reserve;reserves;saddle lake;samson
+HANSARD-R1-T10-002,hearing,51921,7,first nation;indigenous;kehewin;métis;reserve;saddle lake;samson
+HANSARD-R1-T11-001,hearing,6483,1,samson
+HANSARD-R1-T11-002,hearing,18793,3,first nation;frog lake;samson
+HANSARD-R1-T12-001,hearing,19610,1,samson
+HANSARD-R1-T12-002,hearing,10476,2,maskwac;samson
+HANSARD-R1-T09-001,hearing,6071,1,samson
+HANSARD-R1-T09-002,hearing,10683,1,samson
+HANSARD-R1-T09-003,hearing,6319,1,samson
+HANSARD-R1-T09-004,hearing,11310,1,samson
+HANSARD-R1-T09-005,hearing,512,1,samson
+HANSARD-R1-T13-001,hearing,10164,1,samson
+HANSARD-R1-T13-002,hearing,12227,1,samson
+HANSARD-R1-T13-003,hearing,14847,1,samson
+HANSARD-R1-T13-004,hearing,9651,1,samson
+HANSARD-R1-T13-005,hearing,16539,9,bearspaw;chiniki;eden valley;morley;nakoda;reserve;reserves;samson;stoney
+HANSARD-R1-T13-006,hearing,7356,2,bearspaw;samson
+HANSARD-R1-T13-007,hearing,10578,1,samson
+HANSARD-R1-T13-008,hearing,15974,5,first nation;reserve;samson;sarcee;tsuut
+HANSARD-R1-T13-009,hearing,10449,2,reserve;samson
+HANSARD-R1-T13-010,hearing,8016,1,samson
+HANSARD-R1-T13-011,hearing,12590,1,samson
+HANSARD-R1-T13-012,hearing,9488,1,samson
+HANSARD-R1-T13-013,hearing,6732,1,samson
+HANSARD-R1-T14-001,hearing,15428,1,samson
+HANSARD-R1-T14-002,hearing,4634,1,samson
+HANSARD-R1-T14-003,hearing,8418,3,indigenous;morley;tsuut
+HANSARD-R1-T14-004,hearing,5935,4,indigenous;morley;reserves;samson
+HANSARD-R1-T14-005,hearing,8250,3,indigenous;samson;sarcee
+HANSARD-R1-T14-007,hearing,12296,1,samson
+HANSARD-R1-T14-008,hearing,9699,1,samson
+HANSARD-R1-T14-009,hearing,4796,2,samson;stoney
+HANSARD-R1-T14-010,hearing,12770,8,bighorn reserve;eden valley;first nation;indigenous;nakoda;reserve;samson;stoney
+HANSARD-R1-T14-011,hearing,19371,8,aboriginal;blackfoot;indian reserve;indigenous;metis;métis;reserve;samson
+HANSARD-R1-T14-012,hearing,12835,2,reserve;samson
+HANSARD-R1-T14-013,hearing,18683,3,metis;samson;stoney
+HANSARD-R1-T15-001,hearing,8387,2,samson;tsuut
+HANSARD-R1-T15-002,hearing,12276,1,samson
+HANSARD-R1-T15-003,hearing,9205,1,samson
+HANSARD-R1-T15-004,hearing,13549,1,samson
+HANSARD-R1-T15-005,hearing,7785,2,samson;sarcee
+HANSARD-R1-T16-001,hearing,15420,2,bearspaw;samson
+HANSARD-R1-T16-002,hearing,33866,3,indigenous;samson;stoney
+HANSARD-R1-T16-003,hearing,16190,4,indigenous;métis;reserve;samson
+HANSARD-R1-T16-004,hearing,23251,2,samson;stoney
+HANSARD-R1-T16-005,hearing,29546,4,bearspaw;samson;sarcee;stoney
+HANSARD-R1-T17-001,hearing,12116,1,samson
+HANSARD-R1-T17-002,hearing,17620,3,indigenous;reserves;samson
+HANSARD-R1-T17-003,hearing,14242,2,indigenous;samson
+HANSARD-R1-T17-004,hearing,21964,1,samson
+HANSARD-R1-T17-005,hearing,7441,1,samson
+HANSARD-R1-T17-006,hearing,13223,1,samson
+HANSARD-R1-T17-007,hearing,17368,3,peigan;samson;stoney
+HANSARD-R1-T18-001,hearing,15489,2,samson;stoney
+HANSARD-R1-T18-002,hearing,6622,2,samson;stoney
+HANSARD-R1-T18-003,hearing,12632,1,samson
+HANSARD-R1-T18-004,hearing,15311,2,peigan;samson
+HANSARD-R1-T18-005,hearing,13220,1,samson
+HANSARD-R1-T19-001,hearing,13152,1,samson
+HANSARD-R1-T19-002,hearing,24174,1,samson
+HANSARD-R1-T19-003,hearing,14709,1,samson
+HANSARD-R1-T19-004,hearing,18783,2,samson;siksika
+HANSARD-R1-T20-001,hearing,15730,1,samson
+HANSARD-R1-T20-002,hearing,10335,2,blackfoot;samson
+HANSARD-R1-T20-003,hearing,14830,1,samson
+HANSARD-R1-T20-004,hearing,7547,1,samson
+HANSARD-R1-T20-005,hearing,17326,1,samson
+HANSARD-R1-T20-006,hearing,4136,1,samson
+HANSARD-R1-T20-008,hearing,14674,2,samson;siksika
+HANSARD-R1-T20-009,hearing,9098,1,samson
+HANSARD-R1-T20-010,hearing,8074,2,métis;samson
+HANSARD-R1-T20-012,hearing,5809,1,samson
+HANSARD-R1-T20-013,hearing,10265,1,samson
+HANSARD-R1-T21-001,hearing,23002,1,samson
+HANSARD-R1-T21-002,hearing,35601,9,first nation;janvier;métis;peerless;reserve;reserves;samson;smith’s landing;whitefish
+HANSARD-R1-T21-003,hearing,16304,3,chipewyan;janvier;samson
+HANSARD-R1-T22-001,hearing,26320,11,cree nation;first nation;indigenous;kee tas kee now;little red river;lubicon;métis;peerless;samson;whitefish;woodland cree
+HANSARD-R1-T22-002,hearing,7125,2,lubicon;samson
+HANSARD-R1-T22-003,hearing,13308,9,first nation;lubicon;métis;peerless;reserve;reserves;samson;whitefish;woodland cree
+HANSARD-R1-T22-004,hearing,25089,5,first nation;indigenous;métis;samson;woodland cree
+HANSARD-R1-T22-005,hearing,9919,2,first nation;samson
+HANSARD-R1-T23-001,hearing,40744,2,reserves;samson
+HANSARD-R1-T24-001,hearing,39563,20,aboriginal;bigstone;cree nation;driftpile;first nation;indigenous;kapawe;loon river;lubicon;métis;peerless;reserve;reserves;samson;sawridge;sucker creek;swan river;treaty 8;whitefish;woodland cree
+HANSARD-R1-T24-002,hearing,6097,1,indigenous
+HANSARD-R1-T25-001,hearing,14054,1,samson
+HANSARD-R1-T25-003,hearing,19779,4,aboriginal;métis;reserves;samson
+HANSARD-R1-T26-001,hearing,8371,1,samson
+HANSARD-R1-T26-002,hearing,3111,1,samson
+HANSARD-R1-T27-001,hearing,20841,2,first nation;samson
+HANSARD-R1-T27-002,hearing,9675,2,samson;stoney
+HANSARD-R1-T27-003,hearing,12676,1,samson
+HANSARD-R1-T27-004,hearing,13142,2,bearspaw;samson
+HANSARD-R1-T27-005,hearing,4926,1,bearspaw
+HANSARD-R1-T27-006,hearing,7515,1,samson
+HANSARD-R1-T27-007,hearing,14211,2,blackfoot;samson
+HANSARD-R1-T27-008,hearing,5138,3,indigenous;reserves;samson
+HANSARD-R1-T27-009,hearing,6243,1,samson
+HANSARD-R1-T27-010,hearing,13840,1,samson
+HANSARD-R1-T27-011,hearing,14559,9,chipewyan;first nation;indigenous;kee tas kee now;métis;samson;treaty;treaty 8;woodland cree
+HANSARD-R1-T27-012,hearing,16933,1,samson
+HANSARD-R1-T28-001,hearing,13731,1,samson
+HANSARD-R1-T28-003,hearing,6704,1,samson
+HANSARD-R1-T28-004,hearing,16488,2,indigenous;samson
+HANSARD-R1-T28-005,hearing,14961,1,samson
+HANSARD-R1-T28-006,hearing,14769,1,samson
+HANSARD-R1-T28-007,hearing,8881,2,reserve;tsuu t
+HANSARD-R1-T28-008,hearing,21427,1,samson
+HANSARD-R1-T28-009,hearing,19788,1,samson
+HANSARD-R2-T33-001,hearing,18537,1,samson
+HANSARD-R2-T33-002,hearing,17242,4,blackfoot;peigan;samson;tsuut
+HANSARD-R2-T33-003,hearing,15718,1,samson
+HANSARD-R2-T33-004,hearing,17802,2,samson;stoney
+HANSARD-R2-T33-006,hearing,16013,12,big horn;first nation;indigenous;morley;nakoda;o’chiese;reserves;samson;stoney;sunchild;treaty;tsuut
+HANSARD-R2-T32-001,hearing,11756,9,eden valley;first nation;indigenous;morley;nakoda;o’chiese;reserve;samson;stoney
+HANSARD-R2-T32-002,hearing,18572,6,bearspaw;enoch;first nation;indigenous;reserve;samson
+HANSARD-R2-T32-003,hearing,5335,2,enoch;samson
+HANSARD-R2-T32-005,hearing,25157,8,big horn;first nation;indigenous;o’chiese;reserves;samson;stoney;wesley
+HANSARD-R2-T32-006,hearing,19936,2,peigan;samson
+HANSARD-R2-T32-007,hearing,8938,2,reserves;samson
+HANSARD-R2-T34-001,hearing,13018,1,samson
+HANSARD-R2-T34-002,hearing,12841,1,samson
+HANSARD-R2-T34-003,hearing,14524,1,samson
+HANSARD-R2-T34-004,hearing,23592,11,big horn;eden valley;first nation;indigenous;o’chiese;samson;stoney;sunchild;treaty 6;treaty 7;tsuut
+HANSARD-R2-T34-005,hearing,10530,4,bearspaw;métis;samson;stoney
+HANSARD-R2-T34-006,hearing,6776,1,samson
+HANSARD-R2-T34-007,hearing,11472,9,eden valley;first nation;indigenous;o’chiese;samson;stoney;sunchild;treaty;tsuut
+HANSARD-R2-T34-008,hearing,9489,1,samson
+HANSARD-R2-T34-009,hearing,9218,2,bearspaw;samson
+HANSARD-R2-T34-010,hearing,17638,9,bearspaw;driftpile;indigenous;reserve;samson;treaty;treaty 7;treaty 8;tsuut
+HANSARD-R2-T34-011,hearing,15546,11,bearspaw;blackfoot;cree nation;dene;enoch;indigenous;nakoda;reserve;samson;stoney;tsuut
+HANSARD-R2-T36-001,hearing,6066,2,first nation;samson
+HANSARD-R2-T36-002,hearing,8986,3,indigenous;métis;samson
+HANSARD-R2-T36-003,hearing,8659,3,métis;reserve;samson
+HANSARD-R2-T36-004,hearing,6340,1,samson
+HANSARD-R2-T36-005,hearing,14695,13,bigstone;driftpile;first nation;indigenous;loon river;métis;peerless;reserve;samson;sawridge;sucker creek;swan river;whitefish
+HANSARD-R2-T36-006,hearing,14819,11,bigstone;cree nation;driftpile;first nation;indigenous;métis;samson;sawridge;sucker creek;swan river;treaty 8
+HANSARD-R2-T36-007,hearing,11075,4,first nation;indigenous;métis;samson
+HANSARD-R2-T36-008,hearing,13578,12,first nation;indigenous;kee tas kee now;métis;reserve;reserves;sawridge;sucker creek;treaty;treaty 7;treaty 8;woodland cree
+HANSARD-R2-T36-009,hearing,8928,1,samson
+HANSARD-R2-T36-010,hearing,10599,3,first nation;indigenous;samson
+HANSARD-R2-T37-001,hearing,13899,2,samson;tsuu t
+HANSARD-R2-T37-002,hearing,14724,1,samson
+HANSARD-R2-T37-003,hearing,19176,6,first nation;indigenous;kainai;reserve;samson;siksika
+HANSARD-R2-T37-004,hearing,10934,1,samson
+HANSARD-R2-T37-005,hearing,14149,4,first nation;o’chiese;samson;sunchild
+HANSARD-R2-T37-006,hearing,14740,1,samson
+HANSARD-R2-T37-007,hearing,5691,1,samson
+HANSARD-R2-T37-008,hearing,8627,1,samson
+HANSARD-R2-T37-009,hearing,10472,1,samson
+HANSARD-R2-T35-001,hearing,14541,2,reserve;samson
+HANSARD-R2-T35-002,hearing,16558,5,first nation;indigenous;métis;samson;treaty 8
+HANSARD-R2-T35-003,hearing,14035,2,first nation;samson
+HANSARD-R2-T35-004,hearing,2626,2,indigenous;samson
+HANSARD-R2-T35-006,hearing,14061,2,métis;samson
+HANSARD-R2-T35-007,hearing,11571,1,samson
+HANSARD-R2-T35-008,hearing,9649,5,first nation;indigenous;métis;samson;sawridge
+HANSARD-R2-T35-009,hearing,14685,1,samson
+HANSARD-R2-T39-001,hearing,13414,1,samson
+HANSARD-R2-T39-002,hearing,15547,1,samson
+HANSARD-R2-T39-003,hearing,8500,1,samson
+HANSARD-R2-T39-004,hearing,9593,1,samson
+HANSARD-R2-T39-005,hearing,17982,1,samson
+HANSARD-R2-T39-006,hearing,7134,1,samson
+HANSARD-R2-T39-007,hearing,6795,1,samson
+HANSARD-R2-T39-008,hearing,10484,1,samson
+HANSARD-R2-T39-009,hearing,7106,2,maskwac;samson
+HANSARD-R2-T39-010,hearing,15353,1,samson
+HANSARD-R2-T39-011,hearing,9856,3,reserve;reserves;samson
+HANSARD-R2-T38-001,hearing,12076,1,samson
+HANSARD-R2-T38-002,hearing,12820,2,samson;siksika
+HANSARD-R2-T38-003,hearing,9569,4,first nation;o’chiese;samson;sunchild
+HANSARD-R2-T38-004,hearing,12987,1,samson
+HANSARD-R2-T38-005,hearing,31392,3,blood tribe;first nation;samson
+HANSARD-R2-T38-006,hearing,8303,1,samson
+HANSARD-R2-T38-007,hearing,14725,1,samson
+HANSARD-R2-T38-008,hearing,9245,1,samson
+HANSARD-R2-T38-009,hearing,18598,1,samson
+HANSARD-R2-T41-001,hearing,13293,1,samson
+HANSARD-R2-T41-002,hearing,9919,1,samson
+HANSARD-R2-T41-003,hearing,12037,3,enoch;samson;wesley
+HANSARD-R2-T41-004,hearing,15768,4,enoch;indigenous;métis;samson
+HANSARD-R2-T41-005,hearing,19146,1,samson
+HANSARD-R2-T41-006,hearing,14593,1,samson
+HANSARD-R2-T41-007,hearing,10587,1,samson
+HANSARD-R2-T41-008,hearing,12369,1,samson
+HANSARD-R2-T41-009,hearing,15373,2,maskwac;samson
+HANSARD-R2-T41-010,hearing,14928,1,samson
+HANSARD-R2-T41-011,hearing,11085,1,samson
+HANSARD-R2-T41-013,hearing,9003,1,samson
+HANSARD-R2-T42-001,hearing,4645,1,samson
+HANSARD-R2-T42-002,hearing,7222,1,samson
+HANSARD-R2-T42-003,hearing,6787,2,reserve;samson
+HANSARD-R2-T42-004,hearing,18656,1,siksika
+HANSARD-R2-T42-005,hearing,7902,1,enoch
+HANSARD-R2-T42-007,hearing,6310,1,samson
+HANSARD-R2-T42-008,hearing,8132,1,samson
+HANSARD-R2-T42-009,hearing,22425,1,samson
+HANSARD-R2-T42-010,hearing,8245,1,samson
+HANSARD-R2-T42-011,hearing,6475,1,samson
+HANSARD-R2-T40-001,hearing,22748,1,samson
+HANSARD-R2-T40-002,hearing,16276,2,reserve;samson
+HANSARD-R2-T40-003,hearing,8514,5,cree nation;enoch;first nation;indigenous;samson
+HANSARD-R2-T40-004,hearing,8152,1,samson
+HANSARD-R2-T40-005,hearing,9588,1,samson
+HANSARD-R2-T40-006,hearing,12109,2,reserve;samson
+HANSARD-R2-T40-007,hearing,8895,2,samson;treaty 6
+HANSARD-R2-T40-008,hearing,11718,1,samson
+HANSARD-R2-T40-009,hearing,6917,3,indian reserve;métis;samson
+HANSARD-R2-T40-010,hearing,7252,1,samson
+HANSARD-R2-T40-011,hearing,9305,6,cree nation;enoch;first nation;indian reserve;reserve;samson
+HANSARD-R2-T40-012,hearing,14530,3,first nation;indigenous;samson
+HANSARD-R2-T40-013,hearing,14649,2,indigenous;samson
+HANSARD-R2-T44-001,hearing,19549,1,samson
+HANSARD-R2-T44-002,hearing,4518,2,reserves;samson
+HANSARD-R2-T44-003,hearing,18393,1,samson
+HANSARD-R2-T44-004,hearing,9023,1,samson
+HANSARD-R2-T44-005,hearing,12064,5,enoch;first nation;indigenous;métis;samson
+HANSARD-R2-T44-006,hearing,8717,1,samson
+HANSARD-R2-T44-007,hearing,8853,4,cree nation;enoch;first nation;samson
+HANSARD-R2-T44-008,hearing,11272,1,samson
+HANSARD-R2-T44-009,hearing,13305,1,samson
+HANSARD-R2-T44-010,hearing,36095,17,bigstone;driftpile;first nation;indigenous;kapawe;lubicon;métis;peerless;saddle lake;samson;sawridge;sucker creek;swan river;treaty;treaty 8;whitefish;woodland cree
+HANSARD-R2-T45-001,hearing,19217,1,samson
+HANSARD-R2-T45-002,hearing,10579,1,samson
+HANSARD-R2-T45-003,hearing,13011,1,samson
+HANSARD-R2-T45-004,hearing,43511,12,big horn;first nation;indigenous;nakoda;o’chiese;reserve;reserves;samson;stoney;sunchild;treaty;treaty 6
+HANSARD-R2-T45-005,hearing,9192,1,samson
+HANSARD-R2-T45-006,hearing,11374,1,samson
+HANSARD-R2-T45-007,hearing,11957,3,enoch;first nation;samson
+HANSARD-R2-T43-001,hearing,17623,1,samson
+HANSARD-R2-T43-002,hearing,15895,4,enoch;first nation;samson;treaty 6
+HANSARD-R2-T43-003,hearing,10643,1,samson
+HANSARD-R2-T43-004,hearing,13002,1,samson
+HANSARD-R2-T43-005,hearing,12756,1,samson
+HANSARD-R2-T43-006,hearing,18623,3,reserve;samson;siksika
+HANSARD-R2-T43-007,hearing,17822,6,aboriginal;first nation;indian reserve;indigenous;reserves;samson
+HANSARD-R2-T43-008,hearing,7855,1,samson
+HANSARD-R2-T43-009,hearing,6697,1,samson
+HANSARD-R2-T43-010,hearing,10397,2,reserve;samson
+HANSARD-R2-T47-001,hearing,16372,1,samson
+HANSARD-R2-T47-002,hearing,19352,2,samson;treaty 6
+HANSARD-R2-T47-003,hearing,33632,4,blood reserve;blood tribe;samson;siksika
+HANSARD-R2-T47-004,hearing,24858,1,samson
+HANSARD-R2-T47-005,hearing,9718,2,reserve;samson
+HANSARD-R2-T47-006,hearing,17374,1,samson
+HANSARD-R2-T47-007,hearing,18432,2,indigenous;samson
+HANSARD-R2-T47-008,hearing,18064,3,indigenous;reserve;samson
+HANSARD-R2-T47-009,hearing,17951,2,maskwac;samson
+HANSARD-R2-T48-001,hearing,18030,2,blackfoot;samson
+HANSARD-R2-T48-002,hearing,18839,2,blood tribe;samson
+HANSARD-R2-T48-003,hearing,8003,1,samson
+HANSARD-R2-T48-005,hearing,10348,2,samson;stoney
+HANSARD-R2-T48-006,hearing,14735,11,cree nation;enoch;first nation;indigenous;métis;nakoda;o’chiese;samson;stoney;sunchild;tsuu t
+HANSARD-R2-T48-007,hearing,20996,2,enoch;samson
+HANSARD-R2-T48-008,hearing,15109,2,first nation;samson
+HANSARD-R2-T48-009,hearing,14341,3,indigenous;saddle lake;samson
+HANSARD-R2-T48-010,hearing,17098,6,enoch;first nation;indigenous;samson;siksika;tsuu t
+HANSARD-R2-T48-011,hearing,18200,2,samson;siksika

@@ -1,0 +1,906 @@
+{
+ "section": "Act II: Findings 6-10 (simulation results), report_public.md lines 168-266",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 170,
+   "claim": "1,010,000 simulated maps; 4 independent chains x 252,500 steps",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "1,010,000 rows; chains 0-3 each 252,500",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Base seed derived from drand beacon (League of Entropy)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json; reports/academic/report_academic.md L571",
+   "found": "seed 1432864451, derived from drand round 5,500,000",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Same 4,765 voting areas",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "coverage_vas_total 4765",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Each new district kept within +/-12.5% of equal; Act allows +/-25%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L242, L1090, L1328",
+   "found": "'balanced to +/-12.5% at the proposal step (the Act allo[ws +/-25%])'; ReCom epsilon = pop_deviation/2",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Every district in one piece (contiguous)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1634",
+   "found": "queen-contiguity constraint in canonical ReCom",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Official Elections Alberta shapefiles place the two commission maps among the plans",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "majority_source ea_majority_2026_eds.gpkg; minority_source ea_minority_2026_eds.gpkg",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Percentile = share of neutral maps the real map outscores",
+   "type": "definition",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "method definition; midrank vs strict differ only at ties (see 2019 row)"
+  },
+  {
+   "line": 170,
+   "claim": "2026 commission maps each have 89 districts",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "majority_2026.n_districts 89; minority_2026.n_districts 89",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Neutral maps have 87 districts, the 2019 map's count",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json; data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "2019_enacted.n_districts 87; ensemble n_districts 87",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Panel's new map has 91 districts",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md; findings/seat_claim_test_result.md",
+   "found": "'UCP seats (of 91)'; 'the panel's 91 districts'",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "Percentages are seat shares, which put three sizes on one scale, though not perfectly",
+   "type": "method",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "framing; AC C22 notes seats@50/50 takes k/87 values in the plans, which the report concedes"
+  },
+  {
+   "line": 170,
+   "claim": "Size-matched check dated October 30, provisional, finds the same tilt",
+   "type": "date/fact",
+   "status": "VERIFIED",
+   "source": "findings/size_matched_results_2026-10-30.md",
+   "found": "Date 2026-10-30 19:10 MDT; 'provisional'; minority mean-median beyond almost every same-size plan; seats@50/50 46/89 matched or beaten by 0 (A), 124 (B), 263 (C), 905 (D) plans",
+   "note": ""
+  },
+  {
+   "line": 170,
+   "claim": "A size-matched joint number has not reported",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/size_matched_results_2026-10-30.md; findings/a10_stepc/joint_outlier.json",
+   "found": "No size-matched joint score for the minority found; joint_outlier.json scores the panel map against the 87-district canonical ensemble only",
+   "note": "absence claim; searched findings/ and data/outputs"
+  },
+  {
+   "line": 172,
+   "claim": "Median neutral map gives UCP 44.8% of seats at an exactly even vote",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv; data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "seats_at_50_50 p50 = 0.448276 (39/87)",
+   "note": ""
+  },
+  {
+   "line": 172,
+   "claim": "Rural UCP voters win ridings by wide 60-40 margins; urban NDP voters win by tighter 51-49 margins",
+   "type": "number",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md L967",
+   "found": "'Rural UCP-winning margins average 43.0 pp; urban NDP-winning margins average 21.5 pp' (about 71-29 and 61-39)",
+   "note": "The 60-40 and 51-49 figures are in no source. The same source says UCP is the MORE packed party (surplus-vote rate 15.9% vs NDP 9.3%) and the NDP deficit comes from dispersed losing votes in rural/suburban ridings, which contradicts the 'rural UCP wastes votes' explanation of the baseline."
+  },
+  {
+   "line": 172,
+   "claim": "Natural geography mildly favours the NDP's seat efficiency (baseline below 50%)",
+   "type": "fact/interpretation",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "median 44.8% UCP seats at 50/50 supports the direction",
+   "note": "numeric direction verified; the causal explanation is the line above and is contradicted by AC L967"
+  },
+  {
+   "line": 176,
+   "claim": "Heading: Fewer than 100 maps in 1,010,000",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "69 plans exceed the minority value (seats 0.51685)",
+   "note": ""
+  },
+  {
+   "line": 180,
+   "claim": "2019 enacted: 46.0% UCP seats at 50/50",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "seats_at_50_50 0.45977 -> 46.0%",
+   "note": ""
+  },
+  {
+   "line": 180,
+   "claim": "2019 map: 78th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "78.538",
+   "note": "Rounds to 79 if rounded; truncated to 78. Academic report says p78.54"
+  },
+  {
+   "line": 180,
+   "claim": "2019 map: 65th percentile once tied maps counted",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1663, C23",
+   "found": "p65.36 (tie-tolerant); registered p78.54",
+   "note": ""
+  },
+  {
+   "line": 181,
+   "claim": "Majority 2026: 46.1% UCP seats at 50/50",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "0.46067 -> 46.1%",
+   "note": ""
+  },
+  {
+   "line": 181,
+   "claim": "Majority: 78th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "78.538",
+   "note": "same rounding note; AC L1663: majority p78.54 is the upper edge of the 40/87 block"
+  },
+  {
+   "line": 182,
+   "claim": "Minority 2026: 51.7% (46 seats)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "seats_at_50_50 0.51685 -> 51.7%; 0.51685 x 89 = 46",
+   "note": ""
+  },
+  {
+   "line": 182,
+   "claim": "Minority: 99.99th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "99.99317",
+   "note": ""
+  },
+  {
+   "line": 182,
+   "claim": "Fewer than 100 of 1,010,000 neutral draws reach this",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "69 exceed (69 also on >=)",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Neutral median 44.8%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "0.448276",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "95th percentile 48.3%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "ensemble_p95 0.482759",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "99th percentile 49.4%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "quantile .99 = 0.494253 (computed from raw samples)",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Maximum 51.72%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "max 0.517241 (45/87)",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "69 of 1,010,000 plans exceed the minority map's 51.69%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv; reports/academic/report_academic.md L2556",
+   "found": "69 plans > 0.516854",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Million plans worth about 1,400 independent draws",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_convergence_diagnostics_canonical.json",
+   "found": "n_eff 1413 (seats@50/50); 1448-1522 for other metrics",
+   "note": "'about 1,400' fits the seats figure"
+  },
+  {
+   "line": 184,
+   "claim": "Allowing for that, minority sits above at least the 98th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1644",
+   "found": "'n_eff=1,413 at 1,010,000 plans; ESS-adjusted lower bound ~p98'",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Mean-median: deeper in tail than 99.97 per cent of neutral maps",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "99.96653 -> 99.97",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Declination: deeper than 98.8 per cent",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "98.78812 -> 98.8",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "All of them lean toward the UCP",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv; data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "minority EG +0.0402, MM +0.0104, decl +0.0770, s50 0.5169, all in UCP-favouring tail",
+   "note": ""
+  },
+  {
+   "line": 184,
+   "claim": "Replay of 2023 election-day vote: minority map gives UCP 60 of 89 seats",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "minority_2026.ucp_seats 60, n_districts 89",
+   "note": "election-day basis, as labelled. Under Amendment 12 (all ballots; findings/allballots_ranking/README.md) the counts are minority 55, majority 48. All ballots is now the registered substrate, so 60/55 is a sensitivity figure."
+  },
+  {
+   "line": 184,
+   "claim": "Majority map: 55 of 89 on the same vote",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "majority_2026.ucp_seats 55",
+   "note": "all-ballots value is 48 (see above)"
+  },
+  {
+   "line": 184,
+   "claim": "Election-day vote leaned more UCP than the full count",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/pre_registration_amendment_log.md (Amendment 12)",
+   "found": "2019 map: election-day 57 UCP / 30 NDP vs 2023 result 49 / 38",
+   "note": ""
+  },
+  {
+   "line": 186,
+   "claim": "Hill-climbing is the standard tool for exploring biased-but-legal maps (Cannon et al. 2022)",
+   "type": "citation",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md L327, L1588",
+   "found": "Cannon, Goldbloom-Helzner, Gupta, Matthews, Suwal (2023), 'Voting Rights, Markov Chains, and Optimization by Short Bursts', arXiv:2011.02288",
+   "note": "Academic report dates it 2023 throughout; public report says 2022. Align the year (journal version: Methodology and Computing in Applied Probability, 2023; arXiv 2020)."
+  },
+  {
+   "line": 186,
+   "claim": "40,000 steps each way, same constraints, same geometry",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/burst_symmetry_analysis.md L45-46; findings/burst_pathways_canonical.md L50",
+   "found": "800 bursts x 50 steps = 40,000; UCP and NDP directions",
+   "note": ""
+  },
+  {
+   "line": 190,
+   "claim": "Neutral maximum 51.72% at 50/50",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "0.517241",
+   "note": ""
+  },
+  {
+   "line": 191,
+   "claim": "Neutral minimum 37.9% at 50/50",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+   "found": "min 0.379310 (33/87) on the 1,010,000-plan canonical ensemble",
+   "note": "findings/burst_symmetry_analysis.md and AC H9 give a neutral floor of 39.08%, but that is the 250k v0_9 ensemble. On the canonical 1.01M it is 37.93%, identical to the NDP hill-climb value in the next rows, so the NDP-direction search adds nothing beyond the neutral floor."
+  },
+  {
+   "line": 192,
+   "claim": "Hill-climb UCP-maximising reaches 52.9%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/burst_symmetry_analysis.md L46",
+   "found": "52.87%",
+   "note": "46 of 87 seats; different denominator from the minority's 46/89 (AC C22)"
+  },
+  {
+   "line": 193,
+   "claim": "Hill-climb NDP-maximising reaches 37.9%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/burst_symmetry_analysis.md L45",
+   "found": "37.93%",
+   "note": ""
+  },
+  {
+   "line": 195,
+   "claim": "Minority 51.7% closer to UCP ceiling (52.9) than neutral median (44.8)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv; findings/burst_symmetry_analysis.md",
+   "found": "51.69 vs 52.87 (gap 1.18) vs 44.83 (gap 6.86)",
+   "note": ""
+  },
+  {
+   "line": 195,
+   "claim": "Fine-grained sweep: minority keeps UCP at or above the 45-seat majority threshold down to about 49.2% of two-party vote",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md C49 (L2783)",
+   "found": "'the minority map keeps the UCP at 45 seats down to about 49.2% of the two-party vote (the site said 49.7%)'",
+   "note": "No raw sweep output file located in findings/ or data/outputs; verified only through the DOCUMENTED CORRECTIONS ledger. Site (viewer en.ts L788) still says 49.7% and 4 points."
+  },
+  {
+   "line": 195,
+   "claim": "UCP could lose it by about 1.6 points and still form government",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "derived from 49.2% (C49)",
+   "found": "100 - 2 x 49.2 = 1.6 points of margin",
+   "note": "consistent as a margin (0.8 points of share)"
+  },
+  {
+   "line": 195,
+   "claim": "On the majority map the UCP would need to win by about 9 points",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md C49 (L2783)",
+   "found": "'on the majority map the UCP needs to win by about 9 points (the site said 4)'",
+   "note": "ledger does not say whether 9 is margin or share"
+  },
+  {
+   "line": 197,
+   "claim": "Neutral processes essentially never produce this map; majority is the kind a neutral procedure turns out all the time; minority is the kind you have to set out to draw",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "framing; note 69 neutral plans do exceed it, and AC L1604 says the DPG-era 'set out to draw' framing does not hold on official geometry"
+  },
+  {
+   "line": 199,
+   "claim": "Ensemble outlier analysis is the state of the art in redistricting statistics",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "characterisation"
+  },
+  {
+   "line": 199,
+   "claim": "Method US courts found persuasive in state cases that struck maps down",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L944",
+   "found": "League of Women Voters v. Commonwealth, 178 A.3d 737 (Pa. 2018): 'MGGG-style ensemble evidence carried weight'",
+   "note": "secondhand; the case itself is not in evidence/law/"
+  },
+  {
+   "line": 199,
+   "claim": "Three of four metrics in the extreme tail, all four leaning the same way",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "MM p99.97, decl p98.79, s50 p99.99; EG p94.54 same direction",
+   "note": ""
+  },
+  {
+   "line": 199,
+   "claim": "2019 map's highest placement on any partisan measure is in the low 90s",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "2019: EG 69.46, MM 91.81, decl 91.33, s50 78.54",
+   "note": "true of the four registered measures. findings/extended_partisan_metrics_canonical.json lists a fifth measure (partisan_bias) for 2019 at p99.31, so 'any' holds only for the four"
+  },
+  {
+   "line": 199,
+   "claim": "Minority sits at the 99.99th percentile against the naturally skewed baseline",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "99.99317",
+   "note": ""
+  },
+  {
+   "line": 201,
+   "claim": "No Canadian commission has ever been required to test its map against a neutral ensemble",
+   "type": "negative universal",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "searched report_academic.md, analysis/methodology, evidence/law; nothing asserts or refutes it. AC L303 discusses commissions vs legislatures only"
+  },
+  {
+   "line": 203,
+   "claim": "As far as this audit's review found, no Canadian court has yet weighed ensemble evidence",
+   "type": "negative universal",
+   "status": "UNVERIFIABLE",
+   "source": "evidence/law/",
+   "found": "",
+   "note": "hedged by 'as far as this audit's review found'; nothing in evidence/law/ contradicts it"
+  },
+  {
+   "line": 203,
+   "claim": "Rucho v. Common Cause (2019): partisan gerrymandering claims are not for federal courts to police",
+   "type": "case",
+   "status": "VERIFIED",
+   "source": "evidence/law/rucho_v_common_cause_2019_18-422.pdf",
+   "found": "'partisan gerrymandering claims present political questions beyond the reach of the federal courts'",
+   "note": "'even strong statistical evidence' is the report's gloss; the opinion recites plaintiffs' simulations (24,518 plans) and partisan-asymmetry measures and still holds the claims nonjusticiable, so the gloss is fair"
+  },
+  {
+   "line": 203,
+   "claim": "Ensemble respects population limits and contiguity but not s.15(2) hybrid protections, community of interest, municipal anchoring",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1634",
+   "found": "'canonical ReCom run disables the s.15(2) rural-protection freeze'",
+   "note": "only s.15(2) is explicitly stated; the others follow from the method"
+  },
+  {
+   "line": 203,
+   "claim": "Real electorate is not frozen at 50/50; the test isolates what the map adds",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 211,
+   "claim": "Efficiency gap for minority is +4.0%, 94.5th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv; data/outputs/simulation_real_map_scores_canonical.json",
+   "found": "value 0.040194, percentile 94.538",
+   "note": "election-day basis"
+  },
+  {
+   "line": 211,
+   "claim": "Pre-registered outlier line is the 95th percentile, about +4.1%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv; reports/academic/report_academic.md L1090",
+   "found": "ensemble_p95 = 0.040838; registered Option D line 4.10%",
+   "note": "election-day basis"
+  },
+  {
+   "line": 211,
+   "claim": "The efficiency gap missed the line ('It missed ... every table in this report shows it that way')",
+   "type": "status",
+   "status": "STALE",
+   "source": "findings/pre_registration_amendment_log.md (Amendment 12, Parts 3 and 5); findings/allballots_ranking/README.md",
+   "found": "Amendment 12 (2026-11-07) makes all ballots the registered substrate: P1 threshold becomes +1.39%; minority EG +2.55% is above it and its partisan lane moves from 3 of 4 to 4 of 4. Matched all-ballots ranking: minority EG p98.82 (election-day p94.54)",
+   "note": "The election-day miss stands as a sensitivity (Amendment 12 Part 4), but 'it stays a miss' is no longer the registered outcome. Lines 219 and 377 repeat the framing."
+  },
+  {
+   "line": 211,
+   "claim": "Majority efficiency gap +0.1%, 16.5th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "0.000982, p16.517",
+   "note": "election-day; all-ballots: -2.70%, p26.48"
+  },
+  {
+   "line": 213,
+   "claim": "On its own, the EG miss shows almost nothing",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 215,
+   "claim": "EG's proposed US threshold about 7% is an academic proposal no court has adopted",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1082",
+   "found": "7% entered litigation via expert analyses in Whitford v. Gill; SCOTUS vacated on standing and adopted no numerical threshold",
+   "note": ""
+  },
+  {
+   "line": 217,
+   "claim": "No Canadian body uses the efficiency gap at all",
+   "type": "negative universal",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "AC L1082 says the 7% figure 'appears in neither the EBCA nor any Canadian redistribution jurisprudence' (narrower); the 'no body at all' claim is unsourced"
+  },
+  {
+   "line": 219,
+   "claim": "The threshold was set before the answer was known (locked line)",
+   "type": "method",
+   "status": "VERIFIED",
+   "source": "preregistration/thresholds.md; reports/academic/report_academic.md L1090",
+   "found": "Option D line 4.10% registered before official shapefiles",
+   "note": "Amendment 12 later re-bases this line for the all-ballots substrate; the original lock is a fact"
+  },
+  {
+   "line": 225,
+   "claim": "Combined four-metric profile bounded at about one in 568,000",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/joint_outlier_score_summary.md L79-95",
+   "found": "p <= 1.76e-06 (= 2 x Ch1), 'approx 1 in 568,182'",
+   "note": "election-day basis; no all-ballots joint recomputation found in findings/allballots_ranking"
+  },
+  {
+   "line": 225,
+   "claim": "p <= 1.76x10^-6, Bonferroni-corrected, dependence-robust",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/joint_outlier_score_summary.md; reports/academic/report_academic.md L584",
+   "found": "'p <= 1.76e-06 ... valid under arbitrary dependence'",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "Doubling covers the second analytical channel; Fisher combination not used",
+   "type": "method",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L584",
+   "found": "Fisher p ~4.61e-8 retired; x2 Bonferroni adjustment adopted",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "The two channels are not independent: both read the same 2023 votes",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L584",
+   "found": "Fisher independence check 'does not measure dependence between test statistics'; channels share the 2023 substrate",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "Four measures inside the simulation count as one look (folded into a joint score)",
+   "type": "method",
+   "status": "VERIFIED",
+   "source": "findings/joint_outlier_score_summary.md",
+   "found": "Mahalanobis joint distance over four metrics, chi-sq(4) p = 8.80e-07",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "Exploratory result: joint test and doubling not registered before data examined",
+   "type": "status",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L246, L575",
+   "found": "'Combination method not pre-registered'; Ch1/Ch2 labelled exploratory",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "Minority's profile lies beyond all 1,010,000 neutral maps, so the number comes from a model, not a count",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L56",
+   "found": "'more extreme than every one of the 1,010,000 neutral plans ... parametric chi-sq(4) model puts the tail near p = 8.80e-07'",
+   "note": ""
+  },
+  {
+   "line": 225,
+   "claim": "Neutral maps have 87 districts vs commission's 89; Oct 30 size-matched check finds same tilt",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "see line 170",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 229,
+   "claim": "Prosecutor's fallacy has sent innocent people to prison",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "not sourced in the repo (appears only in the public report and built docs). Widely documented (Sally Clark wrongful conviction, R v Clark 2003) but not checked on the web here"
+  },
+  {
+   "line": 233,
+   "claim": "A one-in-568,000 map can still come from honest judgment; the number cannot see motive",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 239,
+   "claim": "Sampler swap: spanning-forest sampler, pre-registered at OSF he53s, executed 2026-07-10",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077, L579",
+   "found": "'OSF registration he53s, filed public before any sample was drawn ... executed 2026-07-10'; two-root Wilson spanning-forest sampler",
+   "note": ""
+  },
+  {
+   "line": 239,
+   "claim": "Every metric's percentile moved by less than one point",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077",
+   "found": "EG 0.81, MM 0.34, decl 0.04, s50 0.11 pp",
+   "note": "largest shift 0.81 pp"
+  },
+  {
+   "line": 239,
+   "claim": "Pre-registered ROBUST verdict on all four",
+   "type": "status",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077",
+   "found": "'all four deltas fell inside 2 pp' (Robust rule |delta| < 2 pp)",
+   "note": "academic report adds 'inconclusive at this run size, not a finding of robustness'; the public report hedges this itself"
+  },
+  {
+   "line": 239,
+   "claim": "Run fell short of its registered effective-sample target",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1077",
+   "found": "pooled n_eff 61-124 vs >=200 per metric per chain target",
+   "note": ""
+  },
+  {
+   "line": 239,
+   "claim": "Software swap: R redist drew 5,000 plans; none reached the minority's value",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/redist_python_comparison.md L27, L64",
+   "found": "'0 of 5,000 reached the value; ensemble maximum 0.4943' vs minority 0.5169",
+   "note": ""
+  },
+  {
+   "line": 239,
+   "claim": "On the smaller run the majority map also sits just above the 95th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/redist_python_comparison.md L61",
+   "found": "SMC p95 = 0.4598; majority 0.4607 is above it",
+   "note": "derived from the table and the majority score; the file does not state it. The file also calls the majority 87 districts at L51, inconsistent with 89"
+  },
+  {
+   "line": 239,
+   "claim": "Third attack, mechanism test: the claim that Act I geometry is the mechanism for the Act II seat advantage failed its falsification test",
+   "type": "status",
+   "status": "UNVERIFIABLE",
+   "source": "",
+   "found": "",
+   "note": "no committed result found stating that a test of 'geometry is the mechanism' failed. Searched report_academic.md (mechanism/falsif), findings/, the amendment log. Nearest: AC L967 says the Chen-Rodden urban-packing mechanism fails in Alberta (a different mechanism)"
+  },
+  {
+   "line": 239,
+   "claim": "Link path findings/redist_python_comparison.md",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "findings/redist_python_comparison.md",
+   "found": "file exists",
+   "note": ""
+  },
+  {
+   "line": 243,
+   "claim": "Robustness across samplers separates finding from artifact; publishing a failed falsification separates audit from advocacy",
+   "type": "opinion",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 245,
+   "claim": "Nobody requires any of this; the audit imposed it on itself, in writing, before running it",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "framing; the he53s registration pre-dates its run (AC L579), but the mechanism test is unverified above"
+  },
+  {
+   "line": 253,
+   "claim": "Neighbour-drain: minority 1 coupled chain signal vs majority's 2 and 2019 enacted 5",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1269, L2715",
+   "found": "'minority 1 coupled chain signal, majority 2 and 2019 enacted 5'",
+   "note": ""
+  },
+  {
+   "line": 253,
+   "claim": "A genuine pre-registered PASS; the single test where the minority numerically beats the majority",
+   "type": "status",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2715",
+   "found": "'The pre-registered PASS for the minority is unchanged under either count'",
+   "note": "tension: the registered S5 structural test (Amendment 5, Part 7) is also a neighbour-drain score, and the minority (0.0006) falls below the 0.0039 line, which flags it. Same name, different test. 'Single test' was not independently checked"
+  },
+  {
+   "line": 253,
+   "claim": "Section 5.3.5 of the academic report explains the pass is real but narrow: the minority gets its partisan effect through hybridization (splitting cities into mixed urban/rural districts)",
+   "type": "citation",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md L1279",
+   "found": "'Hybridization reading (dropped ...)' ... 'The test cannot show that, and the premises have since gone ... The \"pack-and-hybridize versus pack-and-drain\" label is not used.'",
+   "note": "Section 5.3.5 exists but it DROPS the hybridization explanation; the report credits it with the opposite of what it says"
+  },
+  {
+   "line": 253,
+   "claim": "Packing and cracking happen within districts, not between them, so an adjacency test cannot see it",
+   "type": "interpretation",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md L1279",
+   "found": "same dropped reading",
+   "note": "this was the earlier draft's argument, since withdrawn"
+  },
+  {
+   "line": 253,
+   "claim": "SZAT looked significant (p = 0.0024) until null corrected for spatial clustering",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1157",
+   "found": "p=0.0024 two-tailed standard permutation (24/10,000)",
+   "note": ""
+  },
+  {
+   "line": 253,
+   "claim": "After correction SZAT returns p about 0.19, not significant",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1157",
+   "found": "'block-permutation null ... p~0.19, not significant'",
+   "note": ""
+  },
+  {
+   "line": 253,
+   "claim": "SZAT retired to exploratory status on 2026-06-13",
+   "type": "date",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L584, L1157",
+   "found": "'Block-permutation null (added 2026-06-13) ... SZAT is therefore retired as a confirmatory channel'",
+   "note": ""
+  },
+  {
+   "line": 253,
+   "claim": "Fisher combination of the two channels assumes independence they lack and is not used",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L584",
+   "found": "Fisher retired; Bonferroni x2 used",
+   "note": ""
+  },
+  {
+   "line": 255,
+   "claim": "Retired tests suggested boundary choices were partisan-loaded; after correction nothing",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 257,
+   "claim": "Neighbours voting alike (spatial autocorrelation) is the classic way redistricting statistics mislead",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "method commentary; Moran's I = 0.7534 (plain_language_defense.md L592) supports the underlying fact"
+  },
+  {
+   "line": 257,
+   "claim": "A drain-test pass beside tail results is a fingerprint of which mechanism the map does not use",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 261,
+   "claim": "Two of these were the audit's own instruments failing, the third points in the map's favour",
+   "type": "interpretation",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 263,
+   "claim": "'Two retired, one pass for the other side'",
+   "type": "framing",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  }
+ ]
+}

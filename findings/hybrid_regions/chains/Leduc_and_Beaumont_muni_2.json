@@ -1,0 +1,12 @@
+{
+ "region": "Leduc and Beaumont",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_Leduc_and_Beaumont_muni_2",
+ "seed": 3122569692,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 4,
+ "n_vas": 207,
+ "muni_weight": 0.5
+}

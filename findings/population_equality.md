@@ -16,7 +16,7 @@ The expected pattern going in: if the B1–B4 partisan-bias finding (minority sh
 
 ## A1 — Variance Distribution
 
-Provincial average is **54,929** per district under both 2026 maps (4,888,723 and 4,888,773 respectively; the 50-person gap is rounding in the commission's own totals, not an error). 2019-era population data is not present in the working bundle; historical deviations for 2019 boundaries were within ±25% at the time of the 2017 commission's drawing, so this section focuses on the two 2026 proposals.
+Provincial average is **54,929** per district under both 2026 maps (4,888,723 and 4,888,773 respectively; the 50-person gap is one district: the minority's printed table gives Calgary-Varsity 64,982, while the official shapefile gives 64,932, which makes the shapefile total 4,888,723). 2019-era population data is not present in the working bundle; historical deviations for 2019 boundaries were within ±25% at the time of the 2017 commission's drawing, so this section focuses on the two 2026 proposals.
 
 | Metric                                 | Majority 2026 | Minority 2026 |
 | -------------------------------------- | ------------- | ------------- |

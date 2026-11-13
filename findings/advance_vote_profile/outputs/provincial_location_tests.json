@@ -1,0 +1,224 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:16 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/04_provincial_location_tests.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   },
+   {
+    "path": "findings/advance_vote_profile/inputs/advance_poll_geocodes.csv",
+    "sha256": "54d3f9af576a487ab5df590ddf6e8aea4ec7d2d6e6eb946f5e1c17c2e2fb68df"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/polls_2015_parsed.csv",
+    "sha256": "9d199313dfeef801bc5a7219d59f1fc050f3deae0eb0f456e5079cff1a70dd08"
+   }
+  ]
+ },
+ "located_polls_2023": {
+  "advance_locations": 254,
+  "geocoded": 156,
+  "geocoded_inside_division": 151,
+  "locations_used": 123,
+  "divisions_used": 54,
+  "divisions_with_all_locations_geocoded": 22,
+  "slope_all": {
+   "beta": 0.998,
+   "se_clustered": 0.068,
+   "n": 123,
+   "groups": 54,
+   "corr_within": 0.76
+  },
+  "slope_complete_divisions": {
+   "beta": 0.953,
+   "se_clustered": 0.09,
+   "n": 47,
+   "groups": 22,
+   "corr_within": 0.592
+  },
+  "volume": {
+   "lambda": 0.856,
+   "corr_location_share_with_eday_vote_share": 0.54,
+   "corr_location_share_with_gap_share": 0.569,
+   "note": "nearest-poll catchments are a poor guide to how many people use a poll; read with care"
+  },
+  "hide_and_predict_all": {
+   "m0": {
+    "share_rmse_pts": 6.45,
+    "ballots_put_at_wrong_location_pct": 17.03
+   },
+   "m1": {
+    "share_rmse_pts": 4.65,
+    "ballots_put_at_wrong_location_pct": 16.41
+   },
+   "m2": {
+    "share_rmse_pts": 4.75,
+    "ballots_put_at_wrong_location_pct": 16.56
+   }
+  },
+  "grid_share_rmse_pts": [
+   {
+    "beta": 0,
+    "lam": 0,
+    "share_rmse_pts": 6.45
+   },
+   {
+    "beta": 0,
+    "lam": 0.5,
+    "share_rmse_pts": 6.45
+   },
+   {
+    "beta": 0,
+    "lam": 1.0,
+    "share_rmse_pts": 6.45
+   },
+   {
+    "beta": 0.25,
+    "lam": 0,
+    "share_rmse_pts": 5.51
+   },
+   {
+    "beta": 0.25,
+    "lam": 0.5,
+    "share_rmse_pts": 5.51
+   },
+   {
+    "beta": 0.25,
+    "lam": 1.0,
+    "share_rmse_pts": 5.5
+   },
+   {
+    "beta": 0.5,
+    "lam": 0,
+    "share_rmse_pts": 4.88
+   },
+   {
+    "beta": 0.5,
+    "lam": 0.5,
+    "share_rmse_pts": 4.82
+   },
+   {
+    "beta": 0.5,
+    "lam": 1.0,
+    "share_rmse_pts": 4.8
+   },
+   {
+    "beta": 0.75,
+    "lam": 0,
+    "share_rmse_pts": 4.62
+   },
+   {
+    "beta": 0.75,
+    "lam": 0.5,
+    "share_rmse_pts": 4.49
+   },
+   {
+    "beta": 0.75,
+    "lam": 1.0,
+    "share_rmse_pts": 4.42
+   },
+   {
+    "beta": 1.0,
+    "lam": 0,
+    "share_rmse_pts": 4.7
+   },
+   {
+    "beta": 1.0,
+    "lam": 0.5,
+    "share_rmse_pts": 4.49
+   },
+   {
+    "beta": 1.0,
+    "lam": 1.0,
+    "share_rmse_pts": 4.36
+   },
+   {
+    "beta": 1.25,
+    "lam": 0,
+    "share_rmse_pts": 5.0
+   },
+   {
+    "beta": 1.25,
+    "lam": 0.5,
+    "share_rmse_pts": 4.72
+   },
+   {
+    "beta": 1.25,
+    "lam": 1.0,
+    "share_rmse_pts": 4.54
+   },
+   {
+    "beta": 1.5,
+    "lam": 0,
+    "share_rmse_pts": 5.4
+   },
+   {
+    "beta": 1.5,
+    "lam": 0.5,
+    "share_rmse_pts": 5.09
+   },
+   {
+    "beta": 1.5,
+    "lam": 1.0,
+    "share_rmse_pts": 4.86
+   }
+  ],
+  "divisions_where_m1_share_error_below_m0": 34,
+  "slope_by_region": [
+   {
+    "region": "Calgary",
+    "beta": 1.333,
+    "se_clustered": 0.153,
+    "n": 29,
+    "groups": 13,
+    "corr_within": 0.405
+   },
+   {
+    "region": "Edmonton",
+    "beta": 1.005,
+    "se_clustered": 0.124,
+    "n": 27,
+    "groups": 13,
+    "corr_within": 0.602
+   },
+   {
+    "region": "Rural",
+    "beta": 0.927,
+    "se_clustered": 0.054,
+    "n": 47,
+    "groups": 20,
+    "corr_within": 0.821
+   },
+   {
+    "region": "Smaller cities and suburbs",
+    "beta": 1.308,
+    "se_clustered": 0.181,
+    "n": 20,
+    "groups": 8,
+    "corr_within": 0.67
+   }
+  ]
+ },
+ "town_polls_2015": {
+  "places_matched": 36,
+  "divisions": 12,
+  "slope": {
+   "beta": 0.988,
+   "se_clustered": 0.195,
+   "n": 36,
+   "groups": 12,
+   "corr_within": 0.895
+  },
+  "share_rmse_pts": {
+   "m0_one_mix_per_division": 8.65,
+   "beta1_town_lean_plus_division_shift": 5.35
+  }
+ }
+}

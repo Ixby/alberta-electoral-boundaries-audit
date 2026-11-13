@@ -1,0 +1,25 @@
+{
+ "walk": 3,
+ "seed_salt": "cfp_lethbridge_3",
+ "seed": 1549514280,
+ "steps": 1000000,
+ "accepted": 430263,
+ "start_valid_population": true,
+ "start_pieces_per_district_queen": {
+  "Banff-Canmore-Diamond Valley": 2,
+  "Okotoks": 1,
+  "Lethbridge-Cardston": 1,
+  "Macleod-Crowsnest": 1,
+  "Lethbridge": 1,
+  "Olds-Didsbury-Three Hills": 1,
+  "Lethbridge-Taber-Warner": 1,
+  "Lethbridge-Little Bow": 3
+ },
+ "pinned_areas": 6,
+ "n_areas": 462,
+ "start_values": {
+  "V1_far_loss_share": 0.4470268237718032,
+  "V2_pieces": 4
+ },
+ "share_areas_reassigned_at_end": 0.5541125541125541
+}

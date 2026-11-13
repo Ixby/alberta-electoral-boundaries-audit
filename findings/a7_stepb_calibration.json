@@ -1,0 +1,593 @@
+{
+ "procedure": "analysis/scripts/a7_stepb_reconstruct.py",
+ "sample": [
+  2,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  26,
+  27,
+  31,
+  34,
+  35,
+  36,
+  39,
+  41,
+  44,
+  47,
+  50,
+  51,
+  55,
+  56,
+  57,
+  59,
+  64,
+  66,
+  70,
+  75,
+  77,
+  78,
+  82,
+  83,
+  86,
+  89
+ ],
+ "placed": 21,
+ "failed": [
+  35,
+  50,
+  55,
+  56,
+  57,
+  59,
+  64,
+  66,
+  70,
+  75,
+  77,
+  78,
+  82
+ ],
+ "T1": {
+  "wrong": 935,
+  "total": 1909,
+  "share": 0.4897852278679937,
+  "max": 0.1,
+  "pass": false
+ },
+ "T4": {
+  "eg_official": 0.0009823668405000681,
+  "eg_with_reconstructions": -0.02061567850203998,
+  "delta_points": -2.159804534254005,
+  "max_points": 0.5,
+  "pass": false,
+  "coverage_vas_official": 4765,
+  "coverage_vas_composite": 3837
+ },
+ "T2_mean_abs_area_err_pct": 14.243542561795048,
+ "T3_mean_hausdorff_km": 6.09390072445734,
+ "mean_iou": 0.8562162715271878,
+ "districts": [
+  {
+   "ed": 2,
+   "district": "Calgary-Beddington",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 5.503341197967529,
+   "inlier30": 0.9463383838383839,
+   "s": 15.337870184062455,
+   "s_area": 15.463860476908998,
+   "theta_deg": 269.9974217903562,
+   "runner_up_inlier30": 0.49889520202020204,
+   "sec": 36.4,
+   "iou": 0.9990348009905015,
+   "area_err_pct": -0.00478475804836234,
+   "hausdorff_km": 0.0025016207414076497,
+   "va_true": 54,
+   "va_wrong": 0
+  },
+  {
+   "ed": 6,
+   "district": "Calgary-Confluence",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 6.260079383850098,
+   "inlier30": 1.0,
+   "s": 17.1120084900703,
+   "s_area": 17.098627048121028,
+   "theta_deg": 270.00396094480686,
+   "runner_up_inlier30": 0.6728395061728395,
+   "sec": 20.7,
+   "iou": 0.9995206172851513,
+   "area_err_pct": -0.004108034416730854,
+   "hausdorff_km": 0.0024208798667614655,
+   "va_true": 64,
+   "va_wrong": 0
+  },
+  {
+   "ed": 8,
+   "district": "Calgary-Currie",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 5.6620192527771,
+   "inlier30": 0.9254847645429363,
+   "s": 10.439786256656761,
+   "s_area": 10.463604858636725,
+   "theta_deg": -0.0038806761890069845,
+   "runner_up_inlier30": 0.5670360110803324,
+   "sec": 33.2,
+   "iou": 0.9987914069924418,
+   "area_err_pct": -0.0183494867367637,
+   "hausdorff_km": 0.002199472499313993,
+   "va_true": 49,
+   "va_wrong": 0
+  },
+  {
+   "ed": 10,
+   "district": "Calgary-Edgemont",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 6.555455207824707,
+   "inlier30": 1.0,
+   "s": 12.383737464418134,
+   "s_area": 12.403889446868398,
+   "theta_deg": 269.98616186005603,
+   "runner_up_inlier30": 1.0,
+   "sec": 37.1,
+   "iou": 0.996249192969976,
+   "area_err_pct": 0.17822320417955878,
+   "hausdorff_km": 0.010594826510101919,
+   "va_true": 54,
+   "va_wrong": 0
+  },
+  {
+   "ed": 11,
+   "district": "Calgary-Elbow",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 5.0166544914245605,
+   "inlier30": 0.8913658881811748,
+   "s": 10.307206425977496,
+   "s_area": 10.421638070851312,
+   "theta_deg": 269.9875813148799,
+   "runner_up_inlier30": 0.5718329794762915,
+   "sec": 31.3,
+   "iou": 0.9986378791603928,
+   "area_err_pct": 0.012461378186082601,
+   "hausdorff_km": 0.0028908384232746646,
+   "va_true": 53,
+   "va_wrong": 1
+  },
+  {
+   "ed": 13,
+   "district": "Calgary-Fish Creek",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 6.961775779724121,
+   "inlier30": 0.8882882882882883,
+   "s": 17.25117036847711,
+   "s_area": 17.338592795739363,
+   "theta_deg": 269.9937961650019,
+   "runner_up_inlier30": 0.5787059787059787,
+   "sec": 40.1,
+   "iou": 0.9984028023560277,
+   "area_err_pct": -0.04973179105452428,
+   "hausdorff_km": 0.003800365142235744,
+   "va_true": 64,
+   "va_wrong": 0
+  },
+  {
+   "ed": 14,
+   "district": "Calgary-Glenmore-Tsuut'ina",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 4.690825462341309,
+   "inlier30": 0.5714285714285714,
+   "s": 3.0095799190944015,
+   "s_area": 67.07624849230287,
+   "theta_deg": 1.5868594587572364,
+   "runner_up_inlier30": 0.5622957123630071,
+   "sec": 62.2,
+   "iou": 0.0,
+   "area_err_pct": -99.79883222995257,
+   "hausdorff_km": 43.46022402366313,
+   "va_true": 55,
+   "va_wrong": 55
+  },
+  {
+   "ed": 18,
+   "district": "Calgary-McKenzie",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 5.072453498840332,
+   "inlier30": 0.9184201246032679,
+   "s": 23.009086956491775,
+   "s_area": 23.033857892008008,
+   "theta_deg": -0.004985492441155552,
+   "runner_up_inlier30": 0.5658869166568709,
+   "sec": 58.2,
+   "iou": 0.9987324475293421,
+   "area_err_pct": 0.013611031748230437,
+   "hausdorff_km": 0.002871595072323827,
+   "va_true": 60,
+   "va_wrong": 0
+  },
+  {
+   "ed": 26,
+   "district": "Calgary-Symons Valley",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 6.071552753448486,
+   "inlier30": 0.8843254484013517,
+   "s": 14.257094361448132,
+   "s_area": 14.167468727281525,
+   "theta_deg": 270.001962601959,
+   "runner_up_inlier30": 0.4821939173381856,
+   "sec": 36.1,
+   "iou": 0.9992701232542115,
+   "area_err_pct": 0.00662771718310327,
+   "hausdorff_km": 0.002628847575204246,
+   "va_true": 39,
+   "va_wrong": 0
+  },
+  {
+   "ed": 27,
+   "district": "Calgary-Varsity",
+   "anchors": [
+    "Calgary"
+   ],
+   "wide_z": 6.148240566253662,
+   "inlier30": 0.8753999289015286,
+   "s": 14.571094946229584,
+   "s_area": 14.580819140945485,
+   "theta_deg": 269.99276683811587,
+   "runner_up_inlier30": 0.5074653394952009,
+   "sec": 26.7,
+   "iou": 0.9989145033618546,
+   "area_err_pct": -0.0018189609305398076,
+   "hausdorff_km": 0.0030294699511385554,
+   "va_true": 52,
+   "va_wrong": 0
+  },
+  {
+   "ed": 31,
+   "district": "Edmonton-City Centre",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 5.2988786697387695,
+   "inlier30": 0.9416230366492147,
+   "s": 9.969626567688541,
+   "s_area": 9.90834604401558,
+   "theta_deg": -0.006614515702251476,
+   "runner_up_inlier30": 0.9416230366492147,
+   "sec": 27.7,
+   "iou": 0.9988483496012212,
+   "area_err_pct": -0.00574537760459717,
+   "hausdorff_km": 0.001868097178452025,
+   "va_true": 67,
+   "va_wrong": 6
+  },
+  {
+   "ed": 34,
+   "district": "Edmonton-Enoch",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 6.129838466644287,
+   "inlier30": 0.9589141599413059,
+   "s": 30.677492572587408,
+   "s_area": 30.642413389079245,
+   "theta_deg": -0.001753637959383723,
+   "runner_up_inlier30": 0.5937882122768403,
+   "sec": 45.7,
+   "iou": 0.9995464165188899,
+   "area_err_pct": 0.004684796317717374,
+   "hausdorff_km": 0.0037057798730414336,
+   "va_true": 48,
+   "va_wrong": 0
+  },
+  {
+   "ed": 35,
+   "district": "Edmonton-Glenora-Riverview",
+   "error": "RuntimeError('no outline stroke found')",
+   "trace": "in\n    rec[n] = R.reconstruct(n)\n             ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 313, in reconstruct\n    poly, p, c, info = georeference(n, window)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 262, in georeference\n    outline, roads, txt, title = extract_page(n)\n                                 ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 96, in extract_page\n    raise RuntimeError(\"no outline stroke found\")\nRuntimeError: no outline stroke found\n",
+   "sec": 0.6,
+   "va_true": 55,
+   "va_wrong": 55
+  },
+  {
+   "ed": 36,
+   "district": "Edmonton-Gold Bar",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 5.569422245025635,
+   "inlier30": 0.9390512961941533,
+   "s": 19.172458295309102,
+   "s_area": 19.24057318437066,
+   "theta_deg": 270.0025461650899,
+   "runner_up_inlier30": 0.47628240485383344,
+   "sec": 49.2,
+   "iou": 0.9993593278959245,
+   "area_err_pct": -0.005793195637468994,
+   "hausdorff_km": 0.0025531626261434464,
+   "va_true": 60,
+   "va_wrong": 0
+  },
+  {
+   "ed": 39,
+   "district": "Edmonton-McClung",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 5.296576023101807,
+   "inlier30": 0.9605609114811569,
+   "s": 13.420501562106043,
+   "s_area": 13.531089730417483,
+   "theta_deg": -0.012659906206115549,
+   "runner_up_inlier30": 0.5506134969325154,
+   "sec": 35.6,
+   "iou": 0.9990389813912778,
+   "area_err_pct": -0.003164140194671666,
+   "hausdorff_km": 0.0024478569483322647,
+   "va_true": 58,
+   "va_wrong": 0
+  },
+  {
+   "ed": 41,
+   "district": "Edmonton-Mill Woods",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 5.017560958862305,
+   "inlier30": 0.9728260869565217,
+   "s": 13.422013965220037,
+   "s_area": 13.323626842611823,
+   "theta_deg": 270.0046872164498,
+   "runner_up_inlier30": 0.4517663043478261,
+   "sec": 26.8,
+   "iou": 0.9992261240422665,
+   "area_err_pct": 0.012974413677935738,
+   "hausdorff_km": 0.0023701882473476958,
+   "va_true": 54,
+   "va_wrong": 0
+  },
+  {
+   "ed": 44,
+   "district": "Edmonton-Rutherford",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 5.965333461761475,
+   "inlier30": 0.9460803820135296,
+   "s": 12.654323791129876,
+   "s_area": 12.636380041656698,
+   "theta_deg": -0.005751173369819786,
+   "runner_up_inlier30": 0.4884600079586152,
+   "sec": 44.8,
+   "iou": 0.9986687981331591,
+   "area_err_pct": 0.005396619501418322,
+   "hausdorff_km": 0.0024156045814206764,
+   "va_true": 55,
+   "va_wrong": 0
+  },
+  {
+   "ed": 47,
+   "district": "Edmonton-West Henday",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 6.487100124359131,
+   "inlier30": 0.9635746939979354,
+   "s": 18.790793595316313,
+   "s_area": 18.739054120085214,
+   "theta_deg": 270.0004321381274,
+   "runner_up_inlier30": 0.4816398761244654,
+   "sec": 53.1,
+   "iou": 0.9996763648231977,
+   "area_err_pct": 0.016939660990834632,
+   "hausdorff_km": 0.0020117692534400845,
+   "va_true": 50,
+   "va_wrong": 0
+  },
+  {
+   "ed": 50,
+   "district": "Airdrie-East",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 0.7,
+   "va_true": 59,
+   "va_wrong": 59
+  },
+  {
+   "ed": 51,
+   "district": "Airdrie-West",
+   "anchors": [
+    "Airdrie"
+   ],
+   "wide_z": 5.368011951446533,
+   "inlier30": 0.5230048859934854,
+   "s": 2.7772891528829033,
+   "s_area": 35.08933731401967,
+   "theta_deg": 88.25512212108555,
+   "runner_up_inlier30": 0.4765879478827362,
+   "sec": 42.5,
+   "iou": 0.0,
+   "area_err_pct": -99.37226391567708,
+   "hausdorff_km": 38.30289128232404,
+   "va_true": 46,
+   "va_wrong": 46
+  },
+  {
+   "ed": 55,
+   "district": "Camrose",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 2.2,
+   "va_true": 68,
+   "va_wrong": 68
+  },
+  {
+   "ed": 56,
+   "district": "Central Peace-Notley",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 5.5,
+   "va_true": 49,
+   "va_wrong": 49
+  },
+  {
+   "ed": 57,
+   "district": "Chestermere-Strathmore",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 0.6,
+   "va_true": 47,
+   "va_wrong": 47
+  },
+  {
+   "ed": 59,
+   "district": "Cold Lake-Bonnyville-St. Paul",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 2.3,
+   "va_true": 62,
+   "va_wrong": 62
+  },
+  {
+   "ed": 64,
+   "district": "Fort Saskatchewan-Vegreville",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 2.3,
+   "va_true": 67,
+   "va_wrong": 67
+  },
+  {
+   "ed": 66,
+   "district": "Grande Prairie-Wapiti",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 2.6,
+   "va_true": 69,
+   "va_wrong": 69
+  },
+  {
+   "ed": 70,
+   "district": "Lesser Slave Lake",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 6.2,
+   "va_true": 55,
+   "va_wrong": 55
+  },
+  {
+   "ed": 75,
+   "district": "Lloydminster-Wainwright",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 1.4,
+   "va_true": 60,
+   "va_wrong": 60
+  },
+  {
+   "ed": 77,
+   "district": "Medicine Hat-Brooks",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 2.7,
+   "va_true": 67,
+   "va_wrong": 67
+  },
+  {
+   "ed": 78,
+   "district": "Medicine Hat-Cypress",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 0.8,
+   "va_true": 52,
+   "va_wrong": 52
+  },
+  {
+   "ed": 82,
+   "district": "Peace River",
+   "error": "ValueError('need at least one array to concatenate')",
+   "trace": "w)\n                       ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 265, in georeference\n    ppts = _sample_lines(roads, P['page_step_pt'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\analysis\\scripts\\a7_stepb_reconstruct.py\", line 182, in _sample_lines\n    return np.vstack(out)\n           ^^^^^^^^^^^^^^\n  File \"C:\\Users\\email\\.venvs\\audit-k91\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 292, in vstack\n    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: need at least one array to concatenate\n",
+   "sec": 5.9,
+   "va_true": 60,
+   "va_wrong": 60
+  },
+  {
+   "ed": 83,
+   "district": "Red Deer-North",
+   "anchors": [
+    "Red Deer"
+   ],
+   "wide_z": 11.267245292663574,
+   "inlier30": 0.9886277482941622,
+   "s": 19.942632375205193,
+   "s_area": 19.94493558747621,
+   "theta_deg": 269.99506982151524,
+   "runner_up_inlier30": 0.9886277482941622,
+   "sec": 24.0,
+   "iou": 0.9993725501496975,
+   "area_err_pct": 0.03147360929528022,
+   "hausdorff_km": 0.0035075129640314705,
+   "va_true": 49,
+   "va_wrong": 0
+  },
+  {
+   "ed": 86,
+   "district": "Sherwood Park",
+   "anchors": [
+    "Edmonton"
+   ],
+   "wide_z": 4.251348972320557,
+   "inlier30": 0.9145997745208568,
+   "s": 21.08970219934097,
+   "s_area": 21.045388976204535,
+   "theta_deg": 0.0026476235984680173,
+   "runner_up_inlier30": 0.5675028184892897,
+   "sec": 44.9,
+   "iou": 0.9992510156154119,
+   "area_err_pct": -0.002931076471418284,
+   "hausdorff_km": 0.0032039771585053683,
+   "va_true": 51,
+   "va_wrong": 0
+  },
+  {
+   "ed": 89,
+   "district": "Strathcona-Sherwood Park",
+   "anchors": [
+    "Beaumont"
+   ],
+   "wide_z": 3.5072109699249268,
+   "inlier30": 0.34595896669158566,
+   "s": 4.3019706294792295,
+   "s_area": 65.17328888779504,
+   "theta_deg": -0.20520289602566283,
+   "runner_up_inlier30": 0.3329180164465487,
+   "sec": 61.3,
+   "iou": 0.0,
+   "area_err_pct": -99.5644783998911,
+   "hausdorff_km": 46.15177804300449,
+   "va_true": 57,
+   "va_wrong": 57
+  }
+ ],
+ "calibration_passes": false
+}

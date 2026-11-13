@@ -27,6 +27,15 @@ Test X1 (Recommendation 5) for a proposed map, per Amendment 5, Part 13.
 Population is the VA-level 2021 census overlay the canonical ensemble uses
 (data/va_pop_from_das.csv); VAs are assigned by representative point.
 
+Not computed, although Amendment 5, Part 13 describes them:
+  - the strict reading (100% and 100%, with the population moved) that Part 13
+    says is reported beside the 99% test;
+  - the Nisku option stated in condition (c);
+  - in (d), the s.15(2) status or +/-25% band of the adopted division: (d) is
+    scored "adopted" on population share inside the zone alone.
+Results from this script are the 99% reading of (a)-(c) and the share-only
+reading of (d).
+
 Usage
   python analysis/scripts/score_x1.py --map PATH [--name-col COL]
          [--interim PATH --interim-name-col COL] [--d-record considered|not_shown]

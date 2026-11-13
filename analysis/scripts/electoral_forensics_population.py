@@ -124,9 +124,25 @@ def print_a1(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
 #   Zone B: Calgary EDs whose centroid lies south or west of that line.
 #           This captures S, SW, and W Calgary.
 #
-# The partisan correlation of these zones is a property of voter
-# geography observable from public election results; it is NOT baked
-# into the classification rule. The test measures whether either zone
+# How the lists were made. The two sets below were first committed on
+# 2026-04-22 (commit 57d6ecb9) as CALGARY_NE_CENTRAL ("historically
+# NDP-competitive") and CALGARY_SOUTH_WEST ("historically UCP-dominant"),
+# "based on Calgary ward geography; ambiguous cases resolved via 2023 winner".
+# Forty minutes later (a372e885) they were renamed Zone A / Zone B and the
+# centroid rule above was written as their description. Membership did not
+# change. The lists were therefore drawn up by name with partisan history in
+# view; they were not derived from the centroid rule, and they do not follow
+# it everywhere. Applied literally, the rule moves Calgary-Hays and
+# Calgary-South East to Zone A and Calgary-Buffalo and Calgary-Currie to
+# Zone B on both maps (on one reading of the river line, also
+# Calgary-Confluence on the majority map); on the minority map it also moves
+# Calgary-Peigan-Chestermere to Zone A and, on one reading of the line west
+# of the city, Calgary-Nolan Hill-Cochrane to Zone B. The minority's zone gap
+# is then 5.3% to 5.7%, against 12.2% on these lists and 7.7% on the
+# three-district recode (findings/audit_2026-11-10/calgary_zone_recode.json).
+#
+# The partisan correlation of these zones is observable from public
+# election results. The test measures whether either zone
 # has systematically larger or smaller population than the other under
 # each 2026 map, and reports the gap without pre-assigned direction.
 # Partisan interpretation is a separate step in the written analysis.

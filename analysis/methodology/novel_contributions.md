@@ -13,7 +13,7 @@
 **Status:** Active reference. Updated 2026-05-07.
 **Scope:** Three methodological contributions introduced by this audit that, to the authors' knowledge, have no direct precedent in the redistricting or forensic-audit literature.
 
-Cross-ref: `findings/methods_paper_draft.md` (DPG standalone paper skeleton), `analysis/methodology/academic_literature_review.md` §9–9b (prior-art placement), `dpg_validation/dpg2_worklog.md` (pre-registration chain).
+Cross-ref: `findings/methods_paper_draft.md` (DPG standalone paper skeleton), `analysis/methodology/reference/academic_literature_review.md` §9–9b (prior-art placement), `dpg_validation/dpg2_worklog.md` (pre-registration chain; file since removed, see git history at 3329e5a5).
 
 > **Note on Neighbour-Drain (Channel 3):** Neighbour-Drain was a pre-registered test (AsPredicted #289,451, OSF r3zm7) that returned an inverted finding — minority map zero coupled chain signals. A post-hoc reframing as a topology classifier was considered and rejected as inconsistent with the pre-registration. The test is reported honestly in the audit body as Channel 3. It is not listed here because no novelty claim survived scrutiny. See `TODO.md` DECISION-CH3 for full record.
 
@@ -35,7 +35,7 @@ Existing redistricting-analysis frameworks (MGGG, Chen & Rodden 2013, Stephanopo
 
 **ii. Source-tier provenance.** Each DPG row carries a `canon_source` value from a defined hierarchy: `da-anchored` / `municipal-anchored` (Tier A, shapefile-grade accuracy), `osm-municipal-buffered` / `sweep` (Tier B, high confidence), `v7` (Tier C, visually transcribed). Downstream algorithms — overlap resolution, edge snapping, four-layer reporting — consume this metadata deterministically.
 
-**iii. Four-phase DPG tessellation pipeline.** Independently-traced polygon sources do not tile; they overlap and leave gaps. The pipeline resolves this in four phases: (1) precedence-based overlap resolution with anti-erasure clamp; (2) tier-ordered edge snapping using `shapely.snap()` with auto-revert on >5% area distortion; (3) spatial-index gap-fill assigning residual territory to the longest-shared-boundary neighbour; (4) 1 m precision pass closing floating-point artefacts via multi-threaded snapping. Phase order is fixed; running them out of order propagates errors into the committed union. Code: `analysis/scripts/dpg_perfecter.py`.
+**iii. Four-phase DPG tessellation pipeline.** Independently-traced polygon sources do not tile; they overlap and leave gaps. The pipeline resolves this in four phases: (1) precedence-based overlap resolution with anti-erasure clamp; (2) tier-ordered edge snapping using `shapely.snap()` with auto-revert on >5% area distortion; (3) spatial-index gap-fill assigning residual territory to the longest-shared-boundary neighbour; (4) 1 m precision pass closing floating-point artefacts via multi-threaded snapping. Phase order is fixed; running them out of order propagates errors into the committed union. Code: `analysis/scripts/dpg_perfecter.py` (file since removed; see git history at 3329e5a5).
 
 **iv. Nested-polygon ownership inversion.** Standard polygon-overlap-resolution algorithms either erase the smaller polygon or flag the case as unresolvable. For electoral GIS, erasing a legally distinct ED is not acceptable. When the overlap-resolution pass finds that one ED is ≥95% contained inside another, ownership inversion preserves the inner polygon by carving a hole in the outer ED rather than deleting the inner. The cartographic-conflation literature (Sester 2000; Saalfeld 1988) does not treat this case. In the Alberta dataset this resolves the Calgary-Falconridge-Conrich / Airdrie-East 141.9 km² nested overlap on the majority map.
 
@@ -107,7 +107,7 @@ A structured reporting framework that evaluates a proposed electoral map on two 
 - **Lane 1 — Partisan-bias magnitude.** Quantitative vote-data-dependent metrics: efficiency gap, partisan bias index, seats@50/50 simulation, MCMC ensemble percentile placement. Threshold calibrated to the jurisdiction's own electoral geography via neutral-draw ensemble rather than borrowed from US litigation defaults.
 - **Lane 2 — Structural and procedural pattern.** Vote-data-independent signals: population distribution (MAD), municipal-boundary anchoring departure, community-of-interest treatment (city splits), geometric anomalies, commission-chair flags, rationale-failure analysis. These signals register engineering intent even when the EG magnitude remains sub-threshold.
 
-The scorecard is pre-registered before any new map is drawn, applied to known-outcome maps as a calibration test, then re-applied prospectively to the target map without modification.
+The scorecard is pre-registered before any new map is drawn, applied to known-outcome maps as a calibration test, then re-applied prospectively to the target map. (In this audit the rules were amended after the target map was tabled; see iii below.)
 
 ### The problem it solves
 
@@ -125,7 +125,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 **ii. Jurisdiction-calibrated Lane 1 thresholds.** Rather than applying the Stephanopoulos-McGhee 7% EG threshold (derived from US elections data, never judicially adopted), the framework derives its Lane 1 thresholds from the jurisdiction's own neutral-draw MCMC ensemble. The Alberta-calibrated 95th-percentile EG is 4.08% — nearly half the US-derived figure — and is the operative threshold for this audit's Lane 1 verdict.
 
-**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/phase_b_scorecard.py`.
+**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist was published and OSF-time-stamped *before* the panel's 91-seat map was produced. The map was tabled on 2026-11-02. The scoring rules were then amended from November 2 to 7 (Amendments 7 to 13): Amendments 7 to 10 before any of the panel's geometry was scored, and 11 to 13 after results had been seen. So the thresholds were not applied without modification, and the scoring so far is provisional, on the audit's reconstruction of the map. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/phase_b_scorecard.py`.
 
 **iv. Signature threshold with explicit cross-evidence requirement.** The checklist's "sure-sign" verdict requires three formal signatures *plus* at least one new signature *plus* either ensemble-outlier placement or public-support-inversion. This multi-criteria threshold is explicitly borrowed from the multi-criteria discipline in Katz, King & Rosenblatt (2020) and Altman & McDonald (2011) — no single metric is dispositive, but directional consistency across independent metrics is. The audit applies this discipline to both lanes simultaneously.
 
@@ -192,8 +192,8 @@ Applied to Alberta 2026: Version A p = 0.0348 (observed EG gap +3.92 pp vs null 
 | --- | --- | --- | --- |
 | DPG Framework | First formalised audit methodology for the no-official-shapefiles case; nested-polygon ownership inversion and sunset clause are novel sub-contributions | #289,449 (validation) | Methods paper draft at `findings/methods_paper_draft.md` |
 | SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `findings/szat_summary.json` |
-| Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; November 2026 map pending |
-| Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `findings/intermap_permutation_test_results.md` |
+| Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; provisional scoring on a reconstruction, 2026-11 (2 of 5 structural, 1 of 4 partisan flags) |
+| Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0348 one-tailed (0.0686 two-tailed), V-B p=0.0002; the joint version is significant | OSF yvc7g | Done 2026-05-10; `findings/intermap_permutation_test_results.md` |
 
 ---
 

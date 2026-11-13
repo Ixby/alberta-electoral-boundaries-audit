@@ -1,0 +1,50 @@
+{
+  "candidate_label": "para167",
+  "candidate_shapefile": "findings\\iap_para167\\para167_map.gpkg",
+  "executed_at_utc": "2026-11-07T07:40:16Z",
+  "drand_round_at_execution": null,
+  "metrics": {
+    "S1_population_mad": {
+      "value": 3412.901194387159,
+      "threshold": 3382.5,
+      "flag": true
+    },
+    "S2_municipal_split_count": {
+      "value": 23,
+      "threshold": 26.5,
+      "flag": false
+    },
+    "S3_anchoring_score": {
+      "value": 0.7583885211499809,
+      "threshold": 0.7601,
+      "canadian_norm_band": [
+        0.7,
+        0.85
+      ],
+      "flag": true
+    },
+    "S4_polsby_popper_median": {
+      "value": 0.4335485870394109,
+      "threshold": null,
+      "flag": false,
+      "non_discriminating": true,
+      "_note": "measured but EXCLUDED from the flag count: median PP is identical on both commission maps (0.4366) and tail stats run the wrong way (monograph H3). Reported for transparency."
+    },
+    "S5_drain_score": {
+      "drain_score": 0.0036924751040465593,
+      "threshold": 0.0039018,
+      "direction": "minority side = below midpoint",
+      "flag": true
+    },
+    "S6_chair_flag_replication": {
+      "patterns_reproduced": [],
+      "patterns_count_discriminating": 0,
+      "threshold": 2.5,
+      "flag": false
+    }
+  },
+  "structural_lane_flags": 3,
+  "structural_lane_unexecuted": 0,
+  "structural_lane_verdict": "replicated",
+  "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md"
+}

@@ -1,0 +1,108 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+COCHRANE,HANSARD-R1-T03-002,hearing,1,core,1,cochrane×1,EB-37,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,53-54,"hearing: Edmonton, Monday, June 2, 2025"
+COCHRANE,HANSARD-R1-T03-003,hearing,1,core,1,cochrane×1,EB-39,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,54-57,"hearing: Edmonton, Monday, June 2, 2025"
+COCHRANE,HANSARD-R1-T06-009,hearing,1,core,3,cochrane×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,140-142,"hearing: Edmonton, Tuesday, June 3, 2025"
+COCHRANE,HANSARD-R1-T07-001,hearing,1,core,3,cochrane×3,EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+COCHRANE,HANSARD-R1-T07-004,hearing,1,core,1,cochrane×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,162-163,"hearing: Edmonton, Tuesday, June 3, 2025"
+COCHRANE,HANSARD-R1-T13-002,hearing,1,core,2,cochrane×2,EB-198,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,283-286,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T13-003,hearing,1,core,2,cochrane×2,EB-201,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,286-288,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T13-005,hearing,1,core,10,cochrane×7; bearspaw×1; springbank×2,EB-204 EB-205,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,289-292,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T13-006,hearing,1,core,38,cochrane×29; bearspaw×5; springbank×4,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,292-293,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T13-007,hearing,1,context,4,springbank×4,EB-207 EB-208,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,293-295,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-001,hearing,1,core,5,cochrane×5,EB-220,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,313-316,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-002,hearing,1,core,1,cochrane×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,316,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-003,hearing,1,context,4,springbank×4,EB-223,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,316-318,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-004,hearing,1,context,5,springbank×5,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,318-319,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-005,hearing,1,core,1,cochrane×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,319-320,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-007,hearing,1,context,3,springbank×3,start EB-228,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,320-322,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-009,hearing,1,core,4,cochrane×3; springbank×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,324-325,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T14-010,hearing,1,core,6,cochrane×2; springbank×4,EB-231 start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,325-327,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T15-001,hearing,1,context,1,springbank×1,EB-244,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,345-347,"hearing: Calgary, Tuesday, June 10, 2025"
+COCHRANE,HANSARD-R1-T16-001,hearing,1,core,67,cochrane×49; bearspaw×9; springbank×9,start EB-255 EB-256,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,362-364,"hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T16-003,hearing,1,core,13,cochrane×12; springbank×1,start EB-263 EB-264,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,370-372,"hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T16-005,hearing,1,core,9,cochrane×2; sage hill×5; bearspaw×2,start EB-271 EB-269 EB-272,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"376-380,384","hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T17-001,hearing,1,core,1,cochrane×1,EB-274,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,389-391,"hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T17-002,hearing,1,core,10,cochrane×10,EB-276 EB-277,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,391-394,"hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T17-004,hearing,1,core,13,cochrane×5; nolan hill×1; sage hill×7,start EB-281 EB-282 EB-283,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,396-399,"hearing: Calgary, Wednesday, June 11, 2025"
+COCHRANE,HANSARD-R1-T25-003,hearing,1,core,1,cochrane×1,EB-392,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,560-563,"hearing: Hinton, Thursday, June 19, 2025"
+COCHRANE,HANSARD-R1-T27-004,hearing,1,core,12,cochrane×11; bearspaw×1,EB-405 EB-406 EB-407,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,591-594,"hearing: Virtual, Monday, June 23, 2025"
+COCHRANE,HANSARD-R1-T27-005,hearing,1,core,3,cochrane×2; bearspaw×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,592,"hearing: Virtual, Monday, June 23, 2025"
+COCHRANE,HANSARD-R1-T28-008,hearing,1,core,1,cochrane×1,EB-434,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,624-627,"hearing: Virtual, Monday, June 23, 2025"
+COCHRANE,HANSARD-R1-T28-009,hearing,1,core,1,cochrane×1,EB-436,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"627-630,632","hearing: Virtual, Monday, June 23, 2025"
+COCHRANE,HANSARD-R2-T32-001,hearing,2,core,4,cochrane×4,start EB-510,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,29-31,"hearing: Calgary, Tuesday, January 13, 2025"
+COCHRANE,HANSARD-R2-T32-002,hearing,2,core,3,cochrane×1; bearspaw×1; springbank×1,EB-512,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,31-35,"hearing: Calgary, Tuesday, January 13, 2025"
+COCHRANE,HANSARD-R2-T32-005,hearing,2,core,4,cochrane×4,EB-516 EB-518,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,35-39,"hearing: Calgary, Tuesday, January 13, 2025"
+COCHRANE,HANSARD-R2-T32-006,hearing,2,core,2,cochrane×2,EB-521,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,39-42,"hearing: Calgary, Tuesday, January 13, 2025"
+COCHRANE,HANSARD-R2-T33-001,hearing,2,core,4,cochrane×2; springbank×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,5-8,"hearing: Calgary, Tuesday, January 13, 2026"
+COCHRANE,HANSARD-R2-T33-004,hearing,2,core,1,cochrane×1,EB-534,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,13-16,"hearing: Calgary, Tuesday, January 13, 2026"
+COCHRANE,HANSARD-R2-T34-001,hearing,2,core,1,cochrane×1,EB-542,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,53-55,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-004,hearing,2,core,8,cochrane×5; springbank×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,60-64,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-005,hearing,2,core,3,cochrane×1; bearspaw×1; springbank×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,63-65,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-007,hearing,2,core,17,cochrane×7; springbank×10,start EB-556,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,66-68,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-009,hearing,2,context,6,bearspaw×5; glenbow×1,EB-558,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,69-71,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-010,hearing,2,core,5,cochrane×2; bearspaw×1; glenbow×2,EB-560,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"71-74,76,80","hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T34-011,hearing,2,context,1,bearspaw×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,74-76,"hearing: Calgary, Wednesday, January 14, 2026"
+COCHRANE,HANSARD-R2-T37-005,hearing,2,context,1,springbank×1,EB-612,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,118-120,"hearing: Virtual, Thursday, January 15, 2026"
+COCHRANE,HANSARD-R2-T42-004,hearing,2,core,2,cochrane×2,EB-716,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,251-254,"hearing: Edmonton, Monday, January 19, 2026"
+COCHRANE,HANSARD-R2-T43-008,hearing,2,core,1,cochrane×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,374-375,"hearing: Edmonton, Tuesday, January 20, 2026"
+COCHRANE,HANSARD-R2-T44-009,hearing,2,core,1,cochrane×1,EB-766,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,316-318,"hearing: Edmonton, Tuesday, January 20, 2026"
+COCHRANE,HANSARD-R2-T45-004,hearing,2,context,1,highway 1a×1,EB-782,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,336-343,"hearing: Edmonton, Tuesday, January 20, 2026"
+COCHRANE,HANSARD-R2-T48-005,hearing,2,core,3,cochrane×2; springbank×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,429-431,"hearing: Virtual, Wednesday, January 21, 2026"
+COCHRANE,EBC-2025-1-0010,written,1,core,4,cochrane×4,21,EBC2025Submissions1-50ForPosting.pdf,21-22,Private Citizen
+COCHRANE,EBC-2025-1-0035,written,1,core,1,cochrane×1,71,EBC2025Submissions1-50ForPosting.pdf,71-74,Private Citizen
+COCHRANE,EBC-2025-1-0054,written,1,core,3,cochrane×3,10,EBC2025Submissions51-100ForPosting.pdf,10-11,Private Citizen
+COCHRANE,EBC-2025-1-0074,written,1,core,3,cochrane×3,67,EBC2025Submissions51-100ForPosting.pdf,67-68,Private Citizen
+COCHRANE,EBC-2025-1-0081,written,1,core,7,cochrane×7,82 83,EBC2025Submissions51-100ForPosting.pdf,82-83,Private Citizen
+COCHRANE,EBC-2025-1-0085,written,1,core,1,cochrane×1,90,EBC2025Submissions51-100ForPosting.pdf,90-91,Private Citizen
+COCHRANE,EBC-2025-1-0102,written,1,core,2,nolan hill×1; sage hill×1,6,EBC2025Submissions101-150ForPosting.pdf,6-7,Private Citizen
+COCHRANE,EBC-2025-1-0106,written,1,context,3,sage hill×3,14 15,EBC2025Submissions101-150ForPosting.pdf,14-15,Private Citizen
+COCHRANE,EBC-2025-1-0110,written,1,core,13,nolan hill×3; sage hill×10,24 25 23,EBC2025Submissions101-150ForPosting.pdf,23-25,Private Citizen
+COCHRANE,EBC-2025-1-0111,written,1,context,1,springbank×1,27,EBC2025Submissions101-150ForPosting.pdf,26-28,Private Citizen
+COCHRANE,EBC-2025-1-0138,written,1,core,3,cochrane×2; glenbow×1,100 108,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+COCHRANE,EBC-2025-1-0139,written,1,core,22,cochrane×16; bearspaw×6,163 165 180 182,EBC2025Submissions101-150ForPosting.pdf,161-186,"Grant Writer and Intergovernmental Affairs, City of Airdrie"
+COCHRANE,EBC-2025-1-0164,written,1,core,4,cochrane×1; bearspaw×2; glenbow×1,45,EBC2025Submissions151-197ForPosting.pdf,45-46,Private Citizen
+COCHRANE,EBC-2025-1-0181,written,1,core,3,nolan hill×1; sage hill×1; springbank×1,94,EBC2025Submissions151-197ForPosting.pdf,89-95,Private Citizen
+COCHRANE,EBC-2025-2-0013,written,2,core,1,cochrane×1,30,EBC-2025-2-001-to-050.pdf,29-31,not on the commission's published list
+COCHRANE,EBC-2025-2-0020,written,2,core,55,cochrane×3; springbank×52,48 51 46 47 49 50 53 54,EBC-2025-2-001-to-050.pdf,44-54,MLA for Calgary-Bow
+COCHRANE,EBC-2025-2-0030,written,2,context,6,springbank×6,75,EBC-2025-2-001-to-050.pdf,74-76,Private Citizen
+COCHRANE,EBC-2025-2-0038,written,2,context,6,springbank×6,92 93,EBC-2025-2-001-to-050.pdf,91-93,Private Citizen
+COCHRANE,EBC-2025-2-0051,written,2,context,8,springbank×8,1 2,EBC-2025-2-051-to-100.pdf,1-2,Private Citizen
+COCHRANE,EBC-2025-2-0126,written,2,core,1,cochrane×1,63,EBC-2025-2-101-to-150.pdf,61-64,Private Citizen
+COCHRANE,EBC-2025-2-0328,written,2,core,1,cochrane×1,66,EBC-2025-2-301-to-350.pdf,65-68,Private Citizen
+COCHRANE,EBC-2025-2-0376,written,2,core,1,cochrane×1,65,EBC-2025-2-351-to-400.pdf,64-66,
+COCHRANE,EBC-2025-2-0383,written,2,context,2,springbank×2,84,EBC-2025-2-351-to-400.pdf,83-84,Private Citizen
+COCHRANE,EBC-2025-2-0430,written,2,core,18,cochrane×7; springbank×11,75 74,EBC-2025-2-401-to-450.pdf,74-76,Private Citizen
+COCHRANE,EBC-2025-2-0444,written,2,core,2,nolan hill×1; sage hill×1,108,EBC-2025-2-401-to-450.pdf,108,President of Kincora Residents Association
+COCHRANE,EBC-2025-2-0536,written,2,core,1,cochrane×1,84,EBC-2025-2-501-to-550.pdf,83-85,Mayor of Rocky Mountain House
+COCHRANE,EBC-2025-2-0541,written,2,core,2,nolan hill×1; sage hill×1,101,EBC-2025-2-501-to-550.pdf,101,Private Citizen
+COCHRANE,EBC-2025-2-0545,written,2,core,4,cochrane×2; springbank×2,110 111,EBC-2025-2-501-to-550.pdf,109-115,Chair of the Board of Trustees of Foothills School Division
+COCHRANE,EBC-2025-2-0575,written,2,context,1,sage hill×1,68,EBC-2025-2-551-to-600.pdf,68,Private Citizen
+COCHRANE,EBC-2025-2-0586,written,2,core,10,cochrane×2; springbank×8,91,EBC-2025-2-551-to-600.pdf,90-92,Private Citizen
+COCHRANE,EBC-2025-2-0588,written,2,context,4,springbank×4,96,EBC-2025-2-551-to-600.pdf,95-96,Private Citizen
+COCHRANE,EBC-2025-2-0617,written,2,core,5,cochrane×1; springbank×4,45 44,EBC-2025-2-601-to-650.pdf,44-45,Private Citizen
+COCHRANE,EBC-2025-2-0619,written,2,core,12,cochrane×9; bearspaw×1; springbank×1; highway 1a×1,49 53 57 58 56,EBC-2025-2-601-to-650.pdf,48-61,Private Citizen
+COCHRANE,EBC-2025-2-0622,written,2,context,1,springbank×1,66,EBC-2025-2-601-to-650.pdf,66-67,Private Citizen
+COCHRANE,EBC-2025-2-0646,written,2,core,2,cochrane×1; springbank×1,129,EBC-2025-2-601-to-650.pdf,121-129,Private Citizen
+COCHRANE,EBC-2025-2-0671,written,2,core,10,cochrane×8; springbank×2,51 53 55 57,EBC-2025-2-651-to-700.pdf,50-58,Grant Writer and Researcher for the City of Airdrie
+COCHRANE,EBC-2025-2-0687,written,2,context,1,springbank×1,101,EBC-2025-2-651-to-700.pdf,100-102,Private Citizen
+COCHRANE,EBC-2025-2-0731,written,2,context,7,springbank×7,78,EBC-2025-2-701-to-750.pdf,77-79,Private Citizen
+COCHRANE,EBC-2025-2-0747,written,2,context,8,springbank×8,116,EBC-2025-2-701-to-750.pdf,115-117,Private Citizen
+COCHRANE,EBC-2025-2-0749,written,2,context,8,springbank×8,121,EBC-2025-2-701-to-750.pdf,120-122,Private Citizen
+COCHRANE,EBC-2025-2-0759,written,2,core,37,cochrane×13; springbank×23; highway 1a×1,18 19 20,EBC-2025-2-751-to-800.pdf,18-20,Private Citizen
+COCHRANE,EBC-2025-2-0778,written,2,core,16,cochrane×16,70 73 83 98 120 126 137 147 243 246 248,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+COCHRANE,EBC-2025-2-0779,written,2,core,1,cochrane×1,264,EBC-2025-2-751-to-800.pdf,263-266,Private Citizen
+COCHRANE,EBC-2025-2-0786,written,2,context,5,bearspaw×4; glenbow×1,283,EBC-2025-2-751-to-800.pdf,282-284,Private Citizen
+COCHRANE,EBC-2025-2-0790,written,2,core,2,cochrane×1; springbank×1,293,EBC-2025-2-751-to-800.pdf,293-294,Private Citizen
+COCHRANE,EBC-2025-2-0800,written,2,core,5,cochrane×1; springbank×4,327 328,EBC-2025-2-751-to-800.pdf,327-328,Private Citizen
+COCHRANE,EBC-2025-2-0829,written,2,core,2,cochrane×1; highway 1a×1,118,EBC-2025-2-801-to-850.pdf,117-119,MLA for Rimbey-Rocky Mountain House-Sundre
+COCHRANE,EBC-2025-2-0866,written,2,context,1,springbank×1,36,EBC-2025-2-851-to-900.pdf,35-36,Private Citizen
+COCHRANE,EBC-2025-2-0869,written,2,core,1,cochrane×1,42,EBC-2025-2-851-to-900.pdf,39-43,Private Citizen
+COCHRANE,EBC-2025-2-0898,written,2,core,1,cochrane×1,112,EBC-2025-2-851-to-900.pdf,111-113,Private Citizen
+COCHRANE,EBC-2025-2-0911,written,2,core,5,cochrane×1; bearspaw×4,26 27,EBC-2025-2-901-to-950.pdf,26-27,Private Citizen
+COCHRANE,EBC-2025-2-0920,written,2,core,9,cochrane×2; springbank×7,49,EBC-2025-2-901-to-950.pdf,48-50,Private Citizen
+COCHRANE,EBC-2025-2-0950,written,2,core,11,cochrane×1; bearspaw×7; glenbow×3,155,EBC-2025-2-901-to-950.pdf,154-155,Private Citizen
+COCHRANE,EBC-2025-2-0990,written,2,context,8,bearspaw×7; springbank×1,136 137,EBC-2025-2-951-to-1000.pdf,135-137,MLA for Calgary-North West
+COCHRANE,EBC-2025-2-0995,written,2,context,1,bearspaw×1,150,EBC-2025-2-951-to-1000.pdf,149-150,Private Citizen
+COCHRANE,EBC-2025-2-1033,written,2,core,2,cochrane×1; springbank×1,135,EBC-2025-2-1001-to-1050.pdf,134-136,Private Citizen
+COCHRANE,EBC-2025-2-1057,written,2,core,11,cochrane×4; springbank×7,19 20,EBC-2025-2-1051-to-1100.pdf,18-20,Private Citizen
+COCHRANE,EBC-2025-2-1097,written,2,core,4,cochrane×1; bearspaw×2; glenbow×1,120,EBC-2025-2-1051-to-1100.pdf,119-120,Private Citizen

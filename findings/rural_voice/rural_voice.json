@@ -1,0 +1,465 @@
+{
+ "plan": "preregistration/rural_voice_2026-11-07.md",
+ "rural_share_of_province": 0.1965,
+ "maps": {
+  "majority": {
+   "divisions": 89,
+   "mixed_divisions": 30,
+   "rural_residents_in_urban_majority_divisions": 273409,
+   "divisions_urban_majority_with_rural_5pct_plus": 17,
+   "overridden_all": {
+    "divisions": [
+     "Canmore-Banff",
+     "Edmonton-Enoch"
+    ],
+    "rural_residents": 12778,
+    "rural_two_party_voters": 6948
+   },
+   "overridden_election_day": {
+    "divisions": [
+     "Canmore-Banff",
+     "Edmonton-Enoch"
+    ],
+    "rural_residents": 12778,
+    "rural_two_party_voters": 3182
+   },
+   "counties_split": {
+    "counties": 63,
+    "split_2plus": 16,
+    "split_3plus": 4,
+    "max_pieces": 4,
+    "split_3plus_names": [
+     "Greenview No. 16",
+     "Lacombe County",
+     "Parkland County",
+     "Rocky View County"
+    ]
+   },
+   "focus_lethbridge": {
+    "divisions": [
+     {
+      "division": "Lethbridge-East",
+      "pop_2021": 48180,
+      "rural_share": 0.0,
+      "rural_residents": 0,
+      "ucp_share_all": 0.508,
+      "rural_ucp_share_all": null,
+      "urban_ucp_share_all": 0.508
+     },
+     {
+      "division": "Lethbridge-West",
+      "pop_2021": 50002,
+      "rural_share": 0.0,
+      "rural_residents": 0,
+      "ucp_share_all": 0.444,
+      "rural_ucp_share_all": null,
+      "urban_ucp_share_all": 0.444
+     },
+     {
+      "division": "Livingstone-Macleod",
+      "pop_2021": 47136,
+      "rural_share": 0.674,
+      "rural_residents": 31760,
+      "ucp_share_all": 0.747,
+      "rural_ucp_share_all": 0.739,
+      "urban_ucp_share_all": 0.759
+     }
+    ],
+    "focus_rural_residents": 14576,
+    "focus_rural_in_urban_majority_divisions": 0
+   },
+   "focus_springbank": {
+    "divisions": [
+     {
+      "division": "Calgary-West-Elbow Valley",
+      "pop_2021": 47839,
+      "rural_share": 0.047,
+      "rural_residents": 2267,
+      "ucp_share_all": 0.575,
+      "rural_ucp_share_all": 0.573,
+      "urban_ucp_share_all": 0.575
+     },
+     {
+      "division": "Canmore-Banff",
+      "pop_2021": 31774,
+      "rural_share": 0.287,
+      "rural_residents": 9122,
+      "ucp_share_all": 0.448,
+      "rural_ucp_share_all": 0.512,
+      "urban_ucp_share_all": 0.399
+     },
+     {
+      "division": "Cochrane-Springbank",
+      "pop_2021": 49851,
+      "rural_share": 0.372,
+      "rural_residents": 18560,
+      "ucp_share_all": 0.606,
+      "rural_ucp_share_all": 0.611,
+      "urban_ucp_share_all": 0.603
+     }
+    ],
+    "focus_rural_residents": 17677,
+    "focus_rural_in_urban_majority_divisions": 17677
+   }
+  },
+  "minority": {
+   "divisions": 89,
+   "mixed_divisions": 38,
+   "rural_residents_in_urban_majority_divisions": 410324,
+   "divisions_urban_majority_with_rural_5pct_plus": 29,
+   "overridden_all": {
+    "divisions": [],
+    "rural_residents": 0,
+    "rural_two_party_voters": 0
+   },
+   "overridden_election_day": {
+    "divisions": [],
+    "rural_residents": 0,
+    "rural_two_party_voters": 0
+   },
+   "counties_split": {
+    "counties": 63,
+    "split_2plus": 27,
+    "split_3plus": 8,
+    "max_pieces": 6,
+    "split_3plus_names": [
+     "Foothills County",
+     "Greenview No. 16",
+     "Leduc County",
+     "Lethbridge County",
+     "Parkland County",
+     "Ponoka County",
+     "Red Deer County",
+     "Rocky View County"
+    ]
+   },
+   "focus_lethbridge": {
+    "divisions": [
+     {
+      "division": "Lethbridge-Cardston",
+      "pop_2021": 46916,
+      "rural_share": 0.394,
+      "rural_residents": 18497,
+      "ucp_share_all": 0.611,
+      "rural_ucp_share_all": 0.768,
+      "urban_ucp_share_all": 0.546
+     },
+     {
+      "division": "Lethbridge-Fort Macleod-Crowsnest Pass",
+      "pop_2021": 48726,
+      "rural_share": 0.415,
+      "rural_residents": 20208,
+      "ucp_share_all": 0.621,
+      "rural_ucp_share_all": 0.729,
+      "urban_ucp_share_all": 0.551
+     },
+     {
+      "division": "Lethbridge-Little Bow",
+      "pop_2021": 52654,
+      "rural_share": 0.28,
+      "rural_residents": 14725,
+      "ucp_share_all": 0.601,
+      "rural_ucp_share_all": 0.832,
+      "urban_ucp_share_all": 0.54
+     },
+     {
+      "division": "Lethbridge-Taber-Warner",
+      "pop_2021": 54696,
+      "rural_share": 0.315,
+      "rural_residents": 17227,
+      "ucp_share_all": 0.643,
+      "rural_ucp_share_all": 0.828,
+      "urban_ucp_share_all": 0.578
+     }
+    ],
+    "focus_rural_residents": 14576,
+    "focus_rural_in_urban_majority_divisions": 14576
+   },
+   "focus_springbank": {
+    "divisions": [
+     {
+      "division": "Calgary-Bow-Springbank",
+      "pop_2021": 51842,
+      "rural_share": 0.154,
+      "rural_residents": 7963,
+      "ucp_share_all": 0.539,
+      "rural_ucp_share_all": 0.558,
+      "urban_ucp_share_all": 0.535
+     },
+     {
+      "division": "Calgary-Nolan Hill-Cochrane",
+      "pop_2021": 46961,
+      "rural_share": 0.193,
+      "rural_residents": 9049,
+      "ucp_share_all": 0.598,
+      "rural_ucp_share_all": 0.627,
+      "urban_ucp_share_all": 0.592
+     },
+     {
+      "division": "Calgary-North West-Bearspaw",
+      "pop_2021": 54411,
+      "rural_share": 0.033,
+      "rural_residents": 1772,
+      "ucp_share_all": 0.513,
+      "rural_ucp_share_all": 0.656,
+      "urban_ucp_share_all": 0.503
+     },
+     {
+      "division": "Calgary-West-Tsuut'ina",
+      "pop_2021": 48551,
+      "rural_share": 0.05,
+      "rural_residents": 2407,
+      "ucp_share_all": 0.56,
+      "rural_ucp_share_all": 0.538,
+      "urban_ucp_share_all": 0.562
+     },
+     {
+      "division": "Canmore-Kananaskis",
+      "pop_2021": 44588,
+      "rural_share": 0.357,
+      "rural_residents": 15918,
+      "ucp_share_all": 0.557,
+      "rural_ucp_share_all": 0.628,
+      "urban_ucp_share_all": 0.499
+     }
+    ],
+    "focus_rural_residents": 17677,
+    "focus_rural_in_urban_majority_divisions": 17677
+   }
+  },
+  "panel": {
+   "divisions": 91,
+   "mixed_divisions": 35,
+   "rural_residents_in_urban_majority_divisions": 287160,
+   "divisions_urban_majority_with_rural_5pct_plus": 21,
+   "overridden_all": {
+    "divisions": [
+     "Edmonton-Enoch",
+     "Edmonton-Nisku"
+    ],
+    "rural_residents": 10689,
+    "rural_two_party_voters": 1996
+   },
+   "overridden_election_day": {
+    "divisions": [
+     "Edmonton-Enoch",
+     "Edmonton-Nisku"
+    ],
+    "rural_residents": 10689,
+    "rural_two_party_voters": 1136
+   },
+   "counties_split": {
+    "counties": 63,
+    "split_2plus": 20,
+    "split_3plus": 8,
+    "max_pieces": 6,
+    "split_3plus_names": [
+     "Foothills County",
+     "Greenview No. 16",
+     "Leduc County",
+     "Lethbridge County",
+     "Parkland County",
+     "Red Deer County",
+     "Rocky View County",
+     "Wheatland County"
+    ]
+   },
+   "focus_lethbridge": {
+    "divisions": [
+     {
+      "division": "Lethbridge",
+      "pop_2021": 54832,
+      "rural_share": 0.0,
+      "rural_residents": 0,
+      "ucp_share_all": 0.475,
+      "rural_ucp_share_all": null,
+      "urban_ucp_share_all": 0.475
+     },
+     {
+      "division": "Lethbridge-Cardston",
+      "pop_2021": 35463,
+      "rural_share": 0.442,
+      "rural_residents": 15688,
+      "ucp_share_all": 0.614,
+      "rural_ucp_share_all": 0.78,
+      "urban_ucp_share_all": 0.549
+     },
+     {
+      "division": "Lethbridge-Little Bow",
+      "pop_2021": 43432,
+      "rural_share": 0.344,
+      "rural_residents": 14930,
+      "ucp_share_all": 0.631,
+      "rural_ucp_share_all": 0.802,
+      "urban_ucp_share_all": 0.56
+     },
+     {
+      "division": "Lethbridge-Taber-Warner",
+      "pop_2021": 53647,
+      "rural_share": 0.612,
+      "rural_residents": 32841,
+      "ucp_share_all": 0.757,
+      "rural_ucp_share_all": 0.833,
+      "urban_ucp_share_all": 0.671
+     }
+    ],
+    "focus_rural_residents": 14576,
+    "focus_rural_in_urban_majority_divisions": 8138
+   },
+   "focus_springbank": {
+    "divisions": [
+     {
+      "division": "Banff-Canmore-Diamond Valley",
+      "pop_2021": 37012,
+      "rural_share": 0.281,
+      "rural_residents": 10417,
+      "ucp_share_all": 0.507,
+      "rural_ucp_share_all": 0.55,
+      "urban_ucp_share_all": 0.474
+     },
+     {
+      "division": "Calgary-Bow-Springbank",
+      "pop_2021": 50709,
+      "rural_share": 0.051,
+      "rural_residents": 2601,
+      "ucp_share_all": 0.519,
+      "rural_ucp_share_all": 0.543,
+      "urban_ucp_share_all": 0.517
+     },
+     {
+      "division": "Calgary-North West-Bearspaw",
+      "pop_2021": 47742,
+      "rural_share": 0.006,
+      "rural_residents": 293,
+      "ucp_share_all": 0.508,
+      "rural_ucp_share_all": 0.655,
+      "urban_ucp_share_all": 0.503
+     },
+     {
+      "division": "Calgary-West-Springbank",
+      "pop_2021": 53201,
+      "rural_share": 0.143,
+      "rural_residents": 7629,
+      "ucp_share_all": 0.574,
+      "rural_ucp_share_all": 0.569,
+      "urban_ucp_share_all": 0.575
+     },
+     {
+      "division": "Cochrane",
+      "pop_2021": 41595,
+      "rural_share": 0.248,
+      "rural_residents": 10304,
+      "ucp_share_all": 0.616,
+      "rural_ucp_share_all": 0.659,
+      "urban_ucp_share_all": 0.603
+     }
+    ],
+    "focus_rural_residents": 17677,
+    "focus_rural_in_urban_majority_divisions": 17677
+   }
+  },
+  "para167": {
+   "divisions": 91,
+   "mixed_divisions": 32,
+   "rural_residents_in_urban_majority_divisions": 245846,
+   "divisions_urban_majority_with_rural_5pct_plus": 17,
+   "overridden_all": {
+    "divisions": [
+     "Canmore-Banff",
+     "Edmonton-Enoch",
+     "Edmonton-Nisku"
+    ],
+    "rural_residents": 17705,
+    "rural_two_party_voters": 6788
+   },
+   "overridden_election_day": {
+    "divisions": [
+     "Canmore-Banff",
+     "Edmonton-Enoch",
+     "Edmonton-Nisku"
+    ],
+    "rural_residents": 17705,
+    "rural_two_party_voters": 3181
+   },
+   "counties_split": {
+    "counties": 63,
+    "split_2plus": 19,
+    "split_3plus": 5,
+    "max_pieces": 4,
+    "split_3plus_names": [
+     "Greenview No. 16",
+     "Leduc County",
+     "Parkland County",
+     "Red Deer County",
+     "Rocky View County"
+    ]
+   },
+   "focus_lethbridge": {
+    "divisions": [
+     {
+      "division": "Lethbridge-East",
+      "pop_2021": 48180,
+      "rural_share": 0.0,
+      "rural_residents": 0,
+      "ucp_share_all": 0.508,
+      "rural_ucp_share_all": null,
+      "urban_ucp_share_all": 0.508
+     },
+     {
+      "division": "Lethbridge-West",
+      "pop_2021": 50002,
+      "rural_share": 0.0,
+      "rural_residents": 0,
+      "ucp_share_all": 0.444,
+      "rural_ucp_share_all": null,
+      "urban_ucp_share_all": 0.444
+     },
+     {
+      "division": "Livingstone-Macleod",
+      "pop_2021": 47136,
+      "rural_share": 0.674,
+      "rural_residents": 31760,
+      "ucp_share_all": 0.747,
+      "rural_ucp_share_all": 0.739,
+      "urban_ucp_share_all": 0.759
+     }
+    ],
+    "focus_rural_residents": 14576,
+    "focus_rural_in_urban_majority_divisions": 0
+   },
+   "focus_springbank": {
+    "divisions": [
+     {
+      "division": "Calgary-West-Elbow Valley",
+      "pop_2021": 47839,
+      "rural_share": 0.047,
+      "rural_residents": 2267,
+      "ucp_share_all": 0.575,
+      "rural_ucp_share_all": 0.573,
+      "urban_ucp_share_all": 0.575
+     },
+     {
+      "division": "Canmore-Banff",
+      "pop_2021": 29668,
+      "rural_share": 0.236,
+      "rural_residents": 7016,
+      "ucp_share_all": 0.442,
+      "rural_ucp_share_all": 0.51,
+      "urban_ucp_share_all": 0.399
+     },
+     {
+      "division": "Cochrane-Springbank",
+      "pop_2021": 49851,
+      "rural_share": 0.372,
+      "rural_residents": 18560,
+      "ucp_share_all": 0.606,
+      "rural_ucp_share_all": 0.611,
+      "urban_ucp_share_all": 0.603
+     }
+    ],
+    "focus_rural_residents": 17677,
+    "focus_rural_in_urban_majority_divisions": 17677
+   }
+  }
+ }
+}

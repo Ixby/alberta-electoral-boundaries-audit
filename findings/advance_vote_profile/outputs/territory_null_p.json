@@ -1,0 +1,186 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:34 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/09_rescore_territory_null.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+    "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+   },
+   {
+    "path": "data/shapefiles/iap_assembled/iap_2026_assembled.gpkg",
+    "sha256": "518a59fe7e938258e0431536fae6110e6af4648b7873330a5ef24e23b3a2e6e7"
+   },
+   {
+    "path": "findings/amendment12_rehearsal/territory_allballots/rank.json",
+    "sha256": "b6ef2daed9d28f6d78d98bfb71a38ebe233e5bde603e5e10aa2ce0402608a1e3"
+   },
+   {
+    "path": "findings/a10_stepc/territory/plans_sha256.txt",
+    "sha256": "ce56f85c89dd89e7995fcde1621ab5fee62928e0a666ddcd85608a2b31b1dee1"
+   },
+   {
+    "path": "findings/a10_stepc/territory/chain1_plans.npy",
+    "sha256": "0ead77928228a6715da6a1689b17c49be0e429bb876345afb44e809fbfaa59fc"
+   },
+   {
+    "path": "findings/a10_stepc/territory/chain2_plans.npy",
+    "sha256": "23c096992cb594750890bd4033f4e1842fa5734abfa1a498478c605a57139e03"
+   },
+   {
+    "path": "findings/a10_stepc/territory/chain4_plans.npy",
+    "sha256": "a0ba9544e55e90774c21e82371f4caa2ad35d93e6e1debd4759905486411a0fb"
+   },
+   {
+    "path": "findings/a10_stepc/territory/chain5_plans.npy",
+    "sha256": "fe76aadfe80d3da98e3b99c3269de63f804a86c2348e78c54cc978c2169aaf49"
+   },
+   {
+    "path": "findings/a10_stepc/territory/chain6_plans.npy",
+    "sha256": "6ea4ad66a9fd0590a56c0a20593949800493fdbeea76180672b9144fea55391f"
+   }
+  ],
+  "seed": {
+   "value": 1397454177,
+   "derivation": "int(sha256(RANDOMNESS + \"a8-drain-label-shuffle-iap_2026_assembled\")[:4], big-endian), pinned territory_score.shuffle_rng at 569250cd",
+   "used_for": "drain label-shuffle of the observed map"
+  }
+ },
+ "what": "Amendment 8 redraw-test null (R1 swing zone uses eg; R2 drain), rescored on M0 and P",
+ "map": "data/shapefiles/iap_assembled/iap_2026_assembled.gpkg",
+ "stated_low": 2,
+ "reference_chains": [
+  1,
+  2,
+  4,
+  6
+ ],
+ "burn_in_steps": 10000,
+ "pinned_code_commit": "569250cd",
+ "plan_files_sha256_match": true,
+ "plans_scored": 2000,
+ "m0_reproduces_filed_rank_json": true,
+ "m0": {
+  "observed": {
+   "eg": -0.016637175571172686,
+   "mean_median": -0.01093382548588806,
+   "declination": -0.059833748775490914,
+   "ucp_seats": 51,
+   "n_districts": 91,
+   "drain": 0.010433770891244632,
+   "drain_shuffle_p": 0.0342
+  },
+  "n_ref_plans": 1440,
+  "territory_districts": 33,
+  "fixed_districts": 58,
+  "eg": {
+   "observed": -0.016637175571172686,
+   "p_two_sided": 0.9138888888888889,
+   "null_mean": -0.017200470895019377,
+   "null_p025": -0.033850036190338315,
+   "null_p975": -0.0006041930021283922,
+   "percentile_midrank": 54.30555555555555
+  },
+  "drain": {
+   "observed": 0.010433770891244632,
+   "p_two_sided": 0.41944444444444445,
+   "null_mean": 0.00597689643051589,
+   "null_p025": 0.00039458304894025,
+   "null_p975": 0.025292249601757827,
+   "percentile_midrank": 79.02777777777777
+  },
+  "mean_median": {
+   "observed": -0.01093382548588806,
+   "p_two_sided": 0.9125,
+   "null_mean": -0.008826192265854996,
+   "null_p025": -0.023487581451979125,
+   "null_p975": 0.0031898608736979413,
+   "percentile_midrank": 45.625
+  },
+  "declination": {
+   "observed": -0.059833748775490914,
+   "p_two_sided": 0.7944444444444444,
+   "null_mean": -0.061876874825165906,
+   "null_p025": -0.09528020522712574,
+   "null_p975": -0.025387160134687222,
+   "percentile_midrank": 60.27777777777777
+  },
+  "ucp_seats": {
+   "observed": 51,
+   "p_two_sided": 1.0,
+   "null_mean": 51.138888888888886,
+   "null_p025": 50.0,
+   "null_p975": 53.0,
+   "percentile_midrank": 43.923611111111114
+  }
+ },
+ "p": {
+  "observed": {
+   "eg": -0.028358048906364078,
+   "mean_median": -0.004734886475877831,
+   "declination": -0.0801793708332432,
+   "ucp_seats": 50,
+   "n_districts": 91,
+   "drain": 0.000533101385544713,
+   "drain_shuffle_p": 0.0008
+  },
+  "n_ref_plans": 1440,
+  "territory_districts": 33,
+  "fixed_districts": 58,
+  "eg": {
+   "observed": -0.028358048906364078,
+   "p_two_sided": 0.6194444444444445,
+   "null_mean": -0.023339993554214806,
+   "null_p025": -0.043488343517209094,
+   "null_p975": -0.005646762625851641,
+   "percentile_midrank": 30.97222222222222
+  },
+  "drain": {
+   "observed": 0.000533101385544713,
+   "p_two_sided": 0.5763888888888888,
+   "null_mean": 0.005755245093835939,
+   "null_p025": 0.000533101385544713,
+   "null_p975": 0.024367272950132864,
+   "percentile_midrank": 14.409722222222221
+  },
+  "mean_median": {
+   "observed": -0.004734886475877831,
+   "p_two_sided": 0.9805555555555555,
+   "null_mean": -0.005041520537270486,
+   "null_p025": -0.020896439035191346,
+   "null_p975": 0.00574182233127271,
+   "percentile_midrank": 50.97222222222222
+  },
+  "declination": {
+   "observed": -0.0801793708332432,
+   "p_two_sided": 0.6388888888888888,
+   "null_mean": -0.06979594661505581,
+   "null_p025": -0.10775847979025922,
+   "null_p975": -0.035971445414943834,
+   "percentile_midrank": 31.944444444444443
+  },
+  "ucp_seats": {
+   "observed": 50,
+   "p_two_sided": 0.8527777777777777,
+   "null_mean": 50.66875,
+   "null_p025": 49.0,
+   "null_p975": 52.0,
+   "percentile_midrank": 25.833333333333336
+  }
+ },
+ "vote_files": {
+  "m0": {
+   "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+   "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+  },
+  "p": {
+   "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+   "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+  }
+ }
+}

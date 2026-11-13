@@ -510,8 +510,16 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
 # ---------------------------------------------------------------------
 # Phase 4C — exact VA-level spatial attribution
 # ---------------------------------------------------------------------
-def _load_va_gpkg():
-    """Load VA polygon GeoDataFrame with va_ndp / va_ucp integer vote columns."""
+def _load_va_gpkg(legacy_int_votes: bool = False):
+    """Load VA polygon GeoDataFrame with va_ndp / va_ucp vote columns.
+
+    The columns are fractional wherever one voting station served several
+    voting areas (the station's votes are split equally across them), so they
+    are kept as floats. legacy_int_votes=True restores the earlier behaviour
+    of truncating each VA's votes to an integer, which drops about 1,800 votes
+    per party province-wide; it exists only to reproduce outputs written
+    before the truncation was removed.
+    """
     import geopandas as gpd
     ROOT = Path(__file__).resolve().parent.parent.parent
     candidates = [
@@ -524,16 +532,32 @@ def _load_va_gpkg():
             "VA polygon file not found. Checked: " + "; ".join(str(p) for p in candidates)
         )
     gdf = gpd.read_file(va_path)
-    gdf["va_ndp"] = gdf["va_ndp"].fillna(0).astype(int)
-    gdf["va_ucp"] = gdf["va_ucp"].fillna(0).astype(int)
+    return _prepare_va_votes(gdf, legacy_int_votes=legacy_int_votes)
+
+
+def _prepare_va_votes(gdf, legacy_int_votes: bool = False):
+    """Fill missing VA votes with 0; keep fractional votes unless legacy_int_votes."""
+    for col in ("va_ndp", "va_ucp"):
+        gdf[col] = gdf[col].fillna(0).astype(float)
+        if legacy_int_votes:
+            gdf[col] = gdf[col].astype(int)
     return gdf
 
 
-def score_map_by_spatial_join(va_gdf, ed_gpkg: Path, ed_name_col: str) -> List[Dict]:
+def score_map_by_spatial_join(
+    va_gdf, ed_gpkg: Path, ed_name_col: str, truncate_district_totals: bool = True
+) -> List[Dict]:
     """Score a 2026 map by spatially joining VA centroids to ED polygons.
 
-    Mirrors mcmc_ensemble_canonical.py exactly: representative_point() centroid,
+    Same join as mcmc_ensemble.score_exogenous_map: representative_point(),
     within-predicate sjoin, per-ED aggregation of va_ndp / va_ucp.
+
+    truncate_district_totals=True (the default, and what every committed
+    output that calls this function was produced with) truncates each
+    district's summed votes to an integer, losing up to one vote per party per
+    district. mcmc_ensemble.score_exogenous_map does not truncate, so the two
+    differ in about the fifth decimal of the efficiency gap. Pass False to
+    keep the fractional totals.
     """
     import geopandas as gpd
     eds = gpd.read_file(str(ed_gpkg))[[ed_name_col, "geometry"]]
@@ -552,8 +576,9 @@ def score_map_by_spatial_join(va_gdf, ed_gpkg: Path, ed_name_col: str) -> List[D
         .agg(ndp=("va_ndp", "sum"), ucp=("va_ucp", "sum"))
         .reset_index()
     )
+    conv = int if truncate_district_totals else float
     return [
-        {"ed": row[ed_name_col], "ndp": int(row["ndp"]), "ucp": int(row["ucp"])}
+        {"ed": row[ed_name_col], "ndp": conv(row["ndp"]), "ucp": conv(row["ucp"])}
         for _, row in agg.iterrows()
     ]
 
@@ -594,7 +619,18 @@ def validate_2026_estimate(
 # ---------------------------------------------------------------------
 
 
-def main():
+def main(argv=None):
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0] if __doc__ else None)
+    ap.add_argument(
+        "--legacy-int-votes",
+        action="store_true",
+        help="Truncate each VA's fractional votes to an integer, as this script "
+        "did before the truncation was removed. Reproduces "
+        "findings/partisan_bias_summary_canonical.json as committed.",
+    )
+    args = ap.parse_args(argv)
+
     print("=" * 60)
     print("  Alberta Packing/Cracking Analysis v0.3")
     print("  Phase 4C — exact VA-level spatial attribution")
@@ -608,16 +644,17 @@ def main():
     )
 
     # Load VA polygons once — shared between both map scorings
-    va_gdf = _load_va_gpkg()
-    va_ndp_total = int(va_gdf["va_ndp"].sum())
-    va_ucp_total = int(va_gdf["va_ucp"].sum())
+    va_gdf = _load_va_gpkg(legacy_int_votes=args.legacy_int_votes)
+    va_ndp_total = int(round(va_gdf["va_ndp"].sum()))
+    va_ucp_total = int(round(va_gdf["va_ucp"].sum()))
     print(
         f"\nVA file: {va_ndp_total:,} NDP + {va_ucp_total:,} UCP = {va_ndp_total + va_ucp_total:,} total"
     )
 
     # Majority 2026 — exact spatial attribution
     map_a_dists = score_map_by_spatial_join(
-        va_gdf, canonical_shapefile("majority"), ED_NAME_COL
+        va_gdf, canonical_shapefile("majority"), ED_NAME_COL,
+        truncate_district_totals=args.legacy_int_votes,
     )
     ok, msg = validate_2026_estimate(map_a_dists, "Majority 2026")
     print(f"\n[GATE] Majority 2026 validation: {msg}")
@@ -629,7 +666,8 @@ def main():
 
     # Minority 2026 — exact spatial attribution
     map_b_dists = score_map_by_spatial_join(
-        va_gdf, canonical_shapefile("minority"), ED_NAME_COL
+        va_gdf, canonical_shapefile("minority"), ED_NAME_COL,
+        truncate_district_totals=args.legacy_int_votes,
     )
     ok, msg = validate_2026_estimate(map_b_dists, "Minority 2026")
     print(f"\n[GATE] Minority 2026 validation: {msg}")
@@ -697,6 +735,8 @@ def main():
                 {
                     "method": "Phase 4C exact VA-level spatial attribution "
                               "(packing_cracking_analysis.py v0.3)",
+                    "va_votes": "truncated to integers per VA (legacy)"
+                    if args.legacy_int_votes else "fractional (as allocated)",
                     "2019_enacted": m_2019,
                     "majority_2026": m_map_a,
                     "minority_2026": m_map_b,

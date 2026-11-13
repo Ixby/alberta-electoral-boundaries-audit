@@ -1,0 +1,12 @@
+{
+ "region": "St. Albert",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_St._Albert_muni_2",
+ "seed": 3516212729,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 10,
+ "n_vas": 546,
+ "muni_weight": 0.5
+}

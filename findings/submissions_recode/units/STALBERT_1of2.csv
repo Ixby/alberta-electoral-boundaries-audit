@@ -1,0 +1,73 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+STALBERT,HANSARD-R1-T02-008,hearing,1,core,1,st. albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,28-30,"hearing: Lethbridge, Thursday, May 29, 2025"
+STALBERT,HANSARD-R1-T02-011,hearing,1,core,1,st albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,35-36,"hearing: Lethbridge, Thursday, May 29, 2025"
+STALBERT,HANSARD-R1-T03-003,hearing,1,core,1,st. albert×1,EB-40,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,54-57,"hearing: Edmonton, Monday, June 2, 2025"
+STALBERT,HANSARD-R1-T04-005,hearing,1,core,1,st. albert×1,EB-62,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,85-87,"hearing: Edmonton, Monday, June 2, 2025"
+STALBERT,HANSARD-R1-T05-005,hearing,1,core,1,st. albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,108-110,"hearing: Edmonton, Monday, June 2, 2025"
+STALBERT,HANSARD-R1-T05-011,hearing,1,context,3,morinville×2; gibbons×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"116-118,120","hearing: Edmonton, Monday, June 2, 2025"
+STALBERT,HANSARD-R1-T07-001,hearing,1,core,6,st. albert×5; sturgeon×1,EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+STALBERT,HANSARD-R1-T07-005,hearing,1,core,1,st. albert×1,EB-120,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,163-165,"hearing: Edmonton, Tuesday, June 3, 2025"
+STALBERT,HANSARD-R1-T07-009,hearing,1,core,1,st. albert×1,EB-132,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"171-176,180","hearing: Edmonton, Tuesday, June 3, 2025"
+STALBERT,HANSARD-R1-T08-004,hearing,1,core,70,"st. albert×42; sturgeon×3; morinville×14; gibbons×2; bon accord×2; redwater×4; lac ste. anne×1; town of legal×1; legal, redwater×1",start EB-140 EB-141 EB-142,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,191-194,"hearing: Edmonton, Tuesday, June 3, 2025"
+STALBERT,HANSARD-R1-T08-012,hearing,1,core,1,st. albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,204-205,"hearing: Edmonton, Tuesday, June 3, 2025"
+STALBERT,HANSARD-R1-T09-001,hearing,1,core,3,sturgeon×1; lac ste. anne×2,EB-160,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,265-268,"hearing: Westlock, Wednesday, June 4, 2025"
+STALBERT,HANSARD-R1-T09-004,hearing,1,core,5,st. albert×2; lac ste. anne×3,EB-164,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"269-272,276","hearing: Westlock, Wednesday, June 4, 2025"
+STALBERT,HANSARD-R1-T13-002,hearing,1,core,2,st. albert×2,EB-198,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,283-286,"hearing: Calgary, Tuesday, June 10, 2025"
+STALBERT,HANSARD-R1-T15-002,hearing,1,core,2,st albert×2,start EB-246,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,347-349,"hearing: Calgary, Tuesday, June 10, 2025"
+STALBERT,HANSARD-R1-T19-004,hearing,1,core,1,st albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"442-446,448","hearing: Brooks, Thursday, June 12, 2025"
+STALBERT,HANSARD-R1-T20-008,hearing,1,core,2,st albert×2,start EB-330,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,465-467,"hearing: Medicine Hat, Friday, June 13, 2025"
+STALBERT,HANSARD-R1-T22-005,hearing,1,core,1,st albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,512-513,"hearing: Peace River, Tuesday, June 17, 2025"
+STALBERT,HANSARD-R1-T27-001,hearing,1,core,1,st albert×1,EB-400,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,585-588,"hearing: Virtual, Monday, June 23, 2025"
+STALBERT,HANSARD-R1-T27-008,hearing,1,core,5,st. albert×4; morinville×1,EB-412,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,597-598,"hearing: Virtual, Monday, June 23, 2025"
+STALBERT,HANSARD-R1-T27-012,hearing,1,core,6,st. albert×6,start EB-418,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"603-606,608","hearing: Virtual, Monday, June 23, 2025"
+STALBERT,HANSARD-R2-T35-001,hearing,2,core,1,st. albert×1,EB-568,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,139-141,"hearing: Virtual, Wednesday, January 15, 2026"
+STALBERT,HANSARD-R2-T36-004,hearing,2,core,1,st. albert×1,EB-588,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,89-90,"hearing: Virtual, Thursday, January 15, 2026"
+STALBERT,HANSARD-R2-T39-004,hearing,2,core,1,st. albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,167-169,"hearing: Virtual, Friday, January 16, 2026"
+STALBERT,HANSARD-R2-T40-005,hearing,2,core,1,st albert×1,EB-672,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,278-280,"hearing: Edmonton, Monday, January 19, 2026"
+STALBERT,HANSARD-R2-T42-001,hearing,2,core,1,st. albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,249,"hearing: Edmonton, Monday, January 19, 2026"
+STALBERT,HANSARD-R2-T43-001,hearing,2,core,1,st albert×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,358-361,"hearing: Edmonton, Tuesday, January 20, 2026"
+STALBERT,HANSARD-R2-T43-007,hearing,2,context,2,morinville×2,EB-744,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,372-374,"hearing: Edmonton, Tuesday, January 20, 2026"
+STALBERT,HANSARD-R2-T45-002,hearing,2,core,55,st. albert×39; sturgeon×11; morinville×5,EB-776 EB-777,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,332-334,"hearing: Edmonton, Tuesday, January 20, 2026"
+STALBERT,HANSARD-R2-T48-008,hearing,2,core,87,"st. albert×46; sturgeon×7; morinville×18; gibbons×2; bon accord×2; redwater×5; lac ste. anne×3; legal, redwater×2; gibbons, legal×2",start EB-807 EB-808,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,436-438,"hearing: Virtual, Wednesday, January 21, 2026"
+STALBERT,EBC-2025-1-0058,written,1,core,1,st albert×1,19,EBC2025Submissions51-100ForPosting.pdf,18-21,Private Citizen
+STALBERT,EBC-2025-1-0065,written,1,core,4,st. albert×4,39,EBC2025Submissions51-100ForPosting.pdf,39-40,Private Citizen
+STALBERT,EBC-2025-1-0070,written,1,core,1,st albert×1,59,EBC2025Submissions51-100ForPosting.pdf,56-60,Private Citizen
+STALBERT,EBC-2025-1-0078,written,1,core,1,st. albert×1,75,EBC2025Submissions51-100ForPosting.pdf,75-76,Private Citizen
+STALBERT,EBC-2025-1-0125,written,1,core,80,st. albert×51; sturgeon×3; morinville×16; gibbons×2; bon accord×2; redwater×4; town of legal×1; legal and redwater×1,60 61 62 63 64 65 66 67,EBC2025Submissions101-150ForPosting.pdf,60-68,Private Citizen
+STALBERT,EBC-2025-1-0133,written,1,core,12,"st. albert×9; morinville×2; morinville, legal×1",89 90,EBC2025Submissions101-150ForPosting.pdf,89-90,Private Citizen
+STALBERT,EBC-2025-1-0148,written,1,core,1,st albert×1,211,EBC2025Submissions101-150ForPosting.pdf,207-212,Former MLA for Medicine Hat
+STALBERT,EBC-2025-1-0152,written,1,core,2,st. albert×2,8 10,EBC2025Submissions151-197ForPosting.pdf,3-10,"President, Edmonton and District Labour Council"
+STALBERT,EBC-2025-1-0157,written,1,core,5,st albert×2; sturgeon×1; morinville×2,29,EBC2025Submissions151-197ForPosting.pdf,29,Private Citizen
+STALBERT,EBC-2025-1-0165,written,1,core,1,st. albert×1,48,EBC2025Submissions151-197ForPosting.pdf,47-49,Edmonton City Councillor for Ward Papastew
+STALBERT,EBC-2025-1-0178,written,1,core,1,st. albert×1,83,EBC2025Submissions151-197ForPosting.pdf,80-83,Private Citizen
+STALBERT,EBC-2025-1-0184,written,1,core,1,st albert×1,101,EBC2025Submissions151-197ForPosting.pdf,100-102,Private Citizen
+STALBERT,EBC-2025-2-0012,written,2,core,2,st. albert×1; sturgeon×1,27,EBC-2025-2-001-to-050.pdf,26-28,Private Citizen
+STALBERT,EBC-2025-2-0056,written,2,core,1,st albert×1,11,EBC-2025-2-051-to-100.pdf,10-12,Private Citizen
+STALBERT,EBC-2025-2-0088,written,2,core,1,st. albert×1,92,EBC-2025-2-051-to-100.pdf,90-93,Private Citizen
+STALBERT,EBC-2025-2-0143,written,2,core,1,st albert×1,102,EBC-2025-2-101-to-150.pdf,100-102,Private Citizen
+STALBERT,EBC-2025-2-0157,written,2,core,1,st albert×1,19,EBC-2025-2-151-to-200.pdf,17-19,Private Citizen
+STALBERT,EBC-2025-2-0292,written,2,core,1,st albert×1,99,EBC-2025-2-251-to-300.pdf,98-99,Private Citizen
+STALBERT,EBC-2025-2-0397,written,2,core,1,st. albert×1,125,EBC-2025-2-351-to-400.pdf,124-126,Private Citizen
+STALBERT,EBC-2025-2-0449,written,2,core,1,st albert×1,121,EBC-2025-2-401-to-450.pdf,118-123,Constituency Office Manager for Calgary-Varsity
+STALBERT,EBC-2025-2-0496,written,2,context,3,lac ste. anne×3,97 98,EBC-2025-2-451-to-500.pdf,97-98,Private Citizen
+STALBERT,EBC-2025-2-0526,written,2,core,1,st. albert×1,59,EBC-2025-2-501-to-550.pdf,58-60,City of Edmonton Councillor
+STALBERT,EBC-2025-2-0578,written,2,core,14,st. albert×10; sturgeon×1; morinville×3,74 75,EBC-2025-2-551-to-600.pdf,74-75,MLA for Morinville-St. Albert
+STALBERT,EBC-2025-2-0584,written,2,core,1,st. albert×1,85,EBC-2025-2-551-to-600.pdf,84-86,Private Citizen
+STALBERT,EBC-2025-2-0615,written,2,core,2,st albert×2,30 35,EBC-2025-2-601-to-650.pdf,30-42,Executive Director of Northern Alberta Elected Leaders
+STALBERT,EBC-2025-2-0646,written,2,context,3,lac ste. anne×3,125 126,EBC-2025-2-601-to-650.pdf,121-129,Private Citizen
+STALBERT,EBC-2025-2-0676,written,2,core,1,st albert×1,69,EBC-2025-2-651-to-700.pdf,67-70,Private Citizen
+STALBERT,EBC-2025-2-0694,written,2,core,1,st albert×1,119,EBC-2025-2-651-to-700.pdf,118-120,Private Citizen
+STALBERT,EBC-2025-2-0778,written,2,core,48,st. albert×19; sturgeon×9; morinville×9; redwater×8; lac ste. anne×3,70 100 134 146 155 209 218 233 234 237 238 240 244 245 247 249 235 243 246 250 107 200 130 138,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+STALBERT,EBC-2025-2-0803,written,2,core,2,st albert×2,7 11,EBC-2025-2-801-to-850.pdf,6-14,Former Speaker of the Legislative Assembly of Alberta
+STALBERT,EBC-2025-2-0814,written,2,core,1,st albert×1,74,EBC-2025-2-801-to-850.pdf,73-76,Private Citizen
+STALBERT,EBC-2025-2-0848,written,2,core,1,st albert×1,166,EBC-2025-2-801-to-850.pdf,165-167,Private Citizen
+STALBERT,EBC-2025-2-0870,written,2,core,1,st. albert×1,45,EBC-2025-2-851-to-900.pdf,44-45,Private Citizen
+STALBERT,EBC-2025-2-0907,written,2,core,1,st albert×1,15,EBC-2025-2-901-to-950.pdf,14-16,Private Citizen
+STALBERT,EBC-2025-2-0955,written,2,core,2,st. albert×2,9,EBC-2025-2-951-to-1000.pdf,9-11,Private Citizen
+STALBERT,EBC-2025-2-0967,written,2,core,12,st. albert×12,40 42,EBC-2025-2-951-to-1000.pdf,40-42,Private Citizen
+STALBERT,EBC-2025-2-0978,written,2,core,1,st. albert×1,75,EBC-2025-2-951-to-1000.pdf,66-78,MLA for Grande Prairie-Wapiti
+STALBERT,EBC-2025-2-0993,written,2,core,21,st albert×17; sturgeon×2; morinville×2,142 143 144,EBC-2025-2-951-to-1000.pdf,142-145,Private Citizen
+STALBERT,EBC-2025-2-1015,written,2,core,1,st. albert×1,57,EBC-2025-2-1001-to-1050.pdf,40-59,MLA for Athabasca-Barrhead-Westlock
+STALBERT,EBC-2025-2-1036,written,2,core,1,st albert×1,142,EBC-2025-2-1001-to-1050.pdf,141-143,MLA for Cypress-Medicine Hat
+STALBERT,EBC-2025-2-1039,written,2,core,1,st. albert×1,156,EBC-2025-2-1001-to-1050.pdf,155-156,Private Citizen
+STALBERT,EBC-2025-2-1098,written,2,core,25,st. albert×18; sturgeon×2; morinville×3; gibbons×1; bon accord×1,121 122,EBC-2025-2-1051-to-1100.pdf,121-123,Private Citizen

@@ -23,8 +23,8 @@ type: project
 > correction record.
 
 > **Backward:**
-> - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` — the amendment this delta filing fulfils
-> - `data/final_real_map_scores.json` — v0_9 corrected real-map values
+> - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` (file since removed; consolidated into `findings/pre_registration_amendment_log.md` in b50d1e48) — the amendment this delta filing fulfils
+> - `data/outputs/final_real_map_scores.json` — v0_9 corrected real-map values
 > - corrected 100k pre-registered baseline ensemble outputs
 > - `historical/simulation_checkpoints_partial_2m_killed/` — cancelled 2M partial samples (audit trail)
 >
@@ -36,7 +36,7 @@ type: project
 
 # Post-audit recompute deltas — 2026-04-26
 
-**Filed in fulfilment of:** `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md`
+**Filed in fulfilment of:** `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` (file since removed; consolidated into `findings/pre_registration_amendment_log.md` in b50d1e48)
 
 **What this document records:** the audit's published Lane 1 numbers as they stood before the 2026-04-26 external code audit, and the corrected numbers produced after (a) all nine code-level bug fixes landed (commits `73544a3`, `5fdb57c`, `1579f99`), (b) the v0_9 topological VA-dissolve eliminated the pixel-traced polygon overlaps (commit `7cf47a4`), and (c) the corrected 100k pre-registered baseline ensemble was re-run (the 2M exploratory enlargement was cancelled mid-run; cf. recalibration note below).
 
@@ -58,7 +58,7 @@ The 2026-04-26 morning amendment (Bucket A change 1) had escalated the ensemble 
 | 2026 majority | 0.4368 | 0.4607 | +0.024 |
 | 2026 minority | **0.5422** | **0.4831** | **−0.0591** |
 
-The minority's drop from 0.5422 to 0.4831 is the largest single delta in the audit. Source: the v0_8 reconstructed minority polygons left 6 of the 89 districts effectively uncovered (the `coverage_pct=100%` figure was misleading because covered VAs were unevenly distributed across the 89 polygons; n_districts in `seat_results` was 83). The v0_9 topological dissolve recovers full 89/89 ED coverage. Source: `data/final_real_map_scores.json`.
+The minority's drop from 0.5422 to 0.4831 is the largest single delta in the audit. Source: the v0_8 reconstructed minority polygons left 6 of the 89 districts effectively uncovered (the `coverage_pct=100%` figure was misleading because covered VAs were unevenly distributed across the 89 polygons; n_districts in `seat_results` was 83). The v0_9 topological dissolve recovers full 89/89 ED coverage. Source: `data/outputs/final_real_map_scores.json`.
 
 ### Real-map efficiency gap
 
@@ -95,7 +95,7 @@ The minority declination's sign flip — from −0.0666 (UCP-favoured) to +0.010
 
 The headline-shaping insight: **the corrected ensemble's percentile placements are nearly identical to the buggy ensemble's percentile placements** (within ~1pp on the right tail). The bug fixes did NOT meaningfully change the simulated distribution. What they DID change was the v0_8→v0_9 substrate fix's effect on the REAL maps' scores — the minority's `seats@50/50` dropped from 0.5422 to 0.4831 because the v0_8 reconstruction had been under-counting 6 districts. So the percentile shift (p100 → p98.57) is almost entirely a real-map-score correction, not an ensemble-distribution correction.
 
-Source for buggy values: `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.buggy_pre_audit_2026-04-26.csv`. Source for corrected values: `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv` (regenerated 2026-04-26 evening).
+Source for buggy values: `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.buggy_pre_audit_2026-04-26.csv`. Source for corrected values: `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv` (regenerated 2026-04-26 evening). Both files since removed; see git history at 2d926e69.
 
 ---
 

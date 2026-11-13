@@ -17,7 +17,7 @@ note: |
 **Companion (not modified):** `analysis/scripts/assignment_va_attribution.py`, `analysis/scripts/phase_4bcdef_execution.py`
 
 Forward: `report_academic.md` §5.2.7 (suggested insertion at end)
-Backward: `data/va_polygons_with_full_2023_votes.gpkg`, `data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`, `data/v0_1_{majority,minority}_full_crosswalk.csv`
+Backward: `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg`, `data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`, `data/v0_1_{majority,minority}_full_crosswalk.csv`
 
 ---
 

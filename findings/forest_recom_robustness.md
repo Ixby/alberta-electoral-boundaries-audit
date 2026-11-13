@@ -2,7 +2,7 @@
 title: Forest-ReCom sampler robustness check — Phase A results
 date: 2026-07-10
 osf: he53s
-status: executed as registered; joint verdict ROBUST on all four metrics
+status: executed as registered; registered rule met on all four metrics; inconclusive at pooled n_eff 61–124
 ---
 
 > **Backward:**
@@ -44,7 +44,7 @@ status: executed as registered; joint verdict ROBUST on all four metrics
 | Declination | p98.79 | p98.83 | 0.04 pp | **Robust** |
 | Seats @ 50/50 | p99.99 | p99.88 | 0.11 pp | **Robust** |
 
-**Joint verdict (prereg §7): the canonical claim survives.** Per the
+**Joint verdict (prereg §7): the registered rule is met; at this run size the check is inconclusive, not a finding of robustness.** The pooled n_eff is 61–124, and on the joint four-measure figure this sampler gives about 1 in 20,000 against the main sampler's 1 in 566,000 (`findings/audit_2026-11-10/joint_sensitivity.json`). Per the
 pre-committed language: *"Forest-ReCom Phase A (100 k) yields percentile ranks
 within ±5 pp of canonical ReCom on every partisan metric."* No metric came
 within an order of magnitude of the 5-pp qualification threshold.

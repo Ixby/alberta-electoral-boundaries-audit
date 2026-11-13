@@ -8,9 +8,9 @@
   broken" is part of the opposition's accusation and an audit cannot borrow an
   accusation unexamined).
 
-  Content grounded in already-verified material only: the landing page's
-  Casings 12-14 and Lunty section (en.ts, sourced to CBC/CCLA), the academic
-  monograph §5.9 and §7, editorial_history (UK/Australia/US comparators),
+  Content grounded in already-verified material only: findings 12-14 on the
+  evidence page and the Lunty section (en.ts, sourced to CBC/CCLA), the academic
+  monograph §5.9 and §7, the former editorial_history strings (UK/Australia/US comparators; now only in git history),
   retraction condition 5 (Quebec SCC, April 22, 2026), and the Bratt
   correspondence disclosure. Do not add claims here without verifying them
   there first. English-only for now — pending author review before translation.
@@ -26,6 +26,9 @@
   import { base } from '$app/paths';
   import { lang } from '$lib/i18n/store.svelte';
   import { t } from '$lib/i18n/dict';
+
+  // Locale strings may hold __BASE__ in links; resolve it to the deploy base.
+  const h = (key: string) => t(lang.current, key).replaceAll('__BASE__', base);
 </script>
 
 <div class="page-head">
@@ -42,65 +45,73 @@
 <main id="main" tabindex="-1">
   <div class="content">
 
-    <p class="standfirst">{@html t(lang.current, 'pages.norms.standfirst').replaceAll('__BASE__', base)}</p>
+    <p class="standfirst">{@html h('pages.norms.standfirst')}</p>
 
     <section id="the-norm">
       <h2>{t(lang.current, 'pages.norms.the_norm.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.the_norm.p1')}</p>
-      <p>{t(lang.current, 'pages.norms.the_norm.p2')}</p>
+      <p>{@html h('pages.norms.the_norm.p1')}</p>
+      <p>{@html h('pages.norms.the_norm.p2')}</p>
     </section>
 
     <section id="what-it-bought">
       <h2>{t(lang.current, 'pages.norms.what_it_bought.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.what_it_bought.p1')}</p>
+      <p>{@html h('pages.norms.what_it_bought.p1')}</p>
     </section>
 
     <section id="the-departure">
       <h2>{t(lang.current, 'pages.norms.the_departure.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.the_departure.p1')}</p>
-      <p>{@html t(lang.current, 'pages.norms.the_departure.p2')}</p>
+      <p>{@html h('pages.norms.the_departure.p1')}</p>
+      <p>{@html h('home.system.p4')}</p>
+      <p>{@html h('pages.norms.the_departure.p2')}</p>
+    </section>
+
+    <section id="recommendation-5">
+      <h2>{t(lang.current, 'home.system.h3_1')}</h2>
+      <p>{@html h('home.system.p9')}</p>
+      <p>{@html h('home.system.p10')}</p>
+      <ul class="r5-conditions">
+        {#each [3, 4, 5, 6] as n (n)}
+          <li>{@html h('home.system.li' + n)}</li>
+        {/each}
+      </ul>
+      <p>{@html h('home.system.p11')}</p>
     </section>
 
     <section id="steel-man">
       <h2>{t(lang.current, 'pages.norms.steel_man.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.steel_man.p1')}</p>
+      <p>{@html h('pages.norms.steel_man.p1')}</p>
       <ul>
-        <li>{@html t(lang.current, 'pages.norms.steel_man.li1')}</li>
-        <li>{@html t(lang.current, 'pages.norms.steel_man.li2')}</li>
-        <li>{@html t(lang.current, 'pages.norms.steel_man.li3')}</li>
-        <li>{@html t(lang.current, 'pages.norms.steel_man.li4')}</li>
-        <li>{@html t(lang.current, 'pages.norms.steel_man.li5')}</li>
+        {#each [1, 2, 3, 4, 5] as n (n)}
+          <li>{@html h('pages.norms.steel_man.li' + n)}</li>
+        {/each}
       </ul>
     </section>
 
     <section id="where-it-bends">
       <h2>{t(lang.current, 'pages.norms.where_it_bends.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.where_it_bends.p1')}</p>
+      <p>{@html h('pages.norms.where_it_bends.p1')}</p>
       <ul>
-        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li1')}</li>
-        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li2')}</li>
-        <li>{t(lang.current, 'pages.norms.where_it_bends.li3')}</li>
-        <li>{t(lang.current, 'pages.norms.where_it_bends.li4')}</li>
-        <li>{t(lang.current, 'pages.norms.where_it_bends.li5')}</li>
-        <li>{@html t(lang.current, 'pages.norms.where_it_bends.li6')}</li>
+        {#each [1, 2, 3, 4, 5, 6] as n (n)}
+          <li>{@html h('pages.norms.where_it_bends.li' + n)}</li>
+        {/each}
       </ul>
     </section>
 
     <section id="whose-accusation">
       <h2>{t(lang.current, 'pages.norms.whose_accusation.heading')}</h2>
-      <p>{@html t(lang.current, 'pages.norms.whose_accusation.p1')}</p>
-      <p>{@html t(lang.current, 'pages.norms.whose_accusation.p2')}</p>
+      <p>{@html h('pages.norms.whose_accusation.p1')}</p>
+      <p>{@html h('pages.norms.whose_accusation.p2')}</p>
     </section>
 
     <section id="norms-vs-law">
       <h2>{t(lang.current, 'pages.norms.norms_vs_law.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.norms_vs_law.p1')}</p>
-      <p>{@html t(lang.current, 'pages.norms.norms_vs_law.p2')}</p>
+      <p>{@html h('pages.norms.norms_vs_law.p1')}</p>
+      <p>{@html h('pages.norms.norms_vs_law.p2')}</p>
     </section>
 
     <section id="measurable">
       <h2>{t(lang.current, 'pages.norms.measurable.heading')}</h2>
-      <p>{@html t(lang.current, 'pages.norms.measurable.p1')}</p>
+      <p>{@html h('pages.norms.measurable.p1')}</p>
       <div class="table-wrap">
         <table>
           <thead>
@@ -115,24 +126,24 @@
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.public_hearings_before.committee')}</td></tr>
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.draft_published_challenge.committee')}</td></tr>
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.new_public_submissions.committee')}</td></tr>
-            <tr><td>{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.commission')}</td><td class="pend">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.demonstrated_responsiveness.committee')}</td></tr>
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.neutral_chair_deciding.committee')}</td></tr>
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.commission')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.opposition_deciding_body.committee')}</td></tr>
-            <tr><td>{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.commission')}</td><td class="pend">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.committee')}</td></tr>
+            <tr><td>{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.commission')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.published_reasons_contested.committee')}</td></tr>
             <tr><td>{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.commission')}</td><td class="no">{t(lang.current, 'pages.norms.measurable.table.precedent_conformity.committee')}</td></tr>
             <tr class="count"><td>{t(lang.current, 'pages.norms.measurable.table.count.feature')}</td><td class="yes">{t(lang.current, 'pages.norms.measurable.table.count.commission')}</td><td>{t(lang.current, 'pages.norms.measurable.table.count.committee')}</td></tr>
           </tbody>
         </table>
       </div>
-      <p>{@html t(lang.current, 'pages.norms.measurable.p2')}</p>
-      <p>{@html t(lang.current, 'pages.norms.measurable.p3')}</p>
-      <p class="draft-note">{@html t(lang.current, 'pages.norms.measurable.draft_note')}</p>
+      <p>{@html h('pages.norms.measurable.p2')}</p>
+      <p>{@html h('pages.norms.measurable.p3')}</p>
+      <p class="draft-note">{@html h('pages.norms.measurable.draft_note')}</p>
     </section>
 
     <section>
       <h2>{t(lang.current, 'pages.norms.audits_standing_rule.heading')}</h2>
-      <p>{t(lang.current, 'pages.norms.audits_standing_rule.p1')}</p>
-      <p class="cross-ref">{@html t(lang.current, 'pages.norms.audits_standing_rule.cross_ref').replaceAll('__BASE__', base)}</p>
+      <p>{@html h('pages.norms.audits_standing_rule.p1')}</p>
+      <p class="cross-ref">{@html h('pages.norms.audits_standing_rule.cross_ref')}</p>
       <p class="disclaimer">{t(lang.current, 'pages.norms.audits_standing_rule.disclaimer')}</p>
     </section>
 

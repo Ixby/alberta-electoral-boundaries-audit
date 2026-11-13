@@ -1,0 +1,812 @@
+{
+ "plan": "preregistration/r5_comparator_2026-11-07.md",
+ "vas_moved": 644,
+ "groups": [
+  {
+   "panel": [
+    "Banff-Canmore-Diamond Valley",
+    "Lethbridge",
+    "Lethbridge-Cardston",
+    "Lethbridge-Little Bow",
+    "Lethbridge-Taber-Warner",
+    "Macleod-Crowsnest",
+    "Okotoks",
+    "Olds-Didsbury-Three Hills"
+   ],
+   "para167": [
+    "Canmore-Banff",
+    "High River-Vulcan-Siksika",
+    "Lethbridge-East",
+    "Lethbridge-West",
+    "Livingstone-Macleod",
+    "Okotoks-Diamond Valley",
+    "Olds-Didsbury-Three Hills",
+    "Taber-Cardston"
+   ]
+  },
+  {
+   "panel": [
+    "Blackfalds-Innisfail",
+    "Red Deer-South"
+   ],
+   "para167": [
+    "Blackfalds-Innisfail",
+    "Red Deer-South"
+   ]
+  },
+  {
+   "panel": [
+    "Calgary-Bow-Springbank",
+    "Calgary-North West-Bearspaw",
+    "Calgary-West-Springbank",
+    "Cochrane"
+   ],
+   "para167": [
+    "Calgary-Bow",
+    "Calgary-North West",
+    "Calgary-West-Elbow Valley",
+    "Cochrane-Springbank"
+   ]
+  }
+ ],
+ "election_day": {
+  "method_check_2019": {
+   "UCP": 57,
+   "NDP": 30
+  },
+  "panel": {
+   "ucp_seats": 58,
+   "efficiency_gap": 0.014450484781240351,
+   "mean_median": -0.025280959699557015,
+   "declination": 0.0035407619772926105,
+   "seats_at_50_50": 0.4835164835164835,
+   "close4": 11
+  },
+  "para167": {
+   "ucp_seats": 56,
+   "efficiency_gap": -0.0023909260797033457,
+   "mean_median": -0.024565366118856402,
+   "declination": -0.03858688176008494,
+   "seats_at_50_50": 0.4725274725274725,
+   "close4": 12
+  },
+  "ranks_set_D": {
+   "n_plans": 1010000,
+   "ucp_seats": {
+    "q05": 56.0,
+    "q50": 58.0,
+    "q95": 61.0,
+    "iap_2026_assembled_v3": {
+     "value": 58.0,
+     "pct": 42.68
+    },
+    "para167_map": {
+     "value": 56.0,
+     "pct": 7.52
+    }
+   },
+   "efficiency_gap": {
+    "q05": -0.010977529224849104,
+    "q50": 0.015286452098665151,
+    "q95": 0.040816499003148224,
+    "iap_2026_assembled_v3": {
+     "value": 0.014450484781240351,
+     "pct": 47.87
+    },
+    "para167_map": {
+     "value": -0.0023909260797033457,
+     "pct": 13.33
+    }
+   },
+   "mean_median": {
+    "q05": -0.03048511795065098,
+    "q50": -0.01823455841519705,
+    "q95": -0.003217748056747392,
+    "iap_2026_assembled_v3": {
+     "value": -0.025280959699557015,
+     "pct": 17.0
+    },
+    "para167_map": {
+     "value": -0.024565366118856402,
+     "pct": 19.66
+    }
+   },
+   "declination": {
+    "q05": -0.05416423617849209,
+    "q50": 0.0013307022272635,
+    "q95": 0.05846246898900828,
+    "iap_2026_assembled_v3": {
+     "value": 0.0035407619772926105,
+     "pct": 52.41
+    },
+    "para167_map": {
+     "value": -0.03858688176008494,
+     "pct": 11.69
+    }
+   },
+   "seats_at_50_50": {
+    "q05": 0.4285714285714285,
+    "q50": 0.4615384615384615,
+    "q95": 0.4835164835164835,
+    "iap_2026_assembled_v3": {
+     "value": 0.4835164835164835,
+     "pct": 91.63
+    },
+    "para167_map": {
+     "value": 0.4725274725274725,
+     "pct": 77.66
+    }
+   },
+   "close4": {
+    "q05": 6.0,
+    "q50": 10.0,
+    "q95": 13.0,
+    "iap_2026_assembled_v3": {
+     "value": 11.0,
+     "pct": 75.19
+    },
+    "para167_map": {
+     "value": 12.0,
+     "pct": 87.38
+    }
+   },
+   "population_mad": {
+    "q05": 5218.684117892715,
+    "q50": 6272.019339221995,
+    "q95": 7307.821004750594,
+    "iap_2026_assembled_v3": {
+     "value": 3556.6619123016135,
+     "pct": 0.0
+    },
+    "para167_map": {
+     "value": 3412.901194387159,
+     "pct": 0.0
+    }
+   },
+   "city_gap_pct": {
+    "q05": -1.7183418644033783,
+    "q50": 3.5157514892737822,
+    "q95": 8.622808394235868,
+    "iap_2026_assembled_v3": {
+     "value": 4.274596065759727,
+     "pct": 59.17
+    },
+    "para167_map": {
+     "value": 3.462486755582465,
+     "pct": 49.32
+    }
+   },
+   "towns_flagged": {
+    "q05": 4.0,
+    "q50": 6.0,
+    "q95": 9.0,
+    "iap_2026_assembled_v3": {
+     "value": 1.0,
+     "pct": 0.0
+    },
+    "para167_map": {
+     "value": 0.0,
+     "pct": 0.0
+    }
+   }
+  },
+  "groups": [
+   {
+    "group": [
+     "Banff-Canmore-Diamond Valley",
+     "Lethbridge",
+     "Lethbridge-Cardston",
+     "Lethbridge-Little Bow",
+     "Lethbridge-Taber-Warner",
+     "Macleod-Crowsnest",
+     "Okotoks",
+     "Olds-Didsbury-Three Hills"
+    ],
+    "para167": [
+     "Canmore-Banff",
+     "High River-Vulcan-Siksika",
+     "Lethbridge-East",
+     "Lethbridge-West",
+     "Livingstone-Macleod",
+     "Okotoks-Diamond Valley",
+     "Olds-Didsbury-Three Hills",
+     "Taber-Cardston"
+    ],
+    "panel_ucp_ndp": [
+     8,
+     0
+    ],
+    "para167_ucp_ndp": [
+     6,
+     2
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 56,
+    "efficiency_gap_if_only_this_group_is_undone": -0.0023909260797033457
+   },
+   {
+    "group": [
+     "Blackfalds-Innisfail",
+     "Red Deer-South"
+    ],
+    "para167": [
+     "Blackfalds-Innisfail",
+     "Red Deer-South"
+    ],
+    "panel_ucp_ndp": [
+     2,
+     0
+    ],
+    "para167_ucp_ndp": [
+     2,
+     0
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 58,
+    "efficiency_gap_if_only_this_group_is_undone": 0.014450484781240351
+   },
+   {
+    "group": [
+     "Calgary-Bow-Springbank",
+     "Calgary-North West-Bearspaw",
+     "Calgary-West-Springbank",
+     "Cochrane"
+    ],
+    "para167": [
+     "Calgary-Bow",
+     "Calgary-North West",
+     "Calgary-West-Elbow Valley",
+     "Cochrane-Springbank"
+    ],
+    "panel_ucp_ndp": [
+     4,
+     0
+    ],
+    "para167_ucp_ndp": [
+     4,
+     0
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 58,
+    "efficiency_gap_if_only_this_group_is_undone": 0.014450484781240386
+   }
+  ],
+  "undecided": [
+   {
+    "map": "panel",
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ucp",
+    "margin_votes": 468.1,
+    "margin_pts": 6.04,
+    "cut_votes": 939.5
+   },
+   {
+    "map": "panel",
+    "district": "Lethbridge",
+    "winner": "ucp",
+    "margin_votes": 521.7,
+    "margin_pts": 4.36,
+    "cut_votes": 1236.3
+   },
+   {
+    "map": "panel",
+    "district": "Lethbridge-Cardston",
+    "winner": "ucp",
+    "margin_votes": 2121.0,
+    "margin_pts": 29.83,
+    "cut_votes": 2174.1
+   },
+   {
+    "map": "para167",
+    "district": "Canmore-Banff",
+    "winner": "ndp",
+    "margin_votes": 690.8,
+    "margin_pts": 12.82,
+    "cut_votes": 1374.3
+   },
+   {
+    "map": "para167",
+    "district": "Lethbridge-West",
+    "winner": "ndp",
+    "margin_votes": 133.0,
+    "margin_pts": 1.29,
+    "cut_votes": 849.5
+   }
+  ],
+  "districts_changed": {
+   "panel": {
+    "Banff-Canmore-Diamond Valley": {
+     "winner": "ucp",
+     "margin_pts": 6.04
+    },
+    "Blackfalds-Innisfail": {
+     "winner": "ucp",
+     "margin_pts": 51.47
+    },
+    "Calgary-Bow-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 7.56
+    },
+    "Calgary-North West-Bearspaw": {
+     "winner": "ucp",
+     "margin_pts": 6.92
+    },
+    "Calgary-West-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 23.61
+    },
+    "Cochrane": {
+     "winner": "ucp",
+     "margin_pts": 26.18
+    },
+    "Lethbridge": {
+     "winner": "ucp",
+     "margin_pts": 4.36
+    },
+    "Lethbridge-Cardston": {
+     "winner": "ucp",
+     "margin_pts": 29.83
+    },
+    "Lethbridge-Little Bow": {
+     "winner": "ucp",
+     "margin_pts": 34.21
+    },
+    "Lethbridge-Taber-Warner": {
+     "winner": "ucp",
+     "margin_pts": 53.56
+    },
+    "Macleod-Crowsnest": {
+     "winner": "ucp",
+     "margin_pts": 45.7
+    },
+    "Okotoks": {
+     "winner": "ucp",
+     "margin_pts": 42.92
+    },
+    "Olds-Didsbury-Three Hills": {
+     "winner": "ucp",
+     "margin_pts": 59.97
+    },
+    "Red Deer-South": {
+     "winner": "ucp",
+     "margin_pts": 18.81
+    }
+   },
+   "para167": {
+    "Blackfalds-Innisfail": {
+     "winner": "ucp",
+     "margin_pts": 52.97
+    },
+    "Calgary-Bow": {
+     "winner": "ucp",
+     "margin_pts": 5.6
+    },
+    "Calgary-North West": {
+     "winner": "ucp",
+     "margin_pts": 5.4
+    },
+    "Calgary-West-Elbow Valley": {
+     "winner": "ucp",
+     "margin_pts": 20.84
+    },
+    "Canmore-Banff": {
+     "winner": "ndp",
+     "margin_pts": 12.82
+    },
+    "Cochrane-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 29.43
+    },
+    "High River-Vulcan-Siksika": {
+     "winner": "ucp",
+     "margin_pts": 50.32
+    },
+    "Lethbridge-East": {
+     "winner": "ucp",
+     "margin_pts": 9.89
+    },
+    "Lethbridge-West": {
+     "winner": "ndp",
+     "margin_pts": 1.29
+    },
+    "Livingstone-Macleod": {
+     "winner": "ucp",
+     "margin_pts": 48.71
+    },
+    "Okotoks-Diamond Valley": {
+     "winner": "ucp",
+     "margin_pts": 43.97
+    },
+    "Olds-Didsbury-Three Hills": {
+     "winner": "ucp",
+     "margin_pts": 59.88
+    },
+    "Red Deer-South": {
+     "winner": "ucp",
+     "margin_pts": 18.82
+    },
+    "Taber-Cardston": {
+     "winner": "ucp",
+     "margin_pts": 64.81
+    }
+   }
+  }
+ },
+ "all_ballots": {
+  "method_check_2019": {
+   "UCP": 49,
+   "NDP": 38
+  },
+  "panel": {
+   "ucp_seats": 51,
+   "efficiency_gap": -0.016637175571172686,
+   "mean_median": -0.010933825485887949,
+   "declination": -0.059833748775490914,
+   "seats_at_50_50": 0.4945054945054945,
+   "close4": 10
+  },
+  "para167": {
+   "ucp_seats": 50,
+   "efficiency_gap": -0.02187771538438242,
+   "mean_median": -0.029039517884653754,
+   "declination": -0.08028738566719278,
+   "seats_at_50_50": 0.4835164835164835,
+   "close4": 10
+  },
+  "ranks_set_D": {
+   "n_plans": 1010000,
+   "ucp_seats": {
+    "q05": 49.0,
+    "q50": 51.0,
+    "q95": 54.0,
+    "iap_2026_assembled_v3": {
+     "value": 51.0,
+     "pct": 42.85
+    },
+    "para167_map": {
+     "value": 50.0,
+     "pct": 21.94
+    }
+   },
+   "efficiency_gap": {
+    "q05": -0.0451644401059978,
+    "q50": -0.0157559930057116,
+    "q95": 0.0137532501838001,
+    "iap_2026_assembled_v3": {
+     "value": -0.016637175571172686,
+     "pct": 48.02
+    },
+    "para167_map": {
+     "value": -0.02187771538438242,
+     "pct": 36.84
+    }
+   },
+   "mean_median": {
+    "q05": -0.03001647449842307,
+    "q50": -0.0168244921683143,
+    "q95": -0.0031820411980838298,
+    "iap_2026_assembled_v3": {
+     "value": -0.010933825485887949,
+     "pct": 77.41
+    },
+    "para167_map": {
+     "value": -0.029039517884653754,
+     "pct": 6.45
+    }
+   },
+   "declination": {
+    "q05": -0.11225724912536765,
+    "q50": -0.05765222363734275,
+    "q95": -0.0010548734843509203,
+    "iap_2026_assembled_v3": {
+     "value": -0.059833748775490914,
+     "pct": 47.57
+    },
+    "para167_map": {
+     "value": -0.08028738566719278,
+     "pct": 25.28
+    }
+   },
+   "seats_at_50_50": {
+    "q05": 0.4505494505494505,
+    "q50": 0.4725274725274725,
+    "q95": 0.4945054945054945,
+    "iap_2026_assembled_v3": {
+     "value": 0.4945054945054945,
+     "pct": 89.9
+    },
+    "para167_map": {
+     "value": 0.4835164835164835,
+     "pct": 72.64
+    }
+   },
+   "close4": {
+    "q05": 8.0,
+    "q50": 11.0,
+    "q95": 14.0,
+    "iap_2026_assembled_v3": {
+     "value": 10.0,
+     "pct": 34.38
+    },
+    "para167_map": {
+     "value": 10.0,
+     "pct": 34.38
+    }
+   },
+   "population_mad": {
+    "q05": 5218.684117892715,
+    "q50": 6272.019339221995,
+    "q95": 7307.821004750594,
+    "iap_2026_assembled_v3": {
+     "value": 3556.6619123016135,
+     "pct": 0.0
+    },
+    "para167_map": {
+     "value": 3412.901194387159,
+     "pct": 0.0
+    }
+   },
+   "city_gap_pct": {
+    "q05": -1.7183418644033783,
+    "q50": 3.5157514892737822,
+    "q95": 8.622808394235868,
+    "iap_2026_assembled_v3": {
+     "value": 4.274596065759727,
+     "pct": 59.17
+    },
+    "para167_map": {
+     "value": 3.462486755582465,
+     "pct": 49.32
+    }
+   },
+   "towns_flagged": {
+    "q05": 4.0,
+    "q50": 6.0,
+    "q95": 9.0,
+    "iap_2026_assembled_v3": {
+     "value": 1.0,
+     "pct": 0.0
+    },
+    "para167_map": {
+     "value": 0.0,
+     "pct": 0.0
+    }
+   }
+  },
+  "groups": [
+   {
+    "group": [
+     "Banff-Canmore-Diamond Valley",
+     "Lethbridge",
+     "Lethbridge-Cardston",
+     "Lethbridge-Little Bow",
+     "Lethbridge-Taber-Warner",
+     "Macleod-Crowsnest",
+     "Okotoks",
+     "Olds-Didsbury-Three Hills"
+    ],
+    "para167": [
+     "Canmore-Banff",
+     "High River-Vulcan-Siksika",
+     "Lethbridge-East",
+     "Lethbridge-West",
+     "Livingstone-Macleod",
+     "Okotoks-Diamond Valley",
+     "Olds-Didsbury-Three Hills",
+     "Taber-Cardston"
+    ],
+    "panel_ucp_ndp": [
+     7,
+     1
+    ],
+    "para167_ucp_ndp": [
+     6,
+     2
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 50,
+    "efficiency_gap_if_only_this_group_is_undone": -0.021877715384382455
+   },
+   {
+    "group": [
+     "Blackfalds-Innisfail",
+     "Red Deer-South"
+    ],
+    "para167": [
+     "Blackfalds-Innisfail",
+     "Red Deer-South"
+    ],
+    "panel_ucp_ndp": [
+     2,
+     0
+    ],
+    "para167_ucp_ndp": [
+     2,
+     0
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 51,
+    "efficiency_gap_if_only_this_group_is_undone": -0.01663717557117272
+   },
+   {
+    "group": [
+     "Calgary-Bow-Springbank",
+     "Calgary-North West-Bearspaw",
+     "Calgary-West-Springbank",
+     "Cochrane"
+    ],
+    "para167": [
+     "Calgary-Bow",
+     "Calgary-North West",
+     "Calgary-West-Elbow Valley",
+     "Cochrane-Springbank"
+    ],
+    "panel_ucp_ndp": [
+     4,
+     0
+    ],
+    "para167_ucp_ndp": [
+     4,
+     0
+    ],
+    "ucp_seats_if_only_this_group_is_undone": 51,
+    "efficiency_gap_if_only_this_group_is_undone": -0.016637175571172686
+   }
+  ],
+  "undecided": [
+   {
+    "map": "panel",
+    "district": "Banff-Canmore-Diamond Valley",
+    "winner": "ucp",
+    "margin_votes": 228.6,
+    "margin_pts": 1.29,
+    "cut_votes": 1964.4
+   },
+   {
+    "map": "panel",
+    "district": "Lethbridge",
+    "winner": "ndp",
+    "margin_votes": 1193.4,
+    "margin_pts": 4.9,
+    "cut_votes": 2526.8
+   },
+   {
+    "map": "panel",
+    "district": "Lethbridge-Cardston",
+    "winner": "ucp",
+    "margin_votes": 2610.3,
+    "margin_pts": 21.19,
+    "cut_votes": 4138.4
+   },
+   {
+    "map": "para167",
+    "district": "Canmore-Banff",
+    "winner": "ndp",
+    "margin_votes": 1414.3,
+    "margin_pts": 11.25,
+    "cut_votes": 3117.9
+   },
+   {
+    "map": "para167",
+    "district": "Lethbridge-East",
+    "winner": "ucp",
+    "margin_votes": 357.3,
+    "margin_pts": 1.54,
+    "cut_votes": 918.8
+   }
+  ],
+  "districts_changed": {
+   "panel": {
+    "Banff-Canmore-Diamond Valley": {
+     "winner": "ucp",
+     "margin_pts": 1.29
+    },
+    "Blackfalds-Innisfail": {
+     "winner": "ucp",
+     "margin_pts": 45.53
+    },
+    "Calgary-Bow-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 3.64
+    },
+    "Calgary-North West-Bearspaw": {
+     "winner": "ucp",
+     "margin_pts": 1.56
+    },
+    "Calgary-West-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 14.55
+    },
+    "Cochrane": {
+     "winner": "ucp",
+     "margin_pts": 22.61
+    },
+    "Lethbridge": {
+     "winner": "ndp",
+     "margin_pts": 4.9
+    },
+    "Lethbridge-Cardston": {
+     "winner": "ucp",
+     "margin_pts": 21.19
+    },
+    "Lethbridge-Little Bow": {
+     "winner": "ucp",
+     "margin_pts": 25.1
+    },
+    "Lethbridge-Taber-Warner": {
+     "winner": "ucp",
+     "margin_pts": 48.16
+    },
+    "Macleod-Crowsnest": {
+     "winner": "ucp",
+     "margin_pts": 40.55
+    },
+    "Okotoks": {
+     "winner": "ucp",
+     "margin_pts": 39.04
+    },
+    "Olds-Didsbury-Three Hills": {
+     "winner": "ucp",
+     "margin_pts": 55.74
+    },
+    "Red Deer-South": {
+     "winner": "ucp",
+     "margin_pts": 14.53
+    }
+   },
+   "para167": {
+    "Blackfalds-Innisfail": {
+     "winner": "ucp",
+     "margin_pts": 46.79
+    },
+    "Calgary-Bow": {
+     "winner": "ucp",
+     "margin_pts": 3.26
+    },
+    "Calgary-North West": {
+     "winner": "ucp",
+     "margin_pts": 0.58
+    },
+    "Calgary-West-Elbow Valley": {
+     "winner": "ucp",
+     "margin_pts": 14.71
+    },
+    "Canmore-Banff": {
+     "winner": "ndp",
+     "margin_pts": 11.25
+    },
+    "Cochrane-Springbank": {
+     "winner": "ucp",
+     "margin_pts": 20.74
+    },
+    "High River-Vulcan-Siksika": {
+     "winner": "ucp",
+     "margin_pts": 45.37
+    },
+    "Lethbridge-East": {
+     "winner": "ucp",
+     "margin_pts": 1.54
+    },
+    "Lethbridge-West": {
+     "winner": "ndp",
+     "margin_pts": 10.83
+    },
+    "Livingstone-Macleod": {
+     "winner": "ucp",
+     "margin_pts": 46.22
+    },
+    "Okotoks-Diamond Valley": {
+     "winner": "ucp",
+     "margin_pts": 37.66
+    },
+    "Olds-Didsbury-Three Hills": {
+     "winner": "ucp",
+     "margin_pts": 56.12
+    },
+    "Red Deer-South": {
+     "winner": "ucp",
+     "margin_pts": 14.54
+    },
+    "Taber-Cardston": {
+     "winner": "ucp",
+     "margin_pts": 60.73
+    }
+   }
+  }
+ }
+}

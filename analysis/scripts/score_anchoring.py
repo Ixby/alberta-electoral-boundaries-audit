@@ -193,7 +193,15 @@ def _measure_ring(
             if run >= MIN_RUN_M:
                 anchored_filtered += run
             run = 0.0
-    # Final run check (wraps around the ring; close it)
+    # Final run check. This closes the last run only; it does NOT join the last
+    # run to the first across the ring's start point, so a run that straddles
+    # the start is counted as two shorter runs and can fall under the floor.
+    # Joining them would move the scores slightly (not measured by any
+    # committed script). Left as is so that reruns stay comparable with the
+    # committed battery outputs. The registered S3 anchors (0.80050 / 0.71970,
+    # midpoint 0.76010) were measured on 2026-06-11, before the 1 km run
+    # filter was added here on 2026-06-12, so they are unfiltered values; this
+    # code returns 0.79964 / 0.71782 for the same maps (midpoint 0.75873).
     if run >= MIN_RUN_M:
         anchored_filtered += run
 

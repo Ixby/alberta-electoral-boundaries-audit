@@ -33,7 +33,7 @@ Null: 10,000 label-shuffle permutations — (NDP, UCP) vote vectors randomly rea
 ## Substrate (this is the canonical version)
 
 - Shapefiles: `data/shapefiles/canonical/ea_majority_2026_eds.gpkg` + `ea_minority_2026_eds.gpkg` + 2019 enacted reference.
-- VA vote layer: `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`, integer columns `va_ndp` / `va_ucp` (mirrors `mcmc_ensemble_canonical.py`).
+- VA vote layer: `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`, election-day columns `va_ndp` / `va_ucp` (fractional where a station serves several voting areas).
 - Attribution: `representative_point()` centroid-in-polygon spatial join.
 - Adjacency: queen-contiguity via `neighbour_drain_adjacency.build_adjacency` (600 m half-buffer, K-nearest fallback for isolates).
 
@@ -45,6 +45,8 @@ Null: 10,000 label-shuffle permutations — (NDP, UCP) vote vectors randomly rea
 | minority_2026 | 0.000591 | 0.028057 | 0.009987 | -2.750 | 0.01% | 0.0002 |
 | enacted_2019 | 0.001530 | 0.052987 | 0.014618 | -3.520 | 0.00% | 0.0000 |
 
+The label-shuffle null reassigns district vote totals across the map, which removes the spatial clustering of the vote that every real map has. All three maps, the 2019 map included, score far below it; a low score describes the null's mismatch with real geography, not an anomaly in one map. The p (two-tailed) column is computed without the +1 correction, so it can print 0.0000.
+
 ## Pre-registered Prediction A revisited
 
 - Prediction A (drain(majority) > drain(minority)): CONFIRMED on canonical substrate.
@@ -54,7 +56,7 @@ Null: 10,000 label-shuffle permutations — (NDP, UCP) vote vectors randomly rea
 ## Reproducibility
 
 ```bash
-python analysis/scripts/drain_phase_b_canonical.py
+python analysis/scripts/drain_phase_b_canonical.py --seed 460508741
 ```
 
 Script commit: `2c3b9ce0f276f10c0749d50b26e09ece2792236a`

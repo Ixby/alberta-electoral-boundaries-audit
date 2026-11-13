@@ -5,8 +5,10 @@ third_party_sensitivity.py
 
 D1 fix: Third-party vote sensitivity analysis.
 
-Alberta 2023 had 58,232 votes for non-NDP/non-UCP candidates (3.3% of valid
-two-party votes). The main analysis drops these. This script runs three
+Alberta 2023 had 58,611 valid votes for candidates other than the NDP's and
+the UCP's: 1,764,915 valid votes less 1,706,304 two-party votes, 3.3% of all
+valid votes. main() prints the figure it computes. The main analysis drops
+these votes. This script runs three
 allocation rules to test whether the partisan asymmetry finding holds:
 
   Rule A (drop):     current behavior — two-party only
@@ -38,13 +40,24 @@ try:
 except ImportError:
     def _log_run(*args, **kwargs): pass  # no-op fallback
 
-from packing_cracking_analysis import (
-    MAJORITY_2026_MAPPING,
-    MINORITY_2026_MAPPING,
-    estimate_2026,
-    compute_metrics,
-    _find_data,
-)
+from packing_cracking_analysis import compute_metrics, _find_data
+
+# main() needs estimate_2026 and the two 2019->2026 district mappings (the
+# pre-shapefile "blend" model). packing_cracking_analysis.py dropped them in
+# commit 478b856a, when exact voting-area attribution replaced the blend model,
+# so main() cannot run on the current tree. The committed
+# data/outputs/third_party_sensitivity_results.csv was written by the blend
+# model. load_with_other() and apply_rule() do not need them.
+try:
+    from packing_cracking_analysis import (
+        MAJORITY_2026_MAPPING,
+        MINORITY_2026_MAPPING,
+        estimate_2026,
+    )
+    _BLEND_MODEL_AVAILABLE = True
+except ImportError:
+    MAJORITY_2026_MAPPING = MINORITY_2026_MAPPING = estimate_2026 = None
+    _BLEND_MODEL_AVAILABLE = False
 from eg_utils import InsufficientDataError
 
 OUTPUT_CSV = ROOT / "data" / "outputs" / "third_party_sensitivity_results.csv"
@@ -56,10 +69,19 @@ RULES = [
 ]
 
 
-def load_with_other() -> list[dict]:
-    """Load ED-level 2023 results, capturing other/third-party votes separately."""
+def load_with_other(path: str | Path | None = None) -> list[dict]:
+    """Load ED-level 2023 results, capturing other/third-party votes separately.
+
+    "Other" is total_valid_votes minus the NDP and UCP votes, not the sum of
+    the remaining candidate columns: the CSV has six candidate slots and omits
+    three Communist Party candidates (379 votes in Calgary-East,
+    Edmonton-Highlands-Norwood and Edmonton-Meadows; data/reference/README.md),
+    so the candidate columns sum to 58,232 other votes where the official
+    figure is 58,611. If a row has no total_valid_votes the candidate-column
+    sum is used.
+    """
     out = []
-    with open(_find_data("alberta_2023_results.csv")) as f:
+    with open(path if path is not None else _find_data("alberta_2023_results.csv")) as f:
         for r in csv.DictReader(f):
             ndp = ucp = other = 0
             for i in range(1, 7):
@@ -91,6 +113,17 @@ def load_with_other() -> list[dict]:
                 raise InsufficientDataError(
                     f"Failed to parse votes for ED: {r['ed_name']}. NDP={ndp}, UCP={ucp}"
                 )
+            try:
+                total_valid = int(r.get("total_valid_votes") or "")
+            except ValueError:
+                total_valid = None
+            if total_valid is not None:
+                if total_valid - ndp - ucp < other:
+                    raise InsufficientDataError(
+                        f"{r['ed_name']}: total_valid_votes {total_valid} is less than "
+                        f"the candidate columns' sum {ndp + ucp + other}"
+                    )
+                other = total_valid - ndp - ucp
             out.append({
                 "ed": r["ed_name"],
                 "region": r["region"],
@@ -138,6 +171,13 @@ def _validate(estimates: list[dict], label: str) -> tuple[bool, str]:
 
 def main() -> None:
     t0 = time.time()
+    if not _BLEND_MODEL_AVAILABLE:
+        sys.exit(
+            "third_party_sensitivity.py cannot run on this tree: it needs "
+            "estimate_2026 and the 2019->2026 district mappings, which "
+            "packing_cracking_analysis.py no longer provides (removed in "
+            "commit 478b856a). See the comment at the imports."
+        )
     print("=" * 72)
     print("  D1: Third-Party Vote Sensitivity Analysis")
     print("  Rules: (A) Drop  (B) Pro-rate  (C) Trailing-party")

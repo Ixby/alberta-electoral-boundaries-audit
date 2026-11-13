@@ -634,10 +634,13 @@ lane2: {
 
 szat: {
   term: 'SZAT (swing-zone allocation test)',
-  definition: 'A test that checks how a map allocates districts in "swing zones" — ' +
-              'areas where elections are competitive. A neutral map distributes ' +
-              'swing-zone districts roughly proportionally; a partisan map allocates ' +
-              'them unevenly between the two parties\' favourable territory.',
+  definition: 'A test of the lines where two maps disagree. The "swing zones" are the ' +
+              'voting areas that one map places in a different district from the other ' +
+              '(2,110 between the commission\'s majority and minority maps), not ' +
+              'competitive seats. SZAT asks whether those boundary choices shift wasted ' +
+              'votes toward one party more than chance would. It is exploratory: once ' +
+              'corrected for neighbouring areas voting alike, its result is no longer ' +
+              'significant (p ≈ 0.19).',
   href: '/methods#szat',
 },
 

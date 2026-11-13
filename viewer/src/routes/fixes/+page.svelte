@@ -14,7 +14,7 @@
 	import { t } from '$lib/i18n/dict';
 	// In-page anchors in these strings point at main-page sections.
 	const s = (k: string) =>
-		t(lang.current, 'body.suggestions.' + k).replace(/href="#([^"]+)"/g, (_m, id: string) => `href="${base}/#${id}"`);
+		t(lang.current, 'body.suggestions.' + k).replaceAll('__BASE__', base).replace(/href="#([^"]+)"/g, (_m, id: string) => `href="${base}/#${id}"`);
 </script>
 
 <svelte:head>

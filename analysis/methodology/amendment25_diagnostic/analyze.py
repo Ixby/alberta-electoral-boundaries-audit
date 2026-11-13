@@ -3,9 +3,14 @@ import sys, json, glob, re, warnings
 warnings.filterwarnings("ignore")
 from collections import Counter
 import numpy as np, pandas as pd
-R = "/home/user/alberta-electoral-boundaries-audit"
+import os
+from pathlib import Path as _P
+R = str(_P(__file__).resolve().parents[3])  # repo root
 sys.path.insert(0, R + "/analysis/scripts"); sys.path.insert(0, R + "/analysis/utils")
-sys.path.insert(0, "/tmp/claude-0/-home-user-alberta-electoral-boundaries-audit/9af3a5a2-4682-51b8-9140-74f10ed8aad4/scratchpad/calib")
+# cse_s152 (the constraint-enforcing harness with the s.15(2) status table) is not
+# in the repository or on any remote branch; this script cannot run without it.
+# Put the folder that holds it in CSE_S152_DIR.
+if os.environ.get("CSE_S152_DIR"): sys.path.insert(0, os.environ["CSE_S152_DIR"])
 import s15_2_criteria as sc
 import cse_s152 as cse
 def load(p):

@@ -1,5 +1,17 @@
 # Session handoff — 2026-06-10
 
+> **Historical record, not current.** This file describes the audit as it stood on June 10–14, 2026, and is no longer updated. Several of its claims have since been withdrawn or superseded:
+> - **"Six independent geometric dimensions, all in the UCP direction"** is superseded. The structural measures show distance between the two commission maps, not distance from neutral: four of the dated April 24 comparisons measure the minority against the majority, so the majority cannot fail them. Nonpartisan alternative maps balanced only to the Act's ±25% band are flagged by the November structural battery 93.5% (91 districts) and 95.5% (89 districts) of the time (`findings/structural_lane_calibration_2026-10-31.md`); on the main ±12.5% ensemble its first test fires on 25.3% of plans.
+> - **"Without precedent"** for the committee route was withdrawn on 2026-10-29 (correction C16): Alberta's 1992 Bogle select committee is a precedent. Government Motion 37 was an Assembly motion, not a cabinet act. What is distinct in 2026 is that a s.9 majority report was set aside.
+> - **"Corroborates"** (the regional-swing line) describes a June check and is not a current claim.
+> - **"Upper bound p ≤ 1.76×10⁻⁶ (1 in 568,000)"** is superseded. The figure is one model's estimate on election-day ballots, not a bound. Under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`); the map is far out in the tail on every version. The doubling for two channels has no stated test family now that SZAT is exploratory. No all-ballots version exists.
+> - **"Pre-registered … 4.10 % EG threshold"** overstates the record. The 95th-percentile rule was set in advance; its value, 4.10%, was computed from the ensemble.
+> - **Effective sample size.** The million plans are worth about 1,000 independent draws (roughly 900 to 1,300 depending on the measure; `findings/audit_2026-11-10/ess_uncapped.json`).
+> - **"April 16 cabinet pivot"** is wrong on date and actor: Motion 37 was put on notice April 16 and moved, debated and passed by the Assembly on April 21.
+> - **The vote base changed.** Since November 7, 2026, every vote-based test uses all 2023 ballots (Amendment 12); the figures below are on election-day ballots.
+>
+> For the current state, read `README.md`, `reports/public/report_public.md` (its November section) and `findings/test_ledger/README.md`.
+
 This file exists so a Claude session opened on a fresh machine (PC, web container, or another cloud workspace) can pick up the audit's open work without reading the full transcript of the prior session. It is updated at the close of each substantive session.
 
 ## Where the audit stands
@@ -8,7 +20,7 @@ This file exists so a Claude session opened on a fresh machine (PC, web containe
 - Structural-lane signature on the minority commission proposal (six independent geometric dimensions, all in the UCP direction).
 - Partisan-magnitude lane *near, but below*, the audit's pre-registered Alberta-calibrated 95th-percentile / 4.10 % EG threshold (canonical EG = +4.02 %, percentile p94.54 against the 1,010,000-plan ReCom ensemble).
 - Dependence-robust joint upper bound across the two analytical channels: **p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000)**, Bonferroni-corrected. The earlier Fisher figure of 4.61×10⁻⁸ is retired because Ch1 and Ch2 share the same vote-attribution substrate and overlap on the EG dimension — they are not independent. Note: this document (dated 2026-06-10) predates the 2026-07-12 ensemble rerun; see `findings/ensemble_chain1_duplication_note.md` for current numbers.
-- Procedural finding on the April 16 cabinet pivot: characterized as without precedent among the Canadian redistribution cycles this audit reviewed (per Duane Bratt correspondence). Stands without statistical inference.
+- Procedural finding on the April 16 cabinet pivot: characterized as without precedent among the Canadian redistribution cycles this audit reviewed. Stands without statistical inference.
 - Regional-swing recompute on canonical geometry **corroborates** Lane 1: canonical minority's regional-swing s50 = 0.4607 sits above the maximum of the 10,000-plan verification ensemble's regional-swing distribution. The v0_9 "Lane 1 was officially demoted" finding was an artefact of DPG-substrate underestimation.
 
 **Current commit on `master`:** see `git log --oneline -1` (the audit moves fast; a pinned hash here goes stale within days). All work is pushed.
@@ -92,9 +104,9 @@ bonf = 2 * min((n_extreme+1)/(len(df)+1), 0.0024)
 print(f'Mahalanobis D = {np.sqrt(D2):.4f}; n_extreme = {n_extreme} / {len(df):,}')
 print(f'Bonferroni bound = {bonf:.3g} (1 in {int(round(1/bonf)):,})')
 "
-# Expected (post-2026-07-12 clean rerun): D = 5.80; n_extreme = 0; bound = 1.76e-06 (~1 in 568,000)
-# (The published 1-in-568,000 uses the parametric χ² Ch1 p = 8.80e-7 instead of the
-#  empirical floor; both are defensible, the parametric is more conservative.)
+# Expected (post-2026-07-12 clean rerun): D = 5.80; n_extreme = 0; bound = 1.98e-06 (~1 in 505,000)
+# (The published 1.76e-06, about 1 in 568,000, is 2 x the parametric χ² Ch1 p = 8.80e-7
+#  instead of the empirical floor 9.90e-7; the parametric figure is the less conservative one.)
 ```
 
 If that one-liner reproduces, the audit's central machinery is intact and the canonical chain CSVs are unmodified (post-2026-07-12 rerun).

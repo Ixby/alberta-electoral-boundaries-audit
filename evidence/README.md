@@ -4,6 +4,7 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 
 | File | What it is | Source | Retrieved |
 |---|---|---|---|
+| `elections_alberta/referendum_2026/ed01-ed87.xlsx`, `index.xlsx`, `SHA256SUMS` | 2026 referendum official poll and division results, Question 10 workbooks, including electors per election-day poll | https://officialresults.elections.ab.ca/ | 2026-11-07, 02:32-02:34 Alberta Time (UTC−6) |
 | `legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf` | Electoral Boundaries Commission Act, office consolidation current as of 2026-05-14 | https://kings-printer.alberta.ca/documents/Acts/E03.pdf | 2026-10-31 10:14 |
 | `legislation/interpretation_act_RSA2000_cI-8_current_2025-09-01.pdf` | Interpretation Act, current as of 2025-09-01 | https://kings-printer.alberta.ca/documents/Acts/I08.pdf | 2026-10-31 10:14 |
 | `legislation/municipal_government_act_RSA2000_cM-26_current_2026-09-01.pdf` | Municipal Government Act, current as of 2026-09-01 | https://kings-printer.alberta.ca/documents/Acts/m26.pdf | 2026-10-31 10:14 |
@@ -14,6 +15,16 @@ Each file is an unaltered copy of a public document, kept so a reader can check 
 | `legislature/standing_orders_alberta_effective_2026-03-16.pdf` | Standing Orders of the Legislative Assembly of Alberta, effective March 16, 2026 | https://www.assembly.ab.ca/docs/default-source/reference/assembly-documents/StandingOrders.pdf | 2026-10-31 19:40 |
 | `legislature/assembly_news_ebc_appointed_2025-03-28.html` | Legislative Assembly of Alberta notice "Electoral Boundaries Commission to soon begin consultations", March 28, 2025, as served | https://www.assembly.ab.ca/about/news-and-announcements/2025/03/28/electoral-boundaries-commission-to-soon-begin-consultations | 2026-11-01 |
 | `legislature/ceb_transcript_2026-10-28.pdf` | Transcript of the Select Special Committee on Electoral Boundaries, meeting of October 28, 2026, pp. CEB-65 to CEB-78; 20 pages | https://docs.assembly.ab.ca/LADDAR_files/docs/committees/ceb/legislature_31/session_2/20261028_1030_01_ceb.pdf | 2026-11-01 |
+| `legislature/ssceb_final_report_on_iap_2026-11.pdf` | Final Report of the Select Special Committee on Electoral Boundaries on the Report of the Independent Advisory Panel, November 2026; 29 pages; PDF created 2026-11-02 07:38 MST; includes Government Motion 37 (pp. 4–8) and Appendix A, minority observations | https://www.assembly.ab.ca/docs/default-source/committees/ceb/ssceb-report-(original-signed).pdf?sfvrsn=e847491d_8 | 2026-11-02 15:20 MST (re-downloaded 16:12 MST, identical) |
+| `legislature/iap_report_2026_lowres.pdf` | 2026 Independent Advisory Panel on Electoral Boundaries report to the Legislative Assembly; 308 pages, image-only (150-dpi page scans, no text layer); PDF created 2026-10-29 22:11 MDT; printed page = PDF page − 6 | https://www.assembly.ab.ca/docs/default-source/committees/ceb/8.5x11_iapreport_digital_oct19_lowres.pdf?sfvrsn=3774d9bb_14 | 2026-11-02 15:32 MST |
+| `legislature/assembly_committee_page_ceb_2026-11-02.html` | Committee page, as served, now linking both reports above | https://www.assembly.ab.ca/assembly-business/committees/CEB | 2026-11-02 16:12 MST |
+| `legislature/votes_proceedings_2026-04-21.pdf` | Votes and Proceedings, 2026-04-21: Government Motion 37 agreed to | https://docs.assembly.ab.ca/LADDAR_files/docs/houserecords/vp/legislature_31/session_2/20260421_1200_01_vp.pdf | 2026-11-02 16:05 MST |
+| `hansard/alberta_hansard_2026-04-21_afternoon.pdf` | Alberta Hansard, 2026-04-21 afternoon; 40 pages | https://docs.assembly.ab.ca/LADDAR_files/docs/hansards/han/legislature_31/session_2/20260421_1330_01_han.pdf | 2026-11-02 16:06 MST |
+| `elections_alberta/ea_maps_page_2026-11-02.html` | Elections Alberta "Maps" page, as served | https://www.elections.ab.ca/resources/maps/ | 2026-11-02 16:12 MST |
+| `legislature/iap_report_2026_hires.pdf` (Git LFS) | 2026 Independent Advisory Panel report, High-Resolution version: 308 pages, full text layer, maps as vector drawings; PDF created 2026-10-19 14:05 MDT; served as `high443404_8-5x11_iapreport_digital-oct29.pdf`, 847,622,582 bytes | https://librarysearch.assembly.ab.ca/client/en_CA/search/asset/236105/1 (linked from the committee page as "High-Resolution") | 2026-11-02 18:03–18:06 MST |
+| `legislature/iap_report_2026_hires_text/` | Text layer of the IAP report's high-resolution PDF, one file per PDF page (pdftotext 4.06, -layout); README gives the source file, size and SHA-256 (d8ae78ab…75122) and the per-page hashes. The PDF itself is the row above (Git LFS, 847,622,582 bytes, about 808 MiB) | https://librarysearch.assembly.ab.ca/client/en_CA/search/asset/236105/1 | 2026-11-02 18:06 MST |
+| `commission_reports/abebc_2025_interim_report.pdf` (Git LFS) | 2025 Electoral Boundaries Commission interim report; 214 pages; PDF created 2025-10-22; Appendix E gives each division's population | https://www.elections.ab.ca/uploads/2025-Interim-Report-Original.pdf | 2026-11-06 03:01 MST |
+| `correspondence/elections_alberta_gis_2026-10-28.md` | Email exchange with Elections Alberta's Geomatics Team Lead on shapefiles for the new boundaries; contact details removed | provided by the author | 2026-11-02 |
 
 Full hashes:
 
@@ -28,6 +39,14 @@ a3555d34175901deac78706820d7778c3adf5e37128020879fccaaa1feedc5f0  abebc_2003_rpt
 46c4825da82f5e6483404f1eb5b1968f5a424cff18cd91898cb468d19e4a7972  standing_orders_alberta_effective_2026-03-16.pdf
 64b9986d5b7ec9c99df1c227773005128e37acd5fedc229e2937acf54fa9db4f  assembly_news_ebc_appointed_2025-03-28.html
 a9b70c7737e169cb8bd1e9dbc17c7d97e81015dec63214baf4b95b010c49a141  ceb_transcript_2026-10-28.pdf
+667cacbfb8c0bfd98bb090e160d0fc740b3430c5fc828873ef5835e15e7f3bb5  ssceb_final_report_on_iap_2026-11.pdf
+b65ee3459d9592151b97b0c6921d071ba374cb10c2db455946a927366a556f0a  iap_report_2026_lowres.pdf
+d8ae78abcec3660f8158a327a25df7508b649ce5595788e8b265b362b2a75122  iap_report_2026_hires.pdf
+c45a23dd882db132ca0ce2031512bddde0f53ff2776bb7ec5f446cbf6a4811ab  assembly_committee_page_ceb_2026-11-02.html
+f7fa90058866f30d0b02d3a9d8518e58a4305e50b40baa0031030eff3d7761df  votes_proceedings_2026-04-21.pdf
+a4f04674a224cee7ee60ce7b1008e9d36285afdd15a4b705dda891fc474f5a68  alberta_hansard_2026-04-21_afternoon.pdf
+1cb5044d9e137d1110e277b1ee068b00cedd65d8958abea4e127b9887cb64b4f  ea_maps_page_2026-11-02.html
+67f6fb7830356c9830f63ee15bdf5fb2c4e54dab2984c14ceeb449368ba68a9f  abebc_2025_interim_report.pdf
 ```
 
 The Assembly's news page is built on each request, so a fresh download will not match the hash above byte for byte; the committed copy is the page as served on 2026-11-01. The transcript PDF downloaded again on 2026-11-01 matched its hash exactly.
@@ -77,3 +96,41 @@ Checked 2026-11-01 against the Assembly notice above.
 - **The chair.** "The Honourable Justice Dallas K. Miller was appointed on March 19, 2025, by the Lieutenant Governor in Council to chair the Commission."
 - **The four commissioners.** "Working with Justice Miller are the following four individuals, appointed by Speaker Cooper. Dr. Julian Martin (Sherwood Park) Nominated by the President of Executive Council John D. Evans, KC (City of Lethbridge) Nominated by the President of Executive Council Greg Clark (City of Calgary) Nominated by the Leader of His Majesty’s Loyal Opposition Susan Samson (Sylvan Lake) Nominated by the Leader of His Majesty’s Loyal Opposition."
 - **The minority report is Martin's and Evans's.** It is signed "John Evans, K.C. Dr. Julian Martin, Commissioners" (final report, Appendix E, `commission_reports/abebc_2026_rpt_final.pdf`).
+
+## What each is relied on for: release of the panel's map and map data
+
+Checked 2026-11-02 against the files above. The question: is there a written source for the statement that the Legislature will release only official shapefiles, not provisional or proposed ones?
+
+- **Government Motion 37.** The motion has no clause on maps, GIS data or shapefiles, and no clause on confidentiality. Its disclosure-related clauses:
+  - C(a) sets up the review "(i) on an expedited basis, and (ii) without a requirement to direct the holding of public hearings" (SSCEB report, p. 6).
+  - C(f) lets the committee request "any information and statistics … gathered and input received by the Electoral Boundaries Commission" and "advice, information and assistance from the Office of the Chief Electoral Officer" (p. 8).
+  - C(i)(ii) says the committee "must submit the report to the Legislative Assembly no later than November 2, 2026" (p. 8).
+- **The committee's reading of C(i)(ii).** The SSCEB report says the IAP report "remains confidential until it is tabled in the Assembly on or before November 2, 2026, in accordance with Part C. clause (i)(ii) of Government Motion 37" (p. 11). The motion's own text, quoted above, says only when the report must be submitted; it does not say "confidential".
+- **The October 28 meeting** (`legislature/ceb_transcript_2026-10-28.pdf`):
+  - **Motion to publish the report early.** MLA Gray moved to release the report to MLAs and the public before tabling. The chair ruled it "likely out of order because of Government Motion 37", on the table's advice (CEB-66).
+  - **"Embargoed".** MLA Wiebe: "the IAP report is embargoed until it's tabled in the Chamber" (CEB-67).
+  - **Who made the maps.** Asked "which company was hired to provide the GIS modelling and other mapping services?", the clerk said "That work was done by Elections Alberta" and "Elections Alberta provided the maps, but I don't know anything further than that" (CEB-77).
+  - Nothing in the transcript mentions shapefiles or the release of map data.
+- **SSCEB minority observations** (pp. 14–15). Opposition motions "to hold all Committee and Panel meetings and deliberations publicly, provide the Committee with monthly summaries of the Panel's activities, and publicize the Panel's final report at the earliest possible opportunity" were voted down. So was a request that "all of the Panel's deliberations, external discussions, consultations, and submissions be included in the final report".
+- **The IAP report.**
+  - p. 101 says the panel "relied on Elections Alberta for the populations", using EA software that "instantly produces population numbers" for configurations. In the pages read, it says nothing about releasing maps or data.
+  - The report is image-only, so it could not be searched. Pages read: 1–5, 41–42, 73–74, 79, 81, 91–94, 97, 101, 103–104, 109–110, 113–115 and 205–206.
+- **Elections Alberta's maps page** (`elections_alberta/ea_maps_page_2026-11-02.html`). It offers "Shapefiles of our electoral division and voting area boundaries for use with mapping software" for the current divisions, plus the 2026 voting-area file. It says nothing about when new boundaries will be published, or whether proposed boundaries ever are.
+- **The earlier committee transcripts** (May 4, May 12, June 2, June 9 and June 30, 2026; not archived here). The only mention of GIS is the LAO's cost estimate for the panel, which includes "GIS staff necessary to produce maps" (May 12).
+- **The author's own correspondence.** No correspondence with Elections Alberta GIS or the Assembly about the panel's map or shapefiles was found on the author's computer. The only Elections Alberta correspondence found is from May 2026, about advance votes and the commission's maps. The author then provided an email exchange of 2026-10-28 with Elections Alberta's Geomatics Team Lead, from another account; it is archived as `correspondence/elections_alberta_gis_2026-10-28.md`.
+
+**Result:** no written source found in these records supports the statement that "provisional and working information will not be provided to the public … we will only get the official shape files". The records show three things:
+- the panel's report was kept from the public until tabling;
+- Elections Alberta made the panel's maps;
+- Elections Alberta publishes boundary shapefiles for the divisions in force.
+
+The statement may rest on direct communication with Elections Alberta that is not in these records.
+
+## What each is relied on for: when official shapefiles are expected
+
+- `correspondence/elections_alberta_gis_2026-10-28.md`: Elections Alberta's Geomatics Team Lead, 2026-10-28: "The proposed ED boundaries are not set in bills yet. Once they are ready, the shp will be ready from our election website." No written source says shapefiles are withheld until Royal Assent, or that no interim shapefile will be published (see the section above). Amendment 7, Part 3 relies on this exchange.
+
+## What each is relied on for: the Speaker
+
+- Alberta Hansard, 2026-04-21 (`hansard/alberta_hansard_2026-04-21_afternoon.pdf`), front matter: "Day 49 The Honourable Ric McIver, Speaker"; officers list: "McIver, Hon. Ric, ECA, Calgary-Hays (UC), Speaker".
+- The SSCEB report's letter of transmittal, November 2026 (`legislature/ssceb_final_report_on_iap_2026-11.pdf`): "To the Honourable Ric McIver Speaker of the Legislative Assembly of the Province of Alberta".

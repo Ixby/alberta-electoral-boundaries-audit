@@ -8,8 +8,10 @@ Lane 1 (Statistical), Step 3 of 3: Neutral-ensemble generation + real-map scorin
 Chain: phase4c_canonical_attribution → packing_cracking_analysis → mcmc_ensemble_canonical
 Forward: joint_outlier_score_canonical (Mahalanobis D² + Fisher combination)
 
-100k ReCom MCMC ensemble re-run against official Elections Alberta canonical
-shapefiles (ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg).
+ReCom MCMC ensemble against official Elections Alberta canonical shapefiles
+(ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg). The committed
+canonical ensemble is 1,010,000 plans: 4 chains x 252,500, produced with
+--n-steps 1010000.
 
 Replaces the v0_10 DPG-based ensemble for all Lane-1 percentile placements.
 Official geometry supersedes all DPG-derived files per 2026-05-07 directive.
@@ -24,21 +26,29 @@ Differences from mcmc_ensemble_250k.py:
   - MAJ/MIN paths point to data/shapefiles/canonical/
   - score_exogenous_map called with id_col="EDName2025"
   - Output suffixed _canonical instead of _250k
-  - Default n_steps=100000 (pre-registered ensemble size)
+  - Default n_steps=100000. --n-steps is the TOTAL over all chains, not per
+    chain: steps per chain = ceil(n_steps / n_chains). The committed ensemble
+    used --n-steps 1010000 (252,500 per chain).
+  - Each 5,000-step chunk restarts the chain from the previous chunk's last
+    plan, and GerryChain yields the starting plan first, so the first row of
+    every chunk after the first repeats the row before it (50 repeated rows
+    per chain in the committed files). Row 0 of each chain is the +/-25%
+    tree seed; no burn-in is dropped.
   - Checkpoint dir: simulation_checkpoints_canonical
 
 Outputs
 -------
-  data/simulated_ensemble_raw_samples_canonical.csv
-  data/simulation_real_map_scores_canonical.json
-  data/simulated_ensemble_percentiles_canonical.csv
-  data/simulation_convergence_diagnostics_canonical.json
+  data/outputs/simulated_ensemble_raw_samples_canonical.csv
+  data/outputs/simulation_real_map_scores_canonical.json
+  data/outputs/simulated_ensemble_percentiles_canonical.csv
+  data/outputs/simulation_convergence_diagnostics_canonical.json
   data/maps/mcmc/ensemble_distribution_canonical_{metric}.svg
   data/maps/mcmc/running_mean_canonical_{metric}.svg
 
 Usage
 -----
-    python analysis/scripts/mcmc_ensemble_canonical.py [--n-steps 100000]
+    python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 1010000   # the committed ensemble
+    python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 8 --chunk-size 2 --run-id smoke   # smoke test
 
 Backward:
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg
@@ -241,27 +251,27 @@ def main(
     # ── RNG streams — three independent streams, all seeded from the same
     # canonical drand-derived seed (HIGH-05 documentation fix, 2026-06-13).
     #
-    # Stream 1 — numpy legacy API: np.random.seed(seed)
-    #   Used by any call to np.random.* that pre-dates np.random.default_rng.
-    #   GerryChain's ReCom internally calls numpy's legacy random functions,
-    #   so this stream drives the walk steps.  Must be set before run_ensemble().
+    # Stream 1 — stdlib random: random.seed(seed)
+    #   GerryChain 0.3.2's ReCom, tree and acceptance code (gerrychain/tree.py,
+    #   proposals/tree_proposals.py, accept.py) import only Python's `random`.
+    #   This is the stream that drives the walk. Each chain reseeds it with
+    #   its own chain_seed in _run_chain_chunked.
     #
-    # Stream 2 — stdlib random: random.seed(seed)
-    #   GerryChain also calls Python's stdlib random.shuffle() internally for
-    #   edge ordering in the spanning-tree construction step.  Seeding both
-    #   numpy and stdlib ensures full reproducibility across GerryChain versions
-    #   that mix the two sources.  This is intentional, not a hygiene problem.
+    # Stream 2 — numpy legacy API: np.random.seed(seed)
+    #   Not read by GerryChain 0.3.2. Seeded so that the global numpy state is
+    #   defined if any code calls np.random.* directly.
     #
     # Stream 3 — per-chain seed (derived in _run_chain_chunked):
     #   chain_seed = (base_seed * 100_000 + chain_idx * 1_000) % (2**32)
-    #   Passed as the `seed` kwarg to run_ensemble(), which wraps it in a
-    #   np.random.default_rng() for any explicit numpy operations inside the
-    #   chain loop.  Deterministic chain-index derivation means each chain is
-    #   independently reproducible and parallel-safe.
+    #   Seeds stdlib random and numpy for that chain and is passed as the
+    #   `seed` kwarg to run_ensemble(). Deterministic chain-index derivation
+    #   makes each chain independently reproducible and parallel-safe.
     #
-    # numpy version pin: 1.24+ (PCG64 default generator; stream identical
-    # across numpy 1.17–2.x because the legacy API uses MT19937 regardless
-    # of the default_rng backend).  Pin recorded in requirements.txt.
+    # Reproduction across versions: a 400-step replay of chain 0 is bit for
+    # bit under numpy 2.5.3 on Python 3.13. Under numpy 1.26.4 on Python 3.11
+    # the same plans come out (seats, step and Reock columns identical) but
+    # the floating-point metric columns differ in the last bits (partisan
+    # metrics by at most 8.5e-16, MedAD by about 7e-11 persons). requirements.txt pins numpy 2.5.3.
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
@@ -330,7 +340,9 @@ def main(
         for completed in ex.map(_run_chain_chunked, work_items):
             print(f"  -> ready: {Path(completed).name}", flush=True)
 
-    parts = [pd.read_csv(p) for p in chain_paths if p.exists()]
+    # round_trip: k/n seat shares come back exactly as written (the default
+    # parser returns many of them one ulp off; see mcmc_ensemble.pct_rank).
+    parts = [pd.read_csv(p, float_precision="round_trip") for p in chain_paths if p.exists()]
     if not parts:
         raise RuntimeError("All chain CSVs missing.")
     df = pd.concat(parts, ignore_index=True)
@@ -410,7 +422,9 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n-steps",     type=int,   default=100_000)
+    parser.add_argument("--n-steps",     type=int,   default=100_000,
+                        help="TOTAL plans over all chains (not per chain); steps per chain = "
+                             "ceil(n_steps / n_chains). The committed ensemble used 1010000.")
     parser.add_argument("--n-chains",    type=int,   default=4)
     parser.add_argument("--chunk-size",  type=int,   default=5000)
     parser.add_argument("--seed",        type=int,   default=None)

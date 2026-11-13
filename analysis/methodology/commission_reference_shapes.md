@@ -5,15 +5,15 @@ forward_dependencies:
   - report_academic.md §6.7 (cites this file for the Tier B → Tier C reclassification)
   - Elections Alberta shapefile release (will close the gap)
 backward_dependencies:
-  - maps/verification/v0_3_*.png (the approximations the reader sees)
-  - maps/minority_calgary.jpg, maps/hires/v0_1_minority_p360_map74.png (source thumbnails)
+  - archive/provisional_geometries/dpg/verification/v0_3_*.png (the approximations the reader sees)
+  - data/maps/minority_calgary.jpg, data/maps/hires/v0_1_minority_p360_map74.png (source thumbnails)
   - analysis/logs/shape_refinement_v3_log.json (the refinement pass whose approximations are reclassified)
 ---
 
 > **Backward:**
-> - `maps/verification/v0_3_*.png` — the approximate verification panels this file cross-checks
-> - `maps/minority_calgary.jpg`, `maps/hires/v0_1_minority_p360_map74.png` — source commission thumbnails
-> - `analysis/logs/shape_refinement_v3_log.json` — refinement pass whose approximations are reclassified
+> - `archive/provisional_geometries/dpg/verification/v0_3_*.png` — the approximate verification panels this file cross-checks
+> - `data/maps/minority_calgary.jpg`, `data/maps/hires/v0_1_minority_p360_map74.png` — source commission thumbnails
+> - `analysis/logs/shape_refinement_v3_log.json` (file since removed; see git history at ad51eee3) — refinement pass whose approximations are reclassified
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §6.7 — cites this file for the Tier B → Tier C reclassification
@@ -23,7 +23,7 @@ backward_dependencies:
 
 ## Status note (session 10 close)
 
-**v4 improved territorial fidelity substantially for all three EDs but remains materially off for Calgary-De Winton and Calgary-South.** The v4 pass (`analysis/methodology/shape_refinement_v4.md`) closed an estimated 90 % of the thumbnail-legible gap under its own error bands, but a further PO-provided reference on 2026-04-23 — a hand-painted overlay showing the commission's actual Calgary-De Winton (purple) and Calgary-South (green) shapes against the minority overview — establishes that v4's per-segment error bands were themselves too narrow:
+**v4 improved territorial fidelity substantially for all three EDs but remains materially off for Calgary-De Winton and Calgary-South.** The v4 pass (`analysis/methodology/shape_refinement_v4.md`; file since removed, see git history at 3329e5a5) closed an estimated 90 % of the thumbnail-legible gap under its own error bands, but a further PO-provided reference on 2026-04-23 — a hand-painted overlay showing the commission's actual Calgary-De Winton (purple) and Calgary-South (green) shapes against the minority overview — establishes that v4's per-segment error bands were themselves too narrow:
 
 - **Calgary-De Winton.** The commission's shape is roughly the full quadrant south of Calgary's southern city limit plus east of a north-south line near the Tsuut'ina reserve's east boundary, extending south well past the named Calgary ridings with a serrated rural southern boundary. v4 at 835 km² is likely less than 60 % of the true territorial footprint; the true footprint is more in the 1,400–1,700 km² range. Specific v4 gaps: the west edge should step further west, the north edge has a stepped indentation where Tsuut'ina Nation 145 notches into the ED, and the south edge extends materially further south than v4 placed it. **Correction to v4's Okotoks treatment (PO, 2026-04-23):** Okotoks is *inside* Calgary-De Winton at the ED's south-east-most edge, not subtracted from it as v4 assumed. This matches the original reference observation in §Calgary-De Winton below ("encompasses the Town of Okotoks") and contradicts v4's "subtract Okotoks town boundary" step. v5 refinement must keep Okotoks inside the De Winton polygon.
 - **Calgary-South.** The commission's shape sits east of Calgary-Fish Creek (labelled ED 13) as a compact-to-medium urban block with a curved northwest edge where it abuts Fish Creek. v4 at 9 km² is approximately half the true size; the true footprint is likely 15–25 km². The general location is correct (south-east Calgary urban); the size is too small.
@@ -33,7 +33,7 @@ The observations above and below remain the canonical textual record of what the
 
 ## Purpose
 
-The v3 verification panels in `maps/verification/` show approximate polygon boundaries for the minority 2026 electoral divisions. Three of those approximations do not match the shapes the commission actually published in its minority-report thumbnails. This file documents the specific mismatches so a reader of the verification panels knows which approximations are faithful and which are not.
+The v3 verification panels in `archive/provisional_geometries/dpg/verification/` show approximate polygon boundaries for the minority 2026 electoral divisions. Three of those approximations do not match the shapes the commission actually published in its minority-report thumbnails. This file documents the specific mismatches so a reader of the verification panels knows which approximations are faithful and which are not.
 
 The three affected EDs are Edmonton-Windermere, Calgary-De Winton, and Calgary-South. All three were classified as Tier B (merge of 2019 parents) during the approximation pipeline. All three are actually Tier C (carve-out of 2019 parents) in the commission's real map. The approximation cannot recover a carve boundary without an OSM feature class to snap to, and the commission's carves in these three cases do not follow any standard OSM feature type (road, waterway, railway, admin boundary).
 
@@ -81,13 +81,13 @@ Each v3 verification panel for the three EDs above should carry a header caveat 
 
 > **Known-inaccurate approximation.** The commission's published thumbnail for this ED (Appendix E) shows a boundary the approximation pipeline cannot reconstruct from OSM features. The polygon rendered here is Tier C in substance despite its Tier B label. See `analysis/methodology/commission_reference_shapes.md`.
 
-This caveat has been added to `maps/verification/v0_3_minority_edmonton_windermere.png`, `..._calgary_de_winton.png`, and `..._calgary_south.png` in the next rendering pass. Until that pass completes, this file is the canonical record of the mismatch.
+This caveat has been added to `archive/provisional_geometries/dpg/verification/v0_3_minority_edmonton_windermere.png`, `..._calgary_de_winton.png`, and `..._calgary_south.png` in the next rendering pass. Until that pass completes, this file is the canonical record of the mismatch.
 
 ## Source of the commission reference observations
 
 The commission thumbnails were visually inspected from:
-- `maps/minority_calgary.jpg` — Appendix E p. 74 (minority Calgary overview)
-- `maps/hires/v0_1_minority_p360_map74.png` — 600-DPI re-extraction of the same page
+- `data/maps/minority_calgary.jpg` — Appendix E p. 74 (minority Calgary overview)
+- `data/maps/hires/v0_1_minority_p360_map74.png` — 600-DPI re-extraction of the same page
 - Individual per-ED thumbnails in the commission report's Appendix E
 
-Specific shape descriptions above are from the PO's human review of the commission report, cross-referenced against the audit's approximation polygons in `maps/verification/v0_3_*.png`.
+Specific shape descriptions above are from the PO's human review of the commission report, cross-referenced against the audit's approximation polygons in `archive/provisional_geometries/dpg/verification/v0_3_*.png`.
