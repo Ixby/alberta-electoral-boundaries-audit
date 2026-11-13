@@ -34,7 +34,7 @@
   });
   import { lang } from '$lib/i18n/store.svelte';
   import { proseWordCount } from '$lib/i18n/wordCount';
-  import { t } from '$lib/i18n/dict';
+  import { t, hasTranslation } from '$lib/i18n/dict';
   import { sectionNav } from '$lib/sectionNav.svelte';
   import FigureLightbox from '$lib/components/FigureLightbox.svelte';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
@@ -190,6 +190,7 @@
 <div class="hero">
   <div class="header-inner">
     <div class="header-text">
+      {#if hasTranslation(lang.current, 'home.hero.kicker')}<p class="kicker">{t(lang.current, 'home.hero.kicker')}</p>{/if}
       <h1>{t(lang.current, 'home.hero.h1')}</h1>
       <p class="subtitle">{t(lang.current, 'home.hero.subtitle')}</p>
       <p class="subtitle hero-status">{t(lang.current, 'home.hero.status')}</p>
@@ -927,6 +928,15 @@
       letter-spacing: -0.01em;
       line-height: 1.3;
       margin-bottom: 0.5rem;
+    }
+
+    .hero .kicker {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 0.35rem;
     }
 
     .hero .subtitle {

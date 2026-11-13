@@ -247,7 +247,8 @@ export default {
 	// Generated from the accepted draft together with its markup in +page.svelte.
 	home: {
 		hero: {
-			h1: "Alberta's new 91-riding map is mostly fair. How it got made is the story.",
+			kicker: 'Alberta Gerrymander:',
+			h1: "Alberta's new 91-riding map is mostly fair. How it got made is the real story.",
 			subtitle: 'A commission split and filed two maps. One leaned toward the UCP further than almost any map a computer drew without seeing a vote. The Legislature adopted neither and handed the job to a committee of MLAs. The map that came out of that is before the Legislature now. This is what it does, how it got here, and how I checked.',
 			status: 'Where it stands. An advisory panel drew the new map, and a committee of six MLAs sent it to the Legislature on Monday, November 2, 2026. On November 4 the Assembly voted 45 to 36 to concur in it and to urge the government to introduce a bill. It isn\'t law unless a bill passes. The official map files still aren\'t public, so my results for it are provisional. When those files come out, I\'ll score them within 72 hours.',
 			week: "<strong>This week.</strong> The rules that decide the November verdict were written down in June 2026, and <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/preregistration/november_2026_scoring_spec.md\" rel=\"noopener\">they're dated in the project's repository</a>. Three side tests and the choice of comparison set were added October 29–31, after opposition MLAs had described parts of the map at a committee meeting. Seven amendments followed on November 2–7, after the panel's report was tabled; the last three were written after results had been seen. The provisional scores are in the November section below. The first check is against the one recommendation the government cited: <a href=\"#recommendation-5\">Recommendation 5</a>.",
@@ -269,7 +270,7 @@ export default {
 			cant2: "That the government directed its nominees. I found no evidence of coordination, and appointing someone isn't evidence of it.",
 			cant3: 'That the pattern will come back. The map that has it was never enacted, and on provisional results the panel\'s map doesn\'t repeat it.',
 			cant4: "How a court would rule, or what the Assembly will enact.",
-			p5: '<strong>About the word.</strong> Gerrymandering means drawing the lines to give a party an advantage. Canadian law has no offence by that name, so no court will rule on gerrymandering as such. That doesn\'t mean it can\'t happen here. I measure what maps do. I don\'t call any of them a gerrymander.',
+			p5: '<strong>About the word in the title.</strong> Gerrymandering means drawing the lines to give a party an advantage. Both sides used the word on the floor of the Legislature on November 4, 2026, and it is the name this fight goes by. That is why it is in the title. Canadian law has no offence by that name, so no court will rule on gerrymandering as such. That doesn\'t mean it can\'t happen here. I measure what maps do. I don\'t call any of them a gerrymander.',
 			p6: '<strong>Reading the cover map.</strong> Each of Alberta\'s 4,765 voting areas is coloured by its 2023 vote: orange for NDP, blue for UCP. The colour is deep only where many people live, so wide, empty areas stay pale. Land with no polling station and no recorded voters is white. The lines are the commission minority\'s 89 proposed ridings. <a href="__BASE__/explorer">Open the map explorer</a> to switch maps.',
 		},
 		does: {
