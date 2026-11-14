@@ -1,0 +1,86 @@
+{
+ "meta": {
+  "entry": "2026-11-10 13:16 Alberta time · claude-opus-5-5 · high (from settings, not per-entry)",
+  "script": "findings\\advance_vote_profile\\11_thresholds_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "findings\\advance_vote_profile\\outputs\\replay_check_p.json",
+    "sha256": "887e3a525ffa042cebc638c0f3c5c470a26b38d790de6f430a59967e3dbd60e3"
+   },
+   {
+    "path": "findings\\advance_vote_profile\\outputs\\ensemble_ranks_p.json",
+    "sha256": "8a2ef147f25d31600668da1cbc9e0d853d90dd91ba7f719fbdc18dd6882fe382"
+   },
+   {
+    "path": "data\\shapefiles\\derived\\va_polygons_all_2023_ballots_p.gpkg",
+    "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+   },
+   {
+    "path": "data\\shapefiles\\derived\\va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   },
+   {
+    "path": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160"
+   },
+   {
+    "path": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg",
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897"
+   },
+   {
+    "path": "data\\simulation_checkpoints_allballots_p\\chain0_samples.csv",
+    "sha256": "b4459799e3b841affde82074240d5121c7ac7e8a4be16329a6f87689a4889493"
+   },
+   {
+    "path": "data\\simulation_checkpoints_allballots_p\\chain1_samples.csv",
+    "sha256": "eb11b526c284ad612d8ecd60ea5236552ec34ba838db0563ba5255b34074d461"
+   },
+   {
+    "path": "data\\simulation_checkpoints_allballots_p\\chain2_samples.csv",
+    "sha256": "36469204128873bdaf1752ae08fbc4a4d70023d0b4a8627723b6b014f6aa4a42"
+   },
+   {
+    "path": "data\\simulation_checkpoints_allballots_p\\chain3_samples.csv",
+    "sha256": "790924121dc2a5b3fe6788bfb24214e3a949b137401383035d35e9fa3531b9c3"
+   }
+  ]
+ },
+ "p1_line": {
+  "rule": "95th percentile (numpy default, linear) of the canonical ensemble's efficiency gap",
+  "chains": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "plans": 1010000,
+  "value": 0.0215027622767721,
+  "check_m0_reproduced": 0.013940504524707758
+ },
+ "canonical_p95": {
+  "efficiency_gap": 0.0215027622767721,
+  "mean_median": -0.0013007711520317035,
+  "declination": 0.017743364304324858,
+  "seats_at_50_50": 0.4942528735632184
+ },
+ "minority_exceedance": {
+  "minority_efficiency_gap_p": 0.056440000000000004,
+  "rule": "plans with efficiency_gap >= minority value",
+  "count": 192,
+  "of": 1010000
+ },
+ "s5_line": {
+  "rule": "midpoint of the commission maps' drain scores (Amendment 5, Part 7), compute_S5_drain with the P vote file",
+  "majority_drain": 0.004031575680703427,
+  "minority_drain": 0.007733594546154491,
+  "value": 0.005882585113428959,
+  "flag_fires": "below the line",
+  "check_m0_reproduced": {
+   "majority_drain": 0.0037118238339337974,
+   "minority_drain": 0.0001677596344500493,
+   "midpoint": 0.0019397917341919234
+  },
+  "note": "drain is a score of each real map, not a column of the ensemble chains; it is not part of the replay"
+ }
+}

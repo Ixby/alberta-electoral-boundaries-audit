@@ -1,0 +1,202 @@
+{
+ "copied_but_area_changed": [
+  "Chestermere-Strathmore"
+ ],
+ "unchanged_va_mismatches": [],
+ "correction_pieces_ge_0_01_km2": [
+  {
+   "from": "Edmonton-Mill Woods",
+   "to": "Edmonton-Meadows",
+   "km2": 0.0915
+  },
+  {
+   "from": "Edmonton-Rutherford",
+   "to": "Edmonton-Windermere",
+   "km2": 0.707
+  }
+ ],
+ "correction_pieces_total": 1361,
+ "vas_changed_by_correction": 0,
+ "stated_area": {
+  "v1_outside_0_5": 16,
+  "v2_outside_0_5": 14,
+  "v2_outside": [
+   {
+    "ed": 42,
+    "district": "Edmonton-Nisku",
+    "source": "placed",
+    "stated_km2": 128.0,
+    "v1_km2": 128.56,
+    "v2_km2": 128.56,
+    "v1_off": 0.56,
+    "v2_off": 0.56
+   },
+   {
+    "ed": 52,
+    "district": "Banff-Canmore-Diamond Valley",
+    "source": "placed",
+    "stated_km2": 11483.0,
+    "v1_km2": 11496.31,
+    "v2_km2": 11496.31,
+    "v1_off": 13.31,
+    "v2_off": 13.31
+   },
+   {
+    "ed": 54,
+    "district": "Blackfalds-Innisfail",
+    "source": "placed",
+    "stated_km2": 3557.0,
+    "v1_km2": 3555.99,
+    "v2_km2": 3555.99,
+    "v1_off": -1.01,
+    "v2_off": -1.01
+   },
+   {
+    "ed": 57,
+    "district": "Chestermere-Strathmore",
+    "source": "known",
+    "stated_km2": 1025.0,
+    "v1_km2": 1022.85,
+    "v2_km2": 1022.85,
+    "v1_off": -2.15,
+    "v2_off": -2.15
+   },
+   {
+    "ed": 60,
+    "district": "Drayton Valley-Devon",
+    "source": "placed",
+    "stated_km2": 6256.0,
+    "v1_km2": 6255.37,
+    "v2_km2": 6255.37,
+    "v1_off": -0.63,
+    "v2_off": -0.63
+   },
+   {
+    "ed": 62,
+    "district": "Fort McMurray-Lac La Biche",
+    "source": "placed",
+    "stated_km2": 32317.0,
+    "v1_km2": 32316.43,
+    "v2_km2": 32316.43,
+    "v1_off": -0.57,
+    "v2_off": -0.57
+   },
+   {
+    "ed": 67,
+    "district": "Lac Ste. Anne",
+    "source": "placed",
+    "stated_km2": 4319.0,
+    "v1_km2": 4319.88,
+    "v2_km2": 4319.88,
+    "v1_off": 0.88,
+    "v2_off": 0.88
+   },
+   {
+    "ed": 68,
+    "district": "Lacombe-Sylvan Lake",
+    "source": "placed",
+    "stated_km2": 3882.0,
+    "v1_km2": 3882.88,
+    "v2_km2": 3882.89,
+    "v1_off": 0.88,
+    "v2_off": 0.89
+   },
+   {
+    "ed": 72,
+    "district": "Lethbridge-Cardston",
+    "source": "placed",
+    "stated_km2": 5432.0,
+    "v1_km2": 5432.89,
+    "v2_km2": 5432.89,
+    "v1_off": 0.89,
+    "v2_off": 0.89
+   },
+   {
+    "ed": 74,
+    "district": "Lethbridge-Taber-Warner",
+    "source": "placed",
+    "stated_km2": 16957.0,
+    "v1_km2": 16956.42,
+    "v2_km2": 16956.43,
+    "v1_off": -0.58,
+    "v2_off": -0.57
+   },
+   {
+    "ed": 76,
+    "district": "Macleod-Crowsnest",
+    "source": "placed",
+    "stated_km2": 13380.0,
+    "v1_km2": 13370.72,
+    "v2_km2": 13370.72,
+    "v1_off": -9.28,
+    "v2_off": -9.28
+   },
+   {
+    "ed": 79,
+    "district": "Morinville-Sturgeon",
+    "source": "placed",
+    "stated_km2": 2182.0,
+    "v1_km2": 2181.21,
+    "v2_km2": 2181.21,
+    "v1_off": -0.79,
+    "v2_off": -0.79
+   },
+   {
+    "ed": 80,
+    "district": "Okotoks",
+    "source": "placed",
+    "stated_km2": 1213.0,
+    "v1_km2": 1215.61,
+    "v2_km2": 1215.61,
+    "v1_off": 2.61,
+    "v2_off": 2.61
+   },
+   {
+    "ed": 81,
+    "district": "Olds-Didsbury-Three Hills",
+    "source": "placed",
+    "stated_km2": 10339.0,
+    "v1_km2": 10340.03,
+    "v2_km2": 10340.03,
+    "v1_off": 1.03,
+    "v2_off": 1.03
+   }
+  ]
+ },
+ "pages": {
+  "agrees": {
+   "vas": 1615,
+   "votes": 321610
+  },
+  "no accepted page": {
+   "vas": 167,
+   "votes": 27139
+  }
+ },
+ "pages_no_accepted_page_by_district": {
+  "Calgary-North West-Bearspaw": 56,
+  "Edmonton-Meadows": 29,
+  "Edmonton-Windermere": 44,
+  "Fort McMurray-Wood Buffalo": 36,
+  "Olds-Didsbury-Three Hills": 1,
+  "Rocky Mountain House-Sundre": 1
+ },
+ "fort_mcmurray_vs_2017": {
+  "Fort McMurray-Lac La Biche": 0.99996,
+  "Fort McMurray-Wood Buffalo": 0.99999
+ },
+ "version4_vs_hole_fill": {
+  "Edmonton-Meadows": {
+   "iou_v1": 0.9909,
+   "iou_v2": 0.9979,
+   "vas_only_ours": 0,
+   "vas_only_v4": 0
+  },
+  "Edmonton-Windermere": {
+   "iou_v1": 0.9834,
+   "iou_v2": 0.996,
+   "vas_only_ours": 0,
+   "vas_only_v4": 0
+  }
+ }
+}

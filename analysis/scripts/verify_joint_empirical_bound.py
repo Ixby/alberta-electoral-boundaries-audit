@@ -12,25 +12,25 @@ assumes multivariate Gaussianity:
      joint_outlier_score_canonical.py) and counts plans at or beyond each real
      map's D². For the minority map the count is 0: no sampled plan reaches it.
 
-     DEPENDENCE-HONESTY (2026-07-11 correction): the naive (b+1)/(B+1) figure
-     (1/1,010,001 = 9.90e-07) assumes the B samples are exchangeable with the
-     observed map. MCMC samples are autocorrelated (measured D²-series tau
-     ~ 203-258 per chain), so the scan carries only n_eff ~ 4,600 effective
-     samples, and 0 exceedances honestly supports (rule of three) an empirical
-     upper bound of 3/n_eff ~ 6.5e-04 — nearly three orders of magnitude
-     weaker than the naive figure. An earlier version
-     of this script (2026-07-08) reported the 9.90e-07 figure as
-     "assumption-free"; it is not — it silently swapped "no Gaussianity
-     assumption" for "no assumptions". The sub-1e-06 headline therefore rests
-     on the parametric chi-squared(4) model (p = 1.40e-06), stated as such;
-     the empirical scan's roles are (a) confirming no sampled plan reaches the
-     minority and (b) validating the parametric model in the observable region
-     (check 2), not tightening the headline.
+     DEPENDENCE: the naive (b+1)/(B+1) figure (1/1,010,001 = 9.90e-07)
+     assumes the B samples are exchangeable with the observed map. MCMC samples
+     are autocorrelated, so the scan carries only the D² series' effective
+     sample size (computed below and written to joint_d2_ess; 4,372 pooled on
+     the committed ensemble, per-chain tau 214 to 251), and 0 exceedances
+     supports (rule of three) an empirical upper bound of 3/n_eff, about
+     6.9e-04: nearly three orders of magnitude weaker than the naive figure.
+     The naive figure is not "assumption-free". The sub-1e-06 headline rests on
+     the parametric chi-squared(4) model (p = 8.8e-07 in
+     findings/joint_outlier_score.json), stated as such. The empirical scan
+     confirms that no sampled plan reaches the minority; it does not tighten
+     the headline.
 
-  2. Parametric-model check in the observable region. The majority map's
-     empirical tail fraction is compared to its parametric p; agreement in the
-     region where the ensemble can actually check the model supports the
-     chi-squared extrapolation used for the minority.
+  2. Parametric-model check in the observable region. Each map's empirical
+     tail fraction is written beside its chi-squared(4) p. They are close at
+     the majority's D² (7.7) and the 2019 map's (13.2). That is two points; further
+     out (D² 16 to 24) the sample holds 1.6 to 3.0 times as many plans as the
+     model predicts (findings/audit_2026-11-10/joint_sensitivity.json), so these two
+     points do not validate the model at the minority's D².
 
   3. Gelman-Rubin R-hat on the full 1,010,000-plan run (4 chains x 252,500),
      closing the §s58a6-B diagnostic gap (the original R-hat table was computed
@@ -56,6 +56,43 @@ import pandas as pd
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from mcmc_ensemble import autocorrelation_ess
+
+
+def chi2_sf_df4(d2: float) -> float:
+    """Upper tail of the chi-squared distribution with 4 degrees of freedom
+    (closed form: exp(-x/2) * (1 + x/2)); the parametric model's p for a D²."""
+    return float(np.exp(-d2 / 2.0) * (1.0 + d2 / 2.0))
+
+
+def build_notes(maps_out: dict, n_eff_joint: float, rule_of_three_bound: float,
+                n_plans: int, any_cap_bound: bool) -> list[str]:
+    """Notes for the output JSON, built from the values computed in this run."""
+    naive = 1.0 / (n_plans + 1)
+    mn, mj, en = maps_out["minority"], maps_out["majority"], maps_out["enacted"]
+    notes = [
+        f"The (b+1)/(B+1) figure ({naive:.2e}) assumes exchangeability; MCMC samples are "
+        f"autocorrelated, so the scan carries only n_eff = {n_eff_joint:,.0f} effective samples "
+        f"(see joint_d2_ess). Zero exceedances supports an empirical bound of about 3/n_eff = "
+        f"{rule_of_three_bound:.2e} (rule of three), not {naive:.2e}. The sub-1e-06 headline "
+        f"rests on the parametric chi-squared(4) model ({mn['parametric_chi2_4_p']:.2e}), "
+        "stated as such.",
+        f"What the scan shows without assuming Gaussianity: (a) {mn['plans_at_or_beyond']:,} "
+        f"sampled plans reach the minority's D2; (b) at the two other maps' D2 the parametric "
+        f"model and the empirical tail are close (majority {mj['parametric_chi2_4_p']:.4f} parametric "
+        f"vs {mj['empirical_tail_fraction']:.4f} empirical; enacted {en['parametric_chi2_4_p']:.4f} "
+        f"vs {en['empirical_tail_fraction']:.4f}). Two points do not validate the model at the "
+        "minority's D2: between D2 16 and 24 the sample holds 1.6 to 3.0 times as many plans as "
+        "the model predicts (findings/audit_2026-11-10/joint_sensitivity.json).",
+        "R-hat here is on the full 1,010,000-plan run; the s58a6-B table (2026-05-10) "
+        "was computed at the run's 250,000-plan state.",
+    ]
+    if any_cap_bound:
+        notes.append(
+            "The lag cap bound on at least one chain's D2 series: its tau is understated, so "
+            "n_eff is an upper bound and the rule-of-three bound is a lower bound on the honest "
+            "empirical bound."
+        )
+    return notes
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 ENSEMBLE_CSV = ROOT / "data" / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
@@ -100,8 +137,10 @@ def run() -> None:
     n_eff_joint = 0.0
     for chain_id, g in df.loc[kept].groupby("chain"):
         stats = autocorrelation_ess(d2_series.loc[g.index].values)
-        ess_per_chain[str(chain_id)] = {"tau": round(stats["tau"], 1), "n_eff": round(stats["n_eff"], 1)}
+        ess_per_chain[str(chain_id)] = {"tau": round(stats["tau"], 1), "n_eff": round(stats["n_eff"], 1),
+                                        "lag_cap_bound": bool(stats["cap_bound"])}
         n_eff_joint += stats["n_eff"]
+    any_cap_bound = any(v["lag_cap_bound"] for v in ess_per_chain.values())
     rule_of_three_bound = 3.0 / n_eff_joint if n_eff_joint > 0 else float("nan")
     print(f"joint-D2 n_eff (4 chains pooled) = {n_eff_joint:,.0f}; "
           f"rule-of-three bound at 0 exceedances = {rule_of_three_bound:.2e}")
@@ -116,6 +155,7 @@ def run() -> None:
             "d": round(d2 ** 0.5, 4),
             "plans_at_or_beyond": count_ge,
             "empirical_tail_fraction": round(count_ge / n_plans, 8),
+            "parametric_chi2_4_p": chi2_sf_df4(d2),
             "naive_bound_b1_B1_assumes_exchangeability": round((count_ge + 1) / (n_plans + 1), 10),
         }
         if count_ge == 0:
@@ -142,21 +182,7 @@ def run() -> None:
             "rule_of_three_bound_at_zero_exceedances": round(rule_of_three_bound, 6),
         },
         "gelman_rubin_full_run": rhat,
-        "notes": [
-            "DEPENDENCE-HONESTY CORRECTION (2026-07-11): the (b+1)/(B+1) figure assumes "
-            "exchangeability; MCMC samples are autocorrelated, so the scan carries only "
-            "n_eff effective samples (see joint_d2_ess). Zero exceedances honestly supports "
-            "an empirical bound of ~3/n_eff (rule of three), NOT 9.90e-07. The sub-1e-06 "
-            "headline rests on the parametric chi-squared(4) model (1.40e-06), stated as "
-            "such. The 2026-07-08 version of this file called the naive figure "
-            "'assumption-free'; that description was wrong and is retracted.",
-            "The scan's Gaussianity-free contributions: (a) no sampled plan reaches the "
-            "minority's D2; (b) in the observable region the parametric model tracks the "
-            "empirical tail (majority 0.0971 parametric vs 0.0982 empirical; enacted 0.0126 "
-            "vs 0.0156), supporting the chi-squared(4) extrapolation.",
-            "R-hat here is on the full 1,010,000-plan run; the s58a6-B table (2026-05-10) "
-            "was computed at the run's 250,000-plan state.",
-        ],
+        "notes": build_notes(maps_out, n_eff_joint, rule_of_three_bound, n_plans, any_cap_bound),
     }
     with open(OUT_JSON, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)

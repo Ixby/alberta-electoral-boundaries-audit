@@ -1,0 +1,359 @@
+{
+ "plan": "preregistration/reasons_consistency_2026-11-07.md",
+ "average_91": 53722.2,
+ "band_25": [
+  40292,
+  67153
+ ],
+ "M1_population_to_spare": [
+  {
+   "city": "Calgary",
+   "pop_2024_estimate": 1573009,
+   "ratio_to_average": 29.28,
+   "panel_divisions_holding": 28,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Edmonton3 *",
+   "pop_2024_estimate": 1197770,
+   "ratio_to_average": 22.3,
+   "panel_divisions_holding": 21,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Red Deer",
+   "pop_2024_estimate": 113145,
+   "ratio_to_average": 2.11,
+   "panel_divisions_holding": 2,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Lethbridge",
+   "pop_2024_estimate": 111776,
+   "ratio_to_average": 2.08,
+   "panel_divisions_holding": 4,
+   "share_in_divisions_where_city_is_minority": 0.219
+  },
+  {
+   "city": "Airdrie",
+   "pop_2024_estimate": 88692,
+   "ratio_to_average": 1.65,
+   "panel_divisions_holding": 2,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "St. Albert6 *",
+   "pop_2024_estimate": 73567,
+   "ratio_to_average": 1.37,
+   "panel_divisions_holding": 2,
+   "share_in_divisions_where_city_is_minority": 0.169
+  },
+  {
+   "city": "Grande Prairie",
+   "pop_2024_estimate": 69575,
+   "ratio_to_average": 1.3,
+   "panel_divisions_holding": 2,
+   "share_in_divisions_where_city_is_minority": 0.266
+  },
+  {
+   "city": "Medicine Hat",
+   "pop_2024_estimate": 68131,
+   "ratio_to_average": 1.27,
+   "panel_divisions_holding": 2,
+   "share_in_divisions_where_city_is_minority": 0.321
+  },
+  {
+   "city": "Spruce Grove5 *",
+   "pop_2024_estimate": 42794,
+   "ratio_to_average": 0.8,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Leduc",
+   "pop_2024_estimate": 38798,
+   "ratio_to_average": 0.72,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Fort Saskatchewan4 *",
+   "pop_2024_estimate": 29900,
+   "ratio_to_average": 0.56,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Chestermere",
+   "pop_2024_estimate": 28997,
+   "ratio_to_average": 0.54,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 0.0
+  },
+  {
+   "city": "Beaumont1 *",
+   "pop_2024_estimate": 24742,
+   "ratio_to_average": 0.46,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 1.0
+  },
+  {
+   "city": "Lloydminster (Part)6 *",
+   "pop_2024_estimate": 21188,
+   "ratio_to_average": 0.39,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 1.0
+  },
+  {
+   "city": "Camrose",
+   "pop_2024_estimate": 20671,
+   "ratio_to_average": 0.38,
+   "panel_divisions_holding": 1,
+   "share_in_divisions_where_city_is_minority": 1.0
+  }
+ ],
+ "M2_necessary_population": {
+  "band_low": 40292,
+  "majority_Canmore-Banff": 39961,
+  "needed_to_reach_band_before_RMH_transfer": 331,
+  "minority_says_unanimous_RMH_transfer_affects": "fewer than 1,000 residents (minority opinion, para 6)",
+  "panel_Banff-Canmore-Diamond_Valley": 48862,
+  "net_added_vs_majority": 8901,
+  "majority_Lethbridge-East_dev_pct_at_91": 7.0,
+  "majority_Lethbridge-West_dev_pct_at_91": 1.0,
+  "panel_Lethbridge_dev_pct": 9.6
+ },
+ "M3_compactness_changed": [
+  {
+   "panel": "Edmonton-Nisku",
+   "majority_source": "Edmonton-Beaumont",
+   "pp_panel": 0.269,
+   "pp_majority": 0.522,
+   "change": -0.253
+  },
+  {
+   "panel": "Olds-Didsbury-Three Hills",
+   "majority_source": "Mountain View-Kneehill",
+   "pp_panel": 0.249,
+   "pp_majority": 0.348,
+   "change": -0.099
+  },
+  {
+   "panel": "Barrhead-Westlock-Athabasca",
+   "majority_source": "Barrhead-Westlock-Athabasca",
+   "pp_panel": 0.262,
+   "pp_majority": 0.341,
+   "change": -0.078
+  },
+  {
+   "panel": "Morinville-Sturgeon",
+   "majority_source": "St. Albert-Sturgeon",
+   "pp_panel": 0.314,
+   "pp_majority": 0.383,
+   "change": -0.069
+  },
+  {
+   "panel": "Calgary-Bow-Springbank",
+   "majority_source": "Calgary-Bow",
+   "pp_panel": 0.306,
+   "pp_majority": 0.374,
+   "change": -0.068
+  },
+  {
+   "panel": "Lacombe-Sylvan Lake",
+   "majority_source": "Sylvan Lake-Innisfail",
+   "pp_panel": 0.244,
+   "pp_majority": 0.299,
+   "change": -0.055
+  },
+  {
+   "panel": "Blackfalds-Innisfail",
+   "majority_source": "Sylvan Lake-Innisfail",
+   "pp_panel": 0.264,
+   "pp_majority": 0.299,
+   "change": -0.035
+  },
+  {
+   "panel": "Edmonton-Strathcona",
+   "majority_source": "Edmonton-Strathcona",
+   "pp_panel": 0.439,
+   "pp_majority": 0.468,
+   "change": -0.029
+  },
+  {
+   "panel": "Wetaskiwin-Ponoka",
+   "majority_source": "Wetaskiwin-Ponoka-Maskwacis",
+   "pp_panel": 0.382,
+   "pp_majority": 0.407,
+   "change": -0.025
+  },
+  {
+   "panel": "Lethbridge-Little Bow",
+   "majority_source": "Lethbridge-East",
+   "pp_panel": 0.348,
+   "pp_majority": 0.358,
+   "change": -0.01
+  },
+  {
+   "panel": "Okotoks",
+   "majority_source": "Okotoks-Diamond Valley",
+   "pp_panel": 0.315,
+   "pp_majority": 0.323,
+   "change": -0.008
+  },
+  {
+   "panel": "West Yellowhead",
+   "majority_source": "West Yellowhead",
+   "pp_panel": 0.248,
+   "pp_majority": 0.248,
+   "change": -0.001
+  },
+  {
+   "panel": "Fort McMurray-Wood Buffalo",
+   "majority_source": "Fort McMurray-Wood Buffalo",
+   "pp_panel": 0.473,
+   "pp_majority": 0.472,
+   "change": 0.0
+  },
+  {
+   "panel": "Macleod-Crowsnest",
+   "majority_source": "High River-Vulcan-Siksika",
+   "pp_panel": 0.294,
+   "pp_majority": 0.274,
+   "change": 0.02
+  },
+  {
+   "panel": "Edmonton-Windermere",
+   "majority_source": "Edmonton-Windermere",
+   "pp_panel": 0.277,
+   "pp_majority": 0.252,
+   "change": 0.026
+  },
+  {
+   "panel": "Banff-Canmore-Diamond Valley",
+   "majority_source": "Canmore-Banff",
+   "pp_panel": 0.182,
+   "pp_majority": 0.153,
+   "change": 0.029
+  },
+  {
+   "panel": "Edmonton-Whitemud",
+   "majority_source": "Edmonton-Whitemud",
+   "pp_panel": 0.292,
+   "pp_majority": 0.257,
+   "change": 0.035
+  },
+  {
+   "panel": "Red Deer-South",
+   "majority_source": "Red Deer-South",
+   "pp_panel": 0.614,
+   "pp_majority": 0.562,
+   "change": 0.051
+  },
+  {
+   "panel": "Leduc-Beaumont",
+   "majority_source": "Leduc-Devon",
+   "pp_panel": 0.377,
+   "pp_majority": 0.325,
+   "change": 0.052
+  },
+  {
+   "panel": "Fort McMurray-Lac La Biche",
+   "majority_source": "Fort McMurray-Lac La Biche",
+   "pp_panel": 0.372,
+   "pp_majority": 0.314,
+   "change": 0.059
+  },
+  {
+   "panel": "Lethbridge",
+   "majority_source": "Lethbridge-West",
+   "pp_panel": 0.385,
+   "pp_majority": 0.321,
+   "change": 0.064
+  },
+  {
+   "panel": "Edmonton-Ellerslie",
+   "majority_source": "Edmonton-Ellerslie",
+   "pp_panel": 0.549,
+   "pp_majority": 0.483,
+   "change": 0.066
+  },
+  {
+   "panel": "Rocky Mountain House-Sundre",
+   "majority_source": "Lacombe-Clearwater",
+   "pp_panel": 0.362,
+   "pp_majority": 0.293,
+   "change": 0.068
+  },
+  {
+   "panel": "Lethbridge-Cardston",
+   "majority_source": "Taber-Cardston",
+   "pp_panel": 0.351,
+   "pp_majority": 0.277,
+   "change": 0.073
+  },
+  {
+   "panel": "Drayton Valley-Devon",
+   "majority_source": "Stony Plain-Drayton Valley",
+   "pp_panel": 0.287,
+   "pp_majority": 0.208,
+   "change": 0.079
+  },
+  {
+   "panel": "Drumheller-Stettler",
+   "majority_source": "Drumheller-Stettler",
+   "pp_panel": 0.538,
+   "pp_majority": 0.425,
+   "change": 0.113
+  },
+  {
+   "panel": "Spruce Grove",
+   "majority_source": "Spruce Grove",
+   "pp_panel": 0.461,
+   "pp_majority": 0.349,
+   "change": 0.113
+  },
+  {
+   "panel": "Edmonton-South",
+   "majority_source": "Edmonton-South",
+   "pp_panel": 0.378,
+   "pp_majority": 0.244,
+   "change": 0.135
+  },
+  {
+   "panel": "Lethbridge-Taber-Warner",
+   "majority_source": "Taber-Cardston",
+   "pp_panel": 0.416,
+   "pp_majority": 0.277,
+   "change": 0.139
+  },
+  {
+   "panel": "Lac Ste. Anne",
+   "majority_source": "Stony Plain-Drayton Valley",
+   "pp_panel": 0.349,
+   "pp_majority": 0.208,
+   "change": 0.14
+  },
+  {
+   "panel": "Cochrane",
+   "majority_source": "Cochrane-Springbank",
+   "pp_panel": 0.526,
+   "pp_majority": 0.356,
+   "change": 0.17
+  },
+  {
+   "panel": "Calgary-North West-Bearspaw",
+   "majority_source": "Calgary-North West",
+   "pp_panel": 0.508,
+   "pp_majority": 0.251,
+   "change": 0.257
+  },
+  {
+   "panel": "Calgary-West-Springbank",
+   "majority_source": "Calgary-West-Elbow Valley",
+   "pp_panel": 0.53,
+   "pp_majority": 0.27,
+   "change": 0.26
+  }
+ ]
+}

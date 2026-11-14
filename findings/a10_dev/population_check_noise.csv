@@ -1,0 +1,71 @@
+district,set,stated,va2021_scaled,diff_pct
+"Calgary-Acadia",unchanged,55789,57062,2.3
+"Calgary-Beddington",unchanged,56024,57853,3.3
+"Calgary-Bhullar-McCall",tuning,55887,44196,-20.9
+"Calgary-Buffalo",tuning,58777,47150,-19.8
+"Calgary-Confluence",unchanged,58632,54260,-7.5
+"Calgary-Cross",tuning,59491,60621,1.9
+"Calgary-Currie",unchanged,58111,57540,-1.0
+"Calgary-East",tuning,58308,63240,8.5
+"Calgary-Edgemont",unchanged,55141,57649,4.5
+"Calgary-Elbow",unchanged,55297,54586,-1.3
+"Calgary-Falconridge-Conrich",tuning,56661,52283,-7.7
+"Calgary-Fish Creek",unchanged,55403,59206,6.9
+"Calgary-Glenmore-Tsuut'ina",unchanged,56970,57850,1.5
+"Calgary-Hays",tuning,52147,51668,-0.9
+"Calgary-Klein",tuning,56292,56667,0.7
+"Calgary-Lougheed",tuning,59554,60821,2.1
+"Calgary-McKenzie",unchanged,62772,64609,2.9
+"Calgary-Mountain View",tuning,54396,53415,-1.8
+"Calgary-North",tuning,57945,55255,-4.6
+"Calgary-North East",tuning,54541,33123,-39.3
+"Calgary-Nose Creek",tuning,55155,44071,-20.1
+"Calgary-Shaw",tuning,58171,44029,-24.3
+"Calgary-South East",tuning,53551,40918,-23.6
+"Calgary-Symons Valley",unchanged,54797,51220,-6.5
+"Calgary-Varsity",unchanged,57166,58069,1.6
+"Edmonton-Beverly-Clareview",tuning,57481,61607,7.2
+"Edmonton-Castle Downs",tuning,59612,58215,-2.3
+"Edmonton-City Centre",unchanged,57312,55533,-3.1
+"Edmonton-Decore",tuning,57959,60347,4.1
+"Edmonton-Ellerslie",changed_same_name,53376,63039,18.1
+"Edmonton-Enoch",unchanged,56894,49538,-12.9
+"Edmonton-Glenora-Riverview",unchanged,56622,61050,7.8
+"Edmonton-Gold Bar",unchanged,54981,59171,7.6
+"Edmonton-Highlands-Norwood",tuning,51806,51433,-0.7
+"Edmonton-Manning",tuning,56901,51731,-9.1
+"Edmonton-McClung",unchanged,61859,65356,5.7
+"Edmonton-Meadows",changed_same_name,53318,45970,-13.8
+"Edmonton-Mill Woods",unchanged,59673,62989,5.6
+"Edmonton-North West",tuning,61226,62806,2.6
+"Edmonton-Rutherford",unchanged,58082,60581,4.3
+"Edmonton-South",changed_same_name,57522,42750,-25.7
+"Edmonton-Strathcona",changed_same_name,54093,58242,7.7
+"Edmonton-West Henday",unchanged,61775,59273,-4.0
+"Edmonton-Whitemud",changed_same_name,56752,63578,12.0
+"Edmonton-Windermere",changed_same_name,54136,41931,-22.5
+"Airdrie-East",unchanged,53809,57439,6.7
+"Airdrie-West",unchanged,48145,43902,-8.8
+"Barrhead-Westlock-Athabasca",changed_same_name,46602,57991,24.4
+"Camrose",unchanged,54653,59232,8.4
+"Central Peace-Notley",unchanged,28715,31035,8.1
+"Chestermere-Strathmore",unchanged,56679,47955,-15.4
+"Cold Lake-Bonnyville-St. Paul",unchanged,55809,60444,8.3
+"Drumheller-Stettler",changed_same_name,43570,58735,34.8
+"Fort McMurray-Lac La Biche",changed_same_name,47304,47406,0.2
+"Fort McMurray-Wood Buffalo",changed_same_name,46721,54293,16.2
+"Fort Saskatchewan-Vegreville",unchanged,54278,58069,7.0
+"Grande Prairie",tuning,50352,53436,6.1
+"Grande Prairie-Wapiti",unchanged,53781,57603,7.1
+"Lesser Slave Lake",unchanged,30011,33834,12.7
+"Lloydminster-Wainwright",unchanged,50139,54197,8.1
+"Medicine Hat-Brooks",unchanged,54833,59130,7.8
+"Medicine Hat-Cypress",unchanged,54210,57120,5.4
+"Peace River",unchanged,43399,46208,6.5
+"Red Deer-North",unchanged,53798,53693,-0.2
+"Red Deer-South",changed_same_name,59121,61638,4.3
+"Sherwood Park",unchanged,52475,53966,2.8
+"Spruce Grove",changed_same_name,52063,58662,12.7
+"St. Albert",tuning,59935,64804,8.1
+"Strathcona-Sherwood Park",unchanged,51020,57499,12.7
+"West Yellowhead",changed_same_name,51355,62170,21.1

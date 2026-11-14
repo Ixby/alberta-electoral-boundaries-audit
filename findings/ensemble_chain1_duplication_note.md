@@ -120,8 +120,8 @@ Convergence improved over the C9-era run: Gelman-Rubin R-hat (full 1.01M run,
 |---|---|---|
 | Minority Mahalanobis D² | 32.6692 | 33.6385 |
 | Ch1 parametric p (χ²₄) | 1.40×10⁻⁶ | 8.80×10⁻⁷ |
-| Bonferroni dependence-robust bound | p ≤ 2.80×10⁻⁶ | p ≤ 1.76×10⁻⁶ |
-| Verbal form | about one in 357,000 | about one in 568,000 |
+| Ch1 doubled (a model estimate, not a bound) | p ≈ 2.80×10⁻⁶ | p ≈ 1.76×10⁻⁶ (1.77×10⁻⁶ unrounded; range about 1 in 20,000 to about 1 in 570,000 across defensible choices, `findings/audit_2026-11-10/joint_sensitivity.json`) |
+| Verbal form (published model only) | about one in 357,000 | about one in 568,000 |
 | n_eff-adjusted (Hotelling T²) p | 1.73×10⁻⁶ | 1.11×10⁻⁶ |
 | Dependence-honest rule-of-three bound | 6.52×10⁻⁴ (n_eff 4,599) | 6.86×10⁻⁴ (n_eff 4,372) |
 

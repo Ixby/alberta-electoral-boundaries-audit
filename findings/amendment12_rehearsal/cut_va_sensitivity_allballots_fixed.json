@@ -1,0 +1,1611 @@
+{
+ "step1_inventory": {
+  "which": "fixed",
+  "snap_dir": "C:\\tmp\\a10reg\\fixed",
+  "n_vas": 4765,
+  "n_known_districts": 57,
+  "cut_flag_in_csv": 245,
+  "cut_vas_recomputed": 245,
+  "worst_gap_vs_csv_partner_share": 0.282,
+  "province": {
+   "population": 4262572.251436839,
+   "total_votes": 1764915.0,
+   "note": "pop_2021 = DA-overlay population floored at 1 per VA; total_votes = sum of candidate vote columns"
+  },
+  "all_cut_vas": {
+   "n": 245,
+   "population": 263093.36298335536,
+   "total_votes": 92229.96048797882,
+   "population_share_of_province": 0.061721736891303405,
+   "total_votes_share_of_province": 0.05225745176848677,
+   "minority_ge_10pct": {
+    "n": 132,
+    "population": 138086.2107462085,
+    "total_votes": 50198.742310945716
+   },
+   "minority_ge_25pct": {
+    "n": 85,
+    "population": 96947.75486057521,
+    "total_votes": 32285.036499374073
+   },
+   "minority_ge_40pct": {
+    "n": 39,
+    "population": 49385.144419930366,
+    "total_votes": 15925.2558658774
+   }
+  },
+  "involves_changed": {
+   "n": 153,
+   "population": 160377.30533908796,
+   "total_votes": 59078.442006454745,
+   "population_share_of_province": 0.037624536519006234,
+   "total_votes_share_of_province": 0.033473817156324664,
+   "minority_ge_10pct": {
+    "n": 87,
+    "population": 89905.74937044932,
+    "total_votes": 34605.722540399554
+   },
+   "minority_ge_25pct": {
+    "n": 55,
+    "population": 62820.30269406097,
+    "total_votes": 22296.733675948177
+   },
+   "minority_ge_40pct": {
+    "n": 26,
+    "population": 31364.066543764297,
+    "total_votes": 11009.289397596394
+   }
+  },
+  "known_known": {
+   "n": 92,
+   "population": 102716.05764426736,
+   "total_votes": 33151.518481524065,
+   "population_share_of_province": 0.024097200372297164,
+   "total_votes_share_of_province": 0.018783634612162096,
+   "minority_ge_10pct": {
+    "n": 45,
+    "population": 48180.46137575916,
+    "total_votes": 15593.01977054615
+   },
+   "minority_ge_25pct": {
+    "n": 30,
+    "population": 34127.45216651427,
+    "total_votes": 9988.302823425896
+   },
+   "minority_ge_40pct": {
+    "n": 13,
+    "population": 18021.077876166077,
+    "total_votes": 4915.966468281009
+   }
+  },
+  "per_changed_district": [
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "ed": 52,
+    "district_population": 37012.38738268981,
+    "district_total_votes": 17664.128110442238,
+    "n_vas": 51,
+    "assigned_cut": {
+     "n": 4,
+     "population": 3000.3100634818484,
+     "total_votes": 1405.9286895127223,
+     "population_share_of_province": 0.0007038731278913797,
+     "total_votes_share_of_province": 0.0007965985271317442,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 2533.595306223827,
+      "total_votes": 1080.1731339571666
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 587.3958127139445,
+      "total_votes": 136.8635798632691
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 7,
+     "population": 6234.8619460845075,
+     "total_votes": 2316.7544744225397,
+     "population_share_of_province": 0.0014626994167624594,
+     "total_votes_share_of_province": 0.0013126719838760165,
+     "minority_ge_10pct": {
+      "n": 5,
+      "population": 3937.8018897899105,
+      "total_votes": 1665.2433633114288
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 1516.698366022933,
+      "total_votes": 590.2385148743105
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 1256.7013217499953,
+      "total_votes": 305.562875492024
+     }
+    }
+   },
+   {
+    "district": "Barrhead-Westlock-Athabasca",
+    "ed": 53,
+    "district_population": 40696.406649644145,
+    "district_total_votes": 19277.616390687836,
+    "n_vas": 46,
+    "assigned_cut": {
+     "n": 3,
+     "population": 2254.8983317606912,
+     "total_votes": 1305.267293981111,
+     "population_share_of_province": 0.0005289994394817834,
+     "total_votes_share_of_province": 0.0007395638282756455,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 527.4728620769941,
+      "total_votes": 391.5577093934254
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 3,
+     "population": 2855.939273481233,
+     "total_votes": 1370.8996896813846,
+     "population_share_of_province": 0.0006700037219353985,
+     "total_votes_share_of_province": 0.0007767511124792891,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 2222.1701476939843,
+      "total_votes": 1008.8385725531161
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Blackfalds-Innisfail",
+    "ed": 54,
+    "district_population": 43066.822072371906,
+    "district_total_votes": 20572.581776499548,
+    "n_vas": 53,
+    "assigned_cut": {
+     "n": 8,
+     "population": 8107.478251166768,
+     "total_votes": 3101.116978983666,
+     "population_share_of_province": 0.001902015443476384,
+     "total_votes_share_of_province": 0.0017570914060924554,
+     "minority_ge_10pct": {
+      "n": 6,
+      "population": 6325.6032510216655,
+      "total_votes": 2311.0405121646877
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 4324.128537486676,
+      "total_votes": 1622.2213125683943
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 3623.96512061668,
+      "total_votes": 1214.1670467942881
+     }
+    },
+    "cut_where_partner": {
+     "n": 4,
+     "population": 4432.551842112968,
+     "total_votes": 1951.1032662444695,
+     "population_share_of_province": 0.0010398772338976383,
+     "total_votes_share_of_province": 0.0011054941831444968,
+     "minority_ge_10pct": {
+      "n": 4,
+      "population": 4432.551842112968,
+      "total_votes": 1951.1032662444695
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 4432.551842112968,
+      "total_votes": 1951.1032662444695
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 2339.246066457822,
+      "total_votes": 717.6363624533703
+     }
+    }
+   },
+   {
+    "district": "Calgary-Bow-Springbank",
+    "ed": 4,
+    "district_population": 50708.84988011776,
+    "district_total_votes": 26640.24985582594,
+    "n_vas": 56,
+    "assigned_cut": {
+     "n": 6,
+     "population": 5618.987107068395,
+     "total_votes": 3021.146001167542,
+     "population_share_of_province": 0.0013182151000899357,
+     "total_votes_share_of_province": 0.0017117798880782033,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 2351.0616629877836,
+      "total_votes": 1416.4208600895115
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 3146.294823335782,
+     "total_votes": 917.0868613214391,
+     "population_share_of_province": 0.0007381211713831293,
+     "total_votes_share_of_province": 0.0005196209796627254,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 1271.0138111258807,
+      "total_votes": 638.067718044334
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Calgary-North West-Bearspaw",
+    "ed": 22,
+    "district_population": 47742.37388970611,
+    "district_total_votes": 25512.057429831315,
+    "n_vas": 56,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Calgary-West-Springbank",
+    "ed": 28,
+    "district_population": 53200.91435467695,
+    "district_total_votes": 27090.415993370625,
+    "n_vas": 56,
+    "assigned_cut": {
+     "n": 1,
+     "population": 1056.043990988809,
+     "total_votes": 587.4107420458078,
+     "population_share_of_province": 0.00024774805650105633,
+     "total_votes_share_of_province": 0.0003328266472015977,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 1,
+     "population": 1271.0138111258807,
+     "total_votes": 638.067718044334,
+     "population_share_of_province": 0.0002981800040333496,
+     "total_votes_share_of_province": 0.00036152886572120134,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 1271.0138111258807,
+      "total_votes": 638.067718044334
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Cochrane",
+    "ed": 58,
+    "district_population": 41595.13292361538,
+    "district_total_votes": 20041.333578311285,
+    "n_vas": 53,
+    "assigned_cut": {
+     "n": 3,
+     "population": 3660.481779127924,
+     "total_votes": 913.8656587573785,
+     "population_share_of_province": 0.0008587494975349776,
+     "total_votes_share_of_province": 0.0005177958478212143,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 1145.2497451893332,
+      "total_votes": 279.019143277105
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Drayton Valley-Devon",
+    "ed": 60,
+    "district_population": 41019.63450875522,
+    "district_total_votes": 20622.62765725658,
+    "n_vas": 52,
+    "assigned_cut": {
+     "n": 3,
+     "population": 2146.547604645739,
+     "total_votes": 1146.7097825218088,
+     "population_share_of_province": 0.000503580344924869,
+     "total_votes_share_of_province": 0.0006497252176573992,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 949.775688222586,
+      "total_votes": 671.6952911444632
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 8,
+     "population": 6997.154093469071,
+     "total_votes": 3344.0515504633013,
+     "population_share_of_province": 0.001641533252864031,
+     "total_votes_share_of_province": 0.0018947380188073088,
+     "minority_ge_10pct": {
+      "n": 5,
+      "population": 4237.354253915578,
+      "total_votes": 2088.5274988003043
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 3431.9530668437133,
+      "total_votes": 1613.513007422959
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 1871.945997126251,
+      "total_votes": 1004.6836196257543
+     }
+    }
+   },
+   {
+    "district": "Drumheller-Stettler",
+    "ed": 61,
+    "district_population": 42825.724616466105,
+    "district_total_votes": 20269.514786212094,
+    "n_vas": 59,
+    "assigned_cut": {
+     "n": 3,
+     "population": 2071.741416944772,
+     "total_votes": 1195.6771353546978,
+     "population_share_of_province": 0.0004860308036412577,
+     "total_votes_share_of_province": 0.0006774700964945608,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 760.1639849629505,
+      "total_votes": 373.46157468449803
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 760.1639849629505,
+      "total_votes": 373.46157468449803
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 1475.1374639477203,
+     "total_votes": 683.9064021749264,
+     "population_share_of_province": 0.0003460674393144837,
+     "total_votes_share_of_province": 0.00038750104235893873,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Edmonton-Ellerslie",
+    "ed": 33,
+    "district_population": 42672.26851936112,
+    "district_total_votes": 14548.345851313054,
+    "n_vas": 40,
+    "assigned_cut": {
+     "n": 4,
+     "population": 5460.9618966772305,
+     "total_votes": 1055.2064442007415,
+     "population_share_of_province": 0.0012811423653491,
+     "total_votes_share_of_province": 0.0005978794696632651,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 1804.9934623559334,
+      "total_votes": 545.7864849339392
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 1021.4930990270292,
+      "total_votes": 291.07650530053786
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 1,
+     "population": 3478.76249702426,
+     "total_votes": 752.7703604806409,
+     "population_share_of_province": 0.0008161181305141818,
+     "total_votes_share_of_province": 0.0004265193283986146,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 3478.76249702426,
+      "total_votes": 752.7703604806409
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 3478.76249702426,
+      "total_votes": 752.7703604806409
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Edmonton-Meadows",
+    "ed": 40,
+    "district_population": 40082.02852651982,
+    "district_total_votes": 9923.325496033569,
+    "n_vas": 29,
+    "assigned_cut": {
+     "n": 4,
+     "population": 11116.197968655988,
+     "total_votes": 1933.3478155321181,
+     "population_share_of_province": 0.0026078614772826222,
+     "total_votes_share_of_province": 0.0010954339532114113,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Edmonton-Nisku",
+    "ed": 42,
+    "district_population": 47872.429810105554,
+    "district_total_votes": 11675.32796935794,
+    "n_vas": 29,
+    "assigned_cut": {
+     "n": 3,
+     "population": 10511.163115000738,
+     "total_votes": 1571.875612838664,
+     "population_share_of_province": 0.0024659202225739653,
+     "total_votes_share_of_province": 0.000890623975000872,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 10511.163115000738,
+      "total_votes": 1571.875612838664
+     },
+     "minority_ge_25pct": {
+      "n": 3,
+      "population": 10511.163115000738,
+      "total_votes": 1571.875612838664
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 3212.231199834313,
+      "total_votes": 413.35026524116546
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 10093.598856301402,
+     "total_votes": 1935.8389627167346,
+     "population_share_of_province": 0.002367959593623082,
+     "total_votes_share_of_province": 0.001096845436021981,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Edmonton-South",
+    "ed": 45,
+    "district_population": 40790.02722415904,
+    "district_total_votes": 14195.352314182765,
+    "n_vas": 51,
+    "assigned_cut": {
+     "n": 10,
+     "population": 6392.126202725017,
+     "total_votes": 2737.9005490775344,
+     "population_share_of_province": 0.0014995936316552388,
+     "total_votes_share_of_province": 0.0015512931495723784,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 6676.337837578061,
+     "total_votes": 1238.0602924061682,
+     "population_share_of_province": 0.0015662697178511365,
+     "total_votes_share_of_province": 0.0007014843731319459,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 783.5003633289042,
+      "total_votes": 254.70997963340125
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Edmonton-Strathcona",
+    "ed": 46,
+    "district_population": 48856.31436194826,
+    "district_total_votes": 18858.95235103385,
+    "n_vas": 50,
+    "assigned_cut": {
+     "n": 2,
+     "population": 1901.3085317720536,
+     "total_votes": 977.5264661479503,
+     "population_share_of_province": 0.0004460472267962509,
+     "total_votes_share_of_province": 0.0005538660310258286,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 1056.5988586698984,
+      "total_votes": 540.1776797119962
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 1056.5988586698984,
+      "total_votes": 540.1776797119962
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 1056.5988586698984,
+      "total_votes": 540.1776797119962
+     }
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 2320.7114736231842,
+     "total_votes": 874.6975728719079,
+     "population_share_of_province": 0.0005444392110517101,
+     "total_votes_share_of_province": 0.0004956032289781139,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 1314.18950084254,
+      "total_votes": 437.34878643595397
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 1314.18950084254,
+      "total_votes": 437.34878643595397
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 1314.18950084254,
+      "total_votes": 437.34878643595397
+     }
+    }
+   },
+   {
+    "district": "Edmonton-Whitemud",
+    "ed": 48,
+    "district_population": 52803.52297178656,
+    "district_total_votes": 23977.836832210563,
+    "n_vas": 53,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Edmonton-Windermere",
+    "ed": 49,
+    "district_population": 34043.66762292716,
+    "district_total_votes": 12212.306830322204,
+    "n_vas": 44,
+    "assigned_cut": {
+     "n": 7,
+     "population": 8232.673539688256,
+     "total_votes": 2156.9469544966432,
+     "population_share_of_province": 0.0019313862743119874,
+     "total_votes_share_of_province": 0.0012221251190548232,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Fort McMurray-Lac La Biche",
+    "ed": 62,
+    "district_population": 40624.278548182956,
+    "district_total_votes": 10455.0,
+    "n_vas": 46,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Fort McMurray-Wood Buffalo",
+    "ed": 63,
+    "district_population": 44916.8610016731,
+    "district_total_votes": 9578.000000000002,
+    "n_vas": 36,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 0
+    }
+   },
+   {
+    "district": "Lac Ste. Anne",
+    "ed": 67,
+    "district_population": 49051.93362680119,
+    "district_total_votes": 21767.474488930904,
+    "n_vas": 65,
+    "assigned_cut": {
+     "n": 5,
+     "population": 4389.592834043713,
+     "total_votes": 1493.5253052172438,
+     "population_share_of_province": 0.0010297990450634726,
+     "total_votes_share_of_province": 0.0008462307279485096,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 2127.954132829837,
+      "total_votes": 917.1711353271
+     },
+     "minority_ge_25pct": {
+      "n": 3,
+      "population": 2127.954132829837,
+      "total_votes": 917.1711353271
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 567.9470631123747,
+      "total_votes": 308.3417475298955
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 5174.552192766071,
+     "total_votes": 1742.8980718674395,
+     "population_share_of_province": 0.001213950611868648,
+     "total_votes_share_of_province": 0.0009875252189864325,
+     "minority_ge_10pct": {
+      "n": 4,
+      "population": 2808.557362500015,
+      "total_votes": 1293.6089764957705
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 831.5688417279824,
+      "total_votes": 308.3417475298955
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 831.5688417279824,
+      "total_votes": 308.3417475298955
+     }
+    }
+   },
+   {
+    "district": "Lacombe-Sylvan Lake",
+    "ed": 68,
+    "district_population": 47386.5548093329,
+    "district_total_votes": 22029.03215475771,
+    "n_vas": 55,
+    "assigned_cut": {
+     "n": 6,
+     "population": 5699.39188205119,
+     "total_votes": 2509.8698800793463,
+     "population_share_of_province": 0.0013370780706720043,
+     "total_votes_share_of_province": 0.0014220910809185406,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 3247.7554896762017,
+      "total_votes": 1196.877731221009
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 2339.246066457822,
+      "total_votes": 717.6363624533703
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 2339.246066457822,
+      "total_votes": 717.6363624533703
+     }
+    },
+    "cut_where_partner": {
+     "n": 12,
+     "population": 10722.15649835282,
+     "total_votes": 4875.693089850939,
+     "population_share_of_province": 0.002515419297523595,
+     "total_votes_share_of_province": 0.0027625653869171826,
+     "minority_ge_10pct": {
+      "n": 11,
+      "population": 9865.330454903613,
+      "total_votes": 4515.0841891894215
+     },
+     "minority_ge_25pct": {
+      "n": 8,
+      "population": 7268.750506891278,
+      "total_votes": 3301.3743585178477
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 3552.168989308975,
+      "total_votes": 1140.146723127436
+     }
+    }
+   },
+   {
+    "district": "Leduc-Beaumont",
+    "ed": 69,
+    "district_population": 49160.21567408108,
+    "district_total_votes": 24060.894747641978,
+    "n_vas": 58,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 7032.400617976478,
+     "total_votes": 819.1052523580231,
+     "population_share_of_province": 0.0016498020920597835,
+     "total_votes_share_of_province": 0.0004641046466022574,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 7032.400617976478,
+      "total_votes": 819.1052523580231
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 7032.400617976478,
+      "total_votes": 819.1052523580231
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 3212.231199834313,
+      "total_votes": 413.35026524116546
+     }
+    }
+   },
+   {
+    "district": "Lethbridge",
+    "ed": 71,
+    "district_population": 54831.658875712856,
+    "district_total_votes": 24354.6862421006,
+    "n_vas": 64,
+    "assigned_cut": {
+     "n": 4,
+     "population": 5901.32311683335,
+     "total_votes": 1617.3279207419366,
+     "population_share_of_province": 0.0013844511643982377,
+     "total_votes_share_of_province": 0.0009163772310518845,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 3887.4429577933174,
+      "total_votes": 990.2850631468997
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 3887.4429577933174,
+      "total_votes": 990.2850631468997
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 2408.273846986629,
+      "total_votes": 495.0203019656254
+     }
+    },
+    "cut_where_partner": {
+     "n": 1,
+     "population": 872.9525589065465,
+     "total_votes": 414.4305067578261,
+     "population_share_of_province": 0.00020479478291829292,
+     "total_votes_share_of_province": 0.00023481612811825277,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Lethbridge-Cardston",
+    "ed": 72,
+    "district_population": 35463.340357531095,
+    "district_total_votes": 12321.19750012462,
+    "n_vas": 39,
+    "assigned_cut": {
+     "n": 3,
+     "population": 4120.847022728709,
+     "total_votes": 957.4127920593471,
+     "population_share_of_province": 0.0009667512430644766,
+     "total_votes_share_of_province": 0.0005424696328488041,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 3247.8944638221624,
+      "total_votes": 542.9822853015211
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 3247.8944638221624,
+      "total_votes": 542.9822853015211
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 8,
+     "population": 8901.624517048276,
+     "total_votes": 2685.998851057736,
+     "population_share_of_province": 0.00208832225988608,
+     "total_votes_share_of_province": 0.0015218856721472343,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 4817.475139692517,
+      "total_votes": 1185.43280168101
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 3887.4429577933174,
+      "total_votes": 990.2850631468997
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 2408.273846986629,
+      "total_votes": 495.0203019656254
+     }
+    }
+   },
+   {
+    "district": "Lethbridge-Little Bow",
+    "ed": 73,
+    "district_population": 43432.36629250124,
+    "district_total_votes": 18107.061989919603,
+    "n_vas": 55,
+    "assigned_cut": {
+     "n": 3,
+     "population": 3812.8906518625026,
+     "total_votes": 1130.6581629965924,
+     "population_share_of_province": 0.0008945046387371483,
+     "total_votes_share_of_province": 0.0006406303776649824,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 3125.375419084269,
+      "total_votes": 792.9213091392742
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 3125.375419084269,
+      "total_votes": 792.9213091392742
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 2551.53727688876,
+      "total_votes": 475.25348660459815
+     }
+    },
+    "cut_where_partner": {
+     "n": 10,
+     "population": 10757.158820649136,
+     "total_votes": 3145.1539794191463,
+     "population_share_of_province": 0.002523630846849126,
+     "total_votes_share_of_province": 0.0017820427496050212,
+     "minority_ge_10pct": {
+      "n": 8,
+      "population": 8984.187352792447,
+      "total_votes": 2697.255550393348
+     },
+     "minority_ge_25pct": {
+      "n": 6,
+      "population": 7395.144184842782,
+      "total_votes": 2150.4179863504382
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 2944.9772343560053,
+      "total_votes": 685.5877352580223
+     }
+    }
+   },
+   {
+    "district": "Lethbridge-Taber-Warner",
+    "ed": 74,
+    "district_population": 53646.950277220116,
+    "district_total_votes": 20148.054267855176,
+    "n_vas": 70,
+    "assigned_cut": {
+     "n": 13,
+     "population": 10420.079150938373,
+     "total_votes": 3885.67275688691,
+     "population_share_of_province": 0.002444551912856362,
+     "total_votes_share_of_province": 0.0022016203368926605,
+     "minority_ge_10pct": {
+      "n": 7,
+      "population": 5591.413852732434,
+      "total_votes": 2154.433718233464
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 3072.33850288357,
+      "total_votes": 1412.4484156564445
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 536.7033873693762,
+      "total_votes": 190.56743329239703
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 6514.0410825787785,
+     "total_votes": 1998.2928865398726,
+     "population_share_of_province": 0.001528194878194266,
+     "total_votes_share_of_province": 0.0011322317995710119,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 4458.738047933848,
+      "total_votes": 1092.9543257124265
+     },
+     "minority_ge_25pct": {
+      "n": 3,
+      "population": 4458.738047933848,
+      "total_votes": 1092.9543257124265
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 2551.53727688876,
+      "total_votes": 475.25348660459815
+     }
+    }
+   },
+   {
+    "district": "Macleod-Crowsnest",
+    "ed": 76,
+    "district_population": 49488.52221357031,
+    "district_total_votes": 23975.77662821217,
+    "n_vas": 72,
+    "assigned_cut": {
+     "n": 3,
+     "population": 1831.9300966985188,
+     "total_votes": 681.8968748092534,
+     "population_share_of_province": 0.00042977103697914025,
+     "total_votes_share_of_province": 0.00038636244510883153,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 1831.9300966985188,
+      "total_votes": 681.8968748092534
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 259.9970442729376,
+      "total_votes": 284.6756393822865
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 1,
+     "population": 675.1856823840019,
+     "total_votes": 305.2418360495635,
+     "population_share_of_province": 0.00015839864817690974,
+     "total_votes_share_of_province": 0.00017294987920073404,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 675.1856823840019,
+      "total_votes": 305.2418360495635
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Morinville-Sturgeon",
+    "ed": 79,
+    "district_population": 50359.304715928134,
+    "district_total_votes": 25533.640058953224,
+    "n_vas": 58,
+    "assigned_cut": {
+     "n": 4,
+     "population": 2777.793537535032,
+     "total_votes": 1684.4930487370011,
+     "population_share_of_province": 0.0006516707222026996,
+     "total_votes_share_of_province": 0.0009544329606451309,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 2144.0244117477832,
+      "total_votes": 1322.4319316087326
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 3443.9194742381064,
+     "total_votes": 1575.3248049335778,
+     "population_share_of_province": 0.0008079439528742817,
+     "total_votes_share_of_province": 0.0008925782856021835,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 1769.031228752123,
+      "total_votes": 1055.0278066355738
+     },
+     "minority_ge_25pct": {
+      "n": 2,
+      "population": 544.4633833404298,
+      "total_votes": 681.6847770827346
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 402.8454912157429,
+      "total_votes": 308.3417475298955
+     }
+    }
+   },
+   {
+    "district": "Okotoks",
+    "ed": 80,
+    "district_population": 46947.385413257085,
+    "district_total_votes": 24144.63314719601,
+    "n_vas": 61,
+    "assigned_cut": {
+     "n": 2,
+     "population": 2297.0600562945974,
+     "total_votes": 651.5111111111111,
+     "population_share_of_province": 0.0005388905854957176,
+     "total_votes_share_of_province": 0.0003691458858421573,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    },
+    "cut_where_partner": {
+     "n": 1,
+     "population": 466.7147572580216,
+     "total_votes": 325.75555555555553,
+     "population_share_of_province": 0.00010949134225248621,
+     "total_votes_share_of_province": 0.00018457294292107865,
+     "minority_ge_10pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Olds-Didsbury-Three Hills",
+    "ed": 81,
+    "district_population": 51358.90457042608,
+    "district_total_votes": 23341.80047858363,
+    "n_vas": 50,
+    "assigned_cut": {
+     "n": 8,
+     "population": 11331.457660155234,
+     "total_votes": 4650.930231366628,
+     "population_share_of_province": 0.0026583614286738713,
+     "total_votes_share_of_province": 0.002635214858147065,
+     "minority_ge_10pct": {
+      "n": 6,
+      "population": 8652.974361009183,
+      "total_votes": 3449.1659549462147
+     },
+     "minority_ge_25pct": {
+      "n": 6,
+      "population": 8652.974361009183,
+      "total_votes": 3449.1659549462147
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 3928.9761138712797,
+      "total_votes": 1725.2777433993397
+     }
+    },
+    "cut_where_partner": {
+     "n": 5,
+     "population": 4987.344560224875,
+     "total_votes": 2185.538847088925,
+     "population_share_of_province": 0.0011700316771272856,
+     "total_votes_share_of_province": 0.0012383252718056819,
+     "minority_ge_10pct": {
+      "n": 5,
+      "population": 4987.344560224875,
+      "total_votes": 2185.538847088925
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 3556.772461499887,
+      "total_votes": 1822.1121098632814
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 2885.073344719277,
+      "total_votes": 1526.4586188991861
+     }
+    }
+   },
+   {
+    "district": "Red Deer-South",
+    "ed": 84,
+    "district_population": 51977.270849865046,
+    "district_total_votes": 23216.45823244552,
+    "n_vas": 56,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 1765.7132877663967,
+     "total_votes": 808.5417675544793,
+     "population_share_of_province": 0.0004142365650626111,
+     "total_votes_share_of_province": 0.0004581193811342072,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 700.1634168699956,
+      "total_votes": 408.0542657741062
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 700.1634168699956,
+      "total_votes": 408.0542657741062
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Rocky Mountain House-Sundre",
+    "ed": 85,
+    "district_population": 32117.39375018516,
+    "district_total_votes": 14856.09682167872,
+    "n_vas": 49,
+    "assigned_cut": {
+     "n": 9,
+     "population": 7029.753209307432,
+     "total_votes": 3295.6010361660196,
+     "population_share_of_province": 0.0016491810096445462,
+     "total_votes_share_of_province": 0.0018672859804387291,
+     "minority_ge_10pct": {
+      "n": 9,
+      "population": 7029.753209307432,
+      "total_votes": 3295.6010361660196
+     },
+     "minority_ge_25pct": {
+      "n": 6,
+      "population": 4594.440088185218,
+      "total_votes": 1876.38601205521
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 2410.2323797654976,
+      "total_votes": 878.2229335039399
+     }
+    },
+    "cut_where_partner": {
+     "n": 3,
+     "population": 2423.02417101643,
+     "total_votes": 1086.1122660303618,
+     "population_share_of_province": 0.0005684417830570897,
+     "total_votes_share_of_province": 0.000615390693620011,
+     "minority_ge_10pct": {
+      "n": 2,
+      "population": 1158.2984275239462,
+      "total_votes": 462.25604223391827
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 587.3958127139445,
+      "total_votes": 136.8635798632691
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Spruce Grove",
+    "ed": 87,
+    "district_population": 47307.58831254877,
+    "district_total_votes": 22349.04710323855,
+    "n_vas": 51,
+    "assigned_cut": {
+     "n": 8,
+     "population": 7780.85410099236,
+     "total_votes": 3076.2595701132414,
+     "population_share_of_province": 0.001825389375715466,
+     "total_votes_share_of_province": 0.0017430072100431133,
+     "minority_ge_10pct": {
+      "n": 7,
+      "population": 5414.859270726304,
+      "total_votes": 2626.9704747415726
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 2357.6774056932986,
+      "total_votes": 1465.0410159899757
+     },
+     "minority_ge_40pct": {
+      "n": 3,
+      "population": 2216.059513568612,
+      "total_votes": 1091.6979864371365
+     }
+    },
+    "cut_where_partner": {
+     "n": 2,
+     "population": 1764.7189795355273,
+     "total_votes": 783.356238907241,
+     "population_share_of_province": 0.0004140033002233971,
+     "total_votes_share_of_province": 0.0004438492725753031,
+     "minority_ge_10pct": {
+      "n": 1,
+      "population": 567.9470631123747,
+      "total_votes": 308.3417475298955
+     },
+     "minority_ge_25pct": {
+      "n": 1,
+      "population": 567.9470631123747,
+      "total_votes": 308.3417475298955
+     },
+     "minority_ge_40pct": {
+      "n": 1,
+      "population": 567.9470631123747,
+      "total_votes": 308.3417475298955
+     }
+    }
+   },
+   {
+    "district": "West Yellowhead",
+    "ed": 90,
+    "district_population": 49556.395706253505,
+    "district_total_votes": 20135.000000000004,
+    "n_vas": 61,
+    "assigned_cut": {
+     "n": 0
+    },
+    "cut_where_partner": {
+     "n": 3,
+     "population": 1751.7932677384042,
+     "total_votes": 1003.1012034569097,
+     "population_share_of_province": 0.0004109709265685538,
+     "total_votes_share_of_province": 0.0005683566650274431,
+     "minority_ge_10pct": {
+      "n": 3,
+      "population": 1751.7932677384042,
+      "total_votes": 1003.1012034569097
+     },
+     "minority_ge_25pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     },
+     "minority_ge_40pct": {
+      "n": 0,
+      "population": 0.0,
+      "total_votes": 0.0
+     }
+    }
+   },
+   {
+    "district": "Wetaskiwin-Ponoka",
+    "ed": 91,
+    "district_population": 51289.49739337484,
+    "district_total_votes": 20684.15471263267,
+    "n_vas": 58,
+    "assigned_cut": {
+     "n": 10,
+     "population": 8732.172065463212,
+     "total_votes": 4387.270550860254,
+     "population_share_of_province": 0.0020485686928871996,
+     "total_votes_share_of_province": 0.0024858254085099022,
+     "minority_ge_10pct": {
+      "n": 7,
+      "population": 6309.899944667329,
+      "total_votes": 3208.351895301948
+     },
+     "minority_ge_25pct": {
+      "n": 5,
+      "population": 4161.924674825534,
+      "total_votes": 2306.144030763958
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 1861.1177209919797,
+      "total_votes": 862.4400604845799
+     }
+    },
+    "cut_where_partner": {
+     "n": 9,
+     "population": 7127.142275768645,
+     "total_votes": 3627.387251640519,
+     "population_share_of_province": 0.0016720284971981905,
+     "total_votes_share_of_province": 0.0020552758924030443,
+     "minority_ge_10pct": {
+      "n": 6,
+      "population": 5132.506791152025,
+      "total_votes": 2302.5904859328098
+     },
+     "minority_ge_25pct": {
+      "n": 4,
+      "population": 3086.4593963233647,
+      "total_votes": 1393.4196721980966
+     },
+     "minority_ge_40pct": {
+      "n": 2,
+      "population": 1677.2423393924623,
+      "total_votes": 780.009326521689
+     }
+    }
+   }
+  ],
+  "n_flip_eligible": 132,
+  "n_flip_eligible_involves_changed": 87
+ },
+ "step2_flip_range": {
+  "eg_official": -0.026961813555927874,
+  "eg_pipeline": -0.01663717557117272,
+  "pipeline_minus_official_points": 1.0324637984755154,
+  "t4_limit_points": 0.5,
+  "t1_limit": 0.1,
+  "flip_min_minority_share": 0.1,
+  "n_flipped_singly": 132,
+  "bounding_method": "greedy from the single-flip signs; interactions between flips not modelled",
+  "largest_single_flip": {
+   "OBJECTID": "849",
+   "VA_NUMBER": "053",
+   "from": "Calgary-Confluence",
+   "to": "Calgary-Acadia",
+   "minority_share": 0.23217561909600398,
+   "pop_2021": 3391.322346484142,
+   "total_votes": 171.4407625155888,
+   "delta_points": -1.388001665630183
+  },
+  "n_single_flips_raise_eg": 59,
+  "n_single_flips_lower_eg": 10,
+  "n_single_flips_zero": 63,
+  "bound_up": {
+   "n_flips": 59,
+   "eg": -0.014913365917549033,
+   "minus_official_points": 1.204844763837884,
+   "minus_pipeline_points": 0.1723809653623688,
+   "t4_pass": false,
+   "t1": {
+    "wrong": 14,
+    "total": 1909,
+    "share": 0.007333682556312206,
+    "pass": true
+   }
+  },
+  "bound_down": {
+   "n_flips": 10,
+   "eg": -0.03258543820346032,
+   "minus_official_points": -0.5623624647532445,
+   "minus_pipeline_points": -1.5948262632287598,
+   "t4_pass": false,
+   "t1": {
+    "wrong": 3,
+    "total": 1909,
+    "share": 0.001571503404924044,
+    "pass": true
+   }
+  },
+  "pipeline_t1": {
+   "wrong": 0,
+   "total": 1909,
+   "share": 0.0,
+   "pass": true
+  },
+  "seconds": 763.0
+ },
+ "seconds": 794.0
+}

@@ -40,7 +40,10 @@ Elections Alberta 2026 shapefiles.
   Province-wide NDP share moved from 42.60% (Election-Day only) to 44.66%
   (full) — a +2.07 pp upward correction. (Definitive run 2026-05-10 with C5
   Vote Anywhere exclusion: 87 rows / 165,933 votes excluded; two-party total
-  1,544,139 post-exclusion.)
+  1,544,139 post-exclusion.) [2026-11-05: the exclusion is corrected by
+  `analysis/scripts/vote_anywhere_splat.py` -> `va_polygons_with_all_2023_ballots.gpkg`
+  (`va_{ucp,ndp,other}_all`), equal to the official result in all 87 districts; academic
+  report C51.]
 - Downstream: `phase_4bcdef_execution.py` and
   `mcmc_full_coverage_rescore_v2.py` now read the full-VA gpkg and use the
   `_full` columns.

@@ -13,9 +13,9 @@ backward_dependencies:
   - data/shapefiles/derived/va_polygons_with_2023_votes.gpkg — Election-Day VA substrate
   - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
-  - data/votes_2023_majority_area_weighted.csv
-  - data/votes_2023_minority_area_weighted.csv
-  - data/maup_centroid_sensitivity.json — full output
+  - data/outputs/votes_2023_majority_area_weighted.csv
+  - data/outputs/votes_2023_minority_area_weighted.csv
+  - data/outputs/maup_centroid_sensitivity.json — full output
 ---
 
 > **Backward:**
@@ -25,7 +25,7 @@ backward_dependencies:
 > - `analysis/scripts/assignment_va_attribution.py` — original centroid attribution
 > - `analysis/scripts/assignment_va_attribution_maup.py` — prior MAUP work
 > - `data/shapefiles/derived/va_polygons_with_2023_votes.gpkg`, `data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg`, `data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg`
-> - `data/votes_2023_majority_area_weighted.csv`, `data/votes_2023_minority_area_weighted.csv`, `data/maup_centroid_sensitivity.json`
+> - `data/outputs/votes_2023_majority_area_weighted.csv`, `data/outputs/votes_2023_minority_area_weighted.csv`, `data/outputs/maup_centroid_sensitivity.json`
 >
 > **Forward:**
 > - `analysis/methodology/methodological_defenses.md` §1.2 "The Centroid Fallacy (Ecological MAUP)" — quantified-insignificance line for insertion
@@ -54,7 +54,7 @@ The audit assigns 2023 votes to 2026 EDs by spatial-joining each VA's centroid i
 | minority_2026 | mean_median    | -1.7938 % | -1.7938 %     | -2.4e-8 pp |
 | minority_2026 | declination    | +0.01051  | +0.01051      | +2.4e-9    |
 
-The centroid scores reproduce `data/simulation_real_map_scores_250k.json` to all reported decimals — confirming the `seat_results()` baseline. The area-weighted scores diverge only at the 7th–10th decimal place. This is floating-point noise, not signal.
+The centroid scores reproduce `data/outputs/mcmc/simulation_real_map_scores_250k.json` to all reported decimals — confirming the `seat_results()` baseline. The area-weighted scores diverge only at the 7th–10th decimal place. This is floating-point noise, not signal.
 
 ## Why so small? — boundaries snap to VAs
 
@@ -66,4 +66,4 @@ A diagnostic pass shows **only 7 VAs (carrying 1,396 votes, 0.15 % of the electo
 
 ## One-liner for `methodological_defenses.md` §1.2
 
-> **Empirical refutation (2026-04-26):** `va_attribution_area_weighted.py` re-attributes votes by `intersection_area / VA_area` instead of centroid-in-polygon; v0_9 majority and minority `seats@50/50` change by exactly +0.0000 pp under area-weighted attribution (other Lane 1 metrics shift by ≤1e-5 pp). Diagnostic: only 7 VAs have a >0.01 % area sliver in a second 2026 ED. The v0_9 topological shapefiles snap ED boundaries to VA boundaries, so MAUP is structurally nullified. See `findings/maup_centroid_sensitivity.md` and `data/maup_centroid_sensitivity.json`.
+> **Empirical refutation (2026-04-26):** `va_attribution_area_weighted.py` re-attributes votes by `intersection_area / VA_area` instead of centroid-in-polygon; v0_9 majority and minority `seats@50/50` change by exactly +0.0000 pp under area-weighted attribution (other Lane 1 metrics shift by ≤1e-5 pp). Diagnostic: only 7 VAs have a >0.01 % area sliver in a second 2026 ED. The v0_9 topological shapefiles snap ED boundaries to VA boundaries, so MAUP is structurally nullified. See `findings/maup_centroid_sensitivity.md` and `data/outputs/maup_centroid_sensitivity.json`.

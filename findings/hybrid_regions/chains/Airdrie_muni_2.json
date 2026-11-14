@@ -1,0 +1,12 @@
+{
+ "region": "Airdrie",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_Airdrie_muni_2",
+ "seed": 3599061675,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 8,
+ "n_vas": 327,
+ "muni_weight": 0.5
+}

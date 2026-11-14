@@ -1,0 +1,88 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+LSL,HANSARD-R1-T01-001,hearing,1,core,1,slave lake×1,EB-4,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"6-12,16","hearing: Pincher Creek, Thursday, May 29, 2025"
+LSL,HANSARD-R1-T02-009,hearing,1,core,2,slave lake×1; lesser slave×1,EB-21,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,30-33,"hearing: Lethbridge, Thursday, May 29, 2025"
+LSL,HANSARD-R1-T07-001,hearing,1,context,1,md of opportunity×1,EB-112,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+LSL,HANSARD-R1-T07-004,hearing,1,core,4,slave lake×2; lesser slave×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,162-163,"hearing: Edmonton, Tuesday, June 3, 2025"
+LSL,HANSARD-R1-T09-003,hearing,1,context,7,swan hills×7,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,268-269,"hearing: Westlock, Wednesday, June 4, 2025"
+LSL,HANSARD-R1-T09-006,hearing,1,core,7,slave lake×3; lesser slave×3; swan hills×1,start EB-165,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,271,"hearing: Westlock, Wednesday, June 4, 2025"
+LSL,HANSARD-R1-T18-001,hearing,1,core,2,slave lake×1; lesser slave×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,414-417,"hearing: Calgary, Wednesday, June 11, 2025"
+LSL,HANSARD-R1-T21-002,hearing,1,context,3,red earth×3,EB-345 EB-346 EB-348,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"485-490,492-494,496","hearing: Fort McMurray, Monday, June 16, 2025"
+LSL,HANSARD-R1-T22-001,hearing,1,core,22,slave lake×3; lesser slave×2; high prairie×1; mackenzie×12; red earth×3; md of opportunity×1,EB-356 EB-358,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"502-507,509,511-512,514-516,520","hearing: Peace River, Tuesday, June 17, 2025"
+LSL,HANSARD-R1-T22-003,hearing,1,core,37,slave lake×15; lesser slave×6; high prairie×4; northern sunrise×8; red earth×4,start EB-359 EB-360,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"506-508,516","hearing: Peace River, Tuesday, June 17, 2025"
+LSL,HANSARD-R1-T22-005,hearing,1,context,1,northern sunrise×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,512-513,"hearing: Peace River, Tuesday, June 17, 2025"
+LSL,HANSARD-R1-T24-001,hearing,1,core,85,slave lake×36; lesser slave×14; high prairie×15; wabasca×7; big lakes×2; swan hills×2; driftpile×1; sucker creek×1; red earth×5; md of opportunity×2,start EB-379 EB-380 EB-381 EB-382 EB-383 EB-384 EB-385,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"542-550,552","hearing: Slave Lake, Wednesday, June 18, 2025"
+LSL,HANSARD-R1-T25-003,hearing,1,core,6,slave lake×5; lesser slave×1,start EB-392,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,560-563,"hearing: Hinton, Thursday, June 19, 2025"
+LSL,HANSARD-R1-T28-009,hearing,1,core,6,slave lake×3; lesser slave×3,EB-436,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"627-630,632","hearing: Virtual, Monday, June 23, 2025"
+LSL,HANSARD-R2-T33-005,hearing,2,context,32,mackenzie×32,start EB-537 EB-538,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,16-18,"hearing: Calgary, Tuesday, January 13, 2026"
+LSL,HANSARD-R2-T34-005,hearing,2,core,2,slave lake×1; lesser slave×1,EB-553,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,63-65,"hearing: Calgary, Wednesday, January 14, 2026"
+LSL,HANSARD-R2-T35-002,hearing,2,core,55,slave lake×26; lesser slave×12; high prairie×2; wabasca×1; big lakes×1; swan hills×13,start EB-569 EB-570,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,141-144,"hearing: Virtual, Wednesday, January 15, 2026"
+LSL,HANSARD-R2-T35-007,hearing,2,context,2,mackenzie×2,EB-578,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,148-150,"hearing: Virtual, Wednesday, January 15, 2026"
+LSL,HANSARD-R2-T36-001,hearing,2,context,1,northern sunrise×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"86-87,101","hearing: Virtual, Thursday, January 15, 2026"
+LSL,HANSARD-R2-T36-003,hearing,2,context,3,big lakes×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,88-89,"hearing: Virtual, Thursday, January 15, 2026"
+LSL,HANSARD-R2-T36-006,hearing,2,core,56,slave lake×19; lesser slave×13; high prairie×4; wabasca×1; big lakes×4; swan hills×1; mackenzie×4; driftpile×2; sucker creek×2; red earth×1; md of opportunity×5,start EB-593 EB-594,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,93-98,"hearing: Virtual, Thursday, January 15, 2026"
+LSL,HANSARD-R2-T36-008,hearing,2,core,18,slave lake×8; lesser slave×6; swan hills×1; sucker creek×1; red earth×1; md of opportunity×1,start EB-595 EB-596,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,95-99,"hearing: Virtual, Thursday, January 15, 2026"
+LSL,HANSARD-R2-T40-008,hearing,2,core,2,slave lake×1; lesser slave×1,EB-678,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,283-285,"hearing: Edmonton, Monday, January 19, 2026"
+LSL,HANSARD-R2-T40-012,hearing,2,context,3,mackenzie×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,289-291,"hearing: Edmonton, Monday, January 19, 2026"
+LSL,HANSARD-R2-T41-004,hearing,2,core,2,slave lake×1; lesser slave×1,EB-693,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,222-224,"hearing: Edmonton, Monday, January 19, 2026"
+LSL,HANSARD-R2-T42-004,hearing,2,core,4,slave lake×2; lesser slave×2,EB-716,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,251-254,"hearing: Edmonton, Monday, January 19, 2026"
+LSL,HANSARD-R2-T43-008,hearing,2,core,2,slave lake×1; mackenzie×1,EB-746,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,374-375,"hearing: Edmonton, Tuesday, January 20, 2026"
+LSL,HANSARD-R2-T44-003,hearing,2,core,2,slave lake×1; high prairie×1,EB-757,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,306-308,"hearing: Edmonton, Tuesday, January 20, 2026"
+LSL,HANSARD-R2-T47-006,hearing,2,core,2,slave lake×1; mackenzie×1,EB-834,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,402-405,"hearing: Discussion of Members of the Legislative Assembly, Wednesday, January 21, 2026"
+LSL,HANSARD-R2-T48-007,hearing,2,context,2,mackenzie×2,EB-806,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,433-436,"hearing: Virtual, Wednesday, January 21, 2026"
+LSL,EBC-2025-1-0008,written,1,core,2,slave lake×1; lesser slave×1,15,EBC2025Submissions1-50ForPosting.pdf,15-16,Private Citizen
+LSL,EBC-2025-1-0039,written,1,core,4,slave lake×2; lesser slave×2,82,EBC2025Submissions1-50ForPosting.pdf,81-83,Private Citizen
+LSL,EBC-2025-1-0072,written,1,core,2,slave lake×1; lesser slave×1,64,EBC2025Submissions51-100ForPosting.pdf,63-65,Private Citizen
+LSL,EBC-2025-1-0138,written,1,core,13,slave lake×1; lesser slave×1; high prairie×1; wabasca×5; big lakes×1; swan hills×1; mackenzie×1; sucker creek×1; northern sunrise×1,116 117,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+LSL,EBC-2025-1-0181,written,1,core,4,slave lake×2; lesser slave×2,90,EBC2025Submissions151-197ForPosting.pdf,89-95,Private Citizen
+LSL,EBC-2025-2-0006,written,2,core,1,slave lake×1,15,EBC-2025-2-001-to-050.pdf,15-16,Private Citizen
+LSL,EBC-2025-2-0015,written,2,core,2,slave lake×1; lesser slave×1,34,EBC-2025-2-001-to-050.pdf,34-35,Private Citizen
+LSL,EBC-2025-2-0028,written,2,core,6,slave lake×4; lesser slave×2,69 70,EBC-2025-2-001-to-050.pdf,69-70,Private Citizen
+LSL,EBC-2025-2-0031,written,2,core,6,slave lake×4; lesser slave×2,77 78,EBC-2025-2-001-to-050.pdf,77-78,Private Citizen
+LSL,EBC-2025-2-0034,written,2,core,6,slave lake×5; lesser slave×1,83 84,EBC-2025-2-001-to-050.pdf,83-84,Private Citizen
+LSL,EBC-2025-2-0039,written,2,core,4,slave lake×3; lesser slave×1,94 95,EBC-2025-2-001-to-050.pdf,94-95,Private Citizen
+LSL,EBC-2025-2-0055,written,2,core,4,slave lake×3; lesser slave×1,8,EBC-2025-2-051-to-100.pdf,8-9,Private Citizen
+LSL,EBC-2025-2-0058,written,2,core,33,slave lake×9; lesser slave×8; high prairie×1; joussard×9; mackenzie×6,16 17 15,EBC-2025-2-051-to-100.pdf,15-18,Private Citizen
+LSL,EBC-2025-2-0060,written,2,core,8,slave lake×3; lesser slave×3; big lakes×1; mackenzie×1,21 22,EBC-2025-2-051-to-100.pdf,21-22,Private Citizen
+LSL,EBC-2025-2-0064,written,2,core,14,slave lake×5; lesser slave×4; high prairie×1; joussard×1; mackenzie×3,29 30,EBC-2025-2-051-to-100.pdf,29-30,Private Citizen
+LSL,EBC-2025-2-0081,written,2,core,10,slave lake×4; lesser slave×3; big lakes×1; swan hills×1; kinuso×1,73 74,EBC-2025-2-051-to-100.pdf,73-74,Private Citizen
+LSL,EBC-2025-2-0086,written,2,core,6,slave lake×5; lesser slave×1,85 86,EBC-2025-2-051-to-100.pdf,85-86,Private Citizen
+LSL,EBC-2025-2-0088,written,2,core,10,slave lake×5; lesser slave×3; high prairie×1; red earth×1,90 91 92,EBC-2025-2-051-to-100.pdf,90-93,Private Citizen
+LSL,EBC-2025-2-0104,written,2,core,6,slave lake×1; big lakes×4; mackenzie×1,6,EBC-2025-2-101-to-150.pdf,6,Reeve of Big Lakes County
+LSL,EBC-2025-2-0109,written,2,core,4,slave lake×2; lesser slave×1; kinuso×1,16 17,EBC-2025-2-101-to-150.pdf,16-17,Private Citizen
+LSL,EBC-2025-2-0125,written,2,core,5,slave lake×2; lesser slave×2; mackenzie×1,59,EBC-2025-2-101-to-150.pdf,58-60,Mayor of Grande Prairie
+LSL,EBC-2025-2-0127,written,2,context,1,mackenzie×1,65,EBC-2025-2-101-to-150.pdf,65-66,Private Citizen
+LSL,EBC-2025-2-0129,written,2,core,3,slave lake×1; lesser slave×1; mackenzie×1,71,EBC-2025-2-101-to-150.pdf,71-72,Reeve of the MD of Smoky River
+LSL,EBC-2025-2-0131,written,2,core,6,slave lake×4; lesser slave×2,75 76,EBC-2025-2-101-to-150.pdf,75-76,Private Citizen
+LSL,EBC-2025-2-0139,written,2,context,1,northern sunrise×1,93,EBC-2025-2-101-to-150.pdf,93-94,Private Citizen
+LSL,EBC-2025-2-0148,written,2,core,3,slave lake×1; lesser slave×1; sucker creek×1,114,EBC-2025-2-101-to-150.pdf,114-115,Private Citizen
+LSL,EBC-2025-2-0150,written,2,core,3,slave lake×1; lesser slave×2,118,EBC-2025-2-101-to-150.pdf,118-119,Private Citizen
+LSL,EBC-2025-2-0160,written,2,core,6,slave lake×5; lesser slave×1,25 26,EBC-2025-2-151-to-200.pdf,25-26,Private Citizen
+LSL,EBC-2025-2-0254,written,2,core,5,slave lake×1; lesser slave×1; northern sunrise×3,9,EBC-2025-2-251-to-300.pdf,9,Reeve of Northern Sunrise County
+LSL,EBC-2025-2-0289,written,2,core,10,slave lake×5; lesser slave×5,91 92 93,EBC-2025-2-251-to-300.pdf,90-93,Private Citizen
+LSL,EBC-2025-2-0304,written,2,core,4,slave lake×2; lesser slave×2,7,EBC-2025-2-301-to-350.pdf,7-8,Private Citizen
+LSL,EBC-2025-2-0386,written,2,core,10,slave lake×2; lesser slave×4; big lakes×1; swan hills×2; mackenzie×1,91 92,EBC-2025-2-351-to-400.pdf,91-92,Private Citizen
+LSL,EBC-2025-2-0563,written,2,core,56,slave lake×19; lesser slave×18; high prairie×2; big lakes×5; mackenzie×10; faust×2,38 39 40 41 42 43,EBC-2025-2-551-to-600.pdf,38-43,Private Citizen
+LSL,EBC-2025-2-0602,written,2,context,1,mackenzie×1,4,EBC-2025-2-601-to-650.pdf,4,MLA for Edmonton-Rutherford
+LSL,EBC-2025-2-0615,written,2,core,5,slave lake×2; lesser slave×2; mackenzie×1,36 37,EBC-2025-2-601-to-650.pdf,30-42,Executive Director of Northern Alberta Elected Leaders
+LSL,EBC-2025-2-0646,written,2,core,2,slave lake×2,125 126,EBC-2025-2-601-to-650.pdf,121-129,Private Citizen
+LSL,EBC-2025-2-0679,written,2,context,1,northern sunrise×1,79,EBC-2025-2-651-to-700.pdf,77-79,MLA for Central Peace-Notley
+LSL,EBC-2025-2-0686,written,2,core,24,slave lake×10; lesser slave×7; high prairie×3; big lakes×2; mackenzie×2,97 98,EBC-2025-2-651-to-700.pdf,97-99,Private Citizen
+LSL,EBC-2025-2-0721,written,2,core,24,slave lake×5; lesser slave×4; high prairie×4; big lakes×1; mackenzie×5; kinuso×1; driftpile×1; sucker creek×1; gift lake×1; peavine×1,52 53,EBC-2025-2-701-to-750.pdf,52-54,Private Citizen
+LSL,EBC-2025-2-0778,written,2,core,18,slave lake×10; lesser slave×6; wabasca×2,70 127 141 148 159 199 244 247 249 208,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+LSL,EBC-2025-2-0809,written,2,core,42,slave lake×16; lesser slave×18; wabasca×1; big lakes×2; swan hills×1; northern sunrise×1; fort assiniboine×3,38 39 40 41 43 44 52 56,EBC-2025-2-801-to-850.pdf,28-62,MLA for Bonnyville-Cold Lake-St. Paul
+LSL,EBC-2025-2-0826,written,2,context,1,mackenzie×1,111,EBC-2025-2-801-to-850.pdf,110-113,Private Citizen
+LSL,EBC-2025-2-0831,written,2,core,28,slave lake×14; lesser slave×9; high prairie×1; big lakes×1; swan hills×3,122 123,EBC-2025-2-801-to-850.pdf,122-124,Private Citizen
+LSL,EBC-2025-2-0837,written,2,context,9,mackenzie×9,135 136,EBC-2025-2-801-to-850.pdf,135-136,President of Indigenous Bar Association
+LSL,EBC-2025-2-0860,written,2,core,12,slave lake×6; lesser slave×3; mackenzie×3,23 24,EBC-2025-2-851-to-900.pdf,23-24,Private Citizen
+LSL,EBC-2025-2-0877,written,2,core,4,slave lake×1; lesser slave×2; big lakes×1,60 62,EBC-2025-2-851-to-900.pdf,60-63,Private Citizen
+LSL,EBC-2025-2-0898,written,2,core,2,slave lake×1; lesser slave×1,112,EBC-2025-2-851-to-900.pdf,111-113,Private Citizen
+LSL,EBC-2025-2-0933,written,2,context,2,mackenzie×2,86,EBC-2025-2-901-to-950.pdf,86-87,Private Citizen
+LSL,EBC-2025-2-0939,written,2,core,367,slave lake×172; lesser slave×98; high prairie×25; wabasca×20; big lakes×11; joussard×5; mackenzie×11; kinuso×5; faust×3; driftpile×3; sucker creek×2; northern sunrise×1; red earth×1; m.d. of opportunity×8; gift lake×1; peavine×1,103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126,EBC-2025-2-901-to-950.pdf,103-126,Mayor of Slave Lake
+LSL,EBC-2025-2-0968,written,2,core,24,slave lake×12; lesser slave×12,43 44 45,EBC-2025-2-951-to-1000.pdf,43-45,Private Citizen
+LSL,EBC-2025-2-0989,written,2,core,76,slave lake×28; lesser slave×32; wabasca×2; big lakes×4; swan hills×2; northern sunrise×2; fort assiniboine×6,105 106 107 108 110 111 122 126 127 128 129 131 132,EBC-2025-2-951-to-1000.pdf,103-134,MLA for Fort McMurray-Lac La Biche
+LSL,EBC-2025-2-0993,written,2,context,1,mackenzie×1,144,EBC-2025-2-951-to-1000.pdf,142-145,Private Citizen
+LSL,EBC-2025-2-1025,written,2,core,70,slave lake×24; lesser slave×18; high prairie×1; wabasca×11; big lakes×2; swan hills×1; mackenzie×7; kinuso×1; faust×1; sucker creek×1; northern sunrise×1; md of opportunity×2,81 82 83 84 98 99 100 85,EBC-2025-2-1001-to-1050.pdf,80-109,Private Citizen
+LSL,EBC-2025-2-1037,written,2,core,6,slave lake×1; mackenzie×5,145 144 146,EBC-2025-2-1001-to-1050.pdf,144-147,President of Peace River UCP Constituency Association
+LSL,EBC-2025-2-1086,written,2,core,14,slave lake×8; lesser slave×2; mackenzie×4,91 92,EBC-2025-2-1051-to-1100.pdf,91-92,Private Citizen
+LSL,EBC-2025-2-1100,written,2,core,37,slave lake×10; lesser slave×7; high prairie×3; big lakes×2; joussard×1; mackenzie×4; kinuso×1; faust×1; driftpile×3; sucker creek×2; md of opportunity×1; gift lake×1; peavine×1,128 129 131 132 133 134 130,EBC-2025-2-1051-to-1100.pdf,128-134,Executive Director of Alberta North Central Alliance
+LSL,EBC-2025-2-1122,written,2,core,2,slave lake×2,49,EBC-2025-2-1101-to-1143.pdf,49,Reeve of Thorhild County

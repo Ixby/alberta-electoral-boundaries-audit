@@ -10,22 +10,32 @@ vote shares as splat weights.
 Pipeline
 --------
 Step 1  Read polls_2023_unified.csv; inspect ballot_type breakdown.
-Step 2  Build splat weights per (ed_2019, sheet_num) group:
-        - Pool all Election-Day VAs in the group to get ED-level weights.
-        - Distribute each non-Election-Day poll's votes proportionally.
+Step 2  Build splat weights per 2019 division (the (ed_2019, sheet_num) key is
+        one-to-one with the division):
+        - Pool all Election-Day VAs in the division to get its weights.
+        - Distribute each non-Election-Day poll's votes proportionally. The
+          weight is the VA's election-day NDP + UCP votes and is the same for
+          every party, so every VA in a division gets the division's party mix
+          for these ballots; advance, mobile and special ballots from a named
+          location are all spread division-wide.
 Step 3  Merge apportioned votes with Election-Day votes from the VA substrate,
         write data/va_polygons_with_full_2023_votes.gpkg.
 Step 4  Validate conservation; print province-wide NDP-share comparison.
 
 Outputs
 -------
-  data/va_polygons_with_full_2023_votes.gpkg
+  data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
   data/outputs/advance_vote_splat_diagnostics.csv
 
 Backward:
-  # REVIEW: verify inputs before publication
+  data/outputs/polls_2023_unified.csv (no committed script builds it from
+      data/raw/2023_results.xlsx)
+  data/shapefiles/derived/va_polygons_with_2023_votes.gpkg (no committed script
+      writes this derived copy; build_canonical_va_votes.py writes the canonical
+      copy, without parent_ed_2019)
 Forward:
-  # REVIEW: verify outputs before publication
+  data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
+  data/outputs/advance_vote_splat_diagnostics.csv
 """
 
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -94,6 +104,8 @@ print(
 
 # ---------------------------------------------------------------------------
 # C5 — Exclude Vote Anywhere polls (cannot be attributed to specific VAs)
+# 2026-11-05: they can be attributed to the voter's district, which Elections Alberta reports;
+# vote_anywhere_splat.py adds them back to this script's output (academic report C51).
 # ---------------------------------------------------------------------------
 mask_va = polls["poll_name"].str.contains("Vote Anywhere", na=False, case=False)
 va_excluded = polls[mask_va]

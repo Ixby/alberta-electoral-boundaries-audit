@@ -1,0 +1,334 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "rule_as_stated": "Zone A: centroid north or east of a line along the Bow River through downtown, then southeast along Deerfoot Trail. Zone B: south or west of it.",
+  "april_24_rule": "A2 passes if the minority's zone gap is no more than twice the majority's (v0_1_null_hypothesis_and_exoneration_criteria.md, commit fa10c8a0). 'Fires' below means the minority's gap is more than twice the majority's.",
+  "line_construction": {
+    "highway_2_carriageway_segments": 238,
+    "bow_first_crosses_deerfoot_at_lat_lon": [
+      51.0085,
+      -114.019
+    ],
+    "bow_nearest_approach_before_crossing_at_lat_lon": [
+      51.0443,
+      -114.0137
+    ],
+    "bow_nearest_approach_distance_m": 114.0,
+    "strip_between_the_two_readings_km2": 1.846,
+    "strip_length_along_river_km": 5.17
+  },
+  "summary": {
+    "minority_gap_pct": {
+      "committed_lists": 12.198,
+      "published_3_recode": 7.703,
+      "literal": 5.697,
+      "literal_nolan_hill_cochrane_in_a": 5.301
+    },
+    "majority_gap_pct": {
+      "committed_lists": 0.364,
+      "literal_confluence_in_a": -2.568,
+      "literal_confluence_in_b": -3.069
+    },
+    "two_times_rule_fires_on_magnitudes": {
+      "committed_lists": true,
+      "published_3_recode": true,
+      "literal: Confluence A (bow_to_crossing), Nolan Hill-Cochrane B": true,
+      "literal: Confluence B (handoff_at_nearest_approach), Nolan Hill-Cochrane B": false,
+      "literal: Confluence A, Nolan Hill-Cochrane A (auditors' five-district recode)": true,
+      "literal: Confluence B, Nolan Hill-Cochrane A": false
+    },
+    "two_times_rule_fires_signed": {
+      "committed_lists": true,
+      "published_3_recode": true,
+      "literal: Confluence A (bow_to_crossing), Nolan Hill-Cochrane B": true,
+      "literal: Confluence B (handoff_at_nearest_approach), Nolan Hill-Cochrane B": true,
+      "literal: Confluence A, Nolan Hill-Cochrane A (auditors' five-district recode)": true,
+      "literal: Confluence B, Nolan Hill-Cochrane A": true
+    },
+    "minority_zone_a_above_5pct_of_provincial_mean_under_every_coding": true,
+    "the_two_districts_at_issue": "Calgary-Hays and Calgary-South East: coded Zone B in the committed lists and left there by the published recode; their centroids are east of Deerfoot Trail on both maps, so the stated rule puts them in Zone A."
+  },
+  "maps": {
+    "majority": {
+      "n_calgary_districts": 28,
+      "provincial_mean_population": 54929.5,
+      "codings": {
+        "committed_lists": {
+          "n_zone_a": 17,
+          "mean_zone_a": 56459.5,
+          "n_zone_b": 11,
+          "mean_zone_b": 56254.9,
+          "gap_persons": 204.6,
+          "gap_pct": 0.364,
+          "zone_a_excess_over_provincial_mean_pct": 2.785,
+          "zone_b_excess_over_provincial_mean_pct": 2.413
+        },
+        "published_3_recode": {
+          "n_zone_a": 17,
+          "mean_zone_a": 56459.5,
+          "n_zone_b": 11,
+          "mean_zone_b": 56254.9,
+          "gap_persons": 204.6,
+          "gap_pct": 0.364,
+          "zone_a_excess_over_provincial_mean_pct": 2.785,
+          "zone_b_excess_over_provincial_mean_pct": 2.413
+        },
+        "literal_bow_to_crossing": {
+          "n_zone_a": 17,
+          "mean_zone_a": 55801.3,
+          "n_zone_b": 11,
+          "mean_zone_b": 57272.2,
+          "gap_persons": -1470.9,
+          "gap_pct": -2.568,
+          "zone_a_excess_over_provincial_mean_pct": 1.587,
+          "zone_b_excess_over_provincial_mean_pct": 4.265
+        },
+        "literal_handoff_at_nearest_approach": {
+          "n_zone_a": 16,
+          "mean_zone_a": 55624.4,
+          "n_zone_b": 12,
+          "mean_zone_b": 57385.5,
+          "gap_persons": -1761.1,
+          "gap_pct": -3.069,
+          "zone_a_excess_over_provincial_mean_pct": 1.265,
+          "zone_b_excess_over_provincial_mean_pct": 4.471
+        }
+      },
+      "districts_whose_zone_differs_from_committed": {
+        "published_3_recode": {},
+        "literal_bow_to_crossing": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Hays": "B->A",
+          "Calgary-South East": "B->A"
+        },
+        "literal_handoff_at_nearest_approach": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Confluence": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Hays": "B->A",
+          "Calgary-South East": "B->A"
+        }
+      },
+      "districts_in_strip": [
+        "Calgary-Confluence"
+      ]
+    },
+    "minority": {
+      "n_calgary_districts": 29,
+      "provincial_mean_population": 54930.0,
+      "codings": {
+        "committed_lists": {
+          "n_zone_a": 17,
+          "mean_zone_a": 61224.7,
+          "n_zone_b": 12,
+          "mean_zone_b": 54568.7,
+          "gap_persons": 6656.0,
+          "gap_pct": 12.198,
+          "zone_a_excess_over_provincial_mean_pct": 11.459,
+          "zone_b_excess_over_provincial_mean_pct": -0.658
+        },
+        "published_3_recode": {
+          "n_zone_a": 16,
+          "mean_zone_a": 60407.3,
+          "n_zone_b": 13,
+          "mean_zone_b": 56086.7,
+          "gap_persons": 4320.6,
+          "gap_pct": 7.703,
+          "zone_a_excess_over_provincial_mean_pct": 9.971,
+          "zone_b_excess_over_provincial_mean_pct": 2.106
+        },
+        "literal_bow_to_crossing": {
+          "n_zone_a": 17,
+          "mean_zone_a": 59804.4,
+          "n_zone_b": 12,
+          "mean_zone_b": 56580.8,
+          "gap_persons": 3223.7,
+          "gap_pct": 5.697,
+          "zone_a_excess_over_provincial_mean_pct": 8.874,
+          "zone_b_excess_over_provincial_mean_pct": 3.005
+        },
+        "literal_handoff_at_nearest_approach": {
+          "n_zone_a": 17,
+          "mean_zone_a": 59804.4,
+          "n_zone_b": 12,
+          "mean_zone_b": 56580.8,
+          "gap_persons": 3223.7,
+          "gap_pct": 5.697,
+          "zone_a_excess_over_provincial_mean_pct": 8.874,
+          "zone_b_excess_over_provincial_mean_pct": 3.005
+        },
+        "literal_nolan_hill_cochrane_in_a": {
+          "n_zone_a": 18,
+          "mean_zone_a": 59608.7,
+          "n_zone_b": 11,
+          "mean_zone_b": 56607.9,
+          "gap_persons": 3000.8,
+          "gap_pct": 5.301,
+          "zone_a_excess_over_provincial_mean_pct": 8.518,
+          "zone_b_excess_over_provincial_mean_pct": 3.055
+        }
+      },
+      "districts_whose_zone_differs_from_committed": {
+        "published_3_recode": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Peigan-Chestermere": "B->A"
+        },
+        "literal_bow_to_crossing": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Hays": "B->A",
+          "Calgary-Nolan Hill-Cochrane": "A->B",
+          "Calgary-Peigan-Chestermere": "B->A",
+          "Calgary-South East": "B->A"
+        },
+        "literal_handoff_at_nearest_approach": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Hays": "B->A",
+          "Calgary-Nolan Hill-Cochrane": "A->B",
+          "Calgary-Peigan-Chestermere": "B->A",
+          "Calgary-South East": "B->A"
+        },
+        "literal_nolan_hill_cochrane_in_a": {
+          "Calgary-Buffalo": "A->B",
+          "Calgary-Currie": "A->B",
+          "Calgary-Hays": "B->A",
+          "Calgary-Peigan-Chestermere": "B->A",
+          "Calgary-South East": "B->A"
+        }
+      },
+      "districts_in_strip": []
+    }
+  },
+  "april_24_two_times_rule": {
+    "committed_lists": {
+      "majority_coding": "committed_lists",
+      "minority_coding": "committed_lists",
+      "majority_gap_pct": 0.364,
+      "minority_gap_pct": 12.198,
+      "magnitudes": {
+        "twice_majority": 0.728,
+        "minority_exceeds_twice_majority": true,
+        "margin_pts": 11.47
+      },
+      "signed_as_written": {
+        "twice_majority": 0.728,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 2.785,
+        "zone_a_excess_minority_pct": 11.459,
+        "minority_above_5pct": true
+      }
+    },
+    "published_3_recode": {
+      "majority_coding": "published_3_recode",
+      "minority_coding": "published_3_recode",
+      "majority_gap_pct": 0.364,
+      "minority_gap_pct": 7.703,
+      "magnitudes": {
+        "twice_majority": 0.728,
+        "minority_exceeds_twice_majority": true,
+        "margin_pts": 6.975
+      },
+      "signed_as_written": {
+        "twice_majority": 0.728,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 2.785,
+        "zone_a_excess_minority_pct": 9.971,
+        "minority_above_5pct": true
+      }
+    },
+    "literal: Confluence A (bow_to_crossing), Nolan Hill-Cochrane B": {
+      "majority_coding": "literal_bow_to_crossing",
+      "minority_coding": "literal_bow_to_crossing",
+      "majority_gap_pct": -2.568,
+      "minority_gap_pct": 5.697,
+      "magnitudes": {
+        "twice_majority": 5.136,
+        "minority_exceeds_twice_majority": true,
+        "margin_pts": 0.561
+      },
+      "signed_as_written": {
+        "twice_majority": -5.136,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 1.587,
+        "zone_a_excess_minority_pct": 8.874,
+        "minority_above_5pct": true
+      }
+    },
+    "literal: Confluence B (handoff_at_nearest_approach), Nolan Hill-Cochrane B": {
+      "majority_coding": "literal_handoff_at_nearest_approach",
+      "minority_coding": "literal_bow_to_crossing",
+      "majority_gap_pct": -3.069,
+      "minority_gap_pct": 5.697,
+      "magnitudes": {
+        "twice_majority": 6.138,
+        "minority_exceeds_twice_majority": false,
+        "margin_pts": -0.441
+      },
+      "signed_as_written": {
+        "twice_majority": -6.138,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 1.265,
+        "zone_a_excess_minority_pct": 8.874,
+        "minority_above_5pct": true
+      }
+    },
+    "literal: Confluence A, Nolan Hill-Cochrane A (auditors' five-district recode)": {
+      "majority_coding": "literal_bow_to_crossing",
+      "minority_coding": "literal_nolan_hill_cochrane_in_a",
+      "majority_gap_pct": -2.568,
+      "minority_gap_pct": 5.301,
+      "magnitudes": {
+        "twice_majority": 5.136,
+        "minority_exceeds_twice_majority": true,
+        "margin_pts": 0.165
+      },
+      "signed_as_written": {
+        "twice_majority": -5.136,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 1.587,
+        "zone_a_excess_minority_pct": 8.518,
+        "minority_above_5pct": true
+      }
+    },
+    "literal: Confluence B, Nolan Hill-Cochrane A": {
+      "majority_coding": "literal_handoff_at_nearest_approach",
+      "minority_coding": "literal_nolan_hill_cochrane_in_a",
+      "majority_gap_pct": -3.069,
+      "minority_gap_pct": 5.301,
+      "magnitudes": {
+        "twice_majority": 6.138,
+        "minority_exceeds_twice_majority": false,
+        "margin_pts": -0.837
+      },
+      "signed_as_written": {
+        "twice_majority": -6.138,
+        "minority_exceeds_twice_majority": true
+      },
+      "public_report_measure": {
+        "zone_a_excess_majority_pct": 1.265,
+        "zone_a_excess_minority_pct": 8.518,
+        "minority_above_5pct": true
+      }
+    }
+  },
+  "limits": [
+    "The stated rule does not say where the line passes from the river to the freeway; two readings are given. They differ only for Calgary-Confluence on the majority map.",
+    "The stated rule does not say what the line does west of the city. Followed up the Bow it moves the minority's Calgary-Nolan Hill-Cochrane to Zone B; a variant keeps it in Zone A.",
+    "A centroid is one point: Calgary-Confluence's is about 100 m from Deerfoot Trail, and hybrid districts that reach outside the city are coded by where their centroid falls.",
+    "The Bow River is identified by position in an unnamed OpenStreetMap extract, and Deerfoot Trail as Highway 2 in the National Road Network file.",
+    "Populations are the commission's own tables, as in the published figure. District counts and means move with every recode because whole districts change zone.",
+    "This does not address how the committed lists were first chosen (audit finding structural-lane-1)."
+  ]
+}

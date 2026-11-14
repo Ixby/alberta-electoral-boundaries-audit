@@ -1,0 +1,831 @@
+{
+ "pages": "C:/tmp/a10test/fixture",
+ "snap": "C:/tmp/a10test/clean5_fixed",
+ "summary": {
+  "near_m": 100.0,
+  "n": 15,
+  "settled": 10,
+  "review": 5,
+  "pop_review": 3828.7046051832003
+ },
+ "vas": [
+  {
+   "OBJECTID": 759,
+   "VA_NUMBER": "16",
+   "assigned_ed": 58,
+   "other_ed": 52,
+   "pop_2021": 791.8705730022866,
+   "point_to_final_line_m": 67.2,
+   "finest_page": 58,
+   "finest_grid_m": 5.29,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 58,
+     "kind": "polygon",
+     "scale_m_per_pt": 57.5244473738739,
+     "grid_m": 5.292249158396398,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 67.3
+    },
+    {
+     "page": 52,
+     "kind": "polygon",
+     "scale_m_per_pt": 345.11328630547206,
+     "grid_m": 31.75042234010343,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 58.8
+    },
+    {
+     "page": 52,
+     "kind": "grey line",
+     "scale_m_per_pt": 345.11328630547206,
+     "grid_m": 31.75042234010343,
+     "distance_m": 58.8
+    },
+    {
+     "page": 58,
+     "kind": "grey line",
+     "scale_m_per_pt": 57.5244473738739,
+     "grid_m": 5.292249158396398,
+     "distance_m": 67.3
+    },
+    {
+     "page": 81,
+     "kind": "grey line",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "distance_m": 61.1
+    },
+    {
+     "page": 85,
+     "kind": "grey line",
+     "scale_m_per_pt": 412.2125689080454,
+     "grid_m": 37.92355633954018,
+     "distance_m": 72.8
+    }
+   ]
+  },
+  {
+   "OBJECTID": 871,
+   "VA_NUMBER": "22",
+   "assigned_ed": 74,
+   "other_ed": 73,
+   "pop_2021": 536.7033873693762,
+   "point_to_final_line_m": 13.4,
+   "finest_page": 73,
+   "finest_grid_m": 22.93,
+   "verdict": "review",
+   "drawings": [
+    {
+     "page": 74,
+     "kind": "polygon",
+     "scale_m_per_pt": 316.35117391548795,
+     "grid_m": 29.10430800022489,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 13.4
+    },
+    {
+     "page": 73,
+     "kind": "polygon",
+     "scale_m_per_pt": 249.2476902103615,
+     "grid_m": 22.930787499353258,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 17.3
+    },
+    {
+     "page": 73,
+     "kind": "grey line",
+     "scale_m_per_pt": 249.2476902103615,
+     "grid_m": 22.930787499353258,
+     "distance_m": 17.3
+    },
+    {
+     "page": 74,
+     "kind": "grey line",
+     "scale_m_per_pt": 316.35117391548795,
+     "grid_m": 29.10430800022489,
+     "distance_m": 13.4
+    },
+    {
+     "page": 77,
+     "kind": "grey line",
+     "scale_m_per_pt": 324.5499209807634,
+     "grid_m": 29.85859273023023,
+     "distance_m": 7.2
+    }
+   ]
+  },
+  {
+   "OBJECTID": 875,
+   "VA_NUMBER": "42",
+   "assigned_ed": 85,
+   "other_ed": 68,
+   "pop_2021": 497.7930344496358,
+   "point_to_final_line_m": 9.7,
+   "finest_page": 54,
+   "finest_grid_m": 16.05,
+   "verdict": "review",
+   "drawings": [
+    {
+     "page": 85,
+     "kind": "polygon",
+     "scale_m_per_pt": 412.2125689080454,
+     "grid_m": 37.92355633954018,
+     "point_inside": false,
+     "agrees": false,
+     "distance_m": 9.7
+    },
+    {
+     "page": 68,
+     "kind": "polygon",
+     "scale_m_per_pt": 181.03569460581969,
+     "grid_m": 16.65528390373541,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 3.3
+    },
+    {
+     "page": 54,
+     "kind": "grey line",
+     "scale_m_per_pt": 174.47115680811922,
+     "grid_m": 16.051346426346967,
+     "distance_m": 6.5
+    },
+    {
+     "page": 68,
+     "kind": "grey line",
+     "scale_m_per_pt": 181.03569460581969,
+     "grid_m": 16.65528390373541,
+     "distance_m": 3.3
+    },
+    {
+     "page": 85,
+     "kind": "grey line",
+     "scale_m_per_pt": 412.2125689080454,
+     "grid_m": 37.92355633954018,
+     "distance_m": 9.7
+    },
+    {
+     "page": 91,
+     "kind": "grey line",
+     "scale_m_per_pt": 220.48770768170897,
+     "grid_m": 20.284869106717224,
+     "distance_m": 10.7
+    }
+   ]
+  },
+  {
+   "OBJECTID": 1508,
+   "VA_NUMBER": "22",
+   "assigned_ed": 42,
+   "other_ed": 69,
+   "pop_2021": 3212.231199834313,
+   "point_to_final_line_m": 78.2,
+   "finest_page": 69,
+   "finest_grid_m": 2.82,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 42,
+     "kind": "polygon",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 80.1
+    },
+    {
+     "page": 69,
+     "kind": "polygon",
+     "scale_m_per_pt": 30.674138176169475,
+     "grid_m": 2.8220207122075918,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 78.8
+    },
+    {
+     "page": 42,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "distance_m": 80.1
+    },
+    {
+     "page": 55,
+     "kind": "grey line",
+     "scale_m_per_pt": 254.08971767433871,
+     "grid_m": 23.376254026039163,
+     "distance_m": 70.7
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 68.8
+    },
+    {
+     "page": 69,
+     "kind": "grey line",
+     "scale_m_per_pt": 30.674138176169475,
+     "grid_m": 2.8220207122075918,
+     "distance_m": 78.8
+    },
+    {
+     "page": 91,
+     "kind": "grey line",
+     "scale_m_per_pt": 220.48770768170897,
+     "grid_m": 20.284869106717224,
+     "distance_m": 82.0
+    }
+   ]
+  },
+  {
+   "OBJECTID": 1570,
+   "VA_NUMBER": "13",
+   "assigned_ed": 44,
+   "other_ed": 45,
+   "pop_2021": 367.11954716137257,
+   "point_to_final_line_m": 99.0,
+   "finest_page": 44,
+   "finest_grid_m": 1.16,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 45,
+     "kind": "polygon",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 99.7
+    },
+    {
+     "page": 42,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "distance_m": 99.7
+    },
+    {
+     "page": 44,
+     "kind": "grey line",
+     "scale_m_per_pt": 12.655360696356533,
+     "grid_m": 1.164293184064801,
+     "distance_m": 99.4
+    },
+    {
+     "page": 45,
+     "kind": "grey line",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "distance_m": 99.7
+    },
+    {
+     "page": 55,
+     "kind": "grey line",
+     "scale_m_per_pt": 254.08971767433871,
+     "grid_m": 23.376254026039163,
+     "distance_m": 88.4
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 97.6
+    }
+   ]
+  },
+  {
+   "OBJECTID": 1905,
+   "VA_NUMBER": "56",
+   "assigned_ed": 45,
+   "other_ed": 49,
+   "pop_2021": 604.5711812322347,
+   "point_to_final_line_m": 51.3,
+   "finest_page": 45,
+   "finest_grid_m": 1.59,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 45,
+     "kind": "polygon",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 62.6
+    },
+    {
+     "page": 42,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "distance_m": 62.3
+    },
+    {
+     "page": 45,
+     "kind": "grey line",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "distance_m": 62.6
+    },
+    {
+     "page": 55,
+     "kind": "grey line",
+     "scale_m_per_pt": 254.08971767433871,
+     "grid_m": 23.376254026039163,
+     "distance_m": 60.9
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 63.3
+    },
+    {
+     "page": 69,
+     "kind": "grey line",
+     "scale_m_per_pt": 30.674138176169475,
+     "grid_m": 2.8220207122075918,
+     "distance_m": 63.2
+    }
+   ]
+  },
+  {
+   "OBJECTID": 2902,
+   "VA_NUMBER": "4",
+   "assigned_ed": 57,
+   "other_ed": 81,
+   "pop_2021": 998.4312344770728,
+   "point_to_final_line_m": 4.0,
+   "finest_page": 50,
+   "finest_grid_m": 8.57,
+   "verdict": "review",
+   "drawings": [
+    {
+     "page": 81,
+     "kind": "polygon",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 8.4
+    },
+    {
+     "page": 50,
+     "kind": "grey line",
+     "scale_m_per_pt": 93.1027712723017,
+     "grid_m": 8.565454957051756,
+     "distance_m": 12.6
+    },
+    {
+     "page": 73,
+     "kind": "grey line",
+     "scale_m_per_pt": 249.2476902103615,
+     "grid_m": 22.930787499353258,
+     "distance_m": 0.6
+    },
+    {
+     "page": 81,
+     "kind": "grey line",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "distance_m": 8.4
+    }
+   ]
+  },
+  {
+   "OBJECTID": 2974,
+   "VA_NUMBER": "33",
+   "assigned_ed": 46,
+   "other_ed": 36,
+   "pop_2021": 1056.5988586698984,
+   "point_to_final_line_m": 53.8,
+   "finest_page": 46,
+   "finest_grid_m": 1.23,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 46,
+     "kind": "polygon",
+     "scale_m_per_pt": 13.42142720204883,
+     "grid_m": 1.2347713025884923,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 55.6
+    },
+    {
+     "page": 36,
+     "kind": "grey line",
+     "scale_m_per_pt": 19.17216357916186,
+     "grid_m": 1.7638390492828913,
+     "distance_m": 55.9
+    },
+    {
+     "page": 46,
+     "kind": "grey line",
+     "scale_m_per_pt": 13.42142720204883,
+     "grid_m": 1.2347713025884923,
+     "distance_m": 56.4
+    },
+    {
+     "page": 53,
+     "kind": "grey line",
+     "scale_m_per_pt": 383.45736686287063,
+     "grid_m": 35.278077751384096,
+     "distance_m": 49.5
+    },
+    {
+     "page": 55,
+     "kind": "grey line",
+     "scale_m_per_pt": 254.08971767433871,
+     "grid_m": 23.376254026039163,
+     "distance_m": 60.2
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 55.3
+    }
+   ]
+  },
+  {
+   "OBJECTID": 3130,
+   "VA_NUMBER": "12",
+   "assigned_ed": 28,
+   "other_ed": 8,
+   "pop_2021": 846.5298981177109,
+   "point_to_final_line_m": 87.6,
+   "finest_page": 8,
+   "finest_grid_m": 0.96,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 28,
+     "kind": "polygon",
+     "scale_m_per_pt": 36.55304519195084,
+     "grid_m": 3.362880157659477,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 89.4
+    },
+    {
+     "page": 4,
+     "kind": "grey line",
+     "scale_m_per_pt": 37.67314516525171,
+     "grid_m": 3.465929355203157,
+     "distance_m": 89.5
+    },
+    {
+     "page": 8,
+     "kind": "grey line",
+     "scale_m_per_pt": 10.44307859788727,
+     "grid_m": 0.9607632310056289,
+     "distance_m": 87.5
+    },
+    {
+     "page": 14,
+     "kind": "grey line",
+     "scale_m_per_pt": 67.10718523121939,
+     "grid_m": 6.1738610412721835,
+     "distance_m": 87.3
+    },
+    {
+     "page": 22,
+     "kind": "grey line",
+     "scale_m_per_pt": 14.735873470686565,
+     "grid_m": 1.355700359303164,
+     "distance_m": 71.7
+    },
+    {
+     "page": 28,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.55304519195084,
+     "grid_m": 3.362880157659477,
+     "distance_m": 89.4
+    },
+    {
+     "page": 52,
+     "kind": "grey line",
+     "scale_m_per_pt": 345.11328630547206,
+     "grid_m": 31.75042234010343,
+     "distance_m": 89.4
+    },
+    {
+     "page": 80,
+     "kind": "grey line",
+     "scale_m_per_pt": 120.7901966473492,
+     "grid_m": 11.112698091556126,
+     "distance_m": 90.8
+    },
+    {
+     "page": 81,
+     "kind": "grey line",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "distance_m": 97.0
+    }
+   ]
+  },
+  {
+   "OBJECTID": 3190,
+   "VA_NUMBER": "32",
+   "assigned_ed": 45,
+   "other_ed": 44,
+   "pop_2021": 656.4114575601225,
+   "point_to_final_line_m": 98.3,
+   "finest_page": 44,
+   "finest_grid_m": 1.16,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 45,
+     "kind": "polygon",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 97.6
+    },
+    {
+     "page": 42,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "distance_m": 97.9
+    },
+    {
+     "page": 44,
+     "kind": "grey line",
+     "scale_m_per_pt": 12.655360696356533,
+     "grid_m": 1.164293184064801,
+     "distance_m": 97.9
+    },
+    {
+     "page": 45,
+     "kind": "grey line",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "distance_m": 97.6
+    }
+   ]
+  },
+  {
+   "OBJECTID": 3814,
+   "VA_NUMBER": "14",
+   "assigned_ed": 81,
+   "other_ed": 57,
+   "pop_2021": 814.1317682622289,
+   "point_to_final_line_m": 0.3,
+   "finest_page": 73,
+   "finest_grid_m": 22.93,
+   "verdict": "review",
+   "drawings": [
+    {
+     "page": 81,
+     "kind": "polygon",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "point_inside": false,
+     "agrees": false,
+     "distance_m": 3.1
+    },
+    {
+     "page": 61,
+     "kind": "grey line",
+     "scale_m_per_pt": 468.1896743073589,
+     "grid_m": 43.07345003627702,
+     "distance_m": 5.7
+    },
+    {
+     "page": 73,
+     "kind": "grey line",
+     "scale_m_per_pt": 249.2476902103615,
+     "grid_m": 22.930787499353258,
+     "distance_m": 6.6
+    },
+    {
+     "page": 81,
+     "kind": "grey line",
+     "scale_m_per_pt": 276.0901683099119,
+     "grid_m": 25.400295484511897,
+     "distance_m": 3.1
+    }
+   ]
+  },
+  {
+   "OBJECTID": 3817,
+   "VA_NUMBER": "47",
+   "assigned_ed": 79,
+   "other_ed": 88,
+   "pop_2021": 698.8752258344817,
+   "point_to_final_line_m": 62.1,
+   "finest_page": 79,
+   "finest_grid_m": 12.21,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 79,
+     "kind": "polygon",
+     "scale_m_per_pt": 132.6903233932535,
+     "grid_m": 12.207509752179321,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 62.9
+    },
+    {
+     "page": 53,
+     "kind": "grey line",
+     "scale_m_per_pt": 383.45736686287063,
+     "grid_m": 35.278077751384096,
+     "distance_m": 61.3
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 65.9
+    },
+    {
+     "page": 79,
+     "kind": "grey line",
+     "scale_m_per_pt": 132.6903233932535,
+     "grid_m": 12.207509752179321,
+     "distance_m": 62.9
+    }
+   ]
+  },
+  {
+   "OBJECTID": 4344,
+   "VA_NUMBER": "10",
+   "assigned_ed": 54,
+   "other_ed": 84,
+   "pop_2021": 700.1634168699956,
+   "point_to_final_line_m": 10.7,
+   "finest_page": 84,
+   "finest_grid_m": 1.34,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 54,
+     "kind": "polygon",
+     "scale_m_per_pt": 174.47115680811922,
+     "grid_m": 16.051346426346967,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 15.0
+    },
+    {
+     "page": 84,
+     "kind": "polygon",
+     "scale_m_per_pt": 14.569154445988158,
+     "grid_m": 1.3403622090309104,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 10.9
+    },
+    {
+     "page": 54,
+     "kind": "grey line",
+     "scale_m_per_pt": 174.47115680811922,
+     "grid_m": 16.051346426346967,
+     "distance_m": 15.0
+    },
+    {
+     "page": 68,
+     "kind": "grey line",
+     "scale_m_per_pt": 181.03569460581969,
+     "grid_m": 16.65528390373541,
+     "distance_m": 15.5
+    },
+    {
+     "page": 84,
+     "kind": "grey line",
+     "scale_m_per_pt": 14.569154445988158,
+     "grid_m": 1.3403622090309104,
+     "distance_m": 10.9
+    }
+   ]
+  },
+  {
+   "OBJECTID": 4590,
+   "VA_NUMBER": "57",
+   "assigned_ed": 45,
+   "other_ed": 49,
+   "pop_2021": 723.1604172102044,
+   "point_to_final_line_m": 63.5,
+   "finest_page": 45,
+   "finest_grid_m": 1.59,
+   "verdict": "settled",
+   "drawings": [
+    {
+     "page": 45,
+     "kind": "polygon",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 63.5
+    },
+    {
+     "page": 42,
+     "kind": "grey line",
+     "scale_m_per_pt": 36.425300866684964,
+     "grid_m": 3.3511276797350167,
+     "distance_m": 63.5
+    },
+    {
+     "page": 45,
+     "kind": "grey line",
+     "scale_m_per_pt": 17.252854726627085,
+     "grid_m": 1.5872626348496919,
+     "distance_m": 63.5
+    },
+    {
+     "page": 55,
+     "kind": "grey line",
+     "scale_m_per_pt": 254.08971767433871,
+     "grid_m": 23.376254026039163,
+     "distance_m": 56.9
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 64.9
+    },
+    {
+     "page": 69,
+     "kind": "grey line",
+     "scale_m_per_pt": 30.674138176169475,
+     "grid_m": 2.8220207122075918,
+     "distance_m": 64.2
+    }
+   ]
+  },
+  {
+   "OBJECTID": 4753,
+   "VA_NUMBER": "50",
+   "assigned_ed": 87,
+   "other_ed": 60,
+   "pop_2021": 981.6451806248866,
+   "point_to_final_line_m": 8.8,
+   "finest_page": 87,
+   "finest_grid_m": 3.7,
+   "verdict": "review",
+   "drawings": [
+    {
+     "page": 87,
+     "kind": "polygon",
+     "scale_m_per_pt": 40.26912374864528,
+     "grid_m": 3.7047593848753655,
+     "point_inside": true,
+     "agrees": true,
+     "distance_m": 8.8
+    },
+    {
+     "page": 60,
+     "kind": "polygon",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "point_inside": false,
+     "agrees": true,
+     "distance_m": 9.2
+    },
+    {
+     "page": 60,
+     "kind": "grey line",
+     "scale_m_per_pt": 227.12615722687238,
+     "grid_m": 20.89560646487226,
+     "distance_m": 9.2
+    },
+    {
+     "page": 67,
+     "kind": "grey line",
+     "scale_m_per_pt": 163.22109386693407,
+     "grid_m": 15.016340635757935,
+     "distance_m": 5.6
+    },
+    {
+     "page": 87,
+     "kind": "grey line",
+     "scale_m_per_pt": 40.26912374864528,
+     "grid_m": 3.7047593848753655,
+     "distance_m": 8.8
+    }
+   ]
+  }
+ ]
+}

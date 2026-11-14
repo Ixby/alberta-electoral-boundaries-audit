@@ -1,0 +1,382 @@
+{
+ "plan": "preregistration/population_basis_2026-11-07.md (commit c01cbdcd): proposed rerun of set D on the growth basis",
+ "status": "unregistered sensitivity analysis",
+ "votes": "all 2023 ballots (primary gpkg), UCP seats only",
+ "retired_growth_indices": {
+  "252": "no seed: recursive_tree_part, no cut after 50000 attempts",
+  "255": "no seed: same"
+ },
+ "chains": {
+  "251": {
+   "rows": 252500,
+   "seed": 2041389144,
+   "done": 252500,
+   "pop_file_sha256": "205b653c0ca66f8cdf7a8467c348d3d5e6cb849600cc1626a525f825431c7908",
+   "s152_sha256": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+   "sha256": "65051f1f1cb89840b35bfbdf156b674fcda7adeb8bd888832c1e418d29cbba32",
+   "city_gap_median_growth": 3.638,
+   "city_gap_median_2021": 3.682
+  },
+  "253": {
+   "rows": 252500,
+   "seed": 2041391144,
+   "done": 252500,
+   "pop_file_sha256": "205b653c0ca66f8cdf7a8467c348d3d5e6cb849600cc1626a525f825431c7908",
+   "s152_sha256": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+   "sha256": "717a5df9dd14fcfb09ec4f6298fcd1a33f6b648d555da8514aa17826935e045d",
+   "city_gap_median_growth": 1.433,
+   "city_gap_median_2021": 3.34
+  },
+  "254": {
+   "rows": 252500,
+   "seed": 2041392144,
+   "done": 252500,
+   "pop_file_sha256": "205b653c0ca66f8cdf7a8467c348d3d5e6cb849600cc1626a525f825431c7908",
+   "s152_sha256": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+   "sha256": "9afc89d443737ef8bb712579d4f86f57f683ba06e4129db9d9079ebefe055793",
+   "city_gap_median_growth": 3.609,
+   "city_gap_median_2021": 2.901
+  },
+  "256": {
+   "rows": 252500,
+   "seed": 2041394144,
+   "done": 252500,
+   "pop_file_sha256": "205b653c0ca66f8cdf7a8467c348d3d5e6cb849600cc1626a525f825431c7908",
+   "s152_sha256": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+   "sha256": "c87a3be805c3b9b872dd947286838e3c41335eb2aefc9bd4a4948b990076247a",
+   "city_gap_median_growth": 3.47,
+   "city_gap_median_2021": null
+  }
+ },
+ "plans": {
+  "2021": 1010000,
+  "growth": 1010000
+ },
+ "measures": {
+  "2021": {
+   "city_gap_pct": {
+    "q05": -1.718,
+    "q50": 3.516,
+    "q95": 8.623,
+    "panel": {
+     "value": 4.2746,
+     "pct": 59.17
+    },
+    "para167": {
+     "value": 3.4625,
+     "pct": 49.32
+    },
+    "flag_rule": "at or above the set's 95th percentile",
+    "flagged": {
+     "panel": false,
+     "para167": false
+    },
+    "n_eff": 523.3,
+    "n_eff_per_chain": [
+     134.3,
+     127.1,
+     133.3,
+     128.6
+    ],
+    "lag_cap_bound": true,
+    "n_eff_uncapped_diagnostic": 280.8,
+    "status": "provisional",
+    "panel_pct_per_chain": {
+     "251": 57.27,
+     "252": 52.36,
+     "253": 60.95,
+     "254": 66.11
+    },
+    "chain_q95": {
+     "251": 8.527,
+     "252": 9.154,
+     "253": 8.632,
+     "254": 8.054
+    }
+   },
+   "n_city_districts": {
+    "q05": 47.0,
+    "q50": 49.0,
+    "q95": 51.0,
+    "panel": {
+     "value": 49,
+     "pct": 42.51
+    }
+   },
+   "ucp_seats_all_ballots": {
+    "q05": 49.0,
+    "q50": 51.0,
+    "q95": 54.0,
+    "panel": {
+     "value": 51,
+     "pct": 42.85
+    }
+   },
+   "population_mad": {
+    "q05": 5218.684,
+    "q50": 6272.019,
+    "q95": 7307.821
+   },
+   "s152_districts": {
+    "q05": 1.0,
+    "q50": 3.0,
+    "q95": 4.0
+   }
+  },
+  "growth": {
+   "city_gap_pct": {
+    "q05": -2.58,
+    "q50": 3.092,
+    "q95": 8.966,
+    "panel": {
+     "value": 13.6087,
+     "pct": 99.76
+    },
+    "para167": {
+     "value": 12.7195,
+     "pct": 99.53
+    },
+    "panel_published": {
+     "value": 13.3983,
+     "pct": 99.71
+    },
+    "flag_rule": "at or above the set's 95th percentile",
+    "flagged": {
+     "panel": true,
+     "para167": true,
+     "panel_published": true
+    },
+    "n_eff": 461.8,
+    "n_eff_per_chain": [
+     103.0,
+     112.0,
+     126.8,
+     120.0
+    ],
+    "lag_cap_bound": true,
+    "n_eff_uncapped_diagnostic": 212.8,
+    "status": "provisional",
+    "panel_pct_per_chain": {
+     "251": 99.54,
+     "253": 99.95,
+     "254": 99.65,
+     "256": 99.89
+    },
+    "chain_q95": {
+     "251": 9.996,
+     "253": 7.631,
+     "254": 8.993,
+     "256": 8.786
+    }
+   },
+   "n_city_districts": {
+    "q05": 49.0,
+    "q50": 51.0,
+    "q95": 53.0,
+    "panel": {
+     "value": 49,
+     "pct": 4.33
+    }
+   },
+   "ucp_seats_all_ballots": {
+    "q05": 47.0,
+    "q50": 50.0,
+    "q95": 53.0,
+    "panel": {
+     "value": 51,
+     "pct": 68.81
+    }
+   },
+   "population_mad": {
+    "q05": 5943.345,
+    "q50": 7169.164,
+    "q95": 8358.511
+   },
+   "s152_districts": {
+    "q05": 1.0,
+    "q50": 3.0,
+    "q95": 4.0
+   },
+   "n_calgary": {
+    "q05": 28.0,
+    "q50": 29.0,
+    "q95": 31.0,
+    "panel": {
+     "value": 28,
+     "pct": 13.2
+    }
+   },
+   "n_edmonton": {
+    "q05": 21.0,
+    "q50": 22.0,
+    "q95": 24.0,
+    "panel": {
+     "value": 21,
+     "pct": 14.92
+    }
+   },
+   "reg_Calgary": {
+    "q05": 28.0,
+    "q50": 29.0,
+    "q95": 31.0,
+    "panel": {
+     "value": 28,
+     "pct": 10.9
+    },
+    "panel_minus_neutral_median": -1.0
+   },
+   "reg_Calgary_ring": {
+    "q05": 4.0,
+    "q50": 5.0,
+    "q95": 6.0,
+    "panel": {
+     "value": 5,
+     "pct": 65.84
+    },
+    "panel_minus_neutral_median": 0.0
+   },
+   "reg_Edmonton": {
+    "q05": 21.0,
+    "q50": 22.0,
+    "q95": 24.0,
+    "panel": {
+     "value": 21,
+     "pct": 12.71
+    },
+    "panel_minus_neutral_median": -1.0
+   },
+   "reg_Edmonton_ring": {
+    "q05": 6.0,
+    "q50": 7.0,
+    "q95": 9.0,
+    "panel": {
+     "value": 8,
+     "pct": 69.63
+    },
+    "panel_minus_neutral_median": 1.0
+   },
+   "reg_Everything_else": {
+    "q05": 19.0,
+    "q50": 21.0,
+    "q95": 23.0,
+    "panel": {
+     "value": 23,
+     "pct": 96.34
+    },
+    "panel_minus_neutral_median": 2.0
+   },
+   "reg_Other_cities_20000plus": {
+    "q05": 6.0,
+    "q50": 7.0,
+    "q95": 8.0,
+    "panel": {
+     "value": 6,
+     "pct": 18.4
+    },
+    "panel_minus_neutral_median": -1.0
+   }
+  },
+  "2021_shared_251_253_254": {
+   "city_gap_pct": {
+    "q05": -1.865,
+    "q50": 3.322,
+    "q95": 8.415,
+    "panel": {
+     "value": 4.2746,
+     "pct": 61.44
+    },
+    "para167": {
+     "value": 3.4625,
+     "pct": 51.74
+    },
+    "flag_rule": "at or above the set's 95th percentile",
+    "flagged": {
+     "panel": false,
+     "para167": false
+    }
+   },
+   "n_city_districts": {
+    "q05": 47.0,
+    "q50": 49.0,
+    "q95": 51.0,
+    "panel": {
+     "value": 49,
+     "pct": 41.41
+    }
+   },
+   "ucp_seats_all_ballots": {
+    "q05": 49.0,
+    "q50": 51.0,
+    "q95": 54.0,
+    "panel": {
+     "value": 51,
+     "pct": 43.26
+    }
+   },
+   "population_mad": {
+    "q05": 5217.595,
+    "q50": 6272.51,
+    "q95": 7308.444
+   },
+   "s152_districts": {
+    "q05": 1.0,
+    "q50": 3.0,
+    "q95": 4.0
+   }
+  },
+  "growth_shared_251_253_254": {
+   "city_gap_pct": {
+    "q05": -2.778,
+    "q50": 2.953,
+    "q95": 9.032,
+    "panel": {
+     "value": 13.6087,
+     "pct": 99.71
+    },
+    "para167": {
+     "value": 12.7195,
+     "pct": 99.44
+    },
+    "panel_published": {
+     "value": 13.3983,
+     "pct": 99.66
+    },
+    "flag_rule": "at or above the set's 95th percentile",
+    "flagged": {
+     "panel": true,
+     "para167": true,
+     "panel_published": true
+    }
+   },
+   "n_city_districts": {
+    "q05": 49.0,
+    "q50": 51.0,
+    "q95": 53.0,
+    "panel": {
+     "value": 49,
+     "pct": 4.39
+    }
+   },
+   "ucp_seats_all_ballots": {
+    "q05": 47.0,
+    "q50": 50.0,
+    "q95": 53.0,
+    "panel": {
+     "value": 51,
+     "pct": 69.76
+    }
+   },
+   "population_mad": {
+    "q05": 5938.636,
+    "q50": 7171.167,
+    "q95": 8363.541
+   },
+   "s152_districts": {
+    "q05": 1.0,
+    "q50": 3.0,
+    "q95": 4.0
+   }
+  }
+ },
+ "ucp_seats_panel_source": "findings/amendment12_rehearsal/iap_assembled_real_maps_allballots.json"
+}

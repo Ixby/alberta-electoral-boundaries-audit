@@ -1,0 +1,49 @@
+n,submission_id,configuration,llm_label,audit_judgement,note
+0,EBC-2025-1-0136,Calgary-Nolan Hill-Cochrane hybrid,Neutral/Contextual,ok,
+1,EBC-2025-1-0139,Calgary-Nolan Hill-Cochrane hybrid,Active Support,wrong,"inverted: asks for a dedicated Cochrane seat with rural Bearspaw, i.e. Cochrane not joined to Calgary"
+2,EBC-2025-1-0152,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,ok,"inferred from ""Red Deer should have two seats"""
+3,EBC-2025-1-0155,Airdrie 4-way split,Neutral/Contextual,ok,
+4,EBC-2025-1-0165,St. Albert merging with Sturgeon County,Neutral/Contextual,ok,
+5,EBC-2025-2-0092,St. Albert merging with Sturgeon County,Neutral/Contextual,ok,
+6,EBC-2025-2-0113,Olds-Three Hills-Didsbury extending to Airdrie,Active Opposition,wrong,"opposes interim Mountain View-Kneehill; wants Sundre west of Hwy 22 with RMH, which the minority map does"
+7,EBC-2025-2-0126,Airdrie 4-way split,Active Opposition,wrong,Mackenzie County writer on rural seat loss; no Airdrie split discussed
+8,EBC-2025-2-0142,Rocky Mountain House-Banff Park hybrid,Neutral/Contextual,ok,
+9,EBC-2025-2-0144,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+10,EBC-2025-2-0156,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,"opposes interim Lacombe-Rocky Mountain House pairing, not an RMH-Banff district"
+11,EBC-2025-2-0209,Airdrie 4-way split,Active Opposition,wrong,Beiseker objects to being in Airdrie-East; nothing on a four-way split (same letter is cited as minority support in s5.9.4.2)
+12,EBC-2025-2-0236,Rocky Mountain House-Banff Park hybrid,Active Support,wrong,"supports interim Banff-Jasper park riding, not RMH-Banff Park"
+13,EBC-2025-2-0239,Olds-Three Hills-Didsbury extending to Airdrie,Neutral/Contextual,ok,lenient: author does take a rural-riding position
+14,EBC-2025-2-0266,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+15,EBC-2025-2-0328,Calgary-Nolan Hill-Cochrane hybrid,Active Opposition,ok,correct
+16,EBC-2025-2-0403,Olds-Three Hills-Didsbury extending to Airdrie,Active Opposition,wrong,Trochu into Innisfail riding; unrelated to ODH/Airdrie
+17,EBC-2025-2-0409,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,inverted: opposes eliminating Rimbey-RMH-Sundre and splitting Clearwater County; minority restores it
+18,EBC-2025-2-0467,Chestermere merging with Calgary,Active Opposition,wrong,"no place named (""splitting a city in two""); Chestermere was not split in the interim map"
+19,EBC-2025-2-0472,St. Albert merging with Sturgeon County,Active Opposition,wrong,generic anti-hybrid from Edmonton; St. Albert not mentioned
+20,EBC-2025-2-0538,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+21,EBC-2025-2-0558,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,wrong,generic anti-hybrid; Red Deer not mentioned
+22,EBC-2025-2-0578,St. Albert merging with Sturgeon County,Active Support,wrong,inverted: moves three St. Albert polls out of the hybrid into the city riding
+23,EBC-2025-2-0593,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,wrong,"Edmonton-McClung resident, generic; Red Deer not mentioned"
+24,EBC-2025-2-0597,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,wants Banff and Jasper in West Yellowhead; not about RMH
+25,EBC-2025-2-0656,Olds-Three Hills-Didsbury extending to Airdrie,Neutral/Contextual,ok,
+26,EBC-2025-2-0681,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,inverted: wants Clearwater County whole
+27,EBC-2025-2-0684,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,inverted: former reeve opposes eliminating Rimbey-RMH-Sundre
+28,EBC-2025-2-0693,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,"inverted: former RMH mayor wants RMH with Eastern Slopes ""all the way to the BC border"""
+29,EBC-2025-2-0759,Airdrie 4-way split,Neutral/Contextual,ok,
+30,EBC-2025-2-0801,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+31,EBC-2025-2-0803,Airdrie 4-way split,Neutral/Contextual,ok,
+32,EBC-2025-2-0811,Chestermere merging with Calgary,Active Support,ok,correct: real supporter of a Chestermere-east Calgary hybrid
+33,EBC-2025-2-0819,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,wrong,"Edmonton writer, generic; Red Deer not mentioned"
+34,EBC-2025-2-0850,Rocky Mountain House-Banff Park hybrid,Active Support,wrong,supports interim Banff-Jasper
+35,EBC-2025-2-0862,Airdrie 4-way split,Active Opposition,ok,directionally right: wants Airdrie in two city-only seats
+36,EBC-2025-2-0896,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,keep Jasper in West Yellowhead (the minority map does)
+37,EBC-2025-2-0993,Rocky Mountain House-Banff Park hybrid,Active Support,wrong,commends interim Banff-Jasper
+38,EBC-2025-2-1003,Rocky Mountain House-Banff Park hybrid,Active Opposition,wrong,inverted: wants Clearwater County whole
+39,EBC-2025-2-1007,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+40,EBC-2025-2-1045,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,wrong,"Calgary-West resident, generic; Red Deer not mentioned"
+41,EBC-2025-2-1066,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Active Opposition,wrong,"Edmonton resident, generic; Red Deer not mentioned"
+42,EBC-2025-2-1098,Airdrie 4-way split,Active Opposition,ok,opposes Airdrie split into two hybrids
+43,EBC-2025-2-1098,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+44,EBC-2025-2-1102,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+45,EBC-2025-2-1116,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",Neutral/Contextual,ok,
+46,EBC-2025-2-1124,Rocky Mountain House-Banff Park hybrid,Active Support,wrong,supports interim Banff-Jasper
+47,EBC-2025-2-1139,Calgary-Nolan Hill-Cochrane hybrid,Active Opposition,wrong,generic (Okotoks example); Cochrane not mentioned

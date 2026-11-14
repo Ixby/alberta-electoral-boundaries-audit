@@ -1,0 +1,483 @@
+{
+ "meta": {
+  "status": "exploratory, descriptive, not registered",
+  "votes": "2023 election day, two-party (va_ndp, va_ucp)",
+  "pooled_factor_for_tsuutina_sensitivity": 5.62
+ },
+ "nations": {
+  "Kainai (Blackfoot)": {
+   "voting_areas_2023": 3,
+   "two_party_2023": 198,
+   "ndp_share_2023": 93.9,
+   "referendum_ballots_2026": 1303,
+   "factor": 6.58
+  },
+  "Piikani (Blackfoot)": {
+   "voting_areas_2023": 3,
+   "two_party_2023": 199,
+   "ndp_share_2023": 62.1,
+   "referendum_ballots_2026": 496,
+   "factor": 2.49
+  },
+  "Siksika (Blackfoot)": {
+   "voting_areas_2023": 1,
+   "two_party_2023": 152,
+   "ndp_share_2023": 79.6,
+   "referendum_ballots_2026": 1260,
+   "factor": 8.29
+  },
+  "Stoney Nakoda": {
+   "voting_areas_2023": 5,
+   "two_party_2023": 262,
+   "ndp_share_2023": 80.8,
+   "referendum_ballots_2026": 1496,
+   "factor": 5.7
+  },
+  "Tsuut'ina": {
+   "voting_areas_2023": 2,
+   "two_party_2023": 335,
+   "ndp_share_2023": 49.6,
+   "referendum_ballots_2026": null,
+   "factor": null
+  }
+ },
+ "maps": {
+  "2019": {
+   "unplaced_voting_areas": 0,
+   "2023_turnout": {
+    "seats": {
+     "NDP": 30,
+     "UCP": 57
+    }
+   },
+   "2026_turnout": {
+    "seats": {
+     "NDP": 30,
+     "UCP": 57
+    }
+   },
+   "2026_turnout_tsuutina_pooled": {
+    "seats": {
+     "NDP": 30,
+     "UCP": 57
+    }
+   },
+   "reserve_districts": [
+    {
+     "district": "Banff-Kananaskis",
+     "nations": [
+      "Stoney Nakoda",
+      "Tsuut'ina"
+     ],
+     "reserve_two_party_2023": 531,
+     "reserve_two_party_2026_turnout": 1452,
+     "district_ndp_minus_ucp_2023": -1206,
+     "district_ndp_minus_ucp_2026_turnout": -445,
+     "reserve_share_2026_turnout": 13.7,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 8.6
+    },
+    {
+     "district": "Cardston-Siksika",
+     "nations": [
+      "Kainai (Blackfoot)",
+      "Siksika (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 350,
+     "reserve_two_party_2026_turnout": 2563,
+     "district_ndp_minus_ucp_2023": -5619,
+     "district_ndp_minus_ucp_2026_turnout": -3992,
+     "reserve_share_2026_turnout": 22.9,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 22.3
+    },
+    {
+     "district": "Livingstone-Macleod",
+     "nations": [
+      "Piikani (Blackfoot)",
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 220,
+     "reserve_two_party_2026_turnout": 616,
+     "district_ndp_minus_ucp_2023": -5388,
+     "district_ndp_minus_ucp_2026_turnout": -5236,
+     "reserve_share_2026_turnout": 5.4,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 83.7
+    },
+    {
+     "district": "Rimbey-Rocky Mountain House-Sundre",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 46,
+     "reserve_two_party_2026_turnout": 259,
+     "district_ndp_minus_ucp_2023": -7454,
+     "district_ndp_minus_ucp_2026_turnout": -7536,
+     "reserve_share_2026_turnout": 2.4,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    }
+   ],
+   "flips": [],
+   "flips_tsuutina_pooled": []
+  },
+  "commission_majority": {
+   "unplaced_voting_areas": 0,
+   "2023_turnout": {
+    "seats": {
+     "NDP": 34,
+     "UCP": 55
+    }
+   },
+   "2026_turnout": {
+    "seats": {
+     "NDP": 34,
+     "UCP": 55
+    }
+   },
+   "2026_turnout_tsuutina_pooled": {
+    "seats": {
+     "NDP": 34,
+     "UCP": 55
+    }
+   },
+   "reserve_districts": [
+    {
+     "district": "Calgary-Glenmore-Tsuut'ina",
+     "nations": [
+      "Tsuut'ina"
+     ],
+     "reserve_two_party_2023": 335,
+     "reserve_two_party_2026_turnout": 335,
+     "district_ndp_minus_ucp_2023": -403,
+     "district_ndp_minus_ucp_2026_turnout": -403,
+     "reserve_share_2026_turnout": 2.6,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    },
+    {
+     "district": "Canmore-Banff",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 217,
+     "reserve_two_party_2026_turnout": 1237,
+     "district_ndp_minus_ucp_2023": 590,
+     "district_ndp_minus_ucp_2026_turnout": 1431,
+     "reserve_share_2026_turnout": 18.6,
+     "winner_2023_turnout": "NDP",
+     "winner_2026_turnout": "NDP",
+     "winner_2026_tsuutina_pooled": "NDP",
+     "break_even_factor": null
+    },
+    {
+     "district": "High River-Vulcan-Siksika",
+     "nations": [
+      "Siksika (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 152,
+     "reserve_two_party_2026_turnout": 1260,
+     "district_ndp_minus_ucp_2023": -6134,
+     "district_ndp_minus_ucp_2026_turnout": -5478,
+     "reserve_share_2026_turnout": 10.1,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 69.2
+    },
+    {
+     "district": "Lacombe-Clearwater",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 46,
+     "reserve_two_party_2026_turnout": 259,
+     "district_ndp_minus_ucp_2023": -6710,
+     "district_ndp_minus_ucp_2026_turnout": -6792,
+     "reserve_share_2026_turnout": 2.4,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    },
+    {
+     "district": "Livingstone-Macleod",
+     "nations": [
+      "Piikani (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 199,
+     "reserve_two_party_2026_turnout": 496,
+     "district_ndp_minus_ucp_2023": -5523,
+     "district_ndp_minus_ucp_2026_turnout": -5451,
+     "reserve_share_2026_turnout": 4.5,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 115.7
+    },
+    {
+     "district": "Taber-Cardston",
+     "nations": [
+      "Kainai (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 198,
+     "reserve_two_party_2026_turnout": 1303,
+     "district_ndp_minus_ucp_2023": -6624,
+     "district_ndp_minus_ucp_2026_turnout": -5653,
+     "reserve_share_2026_turnout": 12.6,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 39.1
+    }
+   ],
+   "flips": [],
+   "flips_tsuutina_pooled": []
+  },
+  "commission_minority": {
+   "unplaced_voting_areas": 0,
+   "2023_turnout": {
+    "seats": {
+     "NDP": 29,
+     "UCP": 60
+    }
+   },
+   "2026_turnout": {
+    "seats": {
+     "NDP": 29,
+     "UCP": 60
+    }
+   },
+   "2026_turnout_tsuutina_pooled": {
+    "seats": {
+     "NDP": 29,
+     "UCP": 60
+    }
+   },
+   "reserve_districts": [
+    {
+     "district": "Calgary-West-Tsuut'ina",
+     "nations": [
+      "Tsuut'ina"
+     ],
+     "reserve_two_party_2023": 335,
+     "reserve_two_party_2026_turnout": 335,
+     "district_ndp_minus_ucp_2023": -1896,
+     "district_ndp_minus_ucp_2026_turnout": -1896,
+     "reserve_share_2026_turnout": 3.2,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    },
+    {
+     "district": "Canmore-Kananaskis",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 21,
+     "reserve_two_party_2026_turnout": 120,
+     "district_ndp_minus_ucp_2023": -1473,
+     "district_ndp_minus_ucp_2026_turnout": -1393,
+     "reserve_share_2026_turnout": 1.3,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 87.6
+    },
+    {
+     "district": "Drumheller-Stettler",
+     "nations": [
+      "Siksika (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 152,
+     "reserve_two_party_2026_turnout": 1260,
+     "district_ndp_minus_ucp_2023": -9200,
+     "district_ndp_minus_ucp_2026_turnout": -8544,
+     "reserve_share_2026_turnout": 9.0,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 103.2
+    },
+    {
+     "district": "Lethbridge-Cardston",
+     "nations": [
+      "Kainai (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 198,
+     "reserve_two_party_2026_turnout": 1303,
+     "district_ndp_minus_ucp_2023": -2914,
+     "district_ndp_minus_ucp_2026_turnout": -1943,
+     "reserve_share_2026_turnout": 12.7,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 17.7
+    },
+    {
+     "district": "Lethbridge-Fort Macleod-Crowsnest Pass",
+     "nations": [
+      "Piikani (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 199,
+     "reserve_two_party_2026_turnout": 496,
+     "district_ndp_minus_ucp_2023": -3527,
+     "district_ndp_minus_ucp_2026_turnout": -3456,
+     "reserve_share_2026_turnout": 4.3,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 74.2
+    },
+    {
+     "district": "Rocky Mountain House-Banff Park",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 242,
+     "reserve_two_party_2026_turnout": 1377,
+     "district_ndp_minus_ucp_2023": -4648,
+     "district_ndp_minus_ucp_2026_turnout": -3969,
+     "reserve_share_2026_turnout": 16.0,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 33.2
+    }
+   ],
+   "flips": [],
+   "flips_tsuutina_pooled": []
+  },
+  "panel_reconstruction": {
+   "unplaced_voting_areas": 0,
+   "2023_turnout": {
+    "seats": {
+     "NDP": 33,
+     "UCP": 58
+    }
+   },
+   "2026_turnout": {
+    "seats": {
+     "NDP": 34,
+     "UCP": 57
+    }
+   },
+   "2026_turnout_tsuutina_pooled": {
+    "seats": {
+     "NDP": 34,
+     "UCP": 57
+    }
+   },
+   "reserve_districts": [
+    {
+     "district": "Banff-Canmore-Diamond Valley",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 217,
+     "reserve_two_party_2026_turnout": 1237,
+     "district_ndp_minus_ucp_2023": -468,
+     "district_ndp_minus_ucp_2026_turnout": 373,
+     "reserve_share_2026_turnout": 14.5,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "NDP",
+     "winner_2026_tsuutina_pooled": "NDP",
+     "break_even_factor": 3.6
+    },
+    {
+     "district": "Calgary-Glenmore-Tsuut'ina",
+     "nations": [
+      "Tsuut'ina"
+     ],
+     "reserve_two_party_2023": 335,
+     "reserve_two_party_2026_turnout": 335,
+     "district_ndp_minus_ucp_2023": -403,
+     "district_ndp_minus_ucp_2026_turnout": -403,
+     "reserve_share_2026_turnout": 2.6,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    },
+    {
+     "district": "Lethbridge-Cardston",
+     "nations": [
+      "Kainai (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 198,
+     "reserve_two_party_2026_turnout": 1303,
+     "district_ndp_minus_ucp_2023": -2121,
+     "district_ndp_minus_ucp_2026_turnout": -1150,
+     "reserve_share_2026_turnout": 17.1,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 13.2
+    },
+    {
+     "district": "Lethbridge-Little Bow",
+     "nations": [
+      "Siksika (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 152,
+     "reserve_two_party_2026_turnout": 1260,
+     "district_ndp_minus_ucp_2023": -3591,
+     "district_ndp_minus_ucp_2026_turnout": -2935,
+     "reserve_share_2026_turnout": 11.3,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 40.9
+    },
+    {
+     "district": "Macleod-Crowsnest",
+     "nations": [
+      "Piikani (Blackfoot)"
+     ],
+     "reserve_two_party_2023": 199,
+     "reserve_two_party_2026_turnout": 496,
+     "district_ndp_minus_ucp_2023": -5237,
+     "district_ndp_minus_ucp_2026_turnout": -5165,
+     "reserve_share_2026_turnout": 4.5,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": 109.7
+    },
+    {
+     "district": "Rocky Mountain House-Sundre",
+     "nations": [
+      "Stoney Nakoda"
+     ],
+     "reserve_two_party_2023": 46,
+     "reserve_two_party_2026_turnout": 259,
+     "district_ndp_minus_ucp_2023": -4582,
+     "district_ndp_minus_ucp_2026_turnout": -4664,
+     "reserve_share_2026_turnout": 3.7,
+     "winner_2023_turnout": "UCP",
+     "winner_2026_turnout": "UCP",
+     "winner_2026_tsuutina_pooled": "UCP",
+     "break_even_factor": null
+    }
+   ],
+   "flips": [
+    "Banff-Canmore-Diamond Valley"
+   ],
+   "flips_tsuutina_pooled": [
+    "Banff-Canmore-Diamond Valley"
+   ]
+  }
+ }
+}

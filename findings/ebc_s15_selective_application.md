@@ -56,7 +56,7 @@ Each map invokes three §15(2) slots (the Act permits up to four). The maps dive
 
 The commission's October 2025 interim report proposed eliminating Lesser Slave Lake (ED 70) and merging it into a new "Mackenzie" division combining Lesser Slave Lake and Athabasca-Barrhead-Westlock. The interim proposal did not apply §15(2) to a protected-Lesser-Slave-Lake configuration; it proposed eliminating the riding entirely.
 
-Following 80+ public submissions in the Round 2 process — many specifically from and about the Indigenous communities in the northern part of ED 70 (see EBC-2025-2-0028, EBC-2025-2-0039, EBC-2025-2-0060, EBC-2025-2-0064, and others) — the commission reversed course in the March 2026 final report. The final report preserves a modified Lesser Slave Lake division at −45.4% variance, invoking §15(2) and citing the presence of 14 First Nations and Métis communities within the district.
+Following many public submissions in the Round 2 process (the minority report counts at least 56; final report PDF p. 320) — many specifically from and about the Indigenous communities in the northern part of ED 70 (see EBC-2025-2-0028, EBC-2025-2-0039, EBC-2025-2-0060, EBC-2025-2-0064, and others) — the commission reversed course in the March 2026 final report. The final report preserves a modified Lesser Slave Lake division at −45.4% variance, invoking §15(2) on four of its five criteria, including that the district contains an Indian reserve or a Métis settlement (final report PDF p. 248). A submission the report quotes describes "multiple First Nations and Métis communities" in the riding (PDF p. 40).
 
 This documents that:
 1. §15(2) was *not* applied to Lesser Slave Lake in the interim report
@@ -68,7 +68,7 @@ This documents that:
 ## 4. The Differential Treatment: LSL vs. RMH-Banff Park
 
 **Lesser Slave Lake (§15(2) applied in final majority report):**
-- 4 of 5 criteria satisfied genuinely: area 69,566 km² (criterion a), distance from Legislature (criterion b), no town >8,000 (criterion c), 14 First Nations and Métis communities (criterion d)
+- The commission states four of five criteria: area 69,566 km² (criterion a), distance from Legislature (criterion b), no town >8,000 (criterion c), First Nations and Métis communities (criterion d). On the audit's road model the nearest boundary is 134 km from the Legislature, so (b) is not met and the count is three, still enough (`findings/audit_2026-11-10/s15_distances.json`)
 - Population: 27,079 (−45.4% below provincial average of 54,929)
 - Indigenous communities represent the core COI basis for the §15(2) application
 - The protected riding preserves a geographically defined community with a coherent representation interest
@@ -100,10 +100,10 @@ Reading the two maps' §15(2) applications side by side:
 | Indigenous communities present | Yes (Stoney Nakoda, Eden Valley 216, others) | Yes (five named reserves — Big Horn, O'Chiese, Stoney 142/143/144, Sunchild) |
 | Community-of-interest basis for protection | Yes — remote mountain communities with service ties | Rocky Mountain House and Clearwater County (genuine); NP extension adds no COI |
 | Boundary through uninhabited territory | No | Yes — extends through Banff NP where no one permanently lives |
-| Commission chair's characterization | N/A | "bad faith effort" (EBC Final Report p.10) |
+| Commission majority's characterization | N/A | "bad faith effort" (EBC Final Report p.10) |
 
 A further asymmetry operates at the Lesser Slave Lake slot:
-- **Majority final report:** applies §15(2) to Lesser Slave Lake, preserving a riding containing 14 First Nations and Métis communities at −45.4% variance
+- **Majority final report:** applies §15(2) to Lesser Slave Lake, preserving a riding containing multiple First Nations and Métis communities at −45.4% variance
 - **Minority map:** also preserves Lesser Slave Lake at −45.4%, but the minority commissioners dissented from the final report's broader configuration; the minority's interim-report trajectory was toward elimination (Mackenzie merger), which would have diluted the 50/50 northern cluster into a 2.5:1 UCP-majority riding
 
 ---
@@ -112,7 +112,7 @@ A further asymmetry operates at the Lesser Slave Lake slot:
 
 The §15(2) criterion (d) — presence of an Indian reserve or Métis settlement — is a presence test, not a demographic threshold. Its purpose, read consistently with the commission's EBCA community-of-interest mandate (§14), is to ensure that Indigenous communities can be preserved within ridings that provide meaningful geographic representation even at sub-average populations.
 
-Applying §15(2) to a riding whose third-slot criterion is met by extending a boundary through uninhabited national park territory — while the commission's interim report was simultaneously proposing to eliminate a riding with 14 First Nations and Métis communities — is a documentable asymmetry in the commission's exercise of discretion under the same statutory provision.
+Applying §15(2) to a riding whose third-slot criterion is met by extending a boundary through uninhabited national park territory — while the commission's interim report was simultaneously proposing to eliminate a riding with multiple First Nations and Métis communities — is a documentable asymmetry in the commission's exercise of discretion under the same statutory provision.
 
 This audit does not claim intent. The asymmetry in effect is observable from the primary source documents.
 
@@ -120,19 +120,19 @@ This audit does not claim intent. The asymmetry in effect is observable from the
 
 ## 8. Lunty Committee Implications
 
-Government Motion 37 (introduced April 16, passed April 21, 2026) set aside both commission reports and established the Select Special Committee on Electoral Boundaries, a committee of six MLAs (colloquially "the Lunty committee," after its chair Brandon Lunty, UCP MLA for Leduc-Beaumont) to draw a 91-seat map by November 2, 2026. The committee has four UCP and two NDP members; it is not required to hold public hearings.
+Government Motion 37 (put on notice April 16; moved, debated and passed April 21, 2026) set aside both commission reports and established the Select Special Committee on Electoral Boundaries, a committee of six MLAs (colloquially "the Lunty committee," after its chair Brandon Lunty, UCP MLA for Leduc-Beaumont) to draw a 91-seat map by November 2, 2026. The committee has four UCP and two NDP members; it is not required to hold public hearings.
 
-The Lunty committee will face the same §15(2) decisions as the commission — including whether to protect Lesser Slave Lake and its 14 First Nations and Métis communities. There is no statutory mechanism requiring the committee to apply §15(2) consistently across similarly situated ridings. The committee's majority is UCP; Lesser Slave Lake is a near-parity (50/50 on election day in the northern cluster) riding whose elimination benefits UCP arithmetic under any merger scenario. These facts do not constitute a finding; they constitute a context that this audit has an obligation to note.
+The Lunty committee will face the same §15(2) decisions as the commission — including whether to protect Lesser Slave Lake and its First Nations and Métis communities. There is no statutory mechanism requiring the committee to apply §15(2) consistently across similarly situated ridings. The committee's majority is UCP; Lesser Slave Lake is a near-parity (50/50 on election day in the northern cluster) riding whose elimination benefits UCP arithmetic under any merger scenario. These facts do not constitute a finding; they constitute a context that this audit has an obligation to note.
 
 ---
 
 ## 9. Recommended Report Language
 
 **Academic report (§5.1.5 — new section):**
-See §5.1.5 to be written. Core elements: provision text, discretionary nature, six invocations, the asymmetric COI effect, the commission chair's "bad faith" quote as primary source, the constitutional dimension (§14 COI mandate + s.35 of the Constitution Act, 1982), and the Lunty committee context.
+See §5.1.5 to be written. Core elements: provision text, discretionary nature, six invocations, the asymmetric COI effect, the majority's "bad faith" quote as primary source, the constitutional dimension (§14 COI mandate + s.35 of the Constitution Act, 1982), and the Lunty committee context.
 
 **Public report (addition to "The Invisible Part"):**
-The commission did more than miss a data gap. When it came time to decide whether to protect Lesser Slave Lake — the riding that includes those invisible-vote communities — the commission reversed itself only after 80+ public submissions. And while Indigenous communities were fighting to be seen, the minority report was proposing to protect a different riding by drawing its boundary through a national park where no one lives. The commission's own chair called that "a bad faith effort." That phrase is in the final report. The audit quotes it, not to pile on, but because it is the clearest primary-source description of what happened.
+The commission did more than miss a data gap. When it came time to decide whether to protect Lesser Slave Lake — the riding that includes those invisible-vote communities — the commission reversed itself only after many public submissions (at least 56 by the minority report's count). And while Indigenous communities were fighting to be seen, the minority report was proposing to protect a different riding by drawing its boundary through a national park where no one lives. The commission's majority called that "a bad faith effort" (final report p. 10). That phrase is in the final report. The audit quotes it, not to pile on, but because it is the clearest primary-source description of what happened.
 
 ---
 

@@ -1,0 +1,654 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:33 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/07_turnout_and_count.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   },
+   {
+    "path": "findings/advance_vote_profile/inputs/ea_2023_report_appendix_c_d.csv",
+    "sha256": "01147fcecfbf68c9000402e9163cedf2e78a417437d767f7e9f7e37f34a674d8"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/advance_locations_2023.csv",
+    "sha256": "1d304f4592dc3f078ae7538de18a65f91238dd7b141e8bb39888e72af8ce0c5e"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/advance_catchments_2023.csv",
+    "sha256": "1a5aaf83086db1062b580750c39440636a8e5d56b9cd82f58169aad8e1cf3b0f"
+   }
+  ]
+ },
+ "names_on_list": {
+  "workbook_names_on_list_total": 2939762,
+  "report_table_29_names_on_list": 2939762,
+  "workbook_equals_table_29": true,
+  "appendix_d_divisions_read": 86,
+  "appendix_d_divisions_equal_to_workbook": 86,
+  "appendix_d_divisions_missing_from_text_extraction": [
+   "48"
+  ],
+  "missing_division_equals_table_29_remainder": true,
+  "registered_at_voting_place_appendix_c_total_read": 245458,
+  "finding": "The workbook's Names on List is the Post Election Day List of Electors (it equals Appendix D in every division read and Table 29 in total). The report says that list was updated from the voting records and declaration forms and places new electors in their correct division and voting area, so electors who registered at a voting place, on election day or in advance, are most likely counted, in the voting area where they live. That reading rests on the report's general description; the report does not say so station by station, and it gives no count of poll registrants per station.",
+  "report": {
+   "title": "Elections Alberta, 2023 Provincial General Election Report",
+   "url": "https://www.elections.ab.ca/uploads/2023-Provincial-General-Election-Report.pdf",
+   "sha256_of_pdf_fetched_2026_11_10": "51e9771b61bcd05a066b23f733efd563fd36f8ee14f42c309682bf8ebaf31993",
+   "statements": [
+    {
+     "page": 61,
+     "text": "248,688 electors registered to vote at their advance or Election Day voting location, representing 14% of voters"
+    },
+    {
+     "page": 61,
+     "text": "Electors who were not registered or had not updated their information after the close of the revision period were required to complete their registration at their voting location prior to being issued their ballot."
+    },
+    {
+     "page": 62,
+     "text": "Following the close of voting, returning offices package all election supplies and materials including declaration forms to return to Elections Alberta. From here, Elections Alberta reviews all voting records, declarations, and oaths to update the Register of Electors."
+    },
+    {
+     "page": 62,
+     "text": "The Post Election Day List of Electors is compiled following these updates and represents a snapshot of voters as of March 26, 2024."
+    },
+    {
+     "page": 131,
+     "text": "voter turnout is recalculated using the Post Election Day List of Electors ... it accounts for changes to the List of Electors received during the election period that were processed during post-election data entry. This ensures that electors who have moved are not double counted in the List ..., electors who are deceased or moved are removed from the list, and new electors are reflected in the correct electoral division and voting area."
+    },
+    {
+     "page": 131,
+     "text": "Table 29, 2023: Ballots Cast 1,777,315; Names on List 2,939,762; Voter Turnout 60.5%"
+    }
+   ]
+  }
+ },
+ "turnout_distribution": {
+  "election_day_alone": {
+   "stations": 1216,
+   "percentiles_pct": [
+    {
+     "percentile": 0,
+     "turnout_pct": 0.0
+    },
+    {
+     "percentile": 1,
+     "turnout_pct": 12.72
+    },
+    {
+     "percentile": 5,
+     "turnout_pct": 21.48
+    },
+    {
+     "percentile": 10,
+     "turnout_pct": 24.43
+    },
+    {
+     "percentile": 25,
+     "turnout_pct": 28.08
+    },
+    {
+     "percentile": 50,
+     "turnout_pct": 33.32
+    },
+    {
+     "percentile": 75,
+     "turnout_pct": 40.49
+    },
+    {
+     "percentile": 90,
+     "turnout_pct": 48.46
+    },
+    {
+     "percentile": 95,
+     "turnout_pct": 52.75
+    },
+    {
+     "percentile": 99,
+     "turnout_pct": 59.7
+    },
+    {
+     "percentile": 100,
+     "turnout_pct": 750.0
+    }
+   ],
+   "bins_5pt": [
+    {
+     "bin": "0_to_5",
+     "stations": 3
+    },
+    {
+     "bin": "5_to_10",
+     "stations": 1
+    },
+    {
+     "bin": "10_to_15",
+     "stations": 16
+    },
+    {
+     "bin": "15_to_20",
+     "stations": 17
+    },
+    {
+     "bin": "20_to_25",
+     "stations": 107
+    },
+    {
+     "bin": "25_to_30",
+     "stations": 266
+    },
+    {
+     "bin": "30_to_35",
+     "stations": 294
+    },
+    {
+     "bin": "35_to_40",
+     "stations": 202
+    },
+    {
+     "bin": "40_to_45",
+     "stations": 117
+    },
+    {
+     "bin": "45_to_50",
+     "stations": 99
+    },
+    {
+     "bin": "50_to_55",
+     "stations": 55
+    },
+    {
+     "bin": "55_to_60",
+     "stations": 27
+    },
+    {
+     "bin": "60_to_65",
+     "stations": 6
+    },
+    {
+     "bin": "65_to_70",
+     "stations": 2
+    },
+    {
+     "bin": "70_to_75",
+     "stations": 2
+    },
+    {
+     "bin": "75_to_80",
+     "stations": 0
+    },
+    {
+     "bin": "80_to_85",
+     "stations": 0
+    },
+    {
+     "bin": "85_to_90",
+     "stations": 0
+    },
+    {
+     "bin": "90_to_95",
+     "stations": 0
+    },
+    {
+     "bin": "95_to_100",
+     "stations": 0
+    },
+    {
+     "bin": "over_100",
+     "stations": 2
+    }
+   ],
+   "at_or_over_100": 2,
+   "over_100": 2,
+   "over_95": 2,
+   "under_30": 410
+  },
+  "m0": {
+   "stations": 1216,
+   "percentiles_pct": [
+    {
+     "percentile": 0,
+     "turnout_pct": 0.0
+    },
+    {
+     "percentile": 1,
+     "turnout_pct": 21.48
+    },
+    {
+     "percentile": 5,
+     "turnout_pct": 40.2
+    },
+    {
+     "percentile": 10,
+     "turnout_pct": 45.38
+    },
+    {
+     "percentile": 25,
+     "turnout_pct": 53.27
+    },
+    {
+     "percentile": 50,
+     "turnout_pct": 62.74
+    },
+    {
+     "percentile": 75,
+     "turnout_pct": 73.21
+    },
+    {
+     "percentile": 90,
+     "turnout_pct": 84.4
+    },
+    {
+     "percentile": 95,
+     "turnout_pct": 92.67
+    },
+    {
+     "percentile": 99,
+     "turnout_pct": 108.4
+    },
+    {
+     "percentile": 100,
+     "turnout_pct": 1294.94
+    }
+   ],
+   "bins_5pt": [
+    {
+     "bin": "0_to_5",
+     "stations": 2
+    },
+    {
+     "bin": "5_to_10",
+     "stations": 1
+    },
+    {
+     "bin": "10_to_15",
+     "stations": 1
+    },
+    {
+     "bin": "15_to_20",
+     "stations": 5
+    },
+    {
+     "bin": "20_to_25",
+     "stations": 8
+    },
+    {
+     "bin": "25_to_30",
+     "stations": 8
+    },
+    {
+     "bin": "30_to_35",
+     "stations": 11
+    },
+    {
+     "bin": "35_to_40",
+     "stations": 23
+    },
+    {
+     "bin": "40_to_45",
+     "stations": 55
+    },
+    {
+     "bin": "45_to_50",
+     "stations": 87
+    },
+    {
+     "bin": "50_to_55",
+     "stations": 153
+    },
+    {
+     "bin": "55_to_60",
+     "stations": 150
+    },
+    {
+     "bin": "60_to_65",
+     "stations": 164
+    },
+    {
+     "bin": "65_to_70",
+     "stations": 168
+    },
+    {
+     "bin": "70_to_75",
+     "stations": 113
+    },
+    {
+     "bin": "75_to_80",
+     "stations": 85
+    },
+    {
+     "bin": "80_to_85",
+     "stations": 65
+    },
+    {
+     "bin": "85_to_90",
+     "stations": 39
+    },
+    {
+     "bin": "90_to_95",
+     "stations": 32
+    },
+    {
+     "bin": "95_to_100",
+     "stations": 20
+    },
+    {
+     "bin": "over_100",
+     "stations": 26
+    }
+   ],
+   "at_or_over_100": 26,
+   "over_100": 26,
+   "over_95": 46,
+   "under_30": 25
+  },
+  "p": {
+   "stations": 1216,
+   "percentiles_pct": [
+    {
+     "percentile": 0,
+     "turnout_pct": 31.04
+    },
+    {
+     "percentile": 1,
+     "turnout_pct": 39.43
+    },
+    {
+     "percentile": 5,
+     "turnout_pct": 46.27
+    },
+    {
+     "percentile": 10,
+     "turnout_pct": 50.18
+    },
+    {
+     "percentile": 25,
+     "turnout_pct": 56.59
+    },
+    {
+     "percentile": 50,
+     "turnout_pct": 62.2
+    },
+    {
+     "percentile": 75,
+     "turnout_pct": 67.04
+    },
+    {
+     "percentile": 90,
+     "turnout_pct": 70.68
+    },
+    {
+     "percentile": 95,
+     "turnout_pct": 72.61
+    },
+    {
+     "percentile": 99,
+     "turnout_pct": 77.06
+    },
+    {
+     "percentile": 100,
+     "turnout_pct": 750.0
+    }
+   ],
+   "bins_5pt": [
+    {
+     "bin": "0_to_5",
+     "stations": 0
+    },
+    {
+     "bin": "5_to_10",
+     "stations": 0
+    },
+    {
+     "bin": "10_to_15",
+     "stations": 0
+    },
+    {
+     "bin": "15_to_20",
+     "stations": 0
+    },
+    {
+     "bin": "20_to_25",
+     "stations": 0
+    },
+    {
+     "bin": "25_to_30",
+     "stations": 0
+    },
+    {
+     "bin": "30_to_35",
+     "stations": 4
+    },
+    {
+     "bin": "35_to_40",
+     "stations": 12
+    },
+    {
+     "bin": "40_to_45",
+     "stations": 31
+    },
+    {
+     "bin": "45_to_50",
+     "stations": 73
+    },
+    {
+     "bin": "50_to_55",
+     "stations": 128
+    },
+    {
+     "bin": "55_to_60",
+     "stations": 226
+    },
+    {
+     "bin": "60_to_65",
+     "stations": 310
+    },
+    {
+     "bin": "65_to_70",
+     "stations": 278
+    },
+    {
+     "bin": "70_to_75",
+     "stations": 135
+    },
+    {
+     "bin": "75_to_80",
+     "stations": 13
+    },
+    {
+     "bin": "80_to_85",
+     "stations": 4
+    },
+    {
+     "bin": "85_to_90",
+     "stations": 0
+    },
+    {
+     "bin": "90_to_95",
+     "stations": 0
+    },
+    {
+     "bin": "95_to_100",
+     "stations": 0
+    },
+    {
+     "bin": "over_100",
+     "stations": 2
+    }
+   ],
+   "at_or_over_100": 2,
+   "over_100": 2,
+   "over_95": 2,
+   "under_30": 0
+  }
+ },
+ "within_division_sd_pts_median": {
+  "election_day_alone": 5.12,
+  "m0": 10.03,
+  "p": 2.9
+ },
+ "stations_over_100_election_day_alone": [
+  {
+   "station": "04H",
+   "division": "04",
+   "name": "Calgary Drop In Centre",
+   "voting_areas": "064",
+   "names_on_list": 9,
+   "election_day_ballots": 21,
+   "turnout_pct": 233.3,
+   "turnout_p_pct": 233.3,
+   "turnout_m0_pct": 460.9,
+   "plausible_explanation": "Calgary Drop In Centre, a homeless shelter. Most plausibly electors with no fixed address voted there and were registered at the shelter, while the list as of March 2024 counts only those still listed there. Not established from the data."
+  },
+  {
+   "station": "61C",
+   "division": "61",
+   "name": "Remote Area - Fort Fitzgerald",
+   "voting_areas": "036",
+   "names_on_list": 2,
+   "election_day_ballots": 15,
+   "turnout_pct": 750.0,
+   "turnout_p_pct": 750.0,
+   "turnout_m0_pct": 1294.9,
+   "plausible_explanation": "Remote Area - Fort Fitzgerald, a remote poll with 2 names on the list. Most plausibly people who live or work in the area but are listed elsewhere, or were registered at the poll and placed in another voting area. Cannot tell from the data."
+  }
+ ],
+ "m0_stations_over_100": 26,
+ "m0_top10_over_100": [
+  {
+   "station": "61C",
+   "name": "Remote Area - Fort Fitzgerald",
+   "names_on_list": 2,
+   "turnout_m0_pct": 1294.9
+  },
+  {
+   "station": "04H",
+   "name": "Calgary Drop In Centre",
+   "names_on_list": 9,
+   "turnout_m0_pct": 460.9
+  },
+  {
+   "station": "50B",
+   "name": "Kananaskis Village Centre",
+   "names_on_list": 91,
+   "turnout_m0_pct": 150.4
+  },
+  {
+   "station": "87B",
+   "name": "Cadomin Legion",
+   "names_on_list": 33,
+   "turnout_m0_pct": 130.6
+  },
+  {
+   "station": "87C",
+   "name": "Robb Multiplex",
+   "names_on_list": 129,
+   "turnout_m0_pct": 123.0
+  },
+  {
+   "station": "80L",
+   "name": "Water Valley Community Hall",
+   "names_on_list": 1179,
+   "turnout_m0_pct": 119.0
+  },
+  {
+   "station": "87L",
+   "name": "Anselmo Community Hall",
+   "names_on_list": 260,
+   "turnout_m0_pct": 115.7
+  },
+  {
+   "station": "59H",
+   "name": "Rumsey Community Hall",
+   "names_on_list": 221,
+   "turnout_m0_pct": 114.3
+  },
+  {
+   "station": "50Q",
+   "name": "Priddis Community Hall",
+   "names_on_list": 1629,
+   "turnout_m0_pct": 112.7
+  },
+  {
+   "station": "55V",
+   "name": "Jean Cote Community Centre",
+   "names_on_list": 146,
+   "turnout_m0_pct": 112.3
+  }
+ ],
+ "hard_check_p": {
+  "divisions": 87,
+  "largest_division_takeup": 0.5873,
+  "every_division_has_fewer_early_ballots_than_election_day_non_voters": true,
+  "stations_over_100_on_election_day_alone": 2,
+  "stations_over_100_under_p_not_already_over": 0,
+  "stations_at_exactly_100_under_p": 0,
+  "passed": true,
+  "why_it_holds": "Under P a station's turnout is 1 - (non-voters / list) x (1 - division take-up). Take-up is below 1 in every division, so turnout stays below 100% wherever any listed elector did not vote on election day. Stations already over 100% get no early ballots under P and stay where election day put them."
+ },
+ "count_assumption": {
+  "assumption": "Within a division, the share of election-day non-voters who voted early is the same at every station.",
+  "across_divisions": {
+   "divisions": 87,
+   "takeup_median": 0.419,
+   "takeup_min": 0.237,
+   "takeup_max": 0.587,
+   "pearson_r_takeup_vs_eday_turnout": 0.211,
+   "pearson_p": 0.04930189791760189,
+   "spearman_rho": 0.212,
+   "spearman_p": 0.048455623891874744,
+   "slope_takeup_per_point_of_eday_turnout": 0.427,
+   "slope_se": 0.214,
+   "by_region": [
+    {
+     "region": "Calgary",
+     "divisions": 26,
+     "spearman_rho": 0.36,
+     "p_value": 0.0708,
+     "median_takeup": 0.453
+    },
+    {
+     "region": "Edmonton",
+     "divisions": 20,
+     "spearman_rho": 0.386,
+     "p_value": 0.0923,
+     "median_takeup": 0.373
+    },
+    {
+     "region": "Rural",
+     "divisions": 22,
+     "spearman_rho": -0.055,
+     "p_value": 0.8087,
+     "median_takeup": 0.397
+    },
+    {
+     "region": "Smaller cities and suburbs",
+     "divisions": 19,
+     "spearman_rho": 0.402,
+     "p_value": 0.0882,
+     "median_takeup": 0.435
+    }
+   ]
+  },
+  "within_divisions_located_polls": {
+   "polls": 123,
+   "divisions": 54,
+   "slope_log_takeup_per_unit_eday_turnout": 2.646,
+   "se_clustered": 1.965,
+   "corr_within": 0.122,
+   "reading": "P predicts a slope of 0: within a division, take-up among election-day non-voters does not depend on the area's election-day turnout. A positive slope means early ballots are more concentrated where election-day turnout was high than P puts them."
+  },
+  "cannot_say": [
+   "Who voted early at any station: no provincial source counts early ballots below the division except the 254 named advance polls, and an elector may use any advance poll.",
+   "Whether the across-division pattern holds inside divisions: divisions differ in poll siting, hours, distance and campaign, so a cross-division link is not a within-division one.",
+   "The located-poll catchments are nearest-poll guesses, and a poll's volume depends on its size and hours. Vote Anywhere, special and mobile ballots (about 29% of early two-party ballots) are not covered."
+  ]
+ }
+}

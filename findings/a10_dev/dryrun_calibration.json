@@ -1,0 +1,5699 @@
+{
+ "procedure": "analysis/scripts/a10_reconstruct_pages.py (page reconstruction, version 3 procedure) + analysis/scripts/a10_assemble.py (assembly, known = 22 tuning districts); scorer analysis/scripts/a10_stepb_calibrate.py, gates as a7_stepb_calibrate.py",
+ "sample": [
+  2,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  26,
+  27,
+  31,
+  34,
+  35,
+  36,
+  39,
+  41,
+  44,
+  47,
+  50,
+  51,
+  55,
+  56,
+  57,
+  59,
+  64,
+  66,
+  70,
+  75,
+  77,
+  78,
+  82,
+  83,
+  86,
+  89
+ ],
+ "pages_dir": "C:\\tmp\\a10test\\clean5",
+ "placed": 30,
+ "placed_eds": [
+  2,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  26,
+  27,
+  31,
+  34,
+  35,
+  36,
+  39,
+  41,
+  44,
+  47,
+  50,
+  51,
+  55,
+  56,
+  59,
+  64,
+  70,
+  75,
+  77,
+  78,
+  83,
+  89
+ ],
+ "rejected_eds": [],
+ "filled_eds": [
+  57,
+  66,
+  86
+ ],
+ "failed": [
+  82
+ ],
+ "scored_assignment": "final (assemble -> a10_snap_assign); the assembly alone is under before_snap",
+ "T1": {
+  "wrong": 0,
+  "total": 1909,
+  "share": 0.0,
+  "max": 0.1,
+  "pass": true
+ },
+ "T4": {
+  "eg_official": 0.0009823668405000681,
+  "eg_with_reconstructions": 0.0009823668405000681,
+  "delta_points": 0.0,
+  "max_points": 0.5,
+  "pass": true,
+  "coverage_vas_official": 4765,
+  "coverage_vas_composite": 4765,
+  "sample_districts_in_composite": 34,
+  "vas_used_per_sample_district": {
+   "Calgary-Beddington": 54,
+   "Calgary-Confluence": 64,
+   "Calgary-Currie": 49,
+   "Calgary-Edgemont": 54,
+   "Calgary-Elbow": 53,
+   "Calgary-Fish Creek": 64,
+   "Calgary-Glenmore-Tsuut'ina": 55,
+   "Calgary-McKenzie": 60,
+   "Calgary-Symons Valley": 39,
+   "Calgary-Varsity": 52,
+   "Edmonton-City Centre": 67,
+   "Edmonton-Enoch": 48,
+   "Edmonton-Glenora-Riverview": 55,
+   "Edmonton-Gold Bar": 60,
+   "Edmonton-McClung": 58,
+   "Edmonton-Mill Woods": 54,
+   "Edmonton-Rutherford": 55,
+   "Edmonton-West Henday": 50,
+   "Airdrie-East": 59,
+   "Airdrie-West": 46,
+   "Camrose": 68,
+   "Central Peace-Notley": 49,
+   "Chestermere-Strathmore": 48,
+   "Cold Lake-Bonnyville-St. Paul": 62,
+   "Fort Saskatchewan-Vegreville": 67,
+   "Grande Prairie-Wapiti": 69,
+   "Lesser Slave Lake": 55,
+   "Lloydminster-Wainwright": 60,
+   "Medicine Hat-Brooks": 67,
+   "Medicine Hat-Cypress": 52,
+   "Peace River": 60,
+   "Red Deer-North": 49,
+   "Sherwood Park": 51,
+   "Strathcona-Sherwood Park": 57
+  }
+ },
+ "before_snap": {
+  "T1": {
+   "wrong": 63,
+   "total": 1909,
+   "share": 0.03300157150340492,
+   "max": 0.1,
+   "pass": true
+  },
+  "T4": {
+   "eg_official": 0.0009823668405000681,
+   "eg_with_reconstructions": 0.0006975551888151448,
+   "delta_points": -0.02848116516849233,
+   "max_points": 0.5,
+   "pass": true,
+   "coverage_vas_official": 4765,
+   "coverage_vas_composite": 4704,
+   "sample_districts_in_composite": 33,
+   "vas_used_per_sample_district": {
+    "Calgary-Beddington": 54,
+    "Calgary-Confluence": 64,
+    "Calgary-Currie": 49,
+    "Calgary-Edgemont": 54,
+    "Calgary-Elbow": 53,
+    "Calgary-Fish Creek": 64,
+    "Calgary-Glenmore-Tsuut'ina": 55,
+    "Calgary-McKenzie": 60,
+    "Calgary-Symons Valley": 39,
+    "Calgary-Varsity": 52,
+    "Edmonton-City Centre": 67,
+    "Edmonton-Enoch": 48,
+    "Edmonton-Glenora-Riverview": 55,
+    "Edmonton-Gold Bar": 60,
+    "Edmonton-McClung": 58,
+    "Edmonton-Mill Woods": 54,
+    "Edmonton-Rutherford": 55,
+    "Edmonton-West Henday": 50,
+    "Airdrie-East": 59,
+    "Airdrie-West": 46,
+    "Camrose": 67,
+    "Central Peace-Notley": 49,
+    "Chestermere-Strathmore": 48,
+    "Cold Lake-Bonnyville-St. Paul": 62,
+    "Fort Saskatchewan-Vegreville": 67,
+    "Grande Prairie-Wapiti": 69,
+    "Lesser Slave Lake": 55,
+    "Lloydminster-Wainwright": 60,
+    "Medicine Hat-Brooks": 67,
+    "Medicine Hat-Cypress": 52,
+    "Red Deer-North": 49,
+    "Sherwood Park": 51,
+    "Strathcona-Sherwood Park": 57
+   }
+  }
+ },
+ "snap": {
+  "drift": {
+   "before_snap": 0.00016954594345137565,
+   "after_snap": 4.986593032946982e-05,
+   "territory_km2": 449739.21485539066,
+   "target": 0.0005,
+   "pass": true,
+   "pairs_worst_first": [
+    {
+     "a": "Banff-Canmore-Diamond Valley",
+     "b": "Macleod-Crowsnest",
+     "overlap_m2": 2065283.003139979,
+     "gap_m2": 1104862.3090980765,
+     "share_of_total_pct": 14.1356077842881
+    },
+    {
+     "a": "Lethbridge-Little Bow",
+     "b": "Macleod-Crowsnest",
+     "overlap_m2": 1842479.9931472726,
+     "gap_m2": 706785.4453758083,
+     "share_of_total_pct": 11.367118168965964
+    },
+    {
+     "a": "Lethbridge-Cardston",
+     "b": "Macleod-Crowsnest",
+     "overlap_m2": 1736042.0193314208,
+     "gap_m2": 519294.9047216082,
+     "share_of_total_pct": 10.056497428292767
+    },
+    {
+     "a": "Banff-Canmore-Diamond Valley",
+     "b": "Rocky Mountain House-Sundre",
+     "overlap_m2": 991472.2492424423,
+     "gap_m2": 1082227.4831053359,
+     "share_of_total_pct": 9.246581210549317
+    },
+    {
+     "a": "Lesser Slave Lake",
+     "b": "West Yellowhead",
+     "overlap_m2": 582326.8307680255,
+     "gap_m2": 508298.9789067427,
+     "share_of_total_pct": 4.863076347153416
+    },
+    {
+     "a": "Barrhead-Westlock-Athabasca",
+     "b": "Lesser Slave Lake",
+     "overlap_m2": 447537.7512823011,
+     "gap_m2": 492327.86729510623,
+     "share_of_total_pct": 4.19083999173786
+    },
+    {
+     "a": "Lethbridge-Cardston",
+     "b": "Lethbridge-Taber-Warner",
+     "overlap_m2": 84324.99091078405,
+     "gap_m2": 709214.3235425598,
+     "share_of_total_pct": 3.538374240203599
+    },
+    {
+     "a": "Lethbridge-Little Bow",
+     "b": "Lethbridge-Taber-Warner",
+     "overlap_m2": 313502.62910156307,
+     "gap_m2": 371702.82325318747,
+     "share_of_total_pct": 3.0553159467962985
+    },
+    {
+     "a": "Rocky Mountain House-Sundre",
+     "b": "Wetaskiwin-Ponoka",
+     "overlap_m2": 94405.45793508601,
+     "gap_m2": 393470.634799771,
+     "share_of_total_pct": 2.175428699627077
+    },
+    {
+     "a": "Camrose",
+     "b": "Wetaskiwin-Ponoka",
+     "overlap_m2": 254757.15388372217,
+     "gap_m2": 211964.02827351625,
+     "share_of_total_pct": 2.081099421570801
+    },
+    {
+     "a": "Barrhead-Westlock-Athabasca",
+     "b": "West Yellowhead",
+     "overlap_m2": 215470.84133109945,
+     "gap_m2": 239387.94632018625,
+     "share_of_total_pct": 2.028205267012232
+    },
+    {
+     "a": "Camrose",
+     "b": "Drumheller-Stettler",
+     "overlap_m2": 206198.47224303422,
+     "gap_m2": 239505.87037230702,
+     "share_of_total_pct": 1.9873857992069608
+    },
+    {
+     "a": "Lacombe-Sylvan Lake",
+     "b": "Rocky Mountain House-Sundre",
+     "overlap_m2": 277790.98953418486,
+     "gap_m2": 155786.11889397108,
+     "share_of_total_pct": 1.9333107303713184
+    },
+    {
+     "a": "Lacombe-Sylvan Lake",
+     "b": "Wetaskiwin-Ponoka",
+     "overlap_m2": 193679.94503823548,
+     "gap_m2": 229846.73136380987,
+     "share_of_total_pct": 1.8884960764072547
+    },
+    {
+     "a": "Airdrie-East",
+     "b": "Olds-Didsbury-Three Hills",
+     "overlap_m2": 258343.4236211179,
+     "gap_m2": 138747.2342640062,
+     "share_of_total_pct": 1.7706184549333168
+    },
+    {
+     "a": "Blackfalds-Innisfail",
+     "b": "Olds-Didsbury-Three Hills",
+     "overlap_m2": 172275.74499856532,
+     "gap_m2": 186433.46809890657,
+     "share_of_total_pct": 1.5994764420993577
+    },
+    {
+     "a": "Fort Saskatchewan-Vegreville",
+     "b": "Lloydminster-Wainwright",
+     "overlap_m2": 121064.41881164032,
+     "gap_m2": 203619.48598834962,
+     "share_of_total_pct": 1.447758345463234
+    },
+    {
+     "a": "Lethbridge-Taber-Warner",
+     "b": "Medicine Hat-Cypress",
+     "overlap_m2": 224355.3090132387,
+     "gap_m2": 57825.184136789365,
+     "share_of_total_pct": 1.25823657361933
+    },
+    {
+     "a": "Blackfalds-Innisfail",
+     "b": "Lacombe-Sylvan Lake",
+     "overlap_m2": 89580.65279061871,
+     "gap_m2": 176036.60572243677,
+     "share_of_total_pct": 1.1843814769575027
+    },
+    {
+     "a": "Drumheller-Stettler",
+     "b": "Lacombe-Sylvan Lake",
+     "overlap_m2": 110990.04687909764,
+     "gap_m2": 128387.82194855498,
+     "share_of_total_pct": 1.0673806190914337
+    },
+    {
+     "a": "Drumheller-Stettler",
+     "b": "Lloydminster-Wainwright",
+     "overlap_m2": 109217.20312820621,
+     "gap_m2": 124449.92214846108,
+     "share_of_total_pct": 1.0419165399901538
+    },
+    {
+     "a": "Barrhead-Westlock-Athabasca",
+     "b": "Morinville-Sturgeon",
+     "overlap_m2": 122049.25322264196,
+     "gap_m2": 111416.04746522232,
+     "share_of_total_pct": 1.0410166086155475
+    },
+    {
+     "a": "Barrhead-Westlock-Athabasca",
+     "b": "Cold Lake-Bonnyville-St. Paul",
+     "overlap_m2": 87980.55946327401,
+     "gap_m2": 139173.62050568603,
+     "share_of_total_pct": 1.0128754610103157
+    },
+    {
+     "a": "Drayton Valley-Devon",
+     "b": "West Yellowhead",
+     "overlap_m2": 66399.6241504222,
+     "gap_m2": 108636.86141007146,
+     "share_of_total_pct": 0.7804838151335655
+    },
+    {
+     "a": "Central Peace-Notley",
+     "b": "West Yellowhead",
+     "overlap_m2": 82371.45385631651,
+     "gap_m2": 82207.14596509552,
+     "share_of_total_pct": 0.7338523340812998
+    },
+    {
+     "a": "Rocky Mountain House-Sundre",
+     "b": "West Yellowhead",
+     "overlap_m2": 74986.60853079804,
+     "gap_m2": 82279.76629252291,
+     "share_of_total_pct": 0.7012472846520323
+    },
+    {
+     "a": "Fort McMurray-Lac La Biche",
+     "b": "Lesser Slave Lake",
+     "overlap_m2": 73403.90130495354,
+     "gap_m2": 69138.20120432142,
+     "share_of_total_pct": 0.635592080287452
+    },
+    {
+     "a": "Camrose",
+     "b": "Lloydminster-Wainwright",
+     "overlap_m2": 94238.34136219126,
+     "gap_m2": 18829.04906639563,
+     "share_of_total_pct": 0.5041649914663141
+    },
+    {
+     "a": "Drayton Valley-Devon",
+     "b": "Lac Ste. Anne",
+     "overlap_m2": 65006.273269422614,
+     "gap_m2": 47630.26547737151,
+     "share_of_total_pct": 0.5022438333529896
+    },
+    {
+     "a": "Drayton Valley-Devon",
+     "b": "Wetaskiwin-Ponoka",
+     "overlap_m2": 54388.750880282336,
+     "gap_m2": 57542.187714169224,
+     "share_of_total_pct": 0.4990975778903316
+    }
+   ],
+   "n_pairs": 188,
+   "note": "pieces = known + snapped reconstructions only; hole-filled districts have no polygon"
+  },
+  "snapping": {
+   "total": {
+    "pieces": 61,
+    "vertices": 228581,
+    "snapped": 225818,
+    "median_of_piece_medians_m": 1.259561052719864,
+    "max_move_m": 39.99037647409368
+   },
+   "per_piece": {
+    "1": {
+     "district": "Calgary-Acadia",
+     "n_vertices": 561,
+     "n_snapped": 561,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 542,
+      "other outline / neighbour line": 19
+     },
+     "median_move_m": 0.4055828290292993,
+     "max_move_m": 39.63550623418929,
+     "area_change_pct": -0.259581996075549
+    },
+    "2": {
+     "district": "Calgary-Beddington",
+     "n_vertices": 517,
+     "n_snapped": 517,
+     "by_tier": {
+      "known boundary": 244,
+      "VA boundary": 273,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 0.6951226376227412,
+     "max_move_m": 11.610523405203743,
+     "area_change_pct": 0.013185146017350022
+    },
+    "4": {
+     "district": "Calgary-Bow-Springbank",
+     "n_vertices": 2132,
+     "n_snapped": 2132,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 985,
+      "other outline / neighbour line": 1147
+     },
+     "median_move_m": 0.0020323390676182844,
+     "max_move_m": 39.84908847264629,
+     "area_change_pct": -0.061532671878063404
+    },
+    "6": {
+     "district": "Calgary-Confluence",
+     "n_vertices": 1144,
+     "n_snapped": 1144,
+     "by_tier": {
+      "known boundary": 927,
+      "VA boundary": 192,
+      "other outline / neighbour line": 25
+     },
+     "median_move_m": 0.49218700440826035,
+     "max_move_m": 19.639822819655777,
+     "area_change_pct": -0.037246879161301594
+    },
+    "8": {
+     "district": "Calgary-Currie",
+     "n_vertices": 619,
+     "n_snapped": 619,
+     "by_tier": {
+      "known boundary": 143,
+      "VA boundary": 476,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 0.5122605871914803,
+     "max_move_m": 28.596539366735616,
+     "area_change_pct": -0.04374963868859289
+    },
+    "10": {
+     "district": "Calgary-Edgemont",
+     "n_vertices": 296,
+     "n_snapped": 296,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 296,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 1.8257340903222845,
+     "max_move_m": 7.224763581293296,
+     "area_change_pct": -0.017423500381354935
+    },
+    "11": {
+     "district": "Calgary-Elbow",
+     "n_vertices": 743,
+     "n_snapped": 743,
+     "by_tier": {
+      "known boundary": 82,
+      "VA boundary": 661,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 0.34701165057137634,
+     "max_move_m": 15.427692335240689,
+     "area_change_pct": -0.03610284151792281
+    },
+    "13": {
+     "district": "Calgary-Fish Creek",
+     "n_vertices": 791,
+     "n_snapped": 791,
+     "by_tier": {
+      "known boundary": 71,
+      "VA boundary": 720,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 1.1766279090254201,
+     "max_move_m": 37.81019022564168,
+     "area_change_pct": 0.1654520894372264
+    },
+    "14": {
+     "district": "Calgary-Glenmore-Tsuut'ina",
+     "n_vertices": 998,
+     "n_snapped": 998,
+     "by_tier": {
+      "known boundary": 27,
+      "VA boundary": 959,
+      "other outline / neighbour line": 12
+     },
+     "median_move_m": 1.5096029608235426,
+     "max_move_m": 35.73808649072084,
+     "area_change_pct": -0.04403394821746925
+    },
+    "18": {
+     "district": "Calgary-McKenzie",
+     "n_vertices": 1065,
+     "n_snapped": 1065,
+     "by_tier": {
+      "known boundary": 538,
+      "VA boundary": 519,
+      "other outline / neighbour line": 8
+     },
+     "median_move_m": 1.0029279714871815,
+     "max_move_m": 26.80697630718654,
+     "area_change_pct": -0.016642347289605407
+    },
+    "26": {
+     "district": "Calgary-Symons Valley",
+     "n_vertices": 430,
+     "n_snapped": 430,
+     "by_tier": {
+      "known boundary": 157,
+      "VA boundary": 273,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 1.1791010316620012,
+     "max_move_m": 37.534652723474146,
+     "area_change_pct": -0.03003388817928921
+    },
+    "27": {
+     "district": "Calgary-Varsity",
+     "n_vertices": 769,
+     "n_snapped": 769,
+     "by_tier": {
+      "known boundary": 113,
+      "VA boundary": 397,
+      "other outline / neighbour line": 259
+     },
+     "median_move_m": 0.4012545757758913,
+     "max_move_m": 39.93751177016079,
+     "area_change_pct": 0.010460527762593017
+    },
+    "28": {
+     "district": "Calgary-West-Springbank",
+     "n_vertices": 537,
+     "n_snapped": 537,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 425,
+      "other outline / neighbour line": 112
+     },
+     "median_move_m": 0.8899533861783039,
+     "max_move_m": 39.626122936121654,
+     "area_change_pct": 0.08691300556304797
+    },
+    "31": {
+     "district": "Edmonton-City Centre",
+     "n_vertices": 376,
+     "n_snapped": 376,
+     "by_tier": {
+      "known boundary": 160,
+      "VA boundary": 199,
+      "other outline / neighbour line": 17
+     },
+     "median_move_m": 1.100659691914238,
+     "max_move_m": 37.82508458881185,
+     "area_change_pct": 0.015091627515768818
+    },
+    "33": {
+     "district": "Edmonton-Ellerslie",
+     "n_vertices": 288,
+     "n_snapped": 288,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 254,
+      "other outline / neighbour line": 34
+     },
+     "median_move_m": 1.4398412918504362,
+     "max_move_m": 38.50290144598353,
+     "area_change_pct": 0.06507031773613542
+    },
+    "34": {
+     "district": "Edmonton-Enoch",
+     "n_vertices": 1022,
+     "n_snapped": 1022,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 788,
+      "other outline / neighbour line": 234
+     },
+     "median_move_m": 1.1521553522554462,
+     "max_move_m": 37.407088397241395,
+     "area_change_pct": -0.20791686248691846
+    },
+    "35": {
+     "district": "Edmonton-Glenora-Riverview",
+     "n_vertices": 472,
+     "n_snapped": 472,
+     "by_tier": {
+      "known boundary": 18,
+      "VA boundary": 434,
+      "other outline / neighbour line": 20
+     },
+     "median_move_m": 1.1615495396781017,
+     "max_move_m": 37.71929025039038,
+     "area_change_pct": 0.07977801529640353
+    },
+    "36": {
+     "district": "Edmonton-Gold Bar",
+     "n_vertices": 1000,
+     "n_snapped": 1000,
+     "by_tier": {
+      "known boundary": 193,
+      "VA boundary": 802,
+      "other outline / neighbour line": 5
+     },
+     "median_move_m": 0.898686532560956,
+     "max_move_m": 32.462339598445574,
+     "area_change_pct": 0.0009722522374858226
+    },
+    "39": {
+     "district": "Edmonton-McClung",
+     "n_vertices": 489,
+     "n_snapped": 489,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 488,
+      "other outline / neighbour line": 1
+     },
+     "median_move_m": 1.0434274117615776,
+     "max_move_m": 24.382473625181454,
+     "area_change_pct": -0.06963690382709337
+    },
+    "41": {
+     "district": "Edmonton-Mill Woods",
+     "n_vertices": 282,
+     "n_snapped": 282,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 275,
+      "other outline / neighbour line": 7
+     },
+     "median_move_m": 0.7342856540624036,
+     "max_move_m": 28.005362811581744,
+     "area_change_pct": -0.010356367590075275
+    },
+    "42": {
+     "district": "Edmonton-Nisku",
+     "n_vertices": 839,
+     "n_snapped": 839,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 540,
+      "other outline / neighbour line": 299
+     },
+     "median_move_m": 0.7187477817143794,
+     "max_move_m": 39.878427589492084,
+     "area_change_pct": 0.05130261514404085
+    },
+    "44": {
+     "district": "Edmonton-Rutherford",
+     "n_vertices": 1234,
+     "n_snapped": 1234,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 1198,
+      "other outline / neighbour line": 36
+     },
+     "median_move_m": 1.3127358779995522,
+     "max_move_m": 34.395603480141354,
+     "area_change_pct": -0.10917863566347179
+    },
+    "45": {
+     "district": "Edmonton-South",
+     "n_vertices": 1196,
+     "n_snapped": 1196,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 803,
+      "other outline / neighbour line": 393
+     },
+     "median_move_m": 1.06183505216244,
+     "max_move_m": 38.835164411868035,
+     "area_change_pct": -0.128903841475195
+    },
+    "46": {
+     "district": "Edmonton-Strathcona",
+     "n_vertices": 825,
+     "n_snapped": 825,
+     "by_tier": {
+      "known boundary": 10,
+      "VA boundary": 810,
+      "other outline / neighbour line": 5
+     },
+     "median_move_m": 0.9480507834322413,
+     "max_move_m": 34.18638000358855,
+     "area_change_pct": 0.003880179754715165
+    },
+    "47": {
+     "district": "Edmonton-West Henday",
+     "n_vertices": 751,
+     "n_snapped": 751,
+     "by_tier": {
+      "known boundary": 125,
+      "VA boundary": 618,
+      "other outline / neighbour line": 8
+     },
+     "median_move_m": 0.9416231905974541,
+     "max_move_m": 27.672996906500664,
+     "area_change_pct": -0.03499240249655361
+    },
+    "48": {
+     "district": "Edmonton-Whitemud",
+     "n_vertices": 1585,
+     "n_snapped": 1585,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 1585,
+      "other outline / neighbour line": 0
+     },
+     "median_move_m": 1.1575673360396264,
+     "max_move_m": 25.010046155253807,
+     "area_change_pct": -0.004076848790590648
+    },
+    "50": {
+     "district": "Airdrie-East",
+     "n_vertices": 1420,
+     "n_snapped": 1420,
+     "by_tier": {
+      "known boundary": 270,
+      "VA boundary": 518,
+      "other outline / neighbour line": 632
+     },
+     "median_move_m": 1.011331141938618,
+     "max_move_m": 36.4158996110162,
+     "area_change_pct": 0.0227698055939601
+    },
+    "51": {
+     "district": "Airdrie-West",
+     "n_vertices": 415,
+     "n_snapped": 415,
+     "by_tier": {
+      "known boundary": 98,
+      "VA boundary": 180,
+      "other outline / neighbour line": 137
+     },
+     "median_move_m": 0.8435233086568736,
+     "max_move_m": 14.971161900036194,
+     "area_change_pct": -0.039312737374295706
+    },
+    "52": {
+     "district": "Banff-Canmore-Diamond Valley",
+     "n_vertices": 13650,
+     "n_snapped": 13650,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 7014,
+      "other outline / neighbour line": 6636
+     },
+     "median_move_m": 0.40246259161958686,
+     "max_move_m": 39.97872093384765,
+     "area_change_pct": 0.00115641337457282
+    },
+    "53": {
+     "district": "Barrhead-Westlock-Athabasca",
+     "n_vertices": 8668,
+     "n_snapped": 8668,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 6108,
+      "other outline / neighbour line": 2560
+     },
+     "median_move_m": 4.502049249790707,
+     "max_move_m": 39.95248113580949,
+     "area_change_pct": -0.001699680902545831
+    },
+    "54": {
+     "district": "Blackfalds-Innisfail",
+     "n_vertices": 5531,
+     "n_snapped": 5531,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 4553,
+      "other outline / neighbour line": 978
+     },
+     "median_move_m": 3.4901816305970836,
+     "max_move_m": 39.79909043403317,
+     "area_change_pct": -0.015769244755141684
+    },
+    "55": {
+     "district": "Camrose",
+     "n_vertices": 4745,
+     "n_snapped": 4745,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 3034,
+      "other outline / neighbour line": 1711
+     },
+     "median_move_m": 2.5587202274878025,
+     "max_move_m": 38.71995991679941,
+     "area_change_pct": -0.006642334964574295
+    },
+    "56": {
+     "district": "Central Peace-Notley",
+     "n_vertices": 12838,
+     "n_snapped": 12838,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 12822,
+      "other outline / neighbour line": 16
+     },
+     "median_move_m": 12.291217739861894,
+     "max_move_m": 38.243394041422434,
+     "area_change_pct": -0.0002008492943820112
+    },
+    "58": {
+     "district": "Cochrane",
+     "n_vertices": 1632,
+     "n_snapped": 1632,
+     "by_tier": {
+      "known boundary": 15,
+      "VA boundary": 893,
+      "other outline / neighbour line": 724
+     },
+     "median_move_m": 0.289258552868917,
+     "max_move_m": 18.403751201263553,
+     "area_change_pct": -0.006711729916472048
+    },
+    "59": {
+     "district": "Cold Lake-Bonnyville-St. Paul",
+     "n_vertices": 4517,
+     "n_snapped": 4517,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 4340,
+      "other outline / neighbour line": 177
+     },
+     "median_move_m": 6.225626778236082,
+     "max_move_m": 26.946964419805724,
+     "area_change_pct": 0.002522887652316562
+    },
+    "60": {
+     "district": "Drayton Valley-Devon",
+     "n_vertices": 5892,
+     "n_snapped": 5892,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 5008,
+      "other outline / neighbour line": 884
+     },
+     "median_move_m": 4.571624818347988,
+     "max_move_m": 39.77604431989885,
+     "area_change_pct": -0.002142503676444784
+    },
+    "61": {
+     "district": "Drumheller-Stettler",
+     "n_vertices": 10212,
+     "n_snapped": 10212,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 9094,
+      "other outline / neighbour line": 1118
+     },
+     "median_move_m": 8.921001129011128,
+     "max_move_m": 36.549428852757075,
+     "area_change_pct": -5.668843641601129e-05
+    },
+    "62": {
+     "district": "Fort McMurray-Lac La Biche",
+     "n_vertices": 9941,
+     "n_snapped": 9941,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 9898,
+      "other outline / neighbour line": 43
+     },
+     "median_move_m": 9.834440240556564,
+     "max_move_m": 33.14900822617832,
+     "area_change_pct": -0.00021391172854419498
+    },
+    "64": {
+     "district": "Fort Saskatchewan-Vegreville",
+     "n_vertices": 6581,
+     "n_snapped": 6581,
+     "by_tier": {
+      "known boundary": 249,
+      "VA boundary": 5876,
+      "other outline / neighbour line": 456
+     },
+     "median_move_m": 5.541797433275313,
+     "max_move_m": 35.929941816543,
+     "area_change_pct": 0.0035240996514778722
+    },
+    "67": {
+     "district": "Lac Ste. Anne",
+     "n_vertices": 3781,
+     "n_snapped": 3781,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 3467,
+      "other outline / neighbour line": 314
+     },
+     "median_move_m": 3.9728726464018944,
+     "max_move_m": 39.532854394036114,
+     "area_change_pct": 0.01564209528595199
+    },
+    "68": {
+     "district": "Lacombe-Sylvan Lake",
+     "n_vertices": 5273,
+     "n_snapped": 5273,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 2882,
+      "other outline / neighbour line": 2391
+     },
+     "median_move_m": 0.9822933400947789,
+     "max_move_m": 39.96008030515654,
+     "area_change_pct": 0.006825015249737255
+    },
+    "69": {
+     "district": "Leduc-Beaumont",
+     "n_vertices": 461,
+     "n_snapped": 461,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 367,
+      "other outline / neighbour line": 94
+     },
+     "median_move_m": 0.9773125993677066,
+     "max_move_m": 36.71277554367701,
+     "area_change_pct": 0.05968073696121425
+    },
+    "70": {
+     "district": "Lesser Slave Lake",
+     "n_vertices": 9712,
+     "n_snapped": 9712,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 7777,
+      "other outline / neighbour line": 1935
+     },
+     "median_move_m": 8.37629377421981,
+     "max_move_m": 39.802268282931735,
+     "area_change_pct": -0.0004144815071169709
+    },
+    "71": {
+     "district": "Lethbridge",
+     "n_vertices": 857,
+     "n_snapped": 857,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 807,
+      "other outline / neighbour line": 50
+     },
+     "median_move_m": 1.5191841509553725,
+     "max_move_m": 32.91427457749966,
+     "area_change_pct": 0.024044947718878537
+    },
+    "72": {
+     "district": "Lethbridge-Cardston",
+     "n_vertices": 5971,
+     "n_snapped": 5971,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 5479,
+      "other outline / neighbour line": 492
+     },
+     "median_move_m": 3.5245769776504696,
+     "max_move_m": 38.13757759841521,
+     "area_change_pct": -0.0030961686533438606
+    },
+    "73": {
+     "district": "Lethbridge-Little Bow",
+     "n_vertices": 7897,
+     "n_snapped": 7897,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 7001,
+      "other outline / neighbour line": 896
+     },
+     "median_move_m": 5.334606244134751,
+     "max_move_m": 39.908308486130515,
+     "area_change_pct": -0.005770890041495314
+    },
+    "74": {
+     "district": "Lethbridge-Taber-Warner",
+     "n_vertices": 6630,
+     "n_snapped": 6630,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 5539,
+      "other outline / neighbour line": 1091
+     },
+     "median_move_m": 5.269278184555454,
+     "max_move_m": 39.81793099798097,
+     "area_change_pct": -0.0016018611849840383
+    },
+    "75": {
+     "district": "Lloydminster-Wainwright",
+     "n_vertices": 4592,
+     "n_snapped": 4592,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 3966,
+      "other outline / neighbour line": 626
+     },
+     "median_move_m": 4.897811968481898,
+     "max_move_m": 34.49962909779142,
+     "area_change_pct": 0.001584980686078642
+    },
+    "76": {
+     "district": "Macleod-Crowsnest",
+     "n_vertices": 12401,
+     "n_snapped": 9638,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 5033,
+      "other outline / neighbour line": 4605
+     },
+     "median_move_m": 2.4171516283290044,
+     "max_move_m": 39.99037647409368,
+     "area_change_pct": 0.002246875866667478
+    },
+    "77": {
+     "district": "Medicine Hat-Brooks",
+     "n_vertices": 10394,
+     "n_snapped": 10394,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 10379,
+      "other outline / neighbour line": 15
+     },
+     "median_move_m": 7.393884374434082,
+     "max_move_m": 28.289557732981823,
+     "area_change_pct": 0.00018146681116339118
+    },
+    "78": {
+     "district": "Medicine Hat-Cypress",
+     "n_vertices": 2707,
+     "n_snapped": 2707,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 2471,
+      "other outline / neighbour line": 236
+     },
+     "median_move_m": 3.6990521200297057,
+     "max_move_m": 35.169143676481454,
+     "area_change_pct": 0.007120448137613826
+    },
+    "79": {
+     "district": "Morinville-Sturgeon",
+     "n_vertices": 3932,
+     "n_snapped": 3932,
+     "by_tier": {
+      "known boundary": 994,
+      "VA boundary": 2439,
+      "other outline / neighbour line": 499
+     },
+     "median_move_m": 2.851202307023459,
+     "max_move_m": 39.44817158872761,
+     "area_change_pct": -0.015383161651300825
+    },
+    "80": {
+     "district": "Okotoks",
+     "n_vertices": 3291,
+     "n_snapped": 3291,
+     "by_tier": {
+      "known boundary": 827,
+      "VA boundary": 1846,
+      "other outline / neighbour line": 618
+     },
+     "median_move_m": 2.222099068865029,
+     "max_move_m": 39.12494963766283,
+     "area_change_pct": 0.0036446109782113326
+    },
+    "81": {
+     "district": "Olds-Didsbury-Three Hills",
+     "n_vertices": 7106,
+     "n_snapped": 7106,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 5530,
+      "other outline / neighbour line": 1576
+     },
+     "median_move_m": 4.644131799355504,
+     "max_move_m": 39.76506941036715,
+     "area_change_pct": -0.0032188828610943674
+    },
+    "83": {
+     "district": "Red Deer-North",
+     "n_vertices": 1209,
+     "n_snapped": 1209,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 1053,
+      "other outline / neighbour line": 156
+     },
+     "median_move_m": 1.9834392288974116,
+     "max_move_m": 32.923015093458545,
+     "area_change_pct": 0.0033353155898750144
+    },
+    "84": {
+     "district": "Red Deer-South",
+     "n_vertices": 527,
+     "n_snapped": 527,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 522,
+      "other outline / neighbour line": 5
+     },
+     "median_move_m": 1.259561052719864,
+     "max_move_m": 35.1467713533745,
+     "area_change_pct": -0.20691130492935403
+    },
+    "85": {
+     "district": "Rocky Mountain House-Sundre",
+     "n_vertices": 12211,
+     "n_snapped": 12211,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 6486,
+      "other outline / neighbour line": 5725
+     },
+     "median_move_m": 1.1849788498555187,
+     "max_move_m": 39.35182616050545,
+     "area_change_pct": 0.002462457911694752
+    },
+    "87": {
+     "district": "Spruce Grove",
+     "n_vertices": 1018,
+     "n_snapped": 1018,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 586,
+      "other outline / neighbour line": 432
+     },
+     "median_move_m": 1.8886726946891788,
+     "max_move_m": 39.15540212526842,
+     "area_change_pct": 0.05978698041853933
+    },
+    "89": {
+     "district": "Strathcona-Sherwood Park",
+     "n_vertices": 1493,
+     "n_snapped": 1493,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 1402,
+      "other outline / neighbour line": 91
+     },
+     "median_move_m": 2.1865510161051316,
+     "max_move_m": 38.91865081246387,
+     "area_change_pct": -0.03126998814432534
+    },
+    "90": {
+     "district": "West Yellowhead",
+     "n_vertices": 16777,
+     "n_snapped": 16777,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 15675,
+      "other outline / neighbour line": 1102
+     },
+     "median_move_m": 11.66759299903983,
+     "max_move_m": 39.249536990885815,
+     "area_change_pct": -0.000371605478622464
+    },
+    "91": {
+     "district": "Wetaskiwin-Ponoka",
+     "n_vertices": 3338,
+     "n_snapped": 3338,
+     "by_tier": {
+      "known boundary": 0,
+      "VA boundary": 1493,
+      "other outline / neighbour line": 1845
+     },
+     "median_move_m": 0.01682187709988556,
+     "max_move_m": 39.919823742610944,
+     "area_change_pct": -0.001246114836837359
+    }
+   }
+  },
+  "merged_holes": [
+   {
+    "claimants": [
+     63,
+     82
+    ],
+    "n_vas": 96,
+    "better_fit_ed": 82,
+    "matched_pts_within_60m": {
+     "63": 361.0,
+     "82": 3665.0000000000005
+    },
+    "to_better": 60,
+    "to_other": 36,
+    "skipped_better_fit_with_no_vas": [],
+    "result": "split"
+   }
+  ],
+  "cut_vas": 233,
+  "sanity": {
+   "districts_91": {
+    "pass": true,
+    "found": 91,
+    "missing_eds": []
+   },
+   "every_va_assigned": {
+    "pass": true,
+    "unassigned_vas": 0
+   },
+   "each_district_connected": {
+    "pass": true,
+    "disconnected": {},
+    "multipart": {
+     "52": {
+      "va_counts": [
+       41,
+       6,
+       4
+      ]
+     },
+     "12": {
+      "va_counts": [
+       36,
+       1
+      ]
+     },
+     "57": {
+      "va_counts": [
+       34,
+       14
+      ],
+      "why": "pooled hole-fill claim"
+     },
+     "69": {
+      "va_counts": [
+       38,
+       20
+      ]
+     },
+     "73": {
+      "va_counts": [
+       26,
+       25,
+       4
+      ]
+     },
+     "75": {
+      "va_counts": [
+       59,
+       1
+      ]
+     }
+    },
+    "n_multipart": 6
+   },
+   "no_known_overlap_over_0.1pct": {
+    "pass": true,
+    "offenders": [],
+    "n_offenders": 0
+   },
+   "area_within_tol_of_stated": {
+    "pass": true,
+    "n_checked": 91,
+    "n_fail": 0,
+    "fails": [],
+    "informational_filled_split_over_25pct": []
+   },
+   "page_neighbours_match_adjacency": {
+    "pass": true,
+    "status": "run (more than half of adjacent districts over 200 m printed)",
+    "n_pages": 69,
+    "n_mismatch": 0,
+    "page_only_total_informational": 449,
+    "mismatches": []
+   },
+   "provincial_coverage_complete": {
+    "pass": true,
+    "va_area_assigned_share": 1.0
+   },
+   "districts_inside_page_frame": {
+    "pass": true,
+    "n_pages": 61,
+    "n_fail": 0,
+    "fails": [],
+    "informational_unused_over_threshold": [
+     {
+      "ed": 49,
+      "district": "Edmonton-Windermere",
+      "share_outside_frame": 1.0000000000000078,
+      "transform_used": false,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 22,
+      "district": "Calgary-North West-Bearspaw",
+      "share_outside_frame": 1.0000000000000016,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 86,
+      "district": "Sherwood Park",
+      "share_outside_frame": 1.0000000000000004,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 40,
+      "district": "Edmonton-Meadows",
+      "share_outside_frame": 0.9999999999999997,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     }
+    ],
+    "per_page": [
+     {
+      "ed": 1,
+      "district": "Calgary-Acadia",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 2,
+      "district": "Calgary-Beddington",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 4,
+      "district": "Calgary-Bow-Springbank",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 6,
+      "district": "Calgary-Confluence",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 8,
+      "district": "Calgary-Currie",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 10,
+      "district": "Calgary-Edgemont",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 11,
+      "district": "Calgary-Elbow",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 13,
+      "district": "Calgary-Fish Creek",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 14,
+      "district": "Calgary-Glenmore-Tsuut'ina",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 18,
+      "district": "Calgary-McKenzie",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 22,
+      "district": "Calgary-North West-Bearspaw",
+      "share_outside_frame": 1.0000000000000016,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 26,
+      "district": "Calgary-Symons Valley",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 27,
+      "district": "Calgary-Varsity",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 28,
+      "district": "Calgary-West-Springbank",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 31,
+      "district": "Edmonton-City Centre",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 33,
+      "district": "Edmonton-Ellerslie",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 34,
+      "district": "Edmonton-Enoch",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 35,
+      "district": "Edmonton-Glenora-Riverview",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 36,
+      "district": "Edmonton-Gold Bar",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 39,
+      "district": "Edmonton-McClung",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 40,
+      "district": "Edmonton-Meadows",
+      "share_outside_frame": 0.9999999999999997,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 41,
+      "district": "Edmonton-Mill Woods",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 42,
+      "district": "Edmonton-Nisku",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 44,
+      "district": "Edmonton-Rutherford",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 45,
+      "district": "Edmonton-South",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 46,
+      "district": "Edmonton-Strathcona",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 47,
+      "district": "Edmonton-West Henday",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 48,
+      "district": "Edmonton-Whitemud",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 49,
+      "district": "Edmonton-Windermere",
+      "share_outside_frame": 1.0000000000000078,
+      "transform_used": false,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 50,
+      "district": "Airdrie-East",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 51,
+      "district": "Airdrie-West",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 52,
+      "district": "Banff-Canmore-Diamond Valley",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 53,
+      "district": "Barrhead-Westlock-Athabasca",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 54,
+      "district": "Blackfalds-Innisfail",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 55,
+      "district": "Camrose",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 56,
+      "district": "Central Peace-Notley",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 58,
+      "district": "Cochrane",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 59,
+      "district": "Cold Lake-Bonnyville-St. Paul",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 60,
+      "district": "Drayton Valley-Devon",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 61,
+      "district": "Drumheller-Stettler",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 62,
+      "district": "Fort McMurray-Lac La Biche",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 64,
+      "district": "Fort Saskatchewan-Vegreville",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 67,
+      "district": "Lac Ste. Anne",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 68,
+      "district": "Lacombe-Sylvan Lake",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 69,
+      "district": "Leduc-Beaumont",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 70,
+      "district": "Lesser Slave Lake",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 71,
+      "district": "Lethbridge",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 72,
+      "district": "Lethbridge-Cardston",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 73,
+      "district": "Lethbridge-Little Bow",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 74,
+      "district": "Lethbridge-Taber-Warner",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 75,
+      "district": "Lloydminster-Wainwright",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 76,
+      "district": "Macleod-Crowsnest",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 77,
+      "district": "Medicine Hat-Brooks",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 78,
+      "district": "Medicine Hat-Cypress",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       63.78802490234375,
+       581.8819580078125,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 79,
+      "district": "Morinville-Sturgeon",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 80,
+      "district": "Okotoks",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 81,
+      "district": "Olds-Didsbury-Three Hills",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 83,
+      "district": "Red Deer-North",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 84,
+      "district": "Red Deer-South",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 85,
+      "district": "Rocky Mountain House-Sundre",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 86,
+      "district": "Sherwood Park",
+      "share_outside_frame": 1.0000000000000004,
+      "transform_used": false,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.9400024414062
+      ]
+     },
+     {
+      "ed": 87,
+      "district": "Spruce Grove",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       63.78802490234375,
+       560.0379638671875,
+       735.4800415039062
+      ]
+     },
+     {
+      "ed": 89,
+      "district": "Strathcona-Sherwood Park",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 90,
+      "district": "West Yellowhead",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       51.96200180053711,
+       64.79998779296875,
+       581.8819580078125,
+       735.47998046875
+      ]
+     },
+     {
+      "ed": 91,
+      "district": "Wetaskiwin-Ponoka",
+      "share_outside_frame": 0.0,
+      "transform_used": true,
+      "frame_pt": [
+       30.118000030517578,
+       64.79998779296875,
+       560.0379638671875,
+       735.47998046875
+      ]
+     }
+    ]
+   },
+   "districts_match_locator_inset": {
+    "pass": true,
+    "status": "run",
+    "n_pass": 90,
+    "n_fail": 0,
+    "n_source_error": 1,
+    "rule": {
+     "offset_km": 3.0,
+     "width_frac": 0.5,
+     "iou": 0.45,
+     "small_km": 5.0
+    },
+    "failed": [],
+    "source_errors": [
+     53
+    ],
+    "per_district": {
+     "50": {
+      "ed": 50,
+      "inset_width_km": 53.76230001848005,
+      "offset_km": 0.2298911393129697,
+      "iou": 0.9790153584565395,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "51": {
+      "ed": 51,
+      "inset_width_km": 21.36785969404783,
+      "offset_km": 0.05103659536557014,
+      "iou": 0.9587132403950704,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "52": {
+      "ed": 52,
+      "inset_width_km": 177.8339552663397,
+      "offset_km": 0.23404267975746548,
+      "iou": 0.9865153190772026,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "53": {
+      "ed": 53,
+      "inset_width_km": 136.4752997695431,
+      "offset_km": 154.51997111054365,
+      "iou": 0.0,
+      "status": "inset_source_error",
+      "inset_source_error": true,
+      "better_match_ed": 60
+     },
+     "54": {
+      "ed": 54,
+      "inset_width_km": 109.59336861721519,
+      "offset_km": 0.6819407775268077,
+      "iou": 0.9548573860717264,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "55": {
+      "ed": 55,
+      "inset_width_km": 149.57101978381164,
+      "offset_km": 0.13939172765790242,
+      "iou": 0.9893234484644111,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "56": {
+      "ed": 56,
+      "inset_width_km": 388.7623582938388,
+      "offset_km": 0.08778407817072253,
+      "iou": 0.9946797791299783,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "57": {
+      "ed": 57,
+      "inset_width_km": 37.220927394405706,
+      "offset_km": 0.20963866116769564,
+      "iou": 0.9723861532849205,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "58": {
+      "ed": 58,
+      "inset_width_km": 29.639127897934056,
+      "offset_km": 0.187399232969916,
+      "iou": 0.9721781073515292,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "59": {
+      "ed": 59,
+      "inset_width_km": 205.4073374557644,
+      "offset_km": 0.10502790943309717,
+      "iou": 0.9934570508549072,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "60": {
+      "ed": 60,
+      "inset_width_km": 136.47746216219664,
+      "offset_km": 0.2009612268882265,
+      "iou": 0.9843172423020469,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "61": {
+      "ed": 61,
+      "inset_width_km": 231.59933262615,
+      "offset_km": 0.13464621844682204,
+      "iou": 0.9958669417061614,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "62": {
+      "ed": 62,
+      "inset_width_km": 283.984541030651,
+      "offset_km": 0.11777495068201675,
+      "iou": 0.994700545933764,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "63": {
+      "ed": 63,
+      "inset_width_km": 403.23317428697646,
+      "offset_km": 0.06441099221995238,
+      "iou": 0.9970781912268798,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "64": {
+      "ed": 64,
+      "inset_width_km": 167.49207396816277,
+      "offset_km": 0.11038566398928108,
+      "iou": 0.9882993049900324,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "65": {
+      "ed": 65,
+      "inset_width_km": 15.164108876960352,
+      "offset_km": 0.20678212199670906,
+      "iou": 0.9036455176175834,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "66": {
+      "ed": 66,
+      "inset_width_km": 166.80599051834363,
+      "offset_km": 0.44654300076481235,
+      "iou": 0.9861983051344587,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "67": {
+      "ed": 67,
+      "inset_width_km": 95.80818626463879,
+      "offset_km": 0.2769538198255263,
+      "iou": 0.9838024335876047,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "68": {
+      "ed": 68,
+      "inset_width_km": 108.21669016791508,
+      "offset_km": 0.16864057629123952,
+      "iou": 0.9794193933492299,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "69": {
+      "ed": 69,
+      "inset_width_km": 16.542891286309807,
+      "offset_km": 0.10577766169755312,
+      "iou": 0.9100720372449965,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "70": {
+      "ed": 70,
+      "inset_width_km": 343.95236859961227,
+      "offset_km": 0.10763314977991996,
+      "iou": 0.9969810789094816,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "71": {
+      "ed": 71,
+      "inset_width_km": 11.029342153234408,
+      "offset_km": 0.060225289154497465,
+      "iou": 0.8926491273464734,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "72": {
+      "ed": 72,
+      "inset_width_km": 103.39261627715919,
+      "offset_km": 0.17694443903299178,
+      "iou": 0.9857680072962937,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "73": {
+      "ed": 73,
+      "inset_width_km": 148.19611789671424,
+      "offset_km": 0.14361965321291145,
+      "iou": 0.9883955037804402,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "74": {
+      "ed": 74,
+      "inset_width_km": 166.80565553643856,
+      "offset_km": 0.1573538866014796,
+      "iou": 0.992466969989006,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "75": {
+      "ed": 75,
+      "inset_width_km": 153.02130671361647,
+      "offset_km": 0.12692563593515943,
+      "iou": 0.9917809785495991,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "76": {
+      "ed": 76,
+      "inset_width_km": 185.41716492785233,
+      "offset_km": 0.18268040181014428,
+      "iou": 0.9889357693128793,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "77": {
+      "ed": 77,
+      "inset_width_km": 191.61377350994292,
+      "offset_km": 0.18351958557694767,
+      "iou": 0.989744634981088,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "78": {
+      "ed": 78,
+      "inset_width_km": 122.69300603335165,
+      "offset_km": 0.19607416148131163,
+      "iou": 0.9881511479102106,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "79": {
+      "ed": 79,
+      "inset_width_km": 79.25849758022244,
+      "offset_km": 0.10112408516600414,
+      "iou": 0.9768925232428072,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "80": {
+      "ed": 80,
+      "inset_width_km": 74.44242238985608,
+      "offset_km": 0.21912652393561527,
+      "iou": 0.9657339538325787,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "81": {
+      "ed": 81,
+      "inset_width_km": 158.53176992867247,
+      "offset_km": 0.13680242452758543,
+      "iou": 0.9874969179338142,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "82": {
+      "ed": 82,
+      "inset_width_km": 465.95348081750984,
+      "offset_km": 0.08654649754755857,
+      "iou": 0.9974073090132141,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "83": {
+      "ed": 83,
+      "inset_width_km": 12.408400736657903,
+      "offset_km": 0.03499601870958199,
+      "iou": 0.9100103855655072,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "84": {
+      "ed": 84,
+      "inset_width_km": 8.961322070735507,
+      "offset_km": 0.3496893527961547,
+      "iou": 0.8095349581645203,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "85": {
+      "ed": 85,
+      "inset_width_km": 197.82457242373388,
+      "offset_km": 0.1256024807802559,
+      "iou": 0.9936464454314703,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "86": {
+      "ed": 86,
+      "inset_width_km": 12.407099505920895,
+      "offset_km": 0.3176264096421708,
+      "iou": 0.8894030850510474,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "87": {
+      "ed": 87,
+      "inset_width_km": 22.746389277360404,
+      "offset_km": 0.1741319740699553,
+      "iou": 0.9512875381795768,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "88": {
+      "ed": 88,
+      "inset_width_km": 10.339589254449121,
+      "offset_km": 0.191273930658019,
+      "iou": 0.8856847439576686,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "89": {
+      "ed": 89,
+      "inset_width_km": 34.46341614749655,
+      "offset_km": 0.08365335561433286,
+      "iou": 0.9741422581261321,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "90": {
+      "ed": 90,
+      "inset_width_km": 343.2565721511366,
+      "offset_km": 0.1292483748879406,
+      "iou": 0.9946169451209642,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "91": {
+      "ed": 91,
+      "inset_width_km": 133.71640785819386,
+      "offset_km": 0.2352595962808562,
+      "iou": 0.9842324180740839,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "1": {
+      "ed": 1,
+      "inset_width_km": 7.200691102472134,
+      "offset_km": 0.4038508980183588,
+      "iou": 0.7769537984571668,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "2": {
+      "ed": 2,
+      "inset_width_km": 8.411188067471493,
+      "offset_km": 0.6656359127392922,
+      "iou": 0.6570420433884973,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "3": {
+      "ed": 3,
+      "inset_width_km": 9.267182328538155,
+      "offset_km": 0.5796785852184353,
+      "iou": 0.7303317900156505,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "4": {
+      "ed": 4,
+      "inset_width_km": 22.506588539549266,
+      "offset_km": 0.8761454331283843,
+      "iou": 0.7699720007628309,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "5": {
+      "ed": 5,
+      "inset_width_km": 2.558837914202828,
+      "offset_km": 0.5019672468156295,
+      "iou": 0.5049163223254773,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "6": {
+      "ed": 6,
+      "inset_width_km": 7.959520479562692,
+      "offset_km": 0.39176995584987556,
+      "iou": 0.8539322996078228,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "7": {
+      "ed": 7,
+      "inset_width_km": 4.8491479830642925,
+      "offset_km": 0.4676799153635751,
+      "iou": 0.7171655024029905,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "8": {
+      "ed": 8,
+      "inset_width_km": 4.945260753963143,
+      "offset_km": 0.559369317972704,
+      "iou": 0.6553869754560829,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "9": {
+      "ed": 9,
+      "inset_width_km": 9.594584267251193,
+      "offset_km": 0.3449019863113981,
+      "iou": 0.8916056801060318,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "10": {
+      "ed": 10,
+      "inset_width_km": 7.297139512938214,
+      "offset_km": 0.7211619315744818,
+      "iou": 0.6305485715204958,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "11": {
+      "ed": 11,
+      "inset_width_km": 5.635491333889193,
+      "offset_km": 0.48034468581172174,
+      "iou": 0.7123192701841596,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "12": {
+      "ed": 12,
+      "inset_width_km": 9.695258240893716,
+      "offset_km": 0.47871039537747695,
+      "iou": 0.7964002777372283,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "13": {
+      "ed": 13,
+      "inset_width_km": 10.551024070270243,
+      "offset_km": 0.3365452275963974,
+      "iou": 0.8261502810838737,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "14": {
+      "ed": 14,
+      "inset_width_km": 40.06539834545628,
+      "offset_km": 0.765828896609476,
+      "iou": 0.8794199035385943,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "15": {
+      "ed": 15,
+      "inset_width_km": 8.80078728984017,
+      "offset_km": 0.2152979547785864,
+      "iou": 0.9159449336592316,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "16": {
+      "ed": 16,
+      "inset_width_km": 8.89689676577598,
+      "offset_km": 0.5267255963213945,
+      "iou": 0.7683768654458171,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "17": {
+      "ed": 17,
+      "inset_width_km": 10.729280488896999,
+      "offset_km": 0.4571364161321647,
+      "iou": 0.8587052096240335,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "18": {
+      "ed": 18,
+      "inset_width_km": 14.456059102213942,
+      "offset_km": 0.28247233362421775,
+      "iou": 0.7774588338618413,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "19": {
+      "ed": 19,
+      "inset_width_km": 7.714575729837874,
+      "offset_km": 0.5247996292196221,
+      "iou": 0.6390977831005809,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "20": {
+      "ed": 20,
+      "inset_width_km": 7.473062312248163,
+      "offset_km": 0.7642136587223276,
+      "iou": 0.6200316267144337,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "21": {
+      "ed": 21,
+      "inset_width_km": 7.301724857227178,
+      "offset_km": 0.638156067497511,
+      "iou": 0.6706474472380562,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "22": {
+      "ed": 22,
+      "inset_width_km": 8.58449444193393,
+      "offset_km": 0.8139154993962332,
+      "iou": 0.7107193652209449,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "23": {
+      "ed": 23,
+      "inset_width_km": 9.518504654536954,
+      "offset_km": 0.714409167393682,
+      "iou": 0.7350148521350751,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "24": {
+      "ed": 24,
+      "inset_width_km": 8.48327587979706,
+      "offset_km": 0.3256669930232557,
+      "iou": 0.8902981497298714,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "25": {
+      "ed": 25,
+      "inset_width_km": 8.034341138570452,
+      "offset_km": 0.1510746635006452,
+      "iou": 0.9349755475918776,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "26": {
+      "ed": 26,
+      "inset_width_km": 8.148889656719751,
+      "offset_km": 0.7823708515057588,
+      "iou": 0.7104378318479909,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "27": {
+      "ed": 27,
+      "inset_width_km": 7.5806985671108125,
+      "offset_km": 0.36353269110087577,
+      "iou": 0.7693246864645754,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "28": {
+      "ed": 28,
+      "inset_width_km": 21.75364500666829,
+      "offset_km": 0.805471747222345,
+      "iou": 0.8387209756823334,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "29": {
+      "ed": 29,
+      "inset_width_km": 10.192890472108033,
+      "offset_km": 0.21193971831650413,
+      "iou": 0.906967713902375,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "30": {
+      "ed": 30,
+      "inset_width_km": 6.781821598090813,
+      "offset_km": 0.1596672497514471,
+      "iou": 0.8921117668017648,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "31": {
+      "ed": 31,
+      "inset_width_km": 6.069436113895849,
+      "offset_km": 0.3528324935591361,
+      "iou": 0.829093246914277,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "32": {
+      "ed": 32,
+      "inset_width_km": 5.22593563179858,
+      "offset_km": 0.18557468152859508,
+      "iou": 0.8915406774055628,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "33": {
+      "ed": 33,
+      "inset_width_km": 6.533407508009113,
+      "offset_km": 0.5922510991491763,
+      "iou": 0.7239116726918464,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "34": {
+      "ed": 34,
+      "inset_width_km": 19.00973773033265,
+      "offset_km": 0.7820950160156388,
+      "iou": 0.8358543672434506,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "35": {
+      "ed": 35,
+      "inset_width_km": 8.243226178255863,
+      "offset_km": 0.3512211572537882,
+      "iou": 0.8228664646818107,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "36": {
+      "ed": 36,
+      "inset_width_km": 9.786209453420248,
+      "offset_km": 0.38031293809540256,
+      "iou": 0.8489759108845071,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "37": {
+      "ed": 37,
+      "inset_width_km": 5.8375831846453945,
+      "offset_km": 0.28885952467198656,
+      "iou": 0.8020963352376478,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "38": {
+      "ed": 38,
+      "inset_width_km": 12.85210140225198,
+      "offset_km": 0.09023079929500168,
+      "iou": 0.9555478490774051,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "39": {
+      "ed": 39,
+      "inset_width_km": 7.876391468211077,
+      "offset_km": 0.4938534054887288,
+      "iou": 0.7129048329398093,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "40": {
+      "ed": 40,
+      "inset_width_km": 4.8424654078446325,
+      "offset_km": 0.5179750237160962,
+      "iou": 0.686787373758978,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "41": {
+      "ed": 41,
+      "inset_width_km": 8.022416762882145,
+      "offset_km": 0.5476830542561409,
+      "iou": 0.6809413845402642,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "42": {
+      "ed": 42,
+      "inset_width_km": 19.224559638852252,
+      "offset_km": 0.8639345915593744,
+      "iou": 0.706846743744683,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "43": {
+      "ed": 43,
+      "inset_width_km": 9.549681637019036,
+      "offset_km": 0.2301355565463769,
+      "iou": 0.8588838527500815,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "44": {
+      "ed": 44,
+      "inset_width_km": 6.368115558952093,
+      "offset_km": 0.6175569128770114,
+      "iou": 0.7126699872097433,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "45": {
+      "ed": 45,
+      "inset_width_km": 9.572968433777802,
+      "offset_km": 0.8124428468071294,
+      "iou": 0.6880623307284928,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "46": {
+      "ed": 46,
+      "inset_width_km": 6.2412925399998205,
+      "offset_km": 0.4176363063025643,
+      "iou": 0.7745101023597192,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "47": {
+      "ed": 47,
+      "inset_width_km": 11.184942474638927,
+      "offset_km": 0.4748146394741621,
+      "iou": 0.8505079974504463,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "48": {
+      "ed": 48,
+      "inset_width_km": 8.41934486360103,
+      "offset_km": 0.5313027635945653,
+      "iou": 0.7232775821313434,
+      "status": "pass",
+      "inset_source_error": false
+     },
+     "49": {
+      "ed": 49,
+      "inset_width_km": 13.29963720639143,
+      "offset_km": 0.8409661189520494,
+      "iou": 0.6975968567375158,
+      "status": "pass",
+      "inset_source_error": false
+     }
+    }
+   }
+  },
+  "constants": {
+   "SNAP_TOL_m": 40.0,
+   "CUT_SHARE": 0.01,
+   "DRIFT_GAP_BUF_m": 40.0,
+   "DRIFT_TARGET": 0.0005,
+   "SEGMENT_MAX_m": 250.0
+  },
+  "output_dir": "C:\\tmp\\a10test\\clean5_calibration_snap",
+  "seconds": 267.8
+ },
+ "T2_mean_abs_area_err_pct": 0.016226325371168537,
+ "T3_mean_hausdorff_km": 0.031353162783955814,
+ "mean_iou": 0.9992602300977269,
+ "reconstruction_quality_all_polygons": {
+  "n": 32,
+  "T2_mean_abs_area_err_pct": 0.05015352552045019,
+  "T3_mean_hausdorff_km": 0.5758354934253255,
+  "mean_iou": 0.9678300642294839
+ },
+ "districts": [
+  {
+   "ed": 2,
+   "district": "Calgary-Beddington",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 15.337535398032026,
+   "s_area": 15.463860476908998,
+   "theta_deg": 270.0015050088072,
+   "prior": "v2",
+   "med_dist_m": 5.602553175173057,
+   "in60": 0.9751124655347555,
+   "n_layer_pts": 27564,
+   "sec": 260.7,
+   "polygon_status": "accepted",
+   "iou": 0.999261444594563,
+   "area_err_pct": -0.009149984174968175,
+   "hausdorff_km": 0.0020474818960470728,
+   "source": "reconstructed",
+   "n_vas_assigned": 54,
+   "pop_diff_pct": 3.2654965167127217,
+   "pop_within_5pct": true,
+   "va_true": 54,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 54,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 6,
+   "district": "Calgary-Confluence",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 17.11485834608917,
+   "s_area": 17.098627048121028,
+   "theta_deg": 269.99862235457533,
+   "prior": "v2",
+   "med_dist_m": 6.766433636126254,
+   "in60": 0.9129005982641912,
+   "n_layer_pts": 35603,
+   "sec": 261.3,
+   "polygon_status": "accepted",
+   "iou": 0.9995268843254066,
+   "area_err_pct": 0.02920162934327521,
+   "hausdorff_km": 0.002189585471165729,
+   "source": "reconstructed",
+   "n_vas_assigned": 64,
+   "pop_diff_pct": -7.455996801944812,
+   "pop_within_5pct": false,
+   "va_true": 64,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 64,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 8,
+   "district": "Calgary-Currie",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 10.44307859788727,
+   "s_area": 10.463604858636725,
+   "theta_deg": -0.0002946883027751832,
+   "prior": "v2",
+   "med_dist_m": 7.442994644103441,
+   "in60": 0.9157179353622541,
+   "n_layer_pts": 40317,
+   "sec": 531.3,
+   "polygon_status": "accepted",
+   "iou": 0.9993151431002761,
+   "area_err_pct": 0.04472184577734391,
+   "hausdorff_km": 0.0016437828936296864,
+   "source": "reconstructed",
+   "n_vas_assigned": 49,
+   "pop_diff_pct": -0.9817495748301932,
+   "pop_within_5pct": true,
+   "va_true": 49,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 49,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 10,
+   "district": "Calgary-Edgemont",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 12.37437890673479,
+   "s_area": 12.403889446868398,
+   "theta_deg": 270.00029714041654,
+   "prior": "v2",
+   "med_dist_m": 6.852828226960424,
+   "in60": 0.9395293036552992,
+   "n_layer_pts": 39176,
+   "sec": 502.3,
+   "polygon_status": "accepted",
+   "iou": 0.9983737844429301,
+   "area_err_pct": 0.026868343254776758,
+   "hausdorff_km": 0.0036628363152558033,
+   "source": "reconstructed",
+   "n_vas_assigned": 54,
+   "pop_diff_pct": 4.547658184041926,
+   "pop_within_5pct": true,
+   "va_true": 54,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 54,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 11,
+   "district": "Calgary-Elbow",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 10.307446854994298,
+   "s_area": 10.421638070851312,
+   "theta_deg": 270.0015521638777,
+   "prior": "v2",
+   "med_dist_m": 6.645113356432901,
+   "in60": 0.9479111901969507,
+   "n_layer_pts": 24727,
+   "sec": 162.7,
+   "polygon_status": "accepted",
+   "iou": 0.9995768073225759,
+   "area_err_pct": 0.017127274496906323,
+   "hausdorff_km": 0.001232790192801625,
+   "source": "reconstructed",
+   "n_vas_assigned": 53,
+   "pop_diff_pct": -1.2849301671362463,
+   "pop_within_5pct": true,
+   "va_true": 53,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 53,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 13,
+   "district": "Calgary-Fish Creek",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 17.258054732841334,
+   "s_area": 17.338592795739363,
+   "theta_deg": 270.00016722248677,
+   "prior": "v2",
+   "med_dist_m": 7.198571577581191,
+   "in60": 0.921164672410662,
+   "n_layer_pts": 49559,
+   "sec": 730.6,
+   "polygon_status": "accepted",
+   "iou": 0.9987799604654947,
+   "area_err_pct": 0.030057735987549097,
+   "hausdorff_km": 0.0031748798693627123,
+   "source": "reconstructed",
+   "n_vas_assigned": 64,
+   "pop_diff_pct": 6.865110758009669,
+   "pop_within_5pct": false,
+   "va_true": 64,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 64,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 14,
+   "district": "Calgary-Glenmore-Tsuut'ina",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 67.10718523121939,
+   "s_area": 67.07624849230287,
+   "theta_deg": 270.00070595652335,
+   "prior": "v2",
+   "med_dist_m": 5.412592677319386,
+   "in60": 0.9458866683053186,
+   "n_layer_pts": 52889,
+   "sec": 968.7,
+   "polygon_status": "accepted",
+   "iou": 0.9995259796500452,
+   "area_err_pct": 0.019501764359236732,
+   "hausdorff_km": 0.00449876668111166,
+   "source": "reconstructed",
+   "n_vas_assigned": 55,
+   "pop_diff_pct": 1.5450231329195518,
+   "pop_within_5pct": true,
+   "va_true": 55,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 55,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 18,
+   "district": "Calgary-McKenzie",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 23.01057800933021,
+   "s_area": 23.033857892008008,
+   "theta_deg": -0.00017010053785201172,
+   "prior": "v2",
+   "med_dist_m": 6.318499220991314,
+   "in60": 0.9209572293570906,
+   "n_layer_pts": 51858,
+   "sec": 708.9,
+   "polygon_status": "accepted",
+   "iou": 0.9985665944107383,
+   "area_err_pct": 0.026573772145441592,
+   "hausdorff_km": 0.0032829129163802527,
+   "source": "reconstructed",
+   "n_vas_assigned": 60,
+   "pop_diff_pct": 2.926982984961047,
+   "pop_within_5pct": true,
+   "va_true": 60,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 60,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 26,
+   "district": "Calgary-Symons Valley",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 14.258986761008577,
+   "s_area": 14.167468727281525,
+   "theta_deg": 270.00083578681205,
+   "prior": "v2",
+   "med_dist_m": 6.952076292788587,
+   "in60": 0.9168970564319402,
+   "n_layer_pts": 30745,
+   "sec": 477.5,
+   "polygon_status": "accepted",
+   "iou": 0.9990900734411599,
+   "area_err_pct": 0.033178016093925886,
+   "hausdorff_km": 0.003050369407937788,
+   "source": "reconstructed",
+   "n_vas_assigned": 39,
+   "pop_diff_pct": -6.5271715106821935,
+   "pop_within_5pct": false,
+   "va_true": 39,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 39,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 27,
+   "district": "Calgary-Varsity",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Calgary"
+   ],
+   "s": 14.570094153150677,
+   "s_area": 14.580819140945485,
+   "theta_deg": 269.98846426887053,
+   "prior": "v2",
+   "med_dist_m": 6.447884059663662,
+   "in60": 0.9266767168104693,
+   "n_layer_pts": 31177,
+   "sec": 267.4,
+   "polygon_status": "accepted",
+   "iou": 0.9991527799426346,
+   "area_err_pct": -0.015554929435250452,
+   "hausdorff_km": 0.0025064989548378154,
+   "source": "reconstructed",
+   "n_vas_assigned": 52,
+   "pop_diff_pct": 1.5790461595868612,
+   "pop_within_5pct": true,
+   "va_true": 52,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 52,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 31,
+   "district": "Edmonton-City Centre",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 9.967490819078558,
+   "s_area": 9.90834604401558,
+   "theta_deg": -0.009321150330016053,
+   "prior": "v2",
+   "med_dist_m": 7.118631002490757,
+   "in60": 0.8954169738833482,
+   "n_layer_pts": 25769,
+   "sec": 169.5,
+   "polygon_status": "accepted",
+   "iou": 0.9981310299110262,
+   "area_err_pct": -0.04858343449421824,
+   "hausdorff_km": 0.0031352600669803917,
+   "source": "reconstructed",
+   "n_vas_assigned": 67,
+   "pop_diff_pct": -2.0577096648356905,
+   "pop_within_5pct": true,
+   "va_true": 67,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 1,
+    "va_wrong_assigned_to": {
+     "Edmonton-Glenora-Riverview": 1
+    }
+   },
+   "final_source": "placed",
+   "final_n_vas": 67,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 34,
+   "district": "Edmonton-Enoch",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 30.676517790930248,
+   "s_area": 30.642413389079245,
+   "theta_deg": -0.004756885222049032,
+   "prior": "v2",
+   "med_dist_m": 6.7632563123423655,
+   "in60": 0.917127271413605,
+   "n_layer_pts": 27681,
+   "sec": 774.1,
+   "polygon_status": "accepted",
+   "iou": 0.9994630357802191,
+   "area_err_pct": -0.0016704286660754013,
+   "hausdorff_km": 0.0038253682261022814,
+   "source": "reconstructed",
+   "n_vas_assigned": 48,
+   "pop_diff_pct": -12.929921840366111,
+   "pop_within_5pct": false,
+   "va_true": 48,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 48,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 35,
+   "district": "Edmonton-Glenora-Riverview",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 13.421554634625515,
+   "s_area": 13.489977532182307,
+   "theta_deg": -0.0006625808046203446,
+   "prior": "v2",
+   "med_dist_m": 6.173780384938777,
+   "in60": 0.8981961434791623,
+   "n_layer_pts": 33761,
+   "sec": 236.3,
+   "polygon_status": "accepted",
+   "iou": 0.9986005712263207,
+   "area_err_pct": 0.010416167031014528,
+   "hausdorff_km": 0.002492007214235405,
+   "source": "reconstructed",
+   "n_vas_assigned": 55,
+   "pop_diff_pct": 6.761510584512083,
+   "pop_within_5pct": false,
+   "va_true": 55,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 1,
+    "va_wrong_assigned_to": {
+     "Edmonton-City Centre": 1
+    }
+   },
+   "final_source": "placed",
+   "final_n_vas": 55,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 36,
+   "district": "Edmonton-Gold Bar",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 19.17216357916186,
+   "s_area": 19.24057318437066,
+   "theta_deg": 269.9970239490469,
+   "prior": "v2",
+   "med_dist_m": 6.39055579136579,
+   "in60": 0.8824176111823678,
+   "n_layer_pts": 38203,
+   "sec": 238.0,
+   "polygon_status": "accepted",
+   "iou": 0.9993109745024553,
+   "area_err_pct": -0.008867363844274348,
+   "hausdorff_km": 0.0028010371725269326,
+   "source": "reconstructed",
+   "n_vas_assigned": 60,
+   "pop_diff_pct": 7.621518424110356,
+   "pop_within_5pct": false,
+   "va_true": 60,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 60,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 39,
+   "district": "Edmonton-McClung",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 13.420034764684356,
+   "s_area": 13.531089730417483,
+   "theta_deg": 0.0007723859380043345,
+   "prior": "v2",
+   "med_dist_m": 5.43620440958118,
+   "in60": 0.8995211524001742,
+   "n_layer_pts": 25269,
+   "sec": 203.4,
+   "polygon_status": "accepted",
+   "iou": 0.9989649175352622,
+   "area_err_pct": -0.010120281604537915,
+   "hausdorff_km": 0.0022508481534405456,
+   "source": "reconstructed",
+   "n_vas_assigned": 58,
+   "pop_diff_pct": 5.65322933684664,
+   "pop_within_5pct": false,
+   "va_true": 58,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 58,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 41,
+   "district": "Edmonton-Mill Woods",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 13.420569336064013,
+   "s_area": 13.323626842611823,
+   "theta_deg": 269.9960299623497,
+   "prior": "v2",
+   "med_dist_m": 5.4359053440394005,
+   "in60": 0.9437192619162075,
+   "n_layer_pts": 27043,
+   "sec": 214.1,
+   "polygon_status": "accepted",
+   "iou": 0.9994774474718564,
+   "area_err_pct": -0.008553485761103092,
+   "hausdorff_km": 0.0017185488134783481,
+   "source": "reconstructed",
+   "n_vas_assigned": 54,
+   "pop_diff_pct": 5.556943006605381,
+   "pop_within_5pct": false,
+   "va_true": 54,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 54,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 44,
+   "district": "Edmonton-Rutherford",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 12.655360696356533,
+   "s_area": 12.636380041656698,
+   "theta_deg": -0.004730566241603169,
+   "prior": "v2",
+   "med_dist_m": 6.363233518367714,
+   "in60": 0.882176413847308,
+   "n_layer_pts": 27991,
+   "sec": 170.7,
+   "polygon_status": "accepted",
+   "iou": 0.9986101425420146,
+   "area_err_pct": 0.02178633239825853,
+   "hausdorff_km": 0.0031484862818208777,
+   "source": "reconstructed",
+   "n_vas_assigned": 55,
+   "pop_diff_pct": 4.301727236126852,
+   "pop_within_5pct": true,
+   "va_true": 55,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 55,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 47,
+   "district": "Edmonton-West Henday",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 18.793717266225812,
+   "s_area": 18.739054120085214,
+   "theta_deg": 269.9936037153721,
+   "prior": "v2",
+   "med_dist_m": 7.223037754402383,
+   "in60": 0.9041466018782821,
+   "n_layer_pts": 45893,
+   "sec": 962.8,
+   "polygon_status": "accepted",
+   "iou": 0.9993480430613298,
+   "area_err_pct": 0.04806547418286049,
+   "hausdorff_km": 0.004554605061811534,
+   "source": "reconstructed",
+   "n_vas_assigned": 50,
+   "pop_diff_pct": -4.049800389017334,
+   "pop_within_5pct": true,
+   "va_true": 50,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 50,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 50,
+   "district": "Airdrie-East",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Airdrie"
+   ],
+   "s": 93.1027712723017,
+   "s_area": 93.08864402339691,
+   "theta_deg": 270.00048219193275,
+   "prior": "v2",
+   "med_dist_m": 8.58482728477415,
+   "in60": 0.8392736641923808,
+   "n_layer_pts": 16301,
+   "sec": 499.0,
+   "polygon_status": "accepted",
+   "iou": 0.9992405332359862,
+   "area_err_pct": 0.00808095732739244,
+   "hausdorff_km": 0.014764248225757892,
+   "source": "reconstructed",
+   "n_vas_assigned": 59,
+   "pop_diff_pct": 6.746730617186521,
+   "pop_within_5pct": false,
+   "va_true": 59,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 59,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 51,
+   "district": "Airdrie-West",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Airdrie"
+   ],
+   "s": 35.05875631373858,
+   "s_area": 35.08933731401967,
+   "theta_deg": 0.0016254932135090644,
+   "prior": "v2",
+   "med_dist_m": 4.445016603195328,
+   "in60": 0.9292175161521895,
+   "n_layer_pts": 20895,
+   "sec": 218.7,
+   "polygon_status": "accepted",
+   "iou": 0.9995775518337511,
+   "area_err_pct": 0.029456602179214475,
+   "hausdorff_km": 0.003727726664367179,
+   "source": "reconstructed",
+   "n_vas_assigned": 46,
+   "pop_diff_pct": -8.813132690513667,
+   "pop_within_5pct": false,
+   "va_true": 46,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 46,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 55,
+   "district": "Camrose",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Camrose"
+   ],
+   "s": 254.08971767433871,
+   "s_area": 254.08554741614967,
+   "theta_deg": -89.99871673119742,
+   "prior": "municipalities",
+   "med_dist_m": 8.978795628707598,
+   "in60": 0.8917537511702639,
+   "n_layer_pts": 39521,
+   "sec": 286.1,
+   "polygon_status": "accepted",
+   "iou": 0.9996138610775541,
+   "area_err_pct": 0.005618539295118259,
+   "hausdorff_km": 0.18538321339813896,
+   "source": "reconstructed",
+   "n_vas_assigned": 67,
+   "pop_diff_pct": 6.233949493936504,
+   "pop_within_5pct": false,
+   "va_true": 68,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 1,
+    "va_wrong_assigned_to": {
+     "Wetaskiwin-Ponoka": 1
+    }
+   },
+   "final_source": "placed",
+   "final_n_vas": 68,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 56,
+   "district": "Central Peace-Notley",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Big Lakes County"
+   ],
+   "s": 594.3575787265489,
+   "s_area": 594.3572181725203,
+   "theta_deg": -0.00038309825520497777,
+   "prior": "municipalities",
+   "med_dist_m": 14.467338362840604,
+   "in60": 0.8720957114784418,
+   "n_layer_pts": 17302,
+   "sec": 262.4,
+   "polygon_status": "accepted",
+   "iou": 0.9996569383949666,
+   "area_err_pct": 0.0005001861880929938,
+   "hausdorff_km": 0.08328227076614468,
+   "source": "reconstructed",
+   "n_vas_assigned": 49,
+   "pop_diff_pct": 8.079769004773636,
+   "pop_within_5pct": false,
+   "va_true": 49,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 49,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 57,
+   "district": "Chestermere-Strathmore",
+   "status": "filled",
+   "filled": true,
+   "filled_n_vas": 48,
+   "anchors": [
+    "Chestermere",
+    "Strathmore"
+   ],
+   "error": "RuntimeError(\"no local match within the prior's error\")",
+   "sec": 255.1,
+   "polygon_status": "none",
+   "source": "filled",
+   "n_vas_assigned": 48,
+   "pop_diff_pct": -13.745191445873473,
+   "pop_within_5pct": false,
+   "va_true": 47,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "filled",
+   "final_n_vas": 48,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 59,
+   "district": "Cold Lake-Bonnyville-St. Paul",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Cold Lake",
+    "Bonnyville",
+    "St. Paul"
+   ],
+   "s": 345.10494305136103,
+   "s_area": 345.10752146370186,
+   "theta_deg": 0.0008038132716053478,
+   "prior": "municipalities",
+   "med_dist_m": 10.292262543128519,
+   "in60": 0.8888255880198583,
+   "n_layer_pts": 12287,
+   "sec": 140.8,
+   "polygon_status": "accepted",
+   "iou": 0.9997476188305773,
+   "area_err_pct": -0.002188687135458913,
+   "hausdorff_km": 0.022353921972352826,
+   "source": "reconstructed",
+   "n_vas_assigned": 62,
+   "pop_diff_pct": 8.305384194424594,
+   "pop_within_5pct": false,
+   "va_true": 62,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 62,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 64,
+   "district": "Fort Saskatchewan-Vegreville",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Vegreville"
+   ],
+   "s": 268.4179200659614,
+   "s_area": 268.41632415927864,
+   "theta_deg": -89.99955645406928,
+   "prior": "municipalities",
+   "med_dist_m": 9.389111063681316,
+   "in60": 0.897531512605042,
+   "n_layer_pts": 38080,
+   "sec": 299.7,
+   "polygon_status": "accepted",
+   "iou": 0.9996168722511851,
+   "area_err_pct": -0.0018797347759215285,
+   "hausdorff_km": 0.028739250832198533,
+   "source": "reconstructed",
+   "n_vas_assigned": 67,
+   "pop_diff_pct": 6.984149955878961,
+   "pop_within_5pct": false,
+   "va_true": 67,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 67,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 66,
+   "district": "Grande Prairie-Wapiti",
+   "status": "filled",
+   "filled": true,
+   "filled_n_vas": 69,
+   "anchors": [
+    "Hythe"
+   ],
+   "error": "RuntimeError(\"no local match within the prior's error\")",
+   "sec": 553.7,
+   "polygon_status": "none",
+   "source": "filled",
+   "n_vas_assigned": 69,
+   "pop_diff_pct": 7.106168044115177,
+   "pop_within_5pct": false,
+   "va_true": 69,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "filled",
+   "final_n_vas": 69,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 70,
+   "district": "Lesser Slave Lake",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Slave Lake"
+   ],
+   "s": 575.1840024758981,
+   "s_area": 575.1766291666439,
+   "theta_deg": -0.0005292461857101014,
+   "prior": "municipalities",
+   "med_dist_m": 15.242537315204764,
+   "in60": 0.8406307575593367,
+   "n_layer_pts": 18454,
+   "sec": 310.6,
+   "polygon_status": "accepted",
+   "iou": 0.9998095448874912,
+   "area_err_pct": 0.002112033315446234,
+   "hausdorff_km": 0.0766573269425768,
+   "source": "reconstructed",
+   "n_vas_assigned": 55,
+   "pop_diff_pct": 12.739229730655856,
+   "pop_within_5pct": false,
+   "va_true": 55,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 55,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 75,
+   "district": "Lloydminster-Wainwright",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Wainwright"
+   ],
+   "s": 258.8262006436324,
+   "s_area": 258.82900006969476,
+   "theta_deg": -0.00016447729478871208,
+   "prior": "municipalities",
+   "med_dist_m": 10.012300537765528,
+   "in60": 0.8183949101462217,
+   "n_layer_pts": 26877,
+   "sec": 178.0,
+   "polygon_status": "accepted",
+   "iou": 0.9996858249678189,
+   "area_err_pct": -0.0039064791103178365,
+   "hausdorff_km": 0.024290426488984225,
+   "source": "reconstructed",
+   "n_vas_assigned": 60,
+   "pop_diff_pct": 8.093892875565235,
+   "pop_within_5pct": false,
+   "va_true": 60,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 60,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 77,
+   "district": "Medicine Hat-Brooks",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Brooks"
+   ],
+   "s": 324.5499209807634,
+   "s_area": 324.54746500193556,
+   "theta_deg": -89.9997846794637,
+   "prior": "municipalities",
+   "med_dist_m": 12.617008549560254,
+   "in60": 0.7111941510966694,
+   "n_layer_pts": 30775,
+   "sec": 186.9,
+   "polygon_status": "accepted",
+   "iou": 0.9995987913476769,
+   "area_err_pct": -0.00038444061170010826,
+   "hausdorff_km": 0.06377477281743085,
+   "source": "reconstructed",
+   "n_vas_assigned": 67,
+   "pop_diff_pct": 7.836407608937184,
+   "pop_within_5pct": false,
+   "va_true": 67,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 67,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 78,
+   "district": "Medicine Hat-Cypress",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Cypress County"
+   ],
+   "s": 203.95823554673484,
+   "s_area": 203.97093119532715,
+   "theta_deg": -0.0007062416384469356,
+   "prior": "v2",
+   "med_dist_m": 8.433740244921202,
+   "in60": 0.8778356266269989,
+   "n_layer_pts": 5378,
+   "sec": 597.8,
+   "polygon_status": "accepted",
+   "iou": 0.9997320059443584,
+   "area_err_pct": -0.010742758023347444,
+   "hausdorff_km": 0.37581239761955915,
+   "source": "reconstructed",
+   "n_vas_assigned": 52,
+   "pop_diff_pct": 5.367961303880852,
+   "pop_within_5pct": false,
+   "va_true": 52,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 52,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 82,
+   "district": "Peace River",
+   "status": "failed: RuntimeError('fit below the acceptance rule (10168 matched points, median 100.7 m, within 60 m 0.36)')",
+   "filled": false,
+   "anchors": [
+    "Peace River"
+   ],
+   "error": "RuntimeError('fit below the acceptance rule (10168 matched points, median 100.7 m, within 60 m 0.36)')",
+   "s": 816.4545322578263,
+   "s_area": 818.3463029999978,
+   "theta_deg": -0.060276982164915706,
+   "prior": "municipalities",
+   "med_dist_m": 100.74022846514083,
+   "in60": 0.3604445318646735,
+   "n_layer_pts": 10168,
+   "sec": 125.6,
+   "polygon_status": "rejected",
+   "iou": 0.992755152411678,
+   "area_err_pct": -0.46211049133648185,
+   "hausdorff_km": 1.196160417620167,
+   "n_vas_assigned": 0,
+   "va_true": 60,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 60,
+    "va_wrong_assigned_to": {
+     "(unassigned)": 60
+    }
+   },
+   "final_source": "split",
+   "final_n_vas": 60,
+   "final_low_confidence": true
+  },
+  {
+   "ed": 83,
+   "district": "Red Deer-North",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Red Deer"
+   ],
+   "s": 19.938832957829437,
+   "s_area": 19.94493558747621,
+   "theta_deg": 270.0022887016596,
+   "prior": "v2",
+   "med_dist_m": 7.508419350747535,
+   "in60": 0.8990444278977414,
+   "n_layer_pts": 32232,
+   "sec": 523.7,
+   "polygon_status": "accepted",
+   "iou": 0.9987352999164688,
+   "area_err_pct": -0.006638221445572278,
+   "hausdorff_km": 0.004349793813598764,
+   "source": "reconstructed",
+   "n_vas_assigned": 49,
+   "pop_diff_pct": -0.19466870456967403,
+   "pop_within_5pct": true,
+   "va_true": 49,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 49,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 86,
+   "district": "Sherwood Park",
+   "status": "filled",
+   "reject_reason": "overlaps known districts: 82.8%",
+   "filled": true,
+   "filled_n_vas": 51,
+   "anchors": [
+    "Edmonton"
+   ],
+   "s": 21.15907476456553,
+   "s_area": 21.045388976204535,
+   "theta_deg": 89.8527235111945,
+   "prior": "v2",
+   "med_dist_m": 23.1380893643351,
+   "in60": 0.8507446732701489,
+   "n_layer_pts": 28066,
+   "sec": 214.5,
+   "polygon_status": "accepted",
+   "iou": 0.0,
+   "area_err_pct": 0.656012564182868,
+   "hausdorff_km": 16.289980488471574,
+   "source": "filled",
+   "n_vas_assigned": 51,
+   "pop_diff_pct": 2.8416475745337784,
+   "pop_within_5pct": true,
+   "va_true": 51,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "filled",
+   "final_n_vas": 51,
+   "final_low_confidence": false
+  },
+  {
+   "ed": 89,
+   "district": "Strathcona-Sherwood Park",
+   "status": "placed",
+   "filled": false,
+   "anchors": [
+    "Beaumont"
+   ],
+   "s": 65.18896153486317,
+   "s_area": 65.17328888779504,
+   "theta_deg": 270.00377738735887,
+   "prior": "v2",
+   "med_dist_m": 3.0038320133754732,
+   "in60": 0.9601106798640643,
+   "n_layer_pts": 53849,
+   "sec": 515.4,
+   "polygon_status": "accepted",
+   "iou": 0.9997164465176628,
+   "area_err_pct": 0.005282858676456888,
+   "hausdorff_km": 0.006243468388638074,
+   "source": "reconstructed",
+   "n_vas_assigned": 57,
+   "pop_diff_pct": 12.699407752928265,
+   "pop_within_5pct": false,
+   "va_true": 57,
+   "va_wrong": 0,
+   "va_wrong_assigned_to": {},
+   "before_snap": {
+    "va_wrong": 0,
+    "va_wrong_assigned_to": {}
+   },
+   "final_source": "placed",
+   "final_n_vas": 57,
+   "final_low_confidence": false
+  }
+ ],
+ "assembly": {
+  "summary": {
+   "n_vas": 4765,
+   "n_vas_assigned": 4669,
+   "n_vas_unassigned": 96,
+   "n_vas_unassigned_before_fill": 393,
+   "coverage_pct": 0.9798530954879329,
+   "n_known": 22,
+   "n_reconstructions_in": 65,
+   "ignored_known_pages": [],
+   "rejected_known_overlap": 3,
+   "rejected_polygons_not_used": [],
+   "rejected_mutual_overlap": 1,
+   "n_reconstructed": 61,
+   "reconstructed": [
+    1,
+    2,
+    4,
+    6,
+    8,
+    10,
+    11,
+    13,
+    14,
+    18,
+    26,
+    27,
+    28,
+    31,
+    33,
+    34,
+    35,
+    36,
+    39,
+    41,
+    42,
+    44,
+    45,
+    46,
+    47,
+    48,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    58,
+    59,
+    60,
+    61,
+    62,
+    64,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    83,
+    84,
+    85,
+    87,
+    89,
+    90,
+    91
+   ],
+   "failed_pages": [
+    57,
+    63,
+    66,
+    82
+   ],
+   "filled": {
+    "22": 56,
+    "40": 29,
+    "57": 48,
+    "66": 69,
+    "49": 44,
+    "86": 51
+   },
+   "filled_claim_type": {
+    "22": [
+     "names window"
+    ],
+    "40": [
+     "names window"
+    ],
+    "57": [
+     "title anchor"
+    ],
+    "66": [
+     "names window"
+    ],
+    "49": [
+     "matched"
+    ],
+    "86": [
+     "matched"
+    ]
+   },
+   "enclosed_fragments": [],
+   "n_hole_components": 8,
+   "hole_fill_components": [
+    {
+     "n_vas": 96,
+     "area_km2": 195575.29900653914,
+     "claims": [
+      {
+       "ed": 63,
+       "type": "title anchor",
+       "pooled": false,
+       "component_area_km2": 195575.29900653914,
+       "area_used_km2": 195575.29900653914,
+       "stated_area_km2": 86353.0,
+       "area_ratio": 2.2648350260736643,
+       "adjacent_eds": [
+        56,
+        62,
+        70
+       ],
+       "neighbour_check": "ok (2/3)",
+       "status": "dropped: area 195575.3 vs stated 86353.0"
+      },
+      {
+       "ed": 82,
+       "type": "title anchor",
+       "pooled": false,
+       "component_area_km2": 195575.29900653914,
+       "area_used_km2": 195575.29900653914,
+       "stated_area_km2": 109228.0,
+       "area_ratio": 1.7905234830495764,
+       "adjacent_eds": [
+        56,
+        62,
+        70
+       ],
+       "neighbour_check": "ok (3/3)",
+       "status": "dropped: area 195575.3 vs stated 109228.0"
+      }
+     ],
+     "claimants": {},
+     "assigned_to": null
+    },
+    {
+     "n_vas": 69,
+     "area_km2": 16018.215034120567,
+     "claims": [
+      {
+       "ed": 66,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 16018.215034120567,
+       "area_used_km2": 16018.215034120567,
+       "stated_area_km2": 16018.0,
+       "area_ratio": 1.0000134245299392,
+       "adjacent_eds": [
+        56,
+        65,
+        90
+       ],
+       "neighbour_check": "ok (2/3)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "66": "names window"
+     },
+     "assigned_to": 66
+    },
+    {
+     "n_vas": 56,
+     "area_km2": 31.356274168298103,
+     "claims": [
+      {
+       "ed": 22,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 31.356274168298103,
+       "area_used_km2": 31.356274168298103,
+       "stated_area_km2": 37.0,
+       "area_ratio": 0.8474668694134623,
+       "adjacent_eds": [
+        4,
+        10,
+        26,
+        27,
+        58
+       ],
+       "neighbour_check": "ok (5/5)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "22": "names window"
+     },
+     "assigned_to": 22
+    },
+    {
+     "n_vas": 51,
+     "area_km2": 62.74204767483093,
+     "claims": [
+      {
+       "ed": 40,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 62.74204767483093,
+       "area_used_km2": 62.74204767483093,
+       "stated_area_km2": 13.0,
+       "area_ratio": 4.8263113596023794,
+       "adjacent_eds": [
+        29,
+        36,
+        89
+       ],
+       "neighbour_check": "ok (2/3)",
+       "status": "dropped: area 62.7 vs stated 13.0"
+      },
+      {
+       "ed": 49,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 62.74204767483093,
+       "area_used_km2": 62.74204767483093,
+       "stated_area_km2": 56.0,
+       "area_ratio": 1.1203937084791238,
+       "adjacent_eds": [
+        29,
+        36,
+        89
+       ],
+       "neighbour_check": "fail (0/3)",
+       "status": "dropped: neighbour check: 0 of 3 adjacent EDs printed"
+      },
+      {
+       "ed": 86,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 62.74204767483093,
+       "area_used_km2": 62.74204767483093,
+       "stated_area_km2": 71.0,
+       "area_ratio": 0.8836908123215623,
+       "adjacent_eds": [
+        29,
+        36,
+        89
+       ],
+       "neighbour_check": "ok (3/3)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "86": "names window"
+     },
+     "assigned_to": 86,
+     "matched": true
+    },
+    {
+     "n_vas": 44,
+     "area_km2": 55.73429302228522,
+     "claims": [
+      {
+       "ed": 40,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 55.73429302228522,
+       "area_used_km2": 55.73429302228522,
+       "stated_area_km2": 13.0,
+       "area_ratio": 4.287253309406555,
+       "adjacent_eds": [
+        34,
+        39,
+        44,
+        45,
+        48,
+        60
+       ],
+       "neighbour_check": "fail (0/6)",
+       "status": "dropped: area 55.7 vs stated 13.0; neighbour check: 0 of 6 adjacent EDs printed"
+      },
+      {
+       "ed": 49,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 55.73429302228522,
+       "area_used_km2": 55.73429302228522,
+       "stated_area_km2": 56.0,
+       "area_ratio": 0.9952552325408075,
+       "adjacent_eds": [
+        34,
+        39,
+        44,
+        45,
+        48,
+        60
+       ],
+       "neighbour_check": "ok (5/6)",
+       "status": "valid"
+      },
+      {
+       "ed": 86,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 55.73429302228522,
+       "area_used_km2": 55.73429302228522,
+       "stated_area_km2": 71.0,
+       "area_ratio": 0.7849900425673975,
+       "adjacent_eds": [
+        34,
+        39,
+        44,
+        45,
+        48,
+        60
+       ],
+       "neighbour_check": "ok (5/6)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "49": "names window",
+      "86": "names window"
+     },
+     "assigned_to": 49,
+     "matched": true
+    },
+    {
+     "n_vas": 34,
+     "area_km2": 843.6735987776647,
+     "claims": [
+      {
+       "ed": 57,
+       "type": "title anchor",
+       "pooled": true,
+       "component_area_km2": 843.6735987776647,
+       "area_used_km2": 859.8801638228981,
+       "stated_area_km2": 1025.0,
+       "area_ratio": 0.8389074769003884,
+       "adjacent_eds": [
+        9,
+        12,
+        15,
+        25,
+        50,
+        73,
+        80,
+        81
+       ],
+       "neighbour_check": "ok (8/8)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "57": "title anchor"
+     },
+     "assigned_to": 57
+    },
+    {
+     "n_vas": 29,
+     "area_km2": 13.729612193882877,
+     "claims": [
+      {
+       "ed": 40,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 13.729612193882877,
+       "area_used_km2": 13.729612193882877,
+       "stated_area_km2": 13.0,
+       "area_ratio": 1.0561240149140674,
+       "adjacent_eds": [
+        36,
+        41,
+        42,
+        89
+       ],
+       "neighbour_check": "ok (4/4)",
+       "status": "valid"
+      },
+      {
+       "ed": 49,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 13.729612193882877,
+       "area_used_km2": 13.729612193882877,
+       "stated_area_km2": 56.0,
+       "area_ratio": 0.2451716463193371,
+       "adjacent_eds": [
+        36,
+        41,
+        42,
+        89
+       ],
+       "neighbour_check": "fail (0/4)",
+       "status": "dropped: area 13.7 vs stated 56.0; neighbour check: 0 of 4 adjacent EDs printed"
+      },
+      {
+       "ed": 86,
+       "type": "names window",
+       "pooled": false,
+       "component_area_km2": 13.729612193882877,
+       "area_used_km2": 13.729612193882877,
+       "stated_area_km2": 71.0,
+       "area_ratio": 0.1933748196321532,
+       "adjacent_eds": [
+        36,
+        41,
+        42,
+        89
+       ],
+       "neighbour_check": "ok (4/4)",
+       "status": "dropped: area 13.7 vs stated 71.0"
+      }
+     ],
+     "claimants": {
+      "40": "names window"
+     },
+     "assigned_to": 40
+    },
+    {
+     "n_vas": 14,
+     "area_km2": 16.206565045233393,
+     "claims": [
+      {
+       "ed": 57,
+       "type": "title anchor",
+       "pooled": true,
+       "component_area_km2": 16.206565045233393,
+       "area_used_km2": 859.8801638228981,
+       "stated_area_km2": 1025.0,
+       "area_ratio": 0.8389074769003884,
+       "adjacent_eds": [
+        81
+       ],
+       "neighbour_check": "ok (1/1)",
+       "status": "valid"
+      }
+     ],
+     "claimants": {
+      "57": "title anchor"
+     },
+     "assigned_to": 57
+    }
+   ],
+   "unplaced_pages_missing_title_or_all_hits_window": [],
+   "n_unassigned_components": 1,
+   "unassigned_components_detail": [
+    {
+     "n_vas": 96,
+     "area_km2": 195575.29900653914,
+     "claims": [
+      {
+       "ed": 63,
+       "type": "title anchor",
+       "pooled": false,
+       "component_area_km2": 195575.29900653914,
+       "area_used_km2": 195575.29900653914,
+       "stated_area_km2": 86353.0,
+       "area_ratio": 2.2648350260736643,
+       "adjacent_eds": [
+        56,
+        62,
+        70
+       ],
+       "neighbour_check": "ok (2/3)",
+       "status": "dropped: area 195575.3 vs stated 86353.0"
+      },
+      {
+       "ed": 82,
+       "type": "title anchor",
+       "pooled": false,
+       "component_area_km2": 195575.29900653914,
+       "area_used_km2": 195575.29900653914,
+       "stated_area_km2": 109228.0,
+       "area_ratio": 1.7905234830495764,
+       "adjacent_eds": [
+        56,
+        62,
+        70
+       ],
+       "neighbour_check": "ok (3/3)",
+       "status": "dropped: area 195575.3 vs stated 109228.0"
+      }
+     ],
+     "claimants": {},
+     "why": "all claims dropped on area"
+    }
+   ],
+   "pop_reporting": {
+    "column": "pop_within_5pct",
+    "tol": 0.05,
+    "reconstructed_or_filled_n": 67,
+    "reconstructed_or_filled_within_tol": 24,
+    "reconstructed_or_filled_median_abs_diff_pct": 6.761510584512083,
+    "known_median_abs_diff_pct": 6.041598982677655
+   },
+   "pop_scale": 1.1468950463777117,
+   "thresholds": {
+    "known_overlap_max": 0.05,
+    "mutual_overlap_max": 0.1,
+    "min_area_share": 0.5,
+    "area_tol": 0.25,
+    "pop_tol": 0.05
+   },
+   "seconds": 3.7
+  },
+  "parameters": {
+   "known_overlap_max": 0.05,
+   "mutual_overlap_max": 0.1,
+   "pop_tol": 0.05,
+   "area_tol": 0.25,
+   "rejected_polys": null,
+   "AREA_TOL": 0.25,
+   "KNOWN_OVERLAP_MAX": 0.05,
+   "MIN_AREA_SHARE": 0.5,
+   "MUTUAL_OVERLAP_MAX": 0.1,
+   "POP_TOL": 0.05,
+   "TIE_DECIMALS": 9,
+   "_BIG": 1000000
+  },
+  "rejected": {
+   "22": "overlaps known districts: 16.3%",
+   "40": "mutual overlap 59.6% with ED 35; conflict partners 3 vs 1; decided at stage 1 (partner count): 3 vs 1",
+   "49": "overlaps known districts: 50.6%",
+   "86": "overlaps known districts: 82.8%"
+  },
+  "filled": {
+   "22": 56,
+   "40": 29,
+   "49": 44,
+   "57": 48,
+   "66": 69,
+   "86": 51
+  },
+  "unassigned_components": [
+   96
+  ],
+  "districts": [
+   {
+    "ed": 1,
+    "district": "Calgary-Acadia",
+    "source": "reconstructed",
+    "n_vas": 55,
+    "pop_va_scaled": 57062.31271563804,
+    "pop_stated": 55789.0,
+    "pop_diff_pct": 2.2823723594938845,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 2,
+    "district": "Calgary-Beddington",
+    "source": "reconstructed",
+    "n_vas": 54,
+    "pop_va_scaled": 57853.461768523135,
+    "pop_stated": 56024.0,
+    "pop_diff_pct": 3.2654965167127217,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 3,
+    "district": "Calgary-Bhullar-McCall",
+    "source": "known",
+    "n_vas": 27,
+    "pop_va_scaled": 44195.76699890167,
+    "pop_stated": 55887.0,
+    "pop_diff_pct": -20.919414176997027,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 4,
+    "district": "Calgary-Bow-Springbank",
+    "source": "reconstructed",
+    "n_vas": 56,
+    "pop_va_scaled": 58157.72873501807,
+    "pop_stated": 58673.0,
+    "pop_diff_pct": -0.8782084859849156,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 5,
+    "district": "Calgary-Buffalo",
+    "source": "known",
+    "n_vas": 45,
+    "pop_va_scaled": 47149.80813184406,
+    "pop_stated": 58777.0,
+    "pop_diff_pct": -19.78187363791269,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 6,
+    "district": "Calgary-Confluence",
+    "source": "reconstructed",
+    "n_vas": 64,
+    "pop_va_scaled": 54260.39995508372,
+    "pop_stated": 58632.0,
+    "pop_diff_pct": -7.455996801944812,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 7,
+    "district": "Calgary-Cross",
+    "source": "known",
+    "n_vas": 50,
+    "pop_va_scaled": 60620.81479287855,
+    "pop_stated": 59491.0,
+    "pop_diff_pct": 1.8991356556093315,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 8,
+    "district": "Calgary-Currie",
+    "source": "reconstructed",
+    "n_vas": 49,
+    "pop_va_scaled": 57540.49550457043,
+    "pop_stated": 58111.0,
+    "pop_diff_pct": -0.9817495748301932,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 9,
+    "district": "Calgary-East",
+    "source": "known",
+    "n_vas": 62,
+    "pop_va_scaled": 59198.16728435612,
+    "pop_stated": 58308.0,
+    "pop_diff_pct": 1.526664067291139,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 10,
+    "district": "Calgary-Edgemont",
+    "source": "reconstructed",
+    "n_vas": 54,
+    "pop_va_scaled": 57648.62419926256,
+    "pop_stated": 55141.0,
+    "pop_diff_pct": 4.547658184041926,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 11,
+    "district": "Calgary-Elbow",
+    "source": "reconstructed",
+    "n_vas": 53,
+    "pop_va_scaled": 54586.47216547867,
+    "pop_stated": 55297.0,
+    "pop_diff_pct": -1.2849301671362463,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 12,
+    "district": "Calgary-Falconridge-Conrich",
+    "source": "known",
+    "n_vas": 37,
+    "pop_va_scaled": 52282.66227850686,
+    "pop_stated": 56661.0,
+    "pop_diff_pct": -7.727251057152431,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 13,
+    "district": "Calgary-Fish Creek",
+    "source": "reconstructed",
+    "n_vas": 64,
+    "pop_va_scaled": 59206.4773132601,
+    "pop_stated": 55403.0,
+    "pop_diff_pct": 6.865110758009669,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 14,
+    "district": "Calgary-Glenmore-Tsuut'ina",
+    "source": "reconstructed",
+    "n_vas": 55,
+    "pop_va_scaled": 57850.19967882427,
+    "pop_stated": 56970.0,
+    "pop_diff_pct": 1.5450231329195518,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 15,
+    "district": "Calgary-Hays",
+    "source": "known",
+    "n_vas": 41,
+    "pop_va_scaled": 55709.37670331209,
+    "pop_stated": 52147.0,
+    "pop_diff_pct": 6.831412551656068,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 16,
+    "district": "Calgary-Klein",
+    "source": "known",
+    "n_vas": 50,
+    "pop_va_scaled": 56666.97170321838,
+    "pop_stated": 56292.0,
+    "pop_diff_pct": 0.6661189924294455,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 17,
+    "district": "Calgary-Lougheed",
+    "source": "known",
+    "n_vas": 51,
+    "pop_va_scaled": 60820.78950944785,
+    "pop_stated": 59554.0,
+    "pop_diff_pct": 2.1271274968060108,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 18,
+    "district": "Calgary-McKenzie",
+    "source": "reconstructed",
+    "n_vas": 60,
+    "pop_va_scaled": 64609.32575931975,
+    "pop_stated": 62772.0,
+    "pop_diff_pct": 2.926982984961047,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 19,
+    "district": "Calgary-Mountain View",
+    "source": "known",
+    "n_vas": 66,
+    "pop_va_scaled": 53414.87714587935,
+    "pop_stated": 54396.0,
+    "pop_diff_pct": -1.8036672809042045,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 20,
+    "district": "Calgary-North",
+    "source": "known",
+    "n_vas": 39,
+    "pop_va_scaled": 55254.7988359525,
+    "pop_stated": 57945.0,
+    "pop_diff_pct": -4.642680410816296,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 21,
+    "district": "Calgary-North East",
+    "source": "known",
+    "n_vas": 23,
+    "pop_va_scaled": 33123.09003803916,
+    "pop_stated": 54541.0,
+    "pop_diff_pct": -39.26937526257465,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 22,
+    "district": "Calgary-North West-Bearspaw",
+    "source": "filled",
+    "n_vas": 56,
+    "pop_va_scaled": 54755.492116416535,
+    "pop_stated": 54361.0,
+    "pop_diff_pct": 0.7256895870505239,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 23,
+    "district": "Calgary-Nose Creek",
+    "source": "known",
+    "n_vas": 38,
+    "pop_va_scaled": 44070.5075507985,
+    "pop_stated": 55155.0,
+    "pop_diff_pct": -20.096985675281477,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 24,
+    "district": "Calgary-Shaw",
+    "source": "known",
+    "n_vas": 47,
+    "pop_va_scaled": 44029.04302810196,
+    "pop_stated": 58171.0,
+    "pop_diff_pct": -24.311008873662207,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 25,
+    "district": "Calgary-South East",
+    "source": "known",
+    "n_vas": 36,
+    "pop_va_scaled": 40918.20968655425,
+    "pop_stated": 53551.0,
+    "pop_diff_pct": -23.5902043163447,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 26,
+    "district": "Calgary-Symons Valley",
+    "source": "reconstructed",
+    "n_vas": 39,
+    "pop_va_scaled": 51220.30582729148,
+    "pop_stated": 54797.0,
+    "pop_diff_pct": -6.5271715106821935,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 27,
+    "district": "Calgary-Varsity",
+    "source": "reconstructed",
+    "n_vas": 52,
+    "pop_va_scaled": 58068.677527589425,
+    "pop_stated": 57166.0,
+    "pop_diff_pct": 1.5790461595868612,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 28,
+    "district": "Calgary-West-Springbank",
+    "source": "reconstructed",
+    "n_vas": 56,
+    "pop_va_scaled": 61015.86513614388,
+    "pop_stated": 58305.0,
+    "pop_diff_pct": 4.649455683292826,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 29,
+    "district": "Edmonton-Beverly-Clareview",
+    "source": "known",
+    "n_vas": 52,
+    "pop_va_scaled": 60541.329513567594,
+    "pop_stated": 57481.0,
+    "pop_diff_pct": 5.324071455902984,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 30,
+    "district": "Edmonton-Castle Downs",
+    "source": "known",
+    "n_vas": 50,
+    "pop_va_scaled": 58214.58470602704,
+    "pop_stated": 59612.0,
+    "pop_diff_pct": -2.3441845500452274,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 31,
+    "district": "Edmonton-City Centre",
+    "source": "reconstructed",
+    "n_vas": 67,
+    "pop_va_scaled": 56132.68543688937,
+    "pop_stated": 57312.0,
+    "pop_diff_pct": -2.0577096648356905,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 32,
+    "district": "Edmonton-Decore",
+    "source": "known",
+    "n_vas": 54,
+    "pop_va_scaled": 61412.57767839625,
+    "pop_stated": 57959.0,
+    "pop_diff_pct": 5.958656426777981,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 33,
+    "district": "Edmonton-Ellerslie",
+    "source": "reconstructed",
+    "n_vas": 40,
+    "pop_va_scaled": 48940.61338255483,
+    "pop_stated": 53376.0,
+    "pop_diff_pct": -8.309702145992897,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 34,
+    "district": "Edmonton-Enoch",
+    "source": "reconstructed",
+    "n_vas": 48,
+    "pop_va_scaled": 49537.650268142104,
+    "pop_stated": 56894.0,
+    "pop_diff_pct": -12.929921840366111,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 35,
+    "district": "Edmonton-Glenora-Riverview",
+    "source": "reconstructed",
+    "n_vas": 55,
+    "pop_va_scaled": 60450.50252316243,
+    "pop_stated": 56622.0,
+    "pop_diff_pct": 6.761510584512083,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 36,
+    "district": "Edmonton-Gold Bar",
+    "source": "reconstructed",
+    "n_vas": 60,
+    "pop_va_scaled": 59171.387044760115,
+    "pop_stated": 54981.0,
+    "pop_diff_pct": 7.621518424110356,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 37,
+    "district": "Edmonton-Highlands-Norwood",
+    "source": "known",
+    "n_vas": 47,
+    "pop_va_scaled": 51432.559147222564,
+    "pop_stated": 51806.0,
+    "pop_diff_pct": -0.7208447916794113,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 38,
+    "district": "Edmonton-Manning",
+    "source": "known",
+    "n_vas": 47,
+    "pop_va_scaled": 51731.20916966339,
+    "pop_stated": 56901.0,
+    "pop_diff_pct": -9.08558870729269,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 39,
+    "district": "Edmonton-McClung",
+    "source": "reconstructed",
+    "n_vas": 58,
+    "pop_va_scaled": 65356.03113547996,
+    "pop_stated": 61859.0,
+    "pop_diff_pct": 5.65322933684664,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 40,
+    "district": "Edmonton-Meadows",
+    "source": "filled",
+    "n_vas": 29,
+    "pop_va_scaled": 45969.87996583571,
+    "pop_stated": 53318.0,
+    "pop_diff_pct": -13.781687299156552,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 41,
+    "district": "Edmonton-Mill Woods",
+    "source": "reconstructed",
+    "n_vas": 54,
+    "pop_va_scaled": 62988.99460033163,
+    "pop_stated": 59673.0,
+    "pop_diff_pct": 5.556943006605381,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 42,
+    "district": "Edmonton-Nisku",
+    "source": "reconstructed",
+    "n_vas": 29,
+    "pop_va_scaled": 54904.65260727476,
+    "pop_stated": 54521.0,
+    "pop_diff_pct": 0.7036785959075555,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 43,
+    "district": "Edmonton-North West",
+    "source": "known",
+    "n_vas": 49,
+    "pop_va_scaled": 62806.287456540056,
+    "pop_stated": 61226.0,
+    "pop_diff_pct": 2.581072512560115,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 44,
+    "district": "Edmonton-Rutherford",
+    "source": "reconstructed",
+    "n_vas": 55,
+    "pop_va_scaled": 60580.5292132872,
+    "pop_stated": 58082.0,
+    "pop_diff_pct": 4.301727236126852,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 45,
+    "district": "Edmonton-South",
+    "source": "reconstructed",
+    "n_vas": 51,
+    "pop_va_scaled": 46781.880164999995,
+    "pop_stated": 57522.0,
+    "pop_diff_pct": -18.671325466777937,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 46,
+    "district": "Edmonton-Strathcona",
+    "source": "reconstructed",
+    "n_vas": 50,
+    "pop_va_scaled": 56033.06492599071,
+    "pop_stated": 54093.0,
+    "pop_diff_pct": 3.5865360138848055,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 47,
+    "district": "Edmonton-West Henday",
+    "source": "reconstructed",
+    "n_vas": 50,
+    "pop_va_scaled": 59273.23580968454,
+    "pop_stated": 61775.0,
+    "pop_diff_pct": -4.049800389017334,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 48,
+    "district": "Edmonton-Whitemud",
+    "source": "reconstructed",
+    "n_vas": 53,
+    "pop_va_scaled": 60560.098927633706,
+    "pop_stated": 56752.0,
+    "pop_diff_pct": 6.710070002173855,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 49,
+    "district": "Edmonton-Windermere",
+    "source": "filled",
+    "n_vas": 44,
+    "pop_va_scaled": 39044.513757264445,
+    "pop_stated": 54136.0,
+    "pop_diff_pct": -27.87698803519941,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 50,
+    "district": "Airdrie-East",
+    "source": "reconstructed",
+    "n_vas": 59,
+    "pop_va_scaled": 57439.348277801895,
+    "pop_stated": 53809.0,
+    "pop_diff_pct": 6.746730617186521,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 51,
+    "district": "Airdrie-West",
+    "source": "reconstructed",
+    "n_vas": 46,
+    "pop_va_scaled": 43901.917266152195,
+    "pop_stated": 48145.0,
+    "pop_diff_pct": -8.813132690513667,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 52,
+    "district": "Banff-Canmore-Diamond Valley",
+    "source": "reconstructed",
+    "n_vas": 51,
+    "pop_va_scaled": 43216.94691664662,
+    "pop_stated": 48862.0,
+    "pop_diff_pct": -11.55305366819487,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 53,
+    "district": "Barrhead-Westlock-Athabasca",
+    "source": "reconstructed",
+    "n_vas": 46,
+    "pop_va_scaled": 46674.507191849836,
+    "pop_stated": 46602.0,
+    "pop_diff_pct": 0.15558815469257992,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 54,
+    "district": "Blackfalds-Innisfail",
+    "source": "reconstructed",
+    "n_vas": 52,
+    "pop_va_scaled": 48404.35915736194,
+    "pop_stated": 44536.0,
+    "pop_diff_pct": 8.685915118919393,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 55,
+    "district": "Camrose",
+    "source": "reconstructed",
+    "n_vas": 67,
+    "pop_va_scaled": 58060.04041692112,
+    "pop_stated": 54653.0,
+    "pop_diff_pct": 6.233949493936504,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 56,
+    "district": "Central Peace-Notley",
+    "source": "reconstructed",
+    "n_vas": 49,
+    "pop_va_scaled": 31035.10566972075,
+    "pop_stated": 28715.0,
+    "pop_diff_pct": 8.079769004773636,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 57,
+    "district": "Chestermere-Strathmore",
+    "source": "filled",
+    "n_vas": 48,
+    "pop_va_scaled": 48888.362940393374,
+    "pop_stated": 56679.0,
+    "pop_diff_pct": -13.745191445873473,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 58,
+    "district": "Cochrane",
+    "source": "reconstructed",
+    "n_vas": 53,
+    "pop_va_scaled": 47705.25190351694,
+    "pop_stated": 46785.0,
+    "pop_diff_pct": 1.9669806637104603,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 59,
+    "district": "Cold Lake-Bonnyville-St. Paul",
+    "source": "reconstructed",
+    "n_vas": 62,
+    "pop_va_scaled": 60444.15186506642,
+    "pop_stated": 55809.0,
+    "pop_diff_pct": 8.305384194424594,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 60,
+    "district": "Drayton Valley-Devon",
+    "source": "reconstructed",
+    "n_vas": 53,
+    "pop_va_scaled": 47722.553797533394,
+    "pop_stated": 44203.0,
+    "pop_diff_pct": 7.962250972860198,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 61,
+    "district": "Drumheller-Stettler",
+    "source": "reconstructed",
+    "n_vas": 59,
+    "pop_va_scaled": 49116.611420161,
+    "pop_stated": 43570.0,
+    "pop_diff_pct": 12.7303452379183,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 62,
+    "district": "Fort McMurray-Lac La Biche",
+    "source": "reconstructed",
+    "n_vas": 46,
+    "pop_va_scaled": 46591.78382957938,
+    "pop_stated": 47304.0,
+    "pop_diff_pct": -1.5056151074340918,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 64,
+    "district": "Fort Saskatchewan-Vegreville",
+    "source": "reconstructed",
+    "n_vas": 67,
+    "pop_va_scaled": 58068.85691305198,
+    "pop_stated": 54278.0,
+    "pop_diff_pct": 6.984149955878961,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 65,
+    "district": "Grande Prairie",
+    "source": "known",
+    "n_vas": 45,
+    "pop_va_scaled": 53435.829155504456,
+    "pop_stated": 50352.0,
+    "pop_diff_pct": 6.124541538577328,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 66,
+    "district": "Grande Prairie-Wapiti",
+    "source": "filled",
+    "n_vas": 69,
+    "pop_va_scaled": 57602.76823580558,
+    "pop_stated": 53781.0,
+    "pop_diff_pct": 7.106168044115177,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 67,
+    "district": "Lac Ste. Anne",
+    "source": "reconstructed",
+    "n_vas": 63,
+    "pop_va_scaled": 54928.705843320444,
+    "pop_stated": 51546.0,
+    "pop_diff_pct": 6.562499211035664,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 68,
+    "district": "Lacombe-Sylvan Lake",
+    "source": "reconstructed",
+    "n_vas": 56,
+    "pop_va_scaled": 55336.170716401524,
+    "pop_stated": 54055.0,
+    "pop_diff_pct": 2.370124348166727,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 69,
+    "district": "Leduc-Beaumont",
+    "source": "reconstructed",
+    "n_vas": 58,
+    "pop_va_scaled": 56381.60783546353,
+    "pop_stated": 63434.0,
+    "pop_diff_pct": -11.117684781877964,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 70,
+    "district": "Lesser Slave Lake",
+    "source": "reconstructed",
+    "n_vas": 55,
+    "pop_va_scaled": 33834.17023446713,
+    "pop_stated": 30011.0,
+    "pop_diff_pct": 12.739229730655856,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 71,
+    "district": "Lethbridge",
+    "source": "reconstructed",
+    "n_vas": 64,
+    "pop_va_scaled": 62886.15794922757,
+    "pop_stated": 58897.0,
+    "pop_diff_pct": 6.773108900669934,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 72,
+    "district": "Lethbridge-Cardston",
+    "source": "reconstructed",
+    "n_vas": 38,
+    "pop_va_scaled": 38476.96230639671,
+    "pop_stated": 41943.0,
+    "pop_diff_pct": -8.263685701078348,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 73,
+    "district": "Lethbridge-Little Bow",
+    "source": "reconstructed",
+    "n_vas": 56,
+    "pop_va_scaled": 52008.13283099446,
+    "pop_stated": 52662.0,
+    "pop_diff_pct": -1.2416299589942306,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 74,
+    "district": "Lethbridge-Taber-Warner",
+    "source": "reconstructed",
+    "n_vas": 70,
+    "pop_va_scaled": 61527.42152621516,
+    "pop_stated": 52955.0,
+    "pop_diff_pct": 16.188124872467498,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 75,
+    "district": "Lloydminster-Wainwright",
+    "source": "reconstructed",
+    "n_vas": 60,
+    "pop_va_scaled": 54197.19694887965,
+    "pop_stated": 50139.0,
+    "pop_diff_pct": 8.093892875565235,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 76,
+    "district": "Macleod-Crowsnest",
+    "source": "reconstructed",
+    "n_vas": 72,
+    "pop_va_scaled": 56758.14097929713,
+    "pop_stated": 52185.0,
+    "pop_diff_pct": 8.76332467049369,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 77,
+    "district": "Medicine Hat-Brooks",
+    "source": "reconstructed",
+    "n_vas": 67,
+    "pop_va_scaled": 59129.937384208526,
+    "pop_stated": 54833.0,
+    "pop_diff_pct": 7.836407608937184,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 78,
+    "district": "Medicine Hat-Cypress",
+    "source": "reconstructed",
+    "n_vas": 52,
+    "pop_va_scaled": 57119.97182283381,
+    "pop_stated": 54210.0,
+    "pop_diff_pct": 5.367961303880852,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 79,
+    "district": "Morinville-Sturgeon",
+    "source": "reconstructed",
+    "n_vas": 58,
+    "pop_va_scaled": 57756.83711772371,
+    "pop_stated": 53458.0,
+    "pop_diff_pct": 8.041522536802187,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 80,
+    "district": "Okotoks",
+    "source": "reconstructed",
+    "n_vas": 61,
+    "pop_va_scaled": 53843.72377084979,
+    "pop_stated": 49853.0,
+    "pop_diff_pct": 8.004982189336232,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 81,
+    "district": "Olds-Didsbury-Three Hills",
+    "source": "reconstructed",
+    "n_vas": 49,
+    "pop_va_scaled": 57969.5495470886,
+    "pop_stated": 50780.0,
+    "pop_diff_pct": 14.158230695330055,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 83,
+    "district": "Red Deer-North",
+    "source": "reconstructed",
+    "n_vas": 49,
+    "pop_va_scaled": 53693.27213031561,
+    "pop_stated": 53798.0,
+    "pop_diff_pct": -0.19466870456967403,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 84,
+    "district": "Red Deer-South",
+    "source": "reconstructed",
+    "n_vas": 56,
+    "pop_va_scaled": 59612.47446194285,
+    "pop_stated": 59121.0,
+    "pop_diff_pct": 0.8313026876115982,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 85,
+    "district": "Rocky Mountain House-Sundre",
+    "source": "reconstructed",
+    "n_vas": 49,
+    "pop_va_scaled": 36067.65662182307,
+    "pop_stated": 31540.0,
+    "pop_diff_pct": 14.355284152894967,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 86,
+    "district": "Sherwood Park",
+    "source": "filled",
+    "n_vas": 51,
+    "pop_va_scaled": 53966.1545647366,
+    "pop_stated": 52475.0,
+    "pop_diff_pct": 2.8416475745337784,
+    "pop_within_5pct": true
+   },
+   {
+    "ed": 87,
+    "district": "Spruce Grove",
+    "source": "reconstructed",
+    "n_vas": 52,
+    "pop_va_scaled": 54908.214365026666,
+    "pop_stated": 52063.0,
+    "pop_diff_pct": 5.46494509541645,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 88,
+    "district": "St. Albert",
+    "source": "known",
+    "n_vas": 63,
+    "pop_va_scaled": 64803.93273601827,
+    "pop_stated": 59935.0,
+    "pop_diff_pct": 8.123688555966083,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 89,
+    "district": "Strathcona-Sherwood Park",
+    "source": "reconstructed",
+    "n_vas": 57,
+    "pop_va_scaled": 57499.237835544,
+    "pop_stated": 51020.0,
+    "pop_diff_pct": 12.699407752928265,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 90,
+    "district": "West Yellowhead",
+    "source": "reconstructed",
+    "n_vas": 61,
+    "pop_va_scaled": 56835.98475183584,
+    "pop_stated": 51355.0,
+    "pop_diff_pct": 10.67273829585403,
+    "pop_within_5pct": false
+   },
+   {
+    "ed": 91,
+    "district": "Wetaskiwin-Ponoka",
+    "source": "reconstructed",
+    "n_vas": 59,
+    "pop_va_scaled": 59995.22873133913,
+    "pop_stated": 54034.0,
+    "pop_diff_pct": 11.032366160823052,
+    "pop_within_5pct": false
+   }
+  ]
+ },
+ "pages_loaded": [
+  1,
+  2,
+  4,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  22,
+  26,
+  27,
+  28,
+  31,
+  33,
+  34,
+  35,
+  36,
+  39,
+  40,
+  41,
+  42,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60,
+  61,
+  62,
+  63,
+  64,
+  66,
+  67,
+  68,
+  69,
+  70,
+  71,
+  72,
+  73,
+  74,
+  75,
+  76,
+  77,
+  78,
+  79,
+  80,
+  81,
+  82,
+  83,
+  84,
+  85,
+  86,
+  87,
+  89,
+  90,
+  91
+ ],
+ "polygons_loaded": [
+  1,
+  2,
+  4,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  22,
+  26,
+  27,
+  28,
+  31,
+  33,
+  34,
+  35,
+  36,
+  39,
+  40,
+  41,
+  42,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  58,
+  59,
+  60,
+  61,
+  62,
+  64,
+  67,
+  68,
+  69,
+  70,
+  71,
+  72,
+  73,
+  74,
+  75,
+  76,
+  77,
+  78,
+  79,
+  80,
+  81,
+  83,
+  84,
+  85,
+  86,
+  87,
+  89,
+  90,
+  91
+ ],
+ "sec": 301.6,
+ "environment": {
+  "python": "3.12.13",
+  "pymupdf": "2.1",
+  "geopandas": "1.1.3",
+  "shapely": "2.1.2",
+  "numpy": "2.2.6",
+  "pandas": "2.2.3",
+  "registered_environment": true,
+  "allow_any_env": false
+ },
+ "snap_sanity_all_pass": true,
+ "gates_pass": true,
+ "calibration_passes": true
+}

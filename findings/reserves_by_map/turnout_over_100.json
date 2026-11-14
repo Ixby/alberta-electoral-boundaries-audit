@@ -1,0 +1,197 @@
+{
+ "election_day_voting_areas": 4904,
+ "over_100": 12,
+ "by_kind": {
+  "combined count": 5,
+  "same place, areas mixed": 3,
+  "the whole place over 100%": 4
+ },
+ "cases": [
+  {
+   "division": "61 - FORT MCMURRAY-WOOD BUFFALO",
+   "voting_area": "033",
+   "voting_place": "Father Begin Hall",
+   "electors_on_list": 52,
+   "ballots": 157,
+   "turnout_pct": 301.9,
+   "place_areas": 2,
+   "place_turnout_pct": 56.7,
+   "zero_ballot_areas_at_place": [
+    "034"
+   ],
+   "kind": "combined count",
+   "remain_pct": 73.5
+  },
+  {
+   "division": "61 - FORT MCMURRAY-WOOD BUFFALO",
+   "voting_area": "022",
+   "voting_place": "Santana Mandir Temple",
+   "electors_on_list": 736,
+   "ballots": 1897,
+   "turnout_pct": 257.7,
+   "place_areas": 11,
+   "place_turnout_pct": 19.2,
+   "zero_ballot_areas_at_place": [
+    "023",
+    "024",
+    "025",
+    "026",
+    "027",
+    "028",
+    "029",
+    "030",
+    "031",
+    "032"
+   ],
+   "kind": "combined count",
+   "remain_pct": 54.1
+  },
+  {
+   "division": "75 - MORINVILLE-ST. ALBERT",
+   "voting_area": "010",
+   "voting_place": "Morinville Community Cultural Centre",
+   "electors_on_list": 720,
+   "ballots": 1252,
+   "turnout_pct": 173.9,
+   "place_areas": 7,
+   "place_turnout_pct": 21.6,
+   "zero_ballot_areas_at_place": [
+    "011",
+    "012",
+    "013",
+    "017",
+    "018",
+    "019"
+   ],
+   "kind": "combined count",
+   "remain_pct": 61.3
+  },
+  {
+   "division": "56 - CHESTERMERE-STRATHMORE",
+   "voting_area": "044",
+   "voting_place": "St. Gabriel Archangel School",
+   "electors_on_list": 560,
+   "ballots": 772,
+   "turnout_pct": 137.9,
+   "place_areas": 6,
+   "place_turnout_pct": 20.6,
+   "zero_ballot_areas_at_place": [
+    "047",
+    "048",
+    "049",
+    "050",
+    "063"
+   ],
+   "kind": "combined count",
+   "remain_pct": 76.1
+  },
+  {
+   "division": "34 - EDMONTON-HIGHLANDS-NORWOOD",
+   "voting_area": "006",
+   "voting_place": "St. Teresa of Calcutta School",
+   "electors_on_list": 618,
+   "ballots": 657,
+   "turnout_pct": 106.3,
+   "place_areas": 4,
+   "place_turnout_pct": 26.5,
+   "zero_ballot_areas_at_place": [
+    "007",
+    "009",
+    "010"
+   ],
+   "kind": "combined count",
+   "remain_pct": 80.4
+  },
+  {
+   "division": "60 - FORT MCMURRAY-LAC LA BICHE",
+   "voting_area": "046",
+   "voting_place": "Bold Centre",
+   "electors_on_list": 36,
+   "ballots": 59,
+   "turnout_pct": 163.9,
+   "place_areas": 8,
+   "place_turnout_pct": 23.1,
+   "zero_ballot_areas_at_place": [],
+   "kind": "same place, areas mixed",
+   "remain_pct": 57.6
+  },
+  {
+   "division": "45 - EDMONTON-WEST HENDAY",
+   "voting_area": "009",
+   "voting_place": "McArthur School",
+   "electors_on_list": 600,
+   "ballots": 911,
+   "turnout_pct": 151.8,
+   "place_areas": 4,
+   "place_turnout_pct": 70.8,
+   "zero_ballot_areas_at_place": [],
+   "kind": "same place, areas mixed",
+   "remain_pct": 78.3
+  },
+  {
+   "division": "37 - EDMONTON-MEADOWS",
+   "voting_area": "055",
+   "voting_place": "Meadowlands Baptist Church",
+   "electors_on_list": 21,
+   "ballots": 23,
+   "turnout_pct": 109.5,
+   "place_areas": 5,
+   "place_turnout_pct": 30.5,
+   "zero_ballot_areas_at_place": [],
+   "kind": "same place, areas mixed",
+   "remain_pct": 68.2
+  },
+  {
+   "division": "54 - CARDSTON-SIKSIKA",
+   "voting_area": "043",
+   "voting_place": "Kainai Multi Purpose Building",
+   "electors_on_list": 405,
+   "ballots": 538,
+   "turnout_pct": 132.8,
+   "place_areas": 1,
+   "place_turnout_pct": 132.8,
+   "zero_ballot_areas_at_place": [],
+   "kind": "the whole place over 100%",
+   "remain_pct": 98.5
+  },
+  {
+   "division": "54 - CARDSTON-SIKSIKA",
+   "voting_area": "049",
+   "voting_place": "Lavern Community Hall",
+   "electors_on_list": 290,
+   "ballots": 316,
+   "turnout_pct": 109.0,
+   "place_areas": 1,
+   "place_turnout_pct": 109.0,
+   "zero_ballot_areas_at_place": [],
+   "kind": "the whole place over 100%",
+   "remain_pct": 98.1
+  },
+  {
+   "division": "77 - PEACE RIVER",
+   "voting_area": "043",
+   "voting_place": "John D'Or Prairie School",
+   "electors_on_list": 491,
+   "ballots": 518,
+   "turnout_pct": 105.5,
+   "place_areas": 1,
+   "place_turnout_pct": 105.5,
+   "zero_ballot_areas_at_place": [],
+   "kind": "the whole place over 100%",
+   "remain_pct": 98.6
+  },
+  {
+   "division": "60 - FORT MCMURRAY-LAC LA BICHE",
+   "voting_area": "031",
+   "voting_place": "Janvier Municipal Office",
+   "electors_on_list": 74,
+   "ballots": 75,
+   "turnout_pct": 101.4,
+   "place_areas": 1,
+   "place_turnout_pct": 101.4,
+   "zero_ballot_areas_at_place": [],
+   "kind": "the whole place over 100%",
+   "remain_pct": 98.6
+  }
+ ]
+}

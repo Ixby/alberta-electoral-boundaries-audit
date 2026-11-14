@@ -1,0 +1,4 @@
+22 RuntimeError("no local match within the prior's error") None {'med_dist_m': None, 'in60': None, 'n_layer_pts': None, 'inset_centroid_offset_m': None} None 44
+40 None inset {'med_dist_m': 6.33692718638301, 'in60': 0.9345214779997388, 'n_layer_pts': 15318, 'inset_centroid_offset_m': 518.6778785822274} 0.9525620834390958 10
+49 None inset {'med_dist_m': 6.422658502017475, 'in60': 0.8493469546101126, 'n_layer_pts': 15466, 'inset_centroid_offset_m': 848.4830414795013} 0.8966082160561749 83
+86 None inset {'med_dist_m': 5.4535218468904425, 'in60': 0.9413762494693374, 'n_layer_pts': 25911, 'inset_centroid_offset_m': 316.5368142133519} 0.9994224054864178 30

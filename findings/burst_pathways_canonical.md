@@ -68,11 +68,14 @@ caveat that the §5.4.8 paragraph previously carried.
 | **Minority 2026 commission map** | **0.5169** |
 | Deliberate UCP-objective hill-climb (max) | 0.5287 |
 
-The minority map cannot be reached by neutral drift (it is past the neutral
-maximum on every partisan metric) and sits close to the deliberate-gerrymander
-ceiling. The majority map sits inside the neutral envelope. This is the empirical
-"non-neutral pathway" finding: the minority's partisan position is reachable only
-by partisan optimisation, not by neutral redistricting from the prior map.
+The minority map is not reached by these 500 ten-step neutral walks from the 2019
+map (it is past their maximum on every partisan metric). The majority map sits
+inside their envelope. That is a statement about short walks, not about neutral
+redistricting in general: in the 1,010,000-plan neutral ensemble, 69 plans exceed
+the minority's seats@50/50, all at 45 of 87 (51.72%) against the minority's 46 of
+89 (51.69%). The hill-climb is a short greedy search (800 bursts of 50 steps), not
+a ceiling on what deliberate aiming can reach, and its 46 of 87 is on a different
+denominator from the minority's 46 of 89.
 
 This is consistent with, and independent of, the Lane-1 ensemble result (minority
 at the extreme tail of the 1.01M neutral ensemble) — the burst experiment asks the

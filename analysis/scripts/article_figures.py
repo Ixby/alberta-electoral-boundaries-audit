@@ -98,7 +98,7 @@ plt.rcParams.update(
 
 
 def build_lane1_dotplot() -> Path:
-    """Lane 1 EG histogram — 250k neutral-ensemble maps with real-map lines overlaid."""
+    """Lane 1 EG histogram — the 1,010,000-plan canonical neutral ensemble with real-map lines overlaid."""
     import pandas as _pd
     import matplotlib.transforms as _mtrans
     from matplotlib.colors import to_rgba
@@ -215,6 +215,45 @@ def build_lane1_dotplot() -> Path:
     return out
 
 
+def commission_table_mad() -> dict:
+    """Mean absolute deviation of district population from the provincial
+    average, from the commission's own population tables
+    (data/reference/{majority,minority}_2026_populations.csv).
+
+    The provincial average is the whole-number figure the audit's population
+    table uses for both maps (findings/population_equality.md, section A1:
+    54,929): the official total, 4,888,723, over 89 districts, rounded. The
+    minority's printed table sums 50 higher (one district), so its own mean
+    is 54,930; the same 54,929 is used for both, as in that table.
+
+    Returns {"provincial_average", "majority", "minority", "pct_wider"}, where
+    pct_wider is how much wider the minority's spread is than the majority's.
+    """
+    import pandas as _pd
+
+    pops = {
+        key: _pd.read_csv(ROOT / "data" / "reference" / f"{key}_2026_populations.csv")["population"]
+        for key in ("majority", "minority")
+    }
+    average = round(float(pops["majority"].mean()))
+    out = {"provincial_average": average}
+    for key, pop in pops.items():
+        out[key] = float((pop - average).abs().mean())
+    out["pct_wider"] = 100.0 * (out["minority"] / out["majority"] - 1.0)
+    return out
+
+
+def airdrie_district_counts() -> dict:
+    """Districts holding any City of Airdrie residents, per map, and the
+    minority's smallest piece, from data/outputs/airdrie_split_shares_2026-10-31.json."""
+    import json as _json
+
+    d = _json.loads((ROOT / "data" / "outputs" / "airdrie_split_shares_2026-10-31.json").read_text(encoding="utf-8"))
+    out = {k: int(d["maps"][k]["districts_with_any_airdrie_residents"]) for k in ("majority", "minority")}
+    out["minority_smallest_piece"] = min(r["airdrie_residents"] for r in d["maps"]["minority"]["districts"])
+    return out
+
+
 def build_lane2_bars() -> Path:
     """Lane 2 structural tests — small-multiples layout.
 
@@ -249,11 +288,17 @@ def build_lane2_bars() -> Path:
     # Panel titles rewritten in plain language; jargon moved to sublabels.
     # Tuple: (label, majority_value, minority_value, threshold_or_None,
     #         x_max, x_unit_label, value_format)
+    # Computed from the committed tables, not typed in (3,180 vs 4,707, 48%
+    # wider, as of the 2026 commission tables).
+    _mad = commission_table_mad()
+    _air = airdrie_district_counts()
+    _air_small = int(round(_air["minority_smallest_piece"], -1))
     tests = [
         (
-            "How unevenly people are spread across districts\n(typical distance from the ideal district size; minority is 48% wider)",
-            3180,
-            4707,
+            "How unevenly people are spread across districts\n(typical distance from the ideal district size; "
+            f"minority is {_mad['pct_wider']:.0f}% wider)",
+            round(_mad["majority"]),
+            round(_mad["minority"]),
             None,
             5500,
             "people away from the ideal size (smaller is better)",
@@ -286,9 +331,10 @@ def build_lane2_bars() -> Path:
         # audit's 2% piece rule the split is three pieces to two. The value
         # stays the district count the structural table reports (4 vs 2).
         (
-            "Extra districts the City of Airdrie is split across\n(every map needs at least 2; one of the minority's 4 holds about 350 people)",
-            0,
-            2,
+            "Extra districts the City of Airdrie is split across\n(every map needs at least 2; "
+            f"one of the minority's {_air['minority']} holds about {_air_small} people)",
+            _air["majority"] - 2,
+            _air["minority"] - 2,
             None,
             3,
             "extra districts beyond the required 2",
@@ -441,7 +487,7 @@ def build_bias_structure_matrix() -> Path:
       x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles,
           simulation_real_map_scores_canonical.json; reference line from the
           canonical ensemble p95)
-      y = Lane 2 structural red-flag count (of the audit's 5 pre-registered checks)
+      y = Lane 2 structural red-flag count (of the audit's 5 structural checks)
     Three points: 2019 enacted (grey), Majority 2026 (teal), Minority 2026 (purple).
 
     Honesty redesign (2026-07-09, author direction): the earlier version shaded
@@ -513,7 +559,7 @@ def build_bias_structure_matrix() -> Path:
     # 4-of-5 line: the audit's own pre-registered bar — say so on its face
     ax.text(
         XMIN + 0.12, threshold_struct + 0.08,
-        "4 of the audit's 5 pre-registered checks\n(the audit's own pre-set bar — no external benchmark exists)",
+        "4 of the audit's 5 structural checks\n(the audit's own pre-set bar — no external benchmark exists)",
         color="#555555", fontsize=7, fontstyle="italic",
         ha="left", va="bottom",
     )

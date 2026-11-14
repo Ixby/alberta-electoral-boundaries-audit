@@ -303,7 +303,7 @@ The closest analog is:
 | ~~89-seat comparison~~ | [~~#289,452~~](https://aspredicted.org/u5kr84.pdf) | — | Superseded; test unrunnable; noted in writeup |
 | Lunty 91-seat scorecard | [#289,455](https://aspredicted.org/ib9w4k.pdf) | [qsgy8](https://osf.io/qsgy8/) | Registered; awaiting map publication |
 
-Git pre-analysis commit: `d2aea42` (seeds and analysis scripts committed before any simulation runs).
+Seeds: the drand beacon round was fixed in `drand_seed.py` on 2026-04-27 (commit `480f66a2`). The SZAT seed label was first committed together with that test's code and first results (commit `851920f5`, 2026-05-06, 18:11 MDT), not before them.
 
 ---
 

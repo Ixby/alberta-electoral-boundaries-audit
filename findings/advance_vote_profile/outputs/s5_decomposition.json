@@ -1,0 +1,489 @@
+{
+ "meta": {
+  "entry": "2026-11-11 10:06 Alberta time · claude-fable-5-2 · low",
+  "script": "findings/advance_vote_profile/13_s5_decompose.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/shapefiles/canonical/va_2023_election_day_votes.gpkg",
+    "sha256": "9d9a08a0f9b99f07d158dcc7a14a57445ff32be065088587acd6713e5d7f51a5"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+    "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_majority_2026_eds.gpkg",
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg",
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897"
+   },
+   {
+    "path": "data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg",
+    "sha256": "8ea5caf68ac95bffe3d7e8a58635b8888f742b3bf115cf3787da3cc92caca1b7"
+   },
+   {
+    "path": "findings/iap_para167/para167_map.gpkg",
+    "sha256": "a6b0acc00d3904e097d473463f8a83d5da318773d92b2a83df30aa1c3fcffb85"
+   }
+  ],
+  "thresholds": {
+   "surplus_rate": 0.15,
+   "margin": 0.05
+  },
+  "check": "each map's terms sum to compute_S5_drain's score to 1e-12"
+ },
+ "maps": {
+  "majority_89": {
+   "election_day": {
+    "drain_score": 0.007212671893744839,
+    "pairs_with_nonzero_term": 7,
+    "close_districts": [
+     "Calgary-Glenmore-Tsuut'ina",
+     "Calgary-North",
+     "Calgary-Nose Creek",
+     "Calgary-Symons Valley",
+     "Edmonton-Beaumont",
+     "Sherwood Park"
+    ],
+    "terms": [
+     {
+      "packed": "Camrose",
+      "close": "Edmonton-Beaumont",
+      "term": 0.0027471667576689437,
+      "surplus_rate_packed": 0.22816032887975335,
+      "margin_close": 0.014852159694781306,
+      "share_of_score": 0.3808805943399995
+     },
+     {
+      "packed": "Edmonton-Gold Bar",
+      "close": "Sherwood Park",
+      "term": 0.0016828493242197335,
+      "surplus_rate_packed": 0.18572749691738594,
+      "margin_close": 0.002897642728483045,
+      "share_of_score": 0.2333184358045148
+     },
+     {
+      "packed": "Okotoks-Diamond Valley",
+      "close": "Calgary-Glenmore-Tsuut'ina",
+      "term": 0.0014164408314732983,
+      "surplus_rate_packed": 0.2257784099889363,
+      "margin_close": 0.03130812151270924,
+      "share_of_score": 0.19638226337478362
+     },
+     {
+      "packed": "Leduc-Devon",
+      "close": "Edmonton-Beaumont",
+      "term": 0.0007730300320293355,
+      "surplus_rate_packed": 0.17199367088607595,
+      "margin_close": 0.014852159694781306,
+      "share_of_score": 0.10717665289887132
+     },
+     {
+      "packed": "Airdrie-East",
+      "close": "Calgary-Nose Creek",
+      "term": 0.0005282777667789012,
+      "surplus_rate_packed": 0.18418810700289656,
+      "margin_close": 0.03454790823211876,
+      "share_of_score": 0.0732430054439393
+     },
+     {
+      "packed": "Cochrane-Springbank",
+      "close": "Calgary-Symons Valley",
+      "term": 6.028401450694656e-05,
+      "surplus_rate_packed": 0.15143908969210174,
+      "margin_close": 0.008109619686800894,
+      "share_of_score": 0.008358069713281653
+     },
+     {
+      "packed": "Cochrane-Springbank",
+      "close": "Calgary-North",
+      "term": 4.623167067679908e-06,
+      "surplus_rate_packed": 0.15143908969210174,
+      "margin_close": 0.04678743646552848,
+      "share_of_score": 0.0006409784246097943
+     }
+    ]
+   },
+   "all_ballots_amendment_12": {
+    "drain_score": 0.0037118238339337974,
+    "pairs_with_nonzero_term": 2,
+    "close_districts": [
+     "Calgary-Confluence",
+     "Lethbridge-East"
+    ],
+    "terms": [
+     {
+      "packed": "Livingstone-Macleod",
+      "close": "Lethbridge-East",
+      "term": 0.003316613119046968,
+      "surplus_rate_packed": 0.24679160725198615,
+      "margin_close": 0.01573449689276742,
+      "share_of_score": 0.8935265431312281
+     },
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0003952107148868292,
+      "surplus_rate_packed": 0.16242169280716998,
+      "margin_close": 0.01818382799977892,
+      "share_of_score": 0.10647345686877176
+     }
+    ]
+   },
+   "all_ballots_rule_p": {
+    "drain_score": 0.004031575680703427,
+    "pairs_with_nonzero_term": 3,
+    "close_districts": [
+     "Calgary-Confluence",
+     "Edmonton-Beaumont",
+     "Lethbridge-East"
+    ],
+    "terms": [
+     {
+      "packed": "Livingstone-Macleod",
+      "close": "Lethbridge-East",
+      "term": 0.003497573900023952,
+      "surplus_rate_packed": 0.23699883016058704,
+      "margin_close": 0.009797460568516322,
+      "share_of_score": 0.8675451428989912
+     },
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0005320950175668412,
+      "surplus_rate_packed": 0.16351001498841805,
+      "margin_close": 0.010614772224679346,
+      "share_of_score": 0.13198189980995262
+     },
+     {
+      "packed": "Edmonton-Meadows",
+      "close": "Edmonton-Beaumont",
+      "term": 1.9067631126337879e-06,
+      "surplus_rate_packed": 0.15013883379611265,
+      "margin_close": 0.036265857694429124,
+      "share_of_score": 0.0004729572910562594
+     }
+    ]
+   }
+  },
+  "minority_89": {
+   "election_day": {
+    "drain_score": 0.0005909296087761933,
+    "pairs_with_nonzero_term": 1,
+    "close_districts": [
+     "Edmonton-Beaumont"
+    ],
+    "terms": [
+     {
+      "packed": "Leduc",
+      "close": "Edmonton-Beaumont",
+      "term": 0.0005909296087761933,
+      "surplus_rate_packed": 0.16681268617487297,
+      "margin_close": 0.014852159694781306,
+      "share_of_score": 1.0
+     }
+    ]
+   },
+   "all_ballots_amendment_12": {
+    "drain_score": 0.0001677596344500493,
+    "pairs_with_nonzero_term": 1,
+    "close_districts": [
+     "Edmonton-Enoch-Devon"
+    ],
+    "terms": [
+     {
+      "packed": "Stony Plain-Drayton Valley",
+      "close": "Edmonton-Enoch-Devon",
+      "term": 0.0001677596344500493,
+      "surplus_rate_packed": 0.23485901509134233,
+      "margin_close": 0.04802307822840658,
+      "share_of_score": 1.0
+     }
+    ]
+   },
+   "all_ballots_rule_p": {
+    "drain_score": 0.007733594546154491,
+    "pairs_with_nonzero_term": 4,
+    "close_districts": [
+     "Canmore-Kananaskis",
+     "Edmonton-Beaumont",
+     "Edmonton-Enoch-Devon"
+    ],
+    "terms": [
+     {
+      "packed": "Stony Plain-Drayton Valley",
+      "close": "Edmonton-Enoch-Devon",
+      "term": 0.004298726301507562,
+      "surplus_rate_packed": 0.25393324511101306,
+      "margin_close": 0.00863954505686789,
+      "share_of_score": 0.555851005098928
+     },
+     {
+      "packed": "Rocky Mountain House-Banff Park",
+      "close": "Canmore-Kananaskis",
+      "term": 0.0025423142525419404,
+      "surplus_rate_packed": 0.29142692750287685,
+      "margin_close": 0.032023831688698566,
+      "share_of_score": 0.32873642875499587
+     },
+     {
+      "packed": "Highwood",
+      "close": "Canmore-Kananaskis",
+      "term": 0.0008906472289923549,
+      "surplus_rate_packed": 0.19954599965735823,
+      "margin_close": 0.032023831688698566,
+      "share_of_score": 0.11516601027852265
+     },
+     {
+      "packed": "Edmonton-Meadows",
+      "close": "Edmonton-Beaumont",
+      "term": 1.9067631126337879e-06,
+      "surplus_rate_packed": 0.15013883379611265,
+      "margin_close": 0.036265857694429124,
+      "share_of_score": 0.0002465558675534549
+     }
+    ]
+   }
+  },
+  "panel_v3_91": {
+   "election_day": {
+    "drain_score": 0.004417523330937247,
+    "pairs_with_nonzero_term": 6,
+    "close_districts": [
+     "Calgary-Glenmore-Tsuut'ina",
+     "Calgary-Nose Creek",
+     "Lethbridge",
+     "Sherwood Park"
+    ],
+    "terms": [
+     {
+      "packed": "Edmonton-Gold Bar",
+      "close": "Sherwood Park",
+      "term": 0.0016828493242197335,
+      "surplus_rate_packed": 0.18572749691738594,
+      "margin_close": 0.002897642728483045,
+      "share_of_score": 0.3809485990564515
+     },
+     {
+      "packed": "Okotoks",
+      "close": "Calgary-Glenmore-Tsuut'ina",
+      "term": 0.0013125987346403033,
+      "surplus_rate_packed": 0.220222943912929,
+      "margin_close": 0.03130812151270924,
+      "share_of_score": 0.29713453360795605
+     },
+     {
+      "packed": "Lethbridge-Taber-Warner",
+      "close": "Lethbridge",
+      "term": 0.0006808928451396697,
+      "surplus_rate_packed": 0.2869002799498021,
+      "margin_close": 0.04502635900095065,
+      "share_of_score": 0.15413452157030433
+     },
+     {
+      "packed": "Airdrie-East",
+      "close": "Calgary-Nose Creek",
+      "term": 0.0005282777667789012,
+      "surplus_rate_packed": 0.18418810700289656,
+      "margin_close": 0.03454790823211876,
+      "share_of_score": 0.11958686512852412
+     },
+     {
+      "packed": "Lethbridge-Little Bow",
+      "close": "Lethbridge",
+      "term": 0.000146990320413037,
+      "surplus_rate_packed": 0.17955386615984795,
+      "margin_close": 0.04502635900095065,
+      "share_of_score": 0.03327437330859568
+     },
+     {
+      "packed": "Lethbridge-Cardston",
+      "close": "Lethbridge",
+      "term": 6.591433974560244e-05,
+      "surplus_rate_packed": 0.16325273371322963,
+      "margin_close": 0.04502635900095065,
+      "share_of_score": 0.014921107328168356
+     }
+    ]
+   },
+   "all_ballots_amendment_12": {
+    "drain_score": 0.010429060406130678,
+    "pairs_with_nonzero_term": 4,
+    "close_districts": [
+     "Banff-Canmore-Diamond Valley",
+     "Calgary-Confluence"
+    ],
+    "terms": [
+     {
+      "packed": "Rocky Mountain House-Sundre",
+      "close": "Banff-Canmore-Diamond Valley",
+      "term": 0.005738508389132239,
+      "surplus_rate_packed": 0.30623481781376516,
+      "margin_close": 0.01326997740047517,
+      "share_of_score": 0.5502421278295485
+     },
+     {
+      "packed": "Macleod-Crowsnest",
+      "close": "Banff-Canmore-Diamond Valley",
+      "term": 0.0024765698692871905,
+      "surplus_rate_packed": 0.2174263094332871,
+      "margin_close": 0.01326997740047517,
+      "share_of_score": 0.23746816806539442
+     },
+     {
+      "packed": "Okotoks",
+      "close": "Banff-Canmore-Diamond Valley",
+      "term": 0.00181877143282442,
+      "surplus_rate_packed": 0.1995172968624296,
+      "margin_close": 0.01326997740047517,
+      "share_of_score": 0.17439456307638826
+     },
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0003952107148868292,
+      "surplus_rate_packed": 0.16242169280716998,
+      "margin_close": 0.01818382799977892,
+      "share_of_score": 0.03789514102866892
+     }
+    ]
+   },
+   "all_ballots_rule_p": {
+    "drain_score": 0.0005320950175668412,
+    "pairs_with_nonzero_term": 1,
+    "close_districts": [
+     "Calgary-Confluence"
+    ],
+    "terms": [
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0005320950175668412,
+      "surplus_rate_packed": 0.16351001498841805,
+      "margin_close": 0.010614772224679346,
+      "share_of_score": 1.0
+     }
+    ]
+   }
+  },
+  "para167_91": {
+   "election_day": {
+    "drain_score": 0.0036924751040465593,
+    "pairs_with_nonzero_term": 5,
+    "close_districts": [
+     "Calgary-Glenmore-Tsuut'ina",
+     "Calgary-North",
+     "Calgary-Nose Creek",
+     "Calgary-Symons Valley",
+     "Sherwood Park"
+    ],
+    "terms": [
+     {
+      "packed": "Edmonton-Gold Bar",
+      "close": "Sherwood Park",
+      "term": 0.0016828493242197335,
+      "surplus_rate_packed": 0.18572749691738594,
+      "margin_close": 0.002897642728483045,
+      "share_of_score": 0.45575102791499117
+     },
+     {
+      "packed": "Okotoks-Diamond Valley",
+      "close": "Calgary-Glenmore-Tsuut'ina",
+      "term": 0.0014164408314732983,
+      "surplus_rate_packed": 0.2257784099889363,
+      "margin_close": 0.03130812151270924,
+      "share_of_score": 0.38360199908214143
+     },
+     {
+      "packed": "Airdrie-East",
+      "close": "Calgary-Nose Creek",
+      "term": 0.0005282777667789012,
+      "surplus_rate_packed": 0.18418810700289656,
+      "margin_close": 0.03454790823211876,
+      "share_of_score": 0.14306874166868858
+     },
+     {
+      "packed": "Cochrane-Springbank",
+      "close": "Calgary-Symons Valley",
+      "term": 6.028401450694656e-05,
+      "surplus_rate_packed": 0.15143908969210174,
+      "margin_close": 0.008109619686800894,
+      "share_of_score": 0.01632618035552405
+     },
+     {
+      "packed": "Cochrane-Springbank",
+      "close": "Calgary-North",
+      "term": 4.623167067679908e-06,
+      "surplus_rate_packed": 0.15143908969210174,
+      "margin_close": 0.04678743646552848,
+      "share_of_score": 0.001252050978654781
+     }
+    ]
+   },
+   "all_ballots_amendment_12": {
+    "drain_score": 0.0037118238339337974,
+    "pairs_with_nonzero_term": 2,
+    "close_districts": [
+     "Calgary-Confluence",
+     "Lethbridge-East"
+    ],
+    "terms": [
+     {
+      "packed": "Livingstone-Macleod",
+      "close": "Lethbridge-East",
+      "term": 0.003316613119046968,
+      "surplus_rate_packed": 0.24679160725198615,
+      "margin_close": 0.01573449689276742,
+      "share_of_score": 0.8935265431312281
+     },
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0003952107148868292,
+      "surplus_rate_packed": 0.16242169280716998,
+      "margin_close": 0.01818382799977892,
+      "share_of_score": 0.10647345686877176
+     }
+    ]
+   },
+   "all_ballots_rule_p": {
+    "drain_score": 0.004029668917590793,
+    "pairs_with_nonzero_term": 2,
+    "close_districts": [
+     "Calgary-Confluence",
+     "Lethbridge-East"
+    ],
+    "terms": [
+     {
+      "packed": "Livingstone-Macleod",
+      "close": "Lethbridge-East",
+      "term": 0.003497573900023952,
+      "surplus_rate_packed": 0.23699883016058704,
+      "margin_close": 0.009797460568516322,
+      "share_of_score": 0.8679556488514288
+     },
+     {
+      "packed": "Calgary-Mountain View",
+      "close": "Calgary-Confluence",
+      "term": 0.0005320950175668412,
+      "surplus_rate_packed": 0.16351001498841805,
+      "margin_close": 0.010614772224679346,
+      "share_of_score": 0.13204435114857113
+     }
+    ]
+   }
+  }
+ },
+ "commission_maps_order_by_vote_file": {
+  "election_day": "majority_higher",
+  "all_ballots_amendment_12": "majority_higher",
+  "all_ballots_rule_p": "minority_higher"
+ }
+}

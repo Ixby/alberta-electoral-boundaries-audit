@@ -1,0 +1,145 @@
+{
+ "plan": "preregistration/population_basis_2026-11-07.md",
+ "growth_factor_source_share_of_pop": {
+  "csd": 0.9983,
+  "cd": 0.0017,
+  "province": 0.0
+ },
+ "province_growth_2021_2024": 1.108,
+ "entitlement": {
+  "Calgary": {
+   "p21": 1306168.189,
+   "p24": 1568552.921,
+   "seats_2021": 27.885,
+   "seats_2024": 29.197,
+   "shift": 1.313
+  },
+  "Calgary ring": {
+   "p21": 228721.613,
+   "p24": 267224.063,
+   "seats_2021": 4.883,
+   "seats_2024": 4.974,
+   "shift": 0.091
+  },
+  "Edmonton": {
+   "p21": 1011082.465,
+   "p24": 1193170.226,
+   "seats_2021": 21.585,
+   "seats_2024": 22.21,
+   "shift": 0.625
+  },
+  "Edmonton ring": {
+   "p21": 379277.779,
+   "p24": 413198.894,
+   "seats_2021": 8.097,
+   "seats_2024": 7.691,
+   "shift": -0.406
+  },
+  "Everything else": {
+   "p21": 1011679.951,
+   "p24": 1085161.068,
+   "seats_2021": 21.598,
+   "seats_2024": 20.199,
+   "shift": -1.398
+  },
+  "Other cities 20,000+": {
+   "p21": 325642.255,
+   "p24": 361415.829,
+   "seats_2021": 6.952,
+   "seats_2024": 6.727,
+   "shift": -0.225
+  }
+ },
+ "max_abs_shift_seats": 1.398,
+ "decision": "at least one region shifts by 0.5 seats or more",
+ "validation_vs_published": {
+  "majority": {
+   "growth_basis_mean_abs_err_pct": 6.7,
+   "growth_basis_max_abs_err_pct": 36.41,
+   "growth_basis_worst": "Calgary-North East",
+   "census_2021_scaled_mean_abs_err_pct": 8.09,
+   "census_2021_scaled_max_abs_err_pct": 39.27
+  },
+  "minority": {
+   "growth_basis_mean_abs_err_pct": 6.72,
+   "growth_basis_max_abs_err_pct": 31.55,
+   "growth_basis_worst": "Calgary-North East",
+   "census_2021_scaled_mean_abs_err_pct": 7.78,
+   "census_2021_scaled_max_abs_err_pct": 34.63
+  },
+  "panel": {
+   "growth_basis_mean_abs_err_pct": 6.64,
+   "growth_basis_max_abs_err_pct": 36.41,
+   "growth_basis_worst": "Calgary-North East",
+   "census_2021_scaled_mean_abs_err_pct": 7.8,
+   "census_2021_scaled_max_abs_err_pct": 39.27
+  }
+ },
+ "real_maps": {
+  "majority": {
+   "divisions": 89,
+   "p21": {
+    "mad": 4847,
+    "max_abs_dev_pct": 43.5,
+    "outside_25": 5
+   },
+   "p24": {
+    "mad": 5656,
+    "max_abs_dev_pct": 48.9,
+    "outside_25": 4
+   },
+   "published": {
+    "mad": 3179,
+    "max_abs_dev_pct": 47.7,
+    "outside_25": 3
+   }
+  },
+  "minority": {
+   "divisions": 89,
+   "p21": {
+    "mad": 4871,
+    "max_abs_dev_pct": 41.1,
+    "outside_25": 3
+   },
+   "p24": {
+    "mad": 6406,
+    "max_abs_dev_pct": 46.5,
+    "outside_25": 5
+   },
+   "published": {
+    "mad": 4706,
+    "max_abs_dev_pct": 45.4,
+    "outside_25": 3
+   }
+  },
+  "panel": {
+   "divisions": 91,
+   "p21": {
+    "mad": 5125,
+    "max_abs_dev_pct": 42.2,
+    "outside_25": 5
+   },
+   "p24": {
+    "mad": 6350,
+    "max_abs_dev_pct": 47.7,
+    "outside_25": 8
+   },
+   "published": {
+    "mad": 4214,
+    "max_abs_dev_pct": 46.5,
+    "outside_25": 3
+   }
+  }
+ },
+ "setD_city_districts": {
+  "plans": 1010000,
+  "median": 49.0,
+  "p5": 47.0,
+  "p95": 51.0,
+  "note": "n_city_districts counts districts at least half Calgary or Edmonton; balanced on 2021"
+ },
+ "calgary_edmonton_seats": {
+  "2021": 49.47,
+  "2024": 51.407
+ }
+}

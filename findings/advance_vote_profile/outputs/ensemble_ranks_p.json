@@ -1,0 +1,890 @@
+{
+ "meta": {
+  "entry": "2026-11-10 12:13 Alberta time · claude-opus-5-5 · high (from settings, not per-entry)",
+  "script": "findings\\advance_vote_profile\\10_replay_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "findings\\advance_vote_profile\\outputs\\replay_check_p.json",
+    "sha256": "887e3a525ffa042cebc638c0f3c5c470a26b38d790de6f430a59967e3dbd60e3"
+   },
+   {
+    "path": "findings\\advance_vote_profile\\outputs\\headline_table.csv",
+    "sha256": "556cc00337b541ca788d87cf219e9b6045c7f2a639ceabdf2ca24df5de1d3f8b"
+   }
+  ]
+ },
+ "sets": [
+  {
+   "set": "canonical",
+   "chains_used": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "plans": 1010000,
+   "ranks": [
+    {
+     "map": "enacted_2019_87",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02636,
+     "percentile": 21.05,
+     "ensemble_p50": -0.0105228205824697
+    },
+    {
+     "map": "enacted_2019_87",
+     "statistic": "mean_median",
+     "value_p": -0.02215,
+     "percentile": 25.88,
+     "ensemble_p50": -0.016206683796333103
+    },
+    {
+     "map": "enacted_2019_87",
+     "statistic": "declination",
+     "value_p": -0.057,
+     "percentile": 36.88,
+     "ensemble_p50": -0.046704822629267395
+    },
+    {
+     "map": "enacted_2019_87",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.47126436781609193,
+     "percentile": 54.07,
+     "ensemble_p50": 0.4712643678160919
+    },
+    {
+     "map": "enacted_2019_87",
+     "statistic": "ucp_seats",
+     "value_p": 49.0,
+     "percentile": 47.85,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "majority_89",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02827,
+     "percentile": 18.41,
+     "ensemble_p50": -0.0105228205824697
+    },
+    {
+     "map": "majority_89",
+     "statistic": "mean_median",
+     "value_p": -0.03767,
+     "percentile": 0.52,
+     "ensemble_p50": -0.016206683796333103
+    },
+    {
+     "map": "majority_89",
+     "statistic": "declination",
+     "value_p": -0.0886,
+     "percentile": 13.89,
+     "ensemble_p50": -0.046704822629267395
+    },
+    {
+     "map": "majority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.47191011235955055,
+     "percentile": 68.67,
+     "ensemble_p50": 0.4712643678160919
+    },
+    {
+     "map": "majority_89",
+     "statistic": "ucp_seats",
+     "value_p": 48.0,
+     "percentile": 25.75,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "efficiency_gap",
+     "value_p": 0.056440000000000004,
+     "percentile": 99.98,
+     "ensemble_p50": -0.0105228205824697
+    },
+    {
+     "map": "minority_89",
+     "statistic": "mean_median",
+     "value_p": 0.00509,
+     "percentile": 99.18,
+     "ensemble_p50": -0.016206683796333103
+    },
+    {
+     "map": "minority_89",
+     "statistic": "declination",
+     "value_p": 0.1012,
+     "percentile": 100.0,
+     "ensemble_p50": -0.046704822629267395
+    },
+    {
+     "map": "minority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.5168539325842697,
+     "percentile": 99.65,
+     "ensemble_p50": 0.4712643678160919
+    },
+    {
+     "map": "minority_89",
+     "statistic": "ucp_seats",
+     "value_p": 57.0,
+     "percentile": 100.0,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02836,
+     "percentile": 18.31,
+     "ensemble_p50": -0.0105228205824697
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "mean_median",
+     "value_p": -0.00473,
+     "percentile": 89.16,
+     "ensemble_p50": -0.016206683796333103
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "declination",
+     "value_p": -0.0802,
+     "percentile": 16.89,
+     "ensemble_p50": -0.046704822629267395
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4945054945054945,
+     "percentile": 97.25,
+     "ensemble_p50": 0.4712643678160919
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 70.72,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.023319999999999997,
+     "percentile": 25.78,
+     "ensemble_p50": -0.0105228205824697
+    },
+    {
+     "map": "para167_91",
+     "statistic": "mean_median",
+     "value_p": -0.02183,
+     "percentile": 27.0,
+     "ensemble_p50": -0.016206683796333103
+    },
+    {
+     "map": "para167_91",
+     "statistic": "declination",
+     "value_p": -0.077,
+     "percentile": 18.5,
+     "ensemble_p50": -0.046704822629267395
+    },
+    {
+     "map": "para167_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4835164835164835,
+     "percentile": 88.47,
+     "ensemble_p50": 0.4712643678160919
+    },
+    {
+     "map": "para167_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 70.72,
+     "ensemble_p50": 49.0
+    }
+   ],
+   "note": "seat counts of an 89- or 91-district map against an 87-district ensemble are partly a district-count effect"
+  },
+  {
+   "set": "D91",
+   "chains_used": [
+    251,
+    252,
+    253,
+    254
+   ],
+   "plans": 1010000,
+   "ranks": [
+    {
+     "map": "panel_v3_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02836,
+     "percentile": 18.85,
+     "ensemble_p50": -0.0112992039281329
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "mean_median",
+     "value_p": -0.00473,
+     "percentile": 87.56,
+     "ensemble_p50": -0.01491233984623
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "declination",
+     "value_p": -0.0802,
+     "percentile": 17.48,
+     "ensemble_p50": -0.04595786569504885
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4945054945054945,
+     "percentile": 85.13,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 16.34,
+     "ensemble_p50": 52.0
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 28.56,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.023319999999999997,
+     "percentile": 26.7,
+     "ensemble_p50": -0.0112992039281329
+    },
+    {
+     "map": "para167_91",
+     "statistic": "mean_median",
+     "value_p": -0.02183,
+     "percentile": 23.07,
+     "ensemble_p50": -0.01491233984623
+    },
+    {
+     "map": "para167_91",
+     "statistic": "declination",
+     "value_p": -0.077,
+     "percentile": 19.74,
+     "ensemble_p50": -0.04595786569504885
+    },
+    {
+     "map": "para167_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4835164835164835,
+     "percentile": 66.08,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "para167_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 16.34,
+     "ensemble_p50": 52.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "close4",
+     "value_p": 10.0,
+     "percentile": 47.34,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "A91",
+   "chains_used": [
+    221,
+    222,
+    223,
+    224
+   ],
+   "plans": 1010000,
+   "ranks": [
+    {
+     "map": "panel_v3_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02836,
+     "percentile": 19.1,
+     "ensemble_p50": -0.0117621280684944
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "mean_median",
+     "value_p": -0.00473,
+     "percentile": 90.01,
+     "ensemble_p50": -0.0161066568513467
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "declination",
+     "value_p": -0.0802,
+     "percentile": 16.17,
+     "ensemble_p50": -0.0490833103809907
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4945054945054945,
+     "percentile": 93.5,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 22.78,
+     "ensemble_p50": 51.0
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 25.83,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.023319999999999997,
+     "percentile": 27.22,
+     "ensemble_p50": -0.0117621280684944
+    },
+    {
+     "map": "para167_91",
+     "statistic": "mean_median",
+     "value_p": -0.02183,
+     "percentile": 26.58,
+     "ensemble_p50": -0.0161066568513467
+    },
+    {
+     "map": "para167_91",
+     "statistic": "declination",
+     "value_p": -0.077,
+     "percentile": 19.43,
+     "ensemble_p50": -0.0490833103809907
+    },
+    {
+     "map": "para167_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4835164835164835,
+     "percentile": 79.42,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "para167_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 22.78,
+     "ensemble_p50": 51.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "close4",
+     "value_p": 10.0,
+     "percentile": 44.2,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "A89",
+   "chains_used": [
+    120,
+    121
+   ],
+   "plans": 505000,
+   "ranks": [
+    {
+     "map": "majority_89",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02827,
+     "percentile": 18.86,
+     "ensemble_p50": -0.0108204398783518
+    },
+    {
+     "map": "majority_89",
+     "statistic": "mean_median",
+     "value_p": -0.03767,
+     "percentile": 0.53,
+     "ensemble_p50": -0.0162874409719329
+    },
+    {
+     "map": "majority_89",
+     "statistic": "declination",
+     "value_p": -0.0886,
+     "percentile": 14.53,
+     "ensemble_p50": -0.0480410491342846
+    },
+    {
+     "map": "majority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.47191011235955055,
+     "percentile": 55.81,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "majority_89",
+     "statistic": "ucp_seats",
+     "value_p": 48.0,
+     "percentile": 11.14,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "majority_89",
+     "statistic": "close4",
+     "value_p": 11.0,
+     "percentile": 67.16,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "efficiency_gap",
+     "value_p": 0.056440000000000004,
+     "percentile": 99.99,
+     "ensemble_p50": -0.0108204398783518
+    },
+    {
+     "map": "minority_89",
+     "statistic": "mean_median",
+     "value_p": 0.00509,
+     "percentile": 99.37,
+     "ensemble_p50": -0.0162874409719329
+    },
+    {
+     "map": "minority_89",
+     "statistic": "declination",
+     "value_p": 0.1012,
+     "percentile": 100.0,
+     "ensemble_p50": -0.0480410491342846
+    },
+    {
+     "map": "minority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.5168539325842697,
+     "percentile": 99.85,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "minority_89",
+     "statistic": "ucp_seats",
+     "value_p": 57.0,
+     "percentile": 100.0,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 28.76,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "B91",
+   "chains_used": [
+    230,
+    231,
+    232,
+    233,
+    236,
+    237,
+    238,
+    239
+   ],
+   "plans": 2020000,
+   "ranks": [
+    {
+     "map": "panel_v3_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02836,
+     "percentile": 18.82,
+     "ensemble_p50": -0.0112873705591729
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "mean_median",
+     "value_p": -0.00473,
+     "percentile": 88.96,
+     "ensemble_p50": -0.015716166596445598
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "declination",
+     "value_p": -0.0802,
+     "percentile": 17.69,
+     "ensemble_p50": -0.04726865261395545
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4945054945054945,
+     "percentile": 91.45,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 22.43,
+     "ensemble_p50": 51.0
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 25.99,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.023319999999999997,
+     "percentile": 26.68,
+     "ensemble_p50": -0.0112873705591729
+    },
+    {
+     "map": "para167_91",
+     "statistic": "mean_median",
+     "value_p": -0.02183,
+     "percentile": 25.45,
+     "ensemble_p50": -0.015716166596445598
+    },
+    {
+     "map": "para167_91",
+     "statistic": "declination",
+     "value_p": -0.077,
+     "percentile": 20.35,
+     "ensemble_p50": -0.04726865261395545
+    },
+    {
+     "map": "para167_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4835164835164835,
+     "percentile": 76.81,
+     "ensemble_p50": 0.4725274725274725
+    },
+    {
+     "map": "para167_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 22.43,
+     "ensemble_p50": 51.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "close4",
+     "value_p": 10.0,
+     "percentile": 44.45,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "B89",
+   "chains_used": [
+    130,
+    131,
+    132,
+    133
+   ],
+   "plans": 1010000,
+   "ranks": [
+    {
+     "map": "majority_89",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02827,
+     "percentile": 18.84,
+     "ensemble_p50": -0.0109745080715602
+    },
+    {
+     "map": "majority_89",
+     "statistic": "mean_median",
+     "value_p": -0.03767,
+     "percentile": 0.5,
+     "ensemble_p50": -0.015869000107725198
+    },
+    {
+     "map": "majority_89",
+     "statistic": "declination",
+     "value_p": -0.0886,
+     "percentile": 13.04,
+     "ensemble_p50": -0.048198637908310554
+    },
+    {
+     "map": "majority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.47191011235955055,
+     "percentile": 54.84,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "majority_89",
+     "statistic": "ucp_seats",
+     "value_p": 48.0,
+     "percentile": 11.46,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "majority_89",
+     "statistic": "close4",
+     "value_p": 11.0,
+     "percentile": 67.82,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "efficiency_gap",
+     "value_p": 0.056440000000000004,
+     "percentile": 99.98,
+     "ensemble_p50": -0.0109745080715602
+    },
+    {
+     "map": "minority_89",
+     "statistic": "mean_median",
+     "value_p": 0.00509,
+     "percentile": 99.28,
+     "ensemble_p50": -0.015869000107725198
+    },
+    {
+     "map": "minority_89",
+     "statistic": "declination",
+     "value_p": 0.1012,
+     "percentile": 99.99,
+     "ensemble_p50": -0.048198637908310554
+    },
+    {
+     "map": "minority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.5168539325842697,
+     "percentile": 99.73,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "minority_89",
+     "statistic": "ucp_seats",
+     "value_p": 57.0,
+     "percentile": 100.0,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 30.19,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "C91",
+   "chains_used": [
+    241,
+    243,
+    244,
+    245
+   ],
+   "plans": 1010000,
+   "ranks": [
+    {
+     "map": "panel_v3_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02836,
+     "percentile": 35.76,
+     "ensemble_p50": -0.02174052622774955
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "mean_median",
+     "value_p": -0.00473,
+     "percentile": 86.84,
+     "ensemble_p50": -0.015294346251169249
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "declination",
+     "value_p": -0.0802,
+     "percentile": 32.4,
+     "ensemble_p50": -0.06542347321689355
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4945054945054945,
+     "percentile": 85.31,
+     "ensemble_p50": 0.4835164835164835
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 38.64,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "panel_v3_91",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 25.7,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "efficiency_gap",
+     "value_p": -0.023319999999999997,
+     "percentile": 46.46,
+     "ensemble_p50": -0.02174052622774955
+    },
+    {
+     "map": "para167_91",
+     "statistic": "mean_median",
+     "value_p": -0.02183,
+     "percentile": 27.17,
+     "ensemble_p50": -0.015294346251169249
+    },
+    {
+     "map": "para167_91",
+     "statistic": "declination",
+     "value_p": -0.077,
+     "percentile": 35.92,
+     "ensemble_p50": -0.06542347321689355
+    },
+    {
+     "map": "para167_91",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.4835164835164835,
+     "percentile": 63.02,
+     "ensemble_p50": 0.4835164835164835
+    },
+    {
+     "map": "para167_91",
+     "statistic": "ucp_seats",
+     "value_p": 50.0,
+     "percentile": 38.64,
+     "ensemble_p50": 50.0
+    },
+    {
+     "map": "para167_91",
+     "statistic": "close4",
+     "value_p": 10.0,
+     "percentile": 47.16,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "C89",
+   "chains_used": [
+    140,
+    141
+   ],
+   "plans": 505000,
+   "ranks": [
+    {
+     "map": "majority_89",
+     "statistic": "efficiency_gap",
+     "value_p": -0.02827,
+     "percentile": 35.47,
+     "ensemble_p50": -0.0215192238982509
+    },
+    {
+     "map": "majority_89",
+     "statistic": "mean_median",
+     "value_p": -0.03767,
+     "percentile": 1.24,
+     "ensemble_p50": -0.01580406150837025
+    },
+    {
+     "map": "majority_89",
+     "statistic": "declination",
+     "value_p": -0.0886,
+     "percentile": 24.36,
+     "ensemble_p50": -0.064507338982898
+    },
+    {
+     "map": "majority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.47191011235955055,
+     "percentile": 38.09,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "majority_89",
+     "statistic": "ucp_seats",
+     "value_p": 48.0,
+     "percentile": 19.6,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "majority_89",
+     "statistic": "close4",
+     "value_p": 11.0,
+     "percentile": 67.36,
+     "ensemble_p50": 10.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "efficiency_gap",
+     "value_p": 0.056440000000000004,
+     "percentile": 100.0,
+     "ensemble_p50": -0.0215192238982509
+    },
+    {
+     "map": "minority_89",
+     "statistic": "mean_median",
+     "value_p": 0.00509,
+     "percentile": 98.91,
+     "ensemble_p50": -0.01580406150837025
+    },
+    {
+     "map": "minority_89",
+     "statistic": "declination",
+     "value_p": 0.1012,
+     "percentile": 100.0,
+     "ensemble_p50": -0.064507338982898
+    },
+    {
+     "map": "minority_89",
+     "statistic": "seats_at_50_50",
+     "value_p": 0.5168539325842697,
+     "percentile": 99.57,
+     "ensemble_p50": 0.4719101123595505
+    },
+    {
+     "map": "minority_89",
+     "statistic": "ucp_seats",
+     "value_p": 57.0,
+     "percentile": 100.0,
+     "ensemble_p50": 49.0
+    },
+    {
+     "map": "minority_89",
+     "statistic": "close4",
+     "value_p": 9.0,
+     "percentile": 24.64,
+     "ensemble_p50": 10.0
+    }
+   ],
+   "note": ""
+  },
+  {
+   "set": "forest",
+   "status": "no replay passed its check; no percentile given"
+  }
+ ]
+}

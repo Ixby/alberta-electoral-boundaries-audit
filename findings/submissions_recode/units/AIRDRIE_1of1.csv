@@ -1,0 +1,133 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+AIRDRIE,HANSARD-R1-T01-001,hearing,1,core,2,airdrie×2,EB-4,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"6-12,16","hearing: Pincher Creek, Thursday, May 29, 2025"
+AIRDRIE,HANSARD-R1-T02-008,hearing,1,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,28-30,"hearing: Lethbridge, Thursday, May 29, 2025"
+AIRDRIE,HANSARD-R1-T03-002,hearing,1,core,1,airdrie×1,EB-37,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,53-54,"hearing: Edmonton, Monday, June 2, 2025"
+AIRDRIE,HANSARD-R1-T06-009,hearing,1,core,4,airdrie×4,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,140-142,"hearing: Edmonton, Tuesday, June 3, 2025"
+AIRDRIE,HANSARD-R1-T07-001,hearing,1,core,18,airdrie×13; rocky view×5,EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+AIRDRIE,HANSARD-R1-T07-004,hearing,1,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,162-163,"hearing: Edmonton, Tuesday, June 3, 2025"
+AIRDRIE,HANSARD-R1-T07-005,hearing,1,core,1,airdrie×1,EB-120,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,163-165,"hearing: Edmonton, Tuesday, June 3, 2025"
+AIRDRIE,HANSARD-R1-T13-002,hearing,1,core,12,airdrie×12,EB-198 EB-199,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,283-286,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T13-003,hearing,1,core,5,airdrie×5,EB-201,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,286-288,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T13-004,hearing,1,core,5,airdrie×5,EB-203,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,288-289,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T13-005,hearing,1,core,1,airdrie×1,EB-204,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,289-292,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T13-006,hearing,1,core,20,airdrie×20,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,292-293,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-001,hearing,1,core,52,airdrie×49; yankee valley×2; rocky view×1,EB-220 EB-221 EB-222,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,313-316,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-002,hearing,1,core,6,airdrie×6,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,316,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-003,hearing,1,context,1,rocky view×1,EB-223,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,316-318,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-004,hearing,1,context,1,rocky view×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,318-319,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-005,hearing,1,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,319-320,"hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T14-013,hearing,1,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"332-336,340","hearing: Calgary, Tuesday, June 10, 2025"
+AIRDRIE,HANSARD-R1-T16-001,hearing,1,core,22,airdrie×22,start EB-255,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,362-364,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T16-002,hearing,1,core,5,airdrie×1; coventry hills×4,EB-257 EB-258,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,364-370,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T16-003,hearing,1,core,5,airdrie×5,start EB-263,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,370-372,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T16-005,hearing,1,core,4,airdrie×3; balzac×1,start EB-270 EB-271,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"376-380,384","hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T17-001,hearing,1,core,1,airdrie×1,EB-274,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,389-391,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T17-002,hearing,1,core,12,airdrie×12,EB-276 EB-277,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,391-394,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T17-004,hearing,1,core,9,airdrie×6; rocky view×3,start EB-281 EB-282,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,396-399,"hearing: Calgary, Wednesday, June 11, 2025"
+AIRDRIE,HANSARD-R1-T19-003,hearing,1,core,4,airdrie×1; rocky view×3,EB-312 start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,440-442,"hearing: Brooks, Thursday, June 12, 2025"
+AIRDRIE,HANSARD-R1-T23-001,hearing,1,core,1,airdrie×1,EB-372,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"525-532,536","hearing: Grande Prairie, Tuesday, June 17, 2025"
+AIRDRIE,HANSARD-R1-T27-001,hearing,1,core,1,airdrie×1,EB-400,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,585-588,"hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R1-T27-004,hearing,1,core,30,airdrie×29; rocky view×1,EB-405 EB-406 EB-407,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,591-594,"hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R1-T27-005,hearing,1,core,15,airdrie×13; yankee valley×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,592,"hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R1-T28-005,hearing,1,context,1,coventry hills×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,618-620,"hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R1-T28-008,hearing,1,core,1,airdrie×1,EB-434,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,624-627,"hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R1-T28-009,hearing,1,core,1,airdrie×1,EB-436,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"627-630,632","hearing: Virtual, Monday, June 23, 2025"
+AIRDRIE,HANSARD-R2-T32-002,hearing,2,context,1,rocky view×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,31-35,"hearing: Calgary, Tuesday, January 13, 2025"
+AIRDRIE,HANSARD-R2-T32-003,hearing,2,context,1,rocky view×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,33-34,"hearing: Calgary, Tuesday, January 13, 2025"
+AIRDRIE,HANSARD-R2-T32-006,hearing,2,core,2,airdrie×2,EB-521,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,39-42,"hearing: Calgary, Tuesday, January 13, 2025"
+AIRDRIE,HANSARD-R2-T33-001,hearing,2,context,1,rocky view×1,EB-526,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,5-8,"hearing: Calgary, Tuesday, January 13, 2026"
+AIRDRIE,HANSARD-R2-T33-004,hearing,2,core,5,airdrie×5,EB-534,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,13-16,"hearing: Calgary, Tuesday, January 13, 2026"
+AIRDRIE,HANSARD-R2-T34-001,hearing,2,core,3,airdrie×3,start EB-542,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,53-55,"hearing: Calgary, Wednesday, January 14, 2026"
+AIRDRIE,HANSARD-R2-T34-007,hearing,2,context,2,rocky view×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,66-68,"hearing: Calgary, Wednesday, January 14, 2026"
+AIRDRIE,HANSARD-R2-T34-009,hearing,2,context,1,rocky view×1,EB-558,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,69-71,"hearing: Calgary, Wednesday, January 14, 2026"
+AIRDRIE,HANSARD-R2-T35-006,hearing,2,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,146-148,"hearing: Virtual, Wednesday, January 15, 2026"
+AIRDRIE,HANSARD-R2-T35-009,hearing,2,core,1,airdrie×1,EB-580,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"151-154,156","hearing: Virtual, Wednesday, January 15, 2026"
+AIRDRIE,HANSARD-R2-T38-001,hearing,2,core,3,airdrie×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,190-191,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T39-003,hearing,2,core,33,airdrie×31; balzac×1; rocky view×1,start EB-649,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,166-167,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T39-005,hearing,2,core,1,airdrie×1,EB-653,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,169-171,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T39-007,hearing,2,core,21,airdrie×21,start EB-655,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,172-174,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T39-009,hearing,2,core,2,airdrie×2,EB-658,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,175-176,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T39-010,hearing,2,core,1,airdrie×1,EB-659,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,176-178,"hearing: Virtual, Friday, January 16, 2026"
+AIRDRIE,HANSARD-R2-T40-001,hearing,2,core,1,airdrie×1,EB-665,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,270-273,"hearing: Edmonton, Monday, January 19, 2026"
+AIRDRIE,HANSARD-R2-T42-004,hearing,2,core,2,airdrie×2,EB-716,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,251-254,"hearing: Edmonton, Monday, January 19, 2026"
+AIRDRIE,HANSARD-R2-T43-006,hearing,2,core,2,airdrie×2,start EB-742,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,369-372,"hearing: Edmonton, Tuesday, January 20, 2026"
+AIRDRIE,HANSARD-R2-T43-008,hearing,2,core,1,airdrie×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,374-375,"hearing: Edmonton, Tuesday, January 20, 2026"
+AIRDRIE,HANSARD-R2-T44-009,hearing,2,core,1,airdrie×1,EB-766,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,316-318,"hearing: Edmonton, Tuesday, January 20, 2026"
+AIRDRIE,HANSARD-R2-T45-002,hearing,2,core,1,airdrie×1,EB-776,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,332-334,"hearing: Edmonton, Tuesday, January 20, 2026"
+AIRDRIE,HANSARD-R2-T48-005,hearing,2,core,4,airdrie×4,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,429-431,"hearing: Virtual, Wednesday, January 21, 2026"
+AIRDRIE,HANSARD-R2-T48-007,hearing,2,core,1,airdrie×1,EB-806,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,433-436,"hearing: Virtual, Wednesday, January 21, 2026"
+AIRDRIE,EBC-2025-1-0001,written,1,core,6,airdrie×6,1,EBC2025Submissions1-50ForPosting.pdf,1-2,Private Citizen
+AIRDRIE,EBC-2025-1-0002,written,1,core,3,airdrie×3,3,EBC2025Submissions1-50ForPosting.pdf,3-4,Private Citizen
+AIRDRIE,EBC-2025-1-0010,written,1,core,9,airdrie×9,21,EBC2025Submissions1-50ForPosting.pdf,21-22,Private Citizen
+AIRDRIE,EBC-2025-1-0026,written,1,context,1,rocky view×1,53,EBC2025Submissions1-50ForPosting.pdf,53-54,Private Citizen
+AIRDRIE,EBC-2025-1-0035,written,1,core,2,airdrie×2,71,EBC2025Submissions1-50ForPosting.pdf,71-74,Private Citizen
+AIRDRIE,EBC-2025-1-0036,written,1,core,1,airdrie×1,75,EBC2025Submissions1-50ForPosting.pdf,75-76,Private Citizen
+AIRDRIE,EBC-2025-1-0041,written,1,context,1,rocky view×1,86,EBC2025Submissions1-50ForPosting.pdf,86-87,Private Citizen
+AIRDRIE,EBC-2025-1-0049,written,1,context,1,rocky view×1,105,EBC2025Submissions1-50ForPosting.pdf,104-105,Private Citizen
+AIRDRIE,EBC-2025-1-0051,written,1,context,2,rocky view×2,1 2,EBC2025Submissions51-100ForPosting.pdf,1-3,Private Citizen
+AIRDRIE,EBC-2025-1-0054,written,1,core,4,airdrie×4,10,EBC2025Submissions51-100ForPosting.pdf,10-11,Private Citizen
+AIRDRIE,EBC-2025-1-0064,written,1,context,2,veterans boulevard×2,35,EBC2025Submissions51-100ForPosting.pdf,34-38,MLA for Spruce Grove-Stony Plain
+AIRDRIE,EBC-2025-1-0074,written,1,core,6,airdrie×6,67,EBC2025Submissions51-100ForPosting.pdf,67-68,Private Citizen
+AIRDRIE,EBC-2025-1-0075,written,1,core,6,airdrie×6,69,EBC2025Submissions51-100ForPosting.pdf,69-70,Private Citizen
+AIRDRIE,EBC-2025-1-0081,written,1,core,5,airdrie×5,82 83,EBC2025Submissions51-100ForPosting.pdf,82-83,Private Citizen
+AIRDRIE,EBC-2025-1-0085,written,1,core,1,airdrie×1,90,EBC2025Submissions51-100ForPosting.pdf,90-91,Private Citizen
+AIRDRIE,EBC-2025-1-0089,written,1,context,1,rocky view×1,101,EBC2025Submissions51-100ForPosting.pdf,101-102,Private Citizen
+AIRDRIE,EBC-2025-1-0111,written,1,core,1,airdrie×1,27,EBC2025Submissions101-150ForPosting.pdf,26-28,Private Citizen
+AIRDRIE,EBC-2025-1-0119,written,1,core,1,airdrie×1,47,EBC2025Submissions101-150ForPosting.pdf,46-47,Private Citizen
+AIRDRIE,EBC-2025-1-0125,written,1,core,3,airdrie×3,62 65,EBC2025Submissions101-150ForPosting.pdf,60-68,Private Citizen
+AIRDRIE,EBC-2025-1-0127,written,1,core,1,airdrie×1,73,EBC2025Submissions101-150ForPosting.pdf,73-74,Private Citizen
+AIRDRIE,EBC-2025-1-0132,written,1,core,1,airdrie×1,87,EBC2025Submissions101-150ForPosting.pdf,87-88,Private Citizen
+AIRDRIE,EBC-2025-1-0138,written,1,core,10,airdrie×6; balzac×3; rocky view×1,100 102 103 104 108,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+AIRDRIE,EBC-2025-1-0139,written,1,core,130,airdrie×106; yankee valley×24,161 162 163 164 165 166 167 168 169 180 181 182 183 184 185 186,EBC2025Submissions101-150ForPosting.pdf,161-186,"Grant Writer and Intergovernmental Affairs, City of Airdrie"
+AIRDRIE,EBC-2025-1-0152,written,1,core,3,airdrie×3,8 9 10,EBC2025Submissions151-197ForPosting.pdf,3-10,"President, Edmonton and District Labour Council"
+AIRDRIE,EBC-2025-1-0155,written,1,core,3,airdrie×3,24 26,EBC2025Submissions151-197ForPosting.pdf,14-27,"President, Alberta Federation of Labour"
+AIRDRIE,EBC-2025-1-0162,written,1,core,8,airdrie×8,40 41,EBC2025Submissions151-197ForPosting.pdf,40-41,"Chief Administrative Officer, Town of Crossﬁeld"
+AIRDRIE,EBC-2025-1-0181,written,1,context,1,coventry hills×1,94,EBC2025Submissions151-197ForPosting.pdf,89-95,Private Citizen
+AIRDRIE,EBC-2025-1-0191,written,1,core,1,airdrie×1,115,EBC2025Submissions151-197ForPosting.pdf,114-116,not on the commission's published list
+AIRDRIE,EBC-2025-2-0013,written,2,core,9,airdrie×9,29 30,EBC-2025-2-001-to-050.pdf,29-31,not on the commission's published list
+AIRDRIE,EBC-2025-2-0020,written,2,core,5,airdrie×1; rocky view×4,51 46 47 48 50,EBC-2025-2-001-to-050.pdf,44-54,MLA for Calgary-Bow
+AIRDRIE,EBC-2025-2-0046,written,2,core,3,airdrie×3,107 108,EBC-2025-2-001-to-050.pdf,107-108,Private Citizen
+AIRDRIE,EBC-2025-2-0047,written,2,core,3,airdrie×3,109 110,EBC-2025-2-001-to-050.pdf,109-110,Private Citizen
+AIRDRIE,EBC-2025-2-0092,written,2,core,1,airdrie×1,104,EBC-2025-2-051-to-100.pdf,103-104,Private Citizen
+AIRDRIE,EBC-2025-2-0126,written,2,core,1,airdrie×1,63,EBC-2025-2-101-to-150.pdf,61-64,Private Citizen
+AIRDRIE,EBC-2025-2-0161,written,2,core,10,airdrie×5; rocky view×5,27,EBC-2025-2-151-to-200.pdf,27-28,Village of Beiseker Councillor
+AIRDRIE,EBC-2025-2-0209,written,2,core,10,airdrie×10,18 19 20,EBC-2025-2-201-to-250.pdf,18-20,Private Citizen
+AIRDRIE,EBC-2025-2-0239,written,2,core,2,airdrie×2,93 94,EBC-2025-2-201-to-250.pdf,93-94,Private Citizen
+AIRDRIE,EBC-2025-2-0328,written,2,core,1,airdrie×1,66,EBC-2025-2-301-to-350.pdf,65-68,Private Citizen
+AIRDRIE,EBC-2025-2-0384,written,2,context,1,rocky view×1,86,EBC-2025-2-351-to-400.pdf,85-87,Private Citizen
+AIRDRIE,EBC-2025-2-0430,written,2,core,1,airdrie×1,75,EBC-2025-2-401-to-450.pdf,74-76,Private Citizen
+AIRDRIE,EBC-2025-2-0499,written,2,context,2,rocky view×2,107,EBC-2025-2-451-to-500.pdf,106-107,Chair of Board of Trustees of Calgary Board of Education
+AIRDRIE,EBC-2025-2-0584,written,2,core,1,airdrie×1,85,EBC-2025-2-551-to-600.pdf,84-86,Private Citizen
+AIRDRIE,EBC-2025-2-0585,written,2,core,1,airdrie×1,88,EBC-2025-2-551-to-600.pdf,87-89,Private Citizen
+AIRDRIE,EBC-2025-2-0644,written,2,context,1,rocky view×1,118,EBC-2025-2-601-to-650.pdf,117-118,Private Citizen
+AIRDRIE,EBC-2025-2-0671,written,2,core,96,airdrie×92; yankee valley×2; rocky view×2,50 51 52 53 54 55 56 57 58,EBC-2025-2-651-to-700.pdf,50-58,Grant Writer and Researcher for the City of Airdrie
+AIRDRIE,EBC-2025-2-0687,written,2,core,1,airdrie×1,101,EBC-2025-2-651-to-700.pdf,100-102,Private Citizen
+AIRDRIE,EBC-2025-2-0731,written,2,context,2,rocky view×2,78,EBC-2025-2-701-to-750.pdf,77-79,Private Citizen
+AIRDRIE,EBC-2025-2-0747,written,2,context,1,rocky view×1,115,EBC-2025-2-701-to-750.pdf,115-117,Private Citizen
+AIRDRIE,EBC-2025-2-0749,written,2,context,1,rocky view×1,120,EBC-2025-2-701-to-750.pdf,120-122,Private Citizen
+AIRDRIE,EBC-2025-2-0759,written,2,core,5,airdrie×3; balzac×1; rocky view×1,18 19 20,EBC-2025-2-751-to-800.pdf,18-20,Private Citizen
+AIRDRIE,EBC-2025-2-0778,written,2,core,25,airdrie×21; rocky view×4,70 73 91 120 121 126 137 200 234 237 238 239 243 246 248 233 236,EBC-2025-2-751-to-800.pdf,65-262,Private Citizen
+AIRDRIE,EBC-2025-2-0779,written,2,core,1,airdrie×1,264,EBC-2025-2-751-to-800.pdf,263-266,Private Citizen
+AIRDRIE,EBC-2025-2-0790,written,2,context,1,rocky view×1,293,EBC-2025-2-751-to-800.pdf,293-294,Private Citizen
+AIRDRIE,EBC-2025-2-0796,written,2,core,12,airdrie×12,317 318,EBC-2025-2-751-to-800.pdf,317-318,Private Citizen
+AIRDRIE,EBC-2025-2-0803,written,2,core,4,airdrie×4,8 12,EBC-2025-2-801-to-850.pdf,6-14,Former Speaker of the Legislative Assembly of Alberta
+AIRDRIE,EBC-2025-2-0822,written,2,core,1,airdrie×1,97,EBC-2025-2-801-to-850.pdf,93-100,Private Citizen
+AIRDRIE,EBC-2025-2-0826,written,2,context,1,rocky view×1,111,EBC-2025-2-801-to-850.pdf,110-113,Private Citizen
+AIRDRIE,EBC-2025-2-0852,written,2,core,28,airdrie×13; balzac×11; crossiron×1; rocky view×3,4 5 6,EBC-2025-2-851-to-900.pdf,3-6,Private Citizen
+AIRDRIE,EBC-2025-2-0862,written,2,core,6,airdrie×6,27 28,EBC-2025-2-851-to-900.pdf,27-28,Private Citizen
+AIRDRIE,EBC-2025-2-0869,written,2,core,1,airdrie×1,42,EBC-2025-2-851-to-900.pdf,39-43,Private Citizen
+AIRDRIE,EBC-2025-2-0870,written,2,core,1,airdrie×1,45,EBC-2025-2-851-to-900.pdf,44-45,Private Citizen
+AIRDRIE,EBC-2025-2-0898,written,2,core,3,airdrie×3,112,EBC-2025-2-851-to-900.pdf,111-113,Private Citizen
+AIRDRIE,EBC-2025-2-0911,written,2,core,1,airdrie×1,26,EBC-2025-2-901-to-950.pdf,26-27,Private Citizen
+AIRDRIE,EBC-2025-2-0929,written,2,core,1,airdrie×1,75,EBC-2025-2-901-to-950.pdf,74-78,Constituency Manager for Edmonton-Riverview
+AIRDRIE,EBC-2025-2-0939,written,2,core,1,airdrie×1,111,EBC-2025-2-901-to-950.pdf,103-126,Mayor of Slave Lake
+AIRDRIE,EBC-2025-2-0960,written,2,context,1,rocky view×1,24,EBC-2025-2-951-to-1000.pdf,23-25,Private Citizen
+AIRDRIE,EBC-2025-2-0993,written,2,core,3,airdrie×3,143 144,EBC-2025-2-951-to-1000.pdf,142-145,Private Citizen
+AIRDRIE,EBC-2025-2-1014,written,2,core,1,airdrie×1,39,EBC-2025-2-1001-to-1050.pdf,38-39,Private Citizen
+AIRDRIE,EBC-2025-2-1017,written,2,core,13,airdrie×13,63 64 65,EBC-2025-2-1001-to-1050.pdf,63-65,Private Citizen
+AIRDRIE,EBC-2025-2-1036,written,2,core,1,airdrie×1,143,EBC-2025-2-1001-to-1050.pdf,141-143,MLA for Cypress-Medicine Hat
+AIRDRIE,EBC-2025-2-1057,written,2,context,1,rocky view×1,18,EBC-2025-2-1051-to-1100.pdf,18-20,Private Citizen
+AIRDRIE,EBC-2025-2-1076,written,2,context,1,rocky view×1,68,EBC-2025-2-1051-to-1100.pdf,68-69,Private Citizen
+AIRDRIE,EBC-2025-2-1091,written,2,context,1,rocky view×1,104,EBC-2025-2-1051-to-1100.pdf,103-104,Private Citizen
+AIRDRIE,EBC-2025-2-1098,written,2,core,1,airdrie×1,122,EBC-2025-2-1051-to-1100.pdf,121-123,Private Citizen
+AIRDRIE,EBC-2025-2-1105,written,2,core,15,airdrie×15,11 12,EBC-2025-2-1101-to-1143.pdf,11-13,Private Citizen

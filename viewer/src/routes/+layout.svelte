@@ -4,7 +4,6 @@
   https://ixby.github.io
 -->
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { base } from '$app/paths';
 	import { lang, LANG_LABELS } from '$lib/i18n/store.svelte';
 	import TranslationDisclaimer from '$lib/components/TranslationDisclaimer.svelte';
@@ -37,7 +36,6 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
 	<!-- Tell search engines which language variant each query-param URL serves -->
 	<link rel="alternate" hreflang="en" href="{altBase}/?lang=en" />
 	<link rel="alternate" hreflang="fr-CA" href="{altBase}/?lang=fr" />
@@ -85,6 +83,16 @@
 	/* Only frame the shell once there's an actual surround to frame against
 	   (viewport wider than the shell). Below this, the shell fills the screen
 	   and a border/shadow would just hug the edges. */
+	/* Long file paths and identifiers in <code> must wrap on narrow screens
+	   instead of widening the page. */
+	:global(code) {
+		overflow-wrap: anywhere;
+	}
+	/* A long unbroken word in running text breaks rather than overflowing. */
+	:global(main p),
+	:global(main li) {
+		overflow-wrap: break-word;
+	}
 	@media (min-width: 1240px) {
 		.app-shell {
 			border: 1px solid var(--shell-frame);

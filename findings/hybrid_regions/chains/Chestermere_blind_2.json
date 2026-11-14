@@ -1,0 +1,12 @@
+{
+ "region": "Chestermere",
+ "variant": "blind",
+ "chain": 2,
+ "seed_salt": "regional_Chestermere_blind_2",
+ "seed": 74148556,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 9,
+ "n_vas": 448,
+ "muni_weight": 0
+}

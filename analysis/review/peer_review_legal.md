@@ -1,3 +1,5 @@
+> **AI-generated review (persona prompt), not a human referee.** Produced by an AI tool on 2026-04-23 as an adversarial pass on the draft. The "senior election-law scholar" is a prompt persona. No journal submission was made, no human referee wrote this, and it is not legal advice.
+
 > **Backward:**
 > - `reports/academic/report_academic.md` — the manuscript under review
 > - Saskatchewan Reference [1991] 2 SCR 158; Driedger / Rizzo / Rucho — legal sources cited

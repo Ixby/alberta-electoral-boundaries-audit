@@ -1,0 +1,420 @@
+{
+ "section": "Section 1: reports/public/report_public.md lines 1-76",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 19,
+   "claim": "Title/subtitle: 2025-26 Electoral Boundaries Commission",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf",
+   "found": "Final report of the 2025-26 Commission",
+   "note": ""
+  },
+  {
+   "line": 27,
+   "claim": "Commission finished its work on March 23, 2026",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.1",
+   "found": "Dated at the City of Edmonton this 23rd day of March 2026",
+   "note": "Report was tabled by the Speaker March 26 (votes_proceedings_2026-04-21 p.2); 'finished' = signed March 23."
+  },
+  {
+   "line": 27,
+   "claim": "could not agree; three commissioners signed one map, the other two signed a different one",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p.1, Appendix E (p.285 on)",
+   "found": "Majority signed by Miller, Clark, Samson; minority report signed by Evans and Martin (evidence/README.md)",
+   "note": ""
+  },
+  {
+   "line": 27,
+   "claim": "The other two, the two the government nominated (Assembly notice March 28, 2025)",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "Evans KC and Dr. Martin 'Nominated by the President of Executive Council'; Clark and Samson 'Nominated by the Leader of His Majesty's Loyal Opposition'",
+   "note": "Notice date March 28, 2025 matches evidence/README.md."
+  },
+  {
+   "line": 27,
+   "claim": "Both maps meet the Act's numeric rules",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/s15_deviation_compliance.csv",
+   "found": "Each map: 86 COMPLIANT within +/-25% band; 3 outside band classed S15_JUSTIFIED (Pass); none non-compliant",
+   "note": "Numeric compliance relies on s.15(2) exceptions for 3 divisions on each map."
+  },
+  {
+   "line": 27,
+   "claim": "majority argued the minority's map would likely fail a Charter challenge",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf pp.10, 62",
+   "found": "'the minority maps likely violate s. 3 of the Charter'; 'likely to offend s. 3 of the Charter'",
+   "note": ""
+  },
+  {
+   "line": 27,
+   "claim": "Three weeks later, on April 16, the government brought in Government Motion 37",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "findings/hansard_april16_motion19.md; findings/chair_recommendation_5_analysis.md; academic report l.78",
+   "found": "Motion 37 introduced April 16, 2026 (floor debate; CBC April 16). March 23 to April 16 = 24 days (about 3.4 weeks)",
+   "note": "The primary Hansard 2026-04-16 (evidence/web) is two-column and my text search did not find the formal introduction text; the date rests on the audit's own findings file and academic report. 'Three weeks' is rounded down from 3.4."
+  },
+  {
+   "line": 27,
+   "claim": "Motion 37 passed April 21",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf p.14",
+   "found": "Motion 37 agreed to; For 44, Against 36",
+   "note": ""
+  },
+  {
+   "line": 27,
+   "claim": "set both maps aside and handed the job to a committee of six MLAs, most from the UCP",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_committee_page_ceb_2026-10-31.html; evidence/README.md",
+   "found": "'Committee Members (6)': four UCP, two NDP (per README)",
+   "note": ""
+  },
+  {
+   "line": 27,
+   "claim": "An independent advisory panel working for that committee delivered a new map on October 22",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/ssceb_final_report_on_iap_2026-11.pdf p.11 (printed 9)",
+   "found": "'The Independent Advisory Panel provided its report to the Committee on October 22, 2026'",
+   "note": "That the report contains a new map (91 seats) is from the academic report l.244 / IAP report."
+  },
+  {
+   "line": 27,
+   "claim": "On October 28 the committee voted 3-2 to end its review, adding no observations of its own",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/ceb_transcript_2026-10-28.pdf pp. CEB-67, CEB-72",
+   "found": "Motion to 'conclude its review'; Totals For 3 (de Jonge, Rowswell, Wiebe), Against 2 (Gray, Ganley); carried",
+   "note": "No-observations: Gray at CEB-73 per evidence/README.md; my text search did not re-find it because of line breaks."
+  },
+  {
+   "line": 27,
+   "claim": "The panel's report was due before the Assembly by November 2, 2026",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/ssceb_final_report_on_iap_2026-11.pdf pp.10-11",
+   "found": "Committee 'must submit the report to the Legislative Assembly no later than November 2, 2026'; IAP report confidential until tabled on or before Nov 2",
+   "note": "Strictly the committee must submit by Nov 2; panel report went to the committee by Oct 22. Sentence compresses this."
+  },
+  {
+   "line": 29,
+   "claim": "Five structural tests, written down on April 24, 2026, after a first measurement of both maps on provisional boundaries, dated in this repository",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525; preregistration/null_hypotheses.md l.25; git log --follow",
+   "found": "Academic: 'tests written down April 24, 2026 ... after both maps were measured; dated in the repository, not on OSF'. Earliest commit of null_hypotheses.md 2026-04-24 02:59 -0600 (fa10c8a0)",
+   "note": "Provisional boundaries = DPG geometry (academic l.1066). null_hypotheses.md l.25 says 'verifiable at osf.io/2gue9' while academic says not on OSF; the public text matches the academic version."
+  },
+  {
+   "line": 29,
+   "claim": "Four partisan-fairness metrics",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.638, l.846",
+   "found": "'the four partisan-bias metrics'",
+   "note": ""
+  },
+  {
+   "line": 29,
+   "claim": "scored against 1,010,000 neutral maps a computer drew",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.78, l.652; data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "1,010,000-plan canonical ensemble",
+   "note": "Ensemble plans have 87 districts vs 89 on commission maps (academic l.78); not mentioned in the public sentence."
+  },
+  {
+   "line": 29,
+   "claim": "fifteen findings",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md headings",
+   "found": "Findings 1-15 present",
+   "note": "Internal count."
+  },
+  {
+   "line": 29,
+   "claim": "A review of the process against sixty years of Canadian practice",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched report_academic.md, evidence/law, evidence/hansard",
+   "found": "Public Finding 14 cites Courtney 2001 and 'the federal reform era of the 1960s'; no repo source states 60 years",
+   "note": "Roughly consistent with the 1964 federal readjustment act (~62 years) but no repo source."
+  },
+  {
+   "line": 39,
+   "claim": "eight legal lessons",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md lines 93,107,121,135,203,283,331,345",
+   "found": "Legal lessons 1-8 present (lesson 6 repeated at l.367)",
+   "note": "Internal count."
+  },
+  {
+   "line": 39,
+   "claim": "fifteenth finding",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md",
+   "found": "15 findings",
+   "note": ""
+  },
+  {
+   "line": 41,
+   "claim": "Two findings point the wrong way: one test that does not tell the maps apart, one where the minority map beat the majority",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md Findings 5, 7, 10",
+   "found": "Finding 10: neighbour-drain minority 1 vs majority 2 (2019: 5). Finding 5: both maps near 2019 anchoring (80.0%, 71.8% vs 75.1%)",
+   "note": "Finding 10 itself says 'Three entries in the log do not help the audit's story', and Finding 7 (EG missed the line) is another; 'two' is a framing choice."
+  },
+  {
+   "line": 45,
+   "claim": "'Gerrymandering' has no legal definition in Canadian law",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md (legal framing); evidence/law/carter_1991_2scr158_lexum_item766.html",
+   "found": "No statutory or SCC definition found; Saskatchewan Reference frames the test as effective representation",
+   "note": ""
+  },
+  {
+   "line": 45,
+   "claim": "s.3 of the Charter; effective representation; Saskatchewan Reference 1991",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/law/carter_1991_2scr158_lexum_item766.html",
+   "found": "Reference re Prov. Electoral Boundaries (Sask.), [1991] 2 S.C.R. 158, dated 1991-06-06; 'effective representation' appears 35 times",
+   "note": ""
+  },
+  {
+   "line": 45,
+   "claim": "Alberta's Electoral Boundaries Commission Act",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf",
+   "found": "Act RSA 2000 cE-3",
+   "note": ""
+  },
+  {
+   "line": 49,
+   "claim": "A result such as 'the 99.99th percentile' (illustrative)",
+   "type": "number",
+   "status": "OPINION",
+   "source": "n/a",
+   "found": "Illustrative example, not a reported result",
+   "note": "Minority mean-median is p99.97 (academic l.652), not 99.99."
+  },
+  {
+   "line": 49,
+   "claim": "maps drawn under the same population and connection rules by a procedure that never looks at votes",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.652; analysis/methodology/mcmc_ensemble.md",
+   "found": "ReCom ensemble with +/-25% population (balanced to +/-12.5%) and contiguity constraints; votes scored after drawing",
+   "note": ""
+  },
+  {
+   "line": 51,
+   "claim": "The author has voted for and donated to both conservative and progressive provincial parties",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.42; analysis/methodology/reference/conflict_of_interest.md",
+   "found": "'has voted for and donated to both conservative and progressive provincial parties in Alberta'",
+   "note": ""
+  },
+  {
+   "line": 51,
+   "claim": "About 27 years as a contract election officer for Elections Alberta",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.42; conflict_of_interest.md l.23-24",
+   "found": "'about 27 years'",
+   "note": ""
+  },
+  {
+   "line": 51,
+   "claim": "Three findings that ran against his expectation were kept",
+   "type": "number",
+   "status": "MISMATCH",
+   "source": "reports/academic/report_academic.md 5.0.1 (l.648-660)",
+   "found": "Academic lists FIVE substantive findings counter to expectation (anchoring, mean-median p99.97, 4-of-5 structural, 2019 cross-election, six redraws) plus methodological ones in 5.0.2; conflict_of_interest.md gives no number",
+   "note": "No source supports exactly three; may mean Findings 7/10 items. Reconcile."
+  },
+  {
+   "line": 51,
+   "claim": "Anyone who runs the same scripts on the same data gets the same numbers",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "n/a",
+   "found": "Reproducibility assertion; academic l.3045 lists the pinned manifest",
+   "note": "Not tested (no rerun)."
+  },
+  {
+   "line": 51,
+   "claim": "Seeds derived from a published value of a public randomness source (drand, League of Entropy) plus a label",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "preregistration/seed_commitments.md l.2, 23, 58; analysis/methodology/plain_language_defense.md",
+   "found": "Cloudflare drand beacon for all salts; drand seed committed 2026-04-27; 'League of Entropy' named in methodology docs",
+   "note": ""
+  },
+  {
+   "line": 51,
+   "claim": "The code is public on GitHub; all input data is public",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "README.md; evidence/README.md",
+   "found": "Inputs are Elections Alberta / Assembly public documents",
+   "note": "Not checked against live GitHub."
+  },
+  {
+   "line": 57,
+   "claim": "Efficiency gap, majority +0.1%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "value 0.000982 (+0.098%), percentile 16.5",
+   "note": ""
+  },
+  {
+   "line": 57,
+   "claim": "Efficiency gap, minority +4.0%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv",
+   "found": "value 0.040194 (+4.02%), percentile 94.54",
+   "note": ""
+  },
+  {
+   "line": 57,
+   "claim": "audit's ~4.1% outlier line",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "data/outputs/simulated_ensemble_percentiles_canonical.csv ensemble_p95",
+   "found": "0.040838 (4.08%)",
+   "note": "Rounds to 4.1%."
+  },
+  {
+   "line": 57,
+   "claim": "minority map fails four of four discriminating tests",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525, 5.0.1 item 3; analysis/scripts/article_figures.py l.531",
+   "found": "Minority 4 of 5 tests; 5th (municipal anchoring) neutral for both maps, so 4 of 4 discriminating",
+   "note": "The embedded SVG data/maps/article/stakes_quadrant.svg labels the minority '+4.0% / 4 of 5' with axis 'out of 5 tests', so figure and caption phrase it differently (consistent in substance)."
+  },
+  {
+   "line": 57,
+   "claim": "majority stays flat at zero structural problems",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2525",
+   "found": "Majority 0 of 5",
+   "note": ""
+  },
+  {
+   "line": 57,
+   "claim": "2019 enacted map low on both, fails none of the tests run on it; Calgary zone test never run on 2019",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "analysis/scripts/article_figures.py l.465-468, 550; stakes_quadrant.svg",
+   "found": "2019: EG +2.41% (p69.5), '0 of 4 run'; Calgary zone gap not run (2019-era per-ED population absent)",
+   "note": "2019 EG is p69.5 of the ensemble, below the 4.1% line; 'low' is a framing."
+  },
+  {
+   "line": 57,
+   "claim": "Municipal anchoring was the fifth test; both maps close to the 2019 map's 75%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.2519, 648-650",
+   "found": "2019 75.1%; majority 80.0%; minority 71.8%",
+   "note": "'Close' is a judgment: majority +4.9 pts, minority -3.3 pts from 2019."
+  },
+  {
+   "line": 59,
+   "claim": "Three maps, two lanes; 'One dot is not like the others'; lines are not laws",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "n/a",
+   "found": "Framing",
+   "note": ""
+  },
+  {
+   "line": 67,
+   "claim": "Alberta is divided into 4,765 Voting Areas",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "analysis/methodology/canonical_shapefile_log.md l.38; mcmc_ensemble.md l.19",
+   "found": "va_2023_election_day_votes.gpkg: 4,765 VAs (2023 boundaries)",
+   "note": ""
+  },
+  {
+   "line": 67,
+   "claim": "Coloured by 2023 vote: orange NDP, blue UCP; colour dark only where many people live",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "analysis/scripts/build_cover.py l.607-662",
+   "found": "NDP orange #F58220 to UCP blue #1C4583; per-VA density (pop_2021/area) modulates lightness",
+   "note": "Population basis is the 2021 census; votes are 2023 election-day only."
+  },
+  {
+   "line": 67,
+   "claim": "Voting Areas are the zones Elections Alberta uses to count ballots at polling stations",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md l.362",
+   "found": "'Elections Alberta's published results assign a specific Voting Area number to each election-day polling station'",
+   "note": ""
+  },
+  {
+   "line": 69,
+   "claim": "UCP wins most rural ridings; election-night Alberta looks like a wall of blue with small orange pockets in Edmonton and Calgary",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "searched findings/*, data/outputs/*, academic report for 2023 per-ED results",
+   "found": "No per-ED 2023 winner table located in the searches; general knowledge of the 2023 result is consistent",
+   "note": "Low risk; web check not done."
+  },
+  {
+   "line": 69,
+   "claim": "most people crowd into a dense arc of cities that vote very differently from the rural map",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "n/a",
+   "found": "Interpretive; qualitatively supported by build_cover.py density weighting",
+   "note": ""
+  },
+  {
+   "line": 71,
+   "claim": "Lines over the colour are the minority commissioners' 89 proposed electoral districts",
+   "type": "number",
+   "status": "UNVERIFIABLE",
+   "source": "analysis/scripts/build_cover.py header",
+   "found": "Docstring describes a hero with both majority and minority lines plus 2019; I did not trace a cover generator that draws only the minority lines",
+   "note": "Minority map has 89 districts (academic l.78 and verified elsewhere); which lines the cover image shows is unconfirmed."
+  },
+  {
+   "line": 73,
+   "claim": "Underneath, most of its people live in areas that vote the other way",
+   "type": "fact",
+   "status": "OPINION",
+   "source": "n/a",
+   "found": "Rhetorical; quantitatively untested here. findings/marginal_seats_findings.md l.142 reports UCP won 49% of the two-party vote in 2023",
+   "note": "If the UCP won about half the two-party vote, 'most people live in areas that vote the other way' needs a population-weighted figure. Flag for author."
+  }
+ ]
+}

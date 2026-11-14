@@ -1,0 +1,526 @@
+{
+ "meta": {
+  "entry": "2026-11-10 21:47 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/reserves_by_map/submissions.py",
+  "inputs": {
+   "submissions_codes/map_tests/out_M1.jsonl": "99137a1f9e1646cd6128b20f053f045c8f4afd5e539a0cf1361832793f511cca",
+   "submissions_codes/map_tests/out_M2.jsonl": "8c619aa3b8490b90c6978389f55d822a7f13c4d3aa71bc999085db7ed7307408",
+   "submissions_codes/map_tests/out_M3.jsonl": "94052494205cb2e9e345349a81ab387810f6ad2bd91894697e0626d75f2dc653",
+   "submissions_codes/map_tests/out_M4.jsonl": "fabcb1e7dccab8c92cd144d47fb71a6c404cba40fc3b952bd8b7d20f2917a2ac",
+   "submissions_codes/reads/R01.jsonl": "9b630385b32238b33164dd68c5aba15d8ecc3cf457b84332081d54b9458cc695",
+   "submissions_codes/reads/R02.jsonl": "d9cd819f50284b244bb4b286696df905d79882889997dba40c50784b2d617c6b",
+   "submissions_codes/reads/R03.jsonl": "cb5eb33a59ac21732c2ff73b5ff68a434fe9f227bed56e0cfcab43d285e8f432",
+   "submissions_codes/reads/R04.jsonl": "babf931accddbc296321325697db9eb5cc15b70bf02589ccb5840aff33d75538",
+   "submissions_codes/reads/R05.jsonl": "895331f370c3934b2a8e490e6d8e42758d398f49331e607a1d007726d50b795b",
+   "submissions_codes/reads/R06.jsonl": "860cea01407925c34b67f87fd79b6b884ebf808b4e0f5538ce840531ed5c64f6",
+   "submissions_codes/reads/R07.jsonl": "f40053c7f1d71b1ce384b87379e91aca2b05a479feaf5e9753a24639433f5dda",
+   "submissions_codes/reads/R08.jsonl": "6b8505904778aac0e180ac261c410a91a6066174eeae57591f791778ce01d6ed",
+   "submissions_codes/reads/R09.jsonl": "afa2e3f8965e2bc54a6079bd8c4720610b5caf13ecf0768536610431007313a3",
+   "submissions_codes/reads/R10.jsonl": "3e403ca9132026b8937d65edfcb8847ef6016e060dc3aa38db84b42bd219da09",
+   "submissions_codes/reads/R11.jsonl": "b7c77455f8de2bb4a7a0755534cf9529bf5a93685a08a50dc985b7682e850591",
+   "submissions_codes/reads/R12.jsonl": "1b7eb79c64303905c7a240e5964482bd54c03ba752ea9c612b34ba3067f7658b",
+   "submissions_codes/reads/R13.jsonl": "04c64b360b01c3df66774fff8cade540693b6a65ed566f26bc34d3f681ae8a26",
+   "submissions_codes/reads/R14.jsonl": "e37a2b83b102c473ca4b3cb98958a1dc93156edf046ac1e5c1ef7e03f7142465",
+   "submissions_codes/reads/R15.jsonl": "cd375c3d43f9014b10a87c704b7ff4563e8703aa8b0836a3651293d345e48f5d",
+   "submissions_codes/reads/R16.jsonl": "f1be890b4b3cad7ebd2da87b9e9d88c8b180806f78735c44e0be2142835502ea",
+   "submissions_codes/reads/R17.jsonl": "bc57b0766088c74c140a044bafa3ffc42b459a31a2bce0011b4aac827774961b",
+   "submissions_codes/reads/R18.jsonl": "b1bd218151bbed9c88e3715657b0abdffb6a834f5dd35af256fd24303de19b8c",
+   "submissions_codes/reads/R19.jsonl": "0b9b6b2166aa6b610c18b00101ef609baaaadb28c00d3130248e6b5a91b44b47",
+   "submissions_codes/reads/R20.jsonl": "9998c5e6276043e74c6a40c17a90d2607446490c09215568f8eaee0416823306",
+   "submissions_codes/reads/R21.jsonl": "50015fe195e6b440874dc2f899b9309c1f5d6e1d71a5aa13e5d8d142bf5fe365",
+   "submissions_codes/reads/R22.jsonl": "97cf0d3535c5db5fde04dfc6a9bee7a08bddc0ffaad1d7d92a5a337cbf53acf8",
+   "submissions_codes/reads/R23.jsonl": "a8c09169a0852c26f283b91167d8d55d0794c4bff7817d3e8ae37b4c9433b39b",
+   "submissions_codes/review/review_A.jsonl": "1c01776f660cac1f2d15d31f40e525a01a9089b7d7fa58c0690f9c0861214297",
+   "submissions_codes/review/review_B.jsonl": "975c5b06e49170f53bc2cfb12c6f140ee333e364f227ca7b0c7511d77d0aeaf9",
+   "submissions_codes/candidates.csv": "f2ea6d1086e1bda50ec409aa31a90ee5dc29feaba1428b8bed948e6e3952d307",
+   "placements_all.csv": "1505d180d9ba434ccd5dc3b1bfbe8656ca044f46510024bea605ef8df65bf072"
+  },
+  "review_changes_applied": 20
+ },
+ "records_screened": 630,
+ "records_read_whole": 630,
+ "records_relevant": 138,
+ "relevant_by_submitter_type": {
+  "non_member": 125,
+  "nation_or_council": 5,
+  "unknown": 2,
+  "member": 6
+ },
+ "relevant_by_source": {
+  "written": 78,
+  "hearing": 60
+ },
+ "verdicts_all": {
+  "map_2019": {
+   "does_not_meet": 44,
+   "not_testable": 17,
+   "partly": 22,
+   "meets": 55
+  },
+  "commission_majority": {
+   "meets": 66,
+   "not_testable": 17,
+   "does_not_meet": 27,
+   "partly": 28
+  },
+  "commission_minority": {
+   "meets": 78,
+   "not_testable": 17,
+   "does_not_meet": 17,
+   "partly": 26
+  },
+  "panel_reconstruction": {
+   "meets": 68,
+   "not_testable": 17,
+   "does_not_meet": 22,
+   "partly": 31
+  }
+ },
+ "verdicts_nation_or_council": {
+  "map_2019": {
+   "meets": 4,
+   "partly": 1
+  },
+  "commission_majority": {
+   "meets": 4,
+   "partly": 1
+  },
+  "commission_minority": {
+   "meets": 4,
+   "partly": 1
+  },
+  "panel_reconstruction": {
+   "meets": 4,
+   "partly": 1
+  }
+ },
+ "by_group": {
+  "Enoch Cree Nation": {
+   "records": 24,
+   "by_submitter_type": {
+    "non_member": 20,
+    "member": 4
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 14,
+     "meets": 5,
+     "not_testable": 4,
+     "partly": 1
+    },
+    "commission_majority": {
+     "meets": 10,
+     "does_not_meet": 6,
+     "partly": 4,
+     "not_testable": 4
+    },
+    "commission_minority": {
+     "meets": 11,
+     "does_not_meet": 5,
+     "partly": 4,
+     "not_testable": 4
+    },
+    "panel_reconstruction": {
+     "meets": 10,
+     "does_not_meet": 6,
+     "partly": 4,
+     "not_testable": 4
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Tsuut'ina": {
+   "records": 16,
+   "by_submitter_type": {
+    "non_member": 14,
+    "member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 2,
+     "partly": 2,
+     "does_not_meet": 10,
+     "not_testable": 2
+    },
+    "commission_majority": {
+     "does_not_meet": 7,
+     "partly": 6,
+     "not_testable": 2,
+     "meets": 1
+    },
+    "commission_minority": {
+     "meets": 6,
+     "partly": 7,
+     "does_not_meet": 1,
+     "not_testable": 2
+    },
+    "panel_reconstruction": {
+     "does_not_meet": 7,
+     "partly": 6,
+     "not_testable": 2,
+     "meets": 1
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Stoney Nakoda (Morley, Eden Valley, Big Horn)": {
+   "records": 22,
+   "by_submitter_type": {
+    "non_member": 20,
+    "member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "partly": 7,
+     "meets": 5,
+     "does_not_meet": 9,
+     "not_testable": 1
+    },
+    "commission_majority": {
+     "partly": 15,
+     "meets": 4,
+     "not_testable": 1,
+     "does_not_meet": 2
+    },
+    "commission_minority": {
+     "partly": 13,
+     "meets": 5,
+     "not_testable": 1,
+     "does_not_meet": 3
+    },
+    "panel_reconstruction": {
+     "partly": 15,
+     "meets": 4,
+     "not_testable": 1,
+     "does_not_meet": 2
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "O'Chiese and Sunchild": {
+   "records": 15,
+   "by_submitter_type": {
+    "non_member": 13,
+    "member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 7,
+     "partly": 3,
+     "does_not_meet": 5
+    },
+    "commission_majority": {
+     "meets": 7,
+     "partly": 6,
+     "does_not_meet": 2
+    },
+    "commission_minority": {
+     "meets": 9,
+     "partly": 6
+    },
+    "panel_reconstruction": {
+     "meets": 7,
+     "partly": 6,
+     "does_not_meet": 2
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Blackfoot (Siksika, Kainai, Piikani)": {
+   "records": 14,
+   "by_submitter_type": {
+    "non_member": 13,
+    "member": 1
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 9,
+     "partly": 3,
+     "meets": 1,
+     "not_testable": 1
+    },
+    "commission_majority": {
+     "meets": 4,
+     "does_not_meet": 6,
+     "partly": 3,
+     "not_testable": 1
+    },
+    "commission_minority": {
+     "meets": 6,
+     "does_not_meet": 2,
+     "partly": 5,
+     "not_testable": 1
+    },
+    "panel_reconstruction": {
+     "meets": 5,
+     "does_not_meet": 3,
+     "partly": 5,
+     "not_testable": 1
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Maskwacis and Pigeon Lake": {
+   "records": 3,
+   "by_submitter_type": {
+    "non_member": 3
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 2,
+     "partly": 1
+    },
+    "commission_majority": {
+     "meets": 3
+    },
+    "commission_minority": {
+     "meets": 3
+    },
+    "panel_reconstruction": {
+     "meets": 3
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Lesser Slave Lake nations and settlements": {
+   "records": 37,
+   "by_submitter_type": {
+    "non_member": 30,
+    "unknown": 2,
+    "nation_or_council": 3,
+    "member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 4,
+     "meets": 26,
+     "partly": 6,
+     "not_testable": 1
+    },
+    "commission_majority": {
+     "does_not_meet": 4,
+     "meets": 29,
+     "partly": 3,
+     "not_testable": 1
+    },
+    "commission_minority": {
+     "does_not_meet": 3,
+     "meets": 33,
+     "not_testable": 1
+    },
+    "panel_reconstruction": {
+     "does_not_meet": 3,
+     "meets": 29,
+     "partly": 4,
+     "not_testable": 1
+    }
+   },
+   "nation_or_council_ids": [
+    "EBC-2025-2-1100",
+    "HANSARD-R2-T36-006",
+    "HANSARD-R2-T36-008"
+   ]
+  },
+  "Kee Tas Kee Now nations (Woodland Cree, Lubicon and others)": {
+   "records": 11,
+   "by_submitter_type": {
+    "non_member": 10,
+    "member": 1
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 2,
+     "meets": 9
+    },
+    "commission_majority": {
+     "does_not_meet": 2,
+     "meets": 9
+    },
+    "commission_minority": {
+     "does_not_meet": 2,
+     "meets": 9
+    },
+    "panel_reconstruction": {
+     "does_not_meet": 2,
+     "meets": 9
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "North Peace and the proposed Mackenzie district": {
+   "records": 16,
+   "by_submitter_type": {
+    "non_member": 12,
+    "unknown": 1,
+    "nation_or_council": 1,
+    "member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 8,
+     "not_testable": 1,
+     "does_not_meet": 5,
+     "partly": 2
+    },
+    "commission_majority": {
+     "meets": 9,
+     "not_testable": 1,
+     "does_not_meet": 3,
+     "partly": 3
+    },
+    "commission_minority": {
+     "meets": 9,
+     "not_testable": 1,
+     "does_not_meet": 3,
+     "partly": 3
+    },
+    "panel_reconstruction": {
+     "meets": 9,
+     "not_testable": 1,
+     "does_not_meet": 3,
+     "partly": 3
+    }
+   },
+   "nation_or_council_ids": [
+    "EBC-2025-2-0883"
+   ]
+  },
+  "Saddle Lake, Whitefish Lake, Buffalo Lake, Kikino and the northeast": {
+   "records": 15,
+   "by_submitter_type": {
+    "non_member": 15
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 7,
+     "partly": 4,
+     "meets": 4
+    },
+    "commission_majority": {
+     "does_not_meet": 6,
+     "partly": 5,
+     "meets": 4
+    },
+    "commission_minority": {
+     "meets": 11,
+     "does_not_meet": 3,
+     "partly": 1
+    },
+    "panel_reconstruction": {
+     "meets": 6,
+     "partly": 6,
+     "does_not_meet": 3
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Alexander, Alexis, Paul (Wabamun)": {
+   "records": 2,
+   "by_submitter_type": {
+    "non_member": 2
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 1,
+     "does_not_meet": 1
+    },
+    "commission_majority": {
+     "meets": 2
+    },
+    "commission_minority": {
+     "meets": 1,
+     "does_not_meet": 1
+    },
+    "panel_reconstruction": {
+     "meets": 1,
+     "does_not_meet": 1
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "Fort McKay and Wood Buffalo": {
+   "records": 9,
+   "by_submitter_type": {
+    "nation_or_council": 1,
+    "non_member": 8
+   },
+   "verdicts": {
+    "map_2019": {
+     "meets": 3,
+     "partly": 5,
+     "does_not_meet": 1
+    },
+    "commission_majority": {
+     "meets": 3,
+     "partly": 5,
+     "does_not_meet": 1
+    },
+    "commission_minority": {
+     "meets": 8,
+     "partly": 1
+    },
+    "panel_reconstruction": {
+     "meets": 3,
+     "partly": 6
+    }
+   },
+   "nation_or_council_ids": [
+    "EBC-2025-1-0128"
+   ]
+  },
+  "Horse Lake and Sturgeon Lake": {
+   "records": 1,
+   "by_submitter_type": {
+    "member": 1
+   },
+   "verdicts": {
+    "map_2019": {
+     "does_not_meet": 1
+    },
+    "commission_majority": {
+     "partly": 1
+    },
+    "commission_minority": {
+     "partly": 1
+    },
+    "panel_reconstruction": {
+     "partly": 1
+    }
+   },
+   "nation_or_council_ids": []
+  },
+  "General or unnamed": {
+   "records": 14,
+   "by_submitter_type": {
+    "non_member": 14
+   },
+   "verdicts": {
+    "map_2019": {
+     "not_testable": 8,
+     "meets": 3,
+     "partly": 2,
+     "does_not_meet": 1
+    },
+    "commission_majority": {
+     "not_testable": 8,
+     "meets": 3,
+     "partly": 2,
+     "does_not_meet": 1
+    },
+    "commission_minority": {
+     "not_testable": 8,
+     "meets": 2,
+     "partly": 3,
+     "does_not_meet": 1
+    },
+    "panel_reconstruction": {
+     "not_testable": 8,
+     "meets": 3,
+     "partly": 2,
+     "does_not_meet": 1
+    }
+   },
+   "nation_or_council_ids": []
+  }
+ }
+}

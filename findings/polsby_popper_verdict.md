@@ -6,7 +6,7 @@ type: project
 
 > **Backward:**
 > - `analysis/scripts/polsby_popper.py` — companion compactness script
-> - `data/ea_minority_2026_eds.gpkg`, `data/ea_majority_2026_eds.gpkg` — canonical EA shapefiles
+> - `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`, `data/shapefiles/canonical/ea_majority_2026_eds.gpkg` — canonical EA shapefiles
 > - `data/polsby_popper_per_district.csv` — per-ED PP outputs
 >
 > **Forward:**

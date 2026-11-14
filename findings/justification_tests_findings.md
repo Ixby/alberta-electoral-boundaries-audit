@@ -1,9 +1,9 @@
 > **Backward:**
 > - `analysis/scripts/justification_tests.py` — companion script that runs the five tests
-> - `data/alberta_2021_csds.gpkg`, `data/alberta_2021_csd_populations.csv` — StatsCan CSD inputs
-> - `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — Bill 33 areas
-> - `data/minority_2026_populations.csv`, `data/majority_2026_populations.csv` — Commission variance tables
-> - `data/justification_test_inputs.csv` — intermediate inputs written by the script
+> - `data/shapefiles/reference/alberta_2021_csds.gpkg`, `data/reference/alberta_2021_csd_populations.csv` — StatsCan CSD inputs
+> - `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — Bill 33 areas
+> - `data/reference/minority_2026_populations.csv`, `data/reference/majority_2026_populations.csv` — Commission variance tables
+> - `data/outputs/justification_test_inputs.csv` — intermediate inputs written by the script
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` — incorporates the FAIL/PASS verdicts
@@ -23,14 +23,14 @@ configuration.
 **41,197 to 68,661**.
 
 **Data sources.**
-- `data/alberta_2021_csds.gpkg` + `data/alberta_2021_csd_populations.csv`
+- `data/shapefiles/reference/alberta_2021_csds.gpkg` + `data/reference/alberta_2021_csd_populations.csv`
   (StatsCan 2021 CSD populations).
-- `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` (Bill 33 areas in km²).
-- `data/minority_2026_populations.csv`,
-  `data/majority_2026_populations.csv` (Commission's own variance tables).
+- `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` (Bill 33 areas in km²).
+- `data/reference/minority_2026_populations.csv`,
+  `data/reference/majority_2026_populations.csv` (Commission's own variance tables).
 
 All intermediate values are written to
-`data/justification_test_inputs.csv`.
+`data/outputs/justification_test_inputs.csv`.
 
 ---
 
@@ -178,7 +178,7 @@ unforced by population.**
 
 ## Summary Table
 
-| Test | District | Justification | Verdict |
+| Test | District | Premise tested (the audit's, not the minority's) | Verdict |
 |---|---|---|---|
 | 1 | Olds-Three Hills-Didsbury | Needs Airdrie slice for population | **FAIL** — rural+town sum is 43,691 (within band) |
 | 2 | Rocky Mountain House-Banff Park | Needs NP extension for s.15(2)(a) area | **FAIL** — 2019 predecessor is already 24,468 km² |
@@ -186,7 +186,9 @@ unforced by population.**
 | 4 | Red Deer | 4 districts forced by population | **FAIL** — 2 districts are minimum and achieved by majority |
 | 5 | Chestermere | Some split unavoidable, and Calgary slice is part of it | **FAIL** — Chestermere + Strathmore + Wheatland = 45,240 (viable) |
 
-All five contested configurations are **unforced by population or area math**.
+These are tests of necessity: whether population or area arithmetic forced the line. The minority did not claim that it did; its stated reasons are growth, commuting and community of interest. So the tally depends on the rule. Counting only reasons the minority stated, none of the six contested configurations fails and four are partly supported. Counting this population-necessity arithmetic, four of the six fail: Tests 1 to 4 (`reports/academic/report_academic.md` §5.9.6). Chestermere, Test 5, is not one of the six.
+
+All five configurations tested here are **unforced by population or area math**.
 Cleaner alternatives were arithmetically available to the minority in every
 case. This finding is descriptive: it states that the stated population/area
 justifications do not, on their own, necessitate the contested boundaries. It
@@ -195,5 +197,5 @@ does not attribute motive.
 ## Reproducibility
 
 - Script: `analysis/scripts/justification_tests.py`
-- Input table: `data/justification_test_inputs.csv`
+- Input table: `data/outputs/justification_test_inputs.csv`
 - Run: `python analysis/scripts/justification_tests.py`

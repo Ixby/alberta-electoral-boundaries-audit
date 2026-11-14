@@ -17,16 +17,15 @@ interface EdIndexEntry {
 	zoom: number;
 }
 
-/** Per-VA properties (va_props.json) — parallel-indexed to valabels_*.json. */
-interface VaProp {
-	votes?: number;
-}
+/** Per-map district totals (ed_totals.json, built by analysis/scripts/build_ed_totals.py). */
+type EdTotals = Record<string, Record<string, { total: number; anywhere: boolean }>>;
 
 /**
  * A combined-directory row: a district name, which map versions contain it, and
- * each version's IN-PERSON vote total (sum of the district's voting-area votes;
- * advance/special ballots are not attributed per VA, so these are election-day
- * totals only). `*Votes` is null when the district name isn't on that map.
+ * each version's 2023 vote total counting all ballots (ed_totals.json; advance,
+ * mobile, special and Vote Anywhere ballots are spread over voting areas by
+ * election-day vote, so totals on the proposal maps are estimates). `*Votes` is
+ * null when the district name isn't on that map.
  */
 export interface DirectoryEntry {
 	name: string;
@@ -50,17 +49,10 @@ export const load: PageLoad = async ({ fetch }) => {
 	const json = async <T>(file: string): Promise<T> =>
 		(await fetch(`${base}/mapdata/${file}`)).json() as Promise<T>;
 
-	// Per-VA in-person vote counts, parallel-indexed to each map's VA→district
-	// label array. Summing votes by district label yields the in-person ED total.
-	const vaProps = await json<VaProp[]>('va_props.json');
-	async function mapTotals(file: string): Promise<Map<string, number>> {
-		const labels = await json<string[]>(file); // index = VA position → district name
-		const tot = new Map<string, number>();
-		for (let i = 0; i < labels.length; i++) {
-			const ed = labels[i];
-			if (ed) tot.set(ed, (tot.get(ed) ?? 0) + (vaProps[i]?.votes ?? 0));
-		}
-		return tot;
+	// All-ballot district totals, the same figures the map explorer's tooltip shows.
+	const edTotals = await json<EdTotals>('ed_totals.json');
+	function mapTotals(key: string): Map<string, number> {
+		return new Map(Object.entries(edTotals[key] ?? {}).map(([ed, r]) => [ed, r.total]));
 	}
 	function indexNames(rows: EdIndexEntry[]): Set<string> {
 		return new Set(rows.map((r) => r.name));
@@ -70,9 +62,9 @@ export const load: PageLoad = async ({ fetch }) => {
 		json<EdIndexEntry[]>('ed_index_minority.json'),
 		json<EdIndexEntry[]>('ed_index_majority.json'),
 		json<EdIndexEntry[]>('ed_index_2019.json'),
-		mapTotals('valabels_minority.json'),
-		mapTotals('valabels_majority.json'),
-		mapTotals('valabels_2019.json'),
+		mapTotals('minority'),
+		mapTotals('majority'),
+		mapTotals('2019'),
 		json<{ zones: R5Zone[] }>('lunty_bounds.json')
 	]);
 	const minority = indexNames(minRows);

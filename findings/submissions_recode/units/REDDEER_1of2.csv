@@ -1,0 +1,103 @@
+configuration,id,source,round,tier,n_hits,matched_terms,hit_pages,source_pdf,pages,affiliation_or_hearing
+REDDEER,HANSARD-R1-T02-005,hearing,1,core,3,red deer×2; sylvan lake×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,24-26,"hearing: Lethbridge, Thursday, May 29, 2025"
+REDDEER,HANSARD-R1-T02-011,hearing,1,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,35-36,"hearing: Lethbridge, Thursday, May 29, 2025"
+REDDEER,HANSARD-R1-T07-001,hearing,1,core,3,red deer×3,start EB-110,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,153-156,"hearing: Edmonton, Tuesday, June 3, 2025"
+REDDEER,HANSARD-R1-T07-008,hearing,1,core,4,red deer×1; sylvan lake×3,EB-126,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,169-171,"hearing: Edmonton, Tuesday, June 3, 2025"
+REDDEER,HANSARD-R1-T08-001,hearing,1,context,3,sylvan lake×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,185-189,"hearing: Edmonton, Tuesday, June 3, 2025"
+REDDEER,HANSARD-R1-T10-002,hearing,1,core,4,red deer×4,EB-173,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"216-226,228","hearing: St. Paul, Thursday, June 5, 2025"
+REDDEER,HANSARD-R1-T12-002,hearing,1,context,1,sylvan lake×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"249-252,256","hearing: Drumheller, Monday, June 9, 2025"
+REDDEER,HANSARD-R1-T13-005,hearing,1,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,289-292,"hearing: Calgary, Tuesday, June 10, 2025"
+REDDEER,HANSARD-R1-T15-002,hearing,1,core,8,red deer×3; sylvan lake×2; innisfail×3,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,347-349,"hearing: Calgary, Tuesday, June 10, 2025"
+REDDEER,HANSARD-R1-T16-003,hearing,1,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,370-372,"hearing: Calgary, Wednesday, June 11, 2025"
+REDDEER,HANSARD-R1-T18-005,hearing,1,context,1,sylvan lake×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"421-424,428","hearing: Calgary, Wednesday, June 11, 2025"
+REDDEER,HANSARD-R1-T19-002,hearing,1,core,11,red deer×8; lacombe×1; bowden×1; bentley×1,start EB-308,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,436-440,"hearing: Brooks, Thursday, June 12, 2025"
+REDDEER,HANSARD-R1-T20-002,hearing,1,context,2,sylvan lake×1; innisfail×1,EB-322,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,456-458,"hearing: Medicine Hat, Friday, June 13, 2025"
+REDDEER,HANSARD-R1-T20-008,hearing,1,context,5,sylvan lake×4; innisfail×1,EB-330,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,465-467,"hearing: Medicine Hat, Friday, June 13, 2025"
+REDDEER,HANSARD-R1-T21-002,hearing,1,core,1,red deer×1,EB-344,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"485-490,492-494,496","hearing: Fort McMurray, Monday, June 16, 2025"
+REDDEER,HANSARD-R1-T23-001,hearing,1,core,1,red deer×1,EB-370,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"525-532,536","hearing: Grande Prairie, Tuesday, June 17, 2025"
+REDDEER,HANSARD-R1-T26-001,hearing,1,core,10,red deer×10,start EB-397 EB-398,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,"574-576,580","hearing: Red Deer, Thursday, June 19, 2025"
+REDDEER,HANSARD-R1-T26-004,hearing,1,core,2,red deer×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,576,"hearing: Red Deer, Thursday, June 19, 2025"
+REDDEER,HANSARD-R1-T27-002,hearing,1,context,1,lacombe×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,588-589,"hearing: Virtual, Monday, June 23, 2025"
+REDDEER,HANSARD-R1-T27-005,hearing,1,core,3,red deer×1; sylvan lake×1; bowden×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,592,"hearing: Virtual, Monday, June 23, 2025"
+REDDEER,HANSARD-R1-T28-007,hearing,1,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-1.pdf,623-624,"hearing: Virtual, Monday, June 23, 2025"
+REDDEER,HANSARD-R2-T32-007,hearing,2,context,1,sylvan lake×1,EB-523,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"42-44,48","hearing: Calgary, Tuesday, January 13, 2025"
+REDDEER,HANSARD-R2-T33-006,hearing,2,core,2,red deer×2,EB-539,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,"18-20,24","hearing: Calgary, Tuesday, January 13, 2026"
+REDDEER,HANSARD-R2-T35-001,hearing,2,core,1,red deer×1,EB-568,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,139-141,"hearing: Virtual, Wednesday, January 15, 2026"
+REDDEER,HANSARD-R2-T35-007,hearing,2,context,1,sylvan lake×1,EB-577,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,148-150,"hearing: Virtual, Wednesday, January 15, 2026"
+REDDEER,HANSARD-R2-T37-002,hearing,2,core,59,red deer×12; blackfalds×19; sylvan lake×3; innisfail×4; penhold×3; lacombe×16; bentley×1; highway 2a×1,start EB-605 EB-606,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,112-114,"hearing: Virtual, Thursday, January 15, 2026"
+REDDEER,HANSARD-R2-T37-006,hearing,2,core,83,red deer×19; blackfalds×15; sylvan lake×14; innisfail×6; penhold×8; lacombe×9; springbrook×1; delburne×5; elnora×2; eckville×1; highway 2a×2; gasoline alley×1,start EB-613 EB-614,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,120-122,"hearing: Virtual, Thursday, January 15, 2026"
+REDDEER,HANSARD-R2-T37-008,hearing,2,core,51,red deer×5; sylvan lake×3; innisfail×14; penhold×6; bowden×23,EB-616,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,123-125,"hearing: Virtual, Thursday, January 15, 2026"
+REDDEER,HANSARD-R2-T38-001,hearing,2,core,2,red deer×2,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,190-191,"hearing: Virtual, Friday, January 16, 2026"
+REDDEER,HANSARD-R2-T38-005,hearing,2,core,6,red deer×6,EB-631 EB-633,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,197-202,"hearing: Virtual, Friday, January 16, 2026"
+REDDEER,HANSARD-R2-T38-008,hearing,2,core,94,red deer×17; blackfalds×19; sylvan lake×13; innisfail×15; penhold×6; lacombe×3; delburne×15; elnora×4; bowden×1; gasoline alley×1,start EB-637 EB-638,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,204-206,"hearing: Virtual, Friday, January 16, 2026"
+REDDEER,HANSARD-R2-T39-005,hearing,2,core,90,red deer×18; blackfalds×13; sylvan lake×26; innisfail×15; penhold×3; lacombe×2; delburne×5; elnora×4; eckville×1; bentley×1; gasoline alley×2,EB-651 EB-652 start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,169-171,"hearing: Virtual, Friday, January 16, 2026"
+REDDEER,HANSARD-R2-T39-010,hearing,2,core,1,red deer×1,EB-659,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,176-178,"hearing: Virtual, Friday, January 16, 2026"
+REDDEER,HANSARD-R2-T40-008,hearing,2,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,283-285,"hearing: Edmonton, Monday, January 19, 2026"
+REDDEER,HANSARD-R2-T40-010,hearing,2,core,1,red deer×1,EB-680,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,286-287,"hearing: Edmonton, Monday, January 19, 2026"
+REDDEER,HANSARD-R2-T41-006,hearing,2,core,56,red deer×16; blackfalds×1; sylvan lake×14; innisfail×8; penhold×2; lacombe×4; springbrook×2; delburne×2; elnora×5; bowden×1; gasoline alley×1,start EB-698 EB-699,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,227-229,"hearing: Edmonton, Monday, January 19, 2026"
+REDDEER,HANSARD-R2-T43-006,hearing,2,context,4,sylvan lake×1; innisfail×1; delburne×1; elnora×1,EB-741,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,369-372,"hearing: Edmonton, Tuesday, January 20, 2026"
+REDDEER,HANSARD-R2-T44-001,hearing,2,core,2,red deer×1; sylvan lake×1,EB-754,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,302-305,"hearing: Edmonton, Tuesday, January 20, 2026"
+REDDEER,HANSARD-R2-T47-002,hearing,2,core,1,red deer×1,start,2025-2026-EBC-Public-Meeting-Hansard-Round-2.pdf,389-392,"hearing: Discussion of Members of the Legislative Assembly, Wednesday, January 21, 2026"
+REDDEER,EBC-2025-1-0012,written,1,core,5,red deer×1; blackfalds×1; sylvan lake×1; lacombe×1; bentley×1,25,EBC2025Submissions1-50ForPosting.pdf,25-26,MLA for Lacombe-Ponoka
+REDDEER,EBC-2025-1-0045,written,1,core,6,red deer×1; sylvan lake×1; innisfail×2; penhold×1; bowden×1,94,EBC2025Submissions1-50ForPosting.pdf,94-95,Private Citizen
+REDDEER,EBC-2025-1-0070,written,1,core,1,red deer×1,56,EBC2025Submissions51-100ForPosting.pdf,56-60,Private Citizen
+REDDEER,EBC-2025-1-0085,written,1,core,1,red deer×1,90,EBC2025Submissions51-100ForPosting.pdf,90-91,Private Citizen
+REDDEER,EBC-2025-1-0124,written,1,context,1,lacombe×1,58,EBC2025Submissions101-150ForPosting.pdf,58-59,Private Citizen
+REDDEER,EBC-2025-1-0138,written,1,core,15,red deer×4; blackfalds×1; sylvan lake×1; innisfail×1; penhold×1; lacombe×2; delburne×1; elnora×1; bowden×1; eckville×1; bentley×1,102 104 110,EBC2025Submissions101-150ForPosting.pdf,98-160,"President, Calgary and District Labour Council"
+REDDEER,EBC-2025-1-0152,written,1,core,3,red deer×3,6 7 10,EBC2025Submissions151-197ForPosting.pdf,3-10,"President, Edmonton and District Labour Council"
+REDDEER,EBC-2025-1-0155,written,1,core,3,red deer×3,24 25 26,EBC2025Submissions151-197ForPosting.pdf,14-27,"President, Alberta Federation of Labour"
+REDDEER,EBC-2025-1-0193,written,1,core,1,red deer×1,119,EBC2025Submissions151-197ForPosting.pdf,119-120,not on the commission's published list
+REDDEER,EBC-2025-2-0065,written,2,context,5,lacombe×5,31 32,EBC-2025-2-051-to-100.pdf,31-32,Private Citizen
+REDDEER,EBC-2025-2-0067,written,2,core,22,red deer×1; sylvan lake×1; innisfail×1; lacombe×19,36 39 35 37 38 40,EBC-2025-2-051-to-100.pdf,35-40,Private Citizen
+REDDEER,EBC-2025-2-0069,written,2,context,1,lacombe×1,43,EBC-2025-2-051-to-100.pdf,43-44,Private Citizen
+REDDEER,EBC-2025-2-0071,written,2,context,22,blackfalds×12; lacombe×10,47 48,EBC-2025-2-051-to-100.pdf,47-49,Private Citizen
+REDDEER,EBC-2025-2-0075,written,2,core,14,red deer×1; blackfalds×2; lacombe×10; bentley×1,57 56,EBC-2025-2-051-to-100.pdf,56-58,Private Citizen
+REDDEER,EBC-2025-2-0082,written,2,context,2,lacombe×2,76,EBC-2025-2-051-to-100.pdf,75-76,Private Citizen
+REDDEER,EBC-2025-2-0091,written,2,context,5,lacombe×5,100 101 102,EBC-2025-2-051-to-100.pdf,100-102,Private Citizen
+REDDEER,EBC-2025-2-0096,written,2,context,6,lacombe×6,113 114,EBC-2025-2-051-to-100.pdf,113-114,Private Citizen
+REDDEER,EBC-2025-2-0098,written,2,context,1,lacombe×1,118,EBC-2025-2-051-to-100.pdf,118,Mayor of Bashaw
+REDDEER,EBC-2025-2-0112,written,2,core,21,red deer×7; blackfalds×1; sylvan lake×4; innisfail×4; lacombe×2; delburne×1; bowden×1; eckville×1,23 25 26 27,EBC-2025-2-101-to-150.pdf,23-27,Private Citizen
+REDDEER,EBC-2025-2-0142,written,2,core,1,red deer×1,99,EBC-2025-2-101-to-150.pdf,98-99,Private Citizen
+REDDEER,EBC-2025-2-0144,written,2,core,5,red deer×3; sylvan lake×1; innisfail×1,104,EBC-2025-2-101-to-150.pdf,103-105,Private Citizen
+REDDEER,EBC-2025-2-0155,written,2,core,24,red deer×2; blackfalds×1; lacombe×20; bentley×1,13 12 14,EBC-2025-2-151-to-200.pdf,12-14,Private Citizen
+REDDEER,EBC-2025-2-0157,written,2,core,5,red deer×3; sylvan lake×1; innisfail×1,18,EBC-2025-2-151-to-200.pdf,17-19,Private Citizen
+REDDEER,EBC-2025-2-0165,written,2,core,12,red deer×4; sylvan lake×2; innisfail×3; lacombe×1; delburne×1; elnora×1,35 36,EBC-2025-2-151-to-200.pdf,35-36,Red Deer County Division 1 Councillor
+REDDEER,EBC-2025-2-0210,written,2,core,15,red deer×1; blackfalds×1; sylvan lake×2; innisfail×5; penhold×1; springbrook×1; delburne×1; elnora×1; bowden×2,21 22,EBC-2025-2-201-to-250.pdf,21-22,Private Citizen
+REDDEER,EBC-2025-2-0220,written,2,context,3,sylvan lake×1; lacombe×2,44 43,EBC-2025-2-201-to-250.pdf,43-44,Private Citizen
+REDDEER,EBC-2025-2-0228,written,2,context,4,sylvan lake×2; lacombe×2,61 62,EBC-2025-2-201-to-250.pdf,61-63,Private Citizen
+REDDEER,EBC-2025-2-0241,written,2,core,6,red deer×1; sylvan lake×2; innisfail×3,98 99,EBC-2025-2-201-to-250.pdf,98-99,Private Citizen
+REDDEER,EBC-2025-2-0257,written,2,context,6,blackfalds×4; lacombe×2,15 16,EBC-2025-2-251-to-300.pdf,15-17,Mayor of Blackfalds
+REDDEER,EBC-2025-2-0267,written,2,core,14,red deer×2; sylvan lake×7; innisfail×2; lacombe×2; bentley×1,44 43,EBC-2025-2-251-to-300.pdf,43-45,Private Citizen
+REDDEER,EBC-2025-2-0286,written,2,core,12,red deer×10; sylvan lake×1; innisfail×1,82 83,EBC-2025-2-251-to-300.pdf,82-84,Private Citizen
+REDDEER,EBC-2025-2-0353,written,2,context,6,sylvan lake×1; lacombe×4; bentley×1,7 6,EBC-2025-2-351-to-400.pdf,6-7,Private Citizen
+REDDEER,EBC-2025-2-0371,written,2,core,14,red deer×12; sylvan lake×1; innisfail×1,50 51 52,EBC-2025-2-351-to-400.pdf,50-52,Private Citizen
+REDDEER,EBC-2025-2-0392,written,2,core,7,red deer×7,110 111,EBC-2025-2-351-to-400.pdf,110-112,Private Citizen
+REDDEER,EBC-2025-2-0402,written,2,core,6,red deer×6,5 6,EBC-2025-2-401-to-450.pdf,5-6,Private Citizen
+REDDEER,EBC-2025-2-0408,written,2,core,13,red deer×2; blackfalds×3; lacombe×8,20 19,EBC-2025-2-401-to-450.pdf,19-21,Private Citizen
+REDDEER,EBC-2025-2-0423,written,2,core,1,red deer×1,57,EBC-2025-2-401-to-450.pdf,57,Private Citizen
+REDDEER,EBC-2025-2-0492,written,2,context,2,lacombe×2,89,EBC-2025-2-451-to-500.pdf,89,Chair of Wild Rose School Division
+REDDEER,EBC-2025-2-0500,written,2,context,12,blackfalds×4; sylvan lake×1; innisfail×3; lacombe×3; elnora×1,108 109,EBC-2025-2-451-to-500.pdf,108-109,Private Citizen
+REDDEER,EBC-2025-2-0509,written,2,core,6,red deer×6,19 20,EBC-2025-2-501-to-550.pdf,19-20,Private Citizen
+REDDEER,EBC-2025-2-0536,written,2,context,7,lacombe×7,84 85,EBC-2025-2-501-to-550.pdf,83-85,Mayor of Rocky Mountain House
+REDDEER,EBC-2025-2-0545,written,2,core,1,red deer×1,114,EBC-2025-2-501-to-550.pdf,109-115,Chair of the Board of Trustees of Foothills School Division
+REDDEER,EBC-2025-2-0565,written,2,core,7,red deer×7,47 48,EBC-2025-2-551-to-600.pdf,47-49,Private Citizen
+REDDEER,EBC-2025-2-0591,written,2,context,4,lacombe×4,101 102,EBC-2025-2-551-to-600.pdf,101-102,Private Citizen
+REDDEER,EBC-2025-2-0631,written,2,context,3,lacombe×3,83 84,EBC-2025-2-601-to-650.pdf,83-85,Private Citizen
+REDDEER,EBC-2025-2-0654,written,2,core,17,red deer×4; blackfalds×3; innisfail×2; delburne×7; elnora×1,7,EBC-2025-2-651-to-700.pdf,7,Mayor of Delburne
+REDDEER,EBC-2025-2-0681,written,2,context,2,lacombe×2,83 84,EBC-2025-2-651-to-700.pdf,83-84,Private Citizen
+REDDEER,EBC-2025-2-0690,written,2,core,1,red deer×1,108,EBC-2025-2-651-to-700.pdf,107-109,Private Citizen
+REDDEER,EBC-2025-2-0694,written,2,core,1,red deer×1,119,EBC-2025-2-651-to-700.pdf,118-120,Private Citizen
+REDDEER,EBC-2025-2-0770,written,2,core,2,red deer×2,47,EBC-2025-2-751-to-800.pdf,46-48,Private Citizen
+REDDEER,EBC-2025-2-0803,written,2,core,2,red deer×2,7 11,EBC-2025-2-801-to-850.pdf,6-14,Former Speaker of the Legislative Assembly of Alberta
+REDDEER,EBC-2025-2-0908,written,2,core,1,red deer×1,18,EBC-2025-2-901-to-950.pdf,17-19,Private Citizen
+REDDEER,EBC-2025-2-0929,written,2,core,1,red deer×1,75,EBC-2025-2-901-to-950.pdf,74-78,Constituency Manager for Edmonton-Riverview
+REDDEER,EBC-2025-2-0938,written,2,core,2,red deer×2,101,EBC-2025-2-901-to-950.pdf,100-102,Private Citizen
+REDDEER,EBC-2025-2-0971,written,2,context,15,blackfalds×6; sylvan lake×1; innisfail×4; lacombe×1; delburne×2; bowden×1,51 52,EBC-2025-2-951-to-1000.pdf,51-52,Private Citizen
+REDDEER,EBC-2025-2-0993,written,2,core,2,red deer×2,143 144,EBC-2025-2-951-to-1000.pdf,142-145,Private Citizen
+REDDEER,EBC-2025-2-1003,written,2,context,2,lacombe×2,7 8,EBC-2025-2-1001-to-1050.pdf,7-9,Private Citizen
+REDDEER,EBC-2025-2-1007,written,2,core,4,red deer×4,20,EBC-2025-2-1001-to-1050.pdf,18-21,Private Citizen
+REDDEER,EBC-2025-2-1028,written,2,context,3,lacombe×3,117 119,EBC-2025-2-1001-to-1050.pdf,117-120,Former Reeve of Clearwater County
+REDDEER,EBC-2025-2-1036,written,2,core,1,red deer×1,143,EBC-2025-2-1001-to-1050.pdf,141-143,MLA for Cypress-Medicine Hat
+REDDEER,EBC-2025-2-1067,written,2,core,9,red deer×7; sylvan lake×1; innisfail×1,45 46,EBC-2025-2-1051-to-1100.pdf,45-46,Private Citizen
+REDDEER,EBC-2025-2-1074,written,2,core,18,red deer×3; blackfalds×2; sylvan lake×4; innisfail×5; penhold×2; delburne×1; elnora×1,63 62,EBC-2025-2-1051-to-1100.pdf,62-64,Private Citizen
+REDDEER,EBC-2025-2-1098,written,2,core,2,red deer×2,122,EBC-2025-2-1051-to-1100.pdf,121-123,Private Citizen

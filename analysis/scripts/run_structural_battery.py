@@ -118,6 +118,15 @@ sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 #   S5 drain score    0.0072127    0.0005909    0.0039018   below
 #   S6 patterns(P1-5) 0            5            2.5         above (≥3)
 #
+# S3 drift: the S3 anchors above were measured before score_anchoring.py's
+# 1 km run filter was added (2026-06-12). The battery as coded now returns
+# 0.79964 (majority) and 0.71782 (minority), midpoint 0.75873
+# (findings/structural_battery_majority.json,
+# findings/iap_v3_two_lane/structural_minority_rerun.json). S1, S2, S5 and S6
+# reproduce their anchors exactly. The registered midpoint 0.76010 is used
+# unchanged; no committed battery output falls between the two midpoints
+# (the closest is the para167 map, 0.75839), so no flag depends on which is used.
+#
 # S4 (compactness) is measured and reported but EXCLUDED from the flag count:
 # median PP is identical on both maps (0.4366) and the tail statistics run the
 # wrong way (majority has MORE low-PP districts, 16.9% vs 12.4% below 0.30,
@@ -207,9 +216,10 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
 
 
 def compute_S2_municipal_splits(shapefile: Path, reference: Path) -> dict:
-    """S2: Count of municipalities split into ≥3 EDs.
+    """S2: Count of municipalities split across two or more EDs.
 
-    Uses municipal_splits.count_splits_two_or_more().
+    Uses municipal_splits.count_splits_two_or_more(). The flag fires when the
+    count is above S2_MIDPOINT (26.5, so 27 or more). `reference` is not used.
     """
     try:
         sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
@@ -298,7 +308,10 @@ def compute_S5_drain(shapefile: Path, votes_path: Path,
     10,000 with negligible accuracy cost at typical p ≈ 0.1; raise to 10000 for
     a publication-grade run).
 
-    Flag fires iff drain_score >= S5_DRAIN_THRESHOLD AND null_pvalue < S5_NULL_PVALUE_THRESHOLD.
+    Flag fires iff drain_score < S5_MIDPOINT (Amendment 5, Part 7: the
+    minority side is LOW drain). The label-shuffle null does not gate the flag;
+    S5_DRAIN_THRESHOLD and S5_NULL_PVALUE_THRESHOLD are reported only on the
+    error path. n_perm and seed are accepted and not used.
     """
     try:
         import geopandas as gpd
@@ -357,12 +370,23 @@ def compute_S6_chair_flags(shapefile: Path) -> dict:
     P3: Any ED name containing 'Chestermere' AND 'Calgary' (the Calgary-Peigan-
         Chestermere hybrid).
     P4: Calgary edge + rural Bearspaw / Rocky View ED (e.g.
-        'Calgary-North West-Bearspaw').
+        'Calgary-North West-Bearspaw'). Note: the Chair's addendum does NOT
+        flag this hybrid. Final report p. 67: "We did not adopt the
+        hybridization of Bearspaw or Springbank with Calgary ... However, I do
+        not consider those hybrids necessarily unreasonable or procedurally
+        unfair", unlike the hybrids "in Airdrie, Calgary, Chestermere,
+        Cochrane, Red Deer, and St. Albert". P4 stays in the registered
+        predicate set (preregistration/november_2026_scoring_spec.md, S6); it
+        is not a chair-flagged pattern, and it changes no flag to date.
     P5: Red Deer split into ≥3 EDs.
     P6: Any ED name combining 'St. Albert' (or 'St Albert') with Sturgeon —
         flagged by the chair as a Calgary-style hybrid in northern context.
 
-    Threshold from the November spec: ≥1 pattern reproduced = flag.
+    Matching: P1 and P5 count ED NAMES containing 'Airdrie' or 'Red Deer';
+    they do not measure the city's territory.
+
+    Flag fires when 3 or more of P1-P5 are reproduced (count > S6_MIDPOINT,
+    2.5). P6 is listed when matched and excluded from the count.
     """
     try:
         import geopandas as gpd

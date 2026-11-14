@@ -15,8 +15,13 @@
 `szat_prereg_draft.md` (AsPredicted submission text). Both source files
 are removed; this document is the canonical record.*
 
-**Status:** Implemented. Pre-registered at AsPredicted #289,469 (filed 2026-05-07;
-results known at filing; seed pre-committed at git hash `d2aea42`).
+**Status:** Implemented; exploratory only. Registered at AsPredicted #289,469 (filed 2026-05-07;
+results known at filing). The seed label `"szat-bootstrap"` first appears in commit `851920f5`
+(2026-05-06, 18:11 MDT), the commit that also holds the test's code and first results, so no
+record fixes the seed before a result existed. The i.i.d. null behind p = 0.0024 is invalid
+because neighbouring areas vote alike; the component-level block test (p ≈ 0.19) has one
+effective block and cannot reject (`findings/szat_block_permutation.md`). SZAT is unresolved
+and is not used in any headline.
 
 **Cross-ref:** `analysis/methodology/population_deviation_reaudit.md`,
 `analysis/methodology/academic_literature_review.md` §9
@@ -130,7 +135,8 @@ allocation is unlikely to be partisan-neutral.
 Seed: `get_canonical_seed("szat-bootstrap")` from `analysis/scripts/drand_seed.py`.
 Derivation: SHA-256(CANONICAL_RANDOMNESS + "szat-bootstrap"), first 4 bytes as
 uint32 mod 2^32 = 23687475. Derived from Cloudflare drand League of Entropy beacon
-round 5,500,000, committed at git hash `d2aea42` before any simulation results.
+round 5,500,000. The label `"szat-bootstrap"` was first committed together with the
+test's first results (commit `851920f5`, 2026-05-06, 18:11 MDT).
 
 ---
 
@@ -239,7 +245,7 @@ This is not a test for a new quantity; it is a test for an established quantity 
 
 **VA file provenance check (run 2026-05-18).** The default run uses `va_polygons_with_full_2023_votes.gpkg` (derived file). A second run against the official Elections Alberta `va_2023_election_day_votes.gpkg` (canonical file, same source as Phase 4C) produces identical results: SZAT score +0.039211, swing zones 2,110, p = 0.0024, EG majority +0.000982, EG minority +0.040194, regional breakdown unchanged. The two VA files assign all 4,765 VA representative points identically — confirming that the derived file's geometry is consistent with the canonical EA VA geometry. Output: `findings/szat_summary_canonical_va.json`.
 
-**Evidentiary posture.** SZAT is reported as Channel 2 of a two-channel test (see §5.3.4 and `analysis/methodology/fisher_combination_defense.md`). Channel 1 (Mahalanobis D², p = 8.80×10⁻⁷) is a well-established joint outlier method applied to a validated MCMC ensemble. SZAT's p = 0.0024 is corroborating evidence that reinforces Channel 1 from a structurally different direction. The audit's headline result is now **Channel 1 alone (Mahalanobis p = 8.80×10⁻⁷)**, with a dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000); the earlier Fisher combination (T = 39.87, combined p = 4.61×10⁻⁸) was retired 2026-06-10 (see `reports/academic/report_academic.md` §4.3.3, §5.5, updated 2026-07-12). The headline does not depend on accepting SZAT as the primary finding; it remains meaningful even if a reviewer discounts SZAT entirely, because Channel 1 alone returns p = 8.80×10⁻⁷.
+**Evidentiary posture.** SZAT is reported as Channel 2 of a two-channel test (see §5.3.4 and `analysis/methodology/fisher_combination_defense.md`). Channel 1 (Mahalanobis D², p ≈ 8.84×10⁻⁷) is a joint outlier method applied to the MCMC ensemble. SZAT's p = 0.0024 (i.i.d. null, one-tailed) is exploratory context only. The audit's joint figure is **Channel 1 alone**. It is one model's estimate on election-day ballots, not a bound: under other defensible choices it runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`), and the map is far out in the tail on every version. The published doubling (p ≈ 1.77×10⁻⁶) was a conservative allowance for the two channels. The earlier Fisher combination (T = 39.87, combined p = 4.61×10⁻⁸) was retired 2026-06-10 (see `reports/academic/report_academic.md` §4.3.3, §5.5). The joint figure does not depend on SZAT.
 
 ---
 
@@ -251,13 +257,13 @@ The timing limitation is acknowledged explicitly in the pre-registration text it
 
 What remains verifiable despite this timing:
 
-1. **The bootstrap seed was pre-committed before any results.** The Cloudflare drand beacon round 5,500,000 was committed at git hash `d2aea42` before the canonical shapefiles arrived on 2026-05-06. The salt `"szat-bootstrap"` and the derivation method (SHA-256, first 4 bytes as uint32) are specified in `drand_seed.py` and committed at the same hash. The seed itself — 23,687,475 — is not analyst-chosen; it is cryptographically derived from a public beacon whose value no party to this audit controls. Retroactive selection of a seed to produce a desired p-value is therefore impossible: the seed is a function of a public timestamp, not an analyst choice.
+1. **The bootstrap seed is derived from a public beacon, but its label was not fixed before the results.** The seed (23,687,475) comes from drand beacon round 5,500,000 plus the label `"szat-bootstrap"` (SHA-256, first 4 bytes as uint32; `drand_seed.py`). The label first appears in commit `851920f5` (2026-05-06, 18:11 MDT), together with the test's code and first results. The beacon value was public long before. So the seed is reproducible, but the record does not rule out a choice of label after seeing results.
 
 2. **The p-value has been reproduced across multiple independent runs with different parameters.** The p-value history in `academic_literature_review.md` §9b documents: original additive-delta approximation (p ≈ 0.000), 500-permutation full-recompute (p ≈ 0.012), 10,000-permutation Election-Day-only substrate (p = 0.0044), 10,000-permutation full advance-vote substrate (p = 0.0024). H₀ was rejected at α = 0.05 under every specification. The declining p-value across increasingly rigorous specifications is inconsistent with a result manufactured to exceed a threshold.
 
 3. **The test is fully reproducible.** An independent analyst who runs `analysis/scripts/szat.py` against the canonical shapefiles and the same seed recovers p = 0.0024. The null distribution is not analyst-controlled.
 
-The residual vulnerability is that a filing made after results are known cannot fully replicate the inferential value of a pre-analysis registration. The audit does not overclaim this point: SZAT's timing limitation is why the Fisher combination presents it as Channel 2 (corroborating) rather than the primary headline test. Channel 1 (Mahalanobis D²) was registered at OSF:6pt83 before shapefiles arrived and carries the primary inferential weight.
+The residual vulnerability is that a filing made after results are known cannot fully replicate the inferential value of a pre-analysis registration. The audit does not overclaim this point: SZAT's timing limitation is why the Fisher combination presents it as Channel 2 (corroborating) rather than the primary headline test. Channel 1 (Mahalanobis D²) carries the inferential weight; its joint test was not named in any registration and is exploratory.
 
 ---
 
@@ -285,7 +291,7 @@ The Bernoulli(0.5) null is the correct null for the question SZAT is asking. It 
 
 **Response.**
 
-SZAT is presented as one component of a two-channel joint test, not as a standalone finding. **[SUPERSEDED 2026-06-10:** the Fisher combination (T = 39.87, p = 4.61×10⁻⁸, `analysis/methodology/fisher_combination_defense.md`) is retired — Ch1 and Ch2 are not independent (shared 2023 vote substrate; Brown 1975) and SZAT does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) with a dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶; see `reports/academic/report_academic.md` §4.3.3, §5.5 (updated 2026-07-12). The "structurally independent" rationale immediately below is retained as the historical Fisher-era argument.**] The headline figure is not derived from SZAT alone.
+SZAT is presented as one component of a two-channel joint test, not as a standalone finding. **[SUPERSEDED 2026-06-10:** the Fisher combination (T = 39.87, p = 4.61×10⁻⁸, `analysis/methodology/fisher_combination_defense.md`) is retired — Ch1 and Ch2 are not independent (shared 2023 vote substrate; Brown 1975), and SZAT's i.i.d. null is invalid while its component-level block test (p ≈ 0.19) cannot reject. The operative joint figure is Ch1 alone (Mahalanobis p ≈ 8.84×10⁻⁷, a model estimate on election-day ballots; range about 1 in 20,000 to about 1 in 570,000 across defensible choices); see `reports/academic/report_academic.md` §4.3.3, §5.5 (updated 2026-07-12). The "structurally independent" rationale immediately below is retained as the historical Fisher-era argument.**] The headline figure is not derived from SZAT alone.
 
 The two channels are structurally independent:
 
@@ -295,7 +301,7 @@ The two channels are structurally independent:
 
 The independence between channels is not assumed; it is argued in `analysis/methodology/fisher_combination_defense.md` §3: Channel 1 conditions on the whole map's position in the neutral ensemble space; Channel 2 conditions only on the swing zones — a strict subset of boundary choices that is not evaluated by the ensemble test. Positive correlation between them, if present, makes Fisher conservative (see `fisher_combination_defense.md` §5, AV5): Fisher underestimates significance when channels are positively correlated. The combined p-value is a lower bound on significance under dependence.
 
-Beyond the Fisher combination, the directional consistency across five additional non-vote-dependent structural findings (population dispersion, Calgary zone asymmetry, Airdrie fragmentation, spatial anomaly count, procedural departure) is noted in the academic report's §6 synthesis. A hostile reader who rejects SZAT entirely is left with the ensemble result (p = 8.80×10⁻⁷) and the structural lane intact.
+Beyond the Fisher combination, the directional consistency across five additional non-vote-dependent structural findings (population dispersion, Calgary zone asymmetry, Airdrie fragmentation, spatial anomaly count, procedural departure) is noted in the academic report's §6 synthesis. A hostile reader who rejects SZAT entirely is left with the ensemble result (p ≈ 8.84×10⁻⁷, a model estimate) and the structural lane intact.
 
 ---
 
@@ -308,15 +314,17 @@ Beyond the Fisher combination, the directional consistency across five additiona
 - [x] Add SZAT to `audit_dependency_graph.json`
 - [x] Run and review `szat_results.csv`
 - [x] Update `academic_literature_review.md` §9 with SZAT as a novel test
-- [x] Pre-register bootstrap null — AsPredicted #289,469 (filed 2026-05-07;
-      results known at filing; seed pre-committed at d2aea42)
+- [x] Register bootstrap null — AsPredicted #289,469 (filed 2026-05-07;
+      results known at filing; seed label first committed with the first results, `851920f5`)
 
 ---
 
 ## Appendix — AsPredicted Pre-Registration Text
 
 *Verbatim submission text filed at aspredicted.org as AsPredicted #289,469
-on 2026-05-07.*
+on 2026-05-07. It is kept as filed.*
+
+> **Audit note (not part of the filed text).** The filed text says the seed was committed at `d2aea42` before any results. The git record does not support that: the label `"szat-bootstrap"` first appears in commit `851920f5`, with the first results.
 
 **Timing disclosure.** The SZAT bootstrap seed was derived from the pre-committed
 drand beacon (CANONICAL_ROUND = 5500000, committed at git hash `d2aea42` before

@@ -1,0 +1,11 @@
+{
+ "group": "south_central",
+ "k": 13,
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "changed_south_central_13_muni_2",
+ "seed": 474260159,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "n_vas": 792
+}

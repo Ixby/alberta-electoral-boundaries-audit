@@ -1,0 +1,740 @@
+{
+ "calgary_zones_panel_stated": {
+  "n_a": 17,
+  "n_b": 10,
+  "mean_a": 56570,
+  "mean_b": 56833,
+  "gap_pct_a_vs_b": -0.46,
+  "unclassified": [
+   "Calgary-West-Springbank"
+  ],
+  "gap_pct_with_Calgary-West-Springbank_in_b": -0.7
+ },
+ "edmonton_panel_stated": {
+  "south": [
+   "Edmonton-Ellerslie",
+   "Edmonton-Gold Bar",
+   "Edmonton-Meadows",
+   "Edmonton-Mill Woods",
+   "Edmonton-Nisku",
+   "Edmonton-Rutherford",
+   "Edmonton-South",
+   "Edmonton-Strathcona",
+   "Edmonton-Whitemud",
+   "Edmonton-Windermere"
+  ],
+  "north": [
+   "Edmonton-Beverly-Clareview",
+   "Edmonton-Castle Downs",
+   "Edmonton-City Centre",
+   "Edmonton-Decore",
+   "Edmonton-Enoch",
+   "Edmonton-Glenora-Riverview",
+   "Edmonton-Highlands-Norwood",
+   "Edmonton-Manning",
+   "Edmonton-McClung",
+   "Edmonton-North West",
+   "Edmonton-West Henday"
+  ],
+  "mean_south": 55645,
+  "mean_north": 58132,
+  "gap_pct_north_vs_south": 4.47,
+  "largest_gap_any_two_zones_of_3_or_more": 9.7
+ },
+ "city_pieces_panel_reconstruction": [
+  {
+   "csd": "Calgary",
+   "type": "CY",
+   "pop2021": 1306784,
+   "districts_by_territory": 33,
+   "districts_2pct_people": 28,
+   "territory_km2": {
+    "Calgary-Hays": 62.926,
+    "Calgary-East": 52.878,
+    "Calgary-Confluence": 49.079,
+    "Calgary-Nose Creek": 44.829,
+    "Calgary-South East": 43.58,
+    "Calgary-Bhullar-McCall": 40.754,
+    "Calgary-Klein": 36.737,
+    "Calgary-Symons Valley": 36.379,
+    "Calgary-Lougheed": 34.21,
+    "Calgary-Shaw": 34.035,
+    "Calgary-Fish Creek": 32.645,
+    "Calgary-Bow-Springbank": 32.076,
+    "Calgary-McKenzie": 30.919,
+    "Calgary-Glenmore-Tsuut'ina": 29.848,
+    "Calgary-Beddington": 29.515,
+    "Calgary-Acadia": 27.227,
+    "Calgary-Varsity": 26.965,
+    "Calgary-North West-Bearspaw": 25.895,
+    "Calgary-North East": 25.005,
+    "Calgary-West-Springbank": 23.867,
+    "Calgary-North": 22.674,
+    "Calgary-Edgemont": 19.9,
+    "Calgary-Elbow": 17.605,
+    "Calgary-Currie": 15.93,
+    "Calgary-Mountain View": 15.879,
+    "Calgary-Cross": 15.829,
+    "Calgary-Falconridge-Conrich": 14.506,
+    "Calgary-Buffalo": 4.203,
+    "Okotoks": 1.16,
+    "Airdrie-West": 0.327,
+    "Airdrie-East": 0.242,
+    "Cochrane": 0.218,
+    "Chestermere-Strathmore": 0.144
+   },
+   "people": {
+    "Calgary-McKenzie": 56310,
+    "Calgary-Lougheed": 53341,
+    "Calgary-Cross": 52804,
+    "Calgary-East": 52044,
+    "Calgary-Fish Creek": 50989,
+    "Calgary-Beddington": 50857,
+    "Calgary-Varsity": 50825,
+    "Calgary-Glenmore-Tsuut'ina": 50483,
+    "Calgary-Edgemont": 50263,
+    "Calgary-Currie": 50171,
+    "Calgary-Acadia": 50134,
+    "Calgary-Confluence": 49833,
+    "Calgary-Klein": 49573,
+    "Calgary-North": 48118,
+    "Calgary-Bow-Springbank": 47914,
+    "Calgary-North West-Bearspaw": 47437,
+    "Calgary-Elbow": 47178,
+    "Calgary-Mountain View": 46366,
+    "Calgary-West-Springbank": 45672,
+    "Calgary-Hays": 45508,
+    "Calgary-Falconridge-Conrich": 45292,
+    "Calgary-Symons Valley": 45112,
+    "Calgary-Buffalo": 40765,
+    "Calgary-Bhullar-McCall": 38531,
+    "Calgary-Shaw": 38493,
+    "Calgary-Nose Creek": 37617,
+    "Calgary-South East": 35768,
+    "Calgary-North East": 28893,
+    "Okotoks": 420,
+    "Airdrie-West": 42,
+    "Airdrie-East": 29,
+    "Chestermere-Strathmore": 1
+   }
+  },
+  {
+   "csd": "Edmonton",
+   "type": "CY",
+   "pop2021": 1010899,
+   "districts_by_territory": 28,
+   "districts_2pct_people": 21,
+   "territory_km2": {
+    "Edmonton-Manning": 97.312,
+    "Edmonton-West Henday": 73.162,
+    "Edmonton-Gold Bar": 56.495,
+    "Edmonton-Beverly-Clareview": 56.328,
+    "Edmonton-Nisku": 55.759,
+    "Edmonton-Windermere": 54.738,
+    "Edmonton-South": 50.09,
+    "Edmonton-Enoch": 39.255,
+    "Edmonton-North West": 31.947,
+    "Edmonton-McClung": 27.545,
+    "Edmonton-Rutherford": 26.78,
+    "Edmonton-Glenora-Riverview": 25.734,
+    "Edmonton-Whitemud": 25.702,
+    "Edmonton-Ellerslie": 25.701,
+    "Edmonton-Mill Woods": 24.445,
+    "Edmonton-Strathcona": 24.353,
+    "Edmonton-Castle Downs": 20.858,
+    "Edmonton-Highlands-Norwood": 18.774,
+    "Edmonton-Decore": 18.146,
+    "Edmonton-City Centre": 15.187,
+    "Edmonton-Meadows": 12.653,
+    "Sherwood Park": 0.564,
+    "Morinville-Sturgeon": 0.456,
+    "St. Albert": 0.272,
+    "Strathcona-Sherwood Park": 0.081,
+    "Drayton Valley-Devon": 0.069,
+    "Fort Saskatchewan-Vegreville": 0.066,
+    "Leduc-Beaumont": 0.046
+   },
+   "people": {
+    "Edmonton-McClung": 57052,
+    "Edmonton-Mill Woods": 55897,
+    "Edmonton-North West": 54588,
+    "Edmonton-Rutherford": 53870,
+    "Edmonton-Beverly-Clareview": 53284,
+    "Edmonton-Whitemud": 52802,
+    "Edmonton-Decore": 52785,
+    "Edmonton-Glenora-Riverview": 52077,
+    "Edmonton-Gold Bar": 51860,
+    "Edmonton-Castle Downs": 50758,
+    "Edmonton-West Henday": 50685,
+    "Edmonton-City Centre": 49263,
+    "Edmonton-Strathcona": 48569,
+    "Edmonton-Manning": 45355,
+    "Edmonton-Highlands-Norwood": 45173,
+    "Edmonton-Ellerslie": 44757,
+    "Edmonton-South": 40697,
+    "Edmonton-Enoch": 40553,
+    "Edmonton-Nisku": 39555,
+    "Edmonton-Meadows": 36850,
+    "Edmonton-Windermere": 34310,
+    "Morinville-Sturgeon": 121,
+    "Sherwood Park": 16,
+    "St. Albert": 10,
+    "Strathcona-Sherwood Park": 8,
+    "Fort Saskatchewan-Vegreville": 1
+   }
+  },
+  {
+   "csd": "Leduc",
+   "type": "CY",
+   "pop2021": 34094,
+   "districts_by_territory": 4,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Leduc-Beaumont": 43.118,
+    "Camrose": 0.187,
+    "Drayton Valley-Devon": 0.111,
+    "Edmonton-Nisku": 0.014
+   },
+   "people": {
+    "Leduc-Beaumont": 33765,
+    "Camrose": 240,
+    "Drayton Valley-Devon": 87,
+    "Edmonton-Nisku": 1
+   }
+  },
+  {
+   "csd": "Lethbridge",
+   "type": "CY",
+   "pop2021": 98406,
+   "districts_by_territory": 4,
+   "districts_2pct_people": 4,
+   "territory_km2": {
+    "Lethbridge": 57.055,
+    "Lethbridge-Cardston": 27.163,
+    "Lethbridge-Little Bow": 24.389,
+    "Lethbridge-Taber-Warner": 16.148
+   },
+   "people": {
+    "Lethbridge": 51961,
+    "Lethbridge-Little Bow": 23970,
+    "Lethbridge-Cardston": 16326,
+    "Lethbridge-Taber-Warner": 6149
+   }
+  },
+  {
+   "csd": "St. Albert",
+   "type": "CY",
+   "pop2021": 68232,
+   "districts_by_territory": 4,
+   "districts_2pct_people": 2,
+   "territory_km2": {
+    "St. Albert": 43.086,
+    "Morinville-Sturgeon": 5.658,
+    "Edmonton-North West": 0.05,
+    "Edmonton-West Henday": 0.039
+   },
+   "people": {
+    "St. Albert": 56488,
+    "Morinville-Sturgeon": 11570,
+    "Edmonton-North West": 167,
+    "Edmonton-West Henday": 7
+   }
+  },
+  {
+   "csd": "Beaumont",
+   "type": "CY",
+   "pop2021": 20888,
+   "districts_by_territory": 3,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Leduc-Beaumont": 24.347,
+    "Edmonton-Nisku": 0.398,
+    "Camrose": 0.128
+   },
+   "people": {
+    "Leduc-Beaumont": 20671,
+    "Edmonton-Nisku": 114,
+    "Camrose": 103
+   }
+  },
+  {
+   "csd": "Cochrane",
+   "type": "T",
+   "pop2021": 32199,
+   "districts_by_territory": 3,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Cochrane": 32.076,
+    "Banff-Canmore-Diamond Valley": 0.096,
+    "Calgary-Bow-Springbank": 0.011
+   },
+   "people": {
+    "Cochrane": 32072,
+    "Banff-Canmore-Diamond Valley": 124,
+    "Calgary-Bow-Springbank": 3
+   }
+  },
+  {
+   "csd": "Fort Saskatchewan",
+   "type": "CY",
+   "pop2021": 27088,
+   "districts_by_territory": 3,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Fort Saskatchewan-Vegreville": 57.273,
+    "Morinville-Sturgeon": 0.033,
+    "Edmonton-Manning": 0.007
+   },
+   "people": {
+    "Fort Saskatchewan-Vegreville": 27061,
+    "Morinville-Sturgeon": 20,
+    "Edmonton-Manning": 6
+   }
+  },
+  {
+   "csd": "Red Deer",
+   "type": "CY",
+   "pop2021": 100844,
+   "districts_by_territory": 3,
+   "districts_2pct_people": 2,
+   "territory_km2": {
+    "Red Deer-North": 71.775,
+    "Red Deer-South": 31.031,
+    "Blackfalds-Innisfail": 4.748
+   },
+   "people": {
+    "Red Deer-South": 52563,
+    "Red Deer-North": 46813,
+    "Blackfalds-Innisfail": 1468
+   }
+  },
+  {
+   "csd": "Stony Plain",
+   "type": "T",
+   "pop2021": 17993,
+   "districts_by_territory": 3,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lac Ste. Anne": 35.962,
+    "Spruce Grove": 0.097,
+    "Drayton Valley-Devon": 0.015
+   },
+   "people": {
+    "Lac Ste. Anne": 17981,
+    "Drayton Valley-Devon": 10,
+    "Spruce Grove": 3
+   }
+  },
+  {
+   "csd": "Airdrie",
+   "type": "CY",
+   "pop2021": 74100,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 2,
+   "territory_km2": {
+    "Airdrie-East": 50.539,
+    "Airdrie-West": 35.09
+   },
+   "people": {
+    "Airdrie-West": 37514,
+    "Airdrie-East": 36586
+   }
+  },
+  {
+   "csd": "Blackfalds",
+   "type": "T",
+   "pop2021": 10470,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Blackfalds-Innisfail": 17.194,
+    "Lacombe-Sylvan Lake": 0.027
+   },
+   "people": {
+    "Blackfalds-Innisfail": 10458,
+    "Lacombe-Sylvan Lake": 12
+   }
+  },
+  {
+   "csd": "Chestermere",
+   "type": "CY",
+   "pop2021": 22163,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Chestermere-Strathmore": 36.847,
+    "Calgary-Falconridge-Conrich": 0.056
+   },
+   "people": {
+    "Chestermere-Strathmore": 22163
+   }
+  },
+  {
+   "csd": "Grande Prairie",
+   "type": "CY",
+   "pop2021": 64141,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 2,
+   "territory_km2": {
+    "Grande Prairie": 104.061,
+    "Grande Prairie-Wapiti": 31.707
+   },
+   "people": {
+    "Grande Prairie": 46601,
+    "Grande Prairie-Wapiti": 17540
+   }
+  },
+  {
+   "csd": "Medicine Hat",
+   "type": "CY",
+   "pop2021": 63271,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 2,
+   "territory_km2": {
+    "Medicine Hat-Brooks": 62.669,
+    "Medicine Hat-Cypress": 57.17
+   },
+   "people": {
+    "Medicine Hat-Cypress": 43796,
+    "Medicine Hat-Brooks": 19475
+   }
+  },
+  {
+   "csd": "Spruce Grove",
+   "type": "CY",
+   "pop2021": 37645,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Spruce Grove": 37.544,
+    "Lac Ste. Anne": 0.108
+   },
+   "people": {
+    "Spruce Grove": 37611,
+    "Lac Ste. Anne": 34
+   }
+  },
+  {
+   "csd": "Strathmore",
+   "type": "T",
+   "pop2021": 14339,
+   "districts_by_territory": 2,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Chestermere-Strathmore": 27.829,
+    "Olds-Didsbury-Three Hills": 0.472
+   },
+   "people": {
+    "Chestermere-Strathmore": 14278,
+    "Olds-Didsbury-Three Hills": 61
+   }
+  },
+  {
+   "csd": "Banff",
+   "type": "T",
+   "pop2021": 8305,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Banff-Canmore-Diamond Valley": 4.206
+   },
+   "people": {
+    "Banff-Canmore-Diamond Valley": 8305
+   }
+  },
+  {
+   "csd": "Brooks",
+   "type": "CY",
+   "pop2021": 14924,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Medicine Hat-Brooks": 19.615
+   },
+   "people": {
+    "Medicine Hat-Brooks": 14924
+   }
+  },
+  {
+   "csd": "Camrose",
+   "type": "CY",
+   "pop2021": 18772,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Camrose": 43.58
+   },
+   "people": {
+    "Camrose": 18772
+   }
+  },
+  {
+   "csd": "Canmore",
+   "type": "T",
+   "pop2021": 15990,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Banff-Canmore-Diamond Valley": 69.405
+   },
+   "people": {
+    "Banff-Canmore-Diamond Valley": 15990
+   }
+  },
+  {
+   "csd": "Coaldale",
+   "type": "T",
+   "pop2021": 8771,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lethbridge-Taber-Warner": 14.052
+   },
+   "people": {
+    "Lethbridge-Taber-Warner": 8771
+   }
+  },
+  {
+   "csd": "Cold Lake",
+   "type": "CY",
+   "pop2021": 15661,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Cold Lake-Bonnyville-St. Paul": 67.577
+   },
+   "people": {
+    "Cold Lake-Bonnyville-St. Paul": 15661
+   }
+  },
+  {
+   "csd": "Edson",
+   "type": "T",
+   "pop2021": 8374,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "West Yellowhead": 29.705
+   },
+   "people": {
+    "West Yellowhead": 8374
+   }
+  },
+  {
+   "csd": "High River",
+   "type": "T",
+   "pop2021": 14324,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Macleod-Crowsnest": 22.77
+   },
+   "people": {
+    "Macleod-Crowsnest": 14324
+   }
+  },
+  {
+   "csd": "Hinton",
+   "type": "T",
+   "pop2021": 9817,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "West Yellowhead": 33.534
+   },
+   "people": {
+    "West Yellowhead": 9817
+   }
+  },
+  {
+   "csd": "Lacombe",
+   "type": "CY",
+   "pop2021": 13396,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lacombe-Sylvan Lake": 21.814
+   },
+   "people": {
+    "Lacombe-Sylvan Lake": 13396
+   }
+  },
+  {
+   "csd": "Lloydminster (Part)",
+   "type": "CY",
+   "pop2021": 19739,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lloydminster-Wainwright": 24.325
+   },
+   "people": {
+    "Lloydminster-Wainwright": 19739
+   }
+  },
+  {
+   "csd": "Morinville",
+   "type": "T",
+   "pop2021": 10385,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Morinville-Sturgeon": 11.243
+   },
+   "people": {
+    "Morinville-Sturgeon": 10385
+   }
+  },
+  {
+   "csd": "Okotoks",
+   "type": "T",
+   "pop2021": 30405,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Okotoks": 38.921
+   },
+   "people": {
+    "Okotoks": 30405
+   }
+  },
+  {
+   "csd": "Olds",
+   "type": "T",
+   "pop2021": 9209,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Olds-Didsbury-Three Hills": 14.903
+   },
+   "people": {
+    "Olds-Didsbury-Three Hills": 9209
+   }
+  },
+  {
+   "csd": "Sylvan Lake",
+   "type": "T",
+   "pop2021": 15995,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lacombe-Sylvan Lake": 23.463
+   },
+   "people": {
+    "Lacombe-Sylvan Lake": 15995
+   }
+  },
+  {
+   "csd": "Taber",
+   "type": "T",
+   "pop2021": 8862,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Lethbridge-Taber-Warner": 19.715
+   },
+   "people": {
+    "Lethbridge-Taber-Warner": 8862
+   }
+  },
+  {
+   "csd": "Wetaskiwin",
+   "type": "CY",
+   "pop2021": 12594,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "Wetaskiwin-Ponoka": 19.545
+   },
+   "people": {
+    "Wetaskiwin-Ponoka": 12594
+   }
+  },
+  {
+   "csd": "Whitecourt",
+   "type": "T",
+   "pop2021": 9927,
+   "districts_by_territory": 1,
+   "districts_2pct_people": 1,
+   "territory_km2": {
+    "West Yellowhead": 30.846
+   },
+   "people": {
+    "West Yellowhead": 9927
+   }
+  }
+ ],
+ "protected_share": {
+  "panel_reconstruction": {
+   "Banff-Canmore-Diamond Valley": {
+    "area_km2": 11496,
+    "park_csd_share_pct": {
+     "Kananaskis": 36.91,
+     "Improvement District No. 9 Banff": 30.7
+    },
+    "total_pct": 67.61
+   },
+   "Central Peace-Notley": {
+    "area_km2": 47312,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Lac Ste. Anne": {
+    "area_km2": 4320,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Lesser Slave Lake": {
+    "area_km2": 75775,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Rocky Mountain House-Sundre": {
+    "area_km2": 25122,
+    "park_csd_share_pct": {
+     "Improvement District No. 9 Banff": 13.16
+    },
+    "total_pct": 13.16
+   }
+  },
+  "majority": {
+   "Canmore-Banff": {
+    "area_km2": 15660,
+    "park_csd_share_pct": {
+     "Kananaskis": 27.09,
+     "Improvement District No. 9 Banff": 43.61
+    },
+    "total_pct": 70.7
+   },
+   "Central Peace-Notley": {
+    "area_km2": 47312,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Lesser Slave Lake": {
+    "area_km2": 75775,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   }
+  },
+  "minority": {
+   "Central Peace-Notley": {
+    "area_km2": 48044,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Lesser Slave Lake": {
+    "area_km2": 75768,
+    "park_csd_share_pct": {},
+    "total_pct": 0
+   },
+   "Rocky Mountain House-Banff Park": {
+    "area_km2": 28935,
+    "park_csd_share_pct": {
+     "Improvement District No. 9 Banff": 18.88
+    },
+    "total_pct": 18.88
+   }
+  }
+ }
+}

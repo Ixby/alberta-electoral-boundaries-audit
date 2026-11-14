@@ -10,7 +10,7 @@ backward_dependencies:
   - analysis/scripts/electoral_forensics_population.py (A1–A3 population findings)
   - findings/justification_tests_findings.md (population-math verdicts)
   - findings/submission_search_findings.md (public-support tiers)
-  - analysis/methodology/minority_rationales_validation.md (rationale verdicts)
+  - analysis/methodology/reference/minority_rationales_validation.md (rationale verdicts)
   - findings/chair_recommendation_5_analysis.md (R5 conditions as extra gates)
 ---
 
@@ -34,6 +34,14 @@ backward_dependencies:
 **Maps scored:** 2026 Commission Majority (89 seats); 2026 Commission Minority (89 seats)
 **Map not yet scorable:** November 2026 MLA Committee (91 seats) — date-gated, map does not yet exist
 **Purpose:** (1) establish a baseline scorecard the November map can be compared against; (2) self-test the checklist's calibration against maps whose content is already known.
+
+**Later results that bear on the rows below (note of 2026-11-10 00:57 Alberta time · claude-opus-5-5 · medium).** The text filed on OSF is the 2026-04-22 version (SHA-256 `700533e8…3a84b57`, `preregistration/osf_ledger.json`); this note does not change it.
+- *The 91-seat map.* The panel's map was scored against the registered 9wp5y checklist on 2026-11-09, on the audit's reconstruction (`findings/checklist_9wp5y_panel_map.md`).
+- *Calgary zones (S1).* The 12.20% gap uses the committed zone lists, first written on April 22 as "historically NDP-competitive" against "UCP-dominant" and later described as geographic, with the same membership. On a literal reading of the stated geographic rule the minority's gap is 5.3% to 5.7% (`findings/audit_2026-11-10/calgary_zone_recode.json`), below this row's 10% line.
+- *s.15(2) (S1).* On the audit's road model Rocky Mountain House-Banff Park is 165 km from the Legislature, so criterion (b) is met and the district meets 5 of 5 as drawn (`findings/audit_2026-11-10/s15_distances.json`).
+- *Public support (S6).* The support/oppose labels behind the tiers are unreliable and the classification is being redone (`findings/submissions_recode/`). Read directly, the majority's "no public support" statement is right in four of five places and partly wrong on Chestermere.
+- *Rationales (X2).* The tally depends on the rule. Counting only reasons the minority stated, none fails and four are partly supported. Counting the audit's own population-necessity arithmetic, four fail.
+- *Classification lines.* The audit does not rule on whether either map is a gerrymander; the "classification" lines below are this checklist's labels, not findings.
 
 The checklist is reproduced verbatim from `report_public.md` §"What a gerrymander in the 91-seat map would actually look like." Each signal is applied symmetrically to the two 89-seat commission maps. No test has been omitted or added post-hoc.
 
@@ -63,7 +71,7 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 | Majority 2026 | No (Calgary zone gap 0.36% ≈ neutral) | No | No | **0** |
 | Minority 2026 | No (Edmonton unpacked; NDP cluster preserved) | No (beyond Airdrie and Chestermere already in S1) | No (beyond RMH-Banff already in S1) | **0** |
 
-**Score.** Neither map introduces new signatures beyond S1's set. Source: spatial audit in `findings/geographic_coherence.md` and `analysis/methodology/uncertainty_and_shapefile_impact.md`.
+**Score.** Neither map introduces new signatures beyond S1's set. Source: spatial audit in `findings/geographic_coherence.md` and `analysis/methodology/shapefile_uncertainty_analysis.md`.
 
 ### S3. Both extra rural seats have engineered boundaries
 
@@ -85,7 +93,7 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 
 **Criterion.** Map's partisan lean falls in the top 5% UCP-favourable of a Markov-Chain Monte Carlo ensemble of 10,000+ rule-following alternative maps.
 
-**Score.** **Blocked** for both 2026 maps. The MCMC ensemble requires 2026 shapefiles, which Elections Alberta has not released for either proposal. Documented in `analysis/methodology/uncertainty_and_shapefile_impact.md`. When shapefiles become available, Phase 5 of the v1.2 pipeline runs GerryChain and produces the percentile rank for both maps.
+**Score.** **Blocked** for both 2026 maps. The MCMC ensemble requires 2026 shapefiles, which Elections Alberta has not released for either proposal. Documented in `analysis/methodology/shapefile_uncertainty_analysis.md`. When shapefiles become available, Phase 5 of the v1.2 pipeline runs GerryChain and produces the percentile rank for both maps.
 
 ### S6. Publicly-supported configurations dropped; unsupported ones kept
 
@@ -117,7 +125,7 @@ Scored in S1. Majority 0.36% (near-neutral), Minority 12.20% (large).
 | Majority 2026 | No | N/A | No weak signal triggered |
 | Minority 2026 | Yes | StatsCan 98-10-0459 confirms 35.8% of all Cochrane resident workers (3,065 of 8,550) commute to Calgary CY; 49.2% work within Cochrane — the within-Cochrane flow is the largest single destination; within-Calgary ward-level breakdown not testable at CSD granularity; Nolan Hill is residential | Weak signal **triggered** |
 
-Source: `analysis/methodology/cochrane_journey_to_work.md`.
+Source: `analysis/methodology/reference/cochrane_journey_to_work.md`.
 
 ---
 
@@ -173,7 +181,7 @@ These gates were added to the evidence base after the original checklist was wri
 | Five population-math justifications | N/A (majority does not invoke them) | **All five FAIL** (`findings/justification_tests_findings.md`) |
 | Piikani / Peigan naming | N/A | Naming observation, no fault finding |
 
-**Score.** Minority: three rationales contradicted or unsupported, five population-math tests failed. Majority: no tested rationales triggered a contradiction. Source: `analysis/methodology/minority_rationales_validation.md`.
+**Score.** Minority: three rationales contradicted or unsupported, five population-math tests failed. Majority: no tested rationales triggered a contradiction. Source: `analysis/methodology/reference/minority_rationales_validation.md`.
 
 ### X3. 338Canada independent cross-validation
 
@@ -182,7 +190,7 @@ These gates were added to the evidence base after the original checklist was wri
 | Majority 2026 | 67 / 22 | 38 / 51 | — |
 | Minority 2026 | 66 / 23 | 37 / 52 | — |
 
-**Score.** The minority-vs-majority asymmetry is **1 seat NDP under both inputs**. The boundary effect is a structural property of the map. Source: `analysis/methodology/338canada_riding_level.md`.
+**Score.** The minority-vs-majority asymmetry is **1 seat NDP under both inputs**. The boundary effect is a structural property of the map. Source: `analysis/methodology/reference/polling_data_338canada_riding_level.md`.
 
 ---
 
@@ -247,10 +255,10 @@ The November sub-audit should fill the rightmost column in the same structure. A
 - Checklist source: `report_public.md` §"What a gerrymander in the 91-seat map would actually look like" (v0.12 state, committed 41c361d).
 - Metrics source: `analysis/scripts/packing_cracking_analysis.py` (B2, B3, B4, B6); `analysis/scripts/electoral_forensics_population.py` (A1, A2, A3).
 - Public-support tiers: `findings/submission_search_findings.md` + `findings/claim_significance_analysis.md`.
-- Rationale checks: `analysis/methodology/minority_rationales_validation.md`.
+- Rationale checks: `analysis/methodology/reference/minority_rationales_validation.md`.
 - Chair R5 conditions: `findings/chair_recommendation_5_analysis.md`.
-- 338 validation: `analysis/methodology/338canada_riding_level.md`.
-- Cochrane commute: `analysis/methodology/cochrane_journey_to_work.md`.
+- 338 validation: `analysis/methodology/reference/polling_data_338canada_riding_level.md`.
+- Cochrane commute: `analysis/methodology/reference/cochrane_journey_to_work.md`.
 
 ## Falsifiability
 

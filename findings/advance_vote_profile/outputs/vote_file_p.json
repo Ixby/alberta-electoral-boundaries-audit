@@ -1,0 +1,64 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:17 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/08_build_vote_file_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   }
+  ]
+ },
+ "file": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+ "bytes": 22040576,
+ "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd",
+ "rule": {
+  "name": "P",
+  "beta": 1.0,
+  "lam": 1.0
+ },
+ "rows": 4765,
+ "columns": [
+  "OBJECTID",
+  "ED_NUM",
+  "ED_NAME",
+  "VA_NUMBER",
+  "va_ndp",
+  "va_ucp",
+  "va_other",
+  "parent_ed_2019",
+  "geometry"
+ ],
+ "province_totals": {
+  "ndp": 777404.0,
+  "ucp": 928900.0,
+  "other": 58611.0
+ },
+ "checks": {
+  "division_totals_equal_official_max_abs_votes": 1.027729013003409e-09,
+  "divisions": 87,
+  "province_totals_equal_registered_file": true,
+  "rows_and_geometry_equal_election_day_file": true,
+  "parent_ed_2019_groups": 87
+ },
+ "two_party_votes_placed_differently_from_m0": 84506.2,
+ "sibling": {
+  "file": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+  "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72",
+  "lfs_pattern": true,
+  "lfs_tracked": true
+ },
+ "git_lfs": {
+  "lfs_pattern": true,
+  "lfs_tracked": false
+ }
+}

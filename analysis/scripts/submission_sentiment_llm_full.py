@@ -21,7 +21,19 @@ Output:
     data/outputs/submission_sentiment_llm_full_progress.csv
         running tally of completed submission IDs (enables resume)
 
+    data/outputs/submission_sentiment_llm_full_failures.csv
+        one row per failed or timed-out call (written only if any occur)
+
 Resume: re-running the script skips submissions already in the progress file.
+A failed or timed-out call is NOT written to the progress file, so a rerun
+retries it; it is logged to the failures file instead.
+
+Known limit of the committed outputs. They were written before that change:
+then, a failed call was recorded in the progress file as done with 0 rows,
+which is indistinguishable from "nothing relevant in this submission" and was
+never retried. Of the 977 progress entries with 0 rows, the share that were
+errors cannot be recovered. The model is the unpinned alias "sonnet", with no
+seed or temperature, so a rerun does not reproduce the committed labels.
 
 Cost estimate: ~1,252 submissions × $0.13/call ≈ $163 USD at sonnet pricing.
 
@@ -57,6 +69,18 @@ DATA_DIR = _resolve_path("data")
 TEXT_DIR    = ROOT / ".temp" / "submissions" / "text"
 OUTPUT_CSV  = DATA_DIR / "outputs" / "submission_sentiment_llm_full_results.csv"
 PROGRESS_CSV = DATA_DIR / "outputs" / "submission_sentiment_llm_full_progress.csv"
+FAILURES_CSV = DATA_DIR / "outputs" / "submission_sentiment_llm_full_failures.csv"
+
+
+def record_outcome(sub_id: str, result: dict, rows_emitted: int, timestamp: str) -> tuple[str, dict]:
+    """Where a finished call is recorded: ("progress", row) for a call that
+    returned a classification (even one with no relevant configuration), or
+    ("failure", row) for a call that returned nothing (CLI error, timeout,
+    unparseable output). A failure never goes in the progress file, so the
+    resume logic retries it."""
+    if not result:
+        return "failure", {"submission_id": sub_id, "timestamp": timestamp}
+    return "progress", {"submission_id": sub_id, "timestamp": timestamp, "rows_emitted": rows_emitted}
 
 OUTPUT_FIELDS = [
     "submission_id", "configuration", "classification",
@@ -282,12 +306,18 @@ def main() -> None:
 
             print(f"{rows_emitted} non-Unrelated results")
 
-        # Mark complete and flush
-        prog_writer.writerow({
-            "submission_id": sub_id,
-            "timestamp": datetime.now().isoformat(),
-            "rows_emitted": rows_emitted if result else 0,
-        })
+        # Mark complete (or log the failure) and flush
+        kind, row = record_outcome(
+            sub_id, result, rows_emitted if result else 0, datetime.now().isoformat())
+        if kind == "progress":
+            prog_writer.writerow(row)
+        else:
+            new_file = not FAILURES_CSV.exists()
+            with FAILURES_CSV.open("a", newline="", encoding="utf-8") as fail_fh:
+                fail_writer = csv.DictWriter(fail_fh, fieldnames=["submission_id", "timestamp"])
+                if new_file:
+                    fail_writer.writeheader()
+                fail_writer.writerow(row)
         out_fh.flush()
         prog_fh.flush()
 
@@ -298,7 +328,7 @@ def main() -> None:
 
     print(f"\nDone. {len(pending)} submissions processed, {total_rows} non-Unrelated rows written.")
     if errors:
-        print(f"  {errors} API errors — check progress CSV for gaps.")
+        print(f"  {errors} failed calls — logged to {FAILURES_CSV.name}; rerun to retry them.")
 
     # Summary by configuration
     if OUTPUT_CSV.exists():

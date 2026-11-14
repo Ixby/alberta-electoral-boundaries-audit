@@ -1,0 +1,384 @@
+{
+ "pages": "C:/tmp/a10test/fixture",
+ "snap": "C:/tmp/a10test/clean5_fixed",
+ "summary": {
+  "placed": 30,
+  "with_mismatch": 2,
+  "vas_lost": 0,
+  "vas_gained": 2
+ },
+ "districts": [
+  {
+   "ed": 4,
+   "vas": 56,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 28,
+   "vas": 56,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 33,
+   "vas": 40,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 42,
+   "vas": 29,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 45,
+   "vas": 51,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 46,
+   "vas": 50,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 48,
+   "vas": 53,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 52,
+   "vas": 51,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 53,
+   "vas": 46,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 54,
+   "vas": 53,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 58,
+   "vas": 53,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 60,
+   "vas": 52,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 61,
+   "vas": 59,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 62,
+   "vas": 46,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 67,
+   "vas": 65,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 68,
+   "vas": 55,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 69,
+   "vas": 58,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 71,
+   "vas": 64,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 72,
+   "vas": 39,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 73,
+   "vas": 55,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 74,
+   "vas": 70,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 76,
+   "vas": 72,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 79,
+   "vas": 58,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 80,
+   "vas": 61,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 81,
+   "vas": 50,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 1,
+   "gained_pop": 814.1317682622289,
+   "gained_ids": [
+    3814
+   ],
+   "gained_conf": {
+    "cut": 1
+   },
+   "gained_rep_point_to_page_m": [
+    3.1
+   ]
+  },
+  {
+   "ed": 84,
+   "vas": 56,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 85,
+   "vas": 49,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 1,
+   "gained_pop": 497.7930344496358,
+   "gained_ids": [
+    875
+   ],
+   "gained_conf": {
+    "cut": 1
+   },
+   "gained_rep_point_to_page_m": [
+    9.7
+   ]
+  },
+  {
+   "ed": 87,
+   "vas": 51,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 90,
+   "vas": 61,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  },
+  {
+   "ed": 91,
+   "vas": 58,
+   "lost": 0,
+   "lost_pop": 0.0,
+   "lost_to": {},
+   "gained": 0,
+   "gained_pop": 0.0,
+   "gained_ids": [],
+   "gained_conf": {},
+   "gained_rep_point_to_page_m": []
+  }
+ ]
+}

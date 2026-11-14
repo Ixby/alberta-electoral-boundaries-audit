@@ -1,0 +1,741 @@
+{
+ "plan": "preregistration/census_eligibility_check_2026-11-07.md",
+ "coverage": {
+  "das_in_profile": 6203,
+  "das_in_polygons": 6203,
+  "pop_2021_total": 4262635.0,
+  "share_pop_without_eligibility_figure": 0.0013,
+  "province_eligible_share": 0.6922
+ },
+ "reliable": true,
+ "majority": {
+  "scale_factor": 0.977,
+  "pop_2021_unplaced": 0.0,
+  "census_route_vs_overlay_mean_abs_pct": 2.1,
+  "miss_vs_electors": {
+   "stated_only": {
+    "all": 13.0,
+    "cities": 13.3,
+    "rest": 12.5
+   },
+   "with_census_eligibility": {
+    "all": 7.7,
+    "cities": 7.9,
+    "rest": 7.4
+   }
+  },
+  "named": {
+   "Calgary-North East": {
+    "electors_2026": 15036,
+    "stated_pop": 54541,
+    "overlay_2021": 28881,
+    "census_route_pop_2021": 27947.0,
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "citizens_18_plus_2021": 12735.0,
+    "expected_electors": 24685.0,
+    "left_over": 0.609,
+    "share_of_gap_explained": 0.554,
+    "under_15_share": 0.242,
+    "not_citizen_share": 0.297,
+    "immigrant_share": 0.591,
+    "non_permanent_share": 0.034,
+    "visible_minority_share": 0.861,
+    "south_asian_share": 0.488,
+    "chinese_share": 0.018,
+    "filipino_share": 0.125
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_2026": 20256,
+    "stated_pop": 55887,
+    "overlay_2021": 38535,
+    "census_route_pop_2021": 38941.0,
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "citizens_18_plus_2021": 17460.0,
+    "expected_electors": 24545.0,
+    "left_over": 0.825,
+    "share_of_gap_explained": 0.752,
+    "under_15_share": 0.243,
+    "not_citizen_share": 0.29,
+    "immigrant_share": 0.612,
+    "non_permanent_share": 0.05,
+    "visible_minority_share": 0.926,
+    "south_asian_share": 0.668,
+    "chinese_share": 0.004,
+    "filipino_share": 0.113
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_2026": 25846,
+    "stated_pop": 56661,
+    "overlay_2021": 45586,
+    "census_route_pop_2021": 45835.0,
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "citizens_18_plus_2021": 24680.0,
+    "expected_electors": 29869.0,
+    "left_over": 0.865,
+    "share_of_gap_explained": 0.672,
+    "under_15_share": 0.211,
+    "not_citizen_share": 0.238,
+    "immigrant_share": 0.533,
+    "non_permanent_share": 0.044,
+    "visible_minority_share": 0.793,
+    "south_asian_share": 0.475,
+    "chinese_share": 0.014,
+    "filipino_share": 0.102
+   }
+  },
+  "lowest_ratio": {
+   "Calgary-North East": {
+    "electors_2026": 15036,
+    "stated_pop": 54541,
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "left_over": 0.609,
+    "share_of_gap_explained": 0.554,
+    "not_citizen_share": 0.297,
+    "non_permanent_share": 0.034,
+    "visible_minority_share": 0.861
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_2026": 20256,
+    "stated_pop": 55887,
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "left_over": 0.825,
+    "share_of_gap_explained": 0.752,
+    "not_citizen_share": 0.29,
+    "non_permanent_share": 0.05,
+    "visible_minority_share": 0.926
+   },
+   "Edmonton-Meadows": {
+    "electors_2026": 22047,
+    "stated_pop": 56880,
+    "electors_per_stated": 0.388,
+    "eligible_share_2021": 0.473,
+    "left_over": 0.839,
+    "share_of_gap_explained": 0.739,
+    "not_citizen_share": 0.283,
+    "non_permanent_share": 0.056,
+    "visible_minority_share": 0.773
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_2026": 25846,
+    "stated_pop": 56661,
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "left_over": 0.865,
+    "share_of_gap_explained": 0.672,
+    "not_citizen_share": 0.238,
+    "non_permanent_share": 0.044,
+    "visible_minority_share": 0.793
+   },
+   "Edmonton-Windermere": {
+    "electors_2026": 25965,
+    "stated_pop": 56944,
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.562,
+    "left_over": 0.831,
+    "share_of_gap_explained": 0.572,
+    "not_citizen_share": 0.183,
+    "non_permanent_share": 0.023,
+    "visible_minority_share": 0.585
+   },
+   "Calgary-Buffalo": {
+    "electors_2026": 27429,
+    "stated_pop": 58777,
+    "electors_per_stated": 0.467,
+    "eligible_share_2021": 0.711,
+    "left_over": 0.672,
+    "share_of_gap_explained": -0.108,
+    "not_citizen_share": 0.232,
+    "non_permanent_share": 0.077,
+    "visible_minority_share": 0.456
+   },
+   "Edmonton-South": {
+    "electors_2026": 28631,
+    "stated_pop": 60775,
+    "electors_per_stated": 0.471,
+    "eligible_share_2021": 0.58,
+    "left_over": 0.831,
+    "share_of_gap_explained": 0.524,
+    "not_citizen_share": 0.185,
+    "non_permanent_share": 0.023,
+    "visible_minority_share": 0.586
+   },
+   "Fort McMurray-Lac La Biche": {
+    "electors_2026": 27475,
+    "stated_pop": 52847,
+    "electors_per_stated": 0.52,
+    "eligible_share_2021": 0.685,
+    "left_over": 0.777,
+    "share_of_gap_explained": 0.023,
+    "not_citizen_share": 0.088,
+    "non_permanent_share": 0.008,
+    "visible_minority_share": 0.215
+   },
+   "Edmonton-Beaumont": {
+    "electors_2026": 29261,
+    "stated_pop": 55802,
+    "electors_per_stated": 0.524,
+    "eligible_share_2021": 0.585,
+    "left_over": 0.918,
+    "share_of_gap_explained": 0.684,
+    "not_citizen_share": 0.142,
+    "non_permanent_share": 0.016,
+    "visible_minority_share": 0.451
+   },
+   "Calgary-Symons Valley": {
+    "electors_2026": 29871,
+    "stated_pop": 54797,
+    "electors_per_stated": 0.545,
+    "eligible_share_2021": 0.623,
+    "left_over": 0.896,
+    "share_of_gap_explained": 0.501,
+    "not_citizen_share": 0.141,
+    "non_permanent_share": 0.019,
+    "visible_minority_share": 0.622
+   },
+   "Calgary-South East": {
+    "electors_2026": 29472,
+    "stated_pop": 53551,
+    "electors_per_stated": 0.55,
+    "eligible_share_2021": 0.609,
+    "left_over": 0.925,
+    "share_of_gap_explained": 0.636,
+    "not_citizen_share": 0.103,
+    "non_permanent_share": 0.014,
+    "visible_minority_share": 0.343
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "electors_2026": 27411,
+    "stated_pop": 49615,
+    "electors_per_stated": 0.552,
+    "eligible_share_2021": 0.645,
+    "left_over": 0.877,
+    "share_of_gap_explained": 0.351,
+    "not_citizen_share": 0.075,
+    "non_permanent_share": 0.009,
+    "visible_minority_share": 0.246
+   }
+  },
+  "lowest_left_over": {
+   "Calgary-North East": {
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "left_over": 0.609,
+    "not_citizen_share": 0.297
+   },
+   "Calgary-Buffalo": {
+    "electors_per_stated": 0.467,
+    "eligible_share_2021": 0.711,
+    "left_over": 0.672,
+    "not_citizen_share": 0.232
+   },
+   "Fort McMurray-Lac La Biche": {
+    "electors_per_stated": 0.52,
+    "eligible_share_2021": 0.685,
+    "left_over": 0.777,
+    "not_citizen_share": 0.088
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "left_over": 0.825,
+    "not_citizen_share": 0.29
+   },
+   "Edmonton-South": {
+    "electors_per_stated": 0.471,
+    "eligible_share_2021": 0.58,
+    "left_over": 0.831,
+    "not_citizen_share": 0.185
+   },
+   "Edmonton-Windermere": {
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.562,
+    "left_over": 0.831,
+    "not_citizen_share": 0.183
+   },
+   "Edmonton-Meadows": {
+    "electors_per_stated": 0.388,
+    "eligible_share_2021": 0.473,
+    "left_over": 0.839,
+    "not_citizen_share": 0.283
+   },
+   "Calgary-Confluence": {
+    "electors_per_stated": 0.617,
+    "eligible_share_2021": 0.733,
+    "left_over": 0.861,
+    "not_citizen_share": 0.108
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "left_over": 0.865,
+    "not_citizen_share": 0.238
+   },
+   "Edmonton-Highlands-Norwood": {
+    "electors_per_stated": 0.639,
+    "eligible_share_2021": 0.747,
+    "left_over": 0.876,
+    "not_citizen_share": 0.105
+   }
+  },
+  "highest_left_over": {
+   "Grande Prairie-Wapiti": {
+    "electors_per_stated": 0.771,
+    "eligible_share_2021": 0.69,
+    "left_over": 1.144
+   },
+   "Cochrane-Springbank": {
+    "electors_per_stated": 0.801,
+    "eligible_share_2021": 0.715,
+    "left_over": 1.147
+   },
+   "St. Albert-Sturgeon": {
+    "electors_per_stated": 0.822,
+    "eligible_share_2021": 0.733,
+    "left_over": 1.148
+   },
+   "Strathcona-Sherwood Park": {
+    "electors_per_stated": 0.85,
+    "eligible_share_2021": 0.752,
+    "left_over": 1.156
+   },
+   "Okotoks-Diamond Valley": {
+    "electors_per_stated": 0.818,
+    "eligible_share_2021": 0.721,
+    "left_over": 1.161
+   },
+   "St. Albert": {
+    "electors_per_stated": 0.872,
+    "eligible_share_2021": 0.747,
+    "left_over": 1.195
+   }
+  },
+  "highest_visible_minority": {
+   "Edmonton-South": {
+    "visible_minority_share": 0.586,
+    "south_asian_share": 0.214,
+    "chinese_share": 0.095,
+    "filipino_share": 0.087,
+    "electors_per_stated": 0.471
+   },
+   "Calgary-Symons Valley": {
+    "visible_minority_share": 0.622,
+    "south_asian_share": 0.174,
+    "chinese_share": 0.131,
+    "filipino_share": 0.055,
+    "electors_per_stated": 0.545
+   },
+   "Calgary-North": {
+    "visible_minority_share": 0.668,
+    "south_asian_share": 0.155,
+    "chinese_share": 0.208,
+    "filipino_share": 0.067,
+    "electors_per_stated": 0.585
+   },
+   "Calgary-Cross": {
+    "visible_minority_share": 0.675,
+    "south_asian_share": 0.191,
+    "chinese_share": 0.035,
+    "filipino_share": 0.107,
+    "electors_per_stated": 0.577
+   },
+   "Edmonton-Meadows": {
+    "visible_minority_share": 0.773,
+    "south_asian_share": 0.572,
+    "chinese_share": 0.009,
+    "filipino_share": 0.099,
+    "electors_per_stated": 0.388
+   },
+   "Calgary-Falconridge-Conrich": {
+    "visible_minority_share": 0.793,
+    "south_asian_share": 0.475,
+    "chinese_share": 0.014,
+    "filipino_share": 0.102,
+    "electors_per_stated": 0.456
+   },
+   "Calgary-North East": {
+    "visible_minority_share": 0.861,
+    "south_asian_share": 0.488,
+    "chinese_share": 0.018,
+    "filipino_share": 0.125,
+    "electors_per_stated": 0.276
+   },
+   "Calgary-Bhullar-McCall": {
+    "visible_minority_share": 0.926,
+    "south_asian_share": 0.668,
+    "chinese_share": 0.004,
+    "filipino_share": 0.113,
+    "electors_per_stated": 0.362
+   }
+  }
+ },
+ "panel": {
+  "scale_factor": 0.9768,
+  "pop_2021_unplaced": 0.0,
+  "census_route_vs_overlay_mean_abs_pct": 2.6,
+  "miss_vs_electors": {
+   "stated_only": {
+    "all": 13.2,
+    "cities": 13.6,
+    "rest": 12.6
+   },
+   "with_census_eligibility": {
+    "all": 7.9,
+    "cities": 8.1,
+    "rest": 7.7
+   }
+  },
+  "named": {
+   "Calgary-North East": {
+    "electors_2026": 15036,
+    "stated_pop": 54541,
+    "overlay_2021": 28881,
+    "census_route_pop_2021": 27947.0,
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "citizens_18_plus_2021": 12735.0,
+    "expected_electors": 24680.0,
+    "left_over": 0.609,
+    "share_of_gap_explained": 0.554,
+    "under_15_share": 0.242,
+    "not_citizen_share": 0.297,
+    "immigrant_share": 0.591,
+    "non_permanent_share": 0.034,
+    "visible_minority_share": 0.861,
+    "south_asian_share": 0.488,
+    "chinese_share": 0.018,
+    "filipino_share": 0.125
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_2026": 20256,
+    "stated_pop": 55887,
+    "overlay_2021": 38535,
+    "census_route_pop_2021": 38941.0,
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "citizens_18_plus_2021": 17460.0,
+    "expected_electors": 24540.0,
+    "left_over": 0.825,
+    "share_of_gap_explained": 0.753,
+    "under_15_share": 0.243,
+    "not_citizen_share": 0.29,
+    "immigrant_share": 0.612,
+    "non_permanent_share": 0.05,
+    "visible_minority_share": 0.926,
+    "south_asian_share": 0.668,
+    "chinese_share": 0.004,
+    "filipino_share": 0.113
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_2026": 25846,
+    "stated_pop": 56661,
+    "overlay_2021": 45586,
+    "census_route_pop_2021": 45835.0,
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "citizens_18_plus_2021": 24680.0,
+    "expected_electors": 29863.0,
+    "left_over": 0.865,
+    "share_of_gap_explained": 0.672,
+    "under_15_share": 0.211,
+    "not_citizen_share": 0.238,
+    "immigrant_share": 0.533,
+    "non_permanent_share": 0.044,
+    "visible_minority_share": 0.793,
+    "south_asian_share": 0.475,
+    "chinese_share": 0.014,
+    "filipino_share": 0.102
+   }
+  },
+  "lowest_ratio": {
+   "Calgary-North East": {
+    "electors_2026": 15036,
+    "stated_pop": 54541,
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "left_over": 0.609,
+    "share_of_gap_explained": 0.554,
+    "not_citizen_share": 0.297,
+    "non_permanent_share": 0.034,
+    "visible_minority_share": 0.861
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_2026": 20256,
+    "stated_pop": 55887,
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "left_over": 0.825,
+    "share_of_gap_explained": 0.753,
+    "not_citizen_share": 0.29,
+    "non_permanent_share": 0.05,
+    "visible_minority_share": 0.926
+   },
+   "Edmonton-Meadows": {
+    "electors_2026": 20823,
+    "stated_pop": 53318,
+    "electors_per_stated": 0.391,
+    "eligible_share_2021": 0.473,
+    "left_over": 0.845,
+    "share_of_gap_explained": 0.747,
+    "not_citizen_share": 0.283,
+    "non_permanent_share": 0.056,
+    "visible_minority_share": 0.773
+   },
+   "Edmonton-Nisku": {
+    "electors_2026": 24775,
+    "stated_pop": 54521,
+    "electors_per_stated": 0.454,
+    "eligible_share_2021": 0.564,
+    "left_over": 0.825,
+    "share_of_gap_explained": 0.558,
+    "not_citizen_share": 0.202,
+    "non_permanent_share": 0.027,
+    "visible_minority_share": 0.619
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_2026": 25846,
+    "stated_pop": 56661,
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "left_over": 0.865,
+    "share_of_gap_explained": 0.672,
+    "not_citizen_share": 0.238,
+    "non_permanent_share": 0.044,
+    "visible_minority_share": 0.793
+   },
+   "Calgary-Buffalo": {
+    "electors_2026": 27429,
+    "stated_pop": 58777,
+    "electors_per_stated": 0.467,
+    "eligible_share_2021": 0.711,
+    "left_over": 0.672,
+    "share_of_gap_explained": -0.108,
+    "not_citizen_share": 0.232,
+    "non_permanent_share": 0.077,
+    "visible_minority_share": 0.456
+   },
+   "Edmonton-Windermere": {
+    "electors_2026": 25752,
+    "stated_pop": 54136,
+    "electors_per_stated": 0.476,
+    "eligible_share_2021": 0.576,
+    "left_over": 0.846,
+    "share_of_gap_explained": 0.56,
+    "not_citizen_share": 0.17,
+    "non_permanent_share": 0.024,
+    "visible_minority_share": 0.577
+   },
+   "Edmonton-South": {
+    "electors_2026": 28270,
+    "stated_pop": 57522,
+    "electors_per_stated": 0.491,
+    "eligible_share_2021": 0.578,
+    "left_over": 0.87,
+    "share_of_gap_explained": 0.596,
+    "not_citizen_share": 0.187,
+    "non_permanent_share": 0.023,
+    "visible_minority_share": 0.588
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "electors_2026": 25350,
+    "stated_pop": 46721,
+    "electors_per_stated": 0.543,
+    "eligible_share_2021": 0.644,
+    "left_over": 0.862,
+    "share_of_gap_explained": 0.333,
+    "not_citizen_share": 0.077,
+    "non_permanent_share": 0.009,
+    "visible_minority_share": 0.251
+   },
+   "Calgary-Symons Valley": {
+    "electors_2026": 29871,
+    "stated_pop": 54797,
+    "electors_per_stated": 0.545,
+    "eligible_share_2021": 0.623,
+    "left_over": 0.896,
+    "share_of_gap_explained": 0.502,
+    "not_citizen_share": 0.141,
+    "non_permanent_share": 0.019,
+    "visible_minority_share": 0.622
+   },
+   "Calgary-South East": {
+    "electors_2026": 29472,
+    "stated_pop": 53551,
+    "electors_per_stated": 0.55,
+    "eligible_share_2021": 0.609,
+    "left_over": 0.926,
+    "share_of_gap_explained": 0.637,
+    "not_citizen_share": 0.103,
+    "non_permanent_share": 0.014,
+    "visible_minority_share": 0.343
+   },
+   "Fort McMurray-Lac La Biche": {
+    "electors_2026": 26126,
+    "stated_pop": 47304,
+    "electors_per_stated": 0.552,
+    "eligible_share_2021": 0.674,
+    "left_over": 0.838,
+    "share_of_gap_explained": 0.113,
+    "not_citizen_share": 0.09,
+    "non_permanent_share": 0.008,
+    "visible_minority_share": 0.228
+   }
+  },
+  "lowest_left_over": {
+   "Calgary-North East": {
+    "electors_per_stated": 0.276,
+    "eligible_share_2021": 0.463,
+    "left_over": 0.609,
+    "not_citizen_share": 0.297
+   },
+   "Calgary-Buffalo": {
+    "electors_per_stated": 0.467,
+    "eligible_share_2021": 0.711,
+    "left_over": 0.672,
+    "not_citizen_share": 0.232
+   },
+   "Calgary-Bhullar-McCall": {
+    "electors_per_stated": 0.362,
+    "eligible_share_2021": 0.45,
+    "left_over": 0.825,
+    "not_citizen_share": 0.29
+   },
+   "Edmonton-Nisku": {
+    "electors_per_stated": 0.454,
+    "eligible_share_2021": 0.564,
+    "left_over": 0.825,
+    "not_citizen_share": 0.202
+   },
+   "Fort McMurray-Lac La Biche": {
+    "electors_per_stated": 0.552,
+    "eligible_share_2021": 0.674,
+    "left_over": 0.838,
+    "not_citizen_share": 0.09
+   },
+   "Edmonton-Meadows": {
+    "electors_per_stated": 0.391,
+    "eligible_share_2021": 0.473,
+    "left_over": 0.845,
+    "not_citizen_share": 0.283
+   },
+   "Edmonton-Windermere": {
+    "electors_per_stated": 0.476,
+    "eligible_share_2021": 0.576,
+    "left_over": 0.846,
+    "not_citizen_share": 0.17
+   },
+   "Calgary-Confluence": {
+    "electors_per_stated": 0.617,
+    "eligible_share_2021": 0.733,
+    "left_over": 0.861,
+    "not_citizen_share": 0.108
+   },
+   "Fort McMurray-Wood Buffalo": {
+    "electors_per_stated": 0.543,
+    "eligible_share_2021": 0.644,
+    "left_over": 0.862,
+    "not_citizen_share": 0.077
+   },
+   "Calgary-Falconridge-Conrich": {
+    "electors_per_stated": 0.456,
+    "eligible_share_2021": 0.54,
+    "left_over": 0.865,
+    "not_citizen_share": 0.238
+   }
+  },
+  "highest_left_over": {
+   "Rocky Mountain House-Sundre": {
+    "electors_per_stated": 0.846,
+    "eligible_share_2021": 0.758,
+    "left_over": 1.143
+   },
+   "Grande Prairie-Wapiti": {
+    "electors_per_stated": 0.771,
+    "eligible_share_2021": 0.69,
+    "left_over": 1.144
+   },
+   "Calgary-North West-Bearspaw": {
+    "electors_per_stated": 0.77,
+    "eligible_share_2021": 0.685,
+    "left_over": 1.15
+   },
+   "Strathcona-Sherwood Park": {
+    "electors_per_stated": 0.85,
+    "eligible_share_2021": 0.752,
+    "left_over": 1.156
+   },
+   "Okotoks": {
+    "electors_per_stated": 0.818,
+    "eligible_share_2021": 0.713,
+    "left_over": 1.174
+   },
+   "St. Albert": {
+    "electors_per_stated": 0.872,
+    "eligible_share_2021": 0.747,
+    "left_over": 1.195
+   }
+  },
+  "highest_visible_minority": {
+   "Edmonton-Nisku": {
+    "visible_minority_share": 0.619,
+    "south_asian_share": 0.379,
+    "chinese_share": 0.014,
+    "filipino_share": 0.096,
+    "electors_per_stated": 0.454
+   },
+   "Calgary-Symons Valley": {
+    "visible_minority_share": 0.622,
+    "south_asian_share": 0.174,
+    "chinese_share": 0.131,
+    "filipino_share": 0.055,
+    "electors_per_stated": 0.545
+   },
+   "Calgary-North": {
+    "visible_minority_share": 0.668,
+    "south_asian_share": 0.155,
+    "chinese_share": 0.208,
+    "filipino_share": 0.067,
+    "electors_per_stated": 0.585
+   },
+   "Calgary-Cross": {
+    "visible_minority_share": 0.675,
+    "south_asian_share": 0.191,
+    "chinese_share": 0.035,
+    "filipino_share": 0.107,
+    "electors_per_stated": 0.577
+   },
+   "Edmonton-Meadows": {
+    "visible_minority_share": 0.773,
+    "south_asian_share": 0.572,
+    "chinese_share": 0.009,
+    "filipino_share": 0.099,
+    "electors_per_stated": 0.391
+   },
+   "Calgary-Falconridge-Conrich": {
+    "visible_minority_share": 0.793,
+    "south_asian_share": 0.475,
+    "chinese_share": 0.014,
+    "filipino_share": 0.102,
+    "electors_per_stated": 0.456
+   },
+   "Calgary-North East": {
+    "visible_minority_share": 0.861,
+    "south_asian_share": 0.488,
+    "chinese_share": 0.018,
+    "filipino_share": 0.125,
+    "electors_per_stated": 0.276
+   },
+   "Calgary-Bhullar-McCall": {
+    "visible_minority_share": 0.926,
+    "south_asian_share": 0.668,
+    "chinese_share": 0.004,
+    "filipino_share": 0.113,
+    "electors_per_stated": 0.362
+   }
+  }
+ }
+}

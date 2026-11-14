@@ -336,11 +336,18 @@
 
 	/* Honeypot: removed from layout and the accessibility tree, off the tab order. */
 	.hp {
+		/* No off-screen offset: in right-to-left pages a large negative left
+		   becomes scrollable width. Clip in place instead. */
 		position: absolute;
-		left: -9999px;
+		inset-inline-start: 0;
 		width: 1px;
 		height: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
 		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
 	}
 
 	.error {

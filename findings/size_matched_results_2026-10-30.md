@@ -9,6 +9,8 @@
 
 # Size-matched neutral maps: first results
 
+**Where the chains are.** Most of the chain sample files behind these results are not on this branch: only k89 chain 100 and k91 chain 201 are committed here. The rest are on branch `amendment17-local-runs` (`data/simulation_checkpoints_k89/`, `data/simulation_checkpoints_k91/`, as `.csv.gz`), so the results cannot be recomputed from this branch alone.
+
 **Date:** 2026-10-30 19:10 MDT (Alberta time). **Status:** provisional under the rule in Amendment 5, Part 16, as explained below.
 
 ## What was run

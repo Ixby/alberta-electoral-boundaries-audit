@@ -1,0 +1,29 @@
+{
+  "candidate_label": "iap_2026_assembled",
+  "structural_verdict": "not_replicated",
+  "structural_lane_flags": 2,
+  "structural_lane_unexecuted": 0,
+  "partisan_verdict": "absent",
+  "partisan_detail": {
+    "flags": {
+      "P1_EG": false,
+      "P2_MM": false,
+      "P3_DECL": false,
+      "P4_S50": true
+    },
+    "n_flags": 1,
+    "ucp_direction_percentiles": {
+      "mean_median": 0.196615,
+      "declination": 0.52432,
+      "seats_at_50_50": 0.988029
+    },
+    "P3_ndp_direction_tail": false
+  },
+  "combined_verdict": [
+    "not_replicated",
+    "absent"
+  ],
+  "headline_to_publish": "Lunty map breaks from the minority-style signature on both the structural and partisan-bias lanes.",
+  "publishable_72h": true,
+  "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md"
+}

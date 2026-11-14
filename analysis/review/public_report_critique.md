@@ -1,3 +1,5 @@
+> **AI-generated critique (persona prompt), not human reviewers.** Produced by an AI tool on 2026-04-23. "Marion" and "Declan" are prompt personas, not real people.
+
 > **Backward:**
 > - `reports/public/report_public.md` — the public-facing feature under critique
 >

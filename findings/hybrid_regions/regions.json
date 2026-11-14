@@ -1,0 +1,209 @@
+{
+ "Airdrie": {
+  "cities": [
+   "4806021"
+  ],
+  "districts": [
+   "Airdrie-East",
+   "Airdrie-West",
+   "Calgary-Bhullar-McCall",
+   "Calgary-Falconridge-Conrich",
+   "Calgary-North East",
+   "Calgary-Nose Creek",
+   "Chestermere-Strathmore",
+   "Olds-Didsbury-Three Hills"
+  ],
+  "hybrids": [
+   "Airdrie-East"
+  ],
+  "n_vas": 327
+ },
+ "Calgary": {
+  "cities": [
+   "4806016"
+  ],
+  "districts": [
+   "Banff-Canmore-Diamond Valley",
+   "Calgary-Bow-Springbank",
+   "Calgary-Currie",
+   "Calgary-Glenmore-Tsuut'ina",
+   "Calgary-North West-Bearspaw",
+   "Calgary-Varsity",
+   "Calgary-West-Springbank",
+   "Cochrane"
+  ],
+  "hybrids": [
+   "Calgary-Bow-Springbank",
+   "Calgary-West-Springbank"
+  ],
+  "n_vas": 428
+ },
+ "Chestermere": {
+  "cities": [
+   "4806017"
+  ],
+  "districts": [
+   "Airdrie-East",
+   "Calgary-East",
+   "Calgary-Falconridge-Conrich",
+   "Calgary-Hays",
+   "Calgary-South East",
+   "Chestermere-Strathmore",
+   "Lethbridge-Little Bow",
+   "Okotoks",
+   "Olds-Didsbury-Three Hills"
+  ],
+  "hybrids": [
+   "Chestermere-Strathmore"
+  ],
+  "n_vas": 448
+ },
+ "Edmonton": {
+  "cities": [
+   "4811061"
+  ],
+  "districts": [
+   "Camrose",
+   "Drayton Valley-Devon",
+   "Edmonton-Ellerslie",
+   "Edmonton-Enoch",
+   "Edmonton-McClung",
+   "Edmonton-Meadows",
+   "Edmonton-Mill Woods",
+   "Edmonton-Nisku",
+   "Edmonton-South",
+   "Edmonton-West Henday",
+   "Edmonton-Windermere",
+   "Leduc-Beaumont",
+   "Spruce Grove",
+   "Strathcona-Sherwood Park"
+  ],
+  "hybrids": [
+   "Edmonton-Enoch",
+   "Edmonton-Nisku"
+  ],
+  "n_vas": 689
+ },
+ "Fort Saskatchewan": {
+  "cities": [
+   "4811056"
+  ],
+  "districts": [
+   "Barrhead-Westlock-Athabasca",
+   "Camrose",
+   "Cold Lake-Bonnyville-St. Paul",
+   "Edmonton-Manning",
+   "Fort Saskatchewan-Vegreville",
+   "Lloydminster-Wainwright",
+   "Morinville-Sturgeon",
+   "Strathcona-Sherwood Park"
+  ],
+  "hybrids": [
+   "Fort Saskatchewan-Vegreville"
+  ],
+  "n_vas": 465
+ },
+ "Grande Prairie": {
+  "cities": [
+   "4819012"
+  ],
+  "districts": [
+   "Central Peace-Notley",
+   "Grande Prairie",
+   "Grande Prairie-Wapiti",
+   "West Yellowhead"
+  ],
+  "hybrids": [
+   "Grande Prairie-Wapiti"
+  ],
+  "n_vas": 224
+ },
+ "Lethbridge": {
+  "cities": [
+   "4802012"
+  ],
+  "districts": [
+   "Banff-Canmore-Diamond Valley",
+   "Lethbridge",
+   "Lethbridge-Cardston",
+   "Lethbridge-Little Bow",
+   "Lethbridge-Taber-Warner",
+   "Macleod-Crowsnest",
+   "Okotoks",
+   "Olds-Didsbury-Three Hills"
+  ],
+  "n_vas": 462
+ },
+ "Medicine Hat": {
+  "cities": [
+   "4801006"
+  ],
+  "districts": [
+   "Drumheller-Stettler",
+   "Lethbridge-Little Bow",
+   "Lethbridge-Taber-Warner",
+   "Medicine Hat-Brooks",
+   "Medicine Hat-Cypress",
+   "Olds-Didsbury-Three Hills"
+  ],
+  "hybrids": [
+   "Medicine Hat-Brooks",
+   "Medicine Hat-Cypress"
+  ],
+  "n_vas": 353
+ },
+ "St. Albert": {
+  "cities": [
+   "4811062"
+  ],
+  "districts": [
+   "Barrhead-Westlock-Athabasca",
+   "Edmonton-Castle Downs",
+   "Edmonton-Manning",
+   "Edmonton-North West",
+   "Edmonton-West Henday",
+   "Fort Saskatchewan-Vegreville",
+   "Lac Ste. Anne",
+   "Morinville-Sturgeon",
+   "Spruce Grove",
+   "St. Albert"
+  ],
+  "hybrids": [
+   "Morinville-Sturgeon"
+  ],
+  "n_vas": 546
+ },
+ "Spruce Grove": {
+  "cities": [
+   "4811049"
+  ],
+  "districts": [
+   "Drayton Valley-Devon",
+   "Edmonton-Enoch",
+   "Edmonton-West Henday",
+   "Lac Ste. Anne",
+   "Morinville-Sturgeon",
+   "Spruce Grove"
+  ],
+  "hybrids": [
+   "Spruce Grove"
+  ],
+  "n_vas": 324
+ },
+ "Leduc and Beaumont": {
+  "cities": [
+   "4811013",
+   "4811016"
+  ],
+  "districts": [
+   "Camrose",
+   "Drayton Valley-Devon",
+   "Edmonton-Nisku",
+   "Leduc-Beaumont"
+  ],
+  "hybrids": [
+   "Leduc-Beaumont"
+  ],
+  "n_vas": 207
+ }
+}

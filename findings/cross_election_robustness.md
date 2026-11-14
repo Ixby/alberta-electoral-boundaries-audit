@@ -72,6 +72,6 @@ The 338 cross-check therefore shows the *minority-versus-majority asymmetry dire
 
 ## Data and reproduction
 
-  - Per-map per-year metrics: `data/cross_election_per_map.csv` (6 rows: 2 maps × 3 elections) and `.json`.
+  - Per-map per-year metrics: `data/outputs/cross_election_per_map.csv` (6 rows: 2 maps × 3 elections) and `.json`.
   - Script: `analysis/scripts/cross_election.py`.
   - Total runtime: ~11 minutes (dominated by 2015/2019 area-overlap into 89 v0_9 polygons × 87 2019 polygons; 2023 VA-centroid join is ~0.1 s).

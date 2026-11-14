@@ -9,8 +9,11 @@ election-day rows, which represent 381,932 NDP votes and are the only votes that
 can be honestly attributed to a specific geographic voting area.
 
 Where a polling station serves multiple VAs (e.g., voting_areas = "001,002,003"),
-votes are split equally across those VAs. This is the only defensible split given
-EA publishes no within-station geographic breakdown.
+votes are split equally across those VAs. This is one defensible split, given that
+EA publishes no within-station geographic breakdown; it is not the only one. The
+repo holds a 2021 population for every VA (data/va_pop_from_das.csv), and splitting
+each station's votes by VA population instead is an alternative that moves
+votes between VAs and can change seat counts; no committed script computes it.
 
 Backward:
   data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.shp

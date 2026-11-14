@@ -15,7 +15,9 @@ OSF -> repo: every registration, update, file and response text on the OSF
 must match the ledger. Anything on the OSF the ledger does not hold is red.
 Repo -> OSF:
   - every ledger entry must exist on the OSF as recorded;
-  - every amendment heading in the log must be recorded as filed;
+  - every amendment heading in the log must be recorded as filed (the
+    heading only: the log's amendment text is not compared with the OSF text
+    or with the SHA-256 in the ledger's notes);
   - every OSF id cited in tracked source text must be in the ledger and public;
   - every "pending"/"to be filed" OSF claim in preregistration/ and the
     amendment log stays red until resolved.

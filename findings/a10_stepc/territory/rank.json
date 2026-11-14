@@ -1,0 +1,38 @@
+{
+ "map": "C:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/wt-osf/data/shapefiles/iap_assembled/iap_2026_assembled.gpkg",
+ "observed": {
+  "eg": 0.014450484781240353,
+  "mean_median": -0.025280959699557015,
+  "declination": 0.0035407619772926105,
+  "ucp_seats": 58,
+  "n_districts": 91,
+  "drain": 0.004411669818390756,
+  "drain_shuffle_p": 0.0
+ },
+ "n_ref_plans": 1440,
+ "eg": {
+  "observed": 0.014450484781240353,
+  "p_two_sided": 0.6652777777777777,
+  "null_mean": 0.011395836108521414
+ },
+ "drain": {
+  "observed": 0.004411669818390756,
+  "p_two_sided": 0.5972222222222222,
+  "null_mean": 0.008467113498390608
+ },
+ "mean_median": {
+  "observed": -0.025280959699557015,
+  "p_two_sided": 0.06388888888888888,
+  "null_mean": -0.005013217525545561
+ },
+ "declination": {
+  "observed": 0.0035407619772926105,
+  "p_two_sided": 0.8180555555555555,
+  "null_mean": 0.0016436815801449019
+ },
+ "ucp_seats": {
+  "observed": 58,
+  "p_two_sided": 1.0,
+  "null_mean": 58.114583333333336
+ }
+}

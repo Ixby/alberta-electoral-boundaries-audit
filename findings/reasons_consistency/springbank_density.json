@@ -1,0 +1,41 @@
+{
+ "Calgary-Bow-Springbank": {
+  "inside_calgary": {
+   "pop": 48108,
+   "km2": 32.3,
+   "per_km2": 1488.5
+  },
+  "outside_calgary": {
+   "pop": 2600,
+   "km2": 61.4,
+   "per_km2": 42.4
+  }
+ },
+ "Calgary-West-Springbank": {
+  "inside_calgary": {
+   "pop": 45572,
+   "km2": 23.9,
+   "per_km2": 1905.0
+  },
+  "outside_calgary": {
+   "pop": 7628,
+   "km2": 112.3,
+   "per_km2": 67.9
+  }
+ },
+ "Calgary-North West-Bearspaw": {
+  "inside_calgary": {
+   "pop": 47449,
+   "km2": 26.2,
+   "per_km2": 1809.7
+  },
+  "outside_calgary": {
+   "pop": 292,
+   "km2": 5.1,
+   "per_km2": 57.0
+  }
+ },
+ "Calgary_city": {
+  "per_km2": 1541.9
+ }
+}

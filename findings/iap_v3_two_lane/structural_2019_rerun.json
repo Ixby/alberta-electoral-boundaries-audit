@@ -1,0 +1,50 @@
+{
+  "candidate_label": "enacted_2019",
+  "candidate_shapefile": "C:\\Users\\email\\AppData\\Local\\Temp\\claude\\C--Users-email-Documents-Claude-Projects-Electoral-Boundary-Analysis\\26c04d15-c70f-413d-b6ce-a8497f3b3cfe\\scratchpad\\e2019\\enacted_2019.gpkg",
+  "executed_at_utc": "2026-11-06T09:56:25Z",
+  "drand_round_at_execution": null,
+  "metrics": {
+    "S1_population_mad": {
+      "value": 3084.7796441720275,
+      "threshold": 3382.5,
+      "flag": false
+    },
+    "S2_municipal_split_count": {
+      "value": 19,
+      "threshold": 26.5,
+      "flag": false
+    },
+    "S3_anchoring_score": {
+      "value": 0.7508584324737533,
+      "threshold": 0.7601,
+      "canadian_norm_band": [
+        0.7,
+        0.85
+      ],
+      "flag": true
+    },
+    "S4_polsby_popper_median": {
+      "value": 0.3994456394604435,
+      "threshold": null,
+      "flag": false,
+      "non_discriminating": true,
+      "_note": "measured but EXCLUDED from the flag count: median PP is identical on both commission maps (0.4366) and tail stats run the wrong way (monograph H3). Reported for transparency."
+    },
+    "S5_drain_score": {
+      "drain_score": 0.0015295254480468803,
+      "threshold": 0.0039018,
+      "direction": "minority side = below midpoint",
+      "flag": true
+    },
+    "S6_chair_flag_replication": {
+      "patterns_reproduced": [],
+      "patterns_count_discriminating": 0,
+      "threshold": 2.5,
+      "flag": false
+    }
+  },
+  "structural_lane_flags": 2,
+  "structural_lane_unexecuted": 0,
+  "structural_lane_verdict": "not_replicated",
+  "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md"
+}

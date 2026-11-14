@@ -1,3 +1,5 @@
+**Which neutral maps, and which tests.** These rates belong to set D, whose plans are balanced only to the statute's ±25% band. On the canonical ensemble, balanced to ±12.5% (the registered reference ensemble, 87 districts), S1 fires on 25.34% of plans (255,934 of 1,010,000; Amendment 5, Part 7), not 100%. The tests calibrated here are the November battery's (S1 to S6). They are not the five structural comparisons of the commission-map audit, four of which measure the minority against the majority and so cannot be failed by the majority. S4 is measured but excluded from the flag count, so its 0.0% row is not a measured firing rate.
+
 | Measure | Neutral plans that fire |
 |---|---|
 | S1_population_mad | 100.0% (200 of 200; 95% interval 98.1–100.0%) |

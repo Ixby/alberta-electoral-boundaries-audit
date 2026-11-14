@@ -1,0 +1,13 @@
+{
+ "variant": "blind",
+ "chain": 3,
+ "generator": "findings/six_signals/regional_south.py run()",
+ "seed_salt": "regional_south_3",
+ "seed": 4139097275,
+ "total_steps": 50000,
+ "burn_in_discarded_within": 1000,
+ "plans_kept": 49000,
+ "epsilon": 0.25,
+ "districts": 8,
+ "n_vas": 462
+}

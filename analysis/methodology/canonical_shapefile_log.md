@@ -1,23 +1,23 @@
 ---
 name: Canonical shapefile log
-description: Provenance of official Elections Alberta shapefiles, EA GIS correspondence, and reconciliation of which findings have been recomputed on canonical geometry vs. DPG-era estimates.
+description: Provenance of official Elections Alberta shapefiles, a summary of what was requested and received, and reconciliation of which findings have been recomputed on canonical geometry vs. DPG-era estimates.
 type: reference
 ---
 
 > **Backward:**
-> - Elections Alberta GIS (Raymond Mok, 2026-05-06) — source of canonical shapefiles
+> - Elections Alberta (files received on request, 2026-05-06) — source of canonical shapefiles
 > - `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg`, `va_2023_election_day_votes.gpkg` — files documented here
 > - `data/provenance_manifest.json` — provenance manifest
 >
 > **Forward:**
 > - `analysis/scripts/mcmc_ensemble_canonical.py`, `joint_outlier_score_canonical.py`, `szat.py` — consume canonical shapefiles
-> - `reports/academic/report_academic.md` §4.1.4, §7 (Acknowledgments) — cites EA GIS correspondence and shapefile receipt
+> - `reports/academic/report_academic.md` §4.1.4, §7 (Acknowledgments) — cites the shapefile receipt
 
 # Canonical Shapefile Log
 
 ## 1. Shapefile receipt
 
-Official Elections Alberta shapefiles were received on **2026-05-06** in response to a formal research access request submitted by the author. The package contained:
+Official Elections Alberta shapefiles were received from Elections Alberta on request on **2026-05-06**. The package contained:
 
 **CRS provenance correction (re-verified 2026-06-12 per T1.7 R2 Ref #10 against pyproj/EPSG registry directly):**
 
@@ -37,7 +37,7 @@ Also corrected: `report_academic.md:121` still claims "Alberta 3TM, EPSG:3776" �
 | `ea_minority_2026_eds.gpkg` | EPSG:3400 (Alberta 10-TM Forest) | 89 | Commission minority map |
 | `va_2023_election_day_votes.gpkg` | EPSG:3400 | 4,765 VAs | 2023 VA polygons with election-day vote columns |
 
-Files are stored at `data/shapefiles/canonical/`. They are tracked via Git LFS. SHA-256 hashes are recorded in `data/provenance_manifest.json` (relative path keys `outputs/…`; shapefiles not yet hashed in the manifest — add when needed).
+Files are stored at `data/shapefiles/canonical/`. They are tracked via Git LFS. `data/provenance_manifest.json` covers derived outputs only. The shapefiles' SHA-256 hashes are in §2.1 below; the two commission-map files are also pinned in `analysis/utils/canonical_manifest.py`.
 
 The §4.1.4 sunset clause was triggered on receipt and resolved in two stages:
 
@@ -46,59 +46,40 @@ The §4.1.4 sunset clause was triggered on receipt and resolved in two stages:
 
 The sunset-clause window itself was originally posted as 48 hours and relaxed to two weeks on 2026-04-26 (recorded in Amendment 5, Part 2); the disclosed reason (solo researcher without monitoring automation) is in the replaced entry's text at commit `ca539bc4` of `findings/pre_registration_amendment_log.md`. The clause is **in-repo discipline, not externally pre-registered** — the four OSF dossiers contain `dpg2_experiment_plan.md` + `drain_v2_plan.md`; neither specifies a timeline.
 
-The November 2026 committee-map trigger remains open pending the report of the Select Special Committee on Electoral Boundaries (the Lunty committee). Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release (the earlier Bucket C wording is superseded; see Amendment 5, Part 11).
+The committee gave the panel's report to the Assembly on 2026-11-02. No official shapefile of the panel's map has been posted, so the November scoring so far uses the audit's reconstruction and is provisional (`findings/a10_stepc/README.md`). Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release (the earlier Bucket C wording is superseded; see Amendment 5, Part 11).
 
 ---
 
-## 2. EA GIS correspondence
+## 2. Elections Alberta correspondence (summary)
 
-### 2.1 Research access request and shapefile receipt
+The correspondence itself is private and is not reproduced here. This section records only what was asked, what was received, and what the audit relies on.
 
-A formal research access request was submitted to Elections Alberta. **Raymond Mok** (Geomatics Team Lead, Elections Alberta) responded on **2026-05-06**, attached both shapefiles, and asked to receive the findings when complete. The author confirmed this arrangement on the same date.
+### 2.1 Request and receipt
 
-Raymond Mok should be acknowledged in §7 (Acknowledgments) for providing data access and answering technical questions. Acknowledgment does not imply EA endorsement of findings.
+- **Requested.** The author asked Elections Alberta for the digital boundary files of the commission's majority and minority maps.
+- **Received, 2026-05-06.** Elections Alberta's geomatics staff replied on that date with both boundary files, and asked to be sent the findings when complete. The files were received from Elections Alberta on request. They are not posted on Elections Alberta's maps page, so this repository's copies cannot be checked against a public download.
+- **Files and hashes (SHA-256, as committed):**
 
-### 2.2 Technical questions — responded 2026-05-07
+| File | SHA-256 |
+|---|---|
+| `ea_majority_2026_eds.gpkg` | `5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160` |
+| `ea_minority_2026_eds.gpkg` | `82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897` |
+| `va_2023_election_day_votes.gpkg` | `9d9a08a0f9b99f07d158dcc7a14a57445ff32be065088587acd6713e5d7f51a5` |
 
-Following shapefile receipt, the author submitted four technical methodology questions to Raymond Mok on 2026-05-07. His responses are reproduced below verbatim (from email thread, wconn161@mtroyal.ca ↔ Raymond.Mok@elections.ab.ca, 2026-05-07 3:17 PM) and annotated with their methodological implications.
+The hashes are of the committed `.gpkg` files (their Git LFS object ids; the two commission-map files are also pinned in `analysis/utils/canonical_manifest.py`). The package as delivered was not archived, so the hashes show the committed files are unchanged since commit, not that they are the delivered bytes.
 
-A follow-up exchange on 2026-05-11 through 2026-05-13 concerned the population estimate used for Airdrie in the commission reports. The author resolved the question independently; Raymond confirmed with "#teamwork."
+Receipt of the files does not imply that Elections Alberta endorses any finding.
 
----
+### 2.2 Technical questions, 2026-05-07
 
-**Q1: Do you have voting area polygons for the proposed 2026 ED boundaries?**
+On 2026-05-07 the author put four technical questions to Elections Alberta's geomatics staff and received answers the same day. In summary:
 
-> *"We do not have any of the voting areas for the next set of ED boundaries. This is due to the government has formed a Select Special Committee to review the ED boundaries. Their report will be submitted to the Legislature by Nov 2. You can find more information on the Legislative Assembly of Alberta website: https://www.assembly.ab.ca/assembly-business/committees/ceb"*
+1. **Voting areas for the 2026 boundaries.** None exist yet, because the boundaries were under review by the Select Special Committee. The audit therefore assigns the 2023 voting areas (`va_2023_election_day_votes.gpkg`) to the 2026 divisions by centroid. No official dataset exists to check that assignment against.
+2. **2023 results.** The source is Elections Alberta's published general-election reports, the Statement of Vote the audit already uses.
+3. **Population data.** Elections Alberta did not supply the commission's population data. The audit uses 2021 dissemination-area populations (`data/va_pop_from_das.csv`). Elections Alberta has not confirmed the audit's computed values and has not endorsed its method.
+4. **Municipal boundaries and communities of interest.** Elections Alberta's municipal boundaries come from the Alberta open-data municipal boundary dataset, the same public source the audit's anchoring analysis uses (`score_anchoring.py`). No GIS dataset of communities of interest was named. The audit draws no conclusion about how the commission worked from this exchange.
 
-**Implication.** EA has not constructed 2026 VA polygons because the Lunty committee may redraw the boundaries before they take effect. This confirms that the audit's approach — using the 2023 VA polygons (`va_2023_election_day_votes.gpkg`) with a centroid-in-polygon spatial join to the 2026 ED boundaries — is the correct and only available methodology. There is no alternative dataset against which to validate or replace this attribution method.
-
----
-
-**Q2: 2023 election results source.**
-
-> *"You can find the information regarding to the 2023 Provincial General Election here: https://www.elections.ab.ca/resources/reports/general-elections/."*
-
-**Implication.** Confirms the canonical citation for the 2023 Statement of Vote already used in the audit. No change required.
-
----
-
-**Q3: Population data used by the commission.**
-
-> *"I am not sure if I am allowed to share the population data. But I can say that your method sounds reasonable for your study."*
-
-**Implication.** EA staff confirmed the population estimation methodology is reasonable without endorsing the specific computed values. The audit uses 2021 DA-weighted population sums (`data/va_pop_from_das.csv`) as the population substrate for the VA polygons. EA could not confirm or deny the commission's own per-ED population figures. This informal confirmation is noted here as methodological corroboration; it is not a formal EA endorsement and should not be cited as such. Phrasing for §4: *"The population estimation methodology was described to Elections Alberta GIS staff, who noted it was reasonable for the study's purposes (informal communication, 2026-05)."*
-
----
-
-**Q4: Municipal boundary and communities-of-interest data sources.**
-
-> *"In terms of the municipal boundaries, we do use the most up-to-date dataset from Alberta OpenData. As for 'Communities of Interest', we used the ESRI and Google basemaps for references. This is mainly because EBC members learned more about the areas from their knowledge and public hearings."*
-
-**Implications (two):**
-
-1. **Municipal boundaries.** EA uses the current Alberta OpenData municipal boundary dataset — the same publicly available source used in this audit's municipal anchoring analysis (`score_anchoring.py`). The scoring baseline and the commission's baseline are identical. This is a methodological alignment, not a coincidence.
-
-2. **Communities of interest.** The commission had no formal GIS protocol for communities-of-interest determinations. The methodology was judgment-based (EBC member local knowledge + public hearing input), supplemented by commercial basemaps (ESRI, Google) rather than a canonical GIS dataset. This is relevant to the Airdrie split analysis (§5.3) and the NW Calgary zone classification (§5.1): neither has a single authoritative spatial definition, so the commission's community-of-interest determinations in those areas reflect discretionary judgment calls, not a reproducible geographic rule.
+A further exchange from 2026-05-11 to 2026-05-13 concerned the population figure used for Airdrie in the commission's reports. The author resolved the question from public sources.
 
 ---
 
@@ -116,7 +97,7 @@ The table below records which findings have been recomputed on official EA shape
 | NE/central Calgary zone asymmetry (A2) *(zone label corrected 2026-07-08; previously logged as "NW" — the classified zone is NE/central per `findings/population_equality.md` §A2)* | 5.1 | Canonical EA shapefiles | **[C]** majority +2.8%, minority +11.5% |
 | Airdrie split count | 5.3 | Canonical EA shapefiles | **[C]** majority 2 EDs, minority 4 EDs |
 | MCMC ensemble (B5) | 5.4.9 | Canonical EA shapefiles | **[C]** 1,010,000 plans, 4 chains × 252,500 steps |
-| SZAT (Ch2) | 5.2.10 | Canonical EA shapefiles | **[C]** p=0.0024 |
+| SZAT (Ch2) | 5.2.10 | Canonical EA shapefiles | **[C]** p=0.0024 on the i.i.d. null, one-tailed; exploratory only, p=0.19 on the component-block null (`findings/szat_block_permutation.md`) |
 | Mahalanobis D² (Ch1) | 5.4.9 | Canonical EA shapefiles | **[C]** p < 0.00001 |
 | Fisher combination | 5.5 | Both canonical | **[C]** p=4.61×10⁻⁸ (later retired 2026-06-10) |
 | Population MAD ensemble | 5.4.9 | Canonical EA shapefiles | **[C]** minority p99.1, majority p15.8 |

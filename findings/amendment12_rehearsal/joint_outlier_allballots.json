@@ -1,0 +1,104 @@
+{
+  "map_key": "iap_2026_assembled",
+  "real_scores": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\findings\\amendment12_rehearsal\\iap_assembled_phase4c_allballots.json",
+  "ensemble": "simulated_ensemble_raw_samples_allballots.csv",
+  "ensemble_rows": 1010000,
+  "maps": {
+    "candidate": {
+      "mahalanobis_distance": 1.8263,
+      "joint_partisan_p": 0.5033225,
+      "joint_partisan_p_neff_adjusted": 0.5057042,
+      "neff_adjustment": {
+        "n_eff_used": 1248,
+        "f_stat": 0.8305,
+        "df1": 4,
+        "df2": 1244
+      },
+      "df": 4,
+      "marginals": {
+        "efficiency_gap": {
+          "observed": -0.016637,
+          "ensemble_mean": -0.015659,
+          "ensemble_p5": -0.04547,
+          "ensemble_p95": 0.013941,
+          "marginal_tail_p": 0.479546,
+          "ucp_direction_percentile": 0.479546
+        },
+        "mean_median": {
+          "observed": -0.010934,
+          "ensemble_mean": -0.017418,
+          "ensemble_p5": -0.030564,
+          "ensemble_p95": -0.004541,
+          "marginal_tail_p": 0.205525,
+          "ucp_direction_percentile": 0.794475
+        },
+        "declination": {
+          "observed": -0.059834,
+          "ensemble_mean": -0.058491,
+          "ensemble_p5": -0.11552,
+          "ensemble_p95": -0.002419,
+          "marginal_tail_p": 0.482157,
+          "ucp_direction_percentile": 0.482157
+        },
+        "seats_at_50_50": {
+          "observed": 0.494505,
+          "ensemble_mean": 0.467689,
+          "ensemble_p5": 0.448276,
+          "ensemble_p95": 0.494253,
+          "marginal_tail_p": 0.011822,
+          "ucp_direction_percentile": 0.988178
+        }
+      },
+      "n_districts": 91,
+      "source": "iap_2026_assembled.gpkg"
+    },
+    "iap_2026_assembled": {
+      "mahalanobis_distance": 1.8263,
+      "joint_partisan_p": 0.5033225,
+      "joint_partisan_p_neff_adjusted": 0.5057042,
+      "neff_adjustment": {
+        "n_eff_used": 1248,
+        "f_stat": 0.8305,
+        "df1": 4,
+        "df2": 1244
+      },
+      "df": 4,
+      "marginals": {
+        "efficiency_gap": {
+          "observed": -0.016637,
+          "ensemble_mean": -0.015659,
+          "ensemble_p5": -0.04547,
+          "ensemble_p95": 0.013941,
+          "marginal_tail_p": 0.479546,
+          "ucp_direction_percentile": 0.479546
+        },
+        "mean_median": {
+          "observed": -0.010934,
+          "ensemble_mean": -0.017418,
+          "ensemble_p5": -0.030564,
+          "ensemble_p95": -0.004541,
+          "marginal_tail_p": 0.205525,
+          "ucp_direction_percentile": 0.794475
+        },
+        "declination": {
+          "observed": -0.059834,
+          "ensemble_mean": -0.058491,
+          "ensemble_p5": -0.11552,
+          "ensemble_p95": -0.002419,
+          "marginal_tail_p": 0.482157,
+          "ucp_direction_percentile": 0.482157
+        },
+        "seats_at_50_50": {
+          "observed": 0.494505,
+          "ensemble_mean": 0.467689,
+          "ensemble_p5": 0.448276,
+          "ensemble_p95": 0.494253,
+          "marginal_tail_p": 0.011822,
+          "ucp_direction_percentile": 0.988178
+        }
+      },
+      "n_districts": 91,
+      "source": "iap_2026_assembled.gpkg"
+    }
+  }
+}

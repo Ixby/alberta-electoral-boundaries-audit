@@ -1,0 +1,24 @@
+{
+  "iap_2026_assembled": {
+    "efficiency_gap": 0.014450484781240351,
+    "mean_median": -0.025280959699557015,
+    "declination": 0.0035407619772926105,
+    "seats_at_50_50": 0.4835164835164835,
+    "ucp_seats": 58,
+    "n_districts": 91,
+    "ucp_vote_share": 0.5740427639062995,
+    "coverage_vas": 4765,
+    "coverage_vas_total": 4765,
+    "coverage_pct": 1.0,
+    "covered_votes": 932164.0,
+    "all_vote_total": 932164.0,
+    "votes_coverage_pct": 1.0,
+    "source": "iap_2026_assembled.gpkg",
+    "population_mad": 3556.6619123016135,
+    "reock_proxy_median": 0.597479343071096,
+    "reock_proxy_pct_below_030": 0.02197802197802198
+  },
+  "iap_2026_assembled_source": "iap_2026_assembled.gpkg",
+  "name_col": "EDName2025",
+  "scorer": "mcmc_ensemble.score_exogenous_map (canonical ensemble conventions)"
+}

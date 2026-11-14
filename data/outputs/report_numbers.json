@@ -114,7 +114,7 @@
   "submission_image_only_pct": "6%",
   "hill_climb_ucp_max": "52.9%",
   "hill_climb_ndp_max": "37.9%",
-  "neutral_envelope_low": "~39%",
-  "neutral_envelope_high": "50.57%",
-  "neutral_median_seats": "44.8%"
+  "neutral_envelope_low": "37.93%",
+  "neutral_envelope_high": "51.72%",
+  "neutral_median_seats": "44.83%"
 }

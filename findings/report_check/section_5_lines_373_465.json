@@ -1,0 +1,726 @@
+{
+ "section": "The Scorecard Revisited; What running the play again would look like; The Author's View (lines 373-465)",
+ "commit": "2d47e0b6",
+ "claims": [
+  {
+   "line": 375,
+   "claim": "Fifteen findings",
+   "type": "count",
+   "status": "VERIFIED",
+   "source": "reports/public/report_public.md headings",
+   "found": "Finding 1..15 present (lines 81-349)",
+   "note": "L400 still says 'first fourteen findings' (scorecard predates Finding 15): internal inconsistency, not an error of fact."
+  },
+  {
+   "line": 377,
+   "claim": "Minority: four of four structural flags (Act I discriminating tests)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "report_public.md L164, L381; reports/academic/report_academic.md L2570",
+   "found": "minority 4 of 5, fifth (anchoring) non-discriminating",
+   "note": ""
+  },
+  {
+   "line": 377,
+   "claim": "2019 map and 2026 majority: zero structural flags, near-zero skew",
+   "type": "number",
+   "status": "MISMATCH",
+   "source": "findings/iap_v3_two_lane/README.md",
+   "found": "On the registered midpoint battery (spec s3) the 2019 map = 2 of 5 flags (S3 75.09%, S5 0.00153); 2019 EG +2.41% (p69.5), mean-median p91.8, declination p91.3",
+   "note": "True only on Act I's April tests (0 of 5 for 2019 per public chart). 'Near-zero skew' is loose for 2019 (+2.41%). Majority 0 of 5 and EG +0.10% are correct."
+  },
+  {
+   "line": 377,
+   "claim": "Efficiency gap axis: further right = more UCP-favoured",
+   "type": "definition",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "EG sign convention positive=UCP (+4.02% minority)",
+   "note": ""
+  },
+  {
+   "line": 377,
+   "claim": "Minority efficiency gap just under the line set in advance",
+   "type": "number",
+   "status": "STALE",
+   "source": "findings/allballots_ranking/README.md; findings/pre_registration_amendment_log.md Amendment 12",
+   "found": "Election-day +4.02% vs line +4.10% (correct as registered). Amendment 12 (2026-11-07) moves P1 line to +1.39% on all ballots; minority all-ballots EG +2.55% (p98.82) is ABOVE it: 'would move its partisan lane from 3 of 4 to 4 of 4'",
+   "note": "Right for the Phase 1 registered result; superseded as the governing rule for November scoring."
+  },
+  {
+   "line": 377,
+   "claim": "Tied-vote seat share only 69 of 1,010,000 neutral maps exceed",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L533",
+   "found": "'69 of 1,010,000 plans exceed it, all at 45/87; p99.99'",
+   "note": ""
+  },
+  {
+   "line": 377,
+   "claim": "Mean-median deeper in tail than 99.97 per cent of neutral maps",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "Minority mean-median p99.97 (election-day)",
+   "note": "On all ballots p98.73 (sensitivity)."
+  },
+  {
+   "line": 377,
+   "claim": "60-of-89 seat outcome on 2023 election-day votes (minority)",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md (canonical_ranking.json)",
+   "found": "minority 60 seats election-day (55 all ballots)",
+   "note": "Report is explicit it is election-day."
+  },
+  {
+   "line": 377,
+   "claim": "Two lanes converge on the same map and communities; geometry-as-mechanism failed its test (Finding 9)",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "report_public.md Finding 9",
+   "found": "",
+   "note": "Interpretive; Finding 9 exists."
+  },
+  {
+   "line": 381,
+   "claim": "Five structural tests written down April 24; fifth (anchoring) counts against neither map",
+   "type": "date/count",
+   "status": "VERIFIED",
+   "source": "preregistration/retraction_conditions.md (date 2026-04-24); report_public.md L29",
+   "found": "Date of pre-commitment 2026-04-24",
+   "note": ""
+  },
+  {
+   "line": 381,
+   "claim": "Majority 0 of 5; minority 4 of 5",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "report_public.md L164",
+   "found": "0/5 and 4/5",
+   "note": "On the spec s3 midpoint battery the minority is 5 of 5 (v3 README): different battery."
+  },
+  {
+   "line": 382,
+   "claim": "Majority 46.1% seats at tied vote, 78th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "0.461, p78.54",
+   "note": "78.54 shown as '78th' (truncation; would round to 79)."
+  },
+  {
+   "line": 382,
+   "claim": "Minority 51.7%; 69 of 1,010,000 do better",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md; reports/academic/report_academic.md L533",
+   "found": "0.517; 69",
+   "note": ""
+  },
+  {
+   "line": 383,
+   "claim": "Majority mean-median 1st percentile, leaning NDP",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "-3.62%, p0.99",
+   "note": ""
+  },
+  {
+   "line": 383,
+   "claim": "Minority mean-median deeper than 99.97%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "+1.04%, p99.97",
+   "note": ""
+  },
+  {
+   "line": 384,
+   "claim": "Majority declination 22nd percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "-0.027, p21.85",
+   "note": ""
+  },
+  {
+   "line": 384,
+   "claim": "Minority declination deeper than 98.8%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "+0.077, p98.79",
+   "note": "98.79 shown as 98.8."
+  },
+  {
+   "line": 385,
+   "claim": "Majority EG +0.1%, 16.5th percentile",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "+0.10%, p16.52",
+   "note": ""
+  },
+  {
+   "line": 385,
+   "claim": "Minority EG +4.0%, 94.5th percentile, below the line set in advance",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "+4.02%, p94.54 vs +4.10% line",
+   "note": "See STALE note at L377 re Amendment 12."
+  },
+  {
+   "line": 386,
+   "claim": "Combined profile at most about 1 in 568,000",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "november_2026_scoring_spec.md s5; reports/academic/report_academic.md",
+   "found": "Bonferroni bound p <= 1.76e-06; 1/1.76e-6 = 568,182",
+   "note": ""
+  },
+  {
+   "line": 388,
+   "claim": "Most neutral maps would fail Act I's structural tests too",
+   "type": "claim",
+   "status": "VERIFIED",
+   "source": "findings/structural_lane_calibration_2026-10-31.md",
+   "found": "Registered S1/S2/S3 fire on 100%/91%/100% of 200 neutral 91-district maps; structural lane 'replicated' on 93.5%",
+   "note": "Calibration is of the spec s3 midpoint battery, not Act I's April tests; same logic, different battery."
+  },
+  {
+   "line": 390,
+   "claim": "Two maps drawn in same room by five commissioners from same rules and data",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf; evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "Five members (chair + 4 nominees); 3-2 split",
+   "note": ""
+  },
+  {
+   "line": 392,
+   "claim": "Majority's flagged corridors: 3 of its 4 confirmed",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "report_public.md L99; reports/academic/report_academic.md L1821",
+   "found": "Audit confirmed anomalous geometry at three of four named boundaries",
+   "note": ""
+  },
+  {
+   "line": 392,
+   "claim": "Four-way Airdrie split",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L54",
+   "found": "'Airdrie ... three pieces by the 2% piece rule, four districts by territory'",
+   "note": "Wording depends on piece rule."
+  },
+  {
+   "line": 392,
+   "claim": "NE/central Calgary population excess 11.5% vs 2.8%",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L1204",
+   "found": "Zone A +11.5% over provincial mean; majority +2.8%",
+   "note": ""
+  },
+  {
+   "line": 392,
+   "claim": "48%-wider population spread",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L253, L710",
+   "found": "MAD 4,707 vs 3,180 = 1.480x",
+   "note": "Mean absolute deviation. Spec s3 S1 median-MAD is 3,938 vs 2,827 (39% wider): different metric."
+  },
+  {
+   "line": 392,
+   "claim": "Both maps close to 2019 map's 75% anchoring on official shapefiles",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/iap_v3_two_lane/README.md",
+   "found": "2019 75.09%, majority 79.96%, minority 71.78%",
+   "note": ""
+  },
+  {
+   "line": 392,
+   "claim": "Fewer than 100 neutral maps match seat share; three of four measures in far tail; EG 94.5th",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "69; MM p99.97, decl p98.79, s50 p99.99; EG p94.54",
+   "note": ""
+  },
+  {
+   "line": 392,
+   "claim": "Neutral maps from official Elections Alberta shapefiles; 1,010,000",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L88",
+   "found": "1,010,000 ReCom plans of 87 districts, 4x252,500",
+   "note": "Ensemble is 87 districts vs 89-district maps."
+  },
+  {
+   "line": 394,
+   "claim": "Whether cause was deliberate engineering etc. is a judgement call",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 400,
+   "claim": "Four metrics vs 1,010,000 maps: three in extreme tail, one miss",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "as above",
+   "note": ""
+  },
+  {
+   "line": 404,
+   "claim": "Field reads maps with batteries of outlier tests; pre-registration keeps them honest",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "Literature framing, not individually sourced."
+  },
+  {
+   "line": 406,
+   "claim": "No Canadian institution scores maps this way",
+   "type": "claim",
+   "status": "UNVERIFIABLE",
+   "source": "searched evidence/, analysis/methodology/canadian_base_rate_computed.md",
+   "found": "absence claim; nothing contradicts",
+   "note": "Negative claim."
+  },
+  {
+   "line": 410,
+   "claim": "This scorecard runs again in November",
+   "type": "statement about future",
+   "status": "STALE",
+   "source": "findings/a10_stepc/README.md; findings/iap_v3_two_lane/README.md; pre_registration_amendment_log.md Amendment 12",
+   "found": "Step C scored 2026-11-04 (provisional, panel map reconstructed, not an official shapefile): structural 2 of 5 NOT replicated, partisan 1 of 4 ABSENT (only P4 seats at 50/50 p98.8; EG +1.45% p45.3; MM -2.53 p19.7; decl +0.0035 p52.4); 2x2 = 'breaks from the minority-style signature on both lanes'. v3 rerun 2026-11-06 same flags. Official map not yet scored at Amendment 12 (2026-11-07).",
+   "note": "Amendment 12 also switches registered steps to all ballots."
+  },
+  {
+   "line": 414,
+   "claim": "No two-thirds threshold; programming motions, previous question; committee membership proportional to seats",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/standing_orders_alberta_effective_2026-03-16.pdf",
+   "found": "programming motion (p29), previous question (p27, p46), committees 'proportionate to the number of seats held by each party' (p48)",
+   "note": "No two-thirds hit (absence). 'Change the rules of the House' not checked."
+  },
+  {
+   "line": 414,
+   "claim": "60 of 89 seats = all but immune to dissent; smaller opposition",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": "60 of 89 is the election-day figure."
+  },
+  {
+   "line": 418,
+   "claim": "Preregistered scoring spec dated in repo, written before panel map public",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "preregistration/november_2026_scoring_spec.md",
+   "found": "date_committed 2026-06-10 (first commit 2026-06-09); panel report delivered Oct 22, 2026",
+   "note": ""
+  },
+  {
+   "line": 418,
+   "claim": "Scoring rules' own name for the check is 'the Lunty test'",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "november_2026_scoring_spec.md s8",
+   "found": "'The Lunty test is the confirmatory counterpart'",
+   "note": ""
+  },
+  {
+   "line": 418,
+   "claim": "Nine process features, OSF u47bq, filed July 14, 2026",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "preregistration/osf_ledger.json; lane3_process_scorecard_draft.md",
+   "found": "u47bq registered_utc 2026-07-14T08:09:31; 'The nine criteria'",
+   "note": ""
+  },
+  {
+   "line": 418,
+   "claim": "Whether panel's new map carries the signature (future)",
+   "type": "statement about future",
+   "status": "STALE",
+   "source": "findings/a10_stepc/README.md",
+   "found": "Provisional Step C: not replicated on either lane; X1 (Recommendation 5) not met; 1 of 4 qsgy8 tripwires fired (Lethbridge)",
+   "note": "Process half: committee reported 2026-11-02 (assembly_committee_page_ceb_2026-11-02.html); see findings/iap_stage1_part4.md."
+  },
+  {
+   "line": 420,
+   "claim": "Structural half would mean little: most neutral maps replicate it; commission maps follow municipal lines tighter than neutral maps",
+   "type": "claim",
+   "status": "VERIFIED",
+   "source": "findings/structural_lane_calibration_2026-10-31.md",
+   "found": "93.5% of neutral maps replicate; text: 'Both commission maps follow municipal lines and balance populations more tightly than neutral maps do'",
+   "note": ""
+  },
+  {
+   "line": 420,
+   "claim": "Scoring within 72 hours of map release; public-beacon seeding",
+   "type": "commitment",
+   "status": "VERIFIED",
+   "source": "november_2026_scoring_spec.md s1, s4, s6",
+   "found": "72-hour commitment; drand round 6606642 pinned (a10_stepc README)",
+   "note": "Official map not yet scored."
+  },
+  {
+   "line": 424,
+   "claim": "Retractions per finding within 48 hours; overall verdict retracted only if three dimensions fail",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "preregistration/retraction_conditions.md s0, s7.1",
+   "found": "48-hour internal discipline; 'at least three of the six dimensions'",
+   "note": "CONFLICT: report_academic.md L2589 says 'within 30 days'."
+  },
+  {
+   "line": 426,
+   "claim": "Condition 1: minority 71.8%, majority 80.0%, 60% bar; Amendment 5 Part 22",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/pre_registration_amendment_log.md Parts 22, 31",
+   "found": "71.8% and 80.0%; 60% bar",
+   "note": ""
+  },
+  {
+   "line": 426,
+   "claim": "Issue #14 on GitHub repository",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "amendment log Part 22; reports/academic/report_academic.md L2576",
+   "found": "Issue #14 counter-map challenge",
+   "note": "URL not fetched."
+  },
+  {
+   "line": 427,
+   "claim": "Condition 2: Neighbour-Drain Pass label-shuffle null p<0.05, files named",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "findings/drain_label_shuffle_null_canonical.md; retraction_conditions.md s3.4",
+   "found": "file exists",
+   "note": ""
+  },
+  {
+   "line": 428,
+   "claim": "Condition 3: internal commission document surfaces",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2580",
+   "found": "same condition",
+   "note": ""
+  },
+  {
+   "line": 429,
+   "claim": "Condition 4: 2027 election result contradicts percentile readings",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "retraction_conditions.md, report_academic.md s6.2.6, retraction_pathway.md",
+   "found": "No such condition found in repo's retraction lists",
+   "note": "Public report's list of five differs from the repo's."
+  },
+  {
+   "line": 430,
+   "claim": "Condition 5: Quebec 2026 Supreme Court ruling distinguished",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "retraction_conditions.md; reports/academic/report_academic.md L2253",
+   "found": "Quebec ruling exists (Lalande, 2026 SCC 13, April 22, 2026) but not a registered retraction condition",
+   "note": "See condition 4."
+  },
+  {
+   "line": 432,
+   "claim": "Corrections ledger in academic report; Finding 5 and Finding 10",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "report_public.md headings",
+   "found": "Finding 5 and 10 exist",
+   "note": "Anchor not checked."
+  },
+  {
+   "line": 438,
+   "claim": "Delete this section and not one number changes",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 442,
+   "claim": "Government-nominated commissioners drew a map with fewer than a hundred matches in a million",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html; findings/allballots_ranking/README.md",
+   "found": "Martin and Evans 'Nominated by the President of Executive Council'; 69 of 1,010,000",
+   "note": "Two of five commissioners; two were Opposition nominees."
+  },
+  {
+   "line": 442,
+   "claim": "When commission split, government took the pen",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2813",
+   "found": "Motion 37 reassigned work to a six-MLA committee",
+   "note": ""
+  },
+  {
+   "line": 446,
+   "claim": "No law broken; statute advisory; no notice period, draft, hearings required",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislation/electoral_boundaries_commission_act_RSA2000_cE-3_current_2026-05-14.pdf s7, s11",
+   "found": "Hearings (s7) bind the Commission only; Assembly 'approves or approves with alterations'",
+   "note": "'No law broken' is the author's legal judgement."
+  },
+  {
+   "line": 448,
+   "claim": "Commission held hearings in sixteen communities",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf p14",
+   "found": "'28 hearings were held in 16 different locations' (pre-interim round)",
+   "note": "Second round added locations."
+  },
+  {
+   "line": 448,
+   "claim": "1,345 written submissions",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "abebc_2026_rpt_final.pdf p14, p34",
+   "found": "198 + 1,147 = 1,345",
+   "note": "1,345 is a sum."
+  },
+  {
+   "line": 448,
+   "claim": "Committee six MLAs: four government, two opposition, government chair",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "reports/academic/report_academic.md L2813",
+   "found": "six-MLA committee (four UCP, two NDP) chaired by Brandon Lunty (UCP)",
+   "note": ""
+  },
+  {
+   "line": 448,
+   "claim": "Advisory panel chaired by a retired judge",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/iap_report_2026_hires_text/p003.txt",
+   "found": "'The Honourable Brian O'Ferrall, Chair'",
+   "note": "'Retired' not stated in file."
+  },
+  {
+   "line": 448,
+   "claim": "No public hearing and no draft released on the map",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "assembly_committee_page_ceb_2026-11-02.html; reports/academic/report_academic.md L2053",
+   "found": "Panel report delivered Oct 22, committee tabled Nov 2; no hearings recorded",
+   "note": "No explicit negative statement in sources."
+  },
+  {
+   "line": 448,
+   "claim": "The map the Assembly enacts",
+   "type": "statement about future",
+   "status": "STALE",
+   "source": "assembly_committee_page_ceb_2026-11-02.html",
+   "found": "Report tabled Nov 2, 2026; no evidence of enactment in repo",
+   "note": "Prospective tense."
+  },
+  {
+   "line": 450,
+   "claim": "Sovereignty Act first bill let cabinet rewrite laws; stripped after outcry",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "CBC Dec 2022 not fetched",
+   "found": "",
+   "note": "verified_by: none."
+  },
+  {
+   "line": 450,
+   "claim": "Ethics Commissioner found Premier breached conflicts law pressing AG about criminal case",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "ethicscommissioner.ab.ca PDF p17",
+   "found": "'Premier Smith contravened s.3 of the Conflicts of Interest Act in her interaction with the Minister of Justice and Attorney General'",
+   "note": "verified_by: web https://www.ethicscommissioner.ab.ca/media/3124/allegations-involving-premier-danielle-smith-may-17-2023.pdf"
+  },
+  {
+   "line": 450,
+   "claim": "Quote 'a threat to democracy'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "same PDF p16",
+   "found": "'it is a threat to democracy to interfere with the administration of justice'",
+   "note": "verified_by: web."
+  },
+  {
+   "line": 450,
+   "claim": "Bill 20 lets cabinet repeal bylaws and remove councillors",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "CBC/RMA not fetched",
+   "found": "",
+   "note": "verified_by: none."
+  },
+  {
+   "line": 450,
+   "claim": "Court paused a law June 2025; notwithstanding clause invoked December; injunction gone a week later",
+   "type": "fact",
+   "status": "UNVERIFIABLE",
+   "source": "web search",
+   "found": "Confirms June 2025 injunction and December invocation then lifting; exact Dec 11 date and 'a week later' not found; CBC fetch 403",
+   "note": "verified_by: web (partial)."
+  },
+  {
+   "line": 450,
+   "claim": "Every one of those moves was lawful",
+   "type": "claim",
+   "status": "OPINION",
+   "source": "",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 452,
+   "claim": "Levitsky and Ziblatt, How Democracies Die (Crown, 2018); Bermeo, J. Democracy 27(1), 2016",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "standard bibliographic record",
+   "found": "Crown 2018; J. Democracy 27(1) 2016",
+   "note": "verified_by: none in repo; matches known record."
+  },
+  {
+   "line": 454,
+   "claim": "Canada spent sixty years building the norm",
+   "type": "claim",
+   "status": "UNVERIFIABLE",
+   "source": "analysis/methodology/canadian_base_rate_computed.md",
+   "found": "",
+   "note": "Roughly 1964 to 2026; not pinned."
+  },
+  {
+   "line": 454,
+   "claim": "April 2026 Alberta set norm aside with a single motion",
+   "type": "fact",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/votes_proceedings_2026-04-21.pdf; reports/academic/report_academic.md L78",
+   "found": "Motion 37 introduced Apr 16, passed Apr 21",
+   "note": ""
+  },
+  {
+   "line": 456,
+   "claim": "Minority geometry yields sixty seats of eighty-nine on 2023 election-day vote",
+   "type": "number",
+   "status": "VERIFIED",
+   "source": "findings/allballots_ranking/README.md",
+   "found": "minority 60 election-day (55 all ballots)",
+   "note": ""
+  },
+  {
+   "line": 458,
+   "claim": "Panel's map due before the Assembly by November 2",
+   "type": "date",
+   "status": "STALE",
+   "source": "assembly_committee_page_ceb_2026-11-02.html",
+   "found": "Committee provided the report to the Assembly on November 2, 2026; panel delivered Oct 22",
+   "note": "Past event; passage reads as future."
+  },
+  {
+   "line": 458,
+   "claim": "Tests locked before map existed; 72-hour commitment",
+   "type": "commitment",
+   "status": "VERIFIED",
+   "source": "november_2026_scoring_spec.md; seed_commitments.md",
+   "found": "committed 2026-06-09/10",
+   "note": ""
+  },
+  {
+   "line": 458,
+   "claim": "Open questions: hearings, advisers named, recommendation honoured, location against neutral maps",
+   "type": "statement about future",
+   "status": "STALE",
+   "source": "findings/a10_stepc/README.md; findings/iap_stage1_part4.md",
+   "found": "Provisional: only P4 flags, EG p45.3, structural 2 of 5; X1 (Recommendation 5) not met",
+   "note": "Provisional answers exist in repo."
+  },
+  {
+   "line": 462,
+   "claim": "Ethics quote 'In my opinion, Premier Smith contravened s.3...'",
+   "type": "quote",
+   "status": "VERIFIED",
+   "source": "web PDF p17",
+   "found": "word for word match",
+   "note": "verified_by: web."
+  },
+  {
+   "line": 462,
+   "claim": "Assembly notice March 28, 2025 lists Martin and Evans 'Nominated by the President of Executive Council'",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "evidence/legislature/assembly_news_ebc_appointed_2025-03-28.html",
+   "found": "exact phrase present",
+   "note": ""
+  },
+  {
+   "line": 462,
+   "claim": "198 before interim, 1,147 after, 1,345 in all, final report p.14",
+   "type": "citation",
+   "status": "VERIFIED",
+   "source": "abebc_2026_rpt_final.pdf p14",
+   "found": "198 and 1,147 on p14",
+   "note": ""
+  },
+  {
+   "line": 462,
+   "claim": "Motion 37 introduced April 16, passed April 21, 2026",
+   "type": "date",
+   "status": "VERIFIED",
+   "source": "votes_proceedings_2026-04-21.pdf; reports/academic/report_academic.md L78",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 462,
+   "claim": "CBC April/May 2026 on committee, panel, judicial chair; sixteen-community hearings",
+   "type": "citation",
+   "status": "UNVERIFIABLE",
+   "source": "CBC URLs not fetched",
+   "found": "",
+   "note": "Corroborated by primary sources above."
+  },
+  {
+   "line": 462,
+   "claim": "CBC/RMA/Egale URLs on Sovereignty Act, Bill 20, injunction",
+   "type": "citation",
+   "status": "UNVERIFIABLE",
+   "source": "not fetched",
+   "found": "",
+   "note": ""
+  },
+  {
+   "line": 373,
+   "claim": "Scope: Banff section (L476-488), Invisible Part (L466-474), recommendations (L484) lie outside lines 373-465",
+   "type": "scope",
+   "status": "OPINION",
+   "source": "reports/public/report_public.md",
+   "found": "",
+   "note": "Not checked. Spot check only: 'bad faith effort' and 'where no one lives' appear verbatim on p10 of abebc_2026_rpt_final.pdf."
+  }
+ ]
+}

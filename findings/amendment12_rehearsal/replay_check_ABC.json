@@ -1,0 +1,306 @@
+{
+ "A221": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "A222": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "A223": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "A224": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B230": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B231": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B232": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B233": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B236": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B237": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B238": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "B239": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "C241": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "C243": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "C244": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ },
+ "C245": {
+  "rows_original": 252500,
+  "rows_allballots": 252500,
+  "rows_compared": 252500,
+  "columns": {
+   "step": true,
+   "population_mad": true,
+   "reock_proxy_median": true,
+   "reock_proxy_pct_below_030": true,
+   "n_districts": true,
+   "n_parts": true,
+   "n_city_districts": true,
+   "towns_flagged": true
+  },
+  "columns_missing": [
+   "s152_districts"
+  ],
+  "all_equal": true
+ }
+}

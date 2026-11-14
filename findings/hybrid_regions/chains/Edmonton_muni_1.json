@@ -1,0 +1,12 @@
+{
+ "region": "Edmonton",
+ "variant": "muni",
+ "chain": 1,
+ "seed_salt": "regional_Edmonton_muni_1",
+ "seed": 1966225327,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 14,
+ "n_vas": 689,
+ "muni_weight": 0.5
+}

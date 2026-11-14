@@ -1,0 +1,46 @@
+{
+ "pages": "C:/tmp/a10test/fixture",
+ "snap": "C:/tmp/a10test/clean5_fixed",
+ "districts": [
+  {
+   "ed": 49,
+   "district": "Edmonton-Windermere",
+   "rotation_deg": 0,
+   "scale": 1.003,
+   "iou": 0.971,
+   "boundary_median_m": 18.8,
+   "boundary_p95_m": 48.9,
+   "stored_fit_centroid_offset_km": 21.42
+  },
+  {
+   "ed": 40,
+   "district": "Edmonton-Meadows",
+   "rotation_deg": 180,
+   "scale": 0.993,
+   "iou": 0.9832,
+   "boundary_median_m": 10.2,
+   "boundary_p95_m": 33.1,
+   "stored_fit_centroid_offset_km": 16.88
+  },
+  {
+   "ed": 22,
+   "district": "Calgary-North West-Bearspaw",
+   "rotation_deg": 0,
+   "scale": 0.9797,
+   "iou": 0.9957,
+   "boundary_median_m": 5.1,
+   "boundary_p95_m": 11.5,
+   "stored_fit_centroid_offset_km": 12.62
+  },
+  {
+   "ed": 63,
+   "district": "Fort McMurray-Wood Buffalo",
+   "rotation_deg": 0,
+   "scale": 1.0064,
+   "iou": 0.9998,
+   "boundary_median_m": 12.8,
+   "boundary_p95_m": 27.9,
+   "stored_fit_centroid_offset_km": 1.6
+  }
+ ]
+}

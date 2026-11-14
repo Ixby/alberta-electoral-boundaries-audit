@@ -1,0 +1,301 @@
+{
+ "started": "2026-11-04T23:49:42",
+ "python": "C:\\Users\\email\\.venvs\\audit-k91\\Scripts\\python.exe",
+ "steps": [
+  {
+   "step": "ingest",
+   "args": [
+    "analysis/scripts/ingest_committee_map.py",
+    "--src",
+    "findings/a10_stepb_run/districts_real_map.gpkg",
+    "--name-col",
+    "district",
+    "--out",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 15.2,
+   "sha256": {
+    "analysis/scripts/ingest_committee_map.py": "25b80b0c5ef289cd2128bdfce13ef4f5dee88d6bf61fcbd0fbe3976943bfe4e2",
+    "findings/a10_stepb_run/districts_real_map.gpkg": "fc8a121d3ef973c3b45b37f96fbdf1f59c6ca84a0c45b824333f8562b9af5ad1",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6"
+   }
+  },
+  {
+   "step": "check_changed",
+   "args": [
+    "analysis/scripts/check_changed_reproduced.py",
+    "--map",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--out",
+    "findings/a10_stepc_replay/check_changed_reproduced.json"
+   ],
+   "env": {},
+   "rc": 1,
+   "seconds": 1.0,
+   "sha256": {
+    "analysis/scripts/check_changed_reproduced.py": "1856a3d6c7163d226ef12540da6d817c1a3cbd8f45349a1e1a781fdb70560a8d",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/check_changed_reproduced.json": "22c1ec767adc3b7c19a9f88630204b41afe4e46ed2ca408ea66a14b7f3d33578"
+   }
+  },
+  {
+   "step": "partisan",
+   "args": [
+    "analysis/scripts/phase4c_canonical_attribution.py",
+    "--majority",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--output",
+    "findings/a10_stepc_replay/iap_2026_assembled_phase4c.json",
+    "--map-key",
+    "iap_2026_assembled"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 13.0,
+   "sha256": {
+    "analysis/scripts/phase4c_canonical_attribution.py": "67c8d411261282c3ea6e69f76a3aa080491e0ce4ec5937a8d39fe1a88ba73c10",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/iap_2026_assembled_phase4c.json": "86bd53181189e34fd3c3616d7d33e66d29705a3bd7b6d93928648f78fd52f2b9"
+   }
+  },
+  {
+   "step": "partisan",
+   "args": [
+    "analysis/scripts/joint_outlier_score_canonical.py",
+    "--map-key",
+    "iap_2026_assembled",
+    "--real-scores",
+    "findings/a10_stepc_replay/iap_2026_assembled_phase4c.json",
+    "--output",
+    "findings/a10_stepc_replay/joint_outlier.json"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 5.7,
+   "sha256": {
+    "analysis/scripts/joint_outlier_score_canonical.py": "89c807397cebe5a7ba85c5cdc3a3a32000b8cd1e768ce582242cefacb1f9b2d4",
+    "findings/a10_stepc_replay/iap_2026_assembled_phase4c.json": "86bd53181189e34fd3c3616d7d33e66d29705a3bd7b6d93928648f78fd52f2b9",
+    "findings/a10_stepc_replay/joint_outlier.json": "63bdddf1022279a50c3243d2c75d045d6f950f67fd1ec1fe1b3e215432e7432b"
+   }
+  },
+  {
+   "step": "structural",
+   "args": [
+    "analysis/scripts/run_structural_battery.py",
+    "--shapefile",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--output",
+    "findings/a10_stepc_replay/structural.json",
+    "--label",
+    "iap_2026_assembled"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 149.7,
+   "sha256": {
+    "analysis/scripts/run_structural_battery.py": "dfb4d6f11e4ded850ce2ec99c779d3d54ea2e83b5162fcd0c1000e475f189919",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/structural.json": "5fac3b7cd8d8785650b47a966f5a24a9fa1d54ef9b95d1098d27e32fd416bdf7"
+   }
+  },
+  {
+   "step": "verdict",
+   "args": [
+    "analysis/scripts/verdict_synthesis.py",
+    "--structural",
+    "findings/a10_stepc_replay/structural.json",
+    "--joint",
+    "findings/a10_stepc_replay/joint_outlier.json",
+    "--output",
+    "findings/a10_stepc_replay/verdict.json"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 0.1,
+   "sha256": {
+    "analysis/scripts/verdict_synthesis.py": "3ebebdbcbfa1e64bf265963d7a003262682214c4dee387281ca007b03bc88350",
+    "findings/a10_stepc_replay/structural.json": "5fac3b7cd8d8785650b47a966f5a24a9fa1d54ef9b95d1098d27e32fd416bdf7",
+    "findings/a10_stepc_replay/joint_outlier.json": "63bdddf1022279a50c3243d2c75d045d6f950f67fd1ec1fe1b3e215432e7432b",
+    "findings/a10_stepc_replay/verdict.json": "dbdd3d2395096e19a107eb75e03c3ff008e3a5c26d061228d8930cf865f10145"
+   }
+  },
+  {
+   "step": "x1",
+   "args": [
+    "analysis/scripts/score_x1.py",
+    "--map",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--out",
+    "findings/a10_stepc_replay/x1.json"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 12.7,
+   "sha256": {
+    "analysis/scripts/score_x1.py": "760dbb2a2b2fcaee7592af3a70f1fa1d78e99b77a8ee44db93e72030050b93dd",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/x1.json": "dca97198c67cae4f6c252db9289b614814842c0724ac4a87c877e8b3f4d404c8"
+   }
+  },
+  {
+   "step": "size_matched",
+   "args": [
+    "analysis/scripts/close_seats_ensemble.py",
+    "real",
+    "--out",
+    "findings/a10_stepc_replay/iap_2026_assembled_real_maps.json",
+    "--extra",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 12.9,
+   "sha256": {
+    "analysis/scripts/close_seats_ensemble.py": "a642300e97a1960c14bb4e8d013f023f16513bf61a5962021191d1334207daa1",
+    "findings/a10_stepc_replay/iap_2026_assembled_real_maps.json": "7b8400b2c6293b631d8ac71baa1ad170f3df6c20e90ddbc85b94fbb540faadeb",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6"
+   }
+  },
+  {
+   "step": "size_matched",
+   "args": [
+    "analysis/scripts/size_matched_results.py",
+    "--root",
+    "../alberta_audit",
+    "--real",
+    "findings/a10_stepc_replay/iap_2026_assembled_real_maps.json",
+    "--candidate",
+    "iap_2026_assembled",
+    "--out-json",
+    "findings/a10_stepc_replay/size_matched.json",
+    "--out-md",
+    "findings/a10_stepc_replay/size_matched.md"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 75.7,
+   "sha256": {
+    "analysis/scripts/size_matched_results.py": "4b651901b6f9f038bbdae942195c102ae417bb0f71bedf55d37c0e8e101018c8",
+    "findings/a10_stepc_replay/iap_2026_assembled_real_maps.json": "7b8400b2c6293b631d8ac71baa1ad170f3df6c20e90ddbc85b94fbb540faadeb",
+    "findings/a10_stepc_replay/size_matched.json": "7379ea7e70c39056f661d7a9eab6dc56284ad465d28c857c8227de3ee8bfd3c2",
+    "findings/a10_stepc_replay/size_matched.md": "44a305c6610a3d50d883ccd1c9a4f5694f2a4cb5dc43269bd460bd2b884ae0de"
+   }
+  },
+  {
+   "step": "qsgy8",
+   "args": [
+    "analysis/scripts/phase_b_scorecard.py",
+    "--shapefile",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--map-name",
+    "iap_2026_assembled",
+    "--name-col",
+    "EDName2025",
+    "--skip-mcmc",
+    "--map-s50",
+    "0.4835",
+    "--out-dir",
+    "findings/a10_stepc_replay"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 134.1,
+   "sha256": {
+    "analysis/scripts/phase_b_scorecard.py": "010917d3b1cac45ca72a297532484d1fb521820c0a44900bbb4c0ad1e48e66b9",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6"
+   }
+  },
+  {
+   "step": "cut_va",
+   "args": [
+    "findings/a10_stepc/cut_va_sensitivity_stepc.py",
+    "--map",
+    "fixed",
+    "--snap-dir",
+    "C:/tmp/a10reg/fixed",
+    "--out-prefix",
+    "findings/a10_stepc_replay/cut_va_sensitivity"
+   ],
+   "env": {
+    "A10_STEPC": "1"
+   },
+   "rc": 0,
+   "seconds": 313.6,
+   "sha256": {
+    "findings/a10_stepc/cut_va_sensitivity_stepc.py": "5f45ec65e7266b29146567190fa906084da958f9dca2bf490b394ec0f4defe8b"
+   }
+  },
+  {
+   "step": "va_cuts",
+   "args": [
+    "analysis/scripts/va_bisection.py",
+    "--map",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--label",
+    "iap_2026_assembled",
+    "--vas",
+    "2023",
+    "2026",
+    "--out-csv",
+    "findings/a10_stepc_replay/va_cuts.csv"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 30.1,
+   "sha256": {
+    "analysis/scripts/va_bisection.py": "d66a089d96427c064ca236e64e2125c28f713ecbf8ca0ff552417f8d25cce53b",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/va_cuts.csv": "5e8c7ce16fe49af4931b2aa64840ef553c8885daf46d28902fc536a21d15b07e"
+   }
+  },
+  {
+   "step": "va_cuts",
+   "args": [
+    "findings/a10_stepc/mark_uncertain_cuts.py",
+    "--map",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg",
+    "--cuts",
+    "findings/a10_stepc_replay/va_cuts.csv",
+    "--out",
+    "findings/a10_stepc_replay/va_cuts_marked.csv"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 12.1,
+   "sha256": {
+    "findings/a10_stepc/mark_uncertain_cuts.py": "d8e09d6587c98ffa89f246ba1a5995ca39693c789c75357159d5f6c21af75d12",
+    "data/shapefiles/iap_assembled_replay/iap_2026_assembled.gpkg": "a42f6fd057a6165be1f3f6254aeae0e9f9a4ae2cb47bf38cae82bdb805e2f6e6",
+    "findings/a10_stepc_replay/va_cuts.csv": "5e8c7ce16fe49af4931b2aa64840ef553c8885daf46d28902fc536a21d15b07e",
+    "findings/a10_stepc_replay/va_cuts_marked.csv": "0ec5d05d1e13c6eff14e1bc1be820ea70e804d1944cd0e62c6093e6376e3b4a7"
+   }
+  },
+  {
+   "step": "rules",
+   "args": [
+    "analysis/scripts/rules_check.py",
+    "--assignment",
+    "findings/a10_stepc_replay/assignment_nodes.csv",
+    "--table",
+    "data/outputs/s15_2_va_criteria.csv",
+    "--stated",
+    "data/iap/iap_app7_populations.csv",
+    "--label",
+    "iap_2026_assembled",
+    "--out",
+    "findings/a10_stepc_replay/rules_check.json"
+   ],
+   "env": {},
+   "rc": 0,
+   "seconds": 12.6,
+   "sha256": {
+    "analysis/scripts/rules_check.py": "04a520bc0ebe9ac458ea751453f89bbfca5cca9aa74267bad763627d949f064f",
+    "findings/a10_stepc_replay/assignment_nodes.csv": "03a3686f76d29222705f1bafc648057395bc2027bdbe813ced33524ac91ffb70",
+    "data/outputs/s15_2_va_criteria.csv": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+    "data/iap/iap_app7_populations.csv": "63a74bc4c9e6918379da73345887becdfa05e5cc43fa11101f37b9c673b78597",
+    "findings/a10_stepc_replay/rules_check.json": "4d201b549c60fc9442e684ff12d455f6eedfe729a014c0fd9f11b0eee567910f"
+   }
+  }
+ ]
+}

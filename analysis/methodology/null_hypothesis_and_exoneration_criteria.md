@@ -27,7 +27,7 @@ This document is the authoritative lookup for what each test in the audit batter
 | Test | Null hypothesis | Pass/fail threshold | Pre-registration | Status |
 |---|---|---|---|---|
 | A1 — Population MAD | Minority MAD ≤ majority MAD (no systematic population-dispersion asymmetry) | Minority MAD > majority MAD constitutes a directional finding; magnitude ≥ 10% gap considered non-trivial | Not pre-registered (structural, no OSF) | **Active finding**: minority 3,938 vs majority 2,827 (39% wider; 48% on the commission tables, 4,707 vs 3,180) |
-| A2 — Calgary zone asymmetry | Minority and majority Calgary zone asymmetries fall within 1 pp of each other | ≥ 10 pp difference constitutes a packing signal | Not pre-registered (structural) | **Active finding**: 12.2% minority vs 0.4% majority |
+| A2 — Calgary zone asymmetry | Minority and majority Calgary zone asymmetries fall within 1 pp of each other | ≥ 10 pp difference constitutes a packing signal | Not pre-registered (structural) | **Active finding**: 12.2% minority vs 0.4% majority on the committed zone lists. On a literal reading of the stated geographic rule the minority's gap is 5.3% to 5.7% and the majority's −2.6% to −3.1% (`findings/audit_2026-11-10/calgary_zone_recode.json`), below the 10 pp line |
 | A3 — s.15(2) eligibility audit | Each commission-invoked s.15(2) exception satisfies all criteria in the Alberta EBCA | Any invoked exception that fails a statutory criterion constitutes a procedural finding | Not pre-registered (statutory, not statistical) | See `findings/population_equality.md` |
 
 ### B-family — Partisan bias (§5.2)
@@ -37,7 +37,7 @@ This document is the authoritative lookup for what each test in the audit batter
 | B2 — Efficiency gap (EG) | Minority-majority EG asymmetry = 0 (no wasted-vote differential between maps) | **[RETIRED 2026-07-12, C11]** Formerly: 90%+ of 2,000 blend-model Monte Carlo draws in the same direction; superseded by attribution-method sensitivity (centroid vs. population-weighted MAUP agree to within 0.1 pp). 7% absolute threshold explicitly discarded in favour of Alberta-specific calibration | Exploratory; not pre-registered | Direction-active: minority more UCP-favourable (+3.92 pp, Phase 4C) stable across three attribution methods |
 | B3 — Mean-median | Minority-majority MM gap = 0 | Directional consistency across cross-election inputs | Exploratory | Active: minority −1.20 pp vs majority −0.66 pp (minority more UCP-favourable) |
 | B4 — Seats@50/50 uniform swing | Minority seats@50/50 ≤ majority seats@50/50 | Minority > majority under 2023 vote input | Exploratory | Active: 46 vs 45 (blended attribution) |
-| B5 — MCMC ensemble (Mahalanobis, Ch1) | Minority feature vector drawn from neutral redistricting distribution (p ≥ 0.05) | p < 0.05 one-tailed constitutes an outlier finding | Exploratory; seeds committed to drand before shapefile receipt | **Active finding**: p = 8.80×10⁻⁷ (D² = 33.64 against 1M-plan ensemble) |
+| B5 — MCMC ensemble (Mahalanobis, Ch1) | Minority feature vector drawn from neutral redistricting distribution (p ≥ 0.05) | p < 0.05 one-tailed constitutes an outlier finding | Exploratory; seeds committed to drand before shapefile receipt | **Active finding**: p ≈ 8.84×10⁻⁷ (D² = 33.64 against 1M-plan ensemble), one model's estimate on election-day ballots; about 1 in 20,000 to about 1 in 570,000 (doubled) across defensible choices |
 | B6 — Declination | No winning-district-margin angle asymmetry between minority and majority | Directional consistency with B2/B3/B4 | Exploratory | Minority at ensemble p1.21 (NDP-tail) under the sign used before Amendment 5, Part 9; **corrected to p98.79 UCP-tail, agrees with B2/B3/B4 — see note below** |
 | B7 — Intermap permutation | Minority-majority partisan-metric distance ≤ distance between random neutral plan pairs | p < 0.05 | Pre-registered: OSF:yvc7g | See `findings/intermap_permutation_test_results.md` |
 
@@ -47,7 +47,7 @@ This document is the authoritative lookup for what each test in the audit batter
 
 | Test | Null hypothesis | Pass/fail threshold | Pre-registration | Status |
 |---|---|---|---|---|
-| SZAT (Ch2) | EG of the 2,110 swing VAs (those assigned differently between minority and majority) = 0 under a null distribution of 10,000 random label-shuffles | p < 0.05 one-tailed | Exploratory (seeds committed to drand) | **Active finding**: SZAT score = +0.0209, p = 0.0024 (bootstrap, 10k permutations) |
+| SZAT (Ch2) | EG of the 2,110 swing VAs (those assigned differently between minority and majority) = 0 under a null distribution of 10,000 random label-shuffles | p < 0.05 one-tailed | Exploratory only; the seed label was committed together with the test's first results | **Not used.** p = 0.0024 (one-tailed, i.i.d. null, 10k permutations); the i.i.d. null is invalid and the component-level block test (p ≈ 0.19) cannot reject (`findings/szat_block_permutation.md`) |
 
 ### Fisher combination (§5.5)
 
@@ -55,7 +55,7 @@ This document is the authoritative lookup for what each test in the audit batter
 |---|---|---|---|---|
 | Fisher Ch1+Ch2 | Joint null: both Ch1 and Ch2 p-values drawn from Uniform(0,1) | T = −2(ln p₁ + ln p₂) ∼ χ²(4); p < 0.05 constitutes joint rejection | Exploratory (combination method not pre-registered) | **RETIRED 2026-06-10**: T = 39.87, p = 4.61×10⁻⁸ (historical). See note below the table. |
 
-**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint headline is Ch1 alone (Mahalanobis p = 8.80×10⁻⁷) and the dependence-robust Bonferroni upper bound p ≤ 1.76×10⁻⁶ (≈ 1 in 568,000). The figure here is preserved as historical record.
+**[SUPERSEDED 2026-06-10 — see `reports/academic/report_academic.md` §4.3.3 and §5.5.]** The Fisher combination of Ch1 and Ch2 (T = 39.87, p = 4.61×10⁻⁸) is retired: it assumed channel independence the two channels do not have (they share the 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative joint figure is Ch1 alone (Mahalanobis p ≈ 8.84×10⁻⁷), doubled as a conservative allowance for the two channels then examined (p ≈ 1.77×10⁻⁶). That is one model's estimate on election-day ballots, not a bound: under other defensible choices the figure runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`), and no all-ballots version exists. The map is far out in the tail on every version. SZAT is exploratory and is not used: its i.i.d. null is invalid and its component-level block test (p ≈ 0.19) has one effective block and cannot reject. The figure here is preserved as historical record.
 
 ### Ch3 — Neighbour drain (pre-registered)
 

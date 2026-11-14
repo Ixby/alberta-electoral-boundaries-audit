@@ -8,9 +8,9 @@ backward_dependencies:
   - analysis/scripts/targeted_gerrymander_burst.py — UCP-maximizing burst run
   - analysis/scripts/targeted_gerrymander_burst_ndp.py — NDP-maximizing burst run (mirror)
   - data/targeted_burst_best.json — UCP burst output
-  - data/targeted_burst_ndp_best.json — NDP burst output
-  - data/simulated_ensemble_raw_samples_250k.csv — neutral 250k v0_9 ensemble (canonical)
-  - data/final_real_map_scores.json — v0_9 real-map seats@50/50 scores
+  - data/outputs/mcmc/targeted_burst_ndp_best.json — NDP burst output
+  - data/outputs/mcmc/simulated_ensemble_raw_samples_250k.csv — neutral 250k v0_9 ensemble (canonical)
+  - data/outputs/final_real_map_scores.json — v0_9 real-map seats@50/50 scores
   - analysis/reports/v0_1_targeted_burst.log — UCP burst trace
   - analysis/reports/v0_1_targeted_burst_ndp.log — NDP burst trace
 ---
@@ -18,9 +18,9 @@ backward_dependencies:
 > **Backward:**
 > - `analysis/scripts/targeted_gerrymander_burst.py` — UCP-maximizing burst
 > - `analysis/scripts/targeted_gerrymander_burst_ndp.py` — NDP-maximizing burst (mirror)
-> - `data/targeted_burst_best.json`, `data/targeted_burst_ndp_best.json` — burst outputs
-> - `data/simulated_ensemble_raw_samples_250k.csv` — neutral 250k v0_9 ensemble
-> - `data/final_real_map_scores.json` — v0_9 real-map seats@50/50 scores
+> - `data/targeted_burst_best.json`, `data/outputs/mcmc/targeted_burst_ndp_best.json` — burst outputs
+> - `data/outputs/mcmc/simulated_ensemble_raw_samples_250k.csv` — neutral 250k v0_9 ensemble
+> - `data/outputs/final_real_map_scores.json` — v0_9 real-map seats@50/50 scores
 > - `analysis/reports/v0_1_targeted_burst.log`, `analysis/reports/v0_1_targeted_burst_ndp.log` — burst traces
 >
 > **Forward:**

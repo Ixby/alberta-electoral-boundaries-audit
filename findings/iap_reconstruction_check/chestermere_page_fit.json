@@ -1,0 +1,39 @@
+{
+ "fit": {
+  "median_m": 26.5,
+  "p90_m": 48,
+  "max_m": 953
+ },
+ "area_km2": {
+  "stated": 1025,
+  "page": 1022.95,
+  "majority": 1019.72,
+  "v2": 1022.85
+ },
+ "iou": {
+  "page_vs_majority": 0.99667,
+  "page_vs_v2": 0.9997
+ },
+ "page_not_majority": [
+  {
+   "km2": 3.245,
+   "mean_width_m": 375,
+   "bounds_km": [
+    606.3,
+    5626.0,
+    611.3,
+    5630.3
+   ],
+   "majority_holder": [
+    "High River-Vulcan-Siksika"
+   ],
+   "v2_holder": [
+    "Chestermere-Strathmore"
+   ],
+   "va_points": 0
+  }
+ ],
+ "majority_not_page": [],
+ "page_not_v2": [],
+ "v2_not_page": []
+}

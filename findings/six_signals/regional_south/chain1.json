@@ -1,0 +1,12 @@
+{
+ "seed_salt": "regional_south_1",
+ "seed": 483882656,
+ "steps": 50000,
+ "epsilon": 0.25,
+ "start_max_dev": 0.12219017336607418,
+ "ideal_pop_2021": 46522.68942286358,
+ "n_vas": 462,
+ "districts": 8,
+ "start": "random plan within the band (recursive_tree_part)",
+ "burn_in_discarded": 1000
+}

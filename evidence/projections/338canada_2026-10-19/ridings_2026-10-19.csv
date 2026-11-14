@@ -1,0 +1,88 @@
+id,name,updated,GPA,GPA_hi,GPA_lo,NDP,NDP_hi,NDP_lo,PTPA,PTPA_hi,PTPA_lo,REP,REP_hi,REP_lo,UCP,UCP_hi,UCP_lo,WIP,WIP_hi,WIP_lo,winner2023,winner2023_pct
+1001,Calgary-Acadia,"October 19, 2026",,,,47,54,40,,,,,,,45,52,38,,,,NDP,48.6
+1002,Calgary-Beddington,"October 19, 2026",,,,49,56,42,7,11,2,,,,42,49,35,,,,NDP,49.7
+1003,Calgary-Bow,"October 19, 2026",,,,46,52,39,7,12,2,,,,44,51,37,,,,UCP,49.3
+1004,Calgary-Buffalo,"October 19, 2026",4,8,0,60,67,53,,,,,,,31,37,24,,,,NDP,63.0
+1005,Calgary-Cross,"October 19, 2026",4,7,0,45,52,37,,,,,,,46,54,39,,,,UCP,50.0
+1006,Calgary-Currie,"October 19, 2026",,,,54,61,47,5,10,0,,,,37,44,30,,,,NDP,54.8
+1007,Calgary-East,"October 19, 2026",5,9,0,44,51,36,,,,,,,47,55,39,,,,UCP,50.3
+1008,Calgary-Edgemont,"October 19, 2026",,,,47,54,40,6,11,0,,,,43,50,36,,,,NDP,49.3
+1009,Calgary-Elbow,"October 19, 2026",,,,45,52,38,12,18,6,,,,39,46,33,,,,NDP,49.0
+1010,Calgary-Falconridge,"October 19, 2026",,,,55,62,47,,,,,,,36,44,29,,,,NDP,56.4
+1011,Calgary-Fish Creek,"October 19, 2026",,,,44,50,37,,,,,,,51,57,44,,,,UCP,53.8
+1012,Calgary-Foothills,"October 19, 2026",,,,49,56,42,,,,,,,46,52,39,,,,NDP,49.9
+1013,Calgary-Glenmore,"October 19, 2026",,,,47,54,41,,,,,,,45,52,39,,,,NDP,49.2
+1014,Calgary-Hays,"October 19, 2026",,,,40,47,34,,,,,,,52,59,45,,,,UCP,55.6
+1015,Calgary-Klein,"October 19, 2026",,,,49,56,42,,,,,,,43,50,36,,,,NDP,50.8
+1016,Calgary-Lougheed,"October 19, 2026",,,,40,47,33,,,,,,,53,60,46,,,,UCP,56.4
+1017,Calgary-Bhullar-McCall,"October 19, 2026",,,,56,64,48,,,,,,,39,46,31,,,,NDP,57.9
+1018,Calgary-Mountain View,"October 19, 2026",,,,64,70,57,,,,,,,30,36,24,,,,NDP,64.7
+1019,Calgary-North,"October 19, 2026",,,,48,55,40,,,,,,,47,54,39,,,,UCP,50.4
+1020,Calgary-North East,"October 19, 2026",,,,53,60,46,,,,,,,42,48,35,,,,NDP,55.0
+1021,Calgary-North West,"October 19, 2026",,,,45,52,38,9,14,3,,,,43,50,37,,,,UCP,48.3
+1022,Calgary-Peigan,"October 19, 2026",5,9,0,40,47,33,,,,,,,51,58,44,,,,UCP,55.0
+1023,Calgary-Shaw,"October 19, 2026",,,,50,57,43,6,11,0,,,,40,47,33,,,,UCP,56.3
+1024,Calgary-South East,"October 19, 2026",,,,38,44,31,,,,,,,55,62,48,,,,UCP,58.9
+1025,Calgary-Varsity,"October 19, 2026",,,,56,63,49,,,,,,,37,44,31,,,,NDP,58.3
+1026,Calgary-West,"October 19, 2026",,,,40,47,33,,,,,,,53,60,46,,,,UCP,56.5
+1027,Edmonton-Beverly-Clareview,"October 19, 2026",4,8,0,50,58,43,,,,,,,42,49,34,,,,NDP,57.6
+1028,Edmonton-Castle Downs,"October 19, 2026",,,,48,55,40,6,10,2,,,,43,50,36,,,,NDP,55.0
+1029,Edmonton-City Centre,"October 19, 2026",5,10,0,66,74,59,,,,,,,25,31,19,,,,NDP,73.7
+1030,Edmonton-Decore,"October 19, 2026",,,,46,54,39,6,11,2,,,,43,51,36,,,,NDP,52.5
+1031,Edmonton-Ellerslie,"October 19, 2026",,,,54,61,47,,,,,,,40,47,33,,,,NDP,61.7
+1032,Edmonton-Glenora,"October 19, 2026",,,,63,70,55,,,,,,,31,37,24,,,,NDP,69.3
+1033,Edmonton-Gold Bar,"October 19, 2026",,,,63,69,56,,,,,,,30,36,24,,,,NDP,69.4
+1034,Edmonton-Highlands-Norwood,"October 19, 2026",4,9,0,65,73,58,,,,,,,27,33,20,,,,NDP,72.0
+1035,Edmonton-Manning,"October 19, 2026",,,,52,59,45,,,,,,,41,48,34,,,,NDP,59.8
+1036,Edmonton-McClung,"October 19, 2026",,,,53,60,45,,,,,,,40,48,33,,,,NDP,59.5
+1037,Edmonton-Meadows,"October 19, 2026",,,,55,63,48,,,,,,,40,47,33,,,,NDP,62.4
+1038,Edmonton-Mill Woods,"October 19, 2026",,,,54,61,47,,,,,,,41,48,34,,,,NDP,61.4
+1039,Edmonton-North West,"October 19, 2026",,,,52,60,45,,,,,,,40,48,33,,,,NDP,60.1
+1040,Edmonton-Riverview,"October 19, 2026",,,,60,67,53,,,,,,,31,38,25,,,,NDP,66.8
+1041,Edmonton-Rutherford,"October 19, 2026",6,11,0,56,64,49,,,,,,,34,41,27,,,,NDP,64.2
+1042,Edmonton-South,"October 19, 2026",,,,51,58,44,,,,,,,42,49,35,,,,NDP,59.0
+1043,Edmonton-South West,"October 19, 2026",,,,49,56,42,,,,,,,45,52,38,,,,NDP,56.5
+1044,Edmonton-Strathcona,"October 19, 2026",,,,74,81,68,,,,,,,17,22,12,,,,NDP,79.7
+1045,Edmonton-West Henday,"October 19, 2026",,,,50,58,43,,,,,,,42,49,35,,,,NDP,57.0
+1046,Edmonton-Whitemud,"October 19, 2026",,,,54,61,47,,,,,,,40,46,33,,,,NDP,60.4
+1047,Airdrie-Cochrane,"October 19, 2026",,,,37,43,31,,,,,,,55,62,49,,,,UCP,60.2
+1048,Airdrie East,"October 19, 2026",4,8,0,34,41,28,,,,,,,56,63,49,,,,UCP,62.0
+1049,Athabasca-Barrhead-Westlock,"October 19, 2026",,,,31,37,25,,,,4,8,1,61,68,54,,,,UCP,74.3
+1050,Banff-Kananaskis,"October 19, 2026",,,,55,62,48,,,,,,,36,43,30,,,,NDP,49.4
+1051,Bonnyville-Cold Lake-St. Paul,"October 19, 2026",,,,30,36,24,,,,4,7,0,63,70,55,,,,UCP,75.5
+1052,Brooks-Medicine Hat,"October 19, 2026",,,,32,38,25,10,17,4,,,,52,59,44,,,,UCP,66.5
+1053,Camrose,"October 19, 2026",,,,34,40,27,,,,6,10,3,55,62,48,,,,UCP,63.1
+1054,Cardston-Siksika,"October 19, 2026",,,,25,31,19,,,,6,11,1,65,73,58,,,,UCP,70.3
+1055,Central Peace-Notley,"October 19, 2026",,,,24,30,17,,,,4,7,0,67,75,60,,,,UCP,77.7
+1056,Chestermere-Strathmore,"October 19, 2026",,,,27,33,21,,,,,,,67,73,60,,,,UCP,70.6
+1057,Cypress-Medicine Hat,"October 19, 2026",,,,42,49,35,,,,,,,49,56,42,,,,UCP,61.9
+1058,Drayton Valley-Devon,"October 19, 2026",,,,27,33,22,,,,4,8,1,61,68,55,,,,UCP,73.7
+1059,Drumheller-Stettler,"October 19, 2026",,,,19,24,14,,,,4,8,1,72,79,66,,,,UCP,82.1
+1060,Fort McMurray-Lac La Biche,"October 19, 2026",,,,30,38,23,,,,5,10,0,61,69,53,,,,UCP,73.4
+1061,Fort McMurray-Wood Buffalo,"October 19, 2026",,,,26,33,19,5,10,0,6,11,2,60,68,51,,,,UCP,67.4
+1062,Fort Saskatchewan-Vegreville,"October 19, 2026",,,,44,51,38,,,,5,9,1,46,53,40,,,,UCP,57.9
+1063,Grande Prairie,"October 19, 2026",,,,38,45,31,,,,4,7,0,52,60,44,,,,UCP,63.9
+1064,Grande Prairie-Wapiti,"October 19, 2026",,,,26,32,20,,,,5,9,1,65,72,58,,,,UCP,75.7
+1065,Highwood,"October 19, 2026",,,,34,41,28,,,,4,8,1,55,62,49,,,,UCP,68.9
+1066,Innisfail-Sylvan Lake,"October 19, 2026",,,,31,37,25,,,,5,8,1,60,67,53,,,,UCP,71.5
+1067,Lac Ste. Anne-Parkland,"October 19, 2026",,,,32,39,26,4,7,0,4,8,1,56,63,49,,,,UCP,68.9
+1068,Lacombe-Ponoka,"October 19, 2026",,,,27,33,21,10,16,4,4,8,1,52,60,45,,,,UCP,67.0
+1069,Leduc-Beaumont,"October 19, 2026",,,,35,41,29,,,,,,,59,65,52,,,,UCP,56.6
+1070,Lesser Slave Lake,"October 19, 2026",,,,40,49,31,,,,4,8,0,52,61,43,,,,UCP,64.3
+1071,Lethbridge-East,"October 19, 2026",,,,50,57,43,4,7,0,4,7,1,40,47,33,,,,UCP,50.6
+1072,Lethbridge-West,"October 19, 2026",,,,57,64,50,,,,4,7,1,33,40,27,,,,NDP,53.9
+1073,Livingston-Macleod,"October 19, 2026",,,,32,38,26,7,11,2,4,8,1,55,62,48,,,,UCP,66.9
+1074,Maskwacis-Wetaskiwin,"October 19, 2026",,,,34,41,28,,,,4,8,1,56,63,49,,,,UCP,67.4
+1075,Morinville-St. Albert,"October 19, 2026",,,,38,45,32,,,,,,,52,59,45,,,,UCP,51.5
+1076,Olds-Didsbury-Three Hills,"October 19, 2026",,,,24,29,19,,,,6,10,3,65,71,58,,,,UCP,75.1
+1077,Peace River,"October 19, 2026",,,,29,36,22,,,,6,11,1,62,70,54,,,,UCP,72.8
+1078,Red Deer-North,"October 19, 2026",,,,45,52,38,,,,4,8,1,45,53,38,,,,UCP,57.5
+1079,Red Deer-South,"October 19, 2026",,,,47,54,40,,,,4,7,1,43,50,36,,,,UCP,55.9
+1080,Rimbey-Rocky Mountain House-Sundre,"October 19, 2026",,,,20,24,15,,,,9,14,4,67,74,60,,,,UCP,69.6
+1081,Sherwood Park,"October 19, 2026",,,,43,50,37,8,12,3,,,,45,52,38,,,,NDP,50.3
+1082,Spruce Grove-Stony Plain,"October 19, 2026",,,,34,40,28,,,,,,,58,64,51,,,,UCP,57.0
+1083,St. Albert,"October 19, 2026",,,,51,58,44,,,,,,,41,48,35,,,,NDP,58.5
+1084,Strathcona-Sherwood Park,"October 19, 2026",,,,39,45,32,,,,,,,55,62,49,,,,UCP,53.1
+1085,Taber-Warner,"October 19, 2026",,,,21,26,15,,,,8,13,3,61,68,53,5,10,0,UCP,75.3
+1086,Vermillion-Lloydminster-Wainwright,"October 19, 2026",,,,22,28,17,5,9,0,4,7,0,63,70,55,,,,UCP,74.3
+1087,West Yellowhead,"October 19, 2026",,,,34,41,28,,,,5,9,1,57,64,50,,,,UCP,71.3

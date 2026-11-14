@@ -2,8 +2,10 @@
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """Backstop poller for Elections Alberta shapefile releases.
 
-Runs on a weekly schedule (Sunday 06:00 UTC) via the GitHub Actions
-workflow `.github/workflows/recompute-on-shapefile-release.yml`. The
+No longer scheduled. It ran weekly from the GitHub Actions workflow
+`recompute-on-shapefile-release.yml`, which has been removed: the files it
+waited for arrived on 2026-05-06, and the recompute script it triggered is
+retired. The script can still be run by hand. The
 ChangeDetection.io watcher (set up per `analysis/automation/
 changedetection_setup.md`) is the primary detector; this poller is the
 safety net in case the watcher misses a release or is offline.
@@ -30,8 +32,8 @@ Backward:
 
 Forward:
   .temp/inbound/                            — downloaded .gpkg/.zip artifacts
-  .github/workflows/recompute-on-shapefile-release.yml — triggered by exit 0
-  analysis/scripts/recompute_against_official_shapefiles.sh — downstream recompute
+  (none: the workflow it fed has been removed and
+  analysis/scripts/recompute_against_official_shapefiles.sh is retired)
 """
 
 import argparse

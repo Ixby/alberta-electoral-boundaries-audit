@@ -1,3 +1,5 @@
+> **AI-generated review (persona prompt), not a human referee.** Produced by an AI tool on 2026-04-23 as an adversarial pass on the draft. The "senior Canadian political-science scholar" is a prompt persona. No journal submission was made and no human referee wrote this.
+
 > **Backward:**
 > - `reports/academic/report_academic.md` — the manuscript under review
 > - Carty / Pal / Courtney / Wesley scholarship — comparator literature

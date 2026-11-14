@@ -26,9 +26,15 @@ import pandas as pd
 from shapely.geometry import Polygon, LineString
 from shapely.ops import polygonize, unary_union
 
-REPO = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+import os
+
+REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "viewer" / "static" / "mapdata"
-TMP = Path(r"C:\tmp")
+# Folder holding the raw caches that are not in the repo (the Overpass water
+# export, the Natural Earth lakes files and the NRN road-segment shapefile).
+# Default is the path on the machine the layers were first built on; set
+# EXPLORER_BASEMAP_CACHE to point elsewhere.
+TMP = Path(os.environ.get("EXPLORER_BASEMAP_CACHE", r"C:\tmp"))
 
 
 def build_water():

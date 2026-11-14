@@ -24,6 +24,7 @@ Backward:
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
+import os
 import sys
 from pathlib import Path
 try:
@@ -47,11 +48,16 @@ DATA = data_loader._resolve_path("data")
 DERIVED = DATA / "shapefiles" / "derived"
 
 VA_ED = DERIVED / "va_polygons_with_2023_votes.gpkg"
-VA_FULL = DERIVED / "va_polygons_with_full_2023_votes.gpkg"
+# ALL_BALLOTS=1 (added 2026-11-05): read the all-ballots substrate, which adds the Vote Anywhere ballots
+# (vote_anywhere_splat.py), and write to an _all_ballots output. Without it nothing changes.
+ALL_BALLOTS = os.environ.get("ALL_BALLOTS") == "1"
+VA_FULL = DERIVED / ("va_polygons_with_all_2023_ballots.gpkg" if ALL_BALLOTS else "va_polygons_with_full_2023_votes.gpkg")
+FULL_COLS = ("va_ucp_all", "va_ndp_all", "va_other_all") if ALL_BALLOTS else ("va_ucp_full", "va_ndp_full", "va_other_full")
 MAJ_V9 = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 MIN_V9 = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
-OUT_JSON = DATA / "outputs" / "advance_vote_sensitivity.json"
+# advance_vote_sensitivity.json holds the v0_9-map run cited in H8; canonical runs write beside it (2026-11-05)
+OUT_JSON = DATA / "outputs" / ("advance_vote_sensitivity_all_ballots.json" if ALL_BALLOTS else "advance_vote_sensitivity_canonical.json")
 
 
 def load_va(path: Path, ucp_col: str, ndp_col: str, other_col: str) -> gpd.GeoDataFrame:
@@ -63,7 +69,8 @@ def load_va(path: Path, ucp_col: str, ndp_col: str, other_col: str) -> gpd.GeoDa
     return va
 
 
-def score_map(va: gpd.GeoDataFrame, map_path: Path, id_col: str = "name_2026") -> dict:
+def score_map(va: gpd.GeoDataFrame, map_path: Path, id_col: str = "EDName2025") -> dict:
+    # id_col was "name_2026" (the v0_9 maps); the canonical maps use EDName2025 (fixed 2026-11-05)
     proposed = gpd.read_file(map_path)
     if proposed.crs != va.crs:
         proposed = proposed.to_crs(va.crs)
@@ -100,7 +107,7 @@ def score_map(va: gpd.GeoDataFrame, map_path: Path, id_col: str = "name_2026") -
 def main():
     print("loading substrates...")
     va_ed = load_va(VA_ED, "va_ucp", "va_ndp", "va_other")
-    va_full = load_va(VA_FULL, "va_ucp_full", "va_ndp_full", "va_other_full")
+    va_full = load_va(VA_FULL, *FULL_COLS)
 
     print(
         f"  ED-only:  total NDP={va_ed['va_ndp'].sum():,.0f}  UCP={va_ed['va_ucp'].sum():,.0f}  "

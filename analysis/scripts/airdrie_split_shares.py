@@ -178,7 +178,7 @@ def main(out):
                   f"{r['share_of_airdrie_held']:7.1%} {r['airdrie_from_whole_das']:7,} "
                   f"{r['airdrie_from_cut_das']:6,}  {str(r['rests_only_on_cut_das']):8s}  "
                   f"{r['check_rep_point_airdrie_residents']:,}")
-    print(f"\nwrote {out.relative_to(REPO)}")
+    print(f"\nwrote {out.relative_to(REPO) if out.is_relative_to(REPO) else out}")
 
 
 if __name__ == "__main__":

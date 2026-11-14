@@ -1,0 +1,30 @@
+{
+ "blind": {
+  "rural_in_urbmaj": 82386.51393938197,
+  "leth_rural_in_urbmaj": 8138.336221130616,
+  "mixed": 7,
+  "urbmaj_mixed": 5,
+  "over_div_all": 0,
+  "over_res_all": 0.0,
+  "over_vot_all": 0.0,
+  "over_div_ed": 0,
+  "over_res_ed": 0.0,
+  "over_vot_ed": 0.0,
+  "focus_rural_total_in_region": 14576.105739292463,
+  "focus_rural_total_province": 14576.105739292463
+ },
+ "muni": {
+  "rural_in_urbmaj": 82386.51393938197,
+  "leth_rural_in_urbmaj": 8138.336221130616,
+  "mixed": 7,
+  "urbmaj_mixed": 5,
+  "over_div_all": 0,
+  "over_res_all": 0.0,
+  "over_vot_all": 0.0,
+  "over_div_ed": 0,
+  "over_res_ed": 0.0,
+  "over_vot_ed": 0.0,
+  "focus_rural_total_in_region": 14576.105739292463,
+  "focus_rural_total_province": 14576.105739292463
+ }
+}

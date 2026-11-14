@@ -1,0 +1,31 @@
+  2 Calgary-Beddington           IoU 0.9993 | overlaps tuning districts  0.019% | overlaps other reconstructions  0.044%
+  6 Calgary-Confluence           IoU 0.9995 | overlaps tuning districts  0.030% | overlaps other reconstructions  0.014%
+  8 Calgary-Currie               IoU 0.9993 | overlaps tuning districts  0.018% | overlaps other reconstructions  0.039%
+ 10 Calgary-Edgemont             IoU 0.9984 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.067%
+ 11 Calgary-Elbow                IoU 0.9996 | overlaps tuning districts  0.004% | overlaps other reconstructions  0.040%
+ 13 Calgary-Fish Creek           IoU 0.9988 | overlaps tuning districts  0.005% | overlaps other reconstructions  0.045%
+ 14 Calgary-Glenmore-Tsuut'ina   IoU 0.9995 | overlaps tuning districts  0.001% | overlaps other reconstructions  0.003%
+ 18 Calgary-McKenzie             IoU 0.9986 | overlaps tuning districts  0.074% | overlaps other reconstructions  0.042%
+ 26 Calgary-Symons Valley        IoU 0.9991 | overlaps tuning districts  0.038% | overlaps other reconstructions  0.010%
+ 27 Calgary-Varsity              IoU 0.9992 | overlaps tuning districts  0.019% | overlaps other reconstructions  0.010%
+ 31 Edmonton-City Centre         IoU 0.9981 | overlaps tuning districts  0.061% | overlaps other reconstructions 64.671%
+ 34 Edmonton-Enoch               IoU 0.9995 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.006%
+ 35 Edmonton-Glenora-Riverview   IoU 0.9986 | overlaps tuning districts  0.000% | overlaps other reconstructions  3.861%
+ 36 Edmonton-Gold Bar            IoU 0.9993 | overlaps tuning districts  0.003% | overlaps other reconstructions  2.354%
+ 39 Edmonton-McClung             IoU 0.9990 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.030%
+ 41 Edmonton-Mill Woods          IoU 0.9995 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.017%
+ 44 Edmonton-Rutherford          IoU 0.9986 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.013%
+ 47 Edmonton-West Henday         IoU 0.9993 | overlaps tuning districts  0.023% | overlaps other reconstructions  0.263%
+ 50 Airdrie-East                 IoU 0.9992 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.000%
+ 51 Airdrie-West                 IoU 0.9996 | overlaps tuning districts  0.006% | overlaps other reconstructions  0.001%
+ 55 Camrose                      IoU 0.9996 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.009%
+ 56 Central Peace-Notley         IoU 0.9997 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.003%
+ 59 Cold Lake-Bonnyville-St. Pau IoU 0.9997 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.004%
+ 64 Fort Saskatchewan-Vegreville IoU 0.9996 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.015%
+ 70 Lesser Slave Lake            IoU 0.9998 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.002%
+ 75 Lloydminster-Wainwright      IoU 0.9997 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.007%
+ 77 Medicine Hat-Brooks          IoU 0.9996 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.001%
+ 78 Medicine Hat-Cypress         IoU 0.9997 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.002%
+ 83 Red Deer-North               IoU 0.9987 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.000%
+ 86 Sherwood Park                IoU 0.0000 | overlaps tuning districts 82.849% | overlaps other reconstructions 17.164%
+ 89 Strathcona-Sherwood Park     IoU 0.9997 | overlaps tuning districts  0.000% | overlaps other reconstructions  0.030%

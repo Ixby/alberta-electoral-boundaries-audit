@@ -1,3 +1,5 @@
+> **AI-generated synthesis (persona prompt), not a human editor.** Produced by an AI tool on 2026-04-23. The "Associate Editor" and the three "reviewers" it synthesises are prompt personas. No journal submission was made.
+
 > **Backward:**
 > - `analysis/review/peer_review_methods.md` — Reviewer #1 input
 > - `analysis/review/peer_review_legal.md` — Reviewer #2 input

@@ -2,11 +2,13 @@
 > - Alberta Hansard, 31st Legislature, 2nd Session, April 16, 2026 (morning sitting) — `.temp/hansard_20260416_morning.pdf`, retrieved 2026-07-14 from docs.assembly.ab.ca (gitignored raw PDF; 44 pages)
 >
 > **Forward:**
-> - Casing 12 / norms page — floor-stance context
+> - Finding 12 / norms page — floor-stance context
 > - `reports/academic/report_academic.md` §5.6 equal-application disclosure
 
 
-# The April 16, 2026 floor debate — who criticized which report
+# Question Period, April 16, 2026 — who criticized which report
+
+**What this sitting was.** Government Motion 37 was on notice on April 16; it was moved, debated and passed on April 21. The exchanges quoted here are from Question Period on April 16, not from debate on the motion. Page numbers below are pages of the retrieved PDF, not Hansard's printed page numbers.
 
 **Purpose.** The audit's record documented the commission-era criticisms (the
 chair's flags against the minority; the minority's p. 356 charges against the
@@ -99,6 +101,6 @@ The criticisms of the majority map that the audit tested (pp. 287/356 of the
 minority report) exist **only** in the minority commissioners' written pages
 — no legislator, government or opposition, echoed them in the April 16
 debate. The "slow motion" charge is the opposition's process accusation and
-belongs to the norms lens (Casing 13's territory), not to either map's
+belongs to the norms lens (Finding 13's territory), not to either map's
 merits. Both observations are descriptive; the audit takes no position on
 any speaker's characterization.

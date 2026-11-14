@@ -4,6 +4,8 @@ description: Merged record of all 23 red team, peer review, and editorial QA doc
 type: reference
 ---
 
+> Paths in this record are as they were when written; files have since moved.
+
 > **Backward:**
 > - `analysis/review/` — all 23 source red-team / peer-review / editorial QA documents (consolidated here 2026-04-23)
 > - `analysis/review/legal_review_framework.md`, `science_review_framework.md` — frameworks applied

@@ -1,0 +1,12 @@
+{
+ "region": "Grande Prairie",
+ "variant": "muni",
+ "chain": 1,
+ "seed_salt": "regional_Grande_Prairie_muni_1",
+ "seed": 2925882645,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 4,
+ "n_vas": 224,
+ "muni_weight": 0.5
+}

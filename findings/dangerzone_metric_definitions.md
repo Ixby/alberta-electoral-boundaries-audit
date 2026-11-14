@@ -12,7 +12,7 @@ type: project
 > **Backward:**
 > - `analysis/scripts/score_anchoring.py` — companion CLI scorer (municipal-anchoring %)
 > - `analysis/scripts/score_hybridization.py` — companion CLI scorer (hybrid ED count)
-> - `analysis/scripts/municipal_anchoring.py` — headline anchoring methodology source
+> - `analysis/scripts/municipal_anchoring.py` (file since removed; see git history at 3329e5a5) — headline anchoring methodology source
 > - `analysis/scripts/packing_cracking_analysis.py` — manual MAJORITY/MINORITY mapping reference
 > - `data/shapefiles/reference/alberta_2021_csds.gpkg` — StatsCan 2021 CSD reference layer
 > - `data/shapefiles/derived/v0_2_canonical_majority_2026_eds_topoclean.gpkg`, `data/shapefiles/derived/v0_2_canonical_minority_2026_eds_topoclean.gpkg`
@@ -39,7 +39,7 @@ Both scripts take a single polygon shapefile (ED-level, any CRS) and emit a sing
 
 **Operational definition.** Load the input shapefile; load the StatsCan 2021 CSD boundaries (`data/shapefiles/reference/alberta_2021_csds.gpkg`) and reproject to the input CRS; union all CSD boundaries into one MultiLineString edge network. For every polygon in the input, walk its boundary at 50 m vertex spacing; for each densified vertex, snap to the nearest CSD edge if and only if the edge is within 500 m. Sum the original-densified segment length whose head-vertex was snapped (the "anchored" perimeter). Return `100.0 * total_anchored_m / total_perimeter_m` rounded to one decimal.
 
-**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `archive/dpg_era/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
+**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`, file since removed; see git history at 3329e5a5): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `archive/dpg_era/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
 
 ## Metric 2: Hybrid ED count
 
@@ -49,7 +49,7 @@ Both scripts take a single polygon shapefile (ED-level, any CRS) and emit a sing
 
 Equivalently: the ED's territory bridges a Census-defined city and at least one non-city administrative unit, with each side holding at least 5% of the ED's land. Treating SM as city-equivalent matches the audit's narrative usage (Sherwood Park / Fort McMurray are SMs but are never described as "rural hybrids").
 
-**Why an operational definition was needed.** The published 9/25/8 hybrid counts (`report_public.md:248`, `report_academic.md:2156`, `REPRODUCING.md:132`) are NOT computed by any script in the repository. Verified: no Python script in `analysis/scripts/` produces 9, 25, or 8 directly; the closest taxonomies (`is_hybrid` boolean in `data/majority_2026_populations.csv` = 19 majority hybrids; `region_type` `-hybrid`/`-merged` in `data/minority_2026_populations.csv` = 21 minority hybrids; the manual `MAJORITY_2026_MAPPING` / `MINORITY_2026_MAPPING` "blend" entries in `analysis/scripts/packing_cracking_analysis.py` = 14 majority / 17 minority blends, or 15/21 with merges) all give different totals. The 9/25/8 numbers are a manual narrative classification by the audit author, enumerated in prose at `report_public.md:252-255`. **This is the most important finding in this memo:** the published hybrid count cannot be re-implemented from the geometry without a manual taxonomy step, so a different operational definition is required for the 100k-ensemble run.
+**Why an operational definition was needed.** The published 9/25/8 hybrid counts (`report_public.md:248`, `report_academic.md:2156`, `REPRODUCING.md:132`) are NOT computed by any script in the repository. Verified: no Python script in `analysis/scripts/` produces 9, 25, or 8 directly; the closest taxonomies (`is_hybrid` boolean in `data/reference/majority_2026_populations.csv` = 19 majority hybrids; `region_type` `-hybrid`/`-merged` in `data/reference/minority_2026_populations.csv` = 21 minority hybrids; the manual `MAJORITY_2026_MAPPING` / `MINORITY_2026_MAPPING` "blend" entries in `analysis/scripts/packing_cracking_analysis.py` = 14 majority / 17 minority blends, or 15/21 with merges) all give different totals. The 9/25/8 numbers are a manual narrative classification by the audit author, enumerated in prose at `report_public.md:252-255`. **This is the most important finding in this memo:** the published hybrid count cannot be re-implemented from the geometry without a manual taxonomy step, so a different operational definition is required for the 100k-ensemble run.
 
 ## Validation results (3 maps x 2 metrics = 6 numbers)
 

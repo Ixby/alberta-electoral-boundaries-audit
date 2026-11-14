@@ -68,7 +68,7 @@ Note: the 87-district ensemble vs 89-district real maps gives slightly different
 
 **The headline p98.6 finding does not survive regional swing.** The minority map's regional s50 is at the median of the comparison ensemble. Under uniform swing the minority looked like a strong UCP gerrymander; under regional swing it looks like a typical map. *Why* it moves: the minority's supposedly-suspicious seats are concentrated in Calgary/Calgary-area, where the actual partisan swing is much larger than the provincial average. A regional swing gives the NDP more votes per Calgary district than uniform does, flipping the marginal Calgary districts in the minority map back to NDP.
 
-**But the same recomputation flags the majority map at p99.5 in the opposite direction.** The majority's regional s50 (0.449) is higher than 99.5% of the ensemble — meaning the majority map gives the UCP *more* seats than nearly any random map does, when swing is regionally-weighted. This is a different finding (the majority "wastes" too few UCP votes given how Calgary actually swings) but it is also an outlier signal.
+**But the same recomputation flags the majority map at p99.5 in the opposite direction.** The majority's regional s50 (0.449) is higher than 99.5% of the ensemble — meaning the majority map gives the UCP *more* seats than nearly any neutral map does, when swing is regionally-weighted. This is a different finding (the majority "wastes" too few UCP votes given how Calgary actually swings) but it is also an outlier signal.
 
 **Recommendation:** The Lane-1 framing has to be rewritten. Three honest options:
 

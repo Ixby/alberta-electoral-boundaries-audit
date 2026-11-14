@@ -22,5 +22,53 @@
   "outputs/phase4c_per_ed_votes_minority.csv": {
     "sha256": "2421ada7bd0f691712123abaa3cf152ed667f728a5794b26b9673b58478a2101",
     "description": "Per-ED vote totals \u2014 minority map (Phase 4C)"
+  },
+  "raw/2023_results.xlsx": {
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3",
+    "description": "Elections Alberta 2023 Statement of Vote workbook (raw input; 87 division sheets)"
+  },
+  "reference/alberta_2023_results.csv": {
+    "sha256": "583d3f90bf6eac08c3d81ebb4a3bcf433c008907166d7d2ac3cdf776daf9eadc",
+    "description": "2023 results by division, transcribed from the workbook (three Communist Party candidates omitted; data/reference/README.md)"
+  },
+  "va_pop_from_das.csv": {
+    "sha256": "547e72a49b3d54c10016b84eca08936951c2d355594db6e141a49163d3a3b2d9",
+    "description": "2021 census population per voting area, the ensembles' population weight (rebuilt by analysis/scripts/build_va_pop.py)"
+  },
+  "outputs/va_pop_from_das.csv": {
+    "sha256": "547e72a49b3d54c10016b84eca08936951c2d355594db6e141a49163d3a3b2d9",
+    "description": "Byte-identical second copy of va_pop_from_das.csv"
+  },
+  "reference/majority_2026_populations.csv": {
+    "sha256": "9e5c36b2a7ad66cab7c15b6f43dde4e561554a4befbaf1c9a10e6bd5fc6d5c51",
+    "description": "Majority map populations as printed in the commission's final report"
+  },
+  "reference/minority_2026_populations.csv": {
+    "sha256": "04152d6a6f86d248a6730cc51ef2f93c80eba302fcc1c56cb266a63a19ae52b2",
+    "description": "Minority map populations as printed in the commission's final report"
+  },
+  "outputs/polls_2023_unified.csv": {
+    "sha256": "bcee013e1f9a445d20651fbf6dfb5f03e6b6af7f6ba7073ad07dc8fdd57178d5",
+    "description": "2023 poll-level results from the workbook (input to advance_vote_splat.py; no committed builder)"
+  },
+  "census_2021/alberta_da_profile.csv": {
+    "sha256": "b0c48f83bae0b9c4b3f1a15f1afbdeea96fb2f341b9884b7aacc2092d1e9901f",
+    "description": "2021 census dissemination-area profile extract for Alberta"
+  },
+  "shapefiles/canonical/ea_majority_2026_eds.gpkg": {
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160",
+    "description": "Official majority 2026 boundaries as supplied by Elections Alberta (Git LFS; checked when pulled)"
+  },
+  "shapefiles/canonical/ea_minority_2026_eds.gpkg": {
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
+    "description": "Official minority 2026 boundaries as supplied by Elections Alberta (Git LFS; checked when pulled)"
+  },
+  "shapefiles/derived/va_polygons_with_2023_votes.gpkg": {
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b",
+    "description": "Voting-area polygons with 2023 election-day votes (Git LFS; checked when pulled)"
+  },
+  "shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg": {
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72",
+    "description": "Voting-area polygons with all 2023 ballots, registered allocation (Git LFS; checked when pulled)"
   }
 }

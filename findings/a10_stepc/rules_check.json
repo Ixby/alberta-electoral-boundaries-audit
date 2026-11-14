@@ -1,0 +1,69 @@
+{
+ "label": "iap_2026_assembled",
+ "table": "data/outputs/s15_2_va_criteria.csv",
+ "table_sha256": "48c928b8716f6ed218065e01a912ecabd11518917ac9e312376e4d603ee2fafc",
+ "table_is_a23": true,
+ "status": "SUPPLEMENTARY - descriptive, not a registered test",
+ "districts": 91,
+ "average_pop_overlay": 46841,
+ "stated_populations": true,
+ "stated_name_matches_not_exact": [],
+ "stated_names_unmatched": [],
+ "map_districts_without_stated": [],
+ "unassigned_pop_overlay": 0,
+ "above_plus25": [],
+ "below_minus50": [],
+ "below_minus25": [
+  {
+   "district": "Central Peace-Notley",
+   "dev_overlay_pct": -42.2,
+   "dev_stated_pct": -46.5,
+   "basis": "both",
+   "criteria_met": 5,
+   "criteria": "abcde",
+   "meets_3_of_5": true
+  },
+  {
+   "district": "Lesser Slave Lake",
+   "dev_overlay_pct": -37.0,
+   "dev_stated_pct": -44.1,
+   "basis": "both",
+   "criteria_met": 3,
+   "criteria": "acd",
+   "meets_3_of_5": true
+  },
+  {
+   "district": "Rocky Mountain House-Sundre",
+   "dev_overlay_pct": -31.4,
+   "dev_stated_pct": -41.3,
+   "basis": "both",
+   "criteria_met": 5,
+   "criteria": "abcde",
+   "meets_3_of_5": true
+  }
+ ],
+ "below_minus25_count": 3,
+ "s15_2_cap": 4,
+ "over_cap": false,
+ "below_minus25_without_3_criteria": [],
+ "bases_disagree": [
+  {
+   "district": "Calgary-North East",
+   "dev_overlay_pct": -38.3,
+   "dev_stated_pct": 1.5
+  },
+  {
+   "district": "Edmonton-Windermere",
+   "dev_overlay_pct": -27.3,
+   "dev_stated_pct": 0.8
+  }
+ ],
+ "dev_range_overlay_pct": [
+  -42.2,
+  21.7
+ ],
+ "dev_range_stated_pct": [
+  -46.5,
+  18.1
+ ]
+}

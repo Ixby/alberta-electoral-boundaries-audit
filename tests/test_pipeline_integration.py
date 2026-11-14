@@ -24,6 +24,7 @@ from scipy.stats import spearmanr
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(0, str(REPO_ROOT / "tests"))
+from lfs_guard import unavailable_reason
 from pipeline_schemas import (
     ConvergenceDiagSchema,
     DrainMapSchema,
@@ -37,16 +38,21 @@ from pipeline_schemas import (
 # ── File paths ────────────────────────────────────────────────────────────────
 
 BOOTSTRAP_NPY = REPO_ROOT / "data" / "szat_bootstrap_eg_samples.npy"
-ENSEMBLE_RAW = REPO_ROOT / "data" / "simulated_ensemble_raw_samples_canonical.csv"
-ENSEMBLE_PCT = REPO_ROOT / "data" / "simulated_ensemble_percentiles_canonical.csv"
-CONVERGENCE  = REPO_ROOT / "data" / "simulation_convergence_diagnostics_canonical.json"
+# These three live under data/outputs/ (the paths here once pointed at data/,
+# so the tests skipped everywhere). The raw-samples CSV is a Git LFS object.
+ENSEMBLE_RAW = REPO_ROOT / "data" / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+ENSEMBLE_PCT = REPO_ROOT / "data" / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
+CONVERGENCE  = REPO_ROOT / "data" / "outputs" / "simulation_convergence_diagnostics_canonical.json"
 PLACEMENT    = REPO_ROOT / "data" / "outputs" / "final_percentile_placement.json"
 DRAIN        = REPO_ROOT / "data" / "neighbour_drain_summary.json"
 
 
+_RAW_UNAVAILABLE = unavailable_reason(ENSEMBLE_RAW)
+
+
 # ── test_ensemble_csv_schema ─────────────────────────────────────────────────
 
-@pytest.mark.skipif(not ENSEMBLE_RAW.exists(), reason="ensemble CSV not in repo")
+@pytest.mark.skipif(_RAW_UNAVAILABLE is not None, reason=str(_RAW_UNAVAILABLE))
 def test_ensemble_raw_csv_schema():
     """Ensemble CSV must have required columns with correct dtypes and no NaN."""
     df = pd.read_csv(ENSEMBLE_RAW)
@@ -120,11 +126,11 @@ def test_joint_outlier_placement_schema():
 # If this test fails, the Fisher combination claim needs review — see
 # analysis/methodology/fisher_independence_defense.md for the structural argument.
 
-_FISHER_SKIPIF = not (BOOTSTRAP_NPY.exists() and ENSEMBLE_RAW.exists())
+_FISHER_SKIPIF = not BOOTSTRAP_NPY.exists() or _RAW_UNAVAILABLE is not None
 _FISHER_REASON = (
     "szat_bootstrap_eg_samples.npy not present — run szat.py to generate it"
     if not BOOTSTRAP_NPY.exists()
-    else "ensemble CSV not present"
+    else str(_RAW_UNAVAILABLE)
 )
 
 PARTISAN_COLS = ["efficiency_gap", "mean_median", "declination"]

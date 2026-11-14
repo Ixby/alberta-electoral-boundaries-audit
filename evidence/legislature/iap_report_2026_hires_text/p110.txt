@@ -1,0 +1,22 @@
+measure disproportionality in an electoral system. They are mathematical formulae used to measure the
+total disproportionality between a party's share of the vote and its share of the seats in a Legislature. The
+extent to which seat share diverges from voter share. There is also apparently a Rae index which measures
+the average deviation. While the Loosemore-Hanby index measures total deviation, the Rae Index measures
+average deviation.
+As an erstwhile lawyer and judge, numeracy is not something I ever possessed; but if one looks at the
+last election, the UCP received roughly 52% of the popular vote and 49 seats or 57% of the seats in the
+Legislature. The NDP received 44% of the popular vote and 38 seats or almost 44% of the seats. Not perfect,
+but not bad.
+Secondly, if you add up all the population variances in the electoral divisions mapped by the 2025-2026
+Electoral Boundaries Commission, eliminate the Section 15(2) special consideration electoral divisions
+(Central Peace-Notley, Lesser Slave Lake, and Canmore-Banff); and divide by the number of electoral
+divisions, an average variance of 4.63% emerges, or 5.72% if you include the widely varying special
+consideration electoral divisions. Pretty close to absolute parity, never mind relative population parity.
+Kudos to the Commission, but minimal population variance tells you little about the merit of any particular
+electoral division or electoral map. In Canada, a 4.6 % average variance is not bad. In the U.S., the courts
+sometimes insist on less than a 1% variation. But look at the maps chasing the population parity produce.
+It's not always gerrymandering that produces strange looking electoral divisions. Chasing population parity
+can also produce them.
+
+104|2026 Independent Advisory Panel on Electoral Boundaries
+

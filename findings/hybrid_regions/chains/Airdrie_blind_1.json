@@ -1,0 +1,12 @@
+{
+ "region": "Airdrie",
+ "variant": "blind",
+ "chain": 1,
+ "seed_salt": "regional_Airdrie_blind_1",
+ "seed": 1970291784,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 8,
+ "n_vas": 327,
+ "muni_weight": 0
+}

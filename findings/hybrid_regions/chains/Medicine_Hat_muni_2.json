@@ -1,0 +1,12 @@
+{
+ "region": "Medicine Hat",
+ "variant": "muni",
+ "chain": 2,
+ "seed_salt": "regional_Medicine_Hat_muni_2",
+ "seed": 2556869554,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "districts": 6,
+ "n_vas": 353,
+ "muni_weight": 0.5
+}

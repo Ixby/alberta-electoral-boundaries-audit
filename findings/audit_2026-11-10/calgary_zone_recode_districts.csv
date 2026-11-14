@@ -1,0 +1,58 @@
+map,district,population,centroid_lat,centroid_lon,km_east_of_deerfoot,km_to_nearest_deerfoot_carriageway,km_to_bow_upstream_of_crossing,in_strip_between_bow_and_deerfoot,zone_committed_lists,zone_published_3_recode,zone_literal_bow_to_crossing,zone_literal_handoff_at_nearest_approach,zone_literal_nolan_hill_cochrane_in_a
+majority,Calgary-Acadia,55791,50.9667,-114.0642,-2.2,1.9,5.63,False,B,B,B,B,B
+majority,Calgary-Beddington,56024,51.126,-114.1051,-4.14,4.12,6.35,False,A,A,A,A,A
+majority,Calgary-Bhullar-McCall,55887,51.1266,-113.9921,3.77,3.38,9.27,False,A,A,A,A,A
+majority,Calgary-Bow,54981,51.0767,-114.2153,-13.14,12.22,2.45,False,B,B,B,B,B
+majority,Calgary-Buffalo,58777,51.0455,-114.075,-4.4,3.89,0.88,False,A,A,B,B,B
+majority,Calgary-Confluence,58632,51.0139,-114.0093,-0.24,0.21,0.17,True,A,A,A,B,A
+majority,Calgary-Cross,59491,51.0815,-113.9467,6.17,5.67,6.21,False,A,A,A,A,A
+majority,Calgary-Currie,58111,51.0346,-114.1328,-9.41,8.0,1.79,False,A,A,B,B,B
+majority,Calgary-East,58308,51.0254,-113.9165,5.82,5.72,5.99,False,A,A,A,A,A
+majority,Calgary-Edgemont,55141,51.1253,-114.1696,-8.65,8.63,3.42,False,A,A,A,A,A
+majority,Calgary-Elbow,55297,51.0154,-114.0928,-6.13,4.57,3.62,False,B,B,B,B,B
+majority,Calgary-Falconridge-Conrich,56661,51.1003,-113.899,10.22,9.42,10.1,False,A,A,A,A,A
+majority,Calgary-Fish Creek,55403,50.9225,-114.0437,-4.8,3.67,9.72,False,B,B,B,B,B
+majority,Calgary-Glenmore-Tsuut'ina,56970,50.9669,-114.3495,-22.28,21.7,15.62,False,B,B,B,B,B
+majority,Calgary-Hays,52147,50.9434,-113.9242,3.95,3.66,9.82,False,B,B,A,A,A
+majority,Calgary-Klein,56292,51.0804,-114.0387,-0.41,0.33,3.3,False,A,A,A,A,A
+majority,Calgary-Lougheed,59554,50.906,-114.1365,-11.33,9.37,14.07,False,B,B,B,B,B
+majority,Calgary-McKenzie,62772,50.926,-113.9938,-1.29,1.28,9.34,False,B,B,B,B,B
+majority,Calgary-Mountain View,54396,51.0583,-114.0729,-3.54,3.27,0.18,False,A,A,A,A,A
+majority,Calgary-North,57945,51.1792,-114.1072,-7.42,6.52,10.82,False,A,A,A,A,A
+majority,Calgary-North East,54541,51.1652,-113.9537,3.42,3.34,14.07,False,A,A,A,A,A
+majority,Calgary-North West,52488,51.1241,-114.2467,-14.05,14.0,2.51,False,A,A,A,A,A
+majority,Calgary-Nose Creek,55155,51.1775,-114.0479,-3.28,3.26,13.3,False,A,A,A,A,A
+majority,Calgary-Shaw,58171,50.8704,-114.0391,-5.43,5.12,15.42,False,B,B,B,B,B
+majority,Calgary-South East,53551,50.8805,-113.9155,3.56,3.37,15.98,False,B,B,A,A,A
+majority,Calgary-Symons Valley,54797,51.1698,-114.1802,-12.49,10.36,7.98,False,A,A,A,A,A
+majority,Calgary-Varsity,57166,51.0867,-114.1524,-8.02,7.68,1.03,False,A,A,A,A,A
+majority,Calgary-West-Elbow Valley,54167,51.0258,-114.3138,-21.94,19.86,8.64,False,B,B,B,B,B
+minority,Calgary-Acadia,53346,50.9673,-114.0639,-2.15,1.85,5.57,False,B,B,B,B,B
+minority,Calgary-Airdrie,58820,51.2123,-114.0402,-2.71,2.7,16.56,False,A,A,A,A,A
+minority,Calgary-Beddington,61320,51.1281,-114.0882,-2.95,2.93,7.36,False,A,A,A,A,A
+minority,Calgary-Bow-Springbank,55560,51.0869,-114.3424,-21.37,20.8,4.17,False,B,B,B,B,B
+minority,Calgary-Buffalo,66801,51.0443,-114.0686,-4.13,3.56,1.05,False,A,B,B,B,B
+minority,Calgary-Cross,63064,51.0854,-113.8676,11.96,10.84,11.08,False,A,A,A,A,A
+minority,Calgary-Currie,60141,51.032,-114.1327,-9.47,7.88,2.03,False,A,B,B,B,B
+minority,Calgary-De Winton,47732,50.8248,-114.1601,-12.37,12.2,22.7,False,B,B,B,B,B
+minority,Calgary-East,57107,51.0492,-113.9887,2.05,1.54,1.69,False,A,A,A,A,A
+minority,Calgary-Edgemont,56584,51.1346,-114.1676,-8.72,8.52,4.41,False,A,A,A,A,A
+minority,Calgary-Elbow,59034,51.0191,-114.0578,-3.82,2.53,2.97,False,B,B,B,B,B
+minority,Calgary-Falconridge,63986,51.0944,-113.947,6.53,6.03,7.27,False,A,A,A,A,A
+minority,Calgary-Fish Creek,57894,50.9196,-114.0384,-4.42,3.84,9.97,False,B,B,B,B,B
+minority,Calgary-Foothills-Airdrie West,58436,51.2419,-114.1148,-7.91,7.9,16.87,False,A,A,A,A,A
+minority,Calgary-Glenmore,53096,50.9702,-114.1196,-5.92,5.58,8.25,False,B,B,B,B,B
+minority,Calgary-Hays,52395,50.922,-113.8871,6.21,6.2,13.33,False,B,B,A,A,A
+minority,Calgary-Klein,61817,51.0878,-114.0792,-2.85,2.8,3.48,False,A,A,A,A,A
+minority,Calgary-Lougheed,56122,50.9142,-114.1009,-8.82,6.84,11.96,False,B,B,B,B,B
+minority,Calgary-McCall-Bhullar,66474,51.1279,-113.9927,3.73,3.27,9.4,False,A,A,A,A,A
+minority,Calgary-Mountain View,62634,51.0593,-114.0832,-4.2,3.96,0.63,False,A,A,A,A,A
+minority,Calgary-Nolan Hill-Cochrane,56282,51.1552,-114.5139,-34.44,32.84,3.17,False,A,A,B,B,A
+minority,Calgary-North,56981,51.1662,-114.094,-6.39,4.96,10.23,False,A,A,A,A,A
+minority,Calgary-North East,68145,51.16,-113.936,5.05,4.65,13.96,False,A,A,A,A,A
+minority,Calgary-North West-Bearspaw,57246,51.1464,-114.2458,-15.01,14.1,4.53,False,A,A,A,A,A
+minority,Calgary-Peigan-Chestermere,52639,50.9684,-113.8542,12.75,9.15,12.17,False,B,A,A,A,A
+minority,Calgary-South,55134,50.8838,-113.9992,-2.23,2.07,13.94,False,B,B,B,B,B
+minority,Calgary-South East,54045,50.8642,-113.7597,14.29,14.24,24.22,False,B,B,A,A,A
+minority,Calgary-Varsity,64982,51.0942,-114.1733,-9.35,8.95,0.78,False,A,A,A,A,A
+minority,Calgary-West-Tsuut'ina,57827,50.9776,-114.361,-22.51,22.49,14.77,False,B,B,B,B,B

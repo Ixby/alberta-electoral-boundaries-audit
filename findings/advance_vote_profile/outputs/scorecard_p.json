@@ -1,0 +1,851 @@
+{
+ "meta": {
+  "entry": "2026-11-10 13:35 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/12_scorecard_p.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_p.gpkg",
+    "sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg",
+    "sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/ensemble_ranks_p.json",
+    "sha256": "51a672a188d739b57e6d7e90f5ac97a164b0a62228b5104b7a3c6b2a77c07d8f"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/thresholds_p.json",
+    "sha256": "ef596a413f5c2f87f4c5bf6c413d819b8b5f05341f7752509bc6b4390326636a"
+   },
+   {
+    "path": "findings/advance_vote_profile/outputs/territory_null_p.json",
+    "sha256": "35716ed6b441d81732a9ef42c95353d4fd4f605f94f1c4b40a8f77f2350a42e2"
+   },
+   {
+    "path": "findings/amendment12_rehearsal/joint_outlier_allballots.json",
+    "sha256": "92bd443a1366927e8cb25b917d37f98c039aece929aef7f0e8ce9fb92f1c5a12"
+   },
+   {
+    "path": "findings/allballots_ranking/canonical_ranking.json",
+    "sha256": "3d7815749c3b8705cad0da4be1f11e1ac0439dd12e11899032d11e9970f3b868"
+   },
+   {
+    "path": "findings/iap_para167/real_maps_all_ballots.json",
+    "sha256": "88d65dd36427e8e22e7b143bfb952f665b1c36210fee5af1af7957e7b4a50d91"
+   },
+   {
+    "path": "findings/iap_para167/comparison.json",
+    "sha256": "59fbe57508f0321399c9e59425ef2875eb77a1aa13ed2fc67f3c983d6b36cf04"
+   },
+   {
+    "path": "findings/amendment12_rehearsal/size_matched_allballots.json",
+    "sha256": "03354b954940046cd51217a9e53633c00afa1dfa6f2905ab7b698c8187c6a88d"
+   },
+   {
+    "path": "findings/amendment12_checks/structural_panel_v3_allballots.json",
+    "sha256": "2c824e1febac4463b1d4ad61f3613cb7f20ac1fc8cbb95e66cde4d6d43953c53"
+   },
+   {
+    "path": "findings/amendment12_checks/structural_majority_allballots.json",
+    "sha256": "a79752b5be3dd441ce80423fe4e8abe217274c3b2802f733577155469aa799d5"
+   },
+   {
+    "path": "findings/amendment12_checks/structural_minority_allballots.json",
+    "sha256": "f5a10ecd5580f54458f5899baab8fd56cae7f1d4881e5fce55a75f8b6cf4318a"
+   },
+   {
+    "path": "findings/iap_para167/structural.json",
+    "sha256": "5082f429ca5cc0b2f2ff73f0f58edbcb0c6b35455eaa1ff18de737961ae6266e"
+   },
+   {
+    "path": "data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg",
+    "sha256": "8ea5caf68ac95bffe3d7e8a58635b8888f742b3bf115cf3787da3cc92caca1b7"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_majority_2026_eds.gpkg",
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160"
+   },
+   {
+    "path": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg",
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897"
+   },
+   {
+    "path": "findings/iap_para167/para167_map.gpkg",
+    "sha256": "a6b0acc00d3904e097d473463f8a83d5da318773d92b2a83df30aa1c3fcffb85"
+   }
+  ]
+ },
+ "what": "Registered scorecard (spec §3 two lanes, plus the other vote-based tests) under rule P and Amendment 12's rule",
+ "rules": {
+  "a12": {
+   "vote_file_sha256": "c9e21ac90fb97b9ee4a7e4da7c80d44922e5849842fc283344f724bb2711be72",
+   "p1_line": 0.01394,
+   "s5_line": 0.0019398,
+   "s5_flag": "below the line"
+  },
+  "p": {
+   "vote_file_sha256": "bf9b27226e457ddb4b8c2feaa77f7402d1c3d1284657c821d208f6597b8f73bd",
+   "p1_line": 0.0215027622767721,
+   "s5_midpoint": 0.005882585113428959,
+   "s5": "set aside on this file (Amendment 14, Part 3): no flag, counts as not flagged"
+  },
+  "p2_to_p4": "p95 or more in the UCP direction against the 87-district canonical ensemble; P3's p5 tail reported, not counted",
+  "structural_count": "3 or more of S1, S2, S3, S5, S6 = replicated; S4 measured, not counted",
+  "partisan_count": "2 or more of P1 to P4 = present",
+  "percentiles": "rule P: midrank (mcmc_ensemble.pct_rank), from ensemble_ranks_p.json; Amendment 12: share of plans at or below. They differ only on ties; P4 cannot tie for these maps (checked). Rule-P values in that file are rounded to 5 significant decimals from headline_table.csv (lean 1.0)"
+ },
+ "maps": {
+  "panel_v3_91": {
+   "structural": {
+    "a12": {
+     "s1": {
+      "value": 3556.6619123016135,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 24,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7429422716216468,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 1,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.010429060406130678,
+      "line": 0.0019398,
+      "flag": false
+     }
+    },
+    "p": {
+     "s1": {
+      "value": 3556.6619123016135,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 24,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7429422716216468,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 1,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.0005320950175668412,
+      "line": 0.005882585113428959,
+      "flag": false,
+      "set_aside": true,
+      "below_midpoint_reported_only": true
+     }
+    }
+   },
+   "partisan": {
+    "a12": {
+     "p1": {
+      "value": -0.016637,
+      "percentile": 47.95,
+      "line": 0.01394,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.010934,
+      "percentile": 79.45,
+      "line": "p95",
+      "flag": false
+     },
+     "p3": {
+      "value": -0.059834,
+      "percentile": 48.22,
+      "line": "p95",
+      "flag": false,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.494505,
+      "percentile": 98.82,
+      "line": "p95",
+      "flag": true
+     }
+    },
+    "p": {
+     "p1": {
+      "value": -0.02836,
+      "percentile": 18.31,
+      "line": 0.0215027622767721,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.00473,
+      "percentile": 89.16,
+      "line": "p95",
+      "flag": false
+     },
+     "p3": {
+      "value": -0.0802,
+      "percentile": 16.89,
+      "line": "p95",
+      "flag": false,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.4945054945054945,
+      "percentile": 97.25,
+      "line": "p95",
+      "flag": true
+     }
+    }
+   },
+   "counts": {
+    "a12": {
+     "structural_flags": 2,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 1,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "absent"
+    },
+    "p": {
+     "structural_flags": 2,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 1,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "absent"
+    }
+   },
+   "competitive_seats": {
+    "a12": {
+     "d": {
+      "value": 10.0,
+      "percentile": 34.38,
+      "q05": 8.0,
+      "flag": false
+     },
+     "a": {
+      "value": 10.0,
+      "percentile": 31.07,
+      "q05": 8.0,
+      "flag": false
+     },
+     "b": {
+      "value": 10.0,
+      "percentile": 31.43,
+      "q05": 8.0,
+      "flag": false
+     },
+     "c": {
+      "value": 10.0,
+      "percentile": 39.41,
+      "q05": 8.0,
+      "flag": false
+     }
+    },
+    "p": {
+     "d": {
+      "value": 9.0,
+      "percentile_midrank": 28.56,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "a": {
+      "value": 9.0,
+      "percentile_midrank": 25.83,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "b": {
+      "value": 9.0,
+      "percentile_midrank": 25.99,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "c": {
+      "value": 9.0,
+      "percentile_midrank": 25.7,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     }
+    }
+   },
+   "redraw_tests": {
+    "a12": {
+     "r1_efficiency_gap": {
+      "value": -0.016637175571172686,
+      "p_two_sided": 0.9138888888888889,
+      "flag": false
+     },
+     "r2_drain": {
+      "value": 0.010433770891244632,
+      "p_two_sided": 0.41944444444444445,
+      "flag": false
+     }
+    },
+    "p": {
+     "r1_efficiency_gap": {
+      "value": -0.028358048906364078,
+      "p_two_sided": 0.6194444444444445,
+      "flag": false
+     },
+     "r2_drain": {
+      "value": 0.000533101385544713,
+      "p_two_sided": 0.5763888888888888,
+      "flag": false
+     }
+    },
+    "note": "scored on iap_2026_assembled.gpkg (Step C); v3 moves no voting area's representative point, so its votes per district are the same"
+   }
+  },
+  "majority_89": {
+   "structural": {
+    "a12": {
+     "s1": {
+      "value": 2826.8945263667047,
+      "line": 3382.5,
+      "flag": false
+     },
+     "s2": {
+      "value": 23,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7996384497064145,
+      "line": 0.7601,
+      "flag": false
+     },
+     "s6": {
+      "value": 0,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.0037118238339337974,
+      "line": 0.0019398,
+      "flag": false
+     }
+    },
+    "p": {
+     "s1": {
+      "value": 2826.8945263667047,
+      "line": 3382.5,
+      "flag": false
+     },
+     "s2": {
+      "value": 23,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7996384497064145,
+      "line": 0.7601,
+      "flag": false
+     },
+     "s6": {
+      "value": 0,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.004031575680703427,
+      "line": 0.005882585113428959,
+      "flag": false,
+      "set_aside": true,
+      "below_midpoint_reported_only": true
+     }
+    }
+   },
+   "partisan": {
+    "a12": {
+     "p1": {
+      "value": -0.026961813555927874,
+      "percentile": 26.48,
+      "line": 0.01394,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.03513815515600638,
+      "percentile": 1.24,
+      "line": "p95",
+      "flag": false
+     },
+     "p3": {
+      "value": -0.09257909653121,
+      "percentile": 17.26,
+      "line": "p95",
+      "flag": false,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.47191011235955055,
+      "percentile": 74.08,
+      "line": "p95",
+      "flag": false
+     }
+    },
+    "p": {
+     "p1": {
+      "value": -0.02827,
+      "percentile": 18.41,
+      "line": 0.0215027622767721,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.03767,
+      "percentile": 0.52,
+      "line": "p95",
+      "flag": false
+     },
+     "p3": {
+      "value": -0.0886,
+      "percentile": 13.89,
+      "line": "p95",
+      "flag": false,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.47191011235955055,
+      "percentile": 68.67,
+      "line": "p95",
+      "flag": false
+     }
+    }
+   },
+   "counts": {
+    "a12": {
+     "structural_flags": 0,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 0,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "absent"
+    },
+    "p": {
+     "structural_flags": 0,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 0,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "absent"
+    }
+   },
+   "competitive_seats": {
+    "a12": {
+     "not_computed": "no 89-district all-ballots size-matched run is filed (amendment12_rehearsal README, failure 5)"
+    },
+    "p": {
+     "a": {
+      "value": 11.0,
+      "percentile_midrank": 67.16,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "b": {
+      "value": 11.0,
+      "percentile_midrank": 67.82,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "c": {
+      "value": 11.0,
+      "percentile_midrank": 67.36,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     }
+    }
+   },
+   "redraw_tests": "not applicable: R1 and R2 test the November map's changes against the majority map"
+  },
+  "minority_89": {
+   "structural": {
+    "a12": {
+     "s1": {
+      "value": 3938.1069235499162,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 30,
+      "line": 26.5,
+      "flag": true
+     },
+     "s3": {
+      "value": 0.7178156355694612,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 5,
+      "line": 2.5,
+      "flag": true
+     },
+     "s5": {
+      "value": 0.0001677596344500493,
+      "line": 0.0019398,
+      "flag": true
+     }
+    },
+    "p": {
+     "s1": {
+      "value": 3938.1069235499162,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 30,
+      "line": 26.5,
+      "flag": true
+     },
+     "s3": {
+      "value": 0.7178156355694612,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 5,
+      "line": 2.5,
+      "flag": true
+     },
+     "s5": {
+      "value": 0.007733594546154491,
+      "line": 0.005882585113428959,
+      "flag": false,
+      "set_aside": true,
+      "below_midpoint_reported_only": false
+     }
+    }
+   },
+   "partisan": {
+    "a12": {
+     "p1": {
+      "value": 0.025539082898241427,
+      "percentile": 98.82,
+      "line": 0.01394,
+      "flag": true
+     },
+     "p2": {
+      "value": 0.0007725400804714511,
+      "percentile": 98.73,
+      "line": "p95",
+      "flag": true
+     },
+     "p3": {
+      "value": 0.04576830820011375,
+      "percentile": 99.82,
+      "line": "p95",
+      "flag": true,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.5168539325842697,
+      "percentile": 99.9,
+      "line": "p95",
+      "flag": true
+     }
+    },
+    "p": {
+     "p1": {
+      "value": 0.056440000000000004,
+      "percentile": 99.98,
+      "line": 0.0215027622767721,
+      "flag": true
+     },
+     "p2": {
+      "value": 0.00509,
+      "percentile": 99.18,
+      "line": "p95",
+      "flag": true
+     },
+     "p3": {
+      "value": 0.1012,
+      "percentile": 100.0,
+      "line": "p95",
+      "flag": true,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.5168539325842697,
+      "percentile": 99.65,
+      "line": "p95",
+      "flag": true
+     }
+    }
+   },
+   "counts": {
+    "a12": {
+     "structural_flags": 5,
+     "of": 5,
+     "structural": "replicated",
+     "partisan_flags": 4,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "present"
+    },
+    "p": {
+     "structural_flags": 4,
+     "of": 5,
+     "structural": "replicated",
+     "partisan_flags": 4,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "present"
+    }
+   },
+   "competitive_seats": {
+    "a12": {
+     "not_computed": "no 89-district all-ballots size-matched run is filed (amendment12_rehearsal README, failure 5)"
+    },
+    "p": {
+     "a": {
+      "value": 9.0,
+      "percentile_midrank": 28.76,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "b": {
+      "value": 9.0,
+      "percentile_midrank": 30.19,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "c": {
+      "value": 9.0,
+      "percentile_midrank": 24.64,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     }
+    },
+    "p_note": "minority close4 is 8 to 9 across the lean range under P (9 at lean 1.0, ranked)"
+   },
+   "redraw_tests": "not applicable: R1 and R2 test the November map's changes against the majority map"
+  },
+  "para167_91": {
+   "structural": {
+    "a12": {
+     "s1": {
+      "value": 3412.901194387159,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 23,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7583885211499809,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 0,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.0037118238339337974,
+      "line": 0.0019398,
+      "flag": false
+     }
+    },
+    "p": {
+     "s1": {
+      "value": 3412.901194387159,
+      "line": 3382.5,
+      "flag": true
+     },
+     "s2": {
+      "value": 23,
+      "line": 26.5,
+      "flag": false
+     },
+     "s3": {
+      "value": 0.7583885211499809,
+      "line": 0.7601,
+      "flag": true
+     },
+     "s6": {
+      "value": 0,
+      "line": 2.5,
+      "flag": false
+     },
+     "s5": {
+      "value": 0.004029668917590793,
+      "line": 0.005882585113428959,
+      "flag": false,
+      "set_aside": true,
+      "below_midpoint_reported_only": true
+     }
+    }
+   },
+   "partisan": {
+    "a12": {
+     "p1": {
+      "value": -0.02187771538438242,
+      "percentile": null,
+      "line": 0.01394,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.029039517884653754,
+      "percentile": null,
+      "line": "p95",
+      "flag": null,
+      "not_computed": "needs the M0 canonical ensemble (data/simulation_checkpoints_allballots), not in this checkout; no canonical rank of this map on M0 is filed"
+     },
+     "p3": {
+      "value": -0.08028738566719278,
+      "percentile": null,
+      "line": "p95",
+      "flag": null,
+      "not_computed": "needs the M0 canonical ensemble (data/simulation_checkpoints_allballots), not in this checkout; no canonical rank of this map on M0 is filed"
+     },
+     "p4": {
+      "value": 0.4835164835164835,
+      "percentile": null,
+      "line": "p95",
+      "flag": null,
+      "not_computed": "needs the M0 canonical ensemble (data/simulation_checkpoints_allballots), not in this checkout; no canonical rank of this map on M0 is filed"
+     }
+    },
+    "p": {
+     "p1": {
+      "value": -0.023319999999999997,
+      "percentile": 25.78,
+      "line": 0.0215027622767721,
+      "flag": false
+     },
+     "p2": {
+      "value": -0.02183,
+      "percentile": 27.0,
+      "line": "p95",
+      "flag": false
+     },
+     "p3": {
+      "value": -0.077,
+      "percentile": 18.5,
+      "line": "p95",
+      "flag": false,
+      "ndp_tail_reported_not_counted": false
+     },
+     "p4": {
+      "value": 0.4835164835164835,
+      "percentile": 88.47,
+      "line": "p95",
+      "flag": false
+     }
+    }
+   },
+   "counts": {
+    "a12": {
+     "structural_flags": 2,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 0,
+     "partisan_of": 1,
+     "partisan_not_computed": [
+      "p2",
+      "p3",
+      "p4"
+     ],
+     "partisan": "not determined"
+    },
+    "p": {
+     "structural_flags": 2,
+     "of": 5,
+     "structural": "not replicated",
+     "partisan_flags": 0,
+     "partisan_of": 4,
+     "partisan_not_computed": [],
+     "partisan": "absent"
+    }
+   },
+   "competitive_seats": {
+    "a12": {
+     "d": {
+      "value": 10.0,
+      "percentile": 34.38,
+      "q05": 8.0,
+      "flag": false,
+      "note": "set D only; sets A to C not placed for this map on M0"
+     }
+    },
+    "p": {
+     "d": {
+      "value": 10.0,
+      "percentile_midrank": 47.34,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "a": {
+      "value": 10.0,
+      "percentile_midrank": 44.2,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "b": {
+      "value": 10.0,
+      "percentile_midrank": 44.45,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     },
+     "c": {
+      "value": 10.0,
+      "percentile_midrank": 47.16,
+      "ensemble_p50": 10.0,
+      "flag": null,
+      "not_computed": "Part 17 flags at or below the set's 5th percentile; ensemble_ranks_p.json gives no 5th percentile"
+     }
+    }
+   },
+   "redraw_tests": "not computed: no redraw-test null has been run for this map"
+  }
+ },
+ "unchanged_no_votes": [
+  "S1",
+  "S2",
+  "S3",
+  "S4",
+  "S6",
+  "X1",
+  "towns over-divided",
+  "city versus rest"
+ ],
+ "not_restated": [
+  "qsgy8 tripwires: run on election-day seats at 50/50 as filed (amendment12_rehearsal README, item 6)"
+ ]
+}

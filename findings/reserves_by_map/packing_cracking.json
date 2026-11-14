@@ -1,0 +1,344 @@
+{
+ "reserve_voting_areas": {
+  "Blackfoot": 7,
+  "Stoney Nakoda": 5,
+  "Tsuut'ina": 2
+ },
+ "reserve_votes_2023_election_day": {
+  "Blackfoot": {
+   "ndp": 431,
+   "ucp": 119,
+   "ndp_share_two_party": 78.4
+  },
+  "Stoney Nakoda": {
+   "ndp": 212,
+   "ucp": 50,
+   "ndp_share_two_party": 80.8
+  },
+  "Tsuut'ina": {
+   "ndp": 166,
+   "ucp": 169,
+   "ndp_share_two_party": 49.6
+  }
+ },
+ "maps": {
+  "2019": [
+   {
+    "district": "Banff-Kananaskis",
+    "groups": [
+     "Stoney Nakoda",
+     "Tsuut'ina"
+    ],
+    "reserve_two_party": 531,
+    "reserve_ndp_share": 65.0,
+    "district_two_party": 9654,
+    "district_ndp_minus_ucp": -1206,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 5.5,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Cardston-Siksika",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 350,
+    "reserve_ndp_share": 87.7,
+    "district_two_party": 8957,
+    "district_ndp_minus_ucp": -5619,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 3.9,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Livingstone-Macleod",
+    "groups": [
+     "Blackfoot",
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 220,
+    "reserve_ndp_share": 64.8,
+    "district_two_party": 10922,
+    "district_ndp_minus_ucp": -5388,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.0,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Rimbey-Rocky Mountain House-Sundre",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 46,
+    "reserve_ndp_share": 30.8,
+    "district_two_party": 10630,
+    "district_ndp_minus_ucp": -7454,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 0.4,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   }
+  ],
+  "commission_majority": [
+   {
+    "district": "Calgary-Glenmore-Tsuut'ina",
+    "groups": [
+     "Tsuut'ina"
+    ],
+    "reserve_two_party": 335,
+    "reserve_ndp_share": 49.6,
+    "district_two_party": 12905,
+    "district_ndp_minus_ucp": -403,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.6,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Canmore-Banff",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 217,
+    "reserve_ndp_share": 91.2,
+    "district_two_party": 5623,
+    "district_ndp_minus_ucp": 590,
+    "district_winner": "NDP",
+    "reserve_share_of_district": 3.9,
+    "decisive": false,
+    "winner_without_reserves": "NDP"
+   },
+   {
+    "district": "High River-Vulcan-Siksika",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 152,
+    "reserve_ndp_share": 79.6,
+    "district_two_party": 11321,
+    "district_ndp_minus_ucp": -6134,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.3,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Lacombe-Clearwater",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 46,
+    "reserve_ndp_share": 30.8,
+    "district_two_party": 10764,
+    "district_ndp_minus_ucp": -6710,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 0.4,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Livingstone-Macleod",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 199,
+    "reserve_ndp_share": 62.1,
+    "district_two_party": 10649,
+    "district_ndp_minus_ucp": -5523,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.9,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Taber-Cardston",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 198,
+    "reserve_ndp_share": 93.9,
+    "district_two_party": 9232,
+    "district_ndp_minus_ucp": -6624,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.1,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   }
+  ],
+  "commission_minority": [
+   {
+    "district": "Calgary-West-Tsuut'ina",
+    "groups": [
+     "Tsuut'ina"
+    ],
+    "reserve_two_party": 335,
+    "reserve_ndp_share": 49.6,
+    "district_two_party": 10447,
+    "district_ndp_minus_ucp": -1896,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 3.2,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Canmore-Kananaskis",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 21,
+    "reserve_ndp_share": 90.5,
+    "district_two_party": 8791,
+    "district_ndp_minus_ucp": -1473,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 0.2,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Drumheller-Stettler",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 152,
+    "reserve_ndp_share": 79.6,
+    "district_two_party": 12920,
+    "district_ndp_minus_ucp": -9200,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.2,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Lethbridge-Cardston",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 198,
+    "reserve_ndp_share": 93.9,
+    "district_two_party": 9139,
+    "district_ndp_minus_ucp": -2914,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.2,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Lethbridge-Fort Macleod-Crowsnest Pass",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 199,
+    "reserve_ndp_share": 62.1,
+    "district_two_party": 11185,
+    "district_ndp_minus_ucp": -3527,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.8,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Rocky Mountain House-Banff Park",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 242,
+    "reserve_ndp_share": 79.9,
+    "district_two_party": 7475,
+    "district_ndp_minus_ucp": -4648,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 3.2,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   }
+  ],
+  "panel_reconstruction": [
+   {
+    "district": "Banff-Canmore-Diamond Valley",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 217,
+    "reserve_ndp_share": 91.2,
+    "district_two_party": 7506,
+    "district_ndp_minus_ucp": -468,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.9,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Calgary-Glenmore-Tsuut'ina",
+    "groups": [
+     "Tsuut'ina"
+    ],
+    "reserve_two_party": 335,
+    "reserve_ndp_share": 49.6,
+    "district_two_party": 12905,
+    "district_ndp_minus_ucp": -403,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 2.6,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Lethbridge-Cardston",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 198,
+    "reserve_ndp_share": 93.9,
+    "district_two_party": 6493,
+    "district_ndp_minus_ucp": -2121,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 3.0,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Lethbridge-Little Bow",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 152,
+    "reserve_ndp_share": 79.6,
+    "district_two_party": 9998,
+    "district_ndp_minus_ucp": -3591,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.5,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Macleod-Crowsnest",
+    "groups": [
+     "Blackfoot"
+    ],
+    "reserve_two_party": 199,
+    "reserve_ndp_share": 62.1,
+    "district_two_party": 10625,
+    "district_ndp_minus_ucp": -5237,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 1.9,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   },
+   {
+    "district": "Rocky Mountain House-Sundre",
+    "groups": [
+     "Stoney Nakoda"
+    ],
+    "reserve_two_party": 46,
+    "reserve_ndp_share": 30.8,
+    "district_two_party": 6886,
+    "district_ndp_minus_ucp": -4582,
+    "district_winner": "UCP",
+    "reserve_share_of_district": 0.7,
+    "decisive": false,
+    "winner_without_reserves": "UCP"
+   }
+  ]
+ }
+}

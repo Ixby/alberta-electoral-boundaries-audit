@@ -1,0 +1,55 @@
+{
+ "n_csds": 169,
+ "2017_commission": {
+  "k": 87,
+  "R": 0.16568047337278108
+ },
+ "2003_commission": {
+  "k": 83,
+  "features": 84,
+  "unassigned_vas": 1,
+  "R": 0.17751479289940827
+ },
+ "2010_commission": {
+  "k": 87,
+  "features": 87,
+  "unassigned_vas": 0,
+  "R": 0.15976331360946747
+ },
+ "2010_commission_EA_file": {
+  "k": 87,
+  "features": 87,
+  "unassigned_vas": 0,
+  "R": 0.15976331360946747
+ },
+ "2017_commission_GoA_layer": {
+  "k": 87,
+  "features": 87,
+  "unassigned_vas": 0,
+  "R": 0.16568047337278108
+ },
+ "2026_majority": {
+  "k": 89,
+  "features": 89,
+  "unassigned_vas": 0,
+  "R": 0.11242603550295859
+ },
+ "2026_minority": {
+  "k": 89,
+  "features": 89,
+  "unassigned_vas": 0,
+  "R": 0.2485207100591716
+ },
+ "2026_panel_v3": {
+  "k": 91,
+  "features": 91,
+  "unassigned_vas": 0,
+  "R": 0.14792899408284024
+ },
+ "para167": {
+  "k": 91,
+  "features": 91,
+  "unassigned_vas": 0,
+  "R": 0.13609467455621302
+ }
+}

@@ -22,7 +22,7 @@
 
 ### A1. B1–B4 majority numbers are not reproducible from checked-in code
 
-**Finding.** `analysis/v0_1_packing_cracking_analysis.py` computes B1–B4 only for (a) the 2019 boundaries and (b) the minority 2026 proposal. It does not compute B1–B4 for the majority 2026 proposal. The script's own docstring (line 34) states: *"Majority 2026 plan not included — requires extraction of majority's per-ED populations from Appendix B (pp. 87–266) of the report PDF."*
+**Finding.** `analysis/v0_1_packing_cracking_analysis.py` (file since removed; see git history at 23215d63) computes B1–B4 only for (a) the 2019 boundaries and (b) the minority 2026 proposal. It does not compute B1–B4 for the majority 2026 proposal. The script's own docstring (line 34) states: *"Majority 2026 plan not included — requires extraction of majority's per-ED populations from Appendix B (pp. 87–266) of the report PDF."*
 
 Yet the carry-forward table asserted in the v0.8 prompt, the migration doc, and `alberta_redistricting_audit_final.md` includes specific majority numbers:
 

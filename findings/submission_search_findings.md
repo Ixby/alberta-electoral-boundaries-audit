@@ -6,38 +6,42 @@
 > **Forward:**
 > - `findings/claim_significance_analysis.md` — quantifies the engagement/net/absolute support framework on top of these counts
 > - `reports/academic/report_academic.md` — incorporates the keyword-search findings
-> - `reports/public/report_public.md` — references the chair-claim refutations
+> - `reports/public/report_public.md` — references the check of the majority's "no public support" statement
 > - `findings/README.md` — indexes this finding
 
 # v0_1 Submission keyword-search findings
 
-**Scope:** Keyword search of ~1,340 public submissions to the 2025–2026 Alberta Electoral Boundaries Commission to verify or refute the chair's Appendix C claim that the minority's proposed hybrid configurations for Airdrie, Cochrane/Nolan-Hill, Chestermere, Red Deer, St. Albert, and the Rocky Mountain House–Banff park s.15(2) invocation had NO public support in the written submissions.
+**Status.** The support/oppose/neutral labels in this search are unreliable. Read in full, none of the submissions it named as supporters at Chestermere or Red Deer supports the minority's arrangement. In a random sample of the later classifier pass over the same submissions, 26 of 31 stance labels were wrong (`findings/audit_2026-11-10/submissions_sample48_judgements.csv`). The stance columns that stood in the table below are withdrawn, and the classification is being redone in `findings/submissions_recode/`. The verdicts below rest on reading the named submissions directly.
 
-**Methodology:** Download all 27 batch PDFs from `https://www.elections.ab.ca/uploads/`, extract text with `pdfplumber`, split on per-submission "EBC-2025-*-NNN" ID markers, then run per-configuration regex searches for co-occurrence of minority-hybrid place names. Each hit was classified by nearby support/oppose language and then cross-checked manually.
+**Scope:** Keyword search of the public submissions to the 2025–2026 Alberta Electoral Boundaries Commission (1,345 received: 198 before the interim report and 1,147 after) to check the majority's statement that the minority's changes in five places (Airdrie, Cochrane, Chestermere, Red Deer and St. Albert) had "no public support" (final report, pp. 59 and 62). Two other minority configurations, Rocky Mountain House–Banff Park and Olds–Three Hills–Didsbury, were searched as well; they are not among the five.
 
-Detected submissions: **1,252 of ~1,340 (93.4%)** extracted with usable text. The remainder (~88) have image-only / scanned content without a detectable text-layer ID marker. Those are **NOT** known to contain supporting references; they are just not machine-searchable at the keyword level. See caveats.
+**Methodology:** Download all 27 batch PDFs from `https://www.elections.ab.ca/uploads/`, extract text with `pdfplumber`, split on per-submission "EBC-2025-*-NNN" ID markers, then run per-configuration regex searches for co-occurrence of minority-hybrid place names. Each hit was first classified by nearby support/oppose language; that classification is the part now withdrawn.
+
+Detected submissions: **1,252 of the 1,345 (93.1%)** extracted with usable text. Of the other 93, 88 are in the posted files but could not be split out by id, most of them image-only scans without a detectable text-layer ID marker, and 5 are not in the posted files (the batches run to ids 197 and 1,143; `findings/submission_search_log.md`). Those are **NOT** known to contain supporting references; they are just not machine-searchable at the keyword level. See caveats.
 
 ## Counts of submissions mentioning each minority configuration
 
-| Configuration (minority) | Submissions with hit | Supporting | Opposing | Neutral/ambiguous |
-|---|---|---|---|---|
-| Airdrie 4-way split | 4 | 0 | 2 | 2 |
-| Calgary–Nolan-Hill–Cochrane hybrid | **0** | 0 | 0 | 0 |
-| Rocky Mountain House–Banff park (s.15(2)) | 20 | 3 explicit + several aligned | 1 | ~15 |
-| Olds–Three-Hills–Didsbury (absorbing N Airdrie) | 5 | 2 (rural voices wanting to stay rural) | 2 (opposed to current proposal that dissolves ODH) | 1 |
-| Chestermere split/hybrid | 13 | 3 (oppose Calgary-Chestermere merger; implicit minority alignment) | 3 (oppose any split) | 7 |
-| Red Deer hybrids (Blackfalds/Innisfail/Sylvan Lake/Lacombe) | 23 | 2 explicit hybrid proposals | 4 | 17 |
-| St. Albert–Sturgeon | 11 | 2 | 1 | 8 |
+| Configuration (minority) | Submissions with hit |
+|---|---|
+| Airdrie 4-way split | 4 |
+| Calgary–Nolan-Hill–Cochrane hybrid | **0** |
+| Rocky Mountain House–Banff park (s.15(2)) | 20 |
+| Olds–Three-Hills–Didsbury (absorbing N Airdrie) | 5 |
+| Chestermere split/hybrid | 13 |
+| Red Deer hybrids (Blackfalds/Innisfail/Sylvan Lake/Lacombe) | 23 |
+| St. Albert–Sturgeon | 11 |
+
+The supporting, opposing and neutral columns are withdrawn pending the recode.
 
 (Counts are per-submission, not per-hit; a submission touching two configs is counted once in each row.)
 
-See `data/submission_search_dataset.csv` for the per-submission dataset.
+See `data/submission_search_dataset.csv` for the per-submission dataset. Its stance column carries the unreliable labels.
 
-## Verdict on the chair's claim
+## Verdict on the majority's statement
 
-**The chair's categorical claim is partially refuted by the evidence.**
+**The majority's statement is right in four of the five places it names and partly wrong on Chestermere.**
 
-### Strongest refutation: Rocky Mountain House–Banff park (s.15(2))
+### Documented support, outside the five places: Rocky Mountain House–Banff park (s.15(2))
 
 Submission **EBC-2025-2-0619** ("Appropriate Political Representation for Alpine Alberta") is a detailed policy submission that explicitly recommends, under "3.2 Proposed Electoral Division Amendment 2: Rocky Mountain House-Banff":
 
@@ -49,67 +53,70 @@ This is a direct textual match for the minority's s.15(2)-invoking configuration
 - **EBC-2025-2-0555** (Cline River tourism operator): argues Banff-Jasper should not include western Clearwater County; advocates for RMH + Nordegg + Banff gateway unit.
 - **EBC-2025-2-1029** (former Clearwater County Reeve): urges keeping Clearwater + RMH together and links them to the Banff park gateway.
 
-**Finding:** On this configuration, the chair's "no public support" claim is **demonstrably false**.
+**Finding:** This configuration has documented public support. It is not one of the five places the majority's statement names.
 
-### Partial refutation: Olds–Three-Hills–Didsbury area
+### Documented support, outside the five places: Olds–Three-Hills–Didsbury area
 
 Two Beiseker submissions (**EBC-2025-2-0209** by Alan Balson; **EBC-2025-2-0161** by Councillor David Ledoyen) explicitly oppose the majority's dissolution of Olds-Didsbury-Three Hills (ODH) and the placement of Beiseker in Airdrie-East. Both propose keeping a rural riding anchored on Olds, Didsbury, Carstairs, Three Hills, Trochu — aligned with the minority's preservation of the ODH-type rural district:
 
 > *"Keep Beiseker and the surrounding rural area in a reconstituted rural riding that includes Olds, Didsbury, Carstairs, Three Hills, and the agricultural areas around them."* — EBC-2025-2-0209
 
-**Finding:** At least two submissions support the minority's direction (preserve ODH rural unit). "No public support" is false here as well.
+**Finding:** At least two submissions support the minority's direction (preserve ODH rural unit). This configuration is not one of the five places the majority's statement names.
 
-### Partial refutation: Red Deer hybrids
+### Statement holds: Red Deer hybrids
 
-- **EBC-2025-2-0252** (Chad Krahn, Red Deer City Councillor): proposes "northern riding could encompass Sylvan Lake, Lacombe, and Blackfalds" as a unified peri-Red-Deer hybrid — conceptually matches the minority's Red Deer hybrid approach.
-- **EBC-2025-2-0266** (Rob Mackenzie, Sylvan Lake business owner): "Sylvan Lake would be a better fit in the constituency of Lacombe" — supports a minority-style Sylvan-Lacombe pairing.
-- **EBC-2025-2-0112**, **0408**, **0923** contain related hybrid-leaning language.
+The minority's Red Deer arrangement is four hybrids, each taking a slice of the city (final report PDF pp. 350–351). No submission supporting that arrangement was found. The submissions the keyword pass had listed as supportive (**EBC-2025-2-0252**, **0266**, **0112**, **0408**, **0923**) do not support it when read in full.
 
-**Finding:** Public support for the general approach of Red Deer-area hybrids exists, though no submission uses the exact minority labels ("Red Deer–Blackfalds", "Red Deer–Innisfail", etc.).
+**Finding:** No supporter was found. The majority's statement holds for Red Deer.
 
-### Partial refutation: Chestermere
+### Partly wrong: Chestermere
 
-Multiple submissions (**EBC-2025-2-0687**, **0785**, **0787**) explicitly oppose merging Chestermere with Calgary, arguing Chestermere is a distinct municipality deserving its own representation. This aligns with the minority's intent of preserving Chestermere separately.
+The minority puts southern Chestermere into Calgary-Peigan-Chestermere (final report PDF p. 332).
+
+- **For (3):** **EBC-2025-2-0384**, **0811** and **1091** support the minority's arrangement.
+- **Against (3):** **EBC-2025-2-0687**, **0785** and **0787** oppose it.
+
+**Finding:** Three submissions support the minority's arrangement and three oppose it. The majority's statement is partly wrong there.
 
 ### Claim stands (not refuted): Airdrie 4-way split
 
 Of 1,252 extractable submissions, **zero** use the phrases "four-way split", "4-way split", "four districts", "split Airdrie into four", or similar. **EBC-2025-2-1017** explicitly argues against dividing Airdrie AT ALL (favours a single unified Airdrie riding), which is the opposite of the minority's 4-way proposal. **EBC-2025-1-0139** (City of Airdrie) proposes three scenarios but none match the minority's 4-way hybrid.
 
-**Finding:** No evidence that the 4-way Airdrie split has public support. Chair's claim stands for this configuration.
+**Finding:** No evidence that the 4-way Airdrie split has public support. The majority's statement stands for this configuration.
 
 ### Claim stands (not refuted): Calgary–Nolan-Hill–Cochrane
 
 The phrase "Nolan Hill" appears in 5 submissions (out of 1,252 extracted). In NONE of them does "Cochrane" co-occur within 200 characters. The Nolan-Hill submissions (**EBC-2025-1-0110**, **1-0181**, **2-0541**) argue for keeping Nolan Hill inside a CALGARY riding (Calgary-Foothills / Calgary-North), not merging it with Cochrane.
 
-**Finding:** No submission advocates a Calgary–Nolan-Hill–Cochrane hybrid. Chair's claim stands for this configuration.
+**Finding:** No submission advocates a Calgary–Nolan-Hill–Cochrane hybrid. The majority's statement stands for this configuration.
 
 ### Claim stands (not refuted): St. Albert–Sturgeon
 
-**Note:** "St. Albert-Sturgeon" is the MAJORITY's proposed name for the hybrid riding. Eleven submissions mention it, mostly supportively or neutrally. Submissions that oppose it (e.g. **EBC-2025-2-0582**) want St. Albert unified with Edmonton rather than with Sturgeon County. None explicitly back the minority's alternative configuration.
+**Note:** "St. Albert-Sturgeon" is the MAJORITY's proposed name for the hybrid riding. Eleven submissions mention it. Submissions that oppose it (e.g. **EBC-2025-2-0582**) want St. Albert unified with Edmonton rather than with Sturgeon County. None explicitly back the minority's alternative configuration.
 
-**Finding:** No supporting submission for the minority's St. Albert configuration was identified by this search. Chair's claim may stand, subject to the caveat that the minority's exact alternative boundary needs precise specification; absence of the minority's district name in submissions is expected.
+**Finding:** No supporting submission for the minority's St. Albert configuration was identified by this search. The majority's statement stands, subject to the caveat that the minority's exact alternative boundary needs precise specification; absence of the minority's district name in submissions is expected.
 
 ## Summary verdict
 
-| Minority configuration | Chair's "no public support" claim |
+| Minority configuration | Majority's "no public support" statement |
 |---|---|
-| Airdrie 4-way split | Stands |
-| Calgary–Nolan-Hill–Cochrane hybrid | Stands |
-| **Rocky Mountain House–Banff Park (s.15(2))** | **REFUTED** — at least one detailed explicit proposal + several aligned submissions |
-| **Olds–Three-Hills–Didsbury** | **REFUTED** — Beiseker residents explicitly support the rural-unit direction |
-| **Chestermere** | **Partially refuted** — opposition to Calgary-Chestermere merger aligns with minority intent |
-| **Red Deer hybrids** | **Partially refuted** — peri-Red-Deer hybrid configurations proposed by councillors / residents |
-| St. Albert–Sturgeon | Stands (subject to minority boundary clarification) |
+| Airdrie 4-way split | Holds |
+| Calgary–Nolan-Hill–Cochrane hybrid | Holds |
+| Red Deer hybrids | Holds — no supporter found |
+| St. Albert–Sturgeon | Holds (subject to minority boundary clarification) |
+| **Chestermere** | **Partly wrong** — three submissions for (0384, 0811, 1091), three against (0687, 0785, 0787) |
+| Rocky Mountain House–Banff Park (s.15(2)) | Not one of the five places; documented support (EBC-2025-2-0619 and others) |
+| Olds–Three-Hills–Didsbury | Not one of the five places; documented support (Beiseker submissions) |
 
-For Section D of the audit: the chair's Appendix C sweep is **overbroad**. Three of the seven configurations have clear public support in the submission record; two have partial/directional support. Only two (Airdrie 4-way; Nolan-Hill-Cochrane) are substantiated by this keyword search.
+Tally: the majority's statement is right in four of five places and partly wrong on Chestermere.
 
 ## Caveats and limits
 
-1. **~88 submissions (6.6%) could not be machine-parsed** because their PDFs are image-only scans lacking a text layer or a detectable EBC-2025-X-NNN ID marker. OCR was out of scope. These could in principle contain additional supporting or opposing content that would not affect the refutation (which relies on submissions already identified as supporting) but could shift neutral/opposing counts.
+1. **88 posted submissions could not be machine-parsed** (and 5 more are not in the posted files), most of them because their PDFs are image-only scans lacking a text layer or a detectable EBC-2025-X-NNN ID marker. OCR was out of scope. These could contain further supporting or opposing content. They cannot remove a supporter already found, but they could add one where none was found.
 
 2. **Keyword search precision:** Regex uses permissive co-occurrence windows (200–300 chars) and can miss submissions where the same configuration is described in paraphrased terms without the explicit place names used here. Conversely, the Red Deer regex triggers on any Red Deer + {Blackfalds/Innisfail/Sylvan Lake/Lacombe} co-occurrence, which often simply describes the Commission's *proposed* boundaries — these are neutrals, not supports.
 
-3. **Position classifier is heuristic.** The code looks for "support / oppose / against / recommend / should not" keywords near each match. Ambiguous classifications (e.g., EBC-2025-2-0619) were manually reviewed and corrected in this write-up; CSV rows still reflect the automatic classification.
+3. **The position classifier is unreliable.** The code looks for "support / oppose / against / recommend / should not" keywords near each match. The submissions it named as supporters at Chestermere and Red Deer do not support the minority's arrangement when read in full. The CSV rows still carry the automatic classification; no log of manual corrections exists.
 
 4. **Minority configuration names are the audit's labels, not the submissions'.** Citizens do not typically know the minority's precise configuration names (e.g., "Red Deer-Blackfalds"). A submission proposing a functionally equivalent configuration using different names is counted as directional support. The audit's rubric must be generous enough to count these as public support for the minority's *direction*, even if not the minority's exact labels.
 
@@ -117,8 +124,6 @@ For Section D of the audit: the chair's Appendix C sweep is **overbroad**. Three
 
 6. **Search was done against submission text only**, not attached PDFs/DOCX files referenced inside submissions (e.g., EBC-2025-1-0139 references "Airdrie-Feedback-Submission-AEBC-May-2025.pdf" as an attachment — this audit only searched the enclosing batch-PDF's text layer, so attached-file content may add additional evidence that wasn't captured).
 
-## Recommended next steps
+## Next step
 
-- Have Section D cite **EBC-2025-2-0619** directly as an explicit counter-example to Appendix C's "no public support" claim.
-- Consider running OCR on the ~88 missing submissions if the audit's credibility requires 100% coverage — but Section D's argument is already established by identified counter-examples, so additional OCR is *nice to have*, not required.
-- Cross-reference with `section_D_procedural.md` to adjust the audit's procedural critique from "prima facie credible" to "partially refuted on the specific RMH-Banff, ODH, Red Deer, and Chestermere configurations."
+A full recode, under way in `findings/submissions_recode/`, will replace the stance labels. Until it lands, no stance table, weighted ranking or comparison of written submissions with hearings is reported from this search.

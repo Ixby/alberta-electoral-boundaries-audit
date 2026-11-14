@@ -13,8 +13,8 @@ note: |
 
 > **Backward:**
 > - `.temp/ebc_2017_final.pdf` and `.temp/ebc_2017_text.txt` — 2017 EBC final report (source of crosswalk truth)
-> - `data/alberta_2015_results.csv` — pre-2017 ED vote totals
-> - `data/2015_to_2019_crosswalk.csv` — produced crosswalk (87→87)
+> - `data/reference/alberta_2015_results.csv` — pre-2017 ED vote totals
+> - `data/outputs/2015_to_2019_crosswalk.csv` — produced crosswalk (87→87)
 > - 2019 enacted ED boundaries
 >
 > **Forward:**
@@ -68,7 +68,7 @@ names. Using ballot names keeps the crosswalk compatible with the
 existing 2019 election results file
 (`alberta_2019_results.csv`) and the 2026 hybrid crosswalks.
 
-Coverage (see `data/2015_to_2019_crosswalk.csv`):
+Coverage (see `data/outputs/2015_to_2019_crosswalk.csv`):
 
 - 87 / 87 2015 EDs mapped.
 - 87 / 87 2019 EDs covered as destinations.
@@ -80,7 +80,7 @@ Residuals: none. The crosswalk is complete.
 
 ### Phase 2 — 2015 vote attribution
 
-Pre-2017 ED vote totals (from `data/alberta_2015_results.csv`)
+Pre-2017 ED vote totals (from `data/reference/alberta_2015_results.csv`)
 are re-attributed to 2019 boundaries by multiplying each 2015 ED's
 NDP / UCP-equivalent / Liberal / other totals by the
 population_weight for each crosswalk row, then summing over
@@ -385,11 +385,11 @@ Proposed paragraph body:
 
 ## Artifacts
 
-- `data/2015_to_2019_crosswalk.csv` (127 rows, 87 2015 EDs,
+- `data/outputs/2015_to_2019_crosswalk.csv` (127 rows, 87 2015 EDs,
   87 2019 EDs, 58 high + 69 medium confidence).
-- `data/2015_cross_election_summary.csv` (per-map B1-B6 results
+- `data/outputs/2015_cross_election_summary.csv` (per-map B1-B6 results
   under 2015 votes).
-- `data/cross_election_asymmetry_3way.csv` (three-election
+- `data/outputs/cross_election_asymmetry_3way.csv` (three-election
   minority-majority asymmetry comparison on EG, mean-median, B4,
   declination).
 - `analysis/scripts/2015_cross_election.py` (reproducible pipeline).

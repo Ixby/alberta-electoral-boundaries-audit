@@ -1,0 +1,94 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "source": "evidence/projections/338canada_2026-10-19/provincial_summary.txt",
+  "party_order_note": "The committed file has no party labels on the poll numbers. First number is read as UCP, second as NDP (the order of the projection block in the same file, and of the page's table header as re-read by the auditors on 2026-11-10; the header is not in the repository).",
+  "polls": [
+    {
+      "firm": "Pollara",
+      "date": "2026-10-09",
+      "numbers_as_printed": [
+        46,
+        50
+      ],
+      "ucp_pct": 46,
+      "ndp_pct": 50,
+      "ucp_lead_pts": -4,
+      "third_number_unlabelled": null
+    },
+    {
+      "firm": "Mainstreet",
+      "date": "2026-10-16",
+      "numbers_as_printed": [
+        43,
+        43,
+        6
+      ],
+      "ucp_pct": 43,
+      "ndp_pct": 43,
+      "ucp_lead_pts": 0,
+      "third_number_unlabelled": 6
+    },
+    {
+      "firm": "Abacus",
+      "date": "2026-10-10",
+      "numbers_as_printed": [
+        47,
+        42,
+        6
+      ],
+      "ucp_pct": 47,
+      "ndp_pct": 42,
+      "ucp_lead_pts": 5,
+      "third_number_unlabelled": 6
+    },
+    {
+      "firm": "Léger",
+      "date": "2026-10-03",
+      "numbers_as_printed": [
+        47,
+        45
+      ],
+      "ucp_pct": 47,
+      "ndp_pct": 45,
+      "ucp_lead_pts": 2,
+      "third_number_unlabelled": null
+    }
+  ],
+  "polls_simple_average": {
+    "n_polls": 4,
+    "ucp_pct": 45.75,
+    "ndp_pct": 45.0,
+    "ucp_lead_pts": 0.75,
+    "date_range": [
+      "2026-10-03",
+      "2026-10-16"
+    ],
+    "method": "unweighted mean of the four listed polls; no weighting by date, sample size or firm"
+  },
+  "projection_338": {
+    "latest_update": "October 19, 2026",
+    "ucp": {
+      "point_pct": 48,
+      "low_pct": 43,
+      "high_pct": 53,
+      "band": "± 5%"
+    },
+    "ndp": {
+      "point_pct": 43,
+      "low_pct": 39,
+      "high_pct": 48,
+      "band": "± 5%"
+    },
+    "ucp_lead_pts": 5,
+    "what_it_is": "338Canada's modelled popular-vote projection, not a poll and not a poll average"
+  },
+  "projection_minus_poll_average": {
+    "ucp_pts": 2.25,
+    "ndp_pts": -2.0,
+    "lead_pts": 4.25
+  },
+  "polls_with_ndp_ahead_or_tied": [
+    "Pollara",
+    "Mainstreet"
+  ]
+}

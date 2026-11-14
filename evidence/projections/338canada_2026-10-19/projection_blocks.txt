@@ -1,0 +1,87 @@
+1001	Calgary-Acadia	Latest update: October 19, 2026|Calgary-Acadia|40%|54%|47%|± 7%|▲|NDP|38%|52%|45%|± 7%|▼|UCP|NDP 2023|48.6%|
+1002	Calgary-Beddington	Latest update: October 19, 2026|Calgary-Beddington|42%|56%|49%|± 7%|▲|NDP|35%|49%|42%|± 7%|▼|UCP|2%|11%|7%|± 5%|PTPA|NDP 2023|49.7%|
+1003	Calgary-Bow	Latest update: October 19, 2026|Calgary-Bow|39%|52%|46%|± 7%|▲|NDP|37%|51%|44%|± 7%|▼|UCP|2%|12%|7%|± 5%|PTPA|UCP 2023|49.3%|
+1004	Calgary-Buffalo	Latest update: October 19, 2026|Calgary-Buffalo|53%|67%|60%|± 7%|NDP|24%|37%|31%|± 6%|UCP|0%|8%|4%|± 4%|GPA|NDP 2023|63.0%|
+1005	Calgary-Cross	Latest update: October 19, 2026|Calgary-Cross|39%|54%|46%|± 8%|▼|UCP|37%|52%|45%|± 7%|▲|NDP|0%|7%|4%|± 4%|GPA|UCP 2023|50.0%|
+1006	Calgary-Currie	Latest update: October 19, 2026|Calgary-Currie|47%|61%|54%|± 7%|▲|NDP|30%|44%|37%|± 7%|▼|UCP|0%|10%|5%|± 5%|PTPA|NDP 2023|54.8%|
+1007	Calgary-East	Latest update: October 19, 2026|Calgary-East|39%|55%|47%|± 8%|▼|UCP|36%|51%|44%|± 8%|▲|NDP|0%|9%|5%|± 5%|GPA|UCP 2023|50.3%|
+1008	Calgary-Edgemont	Latest update: October 19, 2026|Calgary-Edgemont|40%|54%|47%|± 7%|NDP|36%|50%|43%|± 7%|▼|UCP|0%|11%|6%|± 5%|PTPA|NDP 2023|49.3%|
+1009	Calgary-Elbow	Latest update: October 19, 2026|Calgary-Elbow|38%|52%|45%|± 7%|NDP|33%|46%|39%|± 7%|▼|UCP|6%|18%|12%|± 6%|PTPA|NDP 2023|49.0%|
+1010	Calgary-Falconridge	Latest update: October 19, 2026|Calgary-Falconridge|47%|62%|55%|± 8%|▲|NDP|29%|44%|36%|± 7%|▼|UCP|NDP 2023|56.4%|
+1011	Calgary-Fish Creek	Latest update: October 19, 2026|Calgary-Fish Creek|44%|57%|51%|± 7%|UCP|37%|50%|44%|± 7%|▲|NDP|UCP 2023|53.8%|
+1012	Calgary-Foothills	Latest update: October 19, 2026|Calgary-Foothills|42%|56%|49%|± 7%|▲|NDP|39%|52%|46%|± 7%|UCP|NDP 2023|49.9%|
+1013	Calgary-Glenmore	Latest update: October 19, 2026|Calgary-Glenmore|41%|54%|47%|± 7%|NDP|39%|52%|45%|± 7%|▼|UCP|NDP 2023|49.2%|
+1014	Calgary-Hays	Latest update: October 19, 2026|Calgary-Hays|45%|59%|52%|± 7%|UCP|34%|47%|40%|± 7%|NDP|UCP 2023|55.6%|
+1015	Calgary-Klein	Latest update: October 19, 2026|Calgary-Klein|42%|56%|49%|± 7%|▲|NDP|36%|50%|43%|± 7%|▼|UCP|NDP 2023|50.8%|
+1016	Calgary-Lougheed	Latest update: October 19, 2026|Calgary-Lougheed|46%|60%|53%|± 7%|▼|UCP|33%|47%|40%|± 7%|▲|NDP|UCP 2023|56.4%|
+1017	Calgary-Bhullar-McCall	Latest update: October 19, 2026|Calgary-Bhullar-McCall|48%|64%|56%|± 8%|▲|NDP|31%|46%|39%|± 8%|UCP|NDP 2023|57.9%|
+1018	Calgary-Mountain View	Latest update: October 19, 2026|Calgary-Mountain View|57%|70%|64%|± 6%|▲|NDP|24%|36%|30%|± 6%|▼|UCP|NDP 2023|64.7%|
+1019	Calgary-North	Latest update: October 19, 2026|Calgary-North|40%|55%|48%|± 7%|▲|NDP|39%|54%|47%|± 7%|UCP|UCP 2023|50.4%|
+1020	Calgary-North East	Latest update: October 19, 2026|Calgary-North East|46%|60%|53%|± 7%|▲|NDP|35%|48%|42%|± 7%|UCP|NDP 2023|55%|
+1021	Calgary-North West	Latest update: October 19, 2026|Calgary-North West|38%|52%|45%|± 7%|▲|NDP|37%|50%|43%|± 7%|▼|UCP|3%|14%|9%|± 6%|PTPA|UCP 2023|48.3%|
+1022	Calgary-Peigan	Latest update: October 19, 2026|Calgary-Peigan|44%|58%|51%|± 7%|▼|UCP|33%|47%|40%|± 7%|▲|NDP|0%|9%|5%|± 5%|GPA|UCP 2023|55.0%|
+1023	Calgary-Shaw	Latest update: October 19, 2026|Calgary-Shaw|43%|57%|50%|± 7%|▲|NDP|33%|47%|40%|± 7%|▼|UCP|0%|11%|6%|± 5%|PTPA|UCP 2023|56.3%|
+1024	Calgary-South East	Latest update: October 19, 2026|Calgary-South East|48%|62%|55%|± 7%|▼|UCP|31%|44%|38%|± 7%|▲|NDP|UCP 2023|58.9%|
+1025	Calgary-Varsity	Latest update: October 19, 2026|Calgary-Varsity|49%|63%|56%|± 7%|NDP|31%|44%|37%|± 7%|▼|UCP|NDP 2023|58.3%|
+1026	Calgary-West	Latest update: October 19, 2026|Calgary-West|46%|60%|53%|± 7%|UCP|33%|47%|40%|± 7%|▲|NDP|UCP 2023|56.5%|
+1027	Edmonton-Beverly-Clareview	Latest update: October 19, 2026|Edmonton-Beverly-Clareview|43%|58%|50%|± 8%|NDP|34%|49%|42%|± 7%|UCP|0%|8%|4%|± 4%|GPA|NDP 2023|57.6%|
+1028	Edmonton-Castle Downs	Latest update: October 19, 2026|Edmonton-Castle Downs|40%|55%|48%|± 7%|▲|NDP|36%|50%|43%|± 7%|▼|UCP|2%|10%|6%|± 4%|PTPA|NDP 2023|55.0%|
+1029	Edmonton-City Centre	Latest update: October 19, 2026|Edmonton-City Centre|59%|74%|66%|± 7%|NDP|19%|31%|25%|± 6%|UCP|0%|10%|5%|± 5%|GPA|NDP 2023|73.7%|
+1030	Edmonton-Decore	Latest update: October 19, 2026|Edmonton-Decore|39%|54%|46%|± 7%|NDP|36%|51%|43%|± 7%|▼|UCP|2%|11%|6%|± 5%|PTPA|NDP 2023|52.5%|
+1031	Edmonton-Ellerslie	Latest update: October 19, 2026|Edmonton-Ellerslie|47%|61%|54%|± 7%|▲|NDP|33%|47%|40%|± 7%|UCP|NDP 2023|61.7%|
+1032	Edmonton-Glenora	Latest update: October 19, 2026|Edmonton-Glenora|55%|70%|63%|± 7%|▲|NDP|24%|37%|31%|± 6%|UCP|NDP 2023|69.3%|
+1033	Edmonton-Gold Bar	Latest update: October 19, 2026|Edmonton-Gold Bar|56%|69%|63%|± 7%|▲|NDP|24%|36%|30%|± 6%|▼|UCP|NDP 2023|69.4%|
+1034	Edmonton-Highlands-Norwood	Latest update: October 19, 2026|Edmonton-Highlands-Norwood|58%|73%|65%|± 8%|NDP|20%|33%|27%|± 7%|UCP|0%|9%|4%|± 4%|GPA|NDP 2023|72.0%|
+1035	Edmonton-Manning	Latest update: October 19, 2026|Edmonton-Manning|45%|59%|52%|± 7%|▲|NDP|34%|48%|41%|± 7%|▼|UCP|NDP 2023|59.8%|
+1036	Edmonton-McClung	Latest update: October 19, 2026|Edmonton-McClung|45%|60%|53%|± 7%|▲|NDP|33%|48%|40%|± 7%|▼|UCP|NDP 2023|59.5%|
+1037	Edmonton-Meadows	Latest update: October 19, 2026|Edmonton-Meadows|48%|63%|55%|± 7%|NDP|33%|47%|40%|± 7%|UCP|NDP 2023|62.4%|
+1038	Edmonton-Mill Woods	Latest update: October 19, 2026|Edmonton-Mill Woods|47%|61%|54%|± 7%|▲|NDP|34%|48%|41%|± 7%|▼|UCP|NDP 2023|61.4%|
+1039	Edmonton-North West	Latest update: October 19, 2026|Edmonton-North West|45%|60%|52%|± 7%|NDP|33%|48%|40%|± 7%|▼|UCP|NDP 2023|60.1%|
+1040	Edmonton-Riverview	Latest update: October 19, 2026|Edmonton-Riverview|53%|67%|60%|± 7%|▲|NDP|25%|38%|31%|± 6%|▼|UCP|NDP 2023|66.8%|
+1041	Edmonton-Rutherford	Latest update: October 19, 2026|Edmonton-Rutherford|49%|64%|56%|± 7%|NDP|27%|41%|34%|± 7%|▼|UCP|0%|11%|6%|± 6%|GPA|NDP 2023|64.2%|
+1042	Edmonton-South	Latest update: October 19, 2026|Edmonton-South|44%|58%|51%|± 7%|NDP|35%|49%|42%|± 7%|▼|UCP|NDP 2023|59.0%|
+1043	Edmonton-South West	Latest update: October 19, 2026|Edmonton-South West|42%|56%|49%|± 7%|▲|NDP|38%|52%|45%|± 7%|▼|UCP|NDP 2023|56.5%|
+1044	Edmonton-Strathcona	Latest update: October 19, 2026|Edmonton-Strathcona|68%|81%|74%|± 6%|NDP|12%|22%|17%|± 5%|UCP|NDP 2023|79.7%|
+1045	Edmonton-West Henday	Latest update: October 19, 2026|Edmonton-West Henday|43%|58%|50%|± 7%|NDP|35%|49%|42%|± 7%|▼|UCP|NDP 2023|57.0%|
+1046	Edmonton-Whitemud	Latest update: October 19, 2026|Edmonton-Whitemud|47%|61%|54%|± 7%|▲|NDP|33%|46%|40%|± 7%|UCP|NDP 2023|60.4%|
+1047	Airdrie-Cochrane	Latest update: October 19, 2026|Airdrie-Cochrane|49%|62%|55%|± 7%|▼|UCP|31%|43%|37%|± 6%|▲|NDP|UCP 2023|60.2%|
+1048	Airdrie East	Latest update: October 19, 2026|Airdrie East|49%|63%|56%|± 7%|▼|UCP|28%|41%|34%|± 6%|NDP|0%|8%|4%|± 4%|GPA|UCP 2023|62.0%|
+1049	Athabasca-Barrhead-Westlock	Latest update: October 19, 2026|Athabasca-Barrhead-Westlock|54%|68%|61%|± 7%|UCP|25%|37%|31%|± 6%|▲|NDP|1%|8%|4%|± 4%|REP|UCP 2023|74.3%|
+1050	Banff-Kananaskis	Latest update: October 19, 2026|Banff-Kananaskis|48%|62%|55%|± 7%|▲|NDP|30%|43%|36%|± 6%|▼|UCP|NDP 2023|49.4%|
+1051	Bonnyville-Cold Lake-St. Paul	Latest update: October 19, 2026|Bonnyville-Cold Lake-St. Paul|55%|70%|63%|± 7%|UCP|24%|36%|30%|± 6%|▲|NDP|0%|7%|4%|± 3%|▲|REP|UCP 2023|75.5%|
+1052	Brooks-Medicine Hat	Latest update: October 19, 2026|Brooks-Medicine Hat|44%|59%|52%|± 7%|▼|UCP|25%|38%|32%|± 6%|▲|NDP|4%|17%|10%|± 6%|PTPA|UCP 2023|66.5%|
+1053	Camrose	Latest update: October 19, 2026|Camrose|48%|62%|55%|± 7%|UCP|27%|40%|34%|± 6%|▲|NDP|3%|10%|6%|± 4%|REP|UCP 2023|63.1%|
+1054	Cardston-Siksika	Latest update: October 19, 2026|Cardston-Siksika|58%|73%|65%|± 7%|▼|UCP|19%|31%|25%|± 6%|▲|NDP|1%|11%|6%|± 5%|REP|UCP 2023|70.3%|
+1055	Central Peace-Notley	Latest update: October 19, 2026|Central Peace-Notley|60%|75%|67%|± 7%|▼|UCP|17%|30%|24%|± 6%|▲|NDP|0%|7%|4%|± 4%|REP|UCP 2023|77.7%|
+1056	Chestermere-Strathmore	Latest update: October 19, 2026|Chestermere-Strathmore|60%|73%|67%|± 6%|UCP|21%|33%|27%|± 6%|NDP|UCP 2023|70.6%|
+1057	Cypress-Medicine Hat	Latest update: October 19, 2026|Cypress-Medicine Hat|42%|56%|49%|± 7%|▼|UCP|35%|49%|42%|± 7%|▲|NDP|UCP 2023|61.9%|
+1058	Drayton Valley-Devon	Latest update: October 19, 2026|Drayton Valley-Devon|55%|68%|61%|± 7%|▼|UCP|22%|33%|27%|± 6%|NDP|1%|8%|4%|± 4%|REP|UCP 2023|73.7%|
+1059	Drumheller-Stettler	Latest update: October 19, 2026|Drumheller-Stettler|66%|79%|72%|± 6%|▼|UCP|14%|24%|19%|± 5%|▲|NDP|1%|8%|4%|± 4%|REP|UCP 2023|82.1%|
+1060	Fort McMurray-Lac La Biche	Latest update: October 19, 2026|Fort McMurray-Lac La Biche|53%|69%|61%|± 8%|▼|UCP|23%|38%|30%|± 7%|NDP|0%|10%|5%|± 5%|REP|UCP 2023|73.4%|
+1061	Fort McMurray-Wood Buffalo	Latest update: October 19, 2026|Fort McMurray-Wood Buffalo|51%|68%|60%|± 9%|UCP|19%|33%|26%|± 7%|NDP|2%|11%|6%|± 4%|REP|0%|10%|5%|± 5%|PTPA|UCP 2023|67.4%|
+1062	Fort Saskatchewan-Vegreville	Latest update: October 19, 2026|Fort Saskatchewan-Vegreville|40%|53%|46%|± 7%|▼|UCP|38%|51%|44%|± 7%|NDP|1%|9%|5%|± 4%|REP|UCP 2023|57.9%|
+1063	Grande Prairie	Latest update: October 19, 2026|Grande Prairie|44%|60%|52%|± 8%|▼|UCP|31%|45%|38%|± 7%|▲|NDP|0%|7%|4%|± 3%|REP|UCP 2023|63.9%|
+1064	Grande Prairie-Wapiti	Latest update: October 19, 2026|Grande Prairie-Wapiti|58%|72%|65%|± 7%|▼|UCP|20%|32%|26%|± 6%|▲|NDP|1%|9%|5%|± 4%|REP|UCP 2023|75.7%|
+1065	Highwood	Latest update: October 19, 2026|Highwood|49%|62%|55%|± 7%|▼|UCP|28%|41%|34%|± 6%|NDP|1%|8%|4%|± 3%|REP|UCP 2023|68.9%|
+1066	Innisfail-Sylvan Lake	Latest update: October 19, 2026|Innisfail-Sylvan Lake|53%|67%|60%|± 7%|▼|UCP|25%|37%|31%|± 6%|NDP|1%|8%|5%|± 4%|REP|UCP 2023|71.5%|
+1067	Lac Ste. Anne-Parkland	Latest update: October 19, 2026|Lac Ste. Anne-Parkland|49%|63%|56%|± 7%|UCP|26%|39%|32%|± 6%|NDP|1%|8%|4%|± 4%|REP|0%|7%|4%|± 4%|PTPA|UCP 2023|68.9%|
+1068	Lacombe-Ponoka	Latest update: October 19, 2026|Lacombe-Ponoka|45%|60%|52%|± 7%|▼|UCP|21%|33%|27%|± 6%|NDP|4%|16%|10%|± 6%|PTPA|1%|8%|4%|± 4%|REP|UCP 2023|67.0%|
+1069	Leduc-Beaumont	Latest update: October 19, 2026|Leduc-Beaumont|52%|65%|59%|± 7%|UCP|29%|41%|35%|± 6%|NDP|UCP 2023|56.6%|
+1070	Lesser Slave Lake	Latest update: October 19, 2026|Lesser Slave Lake|43%|61%|52%|± 9%|▼|UCP|31%|49%|40%|± 9%|▲|NDP|0%|8%|4%|± 4%|REP|UCP 2023|64.3%|
+1071	Lethbridge-East	Latest update: October 19, 2026|Lethbridge-East|43%|57%|50%|± 7%|▲|NDP|33%|47%|40%|± 7%|▼|UCP|1%|7%|4%|± 3%|REP|0%|7%|4%|± 4%|PTPA|UCP 2023|50.6%|
+1072	Lethbridge-West	Latest update: October 19, 2026|Lethbridge-West|50%|64%|57%|± 7%|▲|NDP|27%|40%|33%|± 6%|▼|UCP|1%|7%|4%|± 3%|REP|NDP 2023|53.9%|
+1073	Livingston-Macleod	Latest update: October 19, 2026|Livingston-Macleod|48%|62%|55%|± 7%|UCP|26%|38%|32%|± 6%|▲|NDP|2%|11%|7%|± 5%|PTPA|1%|8%|4%|± 4%|REP|UCP 2023|66.9%|
+1074	Maskwacis-Wetaskiwin	Latest update: October 19, 2026|Maskwacis-Wetaskiwin|49%|63%|56%|± 7%|▼|UCP|28%|41%|34%|± 7%|NDP|1%|8%|4%|± 4%|REP|UCP 2023|67.4%|
+1075	Morinville-St. Albert	Latest update: October 19, 2026|Morinville-St. Albert|45%|59%|52%|± 7%|▼|UCP|32%|45%|38%|± 6%|NDP|UCP 2023|51.5%|
+1076	Olds-Didsbury-Three Hills	Latest update: October 19, 2026|Olds-Didsbury-Three Hills|58%|71%|65%|± 6%|UCP|19%|29%|24%|± 5%|NDP|3%|10%|6%|± 4%|REP|UCP 2023|75.1%|
+1077	Peace River	Latest update: October 19, 2026|Peace River|54%|70%|62%|± 8%|UCP|22%|36%|29%|± 7%|▲|NDP|1%|11%|6%|± 5%|REP|UCP 2023|72.8%|
+1078	Red Deer-North	Latest update: October 19, 2026|Red Deer-North|38%|53%|45%|± 7%|▼|UCP|38%|52%|45%|± 7%|NDP|1%|8%|4%|± 3%|REP|UCP 2023|57.5%|
+1079	Red Deer-South	Latest update: October 19, 2026|Red Deer-South|40%|54%|47%|± 7%|NDP|36%|50%|43%|± 7%|▼|UCP|1%|7%|4%|± 3%|REP|UCP 2023|55.9%|
+1080	Rimbey-Rocky Mountain House-Sundre	Latest update: October 19, 2026|Rimbey-Rocky Mountain House-Sundre|60%|74%|67%|± 7%|▼|UCP|15%|24%|20%|± 5%|▲|NDP|4%|14%|9%|± 5%|REP|UCP 2023|69.6%|
+1081	Sherwood Park	Latest update: October 19, 2026|Sherwood Park|38%|52%|45%|± 7%|▼|UCP|37%|50%|43%|± 7%|NDP|3%|12%|8%|± 5%|▲|PTPA|NDP 2023|50.3%|
+1082	Spruce Grove-Stony Plain	Latest update: October 19, 2026|Spruce Grove-Stony Plain|51%|64%|58%|± 7%|UCP|28%|40%|34%|± 6%|NDP|UCP 2023|57.0%|
+1083	St. Albert	Latest update: October 19, 2026|St. Albert|44%|58%|51%|± 7%|NDP|35%|48%|41%|± 7%|▼|UCP|NDP 2023|58.5%|
+1084	Strathcona-Sherwood Park	Latest update: October 19, 2026|Strathcona-Sherwood Park|49%|62%|55%|± 7%|▼|UCP|32%|45%|39%|± 7%|▲|NDP|UCP 2023|53.1%|
+1085	Taber-Warner	Latest update: October 19, 2026|Taber-Warner|53%|68%|61%|± 8%|UCP|15%|26%|21%|± 5%|▲|NDP|3%|13%|8%|± 5%|REP|0%|10%|5%|± 5%|WIP|UCP 2023|75.3%|
+1086	Vermillion-Lloydminster-Wainwright	Latest update: October 19, 2026|Vermillion-Lloydminster-Wainwright|55%|70%|63%|± 7%|UCP|17%|28%|22%|± 5%|NDP|0%|9%|5%|± 5%|PTPA|0%|7%|4%|± 3%|▲|REP|UCP 2023|74.3%|
+1087	West Yellowhead	Latest update: October 19, 2026|West Yellowhead|50%|64%|57%|± 7%|▼|UCP|28%|41%|34%|± 6%|▲|NDP|1%|9%|5%|± 4%|REP|UCP 2023|71.3%|

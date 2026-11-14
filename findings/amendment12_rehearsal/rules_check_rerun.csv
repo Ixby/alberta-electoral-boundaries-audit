@@ -1,0 +1,92 @@
+district,pop_overlay,dev_overlay_pct,dev_stated_pct,band_overlay,band_stated,basis,a,b,c,d,e,criteria_met,area_km2,road_km,border_km,towns_over_8000,reserves_held,band
+Central Peace-Notley,27060,-42.2,-46.5,below -25%,below -25%,both,True,True,True,True,True,5,47336,219.5,211.7,[],"['ALEXANDER 134A', 'CLEAR HILLS 152C', 'DUNCANS 151A', 'STURGEON LAKE 154', 'STURGEON LAKE 154A', 'STURGEON LAKE 154B']",below -25%
+Calgary-North East,28881,-38.3,1.5,below -25%,within,both,False,True,False,False,False,1,25,276.7,0.0,['Calgary'],[],bases disagree
+Lesser Slave Lake,29501,-37.0,-44.1,below -25%,below -25%,both,True,False,True,True,False,3,76843,134.0,0.0,[],"['ASSINEAU RIVER 150F', 'BISON LAKE', 'CHIP LAKE IR 166E', 'DRIFT PILE RIVER 150', 'East Prairie (Metis settlement)', 'GODS LAKE INDIAN RESERVE NO. 238A', 'Gift Lake (Metis settlement)', 'HAIG LAKE', 'JEAN BAPTISTE GAMBLER 183', 'JEAN BAPTISTE GAMBLER IR 183A', 'JEAN BAPTISTE GAMBLER IR 183B', 'JEAN BAPTISTE GAMBLER IR 183C', ""KAPAWE'NO FIRST NATION NO. 150B"", ""KAPAWE'NO FIRST NATION NO. 150C"", ""KAPAWE'NO FIRST NATION NO. 150D"", ""KAPAWE'NO FIRST NATION NO. 229"", ""KAPAWE'NO FIRST NATION NO. 230"", ""KAPAWE'NO FIRST NATION NO. 231"", 'LITTLE BUFFALO LOTS', 'LOON LAKE 235', 'LOON PRAIRIE 237', 'LUBICON LAKE', 'MARTEN RIVER', 'PEERLESS TROUT INDIAN RESERVE NO. 238', 'Peavine (Metis settlement)', 'SAWRIDGE 150G', 'SAWRIDGE 150H', 'SUCKER CREEK 150A', 'SWAMPY LAKE 236', 'SWAN RIVER 150E', 'TWIN LAKES INDIAN RESERVE NO. 238B', 'UTIKOOMAK LAKE 155', 'UTIKOOMAK LAKE 155A', 'UTIKOOMAK LAKE 155B', 'WABASCA 166', 'WABASCA 166A', 'WABASCA 166B', 'WABASCA 166C', 'WABASCA 166D', 'WEASEL LAKE', 'WOODLAND CREE 226', 'WOODLAND CREE 227', 'WOODLAND CREE 228']",below -25%
+Rocky Mountain House-Sundre,32117,-31.4,-41.3,below -25%,below -25%,both,True,True,True,True,True,5,28101,157.1,318.9,[],"['BIG HORN 144A', ""O'CHIESE 203"", ""O'CHIESE CEMETERY 203A"", 'SUNCHILD 202']",below -25%
+Edmonton-Windermere,34044,-27.3,0.8,below -25%,within,both,False,False,False,False,False,0,56,16.0,0.0,['Edmonton'],[],bases disagree
+Lethbridge-Cardston,35463,-24.3,-21.9,within,within,both,False,True,False,True,True,3,5493,479.6,91.8,['Lethbridge'],['BLOOD 148'],within
+Calgary-South East,35677,-23.8,-0.3,within,within,both,False,True,False,False,False,1,44,314.2,0.0,['Calgary'],[],within
+Banff-Canmore-Diamond Valley,37012,-21.0,-9.0,within,within,both,False,True,False,True,True,3,9088,326.0,105.4,"['Banff', 'Canmore']","['EDEN VALLEY 216', 'STONEY 142, 143, 144', 'STONEY 142B']",within
+Airdrie-West,38279,-18.3,-10.4,within,within,both,False,True,False,False,False,1,164,270.4,0.0,['Airdrie'],[],within
+Calgary-Shaw,38390,-18.0,8.3,within,within,both,False,True,False,False,False,1,34,325.8,0.0,['Calgary'],[],within
+Calgary-Nose Creek,38426,-18.0,2.7,within,within,both,False,True,False,False,False,1,48,277.6,0.0,['Calgary'],[],within
+Calgary-Bhullar-McCall,38535,-17.7,4.0,within,within,both,False,True,False,False,False,1,42,280.3,0.0,['Calgary'],[],within
+Edmonton-Meadows,40082,-14.4,-0.8,within,within,both,False,False,False,False,False,0,14,14.4,0.0,['Edmonton'],[],within
+Peace River,40290,-14.0,-19.2,within,within,both,True,True,True,True,True,5,109332,445.5,481.1,[],"['AMBER RIVER 211', 'BEAVER RANCH 163', 'BEAVER RANCH 163A', 'BEAVER RANCH 163B', 'BISTCHO LAKE 213', 'BOYER RIVER 164', 'BUSHE RIVER 207', 'CHILD LAKE 164A', 'FORT VERMILION INDIAN RESERVE NO. 173B', 'FOX LAKE 162', 'FOX LAKE NO. 162A', 'HAY LAKE 209', 'JACKFISH POINT 214', 'JOHN D’OR PRAIRIE INDIAN RESERVE NO. 215', 'PEERLESS MEADOWS INDIAN RESERVE NO. 238C', 'Paddle Prairie (Metis settlement)', 'TALL CREE 173', 'TALL CREE 173A', 'UPPER HAY RIVER 212', 'WADLIN LAKE 173C', 'WILLIAM MCKENZIE 151K', 'ZAMA LAKE 210']",within
+Fort McMurray-Lac La Biche,40624,-13.3,-11.9,within,within,both,True,False,False,True,True,3,32329,149.4,1.5,['Wood Buffalo (urban service area)'],"['BEAVER LAKE 131', 'Buffalo Lake (Metis settlement)', 'CLEARWATER 175', 'COWPER LAKE 194A', 'GREGOIRE LAKE 176', 'GREGOIRE LAKE 176A', 'GREGOIRE LAKE 176B', 'HEART LAKE 167', 'HEART LAKE 167A', 'HOUSE RIVER INDIAN CEMETERY 178', 'JANVIER 194', 'Kikino (Metis settlement)', 'WHITE FISH LAKE 128', 'WINEFRED LAKE 194B']",within
+Barrhead-Westlock-Athabasca,40696,-13.1,-13.3,within,within,both,False,False,True,True,False,2,15725,57.6,0.0,[],"['ALEXANDER 134B', 'SADDLE LAKE 125']",within
+Edmonton-South,40790,-12.9,7.1,within,within,both,False,False,False,False,False,0,51,12.7,0.0,['Edmonton'],[],within
+Drayton Valley-Devon,41020,-12.4,-17.7,within,within,both,False,False,True,False,False,1,6151,27.3,0.0,[],[],within
+Calgary-Buffalo,41111,-12.2,9.4,within,within,both,False,True,False,False,False,1,4,325.7,0.0,['Calgary'],[],within
+Cochrane,41595,-11.2,-12.9,within,within,both,False,True,False,False,False,1,590,310.3,0.0,['Cochrane'],[],within
+Chestermere-Strathmore,41813,-10.7,5.5,within,within,both,False,True,False,False,False,1,856,313.7,0.0,"['Chestermere', 'Strathmore']",[],within
+Edmonton-Ellerslie,42672,-8.9,-0.6,within,within,both,False,False,False,False,False,0,25,10.6,0.0,['Edmonton'],[],within
+Drumheller-Stettler,42826,-8.6,-18.9,within,within,both,True,False,True,False,True,3,38741,148.7,179.7,[],[],within
+Blackfalds-Innisfail,43067,-8.1,-17.1,within,within,both,False,False,False,False,False,0,3891,133.7,0.0,['Blackfalds'],[],within
+Edmonton-Enoch,43193,-7.8,5.9,within,within,both,False,False,False,True,False,1,144,13.5,0.0,['Edmonton'],['ENOCH CREE NATION NO. 135'],within
+Lethbridge-Little Bow,43432,-7.3,-2.0,within,within,both,False,True,False,True,False,2,7891,320.3,0.0,['Lethbridge'],['SIKSIKA INDIAN RESERVE NO. 146'],within
+Calgary-Symons Valley,44660,-4.7,2.0,within,within,both,False,True,False,False,False,1,36,322.5,0.0,['Calgary'],[],within
+Edmonton-Highlands-Norwood,44845,-4.3,-3.6,within,within,both,False,False,False,False,False,0,19,2.0,0.0,['Edmonton'],[],within
+Fort McMurray-Wood Buffalo,44917,-4.1,-13.0,within,within,both,True,True,False,True,True,4,86417,437.8,121.7,['Wood Buffalo (urban service area)'],"['ALLISON BAY 219', 'CHARLES LAKE 225', 'CHIPEWYAN 201', 'CHIPEWYAN 201A', 'CHIPEWYAN 201B', 'CHIPEWYAN 201C', 'CHIPEWYAN 201D', 'CHIPEWYAN 201E', 'CHIPEWYAN 201F', 'CHIPEWYAN 201G', 'COLLIN LAKE 223', 'CORNWALL LAKE 224', ""DEVIL'S GATE 220"", 'DOG HEAD 218', 'FORT MCKAY 174C', 'FORT MCKAY INDIAN RESERVE NO. 174', 'FORT MCKAY INDIAN RESERVE NO. 174D', 'HOKEDHE TUE 196E', ""K'I TUE 196D"", 'LI DEZE 196C', 'NAMUR LAKE 174B', 'NAMUR RIVER 174A', 'OLD FORT 217', 'PEACE POINT INDIAN RESERVE NO. 222', 'SANDY POINT 221', 'THABACHA NÁRE INDIAN RESERVE NO. 196A', 'THEBATHI 196', ""TSU K'ADHE TUE 196F"", 'TSU NEDEHE TUE 196H', 'TSU TUE 196G', 'TTHE JERE GHAILI 196B', ""ɁEJERE K'ELNI KŲE INDIAN RESERVE NO. 196I""]",within
+Calgary-Hays,45050,-3.8,-2.9,within,within,both,False,True,False,False,False,1,20,310.7,0.0,['Calgary'],[],within
+Edmonton-Manning,45105,-3.7,5.9,within,within,both,False,False,False,False,False,0,111,10.2,0.0,['Edmonton'],[],within
+Calgary-Falconridge-Conrich,45586,-2.7,5.5,within,within,both,False,True,False,False,False,1,29,324.0,0.0,['Calgary'],[],within
+Calgary-Mountain View,46573,-0.6,1.3,within,within,both,False,True,False,False,False,1,16,291.2,0.0,['Calgary'],[],within
+Grande Prairie,46592,-0.5,-6.3,within,within,both,False,True,False,False,False,1,111,453.1,0.0,['Grande Prairie'],[],within
+Red Deer-North,46816,-0.1,0.1,within,within,both,False,False,False,False,False,0,72,144.9,0.0,['Red Deer'],[],within
+Okotoks,46947,0.2,-7.2,within,within,both,False,True,False,False,False,1,1221,319.6,0.0,['Okotoks'],[],within
+Sherwood Park,47054,0.5,-2.3,within,within,both,False,False,False,False,False,0,63,7.7,0.0,['Strathcona County (urban service area)'],[],within
+Lloydminster-Wainwright,47256,0.9,-6.7,within,within,both,False,True,False,True,True,3,10855,153.9,154.4,['Lloydminster (Part)'],['MAKAOO I.R. 120'],within
+Calgary-Confluence,47311,1.0,9.1,within,within,both,False,True,False,False,False,1,41,293.2,0.0,['Calgary'],[],within
+Spruce Grove,47308,1.0,-3.1,within,within,both,False,False,False,False,False,0,324,15.2,0.0,['Spruce Grove'],[],within
+Lacombe-Sylvan Lake,47387,1.2,0.6,within,within,both,False,False,False,False,False,0,3231,106.2,0.0,"['Lacombe', 'Sylvan Lake']",[],within
+Calgary-Elbow,47595,1.6,2.9,within,within,both,False,True,False,False,False,1,18,320.7,0.0,['Calgary'],[],within
+Calgary-North West-Bearspaw,47742,1.9,1.2,within,within,both,False,True,False,False,False,1,31,333.2,0.0,['Calgary'],[],within
+Edmonton-Nisku,47872,2.2,1.5,within,within,both,False,False,False,False,False,0,178,14.3,0.0,['Edmonton'],[],within
+Calgary-North,48178,2.9,7.9,within,within,both,False,True,False,False,False,1,20,322.4,0.0,['Calgary'],[],within
+Edmonton-City Centre,48421,3.4,6.7,within,within,both,False,False,False,False,False,0,15,0.0,0.0,['Edmonton'],[],within
+Edmonton-Strathcona,48856,4.3,0.7,within,within,both,False,False,False,False,False,0,25,0.6,0.0,['Edmonton'],[],within
+Lac Ste. Anne,49052,4.7,-4.1,within,within,both,False,False,False,True,False,1,4348,31.7,0.0,['Stony Plain'],"['ALEXANDER 134', 'ALEXIS 133', 'ENOCH CREE NATION NO. 135A', 'WABAMUN 133A', 'WABAMUN 133B']",within
+Leduc-Beaumont,49160,5.0,18.1,within,within,both,False,False,False,False,False,0,70,24.1,0.0,"['Beaumont', 'Leduc']",[],within
+Calgary-Klein,49409,5.5,4.8,within,within,both,False,True,False,False,False,1,37,286.0,0.0,['Calgary'],[],within
+Macleod-Crowsnest,49489,5.7,-2.9,within,within,both,False,True,False,True,True,3,13610,345.1,225.9,['High River'],"['BLOOD TIMBER LIMIT 148A', 'PEIGAN TIMBER LIMIT 147B', 'PIIKANI RESERVE']",within
+West Yellowhead,49556,5.8,-4.4,within,within,both,True,False,False,True,True,3,48353,104.5,196.2,"['Edson', 'Hinton', 'Whitecourt']","['ALEXIS CARDINAL 234', 'ALEXIS ELK RIVER 233', 'ALEXIS WHITECOURT 232']",within
+Calgary-Acadia,49754,6.2,3.8,within,within,both,False,True,False,False,False,1,23,303.5,0.0,['Calgary'],[],within
+Medicine Hat-Cypress,49804,6.3,0.9,within,within,both,False,True,False,False,True,2,6106,518.4,161.6,['Medicine Hat'],[],within
+Airdrie-East,50082,6.9,0.2,within,within,both,False,True,False,False,False,1,1915,237.4,0.0,['Airdrie'],[],within
+Strathcona-Sherwood Park,50135,7.0,-5.0,within,within,both,False,False,False,False,False,0,794,16.4,0.0,['Strathcona County (urban service area)'],[],within
+Calgary-Currie,50171,7.1,8.2,within,within,both,False,True,False,False,False,1,16,328.1,0.0,['Calgary'],[],within
+Grande Prairie-Wapiti,50225,7.2,0.1,within,within,both,False,True,False,True,True,3,16015,414.2,158.5,['Grande Prairie'],['HORSE LAKES 152B'],within
+Calgary-Edgemont,50265,7.3,2.6,within,within,both,False,True,False,False,False,1,20,329.7,0.0,['Calgary'],[],within
+Morinville-Sturgeon,50359,7.5,-0.5,within,within,both,False,False,False,False,False,0,2241,13.6,0.0,"['Morinville', 'St. Albert']",[],within
+Calgary-Beddington,50444,7.7,4.3,within,within,both,False,True,False,False,False,1,29,284.4,0.0,['Calgary'],[],within
+Calgary-Glenmore-Tsuut'ina,50441,7.7,6.0,within,within,both,False,True,False,True,False,2,334,313.5,0.0,['Calgary'],"[""TSUU T'INA NATION 145""]",within
+Calgary-Varsity,50631,8.1,6.4,within,within,both,False,True,False,False,False,1,27,332.1,0.0,['Calgary'],[],within
+Fort Saskatchewan-Vegreville,50631,8.1,1.0,within,within,both,False,False,False,False,False,0,8208,27.2,0.0,['Fort Saskatchewan'],[],within
+Calgary-Bow-Springbank,50709,8.3,9.2,within,within,both,False,True,False,False,False,1,94,332.4,0.0,['Calgary'],[],within
+Edmonton-Castle Downs,50758,8.4,11.0,within,within,both,False,False,False,False,False,0,21,9.6,0.0,['Edmonton'],[],within
+Wetaskiwin-Ponoka,51289,9.5,0.6,within,within,both,False,False,False,True,False,1,5973,50.6,0.0,['Wetaskiwin'],"['BUCK LAKE 133C', 'ERMINESKIN 138', 'LOUIS BULL 138B', 'MONTANA 139', 'PIGEON LAKE 138A', 'SAMSON 137', 'SAMSON 137A']",within
+Olds-Didsbury-Three Hills,51359,9.6,-5.5,within,within,both,False,True,False,False,False,1,10143,188.5,0.0,"['Olds', 'Strathmore']",[],within
+Medicine Hat-Brooks,51557,10.1,2.1,within,within,both,False,True,False,False,True,2,13739,339.2,63.8,"['Brooks', 'Medicine Hat']",[],within
+Edmonton-Gold Bar,51593,10.1,2.3,within,within,both,False,False,False,False,False,0,57,1.6,0.0,['Edmonton'],[],within
+Calgary-Fish Creek,51623,10.2,3.1,within,within,both,False,True,False,False,False,1,33,305.9,0.0,['Calgary'],[],within
+Edmonton-West Henday,51681,10.3,15.0,within,within,both,False,False,False,False,False,0,74,6.7,0.0,['Edmonton'],[],within
+Camrose,51645,10.3,1.7,within,within,both,False,False,False,False,False,0,9992,29.0,0.0,['Camrose'],[],within
+Red Deer-South,51977,11.0,10.0,within,within,both,False,True,False,False,False,1,30,167.9,0.0,['Red Deer'],[],within
+Edmonton-Decore,52618,12.3,7.9,within,within,both,False,False,False,False,False,0,18,6.1,0.0,['Edmonton'],[],within
+Cold Lake-Bonnyville-St. Paul,52702,12.5,3.9,within,within,both,False,True,False,True,True,3,16829,154.9,113.5,['Cold Lake'],"['BLUE QUILLS FIRST NATION INDIAN RESERVE', 'COLD LAKE 149', 'COLD LAKE 149A', 'COLD LAKE 149B', 'COLD LAKE 149C', 'Elizabeth (Metis settlement)', 'Fishing Lake (Metis settlement)', 'KEHEWIN 123', 'PUSKIAKIWENIN 122', 'UNIPOUHEOS 121']",within
+Edmonton-Whitemud,52804,12.7,5.6,within,within,both,False,False,False,False,False,0,26,6.6,0.0,['Edmonton'],[],within
+Edmonton-Rutherford,52821,12.8,8.1,within,within,both,False,False,False,False,False,0,26,6.2,0.0,['Edmonton'],[],within
+Calgary-Cross,52856,12.8,10.7,within,within,both,False,True,False,False,False,1,16,327.4,0.0,['Calgary'],[],within
+Calgary-Lougheed,53031,13.2,10.9,within,within,both,False,True,False,False,False,1,34,322.3,0.0,['Calgary'],[],within
+Edmonton-Glenora-Riverview,53231,13.6,5.4,within,within,both,False,False,False,False,False,0,26,2.7,0.0,['Edmonton'],[],within
+Calgary-West-Springbank,53201,13.6,8.5,within,within,both,False,True,False,False,False,1,136,333.0,0.0,['Calgary'],[],within
+Lethbridge-Taber-Warner,53647,14.5,-1.4,within,within,both,False,True,False,False,True,2,17449,451.5,127.5,"['Coaldale', 'Lethbridge', 'Taber']",[],within
+Edmonton-Beverly-Clareview,53716,14.7,7.0,within,within,both,False,False,False,False,False,0,42,8.1,0.0,['Edmonton'],[],within
+Edmonton-North West,54762,16.9,14.0,within,within,both,False,False,False,False,False,0,32,5.5,0.0,['Edmonton'],[],within
+Lethbridge,54832,17.1,9.6,within,within,both,False,True,False,False,False,1,62,497.0,0.0,['Lethbridge'],[],within
+Edmonton-Mill Woods,54921,17.2,11.1,within,within,both,False,False,False,False,False,0,24,7.0,0.0,['Edmonton'],[],within
+Calgary-East,55140,17.7,8.5,within,within,both,False,True,False,False,False,1,112,298.2,0.0,['Calgary'],[],within
+Calgary-McKenzie,56334,20.3,16.8,within,within,both,False,True,False,False,False,1,30,306.2,0.0,['Calgary'],[],within
+St. Albert,56504,20.6,11.6,within,within,both,False,False,False,False,False,0,44,12.7,0.0,['St. Albert'],[],within
+Edmonton-McClung,56985,21.7,15.1,within,within,both,False,False,False,False,False,0,28,8.7,0.0,['Edmonton'],[],within

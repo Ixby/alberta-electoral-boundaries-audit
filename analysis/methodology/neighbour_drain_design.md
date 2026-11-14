@@ -281,7 +281,7 @@ not metric instability. On clean data, the metric gives a stable, interpretable 
 |------|---------|
 | `analysis/scripts/neighbour_drain_adjacency.py` | Current v1 implementation (modify for Phase A) |
 | `analysis/scripts/drain_label_shuffle_null.py` | NEW — Phase B + E |
-| `analysis/methodology/drain_v2_plan.md` | This document |
+| `analysis/methodology/neighbour_drain_design.md` | This document |
 | `findings/neighbour_drain_analysis.md` | Canonical official-geometry validation results (2026-05-23) |
 | `data/neighbour_drain_summary.json` | Canonical results data |
 

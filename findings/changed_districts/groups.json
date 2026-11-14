@@ -1,0 +1,87 @@
+{
+ "north_edmonton": {
+  "panel": [
+   "Barrhead-Westlock-Athabasca",
+   "Drayton Valley-Devon",
+   "Edmonton-Ellerslie",
+   "Edmonton-Nisku",
+   "Edmonton-South",
+   "Edmonton-Strathcona",
+   "Edmonton-Whitemud",
+   "Edmonton-Windermere",
+   "Fort McMurray-Lac La Biche",
+   "Fort McMurray-Wood Buffalo",
+   "Lac Ste. Anne",
+   "Leduc-Beaumont",
+   "Morinville-Sturgeon",
+   "Spruce Grove",
+   "West Yellowhead"
+  ],
+  "majority": [
+   "Barrhead-Westlock-Athabasca",
+   "Edmonton-Beaumont",
+   "Edmonton-Ellerslie",
+   "Edmonton-South",
+   "Edmonton-Strathcona",
+   "Edmonton-Whitemud",
+   "Edmonton-Windermere",
+   "Fort McMurray-Lac La Biche",
+   "Fort McMurray-Wood Buffalo",
+   "Leduc-Devon",
+   "Spruce Grove",
+   "St. Albert-Sturgeon",
+   "Stony Plain-Drayton Valley",
+   "West Yellowhead"
+  ],
+  "n_vas": 740
+ },
+ "west_calgary": {
+  "panel": [
+   "Calgary-Bow-Springbank",
+   "Calgary-North West-Bearspaw",
+   "Calgary-West-Springbank",
+   "Cochrane"
+  ],
+  "majority": [
+   "Calgary-Bow",
+   "Calgary-North West",
+   "Calgary-West-Elbow Valley",
+   "Cochrane-Springbank"
+  ],
+  "n_vas": 221
+ },
+ "south_central": {
+  "panel": [
+   "Banff-Canmore-Diamond Valley",
+   "Blackfalds-Innisfail",
+   "Drumheller-Stettler",
+   "Lacombe-Sylvan Lake",
+   "Lethbridge",
+   "Lethbridge-Cardston",
+   "Lethbridge-Little Bow",
+   "Lethbridge-Taber-Warner",
+   "Macleod-Crowsnest",
+   "Okotoks",
+   "Olds-Didsbury-Three Hills",
+   "Red Deer-South",
+   "Rocky Mountain House-Sundre",
+   "Wetaskiwin-Ponoka"
+  ],
+  "majority": [
+   "Canmore-Banff",
+   "Drumheller-Stettler",
+   "High River-Vulcan-Siksika",
+   "Lacombe-Clearwater",
+   "Lethbridge-East",
+   "Lethbridge-West",
+   "Livingstone-Macleod",
+   "Mountain View-Kneehill",
+   "Okotoks-Diamond Valley",
+   "Red Deer-South",
+   "Sylvan Lake-Innisfail",
+   "Taber-Cardston",
+   "Wetaskiwin-Ponoka-Maskwacis"
+  ],
+  "n_vas": 792
+ }
+}

@@ -6,8 +6,8 @@
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §5.6 equal-application disclosure — cites this result
-> - `reports/public/report_public.md` Casing 12 — cites this result
-> - `viewer` Casing 12 and the norms page — cite this result
+> - `reports/public/report_public.md` Finding 12 — cites this result
+> - `viewer` Finding 12 and the norms page — cite this result
 > - `findings/README.md` — indexes this finding
 
 # Rural-division count and succession — the minority's charge, tested

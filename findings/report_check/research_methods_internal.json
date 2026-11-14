@@ -1,0 +1,155 @@
+[
+ {
+  "line": 201,
+  "claim": "No Canadian commission has ever been required to test its map against a neutral ensemble.",
+  "status": "PARTLY",
+  "source": "Web search (2022 federal redistribution pages, Cochrane & Cowan MaRiPoSa paper); EBRA criteria",
+  "quote_or_number": "Searches found no commission, court or legislature using or requiring ensemble/MCMC analysis. Academic simulation exists (Cochrane and Cowan, MaRiPoSa, simulates elections under alternative boundaries) but not as a commission requirement. Federal commissions draw with a GIS tool (Commission Redistricting Tool, ArcGIS Pro).",
+  "suggested_rewording": "No Canadian commission is required to test its map against neutral simulated maps, and we found none that has.",
+  "note": "A universal negative cannot be proven by search; 'we found none' is the honest form. 'Has ever' should go."
+ },
+ {
+  "line": 217,
+  "claim": "No Canadian body uses the efficiency gap at all.",
+  "status": "STILL-UNVERIFIED",
+  "source": "Web search for Canadian efficiency gap use",
+  "quote_or_number": "No Canadian study or body using the efficiency gap surfaced in two searches. Absence of evidence only.",
+  "suggested_rewording": "We found no Canadian commission or court that uses the efficiency gap.",
+  "note": "Same universal-negative issue. Researchers (not 'bodies') may have used it; 'commission or court' is safer."
+ },
+ {
+  "line": 229,
+  "claim": "Prosecutor's fallacy has sent innocent people to prison.",
+  "status": "SUPPORTED",
+  "source": "Sally Clark: convicted Nov 1999, second appeal succeeded Jan 2003 (Court of Appeal); Roy Meadow told the court the chance of two cot deaths was 1 in 73 million (1 in 8,500 squared)",
+  "quote_or_number": "1 in 73 million; conviction quashed 2003. Court of Appeal quashed mainly on undisclosed microbiology but said the statistical error alone would have sufficed. Lucia de Berk (NL, convicted 2003, cleared 2010) is a second case, from memory, not searched.",
+  "suggested_rewording": "Add the name: '...it helped send Sally Clark to prison in 1999 for the deaths of her two babies; her conviction was overturned in 2003.'",
+  "note": "Clark's statistic also wrongly assumed the two deaths were independent, so it mixes two errors. Naming the case makes the claim checkable."
+ },
+ {
+  "line": 279,
+  "claim": "Pretext analysis is how US courts probe intent in the gerrymandering cases they still hear.",
+  "status": "PARTLY",
+  "source": "Alexander v. South Carolina NAACP (2024) opinion/syllabus; Cooper v. Harris (2017) as cited in Alexander; Rucho (2019)",
+  "quote_or_number": "Alexander: courts start from a presumption of legislative good faith; without an alternative map it is hard to overcome; Cooper v. Harris cited for separating race from partisanship using direct plus circumstantial evidence. Dept of Commerce v. New York (2019) is an administrative-law pretext case, not a districting case.",
+  "suggested_rewording": "Setting a stated reason against what the evidence supports is one way US courts probe intent in the race-based map cases they still hear. Since 2019 they no longer hear purely partisan claims, and since 2024 they start from a presumption of good faith.",
+  "note": "Cooper and Alexander are racial-gerrymandering cases. Do not cite Dept of Commerce for districting. Pretext is one route among others (Arlington Heights factors). Cooper/Arlington Heights primary text not fetched."
+ },
+ {
+  "line": 406,
+  "claim": "No Canadian institution scores maps this way.",
+  "status": "PARTLY",
+  "source": "Same searches as L201",
+  "quote_or_number": "No Canadian institution found doing ensemble-based scoring.",
+  "suggested_rewording": "No Canadian institution we found scores maps this way. That is why the audit had to build its own scorecard.",
+  "note": "Same universal-negative limit as L201."
+ },
+ {
+  "line": 29,
+  "claim": "Sixty years of Canadian practice.",
+  "status": "SUPPORTED",
+  "source": "Federal EBRA 1964 created independent commissions; Manitoba commission established 31 March 1955 (Elections Manitoba history; Hansard). Courtney 2001 Commissioned Ridings covers the federal system.",
+  "quote_or_number": "1964 to 2026 is 62 years; Manitoba 1955 is about 71.",
+  "suggested_rewording": "No change. 'More than sixty years' is also accurate.",
+  "note": "The 1957 Manitoba date was not found; sources say 1955. Courtney text itself not read."
+ },
+ {
+  "line": 454,
+  "claim": "Canada spent sixty years building one norm: politicians do not draw their own districts.",
+  "status": "SUPPORTED",
+  "source": "As L29",
+  "quote_or_number": "Federal 1964; Manitoba 1955.",
+  "suggested_rewording": "No change. 'About sixty years' is a fair summary.",
+  "note": "Provinces adopted commissions at different dates."
+ },
+ {
+  "line": 69,
+  "claim": "UCP wins most rural ridings; election-night Alberta looks like a wall of blue with small orange pockets in Edmonton and Calgary.",
+  "status": "SUPPORTED",
+  "source": "data/shapefiles/derived/va_polygons_all_2023_ballots_primary.gpkg summed by ED_NAME (87 2019 divisions)",
+  "quote_or_number": "UCP 49, NDP 38 (matches the official result). Outside Calgary/Edmonton by name prefix: UCP 37, NDP 4 of 41; UCP holds 97.6% of that land. NDP-won divisions cover 2.6% of all land. Calgary+Edmonton (46 divisions) hold 0.25% of land; NDP won 34 of them, UCP 12.",
+  "suggested_rewording": "No change needed. Optional: 'small orange pockets in Edmonton, Calgary and a few smaller cities.'",
+  "note": "The 4 NDP wins outside the two cities: Banff-Kananaskis, Lethbridge-West, Sherwood Park, St. Albert (the last two are Edmonton-area). 12 UCP wins sit inside Calgary."
+ },
+ {
+  "line": 71,
+  "claim": "Lines over the colour are the minority commissioners' 89 proposed districts.",
+  "status": "SUPPORTED",
+  "source": "analysis/scripts/build_cover.py: build_cover_art(map_key='minority'); APPROX_MIN_CANDIDATES = canonical/ea_minority_2026_eds.gpkg; README line 71",
+  "quote_or_number": "README: 'Over the top, in thin boundary lines, sits the minority commission's 89-district proposal.' Lines: ED boundaries at width 0.1 grey, plus a red outer edge at 0.2.",
+  "suggested_rewording": "No change. 'Commissioners' could read 'commission minority'.",
+  "note": "The public report does not embed cover_art by path (none found near L57-71). The script docstring (majority orange, minority blue, 2019 dashed) is stale against the code default."
+ },
+ {
+  "line": 79,
+  "claim": "They agree on most of Alberta.",
+  "status": "PARTLY",
+  "source": "Canonical gpkg overlay, best-match IoU per majority district (EDName2025, PopCensus)",
+  "quote_or_number": "IoU>0.95: 29 of 89 districts (33%), 58% of land and 32% of 2021-census population. IoU>0.8: 34 (38%), 77% land, 38% pop. IoU>0.5: 52 (58%), 87% land, 58% pop. Same name: 54 of 89. Area-weighted mean IoU 0.85. Calgary/Edmonton: 19 of 49 near-identical; elsewhere 10 of 40.",
+  "suggested_rewording": "They agree on most of Alberta's land. They differ on how people in and around the cities are grouped: only a third of Albertans live in a district both maps draw almost the same.",
+  "note": "Land claim holds, population claim does not. Pop is PopCensus of the majority district. 'Same room' is also shaky: the interim report was unanimous (Oct 2025), the minority departed in late January 2026."
+ },
+ {
+  "line": 101,
+  "claim": "Three commissioners, the chair among them, watched these lines being drawn and charged that a legal protection was being gamed.",
+  "status": "PARTLY",
+  "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf Part X (PDF p.62) and summary p.5-6",
+  "quote_or_number": "Majority: 'a bad faith effort to ensure it can be protected under s. 15(2)'. 'In October 2025, the Commission submitted a unanimous report... In late January, the minority departed substantially from that goal.' Majority maps were 'developed by the excellent Elections Alberta mapping staff at our request'. No exclusion of the minority appears; no text says the majority watched the minority draw.",
+  "suggested_rewording": "Three commissioners, the chair among them, read the minority's lines and wrote in the official report that a legal protection was being gamed.",
+  "note": "'Watched these lines being drawn' is not in the record. Use the quote 'bad faith effort'. The report says the minority 'did not give the public any notice', which cuts against the majority seeing the lines early."
+ },
+ {
+  "line": 239,
+  "claim": "Mechanism test: claim that Act I geometry is the mechanism for the Act II seat advantage failed its falsification test.",
+  "status": "PARTLY",
+  "source": "reports/academic/report_academic.md hypothesis table row H3 (about line 2619); analysis/methodology/plain_language_defense.md",
+  "quote_or_number": "H3: 'Non-compact geometry (the chair-flagged lasso shapes, the urban-rural hybridizations, the Airdrie four-way split) is the load-bearing mechanism... REJECTED (twice)'. Among 5,000 redist SMC plans, those reaching seats@50/50 >= 0.4831 had mean Polsby-Popper 0.2391 vs 0.2339 for the rest (n=2,762 vs 2,238): wrong direction.",
+  "suggested_rewording": "'The claim that low compactness is the mechanism behind the seat advantage failed its test.' Add: 'This tested compactness, not each flagged boundary one by one.'",
+  "note": "The quantitative test is on Polsby-Popper compactness, not on corridors, park extension and splits individually. Lasso PP was 0.402 on v0_9 data but 0.236 on official boundaries, so say which data."
+ },
+ {
+  "line": 275,
+  "claim": "The majority did not publish a list of reasons for contested redraws.",
+  "status": "PARTLY",
+  "source": "evidence/commission_reports/abebc_2026_rpt_final.pdf (text extracted, keyword search)",
+  "quote_or_number": "The report gives per-division descriptions with some rationale, and Part X answers the minority, but I found no separate list of reasons for contested redraws.",
+  "suggested_rewording": "The majority gave a description of each division but no list of reasons for the contested redraws.",
+  "note": "362 pages searched by keyword only, not fully read. 'No list' is safe; 'no reasons' is not."
+ },
+ {
+  "line": 307,
+  "claim": "The only score in this report is the five dated tests above.",
+  "status": "CONTRADICTED",
+  "source": "reports/public/report_public.md L400, L392, L418",
+  "quote_or_number": "L400: 'A scorecard: ... Five structural...'; L392: 'crosses four of five structural tests'; L418: nine-feature process scorecard (OSF u47bq) 'so the process half is scored'; four partisan metrics are scored as percentiles against the ensemble.",
+  "suggested_rewording": "The ledger rows are not scored; nothing in this ledger gets added up. The scores in this report are the five structural tests, the four partisan measures and the nine-feature process scorecard.",
+  "note": "Easiest fix: keep 'Nothing in it gets added up' and drop the 'only score' sentence. Also the report says 'four of four discriminating tests' near L57 and 'five' here; check consistency."
+ },
+ {
+  "line": 353,
+  "claim": "The panel published reasons for each change it made.",
+  "status": "PARTLY",
+  "source": "findings/reasons_consistency/stated_reasons.json (34 entries) vs findings/iap_unchanged_districts.md (35 changed of 91)",
+  "quote_or_number": "Of 35 changed districts, 33 have a stated-reasons entry. None for Calgary-Acadia (differs by 2 people) or Fort McMurray-Wood Buffalo. The NE Calgary group entry (Klein, Cross, East, Confluence) covers 4 districts counted as unchanged by name and population.",
+  "suggested_rewording": "The panel published reasons for nearly every change it made. The exceptions are a 2-person shift in Calgary-Acadia and Fort McMurray-Wood Buffalo.",
+  "note": "Fort McMurray-Wood Buffalo may be covered inside the Fort McMurray-Lac La Biche entry; not checked. If so, only Acadia lacks a reason."
+ },
+ {
+  "line": 429,
+  "claim": "Retraction condition 4: 2027 election result contradicts the percentile readings.",
+  "status": "CONTRADICTED",
+  "source": "preregistration/retraction_conditions.md; academic report 6.2.6 (about lines 2574-2590)",
+  "quote_or_number": "6.2.6 item 2 is 'The direction flips under more recent polling' (polling, not an election result). No 2027-election condition found in either document.",
+  "suggested_rewording": "Replace with the registered condition: 'More recent polls show the partisan direction flipping.' Or label it 'added for this report, not pre-registered'.",
+  "note": "The public list contains conditions not in the pre-registered document. Say which are new."
+ },
+ {
+  "line": 430,
+  "claim": "Retraction condition 5: Quebec 2026 SCC ruling distinguished by an Alberta court.",
+  "status": "CONTRADICTED",
+  "source": "As L429",
+  "quote_or_number": "No Quebec or Supreme Court condition in retraction_conditions.md or 6.2.6.",
+  "suggested_rewording": "Label as 'added for this report, not pre-registered', or remove.",
+  "note": "Timing conflict: the public report says 48 hours; retraction_conditions.md section 0 says 48 hours (in-repo discipline, not externally registered; shapefile triggers two weeks), but 6.2.6 says 30 days. Suggest: 'within 48 hours where possible, and in any case within 30 days'."
+ }
+]

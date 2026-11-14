@@ -1,0 +1,11 @@
+{
+ "group": "south_central",
+ "k": 13,
+ "variant": "blind",
+ "chain": 2,
+ "seed_salt": "changed_south_central_13_blind_2",
+ "seed": 1119043049,
+ "steps_kept": 25000,
+ "burn_in": 1000,
+ "n_vas": 792
+}

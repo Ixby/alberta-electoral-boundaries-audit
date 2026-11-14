@@ -1,0 +1,101 @@
+{
+ "population_2021_placed": 4262635.0,
+ "definitions": {
+  "cities_only": {
+   "urban_share_of_population": 0.70933612659775,
+   "maps": {
+    "map_2019": {
+     "ridings": 87,
+     "urban_majority": 58,
+     "urban_majority_share_of_seats": 0.6666666666666666,
+     "at_least_90_percent_urban": 54,
+     "at_most_10_percent_urban": 20,
+     "mixed_10_to_90_percent": 13,
+     "unplaced_population": 0.0
+    },
+    "commission_majority": {
+     "ridings": 89,
+     "urban_majority": 62,
+     "urban_majority_share_of_seats": 0.6966292134831461,
+     "at_least_90_percent_urban": 56,
+     "at_most_10_percent_urban": 19,
+     "mixed_10_to_90_percent": 14,
+     "unplaced_population": 0.0
+    },
+    "commission_minority": {
+     "ridings": 89,
+     "urban_majority": 61,
+     "urban_majority_share_of_seats": 0.6853932584269663,
+     "at_least_90_percent_urban": 48,
+     "at_most_10_percent_urban": 16,
+     "mixed_10_to_90_percent": 25,
+     "unplaced_population": 0.0
+    },
+    "panel_reconstruction_v3": {
+     "ridings": 91,
+     "urban_majority": 62,
+     "urban_majority_share_of_seats": 0.6813186813186813,
+     "at_least_90_percent_urban": 55,
+     "at_most_10_percent_urban": 19,
+     "mixed_10_to_90_percent": 17,
+     "unplaced_population": 0.0
+    }
+   }
+  },
+  "cities_and_towns": {
+   "urban_share_of_population": 0.8600830237634702,
+   "maps": {
+    "map_2019": {
+     "ridings": 87,
+     "urban_majority": 77,
+     "urban_majority_share_of_seats": 0.8850574712643678,
+     "at_least_90_percent_urban": 58,
+     "at_most_10_percent_urban": 1,
+     "mixed_10_to_90_percent": 28,
+     "unplaced_population": 0.0
+    },
+    "commission_majority": {
+     "ridings": 89,
+     "urban_majority": 77,
+     "urban_majority_share_of_seats": 0.8651685393258427,
+     "at_least_90_percent_urban": 59,
+     "at_most_10_percent_urban": 0,
+     "mixed_10_to_90_percent": 30,
+     "unplaced_population": 0.0
+    },
+    "commission_minority": {
+     "ridings": 89,
+     "urban_majority": 80,
+     "urban_majority_share_of_seats": 0.898876404494382,
+     "at_least_90_percent_urban": 51,
+     "at_most_10_percent_urban": 0,
+     "mixed_10_to_90_percent": 38,
+     "unplaced_population": 0.0
+    },
+    "panel_reconstruction_v3": {
+     "ridings": 91,
+     "urban_majority": 80,
+     "urban_majority_share_of_seats": 0.8791208791208791,
+     "at_least_90_percent_urban": 58,
+     "at_most_10_percent_urban": 0,
+     "mixed_10_to_90_percent": 33,
+     "unplaced_population": 0.0
+    }
+   }
+  }
+ },
+ "meta": {
+  "entry": "2026-11-13 05:00 Alberta time \u00b7 claude-fable-5-2 \u00b7 low",
+  "script": "findings/urban_majority_ridings/count.py",
+  "status": "exploratory, not registered",
+  "inputs": {
+   "data/shapefiles/reference/alberta_2021_das.gpkg": "2c6996b6af8af4ab97235bf7936fba547f35d4959a022771a8d07de8502a8efc",
+   "data/shapefiles/reference/alberta_2021_csds.gpkg": "7ee3356b6e5c828db1e016cd96f101bfd0cbc67d8b3f87e429f2316430a4d840",
+   "data/reference/alberta_2021_da_populations.csv": "80bd9c01081f00dbcd8453087eab054cc2616123ed432b42cd7c42f88351ec7f",
+   "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp": "89d0393f8046fe9178f630012fbf4a68718e898f538523554e211fc8dae526a4",
+   "data/shapefiles/canonical/ea_majority_2026_eds.gpkg": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160",
+   "data/shapefiles/canonical/ea_minority_2026_eds.gpkg": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
+   "data/shapefiles/iap_assembled/iap_2026_assembled_v3.gpkg": "8ea5caf68ac95bffe3d7e8a58635b8888f742b3bf115cf3787da3cc92caca1b7"
+  }
+ }
+}

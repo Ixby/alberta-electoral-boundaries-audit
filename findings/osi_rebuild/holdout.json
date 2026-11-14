@@ -1,0 +1,172 @@
+{
+ "info": {
+  "plan": "preregistration/osi_da_rebuild_2026-11-07.md",
+  "n_das": 6203,
+  "csd_estimates_2024_total": 4903295.0,
+  "csd_matched": 412,
+  "share_pop_2021_in_split_das": {
+   "majority": 0.1314,
+   "minority": 0.1376,
+   "panel": 0.1371
+  }
+ },
+ "holdout": {
+  "majority": {
+   "solver_status": 2,
+   "n_divisions": 89,
+   "n_identical_excluded": 65,
+   "n_tested": 24,
+   "mean_abs_err_pct": 1.36,
+   "max_abs_err_pct": 6.02,
+   "prior_alone_mean_abs_err_pct": 2.76,
+   "pass": false,
+   "worst": {
+    "Lethbridge-East": {
+     "published": 57463,
+     "predicted": 54006,
+     "err_pct": -6.02
+    },
+    "Lethbridge-West": {
+     "published": 54235,
+     "predicted": 57324,
+     "err_pct": 5.7
+    },
+    "Stony Plain-Drayton Valley": {
+     "published": 55743,
+     "predicted": 54463,
+     "err_pct": -2.3
+    },
+    "Canmore-Banff": {
+     "published": 39961,
+     "predicted": 40826,
+     "err_pct": 2.16
+    },
+    "Calgary-North West": {
+     "published": 52488,
+     "predicted": 53606,
+     "err_pct": 2.13
+    },
+    "Calgary-West-Elbow Valley": {
+     "published": 54167,
+     "predicted": 53067,
+     "err_pct": -2.03
+    },
+    "Leduc-Devon": {
+     "published": 56572,
+     "predicted": 57620,
+     "err_pct": 1.85
+    },
+    "High River-Vulcan-Siksika": {
+     "published": 53351,
+     "predicted": 52603,
+     "err_pct": -1.4
+    }
+   }
+  },
+  "minority": {
+   "solver_status": 2,
+   "n_divisions": 89,
+   "n_identical_excluded": 24,
+   "n_tested": 65,
+   "mean_abs_err_pct": 1.58,
+   "max_abs_err_pct": 7.71,
+   "prior_alone_mean_abs_err_pct": 5.2,
+   "pass": false,
+   "worst": {
+    "Calgary-Airdrie": {
+     "published": 58820,
+     "predicted": 54286,
+     "err_pct": -7.71
+    },
+    "Calgary-Beddington": {
+     "published": 61320,
+     "predicted": 65057,
+     "err_pct": 6.09
+    },
+    "Calgary-Peigan-Chestermere": {
+     "published": 52639,
+     "predicted": 55564,
+     "err_pct": 5.56
+    },
+    "Calgary-Foothills-Airdrie West": {
+     "published": 58436,
+     "predicted": 55950,
+     "err_pct": -4.25
+    },
+    "Calgary-Bow-Springbank": {
+     "published": 55560,
+     "predicted": 57789,
+     "err_pct": 4.01
+    },
+    "Calgary-Buffalo": {
+     "published": 66801,
+     "predicted": 64266,
+     "err_pct": -3.8
+    },
+    "Red Deer-Innisfail": {
+     "published": 52961,
+     "predicted": 54965,
+     "err_pct": 3.78
+    },
+    "Calgary-Lougheed": {
+     "published": 56122,
+     "predicted": 54035,
+     "err_pct": -3.72
+    }
+   }
+  },
+  "panel": {
+   "solver_status": 2,
+   "n_divisions": 91,
+   "n_identical_excluded": 58,
+   "n_tested": 33,
+   "mean_abs_err_pct": 1.46,
+   "max_abs_err_pct": 5.45,
+   "prior_alone_mean_abs_err_pct": 4.66,
+   "pass": true,
+   "worst": {
+    "Edmonton-South": {
+     "published": 57522,
+     "predicted": 60655,
+     "err_pct": 5.45
+    },
+    "Edmonton-Windermere": {
+     "published": 54136,
+     "predicted": 51993,
+     "err_pct": -3.96
+    },
+    "Edmonton-Ellerslie": {
+     "published": 53376,
+     "predicted": 51361,
+     "err_pct": -3.78
+    },
+    "Blackfalds-Innisfail": {
+     "published": 44536,
+     "predicted": 45757,
+     "err_pct": 2.74
+    },
+    "Lethbridge-Cardston": {
+     "published": 41943,
+     "predicted": 40919,
+     "err_pct": -2.44
+    },
+    "Calgary-North West-Bearspaw": {
+     "published": 54361,
+     "predicted": 53159,
+     "err_pct": -2.21
+    },
+    "Red Deer-South": {
+     "published": 59121,
+     "predicted": 57880,
+     "err_pct": -2.1
+    },
+    "Cochrane": {
+     "published": 46785,
+     "predicted": 47710,
+     "err_pct": 1.98
+    }
+   }
+  }
+ },
+ "all_pass": false
+}

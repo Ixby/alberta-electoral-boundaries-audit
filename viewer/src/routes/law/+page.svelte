@@ -19,6 +19,9 @@
   import { base } from '$app/paths';
   import { lang } from '$lib/i18n/store.svelte';
   import { t } from '$lib/i18n/dict';
+
+  // Locale strings may hold __BASE__ in links; resolve it to the deploy base.
+  const h = (key: string) => t(lang.current, key).replaceAll('__BASE__', base);
 </script>
 
 <div class="page-head">
@@ -35,51 +38,83 @@
 <main id="main" tabindex="-1">
   <div class="content">
 
-    <p class="standfirst">{t(lang.current, 'pages.law.standfirst')}</p>
+    <p class="standfirst">{@html h('pages.law.standfirst')}</p>
 
     <section id="why-not-gerrymander">
       <h2>{t(lang.current, 'pages.law.why_not_gerrymander.heading')}</h2>
-      <p>{t(lang.current, 'pages.law.why_not_gerrymander.p1')}</p>
-      <p>{@html t(lang.current, 'pages.law.why_not_gerrymander.p2')}</p>
-      <p>{@html t(lang.current, 'pages.law.why_not_gerrymander.p3')}</p>
+      <p>{@html h('pages.law.why_not_gerrymander.p1')}</p>
+      <p>{@html h('pages.law.why_not_gerrymander.p2')}</p>
+      <p>{@html h('pages.law.why_not_gerrymander.p3')}</p>
     </section>
 
     <section id="effective-representation">
       <h2>{t(lang.current, 'pages.law.effective_representation.heading')}</h2>
-      <p>{@html t(lang.current, 'pages.law.effective_representation.p1')}</p>
-      <p>{@html t(lang.current, 'pages.law.effective_representation.p2')}</p>
-      <p>{t(lang.current, 'pages.law.effective_representation.p3')}</p>
+      <p>{@html h('pages.law.effective_representation.p1')}</p>
+      <p>{@html h('pages.law.effective_representation.p2')}</p>
+      <p>{@html h('home.law.p2')}</p>
+      <p>{@html h('pages.law.effective_representation.p3')}</p>
       <ul>
-        <li>{@html t(lang.current, 'pages.law.effective_representation.li1')}</li>
-        <li>{@html t(lang.current, 'pages.law.effective_representation.li2')}</li>
+        <li>{@html h('pages.law.effective_representation.li1')}</li>
+        <li>{@html h('pages.law.effective_representation.li2')}</li>
       </ul>
-      <p>{t(lang.current, 'pages.law.effective_representation.p4')}</p>
+      <h3 id="how-a-map-is-made">{t(lang.current, 'home.law.h3_1')}</h3>
+      <p>{@html h('home.law.p3')}</p>
+      <p>{@html h('home.law.p4')}</p>
+      <p>{@html h('pages.law.effective_representation.p4')}</p>
     </section>
 
     <section id="ebca">
       <h2>{t(lang.current, 'pages.law.ebca.heading')}</h2>
-      <p>{@html t(lang.current, 'pages.law.ebca.p1')}</p>
-      <p>{@html t(lang.current, 'pages.law.ebca.p2')}</p>
-      <p>{@html t(lang.current, 'pages.law.ebca.p3')}</p>
-      <ul class="criteria">
-        <li>{t(lang.current, 'pages.law.ebca.criterion1')}</li>
-        <li>{t(lang.current, 'pages.law.ebca.criterion2')}</li>
-        <li>{t(lang.current, 'pages.law.ebca.criterion3')}</li>
-        <li>{t(lang.current, 'pages.law.ebca.criterion4')}</li>
-        <li>{t(lang.current, 'pages.law.ebca.criterion5')}</li>
+      <p>{@html h('pages.law.ebca.p1')}</p>
+      <h3 id="alberta-s-statute">{t(lang.current, 'home.law.h3_2')}</h3>
+      <p>{@html h('home.law.p5')}</p>
+      <ul>
+        {#each [1, 2, 3, 4, 5, 6] as n (n)}
+          <li>{@html h('home.law.li' + n)}</li>
+        {/each}
       </ul>
-      <p>{t(lang.current, 'pages.law.ebca.p4')}</p>
-      <blockquote>{t(lang.current, 'pages.law.ebca.quote')}</blockquote>
-      <p>{t(lang.current, 'pages.law.ebca.p5')}</p>
-      <p>{@html t(lang.current, 'pages.law.ebca.p6')}</p>
-      <p class="cross-ref">{@html t(lang.current, 'pages.law.ebca.cross_ref')}</p>
+      <p>{@html h('home.law.p6')}</p>
+      <p>{@html h('pages.law.ebca.p2')}</p>
+      <p>{@html h('pages.law.ebca.p3')}</p>
+      <ul class="criteria">
+        {#each [1, 2, 3, 4, 5] as n (n)}
+          <li>{@html h('pages.law.ebca.criterion' + n)}</li>
+        {/each}
+      </ul>
+      <p>{@html h('pages.law.ebca.p4')}</p>
+      <blockquote>{@html h('pages.law.ebca.quote')}</blockquote>
+      <p>{@html h('pages.law.ebca.p5')}</p>
+      <p>{@html h('pages.law.ebca.p6')}</p>
     </section>
 
-    <section>
+    <section id="what-the-law-doesn-t-require">
+      <h2>{t(lang.current, 'home.law.h3_3')}</h2>
+      <p>{@html h('home.law.p7')}</p>
+      <ul>
+        <li>{@html h('home.law.li8')}</li>
+        <li>{@html h('home.law.li9')}</li>
+        <li>{@html h('home.law.li10')}</li>
+      </ul>
+      <p>{@html h('home.does.p14')}</p>
+    </section>
+
+    <section id="it-has-happened-here-before">
+      <h2>{t(lang.current, 'home.law.h3_4')}</h2>
+      <p>{@html h('home.law.p8')}</p>
+      <p>{@html h('home.law.p9')}</p>
+    </section>
+
+    <section id="what-this-means-in-november">
+      <h2>{t(lang.current, 'home.law.h3_5')}</h2>
+      <p>{@html h('home.does.p15')}</p>
+      <p class="cross-ref">{@html h('pages.law.ebca.cross_ref')}</p>
+    </section>
+
+    <section id="standing-rule">
       <h2>{t(lang.current, 'pages.law.audits_standing_rule.heading')}</h2>
-      <p>{t(lang.current, 'pages.law.audits_standing_rule.p1')}</p>
-      <p class="cross-ref">{@html t(lang.current, 'pages.law.audits_standing_rule.cross_ref').replaceAll('__BASE__', base)}</p>
-      <p class="disclaimer">{t(lang.current, 'pages.law.audits_standing_rule.disclaimer')}</p>
+      <p>{@html h('pages.law.audits_standing_rule.p1')}</p>
+      <p class="cross-ref">{@html h('pages.law.audits_standing_rule.cross_ref')}</p>
+      <p class="disclaimer">{@html h('pages.law.audits_standing_rule.disclaimer')}</p>
     </section>
 
   </div>
@@ -154,6 +189,7 @@
   }
 
   section { margin-bottom: 2.4rem; scroll-margin-top: 1.5rem; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.4rem 0 0.6rem; scroll-margin-top: 4rem; }
 
   h2 {
     font-size: 1.22rem;

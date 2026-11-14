@@ -1,0 +1,165 @@
+{
+  "status": "EXPLORATORY - computed after the fact for the 2026-11-10 audit; not a registered test",
+  "statute": "EBCA s.15(2)(b): more than 150 km from the Legislature Building to the nearest boundary of the division by the most direct highway route",
+  "road_model": {
+    "vertices": 336855,
+    "segments": 340229,
+    "legislature_snap_m": 71.3,
+    "vertices_unreachable": 5258,
+    "source": "data/osm/alberta_osm_highways.gpkg",
+    "method": "analysis/scripts/s152_criteria.py road_km(), applied to official district polygons",
+    "legislature_lon_lat": [
+      -113.506611,
+      53.533694
+    ]
+  },
+  "districts": {
+    "majority": {
+      "Central Peace-Notley": {
+        "road_km_to_nearest_vertex_inside": 220.0,
+        "entry_point_lat_lon": [
+          54.2969,
+          -116.2579
+        ],
+        "road_vertices_inside": 9905,
+        "road_km_from_committed_va_file": 220.0,
+        "voting_areas_inside": 49,
+        "straight_line_km": 188.7,
+        "straight_line_nearest_point_lat_lon": [
+          54.414,
+          -115.9673
+        ],
+        "criterion_b_met_on_road_model": true,
+        "margin_km": 70.0,
+        "criteria_met_as_published": "5"
+      },
+      "Lesser Slave Lake": {
+        "road_km_to_nearest_vertex_inside": 134.1,
+        "entry_point_lat_lon": [
+          54.5871,
+          -113.8368
+        ],
+        "road_vertices_inside": 12641,
+        "road_km_from_committed_va_file": 134.1,
+        "voting_areas_inside": 55,
+        "straight_line_km": 113.1,
+        "straight_line_nearest_point_lat_lon": [
+          54.3211,
+          -114.5969
+        ],
+        "criterion_b_met_on_road_model": false,
+        "margin_km": -15.9,
+        "criteria_met_as_published": "4"
+      },
+      "Canmore-Banff": {
+        "road_km_to_nearest_vertex_inside": 314.5,
+        "entry_point_lat_lon": [
+          51.4453,
+          -114.4704
+        ],
+        "road_vertices_inside": 13612,
+        "road_km_from_committed_va_file": 312.8,
+        "voting_areas_inside": 38,
+        "straight_line_km": 220.6,
+        "straight_line_nearest_point_lat_lon": [
+          51.7076,
+          -114.7812
+        ],
+        "criterion_b_met_on_road_model": true,
+        "margin_km": 164.5,
+        "criteria_met_as_published": "3"
+      }
+    },
+    "minority": {
+      "Central Peace-Notley": {
+        "road_km_to_nearest_vertex_inside": 220.0,
+        "entry_point_lat_lon": [
+          54.2969,
+          -116.2579
+        ],
+        "road_vertices_inside": 10243,
+        "road_km_from_committed_va_file": 220.0,
+        "voting_areas_inside": 51,
+        "straight_line_km": 188.7,
+        "straight_line_nearest_point_lat_lon": [
+          54.414,
+          -115.9673
+        ],
+        "criterion_b_met_on_road_model": true,
+        "margin_km": 70.0,
+        "criteria_met_as_published": "5"
+      },
+      "Lesser Slave Lake": {
+        "road_km_to_nearest_vertex_inside": 134.1,
+        "entry_point_lat_lon": [
+          54.5871,
+          -113.8368
+        ],
+        "road_vertices_inside": 12641,
+        "road_km_from_committed_va_file": 134.1,
+        "voting_areas_inside": 55,
+        "straight_line_km": 113.1,
+        "straight_line_nearest_point_lat_lon": [
+          54.3211,
+          -114.5969
+        ],
+        "criterion_b_met_on_road_model": false,
+        "margin_km": -15.9,
+        "criteria_met_as_published": "4"
+      },
+      "Rocky Mountain House-Banff Park": {
+        "road_km_to_nearest_vertex_inside": 165.2,
+        "entry_point_lat_lon": [
+          52.8438,
+          -114.8716
+        ],
+        "road_vertices_inside": 17814,
+        "road_km_from_committed_va_file": 163.2,
+        "voting_areas_inside": 52,
+        "straight_line_km": 105.1,
+        "straight_line_nearest_point_lat_lon": [
+          52.8437,
+          -114.5817
+        ],
+        "criterion_b_met_on_road_model": true,
+        "margin_km": 15.2,
+        "criteria_met_as_published": "4 or 5 (b borderline)"
+      }
+    }
+  },
+  "rimbey_check": {
+    "why": "The report puts Rocky Mountain House-Banff Park's nearest boundary 'at about 143-145 km using Rimbey as a proxy'.",
+    "town_of_rimbey_is_in": {
+      "majority": {
+        "district_holding_most_of_the_town": "Wetaskiwin-Ponoka-Maskwacis",
+        "share_of_town_area_in_it_pct": 100.0
+      },
+      "minority": {
+        "district_holding_most_of_the_town": "Wetaskiwin-Ponoka-Maskwacis",
+        "share_of_town_area_in_it_pct": 100.0
+      }
+    },
+    "rimbey_in_minority_rocky_mountain_house_banff_park": false,
+    "road_km_to_rimbey_on_this_model": 148.8
+  },
+  "summary": {
+    "rocky_mountain_house_banff_park_minority_km": 165.2,
+    "rocky_mountain_house_banff_park_meets_b": true,
+    "lesser_slave_lake_km": {
+      "majority": 134.1,
+      "minority": 134.1
+    },
+    "lesser_slave_lake_meets_b": {
+      "majority": false,
+      "minority": false
+    },
+    "reading": "On the audit's own road model the minority's Rocky Mountain House-Banff Park is beyond 150 km (criterion (b) met, not borderline), and Lesser Slave Lake is within 150 km on both maps (criterion (b) not met). The published counts treat them the other way round: (b) is hedged for the first and credited for the second.",
+    "what_this_does_not_change": "Whether each district still has at least three of the five criteria depends on the other four criteria, which this script does not recompute."
+  },
+  "limits": [
+    "A model, not a surveyed highway route: shortest path over an OpenStreetMap extract of highways (about 41,500 km of road, no road names or classes in the file, no one-way rules). Local roads are not in it. If local roads counted as a 'highway route', a district whose nearest corner has no highway could be closer than the model says: Rocky Mountain House-Banff Park is only about 105 km away in a straight line, so its 165 km rests on the road model. Lesser Slave Lake is under 150 km on the model and no reading that adds roads can lengthen a shortest path.",
+    "Distance is to the first road vertex inside the district, so it overstates the distance to the boundary line by up to one vertex spacing.",
+    "The straight-line figure is a floor for any route; where it is already over 150 km the answer does not depend on the road model.",
+    "The Legislature's coordinates and the 1 m vertex snap are those of s152_criteria.py."
+  ]
+}

@@ -34,7 +34,7 @@
   });
   import { lang } from '$lib/i18n/store.svelte';
   import { proseWordCount } from '$lib/i18n/wordCount';
-  import { t } from '$lib/i18n/dict';
+  import { t, hasTranslation } from '$lib/i18n/dict';
   import { sectionNav } from '$lib/sectionNav.svelte';
   import FigureLightbox from '$lib/components/FigureLightbox.svelte';
   import { pageview, initEngagement, observeSections } from '$lib/analytics';
@@ -45,15 +45,19 @@
 
   // Landmark sections. Registered with the site header ($lib/sectionNav), which
   // shows the previous / current / next stepper and lists them in its menu.
+  // Locale strings may hold __BASE__ in links; resolve it to the deploy base.
+  const h = (key: string) => t(lang.current, key).replaceAll('__BASE__', base);
+
   const SECTIONS: { id: string; key: string }[] = [
-    { id: 'what-happened',         key: 'happened' },
-    { id: 'what-the-map-does',     key: 'does' },
-    { id: 'what-the-law-requires', key: 'law' },
+    { id: 'short-answer',          key: 'answer' },
     { id: 'how-it-got-here',       key: 'system' },
+    { id: 'november',              key: 'november' },
+    { id: 'what-happened',         key: 'happened' },
     { id: 'how-we-know',           key: 'know' },
-    { id: 'november-test',         key: 'test' },
+    { id: 'what-the-law-requires', key: 'law' },
     { id: 'change-our-mind',       key: 'mind' },
     { id: 'authors-view',          key: 'authors_view' },
+    { id: 'fixes-teaser',          key: 'fixes' },
     { id: 'references',            key: 'references' },
     { id: 'resources',             key: 'technical' }
   ];
@@ -83,13 +87,25 @@
     // fire-and-forget (the SDK no-ops in SSR); no consent gate — see analytics.ts.
     // Section ids tracked: the report's stake/finding anchors. Kept best-effort —
     // ids that don't exist are simply skipped by observeSections.
-    // ── Old anchors (pre-2026-10-29 structure) → their new homes ─────────────
+    // ── Old anchors → their new homes (pre-2026-10-29 structure, and the
+    //    2026-11-10 plain-language restructure that moved sections off this page)
     const oldHash = location.hash.slice(1);
     const moved: Record<string, string> = {
       'the-smoking-gun': '#what-happened', 'the-picture': '#what-happened', 'the-map': '#what-happened',
-      'act-1': '#what-the-map-does', 'what-this-means': '#what-the-map-does',
+      'act-1': '#what-happened', 'what-this-means': '#what-happened', 'what-the-map-does': '#what-happened',
+      'one-city-four-districts': '#what-happened', 'bigger-districts-where-the-ndp-is-strongest': '#what-happened',
+      'the-cost-equal-votes': '#what-happened', 'rural-tails-on-urban-districts': '#what-happened',
+      'three-boundaries-the-chair-called-out': '#what-happened', 'what-it-buys': '#what-happened',
       'act-2': '#how-we-know', 'the-scorecard': '#how-we-know', 'act-3': '#how-it-got-here',
-      'section-7': '#november-test', 'retractions': '#change-our-mind',
+      'retractions': '#change-our-mind',
+      'section-7': '/methods#november', 'november-test': '/methods#november',
+      'did-the-result-survive-attack': '/methods#break', 'what-the-machine-can-t-see': '/methods#what-the-machine-can-t-see',
+      'both-sides-tested': '/evidence#sides',
+      'recommendation-5': '/norms#recommendation-5',
+      'the-constitution': '/law#effective-representation', 'alberta-s-statute': '/law#ebca',
+      'what-the-law-doesn-t-require': '/law#what-the-law-doesn-t-require',
+      'it-has-happened-here-before': '/law#it-has-happened-here-before',
+      'what-this-means-in-november': '/law#what-this-means-in-november',
       'history-of-gerrymandering': '/law', 'canada-is-different': '/law', 'section-8': '/fixes'
     };
     if (/^casing-\d+$/.test(oldHash) || /^act-\d-picture$/.test(oldHash) || oldHash === 'ledger') {
@@ -111,12 +127,12 @@
     _analyticsCleanups.push(initEngagement(location.pathname));
     _analyticsCleanups.push(
       observeSections([
-        'what-happened',          // the finding, the split, the can/can't box
-        'what-the-map-does',      // cracking, packing, the cost, what it buys
-        'what-the-law-requires',  // Charter, statute, gaps, the 1992 precedent
-        'how-it-got-here',        // the committee, Recommendation 5
-        'how-we-know',            // ensemble, results, where the audit lost
-        'november-test',          // this week's scoring
+        'short-answer',           // the answer first, and the can/can't box
+        'how-it-got-here',        // who drew the maps, dated
+        'november',               // the panel's map, checked
+        'what-happened',          // the commission's two maps
+        'how-we-know',            // computer-drawn maps, results, what didn't hold up
+        'what-the-law-requires',  // the law in brief (full text on /law)
         'change-our-mind',        // retraction conditions
         'authors-view',           // severable signed opinion
         'references'              // apparatus
@@ -174,6 +190,7 @@
 <div class="hero">
   <div class="header-inner">
     <div class="header-text">
+      {#if hasTranslation(lang.current, 'home.hero.kicker')}<p class="kicker">{t(lang.current, 'home.hero.kicker')}</p>{/if}
       <h1>{t(lang.current, 'home.hero.h1')}</h1>
       <p class="subtitle">{t(lang.current, 'home.hero.subtitle')}</p>
       <p class="subtitle hero-status">{t(lang.current, 'home.hero.status')}</p>
@@ -195,232 +212,139 @@
 
 <main id="main" class="container" tabindex="-1">
 
-  <div class="callout callout-tldr week-strip" style="border-inline-start-color: #1A7A6E; margin-top: 1.4rem;">
-    <p style="margin:0;">{@html t(lang.current, 'home.hero.week')}</p>
-  </div>
+  <p class="cover-read">{@html h('home.happened.p6')}</p>
 
-  <section id="what-happened">
-    <h2>{t(lang.current, 'home.happened.h')} <a href="#what-happened" class="section-link" aria-label={t(lang.current, 'home.happened.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.happened.p1')}</p>
-    <p>{@html t(lang.current, 'home.happened.p2')}</p>
-    <p>{@html t(lang.current, 'home.happened.p3')}</p>
-    <ul>
-      <li>{@html t(lang.current, 'home.happened.li1')}</li>
-      <li>{@html t(lang.current, 'home.happened.li2')}</li>
-      <li>{@html t(lang.current, 'home.happened.li3')}</li>
-      <li>{@html t(lang.current, 'home.happened.li4')}</li>
-    </ul>
-    <p>{@html t(lang.current, 'home.happened.p4')}</p>
+  <section id="short-answer">
+    <h2>{t(lang.current, 'home.answer.h')} <a href="#short-answer" class="section-link" aria-label={t(lang.current, 'home.answer.h')}>#</a></h2>
+    <p>{@html h('home.answer.p1')}</p>
+    <p>{@html h('home.answer.p2')}</p>
+    <p>{@html h('home.answer.p3')}</p>
+    <p>{@html h('home.answer.p4')}</p>
+    <p>{@html h('home.answer.next')}</p>
     <div class="boundary-block">
       <h3 id="what-we-can-say-and-what-we-can-t">{t(lang.current, 'home.happened.box_h')}</h3>
       <ul class="boundary-list">
-        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html t(lang.current, 'home.happened.can1')}</span></li>
-        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html t(lang.current, 'home.happened.can2')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant1')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant2')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant3')}</span></li>
-        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'home.happened.cant4')}</span></li>
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html h('home.happened.can1')}</span></li>
+        <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{@html h('home.happened.can2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html h('home.happened.cant1')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html h('home.happened.cant2')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html h('home.happened.cant3')}</span></li>
+        <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html h('home.happened.cant4')}</span></li>
       </ul>
     </div>
-    <p>{@html t(lang.current, 'home.happened.p5')}</p>
-    <p>{@html t(lang.current, 'home.happened.p6').replaceAll('__BASE__', base)}</p>
-  </section>
-
-  <section id="what-the-map-does">
-    <h2>{t(lang.current, 'home.does.h')} <a href="#what-the-map-does" class="section-link" aria-label={t(lang.current, 'home.does.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.does.p1')}</p>
-    <h3 id="one-city-four-districts">{t(lang.current, 'home.does.h3_1')}</h3>
-    <p>{@html t(lang.current, 'home.does.p2')}</p>
-    <p>{@html t(lang.current, 'home.does.p3')}</p>
-    <p>{@html t(lang.current, 'home.does.p4')}</p>
-    <h3 id="bigger-districts-where-the-ndp-is-strongest">{t(lang.current, 'home.does.h3_2')}</h3>
-    <p>{@html t(lang.current, 'home.does.p5')}</p>
-    <h3 id="the-cost-equal-votes">{t(lang.current, 'home.does.h3_3')}</h3>
-    <p>{@html t(lang.current, 'home.does.p6')}</p>
-    <h3 id="rural-tails-on-urban-districts">{t(lang.current, 'home.does.h3_4')}</h3>
-    <p>{@html t(lang.current, 'home.does.p7')}</p>
-    <p>{@html t(lang.current, 'home.does.p8')}</p>
-    <h3 id="three-boundaries-the-chair-called-out">{t(lang.current, 'home.does.h3_5')}</h3>
-    <p>{@html t(lang.current, 'home.does.p9')}</p>
-    <ul>
-      <li>{@html t(lang.current, 'home.does.li1')}</li>
-      <li>{@html t(lang.current, 'home.does.li2')}</li>
-      <li>{@html t(lang.current, 'home.does.li3')}</li>
-    </ul>
-    <p>{@html t(lang.current, 'home.does.p10')}</p>
-    <p>{@html t(lang.current, 'home.does.p11')}</p>
-    <h3 id="what-it-buys">{t(lang.current, 'home.does.h3_6')}</h3>
-    <p>{@html t(lang.current, 'home.does.p12')}</p>
-    <ul>
-      <li>{@html t(lang.current, 'home.does.li4')}</li>
-      <li>{@html t(lang.current, 'home.does.li5')}</li>
-      <li>{@html t(lang.current, 'home.does.li6')}</li>
-    </ul>
-    <p>{@html t(lang.current, 'home.does.p13')}</p>
-    <p>{@html t(lang.current, 'home.does.p14')}</p>
-    <p>{@html t(lang.current, 'home.does.p15')}</p>
-  </section>
-
-  <section id="what-the-law-requires">
-    <h2>{t(lang.current, 'home.law.h')} <a href="#what-the-law-requires" class="section-link" aria-label={t(lang.current, 'home.law.h')}>#</a></h2>
-    <h3 id="the-constitution">{t(lang.current, 'home.law.h3_1')}</h3>
-    <p>{@html t(lang.current, 'home.law.p1')}</p>
-    <p>{@html t(lang.current, 'home.law.p2')}</p>
-    <p>{@html t(lang.current, 'home.law.p3')}</p>
-    <p>{@html t(lang.current, 'home.law.p4')}</p>
-    <h3 id="alberta-s-statute">{t(lang.current, 'home.law.h3_2')}</h3>
-    <p>{@html t(lang.current, 'home.law.p5')}</p>
-    <ul>
-      <li>{@html t(lang.current, 'home.law.li1')}</li>
-      <li>{@html t(lang.current, 'home.law.li2')}</li>
-      <li>{@html t(lang.current, 'home.law.li3')}</li>
-      <li>{@html t(lang.current, 'home.law.li4')}</li>
-      <li>{@html t(lang.current, 'home.law.li5')}</li>
-      <li>{@html t(lang.current, 'home.law.li6')}</li>
-    </ul>
-    <p>{@html t(lang.current, 'home.law.p6')}</p>
-    <h3 id="what-the-law-doesn-t-require">{t(lang.current, 'home.law.h3_3')}</h3>
-    <p>{@html t(lang.current, 'home.law.p7')}</p>
-    <ul>
-      <li>{@html t(lang.current, 'home.law.li7')}</li>
-      <li>{@html t(lang.current, 'home.law.li8')}</li>
-      <li>{@html t(lang.current, 'home.law.li9')}</li>
-      <li>{@html t(lang.current, 'home.law.li10')}</li>
-      <li>{@html t(lang.current, 'home.law.li11')}</li>
-    </ul>
-    <h3 id="it-has-happened-here-before">{t(lang.current, 'home.law.h3_4')}</h3>
-    <p>{@html t(lang.current, 'home.law.p8')}</p>
-    <p>{@html t(lang.current, 'home.law.p9')}</p>
-    <h3 id="what-this-means-in-november">{t(lang.current, 'home.law.h3_5')}</h3>
-    <p>{@html t(lang.current, 'home.law.p10')}</p>
   </section>
 
   <section id="how-it-got-here">
     <h2>{t(lang.current, 'home.system.h')} <a href="#how-it-got-here" class="section-link" aria-label={t(lang.current, 'home.system.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.system.p1')}</p>
-    <p>{@html t(lang.current, 'home.system.p2')}</p>
+    <p>{@html h('home.happened.p1')}</p>
+    <p>{@html h('home.happened.p2')}</p>
+    <p>{@html h('home.system.p1')}</p>
+    <p>{@html h('home.happened.p4')}</p>
+    <p>{@html h('home.system.p2')}</p>
     <ul>
-      <li>{@html t(lang.current, 'home.system.li1')}</li>
-      <li>{@html t(lang.current, 'home.system.li2')}</li>
+      <li>{@html h('home.system.li1')}</li>
+      <li>{@html h('home.system.li2')}</li>
     </ul>
-    <p>{@html t(lang.current, 'home.system.p3')}</p>
-    <p>{@html t(lang.current, 'home.system.p4')}</p>
-    <p>{@html t(lang.current, 'home.system.p5')}</p>
-    <p>{@html t(lang.current, 'home.system.p6')}</p>
-    <p>{@html t(lang.current, 'home.system.p7')}</p>
-    <p>{@html t(lang.current, 'home.system.p8')}</p>
-    <h3 id="recommendation-5">{t(lang.current, 'home.system.h3_1')}</h3>
-    <p>{@html t(lang.current, 'home.system.p9')}</p>
-    <p>{@html t(lang.current, 'home.system.p10')}</p>
-    <ul class="r5-conditions">
-      <li>{@html t(lang.current, 'home.system.li3')}</li>
-      <li>{@html t(lang.current, 'home.system.li4')}</li>
-      <li>{@html t(lang.current, 'home.system.li5')}</li>
-      <li>{@html t(lang.current, 'home.system.li6')}</li>
+    <p>{@html h('home.system.p3')}</p>
+    <ol class="dated-list">
+      {#each ['t1', 't2', 't3', 't4', 't5'] as k (k)}
+        <li>{@html h('home.bodies.' + k)}</li>
+      {/each}
+    </ol>
+    <p>{@html h('home.system.p8')}</p>
+  </section>
+
+  <section id="november">
+    <h2>{t(lang.current, 'home.november.h')} <a href="#november" class="section-link" aria-label={t(lang.current, 'home.november.h')}>#</a></h2>
+    <p><em>{@html h('home.november.note')}</em></p>
+    <p>{@html h('home.november.p1')}</p>
+    <ul>
+      <li>{@html h('home.november.li1')}</li>
+      <li>{@html h('home.november.li2')}</li>
+      <li>{@html h('home.november.li3')}</li>
     </ul>
-    <p>{@html t(lang.current, 'home.system.p11').replaceAll('__BASE__', base)}</p>
+    <p>{@html h('home.november.p2')}</p>
+    <p>{@html h('home.november.reasons')}</p>
+    <p>{@html h('home.november.p3')}</p>
+    <ul>
+      <li>{@html h('home.november.li4')}</li>
+      <li>{@html h('home.november.li5')}</li>
+      <li>{@html h('home.november.li6')}</li>
+    </ul>
+    <p>{@html h('home.november.more')}</p>
+  </section>
+
+  <section id="what-happened">
+    <h2>{t(lang.current, 'home.happened.h')} <a href="#what-happened" class="section-link" aria-label={t(lang.current, 'home.happened.h')}>#</a></h2>
+    <span id="what-the-map-does" class="anchor-alias" aria-hidden="true"></span>
+    <p>{@html h('home.happened.p3')}</p>
+    <ul>
+      <li>{@html h('home.happened.li1')}</li>
+      <li>{@html h('home.happened.li2')}</li>
+      <li>{@html h('home.happened.li3')}</li>
+      <li>{@html h('home.happened.li4')}</li>
+    </ul>
+    <p>{@html h('home.does.p2')}</p>
+    <p>{@html h('home.does.p3')}</p>
+    <p>{@html h('home.does.p5')}</p>
+    <p>{@html h('home.does.p6')}</p>
+    <p>{@html h('home.does.p8')}</p>
+    <p>{@html h('home.does.p13')}</p>
   </section>
 
   <section id="how-we-know">
     <h2>{t(lang.current, 'home.know.h')} <a href="#how-we-know" class="section-link" aria-label={t(lang.current, 'home.know.h')}>#</a></h2>
     <h3 id="the-what-if-machine">{t(lang.current, 'home.know.h3_1')}</h3>
-    <p>{@html t(lang.current, 'home.know.p1')}</p>
-    <p>{@html t(lang.current, 'home.know.p2').replaceAll('__BASE__', base)}</p>
+    <p>{@html h('home.know.p1')}</p>
     <h3 id="in-alberta-neutral-is-not-50-50">{t(lang.current, 'home.know.h3_2')}</h3>
-    <p>{@html t(lang.current, 'home.know.p3')}</p>
+    <p>{@html h('home.know.p3')}</p>
     <h3 id="the-results-side-by-side">{t(lang.current, 'home.know.h3_3')}</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th scope="col">{@html t(lang.current, 'home.know.table1_h1')}</th><th scope="col">{@html t(lang.current, 'home.know.table1_h2')}</th><th scope="col">{@html t(lang.current, 'home.know.table1_h3')}</th></tr></thead>
+        <thead><tr><th scope="col">{@html h('home.know.table1_h1')}</th><th scope="col">{@html h('home.know.table1_h2')}</th><th scope="col">{@html h('home.know.table1_h3')}</th></tr></thead>
         <tbody>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r1c1')}</td><td>{@html t(lang.current, 'home.know.table1_r1c2')}</td><td>{@html t(lang.current, 'home.know.table1_r1c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r2c1')}</td><td>{@html t(lang.current, 'home.know.table1_r2c2')}</td><td>{@html t(lang.current, 'home.know.table1_r2c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r3c1')}</td><td>{@html t(lang.current, 'home.know.table1_r3c2')}</td><td>{@html t(lang.current, 'home.know.table1_r3c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r4c1')}</td><td>{@html t(lang.current, 'home.know.table1_r4c2')}</td><td>{@html t(lang.current, 'home.know.table1_r4c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r5c1')}</td><td>{@html t(lang.current, 'home.know.table1_r5c2')}</td><td>{@html t(lang.current, 'home.know.table1_r5c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r6c1')}</td><td>{@html t(lang.current, 'home.know.table1_r6c2')}</td><td>{@html t(lang.current, 'home.know.table1_r6c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r7c1')}</td><td>{@html t(lang.current, 'home.know.table1_r7c2')}</td><td>{@html t(lang.current, 'home.know.table1_r7c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r8c1')}</td><td>{@html t(lang.current, 'home.know.table1_r8c2')}</td><td>{@html t(lang.current, 'home.know.table1_r8c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r9c1')}</td><td>{@html t(lang.current, 'home.know.table1_r9c2')}</td><td>{@html t(lang.current, 'home.know.table1_r9c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r10c1')}</td><td>{@html t(lang.current, 'home.know.table1_r10c2')}</td><td>{@html t(lang.current, 'home.know.table1_r10c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r11c1')}</td><td>{@html t(lang.current, 'home.know.table1_r11c2')}</td><td>{@html t(lang.current, 'home.know.table1_r11c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table1_r12c1')}</td><td>{@html t(lang.current, 'home.know.table1_r12c2')}</td><td>{@html t(lang.current, 'home.know.table1_r12c3')}</td></tr>
+          {#each ['7', '10', '11', '12'] as r (r)}
+            <tr><td>{@html h(`home.know.table1_r${r}c1`)}</td><td>{@html h(`home.know.table1_r${r}c2`)}</td><td>{@html h(`home.know.table1_r${r}c3`)}</td></tr>
+          {/each}
         </tbody>
       </table>
     </div>
-    <p>{@html t(lang.current, 'home.know.p4')}</p>
-    <figure style="margin:1.2rem 0;text-align:center;">
-      <picture>
-        <source type="image/webp" srcset="images/stakes_quadrant.webp">
-        <img src="images/stakes_quadrant.jpg" data-full="images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="377" loading="lazy" decoding="async">
-      </picture>
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'home.know.fig_caption')}</figcaption>
-    </figure>
     <h3 id="what-1-in-568-000-means">{t(lang.current, 'home.know.h3_4')}</h3>
-    <p>{@html t(lang.current, 'home.know.p5')}</p>
-    <p>{@html t(lang.current, 'home.know.p6')}</p>
-    <h3 id="did-the-result-survive-attack">{t(lang.current, 'home.know.h3_5')}</h3>
-    <p>{@html t(lang.current, 'home.know.p7')}</p>
-    <h3 id="what-the-machine-can-t-see">{t(lang.current, 'home.know.h3_6')}</h3>
-    <p>{@html t(lang.current, 'home.know.p8')}</p>
+    <p>{@html h('home.know.p5')}</p>
+    <p>{@html h('home.know.p6')}</p>
     <h3 id="where-the-audit-lost">{t(lang.current, 'home.know.h3_7')}</h3>
-    <p>{@html t(lang.current, 'home.know.p9')}</p>
+    <p>{@html h('home.know.p9')}</p>
     <ul>
-      <li>{@html t(lang.current, 'home.know.li1')}</li>
-      <li>{@html t(lang.current, 'home.know.li2')}</li>
-      <li>{@html t(lang.current, 'home.know.li3')}</li>
-      <li>{@html t(lang.current, 'home.know.li4')}</li>
-      <li>{@html t(lang.current, 'home.know.li5')}</li>
+      <li>{@html h('home.know.li1')}</li>
+      <li>{@html h('home.know.li2')}</li>
+      <li>{@html h('home.know.li3')}</li>
     </ul>
-    <h3 id="both-sides-tested">{t(lang.current, 'home.know.h3_8')}</h3>
-    <p>{@html t(lang.current, 'home.know.p10')}</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th scope="col">{@html t(lang.current, 'home.know.table2_h1')}</th><th scope="col">{@html t(lang.current, 'home.know.table2_h2')}</th><th scope="col">{@html t(lang.current, 'home.know.table2_h3')}</th></tr></thead>
-        <tbody>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r1c1')}</td><td>{@html t(lang.current, 'home.know.table2_r1c2')}</td><td>{@html t(lang.current, 'home.know.table2_r1c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r2c1')}</td><td>{@html t(lang.current, 'home.know.table2_r2c2')}</td><td>{@html t(lang.current, 'home.know.table2_r2c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r3c1')}</td><td>{@html t(lang.current, 'home.know.table2_r3c2')}</td><td>{@html t(lang.current, 'home.know.table2_r3c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r4c1')}</td><td>{@html t(lang.current, 'home.know.table2_r4c2')}</td><td>{@html t(lang.current, 'home.know.table2_r4c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r5c1')}</td><td>{@html t(lang.current, 'home.know.table2_r5c2')}</td><td>{@html t(lang.current, 'home.know.table2_r5c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r6c1')}</td><td>{@html t(lang.current, 'home.know.table2_r6c2')}</td><td>{@html t(lang.current, 'home.know.table2_r6c3')}</td></tr>
-          <tr><td>{@html t(lang.current, 'home.know.table2_r7c1')}</td><td>{@html t(lang.current, 'home.know.table2_r7c2')}</td><td>{@html t(lang.current, 'home.know.table2_r7c3')}</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>{@html t(lang.current, 'home.know.p11')}</p>
-    <h3 id="who-did-this">{t(lang.current, 'home.know.h3_9')}</h3>
-    <p>{@html t(lang.current, 'home.know.p12')}</p>
     <h3 id="the-full-record">{t(lang.current, 'home.know.h3_10')}</h3>
-    <p>{@html t(lang.current, 'home.know.p13').replaceAll('__BASE__', base)}</p>
+    <p>{@html h('home.know.p13')}</p>
   </section>
 
-  <section id="november-test">
-    <h2>{t(lang.current, 'home.test.h')} <a href="#november-test" class="section-link" aria-label={t(lang.current, 'home.test.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.test.p1')}</p>
-    <p>{@html t(lang.current, 'home.test.p2').replaceAll('__BASE__', base)}</p>
-    <p>{@html t(lang.current, 'home.test.p3')}</p>
+  <section id="what-the-law-requires">
+    <h2>{t(lang.current, 'home.law.h')} <a href="#what-the-law-requires" class="section-link" aria-label={t(lang.current, 'home.law.h')}>#</a></h2>
+    <p>{@html h('home.law.p1')}</p>
+    <p>{@html h('home.happened.p5')}</p>
     <ul>
-      <li>{@html t(lang.current, 'home.test.li1')}</li>
-      <li>{@html t(lang.current, 'home.test.li2')}</li>
+      <li>{@html h('home.law.li7')}</li>
+      <li>{@html h('home.law.li11')}</li>
     </ul>
-    <p>{@html t(lang.current, 'home.test.p4')}</p>
-    <p>{@html t(lang.current, 'home.test.p5')}</p>
-    <p>{@html t(lang.current, 'home.test.p6')}</p>
-    <!-- "The results" slot: filled after the November scoring (see proposals/site_rewrite_2026-10-29). -->
+    <p>{@html h('home.law.p10')}</p>
   </section>
 
   <section id="change-our-mind">
     <h2>{t(lang.current, 'home.mind.h')} <a href="#change-our-mind" class="section-link" aria-label={t(lang.current, 'home.mind.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.mind.p1')}</p>
+    <p>{@html h('home.mind.p1')}</p>
     <ul>
-      <li>{@html t(lang.current, 'home.mind.li1')}</li>
-      <li>{@html t(lang.current, 'home.mind.li2')}</li>
-      <li>{@html t(lang.current, 'home.mind.li3')}</li>
-      <li>{@html t(lang.current, 'home.mind.li4')}</li>
-      <li>{@html t(lang.current, 'home.mind.li5').replaceAll('__BASE__', base)}</li>
+      <li>{@html h('home.mind.li1')}</li>
+      <li>{@html h('home.mind.li2')}</li>
+      <li>{@html h('home.mind.li3')}</li>
+      <li>{@html h('home.mind.li4')}</li>
+      <li>{@html h('home.mind.li5')}</li>
     </ul>
-    <p>{@html t(lang.current, 'home.mind.p2')}</p>
+    <p>{@html h('home.mind.p2')}</p>
   </section>
 
   <section id="authors-view">
@@ -439,9 +363,36 @@
 
   <section id="fixes-teaser">
     <h2>{t(lang.current, 'home.fixes.h')} <a href="#fixes-teaser" class="section-link" aria-label={t(lang.current, 'home.fixes.h')}>#</a></h2>
-    <p>{@html t(lang.current, 'home.fixes.p1').replaceAll('__BASE__', base)}</p>
+    <p>{@html h('home.fixes.p1')}</p>
   </section>
 
+  <section id="who-did-this">
+    <h2>{t(lang.current, 'home.know.h3_9')} <a href="#who-did-this" class="section-link" aria-label={t(lang.current, 'home.know.h3_9')}>#</a></h2>
+    <p>{@html h('home.know.p12')}</p>
+    <h3 id="contact">{t(lang.current, 'body.about_me.heading')}</h3>
+    <p class="about-p">{@html h('body.about_me.p1')}</p>
+    <p class="about-p">{@html h('body.about_me.p2')}</p>
+    <p class="about-p">{@html h('body.about_me.p4')} <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a></p>
+  </section>
+
+  {#if lang.current !== 'en'}
+    <!-- Rendered only on machine-translated versions — sits under About me so the
+         translation provenance reads as part of the audit's transparency
+         apparatus, alongside the author's own disclosure. English is the source,
+         so it shows no notice; French is now mostly machine-translated, so it does. -->
+    <section id="about-translation">
+      <h2>{t(lang.current, 'body.translation_about.heading')}</h2>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {t(lang.current, 'body.translation_about.p1')}
+      </p>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {t(lang.current, 'body.translation_about.p2')}
+      </p>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {translationHelpParts.pre}<a href="{base}/feedback">{translationHelpParts.label}</a>{translationHelpParts.post}
+      </p>
+    </section>
+  {/if}
 
   <section id="references">
     <h2>{@html t(lang.current, 'body.references.heading')} <a href="#references" class="section-link" aria-label={t(lang.current, 'body.references.heading_aria')}>#</a></h2>
@@ -499,41 +450,6 @@
       </li>
     </ul>
   </section>
-
-  <section id="contact">
-    <h2>{t(lang.current, 'body.about_me.heading')}</h2>
-    <p style="font-size:0.9rem; color:var(--text-muted);">
-      {t(lang.current, 'body.about_me.p1')}
-    </p>
-    <p style="font-size:0.9rem; color:var(--text-muted);">
-      {t(lang.current, 'body.about_me.p2')}
-    </p>
-    <p style="font-size:0.9rem; color:var(--text-muted);">
-      {@html t(lang.current, 'body.about_me.p3')}
-    </p>
-    <p style="font-size:0.9rem; color:var(--text-muted);">
-      {@html t(lang.current, 'body.about_me.p4')} <a href="{base}/feedback">{t(lang.current, 'feedback.nav_link')}</a>
-    </p>
-  </section>
-
-  {#if lang.current !== 'en'}
-    <!-- Rendered only on machine-translated versions — sits under About me so the
-         translation provenance reads as part of the audit's transparency
-         apparatus, alongside the author's own disclosure. English is the source,
-         so it shows no notice; French is now mostly machine-translated, so it does. -->
-    <section id="about-translation">
-      <h2>{t(lang.current, 'body.translation_about.heading')}</h2>
-      <p style="font-size:0.9rem; color:var(--text-muted);">
-        {t(lang.current, 'body.translation_about.p1')}
-      </p>
-      <p style="font-size:0.9rem; color:var(--text-muted);">
-        {t(lang.current, 'body.translation_about.p2')}
-      </p>
-      <p style="font-size:0.9rem; color:var(--text-muted);">
-        {translationHelpParts.pre}<a href="{base}/feedback">{translationHelpParts.label}</a>{translationHelpParts.post}
-      </p>
-    </section>
-  {/if}
 
 </main><!-- /.container -->
 
@@ -774,6 +690,25 @@
     color: var(--link);
     border-bottom-color: var(--link);
   }
+  /* How to read the cover map: a quiet note above the short answer. */
+  .cover-read {
+    margin: 1.2rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  /* The dated sequence of the three bodies (home.bodies.*). */
+  .dated-list {
+    margin: 0.4rem 0 1rem 1.4rem;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .about-p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  /* Keeps an old shared anchor id (#what-the-map-does) landing in its new section. */
+  .anchor-alias { display: block; height: 0; }
   :global(.boundary-block) {
     margin-top: 1.2rem;
     padding: 1.2rem 1.2rem 1.4rem;
@@ -993,6 +928,15 @@
       letter-spacing: -0.01em;
       line-height: 1.3;
       margin-bottom: 0.5rem;
+    }
+
+    .hero .kicker {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 0.35rem;
     }
 
     .hero .subtitle {

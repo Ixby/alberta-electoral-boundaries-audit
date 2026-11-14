@@ -1,0 +1,1478 @@
+{
+ "plan": "preregistration/six_signals_2026-11-07.md",
+ "A_elections_and_swing": {
+  "2015": {
+   "ndp_two_party_pct": 43.97,
+   "majority": {
+    "ndp_seats": 26,
+    "seats": 89,
+    "efficiency_gap_pct": 7.58,
+    "lethbridge": {
+     "ndp_votes": 19982,
+     "in_ndp_won": 100.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 0.0,
+     "districts": {
+      "Lethbridge-West": 22.8,
+      "Lethbridge-East": 1.8
+     }
+    },
+    "south_group": {
+     "ndp_votes": 42493,
+     "in_ndp_won": 47.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 53.0,
+     "districts": {
+      "Lethbridge-West": 22.8,
+      "Lethbridge-East": 1.8,
+      "High River-Vulcan-Siksika": -59.3,
+      "Canmore-Banff": -23.2,
+      "Livingstone-Macleod": -52.1,
+      "Taber-Cardston": -55.2,
+      "Okotoks-Diamond Valley": -57.8,
+      "Mountain View-Kneehill": -64.6
+     }
+    }
+   },
+   "minority": {
+    "ndp_seats": 24,
+    "seats": 89,
+    "efficiency_gap_pct": 10.54,
+    "lethbridge": {
+     "ndp_votes": 19982,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -12.9,
+      "Lethbridge-Taber-Warner": -10.2,
+      "Lethbridge-Cardston": -16.7,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -30.9
+     }
+    },
+    "south_group": {
+     "ndp_votes": 42493,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -12.9,
+      "Lethbridge-Cardston": -16.7,
+      "Lethbridge-Taber-Warner": -10.2,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -30.9,
+      "Canmore-Kananaskis": -43.0,
+      "Olds-Three Hills-Didsbury": -56.6,
+      "Highwood": -58.7,
+      "Rocky Mountain House-Banff Park": -39.5,
+      "Drumheller-Stettler": -63.9,
+      "Chestermere-Strathmore": -64.5,
+      "Calgary-De Winton": -37.9,
+      "Medicine Hat-Cypress": -58.2
+     }
+    }
+   },
+   "panel": {
+    "ndp_seats": 25,
+    "seats": 91,
+    "efficiency_gap_pct": 8.1,
+    "lethbridge": {
+     "ndp_votes": 19982,
+     "in_ndp_won": 49.3,
+     "in_lost_near": 17.0,
+     "in_lost_far": 33.7,
+     "districts": {
+      "Lethbridge": 13.3,
+      "Lethbridge-Little Bow": -16.3,
+      "Lethbridge-Cardston": -8.3,
+      "Lethbridge-Taber-Warner": -38.2
+     }
+    },
+    "south_group": {
+     "ndp_votes": 42493,
+     "in_ndp_won": 23.2,
+     "in_lost_near": 10.0,
+     "in_lost_far": 66.8,
+     "districts": {
+      "Lethbridge": 13.3,
+      "Lethbridge-Little Bow": -16.3,
+      "Macleod-Crowsnest": -51.8,
+      "Banff-Canmore-Diamond Valley": -30.5,
+      "Lethbridge-Taber-Warner": -38.2,
+      "Olds-Didsbury-Three Hills": -64.9,
+      "Lethbridge-Cardston": -8.3,
+      "Okotoks": -58.8
+     }
+    }
+   },
+   "para167": {
+    "ndp_seats": 26,
+    "seats": 91,
+    "efficiency_gap_pct": 6.73,
+    "lethbridge": {
+     "ndp_votes": 19982,
+     "in_ndp_won": 100.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 0.0,
+     "districts": {
+      "Lethbridge-West": 22.8,
+      "Lethbridge-East": 1.8
+     }
+    },
+    "south_group": {
+     "ndp_votes": 42493,
+     "in_ndp_won": 47.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 53.0,
+     "districts": {
+      "Lethbridge-West": 22.8,
+      "Lethbridge-East": 1.8,
+      "High River-Vulcan-Siksika": -59.3,
+      "Canmore-Banff": -23.5,
+      "Livingstone-Macleod": -52.1,
+      "Taber-Cardston": -55.2,
+      "Okotoks-Diamond Valley": -57.8,
+      "Olds-Didsbury-Three Hills": -64.8
+     }
+    }
+   },
+   "panel_minus_para167_ndp_seats": -1
+  },
+  "2019": {
+   "ndp_two_party_pct": 37.32,
+   "majority": {
+    "ndp_seats": 25,
+    "seats": 89,
+    "efficiency_gap_pct": -1.32,
+    "lethbridge": {
+     "ndp_votes": 19791,
+     "in_ndp_won": 54.8,
+     "in_lost_near": 0.0,
+     "in_lost_far": 45.2,
+     "districts": {
+      "Lethbridge-West": 1.0,
+      "Lethbridge-East": -14.8
+     }
+    },
+    "south_group": {
+     "ndp_votes": 38452,
+     "in_ndp_won": 28.2,
+     "in_lost_near": 0.0,
+     "in_lost_far": 71.8,
+     "districts": {
+      "Lethbridge-West": 1.0,
+      "Lethbridge-East": -14.8,
+      "High River-Vulcan-Siksika": -63.8,
+      "Livingstone-Macleod": -56.9,
+      "Taber-Cardston": -69.3,
+      "Okotoks-Diamond Valley": -61.9,
+      "Mountain View-Kneehill": -74.2
+     }
+    }
+   },
+   "minority": {
+    "ndp_seats": 24,
+    "seats": 89,
+    "efficiency_gap_pct": -0.49,
+    "lethbridge": {
+     "ndp_votes": 19791,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -29.8,
+      "Lethbridge-Taber-Warner": -34.2,
+      "Lethbridge-Cardston": -30.4,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -38.0
+     }
+    },
+    "south_group": {
+     "ndp_votes": 38452,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -29.8,
+      "Lethbridge-Cardston": -30.4,
+      "Lethbridge-Taber-Warner": -34.2,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -38.0,
+      "Canmore-Kananaskis": -67.0,
+      "Highwood": -61.2,
+      "Olds-Three Hills-Didsbury": -59.7,
+      "Chestermere-Strathmore": -62.9,
+      "Drumheller-Stettler": -80.6,
+      "Medicine Hat-Cypress": -51.5,
+      "Calgary-De Winton": -48.2
+     }
+    }
+   },
+   "panel": {
+    "ndp_seats": 23,
+    "seats": 91,
+    "efficiency_gap_pct": 1.03,
+    "lethbridge": {
+     "ndp_votes": 19791,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 49.3,
+     "in_lost_far": 50.7,
+     "districts": {
+      "Lethbridge": -6.1,
+      "Lethbridge-Little Bow": -32.8,
+      "Lethbridge-Cardston": -27.7,
+      "Lethbridge-Taber-Warner": -58.3
+     }
+    },
+    "south_group": {
+     "ndp_votes": 38452,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 25.4,
+     "in_lost_far": 74.6,
+     "districts": {
+      "Lethbridge": -6.1,
+      "Lethbridge-Little Bow": -32.8,
+      "Lethbridge-Taber-Warner": -58.3,
+      "Macleod-Crowsnest": -55.0,
+      "Lethbridge-Cardston": -27.7,
+      "Olds-Didsbury-Three Hills": -71.3,
+      "Okotoks": -61.5,
+      "Banff-Canmore-Diamond Valley": -83.6
+     }
+    }
+   },
+   "para167": {
+    "ndp_seats": 24,
+    "seats": 91,
+    "efficiency_gap_pct": -0.28,
+    "lethbridge": {
+     "ndp_votes": 19791,
+     "in_ndp_won": 54.8,
+     "in_lost_near": 0.0,
+     "in_lost_far": 45.2,
+     "districts": {
+      "Lethbridge-West": 1.0,
+      "Lethbridge-East": -14.8
+     }
+    },
+    "south_group": {
+     "ndp_votes": 38452,
+     "in_ndp_won": 28.2,
+     "in_lost_near": 0.0,
+     "in_lost_far": 71.8,
+     "districts": {
+      "Lethbridge-West": 1.0,
+      "Lethbridge-East": -14.8,
+      "High River-Vulcan-Siksika": -63.8,
+      "Livingstone-Macleod": -56.9,
+      "Taber-Cardston": -69.3,
+      "Okotoks-Diamond Valley": -61.9,
+      "Olds-Didsbury-Three Hills": -73.7
+     }
+    }
+   },
+   "panel_minus_para167_ndp_seats": -1
+  },
+  "2023": {
+   "ndp_two_party_pct": 42.6,
+   "majority": {
+    "ndp_seats": 34,
+    "seats": 89,
+    "efficiency_gap_pct": 0.1,
+    "lethbridge": {
+     "ndp_votes": 10027,
+     "in_ndp_won": 49.9,
+     "in_lost_near": 0.0,
+     "in_lost_far": 50.1,
+     "districts": {
+      "Lethbridge-East": -10.2,
+      "Lethbridge-West": 1.3
+     }
+    },
+    "south_group": {
+     "ndp_votes": 24833,
+     "in_ndp_won": 32.1,
+     "in_lost_near": 0.0,
+     "in_lost_far": 67.9,
+     "districts": {
+      "Lethbridge-East": -10.2,
+      "Lethbridge-West": 1.3,
+      "Okotoks-Diamond Valley": -45.2,
+      "Canmore-Banff": 10.5,
+      "High River-Vulcan-Siksika": -54.2,
+      "Livingstone-Macleod": -51.9,
+      "Mountain View-Kneehill": -63.7,
+      "Taber-Cardston": -71.8
+     }
+    }
+   },
+   "minority": {
+    "ndp_seats": 29,
+    "seats": 89,
+    "efficiency_gap_pct": 4.02,
+    "lethbridge": {
+     "ndp_votes": 10027,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -30.9,
+      "Lethbridge-Taber-Warner": -36.6,
+      "Lethbridge-Cardston": -31.9,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -31.5
+     }
+    },
+    "south_group": {
+     "ndp_votes": 24833,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -30.9,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -31.5,
+      "Canmore-Kananaskis": -16.8,
+      "Lethbridge-Taber-Warner": -36.6,
+      "Lethbridge-Cardston": -31.9,
+      "Highwood": -43.7,
+      "Olds-Three Hills-Didsbury": -63.5,
+      "Calgary-De Winton": -26.9
+     }
+    }
+   },
+   "panel": {
+    "ndp_seats": 33,
+    "seats": 91,
+    "efficiency_gap_pct": 1.45,
+    "lethbridge": {
+     "ndp_votes": 10027,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 55.1,
+     "in_lost_far": 44.9,
+     "districts": {
+      "Lethbridge": -4.5,
+      "Lethbridge-Little Bow": -35.9,
+      "Lethbridge-Cardston": -32.7,
+      "Lethbridge-Taber-Warner": -57.4
+     }
+    },
+    "south_group": {
+     "ndp_votes": 24833,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 36.4,
+     "in_lost_far": 63.6,
+     "districts": {
+      "Lethbridge": -4.5,
+      "Banff-Canmore-Diamond Valley": -6.2,
+      "Lethbridge-Little Bow": -35.9,
+      "Okotoks": -44.1,
+      "Macleod-Crowsnest": -49.3,
+      "Olds-Didsbury-Three Hills": -64.3,
+      "Lethbridge-Taber-Warner": -57.4,
+      "Lethbridge-Cardston": -32.7
+     }
+    }
+   },
+   "para167": {
+    "ndp_seats": 35,
+    "seats": 91,
+    "efficiency_gap_pct": -0.24,
+    "lethbridge": {
+     "ndp_votes": 10027,
+     "in_ndp_won": 49.9,
+     "in_lost_near": 0.0,
+     "in_lost_far": 50.1,
+     "districts": {
+      "Lethbridge-East": -10.2,
+      "Lethbridge-West": 1.3
+     }
+    },
+    "south_group": {
+     "ndp_votes": 24833,
+     "in_ndp_won": 32.1,
+     "in_lost_near": 0.0,
+     "in_lost_far": 67.9,
+     "districts": {
+      "Lethbridge-East": -10.2,
+      "Lethbridge-West": 1.3,
+      "Okotoks-Diamond Valley": -45.2,
+      "Canmore-Banff": 13.2,
+      "High River-Vulcan-Siksika": -54.2,
+      "Livingstone-Macleod": -51.9,
+      "Olds-Didsbury-Three Hills": -64.2,
+      "Taber-Cardston": -71.8
+     }
+    }
+   },
+   "panel_minus_para167_ndp_seats": -2
+  },
+  "2023_all": {
+   "ndp_two_party_pct": 45.56,
+   "majority": {
+    "ndp_seats": 41,
+    "seats": 89,
+    "efficiency_gap_pct": -2.7,
+    "lethbridge": {
+     "ndp_votes": 22444,
+     "in_ndp_won": 50.2,
+     "in_lost_near": 49.8,
+     "in_lost_far": 0.0,
+     "districts": {
+      "Lethbridge-West": 11.2,
+      "Lethbridge-East": -1.6
+     }
+    },
+    "south_group": {
+     "ndp_votes": 54218,
+     "in_ndp_won": 33.4,
+     "in_lost_near": 20.6,
+     "in_lost_far": 46.0,
+     "districts": {
+      "Lethbridge-West": 11.2,
+      "Lethbridge-East": -1.6,
+      "Okotoks-Diamond Valley": -38.5,
+      "Canmore-Banff": 10.4,
+      "High River-Vulcan-Siksika": -48.4,
+      "Livingstone-Macleod": -49.4,
+      "Mountain View-Kneehill": -59.9,
+      "Taber-Cardston": -66.5
+     }
+    }
+   },
+   "minority": {
+    "ndp_seats": 34,
+    "seats": 89,
+    "efficiency_gap_pct": 2.55,
+    "lethbridge": {
+     "ndp_votes": 22444,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Lethbridge-Little Bow": -20.1,
+      "Lethbridge-Taber-Warner": -28.6,
+      "Lethbridge-Cardston": -22.1,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -24.2
+     }
+    },
+    "south_group": {
+     "ndp_votes": 54218,
+     "in_ndp_won": 0.0,
+     "in_lost_near": 0.0,
+     "in_lost_far": 100.0,
+     "districts": {
+      "Canmore-Kananaskis": -11.3,
+      "Lethbridge-Little Bow": -20.1,
+      "Lethbridge-Fort Macleod-Crowsnest Pass": -24.2,
+      "Lethbridge-Taber-Warner": -28.6,
+      "Lethbridge-Cardston": -22.1,
+      "Highwood": -40.8,
+      "Olds-Three Hills-Didsbury": -58.5,
+      "Calgary-De Winton": -23.1
+     }
+    }
+   },
+   "panel": {
+    "ndp_seats": 40,
+    "seats": 91,
+    "efficiency_gap_pct": -1.66,
+    "lethbridge": {
+     "ndp_votes": 22444,
+     "in_ndp_won": 55.3,
+     "in_lost_near": 0.0,
+     "in_lost_far": 44.7,
+     "districts": {
+      "Lethbridge": 5.1,
+      "Lethbridge-Little Bow": -26.3,
+      "Lethbridge-Cardston": -22.8,
+      "Lethbridge-Taber-Warner": -51.5
+     }
+    },
+    "south_group": {
+     "ndp_votes": 54218,
+     "in_ndp_won": 22.9,
+     "in_lost_near": 15.7,
+     "in_lost_far": 61.4,
+     "districts": {
+      "Lethbridge": 5.1,
+      "Banff-Canmore-Diamond Valley": -1.3,
+      "Okotoks": -39.9,
+      "Lethbridge-Little Bow": -26.3,
+      "Macleod-Crowsnest": -43.5,
+      "Lethbridge-Taber-Warner": -51.5,
+      "Olds-Didsbury-Three Hills": -59.1,
+      "Lethbridge-Cardston": -22.8
+     }
+    }
+   },
+   "para167": {
+    "ndp_seats": 41,
+    "seats": 91,
+    "efficiency_gap_pct": -2.19,
+    "lethbridge": {
+     "ndp_votes": 22444,
+     "in_ndp_won": 50.2,
+     "in_lost_near": 49.8,
+     "in_lost_far": 0.0,
+     "districts": {
+      "Lethbridge-West": 11.2,
+      "Lethbridge-East": -1.6
+     }
+    },
+    "south_group": {
+     "ndp_votes": 54218,
+     "in_ndp_won": 33.4,
+     "in_lost_near": 20.6,
+     "in_lost_far": 46.0,
+     "districts": {
+      "Lethbridge-West": 11.2,
+      "Lethbridge-East": -1.6,
+      "Okotoks-Diamond Valley": -38.5,
+      "Canmore-Banff": 11.5,
+      "High River-Vulcan-Siksika": -48.4,
+      "Livingstone-Macleod": -49.4,
+      "Olds-Didsbury-Three Hills": -59.6,
+      "Taber-Cardston": -66.5
+     }
+    }
+   },
+   "panel_minus_para167_ndp_seats": -1
+  },
+  "swing_2023_all_ballots": [
+   {
+    "ndp_swing_pts": -10.0,
+    "majority": 18,
+    "minority": 18,
+    "panel": 19,
+    "para167": 19,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -9.5,
+    "majority": 18,
+    "minority": 18,
+    "panel": 19,
+    "para167": 19,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -9.0,
+    "majority": 18,
+    "minority": 19,
+    "panel": 19,
+    "para167": 19,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -8.5,
+    "majority": 21,
+    "minority": 19,
+    "panel": 22,
+    "para167": 22,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -8.0,
+    "majority": 23,
+    "minority": 20,
+    "panel": 24,
+    "para167": 24,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -7.5,
+    "majority": 24,
+    "minority": 22,
+    "panel": 25,
+    "para167": 25,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -7.0,
+    "majority": 26,
+    "minority": 24,
+    "panel": 26,
+    "para167": 26,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -6.5,
+    "majority": 26,
+    "minority": 25,
+    "panel": 27,
+    "para167": 27,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -6.0,
+    "majority": 27,
+    "minority": 27,
+    "panel": 28,
+    "para167": 28,
+    "panel_minus_para167": 0
+   },
+   {
+    "ndp_swing_pts": -5.5,
+    "majority": 29,
+    "minority": 28,
+    "panel": 29,
+    "para167": 31,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -5.0,
+    "majority": 30,
+    "minority": 29,
+    "panel": 29,
+    "para167": 31,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -4.5,
+    "majority": 30,
+    "minority": 29,
+    "panel": 29,
+    "para167": 31,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -4.0,
+    "majority": 31,
+    "minority": 29,
+    "panel": 30,
+    "para167": 32,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -3.5,
+    "majority": 31,
+    "minority": 29,
+    "panel": 30,
+    "para167": 32,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -3.0,
+    "majority": 33,
+    "minority": 30,
+    "panel": 32,
+    "para167": 34,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": -2.5,
+    "majority": 35,
+    "minority": 30,
+    "panel": 35,
+    "para167": 36,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": -2.0,
+    "majority": 35,
+    "minority": 30,
+    "panel": 35,
+    "para167": 36,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": -1.5,
+    "majority": 35,
+    "minority": 30,
+    "panel": 35,
+    "para167": 36,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": -1.0,
+    "majority": 37,
+    "minority": 31,
+    "panel": 37,
+    "para167": 38,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": -0.5,
+    "majority": 40,
+    "minority": 32,
+    "panel": 39,
+    "para167": 40,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 0.0,
+    "majority": 41,
+    "minority": 34,
+    "panel": 40,
+    "para167": 41,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 0.5,
+    "majority": 44,
+    "minority": 36,
+    "panel": 42,
+    "para167": 44,
+    "panel_minus_para167": -2
+   },
+   {
+    "ndp_swing_pts": 1.0,
+    "majority": 45,
+    "minority": 36,
+    "panel": 44,
+    "para167": 45,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 1.5,
+    "majority": 45,
+    "minority": 37,
+    "panel": 44,
+    "para167": 45,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 2.0,
+    "majority": 46,
+    "minority": 37,
+    "panel": 45,
+    "para167": 46,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 2.5,
+    "majority": 46,
+    "minority": 38,
+    "panel": 45,
+    "para167": 46,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 3.0,
+    "majority": 46,
+    "minority": 38,
+    "panel": 45,
+    "para167": 46,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 3.5,
+    "majority": 47,
+    "minority": 41,
+    "panel": 46,
+    "para167": 47,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 4.0,
+    "majority": 47,
+    "minority": 43,
+    "panel": 46,
+    "para167": 47,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 4.5,
+    "majority": 47,
+    "minority": 43,
+    "panel": 46,
+    "para167": 47,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 5.0,
+    "majority": 48,
+    "minority": 44,
+    "panel": 47,
+    "para167": 48,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 5.5,
+    "majority": 49,
+    "minority": 45,
+    "panel": 48,
+    "para167": 49,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 6.0,
+    "majority": 49,
+    "minority": 48,
+    "panel": 48,
+    "para167": 49,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 6.5,
+    "majority": 50,
+    "minority": 49,
+    "panel": 49,
+    "para167": 50,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 7.0,
+    "majority": 51,
+    "minority": 49,
+    "panel": 50,
+    "para167": 51,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 7.5,
+    "majority": 55,
+    "minority": 49,
+    "panel": 54,
+    "para167": 55,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 8.0,
+    "majority": 55,
+    "minority": 52,
+    "panel": 54,
+    "para167": 55,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 8.5,
+    "majority": 55,
+    "minority": 52,
+    "panel": 55,
+    "para167": 56,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 9.0,
+    "majority": 56,
+    "minority": 52,
+    "panel": 56,
+    "para167": 57,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 9.5,
+    "majority": 56,
+    "minority": 52,
+    "panel": 56,
+    "para167": 57,
+    "panel_minus_para167": -1
+   },
+   {
+    "ndp_swing_pts": 10.0,
+    "majority": 58,
+    "minority": 55,
+    "panel": 58,
+    "para167": 59,
+    "panel_minus_para167": -1
+   }
+  ],
+  "swing_summary": {
+   "steps": 41,
+   "panel_fewer_ndp": 32,
+   "equal": 9,
+   "panel_more_ndp": 0,
+   "min": -2,
+   "max": 0
+  }
+ },
+ "B_reserves_settlements": {
+  "majority": {
+   "n_reserves_settlements": 86,
+   "n_split": 1,
+   "pop_2021_in_split": 1093,
+   "split": {
+    "White Fish Lake 128 (IRI)": [
+     "Cold Lake-Bonnyville-St. Paul",
+     "Fort McMurray-Lac La Biche"
+    ]
+   }
+  },
+  "minority": {
+   "n_reserves_settlements": 86,
+   "n_split": 2,
+   "pop_2021_in_split": 4669,
+   "split": {
+    "Siksika 146 (IRI)": [
+     "Drumheller-Stettler",
+     "Lethbridge-Little Bow"
+    ],
+    "White Fish Lake 128 (IRI)": [
+     "Barrhead-Westlock-Athabasca",
+     "Cold Lake-Bonnyville-St. Paul"
+    ]
+   }
+  },
+  "panel": {
+   "n_reserves_settlements": 86,
+   "n_split": 3,
+   "pop_2021_in_split": 2170,
+   "split": {
+    "Alexander 134 (IRI)": [
+     "Lac Ste. Anne",
+     "Morinville-Sturgeon"
+    ],
+    "White Fish Lake 128 (IRI)": [
+     "Cold Lake-Bonnyville-St. Paul",
+     "Fort McMurray-Lac La Biche"
+    ],
+    "Stoney 142B (IRI)": [
+     "Banff-Canmore-Diamond Valley",
+     "Rocky Mountain House-Sundre"
+    ]
+   }
+  },
+  "para167": {
+   "n_reserves_settlements": 86,
+   "n_split": 3,
+   "pop_2021_in_split": 2170,
+   "split": {
+    "Alexander 134 (IRI)": [
+     "Lac Ste. Anne",
+     "Morinville-Sturgeon"
+    ],
+    "White Fish Lake 128 (IRI)": [
+     "Cold Lake-Bonnyville-St. Paul",
+     "Fort McMurray-Lac La Biche"
+    ],
+    "Stoney 142B (IRI)": [
+     "Canmore-Banff",
+     "Rocky Mountain House-Sundre"
+    ]
+   }
+  }
+ },
+ "C_cities": {
+  "majority": {
+   "Red Deer": {
+    "pop_2021": 100844,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Calgary": {
+    "pop_2021": 1306784,
+    "divisions": 28,
+    "justified": 22,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Chestermere": {
+    "pop_2021": 22163,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Airdrie": {
+    "pop_2021": 74100,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Grande Prairie": {
+    "pop_2021": 64141,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.266
+   },
+   "Medicine Hat": {
+    "pop_2021": 63271,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.321
+   },
+   "Leduc": {
+    "pop_2021": 34094,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Lethbridge": {
+    "pop_2021": 98406,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Spruce Grove": {
+    "pop_2021": 37645,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Fort Saskatchewan": {
+    "pop_2021": 27088,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Edmonton": {
+    "pop_2021": 1010899,
+    "divisions": 21,
+    "justified": 17,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Beaumont": {
+    "pop_2021": 20888,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 1.0
+   },
+   "St. Albert": {
+    "pop_2021": 68232,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.169
+   }
+  },
+  "minority": {
+   "Red Deer": {
+    "pop_2021": 100844,
+    "divisions": 4,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.362
+   },
+   "Calgary": {
+    "pop_2021": 1306784,
+    "divisions": 27,
+    "justified": 22,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Chestermere": {
+    "pop_2021": 22163,
+    "divisions": 2,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.096
+   },
+   "Airdrie": {
+    "pop_2021": 74100,
+    "divisions": 3,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.451
+   },
+   "Grande Prairie": {
+    "pop_2021": 64141,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.266
+   },
+   "Medicine Hat": {
+    "pop_2021": 63271,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.321
+   },
+   "Leduc": {
+    "pop_2021": 34094,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Lethbridge": {
+    "pop_2021": 98406,
+    "divisions": 4,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.665
+   },
+   "Spruce Grove": {
+    "pop_2021": 37645,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Fort Saskatchewan": {
+    "pop_2021": 27088,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Edmonton": {
+    "pop_2021": 1010899,
+    "divisions": 21,
+    "justified": 17,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Beaumont": {
+    "pop_2021": 20888,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 1.0
+   },
+   "St. Albert": {
+    "pop_2021": 68232,
+    "divisions": 3,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.252
+   }
+  },
+  "panel": {
+   "Red Deer": {
+    "pop_2021": 100844,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Calgary": {
+    "pop_2021": 1306784,
+    "divisions": 28,
+    "justified": 23,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Chestermere": {
+    "pop_2021": 22163,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Airdrie": {
+    "pop_2021": 74100,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Grande Prairie": {
+    "pop_2021": 64141,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.266
+   },
+   "Medicine Hat": {
+    "pop_2021": 63271,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.321
+   },
+   "Leduc": {
+    "pop_2021": 34094,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Lethbridge": {
+    "pop_2021": 98406,
+    "divisions": 4,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.219
+   },
+   "Spruce Grove": {
+    "pop_2021": 37645,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Fort Saskatchewan": {
+    "pop_2021": 27088,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Edmonton": {
+    "pop_2021": 1010899,
+    "divisions": 21,
+    "justified": 18,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Beaumont": {
+    "pop_2021": 20888,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 1.0
+   },
+   "St. Albert": {
+    "pop_2021": 68232,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.169
+   }
+  },
+  "para167": {
+   "Red Deer": {
+    "pop_2021": 100844,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Calgary": {
+    "pop_2021": 1306784,
+    "divisions": 28,
+    "justified": 23,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Chestermere": {
+    "pop_2021": 22163,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Airdrie": {
+    "pop_2021": 74100,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Grande Prairie": {
+    "pop_2021": 64141,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.266
+   },
+   "Medicine Hat": {
+    "pop_2021": 63271,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.321
+   },
+   "Leduc": {
+    "pop_2021": 34094,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Lethbridge": {
+    "pop_2021": 98406,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Spruce Grove": {
+    "pop_2021": 37645,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Fort Saskatchewan": {
+    "pop_2021": 27088,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Edmonton": {
+    "pop_2021": 1010899,
+    "divisions": 21,
+    "justified": 18,
+    "share_in_divisions_where_city_is_minority": 0.0
+   },
+   "Beaumont": {
+    "pop_2021": 20888,
+    "divisions": 1,
+    "justified": 1,
+    "share_in_divisions_where_city_is_minority": 1.0
+   },
+   "St. Albert": {
+    "pop_2021": 68232,
+    "divisions": 2,
+    "justified": 2,
+    "share_in_divisions_where_city_is_minority": 0.169
+   }
+  }
+ },
+ "D_incumbents": {
+  "byelections_applied": {
+   "Lethbridge-West": [
+    "2024-12-18",
+    "NDP"
+   ],
+   "Edmonton-Ellerslie": [
+    "2025-06-23",
+    "NDP"
+   ],
+   "Edmonton-Strathcona": [
+    "2025-06-23",
+    "NDP"
+   ],
+   "Olds-Didsbury-Three Hills": [
+    "2025-06-23",
+    "UCP"
+   ]
+  },
+  "unmatched_old_divisions": [],
+  "majority": {
+   "pairings": {
+    "Barrhead-Westlock-Athabasca": [
+     "Athabasca-Barrhead-Westlock (UCP)",
+     "Lac Ste. Anne-Parkland (UCP)"
+    ],
+    "Edmonton-Glenora-Riverview": [
+     "Edmonton-Glenora (NDP)",
+     "Edmonton-Riverview (NDP)"
+    ],
+    "Lacombe-Clearwater": [
+     "Lacombe-Ponoka (UCP)",
+     "Rimbey-Rocky Mountain House-Sundre (UCP)"
+    ],
+    "Taber-Cardston": [
+     "Cardston-Siksika (UCP)",
+     "Taber-Warner (UCP)"
+    ]
+   },
+   "members_in_seat_other_party_carries": {
+    "NDP": 1,
+    "UCP": 1
+   },
+   "names_ndp_in_ucp_seat": [
+    "Calgary-Acadia"
+   ],
+   "names_ucp_in_ndp_seat": [
+    "Calgary-Cross"
+   ]
+  },
+  "minority": {
+   "pairings": {
+    "Edmonton-Glenora-Riverview": [
+     "Edmonton-Glenora (NDP)",
+     "Edmonton-Riverview (NDP)"
+    ],
+    "Lethbridge-Cardston": [
+     "Cardston-Siksika (UCP)",
+     "Lethbridge-West (NDP)"
+    ]
+   },
+   "members_in_seat_other_party_carries": {
+    "NDP": 5,
+    "UCP": 0
+   },
+   "names_ndp_in_ucp_seat": [
+    "Banff-Kananaskis",
+    "Calgary-Acadia",
+    "Calgary-Foothills",
+    "Edmonton-South West",
+    "Lethbridge-West"
+   ],
+   "names_ucp_in_ndp_seat": []
+  },
+  "panel": {
+   "pairings": {
+    "Edmonton-Glenora-Riverview": [
+     "Edmonton-Glenora (NDP)",
+     "Edmonton-Riverview (NDP)"
+    ],
+    "Lethbridge": [
+     "Lethbridge-East (UCP)",
+     "Lethbridge-West (NDP)"
+    ]
+   },
+   "members_in_seat_other_party_carries": {
+    "NDP": 2,
+    "UCP": 2
+   },
+   "names_ndp_in_ucp_seat": [
+    "Banff-Kananaskis",
+    "Calgary-Acadia"
+   ],
+   "names_ucp_in_ndp_seat": [
+    "Calgary-Cross",
+    "Lethbridge-East"
+   ]
+  },
+  "para167": {
+   "pairings": {
+    "Edmonton-Glenora-Riverview": [
+     "Edmonton-Glenora (NDP)",
+     "Edmonton-Riverview (NDP)"
+    ],
+    "Taber-Cardston": [
+     "Cardston-Siksika (UCP)",
+     "Taber-Warner (UCP)"
+    ]
+   },
+   "members_in_seat_other_party_carries": {
+    "NDP": 1,
+    "UCP": 1
+   },
+   "names_ndp_in_ucp_seat": [
+    "Calgary-Acadia"
+   ],
+   "names_ucp_in_ndp_seat": [
+    "Calgary-Cross"
+   ]
+  }
+ },
+ "E_growth_2031_trend": {
+  "majority": {
+   "beyond_25_in_2031": {
+    "Canmore-Banff": -27.7,
+    "Central Peace-Notley": -57.5,
+    "Lesser Slave Lake": -54.6,
+    "Peace River": -31.7
+   },
+   "within_10_in_2031": 35,
+   "stated_within_10": 79,
+   "corr_growth_vs_ndp_share": 0.709,
+   "fastest": {
+    "Calgary-North": 4.43,
+    "Calgary-Fish Creek": 4.43,
+    "Calgary-Shaw": 4.43,
+    "Edmonton-Beaumont": 4.56,
+    "Airdrie-West": 4.67,
+    "Chestermere-Strathmore": 5.56
+   },
+   "slowest": {
+    "Central Peace-Notley": 0.31,
+    "West Yellowhead": 0.31,
+    "Drumheller-Stettler": 0.42,
+    "St. Albert-Sturgeon": 0.53
+   }
+  },
+  "minority": {
+   "beyond_25_in_2031": {
+    "Calgary-Buffalo": 31.1,
+    "Calgary-Falconridge": 25.5,
+    "Calgary-McCall-Bhullar": 30.4,
+    "Calgary-North East": 33.7,
+    "Calgary-Varsity": 27.4,
+    "Barrhead-Westlock-Athabasca": -28.4,
+    "Central Peace-Notley": -54.6,
+    "Fort McMurray-Lac La Biche": -27.1,
+    "Lac Ste Anne-Parkland": -26.9,
+    "Lesser Slave Lake": -54.6,
+    "Lloydminster-Wainwright": -25.5,
+    "Peace River": -31.7,
+    "Rocky Mountain House-Banff Park": -37.2,
+    "West Yellowhead": -26.9
+   },
+   "within_10_in_2031": 22,
+   "stated_within_10": 60,
+   "corr_growth_vs_ndp_share": 0.695,
+   "fastest": {
+    "Calgary-Foothills-Airdrie West": 4.52,
+    "Calgary-Airdrie": 4.53,
+    "Edmonton-Beaumont": 4.56,
+    "Calgary-Peigan-Chestermere": 4.58,
+    "Airdrie-East": 4.64,
+    "Chestermere-Strathmore": 5.48
+   },
+   "slowest": {
+    "West Yellowhead": 0.19,
+    "Central Peace-Notley": 0.41,
+    "Drumheller-Stettler": 0.53,
+    "Lloydminster-Wainwright": 0.59
+   }
+  },
+  "panel": {
+   "beyond_25_in_2031": {
+    "Calgary-McKenzie": 25.9,
+    "Barrhead-Westlock-Athabasca": -27.1,
+    "Blackfalds-Innisfail": -25.0,
+    "Central Peace-Notley": -56.6,
+    "Drayton Valley-Devon": -29.3,
+    "Drumheller-Stettler": -34.3,
+    "Lesser Slave Lake": -53.6,
+    "Lethbridge-Cardston": -32.3,
+    "Peace River": -30.2,
+    "Rocky Mountain House-Sundre": -47.6
+   },
+   "within_10_in_2031": 23,
+   "stated_within_10": 67,
+   "corr_growth_vs_ndp_share": 0.708,
+   "fastest": {
+    "Calgary-Varsity": 4.43,
+    "Calgary-Beddington": 4.43,
+    "Calgary-Shaw": 4.43,
+    "Calgary-Fish Creek": 4.43,
+    "Airdrie-West": 4.67,
+    "Chestermere-Strathmore": 5.56
+   },
+   "slowest": {
+    "West Yellowhead": 0.2,
+    "Drumheller-Stettler": 0.27,
+    "Central Peace-Notley": 0.31,
+    "Morinville-Sturgeon": 0.53
+   }
+  }
+ }
+}

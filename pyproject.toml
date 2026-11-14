@@ -9,10 +9,22 @@ description = "Alberta Electoral Boundary Forensic Audit"
 authors = [
     {name = "Audit Team"}
 ]
+# requirements.txt is the full lock (direct and transitive pins) and the file
+# to install from. The pins below repeat its core direct dependencies so that
+# an install of this package cannot pull a different numpy, pandas or
+# gerrychain. Python: the lock is resolved for 3.13; numpy 2.5 needs >= 3.12.
+requires-python = ">=3.12"
 dependencies = [
-    "pandas",
-    "geopandas",
-    "matplotlib"
+    "numpy==2.5.3",
+    "pandas==3.0.5",
+    "scipy==1.16.3",
+    "geopandas==1.1.3",
+    "shapely==2.1.2",
+    "pyproj==3.7.2",
+    "gerrychain==0.3.2",
+    "networkx==3.6.1",
+    "pyyaml==6.0.3",
+    "matplotlib==3.9.4"
 ]
 
 [tool.setuptools.packages.find]

@@ -1,0 +1,49 @@
+{
+ "map": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\wt-osf\\data\\shapefiles\\iap_assembled\\iap_2026_assembled.gpkg",
+ "va_file": "va_polygons_all_2023_ballots_primary.gpkg",
+ "observed": {
+  "eg": -0.016637175571172686,
+  "mean_median": -0.01093382548588806,
+  "declination": -0.059833748775490914,
+  "ucp_seats": 51,
+  "n_districts": 91,
+  "drain": 0.010433770891244632,
+  "drain_shuffle_p": 0.0342
+ },
+ "n_ref_plans": 1440,
+ "eg": {
+  "observed": -0.016637175571172686,
+  "p_two_sided": 0.9138888888888889,
+  "null_mean": -0.01720047089501933,
+  "null_p025": -0.03385003619033825,
+  "null_p975": -0.0006041930021283313
+ },
+ "drain": {
+  "observed": 0.010433770891244632,
+  "p_two_sided": 0.41944444444444445,
+  "null_mean": 0.00597689643051584,
+  "null_p025": 0.0003945830489402,
+  "null_p975": 0.02529224960175776
+ },
+ "mean_median": {
+  "observed": -0.01093382548588806,
+  "p_two_sided": 0.9125,
+  "null_mean": -0.008826192265854958,
+  "null_p025": -0.023487581451979114,
+  "null_p975": 0.0031898608736979236
+ },
+ "declination": {
+  "observed": -0.059833748775490914,
+  "p_two_sided": 0.7944444444444444,
+  "null_mean": -0.061876874825165865,
+  "null_p025": -0.0952802052271257,
+  "null_p975": -0.025387160134687177
+ },
+ "ucp_seats": {
+  "observed": 51,
+  "p_two_sided": 1.0,
+  "null_mean": 51.138888888888886,
+  "null_p025": 50.0,
+  "null_p975": 53.0
+ }
+}

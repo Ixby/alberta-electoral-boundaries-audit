@@ -19,6 +19,7 @@ Forward:
   # REVIEW: verify outputs before publication
 """
 
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -34,7 +35,12 @@ from mcmc_ensemble import score_exogenous_map  # noqa: E402
 
 MAJORITY_GPKG = ROOT / "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"
 MINORITY_GPKG = ROOT / "data/shapefiles/canonical/ea_minority_2026_eds.gpkg"
-VA_FULL_GPKG = ROOT / "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg"
+# ALL_BALLOTS=1 (added 2026-11-05): read the all-ballots substrate, which adds the Vote Anywhere ballots
+# (vote_anywhere_splat.py), and write to an _all_ballots output. Without it nothing changes.
+ALL_BALLOTS = os.environ.get("ALL_BALLOTS") == "1"
+VA_FULL_GPKG = ROOT / ("data/shapefiles/derived/va_polygons_with_all_2023_ballots.gpkg" if ALL_BALLOTS
+                       else "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg")
+FULL = "all" if ALL_BALLOTS else "full"
 POP_CSV = ROOT / "data/outputs/va_pop_from_das.csv"
 CHAIN_DIR = ROOT / "data/simulation_checkpoints_canonical"
 
@@ -55,9 +61,9 @@ def load_va(use_full: bool) -> gpd.GeoDataFrame:
     va = gpd.read_file(VA_FULL_GPKG)
 
     if use_full:
-        va["va_ndp"] = va["va_ndp_full"]
-        va["va_ucp"] = va["va_ucp_full"]
-        va["va_other"] = va["va_other_full"]
+        va["va_ndp"] = va[f"va_ndp_{FULL}"]
+        va["va_ucp"] = va[f"va_ucp_{FULL}"]
+        va["va_other"] = va[f"va_other_{FULL}"]
 
     va["total_votes"] = va["va_ndp"] + va["va_ucp"] + va["va_other"]
 
@@ -179,7 +185,8 @@ def main():
             "Canonical percentile placements are attribution-stable."
         )
 
-    out_path = ROOT / "data/outputs/attribution_sensitivity_check.json"
+    out_path = ROOT / ("data/outputs/attribution_sensitivity_check_all_ballots.json" if ALL_BALLOTS
+                       else "data/outputs/attribution_sensitivity_check.json")
     results.to_json(out_path, orient="records", indent=2)
     print(f"\nDetailed results written to {out_path.relative_to(ROOT)}")
 

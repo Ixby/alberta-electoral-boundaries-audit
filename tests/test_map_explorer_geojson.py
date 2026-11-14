@@ -12,10 +12,15 @@ sys.path.insert(0, str(SCRIPTS / "utils"))
 CANONICAL = REPO_ROOT / "data" / "shapefiles" / "canonical"
 DERIVED_VA = REPO_ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 
-requires_data = pytest.mark.skipif(
-    not (CANONICAL / "ea_minority_2026_eds.gpkg").exists() or not DERIVED_VA.exists(),
-    reason="canonical/derived shapefiles not present",
+sys.path.insert(0, str(REPO_ROOT / "tests"))
+from lfs_guard import first_unavailable  # noqa: E402
+
+# The three files are Git LFS objects: skip (not fail) when they are absent or
+# still un-pulled pointers.
+_UNAVAILABLE = first_unavailable(
+    CANONICAL / "ea_minority_2026_eds.gpkg", CANONICAL / "ea_majority_2026_eds.gpkg", DERIVED_VA
 )
+requires_data = pytest.mark.skipif(_UNAVAILABLE is not None, reason=str(_UNAVAILABLE))
 
 EXPECTED_ED_COUNT = {"minority": 89, "majority": 89, "2019": 87}
 EXPECTED_VA_COUNT = 4765

@@ -5,14 +5,14 @@ forward_dependencies:
   - report_academic.md — §3.5 cross-election paragraph (proposed footnote-grade insertion)
   - report_public.md — no change recommended
 backward_dependencies:
-  - data/alberta_byelections_2019_2026.csv — byelection vote data
+  - data/reference/alberta_byelections_2019_2026.csv — byelection vote data
   - analysis/scripts/monte_carlo_ci.py — RT3 framework this assessment tests against
   - analysis/scripts/cross_election_rural_baseline.py — 2015/2019/2023 rural baseline
   - analysis/v0_1_fortification_a1_a5.md §A1 — the CI-crosses-zero concern this track was to address
 ---
 
 > **Backward:**
-> - `data/alberta_byelections_2019_2026.csv` — byelection vote data acquired in Phase 1
+> - `data/reference/alberta_byelections_2019_2026.csv` — byelection vote data acquired in Phase 1
 > - `analysis/scripts/monte_carlo_ci.py` — RT3 framework this assessment tests against
 > - `analysis/scripts/cross_election_rural_baseline.py` — 2015/2019/2023 rural baseline
 > - `analysis/v0_1_fortification_a1_a5.md` §A1 — the CI-crosses-zero concern this track was to address
@@ -25,7 +25,7 @@ backward_dependencies:
 
 ## Phase 1 — What was acquired
 
-Six byelections held between 2019-01-01 and 2026-04-22, covering six distinct 2019-boundaries electoral divisions. Data saved to `data/alberta_byelections_2019_2026.csv`.
+Six byelections held between 2019-01-01 and 2026-04-22, covering six distinct 2019-boundaries electoral divisions. Data saved to `data/reference/alberta_byelections_2019_2026.csv`.
 
 | Date | Riding | Reason | Winner | UCP share | NDP share | Turnout |
 |---|---|---|---|---|---|---|
@@ -147,7 +147,7 @@ The six 2022-2025 byelections fail three of the RT3 preconditions:
 
 ### On 338-validation extension
 
-The 338 Canada pipeline validates the audit by reallocating April 2026 per-riding projections through the majority and minority crosswalks. A similar reconciliation could use byelection actuals as a model-accuracy check: did the 338 April 2026 snapshot match the June 2025 byelection actuals in Olds-Didsbury-Three Hills, Edmonton-Ellerslie, Edmonton-Strathcona? This is a narrow, mechanical accuracy check — not a boundary-audit finding. It would strengthen the 338 validation pipeline's confidence in polling-based per-riding projections, which is downstream of the audit's main claims. Recommend: **flag as a side-project, not integrate into the audit.** A sub-agent can compute 338-vs-byelection Pearson r in about 30 minutes against `data/338canada_per_riding_87seat.csv` and the byelection CSV.
+The 338 Canada pipeline validates the audit by reallocating April 2026 per-riding projections through the majority and minority crosswalks. A similar reconciliation could use byelection actuals as a model-accuracy check: did the 338 April 2026 snapshot match the June 2025 byelection actuals in Olds-Didsbury-Three Hills, Edmonton-Ellerslie, Edmonton-Strathcona? This is a narrow, mechanical accuracy check — not a boundary-audit finding. It would strengthen the 338 validation pipeline's confidence in polling-based per-riding projections, which is downstream of the audit's main claims. Recommend: **flag as a side-project, not integrate into the audit.** A sub-agent can compute 338-vs-byelection Pearson r in about 30 minutes against `data/reference/338canada_per_riding_87seat.csv` and the byelection CSV.
 
 ### On integration level
 
@@ -157,7 +157,7 @@ The 338 Canada pipeline validates the audit by reallocating April 2026 per-ridin
 
 Drafted as a footnote-grade paragraph for the §3.5 cross-election stability discussion. Parent session applies.
 
-> **Byelection coverage in the 2022-2025 window.** Alberta held six provincial byelections between the 2019 and 2023 general elections and in the 2023-2026 interval: Fort McMurray-Lac La Biche (2022-03-15), Brooks-Medicine Hat (2022-11-08), Lethbridge-West (2024-12-18), and Edmonton-Ellerslie, Edmonton-Strathcona, and Olds-Didsbury-Three Hills (all 2025-06-23). These byelections are not incorporated into the audit's RT3 cross-election stability test for three reasons. First, their coverage is sparse (6 of 87 EDs, 6.9%), which precludes the province-wide rural baseline computation the RT3 framework uses. Second, byelection turnout ran 40-60% of prior general turnout, and byelection voter composition is known to skew older and more partisan; this violates the "normal partisan inputs" assumption the three general elections jointly satisfy. Third, five of the six byelections have obvious candidate-specific drivers (Premier Smith in her home riding, Jean's regional incumbency, Nenshi's leader contest, Miyashiro's continuity with Phillips' voters, Cooper's replacement facing a separatist Republican challenger), which cross-election stability tests presume absent. The one byelection that touches a contested minority configuration is Olds-Didsbury-Three Hills (June 2025), which sits in the minority's proposed "Olds-Three Hills-Didsbury" district. The UCP's -14.2 pp share drop and the Republican Party of Alberta's 17.7% first-contest showing do not change the audit's directional verdict on rural-catchment configurations; they marginally support the audit's skepticism that "safe" packed rural EDs are structurally stable enough to justify the minority's boundary choices, but the byelection is too sui generis to upgrade this from an observation to a finding. Full data: `data/alberta_byelections_2019_2026.csv`; assessment: `findings/byelection_assessment.md`.
+> **Byelection coverage in the 2022-2025 window.** Alberta held six provincial byelections between the 2019 and 2023 general elections and in the 2023-2026 interval: Fort McMurray-Lac La Biche (2022-03-15), Brooks-Medicine Hat (2022-11-08), Lethbridge-West (2024-12-18), and Edmonton-Ellerslie, Edmonton-Strathcona, and Olds-Didsbury-Three Hills (all 2025-06-23). These byelections are not incorporated into the audit's RT3 cross-election stability test for three reasons. First, their coverage is sparse (6 of 87 EDs, 6.9%), which precludes the province-wide rural baseline computation the RT3 framework uses. Second, byelection turnout ran 40-60% of prior general turnout, and byelection voter composition is known to skew older and more partisan; this violates the "normal partisan inputs" assumption the three general elections jointly satisfy. Third, five of the six byelections have obvious candidate-specific drivers (Premier Smith in her home riding, Jean's regional incumbency, Nenshi's leader contest, Miyashiro's continuity with Phillips' voters, Cooper's replacement facing a separatist Republican challenger), which cross-election stability tests presume absent. The one byelection that touches a contested minority configuration is Olds-Didsbury-Three Hills (June 2025), which sits in the minority's proposed "Olds-Three Hills-Didsbury" district. The UCP's -14.2 pp share drop and the Republican Party of Alberta's 17.7% first-contest showing do not change the audit's directional verdict on rural-catchment configurations; they marginally support the audit's skepticism that "safe" packed rural EDs are structurally stable enough to justify the minority's boundary choices, but the byelection is too sui generis to upgrade this from an observation to a finding. Full data: `data/reference/alberta_byelections_2019_2026.csv`; assessment: `findings/byelection_assessment.md`.
 
 ## Proposed insertion — `report_public.md`
 

@@ -938,6 +938,11 @@ def md_to_html(src_path: Path) -> str:
     )
     body = md.convert(text)
     body = post_process_html(body)
+    # The leading Backward:/Forward: dependency block is repository plumbing,
+    # not part of the printed monograph. It is the first blockquote (tagged
+    # .deck above), so drop it here and leave every other blockquote as it was.
+    body = re.sub(r'<blockquote class="deck">\s*<p>\s*<strong>Backward:</strong>.*?</blockquote>\s*',
+                  "", body, count=1, flags=re.S)
     base_href = src_path.resolve().parent.as_uri() + "/"
     return HTML_TEMPLATE.format(css=CSS, body=body, base_href=base_href)
 

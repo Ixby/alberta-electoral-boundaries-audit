@@ -1,0 +1,386 @@
+{
+ "meta": {
+  "entry": "2026-11-10 01:16 Alberta time · claude-opus-5-5 · medium",
+  "script": "findings/advance_vote_profile/01_measure_skew.py",
+  "status": "exploratory, not registered",
+  "inputs": [
+   {
+    "path": "data/raw/2023_results.xlsx",
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3"
+   },
+   {
+    "path": "data/raw/2015_results.xlsx",
+    "sha256": "4a6656140736783a4984beff75069885ac12feb03470f2f7c8f7d249a6201fc9"
+   },
+   {
+    "path": "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg",
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b"
+   }
+  ]
+ },
+ "y2023": {
+  "label": "2023, NDP share of NDP+UCP",
+  "province": {
+   "eday": {
+    "ndp": 381932,
+    "ucp_bloc": 514712,
+    "two_party": 896644,
+    "ndp_share_pct": 42.6,
+    "minus_eday_pts": 0.0
+   },
+   "advance": {
+    "ndp": 270844,
+    "ucp_bloc": 304652,
+    "two_party": 575496,
+    "ndp_share_pct": 47.06,
+    "minus_eday_pts": 4.47
+   },
+   "vote_anywhere": {
+    "ndp": 87767,
+    "ucp_bloc": 74398,
+    "two_party": 162165,
+    "ndp_share_pct": 54.12,
+    "minus_eday_pts": 11.53
+   },
+   "mobile": {
+    "ndp": 9220,
+    "ucp_bloc": 12382,
+    "two_party": 21602,
+    "ndp_share_pct": 42.68,
+    "minus_eday_pts": 0.09
+   },
+   "special": {
+    "ndp": 27641,
+    "ucp_bloc": 22756,
+    "two_party": 50397,
+    "ndp_share_pct": 54.85,
+    "minus_eday_pts": 12.25
+   },
+   "all_non_election_day": {
+    "ndp": 395472,
+    "ucp_bloc": 414188,
+    "two_party": 809660,
+    "ndp_share_pct": 48.84,
+    "minus_eday_pts": 6.25,
+    "share_of_all_two_party_pct": 47.45
+   }
+  },
+  "by_region": [
+   {
+    "group": "Calgary",
+    "divisions": 26,
+    "eday_ndp_pct": 48.7,
+    "non_eday_ndp_pct": 52.34,
+    "skew_pts": 3.64,
+    "mean_division_skew_pts": 3.4,
+    "mean_logit_shift": 0.14,
+    "non_eday_share_of_votes_pct": 50.8
+   },
+   {
+    "group": "Edmonton",
+    "divisions": 20,
+    "eday_ndp_pct": 61.59,
+    "non_eday_ndp_pct": 67.92,
+    "skew_pts": 6.32,
+    "mean_division_skew_pts": 6.26,
+    "mean_logit_shift": 0.287,
+    "non_eday_share_of_votes_pct": 47.1
+   },
+   {
+    "group": "Rural",
+    "divisions": 22,
+    "eday_ndp_pct": 23.35,
+    "non_eday_ndp_pct": 29.36,
+    "skew_pts": 6.0,
+    "mean_division_skew_pts": 4.2,
+    "mean_logit_shift": 0.228,
+    "non_eday_share_of_votes_pct": 44.6
+   },
+   {
+    "group": "Smaller cities and suburbs",
+    "divisions": 19,
+    "eday_ndp_pct": 38.29,
+    "non_eday_ndp_pct": 45.19,
+    "skew_pts": 6.9,
+    "mean_division_skew_pts": 5.73,
+    "mean_logit_shift": 0.25,
+    "non_eday_share_of_votes_pct": 46.1
+   }
+  ],
+  "by_competitiveness": [
+   {
+    "group": "close (under 10 pts)",
+    "divisions": 19,
+    "eday_ndp_pct": 50.24,
+    "non_eday_ndp_pct": 54.23,
+    "skew_pts": 3.99,
+    "mean_division_skew_pts": 3.97,
+    "mean_logit_shift": 0.16,
+    "non_eday_share_of_votes_pct": 51.8
+   },
+   {
+    "group": "10 to 30 pts",
+    "divisions": 36,
+    "eday_ndp_pct": 47.95,
+    "non_eday_ndp_pct": 53.39,
+    "skew_pts": 5.44,
+    "mean_division_skew_pts": 5.32,
+    "mean_logit_shift": 0.222,
+    "non_eday_share_of_votes_pct": 47.8
+   },
+   {
+    "group": "safe (over 30 pts)",
+    "divisions": 32,
+    "eday_ndp_pct": 31.18,
+    "non_eday_ndp_pct": 37.63,
+    "skew_pts": 6.45,
+    "mean_division_skew_pts": 4.63,
+    "mean_logit_shift": 0.252,
+    "non_eday_share_of_votes_pct": 43.9
+   }
+  ],
+  "cross_division": {
+   "logit_non_eday_on_logit_eday": {
+    "intercept": 0.22,
+    "slope": 1.002,
+    "se": 0.022,
+    "corr": 0.9805
+   },
+   "advance_slope": {
+    "intercept": 0.207,
+    "slope": 1.012,
+    "se": 0.027,
+    "n": 87
+   },
+   "vote_anywhere_slope": {
+    "intercept": 0.276,
+    "slope": 1.03,
+    "se": 0.034,
+    "n": 87
+   },
+   "mobile_slope": {
+    "intercept": -0.157,
+    "slope": 0.673,
+    "se": 0.043,
+    "n": 82
+   },
+   "special_slope": {
+    "intercept": 0.361,
+    "slope": 0.959,
+    "se": 0.044,
+    "n": 87
+   },
+   "skew_pts_vs_eday_ndp_share_spearman": {
+    "rho": 0.197,
+    "p": 0.0679618363557204
+   },
+   "skew_pts_vs_eday_margin_spearman": {
+    "rho": 0.026,
+    "p": 0.8138754958683287
+   },
+   "non_eday_ballots_per_elector_vs_eday_ballots_per_elector": {
+    "pearson_r": -0.067,
+    "p": 0.540522897009659,
+    "slope": -0.144,
+    "se": 0.148,
+    "reading": "M0 weighting implies a positive slope through zero; a pure turnout-gap rule implies a negative slope"
+   }
+  },
+  "per_division_skew_pts": {
+   "mean": 4.77,
+   "median": 4.72,
+   "sd": 2.98,
+   "min": -7.09,
+   "max": 11.98,
+   "divisions_ndp_better_off_election_day": 83,
+   "n": 87,
+   "mean_logit_shift": 0.22,
+   "sd_logit_shift": 0.144
+  },
+  "advance_locations_within_division": {
+   "advance_location_rows": 254,
+   "divisions_with_2plus_locations": 80,
+   "pooled_chi2": 8770.9,
+   "dof": 162,
+   "p_value": 0.0,
+   "divisions_rejecting_same_mix_at_5pct": 63,
+   "median_gap_between_most_and_least_ndp_location_pts": 9.3,
+   "max_gap_pts": 61.6,
+   "reading": "M0 says every advance voter group in a division has one party mix; a large chi-square rejects that",
+   "median_weighted_sd_pts_election_day_stations": 4.56,
+   "median_weighted_sd_pts_advance_locations": 3.53,
+   "spearman_sd_advance_vs_sd_election_day": {
+    "rho": 0.547,
+    "p": 1.5701098694568267e-07
+   }
+  }
+ },
+ "y2015": {
+  "label": "2015, NDP share of NDP+PC+Wildrose",
+  "province": {
+   "eday": {
+    "ndp": 471056,
+    "ucp_bloc": 605782,
+    "two_party": 1076838,
+    "ndp_share_pct": 43.74,
+    "minus_eday_pts": 0.0
+   },
+   "advance": {
+    "ndp": 101354,
+    "ucp_bloc": 117352,
+    "two_party": 218706,
+    "ndp_share_pct": 46.34,
+    "minus_eday_pts": 2.6
+   },
+   "mobile": {
+    "ndp": 6588,
+    "ucp_bloc": 13638,
+    "two_party": 20226,
+    "ndp_share_pct": 32.57,
+    "minus_eday_pts": -11.17
+   },
+   "special": {
+    "ndp": 4779,
+    "ucp_bloc": 6627,
+    "two_party": 11406,
+    "ndp_share_pct": 41.9,
+    "minus_eday_pts": -1.85
+   },
+   "all_non_election_day": {
+    "ndp": 112721,
+    "ucp_bloc": 137617,
+    "two_party": 250338,
+    "ndp_share_pct": 45.03,
+    "minus_eday_pts": 1.28,
+    "share_of_all_two_party_pct": 18.86
+   }
+  },
+  "by_region": [
+   {
+    "group": "Calgary",
+    "divisions": 25,
+    "eday_ndp_pct": 39.16,
+    "non_eday_ndp_pct": 35.86,
+    "skew_pts": -3.3,
+    "mean_division_skew_pts": -3.45,
+    "mean_logit_shift": -0.154,
+    "non_eday_share_of_votes_pct": 18.1
+   },
+   {
+    "group": "Edmonton",
+    "divisions": 19,
+    "eday_ndp_pct": 69.13,
+    "non_eday_ndp_pct": 70.69,
+    "skew_pts": 1.56,
+    "mean_division_skew_pts": 1.68,
+    "mean_logit_shift": 0.092,
+    "non_eday_share_of_votes_pct": 20.8
+   },
+   {
+    "group": "Rural",
+    "divisions": 26,
+    "eday_ndp_pct": 29.01,
+    "non_eday_ndp_pct": 29.16,
+    "skew_pts": 0.15,
+    "mean_division_skew_pts": -0.2,
+    "mean_logit_shift": -0.025,
+    "non_eday_share_of_votes_pct": 18.7
+   },
+   {
+    "group": "Smaller cities and suburbs",
+    "divisions": 17,
+    "eday_ndp_pct": 42.4,
+    "non_eday_ndp_pct": 46.77,
+    "skew_pts": 4.37,
+    "mean_division_skew_pts": 1.85,
+    "mean_logit_shift": 0.074,
+    "non_eday_share_of_votes_pct": 17.9
+   }
+  ],
+  "by_competitiveness": [
+   {
+    "group": "close (under 10 pts)",
+    "divisions": 10,
+    "eday_ndp_pct": 49.36,
+    "non_eday_ndp_pct": 49.9,
+    "skew_pts": 0.55,
+    "mean_division_skew_pts": -0.06,
+    "mean_logit_shift": -0.003,
+    "non_eday_share_of_votes_pct": 18.4
+   },
+   {
+    "group": "10 to 30 pts",
+    "divisions": 33,
+    "eday_ndp_pct": 45.61,
+    "non_eday_ndp_pct": 45.69,
+    "skew_pts": 0.08,
+    "mean_division_skew_pts": -1.54,
+    "mean_logit_shift": -0.07,
+    "non_eday_share_of_votes_pct": 19.5
+   },
+   {
+    "group": "safe (over 30 pts)",
+    "divisions": 44,
+    "eday_ndp_pct": 41.02,
+    "non_eday_ndp_pct": 43.34,
+    "skew_pts": 2.32,
+    "mean_division_skew_pts": 0.53,
+    "mean_logit_shift": 0.019,
+    "non_eday_share_of_votes_pct": 18.5
+   }
+  ],
+  "cross_division": {
+   "logit_non_eday_on_logit_eday": {
+    "intercept": 0.018,
+    "slope": 1.077,
+    "se": 0.028,
+    "corr": 0.9686
+   },
+   "advance_slope": {
+    "intercept": 0.095,
+    "slope": 1.121,
+    "se": 0.03,
+    "n": 87
+   },
+   "mobile_slope": {
+    "intercept": -0.633,
+    "slope": 0.809,
+    "se": 0.042,
+    "n": 77
+   },
+   "special_slope": {
+    "intercept": -0.195,
+    "slope": 1.211,
+    "se": 0.085,
+    "n": 82
+   },
+   "skew_pts_vs_eday_ndp_share_spearman": {
+    "rho": 0.2,
+    "p": 0.06298799172521681
+   },
+   "skew_pts_vs_eday_margin_spearman": {
+    "rho": 0.102,
+    "p": 0.3493020908528952
+   },
+   "non_eday_ballots_per_elector_vs_eday_ballots_per_elector": {
+    "pearson_r": 0.113,
+    "p": 0.29719879221185547,
+    "slope": 0.05,
+    "se": 0.053,
+    "reading": "M0 weighting implies a positive slope through zero; a pure turnout-gap rule implies a negative slope"
+   }
+  },
+  "per_division_skew_pts": {
+   "mean": -0.33,
+   "median": -0.59,
+   "sd": 4.52,
+   "min": -19.4,
+   "max": 7.3,
+   "divisions_ndp_better_off_election_day": 40,
+   "n": 87,
+   "mean_logit_shift": -0.017,
+   "sd_logit_shift": 0.214
+  }
+ },
+ "note_2019": "No 2019 poll-level workbook is in the repository (only division totals in data/reference), so 2019 is not measured."
+}

@@ -1,7 +1,7 @@
 > **Backward:**
 > - Commission final report (PDF) — primary source for verbatim data-source disclosures
 > - Alberta Treasury Board OSI July 2024 estimate — cited basis verified
-> - ~~`analysis/reports/plan_b_cross_check.md`~~ — (file does not exist; see Phase 2.8 disclosure below)
+> - ~~`analysis/reports/plan_b_cross_check.md`~~ — (file since removed; see git history at aecc6f06)
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §4.1.3 (provenance framework) — incorporates Track O findings
@@ -17,7 +17,7 @@ inconsistencies, and recommend disclosure language for a future Act §12
 amendment that would close the gaps this trace uncovers.
 
 The audit's headline finding on data sources already exists in
-`analysis/reports/plan_b_cross_check.md`: the commission's stated basis
+`analysis/reports/plan_b_cross_check.md` (file since removed; see git history at aecc6f06): the commission's stated basis
 (2021 decennial census updated to July 1, 2024) is inconsistent with the
 actual tables, which derive directly from the July 2024 Alberta Treasury
 Board OSI estimate without a visible 2021 census component. This document
@@ -435,7 +435,7 @@ among these. The gap is listed in Phase 3 as a **minor** inconsistency.
 The per-ED figures in both `data/majority_2026_populations.csv` and
 `data/minority_2026_populations.csv` are consistent with the
 4,888,723 basis (the majority to the person, the minority to within 50
-persons). **⚠ Note:** The standalone document `analysis/reports/plan_b_cross_check.md` does not exist in the repository. The intended cross-check (verifying audit verdicts are stable across the 2021 census, 2024 OSI, and 2025 TBF population bases) was not produced as a standalone file. This Phase 2 check adds one layer of specificity: the per-ED figures are correctly produced from
+persons). **⚠ Note:** The standalone document `analysis/reports/plan_b_cross_check.md` is no longer in the repository (file since removed; see git history at aecc6f06). This Phase 2 check adds one layer of specificity: the per-ED figures are correctly produced from
 a July 2024 OSI DA-level file; the provincial total is consistent with
 both StatsCan and TBF releases; the commission's text characterization
 of that file as a "2021 decennial census [updated]" is the only
@@ -678,4 +678,4 @@ sub-ED reconstruction.
   `https://www150.statcan.gc.ca/n1/daily-quotidien/250319/dq250319a-eng.htm`
 - TBF Annual Population Report 2023–2024 (OSI, December 10, 2024):
   `open.alberta.ca/dataset/1050cf0a-8c1d-4875-9800-b7d2f3199e41/resource/b622c22b-507c-4eb2-9c7b-519e2cb75be1/download/tbf-annual-population-report-alberta-2023-2024.pdf`
-- Prior Track K finding: `analysis/reports/plan_b_cross_check.md`
+- Prior Track K finding: `analysis/reports/plan_b_cross_check.md` (file since removed; see git history at aecc6f06)

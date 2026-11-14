@@ -22,7 +22,6 @@
 	"devDependencies": {
 		"@axe-core/playwright": "^4.12.1",
 		"@playwright/test": "^1.61.1",
-		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
@@ -38,7 +37,6 @@
 	"dependencies": {
 		"@deck.gl/core": "^9.0.36",
 		"@deck.gl/extensions": "^9.0.36",
-		"@deck.gl/layers": "^9.0.36",
-		"@supabase/supabase-js": "^2.106.1"
+		"@deck.gl/layers": "^9.0.36"
 	}
 }

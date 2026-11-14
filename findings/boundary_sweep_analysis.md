@@ -4,7 +4,7 @@
 > - 2021 Census DA-dissolve populations and 2021→2024 growth factor
 >
 > **Forward:**
-> - `data/v0_3_canonical_majority_2026_eds_swept.gpkg`, `data/v0_3_canonical_minority_2026_eds_swept.gpkg`, `data/validation_deltas_v2.csv` — produced outputs
+> - `data/v0_3_canonical_majority_2026_eds_swept.gpkg`, `data/v0_3_canonical_minority_2026_eds_swept.gpkg`, `data/outputs/validation_deltas_v2.csv` — produced outputs
 > - `reports/academic/report_academic.md` — incorporates the sweep convergence
 > - `findings/README.md` — indexes this finding
 
@@ -14,7 +14,7 @@
 **Script:** `analysis/scripts/generate_topological_boundaries.py`
 **Inputs:** `data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg`
 **Outputs:** `data/v0_3_canonical_{majority,minority}_2026_eds_swept.gpkg`,
-`data/validation_deltas_v2.csv`
+`data/outputs/validation_deltas_v2.csv`
 
 ## 1. Method
 

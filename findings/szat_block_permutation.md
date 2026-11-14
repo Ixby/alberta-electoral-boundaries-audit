@@ -31,18 +31,18 @@ This re-run replaces the i.i.d. flip with a **queen-contiguity block permutation
 | **Block permutation (this work)** | **0.01942** | **0.1947** | 1946/10,001 |
 | Variance inflation factor | — | — | **5.79×** |
 
-The block-permutation null is **5.79× more variable** than the i.i.d. flip null because of the giant connected component (2,086 of 2,110 swing VAs) flipping as a single unit. The variance inflation makes the observed SZAT score (+0.0392) statistically unremarkable against the contiguity-respecting null.
+The block-permutation null is **5.79× more variable** than the i.i.d. flip null because of the giant connected component (2,086 of 2,110 swing VAs) flipping as a single unit. Against this null the observed SZAT score (+0.0392) is unremarkable. But this block test has one effective block: the giant component either flips (a score about equal to the observed) or does not (a score about zero), so the test cannot reject for any data. Its p = 0.19 is a property of the design, not evidence that the signal fails a spatial null.
 
 ## Substantive interpretation
 
-**Channel 2 no longer contributes to the Bonferroni combination at any standard α.** Under the methodologically-correct null, the SZAT p-value is ≈ 0.2 — well above any significance threshold the audit cites.
+**Channel 2 is unresolved and is not used.** The i.i.d. null is invalid because neighbouring areas vote alike. The component-level block test has one effective block and cannot reject. No informative spatial null has been run; `szat.py` has a size-limited contiguous-block option (`--use-block-permutation`) whose result is not reported.
 
-The audit's published Bonferroni headline is **p ≤ 1.76×10⁻⁶ = 2 × min(Ch1, Ch2) = 2 × 8.80×10⁻⁷**, derived under the i.i.d.-flip SZAT. Numerically this bound is *unchanged* by the SZAT correction because Channel 1 (Mahalanobis joint tail) was already the binding minimum. But the interpretation changes:
+The audit's published joint figure is **p ≈ 1.77×10⁻⁶ = 2 × Ch1 = 2 × 8.84×10⁻⁷**, set when SZAT was counted as a second channel. It is a model estimate, not a bound. Numerically it is unchanged by the SZAT correction, because it never used SZAT's p. But the interpretation changes:
 
 - **Old framing**: two distinct channels (ensemble joint outlier + swing-zone boundary efficiency) both flag the minority map; Bonferroni at m=2 over them gives the joint bound.
-- **Corrected framing (2026-06-12)**: Channel 1 (Mahalanobis p = 8.80×10⁻⁷ against the canonical 1.01M-plan ensemble, clean rerun 2026-07-12) is the sole channel that crosses significance under a methodologically-rigorous null. Channel 2 (SZAT) does not survive the contiguity correction and is reported here for completeness but not used in the headline combination.
+- **Current framing**: Channel 1 (Mahalanobis p = 8.84×10⁻⁷ against the canonical 1.01M-plan ensemble, clean rerun 2026-07-12) is the sole channel used. Channel 2 (SZAT) is unresolved and is reported here for completeness but not used.
 
-The Bonferroni-flavored "dependence-robust upper bound" remains valid for any family of channels the analyst chooses to include; under the corrected reading the family is effectively m = 1 and the bound is just Ch1's p = 8.80×10⁻⁷ ≈ 1 in 1,140,000 (more extreme than the 1-in-568,000 the 2 × Ch1 bound advertised).
+With SZAT retired, the doubling has no stated test family; it stands only as a conservative allowance. Ch1's own figure is one model's estimate on election-day ballots: under other defensible choices the doubled figure runs from about 1 in 20,000 to about 1 in 570,000 (`findings/audit_2026-11-10/joint_sensitivity.json`), and the map is far out in the tail on every version.
 
 ## Why the i.i.d. flip was anti-conservative
 
@@ -67,9 +67,9 @@ Pre/post SHA-256 of `findings/szat_block_permutation.json` and the script commit
 
 ## Effect on the audit's verdict surface
 
-The four-corner verdict surface (§6.2) is **unaffected in headline direction** because the Mahalanobis joint-tail finding (Ch1, p = 8.80×10⁻⁷, clean ensemble rerun 2026-07-12) is the load-bearing partisan-bias number and stands on its own. The "two-channel converging" framing in §5.5 prose is restated as "Ch1 carries the partisan-bias evidence; Ch2 (SZAT) is reported but does not survive a contiguity-respecting null." The structural lane is independent of both channels.
+The four-corner verdict surface (§6.2) is **unaffected in headline direction** because the Mahalanobis joint-tail finding (Ch1, p = 8.84×10⁻⁷, clean ensemble rerun 2026-07-12) is the load-bearing partisan-bias number and stands on its own. The "two-channel converging" framing in §5.5 prose is restated as "Ch1 carries the partisan-bias evidence; Ch2 (SZAT) is reported but unresolved, and is not used." The structural lane is independent of both channels.
 
 ## Queued follow-on
 
 - **T1.10c — block-aware Cauchy combination.** Liu & Xie (2020) Cauchy combination is exact under arbitrary dependence and avoids the i.i.d.-vs-block-flip distinction at the cost of slightly conservative power. If a future Ch3 (or canonical-substrate Phase B drain) returns a moderate p, a Cauchy combination could be more defensible than Bonferroni.
-- **T1.10d — alternative block definitions.** Beyond queen contiguity: rook contiguity, k-block Voronoi, regional blocks (Calgary / Edmonton / rural). The variance inflation factor would shift but the substantive conclusion (Ch2 doesn't survive correction) is robust because the giant component dominates regardless of block definition.
+- **T1.10d — alternative block definitions.** Beyond queen contiguity: rook contiguity, k-block Voronoi, regional blocks (Calgary / Edmonton / rural). The variance inflation factor would shift and size-limited blocks would give a test that can reject, which the component-level test cannot.

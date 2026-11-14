@@ -87,7 +87,7 @@ Vote substrate: 2023 two-party (NDP + UCP) totals per ED, attributed via the
 §5.3 symmetric-blending pipeline (`packing_cracking_analysis.py`).
 
 Shapefiles:
-- 2019: `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
+- 2019: `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
 - Majority 2026: `data/v0_2_canonical_majority_2026_eds_topoclean.gpkg`
 - Minority 2026: `data/v0_2_canonical_minority_2026_eds_topoclean.gpkg`
 

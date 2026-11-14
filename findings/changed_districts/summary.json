@@ -1,0 +1,877 @@
+{
+ "plan": "preregistration/changed_districts_2026-11-07.md",
+ "primary_ballots": "all",
+ "groups": {
+  "north_edmonton": {
+   "panel_divisions": [
+    "Barrhead-Westlock-Athabasca",
+    "Drayton Valley-Devon",
+    "Edmonton-Ellerslie",
+    "Edmonton-Nisku",
+    "Edmonton-South",
+    "Edmonton-Strathcona",
+    "Edmonton-Whitemud",
+    "Edmonton-Windermere",
+    "Fort McMurray-Lac La Biche",
+    "Fort McMurray-Wood Buffalo",
+    "Lac Ste. Anne",
+    "Leduc-Beaumont",
+    "Morinville-Sturgeon",
+    "Spruce Grove",
+    "West Yellowhead"
+   ],
+   "majority_divisions": [
+    "Barrhead-Westlock-Athabasca",
+    "Edmonton-Beaumont",
+    "Edmonton-Ellerslie",
+    "Edmonton-South",
+    "Edmonton-Strathcona",
+    "Edmonton-Whitemud",
+    "Edmonton-Windermere",
+    "Fort McMurray-Lac La Biche",
+    "Fort McMurray-Wood Buffalo",
+    "Leduc-Devon",
+    "Spruce Grove",
+    "St. Albert-Sturgeon",
+    "Stony Plain-Drayton Valley",
+    "West Yellowhead"
+   ],
+   "n_vas": 740,
+   "maps": {
+    "panel": {
+     "k": 15,
+     "values_all": {
+      "ndp_seats_all": 6,
+      "ndp_packed_all": 0.11648471532313916,
+      "ndp_near_all": 0.0,
+      "ndp_far_all": 0.4784864640569849,
+      "ucp_packed_all": 0.19799589692151962
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 5.0,
+        "q50": 6.0,
+        "q95": 6.0,
+        "value": 6.0,
+        "n_beyond_or_equal_max_side": 49996,
+        "pct": 58.14,
+        "flag": false,
+        "n_eff": 502.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.1069,
+        "q50": 0.1119,
+        "q95": 0.1167,
+        "value": 0.1165,
+        "n_beyond_or_equal_max_side": 47194,
+        "pct": 94.36,
+        "flag": false,
+        "n_eff": 205.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0846,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 34.38,
+        "flag": false,
+        "n_eff": 912.7,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3689,
+        "q50": 0.4479,
+        "q95": 0.4826,
+        "value": 0.4785,
+        "n_beyond_or_equal_max_side": 45259,
+        "pct": 90.51,
+        "flag": false,
+        "n_eff": 654.8,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.1904,
+        "q50": 0.1944,
+        "q95": 0.1982,
+        "value": 0.198,
+        "n_beyond_or_equal_max_side": 47194,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4479,
+        0.4479
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 5.0,
+        "q50": 6.0,
+        "q95": 6.0,
+        "value": 6.0,
+        "n_beyond_or_equal_max_side": 49987,
+        "pct": 64.07,
+        "flag": false,
+        "n_eff": 71.8,
+        "n_eff_lag_cap_bound": true
+       },
+       "ndp_packed_all": {
+        "q05": 0.1113,
+        "q50": 0.117,
+        "q95": 0.117,
+        "value": 0.1165,
+        "n_beyond_or_equal_max_side": 32774,
+        "pct": 34.46,
+        "flag": false,
+        "n_eff": 73.1,
+        "n_eff_lag_cap_bound": true
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0815,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 44.0,
+        "flag": false,
+        "n_eff": 602.3,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3974,
+        "q50": 0.4815,
+        "q95": 0.4815,
+        "value": 0.4785,
+        "n_beyond_or_equal_max_side": 31521,
+        "pct": 36.96,
+        "flag": false,
+        "n_eff": 261.8,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.194,
+        "q50": 0.1984,
+        "q95": 0.1984,
+        "value": 0.198,
+        "n_beyond_or_equal_max_side": 32774,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4815,
+        0.4815
+       ]
+      }
+     }
+    },
+    "majority": {
+     "k": 14,
+     "values_all": {
+      "ndp_seats_all": 6,
+      "ndp_packed_all": 0.11218441275131519,
+      "ndp_near_all": 0.0,
+      "ndp_far_all": 0.4493789300713983,
+      "ucp_packed_all": 0.1946095676849573
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 5.0,
+        "q50": 6.0,
+        "q95": 6.0,
+        "value": 6.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 73.35,
+        "flag": false,
+        "n_eff": 83.2,
+        "n_eff_lag_cap_bound": true
+       },
+       "ndp_packed_all": {
+        "q05": 0.1051,
+        "q50": 0.1119,
+        "q95": 0.1165,
+        "value": 0.1122,
+        "n_beyond_or_equal_max_side": 29265,
+        "pct": 58.53,
+        "flag": false,
+        "n_eff": 334.0,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0895,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 34.46,
+        "flag": false,
+        "n_eff": 972.5,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3691,
+        "q50": 0.4479,
+        "q95": 0.4954,
+        "value": 0.4494,
+        "n_beyond_or_equal_max_side": 26770,
+        "pct": 53.54,
+        "flag": false,
+        "n_eff": 977.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.189,
+        "q50": 0.1944,
+        "q95": 0.198,
+        "value": 0.1946,
+        "n_beyond_or_equal_max_side": 29265,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4479,
+        0.4479
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 5.0,
+        "q50": 5.0,
+        "q95": 6.0,
+        "value": 6.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 87.32,
+        "flag": false,
+        "n_eff": 23.7,
+        "n_eff_lag_cap_bound": true
+       },
+       "ndp_packed_all": {
+        "q05": 0.1111,
+        "q50": 0.117,
+        "q95": 0.117,
+        "value": 0.1122,
+        "n_beyond_or_equal_max_side": 34261,
+        "pct": 32.33,
+        "flag": false,
+        "n_eff": 24.0,
+        "n_eff_lag_cap_bound": true
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.084,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 44.61,
+        "flag": false,
+        "n_eff": 469.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.4034,
+        "q50": 0.4815,
+        "q95": 0.4815,
+        "value": 0.4494,
+        "n_beyond_or_equal_max_side": 33030,
+        "pct": 34.66,
+        "flag": false,
+        "n_eff": 65.1,
+        "n_eff_lag_cap_bound": true
+       },
+       "ucp_packed_all": {
+        "q05": 0.1937,
+        "q50": 0.1984,
+        "q95": 0.1984,
+        "value": 0.1946,
+        "n_beyond_or_equal_max_side": 34261,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4815,
+        0.4815
+       ]
+      }
+     }
+    }
+   }
+  },
+  "west_calgary": {
+   "panel_divisions": [
+    "Calgary-Bow-Springbank",
+    "Calgary-North West-Bearspaw",
+    "Calgary-West-Springbank",
+    "Cochrane"
+   ],
+   "majority_divisions": [
+    "Calgary-Bow",
+    "Calgary-North West",
+    "Calgary-West-Elbow Valley",
+    "Cochrane-Springbank"
+   ],
+   "n_vas": 221,
+   "maps": {
+    "panel": {
+     "k": 4,
+     "values_all": {
+      "ndp_seats_all": 0,
+      "ndp_packed_all": 0.0,
+      "ndp_near_all": 0.5651057914661776,
+      "ndp_far_all": 0.43489420853382227,
+      "ucp_packed_all": 0.09239459006647278
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.47,
+        "flag": false,
+        "n_eff": 13987.3,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.47,
+        "flag": false,
+        "n_eff": 15415.7,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.4538,
+        "q50": 0.5556,
+        "q95": 0.6391,
+        "value": 0.5651,
+        "n_beyond_or_equal_max_side": 29226,
+        "pct": 58.45,
+        "flag": false,
+        "n_eff": 9063.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3609,
+        "q50": 0.4442,
+        "q95": 0.5397,
+        "value": 0.4349,
+        "n_beyond_or_equal_max_side": 29144,
+        "pct": 41.71,
+        "flag": false,
+        "n_eff": 9261.5,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.0924,
+        "q50": 0.0924,
+        "q95": 0.0924,
+        "value": 0.0924,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4439,
+        0.4444
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.32,
+        "flag": false,
+        "n_eff": 10973.2,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.32,
+        "flag": false,
+        "n_eff": 11583.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.4804,
+        "q50": 0.5539,
+        "q95": 0.6234,
+        "value": 0.5651,
+        "n_beyond_or_equal_max_side": 31133,
+        "pct": 62.27,
+        "flag": false,
+        "n_eff": 8929.4,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3758,
+        "q50": 0.4455,
+        "q95": 0.5146,
+        "value": 0.4349,
+        "n_beyond_or_equal_max_side": 30828,
+        "pct": 38.34,
+        "flag": false,
+        "n_eff": 7010.1,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.0924,
+        "q50": 0.0924,
+        "q95": 0.0924,
+        "value": 0.0924,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4452,
+        0.4458
+       ]
+      }
+     }
+    },
+    "majority": {
+     "k": 4,
+     "values_all": {
+      "ndp_seats_all": 0,
+      "ndp_packed_all": 0.0,
+      "ndp_near_all": 0.5386852296345106,
+      "ndp_far_all": 0.4613147703654894,
+      "ucp_packed_all": 0.09239459006647283
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.47,
+        "flag": false,
+        "n_eff": 13987.3,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.47,
+        "flag": false,
+        "n_eff": 15415.7,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.4538,
+        "q50": 0.5556,
+        "q95": 0.6391,
+        "value": 0.5387,
+        "n_beyond_or_equal_max_side": 32103,
+        "pct": 35.79,
+        "flag": false,
+        "n_eff": 9063.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3609,
+        "q50": 0.4442,
+        "q95": 0.5397,
+        "value": 0.4613,
+        "n_beyond_or_equal_max_side": 32267,
+        "pct": 64.53,
+        "flag": false,
+        "n_eff": 9261.5,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.0924,
+        "q50": 0.0924,
+        "q95": 0.0924,
+        "value": 0.0924,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4439,
+        0.4444
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.32,
+        "flag": false,
+        "n_eff": 10973.2,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.0,
+        "value": 0.0,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 49.32,
+        "flag": false,
+        "n_eff": 11583.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.4804,
+        "q50": 0.5539,
+        "q95": 0.6234,
+        "value": 0.5387,
+        "n_beyond_or_equal_max_side": 33098,
+        "pct": 33.81,
+        "flag": false,
+        "n_eff": 8929.4,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.3758,
+        "q50": 0.4455,
+        "q95": 0.5146,
+        "value": 0.4613,
+        "n_beyond_or_equal_max_side": 33549,
+        "pct": 67.08,
+        "flag": false,
+        "n_eff": 7010.1,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.0924,
+        "q50": 0.0924,
+        "q95": 0.0924,
+        "value": 0.0924,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.4452,
+        0.4458
+       ]
+      }
+     }
+    }
+   }
+  },
+  "south_central": {
+   "panel_divisions": [
+    "Banff-Canmore-Diamond Valley",
+    "Blackfalds-Innisfail",
+    "Drumheller-Stettler",
+    "Lacombe-Sylvan Lake",
+    "Lethbridge",
+    "Lethbridge-Cardston",
+    "Lethbridge-Little Bow",
+    "Lethbridge-Taber-Warner",
+    "Macleod-Crowsnest",
+    "Okotoks",
+    "Olds-Didsbury-Three Hills",
+    "Red Deer-South",
+    "Rocky Mountain House-Sundre",
+    "Wetaskiwin-Ponoka"
+   ],
+   "majority_divisions": [
+    "Canmore-Banff",
+    "Drumheller-Stettler",
+    "High River-Vulcan-Siksika",
+    "Lacombe-Clearwater",
+    "Lethbridge-East",
+    "Lethbridge-West",
+    "Livingstone-Macleod",
+    "Mountain View-Kneehill",
+    "Okotoks-Diamond Valley",
+    "Red Deer-South",
+    "Sylvan Lake-Innisfail",
+    "Taber-Cardston",
+    "Wetaskiwin-Ponoka-Maskwacis"
+   ],
+   "n_vas": 792,
+   "maps": {
+    "panel": {
+     "k": 14,
+     "values_all": {
+      "ndp_seats_all": 1,
+      "ndp_packed_all": 0.007063657921677096,
+      "ndp_near_all": 0.10079606356096266,
+      "ndp_far_all": 0.7522894114384626,
+      "ucp_packed_all": 0.2753603255936209
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 1.0,
+        "q95": 2.0,
+        "value": 1.0,
+        "n_beyond_or_equal_max_side": 42243,
+        "pct": 48.39,
+        "flag": false,
+        "n_eff": 1821.2,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0051,
+        "q95": 0.0118,
+        "value": 0.0071,
+        "n_beyond_or_equal_max_side": 32706,
+        "pct": 65.41,
+        "flag": false,
+        "n_eff": 1473.9,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.104,
+        "q95": 0.2404,
+        "value": 0.1008,
+        "n_beyond_or_equal_max_side": 26052,
+        "pct": 47.9,
+        "flag": false,
+        "n_eff": 1481.8,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.647,
+        "q50": 0.7733,
+        "q95": 0.8927,
+        "value": 0.7523,
+        "n_beyond_or_equal_max_side": 33337,
+        "pct": 33.33,
+        "flag": false,
+        "n_eff": 870.7,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.2721,
+        "q50": 0.2745,
+        "q95": 0.2775,
+        "value": 0.2754,
+        "n_beyond_or_equal_max_side": 32706,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.769,
+        0.7771
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 1.0,
+        "q50": 2.0,
+        "q95": 2.0,
+        "value": 1.0,
+        "n_beyond_or_equal_max_side": 49327,
+        "pct": 19.2,
+        "flag": false,
+        "n_eff": 1345.2,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0025,
+        "q50": 0.0114,
+        "q95": 0.0138,
+        "value": 0.0071,
+        "n_beyond_or_equal_max_side": 40784,
+        "pct": 18.43,
+        "flag": false,
+        "n_eff": 1187.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.15,
+        "value": 0.1008,
+        "n_beyond_or_equal_max_side": 36208,
+        "pct": 72.42,
+        "flag": false,
+        "n_eff": 1075.3,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.68,
+        "q50": 0.7492,
+        "q95": 0.8621,
+        "value": 0.7523,
+        "n_beyond_or_equal_max_side": 25689,
+        "pct": 51.38,
+        "flag": false,
+        "n_eff": 515.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.2733,
+        "q50": 0.2773,
+        "q95": 0.2784,
+        "value": 0.2754,
+        "n_beyond_or_equal_max_side": 40784,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.7374,
+        0.7584
+       ]
+      }
+     }
+    },
+    "majority": {
+     "k": 13,
+     "values_all": {
+      "ndp_seats_all": 2,
+      "ndp_packed_all": 0.02163299189969044,
+      "ndp_near_all": 0.13217882921236437,
+      "ndp_far_all": 0.6477455974454791,
+      "ucp_packed_all": 0.2819998247779166
+     },
+     "variants": {
+      "blind": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 0.0,
+        "q50": 1.0,
+        "q95": 2.0,
+        "value": 2.0,
+        "n_beyond_or_equal_max_side": 49971,
+        "pct": 94.25,
+        "flag": false,
+        "n_eff": 2628.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0,
+        "q50": 0.0042,
+        "q95": 0.0114,
+        "value": 0.0216,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 100.0,
+        "flag": true,
+        "n_eff": 2152.7,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.1113,
+        "q95": 0.2595,
+        "value": 0.1322,
+        "n_beyond_or_equal_max_side": 33180,
+        "pct": 66.36,
+        "flag": false,
+        "n_eff": 1677.0,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.6521,
+        "q50": 0.7632,
+        "q95": 0.8931,
+        "value": 0.6477,
+        "n_beyond_or_equal_max_side": 47753,
+        "pct": 4.49,
+        "flag": true,
+        "n_eff": 942.3,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.2721,
+        "q50": 0.2741,
+        "q95": 0.2773,
+        "value": 0.282,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.7618,
+        0.7645
+       ]
+      },
+      "muni": {
+       "n_plans": 50000,
+       "ndp_seats_all": {
+        "q05": 1.0,
+        "q50": 2.0,
+        "q95": 2.0,
+        "value": 2.0,
+        "n_beyond_or_equal_max_side": 49929,
+        "pct": 73.23,
+        "flag": false,
+        "n_eff": 1157.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_packed_all": {
+        "q05": 0.0005,
+        "q50": 0.0114,
+        "q95": 0.0127,
+        "value": 0.0216,
+        "n_beyond_or_equal_max_side": 50000,
+        "pct": 100.0,
+        "flag": true,
+        "n_eff": 1211.2,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_near_all": {
+        "q05": 0.0,
+        "q50": 0.0,
+        "q95": 0.158,
+        "value": 0.1322,
+        "n_beyond_or_equal_max_side": 38588,
+        "pct": 77.18,
+        "flag": false,
+        "n_eff": 1917.6,
+        "n_eff_lag_cap_bound": false
+       },
+       "ndp_far_all": {
+        "q05": 0.6513,
+        "q50": 0.7343,
+        "q95": 0.8568,
+        "value": 0.6477,
+        "n_beyond_or_equal_max_side": 47647,
+        "pct": 4.71,
+        "flag": true,
+        "n_eff": 1197.4,
+        "n_eff_lag_cap_bound": false
+       },
+       "ucp_packed_all": {
+        "q05": 0.2723,
+        "q50": 0.2773,
+        "q95": 0.278,
+        "value": 0.282,
+        "n_beyond_or_equal_max_side": 50000,
+        "note": "reported, not ranked: ranks identically to ndp_packed_all"
+       },
+       "chain_medians_ndp_far": [
+        0.7343,
+        0.7343
+       ]
+      }
+     }
+    }
+   }
+  }
+ }
+}

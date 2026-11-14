@@ -8,6 +8,8 @@
 
 # v0_1 — Significance of Public Support for Minority Configurations
 
+> **Withdrawn pending recode.** The support/oppose labels this file rests on are unreliable: read in full, the keyword pass's named supporters at Chestermere and Red Deer do not support the minority's arrangement, and in a random sample of the later classifier pass 26 of 31 stance labels were wrong. Its stance counts, support rates, weighted rankings and channel comparisons are not reported by the audit while the classification is redone (`findings/submissions_recode/`). What stands, from reading named submissions directly: the majority's "no public support" statement (final report, pp. 59 and 62) is right in four of five places and partly wrong on Chestermere, where three submissions support the minority's arrangement (EBC-2025-2-0384, 0811, 1091) and three oppose it (0687, 0785, 0787). In Red Deer no supporter was found.
+
 **Purpose.** The chair asserted in Appendix C that the dissenting minority's disputed configurations had "no public support" in the written submissions. A prior keyword-search pass (`submission_search_findings.md`) refuted that claim *precisely* on several configurations — at least some supporting submissions exist. This document asks the next question: **was the chair's characterization also *effectively* wrong — i.e., a material misrepresentation of what the public record shows — or merely technically defeated by a handful of outliers?**
 
 All per-submission data is from `data/submission_search_dataset.csv`, which captures 70 hits across 1,252 machine-extractable submissions (93.4% of ~1,340 total; see caveats in the findings document).

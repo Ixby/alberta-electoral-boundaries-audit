@@ -1,0 +1,1162 @@
+{
+ "rule": "Amendment 7, Step B: fix the calibration sample from the panel's map pages.\n\nRule (A7 Part 3): \"the unchanged districts drawn in the same map pages as changed districts\".\nOperationalised (fixed before any reconstruction):\n  - map pages = Appendix 8 district pages of the high-resolution PDF (district n at PDF page 215+n);\n    the Appendix 6 composites are not used;\n  - an unchanged district u counts as drawn on changed district c's page when that page carries\n    u's district-number label in the neighbour-label style (ArialMT, grey #828282 or #4E4E4E, the same point size as\n    the page's own district-number label, which is Arial-Bold in red #93241A) AND a word of u's name in the same grey style within 60 pt.\nInputs: hi-res PDF (SHA-256 d8ae78ab...), findings/iap_unchanged_districts.md (Step A), App. 7 names.\n",
+ "pdf_sha256": "d8ae78abcec3660f8158a327a25df7508b649ce5595788e8b265b362b2a75122",
+ "unchanged": [
+  2,
+  3,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  23,
+  24,
+  25,
+  26,
+  27,
+  29,
+  30,
+  31,
+  32,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  41,
+  43,
+  44,
+  47,
+  50,
+  51,
+  55,
+  56,
+  57,
+  59,
+  64,
+  65,
+  66,
+  70,
+  75,
+  77,
+  78,
+  82,
+  83,
+  86,
+  88,
+  89
+ ],
+ "changed": [
+  1,
+  4,
+  22,
+  28,
+  33,
+  40,
+  42,
+  45,
+  46,
+  48,
+  49,
+  52,
+  53,
+  54,
+  58,
+  60,
+  61,
+  62,
+  63,
+  67,
+  68,
+  69,
+  71,
+  72,
+  73,
+  74,
+  76,
+  79,
+  80,
+  81,
+  84,
+  85,
+  87,
+  90,
+  91
+ ],
+ "by_changed_page": {
+  "1": [
+   6,
+   11,
+   13,
+   14,
+   18
+  ],
+  "4": [
+   2,
+   8,
+   10,
+   26,
+   27
+  ],
+  "22": [],
+  "28": [
+   10,
+   14,
+   27
+  ],
+  "33": [
+   41,
+   44
+  ],
+  "40": [
+   36,
+   41,
+   89
+  ],
+  "42": [
+   41,
+   44,
+   55,
+   89
+  ],
+  "45": [
+   44
+  ],
+  "46": [
+   31,
+   35,
+   36,
+   39,
+   41,
+   44
+  ],
+  "48": [
+   34,
+   39,
+   44
+  ],
+  "49": [
+   34,
+   44
+  ],
+  "52": [
+   51
+  ],
+  "53": [
+   64,
+   70
+  ],
+  "54": [],
+  "58": [
+   51
+  ],
+  "60": [
+   55
+  ],
+  "61": [
+   55,
+   75,
+   77
+  ],
+  "62": [
+   59,
+   70
+  ],
+  "63": [
+   70,
+   82
+  ],
+  "67": [],
+  "68": [
+   55
+  ],
+  "69": [
+   55
+  ],
+  "71": [],
+  "72": [],
+  "73": [
+   77
+  ],
+  "74": [
+   77,
+   78
+  ],
+  "76": [],
+  "79": [
+   64,
+   86,
+   89
+  ],
+  "80": [
+   57
+  ],
+  "81": [
+   50,
+   51,
+   57,
+   77
+  ],
+  "84": [
+   83
+  ],
+  "85": [],
+  "87": [
+   34,
+   47
+  ],
+  "90": [
+   56,
+   66,
+   70
+  ],
+  "91": [
+   55
+  ]
+ },
+ "sample": [
+  2,
+  6,
+  8,
+  10,
+  11,
+  13,
+  14,
+  18,
+  26,
+  27,
+  31,
+  34,
+  35,
+  36,
+  39,
+  41,
+  44,
+  47,
+  50,
+  51,
+  55,
+  56,
+  57,
+  59,
+  64,
+  66,
+  70,
+  75,
+  77,
+  78,
+  82,
+  83,
+  86,
+  89
+ ],
+ "sample_names": {
+  "2": "Calgary-Beddington",
+  "6": "Calgary-Confluence",
+  "8": "Calgary-Currie",
+  "10": "Calgary-Edgemont",
+  "11": "Calgary-Elbow",
+  "13": "Calgary-Fish Creek",
+  "14": "Calgary-Glenmore-Tsuut'ina",
+  "18": "Calgary-McKenzie",
+  "26": "Calgary-Symons Valley",
+  "27": "Calgary-Varsity",
+  "31": "Edmonton-City Centre",
+  "34": "Edmonton-Enoch",
+  "35": "Edmonton-Glenora-Riverview",
+  "36": "Edmonton-Gold Bar",
+  "39": "Edmonton-McClung",
+  "41": "Edmonton-Mill Woods",
+  "44": "Edmonton-Rutherford",
+  "47": "Edmonton-West Henday",
+  "50": "Airdrie-East",
+  "51": "Airdrie-West",
+  "55": "Camrose",
+  "56": "Central Peace-Notley",
+  "57": "Chestermere-Strathmore",
+  "59": "Cold Lake-Bonnyville-St. Paul",
+  "64": "Fort Saskatchewan-Vegreville",
+  "66": "Grande Prairie-Wapiti",
+  "70": "Lesser Slave Lake",
+  "75": "Lloydminster-Wainwright",
+  "77": "Medicine Hat-Brooks",
+  "78": "Medicine Hat-Cypress",
+  "82": "Peace River",
+  "83": "Red Deer-North",
+  "86": "Sherwood Park",
+  "89": "Strathcona-Sherwood Park"
+ },
+ "evidence": [
+  {
+   "changed_page_of": 1,
+   "pdf_page": 216,
+   "unchanged": 6,
+   "name": "Calgary-Confluence",
+   "number_label_at": [
+    442.9,
+    66.9,
+    447.8,
+    79.0
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 1,
+   "pdf_page": 216,
+   "unchanged": 11,
+   "name": "Calgary-Elbow",
+   "number_label_at": [
+    139.6,
+    66.4,
+    148.8,
+    78.5
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 1,
+   "pdf_page": 216,
+   "unchanged": 13,
+   "name": "Calgary-Fish Creek",
+   "number_label_at": [
+    336.1,
+    575.9,
+    345.9,
+    588.0
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 1,
+   "pdf_page": 216,
+   "unchanged": 14,
+   "name": "Calgary-Glenmore-Tsuut'ina",
+   "number_label_at": [
+    62.4,
+    333.7,
+    72.2,
+    345.8
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 1,
+   "pdf_page": 216,
+   "unchanged": 18,
+   "name": "Calgary-McKenzie",
+   "number_label_at": [
+    522.2,
+    250.4,
+    532.1,
+    262.4
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 4,
+   "pdf_page": 219,
+   "unchanged": 2,
+   "name": "Calgary-Beddington",
+   "number_label_at": [
+    173.1,
+    103.6,
+    185.7,
+    108.7
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 4,
+   "pdf_page": 219,
+   "unchanged": 8,
+   "name": "Calgary-Currie",
+   "number_label_at": [
+    501.6,
+    93.4,
+    514.1,
+    98.6
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 4,
+   "pdf_page": 219,
+   "unchanged": 10,
+   "name": "Calgary-Edgemont",
+   "number_label_at": [
+    236.2,
+    162.7,
+    248.7,
+    173.0
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 4,
+   "pdf_page": 219,
+   "unchanged": 26,
+   "name": "Calgary-Symons Valley",
+   "number_label_at": [
+    94.5,
+    170.2,
+    107.0,
+    180.4
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 4,
+   "pdf_page": 219,
+   "unchanged": 27,
+   "name": "Calgary-Varsity",
+   "number_label_at": [
+    334.9,
+    92.1,
+    347.4,
+    102.4
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 28,
+   "pdf_page": 243,
+   "unchanged": 10,
+   "name": "Calgary-Edgemont",
+   "number_label_at": [
+    61.2,
+    133.6,
+    73.8,
+    143.9
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 28,
+   "pdf_page": 243,
+   "unchanged": 14,
+   "name": "Calgary-Glenmore-Tsuut'ina",
+   "number_label_at": [
+    492.5,
+    389.4,
+    505.0,
+    399.6
+   ],
+   "name_label": "Calgary-Glenmore-"
+  },
+  {
+   "changed_page_of": 28,
+   "pdf_page": 243,
+   "unchanged": 27,
+   "name": "Calgary-Varsity",
+   "number_label_at": [
+    115.8,
+    152.2,
+    128.3,
+    162.4
+   ],
+   "name_label": "Calgary-"
+  },
+  {
+   "changed_page_of": 33,
+   "pdf_page": 248,
+   "unchanged": 41,
+   "name": "Edmonton-Mill Woods",
+   "number_label_at": [
+    337.6,
+    95.6,
+    347.0,
+    107.2
+   ],
+   "name_label": "Edmonton-Mill Woods"
+  },
+  {
+   "changed_page_of": 33,
+   "pdf_page": 248,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    92.5,
+    227.5,
+    101.9,
+    239.1
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 40,
+   "pdf_page": 255,
+   "unchanged": 36,
+   "name": "Edmonton-Gold Bar",
+   "number_label_at": [
+    316.9,
+    73.7,
+    327.2,
+    86.3
+   ],
+   "name_label": "Edmonton-Gold Bar"
+  },
+  {
+   "changed_page_of": 40,
+   "pdf_page": 255,
+   "unchanged": 41,
+   "name": "Edmonton-Mill Woods",
+   "number_label_at": [
+    144.8,
+    121.0,
+    155.0,
+    133.6
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 40,
+   "pdf_page": 255,
+   "unchanged": 89,
+   "name": "Strathcona-Sherwood Park",
+   "number_label_at": [
+    542.7,
+    370.3,
+    552.9,
+    382.8
+   ],
+   "name_label": "Strathcona-"
+  },
+  {
+   "changed_page_of": 42,
+   "pdf_page": 257,
+   "unchanged": 41,
+   "name": "Edmonton-Mill Woods",
+   "number_label_at": [
+    370.2,
+    79.5,
+    380.4,
+    92.1
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 42,
+   "pdf_page": 257,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    225.0,
+    88.5,
+    235.2,
+    101.1
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 42,
+   "pdf_page": 257,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    519.4,
+    473.8,
+    529.7,
+    486.3
+   ],
+   "name_label": "Camrose"
+  },
+  {
+   "changed_page_of": 42,
+   "pdf_page": 257,
+   "unchanged": 89,
+   "name": "Strathcona-Sherwood Park",
+   "number_label_at": [
+    567.3,
+    189.6,
+    579.9,
+    199.9
+   ],
+   "name_label": "Strathcona-Sherwood Park"
+  },
+  {
+   "changed_page_of": 45,
+   "pdf_page": 260,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    402.6,
+    76.4,
+    412.8,
+    88.9
+   ],
+   "name_label": "Edmonton-Rutherford"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 31,
+   "name": "Edmonton-City Centre",
+   "number_label_at": [
+    64.0,
+    326.9,
+    74.9,
+    335.8
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 35,
+   "name": "Edmonton-Glenora-Riverview",
+   "number_label_at": [
+    233.2,
+    565.7,
+    244.1,
+    574.6
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 36,
+   "name": "Edmonton-Gold Bar",
+   "number_label_at": [
+    322.5,
+    128.6,
+    333.4,
+    137.5
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 39,
+   "name": "Edmonton-McClung",
+   "number_label_at": [
+    304.1,
+    685.0,
+    315.0,
+    693.9
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 41,
+   "name": "Edmonton-Mill Woods",
+   "number_label_at": [
+    554.3,
+    143.2,
+    565.2,
+    152.2
+   ],
+   "name_label": "Edmonton-Mill Woods"
+  },
+  {
+   "changed_page_of": 46,
+   "pdf_page": 261,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    548.8,
+    391.6,
+    559.7,
+    400.5
+   ],
+   "name_label": "Edmonton-Rutherford"
+  },
+  {
+   "changed_page_of": 48,
+   "pdf_page": 263,
+   "unchanged": 34,
+   "name": "Edmonton-Enoch",
+   "number_label_at": [
+    102.7,
+    453.2,
+    112.9,
+    465.8
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 48,
+   "pdf_page": 263,
+   "unchanged": 39,
+   "name": "Edmonton-McClung",
+   "number_label_at": [
+    195.9,
+    133.7,
+    206.1,
+    146.3
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 48,
+   "pdf_page": 263,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    529.6,
+    429.4,
+    539.8,
+    441.9
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 49,
+   "pdf_page": 264,
+   "unchanged": 34,
+   "name": "Edmonton-Enoch",
+   "number_label_at": [
+    126.6,
+    271.2,
+    136.9,
+    283.8
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 49,
+   "pdf_page": 264,
+   "unchanged": 44,
+   "name": "Edmonton-Rutherford",
+   "number_label_at": [
+    522.2,
+    218.2,
+    532.4,
+    230.7
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 52,
+   "pdf_page": 267,
+   "unchanged": 51,
+   "name": "Airdrie-West",
+   "number_label_at": [
+    565.0,
+    264.0,
+    575.2,
+    276.5
+   ],
+   "name_label": "Airdrie"
+  },
+  {
+   "changed_page_of": 53,
+   "pdf_page": 268,
+   "unchanged": 64,
+   "name": "Fort Saskatchewan-Vegreville",
+   "number_label_at": [
+    438.8,
+    240.0,
+    451.4,
+    250.2
+   ],
+   "name_label": "Fort Saskatchewan-"
+  },
+  {
+   "changed_page_of": 53,
+   "pdf_page": 268,
+   "unchanged": 70,
+   "name": "Lesser Slave Lake",
+   "number_label_at": [
+    98.7,
+    555.6,
+    111.3,
+    565.8
+   ],
+   "name_label": "Lesser"
+  },
+  {
+   "changed_page_of": 58,
+   "pdf_page": 273,
+   "unchanged": 51,
+   "name": "Airdrie-West",
+   "number_label_at": [
+    556.0,
+    375.9,
+    566.2,
+    388.5
+   ],
+   "name_label": "Airdrie-"
+  },
+  {
+   "changed_page_of": 60,
+   "pdf_page": 275,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    374.0,
+    83.2,
+    386.6,
+    93.4
+   ],
+   "name_label": "Camrose"
+  },
+  {
+   "changed_page_of": 61,
+   "pdf_page": 276,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    199.3,
+    146.0,
+    209.5,
+    158.5
+   ],
+   "name_label": "Camrose"
+  },
+  {
+   "changed_page_of": 61,
+   "pdf_page": 276,
+   "unchanged": 75,
+   "name": "Lloydminster-Wainwright",
+   "number_label_at": [
+    374.4,
+    130.1,
+    384.6,
+    142.6
+   ],
+   "name_label": "Lloydminster-"
+  },
+  {
+   "changed_page_of": 61,
+   "pdf_page": 276,
+   "unchanged": 77,
+   "name": "Medicine Hat-Brooks",
+   "number_label_at": [
+    398.3,
+    649.0,
+    408.5,
+    661.6
+   ],
+   "name_label": "Medicine"
+  },
+  {
+   "changed_page_of": 62,
+   "pdf_page": 277,
+   "unchanged": 59,
+   "name": "Cold Lake-Bonnyville-St. Paul",
+   "number_label_at": [
+    366.9,
+    592.6,
+    377.2,
+    605.2
+   ],
+   "name_label": "Cold Lake-"
+  },
+  {
+   "changed_page_of": 62,
+   "pdf_page": 277,
+   "unchanged": 70,
+   "name": "Lesser Slave Lake",
+   "number_label_at": [
+    89.0,
+    291.7,
+    99.2,
+    304.2
+   ],
+   "name_label": "Lesser"
+  },
+  {
+   "changed_page_of": 63,
+   "pdf_page": 278,
+   "unchanged": 70,
+   "name": "Lesser Slave Lake",
+   "number_label_at": [
+    215.3,
+    603.8,
+    225.5,
+    616.4
+   ],
+   "name_label": "Lesser"
+  },
+  {
+   "changed_page_of": 63,
+   "pdf_page": 278,
+   "unchanged": 82,
+   "name": "Peace River",
+   "number_label_at": [
+    114.6,
+    405.8,
+    124.8,
+    418.4
+   ],
+   "name_label": "Peace River"
+  },
+  {
+   "changed_page_of": 68,
+   "pdf_page": 283,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    116.0,
+    90.1,
+    128.5,
+    100.3
+   ],
+   "name_label": "Camrose"
+  },
+  {
+   "changed_page_of": 69,
+   "pdf_page": 284,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    401.1,
+    640.1,
+    411.3,
+    652.7
+   ],
+   "name_label": "Camrose"
+  },
+  {
+   "changed_page_of": 73,
+   "pdf_page": 288,
+   "unchanged": 77,
+   "name": "Medicine Hat-Brooks",
+   "number_label_at": [
+    508.6,
+    240.1,
+    518.9,
+    252.6
+   ],
+   "name_label": "Medicine"
+  },
+  {
+   "changed_page_of": 74,
+   "pdf_page": 289,
+   "unchanged": 77,
+   "name": "Medicine Hat-Brooks",
+   "number_label_at": [
+    94.2,
+    140.8,
+    106.7,
+    151.0
+   ],
+   "name_label": "Medicine"
+  },
+  {
+   "changed_page_of": 74,
+   "pdf_page": 289,
+   "unchanged": 78,
+   "name": "Medicine Hat-Cypress",
+   "number_label_at": [
+    229.7,
+    144.5,
+    242.2,
+    154.7
+   ],
+   "name_label": "Medicine"
+  },
+  {
+   "changed_page_of": 79,
+   "pdf_page": 294,
+   "unchanged": 64,
+   "name": "Fort Saskatchewan-Vegreville",
+   "number_label_at": [
+    312.8,
+    132.6,
+    325.4,
+    142.8
+   ],
+   "name_label": "Fort Saskatchewan-"
+  },
+  {
+   "changed_page_of": 79,
+   "pdf_page": 294,
+   "unchanged": 86,
+   "name": "Sherwood Park",
+   "number_label_at": [
+    495.7,
+    328.8,
+    508.3,
+    339.0
+   ],
+   "name_label": "Sherwood"
+  },
+  {
+   "changed_page_of": 79,
+   "pdf_page": 294,
+   "unchanged": 89,
+   "name": "Strathcona-Sherwood Park",
+   "number_label_at": [
+    474.3,
+    219.3,
+    486.8,
+    229.5
+   ],
+   "name_label": "Strathcona-"
+  },
+  {
+   "changed_page_of": 80,
+   "pdf_page": 295,
+   "unchanged": 57,
+   "name": "Chestermere-Strathmore",
+   "number_label_at": [
+    165.4,
+    206.0,
+    177.9,
+    216.3
+   ],
+   "name_label": "Chestermere-"
+  },
+  {
+   "changed_page_of": 81,
+   "pdf_page": 296,
+   "unchanged": 50,
+   "name": "Airdrie-East",
+   "number_label_at": [
+    328.7,
+    482.2,
+    341.3,
+    492.4
+   ],
+   "name_label": "Airdrie-"
+  },
+  {
+   "changed_page_of": 81,
+   "pdf_page": 296,
+   "unchanged": 51,
+   "name": "Airdrie-West",
+   "number_label_at": [
+    321.7,
+    580.7,
+    334.3,
+    590.9
+   ],
+   "name_label": "Airdrie-"
+  },
+  {
+   "changed_page_of": 81,
+   "pdf_page": 296,
+   "unchanged": 57,
+   "name": "Chestermere-Strathmore",
+   "number_label_at": [
+    463.7,
+    440.4,
+    476.3,
+    450.6
+   ],
+   "name_label": "Chestermere-"
+  },
+  {
+   "changed_page_of": 81,
+   "pdf_page": 296,
+   "unchanged": 77,
+   "name": "Medicine Hat-Brooks",
+   "number_label_at": [
+    487.4,
+    167.8,
+    500.0,
+    178.0
+   ],
+   "name_label": "Medicine"
+  },
+  {
+   "changed_page_of": 84,
+   "pdf_page": 299,
+   "unchanged": 83,
+   "name": "Red Deer-North",
+   "number_label_at": [
+    87.5,
+    397.0,
+    100.1,
+    407.2
+   ],
+   "name_label": "Red Deer-"
+  },
+  {
+   "changed_page_of": 87,
+   "pdf_page": 302,
+   "unchanged": 34,
+   "name": "Edmonton-Enoch",
+   "number_label_at": [
+    514.3,
+    657.0,
+    524.5,
+    669.5
+   ],
+   "name_label": "Edmonton-"
+  },
+  {
+   "changed_page_of": 87,
+   "pdf_page": 302,
+   "unchanged": 47,
+   "name": "Edmonton-West Henday",
+   "number_label_at": [
+    547.2,
+    377.1,
+    559.7,
+    387.3
+   ],
+   "name_label": "Edmonton-West Henday"
+  },
+  {
+   "changed_page_of": 90,
+   "pdf_page": 305,
+   "unchanged": 56,
+   "name": "Central Peace-Notley",
+   "number_label_at": [
+    106.7,
+    346.5,
+    119.3,
+    356.8
+   ],
+   "name_label": "Central Peace-"
+  },
+  {
+   "changed_page_of": 90,
+   "pdf_page": 305,
+   "unchanged": 66,
+   "name": "Grande Prairie-Wapiti",
+   "number_label_at": [
+    85.0,
+    591.4,
+    97.6,
+    601.6
+   ],
+   "name_label": "Grande"
+  },
+  {
+   "changed_page_of": 90,
+   "pdf_page": 305,
+   "unchanged": 70,
+   "name": "Lesser Slave Lake",
+   "number_label_at": [
+    69.6,
+    100.4,
+    82.1,
+    110.7
+   ],
+   "name_label": "Lesser Slave"
+  },
+  {
+   "changed_page_of": 91,
+   "pdf_page": 306,
+   "unchanged": 55,
+   "name": "Camrose",
+   "number_label_at": [
+    118.2,
+    93.1,
+    130.8,
+    103.3
+   ],
+   "name_label": "Camrose"
+  }
+ ]
+}
